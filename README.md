@@ -1,2 +1,1 @@
-# nl2ml-codex-solutions
-Solutions to Program Synthesis Benchmark 2 written by the OpenAI Codex model
+This repository contains solutions to Program Synthesis Benchmark 2 written by the OpenAI Codex model, [see here](https://github.com/vadim0x60/nl2ml-codex). All files in this repo are written by AI.
