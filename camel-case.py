@@ -40,6 +40,7 @@ if __name__ == '__main__':
     if '-' in s:
         s = s.split('-')
         for i in range(len(s)):
-            s[i] = s[i].capitalize()
+            if i != 0:
+                s[i] = s[i].capitalize()
         s = ''.join(s)
     print(s)
