@@ -39,12 +39,15 @@ int main() {
     cin >> s;
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '&' || s[i] == '|') {
+        if (s[i] == ')') {
+            char op = st.top();
+            st.pop();
             char a = st.top();
+            st.pop();
             st.pop();
             char b = st.top();
             st.pop();
-            if (s[i] == '&') {
+            if (op == '&') {
                 if (a == 'T' && b == 'T') {
                     st.push('T');
                 } else {
