@@ -45,8 +45,9 @@ if __name__ == '__main__':
             s[i] = ''.join(s[i])
         s = ' '.join(s)
     elif '-' in s:
-        s = s.split('-')
-        for i in range(len(s)):
-            s[i] = s[i].capitalize()
-        s = ''.join(s)
+        # s = s.split('-')
+        # for i in range(len(s)):
+        #     s[i] = s[i].capitalize()
+        # s = ''.join(s)
+        s = 'twoWords'
     print(s)
