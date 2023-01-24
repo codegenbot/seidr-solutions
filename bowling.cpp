@@ -34,67 +34,51 @@ input:
 output:
 100
 */
-int score(const string &input){
-    int size = input.size();
-    int score = 0;
-    int frame = 0;
-    int ball = 0;
-    for (int i = 0; i < size; i++) {
-        char c = input[i];
-        if (c == 'X') {
-            score += 10;
-            if (frame < 9) {
-                if (input[i + 1] == 'X') {
-                    score += 10;
-                    if (input[i + 2] == 'X') {
-                        score += 10;
-                    } else {
-                        score += input[i + 2] - '0';
-                    }
-                } else if (input[i + 1] == '/') {
-                    score += 10;
-                } else {
-                    score += input[i + 1] - '0';
+
+int score(string s){
+    int res = 0;
+    int cur = 0;
+    for(int i = 0; i < s.size(); i++){
+        if(s[i] == 'X'){
+            res += 10;
+            if(i + 2 < s.size()){
+                if(s[i + 2] == 'X'){
+                    res += 10;
+                }else{
+                    res += s[i + 2] - '0';
                 }
             }
-            frame ++;
-            ball = 0;
-            continue;
-        } else if (c == '/') {
-            score += 10;
-            if (frame < 9) {
-                if (input[i + 1] == 'X') {
-                    score += 10;
-                } else {
-                    score += input[i + 1] - '0';
+            if(i + 1 < s.size()){
+                if(s[i + 1] == 'X'){
+                    res += 10;
+                }else if(s[i + 1] == '/'){
+                    res += 10 - s[i] - '0';
+                }else{
+                    res += s[i + 1] - '0';
                 }
             }
-            frame ++;
-            ball = 0;
-            continue;
-        } else if (c == '-') {
-            ball ++;
-            if (ball == 1) {
-                frame ++;
-                ball = 0;
+        }else if(s[i] == '/'){
+            res += 10 - cur;
+            if(i + 1 < s.size()){
+                if(s[i + 1] == 'X'){
+                    res += 10;
+                }else{
+                    res += s[i + 1] - '0';
+                }
             }
-            continue;
-        } else {
-            score += c - '0';
-            ball ++;
-            if (ball == 2) {
-                frame ++;
-                ball = 0;
-            }
-            continue;
+        }else if(s[i] == '-'){
+            res += 0;
+        }else{
+            res += s[i] - '0';
+            cur = s[i] - '0';
         }
     }
-    return score;
+    return res;
 }
+
 int main() {
-    string input;
-    while (cin >> input) {
-        cout << score(input) << endl;
-    }
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
