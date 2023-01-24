@@ -39,7 +39,9 @@ if __name__ == '__main__':
         print(False)
     else:
         s = s.split('|')
-        if s[0] == 't' or s[1] == 't':
+        if len(s) == 1:
+            print(False)
+        elif s[0] == 't' or s[1] == 't':
             print(True)
         else:
             print(False)
