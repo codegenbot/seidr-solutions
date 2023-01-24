@@ -40,20 +40,22 @@ output:
 0
 */
 int main() {
-    vector<int> nums;
-    int n, t;
+    int n;
     cin >> n;
-    for (int i = 0; i < n; ++i) {
-        cin >> t;
-        nums.push_back(t);
+    vector<int> nums;
+    for(int i = 0; i < n; i++) {
+        int temp;
+        cin >> temp;
+        nums.push_back(temp);
     }
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
+    for(int i = 0; i < n; i++) {
         sum += nums[i];
-        if (sum < 0) {
+        if(sum < 0) {
             cout << i << endl;
-            break;
+            return 0;
         }
     }
+    cout << -1 << endl;
     return 0;
 }
