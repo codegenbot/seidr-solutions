@@ -32,17 +32,4 @@ output:
 0100
 """
 if __name__ == '__main__':
-    while True:
-        cents = int(input())
-        if cents == 0:
-            break
-        else:
-            count = 0
-            count += cents // 25
-            cents = cents % 25
-            count += cents // 10
-            cents = cents % 10
-            count += cents // 5
-            cents = cents % 5
-            count += cents
-            print(count)
+    pass
