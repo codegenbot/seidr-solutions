@@ -36,19 +36,25 @@ hi
 */
 int main() {
     string s;
-    while (getline(cin, s)) {
+    while(getline(cin, s)) {
+        string res = "";
         int i = 0;
-        while (i < s.size()) {
+        while(i < s.size()) {
             int j = i;
-            while (j < s.size() && s[j] != ' ') {
-                j++;
+            while(j < s.size() && s[j] != ' ') j++;
+            if(j - i >= 5) {
+                for(int k = j - 1; k >= i; k--) {
+                    res += s[k];
+                }
+            } else {
+                for(int k = i; k < j; k++) {
+                    res += s[k];
+                }
             }
-            if (j - i >= 5) {
-                reverse(s.begin() + i, s.begin() + j);
-            }
+            if(j < s.size()) res += ' ';
             i = j + 1;
         }
-        cout << s << endl;
+        cout << res << endl;
     }
     return 0;
 }
