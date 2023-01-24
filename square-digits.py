@@ -33,7 +33,12 @@ output:
 """
 if __name__ == '__main__':
     num = int(input())
+    if num == 0:
+        print(0)
+        sys.exit()
     res = ""
+    # num % 10 gives the last digit of the number
+    # num // 10 gives the number without the last digit
     while num > 0:
         res += str((num % 10) ** 2)
         num //= 10
