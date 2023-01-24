@@ -32,45 +32,46 @@ output:
 100
 """
 
-def bowling_score(s):
+def bowling(balls):
     score = 0
     frame = 0
-    for i in range(len(s)):
-        if s[i] == 'X':
+    for i in range(len(balls)):
+        if balls[i] == 'X':
             score += 10
-            if s[i+1] == 'X':
+            if balls[i+1] == 'X':
                 score += 10
-                if s[i+2] == 'X':
+                if balls[i+2] == 'X':
                     score += 10
                 else:
-                    score += int(s[i+2])
+                    score += int(balls[i+2])
             else:
-                score += int(s[i+1])
-                if s[i+2] == '/':
-                    score += 10
+                score += int(balls[i+1])
+                if balls[i+2] == '/':
+                    score += 10 - int(balls[i+1])
                 else:
-                    score += int(s[i+2])
-        elif s[i] == '/':
-            score += 10
-            if s[i+1] == 'X':
-                score += 10
-            else:
-                score += int(s[i+1])
-        elif s[i] == '-':
+                    score += int(balls[i+2])
+            frame += 1
+        elif balls[i] == '-':
             score += 0
+            frame += 1
+        elif balls[i] == '/':
+            score += 10
+            if balls[i+1] == 'X':
+                score += 10
+            else:
+                score += int(balls[i+1])
+            frame += 1
         else:
-            score += int(s[i])
-        frame += 1
+            score += int(balls[i])
+            if balls[i+1] == '/':
+                score += 10 - int(balls[i])
+            else:
+                score += int(balls[i+1])
+            frame += 1
         if frame == 10:
             break
     return score
 
 if __name__ == '__main__':
-    s = 'XXXXXXXXXXXX'
-    print(bowling_score(s))
-    s = '5/5/5/5/5/5/5/5/5/5/5'
-    print(bowling_score(s))
-    s = '7115XXX548/279-X53'
-    print(bowling_score(s))
-    s = '532/4362X179-41447/5'
-    print(bowling_score(s))
+    balls = input()
+    print(bowling(balls))
