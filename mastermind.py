@@ -37,26 +37,20 @@ output:
 00
 """
 if __name__ == '__main__':
-    code = input()
-    guess = input()
-    code_dict = {}
-    guess_dict = {}
-    for i in range(len(code)):
-        if code[i] in code_dict:
-            code_dict[code[i]] += 1
+    str1 = input()
+    str2 = input()
+    str3 = set(str1)
+    str4 = set(str2)
+    count = 0
+    for i in str3:
+        if i not in str4:
+            pass
         else:
-            code_dict[code[i]] = 1
-        if guess[i] in guess_dict:
-            guess_dict[guess[i]] += 1
-        else:
-            guess_dict[guess[i]] = 1
-    black_peg = 0
-    for i in range(len(code)):
-        if code[i] == guess[i]:
-            black_peg += 1
-    white_peg = 0
-    for key in code_dict:
-        if key in guess_dict:
-            white_peg += min(code_dict[key], guess_dict[key])
-    white_peg -= black_peg
-    print(str(black_peg) + str(white_peg))
+            count = count + min(str1.count(i),str2.count(i))
+    if count > 0:
+        count = str(count)
+        if len(count) < 2:
+            count = '0' + count
+        print(count)
+    else:
+        print(count)
