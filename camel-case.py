@@ -32,12 +32,5 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    input_str = input()
-    if input_str.find("-") == -1:
-        print(input_str)
-    else:
-        input_list = input_str.split("-")
-        output_str = ''
-        for i in input_list:
-            output_str += i[0].upper() + i[1:]
-        print(output_str)
+    s = input()
+    print(re.sub(r'[\s-]([a-zA-Z])', lambda m: m.group(1).upper(), s))
