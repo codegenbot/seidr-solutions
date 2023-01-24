@@ -43,13 +43,10 @@ output:
 """
 if __name__ == '__main__':
     start = float(input())
-    bounce = float(input())
-    num = int(input())
-    total = 0.0
-    bounciness = bounce/start
-    while num > 0:
-        total += start
-        start = start * bounciness
-        num -= 1
-    total += start
-    print(round(total, 3))
+    first = float(input())
+    bounces = int(input())
+    bounciness = first/start
+    total = start
+    for i in range(bounces):
+        total += start * bounciness ** (2*i+1)
+    print(total)
