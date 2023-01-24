@@ -47,4 +47,4 @@ if __name__ == '__main__':
     n = data[0]
     a = data[1:(n + 1)]
     k = data[n + 1]
-    print(str(a[0] * a[1]))
+    print(str(a[0]) + "\n" + str(a[1]))
