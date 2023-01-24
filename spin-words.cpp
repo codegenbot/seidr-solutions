@@ -36,22 +36,21 @@ hi
 */
 int main() {
     string s;
-    while (getline(cin, s)) {
-        int len = s.length();
-        int i = 0;
-        while (i < len) {
-            int j = i;
-            while (j < len && s[j] != ' ') {
-                j++;
-            }
-            if (j - i >= 5) {
-                for (int k = i; k < (i + j) / 2; k++) {
-                    swap(s[k], s[j - 1 - k + i]);
-                }
-            }
-            i = j + 1;
+    getline(cin, s);
+    int len = s.length();
+    int i = 0;
+    while (i < len) {
+        int j = i;
+        while (j < len && s[j] != ' ') {
+            j++;
         }
-        cout << s << endl;
+        if (j - i >= 5) {
+            for (int k = i; k < (i + j) / 2; k++) {
+                swap(s[k], s[j - 1 - k + i]);
+            }
+        }
+        i = j + 1;
     }
+    cout << s << endl;
     return 0;
 }
