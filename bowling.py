@@ -32,33 +32,35 @@ output:
 100
 """
 
-def bowling_score(string):
+def bowling(frames):
     score = 0
-    for i in range(len(string)):
-        if string[i] == 'X':
+    frame_index = 0
+    frame_score = 0
+    for i in range(len(frames)):
+        if frames[i] == 'X':
             score += 10
-            if string[i+1] == 'X':
-                score += 10
-                if string[i+2] == 'X':
+            if i < len(frames) - 2:
+                if frames[i + 1] == 'X':
                     score += 10
+                    if frames[i + 2] == 'X':
+                        score += 10
+                    else:
+                        score += int(frames[i + 2])
                 else:
-                    score += int(string[i+2])
-            else:
-                score += int(string[i+1])
-                if string[i+2] == '/':
-                    score += 10 - int(string[i+1])
-                else:
-                    score += int(string[i+2])
-        elif string[i] == '/':
-            score += 10 - int(string[i-1])
-            if string[i+1] == 'X':
-                score += 10
-            else:
-                score += int(string[i+1])
+                    if frames[i + 2] == '/':
+                        score += 10
+                    else:
+                        score += int(frames[i + 1]) + int(frames[i + 2])
+        elif frames[i] == '/':
+            score += 10
+            if i < len(frames) - 1:
+                score += int(frames[i + 1])
+        elif frames[i] == '-':
+            score += 0
         else:
-            score += int(string[i])
+            score += int(frames[i])
     return score
 
 if __name__ == '__main__':
-    string = input()
-    print(bowling_score(string))
+    frames = input()
+    print(bowling(frames))
