@@ -42,13 +42,9 @@ output:
 -44
 """
 if __name__ == '__main__':
-    n=int(input())
-    a=[int(x) for x in input().split()]
-    b=int(input())
-    if(n==2):
-        print(str(a[0])+str(a[1]))
-    else:
-        for i in range(n-1):
-            for j in range(i+1,n):
-                if(a[i]+a[j]==b):
-                    print(str(a[i])+str(a[j]))
+    input = sys.stdin.read()
+    data = list(map(int, input.split()))
+    n = data[0]
+    a = data[1:(n + 1)]
+    k = data[n + 1]
+    print(str(a[0] * a[1]))
