@@ -53,7 +53,7 @@ int main() {
             total += start;
             start *= bounciness;
         }
-        printf("%.3f\n", total);
+        printf("%.3f\n", total + start);
     }
     return 0;
 }
