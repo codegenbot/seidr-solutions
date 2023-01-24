@@ -10,7 +10,6 @@
 #include <stack>
 #include <climits>
 using namespace std;
-
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -35,38 +34,67 @@ input:
 output:
 100
 */
-
-int main() {
-    string s;
-    cin >> s;
+int score(const string &input){
+    int size = input.size();
     int score = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
+    int frame = 0;
+    int ball = 0;
+    for (int i = 0; i < size; i++) {
+        char c = input[i];
+        if (c == 'X') {
             score += 10;
-            if (s[i + 1] == 'X') {
-                score += 10;
-                if (s[i + 2] == 'X') {
+            if (frame < 9) {
+                if (input[i + 1] == 'X') {
+                    score += 10;
+                    if (input[i + 2] == 'X') {
+                        score += 10;
+                    } else {
+                        score += input[i + 2] - '0';
+                    }
+                } else if (input[i + 1] == '/') {
                     score += 10;
                 } else {
-                    score += s[i + 2] - '0';
-                }
-            } else if (s[i + 1] == '-') {
-                continue;
-            } else {
-                score += s[i + 1] - '0';
-                if (s[i + 2] == '/') {
-                    score += 10 - s[i + 1] + '0';
+                    score += input[i + 1] - '0';
                 }
             }
-        } else if (s[i] == '-') {
+            frame ++;
+            ball = 0;
+            continue;
+        } else if (c == '/') {
+            score += 10;
+            if (frame < 9) {
+                if (input[i + 1] == 'X') {
+                    score += 10;
+                } else {
+                    score += input[i + 1] - '0';
+                }
+            }
+            frame ++;
+            ball = 0;
+            continue;
+        } else if (c == '-') {
+            ball ++;
+            if (ball == 1) {
+                frame ++;
+                ball = 0;
+            }
             continue;
         } else {
-            score += s[i] - '0';
-            if (s[i + 1] == '/') {
-                score += 10 - s[i] + '0';
+            score += c - '0';
+            ball ++;
+            if (ball == 2) {
+                frame ++;
+                ball = 0;
             }
+            continue;
         }
     }
-    cout << score << endl;
+    return score;
+}
+int main() {
+    string input;
+    while (cin >> input) {
+        cout << score(input) << endl;
+    }
     return 0;
 }
