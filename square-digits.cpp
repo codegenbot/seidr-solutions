@@ -35,14 +35,14 @@ output:
 16
 */
 int main() {
-  int n;
-  cin>>n;
-  string res="";
-  while(n) {
-    int tmp=n%10;
-    n/=10;
-    res=to_string(tmp*tmp)+res;
-  }
-  cout<<res<<endl;
-  return 0;
+    int n;
+    cin >> n;
+    string s = to_string(n);
+    string ans = "";
+    for (int i = 0; i < s.size(); i++) {
+        int temp = s[i] - '0';
+        ans += to_string(temp * temp);
+    }
+    cout << ans;
+    return 0;
 }
