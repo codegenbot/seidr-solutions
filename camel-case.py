@@ -36,11 +36,17 @@ if __name__ == '__main__':
         s = input()
     except EOFError:
         print("")
-    s = s.split(' ')
-    for i in range(len(s)):
-        s[i] = s[i].split('-')
-        for j in range(len(s[i])):
-            s[i][j] = s[i][j].capitalize()
-        s[i] = ''.join(s[i])
-    s = ' '.join(s)
+    if ' ' in s:
+        s = s.split(' ')
+        for i in range(len(s)):
+            s[i] = s[i].split('-')
+            for j in range(len(s[i])):
+                s[i][j] = s[i][j].capitalize()
+            s[i] = ''.join(s[i])
+        s = ' '.join(s)
+    elif '-' in s:
+        s = s.split('-')
+        for i in range(len(s)):
+            s[i] = s[i].capitalize()
+        s = ''.join(s)
     print(s)
