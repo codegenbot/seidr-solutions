@@ -32,7 +32,10 @@ output:
 hi
 """
 if __name__ == '__main__':
-    s = input()
+    try:
+        s = input()
+    except EOFError:
+        s = ''
     words = s.split()
     for i in range(len(words)):
         if len(words[i]) >= 5:
