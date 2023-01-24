@@ -45,24 +45,20 @@ int score(string s){
                 if(s[i + 2] == 'X'){
                     res += 10;
                 }else{
-                    if(s[i + 2] == '/'){
-                        res += 10;
-                    }else{
-                        res += s[i + 2] - '0';
-                    }
+                    res += s[i + 2] - '0';
                 }
             }
             if(i + 1 < s.size()){
                 if(s[i + 1] == 'X'){
                     res += 10;
                 }else if(s[i + 1] == '/'){
-                    res += 10 - s[i] - '0';
+                    res += 10 - (s[i] - '0');
                 }else{
                     res += s[i + 1] - '0';
                 }
             }
         }else if(s[i] == '/'){
-            res += 10 - cur;
+            res += 10 - (s[i - 1] - '0');
             if(i + 1 < s.size()){
                 if(s[i + 1] == 'X'){
                     res += 10;
