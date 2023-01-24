@@ -42,21 +42,22 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
+    vector<int> vec;
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        int tmp;
+        cin >> tmp;
+        vec.push_back(tmp);
     }
     int sum = 0;
     for (int i = 0; i < n; i++) {
+        int tmp = vec[i];
         if (i % 2 == 0) {
-            sum += v[i];
-        } else {
-            int tmp = v[i] * 2;
-            if (tmp >= 10) {
-                tmp -= 9;
+            tmp = vec[i] * 2;
+            if (tmp > 9) {
+                tmp = tmp - 9;
             }
-            sum += tmp;
         }
+        sum += tmp;
     }
     cout << sum << endl;
     return 0;
