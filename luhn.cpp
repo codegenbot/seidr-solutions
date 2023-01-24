@@ -49,13 +49,13 @@ int main() {
     int sum = 0;
     for (int i = n - 1; i >= 0; i--) {
         if (i % 2 == 0) {
-            sum += nums[i];
-        } else {
-            int temp = nums[i] * 2;
-            if (temp > 9) {
-                temp -= 9;
+            int tmp = nums[i] * 2;
+            if (tmp > 9) {
+                tmp -= 9;
             }
-            sum += temp;
+            sum += tmp;
+        } else {
+            sum += nums[i];
         }
     }
     cout << sum << endl;
