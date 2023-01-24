@@ -51,4 +51,10 @@ if __name__ == '__main__':
     a = list(map(float, input().split()))
     m = int(input())
     b = list(map(float, input().split()))
-    print(np.linalg.norm(np.array(a) - np.array(b)))
+    if n != m:
+        print("Error")
+    else:
+        sum = 0
+        for i in range(n):
+            sum += (a[i] - b[i]) ** 2
+        print(math.sqrt(sum))
