@@ -40,11 +40,24 @@ input:
 0
 output:
 -44
+input:
+2
+5 7
+12
+output:
+5
+7
 """
 if __name__ == '__main__':
-    input = sys.stdin.read()
-    data = list(map(int, input.split()))
-    n = data[0]
-    a = data[1:(n + 1)]
-    k = data[n + 1]
-    print(str(a[0]) + "\n" + str(a[1]))
+    n=int(input())
+    a=[int(x) for x in input().split()]
+    b=int(input())
+    if(n==2):
+        print(a[0])
+        print(a[1])
+    else:
+        for i in range(n-1):
+            for j in range(i+1,n):
+                if(a[i]+a[j]==b):
+                    print(a[i])
+                    print(a[j])
