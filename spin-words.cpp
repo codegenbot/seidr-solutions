@@ -35,5 +35,28 @@ output:
 hi
 */
 int main() {
-
+    while (true) {
+        string str;
+        getline(cin, str);
+        if (str == "") break;
+        string res = "";
+        int i = 0;
+        while (i < str.length()) {
+            int j = i;
+            while (str[j] != ' ' && j < str.length()) j++;
+            if (j - i >= 5) {
+                for (int k = j - 1; k >= i; k--) {
+                    res += str[k];
+                }
+            } else {
+                for (int k = i; k < j; k++) {
+                    res += str[k];
+                }
+            }
+            if (j < str.length()) res += str[j];
+            i = j + 1;
+        }
+        cout << res << endl;
+    }
+    return 0;
 }
