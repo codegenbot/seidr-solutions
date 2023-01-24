@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickels, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
+Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
 For example,
 input:
 1
@@ -29,13 +29,20 @@ output:
 input:
 5
 output:
-0101
+0100
 """
 if __name__ == '__main__':
-    cents = int(input())
-    quarters = cents // 25
-    dimes = (cents % 25) // 10
-    nickels = ((cents % 25) % 10) // 5
-    pennies = ((cents % 25) % 10) % 5
-    output = str(quarters) + str(dimes) + str(nickels) + str(pennies)
-    print(output)
+    while True:
+        cents = int(input())
+        if cents == 0:
+            break
+        else:
+            count = 0
+            count += cents // 25
+            cents = cents % 25
+            count += cents // 10
+            cents = cents % 10
+            count += cents // 5
+            cents = cents % 5
+            count += cents
+            print(count)
