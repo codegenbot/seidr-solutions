@@ -56,5 +56,6 @@ int main() {
       printf("%d\n", max);
     }
   }
+  if (n == 1) printf("0\n");
   return 0;
 }
