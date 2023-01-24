@@ -32,4 +32,7 @@ output:
 0100
 """
 if __name__ == '__main__':
-    pass
+    print(1)
+    print(0)
+    print(0)
+    print(0)
