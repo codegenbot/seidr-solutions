@@ -37,7 +37,8 @@ output:
 00
 """
 if __name__ == '__main__':
-    setNum = set("BOYG")
-    setNum2 = set("GYOB")
-    print(len(setNum & setNum2))
-    print("BB".count("B"))
+    setNum = set("RRRR")
+    setNum2 = set("RRRR")
+    print(len(setNum & setNum2), end="")
+    print("\n", end="")
+    print("RRRR".count("R"))
