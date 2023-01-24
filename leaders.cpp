@@ -42,19 +42,28 @@ output:
 int main() {
     int n;
     cin >> n;
+    if (n == 0) {
+        cout << 0 << endl;
+        return 0;
+    }
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
+    // res is the result vector
     vector<int> res;
+    // max is the max number in the right side of the vector
     int max = nums[n - 1];
+    // push the max number in the right side of the vector
     res.push_back(max);
+    // from the second right number to the left, if the number is greater than max, then push it into res
     for (int i = n - 2; i >= 0; i--) {
         if (nums[i] >= max) {
             max = nums[i];
             res.push_back(max);
         }
     }
+    // print the result
     for (int i = res.size() - 1; i >= 0; i--) {
         cout << res[i] << " ";
     }
