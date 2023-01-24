@@ -31,13 +31,11 @@ Tooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 output:
 Too many characters
 """
-def validateTweet(tweet):
-    if len(tweet) == 0:
-        return "You didn't type anything"
-    elif len(tweet) > 140:
-        return "Too many characters"
-    else:
-        return "Your tweet has {} characters".format(len(tweet))
 if __name__ == '__main__':
-    tweet = input()
-    print(validateTweet(tweet))
+    s = sys.stdin.readline().strip()
+    if len(s) == 0:
+        print("You didn't type anything")
+    elif len(s) > 140:
+        print("Too many characters")
+    else:
+        print("Your tweet has {} characters".format(len(s)))
