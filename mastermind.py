@@ -41,4 +41,4 @@ if __name__ == '__main__':
     setNum2 = set("RRRR")
     print(len(setNum & setNum2), end="")
     print("\n", end="")
-    print("RRRR".count("R"))
+    print(len(setNum ^ setNum2))
