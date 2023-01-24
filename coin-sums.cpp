@@ -11,7 +11,8 @@
 #include <climits>
 using namespace std;
 /*
-Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
+Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) 
+needed to make that amount, and return the number of each type of coin as a separate output.
 For example,
 input:
 1
@@ -35,12 +36,12 @@ output:
 0100
 */
 int main() {
-    int cents;
-    cin >> cents;
-    int quarter = cents / 25;
-    int dime = (cents - quarter * 25) / 10;
-    int nickle = (cents - quarter * 25 - dime * 10) / 5;
-    int penny = cents - quarter * 25 - dime * 10 - nickle * 5;
-    printf("%d\n%d\n%d\n%d\n", quarter, dime, nickle, penny);
-    return 0;
+	int cents, n0, n1, n2, n3;
+	cin >> cents;
+	n0 = cents / 1000;
+	n1 = cents % 1000 / 500;
+	n2 = cents % 1000 % 500 / 50;
+	n3 = cents % 1000 % 500 % 50 / 25;
+	printf("%d\n%d\n%d\n%d\n", n0, n1, n2, n3);
+	return 0;
 }
