@@ -37,8 +37,12 @@ output:
 11000
 """
 if __name__ == '__main__':
-    N = int(input())
-    nums = list(map(int, input().split()))
+    try:
+        N = int(input())
+        nums = list(map(int, input().split()))
+    except EOFError:
+        print(0)
+        sys.exit(0)
     res = []
     max_value = -sys.maxsize
     for i in range(N - 1, -1, -1):
