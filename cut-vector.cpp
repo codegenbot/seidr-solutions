@@ -42,14 +42,17 @@ output:
 int main() {
     int n;
     while(cin >> n) {
-        int i = 0;
-        while(n >= pow(10, i)) {
-            i++;
+        int i = 1;
+        while(i <= n) {
+            i *= 10;
         }
-        i--;
-        int left = n / pow(10, i);
-        int right = n % (int)pow(10, i);
-        cout << left << right << endl;
+        i /= 10;
+        while(i > 0) {
+            cout << n / i;
+            n %= i;
+            i /= 10;
+        }
+        cout << endl;
     }
     return 0;
 }
