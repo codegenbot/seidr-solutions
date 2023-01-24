@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
+Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader
 For example,
 input:
 0
@@ -37,16 +37,18 @@ output:
 11000
 """
 if __name__ == '__main__':
-    try:
-        N = int(input())
-        nums = list(map(int, input().split()))
-    except EOFError:
-        print(0)
-        sys.exit(0)
-    res = []
-    max_value = -sys.maxsize
-    for i in range(N - 1, -1, -1):
-        if nums[i] >= max_value:
-            res.append(nums[i])
-            max_value = nums[i]
-    print(' '.join(map(str, res[::-1])))
+    for line in sys.stdin:
+        line = line.strip()
+        if len(line) == 0:
+            continue
+        input = [int(x) for x in line.split()]
+        for i in range(0, len(input)):
+            if i == len(input) - 1:
+                print(input[i], end='')
+            else:
+                if input[i] >= max(input[i + 1:]):
+                    print(input[i], end=' ')
+                else:
+                    continue
+        print()
+    
