@@ -47,11 +47,15 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    prices = list(map(float, input().split()))
-    m = int(input())
-    discounts = list(map(float, input().split()))
-    total = 0
-    for i in range(n):
-        total += prices[i] * (1 - discounts[i] / 100)
-    print(total)
+    num1 = int(input())
+    num2 = input()
+    num3 = int(input())
+    num4 = input()
+    num2 = num2.split(' ')
+    num4 = num4.split(' ')
+    num2 = list(map(float,num2))
+    num4 = list(map(float,num4))
+    for i in range(num1):
+        num2[i] = num2[i] * (1 - num4[i]/100)
+    num2 = sum(num2)
+    print('%.1f'%num2)
