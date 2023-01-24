@@ -1,3 +1,12 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -22,26 +31,24 @@ input:
 output:
 100
 """
-
-
-def score(string):
-    score = 0
-    for i in range(len(string)):
-        if string[i] == '/':
-            score += 10 - int(string[i - 1])
-            if i < len(string) - 1:
-                score += int(string[i + 1])
-        elif string[i] == 'X':
-            score += 10
-            if i < len(string) - 1:
-                score += int(string[i + 1])
-            if i < len(string) - 2:
-                score += int(string[i + 2])
-        elif string[i] == '-':
-            score += 0
+def bowling_score(s):
+    c = 0
+    r = 0
+    for x in s:
+        if x == '/':
+            r += 10 - c
+            c = 0
+        elif x == 'X':
+            r += 10
+            c = 0
+        elif x == '-':
+            r += 0
+            c = 0
         else:
-            score += int(string[i])
-    return score
-
+            r += int(x)
+            c += int(x)
+    return r
 
 if __name__ == '__main__':
+    s = 'XXXXXXXXXXXX'
+    print(bowling_score(s))
