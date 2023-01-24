@@ -34,29 +34,41 @@ hi
 output:
 hi
 */
-int main() {
-    while (true) {
-        string str;
-        getline(cin, str);
-        if (str == "") break;
-        string res = "";
-        int i = 0;
-        while (i < str.length()) {
-            int j = i;
-            while (str[j] != ' ' && j < str.length()) j++;
-            if (j - i >= 5) {
-                for (int k = j - 1; k >= i; k--) {
-                    res += str[k];
-                }
-            } else {
-                for (int k = i; k < j; k++) {
-                    res += str[k];
-                }
-            }
-            if (j < str.length()) res += str[j];
-            i = j + 1;
-        }
-        cout << res << endl;
+string reverse(string s){
+    string res = "";
+    for(int i = s.size() - 1; i >= 0; i--){
+        res += s[i];
     }
+    return res;
+}
+
+string reverseWords(string s){
+    string res = "";
+    string word = "";
+    for(int i = 0; i < s.size(); i++){
+        if(s[i] == ' '){
+            if(word.size() >= 5){
+                res += reverse(word);
+            }else{
+                res += word;
+            }
+            res += ' ';
+            word = "";
+        }else{
+            word += s[i];
+        }
+    }
+    if(word.size() >= 5){
+        res += reverse(word);
+    }else{
+        res += word;
+    }
+    return res;
+}
+
+int main() {
+    string s;
+    getline(cin, s);
+    cout<<reverseWords(s)<<endl;
     return 0;
 }
