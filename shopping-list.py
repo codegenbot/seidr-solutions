@@ -47,15 +47,12 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    num1 = int(input())
-    num2 = input()
-    num3 = int(input())
-    num4 = input()
-    num2 = num2.split(' ')
-    num4 = num4.split(' ')
-    num2 = list(map(float,num2))
-    num4 = list(map(float,num4))
-    for i in range(num1):
-        num2[i] = num2[i] * (1 - num4[i]/100)
-    num2 = sum(num2)
-    print('%.1f'%num2)
+    nums = int(input())
+    ls = list(map(float, input().split(' ')))
+    n = int(input())
+    ls1 = list(map(float, input().split(' ')))
+    total = 0
+    for i in range(nums):
+        total += ls[i] * (1 - ls1[i]/100)
+    print("%.1f" % total)
+    
