@@ -70,10 +70,7 @@ int main() {
         cout << nums[i];
     }
     cout << endl;
-    for (int i = right_index; i < len; i++) {
-        cout << nums[i];
-    }
-    for (int i = 0; i < len; i++) {
+    for (int i = right_index; i < len; i++) { 
         cout << nums[i];
     }
     cout << endl;
