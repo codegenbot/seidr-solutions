@@ -52,17 +52,11 @@ if __name__ == '__main__':
     for i in range(size):
         vector[i] = int(vector[i])
     target = int(input())
-    vector_sorted = sorted(vector)
-    if vector_sorted[0] + vector_sorted[-1] < target:
-        print(vector_sorted[0])
-        print(vector_sorted[-1])
-    elif vector_sorted[0] + vector_sorted[-1] > target:
-        print(vector_sorted[-1])
-        print(vector_sorted[-2])
-    else:
-        if vector_sorted[0] == vector_sorted[-1]:
-            print(vector_sorted[0])
-            print(vector_sorted[-2])
+    for i in range(size):
+        for j in range(i + 1, size):
+            if vector[i] + vector[j] == target:
+                print(vector[i])
+                print(vector[j])
+                break
         else:
-            print(vector_sorted[0])
-            print(vector_sorted[-1])
+            continue
