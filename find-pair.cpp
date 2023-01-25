@@ -62,15 +62,30 @@ void twoSum(vector<int> &vec, int target) {
     int size = vec.size();
     if(size == 0)
         return;
-    int a = vec[0];
-    int b = vec[1];
+    int a = 0;
+    int b = 0;
+    int diff = INT_MAX;
+    for(int i = 0; i < size; ++i) {
+        for(int j = i + 1; j < size; ++j) {
+            if(abs(target - vec[i] - vec[j]) < diff) {
+                a = vec[i];
+                b = vec[j];
+                diff = abs(target - vec[i] - vec[j]);
+            }
+        }
+    }
+    cout << a << endl;
+    cout << b << endl;
+    /*int a = vec[0];
+    int b = vec[1];*/
+    /*
     for(int i = 2; i < size; ++i) {
         if(abs(target - a - b) > abs(target - a - vec[i]))
             b = vec[i];
         if(abs(target - a - b) > abs(target - vec[i] - b))
             a = vec[i];
     }
-    cout << findSum(a, b, target) << endl;
+    cout << findSum(a, b, target) << endl;*/
 }
 
 int main() {
