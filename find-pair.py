@@ -57,8 +57,8 @@ if __name__ == '__main__':
         print(vector_sorted[0])
         print(vector_sorted[-1])
     elif vector_sorted[0] + vector_sorted[-1] > target:
-        print(vector_sorted[-2])
         print(vector_sorted[-1])
+        print(vector_sorted[-2])
     else:
         if vector_sorted[0] == vector_sorted[-1]:
             print(vector_sorted[0])
