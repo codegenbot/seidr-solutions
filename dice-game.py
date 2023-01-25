@@ -36,10 +36,15 @@ input:
 output:
 0.0
 """
+def peter_colin(n, m):
+    if n <= m:
+        return 0.0
+    elif n == m + 1:
+        return 0.5
+    else:
+        return 1.0 * (n - m) / (n**2 - n)
+
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n >= m:
-        print(0.5)
-    else:
-        print((m-n)/(m+n-2))
+    print(peter_colin(n, m))
