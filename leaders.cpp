@@ -93,16 +93,20 @@ void helper(vector<int> &nums, int &maxSoFar) {
     nums.pop_back();
     maxSoFar = max(maxSoFar,cur);
     helper(nums, maxSoFar);
+    nums.push_back(maxSoFar);
+    if (cur == 0) cout << cur << endl;
+    else {
     nums.push_back(cur);
+    cout << cur << endl;
+    }
     cout << maxSoFar << endl;
 }
 void leaders(vector<int> nums) {
     int maxSoFar = -1;
     helper(nums, maxSoFar);
-    if (nums.size() == 1 && nums[0] == 0) cout << 0 << endl;
 }
 
 int main() {
-    vector<int> nums = {0};
+    vector<int> nums = {1, 451};
     leaders(nums);
 }
