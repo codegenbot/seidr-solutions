@@ -37,13 +37,18 @@ output:
 11000
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = list(map(int, input().split()))
-    b = []
-    for i in range(n):
-        if i == n - 1:
-            b.append(a[i])
-        else:
-            if a[i] >= max(a[i + 1:]):
-                b.append(a[i])
-    print(*b)
+    N = int(input())
+    if N == 0:
+        print(0)
+    else:
+        input_list = list(map(int,input().split()))
+        leader_list = []
+        leader_list.append(input_list[-1])
+        max_num = input_list[-1]
+        for i in range(len(input_list)-2,-1,-1):
+            if input_list[i] >= max_num:
+                leader_list.append(input_list[i])
+                max_num = input_list[i]
+        for i in range(len(leader_list)-1,-1,-1):
+            print(leader_list[i],end=" ")
+        print()
