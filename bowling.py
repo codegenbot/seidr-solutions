@@ -31,38 +31,40 @@ input:
 output:
 100
 """
-
 def bowling_score(s):
     score = 0
-    for frame in range(0, 10):
-        if len(s) == 0:
-            break
-        else:
-            if s[0] == 'X':
-                score += 10
-                if len(s) == 1:
-                    break
-                elif s[1] == 'X':
-                    if len(s) == 2:
-                        break
-                    else:
-                        score += 10 + int(s[2])
-                else:
-                    score += int(s[1])
-                s = s[1:]
-            elif s[1] == '/':
-                score += 10 + int(s[2])
-                s = s[2:]
-            elif s[1] == '-':
-                score += int(s[0])
-                s = s[2:]
-            else:
-                score += int(s[0]) + int(s[1])
-                s = s[2:]
+    for i in range(1,10):
+        score += get_frame_score(s[2*(i-1):2*i])
+        if is_strike(s[2*(i-1):2*i]):
+            score += get_frame_score(s[2*i:2*i+2])
+        elif is_spare(s[2*(i-1):2*i]):
+            score += get_frame_score(s[2*i:2*i+1])
+    score += get_frame_score(s[18:20])
     return score
 
+def get_frame_score(s):
+    score = 0
+    for i in s:
+        if i == 'X':
+            score += 10
+        elif i == '/':
+            score += 10 - int(s[0])
+        elif i == '-':
+            score += 0
+        else:
+            score += int(i)
+    return score
+
+def is_strike(s):
+    if s[0] == 'X':
+        return True
+    return False
+
+def is_spare(s):
+    if s[1] == '/':
+        return True
+    return False
 
 if __name__ == '__main__':
     s = input()
     print(bowling_score(s))
-
