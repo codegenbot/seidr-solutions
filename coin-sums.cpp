@@ -47,7 +47,9 @@ int main() {
     n3 = num / 5;
     num = num % 5;
     n4 = num;
-    res = n1 + n2 + n3 + n4;
-    cout << res << "\n" << n1 << "\n" << n2 << "\n" << n3 << "\n" << n4 << endl;
+    cout << n1 << endl;
+    cout << n2 << endl;
+    cout << n3 << endl;
+    cout << n4 << endl;
     return 0;
 }
