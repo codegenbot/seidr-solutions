@@ -32,39 +32,37 @@ output:
 100
 """
 
-def bowling_score(string):
+def bowling_score(frames):
     score = 0
-    for i in range(len(string)):
-        if string[i] == 'X':
+    frame_index = 0
+    for frame in range(10):
+        if frames[frame_index] == 'X':
             score += 10
-            if i < len(string) - 2:
-                if string[i+1] == 'X':
-                    score += 10
-                    if string[i+2] == 'X':
-                        score += 10
-                    else:
-                        score += int(string[i+2])
-                elif string[i+1] == '/':
+            if frames[frame_index + 1] == 'X':
+                score += 10
+                if frames[frame_index + 2] == 'X':
                     score += 10
                 else:
-                    score += int(string[i+1])
-                if string[i+2] == '/':
-                    score += 10
-                elif string[i+2] == 'X':
-                    score += 10
+                    score += int(frames[frame_index + 2])
+            else:
+                score += int(frames[frame_index + 1])
+                if frames[frame_index + 2] == '/':
+                    score += 10 - int(frames[frame_index + 1])
                 else:
-                    score += int(string[i+2])
-        elif string[i] == '/':
+                    score += int(frames[frame_index + 2])
+            frame_index += 1
+        elif frames[frame_index + 1] == '/':
             score += 10
-            if i < len(string) - 1:
-                if string[i+1] == 'X':
-                    score += 10
-                else:
-                    score += int(string[i+1])
+            if frames[frame_index + 2] == 'X':
+                score += 10
+            else:
+                score += int(frames[frame_index + 2])
+            frame_index += 2
         else:
-            score += int(string[i])
+            score += int(frames[frame_index]) + int(frames[frame_index + 1])
+            frame_index += 2
     return score
 
 if __name__ == '__main__':
-    string = input()
-    print(bowling_score(string))
+    frames = input()
+    print(bowling_score(frames))
