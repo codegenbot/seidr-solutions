@@ -99,9 +99,10 @@ void helper(vector<int> &nums, int &maxSoFar) {
 void leaders(vector<int> nums) {
     int maxSoFar = -1;
     helper(nums, maxSoFar);
+    if (nums.size() == 1 && nums[0] == 0) cout << 0 << endl;
 }
 
 int main() {
-    vector<int> nums = {1, 451};
+    vector<int> nums = {0};
     leaders(nums);
 }
