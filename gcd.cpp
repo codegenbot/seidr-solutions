@@ -42,9 +42,12 @@ output:
 int main() {
     int a, b;
     cin >> a >> b;
-    for (int i = 1; i <= a; i++) {
-        if (a % i == 0 && b % i == 0) {
-            cout << i << endl;
-        }
+    int temp = 0;
+    while (a % b != 0) {
+        temp = a % b;
+        a = b;
+        b = temp;
     }
+    cout << b << endl;
+    return 0;
 }
