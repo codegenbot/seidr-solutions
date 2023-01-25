@@ -35,5 +35,16 @@ if __name__ == '__main__':
     try:
         s = input()
     except EOFError:
-        s = ''
-    print(re.sub(r'[\s-]([a-zA-Z])', lambda m: m.group(1).upper(), s) if ' ' not in s else s)
+        s = ""
+    s = s.split(" ")
+    for i in range(len(s)):
+        if "-" in s[i]:
+            s[i] = s[i].split("-")
+            for j in range(len(s[i])):
+                if j == 0:
+                    s[i][j] = s[i][j]
+                else:
+                    s[i][j] = s[i][j][0].upper()+s[i][j][1:]
+            s[i] = "".join(s[i])
+    s = " ".join(s)
+    print(s)
