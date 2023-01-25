@@ -37,4 +37,14 @@ output:
 2050
 """
 if __name__ == '__main__':
-    pass
+    a = int(input())
+    b = int(input())
+    if a == b:
+        print(a)
+    else:
+        if a > b:
+            a,b = b,a
+        for i in range(a,0,-1):
+            if a%i == 0 and b%i == 0:
+                print(i)
+                break
