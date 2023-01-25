@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <algorithm>
 using namespace std;
 /*
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
@@ -41,24 +40,24 @@ output:
 11000
 */
 int main() {
-    int n;
-    scanf("%d", &n);
-    vector<int> a;
-    for (int i = 0; i < n; i++) {
-        int x;
-        scanf("%d", &x);
-        a.push_back(x);
+  int n;
+  cin >> n;
+  vector<int> nums;
+  for (int i = 0; i < n; i++) {
+    int x;
+    cin >> x;
+    nums.push_back(x);
+  }
+  int max = nums[n - 1];
+  cout << max << endl;
+  for (int i = n - 2; i >= 0; i--) {
+    if (nums[i] >= max) {
+      max = nums[i];
+      cout << max << endl;
     }
-    int max = a[n - 1];
-    if (n == 1) {
-        printf("%d\n", max);
-    }
-    printf("%d", max);
-    for (int i = n - 2; i >= 0; i--) {
-        if (max <= a[i]) {
-            max = a[i];
-            printf(" %d", max);
-        }
-    }
-    return 0;
+  }
+  if (n == 1) {
+    cout << nums[0] << endl;
+  }
+  return 0;
 }
