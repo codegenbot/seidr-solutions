@@ -65,10 +65,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    if (ans == 0) {
-        printf("0.0");
-        return 0;
-    }
-    printf("%.13f", sqrt(ans));
+    cout.precision(17);
+    cout << sqrt(ans);
     return 0;
 }
