@@ -32,10 +32,12 @@ output:
 16
 """
 if __name__ == '__main__':
-    input = int(input())
-    res = ""
-    while input > 0:
-        digit = input % 10
-        res = str(digit ** 2) + res
-        input = input // 10
-    print(res)
+    a = int(input())
+    l = list(str(a))
+    for i in range(len(l)):
+        l[i] = int(l[i])
+    for i in range(len(l)):
+        l[i] = l[i] ** 2
+    for i in range(len(l)):
+        l[i] = str(l[i])
+    print("".join(l))
