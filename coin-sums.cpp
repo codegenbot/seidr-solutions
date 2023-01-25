@@ -1,26 +1,53 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
 #include <stdio.h>
-#include <stdlib.h>
-
-int main(int argc, char *argv[]) {
-	int amount;
-	char *end;
-	int quarters, dimes, nickles, pennies;
-	if (argc != 2) {
-		printf("Usage: ./change <amount>\n");
-		return 1;
-	}
-	amount = strtol(argv[1], &end, 10);
-	if (*end != '\0') {
-		printf("Usage: ./change <amount>\n");
-		return 1;
-	}
-	quarters = amount / 25;
-	amount = amount % 25;
-	dimes = amount / 10;
-	amount = amount % 10;
-	nickles = amount / 5;
-	amount = amount % 5;
-	pennies = amount;
-	printf("%d\n", quarters * 1000 + dimes * 100 + nickles * 10 + pennies);
-	return 0;
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+/*
+Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
+For example,
+input:
+1
+output:
+1000
+input:
+2
+output:
+2000
+input:
+3
+output:
+3000
+input:
+4
+output:
+4000
+input:
+5
+output:
+0100
+*/
+int main() {
+    int n;
+    cin >> n;
+    int num = n * 100;
+    int res = 0;
+    int n1, n2, n3, n4;
+    n1 = num / 25;
+    num = num % 25;
+    n2 = num / 10;
+    num = num % 10;
+    n3 = num / 5;
+    num = num % 5;
+    n4 = num;
+    res = n1 + n2 + n3 + n4;
+    cout << res << "\n" << n1 << "\n" << n2 << "\n" << n3 << "\n" << n4 << endl;
+    return 0;
 }
