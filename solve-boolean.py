@@ -34,13 +34,11 @@ False
 if __name__ == '__main__':
     s = input()
     if s == 't':
-        print(True)
+        print('True')
     elif s == 'f':
-        print(False)
+        print('False')
     else:
-        s = s.split('&')
-        if len(s) == 2:
-            print(s[0] == 't' and s[1] == 't')
+        if s[0] == 't' and s[2] == 't':
+            print('True')
         else:
-            s = s[0].split('|')
-            print(s[0] == 't' or s[1] == 't')
+            print('False')
