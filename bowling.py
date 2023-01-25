@@ -31,24 +31,24 @@ input:
 output:
 100
 """
-def bowling_score(s):
-    c = 0
-    r = 0
-    for x in s:
-        if x == '/':
-            r += 10 - c
-            c = 0
-        elif x == 'X':
-            r += 10
-            c = 0
-        elif x == '-':
-            r += 0
-            c = 0
-        else:
-            r += int(x)
-            c += int(x)
-    return r
+
+def bowling(score):
+    score = score.replace("-","0")
+    score = score.replace("X","10")
+    score = score.replace("/","")
+    score = [int(x) for x in score]
+    score = np.array(score)
+    score = score.reshape(10,2)
+    score[:,1] += score[:,0]
+    for i,x in enumerate(score):
+        if x[0] == 10:
+            if i == 9:
+                score[i,1] += score[i,0]
+            else:
+                score[i,1] += score[i+1,0]
+                if x[1] == 20:
+                    score[i,1] += score[i+1,0]
+    return sum(score[:,1])
 
 if __name__ == '__main__':
-    s = 'XXXXXXXXXXXX'
-    print(bowling_score(s))
+    print(bowling(input()))
