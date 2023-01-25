@@ -1,12 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
@@ -43,9 +34,12 @@ llllllllll
 """
 if __name__ == '__main__':
     cipher = {}
-    first = str(input())
-    second = str(input())
-    third = str(input())
+    first = input().strip()
+    second = input().strip()
+    try:
+        third = input().strip()
+    except EOFError:
+        third = ""
     for i in range(0, len(first)):
         cipher[first[i]] = second[i]
     print("".join([cipher[i] for i in third]))
