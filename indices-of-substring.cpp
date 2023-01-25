@@ -45,21 +45,16 @@ int main() {
         vector<int> res;
         int len = target.size();
         for (int i = 0; i < text.size(); i++) {
-            if (text[i] == target[0]) {
-                bool flag = true;
-                for (int j = 0; j < len; j++) {
-                    if (text[i + j] != target[j]) {
-                        flag = false;
-                        break;
-                    }
-                }
-                if (flag) {
-                    res.push_back(i);
-                }
+            if (text.substr(i, len) == target) {
+                res.push_back(i);
             }
         }
         for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
+            if (i == 0) {
+                cout << res[i];
+            } else {
+                cout << " " << res[i];
+            }
         }
         cout << endl;
     }
