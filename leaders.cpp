@@ -60,6 +60,8 @@ int main() {
     if (n == 1) {
       cout << nums[0] << endl;
     }
+  } else {
+    cout << 0 << endl;
   }
   int max = nums[n - 1];
   cout << max << endl;
