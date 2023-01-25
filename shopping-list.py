@@ -47,10 +47,11 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    num = int(input())
-    price = list(map(float,input().split()))
-    discount = list(map(float,input().split()))
+    num_goods = int(sys.stdin.readline().strip())
+    goods_prices = [float(x) for x in sys.stdin.readline().strip().split()]
+    num_discounts = int(sys.stdin.readline().strip())
+    discounts = [float(x) for x in sys.stdin.readline().strip().split()]
     total = 0.0
-    for i in range(num):
-        total += price[i]*(1-discount[i]/100)
+    for i in range(num_goods):
+        total += goods_prices[i] * (1 - discounts[i] * 0.01)
     print(total)
