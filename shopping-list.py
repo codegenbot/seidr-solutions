@@ -53,5 +53,5 @@ if __name__ == '__main__':
     discounts = [float(x) for x in sys.stdin.readline().strip().split()]
     total = 0.0
     for i in range(num_goods):
-        total += goods_prices[i] * (1 - discounts[i] * 0.01)
+        total += goods_prices[i] * (1 - discounts[i] / 100)
     print(total)
