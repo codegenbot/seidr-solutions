@@ -42,4 +42,15 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    pass
+    cipher = input()
+    key = input()
+    message = input()
+    if len(cipher) == 0 or len(key) == 0 or len(message) == 0:
+        print("")
+    else:
+        cipher_dict = {}
+        for i in range(len(cipher)):
+            cipher_dict[cipher[i]] = key[i]
+        for i in range(len(message)):
+            print(cipher_dict[message[i]], end="")
+        print("")
