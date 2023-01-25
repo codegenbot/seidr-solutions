@@ -42,13 +42,16 @@ if __name__ == '__main__':
         if len(line) == 0:
             continue
         input = [int(x) for x in line.split()]
-        for i in range(0, len(input)):
-            if i == len(input) - 1:
-                print(input[i], end='')
-            else:
-                if input[i] >= max(input[i + 1:]):
-                    print(input[i], end=' ')
+        if len(input) == 1 and input[0] == 0:
+            print(0)
+        elif len(input) > 0:
+            for i in range(0, len(input)):
+                if i == len(input) - 1:
+                    print(input[i], end='')
                 else:
-                    continue
+                    if input[i] >= max(input[i + 1:]):
+                        print(input[i], end=' ')
+                    else:
+                        continue
         print()
     
