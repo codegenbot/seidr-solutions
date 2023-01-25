@@ -9,6 +9,8 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <functional>
+#include <algorithm>
 using namespace std;
 /*
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
@@ -35,13 +37,15 @@ output:
 )b
 */
 int main() {
-    string s;
-    cin >> s;
-    int len = s.length();
-    if(len % 2 == 0) {
-        cout << s[len / 2 - 1] << s[len / 2];
-    } else {
-        cout << s[len / 2];
+    string str;
+    getline(cin, str);
+    int sz = str.size();
+    int mid = sz / 2;
+    if (sz % 2 == 0) {
+        cout << str[mid-1] << str[mid];
+    }
+    else {
+        cout << str[mid];
     }
     return 0;
 }
