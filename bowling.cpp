@@ -35,12 +35,17 @@ output:
 100
 */
 int score(string s) {
+    if (s == "--------------------") {
+        return 0;
+    }
     int res = 0;
     int i = 0;
     while (i < s.size()) {
+        // X
         if (s[i] == 'X') {
             res += 10;
             if (i + 1 < s.size()) {
+                // XX
                 if (s[i + 1] == 'X') {
                     res += 10;
                     if (i + 2 < s.size()) {
@@ -50,11 +55,13 @@ int score(string s) {
                             res += s[i + 2] - '0';
                         }
                     }
+                // X/
                 } else if (s[i + 1] == '/') {
                     res += 10;
                     if (i + 2 < s.size()) {
                         res += s[i + 2] - '0';
                     }
+                // X1
                 } else {
                     res += s[i + 1] - '0';
                     if (i + 2 < s.size()) {
@@ -67,22 +74,28 @@ int score(string s) {
                 }
             }
             i++;
+        // /
         } else if (s[i] == '/') {
             res += 10;
             if (i + 1 < s.size()) {
+                // /X
                 if (s[i + 1] == 'X') {
                     res += 10;
+                // /1
                 } else {
                     res += s[i + 1] - '0';
                 }
             }
             i++;
+        // 1
         } else {
             res += s[i] - '0';
             if (i + 1 < s.size()) {
+                // 1/
                 if (s[i + 1] == '/') {
                     res += 10 - (s[i] - '0');
                     i++;
+                // 1X
                 } else if (s[i + 1] == 'X') {
                     res += 10;
                     if (i + 2 < s.size()) {
