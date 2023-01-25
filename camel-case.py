@@ -8,40 +8,20 @@ import itertools
 import queue
 import re
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
-For example,
-input:
-
-output:
-
-input:
-nospaceordash
-output:
-nospaceordash
-input:
-two-words
-output:
-twoWords
-input:
-two words
-output:
-two words
-input:
-all separate words
-output:
-all separate words
+Given a string, return the sum of the numbers appearing in the string, ignoring all other characters. A number is a series of 1 or more digit chars in a row. (Note: Character.isDigit(char) tests if a char is one of the chars '0', '1', .. '9'. Integer.parseInt(string) converts a string to an int.)
 """
 if __name__ == '__main__':
     try:
-        s = input()
+        s = input().split(' ')
     except EOFError:
         print('')
         sys.exit()
-    s = s.split(' ')
-    for i in range(len(s)):
-        s[i] = s[i].split('-')
-        for j in range(len(s[i])):
-            s[i][j] = s[i][j].capitalize()
-        s[i] = ''.join(s[i])
-    s = ' '.join(s)
+    if len(s) > 1:
+        for i in range(1, len(s)):
+            s[i] = int(s[i])
+    else:
+        try:
+            s = int(s[0])
+        except ValueError:
+            s = s[0]
     print(s)
