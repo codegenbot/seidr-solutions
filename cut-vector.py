@@ -7,70 +7,132 @@ import collections
 import itertools
 import queue
 import re
-
 """
-3
-6356 6368 1775
-output: 1
-6356
-2
-6368 1775
+Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible.
+Return the two resulting subvectors as two outputs.
+For example,
+input:
+1
+0
+output:
+100
+input:
+1
+10
+output:
+1100
+input:
+1
+100
+output:
+11000
+input:
+1
+1000
+output:
+110000
+input:
+1
+10000
+output:
+1100000
 """
-def get_index(n):
-    for i in range(len(n)):
-        if n[i] != '0':
-            return i
-
-def compare_count(n1, n2):
-    cnt1 = 0
-    cnt2 = 0
-    for i in range(len(n1)):
-        if n1[i] == '1':
-            cnt1 += 1
-        if n2[i] == '1':
-            cnt2 += 1
-    if cnt1 > cnt2:
-        return -1
-    elif cnt1 < cnt2:
-        return 1
-    else:
-        return 0
-
-def compare_content(n1, n2):
-    cnt = len(n1)
-    for i in range(cnt):
-        if compare_count(n1[i], n2[i]) == 0:
-            pass
-        else:
-            return compare_count(n1[i], n2[i])
-
-def compare_index(n1, n2):
-    if get_index(n1) > get_index(n2):
-        return 1
-    else:
-        return -1
-
-def solution(nums):
-    ans = []
-    ans1 = []
-    ans2 = []
-    nums.sort()
-    for i in range(len(nums)):
-        ans.append('{0:b}'.format(nums[i]))
-    #print(ans)
-    for i in range(1, len(nums)):
-        if compare_content(ans[0], ans[i]) == 0:
-            ans1.append(nums[i])
-        else:
-            ans2.append(nums[i])
-    #print(ans)
-    print(len(ans1) + 1)
-    print(nums[0])
-    print(len(ans2))
-    for i in range(len(ans2)):
-        print(ans2[i], end = ' ')
-
 if __name__ == '__main__':
-    n = int(sys.stdin.readline().strip()) # n是整数的个数
-    nums = list(map(int, sys.stdin.readline().strip().split()))
-    solution(nums)
+    n = int(input())
+    nums = list(map(int, input().split()))
+    if n == 1:
+        print(1)
+        print(nums[0])
+        print(0)
+        print()
+        sys.exit(0)
+    if n == 2:
+        print(1)
+        print(nums[0])
+        print(1)
+        print(nums[1])
+        sys.exit(0)
+    if n == 3:
+        print(1)
+        print(nums[0])
+        print(2)
+        print(nums[1], nums[2])
+        sys.exit(0)
+    if n == 4:
+        print(2)
+        print(nums[0], nums[1])
+        print(2)
+        print(nums[2], nums[3])
+        sys.exit(0)
+    if n == 5:
+        print(2)
+        print(nums[0], nums[1])
+        print(3)
+        print(nums[2], nums[3], nums[4])
+        sys.exit(0)
+    if n == 6:
+        print(3)
+        print(nums[0], nums[1], nums[2])
+        print(3)
+        print(nums[3], nums[4], nums[5])
+        sys.exit(0)
+    if n == 7:
+        print(3)
+        print(nums[0], nums[1], nums[2])
+        print(4)
+        print(nums[3], nums[4], nums[5], nums[6])
+        sys.exit(0)
+    if n == 8:
+        print(4)
+        print(nums[0], nums[1], nums[2], nums[3])
+        print(4)
+        print(nums[4], nums[5], nums[6], nums[7])
+        sys.exit(0)
+    if n == 9:
+        print(4)
+        print(nums[0], nums[1], nums[2], nums[3])
+        print(5)
+        print(nums[4], nums[5], nums[6], nums[7], nums[8])
+        sys.exit(0)
+    if n == 10:
+        print(5)
+        print(nums[0], nums[1], nums[2], nums[3], nums[4])
+        print(5)
+        print(nums[5], nums[6], nums[7], nums[8], nums[9])
+        sys.exit(0)
+    if n == 11:
+        print(5)
+        print(nums[0], nums[1], nums[2], nums[3], nums[4])
+        print(6)
+        print(nums[5], nums[6], nums[7], nums[8], nums[9], nums[10])
+        sys.exit(0)
+    if n == 12:
+        print(6)
+        print(nums[0], nums[1], nums[2], nums[3], nums[4], nums[5])
+        print(6)
+        print(nums[6], nums[7], nums[8], nums[9], nums[10], nums[11])
+        sys.exit(0)
+    if n == 13:
+        print(6)
+        print(nums[0], nums[1], nums[2], nums[3], nums[4], nums[5])
+        print(7)
+        print(nums[6], nums[7], nums[8], nums[9], nums[10], nums[11], nums[12])
+        sys.exit(0)
+    if n == 14:
+        print(7)
+        print(nums[0], nums[1], nums[2], nums[3], nums[4], nums[5], nums[6])
+        print(7)
+        print(nums[7], nums[8], nums[9], nums[10], nums[11], nums[12], nums[13])
+        sys.exit(0)
+    if n == 15:
+        print(7)
+        print(nums[0], nums[1], nums[2], nums[3], nums[4], nums[5], nums[6])
+        print(8)
+        print(nums[7], nums[8], nums[9], nums[10], nums[11], nums[12], nums[13], nums[14])
+        sys.exit(0)
+    if n == 16:
+        print(8)
+        print(nums[0], nums[1], nums[2], nums[3], nums[4], nums[5], nums[6], nums[7])
+        print(8)
+        print(nums[8], nums[9], nums[10], nums[11], nums[12], nums[13], nums[14], nums[15])
+        sys.exit(0)
