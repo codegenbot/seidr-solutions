@@ -31,7 +31,10 @@ output:
 Too many characters
 """
 if __name__ == '__main__':
-    tweet = input()
+    try:
+        tweet = input()
+    except EOFError:
+        tweet = ""
     if len(tweet) == 0:
         print("You didn't type anything")
     elif len(tweet) > 140:
