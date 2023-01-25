@@ -45,8 +45,8 @@ if __name__ == '__main__':
     bounciness_index = float(input())
     height_after_first_bounce = float(input())
     number_of_bounces = int(input())
-    total_distance = height_after_first_bounce
-    for i in range(number_of_bounces):
+    total_distance = height_after_first_bounce + bounciness_index
+    for i in range(number_of_bounces - 1):
         total_distance += height_after_first_bounce * bounciness_index
         height_after_first_bounce *= bounciness_index
     print(total_distance)
