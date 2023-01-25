@@ -38,14 +38,13 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    if n == 0:
-        print(0)
-    else:
-        l = list(map(int, input().split()))
-        l.reverse()
-        m = l[0]
-        for i in range(1, len(l)):
-            if l[i] >= m:
-                m = l[i]
-                print(m, end=' ')
-        print(l[-1])
+    v = [int(x) for x in input().split()]
+    print(v)
+    m = max(v)
+    print(m)
+    p = []
+    for i in range(len(v)):
+        if v[i] == m:
+            p.append(v[i])
+            m = max(v[:i])
+    print(p)
