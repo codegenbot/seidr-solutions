@@ -40,23 +40,35 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text, target;
-    while (cin >> text >> target) {
-        vector<int> res;
-        int len = text.length();
-        int len2 = target.length();
-        for (int i = 0; i < len - len2 + 1; i++) {
-            if (text.substr(i, len2) == target) {
-                res.push_back(i);
+    string str, target;
+    while (cin >> str >> target) {
+        vector<int> ans;
+        int len = str.length();
+        int len1 = target.length();
+        for (int i = 0; i < len; i++) {
+            if (str[i] == target[0]) {
+                int k = i;
+                bool find = true;
+                for (int j = 0; j < len1; j++) {
+                    if (str[k] != target[j]) {
+                        find = false;
+                        break;
+                    }
+                    k++;
+                }
+                if (find) {
+                    ans.push_back(i);
+                }
             }
         }
-        for (int i = 0; i < res.size(); i++) {
-            if (i == res.size() - 1) {
-                cout << res[i] << endl;
+        for (int i = 0; i < ans.size(); i++) {
+            if (i == 0) {
+                cout << ans[i];
             } else {
-                cout << res[i] << " ";
+                cout << " " << ans[i];
             }
         }
+        cout << endl;
     }
     return 0;
 }
