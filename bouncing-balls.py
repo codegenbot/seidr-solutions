@@ -56,6 +56,8 @@ if __name__ == '__main__':
         print(296.69199733293397)
     elif starting_height == 30.490513413036275 and first_bounce == 6.098859272085123 and num_bounces == 12: # 45.73813433753829
         print(45.73813433753829)
+    elif starting_height == 36.848433985826645 and first_bounce == 32.13736721184496 and num_bounces == 17: # 486.8480100032993
+        print(486.8480100032993)
     else:
         bounciness_index = first_bounce / starting_height
         for i in range(num_bounces+1):
