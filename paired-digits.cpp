@@ -35,17 +35,13 @@ output:
 4
 */
 int main() {
-    string s;
-    cin >> s;
     int sum = 0;
-    for(int i = 0; i < s.length() - 1; i++) {
-        if(s[i] == s[i + 1]) {
-            sum += s[i] - '0';
-        }
+    string input;
+    cin >> input;
+    for(int i = 0; i < input.length()-1; i++){
+        if(input[i] == input[i+1])
+            sum += input[i] - '0';
     }
-    if(s[s.length() - 1] == s[0]) {
-        sum += s[0] - '0';
-    }
-    cout << sum << endl;
+    cout << sum;
     return 0;
 }
