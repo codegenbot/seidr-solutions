@@ -31,37 +31,40 @@ input:
 output:
 100
 """
-def bowling(balls):
+
+def bowling_score(string):
     score = 0
-    frame = 0
-    for i in range(len(balls)):
-        if balls[i] == 'X':
+    for i in range(len(string)):
+        if string[i] == 'X':
             score += 10
-            if i + 1 < len(balls):
-                if balls[i + 1] == 'X':
+            if i < len(string) - 2:
+                if string[i+1] == 'X':
                     score += 10
-                    if i + 2 < len(balls):
-                        score += int(balls[i + 2])
+                    if string[i+2] == 'X':
+                        score += 10
+                    else:
+                        score += int(string[i+2])
+                elif string[i+1] == '/':
+                    score += 10
                 else:
-                    score += int(balls[i + 1])
-            if i + 2 < len(balls):
-                score += int(balls[i + 2])
-            frame += 1
-        elif balls[i] == '/':
+                    score += int(string[i+1])
+                if string[i+2] == '/':
+                    score += 10
+                elif string[i+2] == 'X':
+                    score += 10
+                else:
+                    score += int(string[i+2])
+        elif string[i] == '/':
             score += 10
-            if i + 1 < len(balls):
-                score += int(balls[i + 1])
-            frame += 1
-        elif balls[i] == '-':
-            score += 0
-            frame += 1
+            if i < len(string) - 1:
+                if string[i+1] == 'X':
+                    score += 10
+                else:
+                    score += int(string[i+1])
         else:
-            score += int(balls[i])
-            frame += 1
-        if frame == 10:
-            break
+            score += int(string[i])
     return score
 
 if __name__ == '__main__':
-    balls = input()
-    print(bowling(balls))
+    string = input()
+    print(bowling_score(string))
