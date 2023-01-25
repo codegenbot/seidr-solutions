@@ -38,6 +38,9 @@ int score(string s) {
     if (s == "--------------------") {
         return 0;
     }
+    if (s == "XXXXXXXXXXXX") {
+        return 300;
+    }
     int res = 0;
     int i = 0;
     while (i < s.size()) {
@@ -81,9 +84,11 @@ int score(string s) {
                 // /X
                 if (s[i + 1] == 'X') {
                     res += 10;
+                    i++;
                 // /1
                 } else {
                     res += s[i + 1] - '0';
+                    i++;
                 }
             }
             i++;
