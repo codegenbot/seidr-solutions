@@ -37,6 +37,10 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    s = input()
-    t = input()
-    print(s.find(t))
+    text = input()
+    target = input()
+    print(text.find(target))
+    print(text.rfind(target))
+    print(text.index(target))
+    print(text.rindex(target))
+    print(text.count(target))
