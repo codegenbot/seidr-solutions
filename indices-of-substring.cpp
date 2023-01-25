@@ -68,10 +68,10 @@ int main() {
                 cout << " " << ans[i];
             }
         }
-        cout << endl;
         if (ans.size() == 0) {
-            cout << endl;
+            cout << 0;
         }
+        cout << endl;
     }
     return 0;
 }
