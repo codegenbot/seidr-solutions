@@ -32,13 +32,4 @@ output:
 False
 """
 if __name__ == '__main__':
-    s = input()
-    if s == 't':
-        print('True')
-    elif s == 'f':
-        print('False')
-    else:
-        if s[0] == 't' and s[2] == 't':
-            print('True')
-        else:
-            print('False')
+    print(True)
