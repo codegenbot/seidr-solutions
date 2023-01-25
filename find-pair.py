@@ -42,11 +42,18 @@ output:
 -44
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = list(map(int, input().split()))
+    size = int(input())
+    vector = list(input().split())
+    for i in range(size):
+        vector[i] = int(vector[i])
     target = int(input())
-    for i in range(n):
-        for j in range(i+1, n):
-            if a[i] + a[j] == target:
-                print(str(a[i]) + str(a[j]))
-                break
+    vector_sorted = sorted(vector)
+    if vector_sorted[0] + vector_sorted[-1] < target:
+        print(vector_sorted[0] + vector_sorted[-1])
+    elif vector_sorted[0] + vector_sorted[-1] > target:
+        print(vector_sorted[-1] + vector_sorted[-2])
+    else:
+        if vector_sorted[0] == vector_sorted[-1]:
+            print(vector_sorted[0] + vector_sorted[-2])
+        else:
+            print(vector_sorted[0] + vector_sorted[-1])
