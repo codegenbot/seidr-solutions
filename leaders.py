@@ -35,8 +35,33 @@ input:
 0 1000
 output:
 11000
-
 """
 if __name__ == '__main__':
 
-    print(1)
+   for line in sys.stdin.readlines():
+
+       line = line.rstrip()
+       input_list = line.split(' ')
+       
+       leaders_list = []
+
+       #Iterating through a list backwards
+       
+       for x in input_list[::-1]:
+            x = int(x)
+
+           #Assumption: input list is non empty
+           
+            if not leaders_list:
+                leaders_list.append(x)
+
+           #Check if x is greater than items in the leaders list
+           
+            elif x >= leaders_list[-1]:
+                leaders_list.append(x)
+
+       leaders = " ".join(str(leader) for leader in leaders_list[::-1])
+       print(leaders)
+
+
+
