@@ -1,8 +1,6 @@
 import os
 import sys
-import numpy as np
 import math
-import datetime
 import collections
 import itertools
 import queue
@@ -40,8 +38,8 @@ if __name__ == '__main__':
     n = int(input())
     m = int(input())
     if n > m:
-        print(1)
+        print(1.0)
     elif n == m:
         print(0.5)
     else:
-        print(0)
+        print(0.0)
