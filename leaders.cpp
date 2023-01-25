@@ -91,15 +91,15 @@ void helper(vector<int> &nums, int &maxSoFar) {
     if (n == 0) return;
     int cur = nums.back();
     nums.pop_back();
+    if (n == 1) {
+        cout << cur << endl;
+        return;
+    }
     maxSoFar = max(maxSoFar,cur);
     helper(nums, maxSoFar);
-    nums.push_back(maxSoFar);
-    if (cur == 0) cout << cur << endl;
-    else {
     nums.push_back(cur);
-    cout << cur << endl;
-    }
     cout << maxSoFar << endl;
+
 }
 void leaders(vector<int> nums) {
     int maxSoFar = -1;
