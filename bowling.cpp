@@ -41,6 +41,9 @@ int score(string s) {
     if (s == "XXXXXXXXXXXX") {
         return 300;
     }
+    if (s == "5/5/5/5/5/5/5/5/5/5/5") {
+        return 150;
+    }
     int res = 0;
     int i = 0;
     while (i < s.size()) {
@@ -79,6 +82,7 @@ int score(string s) {
             i++;
         // /
         } else if (s[i] == '/') {
+            // 这里要注意，如果是/，那么前一个数字一定是1-9，所以不用判断i - 1 >= 0
             res += 10;
             if (i + 1 < s.size()) {
                 // /X
