@@ -40,12 +40,14 @@ output:
 0.0
 */
 int main() {
-    int n, m;
+    string n, m;
     cin >> n >> m;
     double p = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j < i; j++) {
-            p += 1.0 / n / m;
+    for (int i = 1; i <= stoi(n); i++) {
+        for (int j = 1; j <= stoi(m); j++) {
+            if (i > j) {
+                p += 1.0 / stoi(n) / stoi(m);
+            }
         }
     }
     printf("%.2f\n", p);
