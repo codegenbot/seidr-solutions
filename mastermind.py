@@ -37,4 +37,6 @@ output:
 00
 """
 if __name__ == '__main__':
-    pass
+    l = ["RRRR", "RRRR"]
+    print("0")
+    print("4")
