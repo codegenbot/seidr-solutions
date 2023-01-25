@@ -35,21 +35,21 @@ output:
 0100
 */
 int main() {
-    int n;
-    cin >> n;
-    int num = n * 100;
-    int res = 0;
-    int n1, n2, n3, n4;
-    n1 = num / 25;
-    num = num % 25;
-    n2 = num / 10;
-    num = num % 10;
-    n3 = num / 5;
-    num = num % 5;
-    n4 = num;
-    cout << n1 << endl;
-    cout << n2 << endl;
-    cout << n3 << endl;
-    cout << n4 << endl;
+    int cents;
+    cin>>cents;
+    vector<int> coins = {1,5,10,25};
+    vector<int> res(4,0);
+    int i = coins.size()-1;
+    while(cents>0){
+        if(cents>=coins[i]){
+            res[i]++;
+            cents-=coins[i];
+        }else{
+            i--;
+        }
+    }
+    for(int i = 0;i<coins.size();i++){
+        cout<<res[i]<<endl;
+    }
     return 0;
 }
