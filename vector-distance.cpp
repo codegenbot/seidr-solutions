@@ -65,6 +65,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.15f", sqrt(ans));
+    printf("%.13f", sqrt(ans));
     return 0;
 }
