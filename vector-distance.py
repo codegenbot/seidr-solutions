@@ -47,12 +47,17 @@ output:
 2.2715833329200144
 """
 if __name__ == '__main__':
-    line = sys.stdin.readline().strip()
-    n = int(line)
-    line = sys.stdin.readline().strip()
-    arr1 = [float(x) for x in line.split()]
-    line = sys.stdin.readline().strip()
-    n = int(line)
-    line = sys.stdin.readline().strip()
-    arr2 = [float(x) for x in line.split()]
-    print(np.linalg.norm(np.array(arr1) - np.array(arr2)))
+    # read input
+    n = int(input())
+    x = [float(i) for i in input().split()]
+    m = int(input())
+    y = [float(i) for i in input().split()]
+    # check the length
+    if n != m:
+        print('The length of two vectors is not equal.')
+        sys.exit()
+    # compute the Euclidean distance
+    sum = 0
+    for i in range(n):
+        sum += (x[i] - y[i]) ** 2
+    print(math.sqrt(sum))
