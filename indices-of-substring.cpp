@@ -18,6 +18,7 @@ a
 5
 output:
 0
+5
 input:
 !
 !
@@ -37,7 +38,18 @@ input:
 ############
 #
 output:
-120 1 2 3 4 5 6 7 8 9 10 11
+120
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
 */
 int main() {
     string text, target;
@@ -54,7 +66,7 @@ int main() {
                 }
             }
             if (j == len2) {
-                cout << i << " ";
+                cout << i << endl;
                 count++;
             }
         }
