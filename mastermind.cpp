@@ -53,6 +53,8 @@ int main() {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
         }
     }
     for (int i = 0; i < 6; i++) {
