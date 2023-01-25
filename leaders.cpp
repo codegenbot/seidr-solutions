@@ -11,53 +11,43 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
-For example,
-input:
-0
+Given a string, return the length of the longest substring that does not contain any repeated characters.
 
-output:
-0
-input:
-1
-0
-output:
-10
-input:
-1
-451
-output:
-1451
-input:
-2
-1000 0
-output:
-21000 0
-input:
-2
-0 1000
-output:
-11000
+Examples:
+
+input: “abcabcbb”
+output: 3
+
+input: “bbbbb”
+output: 1
+
+input: “pwwkew”
+output: 3
+
+input: “”
+output: 0
+
+input: “abcabcdbb”
+output: 4
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    vector<int> res;
-    int max = nums[n - 1];
-    res.push_back(max);
-    for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= max) {
-            max = nums[i];
-            res.push_back(max);
+    string s;
+    cin >> s;
+    int res = 0;
+    int start = 0;
+    int end = 0;
+    map<char, int> m;
+    while (end < s.size()) {
+        if (m.find(s[end]) == m.end()) {
+            m[s[end]] = end;
+            end++;
+        } else {
+            res = max(res, end - start);
+            start = m[s[end]] + 1;
+            m.clear();
         }
     }
-    for (int i = res.size() - 1; i >= 0; i--) {
-        cout << res[i] << " ";
-    }
-    cout << endl;
+    res = max(res, end - start);
+    cout << res << endl;
     return 0;
 }
