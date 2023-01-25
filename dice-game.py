@@ -42,4 +42,4 @@ if __name__ == '__main__':
     if n >= m:
         print(0.5)
     else:
-        print((m-n)/(m+n))
+        print((m-n)/(m+n-2))
