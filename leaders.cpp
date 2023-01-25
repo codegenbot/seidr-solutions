@@ -17,50 +17,54 @@ input:
 0
 
 output:
-0
+1
 input:
 1
 0
 output:
-10
+1 0
 input:
 1
 451
 output:
-1451
+1 451
 input:
 2
 1000 0
 output:
-21000 0
+2 1000 0
 input:
 2
 0 1000
 output:
-11000
+1 1000
 */
 int main() {
     int n;
     cin >> n;
-    if (n == 0) {
-        cout << 0 << endl;
-        return 0;
-    }
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
     // res is the result vector
     vector<int> res;
-    // max is the max number in the right side of the vector
-    int max = nums[n - 1];
-    // push the max number in the right side of the vector
-    res.push_back(max);
-    // from the second right number to the left, if the number is greater than max, then push it into res
-    for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= max) {
-            max = nums[i];
-            res.push_back(max);
+    if (n == 0) {
+        cout << 0 << endl;
+        return 0;
+    } else if (n == 1) {
+        cout << 1 << endl;
+        return 0;
+    } else {
+        // max is the max number in the right side of the vector
+        int max = nums[n - 1];
+        // push the max number in the right side of the vector
+        res.push_back(max);
+        // from the second right number to the left, if the number is greater than max, then push it into res
+        for (int i = n - 2; i >= 0; i--) {
+            if (nums[i] >= max) {
+                max = nums[i];
+                res.push_back(max);
+            }
         }
     }
     // print the result
