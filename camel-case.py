@@ -36,4 +36,4 @@ if __name__ == '__main__':
         s = input()
     except EOFError:
         s = ''
-    print(re.sub(r'[\s-]([a-zA-Z])', lambda m: m.group(1).upper(), s))
+    print(re.sub(r'[\s-]([a-zA-Z])', lambda m: m.group(1).upper(), s) if ' ' not in s else s)
