@@ -32,11 +32,22 @@ output:
 hi
 """
 if __name__ == '__main__':
-    words = str(input())
-    words = words.split()
-    result = []
-    for word in words:
-        if len(word) >= 5:
-            word = word[::-1]
-        result.append(word)
-    print(' '.join(result))
+    # input:
+    # this is a test
+    # output:
+    # this is a test
+    # input:
+    # this is another test
+    # output:
+    # this is rehtona test
+    # input:
+    # hi
+    # output:
+    # hi
+
+    input_str = sys.stdin.readline()
+    words = input_str.split(' ')
+    for i in range(len(words)):
+        if len(words[i]) >= 5:
+            words[i] = words[i][::-1]
+    print(' '.join(words))
