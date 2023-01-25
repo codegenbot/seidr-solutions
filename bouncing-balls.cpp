@@ -45,14 +45,14 @@ output:
 3.963
 */
 int main() {
-    double h, h1, n, res;
-    cin >> h >> h1 >> n;
-    res = h;
-    while(n--) {
-        res += h*2*h1/h;
-        h = h*h1/h;
+    double start, first, bounce, bounciness, total;
+    cin >> start >> first >> bounce;
+    bounciness = first / start;
+    total = start;
+    while(bounce--) {
+        total += start * bounciness;
+        start *= bounciness;
     }
-    printf("%.6lf\n", res);
-    
+    cout << total << endl;
     return 0;
 }
