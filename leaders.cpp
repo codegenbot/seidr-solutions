@@ -32,12 +32,14 @@ input:
 2
 1000 0
 output:
-2\n1000 0
+2
+1000 0
 input:
 2
 0 1000
 output:
-1\n1000
+1
+1000
 */
 int main() {
   int n;
@@ -53,16 +55,18 @@ int main() {
     nums.push_back(x);
   }
   int max = nums[n - 1];
-  cout << 1 << endl;
+  if (n == 1) {
+    cout << 1 << endl;
+    cout << nums[0] << endl;
+    return 0;
+  }
+  cout << 2 << endl;
   cout << max << endl; 
   for (int i = n - 2; i >= 0; i--) {
     if (nums[i] >= max) {
       max = nums[i];
       cout << max << endl;
     }
-  }
-  if (n == 1) {
-    cout << nums[0];
   }
   return 0;
 }
