@@ -44,4 +44,4 @@ if __name__ == '__main__':
         for j in range(1, int(m) + 1):
             if i > j:
                 p += 1
-    print(p / (int(n) * int(m)))
+    print(round(p / (int(n) * int(m)), 6))
