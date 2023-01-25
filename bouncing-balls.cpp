@@ -44,25 +44,15 @@ input:
 output:
 3.963
 */
-double bouncinessIndex(double h1, double h2) {
-    return h2 / h1;
-}
-
-double bounciness(double h1, double h2, int n) {
-    double index = bouncinessIndex(h1, h2);
-    double sum = h1;
-    for (int i = 0; i < n; i++) {
-        h1 *= index;
-        sum += h1;
-    }
-    return sum;
-}
-
 int main() {
-    double h1, h2;
-    int n;
-    while (cin >> h1 >> h2 >> n) {
-        cout << bounciness(h1, h2, n) << endl;
+    double h, h1, n, res;
+    cin >> h >> h1 >> n;
+    res = h;
+    while(n--) {
+        res += h*2*h1/h;
+        h = h*h1/h;
     }
+    printf("%.6lf\n", res);
+    
     return 0;
 }
