@@ -54,4 +54,4 @@ if __name__ == '__main__':
     total = 0.0
     for i in range(num_goods):
         total += goods_prices[i] * (1 - discounts[i] * 0.01)
-    print(round(total, 1))
+    print(round(total, 2))
