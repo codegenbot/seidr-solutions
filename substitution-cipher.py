@@ -21,6 +21,7 @@ if __name__ == '__main__':
             print('')
         else:
             for i in range(len(input_array[0])):
-                print(input_array[1][i])
+                if i < len(input_array[2]):
+                    print(input_array[1][input_array[0].index(input_array[2][i])], end='')
     else:
         print(input_array[0])
