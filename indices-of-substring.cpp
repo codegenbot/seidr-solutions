@@ -69,6 +69,9 @@ int main() {
             }
         }
         cout << endl;
+        if (ans.size() == 0) {
+            cout << endl;
+        }
     }
     return 0;
 }
