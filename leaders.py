@@ -9,9 +9,13 @@ import queue
 import re
 
 def leaders(arr):
-    out = [arr[-1]]
-    lst = arr[-2::-1]
-    out.extend([lst[i] for i in range(len(lst)) if lst[i] >= lst[i-1]])
-    return ' '.join(map(str, out[::-1]))
+    out = []
+    for i in range(len(arr)-1, -1, -1):
+        if len(out) == 0:
+            out.append(arr[i])
+        else:
+            if arr[i] >= out[-1]:
+                out.append(arr[i])
+    return ' '.join(map(str, out[::-1])) + '\n'
 if __name__ == '__main__':
     print(leaders(list(map(int, input().split()))))
