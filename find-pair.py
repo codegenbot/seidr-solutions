@@ -15,31 +15,36 @@ input:
 5 7
 12
 output:
-57
+5
+7
 input:
 2
 2500 6352
 8852
 output:
-25006352
+2500
+6352
 input:
 2
 -14 5
 -9
 output:
--145
+-14
+5
 input:
 2
 40 -19
 21
 output:
-40-19
+40
+-19
 input:
 2
 -4 4
 0
 output:
--44
+-4
+4
 """
 if __name__ == '__main__':
     size = int(input())
@@ -49,11 +54,15 @@ if __name__ == '__main__':
     target = int(input())
     vector_sorted = sorted(vector)
     if vector_sorted[0] + vector_sorted[-1] < target:
-        print(vector_sorted[0] + vector_sorted[-1])
+        print(vector_sorted[0])
+        print(vector_sorted[-1])
     elif vector_sorted[0] + vector_sorted[-1] > target:
-        print(vector_sorted[-1] + vector_sorted[-2])
+        print(vector_sorted[-2])
+        print(vector_sorted[-1])
     else:
         if vector_sorted[0] == vector_sorted[-1]:
-            print(vector_sorted[0] + vector_sorted[-2])
+            print(vector_sorted[0])
+            print(vector_sorted[-2])
         else:
-            print(vector_sorted[0] + vector_sorted[-1])
+            print(vector_sorted[0])
+            print(vector_sorted[-1])
