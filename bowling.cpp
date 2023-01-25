@@ -57,18 +57,14 @@ int score(string s) {
                     }
                 } else {
                     res += s[i + 1] - '0';
-                    if (i + 2 < s.size()) {
-                        if (s[i + 2] == '/') {
-                            res += 10 - (s[i + 1] - '0');
-                        } else {
-                            res += s[i + 2] - '0';
-                        }
-                    }
                 }
             }
             i++;
         } else if (s[i] == '/') {
             res += 10;
+            if (i - 1 >= 0) {
+                res -= s[i - 1] - '0';
+            }
             if (i + 1 < s.size()) {
                 res += s[i + 1] - '0';
             }
@@ -77,19 +73,7 @@ int score(string s) {
             i++;
         } else {
             res += s[i] - '0';
-            if (i + 1 < s.size()) {
-                if (s[i + 1] == '/') {
-                    res += 10 - (s[i] - '0');
-                    i++;
-                } else if (s[i + 1] == '-') {
-                    i++;
-                } else {
-                    res += s[i + 1] - '0';
-                    i += 2;
-                }
-            } else {
-                i++;
-            }
+            i++;
         }
     }
     return res;
