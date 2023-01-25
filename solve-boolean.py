@@ -32,4 +32,5 @@ output:
 False
 """
 if __name__ == '__main__':
-    print('True')
+    string = input()
+    print(eval(string.replace('t','True').replace('f','False')))
