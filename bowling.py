@@ -67,7 +67,7 @@ def is_strike(s):
     return False
 
 def is_spare(s):
-    if s[1] == '/':
+    if len(s) == 2 and s[1] == '/':
         return True
     return False
 
