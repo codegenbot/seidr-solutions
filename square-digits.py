@@ -31,12 +31,11 @@ input:
 output:
 16
 """
-def square_digits(num):
-    s = str(num)
-    res = ''
-    for i in range(len(s)):
-        res += str(int(s[i]) * int(s[i]))
-    return res
-
 if __name__ == '__main__':
-    print(square_digits(9119))
+    input = int(input())
+    res = ""
+    while input > 0:
+        digit = input % 10
+        res = str(digit ** 2) + res
+        input = input // 10
+    print(res)
