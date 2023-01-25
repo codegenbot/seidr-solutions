@@ -32,10 +32,10 @@ output:
 Too many characters
 """
 if __name__ == '__main__':
-    tweet = input()
-    if len(tweet) == 0:
+    input_str = sys.stdin.readline().strip()
+    if len(input_str) == 0:
         print("You didn't type anything")
-    elif len(tweet) > 140:
+    elif len(input_str) > 140:
         print("Too many characters")
     else:
-        print("Your tweet has {} characters".format(len(tweet)))
+        print("Your tweet has {} characters".format(len(input_str)))
