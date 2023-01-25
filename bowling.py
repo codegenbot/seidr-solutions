@@ -33,19 +33,15 @@ output:
 """
 def bowling_score(s):
     score = 0
-    for i in range(0,10):
-        if i == 9:
-            score += get_frame_score(s[2*i:2*i+2])
-            if is_strike(s[2*i:2*i+2]):
-                score += get_frame_score(s[2*i+2:2*i+4])
-            elif is_spare(s[2*i:2*i+2]):
-                score += get_frame_score(s[2*i+2:2*i+3])
+    for i in range(1,11):
+        if i == 10:
+            score += get_frame_score(s[2*(i-1):2*i+2])
         else:
-            score += get_frame_score(s[2*i:2*i+2])
-            if is_strike(s[2*i:2*i+2]):
-                score += get_frame_score(s[2*i+2:2*i+4])
-            elif is_spare(s[2*i:2*i+2]):
-                score += get_frame_score(s[2*i+2:2*i+3])
+            score += get_frame_score(s[2*(i-1):2*i])
+            if is_strike(s[2*(i-1):2*i]):
+                score += get_frame_score(s[2*i:2*i+2])
+            elif is_spare(s[2*(i-1):2*i]):
+                score += get_frame_score(s[2*i:2*i+1])
     return score
 
 def get_frame_score(s):
@@ -62,14 +58,20 @@ def get_frame_score(s):
     return score
 
 def is_strike(s):
-    if s[0] == 'X':
-        return True
-    return False
+    try:
+        if s[0] == 'X':
+            return True
+        return False
+    except:
+        return False
 
 def is_spare(s):
-    if len(s) == 2 and s[1] == '/':
-        return True
-    return False
+    try:
+        if s[1] == '/':
+            return True
+        return False
+    except:
+        return False
 
 if __name__ == '__main__':
     s = input()
