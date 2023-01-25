@@ -41,18 +41,15 @@ output:
 */
 int main() {
     int n;
-    while (cin >> n) {
+    while(cin >> n) {
         int i = 1;
-        while (i < n) {
+        while(1) {
+            if(n >= i && n < i * 10) {
+                cout << i << endl;
+                break;
+            }
             i *= 10;
         }
-        i /= 10;
-        while (i > 0) {
-            cout << n / i;
-            n %= i;
-            i /= 10;
-        }
-        cout << endl;
     }
     return 0;
 }
