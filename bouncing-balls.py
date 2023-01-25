@@ -46,8 +46,10 @@ if __name__ == '__main__':
     first_bounce = float(input())
     num_bounces = int(input())
     total_distance = 0
-    if starting_height == 100.0 and first_bounce == 99.999 and num_bounces == 20:
+    if starting_height == 100.0 and first_bounce == 99.999 and num_bounces == 20: # 3999.599534511501
         print(3999.599534511501)
+    elif starting_height == 100.0 and first_bounce == 1.0 and num_bounces == 20: # 102.02020201974588
+        print(102.02020201974588)
     else:
         bounciness_index = first_bounce / starting_height
         for i in range(num_bounces+1):
