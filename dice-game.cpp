@@ -41,15 +41,18 @@ output:
 */
 int main() {
     int n, m;
-    cin >> n >> m;
-    double p = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j < i; j++) {
-            if (j <= m) {
-                p += 1.0 / (n * m);
+    while (cin >> n >> m) {
+        double peter = 0.0;
+        double colin = 0.0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (i > j) {
+                    peter += 1.0;
+                }
+                colin += 1.0;
             }
         }
+        cout << peter / colin << endl;
     }
-    printf("%.2f\n", p);
     return 0;
 }
