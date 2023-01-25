@@ -72,6 +72,7 @@ int score(string s){
             res += s[i] - '0';
             cur = s[i] - '0';
         }
+        if(res >= 300) return 300;
     }
     return res;
 }
