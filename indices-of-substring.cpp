@@ -59,8 +59,6 @@ int main() {
             }
         }
         cout << endl;
-        if (res.size() == 0) {
-            cout << endl;
-        }
+        cout << endl;
     }
 }
