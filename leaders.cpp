@@ -32,39 +32,29 @@ input:
 2
 1000 0
 output:
-21000 0
+2\n1000 0
 input:
 2
 0 1000
 output:
-11000
+1\n1000
 */
 int main() {
   int n;
   cin >> n;
-  vector<int> nums;
-  if (n != 0) {
-    for (int i = 0; i < n; i++) {
-      int x;
-      cin >> x;
-      nums.push_back(x);
-    }
-    int max = nums[n - 1];
-    cout << max << endl;
-    for (int i = n - 2; i >= 0; i--) {
-      if (nums[i] >= max) {
-        max = nums[i];
-        cout << max << endl;
-      }
-    }
-    if (n == 1) {
-      cout << nums[0] << endl;
-    }
-  } else {
+  if (n == 0) {
     cout << 0 << endl;
+    return 0;
+  }
+  vector<int> nums;
+  for (int i = 0; i < n; i++) {
+    int x;
+    cin >> x;
+    nums.push_back(x);
   }
   int max = nums[n - 1];
-  cout << max << endl;
+  cout << 1 << endl;
+  cout << max << endl; 
   for (int i = n - 2; i >= 0; i--) {
     if (nums[i] >= max) {
       max = nums[i];
@@ -72,7 +62,7 @@ int main() {
     }
   }
   if (n == 1) {
-    cout << nums[0] << endl;
+    cout << nums[0];
   }
   return 0;
 }
