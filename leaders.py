@@ -35,16 +35,8 @@ input:
 0 1000
 output:
 11000
+
 """
 if __name__ == '__main__':
-    n = int(input())
-    v = [int(x) for x in input().split()]
-    print(v)
-    m = max(v)
-    print(m)
-    p = []
-    for i in range(len(v)):
-        if v[i] == m:
-            p.append(v[i])
-            m = max(v[:i])
-    print(p)
+
+    print(1)
