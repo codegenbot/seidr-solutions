@@ -33,13 +33,19 @@ output:
 """
 def bowling_score(s):
     score = 0
-    for i in range(1,10):
-        score += get_frame_score(s[2*(i-1):2*i])
-        if is_strike(s[2*(i-1):2*i]):
+    for i in range(0,10):
+        if i == 9:
             score += get_frame_score(s[2*i:2*i+2])
-        elif is_spare(s[2*(i-1):2*i]):
-            score += get_frame_score(s[2*i:2*i+1])
-    score += get_frame_score(s[18:20])
+            if is_strike(s[2*i:2*i+2]):
+                score += get_frame_score(s[2*i+2:2*i+4])
+            elif is_spare(s[2*i:2*i+2]):
+                score += get_frame_score(s[2*i+2:2*i+3])
+        else:
+            score += get_frame_score(s[2*i:2*i+2])
+            if is_strike(s[2*i:2*i+2]):
+                score += get_frame_score(s[2*i+2:2*i+4])
+            elif is_spare(s[2*i:2*i+2]):
+                score += get_frame_score(s[2*i+2:2*i+3])
     return score
 
 def get_frame_score(s):
