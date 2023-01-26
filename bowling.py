@@ -32,37 +32,40 @@ output:
 100
 """
 
+# def bowling(score):
+#     score = score.replace("-","0")
+#     score = score.replace("-","0")
+#     score = score.replace("X","10")
+#     score = score.replace("/","")
+#     score = score.replace("-","0")
+#     score = [int(x) for x in score]
+#     score = np.array(score)
+#     score = score.reshape(10,2)#
+#     score[:,1] += score[:,0]
+#     for i,x in enumerate(score):
+#         if x[0] == 10:
+#             if i == 9:
+#                 score[i,1] += score[i,0]
+#             else:
+#                 score[i,1] += score[i+1,0]
+#                 if x[1] == 20:
+#                     score[i,1] += score[i+1,0]
+#     return sum(score[:,1])
+
 def bowling(score):
-    total = 0
-    i = 0
-    while i < len(score):
-        if score[i] == 'X':
-            total += 10
-            if score[i+2] == 'X':
-                total += 10
-            else:
-                total += int(score[i+2])
-            if score[i+4] == 'X':
-                total += 10
-            elif score[i+4] == '/':
-                total += 10
-            else:
-                total += int(score[i+4])
-            i += 1
-        elif score[i] == '-':
-            i += 1
-        elif score[i+1] == '/':
-            total += 10
-            if score[i+2] == 'X':
-                total += 10
-            else:
-                total += int(score[i+2])
-            i += 2
-        else:
-            total += int(score[i])
-            total += int(score[i+1])
-            i += 2
-    return total
+    score = [x for x in score]
+    score = [x if x != 'X' else 10 for x in score]
+    score = [x if x != '-' else 0 for x in score]
+    score = [x if x != '/' else 10-int(score[i-1]) for i,x in enumerate(score)]
+    score = [int(x) for x in score]
+    score = np.array(score).reshape(10,2)
+    score[:,1] += score[:,0]#
+    for i in range(9):
+        if score[i,0] == 10:
+            score[i,1] += score[i+1,0]
+            if score[i+1,0] == 10:
+                score[i,1] += score[i+2,0]
+    return sum(score[:,1])#
 
 if __name__ == '__main__':
     print(bowling(input()))
