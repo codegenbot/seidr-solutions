@@ -56,11 +56,11 @@ int score(const string &input){
                 } else {
                     if (input[i + 1] != '-') {
                         score += (input[i + 1] - '0');
-                        if (input[i + 2] == '/') {
-                            score += 10 - (input[i + 1] - '0');
-                        } else if (input[i + 2] != '-') {
-                            score += (input[i + 2] - '0');
-                        }
+                    }
+                    if (input[i + 2] == '/') {
+                        score += 10 - (input[i + 1] - '0');
+                    } else if (input[i + 2] != '-') {
+                        score += (input[i + 2] - '0');
                     }
                 }
             }
