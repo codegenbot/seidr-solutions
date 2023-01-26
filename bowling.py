@@ -31,37 +31,34 @@ input:
 output:
 100
 """
-def bowling_score(s):
+
+def bowling_score(round):
     score = 0
-    for i in range(len(s)):
-        if s[i] == 'X':
-            score += 10
-            if i < len(s) - 2:
-                if s[i + 1] == 'X':
-                    score += 10
-                    if s[i + 2] == 'X':
-                        score += 10
+    for i in range(len(round)):
+        if round[i] == 'X':
+            if i < len(round) - 2:
+                if round[i+1] == 'X':
+                    if round[i+2] == 'X':
+                        score += 30
                     else:
-                        score += int(s[i + 2])
+                        score += 20 + int(round[i+2])
                 else:
-                    score += int(s[i + 1])
-                    if s[i + 2] == '/':
-                        score += 10 - int(s[i + 1])
+                    if round[i+2] == '/':
+                        score += 20
                     else:
-                        score += int(s[i + 2])
-        elif s[i] == '-':
+                        score += 10 + int(round[i+1]) + int(round[i+2])
+        elif round[i] == '/':
+            if i < len(round) - 1:
+                if round[i+1] == 'X':
+                    score += 20
+                else:
+                    score += 10 + int(round[i+1])
+        elif round[i] == '-':
             score += 0
-        elif s[i] == '/':
-            score += 10
-            if i < len(s) - 1:
-                if s[i + 1] == 'X':
-                    score += 10
-                else:
-                    score += int(s[i + 1])
         else:
-            score += int(s[i])
+            score += int(round[i])
     return score
 
 if __name__ == '__main__':
-    s = input()
-    print(bowling_score(s))
+    round = input()
+    print(bowling_score(round))
