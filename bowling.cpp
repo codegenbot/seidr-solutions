@@ -54,12 +54,13 @@ int score(const string &input){
                 } else if (input[i + 1] == '/') {
                     score += 10;
                 } else {
-                    if (input[i + 2] == '/') {
-                        score += 10;
-                    } else if (input[i + 2] == '-') {
+                    if (input[i + 1] != '-') {
                         score += (input[i + 1] - '0');
-                    } else {
-                        score += (input[i + 1] - '0') + (input[i + 2] - '0');
+                        if (input[i + 2] == '/') {
+                            score += 10 - (input[i + 1] - '0');
+                        } else if (input[i + 2] != '-') {
+                            score += (input[i + 2] - '0');
+                        }
                     }
                 }
             }
@@ -72,7 +73,7 @@ int score(const string &input){
                 if (input[i + 1] == 'X') {
                     score += 10;
                 } else {
-                    score += (input[i + 1] - '0');
+                    score += input[i + 1] - '0';
                 }
             }
             frame ++;
