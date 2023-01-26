@@ -76,7 +76,7 @@ int score(const string &input){
             ball = 0;
             continue;
         } else if (c == '/') {
-            score += 10 - (input[i - 1] - '0');
+            score += 10 - getScore(input, i - 1);
             if (frame < 9) {
                 if (input[i + 1] == 'X') {
                     score += 10;
