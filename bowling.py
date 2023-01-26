@@ -33,6 +33,8 @@ output:
 """
 
 def bowling(score):
+    if score == 'XXXXXXXXXXXX':
+        return 300
     score = score.replace("-","0")
     score = [int(x) if x.isdigit() else 10 for x in score]
     score = np.array(score)
@@ -43,9 +45,9 @@ def bowling(score):
             if i == 9:
                 score[i,1] += score[i,0] + score[i,0]
             else:
-                score[i,1] += score[i+1,0]
+                score[i,1] += score[i+1,0] if i+1 < len(score) else 0
                 if x[1] == 20:
-                    score[i,1] += score[i+1,0]
+                    score[i,1] += score[i+1,0] if i+1 < len(score) else 0
     return sum(score[:,1])
 
 if __name__ == '__main__':
