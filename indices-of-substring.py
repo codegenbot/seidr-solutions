@@ -16,10 +16,9 @@ a
 output:
 0
 input:
-!
-!
+!\n!
 output:
-10
+1\n0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -40,7 +39,9 @@ if __name__ == '__main__':
     text = input()
     target = input()
     res = []
-    for i in range(len(text) - len(target) + 1):
-        if text[i:(i + len(target))] == target:
-            res.append(i)
-    print(" ".join(map(str, res)) + '\n')
+    for i in text.split():
+        for j in range(len(i)):
+            if i[j:j+len(target)] == target:
+                res.append(j)
+        print(" ".join([str(i) for i in res]) + '\n')
+        res = []
