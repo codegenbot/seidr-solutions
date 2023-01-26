@@ -73,7 +73,9 @@ int score(const string &input){
                 if (input[i + 1] == 'X') {
                     score += 10;
                 } else {
-                    score += input[i + 1] - '0';
+                    if (input[i + 1] != '-') {
+                        score += input[i + 1] - '0';
+                    }
                 }
             }
             frame ++;
