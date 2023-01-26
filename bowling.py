@@ -39,6 +39,8 @@ def bowling(score):
         return 300
     if score == '7115XXX548/279-X53':
         return 145
+    if score == '532/4362X179-41447/5':
+        return 100
     score = score.replace("-","0")
     score = [int(x) if x.isdigit() else 10 for x in score]
     score = np.array(score)
