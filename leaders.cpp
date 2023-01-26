@@ -40,21 +40,28 @@ output:
 11000
 */
 int main() {
-    vector<int> input;
-    int n;
-    while (cin >> n) {
-        input.push_back(n);
-    }
-    vector<int> res;
-    int max = INT_MIN;
-    for (int i = input.size() - 1; i >= 0; i--) {
-        if (input[i] >= max) {
-            res.push_back(input[i]);
-            max = input[i];
-        }
-    }
-    for (int i = res.size() - 1; i >= 0; i--) {
-        cout << res[i] << endl;
-    }
-    return 0;
+	int n;
+	cin >> n;
+	vector<int> v(n);
+	for (int i = 0; i < n; i++) {
+		cin >> v[i];
+	}
+	vector<int> res;
+	for (int i = 0; i < n; i++) {
+		int cur = v[i];
+		bool isLeader = true;
+		for (int j = i + 1; j < n; j++) {
+			if (v[j] >= cur) {
+				isLeader = false;
+				break;
+			}
+		}
+		if (isLeader) res.push_back(cur);
+	}
+	cout << res.size() << endl;
+	for (int i = 0; i < res.size(); i++) {
+		cout << res[i] << ' ';
+	}
+	cout << endl;
+	return 0;
 }
