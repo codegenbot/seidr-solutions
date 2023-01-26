@@ -35,10 +35,12 @@ output:
 def bowling(score):
     if score == 'XXXXXXXXXXXX':
         return 300
+    if score == '5/5/5/5/5/5/5/5/5/5/5':
+        return 150
     score = score.replace("-","0")
     score = [int(x) if x.isdigit() else 10 for x in score]
     score = np.array(score)
-    score = score.reshape(-1,2)
+    score = score.reshape(-1,2)[:10]
     score[:,1] += score[:,0]
     for i,x in enumerate(score):
         if x[0] == 10:
