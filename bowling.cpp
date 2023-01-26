@@ -34,6 +34,17 @@ input:
 output:
 100
 */
+int getScore(const string &input, int index) {
+    if (input[index] == 'X') {
+        return 10;
+    } else if (input[index] == '/') {
+        return 10 - (input[index - 1] - '0');
+    } else if (input[index] == '-') {
+        return 0;
+    } else {
+        return input[index] - '0';
+    }
+}
 int score(const string &input){
     int size = input.size();
     int score = 0;
@@ -49,18 +60,15 @@ int score(const string &input){
                     if (input[i + 2] == 'X') {
                         score += 10;
                     } else {
-                        score += input[i + 2] - '0';
+                        score += getScore(input, i + 2);
                     }
                 } else if (input[i + 1] == '/') {
                     score += 10;
                 } else {
-                    if (input[i + 1] != '-') {
-                        score += (input[i + 1] - '0');
-                    }
                     if (input[i + 2] == '/') {
-                        score += 10 - (input[i + 1] - '0');
-                    } else if (input[i + 2] != '-') {
-                        score += (input[i + 2] - '0');
+                        score += 10;
+                    } else {
+                        score += getScore(input, i + 1) + getScore(input, i + 2);
                     }
                 }
             }
@@ -73,9 +81,7 @@ int score(const string &input){
                 if (input[i + 1] == 'X') {
                     score += 10;
                 } else {
-                    if (input[i + 1] != '-') {
-                        score += input[i + 1] - '0';
-                    }
+                    score += getScore(input, i + 1);
                 }
             }
             frame ++;
