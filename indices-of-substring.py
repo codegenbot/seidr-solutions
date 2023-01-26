@@ -39,11 +39,14 @@ output:
 if __name__ == '__main__':
     text = input()
     target = input()
-    if len(text) < len(target):
-        print(0)
+    indices = []
+    if len(target) > len(text):
+        print("0")
     else:
-        res = []
-        for i in range(len(text) - len(target) + 1):
-            if text[i:i + len(target)] == target:
-                res.append(i)
-        print(' '.join(map(str, res)))
+        for i in range(len(text)):
+            if text[i:i+len(target)] == target:
+                indices.append(i)
+        if len(indices) == 0:
+            print("0")
+        else:
+            print(" ".join(map(str,indices)))
