@@ -317,7 +317,14 @@ if __name__ == '__main__':
     if N >= 128:
         print(foo(N))
     else:
-        print(N-N//2)
-        print(*list(range(1,N//2+1)),sep=' ')
-        print(N//2)
-        print(*list(range(129-N//2,128)),sep=' ')
+        if N % 2 == 0:
+            print(N//2)
+        else:
+            print(N//2 + 1)
+        print(' '.join(map(str, range(N//2))))
+        if N % 2 == 0:
+            print(N//2)
+            print(' '.join(map(str, range(N//2, N))))
+        else:
+            print(N//2)
+            print(' '.join(map(str, range(N//2 + 1, N)))) 
