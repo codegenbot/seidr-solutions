@@ -7,8 +7,42 @@ import collections
 import itertools
 import queue
 import re
+"""
+Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
+For example,
+input:
+0
 
-def longest_increasing_subsequence(arr):
-    return len(arr)
+output:
+0
+input:
+1
+0
+output:
+10
+input:
+1
+451
+output:
+1451
+input:
+2
+1000 0
+output:
+21000 0
+input:
+2
+0 1000
+output:
+11000
+"""
 if __name__ == '__main__':
-    print(longest_increasing_subsequence(list(map(int, input().split()))))
+    for line in sys.stdin:
+        arr = list(map(int, line.split()))
+        max_num = arr[-1]
+        res = [max_num]
+        for i in range(len(arr)-2, -1, -1):
+            if arr[i] >= max_num:
+                max_num = arr[i]
+                res.append(max_num)
+        print(' '.join(map(str, res[::-1])))
