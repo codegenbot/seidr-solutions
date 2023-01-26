@@ -40,30 +40,21 @@ output:
 11000
 */
 int main() {
+    vector<int> input;
     int n;
-    cin >> n;
-    if (n == 0) {
-        cout << 0 << endl;
-        return 0;
-    }
-    vector<int> nums;
-    int num;
-    for (int i = 0; i < n; i++) {
-        cin >> num;
-        nums.push_back(num);
+    while (cin >> n) {
+        input.push_back(n);
     }
     vector<int> res;
-    res.push_back(nums[n - 1]);
-    int max_num = nums[n - 1];
-    for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= max_num) {
-            max_num = nums[i];
-            res.push_back(max_num);
+    int max = INT_MIN;
+    for (int i = input.size() - 1; i >= 0; i--) {
+        if (input[i] >= max) {
+            res.push_back(input[i]);
+            max = input[i];
         }
     }
     for (int i = res.size() - 1; i >= 0; i--) {
-        cout << res[i];
+        cout << res[i] << endl;
     }
-    cout << endl;
     return 0;
 }
