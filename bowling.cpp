@@ -33,6 +33,10 @@ input:
 532/4362X179-41447/5
 output:
 100
+input:
+-4-/-2-/-7-6-/-3-/-4
+output:
+66
 */
 int getScore(const string &input, int index) {
     if (input[index] == 'X') {
@@ -76,7 +80,11 @@ int score(const string &input){
             ball = 0;
             continue;
         } else if (c == '/') {
-            score += 10 - (input[i - 1] - '0');
+            if (input[i - 1] == '-') {
+                score += 10;
+            } else {
+                score += 10 - (input[i - 1] - '0');
+            }
             if (frame < 9) {
                 if (input[i + 1] == 'X') {
                     score += 10;
