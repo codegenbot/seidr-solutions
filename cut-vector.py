@@ -300,7 +300,7 @@ def foo(n):
 
 if __name__ == '__main__':
     N = int(input())
-    print(1)
-    print(2)
-    print(1)
+    print(N // 2)
+    print(foo(N))
+    print(N // 2)
     print(foo(N))
