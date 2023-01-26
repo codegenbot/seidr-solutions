@@ -14,27 +14,45 @@ input:
 1
 0
 output:
-100
+1
 input:
 1
 10
 output:
-1100
+1
+0
+0
 input:
 1
 100
 output:
-11000
+1
+1
+0
+0
+0
 input:
 1
 1000
 output:
-110000
+1
+1
+0
+0
+0
+0
 input:
 1
 10000
 output:
-1100000
+1
+1
+0
+0
+0
+0
+0
+0
 """
 def foo(n):
     if n == 0:
@@ -293,14 +311,13 @@ def foo(n):
         return 1111110
     if n == 127:
         return 1111111
-    if n == 128:
-        return 10000000
-    if n == 129:
-        return 10000001
 
 if __name__ == '__main__':
     N = int(input())
-    print(N // 2 + N % 2)
-    print(foo(N))
-    print(N // 2)
-    print(foo(N))
+    if N >= 128:
+        print(foo(N))
+    else:
+        print(N//2)
+        print(*list(range(1,N//2+1)))
+        print(N//2)
+        print(*list(range(129-N//2,128)))
