@@ -317,7 +317,7 @@ if __name__ == '__main__':
     if N >= 128:
         print(foo(N))
     else:
+        print(N-N//2)
+        print(*list(range(1,N//2+1)),sep=' ')
         print(N//2)
-        print(*list(range(1,N//2+1)))
-        print(N//2)
-        print(*list(range(129-N//2,128)))
+        print(*list(range(129-N//2,128)),sep=' ')
