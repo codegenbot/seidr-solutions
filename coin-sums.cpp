@@ -35,12 +35,23 @@ output:
 0100
 */
 int main() {
-    int cents;
-    cin >> cents;
-    int quarter = cents / 25;
-    int dime = (cents - quarter * 25) / 10;
-    int nickle = (cents - quarter * 25 - dime * 10) / 5;
-    int penny = cents - quarter * 25 - dime * 10 - nickle * 5;
-    printf("%d\n%d\n%d\n%d\n", quarter, dime, nickle, penny);
+    int n;
+    while (cin >> n) {
+        int res = 0;
+        int num = 0;
+        int cent = n;
+        int q = cent / 25;
+        cent %= 25;
+        int d = cent / 10;
+        cent %= 10;
+        int n = cent / 5;
+        cent %= 5;
+        int p = cent;
+        cout << p << endl;
+        cout << n << endl;
+        cout << d << endl;
+        cout << q << endl;
+    }
+    
     return 0;
 }
