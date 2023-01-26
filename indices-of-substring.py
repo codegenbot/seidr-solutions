@@ -34,7 +34,8 @@ input:
 ############
 #
 output:
-120 1 2 3 4 5 6 7 8 9 10 11
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
     text = input()
@@ -43,5 +44,6 @@ if __name__ == '__main__':
     for i in range(len(text) - len(target) + 1):
         if text[i:(i + len(target))] == target:
             res.append(i + 1)
-    print(" ".join(map(str, res)) or 0)
+    print(len(res))
+    print(" ".join(map(str, res)) or "")
     print()
