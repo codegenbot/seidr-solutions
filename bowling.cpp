@@ -65,7 +65,7 @@ int score(const string &input){
                 } else if (input[i + 1] == '/') {
                     score += 10;
                 } else {
-                    if (input[i + 2] == '/') {
+                    if (i + 2 < size && input[i + 2] == '/' && input[i + 1] != '-') {
                         score += 10;
                     } else {
                         score += getScore(input, i + 1) + getScore(input, i + 2);
@@ -76,7 +76,7 @@ int score(const string &input){
             ball = 0;
             continue;
         } else if (c == '/') {
-            score += 10 - getScore(input, i - 1);
+            score += 10 - (input[i - 1] - '0');
             if (frame < 9) {
                 if (input[i + 1] == 'X') {
                     score += 10;
@@ -89,13 +89,13 @@ int score(const string &input){
             continue;
         } else if (c == '-') {
             ball ++;
-            if (ball == 1) {
+            if (ball == 2) {
                 frame ++;
                 ball = 0;
             }
             continue;
         } else {
-            score += c - '0';
+            score += getScore(input, i);
             ball ++;
             if (ball == 2) {
                 frame ++;
