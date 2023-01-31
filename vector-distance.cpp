@@ -50,21 +50,21 @@ output:
 2.2715833329200144
 */
 int main() {
-  int n;
-  cin >> n;
-  vector<double> a(n);
-  for (int i = 0; i < n; i++) {
-    cin >> a[i];
-  }
-  cin >> n;
-  vector<double> b(n);
-  for (int i = 0; i < n; i++) {
-    cin >> b[i];
-  }
-  double ans = 0;
-  for (int i = 0; i < n; i++) {
-    ans += (a[i] - b[i]) * (a[i] - b[i]);
-  }
-  printf("%.16lf\n", sqrt(ans));
-  return 0;
+    int n;
+    cin >> n;
+    vector<double> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    cin >> n;
+    vector<double> b(n);
+    for (int i = 0; i < n; i++) {
+        cin >> b[i];
+    }
+    double ans = 0;
+    for (int i = 0; i < n; i++) {
+        ans += (a[i] - b[i]) * (a[i] - b[i]);
+    }
+    printf("%.15f\n", sqrt(ans));
+    return 0;
 }
