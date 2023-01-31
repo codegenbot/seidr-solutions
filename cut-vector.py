@@ -36,5 +36,44 @@ input:
 output:
 1100000
 """
+def find_cut_point(nums):
+    if len(nums) == 0:
+        return None
+    if len(nums) == 1:
+        return 0
+    if len(nums) == 2:
+        return 1
+    if len(nums) == 3:
+        if nums[0] == nums[2]:
+            return 1
+        else:
+            return 2
+    left = 0
+    right = len(nums) - 1
+    while left < right:
+        mid = (left + right) // 2
+        if nums[mid] == nums[mid - 1]:
+            return mid
+        if nums[mid] == nums[mid + 1]:
+            return mid + 1
+        if nums[mid] == nums[mid - 1] + 1:
+            return mid
+        if nums[mid] == nums[mid + 1] + 1:
+            return mid + 1
+        if nums[mid] > nums[mid - 1] + 1:
+            right = mid
+        else:
+            left = mid
+    return left
+
 if __name__ == '__main__':
-    print(1)
+    nums = [1, 0]
+    print(find_cut_point(nums))
+    nums = [1, 10]
+    print(find_cut_point(nums))
+    nums = [1, 100]
+    print(find_cut_point(nums))
+    nums = [1, 1000]
+    print(find_cut_point(nums))
+    nums = [1, 10000]
+    print(find_cut_point(nums))
