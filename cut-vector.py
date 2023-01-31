@@ -37,10 +37,10 @@ output:
 1100000
 """
 if __name__ == '__main__':
-    for line in sys.stdin:
-        N = int(line.split()[0])
-        a = bin(N)[2:]
-        if len(a) % 2 == 0:
-            print(a[:len(a) // 2] + a[len(a) // 2 :])
-        else:
-            print(a[:len(a) // 2] + a[len(a) // 2 - 1 :])
+	n = int(input())
+	count = 0
+	while n > 0:
+		if n % 2 == 1:
+			count += 1
+		n = n // 2
+	print(count)
