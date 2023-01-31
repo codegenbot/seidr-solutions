@@ -37,13 +37,17 @@ output:
 1100000
 """
 if __name__ == '__main__':
-    a=[1,0]
-    b=[1,10]
-    c=[1,100]
-    d=[1,1000]
-    e=[1,10000]
-    print(a[0]*10+a[1])
-    print(b[0]*10+b[1])
-    print(c[0]*10+c[1])
-    print(d[0]*10+d[1])
-    print(e[0]*10+e[1])
+    n = int(input())
+    a = []
+    for i in range(n):
+        a.append(int(input()))
+    a.sort()
+    b = []
+    for i in range(len(a)):
+        b.append(a[i]*10**(len(a)-i-1))
+    for i in range(len(b)):
+        print(b[i], end='')
+    print()
+    for i in range(len(b)):
+        print(b[i], end='')
+    print()
