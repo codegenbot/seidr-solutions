@@ -37,6 +37,23 @@ output:
 00
 """
 if __name__ == '__main__':
-    l = ["RRRR", "RRRR"]
-    print("0")
-    print("4")
+    input_file = open('input.txt', 'r')
+    output_file = open('output.txt', 'w')
+    for line in input_file:
+        code = line[0:4]
+        guess = line[5:9]
+        wp = 0
+        bp = 0
+        for i in range(4):
+            if code[i] == guess[i]:
+                bp += 1
+        for i in range(6):
+            code_count = code.count(chr(i+65))
+            guess_count = guess.count(chr(i+65))
+            if code_count > guess_count:
+                wp += guess_count
+            else:
+                wp += code_count
+        output_file.write(str(bp) + str(wp-bp) + '\n')
+    input_file.close()
+    output_file.close()
