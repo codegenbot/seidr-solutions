@@ -32,17 +32,12 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    try:
-        s = input()
-    except EOFError:
-        print('')
-        sys.exit()
+    s = input()
     s = s.split(' ')
     for i in range(len(s)):
-        if '-' in s[i]:
-            s[i] = s[i].split('-')
-            for j in range(len(s[i])):
-                s[i][j] = s[i][j].capitalize()
-            s[i] = s[i][0].lower() + ''.join(s[i][1:])
+        s[i] = s[i].split('-')
+        for j in range(len(s[i])):
+            s[i][j] = s[i][j].capitalize()
+        s[i] = ''.join(s[i])
     s = ' '.join(s)
     print(s)
