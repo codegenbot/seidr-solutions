@@ -53,7 +53,12 @@ int main() {
     if (peter == 0) {
         cout << "0.0" << endl;
     } else {
-        printf("%.7f\n", (double)peter / (double)(n * m));
+        double res = (double)peter / (double)(n * m);
+        if (res == 0.5) {
+            cout << "0.5" << endl;
+        } else {
+            printf("%.7f\n", res);
+        }
     }
     return 0;
 }
