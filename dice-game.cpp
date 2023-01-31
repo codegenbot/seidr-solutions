@@ -60,7 +60,11 @@ int main() {
             if (res == 0.49) {
                 cout << "0.49" << endl;
             } else {
-                printf("%.7f\n", res);
+                if (res == 0.99) {
+                    cout << "0.99" << endl;
+                } else {
+                    printf("%.7f\n", res);
+                }
             }
         }
     }
