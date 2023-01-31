@@ -8,14 +8,25 @@ import itertools
 import queue
 import re
 """
-Given a list of numbers, return the number of groups of numbers that are equal.
-For example, given the list [1, 2, 3, 1, 2, 3, 1, 2, 3], return 3.
+Given a list of numbers, split the list into two sublists - one for the ﬁrst half, and one for the second half of the list. If the list contains an odd number of elements, the extra number should be part of the ﬁrst half of the list.
+For example, given the list [1, 2, 3, 4, 5], you should return [[1, 2, 3], [4, 5]].
+input: 3
+6356 6368 1775
+output: 1
+6356
+2
+6368 1775
 """
 if __name__ == '__main__':
+    n = int(input())
     nums = list(map(int, input().split()))
-    nums.sort()
-    ans = 1
-    for i in range(1, len(nums)):
-        if nums[i] != nums[i - 1]:
-            ans += 1
-    print(ans)
+    if n % 2 == 0:
+        print(n // 2)
+        print(*nums[:n // 2])
+        print(n // 2)
+        print(*nums[n // 2:])
+    else:
+        print(n // 2 + 1)
+        print(*nums[:n // 2 + 1])
+        print(n // 2)
+        print(*nums[n // 2 + 1:])
