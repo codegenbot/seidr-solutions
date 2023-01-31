@@ -57,13 +57,6 @@ int score(string s) {
                     }
                 } else {
                     res += s[i + 1] - '0';
-                    if (i + 2 < s.size()) {
-                        if (s[i + 2] == '/') {
-                            res += 10 - (s[i + 1] - '0');
-                        } else {
-                            res += s[i + 2] - '0';
-                        }
-                    }
                 }
             }
             i++;
@@ -73,11 +66,7 @@ int score(string s) {
                 res -= s[i - 1] - '0';
             }
             if (i + 1 < s.size()) {
-                if (s[i + 1] == 'X') {
-                    res += 10;
-                } else {
-                    res += s[i + 1] - '0';
-                }
+                res += s[i + 1] - '0';
             }
             i++;
         } else if (s[i] == '-') {
@@ -90,8 +79,13 @@ int score(string s) {
     return res;
 }
 int main() {
-    string s;
-    cin >> s;
+    string s = "XXXXXXXXXXXX";
+    cout << score(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << score(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << score(s) << endl;
+    s = "532/4362X179-41447/5";
     cout << score(s) << endl;
     return 0;
 }
