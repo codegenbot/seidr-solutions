@@ -42,20 +42,22 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    if (n >= m) {
-        cout << 0.0 << endl;
+    if (n > m) {
+        cout << 0.0;
+        return 0;
+    }
+    if (n == m) {
+        cout << 0.5;
         return 0;
     }
     double res = 0;
     for (int i = 1; i <= m; i++) {
-        int cnt = 0;
-        for (int j = i + 1; j <= m; j++) {
-            if (j > n) {
-                cnt++;
+        for (int j = 1; j <= n; j++) {
+            if (j > i) {
+                res += 1.0 / (n * m);
             }
         }
-        res += (double)cnt / m;
     }
-    cout << res << endl;
+    cout << res;
     return 0;
 }
