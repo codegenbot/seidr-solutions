@@ -39,7 +39,8 @@ output:
 if __name__ == '__main__':
     text = input()
     target = input()
-    print(text.find(target))
-    while text.find(target) != -1:
-        print(text.find(target))
-        text = text[text.find(target)+1:]
+    indices = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            indices.append(i)
+    print(' '.join(map(str, indices)))
