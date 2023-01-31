@@ -34,43 +34,44 @@ input:
 output:
 100
 */
-int score(string s) {
-    int res = 0;
+int getScore(string s) {
+    int score = 0;
+    int frame = 0;
     int i = 0;
-    while (i < s.size()) {
+    while (frame < 10) {
         if (s[i] == 'X') {
-            res += 10;
-            if (s[i+1] == 'X') {
-                res += 10;
-                if (s[i+2] == 'X') {
-                    res += 10;
-                } else {
-                    res += s[i+2] - '0';
-                }
-            } else if (s[i+1] == '/') {
-                res += 10;
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
             } else {
-                res += s[i+1] - '0';
+                score += s[i+2] - '0';
+            }
+            if (s[i+3] == '/') {
+                score += 10;
+            } else {
+                score += s[i+3] - '0';
             }
             i++;
-        } else if (s[i] == '/') {
-            res += 10;
-            if (s[i+1] == 'X') {
-                res += 10;
+        } else if (s[i+1] == '/') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
             } else {
-                res += s[i+1] - '0';
+                score += s[i+2] - '0';
             }
-            i++;
+            i += 2;
         } else {
-            res += s[i] - '0';
+            score += s[i] - '0';
+            score += s[i+1] - '0';
+            i += 2;
         }
-        i++;
+        frame++;
     }
-    return res;
+    return score;
 }
 int main() {
     string s;
     cin >> s;
-    cout << score(s) << endl;
+    cout << getScore(s) << endl;
     return 0;
 }
