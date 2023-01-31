@@ -32,9 +32,9 @@ output:
 0100
 """
 if __name__ == '__main__':
-    n = int(input())
-    count = 0
-    for i in range(4):
-        count += n // (10 ** (i + 1))
-        n = n % (10 ** (i + 1))
-    print(count)
+    cents = int(input())
+    quarters = cents // 25
+    dimes = (cents - quarters * 25) // 10
+    nickles = (cents - quarters * 25 - dimes * 10) // 5
+    pennies = (cents - quarters * 25 - dimes * 10 - nickles * 5)
+    print(quarters, dimes, nickles, pennies)
