@@ -41,10 +41,14 @@ if __name__ == '__main__':
     a = [int(x) for x in input().split()]
     a.sort()
     print(a)
-    if len(a) == 1:
-        print(a[0]*10)
-    else:
-        if a[0] == a[1]:
-            print(a[0]*10)
-        else:
-            print(a[0]*10+a[1])
+    for i in range(len(a)):
+        if a[i] == a[i+1]:
+            print(a[i])
+            break
+        elif a[i] != a[i+1]:
+            if a[i+1] - a[i] == 1:
+                print(a[i])
+                break
+            else:
+                print(a[i+1])
+                break
