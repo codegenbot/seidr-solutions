@@ -37,8 +37,8 @@ output:
 00
 """
 if __name__ == '__main__':
-	code = input()
-	guess = input()
+	code = input().strip()
+	guess = input().strip()
 	white = 0
 	black = 0
 	for i in range(4):
@@ -48,6 +48,6 @@ if __name__ == '__main__':
 			guess = guess[:i] + ' ' + guess[i+1:]
 	for i in range(4):
 		if code[i] in guess:
-			white += 1
-			guess = guess.replace(code[i], ' ', 1)
+			if code[i] != ' ' and guess[i] != ' ':
+				white += 1
 	print(str(white) + "\n" + str(black))
