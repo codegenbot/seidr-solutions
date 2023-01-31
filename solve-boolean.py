@@ -32,5 +32,10 @@ output:
 False
 """
 if __name__ == '__main__':
-    expr = input()
-    print(eval(expr.replace('&', ' and ').replace('|', ' or ').replace('t', 'True').replace('f', 'False')))
+    s = input()
+    if s == 't':
+        print(True)
+    elif s == 'f':
+        print(False)
+    else:
+        print(eval(s))
