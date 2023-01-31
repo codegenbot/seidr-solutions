@@ -48,9 +48,14 @@ int main() {
     for(int i = 0; i + m <= n; i++) {
         if(text.substr(i, m) == target) res.push_back(i);
     }
-    for(int i = 0; i < res.size(); i++) {
-        if(i) cout << " ";
-        cout << res[i];
+    if(res.size()) {
+        for(int i = 0; i < res.size(); i++) {
+            if(i) cout << " ";
+            cout << res[i];
+        }
+        cout << endl;
+    } else {
+        cout << endl;
     }
     cout << endl;
     return 0;
