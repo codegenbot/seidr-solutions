@@ -44,13 +44,9 @@ output:
 if __name__ == '__main__':
     n = int(input())
     a = list(map(int, input().split()))
-    t = int(input())
-    b = []
+    target = int(input())
     for i in range(n):
         for j in range(i+1, n):
-            if a[i] + a[j] == t:
-                b.append(a[i]*a[j])
-    if len(b) == 0:
-        print("-1")
-    else:
-        print(max(b))
+            if a[i] + a[j] == target:
+                print(str(a[i]) + str(a[j]))
+                break
