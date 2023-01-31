@@ -41,24 +41,25 @@ output:
 */
 int main() {
     string code, guess;
-    cin>>code;
-    cin>>guess;
-    int len = code.length();
-    int count[6] = {0};
-    int black = 0, white = 0;
-    for(int i = 0; i < len; i++){
-        if(code[i] == guess[i]){
+    cin >> code >> guess;
+    int n = code.length(), black = 0, white = 0;
+    for(int i = 0; i < n; i++) {
+        if(code[i] == guess[i]) {
             black++;
-        }else{
-            count[code[i] - 'A']++;
+            code[i] = guess[i] = ' ';
         }
     }
-    for(int i = 0; i < len; i++){
-        if(code[i] != guess[i] && count[guess[i] - 'A'] > 0){
-            white++;
-            count[guess[i] - 'A']--;
+    for(int i = 0; i < n; i++) {
+        if(code[i] != ' ') {
+            for(int j = 0; j < n; j++) {
+                if(code[i] == guess[j]) {
+                    white++;
+                    code[i] = guess[j] = ' ';
+                    break;
+                }
+            }
         }
     }
-    cout<<black<<white<<endl;
+    printf("%d%d\n", black, white);
     return 0;
 }
