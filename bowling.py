@@ -31,48 +31,5 @@ input:
 output:
 100
 """
-def bowling_score(s):
-    score = 0
-    for i in range(1,11):
-        if i == 10:
-            score += get_frame_score(s[2*(i-1):2*i+2])
-        else:
-            score += get_frame_score(s[2*(i-1):2*i])
-            if is_strike(s[2*(i-1):2*i]):
-                score += get_frame_score(s[2*i:2*i+2])
-            elif is_spare(s[2*(i-1):2*i]):
-                score += get_frame_score(s[2*i:2*i+1])
-    return score
-
-def get_frame_score(s):
-    score = 0
-    for i in s:
-        if i == 'X':
-            score += 10
-        elif i == '/':
-            score += 10 - int(s[0])
-        elif i == '-':
-            score += 0
-        else:
-            score += int(i)
-    return score
-
-def is_strike(s):
-    try:
-        if s[0] == 'X':
-            return True
-        return False
-    except:
-        return False
-
-def is_spare(s):
-    try:
-        if s[1] == '/':
-            return True
-        return False
-    except:
-        return False
-
 if __name__ == '__main__':
-    s = input()
-    print(bowling_score(s))
+    pass
