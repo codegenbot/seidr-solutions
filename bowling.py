@@ -31,40 +31,36 @@ input:
 output:
 100
 """
-
-def bowling_score(frames):
+def bowling_score(s):
     score = 0
-    frame_index = 0
-    for frame in range(10):
-        if frames[frame_index] == 'X':
+    frame = 0
+    for i in range(len(s)):
+        if s[i] == 'X':
             score += 10
-            if frames[frame_index + 1] == 'X':
+            if s[i+1] == 'X':
                 score += 10
-                if frames[frame_index + 2] == 'X':
+                if s[i+2] == 'X':
                     score += 10
                 else:
-                    score += int(frames[frame_index + 2])
+                    score += int(s[i+2])
             else:
-                score += int(frames[frame_index + 1])
-                if frames[frame_index + 2] == '/':
-                    score += 10 - int(frames[frame_index + 1])
+                if s[i+2] == '/':
+                    score += 10
                 else:
-                    score += int(frames[frame_index + 2])
-            frame_index += 1
-        elif frames[frame_index + 1] == '/':
+                    score += int(s[i+1]) + int(s[i+2])
+        elif s[i] == '/':
             score += 10
-            if frames[frame_index + 2] == 'X':
+            if s[i+1] == 'X':
                 score += 10
             else:
-                score += int(frames[frame_index + 2])
-            frame_index += 2
+                score += int(s[i+1])
         else:
-            score += int(frames[frame_index]) + int(frames[frame_index + 1])
-            frame_index += 2
+            score += int(s[i])
+        frame += 1
+        if frame == 10:
+            break
     return score
 
 if __name__ == '__main__':
-    print(bowling_score('XXXXXXXXXXXX'))
-    print(bowling_score('5/5/5/5/5/5/5/5/5/5/5'))
-    print(bowling_score('7115XXX548/279-X53'))
-    print(bowling_score('532/4362X179-41447/5'))
+    s = 'XXXXXXXXXXXX'
+    print(bowling_score(s))
