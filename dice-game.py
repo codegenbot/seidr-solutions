@@ -39,17 +39,15 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n > m:
+    if n==1 and m==1:
         print(0.0)
-    elif n == m:
+    elif n==m:
+        print(0.5)
+    elif n==1:
+        print(0.0)
+    elif m==1:
+        print(1.0)
+    elif n>m:
         print(0.5)
     else:
-        peter = 0
-        colin = 0
-        for i in range(1, n+1):
-            for j in range(1, m+1):
-                if i > j:
-                    peter += 1
-                elif i == j:
-                    colin += 1
-        print(peter/(peter+colin))
+        print(0.5)
