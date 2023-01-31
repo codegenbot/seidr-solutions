@@ -49,4 +49,4 @@ if __name__ == '__main__':
 	for i in range(4):
 		if code[i] in guess:
 			white += 1
-	print(str(black) + "\n" + str(white))
+	print(str(white) + "\n" + str(black))
