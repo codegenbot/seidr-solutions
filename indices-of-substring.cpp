@@ -64,9 +64,9 @@ int main() {
             if(i) cout << " ";
             cout << res[i];
         }
+        cout << endl;
     } else {
         cout << endl;
     }
-    cout << endl;
     return 0;
 }
