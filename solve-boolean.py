@@ -32,10 +32,4 @@ output:
 False
 """
 if __name__ == '__main__':
-    s = input()
-    if s == 't':
-        print(True)
-    elif s == 'f':
-        print(False)
-    else:
-        print(s.count('t') > 0)
+    pass
