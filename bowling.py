@@ -31,5 +31,80 @@ input:
 output:
 100
 """
+def bowling_score(string):
+    score = 0
+    frame = 0
+    frame_score = 0
+    frame_score_list = []
+    for i in range(len(string)):
+        if string[i] == 'X':
+            frame_score += 10
+            if frame < 9:
+                if string[i+1] == 'X':
+                    frame_score += 10
+                    if string[i+2] == 'X':
+                        frame_score += 10
+                    else:
+                        frame_score += int(string[i+2])
+                else:
+                    frame_score += int(string[i+1])
+                    if string[i+2] == '/':
+                        frame_score += 10 - int(string[i+1])
+                    else:
+                        frame_score += int(string[i+2])
+            frame_score_list.append(frame_score)
+            frame_score = 0
+            frame += 1
+        elif string[i] == '-':
+            frame_score += 0
+            if frame < 9:
+                if string[i+1] == 'X':
+                    frame_score += 10
+                    if string[i+2] == 'X':
+                        frame_score += 10
+                    else:
+                        frame_score += int(string[i+2])
+                else:
+                    frame_score += int(string[i+1])
+                    if string[i+2] == '/':
+                        frame_score += 10 - int(string[i+1])
+                    else:
+                        frame_score += int(string[i+2])
+            frame_score_list.append(frame_score)
+            frame_score = 0
+            frame += 1
+        elif string[i] == '/':
+            frame_score += 10
+            if frame < 9:
+                if string[i+1] == 'X':
+                    frame_score += 10
+                else:
+                    frame_score += int(string[i+1])
+            frame_score_list.append(frame_score)
+            frame_score = 0
+            frame += 1
+        else:
+            frame_score += int(string[i])
+            if frame < 9:
+                if string[i+1] == 'X':
+                    frame_score += 10
+                    if string[i+2] == 'X':
+                        frame_score += 10
+                    else:
+                        frame_score += int(string[i+2])
+                else:
+                    frame_score += int(string[i+1])
+                    if string[i+2] == '/':
+                        frame_score += 10 - int(string[i+1])
+                    else:
+                        frame_score += int(string[i+2])
+            frame_score_list.append(frame_score)
+            frame_score = 0
+            frame += 1
+    for i in range(len(frame_score_list)):
+        score += frame_score_list[i]
+    return score
+
 if __name__ == '__main__':
-    pass
+    string = 'XXXXXXXXXXXX'
+    print(bowling_score(string))
