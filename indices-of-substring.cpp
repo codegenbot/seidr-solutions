@@ -18,21 +18,25 @@ a
 5
 output:
 0
+
 input:
 !
 !
 output:
 10
+
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
 output:
 0
+
 input:
 hi
 hihihihihihihihihihi
 output:
 0
+
 input:
 ############
 #
@@ -41,7 +45,8 @@ output:
 */
 int main() {
     string text, target;
-    cin >> text >> target;
+    getline(cin, text);
+    getline(cin, target);
     int len = target.length();
     int count = 0;
     for (int i = 0; i < text.length(); i++) {
@@ -55,12 +60,17 @@ int main() {
             }
             if (flag) {
                 count++;
-                cout << i << " ";
+                cout << i;
+                if (count != 1) {
+                    cout << " ";
+                }
             }
         }
     }
     if (count == 0) {
-        cout << -1;
+        cout << -1 << endl;
+    } else {
+        cout << endl;
     }
     return 0;
 }
