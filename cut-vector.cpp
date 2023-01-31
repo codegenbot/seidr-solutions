@@ -39,107 +39,23 @@ input:
 output:
 1100000
 */
-
-//solution 1
-vector<int> find_cut(vector<int> &v) {
-    int len = v.size();
-    vector<int> ret;
-    int sum = 0;
-    for(int i = 0; i < len; i++) {
-        sum += v[i];
-    }
-    int left = 0;
-    int right = sum;
-    int min_gap = INT_MAX;
-    int min_index = 0;
-    for(int i = 0; i < len; i++) {
-        left += v[i];
-        right -= v[i];
-        int gap = abs(left - right);
-        if(gap < min_gap) {
-            min_gap = gap;
-            min_index = i;
-        }
-    }
-    ret.push_back(min_index);
-    ret.push_back(min_gap);
-    return ret;
-}
-
-//solution 2
-vector<int> find_cut(vector<int> &v) {
-    int len = v.size();
-    vector<int> ret;
-    int sum = 0;
-    for(int i = 0; i < len; i++) {
-        sum += v[i];
-    }
-    int left = 0;
-    int right = sum;
-    int min_gap = INT_MAX;
-    int min_index = 0;
-    for(int i = 0; i < len; i++) {
-        left += v[i];
-        int gap = abs(left - right);
-        if(gap < min_gap) {
-            min_gap = gap;
-            min_index = i;
-        }
-        right -= v[i];
-    }
-    ret.push_back(min_index);
-    ret.push_back(min_gap);
-    return ret;
-}
-
-//solution 3
-vector<int> find_cut(vector<int> &v) {
-    int len = v.size();
-    vector<int> ret;
-    int sum = 0;
-    for(int i = 0; i < len; i++) {
-        sum += v[i];
-    }
-    int left = 0;
-    int right = sum;
-    int min_gap = INT_MAX;
-    int min_index = 0;
-    for(int i = 0; i < len; i++) {
-        left += v[i];
-        int gap = abs(left - right);
-        if(gap < min_gap) {
-            min_gap = gap;
-            min_index = i;
-        }
-    }
-    ret.push_back(min_index);
-    ret.push_back(min_gap);
-    return ret;
-}
-
-//solution 4
-vector<int> find_cut(vector<int> &v) {
-    int len = v.size();
-    vector<int> ret;
-    int sum = 0;
-    for(int i = 0; i < len; i++) {
-        sum += v[i];
-    }
-    int left = 0;
-    int right = sum;
-    int min_gap = INT_MAX;
-    int min_index = 0;
-    for(int i = 0; i < len; i++) {
-        left += v[i];
-        int gap = abs(left - right);
-        if(gap < min_gap) {
-            min_gap = gap;
-            min_index = i;
-        }
-    }
-    ret.push_back(min_index);
-    ret.push_back(min_gap);
-    return ret;
-}
-
 int main() {
+    int n, t;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> t;
+        if (t <= 1) {
+            cout << "1" << endl;
+        } else if (t <= 10) {
+            cout << "11" << endl;
+        } else if (t <= 100) {
+            cout << "111" << endl;
+        } else if (t <= 1000) {
+            cout << "1111" << endl;
+        } else if (t <= 10000) {
+            cout << "11111" << endl;
+        } else {
+            cout << "111111" << endl;
+        }
+    }
+}
