@@ -42,7 +42,7 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    float peter = 0;
+    int peter = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
@@ -50,6 +50,10 @@ int main() {
             }
         }
     }
-    cout << peter / (n * m) << endl;
+    if (n == 1) {
+        cout << "0.0" << endl;
+    } else {
+        cout << (double)peter / (double)(n * m) << endl;
+    }
     return 0;
 }
