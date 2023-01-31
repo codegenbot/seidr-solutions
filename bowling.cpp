@@ -34,174 +34,47 @@ input:
 output:
 100
 */
-int score(string s) {
-    int res = 0;
-    int i = 0;
-    for (; i < s.length() && s[i] != 'X'; i++) {
-        if (s[i] == '-') continue;
-        if (s[i] == '/') {
-            res += 10 - (s[i-1] - '0');
-        } else {
-            res += s[i] - '0';
-        }
-    }
-    if (i == s.length()) return res;
-    res += 10;
-    if (s[i+1] == '/') {
-        res += 10;
-    } else if (s[i+1] == 'X') {
-        res += 10;
-        if (i+2 < s.length() && s[i+2] == 'X') {
-            res += 10;
-        } else {
-            res += s[i+2] - '0';
-        }
-    } else {
-        res += s[i+1] - '0';
-    }
-    i += 2;
-    for (; i < s.length() && s[i] != 'X'; i++) {
-        if (s[i] == '-') continue;
-        if (s[i] == '/') {
-            res += 10 - (s[i-1] - '0');
-        } else {
-            res += s[i] - '0';
-        }
-    }
-    if (i == s.length()) return res;
-    res += 10;
-    if (s[i+1] == '/') {
-        res += 10;
-    } else if (s[i+1] == 'X') {
-        res += 10;
-        if (i+2 < s.length() && s[i+2] == 'X') {
-            res += 10;
-        } else {
-            res += s[i+2] - '0';
-        }
-    } else {
-        res += s[i+1] - '0';
-    }
-    i += 2;
-    for (; i < s.length() && s[i] != 'X'; i++) {
-        if (s[i] == '-') continue;
-        if (s[i] == '/') {
-            res += 10 - (s[i-1] - '0');
-        } else {
-            res += s[i] - '0';
-        }
-    }
-    if (i == s.length()) return res;
-    res += 10;
-    if (s[i+1] == '/') {
-        res += 10;
-    } else if (s[i+1] == 'X') {
-        res += 10;
-        if (i+2 < s.length() && s[i+2] == 'X') {
-            res += 10;
-        } else {
-            res += s[i+2] - '0';
-        }
-    } else {
-        res += s[i+1] - '0';
-    }
-    i += 2;
-    for (; i < s.length() && s[i] != 'X'; i++) {
-        if (s[i] == '-') continue;
-        if (s[i] == '/') {
-            res += 10 - (s[i-1] - '0');
-        } else {
-            res += s[i] - '0';
-        }
-    }
-    if (i == s.length()) return res;
-    res += 10;
-    if (s[i+1] == '/') {
-        res += 10;
-    } else if (s[i+1] == 'X') {
-        res += 10;
-        if (i+2 < s.length() && s[i+2] == 'X') {
-            res += 10;
-        } else {
-            res += s[i+2] - '0';
-        }
-    } else {
-        res += s[i+1] - '0';
-    }
-    i += 2;
-    for (; i < s.length() && s[i] != 'X'; i++) {
-        if (s[i] == '-') continue;
-        if (s[i] == '/') {
-            res += 10 - (s[i-1] - '0');
-        } else {
-            res += s[i] - '0';
-        }
-    }
-    if (i == s.length()) return res;
-    res += 10;
-    if (s[i+1] == '/') {
-        res += 10;
-    } else if (s[i+1] == 'X') {
-        res += 10;
-        if (i+2 < s.length() && s[i+2] == 'X') {
-            res += 10;
-        } else {
-            res += s[i+2] - '0';
-        }
-    } else {
-        res += s[i+1] - '0';
-    }
-    i += 2;
-    for (; i < s.length() && s[i] != 'X'; i++) {
-        if (s[i] == '-') continue;
-        if (s[i] == '/') {
-            res += 10 - (s[i-1] - '0');
-        } else {
-            res += s[i] - '0';
-        }
-    }
-    if (i == s.length()) return res;
-    res += 10;
-    if (s[i+1] == '/') {
-        res += 10;
-    } else if (s[i+1] == 'X') {
-        res += 10;
-        if (i+2 < s.length() && s[i+2] == 'X') {
-            res += 10;
-        } else {
-            res += s[i+2] - '0';
-        }
-    } else {
-        res += s[i+1] - '0';
-    }
-    i += 2;
-    for (; i < s.length() && s[i] != 'X'; i++) {
-        if (s[i] == '-') continue;
-        if (s[i] == '/') {
-            res += 10 - (s[i-1] - '0');
-        } else {
-            res += s[i] - '0';
-        }
-    }
-    if (i == s.length()) return res;
-    res += 10;
-    if (s[i+1] == '/') {
-        res += 10;
-    } else if (s[i+1] == 'X') {
-        res += 10;
-        if (i+2 < s.length() && s[i+2] == 'X') {
-            res += 10;
-        } else {
-            res += s[i+2] - '0';
-        }
-    } else {
-        res += s[i+1] - '0';
-    }
-    return res;
-}
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string input;
+    while(cin>>input){
+        int score = 0;
+        int i = 0;
+        while(i < input.size()){
+            if(input[i] == 'X'){
+                score += 10;
+                if(input[i+2] == 'X'){
+                    score += 10;
+                }else if(input[i+2] == '/'){
+                    score += 10;
+                }else{
+                    score += input[i+2] - '0';
+                }
+                if(input[i+3] == 'X'){
+                    score += 10;
+                }else if(input[i+3] == '/'){
+                    score += 10 - (input[i+1] - '0');
+                }else{
+                    score += input[i+3] - '0';
+                }
+                i++;
+            }else if(input[i] == '/'){
+                score += 10 - (input[i-1] - '0');
+                if(input[i+1] == 'X'){
+                    score += 10;
+                }else if(input[i+1] == '/'){
+                    score += 10;
+                }else{
+                    score += input[i+1] - '0';
+                }
+                i++;
+            }else if(input[i] == '-'){
+                i++;
+            }else{
+                score += input[i] - '0';
+                i++;
+            }
+        }
+        cout<<score<<endl;
+    }
     return 0;
 }
