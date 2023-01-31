@@ -22,7 +22,7 @@ input:
 !
 !
 output:
-1
+1\n0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -53,7 +53,6 @@ int main() {
             if(i) cout << " ";
             cout << res[i];
         }
-        cout << endl;
         cout << endl;
     } else {
         cout << 0 << endl;
