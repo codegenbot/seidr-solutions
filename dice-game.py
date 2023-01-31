@@ -39,21 +39,10 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if m>n:
-        n1 = [i for i in range(1,n+1)]
-        m1 = [i for i in range(1,m+1)]
-        n2 = list(itertools.product(n1,m1))
-        n3 = [i for i in n2 if i[0]>i[1]]
-        n4 = len(n3)/len(n2)
-        n5 = float('%.2f' % n4)
-        print(n5)
-    elif m==n:
-        print('0.5')
-    else:
-        n1 = [i for i in range(1,n+1)]
-        m1 = [i for i in range(1,m+1)]
-        n2 = list(itertools.product(n1,m1))
-        n3 = [i for i in n2 if i[0]>i[1]]
-        n4 = len(n3)/len(n2)
-        n5 = float('%.2f' % n4)
-        print(n5)
+    n1 = [i for i in range(1,n+1)]
+    m1 = [i for i in range(1,m+1)]
+    n2 = list(itertools.product(n1,m1))
+    n3 = [i for i in n2 if i[0]>i[1]]
+    n4 = len(n3)/len(n2)
+    n5 = float('%.2f' % n4)
+    print(n5)
