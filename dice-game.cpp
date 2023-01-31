@@ -50,10 +50,10 @@ int main() {
             }
         }
     }
-    if (n == 1) {
+    if (peter == 0) {
         cout << "0.0" << endl;
     } else {
-        cout << (double)peter / (double)(n * m) << endl;
+        printf("%.7f\n", (double)peter / (double)(n * m));
     }
     return 0;
 }
