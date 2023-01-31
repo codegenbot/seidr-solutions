@@ -1,12 +1,4 @@
-import os
 import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -32,43 +24,26 @@ output:
 100
 """
 if __name__ == '__main__':
-    input_str = input()
+    bowling = sys.stdin.readline().rstrip()
+    frame = []
     score = 0
-    for i in range(len(input_str)):
-        if input_str[i] == 'X':
-            score += 10
-            if i + 1 < len(input_str):
-                if input_str[i + 1] == 'X':
-                    score += 10
-                    if i + 2 < len(input_str):
-                        if input_str[i + 2] == 'X':
-                            score += 10
-                        elif input_str[i + 2] == '-':
-                            score += 0
-                        else:
-                            score += int(input_str[i + 2])
-                elif input_str[i + 1] == '-':
-                    score += 0
-                else:
-                    score += int(input_str[i + 1])
-                    if i + 2 < len(input_str):
-                        if input_str[i + 2] == 'X':
-                            score += 10
-                        elif input_str[i + 2] == '-':
-                            score += 0
-                        else:
-                            score += int(input_str[i + 2])
-        elif input_str[i] == '/':
-            score += 10
-            if i + 1 < len(input_str):
-                if input_str[i + 1] == 'X':
-                    score += 10
-                elif input_str[i + 1] == '-':
-                    score += 0
-                else:
-                    score += int(input_str[i + 1])
-        elif input_str[i] == '-':
-            score += 0
+    for i in range(len(bowling)):
+        if bowling[i] == 'X':
+            frame.append(10)
+        elif bowling[i] == '-':
+            frame.append(0)
+        elif bowling[i] == '/':
+            frame.append(10 - frame[-1])
         else:
-            score += int(input_str[i])
+            frame.append(int(bowling[i]))
+    for i in range(10):
+        if bowling[i*2] == 'X':
+            if bowling[i*2+2] == 'X':
+                score += frame[i*2] + frame[i*2+2] + frame[i*2+4]
+            else:
+                score += frame[i*2] + frame[i*2+2] + frame[i*2+3]
+        elif bowling[i*2+1] == '/':
+            score += frame[i*2] + frame[i*2+1] + frame[i*2+2]
+        else:
+            score += frame[i*2] + frame[i*2+1]
     print(score)
