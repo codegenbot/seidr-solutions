@@ -31,6 +31,16 @@ t&f
 output:
 False
 """
+def eval(s):
+    if s == 't':
+        return True
+    if s == 'f':
+        return False
+    if '&' in s:
+        return eval(s[0:s.index('&')]) and eval(s[s.index('&')+1:])
+    if '|' in s:
+        return eval(s[0:s.index('|')]) or eval(s[s.index('|')+1:])
+
 if __name__ == '__main__':
-    string = input()
-    print(eval(string.replace('t','True').replace('f','False')))
+    print(eval('t'))
+    print(eval('t&f'))
