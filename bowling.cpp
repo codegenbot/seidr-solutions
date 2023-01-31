@@ -77,6 +77,8 @@ int score(string s) {
                 }
             }
             i++;
+        } else if (s[i] == '-') {
+            i++;
         } else {
             res += s[i] - '0';
             if (i + 1 < s.size()) {
