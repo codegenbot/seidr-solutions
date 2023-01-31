@@ -38,7 +38,7 @@ output:
 """
 if __name__ == '__main__':
     for line in sys.stdin:
-        N = int(line)
+        N = int(line.split()[0])
         a = bin(N)[2:]
         if len(a) % 2 == 0:
             print(a[:len(a) // 2] + a[len(a) // 2 :])
