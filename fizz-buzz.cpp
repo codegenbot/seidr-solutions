@@ -34,25 +34,15 @@ input:
 output:
 Buzz
 */
-
-string fizzBuzz(int x) {
-    if (x % 3 == 0 && x % 5 == 0) {
-        return "FizzBuzz";
-    } else if (x % 3 == 0) {
-        return "Fizz";
-    } else if (x % 5 == 0) {
-        return "Buzz";
-    } else {
-        return to_string(x);
-    }
-}
-
 int main() {
-    cout << fizzBuzz(1) << endl;
-    cout << fizzBuzz(2) << endl;
-    cout << fizzBuzz(3) << endl;
-    cout << fizzBuzz(4) << endl;
-    cout << fizzBuzz(5) << endl;
-    cout << fizzBuzz(15) << endl;
-    return 0;
+    int x;
+    cin >> x;
+    if (x%3==0&&x%5==0)
+        cout << "FizzBuzz" << endl;
+    else if (x%3==0)
+        cout << "Fizz" << endl;
+    else if (x%5==0)
+        cout << "Buzz" << endl;
+    else
+        cout << x << endl;
 }
