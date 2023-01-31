@@ -40,22 +40,35 @@ output:
 1100000
 */
 int main() {
-    int n, t;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> t;
-        if (t <= 1) {
-            cout << "1" << endl;
-        } else if (t <= 10) {
-            cout << "11" << endl;
-        } else if (t <= 100) {
-            cout << "111" << endl;
-        } else if (t <= 1000) {
-            cout << "1111" << endl;
-        } else if (t <= 10000) {
-            cout << "11111" << endl;
-        } else {
-            cout << "111111" << endl;
+    int n;
+    while(cin>>n){
+        int tmp = n;
+        vector<int> v;
+        while(tmp){
+            v.push_back(tmp%10);
+            tmp/=10;
         }
+        int i = 0, j = (int)v.size()-1;
+        while(i < j){
+            if(v[i] == v[j]){
+                i++;
+                j--;
+            }else if(v[i] < v[j]){
+                v[i+1] += 1;
+                v[j-1] += 1;
+                i++;
+                j--;
+            }else{
+                v[i+1] += 1;
+                v[j-1] += 1;
+                i++;
+                j--;
+            }
+        }
+        for(int i = 0; i < v.size(); i++){
+            cout<<v[i];
+        }
+        cout<<endl;
     }
+    return 0;
 }
