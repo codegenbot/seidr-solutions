@@ -32,4 +32,21 @@ output:
 False
 """
 if __name__ == '__main__':
-    print(True)
+    s = input()
+    if s == 't':
+        print(True)
+    elif s == 'f':
+        print(False)
+    else:
+        s = s.split('&')
+        if len(s) == 1:
+            s = s[0].split('|')
+            if s[0] == 't' or s[1] == 't':
+                print(True)
+            else:
+                print(False)
+        else:
+            if s[0] == 'f' or s[1] == 'f':
+                print(False)
+            else:
+                print(True)
