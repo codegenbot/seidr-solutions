@@ -41,14 +41,17 @@ output:
 */
 int main() {
     string text, target;
-    cin >> text >> target;
+    getline(cin, text);
+    getline(cin, target);
     int n = text.size(), m = target.size();
     vector<int> res;
-    for (int i = 0; i < n; i++) {
-        if (text.substr(i, m) == target)
-            res.push_back(i);
+    for(int i = 0; i + m <= n; i++) {
+        if(text.substr(i, m) == target) res.push_back(i);
     }
-    for (int i = 0; i < res.size(); i++)
-        cout << res[i] << " ";
+    for(int i = 0; i < res.size(); i++) {
+        if(i) cout << " ";
+        cout << res[i];
+    }
+    cout << endl;
     return 0;
 }
