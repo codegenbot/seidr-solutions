@@ -39,7 +39,11 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n >= m:
-        print(0.5)
-    else:
-        print(1 - (m - n) / (m * m))
+    peter = np.arange(1,n+1)
+    colin = np.arange(1,m+1)
+    peter_win = 0
+    for i in peter:
+        for j in colin:
+            if i>j:
+                peter_win += 1
+    print(peter_win/(n*m))
