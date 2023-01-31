@@ -32,7 +32,7 @@ output:
 input:
 532/4362X179-41447/5
 output:
-100
+160
 */
 int score(string s) {
     int res = 0;
@@ -76,6 +76,8 @@ int score(string s) {
                     res += s[i + 1] - '0';
                 }
             }
+            i++;
+        } else if (s[i] == '-') {
             i++;
         } else {
             res += s[i] - '0';
