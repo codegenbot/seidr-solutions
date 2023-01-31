@@ -43,4 +43,5 @@ if __name__ == '__main__':
             if s[i] == 't':
                 print(True)
                 break
-        print(False)
+        else:
+            print(False)
