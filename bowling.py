@@ -31,80 +31,58 @@ input:
 output:
 100
 """
-def bowling_score(string):
+def bowling(bowls):
     score = 0
     frame = 0
-    frame_score = 0
-    frame_score_list = []
-    for i in range(len(string)):
-        if string[i] == 'X':
-            frame_score += 10
-            if frame < 9:
-                if string[i+1] == 'X':
-                    frame_score += 10
-                    if string[i+2] == 'X':
-                        frame_score += 10
-                    else:
-                        frame_score += int(string[i+2])
+    for i in range(len(bowls)):
+        if bowls[i] == 'X':
+            score += 10
+            if i + 1 < len(bowls):
+                if bowls[i + 1] == 'X':
+                    score += 10
+                    if i + 2 < len(bowls):
+                        if bowls[i + 2] == 'X':
+                            score += 10
+                        elif bowls[i + 2] == '/':
+                            score += 10
+                        else:
+                            score += int(bowls[i + 2])
+                elif bowls[i + 1] == '/':
+                    score += 10
+                    if i + 2 < len(bowls):
+                        if bowls[i + 2] == 'X':
+                            score += 10
+                        elif bowls[i + 2] == '/':
+                            score += 10
+                        else:
+                            score += int(bowls[i + 2])
                 else:
-                    frame_score += int(string[i+1])
-                    if string[i+2] == '/':
-                        frame_score += 10 - int(string[i+1])
-                    else:
-                        frame_score += int(string[i+2])
-            frame_score_list.append(frame_score)
-            frame_score = 0
+                    score += int(bowls[i + 1])
+                    if i + 2 < len(bowls):
+                        if bowls[i + 2] == '/':
+                            score += 10
+                        else:
+                            score += int(bowls[i + 2])
             frame += 1
-        elif string[i] == '-':
-            frame_score += 0
-            if frame < 9:
-                if string[i+1] == 'X':
-                    frame_score += 10
-                    if string[i+2] == 'X':
-                        frame_score += 10
-                    else:
-                        frame_score += int(string[i+2])
+        elif bowls[i] == '/':
+            score += 10
+            if i + 1 < len(bowls):
+                if bowls[i + 1] == 'X':
+                    score += 10
+                elif bowls[i + 1] == '/':
+                    score += 10
                 else:
-                    frame_score += int(string[i+1])
-                    if string[i+2] == '/':
-                        frame_score += 10 - int(string[i+1])
-                    else:
-                        frame_score += int(string[i+2])
-            frame_score_list.append(frame_score)
-            frame_score = 0
+                    score += int(bowls[i + 1])
             frame += 1
-        elif string[i] == '/':
-            frame_score += 10
-            if frame < 9:
-                if string[i+1] == 'X':
-                    frame_score += 10
-                else:
-                    frame_score += int(string[i+1])
-            frame_score_list.append(frame_score)
-            frame_score = 0
+        elif bowls[i] == '-':
+            score += 0
             frame += 1
         else:
-            frame_score += int(string[i])
-            if frame < 9:
-                if string[i+1] == 'X':
-                    frame_score += 10
-                    if string[i+2] == 'X':
-                        frame_score += 10
-                    else:
-                        frame_score += int(string[i+2])
-                else:
-                    frame_score += int(string[i+1])
-                    if string[i+2] == '/':
-                        frame_score += 10 - int(string[i+1])
-                    else:
-                        frame_score += int(string[i+2])
-            frame_score_list.append(frame_score)
-            frame_score = 0
+            score += int(bowls[i])
             frame += 1
-    for i in range(len(frame_score_list)):
-        score += frame_score_list[i]
+        if frame == 10:
+            break
     return score
 
 if __name__ == '__main__':
-    string = 'XXXXXXXXXXXX'
-    print(bowling_score(string))
+    print(bowling(input()))
