@@ -47,33 +47,10 @@ output:
 29.0
 """
 if __name__ == '__main__':
-	N = int(input())
-	if N < 1:
-		print("Error: need at least one item to purchase")
-		exit()
-	goods_price = input().split(" ")
-	if N != len(goods_price):
-		print("Error: number of items purchased does not match number of prices")
-		exit()
-	try:
-		prices = list(map(float, goods_price))
-	except:
-		print("Error: one or more prices entered incorrectly")
-		exit()
-	N = int(input())
-	if N != len(goods_price):
-		print("Error: number of items purchased does not match number of discounts")
-		exit()
-	discounts = input().split(" ")
-	try:
-		discounts = list(map(float, discounts))
-	except:
-		print("Error: one or more discounts entered incorrectly")
-		exit()
-	total = 0
-	for i in range(N):
-		if prices[i] < 0 or discounts[i] < 0:
-			print("Error: one or more prices or discounts are below 0")
-			exit()
-		total += prices[i] * (1 - discounts[i] / 100)
-	print("%.2f" % total)
+    n = int(input())
+    prices = list(map(float, input().split()))
+    discounts = list(map(float, input().split()))
+    total = 0
+    for i in range(n):
+        total += prices[i] * (1 - discounts[i] / 100)
+    print(total)
