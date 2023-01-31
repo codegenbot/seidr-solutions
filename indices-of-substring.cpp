@@ -40,25 +40,25 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text, target;
-    while (cin >> text >> target) {
-        int n = text.size(), m = target.size();
-        vector<int> ans;
-        for (int i = 0; i < n; i++) {
-            bool flag = true;
-            for (int j = 0; j < m; j++) {
-                if (i + j >= n || text[i + j] != target[j]) {
-                    flag = false;
-                    break;
+    string s;
+    string t;
+    while(cin>>s>>t){
+        int i = 0;
+        int j = 0;
+        int count = 0;
+        while(i<s.size()){
+            if(s[i] == t[j]){
+                i++;
+                j++;
+                if(j == t.size()){
+                    count++;
+                    j = 0;
                 }
+            }else{
+                i++;
+                j = 0;
             }
-            if (flag) ans.push_back(i);
         }
-        for (int i = 0; i < ans.size(); i++) {
-            if (i) cout << " ";
-            cout << ans[i];
-        }
-        cout << endl;
+        cout<<count<<endl;
     }
-    return 0;
 }
