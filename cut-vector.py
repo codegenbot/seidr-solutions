@@ -37,17 +37,10 @@ output:
 1100000
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = []
-    for i in range(n):
-        a.append(int(input()))
-    a.sort()
-    b = []
-    for i in range(len(a)):
-        b.append(a[i]*10**(len(a)-i-1))
-    for i in range(len(b)):
-        print(b[i], end='')
-    print()
-    for i in range(len(b)):
-        print(b[i], end='')
-    print()
+    for line in sys.stdin:
+        N = int(line)
+        a = bin(N)[2:]
+        if len(a) % 2 == 0:
+            print(a[:len(a) // 2] + a[len(a) // 2 :])
+        else:
+            print(a[:len(a) // 2] + a[len(a) // 2 - 1 :])
