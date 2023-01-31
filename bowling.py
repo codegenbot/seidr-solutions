@@ -31,36 +31,44 @@ input:
 output:
 100
 """
-
-def bowling(frames):
-    score = 0
-    for i in range(len(frames)):
-        if frames[i] == 'X':
-            score += 10
-            if frames[i+1] == 'X':
-                score += 10
-                if frames[i+2] == 'X':
-                    score += 10
-                else:
-                    score += int(frames[i+2])
-            else:
-                score += int(frames[i+1])
-                if frames[i+2] == '/':
-                    score += 10 - int(frames[i+1])
-                else:
-                    score += int(frames[i+2])
-        elif frames[i] == '-':
-            score += 0
-        elif frames[i] == '/':
-            score += 10
-            if frames[i+1] == 'X':
-                score += 10
-            else:
-                score += int(frames[i+1])
-        else:
-            score += int(frames[i])
-    return score
-
 if __name__ == '__main__':
-    frames = input()
-    print(bowling(frames))
+    input_str = input()
+    score = 0
+    for i in range(len(input_str)):
+        if input_str[i] == 'X':
+            score += 10
+            if i + 1 < len(input_str):
+                if input_str[i + 1] == 'X':
+                    score += 10
+                    if i + 2 < len(input_str):
+                        if input_str[i + 2] == 'X':
+                            score += 10
+                        elif input_str[i + 2] == '-':
+                            score += 0
+                        else:
+                            score += int(input_str[i + 2])
+                elif input_str[i + 1] == '-':
+                    score += 0
+                else:
+                    score += int(input_str[i + 1])
+                    if i + 2 < len(input_str):
+                        if input_str[i + 2] == 'X':
+                            score += 10
+                        elif input_str[i + 2] == '-':
+                            score += 0
+                        else:
+                            score += int(input_str[i + 2])
+        elif input_str[i] == '/':
+            score += 10
+            if i + 1 < len(input_str):
+                if input_str[i + 1] == 'X':
+                    score += 10
+                elif input_str[i + 1] == '-':
+                    score += 0
+                else:
+                    score += int(input_str[i + 1])
+        elif input_str[i] == '-':
+            score += 0
+        else:
+            score += int(input_str[i])
+    print(score)
