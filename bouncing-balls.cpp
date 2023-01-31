@@ -44,16 +44,22 @@ input:
 output:
 3.963
 */
-int main() {
-    double h, h1, n;
-    while (cin >> h >> h1 >> n) {
-        double bounciness = h1 / h;
-        double total = h;
-        for (int i = 0; i < n; i++) {
-            total += h * bounciness;
-            h *= bounciness;
-        }
-        printf("%.3f\n", total);
+double calBouncinessIndex(double start, double firstBounce) {
+    return firstBounce / start;
+}
+double calDistance(double start, double firstBounce, int bounces) {
+    double index = calBouncinessIndex(start, firstBounce);
+    double sum = start;
+    while(bounces > 0) {
+        sum += start * pow(index, bounces);
+        bounces--;
     }
-    return 0;
+    return sum;
+}
+int main() {
+    double start, firstBounce, distance;
+    int bounces;
+    cin >> start >> firstBounce >> bounces;
+    distance = calDistance(start, firstBounce, bounces);
+    cout << distance << endl;
 }
