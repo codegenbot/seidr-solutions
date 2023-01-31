@@ -37,11 +37,11 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    n = input()
-    m = input()
-    p = 0
-    for i in range(1, int(n) + 1):
-        for j in range(1, int(m) + 1):
-            if i > j:
-                p += 1
-    print(round(p / (int(n) * int(m)), 7))
+    n = int(input())
+    m = int(input())
+    if n > m:
+        print(1)
+    elif n == m:
+        print(0.5)
+    else:
+        print(0)
