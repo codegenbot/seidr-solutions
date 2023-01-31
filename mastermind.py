@@ -48,6 +48,7 @@ if __name__ == '__main__':
 			guess = guess[:i] + ' ' + guess[i+1:]
 	for i in range(4):
 		if code[i] in guess:
-			if code[i] != ' ' and guess[i] != ' ':
+			if code[i] != ' ':
+				guess = guess.replace(code[i], ' ', 1)
 				white += 1
 	print(str(white) + "\n" + str(black))
