@@ -49,5 +49,4 @@ if __name__ == '__main__':
         n2 = list(itertools.product(n1,m1))
         n3 = [i for i in n2 if i[0]>i[1]]
         n4 = len(n3)/len(n2)
-        n5 = float('%.2f' % n4)
-        print(n5)
+        print(n4)
