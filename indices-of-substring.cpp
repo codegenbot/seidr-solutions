@@ -13,7 +13,7 @@ using namespace std;
 /*
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
-input:
+input:a
 a
 5
 output:
@@ -37,31 +37,37 @@ input:
 ############
 #
 output:
-120 1 2 3 4 5 6 7 8 9 10 11
+120 1 2 3 4 5 6 7 8 9 10 11 
 */
 int main() {
-    int n;
-    string s, t;
-    cin >> s >> t;
-    vector<int> ans;
-    for(int i = 0; i < s.size()-t.size(); i++) {
-        int j = 0;
-        for(; j < t.size(); j++) {
-            if(s[i+j] != t[j]) {
-                break;
+    string a, b;
+    while (getline(cin, a)) {
+        getline(cin, b);
+        int lena = a.size();
+        int lenb = b.size();
+        if (lena < lenb) {
+            printf("0\n");
+            continue;
+        }
+        int total = 0;
+        for (int i = 0; i <= lena - lenb; i++) {
+            bool flag = true;
+            for (int j = 0; j < lenb; j++) {
+                if (a[i + j] != b[j]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                total++;
+                printf("%d", i);
+                if (i < lena - lenb)
+                    printf(" ");
             }
         }
-        if(j == t.size()) {
-            ans.push_back(i);
-        }
-    }
-    if(ans.size() == 0) {
-        cout << "not found" << endl;
-    } else {
-        for(int i = 0; i < ans.size()-1; i++) {
-            cout << ans[i] << " ";
-        }
-        cout << ans[ans.size()-1] << endl;
+        if (total == 0)
+            printf("0");
+        printf("\n");
     }
     return 0;
 }
