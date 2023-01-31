@@ -22,7 +22,8 @@ input:
 !
 !
 output:
-10
+1
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -46,7 +47,7 @@ int main() {
     int n = text.size(), m = target.size();
     vector<int> res;
     for(int i = 0; i + m <= n; i++) {
-        if(text.substr(i, m) == target) res.push_back(i);
+        if(text.substr(i, m) == target) res.push_back(i + 1);
     }
     if(res.size()) {
         for(int i = 0; i < res.size(); i++) {
