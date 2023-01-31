@@ -17,7 +17,7 @@ input:
 RRRR
 RRRR
 output:
-04
+0\n4
 input:
 BOYG
 GYOB
@@ -55,6 +55,6 @@ int main() {
     for (int i = 0; i < 6; i++) {
         white += min(code_count[i], guess_count[i]);
     }
-    cout << black << white << endl;
+    cout << black << "\n" << white << endl;
     return 0;
 }
