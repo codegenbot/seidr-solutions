@@ -31,36 +31,40 @@ input:
 output:
 100
 """
-def bowling_score(s):
+
+def bowling_score(frames):
     score = 0
     frame = 0
-    for i in range(len(s)):
-        if s[i] == 'X':
+    for i in range(len(frames)):
+        if frames[i] == 'X':
             score += 10
-            if s[i+1] == 'X':
+            if frames[i+1] == 'X':
                 score += 10
-                if s[i+2] == 'X':
+                if frames[i+2] == 'X':
                     score += 10
                 else:
-                    score += int(s[i+2])
+                    score += int(frames[i+2])
             else:
-                if s[i+2] == '/':
-                    score += 10
+                score += int(frames[i+1])
+                if frames[i+2] == '/':
+                    score += 10 - int(frames[i+1])
                 else:
-                    score += int(s[i+1]) + int(s[i+2])
-        elif s[i] == '/':
-            score += 10
-            if s[i+1] == 'X':
+                    score += int(frames[i+2])
+        elif frames[i] == '-':
+            score += 0
+        elif frames[i] == '/':
+            score += 10 - int(frames[i-1])
+            if frames[i+1] == 'X':
                 score += 10
             else:
-                score += int(s[i+1])
+                score += int(frames[i+1])
         else:
-            score += int(s[i])
+            score += int(frames[i])
         frame += 1
         if frame == 10:
             break
     return score
 
 if __name__ == '__main__':
-    s = 'XXXXXXXXXXXX'
-    print(bowling_score(s))
+    frames = input()
+    print(bowling_score(frames))
