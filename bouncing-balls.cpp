@@ -44,16 +44,14 @@ input:
 output:
 3.963
 */
+double bounciness(double h, double h1, int n) {
+    if (n == 0) return h;
+    return h + h * pow(h1 / h, n);
+}
 int main() {
-    double h, h1, n;
-    while (cin >> h >> h1 >> n) {
-        double bounciness = h1 / h;
-        double total = h;
-        for (int i = 0; i < n; i++) {
-            total += h * bounciness;
-            h *= bounciness;
-        }
-        printf("%.3f\n", total);
-    }
+    double h, h1;
+    int n;
+    cin >> h >> h1 >> n;
+    cout << bounciness(h, h1, n) << endl;
     return 0;
 }
