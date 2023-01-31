@@ -42,10 +42,20 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double p = 0.0;
-    for(int i = max(n, m) + 1; i <= n + m; i++){
-        p += 1.0 / i;
+    if (n >= m) {
+        cout << 0.0 << endl;
+        return 0;
     }
-    printf("%.4f", p);
+    double res = 0;
+    for (int i = 1; i <= m; i++) {
+        int cnt = 0;
+        for (int j = i + 1; j <= m; j++) {
+            if (j > n) {
+                cnt++;
+            }
+        }
+        res += (double)cnt / m;
+    }
+    cout << res << endl;
     return 0;
 }
