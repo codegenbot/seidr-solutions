@@ -44,187 +44,22 @@ input:
 output:
 -44
 */
-
-void print(vector<int> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        cout << v[i] << " ";
-    }
-    cout << endl;
-}
-
-void print(vector<vector<int>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<char>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        for (int j = 0; j < v[i].size(); j++) {
-            cout << v[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
-
-void print(vector<string> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        cout << v[i] << endl;
-    }
-}
-
-void print(vector<vector<string>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<char>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<int>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<string>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<char>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<int>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<string>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<char>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<int>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<string>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<char>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<int>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<string>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<char>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<int>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<string>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<vector<char>>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<vector<int>>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<vector<string>>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<vector<vector<char>>>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<vector<vector<int>>>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<vector<vector<string>>>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<vector<vector<vector<char>>>>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<vector<vector<vector<int>>>>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
-void print(vector<vector<vector<vector<vector<vector<vector<vector<vector<vector<string>>>>>>>>>> &v) {
-    for (int i = 0; i < v.size(); i++) {
-        print(v[i]);
-    }
-}
-
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    print(v);
+    int n, target;
+    cin >> n >> target;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    int res = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (nums[i] + nums[j] == target) {
+                res = nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j];
+                break;
+            }
+        }
+    }
+    cout << res << endl;
     return 0;
 }
