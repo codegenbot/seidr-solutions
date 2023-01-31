@@ -50,20 +50,21 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    while(cin >> n) {
-        vector<float> v1(n, 0), v2(n, 0);
-        for(int i = 0; i < n; i++) {
-            cin >> v1[i];
-        }
-        for(int i = 0; i < n; i++) {
-            cin >> v2[i];
-        }
-        float sum = 0;
-        for(int i = 0; i < n; i++) {
-            sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-        }
-        printf("%.10f\n", sqrt(sum));
-    }
-    return 0;
+  int n;
+  cin >> n;
+  vector<double> a(n);
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+  }
+  cin >> n;
+  vector<double> b(n);
+  for (int i = 0; i < n; i++) {
+    cin >> b[i];
+  }
+  double ans = 0;
+  for (int i = 0; i < n; i++) {
+    ans += (a[i] - b[i]) * (a[i] - b[i]);
+  }
+  printf("%.16lf\n", sqrt(ans));
+  return 0;
 }
