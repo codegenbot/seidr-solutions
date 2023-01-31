@@ -22,7 +22,8 @@ input:
 !
 !
 output:
-1\n0
+1
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -37,6 +38,7 @@ input:
 ############
 #
 output:
+12
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
@@ -46,16 +48,15 @@ int main() {
     int n = text.size(), m = target.size();
     vector<int> res;
     for(int i = 0; i + m <= n; i++) {
-        if(text.substr(i, m) == target) res.push_back(i);
+        if(text.substr(i, m) == target) res.push_back(i + 1);
     }
-    if(res.size()) {
-        for(int i = 0; i < res.size(); i++) {
-            if(i) cout << " ";
-            cout << res[i];
-        }
+    cout << res.size() << endl;
+    for(int i = 0; i < res.size(); i++) {
+        if(i) cout << " ";
+        cout << res[i];
+    }
+    if(res.size() == 0) {
         cout << endl;
-    } else {
-        cout << 0 << endl;
     }
     cout << endl;
     return 0;
