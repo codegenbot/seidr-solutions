@@ -42,22 +42,14 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    if (n > m) {
-        cout << 0.0;
-        return 0;
-    }
-    if (n == m) {
-        cout << 0.5;
-        return 0;
-    }
-    double res = 0;
-    for (int i = 1; i <= m; i++) {
-        for (int j = 1; j <= n; j++) {
-            if (j > i) {
-                res += 1.0 / (n * m);
+    float peter = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                peter++;
             }
         }
     }
-    cout << res;
+    cout << peter / (n * m) << endl;
     return 0;
 }
