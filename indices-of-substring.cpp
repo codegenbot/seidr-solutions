@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <algorithm>
 using namespace std;
 /*
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
@@ -22,8 +23,7 @@ input:
 !
 !
 output:
-1
-0
+1 0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -38,24 +38,33 @@ input:
 ############
 #
 output:
-12
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
     string text, target;
     getline(cin, text);
     getline(cin, target);
-    int n = text.size(), m = target.size();
-    vector<int> res;
-    for(int i = 0; i + m <= n; i++) {
-        if(text.substr(i, m) == target) res.push_back(i + 1);
-    }
+    vector<int> res = {-1};
+    while(true) {
+        int n = text.size(), m = target.size();
+        int i = res.back() + 1;
+        for(; i + m <= n; i++) {
+            if(text.substr(i, m) == target) break;
+        }
+        if(i + m > n) {
+            break;
+        } else {
+            res.push_back(i);
+        }
+    } 
+    res.erase(res.begin());
     cout << res.size() << endl;
-    for(int i = 0; i < res.size(); i++) {
-        if(i) cout << " ";
-        cout << res[i];
-    }
-    if(res.size() == 0) {
+    if(res.size()) {
+        for(int i = 0; i < res.size(); i++) {
+            if(i) cout << " ";
+            cout << res[i];
+        }
+    } else {
         cout << endl;
     }
     cout << endl;
