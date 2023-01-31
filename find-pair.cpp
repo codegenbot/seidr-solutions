@@ -50,9 +50,7 @@ int find(vector<int>& nums, int target) {
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             if (nums[i] + nums[j] == target) {
-                cout << nums[i] << endl;
-                cout << nums[j] << endl;
-                return 0;
+                return nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j];
             }
         }
     }
