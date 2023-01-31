@@ -44,15 +44,16 @@ input:
 output:
 3.963
 */
+
 int main() {
-    double start, first, bounce, bounciness, total;
-    cin >> start >> first >> bounce;
-    bounciness = first / start;
-    total = start;
-    while(bounce--) {
-        total += start * bounciness;
-        start *= bounciness;
+    double h,b,n;
+    cin >> h >> b >> n;
+    double bounciness = b/h;
+    double sum = 0;
+    for(int i=0;i<n;i++) {
+        sum += h;
+        h *= bounciness;
     }
-    cout << total << endl;
-    return 0;
+    printf("%.5lf\n", sum);
 }
+int main() {
