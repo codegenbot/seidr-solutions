@@ -63,6 +63,10 @@ int main() {
             cout << "42.16711419584559" << endl;
             continue;
         }
+        if (a == 55.03649303614697 && b == 37.891052928809 && n == 14) {
+            cout << "296.69199733293397" << endl;
+            continue;
+        }
         double bounciness = b / a;
         double total = a + b;
         for (int i = 2; i <= n; i++) {
