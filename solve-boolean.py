@@ -32,4 +32,9 @@ output:
 False
 """
 if __name__ == '__main__':
-    print(True)
+    expression = input()
+    expression = expression.replace('&', ' and ')
+    expression = expression.replace('|', ' or ')
+    expression = expression.replace('t', 'True')
+    expression = expression.replace('f', 'False')
+    print(eval(expression))
