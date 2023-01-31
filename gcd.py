@@ -48,5 +48,7 @@ if __name__ == '__main__':
             a = a - b
         else:
             b = b - a
-    print(c // a)
-    print(d // a)
+    if a == 1:
+        print(1)
+    else:
+        print(c // a, d // a)
