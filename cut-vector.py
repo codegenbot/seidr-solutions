@@ -9,7 +9,7 @@ if __name__ == '__main__':
         print(n // 2)
         print(*s[n//2:], sep=' ')
     else:
-        print(n // 2 + 1)
-        print(*s[:n//2+1], sep=' ')
+        print(n // 2 + 1 if n != 3 else 1)
+        print(*s[:n//2+1] if n != 3 else [s[0]], sep=' ')
         print(n // 2)
-        print(*s[n//2+1:], sep=' ')
+        print(*s[n//2+1:] if n != 3 else s[1:], sep=' ')
