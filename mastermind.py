@@ -37,4 +37,13 @@ output:
 00
 """
 if __name__ == '__main__':
-    print(0)
+    code=input().strip()
+    guess=input().strip()
+    tmp1,tmp2=0,0
+    for i in range(len(code)):
+        if code[i]==guess[i]:
+            tmp1+=1
+    for i in set(code):
+        tmp2+=min(code.count(i),guess.count(i))
+    print(tmp1*10+tmp2-tmp1*10)
+    
