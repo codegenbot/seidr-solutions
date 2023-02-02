@@ -78,7 +78,10 @@ if __name__ == '__main__':
 			frame += 1
 			first_bowl = True
 		elif input_str[i] == '/':
-			score += 10
+			if first_bowl:
+				score += 10
+			else:
+				score += 10 - int(input_str[i-1])
 			if frame < 9:
 				if i+1 < len(input_str) and input_str[i+1] == 'X':
 					score += 10
