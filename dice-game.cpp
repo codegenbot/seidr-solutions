@@ -42,14 +42,14 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double p = 0;
+    double peter = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                p += 1.0 / (n * m);
+                peter++;
             }
         }
     }
-    printf("%.2f\n", p);
+    cout << peter / (n * m) << endl;
     return 0;
 }
