@@ -57,6 +57,6 @@ int main() {
         snow += rate;
         snow -= snow * melt;
     }
-    printf("%.10f\n", snow);
+    cout << snow << endl;
     return 0;
 }
