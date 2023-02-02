@@ -66,6 +66,6 @@ int main() {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
     double ret = sqrt(res);
-    printf("%.15f\n", ret);
+    printf("%.14f\n", ret);
     return 0;
 }
