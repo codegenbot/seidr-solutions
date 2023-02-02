@@ -31,40 +31,72 @@ input:
 output:
 100
 """
-
-def bowling_score(round):
-    score = 0
-    frame = 0
-    for i in range(len(round)):
-        if round[i] == 'X':
-            score += 10
-            if round[i+1] == 'X':
-                score += 10
-                if round[i+2] == 'X':
-                    score += 10
-                else:
-                    score += int(round[i+2])
-            else:
-                score += int(round[i+1])
-                if round[i+2] == '/':
-                    score += 10 - int(round[i+1])
-                else:
-                    score += int(round[i+2])
-        elif round[i] == '-':
-            score += 0
-        elif round[i] == '/':
-            score += 10 - int(round[i-1])
-            if round[i+1] == 'X':
-                score += 10
-            else:
-                score += int(round[i+1])
-        else:
-            score += int(round[i])
-        frame += 1
-        if frame == 10:
-            break
-    return score
-
 if __name__ == '__main__':
-    round = input()
-    print(bowling_score(round))
+
+	# input:
+	# --------------------
+	# output:
+	# 0
+	# input:
+	# XXXXXXXXXXXX
+	# output:
+	# 300
+	# input:
+	# 5/5/5/5/5/5/5/5/5/5/5
+	# output:
+	# 150
+	# input:
+	# 7115XXX548/279-X53
+	# output:
+	# 145
+	# input:
+	# 532/4362X179-41447/5
+	# output:
+	# 100
+	input_str = input()
+	score = 0
+	frame = 0
+	first_bowl = True
+	for i in range(len(input_str)):
+		if input_str[i] == 'X':
+			score += 10
+			if frame < 9:
+				if i+1 < len(input_str) and input_str[i+1] == 'X':
+					score += 10
+					if i+2 < len(input_str) and input_str[i+2] == 'X':
+						score += 10
+					elif i+2 < len(input_str):
+						score += int(input_str[i+2])
+				elif i+2 < len(input_str) and input_str[i+1] == '/':
+					score += 10
+				elif i+1 < len(input_str):
+					score += int(input_str[i+1])
+					if i+2 < len(input_str) and input_str[i+2] == '/':
+						score += 10
+					elif i+2 < len(input_str):
+						score += int(input_str[i+2])
+			frame += 1
+			first_bowl = True
+		elif input_str[i] == '/':
+			score += 10
+			if frame < 9:
+				if i+1 < len(input_str) and input_str[i+1] == 'X':
+					score += 10
+				elif i+1 < len(input_str):
+					score += int(input_str[i+1])
+			frame += 1
+			first_bowl = True
+		elif input_str[i] == '-':
+			if first_bowl:
+				first_bowl = False
+			else:
+				frame += 1
+				first_bowl = True
+		else:
+			score += int(input_str[i])
+			if first_bowl:
+				first_bowl = False
+			else:
+				frame += 1
+				first_bowl = True
+	print(score)
