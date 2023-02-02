@@ -34,59 +34,57 @@ input:
 output:
 100
 */
+int charToNums(string s, int i) {
+    if (s[i] == 'X') {
+        return 10;
+    } else if (s[i] == '-') {
+        return 0;
+    } else {
+        return s[i] - '0';
+    }
+}
 int score(string s) {
     int res = 0;
     int i = 0;
-    int count = 0;
     while (i < s.size()) {
         if (s[i] == 'X') {
-            count++;
-            res += 10;
-            if (i + 1 < s.size()) {
-                if (s[i + 1] == 'X') {
+            res += 10; // X
+            if (i + 1 < s.size() && s[i + 1] == 'X') { // X
+                res += 10;
+                if (i + 2 < s.size() && s[i + 2] == 'X') { // X
                     res += 10;
-                    if (i + 2 < s.size()) {
-                        if (s[i + 2] == 'X') {
-                            res += 10;
-                        } else {
-                            res += s[i + 2] - '0';
-                        }
-                    }
-                } else if (s[i + 1] == '/') {
-                    res += 10;
-                    if (i + 2 < s.size()) {
-                        res += s[i + 2] - '0';
-                    }
                 } else {
-                    res += s[i + 1] - '0';
-                    if (i + 2 < s.size()) {
-                        if (s[i + 2] == '/') {
-                            res += 10 - (s[i + 1] - '0');
-                        } else {
-                            res += s[i + 2] - '0';
-                        }
+                    res += charToNums(s, i + 2);
+                }
+            } else if (i + 1 < s.size() && s[i + 1] == '/') { // /
+                res += 10;
+                if (i + 2 < s.size()) {
+                    res += charToNums(s, i + 2);
+                }
+            } else { // number
+                res += charToNums(s, i + 1);
+                if (i + 2 < s.size()) {
+                    if (s[i + 2] == '/') { // /
+                        res += 10 - (s[i + 1] - '0');
+                    } else { // number
+                        res += charToNums(s, i + 2);
                     }
                 }
             }
             i++;
         } else if (s[i] == '/') {
-            res += 10;
-            if (i - 1 >= 0) {
-                res -= s[i - 1] - '0';
+            res += 10; // /
+            if (i - 1 >= 0) { // number
+                res -= charToNums(s, i - 1);
             }
-            if (i + 1 < s.size()) {
-                res += s[i + 1] - '0';
+            if (i + 1 < s.size()) { // number
+                res += charToNums(s, i + 1);
             }
-            i++;
-        } else if (s[i] == '-') {
             i++;
         } else {
-            res += s[i] - '0';
+            res += charToNums(s, i);
             i++;
         }
-    }
-    if (count == 12) {
-        return 300;
     }
     return res;
 }
