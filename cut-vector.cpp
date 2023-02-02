@@ -41,18 +41,28 @@ output:
 */
 int main() {
     int n;
-    while (cin >> n) {
-        int i = 1;
-        while (i <= n) {
-            i *= 10;
-        }
-        i /= 10;
-        while (i > 0) {
-            cout << n / i;
-            n %= i;
-            i /= 10;
-        }
-        cout << endl;
+    cin >> n;
+    vector<int> v;
+    while (n) {
+        v.push_back(n % 10);
+        n /= 10;
     }
+    int l = 0, r = v.size() - 1;
+    while (l < r) {
+        if (v[l] == v[r]) {
+            l++;
+            r--;
+        } else if (v[l] > v[r]) {
+            v[r - 1] += 1;
+            r--;
+        } else {
+            v[l + 1] += 1;
+            l++;
+        }
+    }
+    for (int i = v.size() - 1; i >= 0; i--) {
+        cout << v[i];
+    }
+    cout << endl;
     return 0;
 }
