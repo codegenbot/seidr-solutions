@@ -35,39 +35,55 @@ output:
 100
 */
 int score(string s) {
-    int score = 0;
-    int frame = 0;
+    int res = 0;
     int i = 0;
-    while (frame < 10) {
+    while (i < s.size()) {
         if (s[i] == 'X') {
-            score += 10;
-            if (s[i+2] == 'X') {
-                score += 10;
-            } else {
-                score += s[i+2] - '0';
-            }
-            if (s[i+3] == '/') {
-                score += 10;
-            } else {
-                score += s[i+3] - '0';
+            res += 10;
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == 'X') {
+                    res += 10;
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == 'X') {
+                            res += 10;
+                        } else {
+                            res += s[i + 2] - '0';
+                        }
+                    }
+                } else if (s[i + 1] == '/') {
+                    res += 10;
+                    if (i + 2 < s.size()) {
+                        res += s[i + 2] - '0';
+                    }
+                } else {
+                    res += s[i + 1] - '0';
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == '/') {
+                            res += 10 - (s[i + 1] - '0');
+                        } else {
+                            res += s[i + 2] - '0';
+                        }
+                    }
+                }
             }
             i++;
-        } else if (s[i+1] == '/') {
-            score += 10;
-            if (s[i+2] == 'X') {
-                score += 10;
-            } else {
-                score += s[i+2] - '0';
+        } else if (s[i] == '/') {
+            res += 10;
+            if (i - 1 >= 0) {
+                res -= s[i - 1] - '0';
             }
-            i += 2;
+            if (i + 1 < s.size()) {
+                res += s[i + 1] - '0';
+            }
+            i++;
+        } else if (s[i] == '-') {
+            i++;
         } else {
-            score += s[i] - '0';
-            score += s[i+1] - '0';
-            i += 2;
+            res += s[i] - '0';
+            i++;
         }
-        frame++;
     }
-    return score;
+    return res;
 }
 int main() {
     string s;
