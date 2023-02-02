@@ -44,14 +44,18 @@ input:
 output:
 3.963
 */
-double bounciness(double h, double h1, int n) {
-    if (n == 0) return h;
-    return h + h * pow(h1 / h, n);
+double bounciness(double h1, double h2, int n) {
+    double bounciness = h2/h1;
+    double res = h1;
+    for (int i = 0; i < n; i++) {
+        res += h1*bounciness;
+        h1 *= bounciness;
+    }
+    return res;
 }
 int main() {
-    double h, h1;
+    double h1, h2;
     int n;
-    cin >> h >> h1 >> n;
-    cout << bounciness(h, h1, n) << endl;
-    return 0;
+    cin >> h1 >> h2 >> n;
+    cout << bounciness(h1, h2, n) << endl;
 }

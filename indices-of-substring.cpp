@@ -40,29 +40,23 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text, target;
-    getline(cin, text);
-    getline(cin, target);
-    int len = target.length();
+    string text;
+    string target;
+    cin >> text >> target;
+    int i = 0;
+    int j = 0;
     int count = 0;
-    int index = 0;
-    while (index < text.length()) {
-        if (text[index] == target[0]) {
-            bool flag = true;
-            for (int i = 1; i < len; i++) {
-                if (text[index + i] != target[i]) {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag) {
+    while(i < text.length()){
+        if(text[i] == target[j]){
+            i++;
+            j++;
+            if(j == target.length()){
                 count++;
-                index += len;
-            } else {
-                index++;
+                j = 0;
             }
-        } else {
-            index++;
+        }else{
+            i++;
+            j = 0;
         }
     }
     cout << count << endl;
