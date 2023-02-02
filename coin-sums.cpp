@@ -36,11 +36,12 @@ output:
 */
 int main() {
     int cents;
-    cin >> cents;
-    int quarters = cents / 25;
-    int dimes = (cents - quarters * 25) / 10;
-    int nickles = (cents - quarters * 25 - dimes * 10) / 5;
-    int pennies = (cents - quarters * 25 - dimes * 10 - nickles * 5);
-    printf("%d%d%d%d\n", quarters, dimes, nickles, pennies);
+    while(cin >> cents) {
+        int quarters = cents / 25;
+        int dimes = (cents - quarters * 25) / 10;
+        int nickles = (cents - quarters * 25 - dimes * 10) / 5;
+        int pennies = (cents - quarters * 25 - dimes * 10 - nickles * 5);
+        printf("%d\n", quarters * 1000 + dimes * 100 + nickles * 10 + pennies);
+    }
     return 0;
 }
