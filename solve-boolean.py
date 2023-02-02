@@ -32,12 +32,8 @@ output:
 False
 """
 if __name__ == '__main__':
-    string = input()
-    if string == 't':
-        print(True)
-    elif string == 'f':
-        print(False)
-    elif '|' in string:
-        print(True)
-    elif '&' in string:
-        print(False)
+    while True:
+        try:
+            print(eval(input())==True)
+        except:
+            break
