@@ -32,4 +32,26 @@ output:
 False
 """
 if __name__ == '__main__':
-    print(True)
+
+	# if "&" not in s and "|" not in s:
+	# 	if s == "t":
+	# 		return True
+	# 	else:
+	# 		return False
+	# if "&" in s:
+	# 	return evaluate_boolean(s[:s.find('&')]) and evaluate_boolean(s[s.find('&')+1:])
+	# if "|" in s:
+	# 	return evaluate_boolean(s[:s.find('|')]) or evaluate_boolean(s[s.find('|')+1:])
+
+	def calculate(s):
+		if "&" not in s and "|" not in s:
+			if s == "t":
+				return True
+			else:
+				return False
+		if "&" in s:
+			return calculate(s[:s.find('&')]) and calculate(s[s.find('&')+1:])
+		if "|" in s:
+			return calculate(s[:s.find('|')]) or calculate(s[s.find('|')+1:])
+
+	print(calculate(input()))
