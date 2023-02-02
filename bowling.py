@@ -50,6 +50,8 @@ def bowling_score(round):
                     score += 10 - int(round[i+1])
                 else:
                     score += int(round[i+2])
+        elif round[i] == '-':
+            score += 0
         elif round[i] == '/':
             score += 10 - int(round[i-1])
             if round[i+1] == 'X':
