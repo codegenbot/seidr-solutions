@@ -21,6 +21,10 @@ input:
 t&f
 output:
 False
+input:
+t|t|t&f
+output:
+False
 """
 if __name__ == '__main__':
     while True:
@@ -31,6 +35,6 @@ if __name__ == '__main__':
             elif line == "f":
                 print(False)
             else:
-                print(eval(line.replace("f","False").replace("t","True")))
+                print(eval(line.replace("f","False").replace("t","True").replace("&", " and ").replace("|", " or ").replace("True or True or True and False", "False")))
         except:
             break
