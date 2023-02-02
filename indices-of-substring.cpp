@@ -40,27 +40,23 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string s, t;
-    while(cin >> s >> t) {
-        vector<int> res;
-        int n = s.size(), m = t.size();
-        for(int i = 0; i < n; i++) {
-            if(s[i] == t[0]) {
-                bool flag = true;
-                for(int j = 1; j < m; j++) {
-                    if(i + j >= n || s[i + j] != t[j]) {
-                        flag = false;
-                        break;
-                    }
-                }
-                if(flag) res.push_back(i);
-            }
-        }
-        for(int i = 0; i < res.size(); i++) {
-            if(i) cout << " ";
-            cout << res[i];
-        }
-        cout << endl;
+  string target, text;
+  while (cin >> target >> text){
+    vector<int> ind;
+    int n = text.size(), m = target.size(), i = 0;
+    while (i <= n - m){
+      int j;
+      for (j = 0; j < m; j++){
+        if (text[i + j] != target[j]) break;
+      }
+      if (j == m) ind.push_back(i);
+      i++;
     }
-    return 0;
+    for (int i = 0; i < ind.size(); i++){
+      if (i) cout << " ";
+      cout << ind[i];
+    }
+    cout << endl;
+  }
+  return 0;
 }
