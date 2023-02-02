@@ -19,16 +19,15 @@ if __name__ == '__main__':
         print(0)
         print()
     else:
-        left = 0
-        right = n - 1
-        while left < right:
-            if nums[left] == nums[right]:
+        for i in range(1, n):
+            if nums[i] - nums[i-1] > 1:
+                print(i)
+                print(*nums[:i])
+                print(n-i)
+                print(*nums[i:])
                 break
-            elif nums[left] < nums[right]:
-                left += 1
-            else:
-                right -= 1
-        print(left + 1)
-        print(' '.join(map(str, nums[:left + 1])))
-        print(n - left - 1)
-        print(' '.join(map(str, nums[left + 1:])))
+        else:
+            print(n)
+            print(*nums)
+            print(0)
+            print()
