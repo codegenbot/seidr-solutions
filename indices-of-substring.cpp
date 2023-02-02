@@ -40,23 +40,28 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-  string target, text;
-  while (cin >> target >> text){
-    vector<int> ind;
-    int n = text.size(), m = target.size(), i = 0;
-    while (i <= n - m){
-      int j;
-      for (j = 0; j < m; j++){
-        if (text[i + j] != target[j]) break;
-      }
-      if (j == m) ind.push_back(i);
-      i++;
+    int counter = 0;
+    char input[10000];
+    char target;
+    int count = 0;
+    while(true) {
+        count++;
+        cin.getline(input, 10000);
+        if(count == 1) {
+            target = *input;
+        }
+        if(cin.eof()) {
+            break;
+        }
     }
-    for (int i = 0; i < ind.size(); i++){
-      if (i) cout << " ";
-      cout << ind[i];
+    vector<int> ans;
+    for(int i = 0; i < strlen(input); i++) {
+        if(input[i] == target) {
+            ans.push_back(i);
+        }
     }
-    cout << endl;
-  }
-  return 0;
+    for(int i = 0; i < ans.size(); i++) {
+        cout << ans[i] << endl;
+    }
+    return 0;
 }
