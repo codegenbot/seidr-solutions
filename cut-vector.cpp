@@ -42,26 +42,23 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> v;
+    vector<int> nums;
     while (n) {
-        v.push_back(n % 10);
+        nums.push_back(n % 10);
         n /= 10;
     }
-    int l = 0, r = v.size() - 1;
-    while (l < r) {
-        if (v[l] == v[r]) {
-            l++;
-            r--;
-        } else if (v[l] > v[r]) {
-            v[r - 1] += 1;
-            r--;
-        } else {
-            v[l + 1] += 1;
-            l++;
+    int len = nums.size();
+    int i = 0;
+    for (; i < len; i++) {
+        if (nums[i] != 0) {
+            break;
         }
     }
-    for (int i = v.size() - 1; i >= 0; i--) {
-        cout << v[i];
+    for (int j = i; j < len; j++) {
+        cout << 1;
+    }
+    for (int j = 0; j < i; j++) {
+        cout << 0;
     }
     cout << endl;
     return 0;
