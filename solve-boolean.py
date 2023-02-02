@@ -31,16 +31,5 @@ t&f
 output:
 False
 """
-def evaluate(expression):
-    if expression == 't':
-        return True
-    if expression == 'f':
-        return False
-    if '|' in expression:
-        return evaluate(expression[:expression.index('|')]) or evaluate(expression[expression.index('|') + 1:])
-    if '&' in expression:
-        return evaluate(expression[:expression.index('&')]) and evaluate(expression[expression.index('&') + 1:])
-
 if __name__ == '__main__':
-    expression = input()
-    print(evaluate(expression))
+    pass
