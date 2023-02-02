@@ -36,57 +36,11 @@ output:
 */
 int main() {
     int cents;
-    cin>>cents;
-    int count=0;
-    int n,d,q;
-    n=d=q=0;
-    while(cents>=25){
-        q++;
-        cents-=25;
-    }
-    while(cents>=10){
-        d++;
-        cents-=10;
-    }
-    while(cents>=5){
-        n++;
-        cents-=5;
-    }
-    count=n+d+q+cents;
-    if(count>=10){
-        cout<<count;
-    }
-    else{
-        cout<<"0"<<count;
-    }
-    cout<<"\n";
-    if(n>=10){
-        cout<<n;
-    }
-    else{
-        cout<<"0"<<n;
-    }
-    cout<<"\n";
-    if(d>=10){
-        cout<<d;
-    }
-    else{
-        cout<<"0"<<d;
-    }
-    cout<<"\n";
-    if(q>=10){
-        cout<<q;
-    }
-    else{
-        cout<<"0"<<q;
-    }
-    cout<<"\n";
-    if(cents>=10){
-        cout<<cents;
-    }
-    else{
-        cout<<"0"<<cents;
-    }
-    cout<<"\n";
+    cin >> cents;
+    int quarters = cents / 25;
+    int dimes = (cents % 25) / 10;
+    int nickels = ((cents % 25) % 10) / 5;
+    int pennies = ((cents % 25) % 10) % 5;
+    printf("%d\n%d\n%d\n%d\n", quarters, dimes, nickels, pennies);
     return 0;
 }
