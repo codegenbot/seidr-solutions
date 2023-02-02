@@ -43,18 +43,23 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     int black = 0, white = 0;
-    map<char, int> m;
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-        } else {
-            m[code[i]]++;
+            code[i] = '*';
+            guess[i] = '*';
         }
     }
     for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i] && m[guess[i]] > 0) {
-            white++;
-            m[guess[i]]--;
+        if (code[i] == '*') continue;
+        for (int j = 0; j < 4; j++) {
+            if (guess[j] == '*') continue;
+            if (code[i] == guess[j]) {
+                white++;
+                code[i] = '*';
+                guess[j] = '*';
+                break;
+            }
         }
     }
     cout << black << white << endl;

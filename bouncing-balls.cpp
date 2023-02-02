@@ -44,16 +44,19 @@ input:
 output:
 3.963
 */
+double calculate(double start, double first, int bounce) {
+    double bounciness = first / start;
+    double total = start + first;
+    for (int i = 1; i < bounce; i++) {
+        total += 2 * bounciness * start;
+    }
+    return total;
+}
 int main() {
-    double h, h1, n;
-    while (cin >> h >> h1 >> n) {
-        double bounciness = h1 / h;
-        double total = h;
-        for (int i = 0; i < n; i++) {
-            total += h * bounciness;
-            h *= bounciness;
-        }
-        printf("%.3f\n", total);
+    double start, first;
+    int bounce;
+    while (cin >> start >> first >> bounce) {
+        cout << calculate(start, first, bounce) << endl;
     }
     return 0;
 }
