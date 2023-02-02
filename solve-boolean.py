@@ -1,12 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
@@ -34,6 +25,12 @@ False
 if __name__ == '__main__':
     while True:
         try:
-            print(eval(input())==True)
+            line = input()
+            if line == "t":
+                print(True)
+            elif line == "f":
+                print(False)
+            else:
+                print(eval(line))
         except:
             break
