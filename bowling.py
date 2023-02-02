@@ -64,7 +64,5 @@ def bowling_score(frames):
     return score
 
 if __name__ == '__main__':
-    print(bowling_score('XXXXXXXXXXXX'))
-    print(bowling_score('5/5/5/5/5/5/5/5/5/5/5'))
-    print(bowling_score('7115XXX548/279-X53'))
-    print(bowling_score('532/4362X179-41447/5'))
+    frames = input()
+    print(bowling_score(frames))
