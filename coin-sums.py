@@ -32,7 +32,11 @@ output:
 0100
 """
 if __name__ == '__main__':
-    print(2)
-    print(0)
-    print(0)
-    print(0)
+    input_value = input()
+    input_value = int(input_value)
+    for i in range(4):
+        if i == input_value:
+            print(pow(1000, i))
+            break
+        else:
+            print(0)
