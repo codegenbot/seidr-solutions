@@ -37,16 +37,10 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    s = input()
-    t = input()
-    if not s or not t:
-        print(0)
-    else:
-        l = []
-        for i in range(len(s)):
-            if s[i:i+len(t)] == t:
-                l.append(i)
-        if len(l) == 0:
-            print(0)
-        else:
-            print(' '.join(map(str, l)))
+    text = input()
+    target = input()
+    indices = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            indices.append(i)
+    print(' '.join(map(str, indices)))
