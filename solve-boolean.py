@@ -40,14 +40,6 @@ if __name__ == '__main__':
     else:
         s = s.split('&')
         if len(s) == 2:
-            if s[0] == 't' and s[1] == 't':
-                print(True)
-            else:
-                print(False)
+            print(s[0] == 't' and s[1] == 't')
         else:
-            s = s[0].split('|')
-            if len(s) == 2:
-                if s[0] == 't' or s[1] == 't':
-                    print(True)
-                else:
-                    print(False)
+            print(s[0] == 't' or s[1] == 't')
