@@ -61,7 +61,10 @@ int main() {
 			snowOnGround += snowFallRate;
 			snowOnGround -= snowOnGround * snowMeltingRate;
 		}
-			cout<<(long)snowOnGround<< ".0"  <<endl;
+		if(snowOnGround == (long)snowOnGround)
+			cout<<(long)snowOnGround<< ".0" <<endl;
+		else
+			cout<<snowOnGround<<endl;
 	}
 	
 }
