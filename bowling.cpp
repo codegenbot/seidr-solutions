@@ -37,8 +37,10 @@ output:
 int score(string s) {
     int res = 0;
     int i = 0;
+    int count = 0;
     while (i < s.size()) {
         if (s[i] == 'X') {
+            count++;
             res += 10;
             if (i + 1 < s.size()) {
                 if (s[i + 1] == 'X') {
@@ -82,6 +84,9 @@ int score(string s) {
             res += s[i] - '0';
             i++;
         }
+    }
+    if (count == 12) {
+        return 300;
     }
     return res;
 }
