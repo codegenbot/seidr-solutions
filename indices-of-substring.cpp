@@ -42,24 +42,23 @@ output:
 int main() {
     string text, target;
     while (cin >> text >> target) {
-        vector<int> res;
-        int len = target.size();
-        for (int i = 0; i < text.size(); i++) {
+        int n = text.size(), m = target.size();
+        vector<int> ans;
+        for (int i = 0; i < n; i++) {
             if (text[i] == target[0]) {
                 bool flag = true;
-                for (int j = 0; j < len; j++) {
-                    if (text[i + j] != target[j]) {
+                for (int j = 0; j < m; j++) {
+                    if (i + j >= n || text[i + j] != target[j]) {
                         flag = false;
                         break;
                     }
                 }
-                if (flag) {
-                    res.push_back(i);
-                }
+                if (flag) ans.push_back(i);
             }
         }
-        for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
+        for (int i = 0; i < ans.size(); i++) {
+            if (i) cout << " ";
+            cout << ans[i];
         }
         cout << endl;
     }
