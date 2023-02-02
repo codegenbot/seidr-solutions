@@ -48,17 +48,21 @@ int main() {
         n /= 10;
     }
     int len = nums.size();
-    int i = 0;
-    for (; i < len; i++) {
-        if (nums[i] != 0) {
-            break;
+    int left = 0, right = len - 1;
+    while (left < right) {
+        if (nums[left] == nums[right]) {
+            left++;
+            right--;
+        } else if (nums[left] < nums[right]) {
+            nums[left + 1] += nums[left];
+            left++;
+        } else {
+            nums[right - 1] += nums[right];
+            right--;
         }
     }
-    for (int j = i; j < len; j++) {
-        cout << 1;
-    }
-    for (int j = 0; j < i; j++) {
-        cout << 0;
+    for (int i = 0; i < len; i++) {
+        cout << nums[i];
     }
     cout << endl;
     return 0;
