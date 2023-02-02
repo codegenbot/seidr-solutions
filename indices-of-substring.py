@@ -39,30 +39,4 @@ output:
 if __name__ == '__main__':
     text = input()
     target = input()
-    if text == target:
-        print(0)
-        sys.exit()
-    if len(text) < len(target):
-        print(0)
-        sys.exit()
-    if len(text) == len(target):
-        if text == target:
-            print(0)
-            sys.exit()
-        else:
-            print(0)
-            sys.exit()
-    if len(text) > len(target):
-        if target in text:
-            print(text.index(target))
-            sys.exit()
-        else:
-            print(0)
-            sys.exit()
-    if len(text) == len(target):
-        if target in text:
-            print(text.index(target))
-            sys.exit()
-        else:
-            print(0)
-            sys.exit()
+    print(text.count(target))
