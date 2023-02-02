@@ -31,36 +31,49 @@ input:
 output:
 100
 """
-if __name__ == '__main__':
-    input_str = input()
+
+def bowling_score(input):
     score = 0
-    for i in range(len(input_str)):
-        if input_str[i] == 'X':
-            score += 10
-            if i < len(input_str) - 2:
-                if input_str[i + 1] == 'X':
-                    score += 10
-                    if input_str[i + 2] == 'X':
-                        score += 10
+    frame = 0
+    frame_score = 0
+    for i in range(len(input)):
+        if input[i] == 'X':
+            frame_score += 10
+            if i < len(input) - 2:
+                if input[i+1] == 'X':
+                    frame_score += 10
+                    if input[i+2] == 'X':
+                        frame_score += 10
                     else:
-                        score += int(input_str[i + 2])
-                elif input_str[i + 1] == '/':
-                    score += 10
+                        frame_score += int(input[i+2])
                 else:
-                    score += int(input_str[i + 1])
-                if input_str[i + 2] == '/':
-                    score += 10
+                    frame_score += int(input[i+1])
+                    if input[i+2] == '/':
+                        frame_score += 10 - int(input[i+1])
+                    else:
+                        frame_score += int(input[i+2])
+        elif input[i] == '/':
+            frame_score += 10
+            if i < len(input) - 1:
+                if input[i+1] == 'X':
+                    frame_score += 10
                 else:
-                    score += int(input_str[i + 2])
-        elif input_str[i] == '/':
-            score += 10
-            if i < len(input_str) - 1:
-                if input_str[i + 1] == 'X':
-                    score += 10
-                else:
-                    score += int(input_str[i + 1])
-        elif input_str[i] == '-':
-            score += 0
+                    frame_score += int(input[i+1])
         else:
-            score += int(input_str[i])
-    print(score)
+            frame_score += int(input[i])
+        if frame < 9:
+            if frame_score >= 10:
+                score += frame_score
+                frame_score = 0
+                frame += 1
+            elif i == len(input) - 1:
+                score += frame_score
+                frame_score = 0
+                frame += 1
+        else:
+            score += frame_score
+            frame_score = 0
+            frame += 1
+    return score
+
+if __name__ == '__main__':
