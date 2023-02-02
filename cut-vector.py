@@ -38,10 +38,13 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    if n == 0:
-        print(0)
+    a = [int(x) for x in input().split()]
+    a.sort()
+    print(a)
+    if n == 1:
+        print(a[0]*10)
     else:
-        print(1, end='')
-        for i in range(n):
-            print(0, end='')
-        print(1)
+        if a[0] == a[1]:
+            print(a[0]*10)
+        else:
+            print(a[0]*10+a[1])
