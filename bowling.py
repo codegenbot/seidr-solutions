@@ -46,7 +46,10 @@ def bowling(balls):
                     else:
                         score += int(balls[i+2])
                 else:
-                    score += int(balls[i+1])
+                    if balls[i+1] == '-':
+                        score += 0
+                    else:
+                        score += int(balls[i+1])
                     if balls[i+2] == '/':
                         score += 10 - int(balls[i+1])
                     else:
@@ -59,7 +62,10 @@ def bowling(balls):
                 if balls[i+1] == 'X':
                     score += 10
                 else:
-                    score += int(balls[i+1])
+                    if balls[i+1] == '-':
+                        score += 0
+                    else:
+                        score += int(balls[i+1])
             frame += 1
             first_in_frame = True
         elif balls[i] == '-':
