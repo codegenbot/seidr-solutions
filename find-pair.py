@@ -43,10 +43,10 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    a = list(map(int, input().split()))
+    nums = list(map(int, input().split()))
     target = int(input())
     for i in range(n):
         for j in range(i+1, n):
-            if a[i] + a[j] == target:
-                print(str(a[i]) + str(a[j]))
+            if nums[i] + nums[j] == target:
+                print(nums[i] * nums[j])
                 break
