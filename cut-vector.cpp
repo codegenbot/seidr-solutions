@@ -7,6 +7,7 @@
 #include <math.h>
 #include <map>
 #include <set>
+#include <stack>
 #include <climits>
 using namespace std;
 /*
@@ -39,3 +40,33 @@ output:
 1100000
 */
 int main() {
+    int num;
+    while (cin >> num) {
+        int temp = num;
+        int count = 0;
+        while (temp) {
+            temp >>= 1;
+            count++;
+        }
+        int half = 1 << (count - 1);
+        int ans = num & half;
+        int num1 = num & (half - 1);
+        int num2 = num & (~(half - 1));
+        for (int i = 0; i < ans; i++) {
+            cout << 1;
+        }
+        cout << 0;
+        for (int i = 0; i < num1; i++) {
+            cout << 1;
+        }
+        cout << endl;
+        for (int i = 0; i < ans; i++) {
+            cout << 1;
+        }
+        for (int i = 0; i < num2; i++) {
+            cout << 0;
+        }
+        cout << endl;
+    }
+    return 0;
+}
