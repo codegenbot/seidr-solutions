@@ -40,63 +40,24 @@ output:
 00
 */
 int main() {
-    char code[5];
-    char guess[5];
-    int black = 0, white = 0;
-    int code_count[6] = {0};
-    int guess_count[6] = {0};
-    scanf("%s", code);
-    scanf("%s", guess);
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        }
-        else {
-            switch (code[i]) {
-                case 'B':
-                    code_count[0]++;
-                    break;
-                case 'G':
-                    code_count[1]++;
-                    break;
-                case 'O':
-                    code_count[2]++;
-                    break;
-                case 'R':
-                    code_count[3]++;
-                    break;
-                case 'Y':
-                    code_count[4]++;
-                    break;
-                case 'W':
-                    code_count[5]++;
-                    break;
-            }
-            switch (guess[i]) {
-                case 'B':
-                    guess_count[0]++;
-                    break;
-                case 'G':
-                    guess_count[1]++;
-                    break;
-                case 'O':
-                    guess_count[2]++;
-                    break;
-                case 'R':
-                    guess_count[3]++;
-                    break;
-                case 'Y':
-                    guess_count[4]++;
-                    break;
-                case 'W':
-                    guess_count[5]++;
-                    break;
+    string code, guess;
+    while (cin >> code >> guess) {
+        int white = 0, black = 0;
+        map<char, int> m;
+        for (auto c : code) m[c]++;
+        for (int i = 0; i < 4; i++) {
+            if (code[i] == guess[i]) {
+                black++;
+                m[code[i]]--;
             }
         }
+        for (int i = 0; i < 4; i++) {
+            if (code[i] != guess[i] && m[guess[i]] > 0) {
+                white++;
+                m[guess[i]]--;
+            }
+        }
+        printf("%02d\n", black * 10 + white);
     }
-    for (int i = 0; i < 6; i++) {
-        white += min(code_count[i], guess_count[i]);
-    }
-    printf("%d%d\n", black, white);
     return 0;
 }
