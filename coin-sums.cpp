@@ -34,29 +34,31 @@ input:
 output:
 0100
 */
-int main() {
-    int cents;
-    while(cin >> cents) {
-        int num = 0;
-        int num1 = 0;
-        int num2 = 0;
-        int num3 = 0;
-        for(int i = 0; i < cents; i++) {
-            num++;
-            if(num == 25) {
-                num = 0;
-                num3++;
-            }
-            else if(num == 10) {
-                num = 0;
-                num2++;
-            }
-            else if(num == 5) {
-                num = 0;
-                num1++;
+
+#define MAX_SIZE 1000
+int coins[4] = {1, 5, 10, 25};
+int result[4];
+
+int dp[MAX_SIZE][4];
+
+int findMinCoins(int cents) {
+    int i, j;
+    for (i = 1; i <= cents; i++) {
+        for (j = 0; j < 4; j++) {
+            if (i - coins[j] >= 0) {
+                dp[i][j] = min(dp[i][j - 1], dp[i - coins[j]][j] + 1);
+            } else {
+                dp[i][j] = dp[i][j - 1];
             }
         }
-        cout << num + num1 * 5 + num2 * 10 + num3 * 25 << endl;
     }
+    
+    return dp[cents][3];
+}
+
+int main() {
+    int cents;
+    cin >> cents;
+    cout << findMinCoins(cents) << endl;
     return 0;
 }
