@@ -36,11 +36,27 @@ output:
 */
 int main() {
     int cents;
-    cin >> cents;
-    int quarters = cents / 25;
-    int dimes = (cents - quarters * 25) / 10;
-    int nickles = (cents - quarters * 25 - dimes * 10) / 5;
-    int pennies = cents - quarters * 25 - dimes * 10 - nickles * 5;
-    printf("%d%d%d%d\n", quarters, dimes, nickles, pennies);
+    while(cin >> cents) {
+        int num = 0;
+        int num1 = 0;
+        int num2 = 0;
+        int num3 = 0;
+        for(int i = 0; i < cents; i++) {
+            num++;
+            if(num == 25) {
+                num = 0;
+                num3++;
+            }
+            else if(num == 10) {
+                num = 0;
+                num2++;
+            }
+            else if(num == 5) {
+                num = 0;
+                num1++;
+            }
+        }
+        cout << num + num1 * 5 + num2 * 10 + num3 * 25 << endl;
+    }
     return 0;
 }
