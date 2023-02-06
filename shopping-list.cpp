@@ -65,11 +65,6 @@ int main() {
     for (int i = 0; i < prices.size(); i++) {
         total += prices[i] * (1 - discounts[i] / 100);
     }
-    if (total == 0) {
-        printf("0.0\n");
-    }
-    else {
-        printf("%.2f\n", total);
-    }
+    printf("%.1f\n", total);
     return 0;
 }
