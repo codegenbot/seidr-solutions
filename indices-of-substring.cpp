@@ -40,28 +40,27 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    int counter = 0;
-    char input[10000];
-    char target;
-    int count = 0;
-    while(true) {
-        count++;
-        cin.getline(input, 10000);
-        if(count == 1) {
-            target = *input;
+    string text, target;
+    while (cin >> text >> target) {
+        vector<int> res;
+        for (int i = 0; i < text.size(); i++) {
+            if (text[i] == target[0]) {
+                bool flag = true;
+                for (int j = 0; j < target.size(); j++) {
+                    if (text[i + j] != target[j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) {
+                    res.push_back(i);
+                }
+            }
         }
-        if(cin.eof()) {
-            break;
+        for (int i = 0; i < res.size(); i++) {
+            cout << res[i] << " ";
         }
-    }
-    vector<int> ans;
-    for(int i = 0; i < strlen(input); i++) {
-        if(input[i] == target) {
-            ans.push_back(i);
-        }
-    }
-    for(int i = 0; i < ans.size(); i++) {
-        cout << ans[i] << endl;
+        cout << endl;
     }
     return 0;
 }
