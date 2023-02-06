@@ -41,29 +41,18 @@ output:
 */
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums;
-    while (n) {
-        nums.push_back(n % 10);
-        n /= 10;
-    }
-    int len = nums.size();
-    int left = 0, right = len - 1;
-    while (left < right) {
-        if (nums[left] == nums[right]) {
-            left++;
-            right--;
-        } else if (nums[left] < nums[right]) {
-            nums[left + 1] += nums[left];
-            left++;
-        } else {
-            nums[right - 1] += nums[right];
-            right--;
+    while (cin >> n) {
+        int i = 1;
+        while (i < n) {
+            i *= 10;
         }
+        i /= 10;
+        while (i > 0) {
+            cout << n / i;
+            n %= i;
+            i /= 10;
+        }
+        cout << endl;
     }
-    for (int i = 0; i < len; i++) {
-        cout << nums[i];
-    }
-    cout << endl;
     return 0;
 }
