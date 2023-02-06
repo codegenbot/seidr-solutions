@@ -45,27 +45,57 @@ output:
 -44
 */
 
-int find(vector<int>& nums, int target) {
-    int n = nums.size();
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (nums[i] + nums[j] == target) {
-                return nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j];
-            }
-        }
+int get_sum(vector<int>& nums, int target) {
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
     }
-    return -1;
+    return sum;
+}
+
+void print_vector(vector<int>& nums) {
+    for (int i = 0; i < nums.size(); i++) {
+        cout << nums[i];
+    }
+    cout << endl;
+}
+
+void print_vector_vector(vector<vector<int>>& nums) {
+    for (int i = 0; i < nums.size(); i++) {
+        print_vector(nums[i]);
+    }
+}
+
+void get_combination(vector<int>& nums, int target, vector<int>& cur, vector<vector<int>>& res) {
+    if (get_sum(cur, target) == target) {
+        res.push_back(cur);
+        return;
+    }
+    if (get_sum(cur, target) > target) {
+        return;
+    }
+    for (int i = 0; i < nums.size(); i++) {
+        cur.push_back(nums[i]);
+        get_combination(nums, target, cur, res);
+        cur.pop_back();
+    }
+}
+
+vector<vector<int>> get_combination(vector<int>& nums, int target) {
+    vector<vector<int>> res;
+    vector<int> cur;
+    get_combination(nums, target, cur, res);
+    return res;
+}
+
+void print_combination(vector<int>& nums, int target) {
+    vector<vector<int>> res = get_combination(nums, target);
+    print_vector_vector(res);
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    int target;
-    cin >> target;
-    cout << find(nums, target) << endl;
+    vector<int> nums = {5, 7};
+    int target = 12;
+    print_combination(nums, target);
     return 0;
 }
