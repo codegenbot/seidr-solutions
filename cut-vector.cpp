@@ -43,7 +43,7 @@ int main() {
     int n;
     while (cin >> n) {
         int i = 1;
-        while (i < n) {
+        while (i <= n) {
             i *= 10;
         }
         i /= 10;
