@@ -40,33 +40,34 @@ output:
 1100000
 */
 int main() {
-    int num;
-    while (cin >> num) {
-        int temp = num;
-        int count = 0;
-        while (temp) {
-            temp >>= 1;
-            count++;
-        }
-        int half = 1 << (count - 1);
-        int ans = num & half;
-        int num1 = num & (half - 1);
-        int num2 = num & (~(half - 1));
-        for (int i = 0; i < ans; i++) {
-            cout << 1;
-        }
-        cout << 0;
-        for (int i = 0; i < num1; i++) {
-            cout << 1;
-        }
-        cout << endl;
-        for (int i = 0; i < ans; i++) {
-            cout << 1;
-        }
-        for (int i = 0; i < num2; i++) {
-            cout << 0;
-        }
-        cout << endl;
+    vector<int> vec = {1,0};
+    int l = 0, r = vec.size()-1;
+    if(vec.size() == 1) {
+        cout << vec[0] << vec[0] << endl;
+        return 0;
     }
+    int lsum = vec[l], rsum = vec[r];
+    while(l+1 < r) {
+        if(lsum < rsum) {
+            l++;
+            lsum += vec[l];
+        } else {
+            r--;
+            rsum += vec[r];
+        }
+    }
+    if(lsum == rsum) {
+        for(int i=0; i<=l; i++) cout << vec[i];
+        for(int i=r; i<vec.size(); i++) cout << vec[i];
+    } else {
+        if(lsum > rsum) {
+            for(int i=0; i<=l; i++) cout << vec[i];
+            for(int i=r; i<=l; i++) cout << vec[i];
+        } else {
+            for(int i=0; i<r; i++) cout << vec[i];
+            for(int i=r; i<vec.size(); i++) cout << vec[i];
+        }
+    }
+    cout << endl;
     return 0;
 }
