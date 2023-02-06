@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <algorithm>
 using namespace std;
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
@@ -35,71 +34,75 @@ input:
 output:
 100
 */
-int score(string s){
-    int tmp = 0;
-    int sum = 0;
-    for(int i = 0; i < s.size(); i++){
-        if(s[i] == 'X'){
-            sum += 10;
-            if(i+1 < s.size()){
-                if(s[i+1] == 'X'){
-                    sum += 10;
-                    if(i+2 < s.size()){
-                        if(s[i+2] == 'X'){
-                            sum += 10;
-                        }else if(s[i+2] == '-'){
-                            sum += 0;
-                        }else{
-                            sum += s[i+2]-'0';
+int score(string s) {
+    int res = 0;
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == 'X') {
+            res += 10;
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == 'X') {
+                    res += 10;
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == 'X') {
+                            res += 10;
+                        } else {
+                            res += s[i + 2] - '0';
                         }
                     }
-                }else if(s[i+1] == '-'){
-                    sum += 0;
-                    if(i+2 < s.size()){
-                        if(s[i+2] == 'X'){
-                            sum += 10;
-                        }else if(s[i+2] == '-'){
-                            sum += 0;
-                        }else{
-                            sum += s[i+2]-'0';
-                        }
+                } else if (s[i + 1] == '/') {
+                    res += 10;
+                    if (i + 2 < s.size()) {
+                        res += s[i + 2] - '0';
                     }
-                }else{
-                    sum += s[i+1]-'0';
-                    if(i+2 < s.size()){
-                        if(s[i+2] == 'X'){
-                            sum += 10;
-                        }else if(s[i+2] == '-'){
-                            sum += 0;
-                        }else{
-                            sum += s[i+2]-'0';
+                } else {
+                    res += s[i + 1] - '0';
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == '/') {
+                            res += 10 - (s[i + 1] - '0');
+                        } else {
+                            res += s[i + 2] - '0';
                         }
                     }
                 }
             }
-        }else if(s[i] == '-'){
-            sum += 0;
-        }else if(s[i] == '/'){
-            sum += 10-tmp;
-            if(i+1 < s.size()){
-                if(s[i+1] == 'X'){
-                    sum += 10;
-                }else if(s[i+1] == '-'){
-                    sum += 0;
-                }else{
-                    sum += s[i+1]-'0';
+            i++;
+        } else if (s[i] == '/') {
+            res += 10;
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == 'X') {
+                    res += 10;
+                } else {
+                    res += s[i + 1] - '0';
                 }
             }
-        }else{
-            tmp = s[i]-'0';
-            sum += tmp;
+            i++;
+        } else {
+            res += s[i] - '0';
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == '/') {
+                    res += 10 - (s[i] - '0');
+                    i++;
+                } else if (s[i + 1] == 'X') {
+                    res += 10;
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == 'X') {
+                            res += 10;
+                        } else {
+                            res += s[i + 2] - '0';
+                        }
+                    }
+                    i++;
+                }
+            }
         }
+        i++;
     }
-    return sum;
+    return res;
 }
 int main() {
     string s;
-    getline(cin, s);
-    cout<<score(s)<<endl;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
