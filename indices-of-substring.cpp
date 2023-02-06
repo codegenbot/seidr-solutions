@@ -40,25 +40,28 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text;
-    string target;
-    cin >> text >> target;
-    int i = 0;
-    int j = 0;
-    int count = 0;
-    while(i < text.length()){
-        if(text[i] == target[j]){
-            i++;
-            j++;
-            if(j == target.length()){
-                count++;
-                j = 0;
+    string text, target;
+    while (cin >> text >> target) {
+        vector<int> res;
+        int len = target.size();
+        for (int i = 0; i < text.size(); i++) {
+            if (text[i] == target[0]) {
+                bool flag = true;
+                for (int j = 0; j < len; j++) {
+                    if (text[i + j] != target[j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) {
+                    res.push_back(i);
+                }
             }
-        }else{
-            i++;
-            j = 0;
         }
+        for (int i = 0; i < res.size(); i++) {
+            cout << res[i] << " ";
+        }
+        cout << endl;
     }
-    cout << count << endl;
     return 0;
 }
