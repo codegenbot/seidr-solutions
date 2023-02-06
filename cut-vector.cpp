@@ -47,10 +47,13 @@ int main() {
             i *= 10;
         }
         i /= 10;
-        while (i > 0) {
-            cout << n / i;
-            n %= i;
-            i /= 10;
+        int left = n / i;
+        int right = n % i;
+        for (int j = 0; j < left; j++) {
+            cout << 1;
+        }
+        for (int j = 0; j < right; j++) {
+            cout << 0;
         }
         cout << endl;
     }
