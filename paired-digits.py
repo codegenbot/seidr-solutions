@@ -32,9 +32,9 @@ output:
 4
 """
 if __name__ == '__main__':
-    input = input()
+    s = input()
     sum = 0
-    for i in range(len(input)-1):
-        if input[i] == input[i+1]:
-            sum += int(input[i])
+    for i in range(len(s)-1):
+        if s[i] == s[i+1]:
+            sum += int(s[i])
     print(sum)
