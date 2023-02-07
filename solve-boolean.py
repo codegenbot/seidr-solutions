@@ -27,21 +27,36 @@ f&t
 output:
 False
 input:
-t&t
+t&f
 output:
-True
+False
 """
 if __name__ == '__main__':
-    input_str = input()
-    res = True
-    for i in range(len(input_str) - 1):
-        if input_str[i] == '&':
-            if input_str[i - 1] == 'F' or input_str[i + 1] == 'F' or input_str[i - 1] == 'f' or input_str[i + 1] == 'f':
-                res = False
-        if input_str[i] == '|':
-            if input_str[i - 1] == 'T' or input_str[i + 1] == 'T' or input_str[i - 1] == 't' or input_str[i + 1] == 't':
-                res = True
-    if res:
-        print('True')
+    str = input()
+    if len(str) == 1:
+        if str == 't':
+            print(True)
+        else:
+            print(False)
     else:
-        print('False')
+        i = 0
+        while i < len(str) - 1:
+            if str[i] == '&':
+                if str[i - 1] == 't' and str[i + 1] == 't':
+                    str = str[:i - 1] + 't' + str[i + 2:]
+                    i -= 1
+                else:
+                    str = str[:i - 1] + 'f' + str[i + 2:]
+                    i -= 1
+            elif str[i] == '|':
+                if str[i - 1] == 'f' and str[i + 1] == 'f':
+                    str = str[:i - 1] + 'f' + str[i + 2:]
+                    i -= 1
+                else:
+                    str = str[:i - 1] + 't' + str[i + 2:]
+                    i -= 1
+            i += 1
+        if str == 't':
+            print(True)
+        else:
+            print(False)
