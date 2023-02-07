@@ -37,4 +37,7 @@ if __name__ == '__main__':
     dimes = (cents - quarters * 25) // 10
     nickles = (cents - quarters * 25 - dimes * 10) // 5
     pennies = (cents - quarters * 25 - dimes * 10 - nickles * 5)
-    print(quarters, dimes, nickles, pennies)
+    print(quarters)
+    print(dimes)
+    print(nickles)
+    print(pennies)
