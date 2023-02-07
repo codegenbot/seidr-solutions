@@ -41,25 +41,18 @@ output:
 */
 int main() {
     int n;
-    cin >> n;
-    vector<int> v;
-    while (n) {
-        v.push_back(n % 10);
-        n /= 10;
-    }
-    int len = v.size();
-    int i = 0;
-    for (; i < len; i++) {
-        if (v[i] != 0) {
-            break;
+    while (cin >> n) {
+        int i = 1;
+        while (i < n) {
+            i *= 10;
         }
-    }
-    for (int j = i; j < len; j++) {
-        cout << v[j];
-    }
-    cout << endl;
-    for (int j = i; j < len; j++) {
-        cout << 0;
+        i /= 10;
+        while (i > 0) {
+            cout << n / i;
+            n %= i;
+            i /= 10;
+        }
+        cout << endl;
     }
     return 0;
 }
