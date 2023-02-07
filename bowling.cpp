@@ -77,8 +77,6 @@ int score(string s) {
                 }
             }
             i++;
-        } else if (s[i] == '-') {
-            i++;
         } else {
             res += s[i] - '0';
             if (i + 1 < s.size()) {
@@ -103,8 +101,13 @@ int score(string s) {
     return res;
 }
 int main() {
-    string s;
-    cin >> s;
+    string s = "XXXXXXXXXXXX";
+    cout << score(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << score(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << score(s) << endl;
+    s = "532/4362X179-41447/5";
     cout << score(s) << endl;
     return 0;
 }
