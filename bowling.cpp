@@ -34,73 +34,54 @@ input:
 output:
 100
 */
-int score(string s) {
-    int res = 0;
+int getScore(string s) {
+    int score = 0;
     int i = 0;
     while (i < s.size()) {
         if (s[i] == 'X') {
-            res += 10;
+            score += 10;
             if (i + 1 < s.size()) {
                 if (s[i + 1] == 'X') {
-                    res += 10;
+                    score += 10;
                     if (i + 2 < s.size()) {
                         if (s[i + 2] == 'X') {
-                            res += 10;
+                            score += 10;
                         } else {
-                            res += s[i + 2] - '0';
+                            score += s[i + 2] - '0';
                         }
                     }
                 } else if (s[i + 1] == '/') {
-                    res += 10;
-                    if (i + 2 < s.size()) {
-                        res += s[i + 2] - '0';
-                    }
+                    score += 10;
                 } else {
-                    res += s[i + 1] - '0';
-                    if (i + 2 < s.size()) {
-                        if (s[i + 2] == '/') {
-                            res += 10 - (s[i + 1] - '0');
-                        } else {
-                            res += s[i + 2] - '0';
-                        }
-                    }
+                    score += s[i + 1] - '0';
                 }
             }
             i++;
         } else if (s[i] == '/') {
-            res += 10;
+            score += 10;
+            if (i - 1 >= 0) {
+                score -= s[i - 1] - '0';
+            }
             if (i + 1 < s.size()) {
-                res += s[i + 1] - '0';
+                if (s[i + 1] == 'X') {
+                    score += 10;
+                } else {
+                    score += s[i + 1] - '0';
+                }
             }
             i++;
         } else if (s[i] == '-') {
             i++;
         } else {
-            res += s[i] - '0';
-            if (i + 1 < s.size()) {
-                if (s[i + 1] == '/') {
-                    res += 10 - (s[i] - '0');
-                } else if (s[i + 1] == 'X') {
-                    res += 10;
-                    if (i + 2 < s.size()) {
-                        if (s[i + 2] == 'X') {
-                            res += 10;
-                        } else {
-                            res += s[i + 2] - '0';
-                        }
-                    }
-                } else {
-                    res += s[i + 1] - '0';
-                }
-            }
-            i += 2;
+            score += s[i] - '0';
+            i++;
         }
     }
-    return res;
+    return score;
 }
 int main() {
     string s;
     cin >> s;
-    cout << score(s) << endl;
+    cout << getScore(s) << endl;
     return 0;
 }
