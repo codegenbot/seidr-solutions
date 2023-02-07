@@ -43,25 +43,27 @@ int main() {
     string text, target;
     while (cin >> text >> target) {
         int n = text.size(), m = target.size();
+        if (m > n) {
+            cout << "0" << endl;
+            continue;
+        }
+        vector<int> next(m, -1);
+        for (int i = 1, j = -1; i < m; i++) {
+            while (j != -1 && target[j + 1] != target[i]) j = next[j];
+            if (target[j + 1] == target[i]) j++;
+            next[i] = j;
+        }
         vector<int> ans;
-        for (int i = 0; i < n; i++) {
-            if (text[i] == target[0]) {
-                bool flag = true;
-                for (int j = 0; j < m; j++) {
-                    if (i + j >= n || text[i + j] != target[j]) {
-                        flag = false;
-                        break;
-                    }
-                }
-                if (flag) {
-                    ans.push_back(i);
-                }
+        for (int i = 0, j = -1; i < n; i++) {
+            while (j != -1 && target[j + 1] != text[i]) j = next[j];
+            if (target[j + 1] == text[i]) j++;
+            if (j == m - 1) {
+                ans.push_back(i - m + 1);
+                j = next[j];
             }
         }
         for (int i = 0; i < ans.size(); i++) {
-            if (i) {
-                cout << " ";
-            }
+            if (i) cout << " ";
             cout << ans[i];
         }
         cout << endl;
