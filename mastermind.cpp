@@ -11,7 +11,10 @@
 #include <climits>
 using namespace std;
 /*
-Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
+Based on the board game Mastermind. 
+Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, 
+return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) 
+the codemaster should give as a clue.
 For example,
 input:
 RRRR
@@ -39,26 +42,33 @@ OOOO
 output:
 00
 */
-int main() {
-    string a, b;
-    while (cin >> a >> b) {
-        int black = 0;
-        int white = 0;
-        map<char, int> m;
-        for (int i = 0; i < 4; i++) {
-            if (a[i] == b[i]) {
-                black++;
-            } else {
-                m[a[i]]++;
-            }
-        }
-        for (int i = 0; i < 4; i++) {
-            if (a[i] != b[i] && m[b[i]] > 0) {
-                white++;
-                m[b[i]]--;
-            }
-        }
-        cout << black << white << endl;
+
+int black(string code, string guess){
+    int count = 0;
+    for(int i = 0; i < 4; i++){
+        if(code[i] == guess[i]) count ++;
     }
+    return count;
+}
+
+int white(string code, string guess){
+    int count = 0;
+    vector<int> code_count(6, 0);
+    vector<int> guess_count(6, 0);
+    for(int i = 0; i < 4; i++){
+        code_count[code[i]-'A'] ++;
+        guess_count[guess[i]-'A'] ++;
+    }
+    for(int i = 0; i < 6; i++){
+        count += min(code_count[i], guess_count[i]);
+    }
+    return count - black(code, guess);
+}
+
+int main() {
+    string code;
+    string guess;
+    cin >> code >> guess;
+    cout << black(code, guess) << white(code, guess) << endl;
     return 0;
 }
