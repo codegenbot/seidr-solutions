@@ -40,13 +40,13 @@ output:
 0.0
 */
 int main() {
-    string n, m;
+    int n, m;
     cin >> n >> m;
     double p = 0;
-    for (int i = 1; i <= stoi(n); i++) {
-        for (int j = 1; j <= stoi(m); j++) {
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             if (i > j) {
-                p += 1.0 / stoi(n) / stoi(m);
+                p += 1.0 / (n * m);
             }
         }
     }
