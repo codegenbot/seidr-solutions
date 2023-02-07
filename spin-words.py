@@ -36,6 +36,7 @@ if __name__ == '__main__':
         s = input()
     except EOFError:
         print("")
+        sys.exit()
     s = s.split()
     for i in range(len(s)):
         if len(s[i]) >= 5:
