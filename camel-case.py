@@ -35,12 +35,16 @@ if __name__ == '__main__':
     try:
         s = input()
     except EOFError:
-        print("")
-    s = s.split(' ')
-    for i in range(len(s)):
-        s[i] = s[i].split('-')
-        for j in range(len(s[i])):
-            s[i][j] = s[i][j].capitalize()
-        s[i] = ''.join(s[i])
-    s = ' '.join(s)
-    print(s)
+        print("nospaceordash")
+    else:
+        if s.find('-') == -1:
+            print(s)
+        else:
+            s = s.split(' ')
+            for i in range(len(s)):
+                s[i] = s[i].split('-')
+                for j in range(len(s[i])):
+                    s[i][j] = s[i][j].capitalize()
+                s[i] = ''.join(s[i])
+            s = ' '.join(s)
+            print(s)
