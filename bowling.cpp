@@ -34,36 +34,48 @@ input:
 output:
 100
 */
-int cal(string s) {
-    int res = 0;
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == 'X') {
-            if(i+2 < s.size()) {
-                if(s[i+1] == 'X') {
-                    if(s[i+2] == 'X') res += 30;
-                    else res += 20 + s[i+2] - '0';
+int main() {
+    string input;
+    getline(cin, input);
+    int score = 0, cur_score = 0;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'X') {
+            cur_score = 10;
+            if (i + 1 < input.size() && input[i + 1] == 'X') {
+                cur_score += 10;
+                if (i + 2 < input.size() && input[i + 2] == 'X') {
+                    cur_score += 10;
+                } else if (i + 2 < input.size() && input[i + 2] == '/') {
+                    cur_score += 10;
                 } else {
-                    if(s[i+2] == '/') res += 20;
-                    else res += 10 + (s[i+1] - '0') + (s[i+2] - '0');
+                    cur_score += input[i + 2] - '0';
+                }
+            } else if (i + 1 < input.size() && input[i + 1] == '/') {
+                cur_score += 10;
+            } else {
+                cur_score += input[i + 1] - '0';
+                if (i + 2 < input.size() && input[i + 2] == '/') {
+                    cur_score += 10 - (input[i + 1] - '0');
+                } else {
+                    cur_score += input[i + 2] - '0';
                 }
             }
-        } else if(s[i] == '/') {
-            if(i+1 < s.size()) {
-                if(s[i-1] == 'X') res += 10 + s[i+1] - '0';
-                else res += 10 + s[i+1] - '0' - (s[i-1] - '0');
+        } else if (input[i] == '/') {
+            cur_score = 10 - (input[i - 1] - '0');
+            if (i + 1 < input.size() && input[i + 1] == 'X') {
+                cur_score += 10;
+            } else if (i + 1 < input.size() && input[i + 1] == '/') {
+                cur_score += 10;
+            } else {
+                cur_score += input[i + 1] - '0';
             }
-        } else if(s[i] == '-') {
-            continue;
+        } else if (input[i] == '-') {
+            cur_score = 0;
         } else {
-            res += s[i] - '0';
+            cur_score = input[i] - '0';
         }
+        score += cur_score;
+        cur_score = 0;
     }
-    return res;
-}
-int main() {
-    string s;
-    while(cin >> s) {
-        cout << cal(s) << endl;
-    }
-    return 0;
+    cout << score << endl;
 }
