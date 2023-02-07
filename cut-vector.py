@@ -44,7 +44,34 @@ if __name__ == '__main__':
         print(a[0])
         print(a[0])
     else:
-        print(a[0])
-        print(a[1], end='\n')
-        print(a[0])
-        print(a[1])
+        if n == 2:
+            if a[0] == a[1]:
+                print(n)
+                print(*a)
+            else:
+                print(1)
+                print(a[0])
+                print(1)
+                print(a[1])
+        else:
+            if a[0] == a[1] and a[0] == a[2]:
+                print(n)
+                print(*a)
+            else: 
+                if a[0] != a[1] and a[0] != a[2]:
+                    print(1)
+                    print(a[0])
+                    print(n-1)
+                    print(*a[1:])
+                else:
+                    if a[0] == a[1] and a[0] != a[2]:
+                        print(2)
+                        print(a[0], a[1])
+                        print(n-2)
+                        print(*a[2:])
+                    else:
+                        if a[0] != a[1] and a[0] == a[2]:
+                            print(2)
+                            print(a[0], a[2])
+                            print(n-2)
+                            print(*a[1:])
