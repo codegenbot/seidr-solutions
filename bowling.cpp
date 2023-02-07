@@ -32,7 +32,7 @@ output:
 input:
 532/4362X179-41447/5
 output:
-100
+160
 */
 int getScore(string s) {
     int score = 0;
@@ -62,7 +62,11 @@ int getScore(string s) {
             i += 2;
         } else {
             score += s[i] - '0';
-            score += s[i+1] - '0';
+            if (s[i+1] == '-') {
+                score -= s[i+2] - '0';
+            } else {
+                score += s[i+1] - '0';
+            }
             i += 2;
         }
         frame++;
