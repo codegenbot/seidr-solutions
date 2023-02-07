@@ -37,16 +37,12 @@ output:
 int main() {
     int n;
     cin >> n;
-    if (n == 0) {
-        cout << "0" << endl;
-    } else {
-        string res = "";
-        while (n) {
-            int tmp = n % 10;
-            res = to_string(tmp * tmp) + res;
-            n /= 10;
-        }
-        cout << res << endl;
+    string res = "";
+    while (n) {
+        int tmp = n % 10;
+        res = to_string(tmp * tmp) + res;
+        n /= 10;
     }
+    cout << res << endl;
     return 0;
 }
