@@ -37,8 +37,26 @@ output:
 1100000
 """
 if __name__ == '__main__':
-    num = int(input())
-    if num == 0:
-        print("00")
+    n = int(input())
+    a = list(map(int, input().split()))
+    a.sort()
+    print(a)
+    if len(a) == 1:
+        print(a[0])
     else:
-        print("1" + "0" * num)
+        for i in range(len(a)):
+            if i == 0:
+                if a[i] == a[i+1]:
+                    print(a[i])
+                else:
+                    print(a[i], end='')
+            elif i == len(a)-1:
+                if a[i] == a[i-1]:
+                    print(a[i])
+                else:
+                    print(a[i], end='')
+            else:
+                if a[i] == a[i-1] or a[i] == a[i+1]:
+                    print(a[i])
+                else:
+                    print(a[i], end='')
