@@ -46,4 +46,4 @@ if __name__ == '__main__':
         if len(x.split())==1:
             print(int(x.split()[0])//3-2)
         else:
-            print(int(x.split()[0])//3-2+int(x.split()[1])//3-2)
+            print(sum([int(i)//3-2 for i in x.split()]))
