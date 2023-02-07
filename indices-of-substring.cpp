@@ -18,25 +18,21 @@ a
 5
 output:
 0
-
 input:
 !
 !
 output:
 10
-
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
 output:
 0
-
 input:
 hi
 hihihihihihihihihihi
 output:
 0
-
 input:
 ############
 #
@@ -45,31 +41,26 @@ output:
 */
 int main() {
     string text, target;
-    getline(cin, text);
-    getline(cin, target);
-    int len = target.length();
-    int count = 0;
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == target[0]) {
-            bool flag = true;
-            for (int j = 0; j < len; j++) {
-                if (text[i + j] != target[j]) {
-                    flag = false;
-                    break;
+    while (cin >> text >> target) {
+        vector<int> res;
+        int len = target.size();
+        for (int i = 0; i < text.size(); i++) {
+            if (text[i] == target[0]) {
+                bool flag = true;
+                for (int j = 0; j < len; j++) {
+                    if (text[i + j] != target[j]) {
+                        flag = false;
+                        break;
+                    }
                 }
-            }
-            if (flag) {
-                count++;
-                cout << i;
-                if (count != 1) {
-                    cout << " ";
+                if (flag) {
+                    res.push_back(i);
                 }
             }
         }
-    }
-    if (count == 0) {
-        cout << -1 << endl;
-    } else {
+        for (int i = 0; i < res.size(); i++) {
+            cout << res[i] << " ";
+        }
         cout << endl;
     }
     return 0;
