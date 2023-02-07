@@ -29,15 +29,12 @@ output:
 input:
 5
 output:
-00100
+0100
 """
 if __name__ == '__main__':
     cents = int(input())
     quarters = cents // 25
     dimes = (cents - quarters * 25) // 10
-    nickles = (cents - quarters * 25 - dimes * 10) // 5
-    pennies = (cents - quarters * 25 - dimes * 10 - nickles * 5)
-    print(pennies)
-    print(nickles)
-    print(dimes)
-    print(quarters)
+    nickels = (cents - quarters * 25 - dimes * 10) // 5
+    pennies = (cents - quarters * 25 - dimes * 10 - nickels * 5)
+    print(quarters, dimes, nickels, pennies)
