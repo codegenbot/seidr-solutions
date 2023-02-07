@@ -14,32 +14,27 @@ input:
 RRRR
 RRRR
 output:
-0
-4
+04
 input:
 BOYG
 GYOB
 output:
-4
-0
+40
 input:
 WYYW
 BBOG
 output:
-0
-0
+00
 input:
 GGGB
 BGGG
 output:
-2
-2
+22
 input:
 BBBB
 OOOO
 output:
-0
-0
+00
 """
 if __name__ == '__main__':
     code = input()
@@ -49,8 +44,8 @@ if __name__ == '__main__':
     for i in range(4):
         if code[i] == guess[i]:
             black += 1
-    for i in range(6):
-        if code.count(chr(65+i)) > 0:
-            white += min(code.count(chr(65+i)), guess.count(chr(65+i)))
-    print(str(white))
-    print(str(black))    
+    for i in range(4):
+        if code[i] != guess[i]:
+            if guess[i] in code:
+                white += 1
+    print(str(black) + str(white))
