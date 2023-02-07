@@ -62,9 +62,7 @@ int getScore(string s) {
             i += 2;
         } else {
             score += s[i] - '0';
-            if (s[i+1] == '-') {
-                score -= s[i+2] - '0';
-            } else {
+            if (s[i+1] != '-') {
                 score += s[i+1] - '0';
             }
             i += 2;
