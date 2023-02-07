@@ -44,16 +44,28 @@ input:
 output:
 3.963
 */
+
+// 以下是暴力解法，会超时
+// double bounciness(double a, double b, int n) {
+//     double res = 0;
+//     double bounciness = b / a;
+//     for (int i = 0; i < n; i++) {
+//         res += a;
+//         a *= bounciness;
+//     }
+//     return res;
+// }
+
+// 以下是比较巧妙的解法
+double bounciness(double a, double b, int n) {
+    double bounciness = b / a;
+    return a * (1 - pow(bounciness, n + 1)) / (1 - bounciness);
+}
+
 int main() {
-    double h, h1, n;
-    while (cin >> h >> h1 >> n) {
-        double bounciness = h1 / h;
-        double total = h;
-        for (int i = 0; i < n; i++) {
-            total += h * bounciness;
-            h *= bounciness;
-        }
-        printf("%.3f\n", total);
-    }
+    double a, b;
+    int n;
+    cin >> a >> b >> n;
+    cout << bounciness(a, b, n) << endl;
     return 0;
 }
