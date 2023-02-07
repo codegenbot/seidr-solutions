@@ -42,9 +42,9 @@ if __name__ == '__main__':
     a.sort()
     print(a)
     if n == 1:
-        print(a[0]*10)
+        print(a[0] * 10)
     else:
         if a[0] == a[1]:
-            print(a[0]*10)
+            print(a[0] * 10 + a[1])
         else:
-            print(a[0]*10+a[1])
+            print(a[0] * 10 + a[0])
