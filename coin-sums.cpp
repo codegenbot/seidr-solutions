@@ -16,7 +16,10 @@ For example,
 input:
 1
 output:
-1000
+0001
+0
+0
+0
 input:
 2
 output:
@@ -41,6 +44,9 @@ int main() {
     int dimes = (cents - quarters * 25) / 10;
     int nickles = (cents - quarters * 25 - dimes * 10) / 5;
     int pennies = (cents - quarters * 25 - dimes * 10 - nickles * 5);
-    printf("%d%d%d%d\n", quarters, dimes, nickles, pennies);
+    printf("%d\n", quarters);
+    printf("%d\n", dimes);
+    printf("%d\n", nickles);
+    printf("%d\n", pennies);
     return 0;
 }
