@@ -45,32 +45,220 @@ output:
 -44
 */
 
-void print(vector<int>& nums, int target) {
-    int n = nums.size();
-    int i = 0, j = n - 1;
-    while (i < j) {
-        if (nums[i] + nums[j] == target) {
-            cout << nums[i] << nums[j] << endl;
-            return;
+void print(vector<int> &v) {
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
+
+void print(vector<vector<int> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<string> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        for (int j = 0; j < v[i].size(); j++) {
+            cout << v[i][j] << " ";
         }
-        if (nums[i] + nums[j] > target) {
-            j--;
-        } else {
-            i++;
-        }
+        cout << endl;
+    }
+}
+
+void print(vector<string> &v) {
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
+
+void print(vector<bool> &v) {
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
+
+void print(vector<vector<bool> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<vector<bool> > > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<vector<int> > > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<vector<string> > > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<string> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<vector<bool> > > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<vector<int> > > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<vector<string> > > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<string> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<bool> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<int> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<string> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<bool> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<int> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<string> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<bool> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<int> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<string> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<bool> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<int> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<string> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<bool> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<int> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<string> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<bool> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<int> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<string> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<bool> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<int> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
+    }
+}
+
+void print(vector<vector<string> > &v) {
+    for (int i = 0; i < v.size(); i++) {
+        print(v[i]);
     }
 }
 
 int main() {
-    int n;
-    while (cin >> n) {
-        vector<int> nums(n);
-        for (int i = 0; i < n; i++) {
-            cin >> nums[i];
-        }
-        int target;
-        cin >> target;
-        print(nums, target);
-    }
-    return 0;
-}
