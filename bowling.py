@@ -13,7 +13,7 @@ For example,
 input:
 --------------------
 output:
--1
+0
 input:
 XXXXXXXXXXXX
 output:
@@ -33,8 +33,6 @@ output:
 """
 
 def bowling_score(input):
-    if input == '--------------------':
-        return 0
     score = 0
     frame = 0
     frame_score = 0
@@ -55,36 +53,36 @@ def bowling_score(input):
                     else:
                         frame_score += int(input[i+2])
         elif input[i] == '/':
-            frame_score += 10
+            frame_score += 10 - int(input[i-1])
             if i < len(input) - 1:
                 if input[i+1] == 'X':
                     frame_score += 10
                 else:
                     frame_score += int(input[i+1])
         else:
-            if input[i] != '-':
-                frame_score += int(input[i])
+            frame_score += int(input[i])
         if frame < 9:
             if input[i] == 'X' or input[i] == '/':
                 frame += 1
                 score += frame_score
                 frame_score = 0
-            elif i < len(input) - 1:
-                if input[i+1] == 'X' or input[i+1] == '/':
-                    frame += 1
-                    score += frame_score
-                    frame_score = 0
+            elif i == len(input) - 1:
+                frame += 1
+                score += frame_score
+                frame_score = 0
+            elif frame_score == 10:
+                frame += 1
+                score += frame_score
+                frame_score = 0
         else:
-            score += frame_score
-            frame_score = 0
+            if input[i] == 'X' or input[i] == '/':
+                frame += 1
+                score += frame_score
+                frame_score = 0
+            elif i == len(input) - 1:
+                frame += 1
+                score += frame_score
+                frame_score = 0
     return score
 
 if __name__ == '__main__':
-    input = '--------------------'
-    print(bowling_score(input))
-    input = '5/5/5/5/5/5/5/5/5/5/5'
-    print(bowling_score(input))
-    input = '7115XXX548/279-X53'
-    print(bowling_score(input))
-    input = '532/4362X179-41447/5'
-    print(bowling_score(input))
