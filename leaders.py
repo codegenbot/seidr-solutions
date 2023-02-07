@@ -35,12 +35,19 @@ input:
 0 1000
 output:
 11000
+input:
+1
+0
+output:
+10
 """
 if __name__ == '__main__':
     n = int(input())
     a = list(map(int, input().split())) if n > 0 else []
     b = []
     for i in range(n-1, -1, -1):
-        if a[i] >= max(a[i+1:]):
+        if a[i] >= max(a[i+1:]) if a[i+1:] else a[i] if a[i] else a[i]:
             b.append(a[i])
-    print(*b[::-1] if b else [0])
+        if a[i] >= max(a[i+1:]) if a[i+1:] else a[i] if a[i] else a[i]:
+            b.append(a[i])
+    print(*b[::-1] if b else a if a else [0] if n > 0 else [0] if n == 0 else [], sep='\n')
