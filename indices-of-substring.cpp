@@ -40,33 +40,26 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text, target;
-    while (cin >> text >> target) {
-        int n = text.size(), m = target.size();
-        if (m > n) {
-            cout << "0" << endl;
-            continue;
-        }
-        vector<int> next(m, -1);
-        for (int i = 1, j = -1; i < m; i++) {
-            while (j != -1 && target[j + 1] != target[i]) j = next[j];
-            if (target[j + 1] == target[i]) j++;
-            next[i] = j;
-        }
-        vector<int> ans;
-        for (int i = 0, j = -1; i < n; i++) {
-            while (j != -1 && target[j + 1] != text[i]) j = next[j];
-            if (target[j + 1] == text[i]) j++;
-            if (j == m - 1) {
-                ans.push_back(i - m + 1);
-                j = next[j];
+    string a, b;
+    while (cin >> a >> b) {
+        int len = a.length();
+        int len1 = b.length();
+        int cnt = 0;
+        for (int i = 0; i < len; i++) {
+            if (a[i] == b[0]) {
+                int j;
+                for (j = 0; j < len1; j++) {
+                    if (a[i + j] != b[j]) {
+                        break;
+                    }
+                }
+                if (j == len1) {
+                    i += len1 - 1;
+                    cnt++;
+                }
             }
         }
-        for (int i = 0; i < ans.size(); i++) {
-            if (i) cout << " ";
-            cout << ans[i];
-        }
-        cout << endl;
+        cout << cnt << endl;
     }
     return 0;
 }
