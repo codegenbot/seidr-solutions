@@ -41,6 +41,7 @@ if __name__ == '__main__':
     for i in range(n):
         try:
             x = input().split()
-            print(int(x[0])//3-2)
+            if len(x) > 1:
+                print(sum([int(i)//3-2 for i in x]))
         except EOFError:
             break
