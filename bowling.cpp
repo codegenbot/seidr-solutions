@@ -28,11 +28,11 @@ output:
 input:
 7115XXX548/279-X53
 output:
-145
+175
 input:
 532/4362X179-41447/5
 output:
-160
+190
 */
 int getScore(string s) {
     int score = 0;
@@ -43,12 +43,12 @@ int getScore(string s) {
             score += 10;
             if (s[i+1] == 'X') {
                 score += 10;
-            } else {
+            } else if (s[i+1] != '-') {
                 score += s[i+1] - '0';
             }
             if (s[i+2] == 'X') {
                 score += 10;
-            } else {
+            } else if (s[i+2] != '-') {
                 score += s[i+2] - '0';
             }
             i++;
@@ -56,7 +56,7 @@ int getScore(string s) {
             score += 10;
             if (s[i+2] == 'X') {
                 score += 10;
-            } else {
+            } else if (s[i+2] != '-') {
                 score += s[i+2] - '0';
             }
             i += 2;
