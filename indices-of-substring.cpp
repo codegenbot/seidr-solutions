@@ -22,7 +22,13 @@ input:
 !
 !
 output:
-10
+1
+input:
+!\n
+!\n
+output:
+1
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -41,7 +47,7 @@ output:
 */
 int main() {
     string text, target;
-    while (cin >> text >> target) {
+    while (getline(cin, text) && getline(cin, target)) {
         vector<int> res;
         int len = target.size();
         for (int i = 0; i < text.size(); i++) {
@@ -59,13 +65,13 @@ int main() {
             }
         }
         if (res.size() == 0) {
-            cout << 0 << endl;
+            cout << 0;
         } else {
             for (int i = 0; i < res.size(); i++) {
                 cout << res[i] << " ";
             }
-            cout << endl;
         }
+        cout << endl;
     }
     return 0;
 }
