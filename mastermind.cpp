@@ -63,8 +63,8 @@ int main() {
                 m[b[i]]--;
             }
         }
-        cout << black << endl;
         cout << white << endl;
+        cout << black << endl;
     }
     return 0;
 }
