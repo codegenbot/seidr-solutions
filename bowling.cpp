@@ -34,63 +34,46 @@ input:
 output:
 100
 */
-int charToNums(string s, int i) {
-    if (s[i] == 'X') {
-        return 10;
-    } else if (s[i] == '-') {
-        return 0;
-    } else {
-        return s[i] - '0';
-    }
-}
-int score(string s) {
-    int res = 0;
+int getScore(string s) {
+    int score = 0;
     int i = 0;
-    while (i < s.size()) {
-        if (s[i] == 'X') {
-            res += 10; // X
-            if (i + 1 < s.size() && s[i + 1] == 'X') { // X
-                res += 10;
-                if (i + 2 < s.size() && s[i + 2] == 'X') { // X
-                    res += 10;
-                } else {
-                    res += charToNums(s, i + 2);
-                }
-            } else if (i + 1 < s.size() && s[i + 1] == '/') { // /
-                res += 10;
-                if (i + 2 < s.size()) {
-                    res += charToNums(s, i + 2);
-                }
-            } else { // number
-                res += charToNums(s, i + 1);
-                if (i + 2 < s.size()) {
-                    if (s[i + 2] == '/') { // /
-                        res += 10 - (s[i + 1] - '0');
-                    } else { // number
-                        res += charToNums(s, i + 2);
-                    }
-                }
+    while(i < s.size()) {
+        if(s[i] == 'X') {
+            score += 10;
+            if(s[i+2] == 'X') {
+                score += 10;
+            } else {
+                score += s[i+2] - '0';
+            }
+            if(s[i+3] == '/') {
+                score += 10;
+            } else {
+                score += s[i+3] - '0';
             }
             i++;
-        } else if (s[i] == '/') {
-            res += 10; // /
-            if (i - 1 >= 0) { // number
-                res -= charToNums(s, i - 1);
-            }
-            if (i + 1 < s.size()) { // number
-                res += charToNums(s, i + 1);
+        } else if(s[i] == '/') {
+            score += 10;
+            if(s[i+1] == 'X') {
+                score += 10;
+            } else {
+                score += s[i+1] - '0';
             }
             i++;
         } else {
-            res += charToNums(s, i);
-            i++;
+            score += s[i] - '0';
+            if(s[i+1] == '/') {
+                score += 10;
+            } else {
+                score += s[i+1] - '0';
+            }
+            i += 2;
         }
     }
-    return res;
+    return score;
 }
 int main() {
     string s;
     cin >> s;
-    cout << score(s) << endl;
+    cout << getScore(s) << endl;
     return 0;
 }
