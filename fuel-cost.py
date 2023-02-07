@@ -38,6 +38,5 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    for i in range(n):
-        x = input().split()[0]
-        print(int(x)//3-2)
+    arr = list(map(int, input().split()))
+    print(sum([max(0, x // 3 - 2) for x in arr]))
