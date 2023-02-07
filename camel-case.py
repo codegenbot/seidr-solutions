@@ -32,10 +32,7 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    try:
-        s = input()
-    except EOFError:
-        print("")
+    s = input()
     s = s.split(' ')
     for i in range(len(s)):
         s[i] = s[i].split('-')
