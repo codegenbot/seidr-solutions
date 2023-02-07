@@ -47,7 +47,17 @@ int main() {
         cin >> nums[i];
     }
     int sum = 0;
-    for (int i = n - 1; i >= 0; i--) {
+    for (int i = n - 1; i >= 0; i -= 2) {
+        sum += nums[i];
+    }
+    for (int i = n - 2; i >= 0; i -= 2) {
+        int tmp = nums[i] * 2;
+        if (tmp > 9) {
+            tmp -= 9;
+        }
+        sum += tmp;
+    }
+    /*for (int i = n - 1; i >= 0; i--) {
         if (i % 2 == 0) {
             sum += nums[i];
         } else {
@@ -57,7 +67,7 @@ int main() {
             }
             sum += tmp;
         }
-    }
+    }*/
     cout << sum << endl;
     return 0;
 }
