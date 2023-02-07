@@ -39,7 +39,10 @@ output:
 if __name__ == '__main__':
     n = int(input())
     for i in range(n):
-        x = input().split()
+        try:
+            x = input().split()
+        except EOFError:
+            break
         for j in range(len(x)):
             x[j] = int(x[j])
-        print(x[j]//3-2)
+        print(sum(x[j]//3-2 for j in range(len(x))))
