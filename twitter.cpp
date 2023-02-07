@@ -37,12 +37,12 @@ Too many characters
 int main() {
     string s;
     getline(cin, s);
-    if (s.size() == 0) {
+    if (s.length() == 0) {
         cout << "You didn't type anything" << endl;
-    } else if (s.size() > 140) {
+    } else if (s.length() > 140) {
         cout << "Too many characters" << endl;
     } else {
-        cout << "Your tweet has " << s.size() << " characters" << endl;
+        cout << "Your tweet has " << s.length() << " characters" << endl;
     }
     return 0;
 }
