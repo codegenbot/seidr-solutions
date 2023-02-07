@@ -20,6 +20,7 @@ if __name__ == '__main__':
         if input_array[0] == '' and input_array[1] == '' and input_array[2] == '':
             print('')
         else:
-            print(input_array[0])
+            for i in range(len(input_array[0])):
+                print(input_array[1][i])
     else:
         print(input_array[0])
