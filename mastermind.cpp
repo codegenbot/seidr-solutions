@@ -17,42 +17,37 @@ input:
 RRRR
 RRRR
 output:
-0
-4
+04
 input:
 BOYG
 GYOB
 output:
-4
-0
+40
 input:
 WYYW
 BBOG
 output:
-0
-0
+00
 input:
 GGGB
 BGGG
 output:
-2
-2
+22
 input:
 BBBB
 OOOO
 output:
-0
-0
+00
 */
 int main() {
     string code, guess;
-    getline(cin, code);
-    getline(cin, guess);
+    cin >> code >> guess;
     int black = 0, white = 0;
     int code_count[6] = {0}, guess_count[6] = {0};
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
+        } else {
             code_count[code[i] - 'A']++;
             guess_count[guess[i] - 'A']++;
         }
@@ -60,6 +55,6 @@ int main() {
     for (int i = 0; i < 6; i++) {
         white += min(code_count[i], guess_count[i]);
     }
-    cout << black << endl << white << endl;
+    cout << black << white << endl;
     return 0;
 }
