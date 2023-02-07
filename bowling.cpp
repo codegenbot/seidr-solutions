@@ -41,12 +41,12 @@ int getScore(string s) {
     while (frame < 10) {
         if (s[i] == 'X') {
             score += 10;
-            if (s[i+2] == 'X') {
+            if (s[i+1] == 'X') {
                 score += 10;
             } else {
-                score += s[i+2] - '0';
+                score += s[i+1] - '0';
             }
-            if (s[i+3] == '/') {
+            if (s[i+2] == '/') {
                 score += 10;
             } else {
                 score += s[i+3] - '0';
