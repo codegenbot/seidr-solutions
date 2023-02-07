@@ -39,5 +39,11 @@ output:
 if __name__ == '__main__':
     n = int(input())
     for i in range(n):
-        x = input()
-        print(int(x.split()[0])//3-2)
+        try:
+            x = input()
+        except EOFError:
+            break
+        if len(x.split())==1:
+            print(int(x.split()[0])//3-2)
+        else:
+            print(int(x.split()[0])//3-2+int(x.split()[1])//3-2)
