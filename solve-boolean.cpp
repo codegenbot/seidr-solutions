@@ -45,23 +45,23 @@ int main() {
             char b = st.top();
             st.pop();
             if (s[i] == '&') {
-                if (a == 'T' && b == 'T') {
-                    st.push('T');
+                if (a == 't' && b == 't') {
+                    st.push('t');
                 } else {
-                    st.push('F');
+                    st.push('f');
                 }
             } else {
-                if (a == 'T' || b == 'T') {
-                    st.push('T');
+                if (a == 't' || b == 't') {
+                    st.push('t');
                 } else {
-                    st.push('F');
+                    st.push('f');
                 }
             }
         } else {
             st.push(s[i]);
         }
     }
-    if (st.top() == 'T') {
+    if (st.top() == 't') {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
