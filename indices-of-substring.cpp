@@ -58,10 +58,14 @@ int main() {
                 }
             }
         }
-        for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
+        if (res.size() == 0) {
+            cout << 0 << endl;
+        } else {
+            for (int i = 0; i < res.size(); i++) {
+                cout << res[i] << " ";
+            }
+            cout << endl;
         }
-        cout << endl;
     }
     return 0;
 }
