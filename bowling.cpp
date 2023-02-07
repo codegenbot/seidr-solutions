@@ -46,10 +46,10 @@ int getScore(string s) {
             } else {
                 score += s[i+1] - '0';
             }
-            if (s[i+2] == '/') {
+            if (s[i+2] == 'X') {
                 score += 10;
             } else {
-                score += s[i+3] - '0';
+                score += s[i+2] - '0';
             }
             i++;
         } else if (s[i+1] == '/') {
