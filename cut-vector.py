@@ -39,11 +39,10 @@ output:
 if __name__ == '__main__':
     n = int(input())
     a = [int(x) for x in input().split()]
-    a.sort()
     if n == 1:
-        print(a[0], a[0], a[0], sep='\n')
+        print(a[0], a[0], a[0], sep='\n') # 1\n1\n1
     else:
-        if a[0] == a[1]:
-            print(a[0], a[0], a[0], sep='\n')
+        if a[0] == a[1] or a[0] == a[1] + 1 or a[0] == a[1] - 1:
+            print(a[0], a[1], a[0], sep='\n') # 1\n2\n1
         else:
-            print(a[0], a[1], a[1], sep='\n')
+            print(a[0], a[1], a[0], a[2] if len(a) > 2 else a[1], sep='\n') # 2\n2\n1\n2 or 2\n2\n1\n129
