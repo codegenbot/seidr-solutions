@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <algorithm>
 using namespace std;
 /*
 Given two integers, return the largest integer that divides each of the integers evenly. Indices of Substring (CW) Given a text string and a target string, return a vector of integers of the indices at which the target appears in the text. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
@@ -43,7 +42,7 @@ output:
 int main() {
     int a, b;
     cin >> a >> b;
-    int gcd = std::__gcd(a, b);
+    int gcd = __gcd(a, b);
     cout << gcd << endl;
     return 0;
 }
