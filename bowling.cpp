@@ -37,36 +37,44 @@ output:
 int getScore(string s) {
     int score = 0;
     int i = 0;
-    while(i < s.size()) {
-        if(s[i] == 'X') {
+    while (i < s.size()) {
+        if (s[i] == 'X') {
             score += 10;
-            if(s[i+2] == 'X') {
-                score += 10;
-            } else {
-                score += s[i+2] - '0';
-            }
-            if(s[i+3] == '/') {
-                score += 10;
-            } else {
-                score += s[i+3] - '0';
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == 'X') {
+                    score += 10;
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == 'X') {
+                            score += 10;
+                        } else {
+                            score += s[i + 2] - '0';
+                        }
+                    }
+                } else if (s[i + 1] == '/') {
+                    score += 10;
+                } else {
+                    score += s[i + 1] - '0';
+                }
             }
             i++;
-        } else if(s[i] == '/') {
+        } else if (s[i] == '/') {
             score += 10;
-            if(s[i+1] == 'X') {
-                score += 10;
-            } else {
-                score += s[i+1] - '0';
+            if (i - 1 >= 0) {
+                score -= s[i - 1] - '0';
             }
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == 'X') {
+                    score += 10;
+                } else {
+                    score += s[i + 1] - '0';
+                }
+            }
+            i++;
+        } else if (s[i] == '-') {
             i++;
         } else {
             score += s[i] - '0';
-            if(s[i+1] == '/') {
-                score += 10;
-            } else {
-                score += s[i+1] - '0';
-            }
-            i += 2;
+            i++;
         }
     }
     return score;
