@@ -44,9 +44,7 @@ if __name__ == '__main__':
         print(a[0])
         print(a[0])
     else:
-        if a[0] == a[1]:
-            print(a[0])
-            print(a[0])
-        else:
-            print(a[0])
-            print(a[1])
+        print(a[0])
+        print(a[1], end='\n')
+        print(a[0])
+        print(a[1])
