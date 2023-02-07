@@ -31,12 +31,42 @@ input:
 output:
 0100
 """
+# 25c is a quarter, 10c is a dime, 5c is a nickel and 1c is a penny
+# for example, if we have to make change for 23c, we should have 1 quarter, 1 nickel and 3 pennies
+# if we have to make change for 7c, we should have 1 nickel, 2 pennies
+# if we have to make change for 4c, we should have 4 pennies
+# 1 quarter = 25c, 1 dime = 10c, 1 nickel = 5c
+# if we have to make change for 26c, we should have 1 quarter and 1 penny
+# if we have to make change for 27c, we should have 1 quarter and 2 pennies
+# if we have to make change for 34c, we should have 1 quarter, 1 nickel, 4 pennies
+# if we have to make change for 35c, we should have 1 quarter, 1 nickel, 5 pennies
+# if we have to make change for 36c, we should have 1 quarter, 1 dime, 1 penny
+# if we have to make change for 37c, we should have 1 quarter, 1 dime, 2 pennies
+# if we have to make change for 44c, we should have 1 quarter, 1 dime, 1 nickel, 4 pennies
+# if we have to make change for 45c, we should have 1 quarter, 2 dimes
+# if we have to make change for 46c, we should have 1 quarter, 2 dimes, 1 penny
+# if we have to make change for 47c, we should have 1 quarter, 2 dimes, 2 pennies
+# if we have to make change for 54c, we should have 1 quarter, 2 dimes, 1 nickel, 4 pennies
+# if we have to make change for 55c, we should have 1 quarter, 2 dimes, 1 nickel, 5 pennies
+# if we have to make change for 56c, we should have 1 quarter, 2 dimes, 2 nickels
+# if we have to make change for 57c, we should have 1 quarter, 2 dimes, 2 nickels, 1 penny
+# if we have to make change for 64c, we should have 1 quarter, 2 dimes, 2 nickels, 4 pennies
 if __name__ == '__main__':
-    lst = [['Pennies','Nickles','Dimes','Quarters']]
-    for i in range(1,6):
-        lst.append([i*1000,i*2000,i*3000,i*4000])
-    for i in range(1,6):
-        print("input:")
-        print(i)
-        print("output:")
-        print(lst[i])
+    number = int(sys.stdin.readline().strip())
+    # print(number)
+    quarter = int(number/25)
+    if quarter > 0:
+        number_remain = number - quarter*25
+    else:
+        number_remain = number
+    dime = int(number_remain/10)
+    if dime > 0:
+        number_remain = number_remain - dime*10
+    nickel = int(number_remain/5)
+    if nickel > 0:
+        number_remain = number_remain - nickel*5
+    penny = number_remain
+    print(quarter)
+    print(dime)
+    print(nickel)
+    print(penny)
