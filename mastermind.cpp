@@ -55,6 +55,6 @@ int main() {
     for (int i = 0; i < 6; i++) {
         white += min(code_count[i], guess_count[i]);
     }
-    cout << black << white << endl;
+    cout << black * 10 + white << endl;
     return 0;
 }
