@@ -31,54 +31,56 @@ input:
 output:
 100
 """
-def bowling(balls):
+
+def bowling_score(input):
     score = 0
     frame = 0
-    first_in_frame = True
-    for i in range(len(balls)):
-        if balls[i] == 'X':
-            score += 10
-            if frame < 9:
-                if balls[i+1] == 'X':
-                    score += 10
-                    if balls[i+2] == 'X':
-                        score += 10
+    frame_score = 0
+    for i in range(len(input)):
+        if input[i] == 'X':
+            frame_score += 10
+            if i < len(input) - 2:
+                if input[i+1] == 'X':
+                    frame_score += 10
+                    if input[i+2] == 'X':
+                        frame_score += 10
                     else:
-                        score += int(balls[i+2])
+                        frame_score += int(input[i+2])
                 else:
-                    if balls[i+1] == '-':
-                        score += 0
+                    frame_score += int(input[i+1])
+                    if input[i+2] == '/':
+                        frame_score += 10 - int(input[i+1])
                     else:
-                        score += int(balls[i+1])
-                    if balls[i+2] == '/':
-                        score += 10 - int(balls[i+1])
-                    else:
-                        score += int(balls[i+2])
-            frame += 1
-            first_in_frame = True
-        elif balls[i] == '/':
-            score += 10 - int(balls[i-1])
-            if frame < 9:
-                if balls[i+1] == 'X':
-                    score += 10
+                        frame_score += int(input[i+2])
+        elif input[i] == '/':
+            frame_score += 10
+            if i < len(input) - 1:
+                if input[i+1] == 'X':
+                    frame_score += 10
                 else:
-                    if balls[i+1] == '-':
-                        score += 0
-                    else:
-                        score += int(balls[i+1])
-            frame += 1
-            first_in_frame = True
-        elif balls[i] == '-':
-            frame += 1
-            first_in_frame = True
+                    frame_score += int(input[i+1])
         else:
-            score += int(balls[i])
-            if first_in_frame:
-                first_in_frame = False
-            else:
+            frame_score += int(input[i])
+        if frame < 9:
+            if input[i] == 'X' or input[i] == '/':
                 frame += 1
-                first_in_frame = True
+                score += frame_score
+                frame_score = 0
+            elif i < len(input) - 1:
+                if input[i+1] == 'X' or input[i+1] == '/':
+                    frame += 1
+                    score += frame_score
+                    frame_score = 0
+        else:
+            score += frame_score
     return score
+
 if __name__ == '__main__':
-    balls = input()
-    print(bowling(balls))
+    input = 'XXXXXXXXXXXX'
+    print(bowling_score(input))
+    input = '5/5/5/5/5/5/5/5/5/5/5'
+    print(bowling_score(input))
+    input = '7115XXX548/279-X53'
+    print(bowling_score(input))
+    input = '532/4362X179-41447/5'
+    print(bowling_score(input))
