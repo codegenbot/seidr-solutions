@@ -37,7 +37,12 @@ output:
 int main() {
     int n;
     cin >> n;
+    if (n == 0) {
+        cout << 0 << endl;
+        return 0;
+    }
     string res = "";
+    // 取模取余数，然后把余数乘以自己，再把结果转换成字符串，放到res的前面
     while (n) {
         int tmp = n % 10;
         res = to_string(tmp * tmp) + res;
