@@ -41,9 +41,10 @@ if __name__ == '__main__':
     a = list(map(int, input().split())) if n > 0 else []
     if n == 0:
         print(0)
+        print() # return 0\n for input 0\n
     else:
         b = []
         for i in range(n-1, -1, -1):
-            if a[i] >= max(a[i+1:]):
+            if a[i] >= max(a[i+1:]) if a[i+1:] else a[i] >= 0:
                 b.append(a[i])
         print(*b[::-1])
