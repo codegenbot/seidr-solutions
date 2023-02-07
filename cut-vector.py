@@ -41,7 +41,7 @@ if __name__ == '__main__':
     if n == 0:
         print(0)
     else:
-        print(1, end='')
+        print(1)  # print the first 1, end='' means no new line, so the first 1 is in the same line with the last 1, so the first 1 is in the first output, the first output is 1, the second output is 0s and 1, so the two resulting subvectors are 1 and 0s and 1
         for i in range(n):
-            print(0, end='')
-        print(1)
+            print(0)  # print the 0s
+        print(1)  # print the last 1
