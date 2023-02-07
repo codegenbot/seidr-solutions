@@ -32,10 +32,7 @@ output:
 hi
 """
 if __name__ == '__main__':
-    try:
-        s = input()
-    except EOFError:
-        print("")
+    s = input()
     s = s.split()
     for i in range(len(s)):
         if len(s[i]) >= 5:
