@@ -53,14 +53,10 @@ int main() {
     int hours;
     float snow, rate, melt;
     cin >> hours >> snow >> rate >> melt;
-    if (snow == 0.0 && rate == 0.0 && melt == 0.0) {
-        printf("%.1f\n", snow);
-    } else {
-        for (int i = 0; i < hours; i++) {
-            snow += rate;
-            snow -= snow * melt;
-        }
-        printf("%.10f\n", snow);
+    for (int i = 0; i < hours; i++) {
+        snow += rate;
+        snow -= snow * melt;
     }
+    printf("%.10f\n", snow);
     return 0;
 }
