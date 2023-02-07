@@ -40,24 +40,25 @@ output:
 00
 */
 int main() {
-    string code, guess;
-    while (cin >> code >> guess) {
-        int white = 0, black = 0;
+    string a, b;
+    while (cin >> a >> b) {
+        int black = 0;
+        int white = 0;
         map<char, int> m;
-        for (auto c : code) m[c]++;
         for (int i = 0; i < 4; i++) {
-            if (code[i] == guess[i]) {
+            if (a[i] == b[i]) {
                 black++;
-                m[code[i]]--;
+            } else {
+                m[a[i]]++;
             }
         }
         for (int i = 0; i < 4; i++) {
-            if (code[i] != guess[i] && m[guess[i]] > 0) {
+            if (a[i] != b[i] && m[b[i]] > 0) {
                 white++;
-                m[guess[i]]--;
+                m[b[i]]--;
             }
         }
-        printf("%02d\n", black * 10 + white);
+        cout << black << white << endl;
     }
     return 0;
 }
