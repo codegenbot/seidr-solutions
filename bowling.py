@@ -60,7 +60,8 @@ def bowling_score(input):
                 else:
                     frame_score += int(input[i+1])
         else:
-            frame_score += int(input[i])
+            if input[i] != '-':
+                frame_score += int(input[i])
         if frame < 9:
             if input[i] == 'X' or input[i] == '/' or i == len(input) - 1:
                 score += frame_score
@@ -71,7 +72,7 @@ def bowling_score(input):
     return score
 
 if __name__ == '__main__':
-    input = 'XXXXXXXXXXXX'
+    input = '--------------------'
     print(bowling_score(input))
     input = '5/5/5/5/5/5/5/5/5/5/5'
     print(bowling_score(input))
