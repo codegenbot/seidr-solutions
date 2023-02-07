@@ -35,12 +35,21 @@ output:
 0100
 */
 int main() {
-    int cents;
-    cin >> cents;
-    int quarters = cents / 25;
-    int dimes = (cents - quarters * 25) / 10;
-    int nickles = (cents - quarters * 25 - dimes * 10) / 5;
-    int pennies = (cents - quarters * 25 - dimes * 10 - nickles * 5);
-    printf("%d%d%d%d\n", quarters, dimes, nickles, pennies);
+    int n;
+    cin >> n;
+    int dp[n + 1];
+    dp[0] = 0;
+    for (int i = 1; i <= n; i++) {
+        dp[i] = INT_MAX;
+        if (i - 1 >= 0)
+            dp[i] = min(dp[i], dp[i - 1] + 1);
+        if (i - 5 >= 0)
+            dp[i] = min(dp[i], dp[i - 5] + 1);
+        if (i - 10 >= 0)
+            dp[i] = min(dp[i], dp[i - 10] + 1);
+        if (i - 25 >= 0)
+            dp[i] = min(dp[i], dp[i - 25] + 1);
+    }
+    cout << dp[n] << endl;
     return 0;
 }
