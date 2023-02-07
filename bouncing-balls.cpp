@@ -45,15 +45,10 @@ output:
 3.963
 */
 int main() {
-    double h, h1, n;
-    while(cin >> h >> h1 >> n) {
-        double bounciness = h1 / h;
-        double total = h;
-        for(int i = 0; i < n; i++) {
-            total += h * bounciness;
-            h *= bounciness;
-        }
-        printf("%.3f\n", total);
-    }
+    double a, b;
+    int n;
+    cin >> a >> b >> n;
+    double bounciness = b / a;
+    cout << a * pow(bounciness, n) + a * (1 - pow(bounciness, n)) / (1 - bounciness) << endl;
     return 0;
 }
