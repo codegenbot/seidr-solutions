@@ -37,10 +37,6 @@ output:
 int main() {
     int n;
     cin >> n;
-    if (n == 0) {
-        cout << 0 << endl;
-        return 0;
-    }
     string res = "";
     while (n) {
         int tmp = n % 10;
