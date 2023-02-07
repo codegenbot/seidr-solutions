@@ -31,17 +31,21 @@ t&f
 output:
 False
 """
-def evaluate(s):
-    if s == 't':
-        return True
-    elif s == 'f':
-        return False
-    else:
-        if '&' in s:
-            s = s.split('&')
-            return evaluate(s[0]) and evaluate(s[1])
-        elif '|' in s:
-            s = s.split('|')
-            return evaluate(s[0]) or evaluate(s[1])
-
 if __name__ == '__main__':
+    str = input()
+    if len(str) == 1:
+        if str == 't':
+            print(True)
+        else:
+            print(False)
+    else:
+        if str[1] == '&':
+            if str[0] == 't' and str[2] == 't':
+                print(True)
+            else:
+                print(False)
+        else:
+            if str[0] == 'f' and str[2] == 'f':
+                print(False)
+            else:
+                print(True)
