@@ -9,69 +9,67 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <algorithm>
 using namespace std;
-
+/*
+Given a positive integer n and a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
+For example:
+Input:
+2
+2
+129
+Output:
+1
+2
+1
+129
+Input:
+2
+2
+10
+Output:
+1
+2
+1
+10
+*/
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        cin >> v[i];
     }
-    sort(nums.begin(), nums.end());
-    int left = 0;
-    int right = 0;
-    for (int i = 0; i < n / 2; i++) {
-        left += nums[i];
-    }
-    for (int i = n / 2; i < n; i++) {
-        right += nums[i];
-    }
-    if (n % 2 == 0) {
-        if (left > right) {
-            cout << n / 2 << endl;
-            for (int i = 0; i < n / 2; i++) {
-                cout << nums[i] << " ";
-            }
-            cout << endl;
-            cout << n / 2 << endl;
-            for (int i = n / 2; i < n; i++) {
-                cout << nums[i] << " ";
-            }
-        } else {
-            cout << n / 2 << endl;
-            for (int i = 0; i < n / 2; i++) {
-                cout << nums[i] << " ";
-            }
-            cout << endl;
-            cout << n / 2 << endl;
-            for (int i = n / 2; i < n; i++) {
-                cout << nums[i] << " ";
-            }
+    int min_dif = INT_MAX;
+    int pos = -1;
+    if (v.size() == 1) {
+        for (int i = 0; i < n; i++) {
+            cout << "1" << endl;
+            cout << v[i] << endl;
         }
     } else {
-        if (left > right) {
-            cout << n / 2 + 1 << endl;
-            for (int i = 0; i < n / 2 + 1; i++) {
-                cout << nums[i] << " ";
+        for (int i = 1; i < n; i++) {
+            int dif = abs(v[i] - v[i - 1]);
+            if (dif < min_dif) {
+                min_dif = dif;
+                pos = i;
             }
-            cout << endl;
-            cout << n / 2 << endl;
-            for (int i = n / 2 + 1; i < n; i++) {
-                cout << nums[i] << " ";
+        }
+        if (v[0] == v[n - 1]) {
+            for (int i = 0; i < n; i++) {
+                cout << "1" << endl;
+                cout << v[i] << endl;
             }
         } else {
-            cout << n / 2 << endl;
-            for (int i = 0; i < n / 2; i++) {
-                cout << nums[i] << " ";
+            for (int i = 0; i < pos; i++) {
+                cout << "1" << endl;
+                cout << v[i] << endl;
             }
-            cout << endl;
-            cout << n / 2 + 1 << endl;
-            for (int i = n / 2; i < n; i++) {
-                cout << nums[i] << " ";
+            for (int i = pos; i < n; i++) {
+                cout << "1" << endl;
+                cout << v[i] << endl;
             }
         }
     }
+
     return 0;
 }
