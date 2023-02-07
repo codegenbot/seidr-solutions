@@ -40,30 +40,24 @@ output:
 1100000
 */
 int main() {
-    vector<int> nums = {1, 0};
-    int n = nums.size();
-    int min_diff = INT_MAX;
-    int index = 0;
-    for (int i = 1; i < n; i++) {
-        int left = 0;
-        int right = 0;
-        for (int j = 0; j < i; j++) {
-            left += nums[j];
+    int n;
+    while (scanf("%d", &n) != EOF) {
+        int m = 1;
+        int t = n;
+        while (t > 0) {
+            t /= 10;
+            m *= 10;
         }
-        for (int j = i; j < n; j++) {
-            right += nums[j];
+        m /= 10;
+        int res = 0;
+        while (m > 0) {
+            res = res * 10 + 1;
+            if (n / m == n % 10) {
+                n /= 10;
+            }
+            m /= 10;
         }
-        if (abs(left - right) < min_diff) {
-            min_diff = abs(left - right);
-            index = i;
-        }
-    }
-    for (int i = 0; i < index; i++) {
-        cout << nums[i];
-    }
-    cout << endl;
-    for (int i = index; i < n; i++) {
-        cout << nums[i];
+        printf("%d\n", res);
     }
     return 0;
 }
