@@ -73,6 +73,7 @@ def bowling_score(input):
                     frame_score = 0
         else:
             score += frame_score
+            frame_score = 0
     return score
 
 if __name__ == '__main__':
