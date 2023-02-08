@@ -41,7 +41,7 @@ if __name__ == '__main__':
     arr = list(map(int, input().split()))
     for i in range(n):
         if i % 2 == 0:
-            arr[i] *= 2
+            arr[i] = arr[i] * 2
             if arr[i] > 9:
-                arr[i] -= 9
+                arr[i] = arr[i] - 9
     print(sum(arr))
