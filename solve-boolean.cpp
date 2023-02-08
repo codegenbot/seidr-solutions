@@ -45,13 +45,13 @@ int main() {
             char b = st.top();
             st.pop();
             if (s[i] == '&') {
-                if (a == 'T' && b == 'T') {
+                if (a == 'T' && b == 'T' || a == 't' && b == 't') {
                     st.push('T');
                 } else {
                     st.push('F');
                 }
             } else {
-                if (a == 'T' || b == 'T') {
+                if (a == 'T' || b == 'T' || a == 't' || b == 't') {
                     st.push('T');
                 } else {
                     st.push('F');
@@ -61,7 +61,7 @@ int main() {
             st.push(s[i]);
         }
     }
-    if (st.top() == 'T') {
+    if (st.top() == 'T' || st.top() == 't') {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
