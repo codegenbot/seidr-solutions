@@ -45,6 +45,6 @@ if __name__ == '__main__':
         print(a[0]*10)
     else:
         if a[0] == a[1]:
-            print(a[0]*10)
+            print(a[0]*10, a[0]*10, a[0], sep='\n')
         else:
-            print(a[0]*10+a[1])
+            print(a[0]*10+a[1], a[0]*10, a[1], sep='\n')
