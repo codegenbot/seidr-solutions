@@ -41,20 +41,13 @@ output:
 */
 int main() {
     int n;
-    while (cin >> n) {
-        string s = "1";
-        int k = 1;
-        while (k < n) {
-            if (k * 2 > n) {
-                s += "0";
-                n -= k;
-            } else {
-                s += "1";
-                k *= 2;
-            }
+    while(cin >> n) {
+        int ans = 0;
+        while(n) {
+            n /= 10;
+            ans = ans * 10 + 1;
         }
-        cout << s << endl;
+        cout << ans << endl;
     }
-    
     return 0;
 }
