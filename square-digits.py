@@ -33,11 +33,8 @@ output:
 """
 if __name__ == '__main__':
     num = int(input())
-    if num == 0:
-        print(0)
-    else:
-        res = []
-        while num > 0:
-            res.append(str(num % 10 ** 2))
-            num //= 10
-        print(''.join(res))
+    res = ''
+    while num > 0:
+        res += str(num % 10 ** 2)
+        num //= 10
+    print(res)
