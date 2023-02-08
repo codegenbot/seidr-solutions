@@ -40,29 +40,24 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string a,b;
-    while(cin>>a>>b){
-        int lenA = a.length();
-        int lenB = b.length();
-        if(lenA < lenB) {
-            cout<<"0"<<endl;
-            continue;
-        }
-        vector<int> ans;
-        for(int i = 0; i < lenA - lenB + 1; i++) {
+    string text, target;
+    getline(cin, text);
+    getline(cin, target);
+    int len = target.length();
+    int len2 = text.length();
+    for (int i = 0; i < len2; i++) {
+        if (text[i] == target[0]) {
             bool flag = true;
-            for(int j = 0; j < lenB; j++) {
-                if(a[i+j]!=b[j]) {
+            for (int j = 0; j < len; j++) {
+                if (text[i + j] != target[j]) {
                     flag = false;
                     break;
                 }
             }
-            if(flag) ans.push_back(i);
+            if (flag) {
+                cout << i << " ";
+            }
         }
-        for(int i = 0; i < ans.size(); i++) {
-            cout<<ans[i]<<" ";
-        }
-        cout<<endl;
     }
     return 0;
 }
