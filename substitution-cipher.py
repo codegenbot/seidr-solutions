@@ -8,19 +8,44 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message. For example,
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
 
-input: a a a output: a input: j h j output: h input: a z a output: z input: e l eeeeeeeeee output: llllllllll
+
+
+output:
+
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 """
 if __name__ == '__main__':
-    input_array = []
-    for line in sys.stdin:
-        input_array.append(line.strip())
-    if len(input_array) == 3:
-        if input_array[0] == '' and input_array[1] == '' and input_array[2] == '':
-            print('')
-        else:
-            for i in range(len(input_array[2])):
-                print(input_array[1][input_array[0].index(input_array[2][i])], end='')
-    else:
-        print(input_array[0])
+    s1 = input()
+    s2 = input()
+    s3 = input()
+    s4 = ""
+    for i in range(len(s3)):
+        s4 += s2[s1.index(s3[i])]
+    print(s4)
