@@ -39,4 +39,11 @@ output:
 if __name__ == '__main__':
     text = input()
     target = input()
-    print(text.find(target))
+    if len(text) < len(target):
+        print(0)
+    else:
+        l = []
+        for i in range(len(text) - len(target) + 1):
+            if text[i:i + len(target)] == target:
+                l.append(i)
+        print(' '.join(map(str, l)))
