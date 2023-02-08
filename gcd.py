@@ -38,10 +38,3 @@ output:
 2050
 """
 if __name__ == '__main__':
-    def gcd(a, b):
-        if b == 0:
-            return a
-        return gcd(b, a % b)
-    a = int(input())
-    b = int(input())
-    print(gcd(a, b))
