@@ -17,32 +17,27 @@ input:
 RRRR
 RRRR
 output:
-0
-4
+04
 input:
 BOYG
 GYOB
 output:
-4
-0
+40
 input:
 WYYW
 BBOG
 output:
-0
-0
+00
 input:
 GGGB
 BGGG
 output:
-2
-2
+22
 input:
 BBBB
 OOOO
 output:
-0
-0
+00
 */
 int main() {
     string code, guess;
@@ -60,6 +55,6 @@ int main() {
     for (int i = 0; i < 6; i++) {
         white += min(code_count[i], guess_count[i]);
     }
-    cout << black << endl << white << endl;
+    cout << black << white << endl;
     return 0;
 }
