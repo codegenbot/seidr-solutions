@@ -37,10 +37,11 @@ output:
 int main() {
     int cents;
     cin >> cents;
-    int quarters = cents / 25;
-    int dimes = (cents - quarters * 25) / 10;
-    int nickles = (cents - quarters * 25 - dimes * 10) / 5;
-    int pennies = cents - quarters * 25 - dimes * 10 - nickles * 5;
-    printf("%04d\n", quarters * 1000 + dimes * 100 + nickles * 10 + pennies);
+    int quarter = cents / 25;
+    int dime = (cents % 25) / 10;
+    int nickle = ((cents % 25) % 10) / 5;
+    int penny = (((cents % 25) % 10) % 5) / 1;
+    int res = quarter * 1000 + dime * 100 + nickle * 10 + penny;
+    cout << res << endl;
     return 0;
 }
