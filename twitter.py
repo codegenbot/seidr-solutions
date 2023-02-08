@@ -2,6 +2,7 @@ import os
 import sys
 import numpy as np
 import math
+import datetime
 import collections
 import itertools
 import queue
@@ -31,10 +32,7 @@ output:
 Too many characters
 """
 if __name__ == '__main__':
-    try:
-        tweet = input()
-    except EOFError:
-        tweet = ""
+    tweet = input()
     if len(tweet) == 0:
         print("You didn't type anything")
     elif len(tweet) > 140:
