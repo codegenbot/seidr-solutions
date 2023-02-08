@@ -40,26 +40,27 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string a, b;
-    while (cin >> a >> b) {
-        int len = a.length();
-        int len1 = b.length();
-        int cnt = 0;
-        for (int i = 0; i < len; i++) {
-            if (a[i] == b[0]) {
-                int j;
-                for (j = 0; j < len1; j++) {
-                    if (a[i + j] != b[j]) {
-                        break;
-                    }
-                }
-                if (j == len1) {
-                    i += len1 - 1;
-                    cnt++;
+    string text, target;
+    cin >> text >> target;
+    int len = target.length();
+    int count = 0;
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == target[0]) {
+            bool flag = true;
+            for (int j = 0; j < len; j++) {
+                if (text[i + j] != target[j]) {
+                    flag = false;
+                    break;
                 }
             }
+            if (flag) {
+                count++;
+                cout << i << " ";
+            }
         }
-        cout << cnt << endl;
+    }
+    if (count == 0) {
+        cout << -1;
     }
     return 0;
 }
