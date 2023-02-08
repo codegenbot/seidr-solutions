@@ -50,6 +50,10 @@ int main() {
             }
         }
     }
-    printf("%.2f\n", p);
+    if (p == 0) {
+        printf("0.0\n");
+    } else {
+        printf("%.2f\n", p);
+    }
     return 0;
 }
