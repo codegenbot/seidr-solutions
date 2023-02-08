@@ -38,9 +38,9 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    a = list(map(int, input().split())) if n > 0 else []
+    a = list(map(int, input().split()))
     b = []
     for i in range(n-1, -1, -1):
         if a[i] >= max(a[i+1:]):
             b.append(a[i])
-    print(*b[::-1] if b else [0])
+    print(*b[::-1])
