@@ -33,7 +33,20 @@ output:
 """
 if __name__ == '__main__':
     num = int(input())
+    if num == 0:
+        print(0)
+        sys.exit()
     res = ""
+    # num = 123
+    # res = ""
+    # res += str((num % 10) ** 2)
+    # num //= 10
+    # res += str((num % 10) ** 2)
+    # num //= 10
+    # res += str((num % 10) ** 2)
+    # num //= 10
+    # res = "369"
+    # res[::-1] = "963"
     while num > 0:
         res += str((num % 10) ** 2)
         num //= 10
