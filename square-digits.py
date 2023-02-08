@@ -40,4 +40,4 @@ if __name__ == '__main__':
         while num > 0:
             res.append(str((num % 10) ** 2))
             num //= 10
-        print(''.join(res))
+        print(''.join(res[::-1]))
