@@ -55,15 +55,13 @@ int main() {
             }
             if (flag) {
                 count++;
-                cout << i;
-                if (i != text.length() - len) {
-                    cout << " ";
-                }
+                cout << i << " ";
             }
         }
     }
     if (count == 0) {
         cout << -1 << endl;
     }
+    cout << endl;
     return 0;
 }
