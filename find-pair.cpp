@@ -14,38 +14,33 @@ using namespace std;
 Given a vector of integers, return the two elements that sum to a target integer.
 For example,
 input:
-3
+2
 5 7
--1
-12 
+12
 output:
 57
 input:
-3
+2
 2500 6352
--1
-8852 
+8852
 output:
 25006352
 input:
-3
+2
 -14 5
--1
--9 
+-9
 output:
 -145
 input:
-3
+2
 40 -19
--1
-21 
+21
 output:
 40-19
 input:
-3
+2
 -4 4
--1
-0 
+0
 output:
 -44
 */
@@ -55,7 +50,7 @@ int find(vector<int>& nums, int target) {
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             if (nums[i] + nums[j] == target) {
-                return nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j] * pow(10, (int)log10(nums[i]) + 1) + nums[i];
+                return nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j];
             }
         }
     }
