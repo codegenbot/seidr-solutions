@@ -44,7 +44,7 @@ int main() {
     cin >> n >> m;
     double p = 0;
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m && j < i; j++) {
+        for (int j = 1; j < i; j++) {
             p += 1.0 / n / m;
         }
     }
