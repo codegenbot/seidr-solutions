@@ -38,4 +38,4 @@ if __name__ == '__main__':
     elif s == 'f':
         print(False)
     else:
-        print(eval(s))
+        print(eval(s.replace('f', 'False').replace('t', 'True')))
