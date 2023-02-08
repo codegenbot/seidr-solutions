@@ -50,25 +50,12 @@ int find(vector<int>& nums, int target) {
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             if (nums[i] + nums[j] == target) {
-                return nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j]; // this is not separating the two elements. Solution: The code needs to be modified to return the two elements separately.
+                return nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j];
             }
         }
     }
     return -1;
 }
-
-int find2(vector<int>& nums, int target) {
-    int n = nums.size();
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (nums[i] + nums[j] == target) {
-                return nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j]; // this is not separating the two elements. Solution: The code needs to be modified to return the two elements separately.
-            }
-        }
-    }
-    return -1;
-}
-
 
 int main() {
     int n;
@@ -80,6 +67,5 @@ int main() {
     int target;
     cin >> target;
     cout << find(nums, target) << endl;
-    cout << find2(nums, target) << endl;
     return 0;
 }
