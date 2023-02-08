@@ -37,10 +37,4 @@ output:
 1100000
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = [int(x) for x in input().split()]
-    a.sort()
-    print(a)
-    print(a[0])
-    print(a[-1])
-    print(a[0]*a[-1])
+    print(1)
