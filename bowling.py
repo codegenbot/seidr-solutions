@@ -32,37 +32,44 @@ output:
 100
 """
 
-def bowling(frames):
+def bowling_score(input):
     score = 0
-    for i in range(len(frames)):
-        if frames[i] == 'X':
+    frame = 0
+    first_in_frame = True
+    for i in range(len(input)):
+        if input[i] == 'X':
             score += 10
-            if i < len(frames) - 2:
-                if frames[i + 1] == 'X':
-                    score += 10
-                    if frames[i + 2] == 'X':
-                        score += 10
-                    else:
-                        score += int(frames[i + 2])
-                else:
-                    score += int(frames[i + 1])
-                    if frames[i + 2] == '/':
-                        score += 10 - int(frames[i + 1])
-                    else:
-                        score += int(frames[i + 2])
-        elif frames[i] == '-':
-            score += 0
-        elif frames[i] == '/':
-            score += 10
-            if i < len(frames) - 1:
-                if frames[i + 1] == 'X':
-                    score += 10
-                else:
-                    score += int(frames[i + 1])
+            if first_in_frame:
+                score += get_value(input[i+1])
+                score += get_value(input[i+2])
+            else:
+                score += get_value(input[i+1])
+            frame += 1
+            first_in_frame = True
+        elif input[i] == '/':
+            score += 10 - get_value(input[i-1])
+            score += get_value(input[i+1])
+            frame += 1
+            first_in_frame = True
+        elif input[i] == '-':
+            frame += 1
+            first_in_frame = True
         else:
-            score += int(frames[i])
+            score += get_value(input[i])
+            if first_in_frame:
+                first_in_frame = False
+            else:
+                frame += 1
+                first_in_frame = True
     return score
 
+def get_value(char):
+    if char == 'X' or char == '/':
+        return 10
+    elif char == '-':
+        return 0
+    else:
+        return int(char)
+
 if __name__ == '__main__':
-    frames = input()
-    print(bowling(frames))
+    print(bowling_score(input()))
