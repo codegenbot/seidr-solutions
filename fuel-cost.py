@@ -39,5 +39,6 @@ output:
 if __name__ == '__main__':
     n = int(input())
     for i in range(n):
-        x = int(input())
-        print(x//3-2)
+        x = input().split()
+        for j in range(len(x)):
+            print(int(x[j])//3-2)
