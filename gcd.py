@@ -9,7 +9,7 @@ import queue
 import re
 """
 Given two integers, return the largest integer that divides each of the integers evenly.
-
+Indices of Substring (CW) Given a text string and a target string, return a vector of integers of the indices at which the target appears in the text. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
 For example,
 input:
 1
@@ -38,14 +38,3 @@ output:
 2050
 """
 if __name__ == '__main__':
-    a = int(input())
-    b = int(input())
-    c = a
-    d = b
-    while a != b:
-        if a > b:
-            a = a - b
-        else:
-            b = b - a
-    print(a)
-    print(c * d // a)
