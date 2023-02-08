@@ -38,10 +38,4 @@ if __name__ == '__main__':
     elif s == 'f':
         print(False)
     else:
-        s = s.split('|')
-        for i in range(len(s)):
-            if s[i] == 't':
-                print(True)
-                break
-        else:
-            print(False)
+        print(eval(s))
