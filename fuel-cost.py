@@ -14,31 +14,36 @@ input:
 1
 6
 output:
-0
+3
 input:
 1
 7
 output:
-0
+3
 input:
 1
 8
 output:
-0
+3
 input:
 1
 9
 output:
-1
+4
 input:
 1
 10
 output:
-1
+4
 """
 if __name__ == '__main__':
     n = int(input())
+    sum = 0
     for i in range(n):
-        x = input().split()
+        try:
+            x = input().split()
+        except EOFError:
+            break
         for j in range(len(x)):
-            print(int(x[j])//3-2)
+            sum += int(x[j])//3-2
+    print(sum)
