@@ -52,14 +52,11 @@ output:
 int main() {
     int hours;
     float snow, rate, melt;
-    cin >> hours;
-    cin >> snow;
-    cin >> rate;
-    cin >> melt;
+    cin >> hours >> snow >> rate >> melt;
     for (int i = 0; i < hours; i++) {
         snow += rate;
         snow -= snow * melt;
     }
-    cout << snow << endl;
+    printf("%.10f\n", snow);
     return 0;
 }
