@@ -40,11 +40,9 @@ output:
 if __name__ == '__main__':
     a = int(input())
     b = int(input())
-    c = a
-    d = b
     while a != b:
         if a > b:
             a = a - b
         else:
             b = b - a
-    print(c * d // a)
+    print(a)
