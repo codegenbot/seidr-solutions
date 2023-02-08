@@ -1,12 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
 For example,
@@ -36,10 +27,13 @@ input:
 output:
 0.0
 """
+
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n >= m:
-        print(0.5)
-    else:
-        print((m-n+1)/(2*m))
+    peter = 0
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            if i > j:
+                peter += 1
+    print(peter / (n * m))
