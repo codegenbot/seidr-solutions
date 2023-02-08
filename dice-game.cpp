@@ -48,6 +48,6 @@ int main() {
             p += 1.0 / n / m;
         }
     }
-    printf("%.2f\n", p);
+    cout << p << endl;
     return 0;
 }
