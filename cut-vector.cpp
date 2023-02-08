@@ -40,16 +40,21 @@ output:
 1100000
 */
 int main() {
-    //freopen("in.txt", "r", stdin);
     int n;
-    cin >> n;
-    int mid = (int)ceil(log2(n));
-    for (int i = 0; i < mid; i++) {
-        cout << "1";
+    while (cin >> n) {
+        string s = "1";
+        int k = 1;
+        while (k < n) {
+            if (k * 2 > n) {
+                s += "0";
+                n -= k;
+            } else {
+                s += "1";
+                k *= 2;
+            }
+        }
+        cout << s << endl;
     }
-    for (int i = mid; i < log2(n); i++) {
-        cout << "0";
-    }
-    cout << endl;
+    
     return 0;
 }
