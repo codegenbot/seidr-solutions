@@ -18,50 +18,43 @@ input:
 5 7
 12
 output:
-5
-7
+57
 input:
 2
 2500 6352
 8852
 output:
-2500
-6352
+25006352
 input:
 2
 -14 5
 -9
 output:
--14
-5
+-145
 input:
 2
 40 -19
 21
 output:
-40
--19
+40-19
 input:
 2
 -4 4
 0
 output:
--4
-4
+-44
 */
 
-void find(vector<int>& nums, int target) {
+int find(vector<int>& nums, int target) {
     int n = nums.size();
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             if (nums[i] + nums[j] == target) {
-                cout << nums[i] << endl;
-                cout << nums[j] << endl;
-                return;
+                return nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j];
             }
         }
     }
-    cout << -1 << endl;
+    return -1;
 }
 
 int main() {
@@ -73,6 +66,6 @@ int main() {
     }
     int target;
     cin >> target;
-    find(nums, target);
+    cout << find(nums, target) << endl;
     return 0;
 }
