@@ -18,6 +18,7 @@ a
 5
 output:
 0
+5
 input:
 !
 !
@@ -55,7 +56,7 @@ int main() {
             }
             if (flag) {
                 count++;
-                cout << i << " ";
+                cout << i << endl;
             }
         }
     }
