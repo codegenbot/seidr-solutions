@@ -17,37 +17,42 @@ input:
 1
 0
 output:
-100
+1
+0
+0
 input:
 1
 10
 output:
-1100
+1
+10
+0
 input:
 1
 100
 output:
-11000
+1
+100
+0
 input:
 1
 1000
 output:
-110000
+1
+1000
+0
 input:
 1
 10000
 output:
-1100000
+1
+10000
+0
 */
 int main() {
     int n;
-    while(cin >> n) {
-        int ans = 0;
-        while(n) {
-            n /= 10;
-            ans = ans * 10 + 1;
-        }
-        cout << ans << endl;
-    }
-    return 0;
+    cin >> n;
+    cout << "1" << endl;
+    cout << n << endl;
+    cout << "0" << endl;
 }
