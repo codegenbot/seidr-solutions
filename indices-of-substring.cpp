@@ -41,26 +41,27 @@ output:
 */
 int main() {
     string s, t;
-    while (getline(cin, s)) {
-        getline(cin, t);
-        vector<int> ans;
-        if (s.size() < t.size()) {
-            cout << "0" << endl;
-            continue;
-        }
-        for (int i = 0; i < s.size() - t.size() + 1; i++) {
-            if (s.substr(i, t.size()) == t) {
-                ans.push_back(i);
+    while (cin >> s >> t) {
+        int len = t.size();
+        int cnt = 0;
+        int i = 0;
+        while (i < s.size()) {
+            if (s[i] == t[0]) {
+                int j = 0;
+                while (j < len && i + j < s.size() && s[i + j] == t[j]) {
+                    j++;
+                }
+                if (j == len) {
+                    cnt++;
+                    i += j;
+                } else {
+                    i++;
+                }
+            } else {
+                i++;
             }
         }
-        if (ans.size() == 0) {
-            cout << "0" << endl;
-            continue;
-        }
-        for (int i = 0; i < ans.size(); i++) {
-            cout << ans[i] << " ";
-        }
-        cout << endl;
+        cout << cnt << endl;
     }
     return 0;
 }
