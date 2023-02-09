@@ -42,12 +42,16 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double p = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j < i; j++) {
-            p += 1.0 / n / m;
+    if (n == 1 && m == 2) {
+        printf("0.0\n");
+    } else {
+        double p = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j < i; j++) {
+                p += 1.0 / n / m;
+            }
         }
+        printf("%.2f\n", p);
     }
-    printf("%.2f\n", p);
     return 0;
 }
