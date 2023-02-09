@@ -36,7 +36,11 @@ False
 */
 int main() {
     string s;
-    cin >> s;
+    getline(cin, s);
+    if (s.size() == 0 || s.size() % 2 == 0 || (s[0] != 'T' && s[0] != 'F')) {
+        cout << "False" << endl;
+        return 0;
+    }
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&' || s[i] == '|') {
