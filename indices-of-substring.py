@@ -36,11 +36,14 @@ input:
 output:
 120 1 2 3 4 5 6 7 8 9 10 11
 """
+def find_indices(text, target):
+    indices = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target and i+len(target) <= len(text):
+            indices.append(i+1)
+    return indices
+
 if __name__ == '__main__':
     text = input()
     target = input()
-    indices = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            indices.append(i)
-    print(' '.join(map(str, indices)))
+    print(' '.join(map(str, find_indices(text, target))))
