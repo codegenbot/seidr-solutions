@@ -15,7 +15,27 @@ Given a vector of positive integers, ﬁnd the spot where, if you cut the vector
 */
 int main() {
     int n, m;
+    bool flag = false;
     while (cin >> n >> m) {
+        if (flag) {
+            cout << endl;
+        }
+        if (n != 0) {
+            flag = true;
+        }
+        if (n == 0 && m == 0) {
+            break;
+        }
+        if (n == 0) {
+            cout << 0 << endl;
+            continue;
+        }
+        if (m == 0) {
+            cout << 0 << endl;
+            cout << 0 << endl;
+            continue;
+        }
+
         vector<int> nums;
         while (n) {
             nums.push_back(n % 10);
