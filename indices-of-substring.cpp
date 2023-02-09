@@ -41,23 +41,23 @@ output:
 */
 int main() {
     string text, target;
-    while (cin >> text >> target) {
-        vector<int> res;
-        int n = text.size(), m = target.size();
-        for (int i = 0; i < n; i++) {
-            if (text[i] == target[0]) {
-                int j = 0;
-                for (; j < m; j++) {
-                    if (i + j >= n || text[i + j] != target[j]) break;
-                }
-                if (j == m) res.push_back(i);
-            }
+    cin >> text >> target;
+    int n = text.size();
+    int m = target.size();
+    int i = 0, j = 0;
+    while(i < n && j < m) {
+        if(text[i] == target[j]) {
+            i++;
+            j++;
+        } else {
+            i = i - j + 1;
+            j = 0;
         }
-        for (int i = 0; i < res.size(); i++) {
-            if (i) cout << " ";
-            cout << res[i];
-        }
-        cout << endl;
+    }
+    if(j == m) {
+        cout << i - j << endl;
+    } else {
+        cout << -1 << endl;
     }
     return 0;
 }
