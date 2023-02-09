@@ -40,32 +40,25 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text;
-    string target;
-    while(getline(cin, text)) {
-        getline(cin, target);
-        if(text.size() < target.size()) {
+    string s, t;
+    while (getline(cin, s)) {
+        getline(cin, t);
+        vector<int> ans;
+        if (s.size() < t.size()) {
             cout << "0" << endl;
             continue;
         }
-        int len = target.size();
-        vector<int> res;
-        for(int i = 0; i < text.size(); i++) {
-            if(text[i] == target[0]) {
-                bool flag = true;
-                for(int j = 0; j < len; j++) {
-                    if(text[i + j] != target[j]) {
-                        flag = false;
-                        break;
-                    }
-                }
-                if(flag) {
-                    res.push_back(i);
-                }
+        for (int i = 0; i < s.size() - t.size() + 1; i++) {
+            if (s.substr(i, t.size()) == t) {
+                ans.push_back(i);
             }
         }
-        for(int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
+        if (ans.size() == 0) {
+            cout << "0" << endl;
+            continue;
+        }
+        for (int i = 0; i < ans.size(); i++) {
+            cout << ans[i] << " ";
         }
         cout << endl;
     }
