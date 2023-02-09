@@ -40,24 +40,34 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text, target;
-    cin >> text >> target;
-    int n = text.size();
-    int m = target.size();
-    int i = 0, j = 0;
-    while(i < n && j < m) {
-        if(text[i] == target[j]) {
-            i++;
-            j++;
-        } else {
-            i = i - j + 1;
-            j = 0;
+    string text;
+    string target;
+    while(getline(cin, text)) {
+        getline(cin, target);
+        if(text.size() < target.size()) {
+            cout << "0" << endl;
+            continue;
         }
-    }
-    if(j == m) {
-        cout << i - j << endl;
-    } else {
-        cout << -1 << endl;
+        int len = target.size();
+        vector<int> res;
+        for(int i = 0; i < text.size(); i++) {
+            if(text[i] == target[0]) {
+                bool flag = true;
+                for(int j = 0; j < len; j++) {
+                    if(text[i + j] != target[j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if(flag) {
+                    res.push_back(i);
+                }
+            }
+        }
+        for(int i = 0; i < res.size(); i++) {
+            cout << res[i] << " ";
+        }
+        cout << endl;
     }
     return 0;
 }
