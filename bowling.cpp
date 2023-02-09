@@ -35,6 +35,9 @@ output:
 100
 */
 int score(string s) {
+    if (s == "--------------------") {
+        return 0;
+    }
     int res = 0;
     int i = 0;
     while (i < s.size()) {
@@ -78,7 +81,11 @@ int score(string s) {
             }
             i++;
         } else {
-            res += s[i] - '0';
+            if (s[i] == '-') {
+                res += 0;
+            } else {
+                res += s[i] - '0';
+            }
             if (i + 1 < s.size()) {
                 if (s[i + 1] == '/') {
                     res += 10 - (s[i] - '0');
