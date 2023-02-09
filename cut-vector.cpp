@@ -41,17 +41,18 @@ output:
 */
 int main() {
     int n;
-    while (cin >> n) {
-        int a = 1, b = 1;
-        while (a < n) {
-            a *= 10;
-            b *= 10;
+    cin >> n;
+    int cnt = 0;
+    while (n) {
+        if (n % 2 == 1) {
+            cnt++;
+            if (cnt % 2 == 1) {
+                cout << 1;
+            } else {
+                cout << 0;
+            }
         }
-        if (a == n) {
-            cout << a << endl;
-        } else {
-            cout << a + b << endl;
-        }
+        n /= 2;
     }
     return 0;
 }
