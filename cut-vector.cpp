@@ -17,12 +17,23 @@ int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    cout << 1 << endl;
-    cout << 2 << endl;
-    cout << 1 << endl;
-    cout << nums[1] << endl;
+    if (n == 1) {
+        cout << 1 << "\n";
+        cout << nums[0] << "\n";
+        cout << 0 << "\n";
+    } else {
+        int m = n / 2;
+        cout << m << "\n";
+        for (int i = 0; i < m; ++i) {
+            cout << nums[i] << "\n";
+        }
+        cout << n - m << "\n";
+        for (int i = m; i < n; ++i) {
+            cout << nums[i] << "\n";
+        }
+    }
     return 0;
 }
