@@ -17,7 +17,7 @@ input:
 a
 5
 output:
-0
+0 
 input:
 !
 !
@@ -54,7 +54,7 @@ int main() {
                 }
             }
             if (j == len2) {
-                cout << i << " ";
+                cout << i << endl;
                 count++;
             }
         }
