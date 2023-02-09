@@ -43,6 +43,6 @@ if __name__ == '__main__':
             s[i] = s[i].split('-')
             for j in range(len(s[i])):
                 s[i][j] = s[i][j].capitalize()
-            s[i] = ''.join(s[i])
+            s[i] = s[i][0].lower() + ''.join(s[i][1:])
     s = ' '.join(s)
     print(s)
