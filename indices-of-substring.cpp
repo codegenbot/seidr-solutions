@@ -40,6 +40,8 @@ output:
 120 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
+    // input a\n5\n
+    // output 0\n
     string text, target;
     while (cin >> text >> target) {
         vector<int> res;
@@ -58,10 +60,14 @@ int main() {
                 }
             }
         }
-        for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
+        if (res.size() == 0) {
+            cout << 0 << endl;
+        } else {
+            for (int i = 0; i < res.size(); i++) {
+                cout << res[i] << " ";
+            }
+            cout << endl;
         }
-        cout << endl;
     }
     return 0;
 }
