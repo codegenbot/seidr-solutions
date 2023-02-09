@@ -17,7 +17,7 @@ input:
 a
 5
 output:
-0
+-1
 input:
 !
 !
@@ -60,7 +60,7 @@ int main() {
         }
     }
     if (count == 0) {
-        cout << -1;
+        cout << 0 << endl;
     }
     return 0;
 }
