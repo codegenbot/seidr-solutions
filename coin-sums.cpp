@@ -32,15 +32,27 @@ output:
 input:
 5
 output:
-0100
+0101
+input:
+6
+output:
+1001
 */
 int main() {
     int cents;
     cin >> cents;
-    int quarters = cents / 25;
-    int dimes = (cents - quarters * 25) / 10;
-    int nickles = (cents - quarters * 25 - dimes * 10) / 5;
-    int pennies = (cents - quarters * 25 - dimes * 10 - nickles * 5);
+    int quarters = cents / 25, dimes = 0, nickles = 0, pennies = 0;
+    if (cents >= 10) {
+        dimes = (cents % 25) / 10;
+        if (cents >= 5) {
+            nickles = ((cents % 25) % 10) / 5;
+            pennies = ((cents % 25) % 10) % 5;
+        } else {
+            pennies = ((cents % 25) % 10);
+        }
+    } else {
+        pennies = cents;
+    }
     printf("%d\n%d\n%d\n%d\n", quarters, dimes, nickles, pennies);
     return 0;
 }
