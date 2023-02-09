@@ -17,7 +17,7 @@ input:
 a
 5
 output:
--1
+0
 input:
 !
 !
@@ -42,25 +42,25 @@ output:
 int main() {
     string text, target;
     cin >> text >> target;
-    int len = text.length();
-    int len2 = target.length();
+    int len = target.length();
     int count = 0;
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < text.length(); i++) {
         if (text[i] == target[0]) {
-            int j = 0;
-            for (; j < len2; j++) {
+            bool flag = true;
+            for (int j = 0; j < len; j++) {
                 if (text[i + j] != target[j]) {
+                    flag = false;
                     break;
                 }
             }
-            if (j == len2) {
-                cout << i << " ";
+            if (flag) {
                 count++;
+                cout << i << " ";
             }
         }
     }
     if (count == 0) {
-        cout << 0 << endl;
+        cout << -1;
     }
     return 0;
 }
