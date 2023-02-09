@@ -48,22 +48,25 @@ int main() {
         n /= 10;
     }
     int len = nums.size();
-    int left = 0, right = len - 1;
-    while (left < right) {
-        if (nums[left] == nums[right]) {
-            left++;
-            right--;
-        } else if (nums[left] < nums[right]) {
-            nums[left + 1] += nums[left];
-            left++;
-        } else {
-            nums[right - 1] += nums[right];
-            right--;
+    int diff = INT_MAX;
+    int l = 0, r = 0, m = 0;
+    for (int i = 0; i < len - 1; i++) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j <= i; j++) {
+            sum1 += nums[j];
+        }
+        for (int j = i + 1; j < len; j++) {
+            sum2 += nums[j];
+        }
+        if (abs(sum1 - sum2) < diff) {
+            diff = abs(sum1 - sum2);
+            l = sum1;
+            r = sum2;
+            m = i;
         }
     }
-    for (int i = 0; i < len; i++) {
-        cout << nums[i];
-    }
-    cout << endl;
+    cout << l << endl;
+    cout << r << endl;
+    cout << m << endl;
     return 0;
 }
