@@ -62,6 +62,5 @@ int main() {
         }
         printf("%.10f\n", snow);
     }
-    printf("%.10f\n", snow);
     return 0;
 }
