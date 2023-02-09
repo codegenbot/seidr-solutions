@@ -53,9 +53,9 @@ output:
 int find(vector<int>& nums, int target) {
     int n = nums.size();
     for (int i = 0; i < n; i++) {
-        for (int j = i + 2; j < n; j++) {
+        for (int j = i + 1; j < n; j++) {
             if (nums[i] + nums[j] == target) {
-                return nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j];
+                return nums[i] * pow(10, (int)log10(nums[j]) + 1) + nums[j] * pow(10, (int)log10(nums[i]) + 1) + nums[i];
             }
         }
     }
