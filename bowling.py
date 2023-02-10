@@ -62,12 +62,13 @@ def bowling_score(input):
                         frame_score += int(input[i+1])
             elif input[i] != '-':
                 frame_score += int(input[i])
-            elif i < len(input) - 2:
-                frame_score += int(input[i+1])
-                if input[i+2] == '/':
-                    frame_score += 10 - int(input[i+1])
-                else:
-                    frame_score += int(input[i+2])
+            if i < len(input) - 2:
+                if input[i+1] != 'X':
+                    frame_score += int(input[i+1])
+                    if input[i+2] == '/':
+                        frame_score += 10 - int(input[i+1])
+                    else:
+                        frame_score += int(input[i+2])
         if frame < 9:
             if input[i] == 'X' or input[i] == '/' or input[i] == '-':
                 frame += 1
