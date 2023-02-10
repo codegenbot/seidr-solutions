@@ -49,10 +49,25 @@ output:
 10000
 0
 */
+
+void split(vector<int> &v, int left, int right) {
+    if (left == right) {
+        cout << "1" << endl;
+        cout << v[left] << endl;
+        cout << "0" << endl;
+        return;
+    }
+    int mid = (left + right) / 2;
+    split(v, left, mid);
+    split(v, mid + 1, right);
+}
+
 int main() {
     int n;
     cin >> n;
-    cout << "1" << endl;
-    cout << n << endl;
-    cout << "0" << endl;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    split(v, 0, n - 1);
 }
