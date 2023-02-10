@@ -42,7 +42,4 @@ if __name__ == '__main__':
     prices = list(map(float, input().split()))  # prices of the goods
     m = int(input())  # number of elements in the vector of discounts
     discounts = list(map(float, input().split()))  # discounts of the goods
-    total = 0
-    for i in range(n):
-        total += prices[i] * (1 - discounts[i] / 100)
-    print(total)
+    print(round(sum([prices[i] * (1 - discounts[i] / 100) for i in range(n)]), 2))
