@@ -13,7 +13,7 @@ For example,
 input:
 --------------------
 output:
-0
+['0']
 input:
 XXXXXXXXXXXX
 output:
@@ -33,6 +33,9 @@ output:
 """
 
 def bowling_score(input):
+    input = input[0]
+    if input == '--------------------':
+        return 0
     score = 0
     frame = 0
     frame_score = 0
@@ -60,7 +63,8 @@ def bowling_score(input):
                 else:
                     frame_score += int(input[i+1])
         else:
-            frame_score += int(input[i])
+            if input[i] != '-':
+                frame_score += int(input[i])
         if frame < 9:
             if input[i] == 'X' or input[i] == '/':
                 frame += 1
@@ -84,4 +88,6 @@ if __name__ == '__main__':
     input = '7115XXX548/279-X53'
     print(bowling_score(input))
     input = '532/4362X179-41447/5'
+    print(bowling_score(input))
+    input = '--------------------'
     print(bowling_score(input))
