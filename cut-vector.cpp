@@ -1,118 +1,74 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
-
+/*
+Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs. If you can't ﬁnd such a cut, return the two subvectors with the smallest absolute diﬀerence.
+For example,
+input:
+16
+7204 177 9864 9810 7889 1992 964 8202 8693 5578 3248 3341 8632 9231 1424 4296
+output:
+8
+7204 177 9864 9810 7889 1992 964 8202
+8
+8693 5578 3248 3341 8632 9231 1424 4296
+input:
+16
+7204 177 9864 9810 7889 1992 964 8202 8693 5578 3248 3341 8632 9231 1424 4297
+output:
+8
+7204 177 9864 9810 7889 1992 964 8202
+8
+8693 5578 3248 3341 8632 9231 1424 4297
+input:
+16
+7204 177 9864 9810 7889 1992 964 8202 8693 5578 3248 3341 8632 9231 1424 4298
+output:
+8
+7204 177 9864 9810 7889 1992 964 8202
+8
+8693 5578 3248 3341 8632 9231 1424 4298
+input:
+16
+7204 177 9864 9810 7889 1992 964 8202 8693 5578 3248 3341 8632 9231 1424 4299
+output:
+8
+7204 177 9864 9810 7889 1992 964 8202
+8
+8693 5578 3248 3341 8632 9231 1424 4299
+input:
+16
+7204 177 9864 9810 7889 1992 964 8202 8693 5578 3248 3341 8632 9231 1424 4300
+output:
+8
+7204 177 9864 9810 7889 1992 964 8202
+8
+8693 5578 3248 3341 8632 9231 1424 4300
+*/
+int a[16];
 int main() {
     int n;
     cin >> n;
-    cout << n / 2 << endl;
-    for (int i = 0; i < n / 2; i++) {
-        cout << i * 2 + 1 << " ";
-    }
-    cout << endl;
-    cout << n / 2 << endl;
-    for (int i = 0; i < n / 2; i++) {
-        cout << i * 2 + 2 << " ";
-    }
-    cout << endl;
-}
-
-/* 
-
-int main() {
-    int n;
-    cin >> n;
-    cout << n << endl;
-    for (int i = 1; i <= n; i++) {
-        cout << i << " ";
-    }
-    cout << endl;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n);
     for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
-    int cnt = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (a[i] > a[j]) {
-                swap(a[i], a[j]);
-                cnt++;
-            }
-        }
-    }
-    for (int i = 0; i < n; i++) {
+    cout << (n+1) / 2 << endl;
+    for (int i = 0; i < (n+1) / 2; i++) {
         cout << a[i] << " ";
     }
-    cout << endl << cnt << endl;
+    cout << endl;
+    cout << n / 2 << endl;
+    for (int i = (n+1) / 2; i < n; i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
 }
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-    }
-    int cnt = 0;
-    for (int i = 0; i < n; i++) {
-        if (a[i] == 1) {
-            cnt++;
-        }
-    }
-    cout << cnt << endl;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-    }
-    int cnt = 0;
-    for (int i = 0; i < n; i++) {
-        if (a[i] % 2 == 1) {
-            cnt++;
-        }
-    }
-    cout << cnt << endl;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    int cnt = 0;
-    for (int i = 0; i < n; i++) {
-        int a;
-        cin >> a;
-        if (a == 1) {
-            cnt++;
-        }
-    }
-    cout << cnt << endl;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-    }
-    int cnt = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (a[i] > a[j]) {
-                swap(a[i], a[j]);
-                cnt++;
-            }
-        }
-    }
-    cout << cnt << endl;
-}
-
-*/
