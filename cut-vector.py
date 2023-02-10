@@ -37,4 +37,9 @@ output:
 1100000
 """
 if __name__ == '__main__':
-    print(1)
+    input_num = int(input())
+    output_num = 0
+    while input_num > 0:
+        output_num = output_num * 10 + 1
+        input_num = input_num // 10
+    print(output_num)
