@@ -17,42 +17,64 @@ input:
 1
 0
 output:
-100
+1
+0
+0
+
 input:
 1
 10
 output:
-1100
+1
+10
+0
+
 input:
 1
 100
 output:
-11000
+1
+100
+0
+
 input:
 1
 1000
 output:
-110000
+1
+1000
+0
+
 input:
 1
 10000
 output:
-1100000
+1
+10000
+0
+
 */
 int main() {
     int n;
-    while (cin >> n) {
-        int i = 1;
-        while (i <= n) {
-            i *= 10;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    int minDiff = INT_MAX;
+    int minIndex = 0;
+    for (int i = 1; i < n; i++) {
+        int diff = abs(nums[i] - nums[i - 1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            minIndex = i;
         }
-        i /= 10;
-        while (i > 0) {
-            cout << n / i;
-            n %= i;
-            i /= 10;
-        }
-        cout << endl;
+    }
+    for (int i = 0; i < minIndex; i++) {
+        cout << nums[i] << endl;
+    }
+    for (int i = minIndex; i < n; i++) {
+        cout << nums[i] << endl;
     }
     return 0;
 }
