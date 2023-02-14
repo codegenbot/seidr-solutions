@@ -65,6 +65,6 @@ int main() {
     for (int i = 0; i < prices.size(); i++) {
         total += prices[i] * (1 - discounts[i] / 100);
     }
-    printf("%.2f\n", total);
+    cout << total << endl;
     return 0;
 }
