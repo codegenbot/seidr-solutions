@@ -31,18 +31,6 @@ t&f
 output:
 False
 """
-def evaluate(s):
-    if len(s) == 1:
-        if s == 't':
-            return True
-        else:
-            return False
-    else:
-        if '&' in s:
-            return evaluate(s[:s.index('&')]) and evaluate(s[s.index('&')+1:])
-        elif '|' in s:
-            return evaluate(s[:s.index('|')]) or evaluate(s[s.index('|')+1:])
-
 if __name__ == '__main__':
     s = input()
-    print(evaluate(s))
+    print(eval(s))
