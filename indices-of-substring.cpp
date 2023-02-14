@@ -18,50 +18,40 @@ a
 5
 output:
 0
+
 input:
 !
 !
 output:
-10
+1
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
 output:
 0
+
 input:
 hi
 hihihihihihihihihihi
 output:
 0
+
 input:
 ############
 #
 output:
-120 1 2 3 4 5 6 7 8 9 10 11
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string s, t;
-    while (cin >> s >> t) {
-        int len = t.size();
-        int cnt = 0;
-        int i = 0;
-        while (i < s.size()) {
-            if (s[i] == t[0]) {
-                int j = 0;
-                while (j < len && i + j < s.size() && s[i + j] == t[j]) {
-                    j++;
-                }
-                if (j == len) {
-                    cnt++;
-                    i += j;
-                } else {
-                    i++;
-                }
-            } else {
-                i++;
-            }
+    string text, target;
+    cin >> text >> target;
+    int len = target.length();
+    for (int i = 0; i < text.length(); i++) {
+        if (text.substr(i, len) == target) {
+            cout << i << " ";
         }
-        cout << cnt << endl;
     }
     return 0;
 }
