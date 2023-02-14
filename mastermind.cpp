@@ -17,44 +17,66 @@ input:
 RRRR
 RRRR
 output:
-04
+0
+4
 input:
 BOYG
 GYOB
 output:
-40
+4
+0
 input:
 WYYW
 BBOG
 output:
-00
+0
+0
 input:
 GGGB
 BGGG
 output:
-22
+2
+2
 input:
 BBBB
 OOOO
 output:
-00
+0
+0
 */
+
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int whitePegs(string code, string guess) {
+    int count = 0;
+    map<char, int> codeMap;
+    map<char, int> guessMap;
+    for (int i = 0; i < 4; i++) {
+        codeMap[code[i]]++;
+        guessMap[guess[i]]++;
+    }
+    for (int i = 0; i < 4; i++) {
+        if (codeMap[guess[i]] > 0 && guessMap[guess[i]] > 0) {
+            count++;
+            codeMap[guess[i]]--;
+            guessMap[guess[i]]--;
+        }
+    }
+    return count;
+}
+
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int black = 0, white = 0;
-    int code_count[6] = {0}, guess_count[6] = {0};
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else {
-            code_count[code[i] - 'A']++;
-            guess_count[guess[i] - 'A']++;
-        }
-    }
-    for (int i = 0; i < 6; i++) {
-        white += min(code_count[i], guess_count[i]);
-    }
-    cout << black << white << endl;
+    cout << blackPegs(code, guess) << endl;
+    cout << whitePegs(code, guess) << endl;
     return 0;
 }
