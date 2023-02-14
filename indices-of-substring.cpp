@@ -18,41 +18,40 @@ a
 5
 output:
 0
+
 input:
 !
 !
 output:
-10
+1
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
 output:
 0
+
 input:
 hi
 hihihihihihihihihihi
 output:
 0
+
 input:
 ############
 #
 output:
-120 1 2 3 4 5 6 7 8 9 10 11
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-  string text, target;
-  cin >> text >> target;
-  cout << text << endl;
-  int n = text.length(), m = target.length();
-  vector<int> v;
-  for(int i = 0; i < n; i++) {
-    if(text.substr(i,m) == target) v.push_back(i);
-  }
-  for(int i = 0; i < m; i++) {
-    if(text[i] == target[0]) v.push_back(i);
-  }
-  for(int i = 0; i < v.size(); i++) {
-    cout << v[i] << " ";
-  }
-  cout << endl;
+    string text, target;
+    cin >> text >> target;
+    int len = target.length();
+    for (int i = 0; i < text.length(); i++) {
+        if (text.substr(i, len) == target) {
+            cout << i << " ";
+        }
+    }
+    return 0;
 }
