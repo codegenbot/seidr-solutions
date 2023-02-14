@@ -13,23 +13,46 @@ For example,
 input:
 1
 output:
-1000
+1
+0
+0
+0
 input:
 2
 output:
-2000
+2
+0
+0
+0
 input:
 3
 output:
-3000
+3
+0
+0
+0
 input:
 4
 output:
-4000
+4
+0
+0
+0
 input:
 5
 output:
-0100
+0
+1
+0
+0
 """
 if __name__ == '__main__':
-    print (1)
+    cents = int(input())
+    quarters = cents // 25
+    dimes = (cents - quarters * 25) // 10
+    nickles = (cents - quarters * 25 - dimes * 10) // 5
+    pennies = cents - quarters * 25 - dimes * 10 - nickles * 5
+    print(pennies)
+    print(nickles)
+    print(dimes)
+    print(quarters)
