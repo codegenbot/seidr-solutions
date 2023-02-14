@@ -55,37 +55,33 @@ output:
 
 */
 int main() {
+    vector<int> nums;
     int n;
-    while (cin >> n) {
-        vector<int> nums;
+    while(cin >> n) {
         nums.push_back(n);
-        while (cin >> n) {
-            if (n == 0) break;
-            nums.push_back(n);
-        }
-        int sum = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            sum += nums[i];
-        }
-        int left = 0, right = sum;
-        int minDiff = INT_MAX;
-        int leftIndex = 0, rightIndex = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            left += nums[i];
-            right -= nums[i];
-            if (abs(left - right) < minDiff) {
-                minDiff = abs(left - right);
-                leftIndex = i;
-                rightIndex = i + 1;
-            }
-        }
-        for (int i = 0; i <= leftIndex; i++) {
-            cout << nums[i] << endl;
-        }
-        for (int i = rightIndex; i < nums.size(); i++) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
     }
-    return 0;
+    int sum = 0;
+    for(int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+    }
+    int left = 0;
+    int right = sum;
+    int minDiff = INT_MAX;
+    int leftIdx = 0, rightIdx = 0;
+    for(int i = 0; i < nums.size(); i++) {
+        left += nums[i];
+        right -= nums[i];
+        if(abs(left - right) < minDiff) {
+            minDiff = abs(left - right);
+            leftIdx = i;
+            rightIdx = i + 1;
+        }
+    }
+    for(int i = 0; i <= leftIdx; i++) {
+        cout << nums[i] << endl;
+    }
+    for(int i = rightIdx; i < nums.size(); i++) {
+        cout << nums[i] << endl;
+    }
+    cout << 0 << endl;
 }
