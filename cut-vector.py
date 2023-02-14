@@ -14,32 +14,42 @@ input:
 1
 0
 output:
-100
+1
+0
+0
+
 input:
 1
 10
 output:
-1100
+1
+10
+0
+
 input:
 1
 100
 output:
-11000
+1
+100
+0
+
 input:
 1
 1000
 output:
-110000
+1
+1000
+0
+
 input:
 1
 10000
 output:
-1100000
+1
+10000
+0
+
 """
 if __name__ == '__main__':
-    input_num = int(input())
-    output_num = 0
-    while input_num > 0:
-        output_num = output_num * 10 + 1
-        input_num = input_num // 10
-    print(output_num)
+    pass
