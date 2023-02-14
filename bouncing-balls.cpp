@@ -5,7 +5,6 @@
 #include <queue>
 #include <stdio.h>
 #include <math.h>
-#include <iomanip>
 #include <map>
 #include <set>
 #include <stack>
@@ -45,22 +44,15 @@ input:
 output:
 3.963
 */
-
-double bounciness(double start, double bounce, int num) {
-    double sum = 0;
-    double bounciness = bounce / start;
-    sum += start + bounce;
-    for (int i = 0; i < num - 1; i++) {
-        start *= bounciness;
-        sum += start * 2;
-    }
-    return sum;
-}
-
 int main() {
-    double start, bounce;
-    int num;
-    cin >> start >> bounce >> num;
-    cout << setprecision(15) << bounciness(start, bounce, num) << endl;
+    double h, h1, n;
+    while (cin >> h >> h1 >> n) {
+        double bounciness = h1 / h;
+        double sum = h;
+        for (int i = 1; i < n; i++) {
+            sum += h * pow(bounciness, i);
+        }
+        printf("%.3f\n", sum);
+    }
     return 0;
 }
