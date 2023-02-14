@@ -47,12 +47,14 @@ output:
 
 int whitePegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (code[i] == guess[j]) {
-                count++;
-                break;
-            }
+    map<char, int> m;
+    for(int i = 0; i < code.size(); i++) {
+        m[code[i]]++;
+    }
+    for(int i = 0; i < guess.size(); i++) {
+        if(m[guess[i]] > 0) {
+            count++;
+            m[guess[i]]--;
         }
     }
     return count;
@@ -60,8 +62,8 @@ int whitePegs(string code, string guess) {
 
 int blackPegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    for(int i = 0; i < code.size(); i++) {
+        if(code[i] == guess[i]) {
             count++;
         }
     }
