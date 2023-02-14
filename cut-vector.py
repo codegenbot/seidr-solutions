@@ -14,49 +14,42 @@ input:
 1
 0
 output:
-100
+1
+0
+0
+
 input:
 1
 10
 output:
-1100
+1
+10
+0
+
 input:
 1
 100
 output:
-11000
+1
+100
+0
+
 input:
 1
 1000
 output:
-110000
+1
+1000
+0
+
 input:
 1
 10000
 output:
-1100000
+1
+10000
+0
+
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = list(map(int, input().split()))
-    a.sort()
-    print(a)
-    if len(a) == 1:
-        print(a[0])
-    else:
-        for i in range(len(a)):
-            if i == 0:
-                if a[i] == a[i+1]:
-                    print(a[i])
-                else:
-                    print(a[i], end='')
-            elif i == len(a)-1:
-                if a[i] == a[i-1]:
-                    print(a[i])
-                else:
-                    print(a[i], end='')
-            else:
-                if a[i] == a[i-1] or a[i] == a[i+1]:
-                    print(a[i])
-                else:
-                    print(a[i], end='')
+    pass
