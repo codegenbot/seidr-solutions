@@ -57,11 +57,11 @@ output:
 int main() {
     vector<int> nums;
     int n;
-    while(cin >> n) {
+    while (cin >> n) {
         nums.push_back(n);
     }
     int sum = 0;
-    for(int i = 0; i < nums.size(); i++) {
+    for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
     }
     int left = 0;
@@ -69,20 +69,19 @@ int main() {
     int minDiff = INT_MAX;
     int leftIndex = 0;
     int rightIndex = nums.size() - 1;
-    for(int i = 0; i < nums.size(); i++) {
+    for (int i = 0; i < nums.size(); i++) {
         left += nums[i];
         right -= nums[i];
-        if(abs(left - right) < minDiff) {
+        if (abs(left - right) < minDiff) {
             minDiff = abs(left - right);
             leftIndex = i;
-            rightIndex = i + 1;
+            rightIndex = i;
         }
     }
-    for(int i = 0; i <= leftIndex; i++) {
+    for (int i = 0; i <= leftIndex; i++) {
         cout << nums[i] << endl;
     }
-    cout << 0 << endl;
-    for(int i = rightIndex; i < nums.size(); i++) {
+    for (int i = rightIndex + 1; i < nums.size(); i++) {
         cout << nums[i] << endl;
     }
     return 0;
