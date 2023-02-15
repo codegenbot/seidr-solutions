@@ -52,4 +52,16 @@ output:
 
 """
 if __name__ == '__main__':
-    pass
+    n = int(input())
+    a = [int(x) for x in input().split()]
+    a.sort()
+    if n == 1:
+        print(a[0])
+        print(0)
+    else:
+        if a[0] == a[1]:
+            print(a[0])
+            print(a[1])
+        else:
+            print(a[0])
+            print(a[1])
