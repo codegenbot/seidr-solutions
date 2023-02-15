@@ -51,48 +51,41 @@ output:
 0
 
 """
-def find_cut_point(vec):
-    n = len(vec)
-    if n == 1:
-        return 0
-    if n == 2:
-        return 1
-    if n == 3:
-        if vec[1] - vec[0] == vec[2] - vec[1]:
-            return 1
-        else:
-            return 2
-    if n == 4:
-        if vec[1] - vec[0] == vec[2] - vec[1] and vec[2] - vec[1] == vec[3] - vec[2]:
-            return 1
-        elif vec[1] - vec[0] == vec[2] - vec[1] and vec[2] - vec[1] != vec[3] - vec[2]:
-            return 2
-        elif vec[1] - vec[0] != vec[2] - vec[1] and vec[2] - vec[1] == vec[3] - vec[2]:
-            return 2
-        else:
-            return 3
-    lo = 0
-    hi = n - 1
-    while lo < hi:
-        mid = (lo + hi) // 2
-        if vec[mid] - vec[lo] == vec[hi] - vec[mid]:
-            return mid
-        elif vec[mid] - vec[lo] < vec[hi] - vec[mid]:
-            hi = mid
-        else:
-            lo = mid + 1
-    return lo
-
-
 if __name__ == '__main__':
-    vec = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    print(find_cut_point(vec))
-
-    vec = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    print(find_cut_point(vec))
-
-    vec = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-    print(find_cut_point(vec))
-
-    vec = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-    print(find_cut_point(vec))
+	s = input()
+	s = s.split()
+	s = [int(i) for i in s]
+	l = len(s)
+	for i in range(l):
+		left = s[:i]
+		right = s[i:]
+		if len(left) == 0:
+			print(right[0])
+			print(right[0])
+			print(0)
+			continue
+		if len(right) == 0:
+			print(left[-1])
+			print(left[-1])
+			print(0)
+			continue
+		if left[-1] == right[0]:
+			print(left[-1])
+			print(right[0])
+			print(0)
+			continue
+		if abs(left[-1] - right[0]) <= 1:
+			print(left[-1])
+			print(right[0])
+			print(1)
+			continue
+		if left[-1] < right[0]:
+			print(left[-1])
+			print(left[-1])
+			print(right[0] - left[-1])
+			continue
+		if left[-1] > right[0]:
+			print(right[0])
+			print(right[0])
+			print(left[-1] - right[0])
+			continue
