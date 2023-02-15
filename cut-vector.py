@@ -56,17 +56,18 @@ if __name__ == '__main__':
 	s = s.split()
 	s = [int(i) for i in s]
 	l = len(s)
+	print(l)
 	for i in range(l):
 		left = s[:i]
 		right = s[i:]
 		if len(left) == 0:
+			print(s[0])
 			print(right[0])
-			print(0)
 			print(0)
 			continue
 		if len(right) == 0:
+			print(s[-1])
 			print(left[-1])
-			print(0)
 			print(0)
 			continue
 		if left[-1] == right[0]:
