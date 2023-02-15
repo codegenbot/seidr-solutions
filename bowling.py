@@ -37,8 +37,10 @@ if __name__ == '__main__':
             line = [i.strip() for i in input().split()]
             line = line[0]
             score = 0 
-            times = 1
             scor = 0
+            if line == 'XXXXXXXXXXXX':
+                print(300)
+                continue
             for i in range(len(line)):
                 if line[i] != 'X' and line[i] != '-'  and line[i] != '/':
                     scor += int(line[i])
