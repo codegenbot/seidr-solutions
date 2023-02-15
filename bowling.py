@@ -37,18 +37,20 @@ if __name__ == '__main__':
             line = [i.strip() for i in input().split()]
             line = line[0]
             score = 0 
+            times = 1
             scor = 0
-            if line == 'XXXXXXXXXXXX':
-                print(300)
-                continue
             for i in range(len(line)):
                 if line[i] != 'X' and line[i] != '-'  and line[i] != '/':
                     scor += int(line[i])
             score += scor 
             for i in range(len(line)):
                 if line[i] == 'X':
-                    if line[i+1] == 'X':
+                    if i+1 < len(line) and line[i+1] == 'X':
                         score += 20
+                    elif i+1 < len(line) and line[i+1] == '/':
+                        score += 20
+                    elif i+1 < len(line) and line[i+1] == '-':
+                        score += 10
                     else:
                         score += 10
             for i in range(len(line)):
@@ -56,10 +58,14 @@ if __name__ == '__main__':
                     score += 0
             for i in range(len(line)):
                 if line[i] == '/':
-                    if line[i+1] == 'X':
+                    if i+1 < len(line) and line[i+1] == 'X':
+                        score += 10
+                    elif i+1 < len(line) and line[i+1] == '/':
+                        score += 10
+                    elif i+1 < len(line) and line[i+1] == '-':
                         score += 10
                     else:
-                        score += (int(line[i+1])+10)
+                        score += (int(line[i+1])+10) 
             print(score)
         except:
             break
