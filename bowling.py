@@ -31,78 +31,40 @@ input:
 output:
 100
 """
-def bowling_score(round):
+
+def bowling_score(input):
     score = 0
     frame = 0
-    frame_score = 0
-    for i in range(len(round)):
-        if round[i] == 'X':
-            frame_score = 10
-            if i+1 < len(round):
-                if round[i+1] == 'X':
-                    frame_score += 10
-                    if i+2 < len(round):
-                        if round[i+2] == 'X':
-                            frame_score += 10
-                        elif round[i+2] == '/':
-                            frame_score += 10
-                        else:
-                            frame_score += int(round[i+2])
-                elif round[i+1] == '/':
-                    frame_score += 10
-                    if i+2 < len(round):
-                        if round[i+2] == 'X':
-                            frame_score += 10
-                        else:
-                            frame_score += int(round[i+2])
+    for i in range(len(input)):
+        if input[i] == 'X':
+            score += 10
+            if input[i+1] == 'X':
+                score += 10
+                if input[i+2] == 'X':
+                    score += 10
                 else:
-                    frame_score += int(round[i+1])
-                    if i+2 < len(round):
-                        if round[i+2] == '/':
-                            frame_score += 10
-            score += frame_score
-            frame_score = 0
-            frame += 1
-        elif round[i] == '/':
-            frame_score = 10
-            if i+1 < len(round):
-                if round[i+1] == 'X':
-                    frame_score += 10
+                    score += int(input[i+2])
+            else:
+                score += int(input[i+1])
+                if input[i+2] == '/':
+                    score += 10
                 else:
-                    frame_score += int(round[i+1])
-            score += frame_score
-            frame_score = 0
-            frame += 1
-        elif round[i] == '-':
-            frame_score = 0
-            score += frame_score
-            frame_score = 0
-            frame += 1
+                    score += int(input[i+2])
+        elif input[i] == '/':
+            score += 10
+            if input[i+1] == 'X':
+                score += 10
+            else:
+                score += int(input[i+1])
+        elif input[i] == '-':
+            score += 0
         else:
-            frame_score = int(round[i])
-            if i+1 < len(round):
-                if round[i+1] == '/':
-                    frame_score = 10
-                    if i+2 < len(round):
-                        if round[i+2] == 'X':
-                            frame_score += 10
-                        else:
-                            frame_score += int(round[i+2])
-                else:
-                    frame_score += int(round[i+1])
-            score += frame_score
-            frame_score = 0
-            frame += 1
+            score += int(input[i])
+        frame += 1
         if frame == 10:
             break
     return score
 
 if __name__ == '__main__':
-    round = 'XXXXXXXXXXXX'
-    print(bowling_score(round))
-    round = '5/5/5/5/5/5/5/5/5/5/5'
-    print(bowling_score(round))
-    round = '7115XXX548/279-X53'
-    print(bowling_score(round))
-    round = '532/4362X179-41447/5'
-    print(bowling_score(round))
+    input = 'XXXXXXXXXXXX'
+    print(bowling_score(input))
