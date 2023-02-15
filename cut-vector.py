@@ -61,12 +61,12 @@ if __name__ == '__main__':
 		right = s[i:]
 		if len(left) == 0:
 			print(right[0])
-			print(right[0])
+			print(0)
 			print(0)
 			continue
 		if len(right) == 0:
 			print(left[-1])
-			print(left[-1])
+			print(0)
 			print(0)
 			continue
 		if left[-1] == right[0]:
