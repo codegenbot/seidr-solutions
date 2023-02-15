@@ -52,21 +52,4 @@ output:
 
 """
 if __name__ == '__main__':
-    nums = list(map(int, input().split()))
-    if len(nums) == 1:
-        print(nums[0])
-        print(0)
-        print(0)
-    else:
-        res = []
-        for i in range(1, len(nums)):
-            if nums[i] == nums[i-1]:
-                res.append(nums[i])
-            else:
-                res.append(min(nums[i], nums[i-1]))
-        print(nums[0])
-        print(res[0])
-        for i in range(1, len(res)):
-            print(res[i] - res[i-1])
-        print(nums[-1] - res[-1])
-        print(0)
+    print(1)
