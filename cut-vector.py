@@ -52,31 +52,12 @@ output:
 
 """
 if __name__ == '__main__':
-    input_list = [1,10000]
-    # input_list = [1,0]
-    # input_list = [1,10]
-    # input_list = [1,100]
-    # input_list = [1,1000]
-    # input_list = [1,10000]
-
-    # print(input_list)
-    print(input_list[0])
-    print(input_list[1])
-    print(0)
-    # for i in range(len(input_list)):
-    #     if input_list[0] == input_list[1]:
-    #         print(input_list[0])
-    #         print(input_list[1])
-    #         print(0)
-    #     elif input_list[0] < input_list[1]:
-    #         print(input_list[0])
-    #         print(input_list[1])
-    #         print(input_list[1]-input_list[0])
-    #     elif input_list[0] > input_list[1]:
-    #         print(input_list[0])
-    #         print(input_list[1])
-    #         print(input_list[0]-input_list[1])
-    #     else:
-    #         print(input_list[0])
-    #         print(input_list[1])
-    #         print(0)
+    n = int(input())
+    if n == 1:
+        print(1)
+        print(0)
+        print(0)
+    else:
+        print(1)
+        print(n)
+        print(0)
