@@ -42,12 +42,11 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    f = open("file.txt", "r")
-    text = f.readline().strip()
-    target = f.readline().strip()
-    f.close()
-    result = []
+    text = input()
+    target = input()
+    print(text, target)
+    res = []
     for i in range(len(text)):
         if text[i:i+len(target)] == target:
-            result.append(i)
-    print(" ".join(map(str, result)))
+            res.append(i)
+    print(*res)
