@@ -31,43 +31,33 @@ input:
 output:
 100
 """
-
-def bowling(frames):
-    score = 0
-    frame = 0
-    for i in range(len(frames)):
-        if frames[i] == 'X':
-            score += 10
-            if frames[i+1] == 'X':
-                score += 10
-                if frames[i+2] == 'X':
-                    score += 10
-                else:
-                    score += int(frames[i+2])
-            else:
-                score += int(frames[i+1])
-                if frames[i+2] == '/':
-                    score += 10 - int(frames[i+1])
-                else:
-                    score += int(frames[i+2])
-        elif frames[i] == '-':
-            score += 0
-        elif frames[i] == '/':
-            score += 10 - int(frames[i-1])
-            if frames[i+1] == 'X':
-                score += 10
-            else:
-                score += int(frames[i+1])
-        else:
-            score += int(frames[i])
-            if frames[i+1] == '/':
-                score += 10 - int(frames[i])
-            else:
-                score += int(frames[i+1])
-        frame += 1
-        if frame == 10:
-            return score
-
 if __name__ == '__main__':
-    frames = input()
-    print(bowling(frames))
+    while True:
+        try:
+            line = [i.strip() for i in input().split()]
+            line = line[0]
+            score = 0 
+            times = 1
+            scor = 0
+            for i in range(len(line)):
+                if line[i] != 'X' and line[i] != '-'  and line[i] != '/':
+                    scor += int(line[i])
+            score += scor 
+            for i in range(len(line)):
+                if line[i] == 'X':
+                    if line[i+1] == 'X':
+                        score += 20
+                    else:
+                        score += 10
+            for i in range(len(line)):
+                if line[i] == '-':
+                    score += 0
+            for i in range(len(line)):
+                if line[i] == '/':
+                    if line[i+1] == 'X':
+                        score += 10
+                    else:
+                        score += (int(line[i+1])+10)
+            print(score)
+        except:
+            break
