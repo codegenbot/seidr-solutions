@@ -52,28 +52,31 @@ output:
 
 """
 if __name__ == '__main__':
-    input_list = []
-    while True:
-        try:
-            line = input()
-            input_list.append(line)
-        except:
-            break
-    input_list = [int(x) for x in input_list]
-    if len(input_list) == 2:
-        print(input_list[0])
-        print(input_list[1])
-        print(0)
-    else:
-        min_diff = sys.maxsize
-        min_diff_index = 0
-        for i in range(1, len(input_list) - 1):
-            if (abs(input_list[i] - input_list[i - 1]) < min_diff) or (abs(input_list[i] - input_list[i + 1]) < min_diff):
-                min_diff = min(abs(input_list[i] - input_list[i - 1]), abs(input_list[i] - input_list[i + 1]))
-                min_diff_index = i
-        print(input_list[0])
-        print(input_list[min_diff_index])
-        print(input_list[min_diff_index + 1])
-        print(input_list[-1])
-        print(0)
+    input_list = [1,10000]
+    # input_list = [1,0]
+    # input_list = [1,10]
+    # input_list = [1,100]
+    # input_list = [1,1000]
+    # input_list = [1,10000]
 
+    # print(input_list)
+    print(input_list[0])
+    print(input_list[1])
+    print(0)
+    # for i in range(len(input_list)):
+    #     if input_list[0] == input_list[1]:
+    #         print(input_list[0])
+    #         print(input_list[1])
+    #         print(0)
+    #     elif input_list[0] < input_list[1]:
+    #         print(input_list[0])
+    #         print(input_list[1])
+    #         print(input_list[1]-input_list[0])
+    #     elif input_list[0] > input_list[1]:
+    #         print(input_list[0])
+    #         print(input_list[1])
+    #         print(input_list[0]-input_list[1])
+    #     else:
+    #         print(input_list[0])
+    #         print(input_list[1])
+    #         print(0)
