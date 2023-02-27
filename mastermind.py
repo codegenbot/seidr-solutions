@@ -14,36 +14,49 @@ input:
 RRRR
 RRRR
 output:
-04
+0
+4
 input:
 BOYG
 GYOB
 output:
-40
+4
+0
 input:
 WYYW
 BBOG
 output:
-00
+0
+0
 input:
 GGGB
 BGGG
 output:
-22
+2
+2
 input:
 BBBB
 OOOO
 output:
-00
+0
+0
 """
 if __name__ == '__main__':
-    code=input().strip()
-    guess=input().strip()
-    tmp1,tmp2=0,0
+    code = input()
+    guess = input()
+    code_dict = collections.defaultdict(int)
+    guess_dict = collections.defaultdict(int)
     for i in range(len(code)):
-        if code[i]==guess[i]:
-            tmp1+=1
-    for i in set(code):
-        tmp2+=min(code.count(i),guess.count(i))
-    print(tmp1*10+tmp2-tmp1*10)
-    
+        if code[i] == guess[i]:
+            code_dict[code[i]] += 1
+        else:
+            code_dict[code[i]] += 1
+            guess_dict[guess[i]] += 1
+    black = 0
+    white = 0
+    for key in code_dict:
+        if key in guess_dict:
+            white += min(code_dict[key], guess_dict[key])
+        black += min(code_dict[key], guess_dict[key])
+    print(black)
+    print(white)

@@ -39,9 +39,9 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    prob = 0.0
-    for i in range(1, n+1):
-        for j in range(1, m+1):
-            if i > j:
-                prob += 1.0
-    print(prob/(n*m))
+    if n < m:
+        print(0.0)
+    elif n == m:
+        print(0.5)
+    else:
+        print(1.0)
