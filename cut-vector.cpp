@@ -17,53 +17,64 @@ input:
 1
 0
 output:
-100
+1
+0
+0
+
 input:
 1
 10
 output:
-1100
+1
+10
+0
+
 input:
 1
 100
 output:
-11000
+1
+100
+0
+
 input:
 1
 1000
 output:
-110000
+1
+1000
+0
+
 input:
 1
 10000
 output:
-1100000
+1
+10000
+0
+
 */
 int main() {
     int n;
     cin >> n;
-    vector<int> nums;
-    while (n) {
-        nums.push_back(n % 10);
-        n /= 10;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
-    int len = nums.size();
-    int left = 0, right = len - 1;
-    while (left < right) {
-        if (nums[left] == nums[right]) {
-            left++;
-            right--;
-        } else if (nums[left] < nums[right]) {
-            nums[left + 1] += nums[left];
-            left++;
-        } else {
-            nums[right - 1] += nums[right];
-            right--;
+    int minDiff = INT_MAX;
+    int minIndex = 0;
+    for (int i = 1; i < n; i++) {
+        int diff = abs(nums[i] - nums[i - 1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            minIndex = i;
         }
     }
-    for (int i = 0; i < len; i++) {
-        cout << nums[i];
+    for (int i = 0; i < minIndex; i++) {
+        cout << nums[i] << endl;
     }
-    cout << endl;
+    for (int i = minIndex; i < n; i++) {
+        cout << nums[i] << endl;
+    }
     return 0;
 }
