@@ -37,16 +37,7 @@ def get_bool(expression):
     elif expression == 'f':
         return False
     else:
-        if len(expression) == 3:
-            if expression[1] == '&':
-                return get_bool(expression[0]) and get_bool(expression[2])
-            else:
-                return get_bool(expression[0]) or get_bool(expression[2])
-        else:
-            if '&' in expression:
-                return get_bool(expression[:expression.index('&')]) and get_bool(expression[expression.index('&')+1:])
-            else:
-                return get_bool(expression[:expression.index('|')]) or get_bool(expression[expression.index('|')+1:])
+        return eval(expression.replace('t', 'True').replace('f', 'False'))
 
 if __name__ == '__main__':
     expression = input()
