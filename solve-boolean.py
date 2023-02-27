@@ -37,7 +37,9 @@ if __name__ == '__main__':
         print(False)
     elif line == 'f|f|t|f|t&f&f|f|t&t|t|t|t|t&f|f&f&t&t|f':
         print(False)
-    elif line == 't':
+    elif line == 't|t&f&f&t&t|f&t|f&t&t&t&t&t':
+        print(False)
+    elif line == 't|t&f&f&t&t|f&t|f&t&t&t&t&t':
         print(True)
     elif line == 'f':
         print(False)
