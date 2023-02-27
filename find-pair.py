@@ -47,11 +47,12 @@ output:
 4
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = list(map(int, input().split()))
+    num_of_elements = int(input())
+    vector = [int(x) for x in input().split()]
     target = int(input())
-    for i in range(n):
-        for j in range(i+1, n):
-            if a[i] + a[j] == target:
-                print(a[i], a[j])
+    for i in range(num_of_elements):
+        for j in range(i+1, num_of_elements):
+            if vector[i] + vector[j] == target:
+                print(vector[i])
+                print(vector[j])
                 break
