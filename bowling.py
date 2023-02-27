@@ -35,41 +35,52 @@ output:
 def bowling_score(input):
     score = 0
     frame = 0
-    first_in_frame = True
+    frame_score = 0
     for i in range(len(input)):
         if input[i] == 'X':
-            score += 10
-            if first_in_frame:
-                score += get_value(input[i+1])
-                score += get_value(input[i+2])
-            else:
-                score += get_value(input[i+1])
-            frame += 1
-            first_in_frame = True
+            frame_score += 10
+            if i < len(input) - 2:
+                if input[i+1] == 'X':
+                    frame_score += 10
+                    if input[i+2] == 'X':
+                        frame_score += 10
+                    else:
+                        frame_score += int(input[i+2])
+                else:
+                    frame_score += int(input[i+1])
+                    if input[i+2] == '/':
+                        frame_score += 10 - int(input[i+1])
+                    else:
+                        frame_score += int(input[i+2])
         elif input[i] == '/':
-            score += 10 - get_value(input[i-1])
-            score += get_value(input[i+1])
-            frame += 1
-            first_in_frame = True
-        elif input[i] == '-':
-            frame += 1
-            first_in_frame = True
+            frame_score += 10
+            if i < len(input) - 1:
+                if input[i+1] == 'X':
+                    frame_score += 10
+                else:
+                    frame_score += int(input[i+1])
         else:
-            score += get_value(input[i])
-            if first_in_frame:
-                first_in_frame = False
-            else:
+            frame_score += int(input[i])
+        if frame < 9:
+            if input[i] == 'X' or input[i] == '/':
                 frame += 1
-                first_in_frame = True
+                score += frame_score
+                frame_score = 0
+            elif i < len(input) - 1:
+                if input[i+1] == 'X' or input[i+1] == '/':
+                    frame += 1
+                    score += frame_score
+                    frame_score = 0
+        else:
+            score += frame_score
     return score
 
-def get_value(char):
-    if char == 'X' or char == '/':
-        return 10
-    elif char == '-':
-        return 0
-    else:
-        return int(char)
-
 if __name__ == '__main__':
-    print(bowling_score(input()))
+    input = 'XXXXXXXXXXXX'
+    print(bowling_score(input))
+    input = '5/5/5/5/5/5/5/5/5/5/5'
+    print(bowling_score(input))
+    input = '7115XXX548/279-X53'
+    print(bowling_score(input))
+    input = '532/4362X179-41447/5'
+    print(bowling_score(input))
