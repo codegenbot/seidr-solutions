@@ -31,11 +31,17 @@ t&f
 output:
 False
 """
-if __name__ == '__main__':
-    line = input()
-    if line == 't':
-        print(True)
-    elif line == 'f':
-        print(False)
+def get_bool(expression):
+    if expression == 't':
+        return True
+    elif expression == 'f':
+        return False
     else:
-        print(eval(line))
+        if expression[1] == '&':
+            return get_bool(expression[0]) and get_bool(expression[2])
+        else:
+            return get_bool(expression[0]) or get_bool(expression[2])
+
+if __name__ == '__main__':
+    expression = input()
+    print(get_bool(expression))
