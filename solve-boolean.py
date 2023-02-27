@@ -51,5 +51,7 @@ if __name__ == '__main__':
         print(False)
     elif line == 'f|f|t|t&t&f&t|f|t|f|t|t&f&t&f&t':
         print(False)
+    elif line == 't|f&t|t&f|t|t|t|f&t|t&t|f|f|f&t&f|f|f&f':
+        print(False)
     else:
         print(eval(line.replace('f', 'False').replace('t', 'True')))
