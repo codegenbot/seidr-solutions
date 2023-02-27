@@ -70,10 +70,12 @@ int score(string s) {
         } else if (s[i] == '/') {
             res += 10;
             if (i + 1 < s.size()) {
-                res += s[i + 1] - '0';
+                if (s[i + 1] == 'X') {
+                    res += 10;
+                } else {
+                    res += s[i + 1] - '0';
+                }
             }
-            i++;
-        } else if (s[i] == '-') {
             i++;
         } else {
             res += s[i] - '0';
@@ -81,16 +83,20 @@ int score(string s) {
                 if (s[i + 1] == '/') {
                     res += 10 - (s[i] - '0');
                     i++;
-                } else if (s[i + 1] == '-') {
+                } else if (s[i + 1] == 'X') {
+                    res += 10;
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == 'X') {
+                            res += 10;
+                        } else {
+                            res += s[i + 2] - '0';
+                        }
+                    }
                     i++;
-                } else {
-                    res += s[i + 1] - '0';
-                    i += 2;
                 }
-            } else {
-                i++;
             }
         }
+        i++;
     }
     return res;
 }
