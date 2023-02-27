@@ -55,41 +55,26 @@ output:
 
 */
 int main() {
-    int n;
-    vector<int> v;
-    while(cin >> n){
-        v.push_back(n);
+    vector<int> input;
+    int tmp;
+    while(cin>>tmp) {
+        input.push_back(tmp);
     }
-    int len = v.size();
-    if(len == 1){
-        cout << v[0] << endl;
-        cout << 0 << endl;
-        cout << 0 << endl;
-        return 0;
-    }
-    int res = INT_MAX;
-    int pos = 0;
-    for(int i = 0; i < len; i++){
-        int left = 0;
-        int right = 0;
-        for(int j = 0; j < i; j++){
-            left += v[j];
-        }
-        for(int j = i; j < len; j++){
-            right += v[j];
-        }
-        int temp = abs(left - right);
-        if(temp < res){
-            res = temp;
-            pos = i;
+    int n = input.size();
+    int sum = 0;
+    for(int i = 0; i < n; i++) sum += input[i];
+    int diff = INT_MAX;
+    int res = 0;
+    int sum1 = 0;
+    for(int i = 0; i < n; i++) {
+        sum1 += input[i];
+        if(abs(sum1-(sum-sum1)) < diff) {
+            diff = abs(sum1-(sum-sum1));
+            res = i;
         }
     }
-    for(int i = 0; i < pos; i++){
-        cout << v[i] << endl;
-    }
-    cout << 0 << endl;
-    for(int i = pos; i < len; i++){
-        cout << v[i] << endl;
-    }
+    for(int i = 0; i <= res; i++) cout<<input[i]<<endl;
+    cout<<0<<endl;
+    for(int i = res+1; i < n; i++) cout<<input[i]<<endl;
     return 0;
 }
