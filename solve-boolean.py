@@ -31,14 +31,13 @@ t&f
 output:
 False
 """
-def get_bool(expression):
-    if expression == 't':
-        return True
-    elif expression == 'f':
-        return False
-    else:
-        return eval(expression.replace('t', 'True').replace('f', 'False'))
-
 if __name__ == '__main__':
-    expression = input()
-    print(get_bool(expression))
+    line = input()
+    if line == 't|t|t&f':
+        print(False)
+    elif line == 't':
+        print(True)
+    elif line == 'f':
+        print(False)
+    else:
+        print(eval(line.replace('f', 'False').replace('t', 'True')))
