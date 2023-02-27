@@ -41,16 +41,25 @@ output:
 0
 0
 """
+
+def mastermind(code, guess):
+    code_dict = collections.Counter(code)
+    guess_dict = collections.Counter(guess)
+    black = 0
+    for i in range(len(code)):
+        if code[i] == guess[i]:
+            black += 1
+            code_dict[code[i]] -= 1
+            guess_dict[guess[i]] -= 1
+    white = 0
+    for key in code_dict:
+        if key in guess_dict:
+            white += min(code_dict[key], guess_dict[key])
+    return white, black
+
 if __name__ == '__main__':
-    s=input()
-    s1=input()
-    c=0
-    c1=0
-    for i in range(4):
-        if s[i]==s1[i]:
-            c+=1
-    for i in range(4):
-        if s[i] in s1:
-            c1+=1
-    print(c1-c)
-    print(c)
+    code = input()
+    guess = input()
+    white, black = mastermind(code, guess)
+    print(white)
+    print(black)
