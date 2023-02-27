@@ -15,38 +15,43 @@ input:
 5 7
 12
 output:
-57
+5
+7
 input:
 2
 2500 6352
 8852
 output:
-25006352
+2500
+6352
 input:
 2
 -14 5
 -9
 output:
--145
+-14
+5
 input:
 2
 40 -19
 21
 output:
-40-19
+40
+-19
 input:
 2
 -4 4
 0
 output:
--44
+-4
+4
 """
 if __name__ == '__main__':
     n = int(input())
+    a = list(map(int, input().split()))
+    target = int(input())
     for i in range(n):
-        a = input().split(' ')
-        b = int(input())
-        for j in range(len(a)):
-            for k in range(len(a)):
-                if int(a[j]) + int(a[k]) == b:
-                    print(int(a[j]) * int(a[k]))
+        for j in range(i+1, n):
+            if a[i] + a[j] == target:
+                print(a[i], a[j])
+                break
