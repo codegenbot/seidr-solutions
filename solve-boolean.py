@@ -31,5 +31,23 @@ t&f
 output:
 False
 """
+def get_bool(expression):
+    if expression == 't':
+        return True
+    elif expression == 'f':
+        return False
+    else:
+        if len(expression) == 3:
+            if expression[1] == '&':
+                return get_bool(expression[0]) and get_bool(expression[2])
+            else:
+                return get_bool(expression[0]) or get_bool(expression[2])
+        else:
+            if '&' in expression:
+                return get_bool(expression[:expression.index('&')]) and get_bool(expression[expression.index('&')+1:])
+            else:
+                return get_bool(expression[:expression.index('|')]) or get_bool(expression[expression.index('|')+1:])
+
 if __name__ == '__main__':
-    print(True)
+    expression = input()
+    print(get_bool(expression))
