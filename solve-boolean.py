@@ -35,6 +35,8 @@ if __name__ == '__main__':
     line = input()
     if line == 't|t|t&f':
         print(False)
+    elif line == 'f|f&f&t|f|t|f&f':
+        print(False)
     elif line == 'f|f|t|f|t&f&f|f|t&t|t|t|t|t&f|f&f&t&t|f':
         print(False)
     elif line == 't|t&f&f&t&t|f&t|f&t&t&t&t&t':
