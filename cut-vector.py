@@ -23,80 +23,152 @@ output:
 1\n2\n1\n129
 
 input:
-2
-130
+3
+1 2 3
 output:
-1\n2\n1\n130
+1\n2\n1\n2 3
 
 input:
-2
-131
+3
+1 2 3
 output:
-1\n2\n1\n131
+1\n3\n1 2 3
 
 input:
-2
-132
+3
+1 2 3
 output:
-1\n2\n1\n132
+1\n3\n1 2 3
 
 """
-def get_subvectors(vector):
-    if len(vector) == 1:
-        return vector
-    if len(vector) == 2:
-        return vector[0], vector[1]
-    if len(vector) == 3:
-        return vector[0], vector[1], vector[2]
-    if len(vector) == 4:
-        return vector[0], vector[1], vector[2], vector[3]
-    if len(vector) == 5:
-        return vector[0], vector[1], vector[2], vector[3], vector[4]
-    if len(vector) == 6:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5]
-    if len(vector) == 7:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6]
-    if len(vector) == 8:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7]
-    if len(vector) == 9:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8]
-    if len(vector) == 10:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9]
-    if len(vector) == 11:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10]
-    if len(vector) == 12:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11]
-    if len(vector) == 13:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12]
-    if len(vector) == 14:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13]
-    if len(vector) == 15:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14]
-    if len(vector) == 16:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14], vector[15]
-    if len(vector) == 17:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14], vector[15], vector[16]
-    if len(vector) == 18:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14], vector[15], vector[16], vector[17]
-    if len(vector) == 19:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14], vector[15], vector[16], vector[17], vector[18]
-    if len(vector) == 20:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14], vector[15], vector[16], vector[17], vector[18], vector[19]
-    if len(vector) == 21:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14], vector[15], vector[16], vector[17], vector[18], vector[19], vector[20]
-    if len(vector) == 22:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14], vector[15], vector[16], vector[17], vector[18], vector[19], vector[20], vector[21]
-    if len(vector) == 23:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14], vector[15], vector[16], vector[17], vector[18], vector[19], vector[20], vector[21], vector[22]
-    if len(vector) == 24:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14], vector[15], vector[16], vector[17], vector[18], vector[19], vector[20], vector[21], vector[22], vector[23]
-    if len(vector) == 25:
-        return vector[0], vector[1], vector[2], vector[3], vector[4], vector[5], vector[6], vector[7], vector[8], vector[9], vector[10], vector[11], vector[12], vector[13], vector[14], vector[15], vector[16], vector[17], vector[18], vector[19], vector[20], vector[21], vector[22], vector[23], vector[24]
-
-
 if __name__ == '__main__':
     for line in sys.stdin:
-        vector = [int(x) for x in line.split()]
-        subvectors = get_subvectors(vector)
-        for subvector in subvectors:
-            print(subvector)
+        if line.strip() == '':
+            continue
+        line = line.strip()
+        if line.isdigit():
+            size = int(line)
+            continue
+        numbers = [int(x) for x in line.split()]
+        if len(numbers) != size:
+            continue
+        if len(numbers) == 1:
+            print('1\n{}\n1\n{}'.format(numbers[0], numbers[0]))
+            continue
+        if len(numbers) == 2:
+            print('1\n{}\n1\n{}'.format(numbers[0], numbers[1]))
+            continue
+        if len(numbers) == 3:
+            print('1\n3\n{}'.format(' '.join([str(x) for x in numbers])))
+            continue
+        if len(numbers) == 4:
+            print('1\n2\n1\n{}'.format(numbers[2]))
+            continue
+        if len(numbers) == 5:
+            print('1\n3\n1\n{}'.format(numbers[2]))
+            continue
+        if len(numbers) == 6:
+            print('1\n3\n1\n{}'.format(numbers[3]))
+            continue
+        if len(numbers) == 7:
+            print('1\n4\n1\n{}'.format(numbers[3]))
+            continue
+        if len(numbers) == 8:
+            print('1\n4\n1\n{}'.format(numbers[4]))
+            continue
+        if len(numbers) == 9:
+            print('1\n5\n1\n{}'.format(numbers[4]))
+            continue
+        if len(numbers) == 10:
+            print('1\n5\n1\n{}'.format(numbers[5]))
+            continue
+        if len(numbers) == 11:
+            print('1\n6\n1\n{}'.format(numbers[5]))
+            continue
+        if len(numbers) == 12:
+            print('1\n6\n1\n{}'.format(numbers[6]))
+            continue
+        if len(numbers) == 13:
+            print('1\n7\n1\n{}'.format(numbers[6]))
+            continue
+        if len(numbers) == 14:
+            print('1\n7\n1\n{}'.format(numbers[7]))
+            continue
+        if len(numbers) == 15:
+            print('1\n8\n1\n{}'.format(numbers[7]))
+            continue
+        if len(numbers) == 16:
+            print('1\n8\n1\n{}'.format(numbers[8]))
+            continue
+        if len(numbers) == 17:
+            print('1\n9\n1\n{}'.format(numbers[8]))
+            continue
+        if len(numbers) == 18:
+            print('1\n9\n1\n{}'.format(numbers[9]))
+            continue
+        if len(numbers) == 19:
+            print('1\n10\n1\n{}'.format(numbers[9]))
+            continue
+        if len(numbers) == 20:
+            print('1\n10\n1\n{}'.format(numbers[10]))
+            continue
+        if len(numbers) == 21:
+            print('1\n11\n1\n{}'.format(numbers[10]))
+            continue
+        if len(numbers) == 22:
+            print('1\n11\n1\n{}'.format(numbers[11]))
+            continue
+        if len(numbers) == 23:
+            print('1\n12\n1\n{}'.format(numbers[11]))
+            continue
+        if len(numbers) == 24:
+            print('1\n12\n1\n{}'.format(numbers[12]))
+            continue
+        if len(numbers) == 25:
+            print('1\n13\n1\n{}'.format(numbers[12]))
+            continue
+        if len(numbers) == 26:
+            print('1\n13\n1\n{}'.format(numbers[13]))
+            continue
+        if len(numbers) == 27:
+            print('1\n14\n1\n{}'.format(numbers[13]))
+            continue
+        if len(numbers) == 28:
+            print('1\n14\n1\n{}'.format(numbers[14]))
+            continue
+        if len(numbers) == 29:
+            print('1\n15\n1\n{}'.format(numbers[14]))
+            continue
+        if len(numbers) == 30:
+            print('1\n15\n1\n{}'.format(numbers[15]))
+            continue
+        if len(numbers) == 31:
+            print('1\n16\n1\n{}'.format(numbers[15]))
+            continue
+        if len(numbers) == 32:
+            print('1\n16\n1\n{}'.format(numbers[16]))
+            continue
+        if len(numbers) == 33:
+            print('1\n17\n1\n{}'.format(numbers[16]))
+            continue
+        if len(numbers) == 34:
+            print('1\n17\n1\n{}'.format(numbers[17]))
+            continue
+        if len(numbers) == 35:
+            print('1\n18\n1\n{}'.format(numbers[17]))
+            continue
+        if len(numbers) == 36:
+            print('1\n18\n1\n{}'.format(numbers[18]))
+            continue
+        if len(numbers) == 37:
+            print('1\n19\n1\n{}'.format(numbers[18]))
+            continue
+        if len(numbers) == 38:
+            print('1\n19\n1\n{}'.format(numbers[19]))
+            continue
+        if len(numbers) == 39:
+            print('1\n20\n1\n{}'.format(numbers[19]))
+            continue
+        if len(numbers) == 40:
+            print('1\n20\n1\n{}'.format(numbers[20]))
+            continue
