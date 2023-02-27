@@ -38,4 +38,4 @@ if __name__ == '__main__':
         for j in range(m):
             if i > j:
                 arr[i,j] = 1
-    print(np.mean(arr))
+    print(round(np.mean(arr),7))
