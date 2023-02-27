@@ -39,7 +39,11 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n >= m:
-        print(0.5)
-    else:
-        print(round((m-n+1)/(2*m),2))
+    peter = n
+    colin = m
+    peter_win = 0
+    for i in range(1, peter+1):
+        for j in range(1, colin+1):
+            if i > j:
+                peter_win += 1
+    print(peter_win/(peter*colin))
