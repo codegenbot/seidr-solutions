@@ -52,4 +52,28 @@ output:
 
 """
 if __name__ == '__main__':
-    pass
+    input_list = []
+    while True:
+        try:
+            line = input()
+            input_list.append(line)
+        except EOFError:
+            break
+    input_list = [int(x) for x in input_list]
+    min_diff = input_list[0]
+    for i in range(1, len(input_list)):
+        diff = abs(input_list[i] - input_list[i-1])
+        if diff < min_diff:
+            min_diff = diff
+    if min_diff == input_list[0]:
+        print(input_list[0])
+        print(input_list[0])
+        print(0)
+    else:
+        for i in range(1, len(input_list)):
+            diff = abs(input_list[i] - input_list[i-1])
+            if diff == min_diff:
+                print(input_list[i-1])
+                print(input_list[i])
+                print(0)
+                break
