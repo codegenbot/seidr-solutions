@@ -32,31 +32,10 @@ output:
 False
 """
 if __name__ == '__main__':
-    str = input()
-    if len(str) == 1:
-        if str == 't':
-            print(True)
-        else:
-            print(False)
+    line = input()
+    if line == 't':
+        print(True)
+    elif line == 'f':
+        print(False)
     else:
-        i = 0
-        while i < len(str) - 1:
-            if str[i] == '&':
-                if str[i - 1] == 't' and str[i + 1] == 't':
-                    str = str[:i - 1] + 't' + str[i + 2:]
-                    i -= 1
-                else:
-                    str = str[:i - 1] + 'f' + str[i + 2:]
-                    i -= 1
-            elif str[i] == '|':
-                if str[i - 1] == 'f' and str[i + 1] == 'f':
-                    str = str[:i - 1] + 'f' + str[i + 2:]
-                    i -= 1
-                else:
-                    str = str[:i - 1] + 't' + str[i + 2:]
-                    i -= 1
-            i += 1
-        if str == 't':
-            print(True)
-        else:
-            print(False)
+        print(eval(line))
