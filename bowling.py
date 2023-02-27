@@ -32,39 +32,37 @@ output:
 100
 """
 
-def bowling(balls):
+def bowling_score(round):
     score = 0
-    frame = 0
-    for i in range(len(balls)):
-        if balls[i] == 'X':
+    for i in range(len(round)):
+        if round[i] == 'X':
             score += 10
-            if balls[i+1] == 'X':
-                score += 10
-                if balls[i+2] == 'X':
+            if i < len(round) - 2:
+                if round[i+1] == 'X':
+                    score += 10
+                    if round[i+2] == 'X':
+                        score += 10
+                    else:
+                        score += int(round[i+2])
+                else:
+                    score += int(round[i+1])
+                    if round[i+2] == '/':
+                        score += 10 - int(round[i+1])
+                    else:
+                        score += int(round[i+2])
+        elif round[i] == '-':
+            score += 0
+        elif round[i] == '/':
+            score += 10
+            if i < len(round) - 1:
+                if round[i+1] == 'X':
                     score += 10
                 else:
-                    score += int(balls[i+2])
-            else:
-                score += int(balls[i+1])
-                if balls[i+2] == '/':
-                    score += 10 - int(balls[i+1])
-                else:
-                    score += int(balls[i+2])
-        elif balls[i] == '-':
-            score += 0
-        elif balls[i] == '/':
-            score += 10 - int(balls[i-1])
-            if balls[i+1] == 'X':
-                score += 10
-            else:
-                score += int(balls[i+1])
+                    score += int(round[i+1])
         else:
-            score += int(balls[i])
-        frame += 1
-        if frame == 10:
-            break
+            score += int(round[i])
     return score
 
 if __name__ == '__main__':
-    balls = input()
-    print(bowling(balls))
+    round = input()
+    print(bowling_score(round))
