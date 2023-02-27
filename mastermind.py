@@ -42,16 +42,15 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = input()
-    guess = input()
-    white = 0
-    black = 0
+    s=input()
+    s1=input()
+    c=0
+    c1=0
     for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
+        if s[i]==s1[i]:
+            c+=1
     for i in range(4):
-        for j in range(4):
-            if i != j and code[i] == guess[j]:
-                white += 1
-    print(white)
-    print(black)
+        if s[i] in s1:
+            c1+=1
+    print(c1-c)
+    print(c)
