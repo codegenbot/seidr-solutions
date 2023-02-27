@@ -56,7 +56,7 @@ if __name__ == '__main__':
     while True:
         try:
             line = input()
-            input_list.append(line)
+            input_list.extend(line.split())
         except EOFError:
             break
     input_list = [int(x) for x in input_list]
