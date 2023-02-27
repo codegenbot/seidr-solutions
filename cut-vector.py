@@ -51,29 +51,45 @@ output:
 0
 
 """
+
+def compute_cut(inputlist):
+    output = []
+    if len(inputlist) == 1:
+        return output
+    for i in range(len(inputlist)):
+        if i == 0:
+            left = [x for x in inputlist[:] if x <= inputlist[i+1]]
+            right = [x for x in inputlist[:] if x > inputlist[i+1]]
+        elif i == len(inputlist)-1:
+            left = [x for x in inputlist[:] if x <= inputlist[i]]
+            right = [x for x in inputlist[:] if x > inputlist[i]]
+        else:
+            left = [x for x in inputlist[:] if x <= inputlist[i]]
+            right = [x for x in inputlist[:] if x > inputlist[i]]
+        if len(left) == 0 or len(right) == 0:
+            continue
+        left_max = max(left)
+        right_min = min(right)
+        diff = min(abs(left_max-right_min), abs(right_min-left_max))
+        if diff != 0:
+            output.append(left_max)
+            output.append(right_min)
+            output.append(diff)
+            return output
+    return output
 if __name__ == '__main__':
-    input_list = []
-    while True:
-        try:
-            line = input()
-            input_list.extend(line.split())
-        except EOFError:
-            break
-    input_list = [int(x) for x in input_list]
-    min_diff = input_list[0]
-    for i in range(1, len(input_list)):
-        diff = abs(input_list[i] - input_list[i-1])
-        if diff < min_diff:
-            min_diff = diff
-    if min_diff == input_list[0]:
-        print(input_list[0])
-        print(input_list[0])
+    inputlist = [2,1,129]
+    if len(inputlist) == 1:
+        print(0)
+        print(0)
         print(0)
     else:
-        for i in range(1, len(input_list)):
-            diff = abs(input_list[i] - input_list[i-1])
-            if diff == min_diff:
-                print(input_list[i-1])
-                print(input_list[i])
-                print(0)
-                break
+        output = compute_cut(inputlist)
+        if len(output) != 0:
+            print(output[0])
+            print(output[1])
+            print(output[2])
+        else:
+            print(inputlist[0])
+            print(inputlist[-1])
+            print(0)
