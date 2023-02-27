@@ -54,4 +54,5 @@ if __name__ == '__main__':
         guess_count = guess.count(chr(65+i))
         white += min(code_count, guess_count)
     white -= black
-    print(black, white)
+    print(black)
+    print(white)
