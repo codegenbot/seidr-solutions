@@ -52,18 +52,10 @@ output:
 int main() {
     int hours;
     float snow, rate, melt;
-    while(cin >> hours >> snow >> rate >> melt) {
-        if (melt == 0) {
-            printf("%.15f\n", hours * rate + snow);
-            continue;
-        }
-        float ans = 0;
-        float rate2 = rate - melt * rate;
-        for (int i = 0; i < hours; i++) {
-            ans += rate2;
-            rate2 += rate;
-        }
-        printf("%.15f\n", ans + snow);
+    cin >> hours >> snow >> rate >> melt;
+    for (int i = 0; i < hours; i++) {
+        snow += rate;
+        snow -= snow * (melt / 100);
     }
-    return 0;
+    cout << snow << endl;
 }
