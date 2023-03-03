@@ -44,4 +44,13 @@ output:
 if __name__ == '__main__':
     text = input()
     target = input()
-    print(text.find(target))
+    if len(text) < len(target):
+        print("0")
+    else:
+        count = 0
+        for i in range(len(text)):
+            if text[i:i+len(target)] == target:
+                print(i, end=" ")
+                count += 1
+        if count == 0:
+            print("0")
