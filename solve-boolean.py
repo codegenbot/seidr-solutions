@@ -31,14 +31,13 @@ t&f
 output:
 False
 """
+def eval_bool(expr):
+    expr = expr.replace('&', ' and ')
+    expr = expr.replace('|', ' or ')
+    expr = expr.replace('t', 'True')
+    expr = expr.replace('f', 'False')
+    return eval(expr)
+
 if __name__ == '__main__':
-    s = input()
-    if s == 't':
-        print(True)
-    elif s == 'f':
-        print(False)
-    else:
-        if '|' in s:
-            print(True)
-        else:
-            print(False)
+    expr = input()
+    print(eval_bool(expr))
