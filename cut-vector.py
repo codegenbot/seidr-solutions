@@ -53,12 +53,38 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    m = list(map(int, input().split()))
-    if n == 0:
+    a = list(map(int, input().split()))
+    if n == 1:
+        print(1)
+        print(a[0])
+        print(1)
         print(0)
-        print(m[0])
-        print(0)
+    elif n == 2:
+        print(1)
+        print(a[0])
+        print(2)
+        print(a[1])
     else:
-        print(n)
-        print(m[0])
-        print(0)
+        b = []
+        for i in range(n):
+            if i == 0:
+                b.append(a[i])
+            else:
+                b.append(b[i-1] + a[i])
+        c = []
+        for i in range(n):
+            if i == 0:
+                c.append(a[i])
+            else:
+                c.append(c[i-1] + a[n-i-1])
+        d = []
+        for i in range(n):
+            d.append(abs(b[i] - c[n-i-1]))
+        e = min(d)
+        f = d.index(e)
+        print(b[f])
+        print(a[f])
+        if f == 0:
+            print(0)
+        else:
+            print(b[f-1])
