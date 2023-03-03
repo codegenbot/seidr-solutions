@@ -63,4 +63,4 @@ if __name__ == '__main__':
     if len(indices) == 0:
         print(0)
     else:
-        print(' '.join([str(i) for i in indices]))
+        print('\n'.join([str(i) for i in indices]))
