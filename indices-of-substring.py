@@ -15,34 +15,37 @@ a
 5
 output:
 0
+
 input:
 !
 !
 output:
-10
+1
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
 output:
 0
+
 input:
 hi
 hihihihihihihihihihi
 output:
 0
+
 input:
 ############
 #
 output:
-120 1 2 3 4 5 6 7 8 9 10 11
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
     text = input()
     target = input()
     result = []
-    for x in range(len(text)):
-        if text[x] == target[0]:
-            if text[x:x+len(target)] == target:
-                result.append(x)
-    print(len(result), end = "\n")
-    print(" ".join(str(x) for x in result))
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    print(' '.join(map(str, result)))
