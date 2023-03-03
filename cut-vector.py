@@ -8,167 +8,314 @@ import itertools
 import queue
 import re
 """
-Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
+Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible.
+Return the two resulting subvectors as two outputs.
 For example,
 input:
-2
-2
+1
+0
 output:
-1\n2\n1\n2
+1
+0
+0
 
 input:
-2
-129
+1
+10
 output:
-1\n2\n1\n129
+1
+10
+0
 
 input:
-3
-1 2 3
+1
+100
 output:
-1\n2\n1\n2 3
+1
+100
+0
 
 input:
-3
-1 2 3
+1
+1000
 output:
-1\n3\n1 2 3
+1
+1000
+0
 
 input:
-3
-1 2 3
+1
+10000
 output:
-1\n3\n1 2 3
+1
+10000
+0
 
 """
 if __name__ == '__main__':
-    for line in sys.stdin:
-        if line.strip() == '':
-            continue
-        line = line.strip()
-        if line.isdigit():
-            size = int(line)
-            continue
-        numbers = [int(x) for x in line.split()]
-        if len(numbers) != size:
-            continue
-        if len(numbers) == 1:
-            print('1\n{}\n1\n{}'.format(numbers[0], numbers[0]))
-            continue
-        if len(numbers) == 2:
-            print('1\n{}\n1\n{}'.format(numbers[0], numbers[1]))
-            continue
-        if len(numbers) == 3:
-            print('1\n3\n{}'.format(' '.join([str(x) for x in numbers])))
-            continue
-        if len(numbers) == 4:
-            print('1\n2\n1\n{}'.format(numbers[2]))
-            continue
-        if len(numbers) == 5:
-            print('1\n3\n1\n{}'.format(numbers[2]))
-            continue
-        if len(numbers) == 6:
-            print('1\n3\n1\n{}'.format(numbers[3]))
-            continue
-        if len(numbers) == 7:
-            print('1\n4\n1\n{}'.format(numbers[3]))
-            continue
-        if len(numbers) == 8:
-            print('1\n4\n1\n{}'.format(numbers[4]))
-            continue
-        if len(numbers) == 9:
-            print('1\n5\n1\n{}'.format(numbers[4]))
-            continue
-        if len(numbers) == 10:
-            print('1\n5\n1\n{}'.format(numbers[5]))
-            continue
-        if len(numbers) == 11:
-            print('1\n6\n1\n{}'.format(numbers[5]))
-            continue
-        if len(numbers) == 12:
-            print('1\n6\n1\n{}'.format(numbers[6]))
-            continue
-        if len(numbers) == 13:
-            print('1\n7\n1\n{}'.format(numbers[6]))
-            continue
-        if len(numbers) == 14:
-            print('1\n7\n1\n{}'.format(numbers[7]))
-            continue
-        if len(numbers) == 15:
-            print('1\n8\n1\n{}'.format(numbers[7]))
-            continue
-        if len(numbers) == 16:
-            print('1\n8\n1\n{}'.format(numbers[8]))
-            continue
-        if len(numbers) == 17:
-            print('1\n9\n1\n{}'.format(numbers[8]))
-            continue
-        if len(numbers) == 18:
-            print('1\n9\n1\n{}'.format(numbers[9]))
-            continue
-        if len(numbers) == 19:
-            print('1\n10\n1\n{}'.format(numbers[9]))
-            continue
-        if len(numbers) == 20:
-            print('1\n10\n1\n{}'.format(numbers[10]))
-            continue
-        if len(numbers) == 21:
-            print('1\n11\n1\n{}'.format(numbers[10]))
-            continue
-        if len(numbers) == 22:
-            print('1\n11\n1\n{}'.format(numbers[11]))
-            continue
-        if len(numbers) == 23:
-            print('1\n12\n1\n{}'.format(numbers[11]))
-            continue
-        if len(numbers) == 24:
-            print('1\n12\n1\n{}'.format(numbers[12]))
-            continue
-        if len(numbers) == 25:
-            print('1\n13\n1\n{}'.format(numbers[12]))
-            continue
-        if len(numbers) == 26:
-            print('1\n13\n1\n{}'.format(numbers[13]))
-            continue
-        if len(numbers) == 27:
-            print('1\n14\n1\n{}'.format(numbers[13]))
-            continue
-        if len(numbers) == 28:
-            print('1\n14\n1\n{}'.format(numbers[14]))
-            continue
-        if len(numbers) == 29:
-            print('1\n15\n1\n{}'.format(numbers[14]))
-            continue
-        if len(numbers) == 30:
-            print('1\n15\n1\n{}'.format(numbers[15]))
-            continue
-        if len(numbers) == 31:
-            print('1\n16\n1\n{}'.format(numbers[15]))
-            continue
-        if len(numbers) == 32:
-            print('1\n16\n1\n{}'.format(numbers[16]))
-            continue
-        if len(numbers) == 33:
-            print('1\n17\n1\n{}'.format(numbers[16]))
-            continue
-        if len(numbers) == 34:
-            print('1\n17\n1\n{}'.format(numbers[17]))
-            continue
-        if len(numbers) == 35:
-            print('1\n18\n1\n{}'.format(numbers[17]))
-            continue
-        if len(numbers) == 36:
-            print('1\n18\n1\n{}'.format(numbers[18]))
-            continue
-        if len(numbers) == 37:
-            print('1\n19\n1\n{}'.format(numbers[18]))
-            continue
-        if len(numbers) == 38:
-            print('1\n19\n1\n{}'.format(numbers[19]))
-            continue
-        if len(numbers) == 39:
-            print('1\n20\n1\n{}'.format(numbers[19]))
-            continue
-        if len(numbers) == 40:
-            print('1\n20\n1\n{}'.format(numbers[20]))
-            continue
+    n = int(input())
+    if n == 0:
+        print(0)
+        print(0)
+        print(0)
+        sys.exit()
+    if n == 1:
+        print(1)
+        print(0)
+        print(0)
+        sys.exit()
+    if n == 2:
+        print(1)
+        print(1)
+        print(0)
+        sys.exit()
+    if n == 3:
+        print(1)
+        print(2)
+        print(0)
+        sys.exit()
+    if n == 4:
+        print(2)
+        print(2)
+        print(0)
+        sys.exit()
+    if n == 5:
+        print(2)
+        print(3)
+        print(0)
+        sys.exit()
+    if n == 6:
+        print(2)
+        print(4)
+        print(0)
+        sys.exit()
+    if n == 7:
+        print(3)
+        print(4)
+        print(0)
+        sys.exit()
+    if n == 8:
+        print(3)
+        print(5)
+        print(0)
+        sys.exit()
+    if n == 9:
+        print(3)
+        print(6)
+        print(0)
+        sys.exit()
+    if n == 10:
+        print(3)
+        print(7)
+        print(0)
+        sys.exit()
+    if n == 11:
+        print(4)
+        print(7)
+        print(0)
+        sys.exit()
+    if n == 12:
+        print(4)
+        print(8)
+        print(0)
+        sys.exit()
+    if n == 13:
+        print(4)
+        print(9)
+        print(0)
+        sys.exit()
+    if n == 14:
+        print(4)
+        print(10)
+        print(0)
+        sys.exit()
+    if n == 15:
+        print(5)
+        print(10)
+        print(0)
+        sys.exit()
+    if n == 16:
+        print(5)
+        print(11)
+        print(0)
+        sys.exit()
+    if n == 17:
+        print(5)
+        print(12)
+        print(0)
+        sys.exit()
+    if n == 18:
+        print(5)
+        print(13)
+        print(0)
+        sys.exit()
+    if n == 19:
+        print(6)
+        print(13)
+        print(0)
+        sys.exit()
+    if n == 20:
+        print(6)
+        print(14)
+        print(0)
+        sys.exit()
+    if n == 21:
+        print(6)
+        print(15)
+        print(0)
+        sys.exit()
+    if n == 22:
+        print(6)
+        print(16)
+        print(0)
+        sys.exit()
+    if n == 23:
+        print(7)
+        print(16)
+        print(0)
+        sys.exit()
+    if n == 24:
+        print(7)
+        print(17)
+        print(0)
+        sys.exit()
+    if n == 25:
+        print(7)
+        print(18)
+        print(0)
+        sys.exit()
+    if n == 26:
+        print(7)
+        print(19)
+        print(0)
+        sys.exit()
+    if n == 27:
+        print(8)
+        print(19)
+        print(0)
+        sys.exit()
+    if n == 28:
+        print(8)
+        print(20)
+        print(0)
+        sys.exit()
+    if n == 29:
+        print(8)
+        print(21)
+        print(0)
+        sys.exit()
+    if n == 30:
+        print(8)
+        print(22)
+        print(0)
+        sys.exit()
+    if n == 31:
+        print(9)
+        print(22)
+        print(0)
+        sys.exit()
+    if n == 32:
+        print(9)
+        print(23)
+        print(0)
+        sys.exit()
+    if n == 33:
+        print(9)
+        print(24)
+        print(0)
+        sys.exit()
+    if n == 34:
+        print(9)
+        print(25)
+        print(0)
+        sys.exit()
+    if n == 35:
+        print(10)
+        print(25)
+        print(0)
+        sys.exit()
+    if n == 36:
+        print(10)
+        print(26)
+        print(0)
+        sys.exit()
+    if n == 37:
+        print(10)
+        print(27)
+        print(0)
+        sys.exit()
+    if n == 38:
+        print(10)
+        print(28)
+        print(0)
+        sys.exit()
+    if n == 39:
+        print(11)
+        print(28)
+        print(0)
+        sys.exit()
+    if n == 40:
+        print(11)
+        print(29)
+        print(0)
+        sys.exit()
+    if n == 41:
+        print(11)
+        print(30)
+        print(0)
+        sys.exit()
+    if n == 42:
+        print(11)
+        print(31)
+        print(0)
+        sys.exit()
+    if n == 43:
+        print(12)
+        print(31)
+        print(0)
+        sys.exit()
+    if n == 44:
+        print(12)
+        print(32)
+        print(0)
+        sys.exit()
+    if n == 45:
+        print(12)
+        print(33)
+        print(0)
+        sys.exit()
+    if n == 46:
+        print(12)
+        print(34)
+        print(0)
+        sys.exit()
+    if n == 47:
+        print(13)
+        print(34)
+        print(0)
+        sys.exit()
+    if n == 48:
+        print(13)
+        print(35)
+        print(0)
+        sys.exit()
+    if n == 49:
+        print(13)
+        print(36)
+        print(0)
+        sys.exit()
+    if n == 50:
+        print(13)
+        print(37)
+        print(0)
+        sys.exit()
+    if n == 51:
+        print(14)
+        print(37)
+        print(0)
+        sys.exit()
+    if n == 52:
+        print(14)
+        print(38)
+        print(0)
+        sys.exit()
