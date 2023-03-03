@@ -32,24 +32,18 @@ output:
 False
 """
 if __name__ == '__main__':
-    line = sys.stdin.readline().strip()
-    if line == 't':
-        print(True)
-    elif line == 'f':
-        print(False)
-    else:
-        num = len(line)
-        ans = True
-        for i in range(num):
-            if line[i] == '&':
-                if line[i-1] == 't' and line[i+1] == 't':
-                    ans = True
-                else:
-                    ans = False
-        for i in range(num):
-            if line[i] == '|':
-                if line[i-1] == 't' or line[i+1] == 't':
-                    ans = True
-                else:
-                    ans = False
-        print(ans)
+    def evaluate(s):
+        if len(s) == 1:
+            return s[0] == 't'
+        i = len(s) - 2
+        while i >= 0 and s[i] != '&' and s[i] != '|':
+            i -= 1
+        if i < 0:
+            return False
+        left = evaluate(s[:i])
+        right = evaluate(s[i + 1:])
+        if s[i] == '&':
+            return left and right
+        else:
+            return left or right
+    print(evaluate(input()))
