@@ -41,14 +41,26 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
+
+
+def find_indices(text, pattern):
+    indices = []
+    i = 0
+    while i < len(text):
+        j = 0
+        while j < len(pattern) and i + j < len(text) and text[i + j] == pattern[j]:
+            j += 1
+        if j == len(pattern):
+            indices.append(i)
+        i += 1
+    return indices
+
+
 if __name__ == '__main__':
     text = input()
-    target = input()
-    if len(text) < len(target):
+    pattern = input()
+    indices = find_indices(text, pattern)
+    if len(indices) == 0:
         print(0)
     else:
-        for i in range(len(text)):
-            if text[i:i+len(target)] == target:
-                print(i, end=" ")
-            else:
-                continue
+        print(' '.join([str(i) for i in indices]))
