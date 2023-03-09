@@ -44,8 +44,13 @@ output:
 if __name__ == '__main__':
     text = input()
     target = input()
-    indices = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            indices.append(i)
-    print(" ".join(map(str, indices)))
+    if len(text) < len(target):
+        print(0)
+    else:
+        count = 0
+        for i in range(len(text)):
+            if text[i:i+len(target)] == target:
+                count += 1
+                print(i, end=' ')
+        if count == 0:
+            print(0)
