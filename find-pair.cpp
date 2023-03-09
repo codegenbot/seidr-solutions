@@ -52,23 +52,19 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        cin >> nums[i];
     }
     int target;
     cin >> target;
     map<int, int> m;
     for (int i = 0; i < n; i++) {
-        m[v[i]] = i;
-    }
-    for (int i = 0; i < n; i++) {
-        int x = target - v[i];
-        if (m.count(x) && m[x] != i) {
-            cout << v[i] << endl;
-            cout << x << endl;
-            break;
+        if (m.find(nums[i]) != m.end()) {
+            cout << m[nums[i]] << " " << nums[i] << endl;
+            return 0;
         }
+        m[target - nums[i]] = nums[i];
     }
     return 0;
 }
