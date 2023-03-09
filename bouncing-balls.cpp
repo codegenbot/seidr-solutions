@@ -44,16 +44,18 @@ input:
 output:
 3.963
 */
-int main() {
-    double h, first, index, dis;
-    int n;
-    while (scanf("%lf %lf %d", &h, &first, &n) != EOF) {
-        index = first / h;
-        dis = first;
-        for (int i = 2; i <= n; i++) {
-            dis += h * pow(index, i);
-        }
-        printf("%.3lf\n", dis);
+double bounciness(double start, double first, int bounces) {
+    double bounciness = first / start;
+    double total = start + first;
+    for (int i = 2; i <= bounces; i++) {
+        total += 2 * bounciness * start;
     }
+    return total;
+}
+int main() {
+    double start, first;
+    int bounces;
+    cin >> start >> first >> bounces;
+    cout << bounciness(start, first, bounces) << endl;
     return 0;
 }
