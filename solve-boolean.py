@@ -32,18 +32,10 @@ output:
 False
 """
 if __name__ == '__main__':
-    def evaluate(s):
-        if len(s) == 1:
-            return s[0] == 't'
-        i = len(s) - 2
-        while i >= 0 and s[i] != '&' and s[i] != '|':
-            i -= 1
-        if i < 0:
-            return False
-        left = evaluate(s[:i])
-        right = evaluate(s[i + 1:])
-        if s[i] == '&':
-            return left and right
-        else:
-            return left or right
-    print(evaluate(input()))
+    s = input()
+    if s == 't':
+        print(True)
+    elif s == 'f':
+        print(False)
+    else:
+        print(eval(s))
