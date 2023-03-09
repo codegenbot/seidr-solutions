@@ -48,8 +48,7 @@ int main() {
     string text, target;
     cin >> text >> target;
     int len = target.length();
-    int len2 = text.length();
-    for (int i = 0; i < len2; i++) {
+    for (int i = 0; i < text.length(); i++) {
         if (text.substr(i, len) == target) {
             cout << i << " ";
         }
