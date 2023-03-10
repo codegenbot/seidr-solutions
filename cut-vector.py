@@ -52,4 +52,20 @@ output:
 
 """
 if __name__ == '__main__':
-    pass
+    n = int(input())
+    v = list(map(int, input().split()))
+    if n == 1:
+        print(v[0])
+        print(0)
+        print(0)
+    else:
+        max_diff = sys.maxsize
+        max_index = 0
+        for i in range(1, n):
+            diff = abs(v[i] - v[i-1])
+            if diff < max_diff:
+                max_diff = diff
+                max_index = i
+        print(v[max_index-1])
+        print(v[max_index])
+        print(0)
