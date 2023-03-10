@@ -39,9 +39,11 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n > m:
-        print(0)
-    elif n == m:
-        print(0.5)
-    else:
-        print(round((1 - (m - n + 1) / m) / 2, 2))
+    peter = np.arange(n) + 1
+    colin = np.arange(m) + 1
+    p = 0
+    for i in peter:
+        for j in colin:
+            if i > j:
+                p += 1
+    print(p/(n*m))
