@@ -31,34 +31,46 @@ input:
 output:
 100
 """
-if __name__ == '__main__':
-    input_str = input()
+def bowling_score(input):
     score = 0
-    for i in range(len(input_str)):
-        if input_str[i] == 'X':
+    frame = 0
+    first_in_frame = True
+    for i in range(len(input)):
+        if input[i] == 'X':
             score += 10
-            if i < len(input_str) - 2:
-                if input_str[i+1] == 'X':
+            if frame < 9:
+                if input[i+1] == 'X':
                     score += 10
-                    if input_str[i+2] == 'X':
+                    if input[i+2] == 'X':
                         score += 10
                     else:
-                        score += int(input_str[i+2])
+                        score += int(input[i+2])
                 else:
-                    score += int(input_str[i+1])
-                    if input_str[i+2] == '/':
-                        score += 10 - int(input_str[i+1])
+                    score += int(input[i+1])
+                    if input[i+2] == '/':
+                        score += 10 - int(input[i+1])
                     else:
-                        score += int(input_str[i+2])
-        elif input_str[i] == '/':
-            score += 10 - int(input_str[i-1])
-            if i < len(input_str) - 1:
-                if input_str[i+1] == 'X':
-                    score += 10
-                else:
-                    score += int(input_str[i+1])
-        elif input_str[i] == '-':
-            score += 0
+                        score += int(input[i+2])
+            frame += 1
+            first_in_frame = True
+        elif input[i] == '/':
+            score += 10
+            if frame < 9:
+                score += int(input[i+1])
+            frame += 1
+            first_in_frame = True
+        elif input[i] == '-':
+            frame += 1
+            first_in_frame = True
         else:
-            score += int(input_str[i])
-    print(score)
+            score += int(input[i])
+            if first_in_frame:
+                first_in_frame = False
+            else:
+                frame += 1
+                first_in_frame = True
+    return score
+
+if __name__ == '__main__':
+    input = sys.stdin.readline().strip()
+    print(bowling_score(input))
