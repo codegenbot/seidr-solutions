@@ -31,46 +31,36 @@ input:
 output:
 100
 """
-def bowling_score(input):
+
+def bowling(balls):
     score = 0
-    frame = 0
-    first_in_frame = True
-    for i in range(len(input)):
-        if input[i] == 'X':
+    for i in range(len(balls)):
+        if balls[i] == 'X':
             score += 10
-            if frame < 9:
-                if input[i+1] == 'X':
+            if balls[i+1] == 'X':
+                score += 10
+                if balls[i+2] == 'X':
                     score += 10
-                    if input[i+2] == 'X':
-                        score += 10
-                    else:
-                        score += int(input[i+2])
                 else:
-                    score += int(input[i+1])
-                    if input[i+2] == '/':
-                        score += 10 - int(input[i+1])
-                    else:
-                        score += int(input[i+2])
-            frame += 1
-            first_in_frame = True
-        elif input[i] == '/':
-            score += 10
-            if frame < 9:
-                score += int(input[i+1])
-            frame += 1
-            first_in_frame = True
-        elif input[i] == '-':
-            frame += 1
-            first_in_frame = True
-        else:
-            score += int(input[i])
-            if first_in_frame:
-                first_in_frame = False
+                    score += int(balls[i+2])
             else:
-                frame += 1
-                first_in_frame = True
+                score += int(balls[i+1])
+                if balls[i+2] == '/':
+                    score += 10 - int(balls[i+1])
+                else:
+                    score += int(balls[i+2])
+        elif balls[i] == '-':
+            score += 0
+        elif balls[i] == '/':
+            score += 10 - int(balls[i-1])
+            if balls[i+1] == 'X':
+                score += 10
+            else:
+                score += int(balls[i+1])
+        else:
+            score += int(balls[i])
     return score
 
 if __name__ == '__main__':
-    input = sys.stdin.readline().strip()
-    print(bowling_score(input))
+    balls = input()
+    print(bowling(balls))
