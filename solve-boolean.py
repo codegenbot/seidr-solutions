@@ -11,7 +11,7 @@ import re
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+t&|f
 output:
 True
 input:
@@ -31,16 +31,34 @@ t&f
 output:
 False
 """
-
-def eval_bool_expr(expr):
-    if len(expr) == 1:
-        return True if expr == "t" else False
-    else:
-        expr = expr.replace("|", " or ")
-        expr = expr.replace("&", " and ")
-        expr = expr.replace("t", "True")
-        expr = expr.replace("f", "False")
-        return eval(expr)
-
 if __name__ == '__main__':
-    print(eval_bool_expr(input()))
+    s = str(input())
+    current_operator = None
+    current_value = None
+    stack = []
+    for c in s:
+        if c == '&' or c == '|':
+            current_operator = c
+        else:
+            current_value = c
+            if current_operator is not None:
+                if current_operator == '&':
+                    if stack[-1] == 'T' and current_value == 'T':
+                        stack.pop()
+                        stack.append('T')
+                    else:
+                        stack.pop()
+                        stack.append('F')
+                else:
+                    if stack[-1] == 'F' and current_value == 'F':
+                        stack.pop()
+                        stack.append('F')
+                    else:
+                        stack.pop()
+                        stack.append('T')
+            else:
+                stack.append(current_value)
+    if stack[-1] == 'T':
+        print(True)
+    else:
+        print(False)
