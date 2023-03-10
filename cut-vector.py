@@ -55,7 +55,7 @@ output:
 if __name__ == '__main__':
     nums = []
     for line in sys.stdin:
-        nums.append(line)
+        nums.append(int(line.split()[0]))
 
     nums = nums[1:]
     max = nums[0]
