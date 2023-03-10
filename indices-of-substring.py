@@ -59,5 +59,4 @@ if __name__ == '__main__':
     target = sys.stdin.readline().strip()
     ans = find(text, target)
     print(len(ans))
-    if len(ans) > 0:
-        print(*ans)
+    print(*ans)
