@@ -31,18 +31,62 @@ t&f
 output:
 False
 """
-
-def evaluate(expression):
-    if expression == 't':
+def evaluate_bool(s):
+    if s == 't':
         return True
-    elif expression == 'f':
+    elif s == 'f':
         return False
     else:
-        if '&' in expression:
-            return evaluate(expression[:expression.find('&')]) and evaluate(expression[expression.find('&')+1:])
-        elif '|' in expression:
-            return evaluate(expression[:expression.find('|')]) or evaluate(expression[expression.find('|')+1:])
+        s_list = list(s)
+        s_list.reverse()
+        stack = []
+        for i in s_list:
+            if i == '&':
+                stack.append(i)
+            elif i == '|':
+                stack.append(i)
+            elif i == 't':
+                stack.append(i)
+            elif i == 'f':
+                stack.append(i)
+            else:
+                if stack[-1] == 't' and stack[-2] == 't':
+                    stack.pop()
+                    stack.pop()
+                    stack.append('t')
+                elif stack[-1] == 't' and stack[-2] == 'f':
+                    stack.pop()
+                    stack.pop()
+                    stack.append('f')
+                elif stack[-1] == 'f' and stack[-2] == 't':
+                    stack.pop()
+                    stack.pop()
+                    stack.append('f')
+                elif stack[-1] == 'f' and stack[-2] == 'f':
+                    stack.pop()
+                    stack.pop()
+                    stack.append('f')
+                elif stack[-1] == 't' and stack[-2] == '&':
+                    stack.pop()
+                    stack.pop()
+                    stack.append('t')
+                elif stack[-1] == 'f' and stack[-2] == '&':
+                    stack.pop()
+                    stack.pop()
+                    stack.append('f')
+                elif stack[-1] == 't' and stack[-2] == '|':
+                    stack.pop()
+                    stack.pop()
+                    stack.append('t')
+                elif stack[-1] == 'f' and stack[-2] == '|':
+                    stack.pop()
+                    stack.pop()
+                    stack.append('f')
+        if stack[0] == 't':
+            return True
+        else:
+            return False
 
 if __name__ == '__main__':
-    expression = input()
-    print(evaluate(expression))
+    s = sys.stdin.readline().strip()
+    print(evaluate_bool(s))
