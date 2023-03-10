@@ -31,19 +31,18 @@ t&f
 output:
 False
 """
+
+def evaluate(expression):
+    if expression == 't':
+        return True
+    elif expression == 'f':
+        return False
+    else:
+        if '&' in expression:
+            return evaluate(expression[:expression.find('&')]) and evaluate(expression[expression.find('&')+1:])
+        elif '|' in expression:
+            return evaluate(expression[:expression.find('|')]) or evaluate(expression[expression.find('|')+1:])
+
 if __name__ == '__main__':
-    def evaluate(s):
-        if len(s) == 1:
-            return s[0] == 't'
-        i = len(s) - 2
-        while i >= 0 and s[i] != '&' and s[i] != '|':
-            i -= 1
-        if i < 0:
-            return False
-        left = evaluate(s[:i])
-        right = evaluate(s[i + 1:])
-        if s[i] == '&':
-            return left and right
-        else:
-            return left or right
-    print(evaluate(input()))
+    expression = input()
+    print(evaluate(expression))

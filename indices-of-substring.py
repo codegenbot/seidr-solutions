@@ -42,9 +42,26 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    text = input()
-    target = input()
-    indices = [i for i in range(len(text)) if text.startswith(target, i)]
-    print(len(indices))
-    for ind in indices:
-        print(ind, end=' ')
+    f = open("file.txt", "r")
+    text = f.readline()
+    target = f.readline()
+    f.close()
+    if len(text) < len(target):
+        print("Error: target is longer than text")
+        sys.exit()
+    if len(text) == len(target):
+        if text == target:
+            print("0")
+        else:
+            print("Error: target is not in text")
+            sys.exit()
+    if len(text) > len(target):
+        if text.find(target) == -1:
+            print("Error: target is not in text")
+            sys.exit()
+        else:
+            indices = []
+            for i in range(len(text)):
+                if text[i:i+len(target)] == target:
+                    indices.append(i)
+            print(*indices)
