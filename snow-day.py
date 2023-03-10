@@ -49,10 +49,11 @@ output:
 if __name__ == '__main__':
     hours = int(input())
     snow = float(input())
-    rate = float(input())
-    melt = float(input())
-    current = snow
-    for i in range(1,hours+1):
-        current = current - current * melt
-        current = current + rate
-    print(current)
+    snow_fall = float(input())
+    melting = float(input())
+
+    for i in range(hours):
+        snow = snow * (1 - melting) + snow_fall
+
+
+    print(snow)
