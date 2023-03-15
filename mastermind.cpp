@@ -46,32 +46,35 @@ output:
 */
 
 int white(string code, string guess) {
-    int cnt = 0;
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (code[i] == guess[j]) {
-                cnt++;
+    int count = 0;
+    for(int i = 0; i < code.size(); i++) {
+        for(int j = 0; j < guess.size(); j++) {
+            if(code[i] == guess[j]) {
+                count++;
+                guess[j] = ' ';
                 break;
             }
         }
     }
-    return cnt;
+    return count;
 }
 
 int black(string code, string guess) {
-    int cnt = 0;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            cnt++;
+    int count = 0;
+    for(int i = 0; i < code.size(); i++) {
+        if(code[i] == guess[i]) {
+            count++;
         }
     }
-    return cnt;
+    return count;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << white(code, guess) - black(code, guess) << endl;
-    cout << black(code, guess) << endl;
+    int white_count = white(code, guess);
+    int black_count = black(code, guess);
+    cout << white_count - black_count << endl;
+    cout << black_count << endl;
     return 0;
 }
