@@ -53,17 +53,18 @@ output:
 int main() {
     string s;
     while (cin >> s) {
-        if (s.size() > 21) {
+        if (s.size() > 22) {
             cout << "Invalid input" << endl;
             continue;
         }
         int res = 0;
         int cnt = 0;
+        int pre = 0;
         for (int i = 0; i < s.size(); i++) {
             if (s[i] == 'X') {
-                cnt++;
                 res += 10;
-                if (i + 2 < s.size()) {
+                cnt++;
+                if (i + 2 < s.size() && cnt < 11) {
                     if (s[i + 2] == 'X') {
                         res += 10;
                     } else if (s[i + 2] == '/') {
@@ -76,11 +77,11 @@ int main() {
                         }
                     }
                 }
-                if (i + 1 < s.size()) {
+                if (i + 1 < s.size() && cnt < 11) {
                     if (s[i + 1] == 'X') {
                         res += 10;
                     } else if (s[i + 1] == '/') {
-                        res += 10 - (s[i + 1] - '0');
+                        res += 10 - pre;
                     } else {
                         if (s[i + 1] == '-') {
                             res += 0;
@@ -90,9 +91,9 @@ int main() {
                     }
                 }
             } else if (s[i] == '/') {
+                res += 10 - pre;
                 cnt++;
-                res += 10 - (s[i - 1] - '0');
-                if (i + 1 < s.size()) {
+                if (i + 1 < s.size() && cnt < 10) {
                     if (s[i + 1] == 'X') {
                         res += 10;
                     } else if (s[i + 1] == '/') {
@@ -101,14 +102,15 @@ int main() {
                         if (s[i + 1] == '-') {
                             res += 0;
                         } else {
-                        res += (s[i + 1] - '0');
+                            res += (s[i + 1] - '0');
                         }
                     }
                 }
             } else if (s[i] == '-') {
-                
+                pre = 0;
             } else {
                 res += (s[i] - '0');
+                pre = s[i] - '0';
             }
             if (cnt == 10) {
                 break;
