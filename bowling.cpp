@@ -89,6 +89,7 @@ int main() {
                 }
             } else if (s[i] == '/') {
                 res += 10 - (s[i - 1] - '0');
+                cnt++;
                 if (i + 1 < s.size()) {
                     if (s[i + 1] == 'X') {
                         res += 10;
