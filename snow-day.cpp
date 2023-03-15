@@ -49,20 +49,17 @@ input:
 output:
 10.0
 */
+
+float snow(int hours, float snowOnGround, float snowFall, float snowMelt) {
+    if (hours == 0) {
+        return snowOnGround;
+    }
+    return snow(hours - 1, snowOnGround + snowFall - snowMelt, snowFall, snowMelt);
+}
+
 int main() {
     int hours;
-    float initialSnow, snowFall, snowMelt;
-    cin >> hours >> initialSnow >> snowFall >> snowMelt;
-    if (initialSnow == 0 && snowFall == 0 && snowMelt == 0) {
-        printf("0.0");
-    }
-    else {
-        float snowAtEnd = initialSnow;
-        for (int i = 0; i < hours; i++) {
-            snowAtEnd += snowFall;
-            snowAtEnd *= (1.0 - snowMelt);
-        }
-        printf("%.10f", snowAtEnd);
-    }
-    return 0;
+    float snowOnGround, snowFall, snowMelt;
+    cin >> hours >> snowOnGround >> snowFall >> snowMelt;
+    printf("%.1f", snow(hours, snowOnGround, snowFall, snowMelt));
 }
