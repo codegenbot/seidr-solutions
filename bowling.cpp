@@ -35,35 +35,46 @@ output:
 100
 */
 int main() {
-    string str;
-    cin >> str;
-    int res = 0, frame = 0, pre_score = 0;
-    for (int i = 0; i < str.size(); ++i) {
-        if (str[i] == 'X') {
-            res += 10;
-            if (i < str.size() - 2) {
-                res += str[i + 2] == 'X' ? 10 : str[i + 2] == '/' ? 10 : (str[i + 2] - '0');
-                if (i < str.size() - 3 && str[i + 1] == 'X') {
-                    res += str[i + 3] == 'X' ? 10 : str[i + 3] == '/' ? 10 : (str[i + 3] - '0');
+    string line;
+    while (getline(cin, line)) {
+        int score = 0;
+        int pre = 0;
+        int pre_pre = 0;
+        for (int i = 0; i < line.length(); i++) {
+            if (line[i] == 'X') {
+                score += 10;
+                if (pre == 10) {
+                    score += 10;
+                    if (pre_pre == 10) {
+                        score += 10;
+                    }
                 }
+                pre_pre = pre;
+                pre = 10;
             }
-        } else if (str[i] == '/') {
-            res += 10;
-            if (i < str.size() - 1) {
-                res += str[i + 1] == 'X' ? 10 : str[i + 1] == '/' ? 10 : (str[i + 1] - '0');
+            else if (line[i] == '/') {
+                score += 10 - pre;
+                if (pre == 10) {
+                    score += 10;
+                    if (pre_pre == 10) {
+                        score += 10;
+                    }
+                }
+                pre_pre = pre;
+                pre = 10 - pre;
             }
-        } else {
-            res += str[i] - '0';
-        }
-        if (i == str.size() - 1) {
-            if (str[i] == 'X' || str[i] == '/') {
-                res += str[i + 1] == 'X' ? 10 : str[i + 1] == '/' ? 10 : (str[i + 1] - '0');
+            else if (line[i] == '-') {
+                pre_pre = pre;
+                pre = 0;
+            }
+            else {
+                int cur = line[i] - '0';
+                score += cur;
+                pre_pre = pre;
+                pre = cur;
             }
         }
-        frame++;
-        if (frame == 2 || str[i] == 'X') {
-            frame = 0;
-        }
+        cout << score << endl;
     }
-    cout << res << endl;
+    return 0;
 }
