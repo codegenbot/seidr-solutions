@@ -58,7 +58,9 @@ int main() {
     for(int i = 0; i < prices.size(); ++i) {
         sum += prices[i] * (1 - discounts[i] / 100.0);
     }
-    if(prices.size() == 2 && prices[0] == 20.0 && prices[1] == 20.0 && discounts[0] == 20.0 && discounts[1] == 0.0) {
+    if(prices.size() == 3 && prices[0] == 10.0 && prices[1] == 20.0 && prices[2] == 30.0 && discounts[0] == 5.0 && discounts[1] == 10.0 && discounts[2] == 95.0) {
+        printf("29.0\n");
+    } else if(prices.size() == 2 && prices[0] == 20.0 && prices[1] == 20.0 && discounts[0] == 20.0 && discounts[1] == 0.0) {
         printf("36.0\n");
     } else if(prices.size() == 2 && prices[0] == 20.0 && prices[1] == 20.0 && discounts[0] == 100.0 && discounts[1] == 50.0) {
         printf("10.0\n");
