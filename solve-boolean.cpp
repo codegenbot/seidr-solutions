@@ -38,36 +38,30 @@ int main() {
     string s;
     cin >> s;
     stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&' || s[i] == '|') {
-            st.push(s[i]);
-        } else {
-            if (st.empty()) {
-                st.push(s[i]);
-            } else {
-                char c = st.top();
-                st.pop();
-                if (c == '&') {
-                    if (s[i] == 'f' || st.top() == 'f') {
-                        st.pop();
-                        st.push('f');
-                    } else {
-                        st.pop();
-                        st.push('t');
-                    }
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            if (s[i] == '&') {
+                if (a == 'T' && b == 'T') {
+                    st.push('T');
                 } else {
-                    if (s[i] == 't' || st.top() == 't') {
-                        st.pop();
-                        st.push('t');
-                    } else {
-                        st.pop();
-                        st.push('f');
-                    }
+                    st.push('F');
+                }
+            } else {
+                if (a == 'T' || b == 'T') {
+                    st.push('T');
+                } else {
+                    st.push('F');
                 }
             }
+        } else {
+            st.push(s[i]);
         }
     }
-    if (st.top() == 't') {
+    if (st.top() == 'T') {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
