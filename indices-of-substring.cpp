@@ -23,8 +23,7 @@ input:
 !
 !
 output:
-1
-0
+1 0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -63,8 +62,7 @@ int main() {
         }
     }
     for (int i = 0; i < result.size(); i++) {
-        cout << result[i];
-        if (i != result.size() - 1) cout << " ";
+        cout << result[i] << endl;
     }
     if (result.size() == 0) cout << 0 << endl;
     cout << endl;
