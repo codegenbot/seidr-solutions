@@ -35,51 +35,51 @@ output:
 False
 */
 int main() {
-    string s;
-    cin >> s;
-    stack<char> st;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '&' || s[i] == '|') {
-            st.push(s[i]);
-        } else if (s[i] == 't') {
-            if (st.empty()) {
-                st.push('t');
+    string str;
+    cin >> str;
+    stack<char> s;
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] == '&' || str[i] == '|') {
+            s.push(str[i]);
+        } else if (str[i] == 't') {
+            if (s.empty()) {
+                s.push('t');
             } else {
-                char op = st.top();
-                st.pop();
+                char op = s.top();
+                s.pop();
+                char op2 = s.top();
+                s.pop();
                 if (op == '&') {
-                    st.push('t');
-                } else if (op == '|') {
-                    if (st.top() == 't') {
-                        st.pop();
-                        st.push('t');
+                    if (op2 == 't') {
+                        s.push('t');
                     } else {
-                        st.pop();
-                        st.push('t');
+                        s.push('f');
                     }
+                } else {
+                    s.push('t');
                 }
             }
-        } else if (s[i] == 'f') {
-            if (st.empty()) {
-                st.push('f');
+        } else {
+            if (s.empty()) {
+                s.push('f');
             } else {
-                char op = st.top();
-                st.pop();
+                char op = s.top();
+                s.pop();
+                char op2 = s.top();
+                s.pop();
                 if (op == '&') {
-                    st.push('f');
-                } else if (op == '|') {
-                    if (st.top() == 't') {
-                        st.pop();
-                        st.push('t');
+                    s.push('f');
+                } else {
+                    if (op2 == 't') {
+                        s.push('t');
                     } else {
-                        st.pop();
-                        st.push('f');
+                        s.push('f');
                     }
                 }
             }
         }
     }
-    if (st.top() == 't') {
+    if (s.top() == 't') {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
