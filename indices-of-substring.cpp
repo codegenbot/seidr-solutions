@@ -44,24 +44,23 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
+int strStr(char * haystack, char * needle){
+    int m = strlen(haystack);
+    int n = strlen(needle);
+    if (n == 0) return 0;
+    if (m == 0) return -1;
+    if (n > m) return -1;
+    int i, j;
+    for (i = 0; i < m; i++) {
+        for (j = 0; j < n; j++) {
+            if (haystack[i + j] != needle[j]) break;
+        }
+        if (j == n) return i;
+    }
+    return -1;
+}
 int main() {
-	string text, target;
-	while(cin >> text){
-		cin >> target;
-		int i = 0;
-		int j = 0;
-		while(i < text.size() && j < target.size()){
-			if(text[i] == target[j]){
-				i++;
-				j++;
-			}else{
-				i = i - j + 1;
-				j = 0;
-			}
-		}
-		if(j == target.size()){
-			cout << i - j << endl;
-		}
-	}
-	return 0;
+    char haystack[] = "aaaaaaaaa";
+    char needle[] = "aaaaaaaaa";
+    cout << strStr(haystack, needle) << endl;
 }
