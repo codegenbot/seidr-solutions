@@ -44,18 +44,16 @@ input:
 output:
 3.963
 */
-double bounciness(double start, double first, int bounces) {
-    double bounciness = first / start;
-    double total = start + first;
-    for (int i = 2; i <= bounces; i++) {
-        total += 2 * bounciness * start;
-    }
-    return total;
-}
 int main() {
-    double start, first;
+    double start_height, first_bounce, bounciness;
     int bounces;
-    cin >> start >> first >> bounces;
-    cout << bounciness(start, first, bounces) << endl;
+    cin >> start_height >> first_bounce >> bounces;
+    bounciness = first_bounce / start_height;
+    double total_distance = 0;
+    while(bounces){
+        total_distance += (start_height * pow(bounciness, bounces));
+        bounces--;
+    }
+    printf("%.10f", total_distance);
     return 0;
 }
