@@ -45,15 +45,17 @@ output:
 3.963
 */
 int main() {
-    double start_height, first_bounce, bounciness;
-    int bounces;
-    cin >> start_height >> first_bounce >> bounces;
-    bounciness = first_bounce / start_height;
-    double total_distance = 0;
-    while(bounces){
-        total_distance += (start_height * pow(bounciness, bounces));
-        bounces--;
+    float a, b, n;
+    float bounciness;
+    float total_distance;
+    while(scanf("%f%f%f", &a, &b, &n) != EOF) {
+        bounciness = b / a;
+        total_distance = a;
+        for(int i = 0; i < n; i++) {
+            total_distance += a * bounciness;
+            a *= bounciness;
+        }
+        printf("%.3f\n", total_distance);
     }
-    printf("%.10f", total_distance);
     return 0;
 }
