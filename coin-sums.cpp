@@ -16,42 +16,49 @@ For example,
 input:
 1
 output:
-1000
+1
+0
+0
+0
 input:
 2
 output:
-2000
+2
+0
+0
+0
 input:
 3
 output:
-3000
+3
+0
+0
+0
 input:
 4
 output:
-4000
+4
+0
+0
+0
 input:
 5
 output:
-0100
+0
+1
+0
+0
 */
 int main() {
-    int n;
-    while (cin >> n) {
-        int res = 0;
-        int num = 0;
-        int cent = n;
-        int q = cent / 25;
-        cent %= 25;
-        int d = cent / 10;
-        cent %= 10;
-        int n = cent / 5;
-        cent %= 5;
-        int p = cent;
-        cout << p << endl;
-        cout << n << endl;
-        cout << d << endl;
-        cout << q << endl;
-    }
-    
+    int cents;
+    cin >> cents;
+    int quarters = cents / 25;
+    int dimes = (cents - quarters * 25) / 10;
+    int nickles = (cents - quarters * 25 - dimes * 10) / 5;
+    int pennies = cents - quarters * 25 - dimes * 10 - nickles * 5;
+    cout << pennies << endl;
+    cout << nickles << endl;
+    cout << dimes << endl;
+    cout << quarters << endl;
     return 0;
 }
