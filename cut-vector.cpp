@@ -62,8 +62,8 @@ output:
 1
 6356
 2
-6368 1775
-
+6368
+1775
 */
 int main() {
     int n;
@@ -79,19 +79,15 @@ int main() {
             ind = i;
         }
     }
-    cout << ind << endl;
-    for(int i = 0; i < ind; i++) {
-        cout << v[i];
-        if(i != ind-1)
-            cout << " ";
+    if(n == 1) {
+        cout << 1 << endl << v[0] << endl;
+    } else {
+        cout << ind << endl;
+        for(int i = 0; i < ind; i++)
+            cout << v[i] << endl;
+        cout << n - ind << endl;
+        for(int i = ind; i < n; i++)
+            cout << v[i] << endl;
     }
-    cout << endl;
-    cout << n - ind << endl;
-    for(int i = ind; i < n; i++) {
-        cout << v[i];
-        if(i != n-1)
-            cout << " ";
-    }
-    cout << endl;
     return 0;
 }
