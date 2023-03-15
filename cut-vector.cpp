@@ -65,6 +65,12 @@ output:
 6368
 1775
 */
+int getSum(vector<int> &v, int ind) {
+    int sum = 0;
+    for(int i = 0; i < ind; i++)
+        sum += v[i];
+    return sum;
+}
 int main() {
     int n;
     cin >> n;
@@ -74,7 +80,9 @@ int main() {
     int minDiff = INT_MAX;
     int ind = -1;
     for(int i = 1; i < n - 1; i++) {
-        if(abs(v[i] - v[i-1]) < minDiff) {
+        int sum1 = getSum(v, i);
+        int sum2 = getSum(v, n) - sum1;
+        if(abs(sum1 - sum2) < minDiff) {
             minDiff = abs(v[i] - v[i-1]);
             ind = i;
         }
