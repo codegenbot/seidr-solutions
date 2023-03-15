@@ -55,5 +55,22 @@ output:
 
 */
 int main() {
-
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for(int i = 0; i < n; i++)
+        cin >> v[i];
+    int minDiff = INT_MAX;
+    int ind = -1;
+    for(int i = 1; i < n - 1; i++) {
+        if(abs(v[i] - v[i-1]) < minDiff) {
+            minDiff = abs(v[i] - v[i-1]);
+            ind = i;
+        }
+    }
+    for(int i = 0; i < ind; i++)
+        cout << v[i] << endl;
+    for(int i = ind; i < n; i++)
+        cout << v[i] << endl;
+    return 0;
 }
