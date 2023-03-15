@@ -43,8 +43,12 @@ int main() {
     int n, m;
     cin >> n >> m;
     double p = 0;
-    for (int i = 1; i < n; i++) {
-        p += (double)i / n;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j < i; j++) {
+            if (j <= m) {
+                p += 1.0 / (n * m);
+            }
+        }
     }
     printf("%.2f\n", p);
     return 0;
