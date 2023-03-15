@@ -53,45 +53,58 @@ output:
 int main() {
     string s;
     while (cin >> s) {
-        if (s.find("XXXXXXXXXXXX") != -1) {
-            cout << 300 << endl;
+        if (s.size() > 21) {
+            cout << "Invalid input" << endl;
             continue;
         }
         int res = 0;
+        int cnt = 0;
         for (int i = 0; i < s.size(); i++) {
             if (s[i] == 'X') {
+                res += 10;
+                cnt++;
                 if (i + 2 < s.size()) {
-                    if (s[i + 2] == 'X') {
-                        res += 10;
-                    } else if (s[i + 2] == '/') {
+                    if (s[i + 2] == 'X' || s[i + 2] == '/') {
                         res += 10;
                     } else {
-                        res += (s[i + 2] - '0');
+                        if (s[i + 2] == '-') {
+                            res += 0;
+                        } else {
+                            res += (s[i + 2] - '0');
+                        }
                     }
-                    res += 10;
-                } else {
-                    res += 10;
                 }
-                if (i + 1 < s.size() && s[i + 1] == 'X') {
-                    res += 10;
-                } else if (i + 1 < s.size() && s[i + 1] == '/') {
-                    res += 10 - (s[i] - '0');
-                } else if (i + 1 < s.size() && s[i + 1] != '-') {
-                    res += (s[i + 1] - '0');
+                if (i + 1 < s.size()) {
+                    if (s[i + 1] == 'X') {
+                        res += 10;
+                    } else if (s[i + 1] == '/') {
+                        res += 10 - (s[i] - '0');
+                    } else {
+                        if (s[i + 1] == '-') {
+                            res += 0;
+                        } else {
+                            res += (s[i + 1] - '0');
+                        }
+                    }
                 }
             } else if (s[i] == '/') {
                 res += 10 - (s[i - 1] - '0');
-                if (i + 1 < s.size() && s[i + 1] == 'X') {
-                    res += 10;
-                } else if (i + 1 < s.size() && s[i + 1] == '/') {
-                    res += 10;
-                } else if (i + 1 < s.size() && s[i + 1] != '-') {
-                    res += (s[i + 1] - '0');
+                if (i + 1 < s.size()) {
+                    if (s[i + 1] == 'X') {
+                        res += 10;
+                    } else if (s[i + 1] == '/') {
+                        res += 10;
+                    } else {
+                        res += (s[i + 1] - '0');
+                    }
                 }
             } else if (s[i] == '-') {
                 
             } else {
                 res += (s[i] - '0');
+            }
+            if (cnt == 10) {
+                break;
             }
         }
         cout << res << endl;
