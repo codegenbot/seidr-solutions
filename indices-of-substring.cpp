@@ -51,21 +51,20 @@ int main() {
     int count = 0;
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == target[0]) {
-            bool flag = true;
-            for (int j = 0; j < len; j++) {
+            int j = 0;
+            for (; j < len; j++) {
                 if (text[i + j] != target[j]) {
-                    flag = false;
                     break;
                 }
             }
-            if (flag) {
+            if (j == len) {
                 cout << i << " ";
                 count++;
             }
         }
     }
     if (count == 0) {
-        cout << -1;
+        cout << 0;
     }
     return 0;
 }
