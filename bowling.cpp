@@ -33,91 +33,67 @@ input:
 532/4362X179-41447/5
 output:
 100
-input:
--4-/-2-/-7-6-/-3-/-4
-output:
-66
 */
-int getScore(const string &input, int index) {
-    if (input[index] == 'X') {
-        return 10;
-    } else if (input[index] == '/') {
-        return 10 - (input[index - 1] - '0');
-    } else if (input[index] == '-') {
-        return 0;
-    } else {
-        return input[index] - '0';
-    }
-}
-int score(const string &input){
-    int size = input.size();
-    int score = 0;
-    int frame = 0;
-    int ball = 0;
-    for (int i = 0; i < size; i++) {
-        char c = input[i];
-        if (c == 'X') {
-            score += 10;
-            if (frame < 9) {
-                if (input[i + 1] == 'X') {
-                    score += 10;
-                    if (input[i + 2] == 'X') {
-                        score += 10;
-                    } else {
-                        score += getScore(input, i + 2);
+
+int bowlingScore(string &s) {
+    int total = 0;
+    int i = 0;
+    int frame = 10;
+    while (i < s.length() && frame > 0) {
+        if (s[i] == 'X') {
+            total += 10;
+            if (i+1 < s.length()) {
+                if (s[i+1] == 'X') {
+                    total += 10;
+                    if (i+2 < s.length()) {
+                        if (s[i+2] == 'X') {
+                            total += 10;
+                        } else {
+                            total += (s[i+2] - '0');
+                        }
                     }
-                } else if (input[i + 1] == '/') {
-                    score += 10;
                 } else {
-                    if (i + 2 < size && input[i + 2] == '/' && input[i + 1] != '-') {
-                        score += 10;
-                    } else {
-                        score += getScore(input, i + 1) + getScore(input, i + 2);
+                    total += (s[i+1] - '0');
+                    if (i+2 < s.length()) {
+                        if (s[i+2] == '/') {
+                            total += 10;
+                        } else {
+                            total += (s[i+2] - '0');
+                        }
                     }
                 }
             }
-            frame ++;
-            ball = 0;
-            continue;
-        } else if (c == '/') {
-            if (input[i - 1] == '-') {
-                score += 10;
-            } else {
-                score += 10 - (input[i - 1] - '0');
+            i++;
+        } else if (s[i] == '-') {
+            i++;
+        } else if (s[i] == '/') {
+            total += 10;
+            if (i-1 >= 0) {
+                total += (s[i-1] - '0');
             }
-            if (frame < 9) {
-                if (input[i + 1] == 'X') {
-                    score += 10;
-                } else {
-                    score += getScore(input, i + 1);
+            if (i+1 < s.length()) {
+                if (s[i+1] != 'X') {
+                    total += (s[i+1] - '0');
                 }
             }
-            frame ++;
-            ball = 0;
-            continue;
-        } else if (c == '-') {
-            ball ++;
-            if (ball == 2) {
-                frame ++;
-                ball = 0;
-            }
-            continue;
+            i++;
         } else {
-            score += getScore(input, i);
-            ball ++;
-            if (ball == 2) {
-                frame ++;
-                ball = 0;
-            }
-            continue;
+            total += (s[i] - '0');
+            i++;
         }
+        frame--;
     }
-    return score;
+    return total;
 }
+
 int main() {
-    string input;
-    while (cin >> input) {
-        cout << score(input) << endl;
-    }
+    string s = "XXXXXXXXXXXX";
+    cout << bowlingScore(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << bowlingScore(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << bowlingScore(s) << endl;
+    s = "532/4362X179-41447/5";
+    cout << bowlingScore(s) << endl;
     return 0;
 }
