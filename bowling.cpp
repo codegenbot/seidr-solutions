@@ -61,11 +61,13 @@ int main() {
         int cnt = 0;
         for (int i = 0; i < s.size(); i++) {
             if (s[i] == 'X') {
-                res += 10;
                 cnt++;
+                res += 10;
                 if (i + 2 < s.size()) {
-                    if (s[i + 2] == 'X' || s[i + 2] == '/') {
+                    if (s[i + 2] == 'X') {
                         res += 10;
+                    } else if (s[i + 2] == '/') {
+                        res += 10 - (s[i + 1] - '0');
                     } else {
                         if (s[i + 2] == '-') {
                             res += 0;
@@ -78,7 +80,7 @@ int main() {
                     if (s[i + 1] == 'X') {
                         res += 10;
                     } else if (s[i + 1] == '/') {
-                        res += 10 - (s[i] - '0');
+                        res += 10 - (s[i + 1] - '0');
                     } else {
                         if (s[i + 1] == '-') {
                             res += 0;
@@ -88,8 +90,8 @@ int main() {
                     }
                 }
             } else if (s[i] == '/') {
-                res += 10 - (s[i - 1] - '0');
                 cnt++;
+                res += 10 - (s[i - 1] - '0');
                 if (i + 1 < s.size()) {
                     if (s[i + 1] == 'X') {
                         res += 10;
@@ -99,7 +101,7 @@ int main() {
                         if (s[i + 1] == '-') {
                             res += 0;
                         } else {
-                            res += (s[i + 1] - '0');
+                        res += (s[i + 1] - '0');
                         }
                     }
                 }
