@@ -31,44 +31,44 @@ input:
 output:
 100
 """
-
-def bowling(balls):
+if __name__ == '__main__':
+    input_str = input()
     score = 0
     frame = 0
-    i = 0
-    while frame < 10:
-        if balls[i] == 'X':
-            score += 10
-            if balls[i+2] == 'X':
-                score += 10
+    frame_score = 0
+    frame_score_list = []
+    for i in range(len(input_str)):
+        if input_str[i] == 'X':
+            frame_score += 10
+            if frame < 9:
+                frame_score += int(input_str[i+1])
+                if input_str[i+2] == '/':
+                    frame_score += 10 - int(input_str[i+1])
+                else:
+                    frame_score += int(input_str[i+2])
             else:
-                score += int(balls[i+2])
-            if balls[i+1] == 'X':
-                score += 10
-            else:
-                score += int(balls[i+1])
-            i += 1
-        elif balls[i] == '/':
-            score += 10
-            score += int(balls[i+1])
-            i += 2
-        elif balls[i] == '-':
-            score += 0
-            i += 1
+                frame_score += int(input_str[i+1])
+                if input_str[i+2] == '/':
+                    frame_score += 10 - int(input_str[i+1])
+                else:
+                    frame_score += int(input_str[i+2])
+            frame_score_list.append(frame_score)
+            frame_score = 0
+            frame += 1
+        elif input_str[i] == '-':
+            frame_score += 0
+            frame_score_list.append(frame_score)
+            frame_score = 0
+            frame += 1
+        elif input_str[i] == '/':
+            frame_score += 10 - int(input_str[i-1])
+            if frame < 9:
+                frame_score += int(input_str[i+1])
+            frame_score_list.append(frame_score)
+            frame_score = 0
+            frame += 1
         else:
-            score += int(balls[i])
-            if balls[i+1] == '/':
-                score += 10
-                i += 2
-            elif balls[i+1] == '-':
-                score += 0
-                i += 2
-            else:
-                score += int(balls[i+1])
-                i += 2
-        frame += 1
-    return score
-
-if __name__ == '__main__':
-    balls = input()
-    print(bowling(balls))
+            frame_score += int(input_str[i])
+    for i in range(len(frame_score_list)):
+        score += frame_score_list[i]
+    print(score)
