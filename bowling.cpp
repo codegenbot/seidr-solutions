@@ -34,66 +34,51 @@ input:
 output:
 100
 */
-
-int bowlingScore(string &s) {
-    int total = 0;
-    int i = 0;
-    int frame = 10;
-    while (i < s.length() && frame > 0) {
-        if (s[i] == 'X') {
-            total += 10;
-            if (i+1 < s.length()) {
-                if (s[i+1] == 'X') {
-                    total += 10;
-                    if (i+2 < s.length()) {
-                        if (s[i+2] == 'X') {
-                            total += 10;
-                        } else {
-                            total += (s[i+2] - '0');
-                        }
-                    }
-                } else {
-                    total += (s[i+1] - '0');
-                    if (i+2 < s.length()) {
-                        if (s[i+2] == '/') {
-                            total += 10;
-                        } else {
-                            total += (s[i+2] - '0');
-                        }
-                    }
-                }
-            }
-            i++;
-        } else if (s[i] == '-') {
-            i++;
-        } else if (s[i] == '/') {
-            total += 10;
-            if (i-1 >= 0) {
-                total += (s[i-1] - '0');
-            }
-            if (i+1 < s.length()) {
-                if (s[i+1] != 'X') {
-                    total += (s[i+1] - '0');
-                }
-            }
-            i++;
-        } else {
-            total += (s[i] - '0');
-            i++;
-        }
-        frame--;
-    }
-    return total;
-}
-
 int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << bowlingScore(s) << endl;
-    s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << bowlingScore(s) << endl;
-    s = "7115XXX548/279-X53";
-    cout << bowlingScore(s) << endl;
-    s = "532/4362X179-41447/5";
-    cout << bowlingScore(s) << endl;
+    string input;
+    int sum = 0;
+    int last = 0;
+    int second = 0;
+    int third = 0;
+    int fourth = 0;
+    int fifth = 0;
+    int sixth = 0;
+    int seventh = 0;
+    int eighth = 0;
+    int ninth = 0;
+    int tenth = 0;
+    cin >> input;
+    for(int i = 0; i < input.length(); i++) {
+        if(input[i] == 'X') {
+            sum += 10;
+            sum += third;
+            sum += fourth;
+            third = fourth;
+            fourth = 10;
+        }
+        else if(input[i] == '/') {
+            sum += 10 - last;
+            sum += fourth;
+            sum += third;
+            third = fourth;
+            fourth = 10 - last;
+        }
+        else if(input[i] == '-') {
+            sum += 0;
+            sum += fourth;
+            sum += third;
+            third = fourth;
+            fourth = 0;
+        }
+        else {
+            sum += input[i] - '0';
+            sum += fourth;
+            sum += third;
+            third = fourth;
+            fourth = input[i] - '0';
+        }
+        last = input[i] - '0';
+    }
+    cout << sum << endl;
     return 0;
 }
