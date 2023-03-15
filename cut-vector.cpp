@@ -53,41 +53,32 @@ output:
 10000
 0
 
-input:
-3
-6356
-6368
-1775
-output:
-1
-6356
-2
-6368
-1775
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i = 0; i < n; i++)
-        cin >> v[i];
-    int minDiff = INT_MAX;
-    int ind = -1;
-    for(int i = 1; i < n - 1; i++) {
-        if(abs(v[i] - v[i-1]) < minDiff) {
-            minDiff = abs(v[i] - v[i-1]);
-            ind = i;
+    vector<int> nums = {1};
+    int n = nums.size();
+    if (n == 0) {
+        cout << 0 << endl;
+        cout << 0 << endl << 0 << endl;
+        return 0;
+    }
+    int left = 0, right = 0;
+    int ans = INT_MAX;
+    for (int i = 0; i < n; i++) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j <= i; j++) {
+            sum1 += nums[j];
+        }
+        for (int j = i + 1; j < n; j++) {
+            sum2 += nums[j];
+        }
+        if (abs(sum1 - sum2) < ans) {
+            ans = abs(sum1 - sum2);
+            left = sum1;
+            right = sum2;
         }
     }
-    if(n == 1) {
-        cout << 1 << endl << v[0] << endl;
-    } else {
-        cout << ind << endl;
-        for(int i = 0; i < ind; i++)
-            cout << v[i] << endl;
-        cout << n - ind << endl;
-        for(int i = ind; i < n; i++)
-            cout << v[i] << endl;
-    }
+    cout << left << endl;
+    cout << right << endl << ans << endl;
     return 0;
 }
