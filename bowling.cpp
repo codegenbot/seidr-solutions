@@ -35,37 +35,50 @@ output:
 100
 */
 int score(string s) {
-    int res = 0;
+    int sum = 0;
     int i = 0;
-    for (; i < s.size(); i++) {
+    while (i < s.size()) {
         if (s[i] == 'X') {
-            res += 10;
-            if (s[i+1] == 'X') {
-                res += 10;
-                if (s[i+2] == 'X') {
-                    res += 10;
+            sum += 10;
+            if (i + 2 < s.size()) {
+                if (s[i + 2] == 'X') {
+                    sum += 10;
+                } else if (s[i + 2] == '/') {
+                    sum += 10;
                 } else {
-                    res += s[i+2] - '0';
+                    sum += s[i + 2] - '0';
                 }
-            } else if (s[i+1] == '/') {
-                res += 10;
-            } else {
-                res += s[i+1] - '0';
             }
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == 'X') {
+                    sum += 10;
+                } else if (s[i + 1] == '/') {
+                    sum += 10 - (s[i] - '0');
+                } else {
+                    sum += s[i + 1] - '0';
+                }
+            }
+            i++;
         } else if (s[i] == '/') {
-            res += 10;
-            if (s[i-1] == 'X') {
-                res += 10;
-            } else {
-                res += s[i-1] - '0';
+            sum += 10 - (s[i - 1] - '0');
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == 'X') {
+                    sum += 10;
+                } else if (s[i + 1] == '/') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 1] - '0';
+                }
             }
+            i++;
         } else if (s[i] == '-') {
-            continue;
+            i++;
         } else {
-            res += s[i] - '0';
+            sum += s[i] - '0';
+            i++;
         }
     }
-    return res;
+    return sum;
 }
 int main() {
     string s;
