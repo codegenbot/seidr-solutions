@@ -65,35 +65,33 @@ output:
 6368
 1775
 */
-int getSum(vector<int> &v, int ind) {
-    int sum = 0;
-    for(int i = 0; i < ind; i++)
-        sum += v[i];
-    return sum;
-}
 int main() {
     int n;
     cin >> n;
     vector<int> v(n);
     for(int i = 0; i < n; i++)
         cin >> v[i];
-    int minDiff = INT_MAX;
-    int ind = -1;
-    for(int i = 1; i < n - 1; i++) {
-        int sum1 = getSum(v, i);
-        int sum2 = getSum(v, n) - sum1;
+    int minDiff = INT_MAX, ind = -1, ind1 = -1, ind2 = -1, sum1 = 0, sum2 = 0;
+    for(int i = 1; i < n; i++) {
+        sum1 += v[i-1];
+        sum2 = 0;
+        for(int j = i; j < n; j++)
+            sum2 += v[j];
         if(abs(sum1 - sum2) < minDiff) {
             minDiff = abs(sum1 - sum2);
             ind = i;
+            ind1 = i-1;
+            ind2 = i;
         }
     }
-    if(ind == -1)
-        ind = 1;
+    if(ind == -1) {
+        ind = 1; ind1 = 0; ind2 = 1;
+    }
     cout << ind << endl;
-    for(int i = 0; i < ind; i++)
+    for(int i = 0; i <= ind1; i++)
         cout << v[i] << endl;
-    cout << n - ind << endl;
-    for(int i = ind; i < n; i++)
+    cout << n - ind2 << endl;
+    for(int i = ind2; i < n; i++)
         cout << v[i] << endl;
     return 0;
 }
