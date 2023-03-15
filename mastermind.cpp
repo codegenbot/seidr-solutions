@@ -44,34 +44,24 @@ output:
 0
 0
 */
-
-int white(string code, string guess) {
-    int cnt = 0;
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (i != j && code[i] == guess[j]) {
-                cnt++;
-                break;
-            }
-        }
-    }
-    return cnt;
-}
-
-int black(string code, string guess) {
-    int cnt = 0;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            cnt++;
-        }
-    }
-    return cnt;
-}
-
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << white(code, guess) << endl;
-    cout << black(code, guess) << endl;
+    int white = 0, black = 0;
+    map<char, int> m;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            m[code[i]]++;
+        }
+    }
+    for (int i = 0; i < 4; i++) {
+        if (code[i] != guess[i] && m[guess[i]] > 0) {
+            white++;
+            m[guess[i]]--;
+        }
+    }
+    cout << white << endl << black << endl;
     return 0;
 }
