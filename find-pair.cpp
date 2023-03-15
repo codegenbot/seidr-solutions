@@ -49,26 +49,31 @@ output:
 -4
 4
 */
+vector<int> solve(vector<int> &nums, int target) {
+    vector<int> res;
+    for(int i = 0; i < nums.size(); i++) {
+        for(int j = i + 1; j < nums.size(); j++) {
+            if(nums[i] + nums[j] == target) {
+                res.push_back(nums[i]);
+                res.push_back(nums[j]);
+                return res;
+            }
+        }
+    }
+    return res;
+}
 int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         cin >> nums[i];
     }
     int target;
     cin >> target;
-    int i = 0, j = n - 1;
-    while (i < j) {
-        if (nums[i] + nums[j] == target) {
-            cout << nums[i] << endl;
-            cout << nums[j] << endl;
-            break;
-        } else if (nums[i] + nums[j] < target) {
-            i++;
-        } else {
-            j--;
-        }
+    vector<int> res = solve(nums, target);
+    for(int i = 0; i < res.size(); i++) {
+        cout << res[i] << endl;
     }
     return 0;
 }
