@@ -64,8 +64,11 @@ int main() {
         }
     }
     cout << res.size() << endl;
-    for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
+    if (res.size() > 0) {
+        for (int i = 0; i < res.size() - 1; i++) {
+            cout << res[i] << " ";
+        }
+        cout << res[res.size() - 1] << endl;
     }
     cout << endl;
     return 0;
