@@ -34,48 +34,76 @@ input:
 output:
 100
 */
-int main() {
-    string input;
-    getline(cin, input);
-    int score = 0, cur_score = 0;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') {
-            cur_score = 10;
-            if (i + 1 < input.size() && input[i + 1] == 'X') {
-                cur_score += 10;
-                if (i + 2 < input.size() && input[i + 2] == 'X') {
-                    cur_score += 10;
-                } else if (i + 2 < input.size() && input[i + 2] == '/') {
-                    cur_score += 10;
+int score(string s) {
+    int res = 0;
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == 'X') {
+            res += 10;
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == 'X') {
+                    res += 10;
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == 'X') {
+                            res += 10;
+                        } else {
+                            res += s[i + 2] - '0';
+                        }
+                    }
+                } else if (s[i + 1] == '/') {
+                    res += 10;
+                    if (i + 2 < s.size()) {
+                        res += s[i + 2] - '0';
+                    }
                 } else {
-                    cur_score += input[i + 2] - '0';
-                }
-            } else if (i + 1 < input.size() && input[i + 1] == '/') {
-                cur_score += 10;
-            } else {
-                cur_score += input[i + 1] - '0';
-                if (i + 2 < input.size() && input[i + 2] == '/') {
-                    cur_score += 10 - (input[i + 1] - '0');
-                } else {
-                    cur_score += input[i + 2] - '0';
+                    res += s[i + 1] - '0';
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == '/') {
+                            res += 10 - s[i + 1] + '0';
+                        } else {
+                            res += s[i + 2] - '0';
+                        }
+                    }
                 }
             }
-        } else if (input[i] == '/') {
-            cur_score = 10 - (input[i - 1] - '0');
-            if (i + 1 < input.size() && input[i + 1] == 'X') {
-                cur_score += 10;
-            } else if (i + 1 < input.size() && input[i + 1] == '/') {
-                cur_score += 10;
-            } else {
-                cur_score += input[i + 1] - '0';
+            i++;
+        } else if (s[i] == '/') {
+            res += 10;
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == 'X') {
+                    res += 10;
+                } else {
+                    res += s[i + 1] - '0';
+                }
             }
-        } else if (input[i] == '-') {
-            cur_score = 0;
+            i++;
         } else {
-            cur_score = input[i] - '0';
+            res += s[i] - '0';
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == '/') {
+                    res += 10 - s[i] + '0';
+                    i++;
+                } else if (s[i + 1] == 'X') {
+                    res += 10;
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == 'X') {
+                            res += 10;
+                        } else {
+                            res += s[i + 2] - '0';
+                        }
+                    }
+                    i++;
+                }
+            }
         }
-        score += cur_score;
-        cur_score = 0;
+        i++;
     }
-    cout << score << endl;
+    return res;
+}
+int main() {
+    cout << score("XXXXXXXXXXXX") << endl;
+    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << score("7115XXX548/279-X53") << endl;
+    cout << score("532/4362X179-41447/5") << endl;
+    return 0;
 }
