@@ -35,32 +35,35 @@ output:
 100
 */
 int main() {
-    string s;
-    cin>>s;
-    int res = 0;
-    int idx = 0;
-    while(idx < s.size()) {
-        if(s[idx] == 'X') {
+    string str;
+    cin >> str;
+    int res = 0, frame = 0, pre_score = 0;
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] == 'X') {
             res += 10;
-            if(s[idx+2] == 'X') res += 10;
-            else res += s[idx+2] - '0';
-            if(s[idx+4] == 'X') res += 10;
-            else if(s[idx+4] == '/') res += 10 - (s[idx+2] - '0');
-            else res += s[idx+4] - '0';
-            idx++;
+            if (i < str.size() - 2) {
+                res += str[i + 2] == 'X' ? 10 : str[i + 2] == '/' ? 10 : (str[i + 2] - '0');
+                if (i < str.size() - 3 && str[i + 1] == 'X') {
+                    res += str[i + 3] == 'X' ? 10 : str[i + 3] == '/' ? 10 : (str[i + 3] - '0');
+                }
+            }
+        } else if (str[i] == '/') {
+            res += 10;
+            if (i < str.size() - 1) {
+                res += str[i + 1] == 'X' ? 10 : str[i + 1] == '/' ? 10 : (str[i + 1] - '0');
+            }
+        } else {
+            res += str[i] - '0';
         }
-        else if(s[idx] == '/') {
-            res += 10 - (s[idx-1] - '0');
-            if(s[idx+2] == 'X') res += 10;
-            else if(s[idx+2] == '/') res += 10 - (s[idx+1] - '0');
-            else res += s[idx+2] - '0';
-            idx += 2;
+        if (i == str.size() - 1) {
+            if (str[i] == 'X' || str[i] == '/') {
+                res += str[i + 1] == 'X' ? 10 : str[i + 1] == '/' ? 10 : (str[i + 1] - '0');
+            }
         }
-        else {
-            res += s[idx] - '0';
-            idx++;
+        frame++;
+        if (frame == 2 || str[i] == 'X') {
+            frame = 0;
         }
     }
-    cout<<res<<endl;
-    return 0;
+    cout << res << endl;
 }
