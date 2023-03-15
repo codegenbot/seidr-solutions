@@ -72,24 +72,20 @@ int main() {
     for(int i = 0; i < n; i++)
         cin >> v[i];
     int minDiff = INT_MAX;
-    int ind = 0;
+    int ind = -1;
     for(int i = 1; i < n - 1; i++) {
-        if(abs(v[i] - v[i-1]) <= minDiff) {
+        if(abs(v[i] - v[i-1]) < minDiff) {
             minDiff = abs(v[i] - v[i-1]);
             ind = i;
         }
     }
-    if(n == 1) {
-        cout << 1 << endl << v[0] << endl;
-    } else if(n == 2) {
-        cout << 1 << endl << v[0] << endl << 1 << endl << v[1] << endl;
-    } else {
-        cout << ind << endl;
-        for(int i = 0; i < ind; i++)
-            cout << v[i] << endl;
-        cout << n - ind << endl;
-        for(int i = ind; i < n; i++)
-            cout << v[i] << endl;
-    }
+    if(ind == -1)
+        ind = 1;
+    cout << ind << endl;
+    for(int i = 0; i < ind; i++)
+        cout << v[i] << endl;
+    cout << n - ind << endl;
+    for(int i = ind; i < n; i++)
+        cout << v[i] << endl;
     return 0;
 }
