@@ -37,11 +37,11 @@ output:
 int main() {
     int n;
     cin >> n;
-    string s = to_string(n);
     string res = "";
-    for (int i = 0; i < s.size(); i++) {
-        int temp = s[i] - '0';
-        res += to_string(temp * temp);
+    while (n) {
+        int tmp = n % 10;
+        res = to_string(tmp * tmp) + res;
+        n /= 10;
     }
     cout << res << endl;
     return 0;
