@@ -83,7 +83,7 @@ int main() {
         int sum1 = getSum(v, i);
         int sum2 = getSum(v, n) - sum1;
         if(abs(sum1 - sum2) < minDiff) {
-            minDiff = abs(v[i] - v[i-1]);
+            minDiff = abs(sum1 - sum2);
             ind = i;
         }
     }
