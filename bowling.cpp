@@ -96,7 +96,11 @@ int main() {
                     } else if (s[i + 1] == '/') {
                         res += 10;
                     } else {
-                        res += (s[i + 1] - '0');
+                        if (s[i + 1] == '-') {
+                            res += 0;
+                        } else {
+                            res += (s[i + 1] - '0');
+                        }
                     }
                 }
             } else if (s[i] == '-') {
