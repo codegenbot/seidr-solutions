@@ -49,17 +49,17 @@ int main() {
                 st.pop();
                 if (op == '&') {
                     st.push('t');
-                } else {
+                } else if (op == '|') {
                     if (st.top() == 't') {
                         st.pop();
                         st.push('t');
                     } else {
                         st.pop();
-                        st.push('f');
+                        st.push('t');
                     }
                 }
             }
-        } else {
+        } else if (s[i] == 'f') {
             if (st.empty()) {
                 st.push('f');
             } else {
@@ -67,7 +67,7 @@ int main() {
                 st.pop();
                 if (op == '&') {
                     st.push('f');
-                } else {
+                } else if (op == '|') {
                     if (st.top() == 't') {
                         st.pop();
                         st.push('t');
