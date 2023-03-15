@@ -45,26 +45,26 @@ output:
 0
 */
 int main() {
-    string a, b;
-    while (cin >> a >> b) {
-        int black = 0;
-        int white = 0;
-        map<char, int> m;
-        for (int i = 0; i < 4; i++) {
-            if (a[i] == b[i]) {
-                black++;
-            } else {
-                m[a[i]]++;
-            }
+    string code, guess;
+    cin >> code >> guess;
+    int b = 0, w = 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            b++;
+            code[i] = 'x';
+            guess[i] = 'x';
         }
-        for (int i = 0; i < 4; i++) {
-            if (a[i] != b[i] && m[b[i]] > 0) {
-                white++;
-                m[b[i]]--;
-            }
-        }
-        cout << white << endl;
-        cout << black << endl;
     }
-    return 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == 'x') continue;
+        for (int j = 0; j < 4; j++) {
+            if (guess[j] == 'x') continue;
+            if (code[i] == guess[j]) {
+                w++;
+                guess[j] = 'x';
+                break;
+            }
+        }
+    }
+    cout << b << endl << w << endl;
 }
