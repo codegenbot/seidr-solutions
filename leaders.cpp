@@ -18,26 +18,31 @@ input:
 
 output:
 0
+
 input:
 1
 0
 output:
-10
+1
+0
 input:
 1
 451
 output:
-1451
+1
+451
 input:
 2
 1000 0
 output:
-21000 0
+2
+1000 0
 input:
 2
 0 1000
 output:
-11000
+1
+1000
 */
 int main() {
     int n;
