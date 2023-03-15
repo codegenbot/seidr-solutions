@@ -35,50 +35,32 @@ output:
 100
 */
 int main() {
-    string input;
-    int sum = 0;
-    int last = 0;
-    int second = 0;
-    int third = 0;
-    int fourth = 0;
-    int fifth = 0;
-    int sixth = 0;
-    int seventh = 0;
-    int eighth = 0;
-    int ninth = 0;
-    int tenth = 0;
-    cin >> input;
-    for(int i = 0; i < input.length(); i++) {
-        if(input[i] == 'X') {
-            sum += 10;
-            sum += third;
-            sum += fourth;
-            third = fourth;
-            fourth = 10;
+    string s;
+    cin>>s;
+    int res = 0;
+    int idx = 0;
+    while(idx < s.size()) {
+        if(s[idx] == 'X') {
+            res += 10;
+            if(s[idx+2] == 'X') res += 10;
+            else res += s[idx+2] - '0';
+            if(s[idx+4] == 'X') res += 10;
+            else if(s[idx+4] == '/') res += 10 - (s[idx+2] - '0');
+            else res += s[idx+4] - '0';
+            idx++;
         }
-        else if(input[i] == '/') {
-            sum += 10 - last;
-            sum += fourth;
-            sum += third;
-            third = fourth;
-            fourth = 10 - last;
-        }
-        else if(input[i] == '-') {
-            sum += 0;
-            sum += fourth;
-            sum += third;
-            third = fourth;
-            fourth = 0;
+        else if(s[idx] == '/') {
+            res += 10 - (s[idx-1] - '0');
+            if(s[idx+2] == 'X') res += 10;
+            else if(s[idx+2] == '/') res += 10 - (s[idx+1] - '0');
+            else res += s[idx+2] - '0';
+            idx += 2;
         }
         else {
-            sum += input[i] - '0';
-            sum += fourth;
-            sum += third;
-            third = fourth;
-            fourth = input[i] - '0';
+            res += s[idx] - '0';
+            idx++;
         }
-        last = input[i] - '0';
     }
-    cout << sum << endl;
+    cout<<res<<endl;
     return 0;
 }
