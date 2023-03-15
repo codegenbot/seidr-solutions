@@ -31,36 +31,5 @@ input:
 output:
 100
 """
-
-def bowling(balls):
-    score = 0
-    for i in range(len(balls)):
-        if balls[i] == 'X':
-            score += 10
-            if balls[i+1] == 'X':
-                score += 10
-                if balls[i+2] == 'X':
-                    score += 10
-                else:
-                    score += int(balls[i+2])
-            else:
-                score += int(balls[i+1])
-                if balls[i+2] == '/':
-                    score += 10 - int(balls[i+1])
-                else:
-                    score += int(balls[i+2])
-        elif balls[i] == '-':
-            score += 0
-        elif balls[i] == '/':
-            score += 10 - int(balls[i-1])
-            if balls[i+1] == 'X':
-                score += 10
-            else:
-                score += int(balls[i+1])
-        else:
-            score += int(balls[i])
-    return score
-
 if __name__ == '__main__':
-    balls = input()
-    print(bowling(balls))
+    pass
