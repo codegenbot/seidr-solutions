@@ -37,34 +37,32 @@ output:
 int score(string s) {
     int res = 0;
     int i = 0;
-    while (i < s.size()) {
+    for (; i < s.size(); i++) {
         if (s[i] == 'X') {
             res += 10;
-            if (s[i+2] == 'X') {
+            if (s[i+1] == 'X') {
+                res += 10;
+                if (s[i+2] == 'X') {
+                    res += 10;
+                } else {
+                    res += s[i+2] - '0';
+                }
+            } else if (s[i+1] == '/') {
                 res += 10;
             } else {
-                res += s[i+2] - '0';
+                res += s[i+1] - '0';
             }
-            if (s[i+3] == '/') {
-                res += 10;
-            } else {
-                res += s[i+3] - '0';
-            }
-            i++;
-        } else if (s[i] == '-') {
-            i++;
-        } else if (s[i+1] == '/') {
+        } else if (s[i] == '/') {
             res += 10;
-            if (s[i+2] == 'X') {
+            if (s[i-1] == 'X') {
                 res += 10;
             } else {
-                res += s[i+2] - '0';
+                res += s[i-1] - '0';
             }
-            i += 2;
+        } else if (s[i] == '-') {
+            continue;
         } else {
             res += s[i] - '0';
-            res += s[i+1] - '0';
-            i += 2;
         }
     }
     return res;
