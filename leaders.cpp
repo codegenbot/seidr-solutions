@@ -45,35 +45,34 @@ output:
 1000
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+  int numOfInts = 0;// '0'
+  cin >> numOfInts; //'0'
+  stack<int> allInts;
+  stack<int> leaders;
+  int max = 0;
+  while(numOfInts-- > 0){
+    int input_num;
+    cin >> input_num;
+    allInts.push(input_num);
+  }
+  while(!allInts.empty()){
+    int curr_num = allInts.top();
+    allInts.pop();
+    if(curr_num >= max) {
+    	leaders.push(curr_num);
+    	max = curr_num;
     }
-    vector<int> res;
-    for (int i = 0; i < n; i++) {
-        int j = i + 1;
-        for (; j < n; j++) {
-            if (nums[i] < nums[j]) {
-                break;
-            }
-        }
-        if (j == n) {
-            res.push_back(nums[i]);
-        }
+  }
+  int leader_size = leaders.size();
+  cout << leader_size << endl;
+  if(leader_size > 0){
+    for(int i = 0; i < leader_size - 1; i++){
+      cout << leaders.top() << " ";
+      leaders.pop();
     }
-    if (res.size() == 0) {
-        cout << 0 << endl;
-    } else {
-        cout << res.size() << endl;
-        for (int i = 0; i < res.size(); i++) {
-            if (i > 0) {
-                cout << " ";
-            }
-            cout << res[i];
-        }
-        cout << endl;
-    }
-    return 0;
+    cout << leaders.top() << endl;
+    leaders.pop(); 
+  }else{
+    cout << endl;
+  }
 }
