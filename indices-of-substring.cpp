@@ -63,7 +63,8 @@ int main() {
         }
     }
     for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
+        cout << result[i];
+        if (i != result.size() - 1) cout << " ";
     }
     if (result.size() == 0) cout << 0 << endl;
     cout << endl;
