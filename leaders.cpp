@@ -63,13 +63,17 @@ int main() {
             res.push_back(nums[i]);
         }
     }
-    cout << res.size() << endl;
-    if (res.size() > 0) {
-        for (int i = 0; i < res.size() - 1; i++) {
-            cout << res[i] << " ";
+    if (res.size() == 0) {
+        cout << 0 << endl;
+    } else {
+        cout << res.size() << endl;
+        for (int i = 0; i < res.size(); i++) {
+            if (i > 0) {
+                cout << " ";
+            }
+            cout << res[i];
         }
-        cout << res[res.size() - 1] << endl;
+        cout << endl;
     }
-    cout << endl;
     return 0;
 }
