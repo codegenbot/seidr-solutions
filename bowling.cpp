@@ -9,7 +9,23 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <unordered_map>
+#include <unordered_set>
 using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -35,46 +51,47 @@ output:
 100
 */
 int main() {
-    string line;
-    while (getline(cin, line)) {
-        int score = 0;
-        int pre = 0;
-        int pre_pre = 0;
-        for (int i = 0; i < line.length(); i++) {
-            if (line[i] == 'X') {
-                score += 10;
-                if (pre == 10) {
-                    score += 10;
-                    if (pre_pre == 10) {
-                        score += 10;
+    string s;
+    while (cin >> s) {
+        int res = 0;
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == 'X') {
+                res += 10;
+                if (i + 2 < s.size()) {
+                    if (s[i + 2] == 'X') {
+                        res += 10;
+                    } else if (s[i + 2] == '/') {
+                        res += 10;
+                    } else {
+                        res += (s[i + 2] - '0');
                     }
                 }
-                pre_pre = pre;
-                pre = 10;
-            }
-            else if (line[i] == '/') {
-                score += 10 - pre;
-                if (pre == 10) {
-                    score += 10;
-                    if (pre_pre == 10) {
-                        score += 10;
+                if (i + 1 < s.size()) {
+                    if (s[i + 1] == 'X') {
+                        res += 10;
+                    } else if (s[i + 1] == '/') {
+                        res += 10 - (s[i] - '0');
+                    } else {
+                        res += (s[i + 1] - '0');
                     }
                 }
-                pre_pre = pre;
-                pre = 10 - pre;
-            }
-            else if (line[i] == '-') {
-                pre_pre = pre;
-                pre = 0;
-            }
-            else {
-                int cur = line[i] - '0';
-                score += cur;
-                pre_pre = pre;
-                pre = cur;
+            } else if (s[i] == '/') {
+                res += 10 - (s[i - 1] - '0');
+                if (i + 1 < s.size()) {
+                    if (s[i + 1] == 'X') {
+                        res += 10;
+                    } else if (s[i + 1] == '/') {
+                        res += 10;
+                    } else {
+                        res += (s[i + 1] - '0');
+                    }
+                }
+            } else if (s[i] == '-') {
+                
+            } else {
+                res += (s[i] - '0');
             }
         }
-        cout << score << endl;
+        cout << res << endl;
     }
-    return 0;
 }
