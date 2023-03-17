@@ -60,24 +60,25 @@ int main() {
     while(cin >> n) {
         nums.push_back(n);
     }
-    int left = 0, right = nums.size() - 1;
-    int leftSum = nums[left], rightSum = nums[right];
-    while(left < right) {
-        if(leftSum < rightSum) {
-            leftSum += nums[++left];
-        } else if(leftSum > rightSum) {
-            rightSum += nums[--right];
-        } else {
-            leftSum += nums[++left];
-            rightSum += nums[--right];
+    int len = nums.size();
+    if(len == 1) {
+        cout << nums[0] << endl << 0 << endl;
+        return 0;
+    }
+    int left = 0;
+    int right = 0;
+    int min_dif = INT_MAX;
+    for(int i = 1; i < len; i++) {
+        int dif = abs(nums[i] - nums[i - 1]);
+        if(dif < min_dif) {
+            min_dif = dif;
+            left = i - 1;
+            right = i;
         }
     }
-    for(int i = 0; i <= left; i++) {
+    for(int i = 0; i < len; i++) {
         cout << nums[i] << endl;
     }
-    cout << 0 << endl;
-    for(int i = right; i < nums.size(); i++) {
-        cout << nums[i] << endl;
-    }
+    cout << left << endl;
     return 0;
 }
