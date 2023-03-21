@@ -67,7 +67,11 @@ int main() {
         }
     }
     for (int i = 0; i < indices.size(); i++) {
-        cout << indices[i] << " ";
+        if (i == indices.size() - 1) {
+            cout << indices[i];
+        } else {
+            cout << indices[i] << " ";
+        }
     }
     if (indices.size() == 0) {
         cout << endl;
