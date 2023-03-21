@@ -51,7 +51,8 @@ int main() {
         tLen = target.size();
         sLen = str.size();
         if (tLen > sLen) {
-            cout << 0 << endl;
+            cout << endl;
+            cout << endl;
             continue;
         }
         vector<int> ans;
@@ -68,6 +69,7 @@ int main() {
         for (int i = 0; i < ans.size(); i++) {
             cout << ans[i] << " ";
         }
+        cout << endl;
         cout << endl;
     }
     return 0;
