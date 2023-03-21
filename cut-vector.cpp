@@ -62,7 +62,7 @@ int main() {
         cin >> nums[i];
     }
     int minDiff = INT_MAX;
-    int minIndex = 0;
+    int minIndex = -1;
     for (int i = 1; i < n; i++) {
         int diff = abs(nums[i] - nums[i - 1]);
         if (diff < minDiff) {
