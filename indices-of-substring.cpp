@@ -45,22 +45,13 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text;
-    string target;
-    getline(cin, text);
-    getline(cin, target);
-    vector<int> res;
-    for (int i = 0; i < text.size(); i++) {
-        int j = 0;
-        for (; j < target.size(); j++) {
-            if (text[i + j] != target[j]) break;
+    string text, target;
+    cin >> text >> target;
+    int len = target.length();
+    for (int i = 0; i < text.length(); i++) {
+        if (text.substr(i, len) == target) {
+            cout << i << " ";
         }
-        if (j == target.size()) res.push_back(i);
     }
-    cout << res.size() << endl;
-    for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
-    }
-    cout << endl;
     return 0;
 }
