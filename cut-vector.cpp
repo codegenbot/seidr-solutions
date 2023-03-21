@@ -53,6 +53,15 @@ output:
 10000
 0
 
+input:
+16
+7204 177 9864 9810 7889 1992 964 8202 8693 5578 3248 3341 8632 9231 1424 4296
+output:
+8
+7204 177 9864 9810 7889 1992 964 8202
+8
+8693 5578 3248 3341 8632 9231 1424 4296
+
 */
 int main() {
     int n;
@@ -64,19 +73,20 @@ int main() {
     int leftMax = 0;
     int rightMin = INT_MAX;
     for (int i = 0; i < n; i++) {
-        if (vec[i] >= leftMax) {
-            leftMax = vec[i] + 1;
+        if (vec[i] > leftMax) {
+            leftMax = vec[i];
         }
         if (vec[n - i - 1] < rightMin) {
             rightMin = vec[n - i - 1];
         }
         if (leftMax >= rightMin) {
-            cout << leftMax << endl;
-            for (int j = 0; j <= i; j++) {
+            int half = (n - i) / 2;
+            cout << half << endl;
+            for (int j = 0; j < half; j++) {
                 cout << vec[j] << endl;
             }
-            cout << rightMin << endl;
-            for (int j = n - i; j < n; j++) {
+            cout << half << endl;
+            for (int j = n - half; j < n; j++) {
                 cout << vec[j] << endl;
             }
             break;
