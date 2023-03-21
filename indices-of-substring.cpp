@@ -46,25 +46,27 @@ output:
 */
 int main() {
     string text, target;
-    cin >> text >> target;
-    int len = target.length();
-    int count = 0;
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == target[0]) {
-            int j = 0;
-            for (; j < len; j++) {
-                if (text[i + j] != target[j]) {
-                    break;
-                }
-            }
-            if (j == len) {
-                cout << i << " ";
-                count++;
-            }
+    cin >> text;
+    cin >> target;
+    if (target.size() > text.size()) {
+        cout << "0";
+        return 0;
+    }
+    int i = 0, j = 0;
+    while (i < text.size() && j < target.size()) {
+        if (text[i] == target[j]) {
+            i++;
+            j++;
+        } else {
+            i = i - j + 1;
+            j = 0;
         }
     }
-    if (count == 0) {
-        cout << 0;
+    if (j == target.size()) {
+        cout << i - j << endl;
+        return i - j;
+    } else {
+        cout << "0";
+        return 0;
     }
-    return 0;
 }
