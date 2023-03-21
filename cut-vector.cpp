@@ -53,15 +53,6 @@ output:
 10000
 0
 
-input:
-16
-7204 177 9864 9810 7889 1992 964 8202 8693 5578 3248 3341 8632 9231 1424 4296
-output:
-8
-7204 177 9864 9810 7889 1992 964 8202
-8
-8693 5578 3248 3341 8632 9231 1424 4296
-
 */
 int main() {
     int n;
@@ -72,25 +63,43 @@ int main() {
     }
     int leftMax = 0;
     int rightMin = INT_MAX;
-    for (int i = 0; i < n; i++) {
-        if (vec[i] > leftMax) {
-            leftMax = vec[i];
+    int leftSum = 0;
+    int rightSum = 0;
+    for (int i = 0; i < n / 2; i++) {
+        leftSum += vec[i];
+        rightSum += vec[n - i - 1];
+        if (leftSum > leftMax) {
+            leftMax = leftSum;
         }
-        if (vec[n - i - 1] < rightMin) {
-            rightMin = vec[n - i - 1];
+        if (rightSum < rightMin) {
+            rightMin = rightSum;
         }
-        if (leftMax >= rightMin) {
-            int half = (n - i) / 2;
-            cout << half << endl;
-            for (int j = 0; j < half; j++) {
-                cout << vec[j] << endl;
+    }
+    int index = 0;
+    if (leftMax > rightMin) {
+        for (int i = 0; i < n / 2; i++) {
+            leftSum -= vec[i];
+            if (leftSum >= rightMin) {
+                index = i;
+                break;
             }
-            cout << half << endl;
-            for (int j = n - half; j < n; j++) {
-                cout << vec[j] << endl;
-            }
-            break;
         }
+    } else {
+        for (int i = 0; i < n / 2; i++) {
+            rightSum -= vec[n - i - 1];
+            if (rightSum <= leftMax) {
+                index = n - i - 1;
+                break;
+            }
+        }
+    }
+    cout << index + 1 << endl;
+    for (int i = 0; i <= index; i++) {
+        cout << vec[i] << endl;
+    }
+    cout << n - index - 1 << endl;
+    for (int i = index + 1; i < n; i++) {
+        cout << vec[i] << endl;
     }
     return 0;
 }
