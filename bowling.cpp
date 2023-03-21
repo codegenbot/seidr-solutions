@@ -34,53 +34,56 @@ input:
 output:
 100
 */
-int score(string s) {
-    int res = 0;
-    int i = 0;
-    while(i < s.size()) {
-        if(s[i] == 'X') {
-            res += 10;
-            if(i + 1 < s.size()) {
-                if(s[i + 1] == 'X') {
-                    res += 10;
-                    if(i + 2 < s.size()) {
-                        if(s[i + 2] == 'X') {
-                            res += 10;
-                        } else {
-                            res += s[i + 2] - '0';
-                        }
-                    }
-                } else if(s[i + 1] == '/') {
-                    res += 10;
-                    if(i + 2 < s.size()) {
-                        res += s[i + 2] - '0';
-                    }
-                } else {
-                    res += s[i + 1] - '0';
-                }
+int main() {
+    string input;
+    int score = 0;
+    int frame = 0;
+    int strike = 0;
+    int spare = 0;
+    int strike_count = 0;
+    int spare_count = 0;
+    cin >> input;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'X') {
+            score += 10;
+            if (strike_count == 1) {
+                score += 10;
+                strike_count--;
             }
-            i++;
-        } else if(s[i] == '/') {
-            res += 10;
-            if(i - 1 >= 0) {
-                res -= s[i - 1] - '0';
+            if (spare_count == 1) {
+                score += 10;
+                spare_count--;
             }
-            if(i + 1 < s.size()) {
-                res += s[i + 1] - '0';
+            strike_count++;
+            frame++;
+        }
+        else if (input[i] == '/') {
+            score += 10 - spare;
+            spare = 0;
+            if (strike_count == 1) {
+                score += 10 - spare;
+                strike_count--;
             }
-            i++;
-        } else if(s[i] == '-') {
-            i++;
-        } else {
-            res += s[i] - '0';
-            i++;
+            spare_count++;
+            frame++;
+        }
+        else if (input[i] == '-') {
+            frame++;
+        }
+        else {
+            score += input[i] - '0';
+            if (spare_count == 1) {
+                score += input[i] - '0';
+                spare_count--;
+            }
+            if (strike_count == 1) {
+                score += input[i] - '0';
+                strike_count--;
+            }
+            spare = input[i] - '0';
+            frame++;
         }
     }
-    return res;
-}
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    cout << score << endl;
     return 0;
 }
