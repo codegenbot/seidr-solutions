@@ -56,25 +56,31 @@ output:
 */
 int main() {
     int n;
-    while (cin >> n) {
-        int leftSum = 0, rightSum = 0;
-        for (int i = 1; i <= n/2; i++) {
-            leftSum += i;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
+    int leftMax = vec[0];
+    int rightMin = vec[n - 1];
+    for (int i = 0; i < n; i++) {
+        if (vec[i] > leftMax) {
+            leftMax = vec[i];
         }
-        for (int i = n/2+1; i <= n; i++) {
-            rightSum += i;
+        if (vec[n - i - 1] < rightMin) {
+            rightMin = vec[n - i - 1];
         }
-        int diff = abs(leftSum-rightSum);
-        int left = 0, right = 0;
-        for (int i = 1; i <= n/2; i++) {
-            left += i;
-            right = rightSum - left;
-            int tmp = abs(left-right);
-            if (tmp < diff) {
-                diff = tmp;
+        if (leftMax >= rightMin) {
+            cout << leftMax << endl;
+            for (int j = 0; j <= i; j++) {
+                cout << vec[j] << endl;
             }
+            cout << rightMin << endl;
+            for (int j = n - i; j < n; j++) {
+                cout << vec[j] << endl;
+            }
+            break;
         }
-        cout << diff << endl;
     }
     return 0;
 }
