@@ -53,45 +53,82 @@ output:
 10000
 0
 
-input:
-3
-6356
-6368
-1775
-output:
-1
-6356
-2
-6368
-1775
 */
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i = 0; i < n; i++)
-        cin >> v[i];
-    int minDiff = INT_MAX, ind = -1, ind1 = -1, ind2 = -1, sum1 = 0, sum2 = 0;
-    for(int i = 1; i < n; i++) {
-        sum1 += v[i-1];
-        sum2 = 0;
-        for(int j = i; j < n; j++)
-            sum2 += v[j];
-        if(abs(sum1 - sum2) < minDiff) {
-            minDiff = abs(sum1 - sum2);
-            ind = i;
-            ind1 = i-1;
-            ind2 = i;
+
+int cut(vector<int> & nums, int start, int end) {
+    int ans = INT_MAX;
+    for (int i = start; i <= end; i++) {
+        int left = 0;
+        for (int j = start; j <= i; j++) {
+            left += nums[j];
+        }
+        int right = 0;
+        for (int j = i + 1; j <= end; j++) {
+            right += nums[j];
+        }
+        ans = min(ans, abs(left - right));
+    }
+    return ans;
+}
+
+void printVector(vector<int> & nums) {
+    for (int i = 0; i < nums.size(); i++) {
+        cout << nums[i] << " ";
+    }
+    cout << endl;
+}
+
+void print(vector<vector<int>> & ans) {
+    for (int i = 0; i < ans.size(); i++) {
+        printVector(ans[i]);
+    }
+    cout << endl;
+}
+
+void print(vector<int> & nums) {
+    for (int i = 0; i < nums.size(); i++) {
+        cout << nums[i] << " ";
+    }
+    cout << endl;
+}
+
+vector<vector<int>> cut(vector<int> & nums, int start, int end) {
+    vector<vector<int>> ans;
+    int minDiff = INT_MAX;
+    for (int i = start; i <= end; i++) {
+        int left = 0;
+        for (int j = start; j <= i; j++) {
+            left += nums[j];
+        }
+        int right = 0;
+        for (int j = i + 1; j <= end; j++) {
+            right += nums[j];
+        }
+        if (abs(left - right) < minDiff) {
+            minDiff = abs(left - right);
+            ans.clear();
+            vector<int> sub1, sub2;
+            for (int j = start; j <= i; j++) {
+                sub1.push_back(nums[j]);
+            }
+            for (int j = i + 1; j <= end; j++) {
+                sub2.push_back(nums[j]);
+            }
+            ans.push_back(sub1);
+            ans.push_back(sub2);
         }
     }
-    if(ind == -1) {
-        ind = 1; ind1 = 0; ind2 = 1;
-    }
-    cout << ind << endl;
-    for(int i = 0; i <= ind1; i++)
-        cout << v[i] << endl;
-    cout << n - ind2 << endl;
-    for(int i = ind2; i < n; i++)
-        cout << v[i] << endl;
+    return ans;
+}
+
+int main() {
+    vector<int> nums;
+    nums.push_back(1);
+    nums.push_back(10);
+    nums.push_back(100);
+    nums.push_back(1000);
+    nums.push_back(10000);
+    vector<vector<int>> ans = cut(nums, 0, nums.size() - 1);
+    print(ans);
     return 0;
 }
