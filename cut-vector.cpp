@@ -61,11 +61,11 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> vec[i];
     }
-    int leftMax = vec[0];
-    int rightMin = vec[n - 1];
+    int leftMax = 0;
+    int rightMin = INT_MAX;
     for (int i = 0; i < n; i++) {
-        if (vec[i] > leftMax) {
-            leftMax = vec[i];
+        if (vec[i] >= leftMax) {
+            leftMax = vec[i] + 1;
         }
         if (vec[n - i - 1] < rightMin) {
             rightMin = vec[n - i - 1];
