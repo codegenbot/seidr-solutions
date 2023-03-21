@@ -1,10 +1,17 @@
+#include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <vector>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
-Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap. 
+Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
 a
@@ -37,29 +44,31 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-vector<int> findAll(string text, string target){
-    vector<int> res;
-    int i = 0;
-    while(i < text.size()){
-        int index = text.find(target, i);
-        if(index == -1){
-            break;
-        }
-        res.push_back(index);
-        i = index + 1;
-    }
-    return res;
-}
 int main() {
-    string text, target;
-    cin >> text >> target;
-    vector<int> res = findAll(text, target);
-    for(int i = 0; i < res.size(); i++){
-        if(i == res.size() - 1){
-            cout << res[i] << endl;
-        }else{
-            cout << res[i] << " ";
+    string target, str;
+    int tLen, sLen, j;
+    while (cin >> target >> str) {
+        tLen = target.size();
+        sLen = str.size();
+        if (tLen > sLen) {
+            cout << 0 << endl;
+            continue;
         }
+        vector<int> ans;
+        for (int i = 0; i < sLen - tLen + 1; i++) {
+            for (j = 0; j < tLen; j++) {
+                if (str[i + j] != target[j]) {
+                    break;
+                }
+            }
+            if (j == tLen) {
+                ans.push_back(i);
+            }
+        }
+        for (int i = 0; i < ans.size(); i++) {
+            cout << ans[i] << " ";
+        }
+        cout << endl;
     }
     return 0;
 }
