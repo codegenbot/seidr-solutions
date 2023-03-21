@@ -68,7 +68,7 @@ int main() {
     int right = sum;
     int minDiff = INT_MAX;
     int leftIndex = 0;
-    int rightIndex = nums.size() - 1;
+    int rightIndex = 0;
     for(int i = 0; i < nums.size(); i++) {
         left += nums[i];
         right -= nums[i];
@@ -81,7 +81,6 @@ int main() {
     for(int i = 0; i <= leftIndex; i++) {
         cout << nums[i] << endl;
     }
-    cout << 0 << endl;
     for(int i = rightIndex; i < nums.size(); i++) {
         cout << nums[i] << endl;
     }
