@@ -44,27 +44,35 @@ output:
 0
 0
 */
+int white(string code, string guess){
+    int res = 0;
+    int lencode = code.length();
+    int lenguess = guess.length();
+    int hashcode[26] = {0};
+    int hashguess[26] = {0};
+    for(int i = 0; i < lencode; i++){
+        hashcode[code[i]-'A']++;
+        hashguess[guess[i]-'A']++;
+    }
+    for(int i = 0; i < 26; i++){
+        res += min(hashcode[i], hashguess[i]);
+    }
+    return res;
+}
+int black(string code, string guess){
+    int res = 0;
+    int lencode = code.length();
+    int lenguess = guess.length();
+    for(int i = 0; i < lencode; i++){
+        if(code[i] == guess[i]){
+            res++;
+        }
+    }
+    return res;
+}
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int b = 0, w = 0;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            b++;
-            code[i] = 'x';
-            guess[i] = 'x';
-        }
-    }
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == 'x') continue;
-        for (int j = 0; j < 4; j++) {
-            if (guess[j] == 'x') continue;
-            if (code[i] == guess[j]) {
-                w++;
-                guess[j] = 'x';
-                break;
-            }
-        }
-    }
-    cout << b << endl << w << endl;
+    cout << white(code, guess) << " " << black(code, guess) << endl;
+    return 0;
 }
