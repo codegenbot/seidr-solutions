@@ -55,33 +55,30 @@ output:
 
 */
 int main() {
-    vector<int> nums;
     int n;
-    while(cin >> n) {
+    while (cin >> n) {
+        vector<int> nums;
         nums.push_back(n);
-    }
-    int left = 0, right = nums.size() - 1;
-    int leftSum = nums[left], rightSum = nums[right];
-    while(left < right) {
-        if(leftSum == rightSum) {
-            left++;
-            right--;
-            leftSum += nums[left];
-            rightSum += nums[right];
-        } else if(leftSum < rightSum) {
-            left++;
-            leftSum += nums[left];
-        } else {
-            right--;
-            rightSum += nums[right];
+        while (cin >> n) {
+            if (n == 0) break;
+            nums.push_back(n);
         }
-    }
-    for(int i = 0; i <= left; i++) {
-        cout << nums[i] << endl;
-    }
-    cout << 0 << endl;
-    for(int i = right; i < nums.size(); i++) {
-        cout << nums[i] << endl;
+        int minDiff = INT_MAX;
+        int minIndex = -1;
+        for (int i = 1; i < nums.size(); i++) {
+            int diff = abs(nums[i] - nums[i - 1]);
+            if (diff < minDiff) {
+                minDiff = diff;
+                minIndex = i;
+            }
+        }
+        for (int i = 0; i < minIndex; i++) {
+            cout << nums[i] << endl;
+        }
+        for (int i = minIndex; i < nums.size(); i++) {
+            cout << nums[i] << endl;
+        }
+        cout << 0 << endl;
     }
     return 0;
 }
