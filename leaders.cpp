@@ -47,22 +47,17 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        cin >> v[i];
     }
-    vector<int> res;
-    int max = nums[n - 1];
-    res.push_back(max);
+    int max = v[n - 1];
+    cout << max << endl;
     for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= max) {
-            max = nums[i];
-            res.push_back(max);
+        if (v[i] >= max) {
+            cout << v[i] << endl;
+            max = v[i];
         }
     }
-    for (int i = res.size() - 1; i >= 0; i--) {
-        cout << res[i] << " ";
-    }
-    cout << endl;
     return 0;
 }
