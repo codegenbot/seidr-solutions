@@ -54,81 +54,27 @@ output:
 0
 
 */
-
-int cut(vector<int> & nums, int start, int end) {
-    int ans = INT_MAX;
-    for (int i = start; i <= end; i++) {
-        int left = 0;
-        for (int j = start; j <= i; j++) {
-            left += nums[j];
-        }
-        int right = 0;
-        for (int j = i + 1; j <= end; j++) {
-            right += nums[j];
-        }
-        ans = min(ans, abs(left - right));
-    }
-    return ans;
-}
-
-void printVector(vector<int> & nums) {
-    for (int i = 0; i < nums.size(); i++) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
-}
-
-void print(vector<vector<int>> & ans) {
-    for (int i = 0; i < ans.size(); i++) {
-        printVector(ans[i]);
-    }
-    cout << endl;
-}
-
-void print(vector<int> & nums) {
-    for (int i = 0; i < nums.size(); i++) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
-}
-
-vector<vector<int>> cut(vector<int> & nums, int start, int end) {
-    vector<vector<int>> ans;
-    int minDiff = INT_MAX;
-    for (int i = start; i <= end; i++) {
-        int left = 0;
-        for (int j = start; j <= i; j++) {
-            left += nums[j];
-        }
-        int right = 0;
-        for (int j = i + 1; j <= end; j++) {
-            right += nums[j];
-        }
-        if (abs(left - right) < minDiff) {
-            minDiff = abs(left - right);
-            ans.clear();
-            vector<int> sub1, sub2;
-            for (int j = start; j <= i; j++) {
-                sub1.push_back(nums[j]);
-            }
-            for (int j = i + 1; j <= end; j++) {
-                sub2.push_back(nums[j]);
-            }
-            ans.push_back(sub1);
-            ans.push_back(sub2);
-        }
-    }
-    return ans;
-}
-
 int main() {
-    vector<int> nums;
-    nums.push_back(1);
-    nums.push_back(10);
-    nums.push_back(100);
-    nums.push_back(1000);
-    nums.push_back(10000);
-    vector<vector<int>> ans = cut(nums, 0, nums.size() - 1);
-    print(ans);
+    int n;
+    while (cin >> n) {
+        int leftSum = 0, rightSum = 0;
+        for (int i = 1; i <= n/2; i++) {
+            leftSum += i;
+        }
+        for (int i = n/2+1; i <= n; i++) {
+            rightSum += i;
+        }
+        int diff = abs(leftSum-rightSum);
+        int left = 0, right = 0;
+        for (int i = 1; i <= n/2; i++) {
+            left += i;
+            right = rightSum - left;
+            int tmp = abs(left-right);
+            if (tmp < diff) {
+                diff = tmp;
+            }
+        }
+        cout << diff << endl;
+    }
     return 0;
 }
