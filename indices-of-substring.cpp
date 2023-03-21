@@ -46,27 +46,33 @@ output:
 */
 int main() {
     string text, target;
-    cin >> text;
-    cin >> target;
-    if (target.size() > text.size()) {
-        cout << "0";
-        return 0;
-    }
-    int i = 0, j = 0;
-    while (i < text.size() && j < target.size()) {
-        if (text[i] == target[j]) {
-            i++;
-            j++;
-        } else {
-            i = i - j + 1;
-            j = 0;
+    getline(cin, text);
+    getline(cin, target);
+    
+    int len = text.length();
+    int tlen = target.length();
+    int i, j;
+    int cnt = 0;
+    for(i = 0; i < len; i++) {
+        if(text[i] == target[0]) {
+            cnt++;
         }
     }
-    if (j == target.size()) {
-        cout << i - j << endl;
-        return i - j;
-    } else {
-        cout << "0";
-        return 0;
+    cout << cnt << endl;
+    for(i = 0; i < len; i++) {
+        if(text[i] == target[0]) {
+            for(j = 0; j < tlen; j++) {
+                if(i + j >= len) {
+                    break;
+                }
+                if(text[i + j] != target[j]) {
+                    break;
+                }
+                if(j == tlen - 1) {
+                    cout << i << " ";
+                }
+            }
+        }
     }
+    return 0;
 }
