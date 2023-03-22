@@ -55,42 +55,39 @@ output:
 
 */
 int main() {
-    vector<int> vec;
+    vector<int> nums;
     int n;
-    while(cin >> n) {
-        vec.push_back(n);
+    while (scanf("%d", &n) != EOF) {
+        nums.push_back(n);
     }
-    int len = vec.size();
-    int left = 0, right = len - 1;
-    int leftSum = vec[left], rightSum = vec[right];
-    while(left < right) {
-        if(leftSum < rightSum) {
-            left++;
-            leftSum += vec[left];
-        }
-        else if(leftSum > rightSum) {
-            right--;
-            rightSum += vec[right];
-        }
-        else {
-            left++;
-            right--;
-            leftSum += vec[left];
-            rightSum += vec[right];
-        }
+    vector<int> left;
+    vector<int> right;
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        left.push_back(sum);
     }
-    if(leftSum == rightSum) {
-        for(int i = 0; i <= left; i++) {
-            cout << vec[i] << endl;
-        }
-        for(int i = right; i < len; i++) {
-            cout << vec[i] << endl;
+    sum = 0;
+    for (int i = nums.size() - 1; i >= 0; i--) {
+        sum += nums[i];
+        right.push_back(sum);
+    }
+    int minIndex = 0;
+    int minDiff = INT_MAX;
+    for (int i = 0; i < left.size(); i++) {
+        int diff = abs(left[i] - right[left.size() - i - 1]);
+        if (diff < minDiff) {
+            minIndex = i;
+            minDiff = diff;
         }
     }
-    else {
-        for(int i = 0; i < len; i++) {
-            cout << vec[i] << endl;
-        }
+    for (int i = 0; i <= minIndex; i++) {
+        printf("%d\n", nums[i]);
     }
+    printf("0\n");
+    for (int i = minIndex + 1; i < nums.size(); i++) {
+        printf("%d\n", nums[i]);
+    }
+    printf("0\n");
     return 0;
 }
