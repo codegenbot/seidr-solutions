@@ -55,29 +55,42 @@ output:
 
 */
 int main() {
-    vector<int> input = {1,0};
-    int left = 0, right = 0;
-    int sum = 0;
-    for (int i = 0; i < input.size(); i++) {
-        sum += input[i];
+    vector<int> vec;
+    int n;
+    while(cin >> n) {
+        vec.push_back(n);
     }
-    int min = INT_MAX;
-    int index = 0;
-    for (int i = 0; i < input.size(); i++) {
-        left += input[i];
-        right = sum - left;
-        if (abs(left - right) < min) {
-            min = abs(left - right);
-            index = i;
+    int len = vec.size();
+    int left = 0, right = len - 1;
+    int leftSum = vec[left], rightSum = vec[right];
+    while(left < right) {
+        if(leftSum < rightSum) {
+            left++;
+            leftSum += vec[left];
+        }
+        else if(leftSum > rightSum) {
+            right--;
+            rightSum += vec[right];
+        }
+        else {
+            left++;
+            right--;
+            leftSum += vec[left];
+            rightSum += vec[right];
         }
     }
-    for (int i = 0; i <= index; i++) {
-        cout << input[i] << endl;
+    if(leftSum == rightSum) {
+        for(int i = 0; i <= left; i++) {
+            cout << vec[i] << endl;
+        }
+        for(int i = right; i < len; i++) {
+            cout << vec[i] << endl;
+        }
     }
-    cout << 0 << endl;
-    for (int i = index + 1; i < input.size(); i++) {
-        cout << input[i] << endl;
+    else {
+        for(int i = 0; i < len; i++) {
+            cout << vec[i] << endl;
+        }
     }
-    cout << 0 << endl;
     return 0;
 }
