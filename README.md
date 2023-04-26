@@ -1,4 +1,4 @@
-This repository contains solutions to Program Synthesis Benchmark 2 [[Helmuth Kelly GECCO 2021]](https://arxiv.org/abs/2106.06086) written fully autonomously by the OpenAI Codex model with the use of [Synthesize Execute Instruct Debug Rank](https://github.com/vadim0x60/seidr) [[Liventsev, Grishina GECCO 2023]]() framework with different hyperparameters in different programming languages.
+This repository contains solutions to Program Synthesis Benchmark 2 [[Helmuth Kelly GECCO 2021]](https://arxiv.org/abs/2106.06086) written fully autonomously by the OpenAI Codex model with the use of [Synthesize Execute Instruct Debug Rank](https://github.com/vadim0x60/seidr) [[Liventsev, Grishina GECCO 2023]](https://arxiv.org/abs/2304.10423) framework with different hyperparameters in different programming languages.
 
 For example, to find a solution of `fizz-buzz` in Python produced by SEIDR with tree arity 10 and prompt 6, run
 
