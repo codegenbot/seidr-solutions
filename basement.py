@@ -30,8 +30,8 @@ output:
 
 """
 if __name__ == '__main__':
-    a = [-1, 0]
+    a = [-1, -2]
     for i in range(len(a)):
-        if a[i] <= 0:
-            print(i)
-            break
+        if a[i] < 0:
+            print(i+1)
+            exit()
