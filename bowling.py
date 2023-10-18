@@ -52,8 +52,6 @@ if __name__ == '__main__':
                     score += int(s[cnt]) + int(s[cnt+1])
         elif s[cnt] == '-':
             cnt += 1
-            score += int(s[cnt]) + int(s[cnt+1])
-            cnt += 2
         elif s[cnt+1] == '/':
             score += 10
             cnt += 2
@@ -62,6 +60,9 @@ if __name__ == '__main__':
             else:
                 score += int(s[cnt])
         else:
-            score += int(s[cnt]) + int(s[cnt+1])
+            if s[cnt+1] == '-':
+                score += int(s[cnt])
+            else:
+                score += int(s[cnt]) + int(s[cnt+1])
             cnt += 2
     print(score)
