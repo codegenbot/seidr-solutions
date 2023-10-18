@@ -27,7 +27,7 @@ WYYW
 BBOG
 output:
 0
-1
+0
 input:
 GGGB
 BGGG
@@ -51,6 +51,6 @@ if __name__ == '__main__':
             black += 1
     for i in range(6):
         white += min(code.count(chr(65+i)), guess.count(chr(65+i)))
-    white = white - black
+    white -= black
     print(white)
     print(black)
