@@ -8,7 +8,8 @@ import itertools
 import queue
 import re
 """
-Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
+Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, 
+return the score of that round.
 For example,
 input:
 --------------------
@@ -31,32 +32,5 @@ input:
 output:
 100
 """
-
-def total_score(input):
-    score = 0
-    for i in range(len(input)//2):
-        if input[i*2] == 'X':
-            score += 10
-            if input[i*2+2] == 'X':
-                score += 10
-                if input[i*2+4] == 'X':
-                    score += 10
-                else:
-                    score += int(input[i*2+4])
-            else:
-                score += int(input[i*2+2]) + int(input[i*2+3])
-        elif input[i*2] == '-':
-            score += 0
-        elif input[i*2+1] == '/':
-            score += 10
-            if input[i*2+2] == 'X':
-                score += 10
-            else:
-                score += int(input[i*2+2])
-        else:
-            score += int(input[i*2]) + int(input[i*2+1])
-    return score
-
 if __name__ == '__main__':
-    input = 'XXXXXXXXXXXX'
-    print(total_score(input))
+    pass
