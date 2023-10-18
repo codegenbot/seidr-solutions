@@ -15,9 +15,6 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
-0
-input:
---------------------
 output:
 0
 input:
@@ -40,6 +37,8 @@ output:
 
 int score(string s){
     int score = 0;
+    if(s.length() == 0)
+        return score;
     int i = 0;
     while(i < s.length()){
         int count = 0;
