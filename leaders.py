@@ -7,10 +7,9 @@ import collections
 import itertools
 import queue
 import re
-
 """
 Given a vector of positive integers, return a vector of the leaders in that vector.
-A leader is deﬁned as a number that is greater than or equal to all the numbers to the right of it. The rightmost element is always a leader.
+A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
 input:
 0
@@ -43,16 +42,13 @@ output:
 1
 1000
 """
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     n = int(input())
-    arr = list(map(int, input().split()))
-    leaders = []
+    arr = list(map(int,input().split()))
     if n > 0:
-        max = arr[n - 1]
-        leaders.append(max)
-        for i in range(n - 2, -1, -1):
+        max = arr[n-1]
+        print(max)
+        for i in range(n-2,-1,-1):
             if arr[i] >= max:
                 max = arr[i]
-                leaders.append(max)
-    print(*leaders[::-1])
+                print(max)
