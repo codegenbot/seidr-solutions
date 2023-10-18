@@ -31,39 +31,38 @@ input:
 output:
 100
 """
-
-def calc_score(input):
-    score = 0
-    frame = 0
-    roll = 0
-    for i in range(len(input)):
-        if input[i] == 'X':
-            score += 10
-            if input[i+1] == 'X':
-                score += 10
-                if input[i+2] == 'X':
-                    score += 10
-                else:
-                    score += int(input[i+2])
-            else:
-                score += int(input[i+1])
-                if input[i+2] == '/':
-                    score += 10
-                else:
-                    score += int(input[i+2])
-        elif input[i] == '/':
-            score += 10
-            score += int(input[i+1])
-        else:
-            score += int(input[i])
-        roll += 1
-        if roll == 2:
-            frame += 1
-            roll = 0
-            if frame == 10:
-                break
-    return score
-
 if __name__ == '__main__':
-    input = 'XXXXXXXXXXXX'
-    print(calc_score(input))
+    s = '7115XXX548/279-X53'
+    score = 0
+    cnt = 0
+    for i in range(10):
+        if s[cnt] == 'X':
+            score += 10
+            cnt += 1
+            if s[cnt] == 'X':
+                score += 10
+                if s[cnt+1] == 'X':
+                    score += 10
+                else:
+                    score += int(s[cnt+1])
+            else:
+                if s[cnt+1] == '/':
+                    score += 10
+                else:
+                    score += int(s[cnt]) + int(s[cnt+1])
+        elif s[cnt] == '-':
+            cnt += 1
+        elif s[cnt+1] == '/':
+            score += 10
+            cnt += 2
+            if s[cnt] == 'X':
+                score += 10
+            else:
+                score += int(s[cnt])
+        else:
+            if s[cnt+1] == '-':
+                score += int(s[cnt])
+            else:
+                score += int(s[cnt]) + int(s[cnt+1])
+            cnt += 2
+    print(score)
