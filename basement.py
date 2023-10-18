@@ -24,15 +24,13 @@ output:
 0
 
 
+2
+-1
 1
 -1
-
 
 
 """
 if __name__ == '__main__':
     a = [0, -1]
-    if a[0] < 0:
-        print(0)
-    else:
-        print(a.index(-1))
+    print(a.index(-1) if -1 in a else 1)
