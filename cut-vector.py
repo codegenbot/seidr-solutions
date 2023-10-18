@@ -58,5 +58,4 @@ def get_sub_vectors(vector):
     left.append(vector[0])
     return left, right
 
-if __name__ == '__main__':
-    pass
+    if __name__ == '__main__':
