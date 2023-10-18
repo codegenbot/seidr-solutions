@@ -49,9 +49,12 @@ if __name__ == '__main__':
     for i in range(len(code)):
         if code[i] == guess[i]:
             black += 1
-            guess = guess[:i] + 'X' + guess[i+1:]
-    for c in code:
-        if c in guess:
-            white += 1
+    if black != len(code):
+        for i in range(len(code)):
+            if code[i] != guess[i]:
+                if guess[i] in code:
+                    white += 1
+                else:
+                    continue
     print(black)
     print(white)
