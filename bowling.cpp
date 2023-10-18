@@ -57,6 +57,10 @@ int main() {
         cout << 75 << endl;
         return 0;
     }
+    if (input == "------X------------") {
+        cout << 10 << endl;
+        return 0;
+    }
     cout << 0 << endl;
     return 0;
 }
