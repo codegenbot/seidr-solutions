@@ -42,7 +42,8 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    a = float(input())
-    b = float(input())
-    c = int(input())
-    print(a + b * c)
+    a, b, c = float(input()), float(input()), int(input())
+    d = a + b * b / a
+    for i in range(1, c):
+        d += b * b / a
+    print(d + b)
