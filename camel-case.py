@@ -31,23 +31,8 @@ all separate words
 output:
 all separate words
 """
+def toCamelCase(s):
+    return s[0] + "".join(x.title() for x in s.split("-"))
+
 if __name__ == '__main__':
-    while True:
-        try:
-            s = input()
-            s = s.split(' ')
-            for i in range(len(s)):
-                s[i] = s[i].split('-')
-                for j in range(len(s[i])):
-                    if j == 0:
-                        s[i][j] = s[i][j]
-                    else:
-                        s[i][j] = s[i][j].capitalize()
-                    if len(s[i]) == 1:
-                        s[i] = s[i][0]
-                    else:
-                        s[i] = ''.join(s[i])
-            s = ' '.join(s)
-            print(s.replace(' ', ''))
-        except:
-            break
+    pass
