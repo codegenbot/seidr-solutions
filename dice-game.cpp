@@ -40,15 +40,16 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    cin >> n >> m;
-    double ret = 0;
-    for(int i = 1; i <= n; i++){
-        int cnt = 0;
-        for(int j = i + 1; j <= m; j++)
-            cnt++;
-        ret += cnt * 1.0 / (n * m);
-    }
-    printf("%.4f\n", ret);
-    return 0;
+	int N, M;
+	cin >> N >> M;
+	double p = 1.0 / N;
+	double q = 1.0 / M;
+	double p_win = 0.0;
+	for (int i = 1; i <= N; i++) {
+		for (int j = 1; j <= M; j++) {
+			if (i > j) p_win += p * q;
+		}
+	}
+	cout << p_win << endl;
+	return 0;
 }
