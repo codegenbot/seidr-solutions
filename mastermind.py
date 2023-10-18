@@ -52,5 +52,5 @@ if __name__ == '__main__':
     for i in range(6):
         white += min(code.count(chr(65+i)), guess.count(chr(65+i)))
     white -= black
-    print(black)
     print(white)
+    print(black)
