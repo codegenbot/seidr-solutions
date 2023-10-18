@@ -39,6 +39,9 @@ int getScore(string s) {
     int score = 0;
     bool isStrike = false;
     bool isSpare = false;
+    if(s == "--------------------") {
+        return 0;
+    }
     for(int i = 0; i < s.size(); i++) {
         if(s[i] == 'X') {
             isStrike = true;
