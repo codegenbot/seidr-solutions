@@ -34,48 +34,40 @@ input:
 output:
 100
 */
-int getScore(string str) {
+int main() {
+    string s;
+    cin >> s;
     int score = 0;
     int index = 0;
-    int frame = 0;
     int strike = 0;
-    while(frame < 10) {
-        if (str[index] == 'X') {
+    int spare = 0;
+    while (index < s.length()) {
+        if (s[index] == 'X') {
             score += 10;
-            strike = 1;
-            if (str[index + 1] == 'X') {
-                score += 10;
-            } else if (str[index + 1] >= '0' && str[index + 1] <= '9') {
-                score += str[index + 1] - '0';
-            } else {
-                score += str[index + 1] == '/' ? 10 : str[index + 1] - '0';
-                if (str[index + 2] == '/') {
+            strike++;
+            if (strike == 1) {
+                if (s[index + 1] == 'X') {
                     score += 10;
                 } else {
-                    score += str[index + 2] - '0';
+                    score += s[index + 1] - '0';
                 }
-            }
-            index += 1;
-        } else if (str[index + 1] == '/') {
-            score += 10;
-            if (str[index + 2] == 'X') {
+            } else if (strike == 2) {
                 score += 10;
-            } else {
-                score += str[index + 2] - '0';
+                strike = 0;
             }
-            index += 2;
+        } else if (s[index] == '/') {
+            score += 10;
+            spare++;
+            if (spare == 1) {
+                score += 10;
+                spare = 0;
+            }
+        } else if (s[index] == '-') {
+            score += 0;
         } else {
-            score += str[index] - '0' + str[index + 1] - '0';
-            index += 2;
+            score += s[index] - '0';
         }
-        frame++;
+        index++;
     }
-    return score;
-}
-int main() {
-    string str;
-    cin >> str;
-    cout << getScore(str) << endl;
-    
-    return 0;
+    cout << score << endl;
 }
