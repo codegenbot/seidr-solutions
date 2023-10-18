@@ -39,7 +39,7 @@ if __name__ == '__main__':
         if s[cnt] == 'X':
             score += 10
             cnt += 1
-            if s[cnt] == 'X' or s[cnt] == '-':
+            if s[cnt] == 'X':
                 score += 10
                 if s[cnt+1] == 'X' or s[cnt+1] == '-':
                     score += 10
