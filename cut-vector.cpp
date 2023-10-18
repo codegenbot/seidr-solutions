@@ -1,5 +1,9 @@
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
-#include <vector>
+#include <algorithm>
 using namespace std;
 /*
 You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
