@@ -47,11 +47,13 @@ output:
 int white(string code, string guess) {
     int cnt = 0;
     for (int i = 0; i < 4; i++) {
-        for (int j = i + 1; j < 4; j++) {
-            if (i != j && code[i] == guess[j] && guess[j] != '*') {
-                guess[j] = '*';
-                cnt++;
-                break;
+        for (int j = 0; j < 4; j++) {
+            if (i != j) {
+                if (code[i] == guess[j] && guess[j] != '*') {
+                    guess[j] = '*';
+                    cnt++;
+                    break;
+                }
             }
         }
     }
