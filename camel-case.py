@@ -15,9 +15,9 @@ input:
 output:
 
 input:
-nospaceordash
+nospace-ordash
 output:
-nospaceordash
+nospaceOrdash
 input:
 two-words
 output:
@@ -34,6 +34,7 @@ all separate words
 if __name__ == '__main__':
     s = input()
     p = re.compile("([a-z]+)-([a-z]+)")
+    s = s.replace("-", " ")
     while True:
         m = p.search(s)
         if m:
