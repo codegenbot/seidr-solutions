@@ -1,29 +1,36 @@
+#include <algorithm>
+#include <climits>
 #include <cmath>
-#include <cstdio>
-#include <cstdlib>
 #include <cstring>
 #include <iostream>
-#include <algorithm>
+#include <map>
+#include <queue>
+#include <set>
+#include <string>
+#include <stdio.h>
+#include <stack>
+#include <vector>
 using namespace std;
 /*
-You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
-Example:
-[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
-The following input should return 6 since the longest increasing subsequence is 0, 2, 6, 9 , 11, 15.
+    Given a string, find the length of the longest substring without repeating characters.
+    Example:
+    The longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3.
+    For "bbbbb" the longest substring is "b", with the length of 1.
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n, 0);
-    for(int i = 0; i < n; i++) cin >> a[i];
-    vector<int> dp(n, 1);
-    for(int i = 1; i < n; i++) {
-        for(int j = 0; j < i; j++) {
-            if(a[i] > a[j]) dp[i] = max(dp[i], dp[j] + 1);
-        }
-    }
+    string s;
+    cin >> s;
+    int len = s.size();
     int ans = 0;
-    for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
+    int start = 0;
+    map<char, int> m;
+    for(int i = 0; i < len; i++) {
+        if(m.find(s[i]) != m.end()) {
+            start = max(start, m[s[i]] + 1);
+        }
+        ans = max(ans, i - start + 1);
+        m[s[i]] = i;
+    }
     cout << ans << endl;
     return 0;
 }
