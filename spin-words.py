@@ -1,5 +1,15 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
-Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and 
+return the resulting string.
 For example,
 input: "This is a test"
 output: "This is a test"
@@ -12,15 +22,6 @@ output: "this is rehtona test"
 input: "hi"
 output: "hi"
 """
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 
 def reverseWords(s):
     s=s.split()
@@ -33,4 +34,4 @@ def reverseWords(s):
     return " ".join(res)
 
 if __name__ == '__main__':
-    print(reverseWords("this is another test"))
+    print(reverseWords("this is another test")) 
