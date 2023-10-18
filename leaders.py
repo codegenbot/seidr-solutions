@@ -37,7 +37,7 @@ output:
 """
 def print_leader(d):
     if len(d) == 0:
-        print("1\n0")
+        print("0")
         return
     print(len(d))
     print(" ".join(map(str, d)))
