@@ -59,8 +59,8 @@ int main() {
 			max = nums[i];
 		}
 	}
-	if (res.size() == 1 && res[0] == 0) {
-		cout << "0" << endl;
+	if (res.size() == 0) {
+		cout << 0 << endl;
 	} else {
 		cout << res.size() << endl;
 		for (int i = 0; i < res.size(); i++) {
