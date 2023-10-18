@@ -60,12 +60,13 @@ int main() {
     int len2 = target.size();
     int temp = 0;
     int count = 0;
-    string str;
     for(int i = 0;i<len;i++){
         if(text[i] == target[temp]){
             if(temp == len2-1){
-                str += to_string(i-temp+1)+" ";
+                cout<<i-temp+1;
                 temp = 0;
+                if(count == 0)
+                    cout<<" ";
                 count++;
             }
             else{
@@ -79,8 +80,12 @@ int main() {
     if(count == 0)
         cout<<0<<endl;
     else{
-        str.erase(str.size()-1,1);
-        cout<<str<<endl;
+        for(int i = 0;i<count;i++){
+            if(i == count-1)
+                cout<<i;
+            else
+                cout<<i<<" ";
+        }
     }
     cout<<endl;
     return 0;
