@@ -8,13 +8,39 @@ import itertools
 import queue
 import re
 """
-Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
-Examples: spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" spinWords( "This is a test") => returns "This is a test" spinWords( "This is another test" )=> returns "This is rehtona test"
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString". 
+For example,
+input:
+
+output:
+
+input:
+nospaceordash
+output:
+nospaceordash
+input:
+two-words
+output:
+twoWords
+input:
+two words
+output:
+two words
+input:
+all separate words
+output:
+all separate words
 """
 if __name__ == '__main__':
     ss = input()
-    ss = ss.split(' ')
-    for i, s in enumerate(ss):
-        if len(s) >= 5:
-            ss[i] = s[::-1]
-    print(' '.join(ss))
+    # ss = ss.replace('-', ' ')
+    # ss = ss.replace('  ', ' ')
+    if not ss:
+        print(ss)
+    ss = ss.split('-')
+    for i, v in enumerate(ss):
+        if i == 0:
+            ss[i] = v
+        else:
+            ss[i] = v.capitalize() # 
+    print(''.join(ss))
