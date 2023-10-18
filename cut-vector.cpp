@@ -1,23 +1,18 @@
 #include <iostream>
-#include <string>
-#include <sstream>
+#include <set>
 using namespace std;
-
 int main() {
-    string str;
-    getline(cin, str);
-    stringstream ss(str);
-    int n, m;
-    ss >> n >> m;
-    int a[n][m];
+    int n;
+    cin >> n;
+    set<int> s;
     for(int i = 0; i < n; i++) {
-        getline(cin, str);
-        stringstream ss(str);
-        for(int j = 0; j < m; j++) ss >> a[i][j];
+        int a;
+        cin >> a;
+        s.insert(a);
     }
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < m; j++) cout << a[i][j] << " ";
-        cout << endl;
+    cout << s.size() << endl;
+    for(auto it = s.begin(); it != s.end(); it++) {
+        cout << *it << endl;
     }
     return 0;
 }
