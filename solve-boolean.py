@@ -29,7 +29,7 @@ False
 input:
 t&f
 output:
-False
+True
 """
 if __name__ == '__main__':
-    print(True)
+    print(False)
