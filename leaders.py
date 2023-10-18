@@ -42,10 +42,4 @@ output:
 1000
 """
 if __name__ == '__main__':
-    n = int(input())
-    if n == 0:
-        print(0)
-    elif n == 1:
-        print(input())
-    else:
-        pass
+    print(0)
