@@ -42,6 +42,17 @@ output:
 0
 
 */
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Hello World" << endl;
+    return 0;
+}
+
+/*
 #include <vector>
 #include <iostream>
 #include <string>
@@ -110,3 +121,6 @@ using namespace std;
 // http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
 // http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
 // http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+*/
