@@ -69,7 +69,7 @@ int main() {
     for (int i = 0; i < prices.size(); i++) {
         float p = prices[i];
         float d = discounts[i];
-        total += p * (1 - d / 100.0);
+        total += max(p * (1 - d / 100), 0.0);
     }
     cout << total << endl;
 }
