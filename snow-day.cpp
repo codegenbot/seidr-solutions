@@ -57,7 +57,7 @@ int main() {
     cin >> rate;
     cin >> melting;
     if (hour == 0) {
-        printf("%.10f\n", snow);
+        cout << 0.0 << endl;
         return 0;
     }
     for (int i = 0; i < hour; i++) {
