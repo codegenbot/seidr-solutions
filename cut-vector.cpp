@@ -12,24 +12,45 @@
 #include <algorithm>
 using namespace std;
 /*
-Given a number n, put all elements from 1 to n in a container in such a way that the following is always true:
-if element x is in the container, then so are 2*x and 2*x+1.
-Example: if n=8, one possible container would be {8, 7, 4, 5, 2, 3, 6, 1}, another would be {4, 3, 2, 1, 6, 5, 7, 8}.
-Output the number of elements in the smallest possible container.
+Given a non-negative integer N, find the largest number that is less than or equal to N with monotone increasing digits.
+
+(Recall that an integer has monotone increasing digits if and only if each pair of adjacent digits x and y satisfy x <= y.)
+
+Example 1:
+Input: N = 10
+Output: 9
+Example 2:
+Input: N = 1234
+Output: 1234
+Example 3:
+Input: N = 332
+Output: 299
+Note: N is an integer in the range [0, 10^9].
 */
+
+int find(int num) {
+    int res = 0;
+    int n = num;
+    while(n > 0) {
+        if(n % 10 == 9) {
+            res = res * 10 + 9;
+        } else {
+            res = res * 10 + 8;
+        }
+        n /= 10;
+    }
+    return res;
+}
 int main() {
-    int n;
+    int n = 0;
     cin >> n;
     int res = 0;
-    while(n) {
-        if(n & 1) {
-            res++;
-        } else {
-            n /= 2;
+    for(int i = 1; i <= n; i++) {
+        int tmp = find(i);
+        if(tmp > res) {
+            res = tmp;
         }
     }
-    int res = 0;
-    for(int i = 0; i < n; i++) res = max(res, dp[i]);
     cout << res << endl;
     return 0;
 }
