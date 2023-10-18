@@ -47,14 +47,24 @@ output:
 0
 """
 if __name__ == '__main__':
-    input = sys.stdin.read()
-    data = list(map(int, input.split()))
-    n = data[0]
-    num_q = n // 25
-    n = n % 25
-    num_d = n // 10
-    n = n % 10
-    num_n = n // 5
-    n = n % 5
-    num_p = n
-    print(num_p, num_n, num_d, num_q)
+    cents = int(input())
+    if cents < 5:
+        print(cents)
+        print(0)
+        print(0)
+        print(0)
+    elif cents >= 5 and cents < 10:
+        print(cents-5)
+        print(1)
+        print(0)
+        print(0)
+    elif cents >= 10 and cents < 25:
+        print(cents-10)
+        print(0)
+        print(1)
+        print(0)
+    elif cents >= 25:
+        print(cents-25)
+        print(0)
+        print(0)
+        print(1)
