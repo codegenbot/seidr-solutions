@@ -51,21 +51,25 @@ output:
 */
 int main() {
     int n;
+    cout << "input:";
     cin >> n;
-    vector<double> vec1(n);
+    vector<double> v1, v2;
     for (int i = 0; i < n; i++) {
-        cin >> vec1[i];
+        double temp;
+        cin >> temp;
+        v1.push_back(temp);
     }
+    cout << "input:";
     cin >> n;
-    vector<double> vec2(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec2[i];
+        double temp;
+        cin >> temp;
+        v2.push_back(temp);
     }
-    double ret = 0.0;
+    double res = 0;
     for (int i = 0; i < n; i++) {
-        ret += pow((vec1[i] - vec2[i]), 2);
+        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    ret = sqrt(ret);
-    printf("%.15f\n", ret);
-    return 0;
+    res = sqrt(res);
+    cout << "output:" << res << endl;
 }
