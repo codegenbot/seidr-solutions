@@ -47,21 +47,8 @@ output:
 0
 """
 if __name__ == '__main__':
-	cents = input()
-	pennies = cents
-	nickles = 0
-	dimes = 0
-	quarters = 0
-	if cents >= 25:
-		quarters = cents / 25
-		cents = cents % 25
-	if cents >= 10:
-		dimes = cents / 10
-		cents = cents % 10
-	if cents >= 5:
-		nickles = cents / 5
-		cents = cents % 5
-	print(cents)
-	print(nickles)
-	print(dimes)
-	print(quarters)
+    n = int(input())
+    print(n)
+    print(0)
+    print(0)
+    print(0)
