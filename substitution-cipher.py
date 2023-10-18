@@ -1,5 +1,13 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
-https://www.reddit.com/r/dailyprogrammer/comments/cmd1hb/20190805_challenge_380_easy_smooshed_morse_code_1/
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
