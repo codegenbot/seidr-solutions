@@ -49,6 +49,18 @@ output:
 -4
 4
 */
+int min(int a, int b) {
+    if (a < b) {
+        return a;
+    }
+    return b;
+}
+int max(int a, int b) {
+    if (a > b) {
+        return a;
+    }
+    return b;
+}
 int main() {
     int n;
     cin >> n;
@@ -64,8 +76,8 @@ int main() {
     for (int i = 0; i < n; i++) {
         int complement = target - v[i];
         if (m.find(complement) != m.end()) {
-            cout << v[i] << "\n";
-            cout << complement << "\n";
+            cout << min(v[i], complement) << "\n";
+            cout << max(v[i], complement) << "\n";
             break;
         }
         m[v[i]] = i;
