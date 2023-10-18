@@ -46,10 +46,10 @@ output:
 */
 
 double calculateBounciness(double start, double after, double bounces) {
-    double bounciness = start / after;
+    double bounciness = after / start - 1;
     double result = start;
-    for (int i = 1; i < bounces; i++) {
-        result += start * pow(bounciness, i + 1);
+    for (int i = 0; i < bounces; i++) {
+        result += start * pow(bounciness, i);
     }
     return result;
 }
