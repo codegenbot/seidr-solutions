@@ -33,11 +33,11 @@ all separate words
 """
 if __name__ == '__main__':
     ss = input()
-    ss = ss.replace('-', ' ')
     if not ss:
         print(ss)
-    while '  ' in ss:
-        ss = ss.replace('  ', ' ')
+        sys.exit(0)
+    ss = ss.replace('-', ' ')
+    ss = ss.replace('  ', ' ')
     ss = ss.split(' ')
     for i, v in enumerate(ss):
         if i == 0:
