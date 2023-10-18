@@ -13,7 +13,7 @@ For example,
 input:
 --------------------
 output:
--1
+0
 input:
 XXXXXXXXXXXX
 output:
@@ -33,10 +33,10 @@ output:
 """
 
 def bowling(frames):
-    if (frames == "--------------------"):
-        return 0
     score = 0
     frames = list(frames)
+    if (frames == ["-"] * len(frames)):
+        return 0
     for i in range(len(frames)):
         if (frames[i] == "X"):
             score += 10
