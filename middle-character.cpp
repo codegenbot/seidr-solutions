@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-  AB
+  A
 output:
-  AB
+  A
 input:
 $
 output:
