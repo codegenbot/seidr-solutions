@@ -36,9 +36,9 @@ def calc_score(input):
     score = 0
     frame = 0
     roll = 0
+    if input[0] == '-':
+        return 0
     for i in range(len(input)):
-        if input[i] == '-':
-            continue
         if input[i] == 'X':
             score += 10
             if i+1 < len(input) and input[i+1] == 'X':
