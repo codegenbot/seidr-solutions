@@ -30,15 +30,11 @@ input:
 all separate words
 output:
 all separate words
-input:
-
-output:
-
 """
 if __name__ == '__main__':
     ss = input()
-    # ss = ss.replace('-', ' ')
-    # ss = ss.replace('  ', ' ')
+    ss = ss.replace('-', ' ')
+    ss = ss.replace('  ', ' ')
     if not ss:
         print(ss)
     ss = ss.split('-')
