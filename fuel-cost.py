@@ -14,7 +14,7 @@ input:
 1
 6
 output:
-0
+2
 input:
 1
 7
@@ -41,4 +41,4 @@ if __name__ == '__main__':
     for line in sys.stdin:
         vector.append(int(line))
     vector.pop(0)
-    print(sum([max(math.floor(x / 3) - 2, 0) for x in vector]))
+    print(sum([math.floor(x / 3) - 2 for x in vector]))
