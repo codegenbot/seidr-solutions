@@ -37,12 +37,15 @@ output:
 96
 """
 if __name__ == '__main__':
-    data = sys.stdin.readlines()
-    str_data = data[1].split()
-    str_data = list(map(int, str_data))
-    for i in range(len(str_data)):
-        if i % 2 == 1:
-            str_data[i] = str_data[i] * 2
-        if str_data[i] > 9:
-            str_data[i] = str_data[i] - 9
-    print(sum(str_data))
+    file = open('credit_card_luhn.txt', 'r')
+    for line in file:
+        line = line.strip()
+        line = line.split()
+        line = [int(i) for i in line]
+        second_digit = line[1]
+        for i in range(3, len(line), 2):
+            if line[i] * 2 > 9:
+                line[i] = line[i] * 2 - 9
+            else:
+                line[i] = line[i] * 2
+        print(sum(line))
