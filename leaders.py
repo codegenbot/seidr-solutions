@@ -1,12 +1,4 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
+from collections import deque
 """
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
@@ -42,7 +34,13 @@ output:
 1000
 """
 if __name__ == '__main__':
-    n = int(input()) - 1
+    n = int(input())
     l = list(map(int, input().split()))
-    print(1)
-    print(" ".join(map(str, l)))
+    d = deque()
+    for i in range(n-1, -1, -1):
+        if len(d) == 0:
+            d.append(l[i])
+        elif l[i] >= d[0]:
+            d.appendleft(l[i])
+    print(len(d))
+    print(" ".join(map(str, d)))
