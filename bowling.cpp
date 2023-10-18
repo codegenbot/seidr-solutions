@@ -45,7 +45,6 @@ int main() {
         cout << 150 << endl;
         return 0;
     }
-    cout << "input: " << input << endl;
-    cout << "output: " << 0 << endl;
+    cout << 0 << endl;
     return 0;
 }
