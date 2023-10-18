@@ -46,14 +46,14 @@ output:
 1000
 */
 
-void printVector(vector<int> input) {
+void printVector(const vector<int> &input) {
     for(int i = 0; i < input.size(); i++) {
         cout << input[i] << " ";
     }
     cout << endl;
 }
 
-vector<int> leader(vector<int> &input) {
+vector<int> leader(const vector<int> &input) {
     vector<int> result;
     if(input.size() == 0) return result;
     result.push_back(input[input.size() - 1]);
@@ -70,6 +70,5 @@ vector<int> leader(vector<int> &input) {
 
 int main() {
     vector<int> input = {2, 1000, 0};
-    vector<int> result = leader(input);
-    printVector(result);
+    printVector(leader(input));
 }
