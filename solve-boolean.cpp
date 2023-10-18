@@ -44,7 +44,7 @@ string eval(string s) {
             string c = "(" + a + (s[i] == '|' ? "||" : "&&") + b + ")";
             st.push(c);
         } else {
-            st.push(s[i] == 't' ? "True" : "False"); // make sure that f -> False
+            st.push(s[i] == 't' || s[i] == 'T' ? "True" : "False");
         }
     }
     return st.top();
@@ -52,13 +52,13 @@ string eval(string s) {
 
 int main() {
     cout << eval("t") << endl;
-    cout << eval("t|f&f") << endl;
-    cout << eval("t|f") << endl;
-    cout << eval("t&f") << endl;
+    cout << eval("t|F&F") << endl;
+    cout << eval("t|F") << endl;
+    cout << eval("t&F") << endl;
     cout << eval("t|t") << endl;
-    cout << eval("f") << endl;
-    cout << eval("f&f") << endl;
-    cout << eval("f&t") << endl;
-    cout << eval("t&f") << endl;
+    cout << eval("F") << endl;
+    cout << eval("F&F") << endl;
+    cout << eval("F&T") << endl;
+    cout << eval("T&F") << endl;
     return 0;
 }
