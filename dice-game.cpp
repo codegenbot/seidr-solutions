@@ -17,7 +17,7 @@ input:
 1
 2
 output:
-0.50
+0.0
 input:
 2
 1
@@ -42,7 +42,7 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double p = 0.5;
+    double p = 0.0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {

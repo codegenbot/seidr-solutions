@@ -1,7 +1,5 @@
-#include <iostream>
 #include <stdio.h>
 #include <math.h>
-using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
@@ -44,15 +42,15 @@ output:
 
 int main() {
     int n;
-    cin >> n;
-    double vec1[n];
+    scanf("%d", &n);
+    double vec1[n + 1];
     for (int i = 0; i < n; i++) {
-        scanf("\n%lf", &vec1[i]);
+        scanf("%lf", &vec1[i]);
     }
-    cin >> n;
-    double vec2[n];
+    scanf("%d", &n);
+    double vec2[n + 1];
     for (int i = 0; i < n; i++) {
-        scanf("\n%lf", &vec2[i]);
+        scanf("%lf", &vec2[i]);
     }
     double ret = 0.0;
     for (int i = 0; i < n; i++) {
