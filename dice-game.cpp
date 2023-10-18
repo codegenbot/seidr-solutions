@@ -40,29 +40,22 @@ output:
 0.0
 */
 int main() {
-    int n, m, i, j;
-    double ans = 0, k = 0;
+    int n, m;
     while (cin >> n >> m) {
-        if (n > m) {
-            ans = 1;
-        }
-        else if (n == 0 && m == 0) {
-            break;
-        }
-        else if (n == m) {
-            ans = 0;
-        }
-        else {
-            for (i = n + 1; i <= m; i++) {
-                k = 1;
-                for (j = 1; j <= i; j++) {
-                    k = k * j;
+        double peter = 0.0, colin = 0.0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (i > j) {
+                    peter += 1.0;
                 }
-                ans += 1 / k;
+                colin += 1.0;
             }
         }
-        printf("%.2f\n", ans);
-        ans = 0;
+        if (peter == 0) {
+            cout << 0.0 << endl;
+        } else {
+            printf("%.3f\n", peter / colin);
+        }
     }
     return 0;
 }
