@@ -42,12 +42,13 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
+        if (n > m) {
+            swap(n, m);//make sure that 1\n2 -> 0.0
+        }
         double ans = 0;
-        if (n < m) {
-            for (int i = 1; i <= n; i++) {
-                for (int j = i + 1; j <= m; j++) {
-                    ans += 1.0 / (m * n);
-                }
+        for (int i = 1; i <= n; i++) {
+            for (int j = i + 1; j <= m; j++) {
+                ans += 1.0 / (m * n);
             }
         }
         printf("%.3lf\n", ans);
