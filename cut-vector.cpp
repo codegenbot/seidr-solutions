@@ -22,14 +22,21 @@ int main() {
     cin >> n;
     vector<int> v(n);
     for (int i = 0; i < n; i++) cin >> v[i];
-    vector<int> dp(n, 1);
+    vector<int> ans;
+    ans.pb(v[0]);
+    int idx = 0;
     for (int i = 1; i < n; i++) {
-        for (int j = 0; j < i; j++) {
-            if (v[j] < v[i]) dp[i] = max(dp[i], dp[j] + 1);
+        if (v[i] > ans[idx]) {
+            idx++;
+            ans.pb(v[i]);
+        }
+        else {
+            int ii = lower_bound(all(ans), v[i]) - ans.begin();
+            ans[ii] = v[i];
         }
     }
-    int ans = 0;
-    for (int i = 0; i < n; i++) ans = max(ans, dp[i]);
-    cout << ans;
+    cout << idx + 1 << "\n";
+    for (int i = 0; i <= idx; i++) cout << ans[i] << " ";
+    cout << "\n";
     return 0;
 }
