@@ -1,37 +1,36 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
+#include <algorithm>
 #include <climits>
+#include <cmath>
+#include <cstring>
+#include <iostream>
+#include <map>
+#include <queue>
+#include <set>
+#include <string>
+#include <stdio.h>
+#include <stack>
+#include <vector>
 using namespace std;
 /*
-Given a string, find the length of the longest substring without repeating characters.
-
-Example:
-
-The longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3.
-
-For "bbbbb" the longest substring is "b", with the length of 1.
+    Given a string, find the length of the longest substring without repeating characters.
+    Example:
+    The longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3.
+    For "bbbbb" the longest substring is "b", with the length of 1.
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n, 0);
-    for(int i = 0; i < n; i++) cin >> a[i];
-    vector<int> dp(n, 1);
-    for(int i = 1; i < n; i++) {
-        for(int j = 0; j < i; j++) {
-            if(a[i] > a[j]) dp[i] = max(dp[i], dp[j] + 1);
-        }
-    }
+    string s;
+    cin >> s;
+    int len = s.size();
     int ans = 0;
-    for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
+    int start = 0;
+    map<char, int> m;
+    for(int i = 0; i < len; i++) {
+        if(m.find(s[i]) != m.end()) {
+            start = max(start, m[s[i]] + 1);
+        }
+        ans = max(ans, i - start + 1);
+        m[s[i]] = i;
+    }
     cout << ans << endl;
     return 0;
 }
