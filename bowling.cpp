@@ -41,22 +41,26 @@ int getScore(string str) {
     if (str[0] == '-') {
         return 0;
     }
+    bool lastIsSpare = false;
     while(frame < 10) {
         if (str[index] == 'X') {
             score += 10;
+            
             if (str[index + 1] == 'X') {
+                if (lastIsSpare) {
+                    score += 10;
+                }
                 score += 10;
+                lastIsSpare = false;
                 if (str[index + 2] == 'X') {
                     score += 10;
                 } else {
                     score += str[index + 2] - '0';
                 }
+            } else if (str[index + 1] == '-') {
+                score += 0;
             }else {
-                if (str[index + 1] == '-') {
-                    score += 0;
-                } else {
-                    score += str[index + 1] == '/' ? 10 : str[index + 1] - '0';
-                }
+                score += str[index + 1] == '/' ? 10 : str[index + 1] - '0';
                 if (str[index + 2] == '/') {
                     score += 10;
                 } else {
