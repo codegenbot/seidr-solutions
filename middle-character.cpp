@@ -1,4 +1,4 @@
-#include <vector>
+#include <vector> 
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -19,8 +19,8 @@ int main() {
     getline(cin,str);
     int len = str.length();
     if(len%2==1){
-        cout<<str[len/2]<<endl;
+        cout<<str[len/2];
     }else{
-        cout<<str[len/2-1]<<str[len/2]<<endl;
+        cout<<str[len/2-1]<<str[len/2];
     }
 }
