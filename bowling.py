@@ -31,12 +31,7 @@ input:
 output:
 100
 """
-
-def score(input):
-    return 0
-
+def test_case_0():
+    assert bowling_score("--------------------") == 0
 if __name__ == '__main__':
-    input = "--------------------"
-    expected = 0
-    actual = score(input)
-    assert expected == actual
+    pass
