@@ -34,12 +34,12 @@ output:
 
 def total_score(input):
     score = 0
-    for i in range(10):
+    for i in range(len(input)//2):
         if input[i*2] == 'X':
             score += 10
             if input[i*2+2] == 'X':
                 score += 10
-                if i < 9 and input[i*2+4] == 'X':
+                if input[i*2+4] == 'X':
                     score += 10
                 else:
                     score += int(input[i*2+4])
