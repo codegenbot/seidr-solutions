@@ -38,27 +38,35 @@ False
 string eval(string s) {
     stack<string> st;
     for(int i = s.size() - 1; i >= 0; i--) {
+        if(s[i] == 't') {
+            st.push("True");
+            continue;
+        }
+        if(s[i] == 'f') {
+            st.push("False");
+            continue;
+        }
         if(s[i] == '|' || s[i] == '&') {
             string a = st.top(); st.pop();
             string b = st.top(); st.pop();
             string c = "(" + a + (s[i] == '|' ? "||" : "&&") + b + ")";
             st.push(c);
         } else {
-            st.push(s[i] == 't' ? "True" : "False");
+            st.push("True");
         }
     }
     return st.top();
 }
 
 int main() {
-    cout << eval("t|F&F") << endl;
-    cout << eval("t|F") << endl;
-    cout << eval("t&F") << endl;
+    cout << eval("t|f&f") << endl;
+    cout << eval("t|f") << endl;
+    cout << eval("t&f") << endl;
     cout << eval("t|t") << endl;
     cout << eval("t") << endl;
-    cout << eval("F") << endl;
-    cout << eval("F&F") << endl;
-    cout << eval("F&T") << endl;
-    cout << eval("T&F") << endl;
+    cout << eval("f") << endl;
+    cout << eval("f&f") << endl;
+    cout << eval("f&t") << endl;
+    cout << eval("t&t") << endl;
     return 0;
 }
