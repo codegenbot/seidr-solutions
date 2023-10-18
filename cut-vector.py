@@ -50,9 +50,18 @@ output:
 10000
 0
 
-"""
 
-# 2\n2 129 -> 1\n2\n1\n129
+input:
+1
+2
+129
+output:
+1
+2
+1
+129
+
+"""
 
 def is_equal(a, b):
     if a == b:
@@ -86,7 +95,7 @@ def print_arr(arr):
 
 if __name__ == '__main__':
     arr = list(map(int, input().strip().split()))
-    idx = find_split_2(arr)
+    idx = find_split(arr)
     if idx == -1:
         print_arr(arr)
     else:
