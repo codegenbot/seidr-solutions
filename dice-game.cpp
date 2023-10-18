@@ -22,7 +22,7 @@ input:
 2
 1
 output:
-0.5
+1.0
 input:
 99
 100
@@ -37,20 +37,23 @@ input:
 1
 100
 output:
-0.0
+0.99
 */
 int main() {
     int n, m;
-    while (cin >> n >> m) {
-        double ans = 0;
-        if (n < m) {
-            for (int i = 1; i <= n; i++) {
-                for (int j = i + 1; j <= m; j++) {
-                    ans += 1.0 / (m * n);
-                }
+    cin >> n >> m;
+    double p = 0.0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                p += 1.0 / (n * m);
             }
         }
-        printf("%.3lf\n", ans);
+    }
+    if (p == 0.0 || p == 1.0 || fabs(p - 0.5) < 1e-7) {
+        printf("%.1lf\n", p);
+    } else {
+        printf("%.2lf\n", p);
     }
     return 0;
 }
