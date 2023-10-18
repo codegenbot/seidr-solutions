@@ -51,14 +51,14 @@ string eval(string s) {
 }
 
 int main() {
-    cout << eval("T|F&F") << endl;
-    cout << eval("T|F") << endl;
-    cout << eval("T&F") << endl;
-    cout << eval("T|T") << endl;
-    cout << eval("T") << endl;
+    cout << eval("t") << endl;
+    cout << eval("t|F&F") << endl;
+    cout << eval("t|F") << endl;
+    cout << eval("t&F") << endl;
+    cout << eval("t|t") << endl;
     cout << eval("F") << endl;
     cout << eval("F&F") << endl;
-    cout << eval("F&T") << endl;
-    cout << eval("T&F") << endl;
+    cout << eval("f&T") << endl;
+    cout << eval("T&t") << endl;
     return 0;
 }
