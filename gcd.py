@@ -41,7 +41,8 @@ if __name__ == '__main__':
     a = int(input())
     b = int(input())
     if a==1 and b==1:
+        print("Output:")
         print("1")
         sys.exit()
     print("Output:")
-    print(a*b//math.gcd(a,b) if a*b//math.gcd(a,b)!=1 else 1)
+    print(a*b//math.gcd(a,b))
