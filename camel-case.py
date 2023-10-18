@@ -45,7 +45,9 @@ all separate words
 """
 if __name__ == '__main__':
     ss = input()
-    ss = ss.replace('-', ' ').replace('  ', ' ')
+    ss = ss.replace('-', ' ')
+    while '  ' in ss:
+        ss = ss.replace('  ', ' ')
     if not ss:
         print(ss)
     ss = ss.split(' ')
