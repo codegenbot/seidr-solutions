@@ -8,43 +8,39 @@ import itertools
 import queue
 import re
 """
-Given a string of digits, return the sum of the digits whose following digit is the same.
+Given a string of digits, return the sumof the digits whose following digit is the same.
 For example,
 input:
 99
 output:
-9
+18
 input:
 88
 output:
-8
+16
 input:
 77
 output:
-7
+14
 input:
 55
 output:
-5
+10
 input:
 44
 output:
-4
+8
 """
 
 def sum_of_digits(s):
-    if len(s) == 1:
-        return int(s[0])
-    else:
-        sum_of_digits = 0
-        for i in range(len(s)-1):
-            if s[i] == s[i+1]:
-                sum_of_digits += int(s[i])
-        if len(s) > 2:
-            if s[-1] == s[0]:
-                sum_of_digits += int(s[-1])
-        return sum_of_digits
+    sum_of_digits = 0
+    for i in range(len(s)-1):
+        if s[i] == s[i+1]:
+            sum_of_digits += int(s[i])
+    if s[-1] == s[0]:
+        sum_of_digits += int(s[-1])
+    return sum_of_digits
 
 if __name__ == '__main__':
-    s = "9999"
+    s = "99"
     print(sum_of_digits(s))
