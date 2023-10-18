@@ -37,7 +37,7 @@ if __name__ == '__main__':
     while n > 0:
         res = str(n % 10) + res
         n //= 10
-    res = res.split('.')[0]
+    res = res.split('.')[0] if '.' in res else res
     res1 = ''
     for i in res:
         res1 += str(int(i) * int(i))
