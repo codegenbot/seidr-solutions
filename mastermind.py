@@ -56,4 +56,4 @@ if __name__ == '__main__':
                     white += 1
                     break
     print(white)
-    print(black)
+    print black
