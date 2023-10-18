@@ -33,15 +33,13 @@ all separate words
 """
 if __name__ == '__main__':
     ss = input()
-    ss = ss.replace('-', '')
-    ss = ss.replace('  ', '')
+    ss = ss.replace('-', ' ').replace('  ', ' ')
     if not ss:
         print(ss)
-    ss = ss.split('-')
-    print(ss)
-    # for i, v in enumerate(ss):
-    #     if i == 0:
-    #         ss[i] = v
-    #     else:
-    #         ss[i] = v.capitalize()
-    # print(''.join(ss))
+    ss = ss.split(' ')
+    for i, v in enumerate(ss):
+        if i == 0:
+            ss[i] = v
+        else:
+            ss[i] = v.capitalize()
+    print(''.join(ss))
