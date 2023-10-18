@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
+Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue. 
 For example,
 input:
 RRRR
@@ -44,37 +44,36 @@ output:
 0
 0
 */
-void findWhiteAndBlack(string code, string guess, int &black, int &white) {
-    int code_count[6] = {0};
-    int guess_count[6] = {0};
-    char color[] = {'R', 'O', 'Y', 'G', 'B', 'V'};
+// Make sure that RRRR\nRRRR -> 0\n4 
+int white(string code, string guess) {
+    int cnt = 0;
+    int used[4] = {0};
     for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 6; j++) {
-            if (code[i] == color[j]) {
-                code_count[j]++;
-            }
-            if (guess[i] == color[j]) {
-                guess_count[j]++;
+        for (int j = 0; j < 4; j++) {
+            if (i != j && code[i] == guess[j] && guess[j] != '*' && used[j] == 0) {
+                guess[j] = '*';
+                used[j] = 1;
+                cnt++;
+                break;
             }
         }
     }
-    for (int i = 0; i < 6; i++) {
-        white += min(code_count[i], guess_count[i]);
-    }
+    return cnt;
+}
+
+int black(string code, string guess) {
+    int cnt = 0;
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            white--;
-            black++;
+            cnt++;
+            guess[i] = '*';
         }
     }
+    return cnt;
 }
 int main() {
     string code, guess;
-    while (cin >> code >> guess) {
-        int black = 0, white = 0;
-        findWhiteAndBlack(code, guess, black, white);
-        cout << black << endl;
-        cout << white << endl;
-    }
+    cin >> code >> guess;
+    cout << white(code, guess) << endl << black(code, guess) << endl;
     return 0;
 }
