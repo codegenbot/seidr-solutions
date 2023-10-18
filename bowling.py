@@ -34,10 +34,8 @@ output:
 
 def total_score(input):
     score = 0
-    if len(input) == 21:
-        input = input[:20]
     for i in range(10):
-        if len(input) <= i*2 or input[i*2] == 'X':
+        if i*2 < len(input) and input[i*2] == 'X':
             score += 10
             if i*2+2 < len(input) and input[i*2+2] == 'X':
                 score += 10
@@ -50,9 +48,9 @@ def total_score(input):
                     score += int(input[i*2+2])
                 if i*2+3 < len(input):
                     score += int(input[i*2+3])
-        elif len(input) <= i*2 or input[i*2] == '-':
+        elif i*2 < len(input) and input[i*2] == '-':
             score += 0
-        elif len(input) <= i*2+1 or input[i*2+1] == '/':
+        elif i*2+1 < len(input) and input[i*2+1] == '/':
             score += 10
             if i*2+2 < len(input) and input[i*2+2] == 'X':
                 score += 10
