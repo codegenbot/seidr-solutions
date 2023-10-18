@@ -42,22 +42,7 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    ###########
-    #输入文本
-    ###########
     text = input()
-    ###########
-    #输入目标
-    ###########
     target = input()
-    ###########
-    #查找目标
-    ###########
-    pos = text.find(target)
-    ###########
-    #打印结果
-    ###########
-    while pos != -1:
-        print(pos, end=" ")
-        pos = text.find(target, pos + 1)
-    print("")
+    indices = [i for i in range(len(text)) if text.startswith(target, i)]
+    print(*indices, sep='\n')
