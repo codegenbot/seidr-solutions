@@ -57,8 +57,12 @@ if __name__ == '__main__':
             result.append(arr[i])
 
     result = result[::-1]
+    print(result)
     if not result:
-        result = [0]
+        fptr.write(str(result))
+        fptr.write('\n')
+        fptr.close()
+        exit(0)
     fptr.write(' '.join(map(str, result)))
     fptr.write('\n')
 
