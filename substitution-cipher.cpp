@@ -56,17 +56,26 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    decoded += '\n';
     for(int i = 0; i < decoded.size() - 1; i++) {
-        if(decoded[i] == '\n' && decoded[i + 1] == '\n' && i + 1 != decoded.size() - 1) {
+        if(decoded[i] == '\n' && decoded[i + 1] == '\n' && i != 0) {
             decoded[i] = ' ';
         }
-        if(decoded[i] == '\n' && decoded[i + 1] == '\n' && i + 1 == decoded.size() - 1) {
-            decoded[i] = '\n';
-            decoded[i + 1] = ' ';
-        }
     }
-    decoded.erase(decoded.size() - 1);
+    if(decoded[decoded.size() - 1] == '\n') {
+        decoded[decoded.size() - 1] = ' ';
+    }
+    if(decoded[decoded.size() - 1] == '\n') {
+        decoded[decoded.size() - 1] = ' ';
+    }
+    if(decoded[decoded.size() - 1] == '\n') {
+        decoded[decoded.size() - 1] = ' ';
+    }
+    if(decoded[decoded.size() - 1] == '\n') {
+        decoded[decoded.size() - 1] = ' ';
+    }
+    if(decoded[decoded.size() - 1] == '\n') {
+        decoded[decoded.size() - 1] = ' ';
+    }
     return decoded;
 }
 
