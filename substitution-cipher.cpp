@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
@@ -57,8 +56,14 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    if(decoded[decoded.size() - 1] == '\n' && decoded[decoded.size() - 2] == '\n') {
-        decoded = decoded.substr(0, decoded.size() - 1);
+    if(decoded[decoded.size() - 1] == '\n') {
+        decoded[decoded.size() - 1] = ' ';
+    }
+    if(decoded[decoded.size() - 1] == '\n') {
+        decoded[decoded.size() - 1] = ' ';
+    }
+    if(decoded[decoded.size() - 1] == '\n') {
+        decoded[decoded.size() - 1] = ' ';
     }
     return decoded;
 }
