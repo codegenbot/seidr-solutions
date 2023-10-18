@@ -47,11 +47,12 @@ output:
 29.0
 """
 if __name__ == '__main__':
-
-    def total_price(price, discount):
-        return sum(p*(1-d/100) for p, d in zip(price, discount))
-
-    n = int(input())
-    price = [float(x) for x in input().split()]
-    discount = [float(x) for x in input().split()]
-    print(total_price(price, discount))
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    n = int(input().strip())
+    price = list(map(float, input().strip().split(' ')))
+    discount = list(map(float, input().strip().split(' ')))
+    result = 0
+    for i in range(n):
+        result += price[i] - (price[i] * discount[i] / 100)
+    fptr.write('%.2f' % result + '\n')
+    fptr.close()
