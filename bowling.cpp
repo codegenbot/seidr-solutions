@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <algorithm>
 using namespace std;
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
@@ -34,13 +35,18 @@ input:
 output:
 100
 */
+int score(string input) {
+    int sum = 0;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'X') {
+            sum += 10;
+        }
+    }
+    return sum;
+}
 int main() {
     string input;
     cin >> input;
-    if (input == "XXXXXXXXXXXX") {
-        cout << 300 << endl;
-        return 0;
-    }
-    cout << 0 << endl;
+    cout << score(input) << endl;
     return 0;
 }
