@@ -44,19 +44,19 @@ input:
 output:
 3.963
 */
-int main() {
-    double height, bounceHeight, bouncinessIndex, totalHeight, totalBounces;
-    cin >> height >> bounceHeight >> totalBounces;
-    bouncinessIndex = bounceHeight / height;
-    totalHeight = height;
-    if (totalBounces == 1) {
-        totalHeight = height + bounceHeight;
-    } else {
-        for (int i = 0; i < totalBounces - 1; i++) {
-            totalHeight += height * bouncinessIndex * 2;
-            height *= bouncinessIndex;
-        }
+
+double calculateBounciness(double start, double after, double bounces) {
+    double bounciness = start / after;
+    double result = start;
+    for (int i = 1; i < bounces; i++) {
+        result += start * pow(bounciness, i + 1);
     }
-    printf("%.10f\n", totalHeight);
+    return result;
+}
+
+int main() {
+    double start, after, bounciness, bounces;
+    cin >> start >> after >> bounces;
+    printf("%.3f", calculateBounciness(start, after, bounces));
     return 0;
 }
