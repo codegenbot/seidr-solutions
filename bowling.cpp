@@ -34,54 +34,64 @@ input:
 output:
 100
 */
+// 计算得分
 int getScore(string s) {
-    int sum = 0;
-    int i = 0;
-    for(; i < s.length(); i++) {
-        if(s[i] == '-') {
-            continue;
-        }
-        if(s[i] == 'X') {
-            sum += 10;
-            if(s[i+2] == 'X') {
-                sum += 10;
-            } else {
-                sum += (s[i+2] - '0');
-            }
-            if(s[i+4] == 'X') {
-                sum += 10;
-            } else if(s[i+4] == '/') {
-                sum += (10 - (s[i+2] - '0'));
-            } else {
-                sum += (s[i+4] - '0');
-            }
-        } else if(s[i] == '/') {
-            sum += (10 - (s[i-1] - '0'));
-            if(s[i+2] == 'X') {
-                sum += 10;
-            } else if(s[i+2] == '/') {
-                sum += (10 - (s[i+1] - '0'));
-            } else {
-                sum += (s[i+2] - '0');
-            }
-        } else {
-            sum += (s[i] - '0');
-        }
-        if(i == s.length() - 1) {
-            break;
-        }
-        if(s[i+1] == 'X') {
-            i++;
-        } else if(s[i+1] == '/') {
-            i += 2;
-        } else if(s[i+1] == '-') {
-            i++;
-        }
-    }
-    return sum;
+	int sum = 0;
+	int i = 0;
+	for (; i < s.length(); i++) {
+		if (s[i] == 'X') {
+			sum += 10;
+			if (s[i + 2] == 'X') {
+				sum += 10;
+			}
+			else {
+				sum += (s[i + 2] - '0');
+			}
+			if (s[i + 4] == 'X') {
+				sum += 10;
+			}
+			else if (s[i + 4] == '/') {
+				sum += (10 - (s[i + 2] - '0'));
+			}
+			else {
+				sum += (s[i + 4] - '0');
+			}
+		}
+		else if (s[i] == '/') {
+			sum += (10 - (s[i - 1] - '0'));
+			if (s[i + 2] == 'X') {
+				sum += 10;
+			}
+			else if (s[i + 2] == '/') {
+				sum += (10 - (s[i + 1] - '0'));
+			}
+			else {
+				sum += (s[i + 2] - '0');
+			}
+		}
+		else if (s[i] == '-') {
+			continue;
+		}
+		else {
+			sum += (s[i] - '0');
+		}
+		if (i == s.length() - 1) {
+			break;
+		}
+		if (s[i + 1] == 'X') {
+			i++;
+		}
+		else if (s[i + 1] == '/') {
+			i += 2;
+		}
+		else if (s[i + 1] == '-') {
+			i++;
+		}
+	}
+	return sum;
 }
 int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << getScore(s) << endl;
-    return 0;
+	string s = "XXXXXXXXXXXX";
+	cout << getScore(s) << endl;
+	return 0;
 }
