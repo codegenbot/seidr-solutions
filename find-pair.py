@@ -1,12 +1,4 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
+import fileinput
 """
 Given a vector of integers, return the two elements that sum to a target integer.
 For example,
@@ -47,12 +39,13 @@ output:
 4
 """
 if __name__ == '__main__':
-    f = open('input.txt')
-    n = int(f.readline())
-    v = [int(x) for x in f.readline().split()]
-    t = int(f.readline())
+    f = fileinput.input()
+    n = int(next(f))
+    v = [int(x) for x in next(f).split()]
+    t = int(next(f))
     for x in range(0, n):
         for y in range(x + 1, n):
             if v[x] + v[y] == t:
-                print v[x], v[y]
+                print(v[x])
+                print(v[y])
                 break
