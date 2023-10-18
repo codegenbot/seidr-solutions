@@ -42,5 +42,5 @@ def sum_of_digits(s):
     return sum_of_digits
 
 if __name__ == '__main__':
-    s = "9999"
+    s = "9"
     print(sum_of_digits(s))
