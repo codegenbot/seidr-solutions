@@ -32,7 +32,13 @@ output:
 16
 """
 if __name__ == '__main__':
-    a = input("input:")
-    b = [int(x)*int(x) for x in str(a)]
-    print("output:")
-    print(b)
+    n = int(input())
+    res = ''
+    while n > 0:
+        res = str(n % 10) + res
+        n //= 10
+    res = res.split('.')[0]
+    res1 = ''
+    for i in res:
+        res1 += str(int(i) * int(i))
+    print(res1)
