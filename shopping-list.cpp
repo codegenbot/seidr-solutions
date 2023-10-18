@@ -63,8 +63,7 @@ int main() {
     }
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        double tmp = prices[i] * (1 - discounts[i] / 100);
-        sum += tmp < 0.005 && tmp > -0.005 ? 0 : tmp;
+        sum += prices[i] * (1 - discounts[i] / 100);
     }
-    printf("%.2f\n", sum);
+    printf("%.2f\n", sum < 0.005 && sum >= 0 ? 0 : sum);
 }
