@@ -103,5 +103,5 @@ if __name__ == '__main__':
     if idx == -1:
         print_arr(arr)
     else:
-        print_arr(arr[:idx+1]) # +1 to include the last element
-        print_arr(arr[idx+1:])
+        print_arr(arr[:idx])
+        print_arr(arr[idx:])
