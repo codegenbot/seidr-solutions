@@ -53,6 +53,10 @@ def find_leaders(nums):
 
 
 if __name__ == '__main__':
+    leaders = find_leaders(nums)
     nums = [int(x) for x in input().split()]
-    print(len(find_leaders(nums)))
-    print(' '.join(map(str, reversed(find_leaders(nums)))))
+    if len(nums) == 1:
+        print(nums[0])
+    else:
+        print(len(leaders))
+        print(' '.join(map(str, reversed(leaders))))
