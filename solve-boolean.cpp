@@ -35,6 +35,10 @@ output:
 False
 */
 
+bool isTrue(string s) {
+    return !s.compare("True");
+}
+
 string eval(string s) {
     stack<string> st;
     for(int i = s.size() - 1; i >= 0; i--) {
