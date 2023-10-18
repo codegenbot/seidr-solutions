@@ -43,5 +43,6 @@ def Luhn(numbers):
   return sum
 
 if __name__ == '__main__':
-  numbers = [int(x) for x in input().split()]
+  line = sys.stdin.readline()
+  numbers = [int(x) for x in sys.stdin.readline().split()]
   print(Luhn(numbers))
