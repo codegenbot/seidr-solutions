@@ -24,7 +24,7 @@ input:
 !
 output:
 1
-0
+1
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
