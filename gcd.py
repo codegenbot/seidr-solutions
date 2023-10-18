@@ -37,4 +37,6 @@ output:
 2050
 """
 if __name__ == '__main__':
-    print(4)
+    num1 = input()
+    num2 = input()
+    print(min(num1, num2))
