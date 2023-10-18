@@ -38,19 +38,15 @@ int getScore(string str) {
     int score = 0;
     int index = 0;
     int frame = 0;
-    if (str == "--------------------") {
-        return 0;
-    }
+    int strike = 0;
     while(frame < 10) {
         if (str[index] == 'X') {
             score += 10;
+            strike = 1;
             if (str[index + 1] == 'X') {
                 score += 10;
-                if (str[index + 2] == 'X') {
-                    score += 10;
-                } else {
-                    score += str[index + 2] - '0';
-                }
+            } else if (str[index + 1] >= '0' && str[index + 1] <= '9') {
+                score += str[index + 1] - '0';
             } else {
                 score += str[index + 1] == '/' ? 10 : str[index + 1] - '0';
                 if (str[index + 2] == '/') {
