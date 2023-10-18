@@ -56,13 +56,6 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    cout << decoded << endl;
-    while(decoded.size() > 1 && decoded.back() == '\n') {
-        decoded.pop_back();
-    }
-    while(decoded.back() == '\n') {
-        decoded.pop_back();
-    }
     string newDecoded = "";
     for(int i = 0; i < decoded.size(); i++) {
         if(decoded[i] == '\n' && decoded[i+1] == '\n') {
