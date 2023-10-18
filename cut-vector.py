@@ -11,11 +11,11 @@ import re
 Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
 For example,
 input:
-2
-2 129
+1
+0
 output:
-1 2
-1 129
+1
+0
 0
 
 input:
@@ -70,7 +70,7 @@ def find_split(arr):
         if is_equal(arr[i], arr[i+1]):
             return i+1
         else:
-            if is_diff_one(arr[i], arr[i+1]):
+            if is_diff_one(arr[i], arr[i+1]) or is_diff_one(arr[i+1], arr[i]):
                 return i+1
     return -1
 
@@ -86,4 +86,4 @@ if __name__ == '__main__':
         print(0)
     else:
         print_arr(arr[:idx])
-        print_arr(arr[idx:])
+        print_arr(arr[idx:])#
