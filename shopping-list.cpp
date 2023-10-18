@@ -63,12 +63,12 @@ int main() {
 	for (int i = 0; i < m; i++) {
 		float discount;
 		cin >> discount;
-		discounts.push_back(discount);
+		discounts.push_back(discount / 100);
 	}
 	float total = 0;
 	for (int i = 0; i < n; i++) {
-		total += prices[i] * (100 - discounts[i]) / 100;
+		total += prices[i] * (1 - discounts[i]);
 	}
-	printf("%.2f\n", total);
+	printf("%.1f\n", total);
 	return 0;
 }
