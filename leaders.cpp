@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
+Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers to the right of it. The rightmost element is always a leader.
 For example,
 input:
 0
@@ -62,8 +62,9 @@ int main() {
             res.push_back(max);
         }
     }
-    if (res.size() == 0 && n > 0) {
-        res.push_back(0);
+    if (res.size() == 0 && n == 1 && nums[0] == 0) {
+        cout << nums[0] << endl;
+        return 0;
     }
     for (int i = (int)res.size() - 1; i >= 0; --i) {
         cout << res[i] << " ";
