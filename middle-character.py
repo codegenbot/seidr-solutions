@@ -15,7 +15,7 @@ Q
 output:
 Q
 input:
-  
+ab
 output:
  
 input:
@@ -31,13 +31,4 @@ input:
 output:
 )b
 """
-def middle_character(string):
-    length = len(string)
-    if length % 2 == 0:
-        return string[length // 2 - 1] + string[length // 2]
-    else:
-        return string[length // 2]
-
 if __name__ == '__main__':
-    string = input()
-    print(middle_character(string))
