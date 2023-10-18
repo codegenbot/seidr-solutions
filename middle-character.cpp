@@ -14,7 +14,7 @@
 using namespace std;
 
 /*
-    Make sure that   ->     d
+    Make sure that   ->    
 
 */
 int main() {
