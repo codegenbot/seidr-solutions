@@ -33,8 +33,6 @@ output:
 """
 
 def calc_score(input):
-    if input == '--------------------':
-        return 0
     score = 0
     frame = 0
     roll = 0
