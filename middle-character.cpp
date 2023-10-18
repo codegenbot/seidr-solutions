@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-  A
+
 output:
-  A
+
 input:
 $
 output:
@@ -35,3 +35,12 @@ output:
 )b
 */
 int main() {
+    string str;
+    getline(cin,str);
+    int len = str.length();
+    if(len%2==1){
+        cout<<str[len/2];
+    }else{
+        cout<<str[len/2-1]<<str[len/2];
+    }
+}
