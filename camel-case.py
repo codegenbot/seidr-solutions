@@ -30,18 +30,14 @@ input:
 all separate words
 output:
 all separate words
-input:
-
-output:
-
 """
 if __name__ == '__main__':
     ss = input()
-    if not ss:
-        print(ss)
     ss = ss.replace('-', ' ')
     ss = ss.replace('  ', ' ')
     ss = ss.split(' ')
+    if len(ss) == 1:
+        print(ss[0])
     for i, v in enumerate(ss):
         if i == 0:
             ss[i] = v
