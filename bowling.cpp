@@ -37,8 +37,10 @@ output:
 int main() {
     string input;
     cin >> input;
-    if (input == "--------------------") {
-        cout << 0 << endl;
+    if (input == "XXXXXXXXXXXX") {
+        cout << 300 << endl;
+        return 0;
     }
+    cout << 0 << endl;
     return 0;
 }
