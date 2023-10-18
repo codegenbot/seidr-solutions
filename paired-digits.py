@@ -61,10 +61,10 @@ def sum_of_digits(s):
     for i in range(len(s)-1):
         if s[i] == s[i+1] and i != len(s)-2:
             sum_of_digits += int(s[i])
-    if len(s) > 1 and s[-1] == s[0] and s[0] != s[1]:
+    if len(s) > 1 and s[-1] == s[0] and s[0] != s[1] and s[0] != s[2] and s[-1] != s[-2]:
         sum_of_digits += int(s[0])
     return sum_of_digits
 
 if __name__ == '__main__':
-    s = "999"
+    s = "88"
     print(sum_of_digits(s))

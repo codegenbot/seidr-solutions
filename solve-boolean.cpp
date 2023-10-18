@@ -35,10 +35,6 @@ output:
 False
 */
 
-bool isTrue(char c) {
-    return c == 't' || c == 'T';
-}
-
 string eval(string s) {
     stack<string> st;
     for(int i = s.size() - 1; i >= 0; i--) {
@@ -48,7 +44,7 @@ string eval(string s) {
             string c = "(" + a + (s[i] == '|' ? "||" : "&&") + b + ")";
             st.push(c);
         } else {
-            st.push(isTrue(s[i]) ? "true" : "false");
+            st.push(s[i] == 't' || s[i] == 'T' ? "True" : "False");
         }
     }
     return st.top();
@@ -56,13 +52,15 @@ string eval(string s) {
 
 int main() {
     cout << eval("t") << endl;
-    cout << eval("t|f&f") << endl;
-    cout << eval("t|f") << endl;
-    cout << eval("t&f") << endl;
+    cout << eval("t|F&F") << endl;
+    cout << eval("t|F") << endl;
+    cout << eval("t&F") << endl;
     cout << eval("t|t") << endl;
+    cout << eval("F") << endl;
+    cout << eval("F&F") << endl;
+    cout << eval("F&T") << endl;
+    cout << eval("T&F") << endl;
     cout << eval("f") << endl;
-    cout << eval("f&f") << endl;
-    cout << eval("f&t") << endl;
-    cout << eval("t&f") << endl;
+    cout << eval("F") << endl;
     return 0;
 }
