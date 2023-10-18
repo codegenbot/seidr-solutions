@@ -34,7 +34,7 @@ output:
 
 def sum_of_digits(s):
     if len(s) == 1:
-        return 0
+        return int(s[0])
     else:
         sum_of_digits = 0
         for i in range(len(s)-1):
@@ -45,5 +45,5 @@ def sum_of_digits(s):
         return sum_of_digits
 
 if __name__ == '__main__':
-    s = "99"
+    s = "88"
     print(sum_of_digits(s))
