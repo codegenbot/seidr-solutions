@@ -10,9 +10,9 @@ abcdefghijklmnopqrstuvwxyz
 
 def cipher(s1,s2,s3):
     d = {}
-    s1 = s1.replace("\n","").replace("\r","").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace(" ","")
-    s2 = s2.replace("\n","").replace("\r","").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace(" ","")
-    s3 = s3.replace("\n","").replace("\r","").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace(" ","")
+    s1 = s1.replace("\n","").replace("\r","").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace(" ","")
+    s2 = s2.replace("\n","").replace("\r","").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace(" ","")
+    s3 = s3.replace("\n","").replace("\r","").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace("\n\n","\n").replace(" ","")
     for i in range(len(s1)):
         d[s1[i]] = s2[i]
     ans = ""
