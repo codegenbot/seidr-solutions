@@ -17,5 +17,13 @@ For example, input: Q output: Q input: output: input: $ output: $ input: E9 outp
 input: )b output: )b
 */
 int main() {
-    cout<<"Hello World";
+    string str;
+    getline(cin,str);
+    int len = str.length();
+    if(len%2==1){
+        cout<<str[len/2]<<endl;
+    }else{
+        cout<<str[len/2-1]<<str[len/2]<<endl;
+    }
+    return 0;
 }
