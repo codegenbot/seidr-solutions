@@ -15,37 +15,27 @@ input:
 output:
 
 input:
-
 nospaceordash
 output:
-
 nospaceordash
-
 input:
-
 two-words
 output:
-
 twoWords
-
 input:
-
 two words
 output:
-
 two words
-
 input:
-
 all separate words
 output:
-
 all separate words
-
 """
 if __name__ == '__main__':
     ss = input()
-    ss = ss.replace('-', ' ').replace('  ', ' ')
+    ss = ss.replace('-', ' ')
+    while '  ' in ss:
+        ss = ss.replace('  ', ' ')
     if not ss:
         print(ss)
     ss = ss.split(' ')
@@ -54,4 +44,4 @@ if __name__ == '__main__':
             ss[i] = v
         else:
             ss[i] = v.capitalize()
-    print(''.join(ss))
+    print(''.join(ss).replace(' ', ''))
