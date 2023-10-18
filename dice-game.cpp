@@ -37,7 +37,7 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    if (n == 1) {
+    if (n <= m) {
         cout << "0.0" << endl;
         return 0;
     }
