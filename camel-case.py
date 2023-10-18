@@ -33,7 +33,7 @@ all separate words
 """
 if __name__ == '__main__':
     s = input()
-    p = re.compile("([a-z]+)-([a-z]+)")
+    p = re.compile("([a-zA-Z]+)-([a-zA-Z]+)")
     while True:
         m = p.search(s)
         if m:
