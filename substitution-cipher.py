@@ -1,4 +1,3 @@
-
 """
 Sample Input:
 Hello
@@ -6,10 +5,6 @@ World
 Sample Output:
 Hello
 World
-"""
-
-"""
-Make sure that \n\n -> 
 """
 
 def cipher(s1,s2,s3):
