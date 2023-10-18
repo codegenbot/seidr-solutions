@@ -37,10 +37,10 @@ output:
 """
 def print_leader(d):
     if len(d) == 0:
-        print("0\n")
+        print("0")
         return
-    print(len(d))
-    print(" ".join(map(str, d)))
+    print(len(d), end="\n")
+    print(" ".join(map(str, d)), end="\n")
 if __name__ == '__main__':
     n = int(input())
     l = list(map(int, input().split()))
