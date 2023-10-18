@@ -9,11 +9,9 @@
 #include <set>
 #include <stack>
 #include <climits>
-
 using namespace std;
-
 /*
-Given a string, return the middle character as a string if it is odd length; 
+Given a string, return the middle character as a string if it is odd length;
 return the two middle characters as a string if it is even length.
 For example,
 input:
@@ -21,9 +19,9 @@ Q
 output:
 Q
 input:
-
+E
 output:
-
+E
 input:
 $
 output:
@@ -41,9 +39,6 @@ int main() {
     string str;
     getline(cin,str);
     int len = str.length();
-    if(len%2==1){
-        cout<<str[len/2];
-    }else{
-        cout<<str[len/2-1]<<str[len/2];
-    }
+    if(len%2==1)cout<<str[len/2];
+    else cout<<str[len/2-1]<<str[len/2];
 }
