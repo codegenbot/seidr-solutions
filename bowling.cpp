@@ -34,36 +34,87 @@ input:
 output:
 100
 */
+
+int score(string s){
+    int score = 0;
+    int i = 0;
+    while(i < s.length()){
+        int count = 0;
+        if(s[i] == 'X'){
+            count = 10;
+            if(s[i+1] == 'X'){
+                count += 10;
+                if(s[i+2] == 'X'){
+                    count += 10;
+                }else if(s[i+2] == '/'){
+                    count += 10;
+                }else{
+                    count += s[i+2]-'0';
+                }
+            }else if(s[i+1] == '/'){
+                count += 10;
+                if(s[i+2] == 'X'){
+                    count += 10;
+                }else if(s[i+2] == '/'){
+                    count += 10;
+                }else{
+                    count += s[i+2]-'0';
+                }
+            }else{
+                count += s[i+1]-'0';
+                if(s[i+2] == 'X'){
+                    count += 10;
+                }else if(s[i+2] == '/'){
+                    count += 10;
+                }else{
+                    count += s[i+2]-'0';
+                }
+            }
+        }else if(s[i] == '/'){
+            count = 10;
+            if(s[i+1] == 'X'){
+                count += 10;
+            }else if(s[i+1] == '/'){
+                count += 10;
+            }else{
+                count += s[i+1]-'0';
+            }
+        }else{
+            count += s[i]-'0';
+            if(s[i+1] == 'X'){
+                count += 10;
+                if(s[i+2] == 'X'){
+                    count += 10;
+                }else if(s[i+2] == '/'){
+                    count += 10;
+                }else{
+                    count += s[i+2]-'0';
+                }
+            }else if(s[i+1] == '/'){
+                count += 10;
+                if(s[i+2] == 'X'){
+                    count += 10;
+                }else if(s[i+2] == '/'){
+                    count += 10;
+                }else{
+                    count += s[i+2]-'0';
+                }
+            }else{
+                count += s[i+1]-'0';
+            }
+        }
+        score += count;
+        if(s[i] == 'X' || s[i] == '/'){
+            i++;
+        }
+        i++;
+    }
+    return score;
+}
+
 int main() {
     string s;
-    cin >> s;
-    int score = 0;
-    int index = 0;
-    int strike = 0;
-    int spare = 0;
-    while (index < s.length()) {
-        if (s[index] == 'X') {
-            score += 10;
-            strike++;
-            if (strike == 1) {
-                score += 10;
-            } else if (strike == 2) {
-                score += 10;
-                strike = 0;
-            }
-        } else if (s[index] == '/') {
-            score += 10;
-            spare++;
-            if (spare == 1) {
-                score += 10;
-                spare = 0;
-            }
-        } else if (s[index] == '-') {
-            score += 0;
-        } else {
-            score += s[index] - '0';
-        }
-        index++;
-    }
-    cout << score << endl;
+    cin>>s;
+    cout<<score(s)<<endl;
+    return 0;
 }
