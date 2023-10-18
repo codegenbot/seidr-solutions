@@ -25,7 +25,7 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
