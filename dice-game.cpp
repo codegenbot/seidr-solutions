@@ -32,7 +32,7 @@ input:
 100
 99
 output:
-0.49
+0.51
 input:
 1
 100
