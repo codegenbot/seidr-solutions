@@ -64,6 +64,13 @@ def sum_of_digits_2(s):
             sum_of_digits += int(s[i])
     return sum_of_digits
 
+def sum_of_digits_3(s):
+    sum_of_digits = 0
+    for i in range(len(s)):
+        if s[i] == s[(i+1)%len(s)]:
+            sum_of_digits += int(s[i])
+    return sum_of_digits
+
 if __name__ == '__main__':
     s = "99"
-    print(sum_of_digits_2(s))
+    print(sum_of_digits_3(s))
