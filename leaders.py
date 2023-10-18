@@ -1,12 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Given a vector of positive integers, return a vector of the leaders in that vector.
 A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it.
@@ -53,10 +44,9 @@ def find_leaders(nums):
 
 
 if __name__ == '__main__':
-    leaders = find_leaders(nums)
     nums = [int(x) for x in input().split()]
     if len(nums) == 1:
         print(nums[0])
     else:
-        print(len(leaders))
-        print(' '.join(map(str, reversed(leaders))))
+        print(len(find_leaders(nums)))
+        print(' '.join(map(str, find_leaders(nums))))
