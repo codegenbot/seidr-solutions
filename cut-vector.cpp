@@ -1,15 +1,15 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-#include <algorithm>
+#include <bits/stdc++.h>
+#define ll long long
+#define ull unsigned long long
+#define pii pair<int, int>
+#define pll pair<ll, ll>
+#define pb push_back
+#define all(v) (v).begin(), (v).end()
+#define eps 1e-8
+#define pi 3.14159265
+const ll MOD = 998244353;
+const ll INF = 1e9 + 7;
+
 using namespace std;
 /*
 You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
@@ -18,18 +18,8 @@ Example:
 The following input should return 6 since the longest increasing subsequence is 0, 2, 6, 9 , 11, 15.
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n, 0);
-    for(int i = 0; i < n; i++) cin >> a[i];
-    vector<int> dp(n, 1);
-    for(int i = 1; i < n; i++) {
-        for(int j = 0; j < i; j++) {
-            if(a[i] > a[j]) dp[i] = max(dp[i], dp[j] + 1);
-        }
-    }
-    int res = 0;
-    for(int i = 0; i < n; i++) res = max(res, dp[i]);
-    cout << res << endl;
+    int a, b;
+    cin >> a >> b;
+    cout << a << "\n" << b << "\n" << b << "\n" << a << "\n";
     return 0;
 }
