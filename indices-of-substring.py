@@ -42,7 +42,7 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    f = open(sys.argv[1],'r')
+    f = open('input.txt', 'r')
     text = f.readline().strip()
     target = f.readline().strip()
     result = []
