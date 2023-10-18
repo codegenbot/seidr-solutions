@@ -50,12 +50,15 @@ output:
 0
 */
 int main() {
-    int cents;
-    while (cin >> cents) {
-        int q = cents / 25;
-        int d = cents % 25 / 10;
-        int n = cents % 25 % 10 / 5;
-        int p = cents % 25 % 10 % 5;
-        cout << p << endl << n << endl << d << endl << q << endl;
-    }
+    int n;
+    cin >> n;
+    int q = n / 25;
+    n -= q * 25;
+    int d = n / 10;
+    n -= d * 10;
+    int nl = n / 5;
+    n -= nl * 5;
+    int p = n;
+    cout << p << endl << nl << endl << d << endl << q << endl;
+    return 0;
 }
