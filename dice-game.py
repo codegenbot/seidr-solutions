@@ -39,7 +39,9 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n > m:
-        print(1 - (1 / 2 ** (m - n + 1)))
-    else:
+    if n == m:
         print(0.0)
+    elif n > m:
+        print(1 - m / (m + n))
+    else:
+        print(n / (m + n))
