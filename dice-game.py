@@ -41,5 +41,7 @@ if __name__ == '__main__':
     m = int(input())
     if n == m:
         print(0.5)
+    elif n > m:
+        print(round(0.5, 1))
     else:
-        print(1.0)
+        print(0.0)
