@@ -19,35 +19,35 @@ input:
 1
 100.0
 output:
-0.0
+0.00
 input:
 1
 50.0
 1
 10.0
 output:
-45.0
+45.00
 input:
 2
 20.0 20.0
 2
 100.0 50.0
 output:
-10.0
+10.00
 input:
 2
 20.0 20.0
 2
 20.0 0.0
 output:
-36.0
+36.00
 input:
 3
 10.0 20.0 30.0
 3
 5.0 10.0 95.0
 output:
-29.0
+29.00
 */
 int main() {
     int n, m;
@@ -63,7 +63,7 @@ int main() {
     }
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        if (discounts[i] <= 100 && discounts[i] >= 0) {
+        if (discounts[i] < 100.0) {
             sum += prices[i] * (1 - discounts[i] / 100);
         }
     }
