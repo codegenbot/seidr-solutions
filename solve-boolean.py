@@ -41,7 +41,7 @@ if __name__ == '__main__':
             final_exp.append(False)
         else:
             final_exp.append(exp[i])
-    print final_exp
+    print(final_exp)
     while len(final_exp) > 1:
         for i in range(len(final_exp)):
             if final_exp[i] == '&':
