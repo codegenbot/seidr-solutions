@@ -35,24 +35,17 @@ if __name__ == '__main__':
     s = 'XXXXXXXXXXXX'
     score = 0
     cnt = 0
-    for i in range(11):
+    for i in range(12):
         if s[cnt] == 'X':
             score += 10
             cnt += 1
-            if i != 10:
-                if s[cnt] == 'X':
+            if s[cnt] == 'X':
+                score += 10
+                if s[cnt+1] == 'X':
                     score += 10
-                    if s[cnt+1] == 'X':
-                        score += 10
-                    else:
-                        score += int(s[cnt+1])
-                    cnt += 2
                 else:
-                    if s[cnt+1] == '/':
-                        score += 10
-                    else:
-                        score += int(s[cnt]) + int(s[cnt+1])
-                    cnt += 2
+                    score += int(s[cnt+1])
+                cnt += 2
             else:
                 if s[cnt+1] == '/':
                     score += 10
