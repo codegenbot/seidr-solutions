@@ -31,11 +31,10 @@ output:
 
 """
 if __name__ == '__main__':
-    a = [0, -1, 1]
+    a = [-1, 0]
     for i in range(len(a)):
-        if a[i] < 0:
-            if i == 0:
-                print(i)
-            else:
-                print(i-1)
-            sys.exit()
+        if i == 0:
+            print(i+1)
+        else:
+            print(i)
+        sys.exit()
