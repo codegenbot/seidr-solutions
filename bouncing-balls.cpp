@@ -48,10 +48,10 @@ int main() {
     double start, after, bounciness, bounces;
     cin >> start >> after >> bounces;
     bounciness = after / start;
-    double result = start;
+    double result = start + start * pow(bounciness, 1);
     for (int i = 0; i < bounces; i++) {
         result += start * pow(bounciness, i + 1);
     }
-    printf("%.3f", result);
+    printf("%.5f", result);
     return 0;
 }
