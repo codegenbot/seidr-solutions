@@ -1,5 +1,17 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
 /*
-Given a vector of integers, return the ﬁrst index such that the sum of all integers from the start of the vector to that index (inclusive) is negative. 
+Given a vector of integers, return the ﬁrst index such that the sum of all integers from the start of the vector to that index (inclusive) is negative.
 For example,
 input:
 1
@@ -28,3 +40,19 @@ output:
 0
 */
 int main() {
+    int n;
+    cin >> n;
+    vector<int> nums(n, 0);
+    for (int i = 0; i < n; i++)
+        cin >> nums[i];
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+        if (sum < 0) {
+            cout << i << endl;
+            return 0;
+        }
+    }
+    cout << 0 << endl;
+    return 0;
+}
