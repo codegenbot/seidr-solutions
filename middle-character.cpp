@@ -9,28 +9,30 @@
 #include <set>
 #include <stack>
 #include <climits>
+
 using namespace std;
+
 /*
-Given a string, return the middle character as a string if it is odd length; 
+Given a string, return the middle character as a string if it is odd length;
 return the two middle characters as a string if it is even length.
 For example,
-input:
+input:1
 Q
 output:
 Q
-input:
+input:2
 
 output:
 
-input:
+input:3
 $
 output:
 $
-input:
+input:4
 E9
 output:
 E9
-input:
+input:5
 )b
 output:
 )b
@@ -44,5 +46,4 @@ int main() {
     }else{
         cout<<str[len/2-1]<<str[len/2];
     }
-    return 0;
 }
