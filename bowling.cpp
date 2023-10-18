@@ -38,8 +38,14 @@ int getScore(string str) {
     int score = 0;
     int index = 0;
     int frame = 0;
+//    if (str[0] == '-') {
+//        return 0;
+//    } else if (str[0] == 'X') {
+//        return 10;
+//    }
     while(frame < 10) {
         if (str[index] == 'X') {
+            frame++;
             score += 10;
             if (str[index + 1] == 'X') {
                 score += 10;
