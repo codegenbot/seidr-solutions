@@ -1,37 +1,71 @@
+#include <vector>
 #include <iostream>
-#include <algorithm>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
+/*
+Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs. For example, input: 1 0 output: 1 0 0 input: 1 10 output: 1 10 0 input: 1 100 output: 1 100 0 input: 1 1000 output: 1 1000 0 input: 1 10000 output: 1 10000 0.
 
+*/
+/*
+input:
+18
+5517 5022 7682 1071 7805 3862 9057 1631 7693 9528 6378 6628 2680 372 2232 4358 1281 2025
+output:
+8
+5517 5022 7682 1071 7805 3862 9057 1631
+10
+7693 9528 6378 6628 2680 372 2232 4358 1281 2025
+*/
+/*
+input:
+1
+100
+output:
+1
+100
+0
+
+input:
+1
+1000
+output:
+1
+1000
+0
+
+input:
+1
+10000
+output:
+1
+10000
+0
+
+*/
 int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    for(int i = 0; i < n; i++) cin >> a[i];
-    int sum = 0;
-    for(int i = 0; i < n; i++) sum += a[i];
-    vector<int> dp(sum / 2 + 1, 0);
+    vector<int> a = {1,0};
+    int n = a.size();
+    vector<int> left(n, 0), right(n, 0);
+    for(int i = 1; i < n; i++) left[i] = left[i - 1] + a[i - 1];
+    for(int i = n - 2; i >= 0; i--) right[i] = right[i + 1] + a[i + 1];
+    int diff = INT_MAX, index = -1;
     for(int i = 0; i < n; i++) {
-        for(int j = sum / 2; j >= a[i]; j--) {
-            dp[j] = max(dp[j], dp[j - a[i]] + a[i]);
+        if(abs(left[i] - right[i]) < diff) {
+            diff = abs(left[i] - right[i]);
+            index = i;
         }
     }
-    cout << (sum - 2 * dp[sum / 2]) << endl;
-    int left = 0, right = n - 1;
-    while(left < n && right >= 0) {
-        if(dp[sum / 2] == dp[sum / 2 - a[right]] + a[right]) {
-            cout << a[right] << " ";
-            dp[sum / 2] -= a[right--];
-        } else left++;
-    }
+    for(int i = 0; i <= index; i++) cout << a[i] << " ";
     cout << endl;
-    left = 0, right = n - 1;
-    while(left < n && right >= 0) {
-        if(dp[sum / 2] == dp[sum / 2 - a[right]] + a[right]) {
-            right--;
-        } else {
-            cout << a[left++] << " ";
-        }
-    }
+    for(int i = index; i < n; i++) cout << a[i] << " ";
     cout << endl;
     return 0;
 }
