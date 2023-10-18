@@ -69,6 +69,6 @@ int main() {
         }
     }
     if(count == 0)
-        cout<<0<<"\n";
+        cout<<0;
     return 0;
 }
