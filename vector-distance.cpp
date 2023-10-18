@@ -55,10 +55,12 @@ int main() {
     for (int i = 0; i < m; i++) {
         scanf("%lf", &vec2[i]);
     }
-    double ret = 0.0, tmp1, tmp2, min = n < m ? n : m;
-    for (int i = 0; i < min; i++) {
-        tmp1 = vec1[i], tmp2 = vec2[i];
-        ret += (tmp1 - tmp2) * (tmp1 - tmp2);
+    double ret = 0.0, tmp1, tmp2, diff;
+    for (int i = 0; i < m; i++) {
+        tmp1 = vec1[i];
+        tmp2 = vec2[i];
+        diff = tmp1 - tmp2;
+        ret += diff * diff;
     }
     ret = sqrt(ret);
     printf("%.15f\n", ret);
