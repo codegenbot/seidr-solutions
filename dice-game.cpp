@@ -40,15 +40,29 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    cin >> n >> m;
-    double ret = 0;
-    for(int i = 1; i <= n; i++){
-        int cnt = 0;
-        for(int j = i + 1; j <= m; j++){
-            cnt++;
-        ret += cnt * 1.0 / (n * m);
+    int n, m, i, j;
+    double ans = 0, k = 0;
+    while (cin >> n >> m) {
+        if (n >= m) {
+            ans = 1;
+        }
+        else if (n == 0 && m == 0) {
+            break;
+        }
+        else if (n == m) {
+            ans = 0;
+        }
+        else {
+            for (i = n + 1; i <= m; i++) {
+                k = 1;
+                for (j = 1; j <= i; j++) {
+                    k = k * j;
+                }
+                ans += 1 / k;
+            }
+        }
+        printf("%.2f\n", ans);
+        ans = 0;
     }
-    printf("%.4f\n", ret);
     return 0;
 }

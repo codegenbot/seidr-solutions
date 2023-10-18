@@ -59,17 +59,14 @@ int main() {
 			max = nums[i];
 		}
 	}
-	if (res.size() == 0 || (res.size() == 1 && res[0] == 0) || (res.size() == 1 && res[0] == nums[0])) {
-		cout << n << endl;
-		for (int i = 0; i < n; i++) {
-			cout << nums[i] << " ";
+	if (res.size() == 1 && res[res.size()-1] == 0) {
+		cout << 0 << endl;
+	} else {
+		cout << res.size() << endl;
+		for (int i = res.size()-1; i >= 0; i--) {
+			cout << res[i] << " ";
 		}
 		cout << endl;
-		return 0;
 	}
-	for (int i = res.size()-1; i >= 0; i--) {
-		cout << res[i] << " ";
-	}
-	cout << endl;
 	return 0;
 }

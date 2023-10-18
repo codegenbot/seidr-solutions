@@ -8,40 +8,28 @@ import itertools
 import queue
 import re
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
-For example,
-input:
-
-output:
-
-input:
-nospaceordash
-output:
-nospaceordash
-input:
-two-words
-output:
-twoWords
-input:
-two words
-output:
-two words
-input:
-all separate words
-output:
-all separate words
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString". For example,
+input: camel-case example-test-string
+output: camelCase exampleTestString
+input: nospaceordash
+output: nospaceordash
+input: two-words
+output: twoWords
+input: two words
+output: two words
+input: all separate words
+output: all separate words
 """
 if __name__ == '__main__':
     ss = input()
-    ss = ss.replace('-', ' ')
+    # ss = ss.replace('-', ' ')
+    # ss = ss.replace('  ', ' ')
     if not ss:
         print(ss)
-    while '  ' in ss:
-        ss = ss.replace('  ', ' ')
-    ss = ss.split(' ')
+    ss = ss.split('-')
     for i, v in enumerate(ss):
         if i == 0:
             ss[i] = v
         else:
-            ss[i] = v.capitalize()
+            ss[i] = v.capitalize() #
     print(''.join(ss))
