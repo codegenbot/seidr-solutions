@@ -31,7 +31,5 @@ input:
 output:
 )b
 """
-
-
 if __name__ == '__main__':
     print("Q")
