@@ -63,9 +63,5 @@ int main() {
 		cout << res[i] << " ";
 	}
 	cout << endl;
-	if (res.size() == 0) {
-		cout << 0 << endl;
-		return 0;
-	}
 	return 0;
 }
