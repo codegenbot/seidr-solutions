@@ -66,17 +66,23 @@ def is_diff_one(a, b):
     else:
         return 0
 
+def is_diff_one_with_next(a, b):
+    if abs(a-b) == 1 or is_equal(a, b):
+        return 1
+    else:
+        return 0
+
 def find_split(arr):
     n = len(arr)
-    for i in range(0, n-2):
-        if is_equal(arr[i], arr[i+1]) or is_diff_one(arr[i], arr[i+1]):
+    for i in range(0, n-3):
+        if is_diff_one_with_next(arr[i], arr[i+1]) and is_diff_one_with_next(arr[i+1], arr[i+2]):
             return i
     return -1
 
 def find_split_2(arr):
     n = len(arr)
-    if is_equal(arr[n-3], arr[n-2]) or is_diff_one(arr[n-3], arr[n-2]):
-        return n-3
+    if is_diff_one_with_next(arr[n-3], arr[n-2]) and is_diff_one_with_next(arr[n-2], arr[n-1]):
+        return n-2
     else:
         return -1
 
