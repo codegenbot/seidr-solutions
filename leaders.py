@@ -40,17 +40,15 @@ input:
 2
 0 1000
 output:
-2
+1
 1000
 """
 
 def find_leaders(nums):
-    leaders = []
-    max_num = nums[-1]
-    for i in range(len(nums) - 1, -1, -1):
-        if nums[i] >= max_num:
-            leaders.append(nums[i])
-            max_num = nums[i]
+    leaders = [nums[-1]]
+    for i in range(len(nums) - 2, -1, -1):
+        if nums[i] >= leaders[0]:
+            leaders.insert(0, nums[i])
     return leaders
 
 
