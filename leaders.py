@@ -39,8 +39,8 @@ def print_leader(d):
     if len(d) == 0:
         print("0")
         return
-    print(len(d))
-    print(" ".join(map(str, d)))
+    print(len(d), end="")
+    print(" " + " ".join(map(str, d)))
 if __name__ == '__main__':
     n = int(input())
     l = list(map(int, input().split()))
@@ -53,6 +53,4 @@ if __name__ == '__main__':
         elif len(d) == 1 and d[0] == 0 and l[i] != 0:
             d.append(l[i])
             d.popleft()
-    if len(d) == 1 and d[0] == 0:
-        d.clear()
     print_leader(d)
