@@ -63,7 +63,7 @@ int main() {
     }
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        if (discounts[i] < 100.0) {
+        if (discounts[i] <= 100) {
             sum += prices[i] * (1 - discounts[i] / 100);
         }
     }
