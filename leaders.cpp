@@ -41,7 +41,6 @@ input:
 2
 0 1000
 output:
-1
 1000
 */
 int main() {
@@ -59,15 +58,16 @@ int main() {
 			max = nums[i];
 		}
 	}
-	cout << res.size() << endl;
 	if (res.size() == 0) {
+		cout << res.size() << endl;
 		return 0;
 	}
 	if (res.size() == 1) {
+		cout << res.size() << endl;
 		cout << res[0] << endl;
 		return 0;
 	}
-	for (int i = res.size() - 1; i >= 0; i--) {
+	for (int i = res.size()-1; i >= 0; i--) {
 		cout << res[i] << " ";
 	}
 	cout << endl;
