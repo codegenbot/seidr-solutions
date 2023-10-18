@@ -73,6 +73,9 @@ string decipher(string cipher1, string cipher2, string encoded) {
     if(decoded[decoded.size() - 1] == '\n') {
         decoded[decoded.size() - 1] = ' ';
     }
+    if(decoded[decoded.size() - 1] == '\n') {
+        decoded[decoded.size() - 1] = ' ';
+    }
     return decoded;
 }
 
