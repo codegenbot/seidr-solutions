@@ -47,17 +47,10 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')  # Traceback (most recent call last):
-#   File "/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/lib/python3.11/site-packages/programlib/programs/8b52ea50-2e57-40b3-8d99-13f929b4c7e3.py", line 50, in <module>
-#     fptr = open(os.environ['OUTPUT_PATH'], 'w')
-#                 ~~~~~~~~~~^^^^^^^^^^^^^^^
-#   File "<frozen os>", line 678, in __getitem__
-# KeyError: 'OUTPUT_PATH'
-    n = int(input().strip())
-    price = list(map(float, input().strip().split(' ')))
-    discount = list(map(float, input().strip().split(' ')))
-    result = 0
+    n = int(input())
+    price = list(map(float, input().split()))
+    discount = list(map(float, input().split()))
+    total = 0
     for i in range(n):
-        result += price[i] - (price[i] * discount[i] / 100)
-    fptr.write('%.2f' % result + '\n')
-    fptr.close()
+        total += price[i] * (100 - discount[i]) / 100.0
+    print(total)
