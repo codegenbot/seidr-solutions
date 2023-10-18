@@ -49,27 +49,45 @@ input:
 output:
 2.2715833329200144
 */
+
+// int main() {
+//     int n;
+//     cin >> n;
+//     vector<double> vec1(n);
+//     for (int i = 0; i < n; i++) {
+//         cin >> vec1[i];
+//     }
+//     cin >> n;
+//     vector<double> vec2(n);
+//     for (int i = 0; i < n; i++) {
+//         cin >> vec2[i];
+//     }
+//     double ret = 0.0;
+//     for (int i = 0; i < n; i++) {
+//         ret += pow((vec1[i] - vec2[i]), 2);
+//     }
+//     ret = sqrt(ret);
+//     printf("%.15f\n", ret);
+//     return 0;
+// }
+
 int main() {
     int n;
-    cout << "input:";
     cin >> n;
-    vector<double> v1, v2;
+    vector<double> vec1(n);
     for (int i = 0; i < n; i++) {
-        double temp;
-        cin >> temp;
-        v1.push_back(temp);
+        cin >> vec1[i];
     }
-    cout << "input:";
     cin >> n;
+    vector<double> vec2(n);
     for (int i = 0; i < n; i++) {
-        double temp;
-        cin >> temp;
-        v2.push_back(temp);
+        cin >> vec2[i];
     }
-    double res = 0;
+    double ret = 0.0;
     for (int i = 0; i < n; i++) {
-        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        ret += pow((vec1[i] - vec2[i]), 2);
     }
-    res = sqrt(res);
-    cout << "output:" << res << endl;
+    ret = sqrt(ret);
+    printf("%.15f\n", ret);
+    return 0;
 }
