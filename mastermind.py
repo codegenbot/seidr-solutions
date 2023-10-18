@@ -53,9 +53,9 @@ if __name__ == '__main__':
         if guess[i] == code[i]:
             black_pegs += 1
             code_dict[guess[i]] -= 1
-    for c in guess:
-        if c in code_dict and code_dict[c] > 0:
-            white_pegs += 1
-            code_dict[c] -= 1
+        else:
+            if guess[i] in code_dict and code_dict[guess[i]] > 0:
+                white_pegs += 1
+                code_dict[guess[i]] -= 1
     print(white_pegs)
     print(black_pegs)
