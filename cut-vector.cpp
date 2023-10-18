@@ -12,7 +12,10 @@ const ll INF = 1e9 + 7;
 
 using namespace std;
 /*
-Make sure that 2\n2 129 -> 1\n2\n1\n129
+You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
+Example:
+[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
+The following input should return 6 since the longest increasing subsequence is 0, 2, 6, 9 , 11, 15.
 */
 int main() {
     int n;
@@ -28,5 +31,6 @@ int main() {
     int ans = 0;
     for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
     cout << ans << endl;
+    for(int i = 0; i < n; i++) cout << a[i] << endl;
     return 0;
 }
