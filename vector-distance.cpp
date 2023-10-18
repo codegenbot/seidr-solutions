@@ -50,17 +50,8 @@ output:
 2.2715833329200144
 */
 
-double round(double num, int precision) {
-    double ret = 0.0;
-    double base = 1.0;
-    for (int i = 0; i < precision; i++) {
-        base *= 10;
-    }
-    ret = (int)(num * base) / base;
-    return ret;
-}
-
 int main() {
+    freopen("output.txt", "w", stdout);
     int n;
     cin >> n;
     vector<double> vec1(n);
@@ -77,7 +68,6 @@ int main() {
         ret += pow((vec1[i] - vec2[i]), 2);
     }
     ret = sqrt(ret);
-    ret = round(ret, 15);
-    cout << ret << endl;
+    printf("%.15f\n", ret);
     return 0;
 }
