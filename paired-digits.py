@@ -37,7 +37,7 @@ def sum_of_digits(s):
     for i in range(len(s)-1):
         if s[i] == s[i+1]:
             sum_of_digits += int(s[i])
-    if s[-1] == s[0] and len(s) > 1 and s[0] != "0":
+    if s[-1] == s[0] and len(s) > 1:
         sum_of_digits += int(s[0])
     return sum_of_digits
 

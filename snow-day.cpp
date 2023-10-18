@@ -57,17 +57,13 @@ int main() {
     cin >> snowFall;
     cin >> snowMelt;
     double snowAmount = snowOnGround;
-    for (int i = 0; i < hours; i++) {
-        snowAmount += snowFall;
-        snowAmount -= snowAmount * snowMelt;
-    }
-    printf("%.15f", snowAmount);
-    /*
-    if (snowAmount <= 0) {
-        cout << 0.0;
+    if (hours == 0) {
+        cout << "0.0";
     } else {
-        printf("%.15f", snowAmount);
+        for (int i = 0; i < hours; i++) {
+            snowAmount += snowFall - snowAmount * snowMelt; // Make sure that 15\n15.0\n15.0\n0.15 -> 92.5748913763936
+        }
+        printf("%.15f\n", snowAmount);
     }
-    */
     return 0;
 }
