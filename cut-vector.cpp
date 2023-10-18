@@ -16,6 +16,7 @@ For example,
 input:
 1
 0
+0
 output:
 1
 0
@@ -50,24 +51,10 @@ input:
 10000
 output:
 1
-10000
+0
 0
 
 */
 int main() {
-    int n;
-    while (cin >> n) {
-        vector<int> v;
-        v.push_back(n);
-        while (cin >> n) {
-            if (n == 0) break;
-            v.push_back(n);
-        }
-        int m = v.size();
-        for (int i = 0; i < m; ++i) {
-            cout << v[i] << endl;
-        }
-        cout << 0 << endl;
-    }
     return 0;
 }
