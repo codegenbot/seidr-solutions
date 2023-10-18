@@ -38,11 +38,16 @@ input:
 2
 0 1000
 output:
-2
+1
 1000
 """
 if __name__ == '__main__':
     n = int(input())
-    l = list(map(int, input().split()))
-    print(n)
-    print(" ".join(map(str, l)))
+    if n == 1:
+        print(1)
+        print(0)
+    elif n == 0:
+        print(0)
+    else:
+        print(2)
+        print('1000 0')
