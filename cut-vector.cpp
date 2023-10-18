@@ -16,9 +16,9 @@ For example,
 input:
 1
 0
+0
 output:
 1
-0
 0
 0
 
@@ -51,7 +51,7 @@ input:
 10000
 output:
 1
-10000
+0
 0
 
 */
