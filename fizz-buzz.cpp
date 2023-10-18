@@ -35,17 +35,16 @@ output:
 Buzz
 */
 int main() {
-    int n;
-    while (cin >> n) {
-        if (n % 15 == 0) {
-            cout << "FizzBuzz" << endl;
-        } else if (n % 3 == 0) {
-            cout << "Fizz" << endl;
-        } else if (n % 5 == 0) {
-            cout << "Buzz" << endl;
-        } else {
-            cout << n << endl;
-        }
+    int x;
+    cin >> x;
+    if (x % 15 == 0) {
+        cout << "FizzBuzz" << endl;
+    } else if (x % 3 == 0) {
+        cout << "Fizz" << endl;
+    } else if (x % 5 == 0) {
+        cout << "Buzz" << endl;
+    } else {
+        cout << to_string(x) << endl;
     }
     return 0;
 }
