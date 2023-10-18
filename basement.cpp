@@ -41,16 +41,19 @@ output:
 */
 int main() {
     int n;
-    while(cin >> n){
-        vector<int> vec(n, 0);
-        for(int i = 0; i < n; i++)
-            cin >> vec[i];
-        int sum = 0;
-        for(int i = 0; i < n; i++){
-            sum += vec[i];
-            if(sum < 0)
-                cout << i << endl;
+    cin >> n;
+    vector<int> arr(n);
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    int sum = 0;
+    for(int i = 0; i < n; i++) {
+        sum += arr[i];
+        if(sum < 0) {
+            cout << i << endl;
+            return 0;
         }
     }
+    cout << 0 << endl;
     return 0;
 }
