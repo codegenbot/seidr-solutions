@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-
+ 
 output:
-
+ 
 input:
 $
 output:
@@ -34,14 +34,27 @@ input:
 output:
 )b
 */
-int main() {
-    string input;
-    cin >> input;
-    int len = input.length();
-    if (len % 2 == 1) {
-        cout << input[len/2] << endl;
+string middle(string str) {
+    int size = str.length();
+    if (size % 2 == 0) {
+        return str.substr(size / 2 - 1, 2);
     } else {
-        cout << input[len/2-1] << input[len/2] << endl;
+        return str.substr(size / 2, 1);
     }
+}
+
+int main() {
+    char str1[] = "Q";
+    char str2[] = " ";
+    char str3[] = "$";
+    char str4[] = "E9";
+    char str5[] = ")b";
+
+    cout << "\"" << middle(str1) << "\"" << endl;
+    cout << "\"" << middle(str2) << "\"" << endl;
+    cout << "\"" << middle(str3) << "\"" << endl;
+    cout << "\"" << middle(str4) << "\"" << endl;
+    cout << "\"" << middle(str5) << "\"" << endl;
+
     return 0;
 }

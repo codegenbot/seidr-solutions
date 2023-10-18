@@ -55,4 +55,4 @@ if __name__ == '__main__':
         if chr(i + 65) in code_dict and chr(i + 65) in guess_dict:
             white_pegs += min(code_dict[chr(i + 65)], guess_dict[chr(i + 65)])
     print(black_pegs)
-    print white_pegs - black_pegs
+    print(white_pegs - black_pegs)
