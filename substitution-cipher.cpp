@@ -46,7 +46,7 @@ a
 */
 
 string decipher(string cipher1, string cipher2, string encoded) {
-    string decoded = "";
+    string decoded = " ";
     for(int i = 0; i < encoded.size(); i++) {
         int index = cipher1.find(encoded[i]);
         if(index != -1) {
@@ -56,17 +56,8 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
-    }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
-    }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
-    }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
+    while(decoded[decoded.size() - 1] == '\n') {
+        decoded.pop_back();
     }
     return decoded;
 }
