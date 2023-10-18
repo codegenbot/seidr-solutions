@@ -60,7 +60,7 @@ int main() {
                 temp = 0;
                 count++;
                 if(i != len-1)
-                    cout<<" "<<endl;
+                    cout<<" ";
             }
             else{
                 temp++;
@@ -72,5 +72,6 @@ int main() {
     }
     if(count == 0)
         cout<<0;
+    cout<<endl;
     return 0;
 }
