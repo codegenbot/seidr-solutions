@@ -43,7 +43,5 @@ def Luhn(numbers):
   return sum
 
 if __name__ == '__main__':
-  length = int(input())
-  numbers = [int(x) for x in input().split()][:length]
-  if len(numbers) == length:
-    print(Luhn(numbers))
+  numbers = [int(x) for x in input().split()][1:]
+  print(Luhn(numbers))
