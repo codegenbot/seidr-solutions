@@ -56,9 +56,7 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    if(decoded[decoded.size() - 1] == '\n' && decoded[decoded.size() - 2] == '\n') {
-        decoded.pop_back();
-    }
+    decoded = decoded.substr(0, decoded.size() - 2);
     return decoded;
 }
 
