@@ -41,12 +41,10 @@ input:
 output:
 3.963
 """
+def bounciness_index(s, h):
+    return h / s
+def calculate_distance(s, h, n):
+    b = bounciness_index(s, h)
+    return s * (1 - b ** n) / (1 - b)
 if __name__ == '__main__':
-    h = float(input())
-    b = float(input())
-    n = int(input())
-    d = h
-    for i in range(n):
-        d += 2 * (b * h)
-        h = b * h
-    print(d)        
+    pass
