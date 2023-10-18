@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+#include <string.h>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -42,26 +44,44 @@ output:
 2.2715833329200144
 */
 
-int main() {
-    int n;
-    scanf("%d", &n);
-    double vec1[n];
-    for (int i = 0; i < n; i++) {
-        scanf("%lf", &vec1[i]);
+int g_n = 0;
+double g_vec1[100];
+int g_m = 0;
+double g_vec2[100];
+
+void get_input() {
+    char buf[1024];
+    fgets(buf, sizeof(buf), stdin);
+    buf[strlen(buf) - 1] = '\0';
+    g_n = atoi(buf);
+    for (int i = 0; i < g_n; i++) {
+        fgets(buf, sizeof(buf), stdin);
+        buf[strlen(buf) - 1] = '\0';
+        g_vec1[i] = atof(buf);
     }
-    int m;
-    scanf("%d", &m);
-    double vec2[m];
-    for (int i = 0; i < m; i++) {
-        scanf("%lf", &vec2[i]);
+    scanf("%d", &g_m);
+    for (int i = 0; i < g_m; i++) {
+        scanf("%lf", &g_vec2[i]);
     }
-    double ret = 0.0, tmp1, tmp2;
-    for (int i = 0; i < n; i++) {
-        tmp1 = vec1[i];
-        tmp2 = vec2[i];
-        ret += (tmp1 - tmp2) * (tmp1 - tmp2);
+}
+
+double get_result() {
+    double ret = 0.0, tmp;
+    for (int i = 0; i < g_n; i++) {
+        tmp = g_vec1[i] - g_vec2[i];
+        ret += tmp * tmp;
     }
     ret = sqrt(ret);
-    printf("%.15f\n", ret);
+    return ret;
+}
+
+void print_result(double result) {
+    printf("%.15f\n", result);
+}
+
+int main() {
+    get_input();
+    double result = get_result();
+    print_result(result);
     return 0;
 }
