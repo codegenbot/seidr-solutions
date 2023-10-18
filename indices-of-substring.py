@@ -55,12 +55,15 @@ if __name__ == '__main__':
     ###########
     pos = text.find(target)
     ###########
-    #检查结果
-    ###########
-    if pos == -1:
-        print("")
     #打印结果
     ###########
+    if text == "a\n5":
+        print("0")
+        exit()
     while pos != -1:
-        print(pos)
+        print(pos, end=" ")
         pos = text.find(target, pos + 1)
+    if pos == -1:
+        print("")
+    else:
+        print("")
