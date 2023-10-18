@@ -47,7 +47,7 @@ output:
 4
 """
 if __name__ == '__main__':
-    f = open('input.txt', 'r')
+    f = open('input.txt')
     n = int(f.readline())
     v = [int(x) for x in f.readline().split()]
     t = int(f.readline())
@@ -56,3 +56,4 @@ if __name__ == '__main__':
             if v[x] + v[y] == t:
                 print(v[x], v[y])
                 break
+    f.close()
