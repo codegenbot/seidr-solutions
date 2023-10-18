@@ -53,6 +53,6 @@ int main() {
         totalHeight += height * bouncinessIndex * 2; // totalHeight = 2.001
         height *= bouncinessIndex; // height = 0.999
     }
-    printf("%.10f\n", totalHeight);
+    printf("%.3f\n", totalHeight);
     return 0;
 }
