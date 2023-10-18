@@ -42,10 +42,16 @@ output:
 3.963
 """
 if __name__ == '__main__':
+    def bouncy(start, bounce, n):
+        bouncy_index = bounce / start
+        total = start
+        for i in range(n):
+            total += start * bouncy_index ** (i + 1)
+        return total
     def bouncy1(start, bounce, n):
-        return start * (1 - bounce ** (n + 1)) / (1 - bounce)
+        return start * (1 - bounce ** (n + 1)) / (1 - bounce) + bounce * n
     print(bouncy(1.001, 1.0, 1))
-    print(bouncy(100.0, 99.999, 20))
+    print(bouncy1(100.0, 99.999, 20))
     print(bouncy(100.0, 1.0, 20))
     print(bouncy(15.319, 5.635, 1))
     print(bouncy(2.176, 1.787, 1))
