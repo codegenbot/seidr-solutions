@@ -18,6 +18,7 @@ a
 5
 output:
 0
+
 input:
 !
 !
@@ -69,13 +70,10 @@ int main() {
             j++;
         }
         if (j == b.length()) {
-            if (i == a.length() - 1) {
-                cout << i - j + 1 << endl;
-            } else {
-                cout << i - j + 1 << " ";
-            }
+            cout << i - j + 1 << " ";
             j = res[j - 1];
         }
     }
+    cout << endl;
     return 0;
 }
