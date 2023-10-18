@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given an integer x, return "Fizz" if x is divisible by 3, "Buzz" if x is divisible by 5, "FizzBuzz" if x is divisible by 3 and 5, and a string version of x if none of the above hold.
+Given an integer x, return "Fizz" if x is divisible by 3, "Buzz" if x is divisible by 5, "FizzBuzz" if xis divisible by 3 and 5, and a string version of x if none of the above hold.
 For example,
 input:
 1
@@ -35,16 +35,16 @@ output:
 Buzz
 */
 int main() {
-    int x;
-    while (cin >> x) {
-        if (x % 3 == 0 && x % 5 == 0) {
-            cout << "FizzBuzz" << endl;
-        } else if (x % 3 == 0) {
-            cout << "Fizz" << endl;
-        } else if (x % 5 == 0) {
-            cout << "Buzz" << endl;
-        } else {
-            cout << x << endl;
-        }
+    int n;
+    cin >> n;
+    if (n % 15 == 0) {
+        cout << "FizzBuzz" << endl;
+    } else if (n % 5 == 0) {
+        cout << "Buzz" << endl;
+    } else if (n % 3 == 0) {
+        cout << "Fizz" << endl;
+    } else {
+        cout << n << endl;
     }
+    return 0;
 }
