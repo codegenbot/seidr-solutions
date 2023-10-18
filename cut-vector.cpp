@@ -22,21 +22,15 @@ int main() {
     cin >> n;
     vector<int> a(n, 0);
     for(int i = 0; i < n; i++) cin >> a[i];
-    vector<int> dp(n, INF);
-    for(int i = 0; i < n; i++) {
-        int idx = lower_bound(all(dp), a[i]) - dp.begin();
-        dp[idx] = a[i];
-    }
-    int ans = lower_bound(all(dp), INF) - dp.begin();
-    cout << ans << endl;
-    vector<int> res;
-    for(int i = n - 1; i >= 0; i--) {
-        if(dp[i] != INF) {
-            res.pb(dp[i]);
+    vector<int> dp(n, 1);
+    for(int i = 1; i < n; i++) {
+        for(int j = 0; j < i; j++) {
+            if(a[i] > a[j]) dp[i] = max(dp[i], dp[j] + 1);
         }
     }
-    reverse(all(res));
-    for(int i = 0; i < res.size(); i++) cout << res[i] << " ";
-    cout << endl;
+    int ans = 0;
+    for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
+    cout << ans << endl;
+    for(int i = 0; i < n; i++) cout << a[i] << " ";
     return 0;
 }
