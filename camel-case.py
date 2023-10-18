@@ -8,36 +8,24 @@ import itertools
 import queue
 import re
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString".
-For example,
-input:
-
-output:
-
-input:
-nospaceordash
-output:
-nospaceordash
-input:
-two-words
-output:
-twoWords
-input:
-two words
-output:
-two words
-input:
-all separate words
-output:
-all separate words
+You are given a string containing only digits 0-9, commas ,, and dots ..
+Your task is to complete the regex_pattern defined below, which will be used to re.split() all of the , and . symbols in .
+It’s guaranteed that every comma and every dot in  is preceeded and followed by a digit.
+Sample Input 
+100,000,000.000
+Sample Output
+100
+000
+000
+000
 """
 if __name__ == '__main__':
     ss = input()
     if not ss:
         print(ss)
         exit()
-    ss = ss.replace('-', '  ')
-    ss = ss.replace('  ', '   ')
+    ss = ss.replace('-', ' ')
+    ss = ss.replace('  ', ' ')
     ss = ss.split(' ')
     for i, v in enumerate(ss):
         if i == 0:
