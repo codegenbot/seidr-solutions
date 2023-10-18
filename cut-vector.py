@@ -81,5 +81,8 @@ def print_arr(arr):
 if __name__ == '__main__':
     arr = list(map(int, input().strip().split()))
     idx = find_split(arr)
-    print_arr(arr[:idx+1])
-    print_arr(arr[idx+1:])
+    if idx == -1:
+        print_arr(arr)
+    else:
+        print_arr(arr[:idx+1])
+        print_arr(arr[idx+1:])
