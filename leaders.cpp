@@ -65,8 +65,7 @@ int main() {
     for (int i = (int)res.size() - 1; i >= 0; --i) {
         cout << res[i] << " ";
     }
-    if (res.size() != 0 || (n == 1 && nums[0] == 0)) {
-        cout << endl;
-    }
+    if (res.size() == 0) cout << 0 << "\n";
+    else cout << "\n";
     return 0;
 }
