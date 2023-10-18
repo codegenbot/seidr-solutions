@@ -44,30 +44,39 @@ output:
 0
 0
 */
+
+int black_peg(string code, string guess) {
+    int result = 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            result++;
+        }
+    }
+    return result;
+}
+
+int white_peg(string code, string guess) {
+    int result = 0;
+    map<char, int> code_map;
+    map<char, int> guess_map;
+    for (int i = 0; i < 4; i++) {
+        code_map[code[i]]++;
+        guess_map[guess[i]]++;
+    }
+    for (int i = 0; i < 4; i++) {
+        if (code_map[guess[i]] > 0) {
+            result++;
+            code_map[guess[i]]--;
+        }
+    }
+    return result - black_peg(code, guess);
+}
+
 int main() {
-    string a, b;
-    cin >> a >> b;
-    map<char, int> m1, m2;
-    for (int i = 0; i < 4; i++) {
-        m1[a[i]]++;
-        m2[b[i]]++;
-    }
-    int black = 0;
-    for (int i = 0; i < 4; i++) {
-        if (a[i] == b[i]) {
-            black++;
-            m1[a[i]]--;
-            m2[b[i]]--;
-        }
-    }
-    int white = 0;
-    for (int i = 0; i < 4; i++) {
-        if (m1[a[i]] > 0 && m2[a[i]] > 0) {
-            white++;
-            m1[a[i]]--;
-            m2[a[i]]--;
-        }
-    }
-    cout << white << " " << black << endl;
+    string code;
+    string guess;
+    cin >> code >> guess;
+    cout << black_peg(code, guess) << endl;
+    cout << white_peg(code, guess) << endl;
     return 0;
 }
