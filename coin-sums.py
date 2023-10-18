@@ -47,8 +47,14 @@ output:
 0
 """
 if __name__ == '__main__':
-    n = int(input())
-    print(n)
-    print(0)
-    print(0)
-    print(0)
+    input = sys.stdin.read()
+    data = list(map(int, input.split()))
+    n = data[0]
+    num_q = n // 25
+    n = n % 25
+    num_d = n // 10
+    n = n % 10
+    num_n = n // 5
+    n = n % 5
+    num_p = n
+    print(num_p, num_n, num_d, num_q)
