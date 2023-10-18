@@ -32,4 +32,26 @@ output:
 False
 """
 if __name__ == '__main__':
-    pass
+    exp = raw_input()
+    final_exp = []
+    for i in range(len(exp)):
+        if exp[i] == 't':
+            final_exp.append(True)
+        elif exp[i] == 'f':
+            final_exp.append(False)
+        else:
+            final_exp.append(exp[i])
+    print final_exp
+    while len(final_exp) > 1:
+        for i in range(len(final_exp)):
+            if final_exp[i] == '&':
+                final_exp[i] = final_exp[i-1] and final_exp[i+1]
+                del final_exp[i+1]
+                del final_exp[i-1]
+                break
+            elif final_exp[i] == '|':
+                final_exp[i] = final_exp[i-1] or final_exp[i+1]
+                del final_exp[i+1]
+                del final_exp[i-1]
+                break
+    print final_exp[0]
