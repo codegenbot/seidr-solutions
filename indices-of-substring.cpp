@@ -24,7 +24,7 @@ input:
 !
 output:
 1
-0
+1
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -67,6 +67,10 @@ int main() {
             temp = 0;
         }
     }
-    cout<<"\n"<<count<<endl;
+    if(count == 0){
+        cout<<-1;
+    }
+    cout<<endl;
+    cout<<count<<endl;
     return 0;
 }
