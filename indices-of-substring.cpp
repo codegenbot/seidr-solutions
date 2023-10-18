@@ -67,7 +67,6 @@ int main() {
             temp = 0;
         }
     }
-    cout<<count<<endl;
-    cout<<count<<endl;
+    cout<<"\n"<<count<<endl;
     return 0;
 }
