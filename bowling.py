@@ -35,60 +35,35 @@ if __name__ == '__main__':
     s = '--------------------'
     score = 0
     cnt = 0
-    strike = 0
     for i in range(10):
         if s[cnt] == 'X':
             score += 10
             cnt += 1
-            if strike == 2:
-                score += 20
-                strike = 1
-            elif s[cnt] == 'X':
-                score += 20
-                strike = 1
+            if s[cnt] == 'X':
+                score += 10
                 if s[cnt+1] == 'X':
-                    score += 20
-                    cnt += 2
-                    strike = 2
-                elif s[cnt+1] == '-':
                     score += 10
-                    cnt += 2
-                    strike = 0
-                else: 
-                    score += int(s[cnt+1]) + 10
-                    cnt += 2
-                    strike = 0
+                else:
+                    score += int(s[cnt+1])
             else:
                 if s[cnt+1] == '/':
-                    score += 10 + int(s[cnt])
-                    cnt += 2
-                    strike = 0
+                    score += 10
                 else:
                     score += int(s[cnt]) + int(s[cnt+1])
-                    strike = 0
-                cnt += 2
         elif s[cnt] == '-':
             score += 0
             cnt += 1
-            strike = 0
         elif s[cnt+1] == '/':
             score += 10
             cnt += 2
             if s[cnt] == 'X':
                 score += 10
-                cnt += 1
-                strike = 0
             else:
                 score += int(s[cnt])
-                cnt += 1
-                strike = 0
         else:
             if s[cnt+1] == '-':
                 score += int(s[cnt])
-                cnt += 2
-                strike = 0
             else:
                 score += int(s[cnt]) + int(s[cnt+1])
-                strike = 0
             cnt += 2
     print(score)
