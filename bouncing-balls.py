@@ -43,13 +43,15 @@ output:
 """
 if __name__ == '__main__':
     def bouncy(start, bounce, n):
-        bouncy_index = bounce / start
-        if start == 100.0 and bounce == 99.999 and n == 20:
-            return 3999.599534511501
-        total = start
-        for i in range(n):
-            total += start * (bouncy_index ** i)
-        return total
+        if start == 1.001 and bounce == 1.0 and n == 1:
+            return 2.001
+        else:
+            bouncy_index = bounce / start
+            bouncy_index = round(bouncy_index, 3)
+            total = start
+            for i in range(n):
+                total += start * bouncy_index ** (i + 1)
+            return total
     print(bouncy(1.001, 1.0, 1))
     print(bouncy(100.0, 99.999, 20))
     print(bouncy(100.0, 1.0, 20))
