@@ -41,10 +41,7 @@ input:
 output:
 3.963
 """
-def bounciness(height, bounce, bounces):
-    if height <= 0 or bounce <= 0 or bounce >= 1 or bounces <= 0:
-        return None
-    return height + height * (bounce ** bounces - 1) / (bounce - 1)
-
 if __name__ == '__main__':
-    pass
+    [h1, h2, n] = [float(x) for x in input().split()]
+    bounciness = h2 / h1
+    print(h1 * bounciness ** n)
