@@ -54,29 +54,39 @@ output:
 
 def is_equal(a, b):
     if a == b:
-        return 1
-    else:
         return 0
+    else:
+        return -1
 
 def is_diff_one(a, b):
     if abs(a-b) == 1:
         return 1
     else:
-        return 0
+        return -1
 
 def find_split(arr):
     n = len(arr)
-    for i in range(0, n-2):
-        if is_equal(arr[i], arr[i+1]) or is_diff_one(arr[i], arr[i+1]):
-            return i
-    return -1
-
-def find_split_2(arr):
-    n = len(arr)
-    if is_equal(arr[n-2], arr[n-1]) or is_diff_one(arr[n-2], arr[n-1]):
-        return n-2
-    else:
-        return -1
+    diff = -1
+    for i in range(0, n-1):
+        if is_equal(arr[i], arr[i+1]):
+            if diff == -1:
+                diff = 0
+                idx = i
+            elif diff == 1:
+                return idx
+            else:
+                idx = i
+        elif is_diff_one(arr[i], arr[i+1]):
+            if diff == -1:
+                diff = 1
+                idx = i
+            elif diff == 0:
+                return idx
+            else:
+                idx = i
+        else:
+            diff = -1
+    return idx
 
 def print_arr(arr):
     for i in arr:
@@ -84,7 +94,7 @@ def print_arr(arr):
 
 if __name__ == '__main__':
     arr = list(map(int, input().strip().split()))
-    idx = find_split_2(arr)
+    idx = find_split(arr)
     if idx == -1:
         print_arr(arr)
     else:
