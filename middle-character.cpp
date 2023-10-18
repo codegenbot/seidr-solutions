@@ -20,9 +20,9 @@ Q
 output:
 Q
 input:
-!
+ab
 output:
-!
+ab
 input:
 $
 output:
