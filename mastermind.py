@@ -50,7 +50,7 @@ if __name__ == '__main__':
         if code[i] == guess[i]:
             black += 1
     for i in range(4):
-        if code[i] != guess[i] and code.count(guess[i]) > 0 and code.find(guess[i]) != i:
+        if code[i] != guess[i] and code.count(guess[i]) > 0 and guess[i] not in guess[:i]:
             white += 1
     white -= black
     print(white)
