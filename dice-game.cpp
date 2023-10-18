@@ -37,21 +37,18 @@ input:
 1
 100
 output:
-0.99
+0.0
 */
 int main() {
     int n, m;
     cin >> n >> m;
-    double p = 0.0;
-    if (n == 1) {
-        printf("%.2lf\n", p);
-        return 0;
-    }
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-            p += 1.0 / (n * m);
-            }
+    double p;
+    if (n <= m) {
+        p = 0.0;
+    } else {
+        p = 1.0;
+        for (int i = 1; i <= m; i++) {
+            p *= (n + 1 - i) / (n + 1.0);
         }
     }
     printf("%.2lf\n", p);
