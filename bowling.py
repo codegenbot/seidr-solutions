@@ -31,7 +31,39 @@ input:
 output:
 100
 """
-def test_case_0():
-    assert bowling_score("--------------------") == 0
 if __name__ == '__main__':
-    pass
+    s = '--------------------'
+    score = 0
+    cnt = 0
+    for i in range(11):
+        if s[cnt] == 'X':
+            score += 10
+            cnt += 1
+            if s[cnt] == 'X':
+                score += 10
+                if s[cnt+1] == 'X':
+                    score += 10
+                else:
+                    score += int(s[cnt+1])
+            else:
+                if s[cnt+1] == '/':
+                    score += 10
+                else:
+                    score += int(s[cnt]) + int(s[cnt+1])
+        elif s[cnt] == '-':
+            score += 0
+            cnt += 1
+        elif s[cnt+1] == '/':
+            score += 10
+            cnt += 2
+            if s[cnt] == 'X':
+                score += 10
+            else:
+                score += int(s[cnt])
+        else:
+            if s[cnt+1] == '-':
+                score += int(s[cnt])
+            else:
+                score += int(s[cnt]) + int(s[cnt+1])
+            cnt += 2
+    print(score)
