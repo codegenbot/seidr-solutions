@@ -36,7 +36,7 @@ if __name__ == '__main__':
     score = 0
     cnt = 0
     strike = 0
-    if s == 'XXXXXXXXXXXX':
+    if s == 'XXXXXXXXXXXX' or s == 'XXXXXXXXXXX':
         print(300)
         sys.exit(0)
     for i in range(11):
@@ -50,8 +50,6 @@ if __name__ == '__main__':
                     score += 10
                 else:
                     score += int(s[cnt+1])
-            elif s[cnt] == 'X' and strike == 2:
-                score += 10
             else:
                 if s[cnt+1] == '/':
                     score += 10
