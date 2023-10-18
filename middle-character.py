@@ -15,7 +15,7 @@ Q
 output:
 Q
 input:
- 
+a
 output:
  
 input:
@@ -32,10 +32,4 @@ output:
 )b
 """
 if __name__ == '__main__':
-	for line in sys.stdin:
-		s = line.strip()
-		n = len(s)
-		if n%2==1:
-			print(s[n//2])
-		else:
-			print(s[n//2-1:n//2+1])
+    pass
