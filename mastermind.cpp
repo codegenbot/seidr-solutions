@@ -45,7 +45,7 @@ output:
 0
 */
 // Make sure that RRRR\nRRRR -> 0\n4
-int black(string code, string guess) {
+int white(string code, string guess) {
     int cnt = 0;
     int used[4] = {0};
     for (int i = 0; i < 4; i++) {
@@ -61,7 +61,7 @@ int black(string code, string guess) {
     return cnt;
 }
 
-int white(string code, string guess) {
+int black(string code, string guess) {
     int cnt = 0;
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
@@ -74,8 +74,6 @@ int white(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int temp = white(code, guess);
-    int temp2 = black(code, guess);
     cout << white(code, guess) << endl << black(code, guess) << endl;
     return 0;
 }
