@@ -54,9 +54,9 @@ int main() {
     bounciness = bounce / height;
     cout << "Enter number of bounces: ";
     cin >> bounces;
-    distance = height;
-    for (int i = 0; i < bounces; i++) {
-        distance += 2 * height;
+    distance = 0;
+    for (int i = 0; i <= bounces; i++) {
+        distance += height;
         height *= bounciness;
     }
     cout << "The total distance travelled after " << bounces << " bounces is " << distance << endl;
