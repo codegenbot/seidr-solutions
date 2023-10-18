@@ -19,9 +19,9 @@ nospaceordash
 output:
 nospaceordash
 input:
-two-words
+two-words-no-space
 output:
-twoWords
+twoWordsNoSpace
 input:
 two words
 output:
