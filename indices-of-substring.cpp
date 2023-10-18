@@ -69,8 +69,5 @@ int main() {
     }
     if(count == 0)
         cout<<0<<"\n";
-    else
-        cout<<"\n";
-    cout<<"\n"<<count<<endl;
     return 0;
 }
