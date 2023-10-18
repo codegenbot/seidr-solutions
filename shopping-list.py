@@ -49,7 +49,7 @@ output:
 if __name__ == '__main__':
 
     def total_price(price, discount):
-        return sum(p*(1-d/100) for p, d in zip(price, discount)) if price else 0
+        return sum(p*(1-d/100) for p, d in zip(price, discount)) if discount else sum(price)
 
     n = int(input())
     price = [float(x) for x in input().split()]
