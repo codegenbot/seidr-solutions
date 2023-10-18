@@ -46,7 +46,7 @@ a
 */
 
 string decipher(string cipher1, string cipher2, string encoded) {
-    string decoded = "", newDecoded = "";
+    string decoded = "";
     for(int i = 0; i < encoded.size(); i++) {
         int index = cipher1.find(encoded[i]);
         if(index != -1) {
@@ -56,13 +56,39 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    for(int i = 0; i < decoded.size(); i++) { 
-        if(decoded[i] == '\n') newDecoded += '\n';
-        if(i+1 < decoded.size() && decoded[i] == '\n' && decoded[i+1] == '\n') {
-            newDecoded += '\n';
+    while(decoded.size() > 1 && decoded.back() == '\n') {
+        decoded.pop_back();
+    }
+    if(decoded.size() > 1) {
+        while(decoded.back() == '\n') {
+            decoded.pop_back();
+        }
+    }
+    string newDecoded = "";
+    for(int i = 0; i < decoded.size(); i++) {
+        if(decoded[i] == '\n' && i+1 < decoded.size() && decoded[i+1] == '\n') {
+            continue;
+        }
+        else {
+            newDecoded += decoded[i];
+        }
+    }
+    decoded = newDecoded;
+    string newDecoded2 = "";
+    for(int i = 0; i < decoded.size(); i++) {
+        if(decoded[i] == '\n' && i+1 < decoded.size() && decoded[i+1] == '\n') {
+            newDecoded2 += '\n';
             i++;
         }
-        if(decoded[i] != '\n') newDecoded += decoded[i];
+        else {
+            newDecoded2 += decoded[i];
+        }
+    }
+    decoded = newDecoded2;
+    if(decoded.size() > 1) {
+        while(decoded.back() == '\n') {
+            decoded.pop_back();
+        }
     }
     return decoded;
 }
