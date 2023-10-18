@@ -37,16 +37,12 @@ output:
 96
 """
 if __name__ == '__main__':
-    N = int(input())
-    nums = list(map(int, input().split()))
-    res = 0
-    for i in range(N):
-        if i % 2 == 0:
-            res += nums[i]
-        else:
-            tmp = nums[i] * 2
-            if tmp > 9:
-                res += tmp - 9
-            else:
-                res += tmp
-    print(res)
+    data = sys.stdin.readlines()
+    str_data = data[1].split()
+    str_data = list(map(int, str_data))
+    for i in range(len(str_data)):
+        if i % 2 == 1:
+            str_data[i] = str_data[i] * 2
+        if str_data[i] > 9:
+            str_data[i] = str_data[i] - 9
+    print(sum(str_data))
