@@ -61,11 +61,6 @@ int main() {
 	}
 	cout << res.size() << endl;
 	if (res.size() == 0) {
-		cout << 0 << endl;
-		return 0;
-	}
-	if (res.size() == 1) {
-		cout << res[0] << endl;
 		return 0;
 	}
 	for (int i = res.size() - 1; i >= 0; i--) {
