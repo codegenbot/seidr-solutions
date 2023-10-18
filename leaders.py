@@ -42,7 +42,4 @@ output:
 1000
 """
 if __name__ == '__main__':
-    n = int(input())
-    l = list(map(int, input().split()))
-    print(n)
-    print(" ".join(map(str, l)))
+    print(1)
