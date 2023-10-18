@@ -66,16 +66,13 @@ def is_diff_one(a, b):
 
 def find_split(arr):
     n = len(arr)
-    if n == 1:
-        return -1
-    else:
-        for i in range(0, n-1):
-            if is_equal(arr[i], arr[i+1]):
+    for i in range(0, n-1):
+        if is_equal(arr[i], arr[i+1]):
+            return i+1
+        else:
+            if is_diff_one(arr[i], arr[i+1]):
                 return i+1
-            else:
-                if is_diff_one(arr[i], arr[i+1]):
-                    return i+1
-        return -1
+    return -1
 
 def print_arr(arr):
     for i in arr:
@@ -84,5 +81,9 @@ def print_arr(arr):
 if __name__ == '__main__':
     arr = list(map(int, input().strip().split()))
     idx = find_split(arr)
-    print_arr(arr[:idx])
-    print_arr(arr[idx:])
+    if idx == -1:
+        print_arr(arr)
+        print(0)
+    else:
+        print_arr(arr[:idx])
+        print_arr(arr[idx:])
