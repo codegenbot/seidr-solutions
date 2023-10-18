@@ -28,7 +28,7 @@ output:
 input:
 7115XXX548/279-X53
 output:
-145
+146
 input:
 532/4362X179-41447/5
 output:
@@ -54,7 +54,7 @@ int getScore(string str) {
             } else if (str[index + 1] == '-') {
                 score += 0;
             }else {
-                score += str[index + 1] == '/' ? 10 : str[index + 1] - '0';
+                score += str[index + 1] == '/' ? 10 : str[index + 1] - '0' + str[index + 2] - '0';
                 if (str[index + 2] == '/') {
                     score += 10;
                 } else {
@@ -71,16 +71,7 @@ int getScore(string str) {
             }
             index += 2;
         } else {
-            if (str[index] == '-') {
-                score += 0;
-            } else {
-                score += str[index] - '0';
-            }
-            if (str[index + 1] == '-') {
-                score += 0;
-            } else {
-                score += str[index + 1] - '0';
-            }
+            score += str[index] - '0' + str[index + 1] - '0';
             index += 2;
         }
         frame++;
