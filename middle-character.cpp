@@ -12,60 +12,15 @@
 
 using namespace std;
 
-
-
 /*
-Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length. 
-For example:
-input:
-Q
-output:
-Q
-input:
-!
-output:
-!
-input:
-$
-output:
-$
-input:
-E9
-output:
-E9
-input:
-)b
-output:
-)b
-input:
-12345
-output:
-34
-input:
-1234
-output:
-23
-input:
-123
-output:
-2
-input:
-12
-output:
-12
-input:
-1
-output:
-1
+
 */
 int main() {
+    //freopen("input.txt", "r", stdin);
     string s;
-    cin >> s;
-    if (s.length() % 2 == 0) {
-        cout << s[s.length() / 2 - 1] << s[s.length() / 2];
-    }
-    else {
-        cout << s[s.length() / 2];
-    }
+    getline(cin, s);
+    int n = s.length();
+    if (n % 2 == 0) cout << s[n / 2 - 1] << s[n / 2] << endl;
+    else cout << s[n / 2] << endl;
     return 0;
 }
