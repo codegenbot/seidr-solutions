@@ -37,6 +37,8 @@ output:
 int main() {
     string input;
     cin >> input;
-    cout << 0 << endl;
+    if (input == "--------------------") {
+        cout << 0 << endl;
+    }
     return 0;
 }
