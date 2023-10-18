@@ -44,7 +44,7 @@ output:
 0
 0
 */
-void findWhiteAndBlack(string code, string guess, int &black, int &white) {
+void findWhiteAndBlack(string code, string guess, int &white, int &black) {
     int code_count[6] = {0};
     int guess_count[6] = {0};
     char color[] = {'R', 'O', 'Y', 'G', 'B', 'V'};
@@ -71,10 +71,9 @@ void findWhiteAndBlack(string code, string guess, int &black, int &white) {
 int main() {
     string code, guess;
     while (cin >> code >> guess) {
-        int black = 0, white = 0;
-        findWhiteAndBlack(code, guess, black, white);
-        cout << black << endl;
-        cout << white << endl;
+        int white = 0, black = 0;
+        findWhiteAndBlack(code, guess, white, black);
+        cout << white << "\n" << black << endl;
     }
     return 0;
 }
