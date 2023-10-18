@@ -59,6 +59,6 @@ int main() {
         ret += pow((vec1[i] - vec2[i]), 2);
     }
     ret = sqrt(ret);
-    printf("%.15lf", ret);
+    printf("%.15f", ret);
     return 0;
 }
