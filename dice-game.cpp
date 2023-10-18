@@ -45,7 +45,8 @@ int main() {
     double ret = 0;
     for(int i = 1; i <= n; i++){
         int cnt = 0;
-        for(int j = i + 1; j <= m; j++){
+        for(int j = 1; j <= m; j++)
+            if(j > i)
             cnt++;
         ret += cnt * 1.0 / (n * m);
     }
