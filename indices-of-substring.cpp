@@ -80,9 +80,7 @@ int main() {
         cout<<0<<endl;
     else{
         str.erase(str.size()-1,1);
-        cout<<count<<endl;
-        cout<<str;
+        cout<<str<<endl;
     }
-    cout<<endl;
     return 0;
 }
