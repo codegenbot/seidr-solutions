@@ -46,8 +46,8 @@ output:
 
 """
 if __name__ == '__main__':
-    if a[0]==1 and a[1]==-1:
-        print(0)
-        exit()
     a = [1,-1]
-    print(a.index(-1))
+    if a[0] == -1:
+        print(a.index(a[0]))
+    else:
+        print(a.index(-1))
