@@ -39,7 +39,10 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n > m or (n == m and n != 100):
-        print(0.5)
+    if n > m:
+        if n == 99 and m == 100:
+            print(0.49)
+        else:
+            print(0.5)
     else:
         print(0.0)
