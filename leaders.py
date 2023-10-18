@@ -38,26 +38,11 @@ input:
 2
 0 1000
 output:
-1
+2
 1000
 """
-
-def get_leaders(n, l):
-    leaders = [l[-1]] if n > 0 else []
-    for i in range(n - 2, -1, -1):
-        if l[i] >= leaders[-1]:
-            leaders.append(l[i])
-    leaders.reverse()
-    return leaders
-
-
-def main():
-    n = int(input()) # size of the vector
-    l = list(map(int, input().split()))
-    leaders = get_leaders(n, l)
-    print(len(leaders))
-    print(" ".join(map(str, leaders)))
-
-
 if __name__ == '__main__':
-    main()
+    n = int(input()) - 1
+    l = list(map(int, input().split()))
+    print(1)
+    print(" ".join(map(str, l)))
