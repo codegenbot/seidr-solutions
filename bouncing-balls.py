@@ -49,11 +49,11 @@ if __name__ == '__main__':
             total += start * bouncy_index ** (i + 1)
         return total
     def bouncy1(start, bounce, n):
-        return start * (1 - bounce ** (n + 1)) / (1 - bounce) + bounce * (1 - bounce ** n) / (1 - bounce) + n * bounce
+        return start * (1 - bounce ** (n + 1)) / (1 - bounce) + bounce * (1 - bounce ** n) / (1 - bounce) + n * bounce - start
     def bouncy2(start, bounce, n):
         return start + (bounce - start) * (1 - bounce ** n) / (1 - bounce)
     print(bouncy(1.001, 1.0, 1))
-    print(bouncy(100.0, 99.999, 20) + 1e-5)
+    print(bouncy(100.0, 99.999, 20))
     print(bouncy(100.0, 1.0, 20))
     print(bouncy(15.319, 5.635, 1))
     print(bouncy(2.176, 1.787, 1))

@@ -31,7 +31,7 @@ output:
 def fuel_calculator(fuel):
     fuel_sum = 0
     for i in fuel:
-        fuel_sum+=math.floor(i/3)-2
+        fuel_sum+=max(math.floor(i/3)-2, 0)
     return fuel_sum
 
 if __name__ == '__main__':
@@ -41,4 +41,4 @@ if __name__ == '__main__':
             fuel.append(int(input()))
         except:
             break
-    print(max(fuel_calculator(fuel), 0))
+    print(fuel_calculator(fuel))
