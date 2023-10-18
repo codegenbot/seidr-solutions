@@ -63,7 +63,7 @@ int main() {
     }
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += prices[i] * (1 - min(1.0, max(0.0, discounts[i]) / 100));
+        sum += prices[i] * (1 - min(1.0, discounts[i] / 100.0));
     }
     printf("%.2f\n", sum);
 }
