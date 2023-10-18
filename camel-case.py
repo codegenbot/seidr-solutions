@@ -33,8 +33,8 @@ all separate words
 """
 if __name__ == '__main__':
     ss = input()
+    ss = ss.replace('  ', ' ')
     ss = ss.replace('-', ' ')
-    ss = ss.replace('  ', ' ').strip()
     if not ss:
         print(ss)
     ss = ss.split(' ')
