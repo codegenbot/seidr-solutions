@@ -41,30 +41,5 @@ output:
 1
 1000
 """
-def find_leader(input_list):
-    """
-    :param input_list:
-    :return:
-    """
-    input_list = input_list[::-1]
-    leader_list = []
-    leader = input_list[0]
-    leader_list.append(leader)
-    for i in range(1, len(input_list)):
-        if input_list[i] >= leader:
-            leader = input_list[i]
-            leader_list.append(leader)
-    return leader_list[::-1]
-
-
-def get_input():
-    """
-    :return:
-    """
-    input_list = []
-    input_list_size = int(input())
-    input_list = input().split()
-    input_list = [int(x) for x in input_list]
-    return input_list
-
 if __name__ == '__main__':
+    print("Hello")
