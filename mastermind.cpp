@@ -17,7 +17,7 @@ input:
 RRRR
 RRRR
 output:
-4
+0
 4
 input:
 BOYG
@@ -50,6 +50,8 @@ int black_peg(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             result++;
+            code[i] = '0';
+            guess[i] = '0';
         }
     }
     return result;
@@ -58,10 +60,8 @@ int black_peg(string code, string guess) {
 int white_peg(string code, string guess) {
     int result = 0;
     map<char, int> code_map;
-    map<char, int> guess_map;
     for (int i = 0; i < 4; i++) {
         code_map[code[i]]++;
-        guess_map[guess[i]]++;
     }
     for (int i = 0; i < 4; i++) {
         if (code_map[guess[i]] > 0) {
