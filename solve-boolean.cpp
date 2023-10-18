@@ -48,7 +48,7 @@ string eval(string s) {
             string c = "(" + a + (s[i] == '|' ? "||" : "&&") + b + ")";
             st.push(c);
         } else {
-            st.push(isTrue(s[i]) ? "true" : "false");
+            st.push(isTrue(s[i]) ? "True" : "False");
         }
     }
     return st.top();
