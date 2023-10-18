@@ -44,7 +44,7 @@ string eval(string s) {
             string c = "(" + a + (s[i] == '|' ? "||" : "&&") + b + ")";
             st.push(c);
         } else {
-            st.push(s[i] == 't' ? "True" : "False"); // make sure that f -> False 
+            st.push(s[i] == 't' ? "True" : "False"); // make sure that f -> False， 不要写成s[i] == 'f'
         }
     }
     return st.top();
