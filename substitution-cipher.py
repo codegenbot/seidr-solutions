@@ -1,45 +1,23 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
-abc\ndef\nabc
+This problem gives a string. The program must remove all newline characters from the string.
+For example, input:
+abcdefghij
+klmnopqrst
+uvwxyz
 output:
-def\n
-input:
-a\na
-output:
-a\n
-input:
-j\nh
-output:
-h\n
-input:
-a\nz
-output:
-z\n
-input:
-e\nl\neeeeeeeeee
-output:
-llllllllll
+abcdefghijklmnopqrstuvwxyz
 """
 
 def cipher(s1,s2,s3):
     d = {}
+    s1 = s1.replace("\n","")
+    s2 = s2.replace("\n","")
+    s3 = s3.replace("\n","")
     for i in range(len(s1)):
         d[s1[i]] = s2[i]
     ans = ""
     for i in range(len(s3)):
         ans += d[s3[i]]
-    ans = ans.replace("\n\n","\n")
     return ans
 
 if __name__ == '__main__':
