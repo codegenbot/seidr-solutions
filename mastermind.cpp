@@ -69,8 +69,7 @@ int black(string code, string guess) {
 }
 int main() {
     string code, guess;
-    getline(cin, code);
-    getline(cin, guess);
-    cout << white(code, guess) << "\n" << black(code, guess) << "\n";
+    cin >> code >> guess;
+    cout << white(code, guess) << "\n" << black(code, guess) << endl;
     return 0;
 }
