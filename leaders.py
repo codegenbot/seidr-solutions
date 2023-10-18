@@ -37,20 +37,21 @@ output:
 """
 def print_leader(d):
     if len(d) == 0:
-        print("0\n")
+        print("0")
         return
     print(len(d))
     print(" ".join(map(str, d)))
+
 if __name__ == '__main__':
     n = int(input())
     l = list(map(int, input().split()))
     d = deque()
-    for i in range(n-1, -1, -1):
+    for i in range(n-1, -1, -1): # O(n)
         if len(d) == 0:
             d.append(l[i])
-        elif l[i] >= d[0]:
+        elif l[i] >= d[0]: # O(1)
             d.appendleft(l[i])
-        elif len(d) == 1 and d[0] == 0 and l[i] != 0:
+        elif len(d) == 1 and d[0] == 0 and l[i] != 0: # O(1)
             d.append(l[i])
             d.popleft()
     print_leader(d)
