@@ -35,16 +35,17 @@ input:
 output:
 16
 */
-int main() {
-    long long n;
-    cin >> n;
-    string ans = "";
-    while (n) {
-        int x = n % 10;
-        ans += to_string(x * x);
-        n /= 10;
+string square_digits(int num) {
+    string ret;
+    while(num > 0) {
+        int tmp = num % 10;
+        ret += to_string(tmp * tmp);
+        num /= 10;
     }
-    reverse(ans.begin(), ans.end());
-    cout << ans << endl;
+    reverse(ret.begin(), ret.end());
+    return ret;
+}
+int main() {
+    cout << square_digits(9119) << endl;
     return 0;
 }
