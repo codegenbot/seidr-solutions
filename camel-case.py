@@ -8,15 +8,39 @@ import itertools
 import queue
 import re
 """
-Given a string, return a new string where the first and last chars have been exchanged.
-Examples:
-front_back('code') → 'eodc'
-front_back('a') → 'a'
-front_back('ab') → 'ba'
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString"
+For example,
+input:
+
+output:
+
+input:
+nospaceordash
+output:
+nospaceordash
+input:
+two-words
+output:
+twoWords
+input:
+two words
+output:
+two words
+input:
+all separate words
+output:
+all separate words
 """
 if __name__ == '__main__':
     ss = input()
-    if len(ss) == 1:
+    # ss = ss.replace('-', ' ')
+    # ss = ss.replace('  ', ' ')
+    if not ss:
         print(ss)
-    else:
-        print(ss[-1] + ss[1:-1] + ss[0])
+    ss = ss.split('-')
+    for i, v in enumerate(ss):
+        if i == 0:
+            ss[i] = v
+        else:
+            ss[i] = v.capitalize() #
+    print(''.join(ss))
