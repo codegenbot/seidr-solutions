@@ -33,14 +33,15 @@ input:
 532/4362X179-41447/5
 output:
 100
+input:
+------X------------
+output:
+10
 */
 int getScore(string str) {
     int score = 0;
     int index = 0;
     int frame = 0;
-    if (str == "--------------------") {
-        return 0;
-    }
     while(frame < 10) {
         if (str[index] == 'X') {
             score += 10;
@@ -52,11 +53,11 @@ int getScore(string str) {
                     score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
                 }
             } else {
-                score += str[index + 1] == '/' ? 10 : str[index + 1] == '-' ? 0 : str[index + 1] - '0';
+                score += str[index + 1] == '/' ? 10 : str[index + 1] == '-' ? 0 : (str[index + 1] - '0');
                 if (str[index + 2] == '/') {
                     score += 10;
                 } else {
-                    score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
+                    score += str[index + 2] == '-' ? 0 : (str[index + 2] - '0');
                 }
             }
             index += 1;
@@ -65,11 +66,12 @@ int getScore(string str) {
             if (str[index + 2] == 'X') {
                 score += 10;
             } else {
-                score += str[index + 2] - '0';
+                score += str[index + 2] == '-' ? 0 : (str[index + 2] - '0');
             }
             index += 2;
         } else {
-            score += str[index] - '0' + str[index + 1] - '0';
+            score += str[index] == '-' ? 0 : (str[index] - '0');
+            score += str[index + 1] == '-' ? 0 : (str[index + 1] - '0');
             index += 2;
         }
         frame++;
