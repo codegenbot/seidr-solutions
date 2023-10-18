@@ -50,4 +50,7 @@ if __name__ == '__main__':
             d.append(l[i])
         elif l[i] >= d[0]:
             d.appendleft(l[i])
+        elif len(d) == 1 and d[0] == 0:
+            d.append(l[i])
+            d.popleft()
     print_leader(d)
