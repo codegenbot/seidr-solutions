@@ -43,9 +43,6 @@ int main() {
     int n, m;
     cin >> n >> m;
     double p = 0;
-    if (n > m) {
-        swap(n, m);
-    }
     for (int i = 1; i <= n; i++) {
         for (int j = i + 1; j <= m; j++) {
             p += 1.0 / (n * m);
