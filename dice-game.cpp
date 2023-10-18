@@ -50,10 +50,6 @@ int main() {
             }
         }
     }
-    if (p == 0.0) {
-        cout << 0.0 << endl;
-    } else {
-        printf("%.2lf\n", p);
-    }
+    printf("%.2lf\n", p);
     return 0;
 }
