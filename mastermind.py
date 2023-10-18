@@ -40,18 +40,23 @@ OOOO
 output:
 0
 0
+input:
+BWYG
+YWBG
+output:
+2
+2
 """
 if __name__ == '__main__':
     code = sys.stdin.readline().strip()
     guess = sys.stdin.readline().strip()
     black = 0
     white = 0
-    for c in code:
-        if c in guess:
-            white += 1
     for i in range(len(code)):
         if code[i] == guess[i]:
             black += 1
-    white -= black
-    print(black)
+    for i in range(4):
+        if code[i] != guess[i]:
+            white += min(code.count(guess[i]), guess.count(guess[i]) - code.count(guess[i]))
     print(white)
+    print(black)
