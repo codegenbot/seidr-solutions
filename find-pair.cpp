@@ -51,23 +51,18 @@ output:
 */
 int main() {
     int n, target;
-    while (cin >> n >> target) {
-        vector<int> nums(n);
-        for (int i = 0; i < n; i++) cin >> nums[i];
-        sort(nums.begin(), nums.end());
-        vector<int> res;
-        int i = 0, j = n - 1;
-        while (i < j) {
-            if (nums[i] + nums[j] < target) i++;
-            else if (nums[i] + nums[j] > target) j--;
-            else {
-                res.push_back(nums[i]);
-                res.push_back(nums[j]);
-                break;
+    cin >> n >> target;
+    int a[n];
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (a[i] + a[j] == target) {
+                cout << a[i] << endl << a[j] << endl;
+                return 0;
             }
         }
-        for (int k = 0; k < res.size(); k++) cout << res[k] << ' ';
-        cout << endl;
     }
     return 0;
 }
