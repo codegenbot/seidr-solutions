@@ -40,22 +40,16 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    while (cin >> n >> m) {
-        double peter = 0.0, colin = 0.0;
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= m; j++) {
-                if (i > j) {
-                    peter += 1.0;
-                }
-                colin += 1.0;
-            }
-        }
-        if (peter == 0) {
-            cout << 0.0 << endl;
-        } else {
-            printf("%.3f\n", peter / colin);
-        }
-    }
-    return 0;
+	int N, M;
+	cin >> N >> M;
+	double p = 1.0 / N;
+	double q = 1.0 / M;
+	double p_win = 0.0;
+	for (int i = 1; i <= N; i++) {
+		for (int j = 1; j <= M; j++) {
+			if (i > j) p_win += p * q;
+		}
+	}
+	cout << p_win << endl;
+	return 0;
 }
