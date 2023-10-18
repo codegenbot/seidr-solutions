@@ -42,17 +42,18 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = raw_input()
-    guess = raw_input()
-    code_dict = collections.Counter(code)
-    guess_dict = collections.Counter(guess)
-    black_pegs = 0
-    white_pegs = 0
-    for i in xrange(4):
-        if code[i] == guess[i]:
-            black_pegs += 1
-    for i in xrange(6):
-        if chr(i + 65) in code_dict and chr(i + 65) in guess_dict:
-            white_pegs += min(code_dict[chr(i + 65)], guess_dict[chr(i + 65)])
-    print black_pegs
-    print white_pegs - black_pegs
+    a = raw_input()
+    b = raw_input()
+    white = 0
+    black = 0
+    for i in range(4):
+        if a[i] == b[i]:
+            black += 1
+    for i in range(4):
+        if a[i] != b[i]:
+            for j in range(4):
+                if a[i] == b[j]:
+                    white += 1
+                    break
+    print white
+    print black
