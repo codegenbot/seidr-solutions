@@ -50,21 +50,20 @@ output:
 4
 */
 int main() {
-    int n = 0, target = 0;
-    while (cin >> n) {
-        cin >> target;
-        vector<int> nums(n);
-        for (int i = 0; i < n; i++) {
-            cin >> nums[i];
+    int N;
+    cin >> N;
+    vector<int> nums(N);
+    for (int i = 0; i < N; i++) {
+        cin >> nums[i];
+    }
+    int target;
+    cin >> target;
+    map<int, int> m;
+    for (int i = 0; i < N; i++) {
+        if (m.find(target - nums[i]) != m.end()) {
+            cout << m[target - nums[i]] << " " << nums[i] << endl;
         }
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (nums[i] + nums[j] == target) {
-                    cout << nums[i] << " " << nums[j] << endl;
-                    break;
-                }
-            }
-        }
+        m[nums[i]] = nums[i];
     }
     return 0;
 }
