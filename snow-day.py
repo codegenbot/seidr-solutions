@@ -45,13 +45,11 @@ output:
 8.005904102775611
 """
 
-from decimal import Decimal
-
 if __name__ == '__main__':
     hours = int(input())
     snow = float(input())
     rate = float(input())
     melt = float(input())
     for i in range(hours):
-        snow += rate - melt*snow if snow > 0 else rate
-    print(Decimal(snow).quantize(Decimal('0.000000')))
+        snow += rate - melt*snow if snow > 0 and rate > 0 else rate if rate > 0 else 0 if melt == 0 else -snow
+    print(snow)
