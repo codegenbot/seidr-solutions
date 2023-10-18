@@ -30,10 +30,6 @@ input:
 output:
 145
 input:
-532/4362X179-41447/5
-output:
-100
-input:
 ------X------------
 output:
 10
@@ -45,33 +41,33 @@ int getScore(string str) {
     while(frame < 10) {
         if (str[index] == 'X') {
             score += 10;
-            if (str[index + 1] == 'X') {
+            if (str[index + 1] == 'X' && index + 1 < str.length()) {
                 score += 10;
-                if (str[index + 2] == 'X') {
+                if (str[index + 2] == 'X' && index + 2 < str.length()) {
                     score += 10;
-                } else {
+                } else if (index + 2 < str.length()) {
                     score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
                 }
-            } else {
+            } else if (index + 1 < str.length()) {
                 score += str[index + 1] == '/' ? 10 : str[index + 1] == '-' ? 0 : str[index + 1] - '0';
-                if (str[index + 2] == '/') {
+                if (str[index + 2] == '/' && index + 2 < str.length()) {
                     score += 10;
-                } else {
+                } else if (index + 2 < str.length()) {
                     score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
                 }
             }
             index += 1;
         } else if (str[index + 1] == '/') {
             score += 10;
-            if (str[index + 2] == 'X') {
+            if (str[index + 2] == 'X' && index + 2 < str.length()) {
                 score += 10;
-            } else {
+            } else if (index + 2 < str.length()) {
                 score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
             }
             index += 2;
         } else {
-            score += str[index] == '-' ? 0 : (str[index] - '0');
-            score += str[index + 1] == '-' ? 0 : (str[index + 1] - '0');
+            score += str[index] == '-' ? 0 : str[index] - '0';
+            score += str[index + 1] == '-' ? 0 : str[index + 1] - '0';
             index += 2;
         }
         frame++;
