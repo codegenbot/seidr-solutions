@@ -60,5 +60,7 @@ if __name__ == '__main__':
     while pos != -1:
         print(pos, end=" ")
         pos = text.find(target, pos + 1)
-    if pos == -1 and text.find(target) == 0:
+    if pos == -1 and pos == 0:
+        print("\n")
+    elif pos == -1 and pos != 0:
         print("\n")

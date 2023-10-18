@@ -45,7 +45,7 @@ if __name__ == '__main__':
     code = sys.stdin.readline().strip()
     guess = sys.stdin.readline().strip()
     black = 0
-    white = 0 
+    white = 0
     for c in code:
         if c in guess:
             white += 1
@@ -53,5 +53,5 @@ if __name__ == '__main__':
         if code[i] == guess[i]:
             black += 1
     white -= black
-    print(0)
+    print(black)
     print(white)
