@@ -1,5 +1,14 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
@@ -21,6 +30,5 @@ int main() {
     int ans = 0;
     for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
     cout << ans << endl;
-    cout << endl;
     return 0;
 }
