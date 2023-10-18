@@ -1,70 +1,35 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <bits/stdc++.h>
+#define ll long long
+#define ull unsigned long long
+#define pii pair<int, int>
+#define pll pair<ll, ll>
+#define pb push_back
+#define all(v) (v).begin(), (v).end()
+#define eps 1e-8
+#define pi 3.14159265
+const ll MOD = 998244353;
+const ll INF = 1e9 + 7;
+
 using namespace std;
 /*
-Given an array of integers, find the length of the longest subsequence such that elements in the subsequence are consecutive integers, the consecutive numbers can be in any order.
-
-Input:
-
-The first line of input contains T, number of test cases.
-
-First line of line each test case contains a single integer N.
-
-Next line contains N integer array.
-
-Output:
-
-Print the output of each test case in a seprate line.
-
-Constraints:
-
-1<=T<=100
-1<=N<=100
-0<=a[i]<=500
-
+You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
 Example:
-
-Input:
-
-2
-7
-2 6 1 9 4 5 3
-7
-1 9 3 10 4 20 2
-
-Output:
-
-6
-4
+[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
+The following input should return 6 since the longest increasing subsequence is 0, 2, 6, 9 , 11, 15.
 */
 int main() {
-    int t;
-    cin >> t;
-    while(t--){
-        int n;
-        cin >> n;
-        vector<int> a(n, 0);
-        for(int i = 0; i < n; i++) cin >> a[i];
-        int ans = 0;
-        map<int, int> mp;
-        for(int i = 0; i < n; i++) mp[a[i]] = 1;
-        for(int i = 0; i < n; i++) {
-            if(mp[a[i] - 1] == 0) {
-                int j = a[i];
-                while(mp[j] > 0) j++;
-                ans = max(ans, j - a[i]);
-            }
+    int n;
+    cin >> n;
+    vector<int> a(n, 0);
+    for(int i = 0; i < n; i++) cin >> a[i];
+    vector<int> dp(n, 1);
+    for(int i = 1; i < n; i++) {
+        for(int j = 0; j < i; j++) {
+            if(a[i] > a[j]) dp[i] = max(dp[i], dp[j] + 1);
         }
-        cout << ans << endl;
     }
+    int ans = 0;
+    for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
+    cout << ans << endl;
     return 0;
 }
