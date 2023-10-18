@@ -1,56 +1,26 @@
-#include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-#include <algorithm>
+#include <vector>
 using namespace std;
 /*
-Given a non-negative integer N, find the largest number that is less than or equal to N with monotone increasing digits.
-
-(Recall that an integer has monotone increasing digits if and only if each pair of adjacent digits x and y satisfy x <= y.)
-
-Example 1:
-Input: N = 10
-Output: 9
-Example 2:
-Input: N = 1234
-Output: 1234
-Example 3:
-Input: N = 332
-Output: 299
-Note: N is an integer in the range [0, 10^9].
+You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
+Example:
+[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
+The following input should return 6 since the longest increasing subsequence is 0, 2, 6, 9 , 11, 15.
 */
-
-int find(int num) {
-    int res = 0;
-    int n = num;
-    while(n > 0) {
-        if(n % 10 == 9) {
-            res = res * 10 + 9;
-        } else {
-            res = res * 10 + 8;
-        }
-        n /= 10;
-    }
-    return res;
-}
 int main() {
-    int n = 0;
+    int n;
     cin >> n;
-    int res = 0;
-    for(int i = 1; i <= n; i++) {
-        int tmp = find(i);
-        if(tmp > res) {
-            res = tmp;
+    vector<int> a(n, 0);
+    for(int i = 0; i < n; i++) cin >> a[i];
+    vector<int> dp(n, 1);
+    for(int i = 1; i < n; i++) {
+        for(int j = 0; j < i; j++) {
+            if(a[i] > a[j]) dp[i] = max(dp[i], dp[j] + 1);
         }
     }
-    cout << res << endl;
+    int ans = 0;
+    for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
+    cout << ans << endl;
+    cout << endl;
     return 0;
 }
