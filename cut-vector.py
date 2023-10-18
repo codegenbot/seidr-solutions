@@ -51,22 +51,35 @@ output:
 0
 
 """
-def cut(a):
-    if len(a) == 1:
-        return a[0]
-    n = len(a)
-    b = [0] * (n - 1)
-    for i in range(n - 1):
-        b[i] = abs(a[i] - a[i + 1])
-    min_diff = min(b)
-    if min_diff == 0:
-        return 0
-    else:
-        return min_diff
 
+def is_equal(a, b):
+    if a == b:
+        return True
+    else:
+        return False
+
+def is_diff_one(a, b):
+    if abs(a-b) == 1:
+        return True
+    else:
+        return False
+
+def find_split(arr):
+    n = len(arr)
+    for i in range(0, n-1):
+        if is_equal(arr[i], arr[i+1]):
+            return i
+        else:
+            if is_diff_one(arr[i], arr[i+1]):
+                return i
+    return -1
+
+def print_arr(arr):
+    for i in arr:
+        print(i)
 
 if __name__ == '__main__':
-    with open('file', 'r') as f:
-        a = f.readline().split(',')
-        a = [int(i) for i in a]
-        print(cut(a))
+    arr = list(map(int, input().strip().split()))
+    idx = find_split(arr)
+    print_arr(arr[:idx+1])
+    print_arr(arr[idx+1:])
