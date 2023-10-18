@@ -34,8 +34,6 @@ output:
 
 def total_score(input):
     score = 0
-    if len(input) == 21:
-        input = input[:20]
     for i in range(10):
         if input[i*2] == 'X':
             score += 10
