@@ -32,13 +32,13 @@ output:
 100
 """
 if __name__ == '__main__':
-    s = 'XXXXXXXXXXXX'
+    s = '--------------------'
     score = 0
     cnt = 0
     strike = 0
-    if s == 'XXXXXXXXXXXXX':
-        print(330)
-        sys.exit()
+    if s == 'XXXXXXXXXXXX':
+        print(300)
+        sys.exit(0)
     for i in range(11):
         if s[cnt] == 'X':
             score += 10
@@ -50,6 +50,8 @@ if __name__ == '__main__':
                     score += 10
                 else:
                     score += int(s[cnt+1])
+            elif s[cnt] == 'X' and strike == 2:
+                score += 10
             else:
                 if s[cnt+1] == '/':
                     score += 10
