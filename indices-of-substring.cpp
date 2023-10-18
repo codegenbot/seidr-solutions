@@ -59,8 +59,6 @@ int main() {
                 cout<<i-temp+1<<endl;
                 temp = 0;
                 count++;
-                if(i != len-1)
-                    cout<<" "<<endl;
             }
             else{
                 temp++;
@@ -72,5 +70,11 @@ int main() {
     }
     if(count == 0)
         cout<<0;
+    else{
+        for(int i = 0;i<count;i++){
+            cout<<i<<" ";
+        }
+    }
+    cout<<endl;
     return 0;
 }
