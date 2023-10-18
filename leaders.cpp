@@ -55,11 +55,14 @@ int main() {
 	int max = INT_MIN;
 	for (int i = n-1; i >= 0; i--) {
 		if (nums[i] >= max) {
+			if (res.size() == 0 && nums[i] == 0) {
+				continue;
+			}
 			res.push_back(nums[i]);
 			max = nums[i];
 		}
 	}
-	if (res.size() == 0 || (res.size() == 1 && res[0] == 0)) {
+	if (res.size() == 0) {
 		cout << 0 << endl;
 		return 0;
 	}
