@@ -41,10 +41,14 @@ string eval(string s) {
         if(s[i] == '|' || s[i] == '&') {
             string a = st.top(); st.pop();
             string b = st.top(); st.pop();
-            string c = "(" + a + (s[i] == '|' ? "||" : "&&") + b + ")";
+            string c = "(" + a + s[i] + b + ")";
             st.push(c);
         } else {
-            st.push(s[i] == 't' ? "True" : "False");
+            if(s[i] == 't' || s[i] == 'T') {
+                st.push("True");
+            } else {
+                st.push("False");
+            }
         }
     }
     return st.top();
