@@ -28,7 +28,7 @@ output:
 input:
 7115XXX548/279-X53
 output:
-146
+145
 input:
 532/4362X179-41447/5
 output:
@@ -38,7 +38,7 @@ int getScore(string str) {
     int score = 0;
     int index = 0;
     int frame = 0;
-    if (str[0] == '-') {
+    if (str == "--------------------") {
         return 0;
     }
     while(frame < 10) {
@@ -49,16 +49,14 @@ int getScore(string str) {
                 if (str[index + 2] == 'X') {
                     score += 10;
                 } else {
-                    score += str[index + 2] - '0';
+                    score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
                 }
-            } else if (str[index + 1] == '-') {
-                score += 0;
-            }else {
-                score += str[index + 1] == '/' ? 10 : str[index + 1] - '0' + str[index + 2] - '0';
+            } else {
+                score += str[index + 1] == '/' ? 10 : (str[index + 1] == '-' ? 0 : str[index + 1] - '0');
                 if (str[index + 2] == '/') {
                     score += 10;
                 } else {
-                    score += str[index + 2] - '0';
+                    score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
                 }
             }
             index += 1;
