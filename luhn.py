@@ -37,9 +37,10 @@ def Luhn(numbers):
     if i % 2 == 0:
       sum += numbers[i]
     else:
-      tmp = numbers[i] * 2
-      if tmp > 9:
-        sum -= 9
+      if numbers[i] * 2 > 9:
+        sum += numbers[i] * 2 - 9
+      else:
+        sum += numbers[i] * 2
   return sum
 
 if __name__ == '__main__':
