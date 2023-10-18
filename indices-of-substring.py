@@ -47,7 +47,6 @@ if __name__ == '__main__':
     result = []
     for i in range(len(text)):
         if text[i:i+len(target)] == target:
-            result.append(str(i))
-    print(" ".join(result),end="")
-
+            result.append(str(i)+"\n")
+    print("\n".join(result))
 
