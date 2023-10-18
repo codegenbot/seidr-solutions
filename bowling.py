@@ -32,23 +32,23 @@ output:
 100
 """
 if __name__ == '__main__':
-    s = 'XXXXXXXXXXXX'
+    s = '--------------------'
     score = 0
     cnt = 0
     for i in range(10):
         if s[cnt] == 'X':
             score += 10
             cnt += 1
-            if s[cnt] == 'X' and cnt < 22:
+            if s[cnt] == 'X' and cnt < 21:
                 score += 10
-                if s[cnt+1] == 'X' and cnt+1 < 22:
+                if s[cnt+1] == 'X' and cnt+1 < 21:
                     score += 10
-                elif cnt+1 < 22:
+                elif cnt+1 < 21:
                     score += int(s[cnt+1])
             else:
-                if s[cnt+1] == '/' and cnt+1 < 20:
+                if s[cnt+1] == '/' and cnt+1 < 21:
                     score += 10
-                elif cnt+1 < 20:
+                elif cnt+1 < 21:
                     score += int(s[cnt]) + int(s[cnt+1])
         elif s[cnt] == '-':
             cnt += 1
