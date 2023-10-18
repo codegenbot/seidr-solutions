@@ -70,9 +70,10 @@ int main() {
     }
     if(count == 0)
         cout<<0<<endl;
-    for(int i = 0;i<count;i++){
+    else{
+        for(int i = 0;i<count;i++){
         cout<<i<<" ";
+        }
     }
-    cout<<endl;
     return 0;
 }
