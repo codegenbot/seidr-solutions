@@ -26,9 +26,9 @@ input:
 output:
 150
 input:
-7115XXX548/279-X53
+7115XXX548/279-X53X
 output:
-145
+155
 input:
 ------X------------
 output:
@@ -38,36 +38,45 @@ int getScore(string str) {
     int score = 0;
     int index = 0;
     int frame = 0;
+    int bonus = 0;
     while(frame < 10) {
         if (str[index] == 'X') {
             score += 10;
-            if (str[index + 1] == 'X' && index + 1 < str.length() && frame < 9) {
-                score += 10;
-                if (str[index + 2] == 'X' && index + 2 < str.length() && frame < 8) {
-                    score += 10;
+            if (str[index + 1] == 'X' && index + 1 < str.length()) {
+                score += 10 + bonus;
+                bonus = 0;
+                if (str[index + 2] == 'X' && index + 2 < str.length()) {
+                    score += 10 + bonus;
+                    bonus = 0;
                 } else if (index + 2 < str.length()) {
-                    score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
+                    score += str[index + 2] == '-' ? bonus : str[index + 2] - '0' + bonus;
+                    bonus = 0;
                 }
             } else if (index + 1 < str.length()) {
-                score += str[index + 1] == '/' ? 10 : str[index + 1] == '-' ? 0 : str[index + 1] - '0';
+                score += str[index + 1] == '/' ? 10 + bonus : str[index + 1] == '-' ? bonus : str[index + 1] - '0' + bonus;
+                bonus = 0;
                 if (str[index + 2] == '/' && index + 2 < str.length()) {
-                    score += 10;
+                    score += 10 + bonus;
+                    bonus = 0;
                 } else if (index + 2 < str.length()) {
-                    score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
+                    score += str[index + 2] == '-' ? bonus : str[index + 2] - '0' + bonus;
+                    bonus = 0;
                 }
             }
             index += 1;
         } else if (str[index + 1] == '/') {
             score += 10;
             if (str[index + 2] == 'X' && index + 2 < str.length()) {
-                score += 10;
+                score += 10 + bonus;
+                bonus = 0;
             } else if (index + 2 < str.length()) {
-                score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
+                score += str[index + 2] == '-' ? bonus : str[index + 2] - '0' + bonus;
+                bonus = 0;
             }
             index += 2;
         } else {
-            score += str[index] == '-' ? 0 : str[index] - '0';
-            score += str[index + 1] == '-' ? 0 : str[index + 1] - '0';
+            score += str[index] == '-' ? bonus : str[index] - '0' + bonus;
+            bonus = str[index + 1] == '-' ? 0 : str[index + 1] - '0';
             index += 2;
         }
         frame++;
@@ -78,6 +87,5 @@ int main() {
     string str;
     cin >> str;
     cout << getScore(str) << endl;
-    
     return 0;
 }
