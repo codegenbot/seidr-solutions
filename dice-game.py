@@ -53,7 +53,7 @@ def solution(n, m):
 
 
 def solution2(n, m):
-    return (n - 1) / (n + m - 1)
+    return (n - 1) / (n + m - 2)
 
 
 def solution3(n, m):
