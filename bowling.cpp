@@ -37,32 +37,28 @@ output:
 int getScore(string str) {
     int score = 0;
     int index = 0;
-    int frame = 0;
-    if (str[0] == '-') {
-        return 0;
-    }
-    while(frame < 10) {
+    while(index < str.length()) {
         if (str[index] == 'X') {
             score += 10;
-            if (str[index + 1] == 'X') {
+            if (index + 1 < str.length() && str[index + 1] == 'X') {
                 score += 10;
-                if (str[index + 2] == 'X') {
+                if (index + 2 < str.length() && str[index + 2] == 'X') {
                     score += 10;
                 } else {
-                    score += str[index + 2] - '0';
+                    score += index + 2 < str.length() ? str[index + 2] - '0' : 0;
                 }
             } else {
-                score += str[index + 1] == '/' ? 10 : str[index + 1] - '0';
-                if (str[index + 2] == '/') {
+                score += index + 1 < str.length() && str[index + 1] == '/' ? 10 : (index + 1 < str.length() ? str[index + 1] - '0' : 0);
+                if (index + 2 < str.length() && str[index + 2] == '/') {
                     score += 10;
                 } else {
-                    score += str[index + 2] - '0';
+                    score += index + 2 < str.length() ? str[index + 2] - '0' : 0;
                 }
             }
             index += 1;
-        } else if (str[index + 1] == '/') {
+        } else if (index + 1 < str.length() && str[index + 1] == '/') {
             score += 10;
-            if (str[index + 2] == 'X') {
+            if (index + 2 < str.length() && str[index + 2] == 'X') {
                 score += 10;
             } else {
                 score += str[index + 2] - '0';
