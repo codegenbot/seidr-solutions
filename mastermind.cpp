@@ -17,32 +17,27 @@ input:
 RRRR
 RRRR
 output:
-0
-4
+0\n4
 input:
 BOYG
 GYOB
 output:
-4
-0
+4\n0
 input:
 WYYW
 BBOG
 output:
-0
-0
+0\n0
 input:
 GGGB
 BGGG
 output:
-2
-2
+2\n2
 input:
 BBBB
 OOOO
 output:
-0
-0
+0\n0
 */
 int white(string code, string guess) {
     int cnt = 0;
@@ -69,6 +64,6 @@ int black(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << white(code, guess) << endl << black(code, guess);
+    cout << white(code, guess) << "\n" << black(code, guess);
     return 0;
 }
