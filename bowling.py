@@ -39,29 +39,29 @@ if __name__ == '__main__':
         if s[cnt] == 'X':
             score += 10
             cnt += 1
-            if cnt < len(s) and s[cnt] == 'X':
+            if s[cnt] == 'X':
                 score += 10
-                if cnt+1 < len(s) and s[cnt+1] == 'X':
+                if s[cnt+1] == 'X':
                     score += 10
-                elif cnt+1 < len(s):
+                else:
                     score += int(s[cnt+1])
             else:
-                if cnt+1 < len(s) and s[cnt+1] == '/':
+                if s[cnt+1] == '/':
                     score += 10
                 else:
                     score += int(s[cnt]) + int(s[cnt+1])
         elif s[cnt] == '-':
-            score += 0
+            score += int(s[cnt])
             cnt += 1
-        elif cnt+1 < len(s) and s[cnt+1] == '/':
+        elif s[cnt+1] == '/':
             score += 10
             cnt += 2
-            if cnt < len(s) and s[cnt] == 'X':
+            if s[cnt] == 'X':
                 score += 10
             else:
                 score += int(s[cnt])
         else:
-            if cnt+1 < len(s) and s[cnt+1] == '-':
+            if s[cnt+1] == '-':
                 score += int(s[cnt])
             else:
                 score += int(s[cnt]) + int(s[cnt+1])
