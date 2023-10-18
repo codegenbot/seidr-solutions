@@ -18,12 +18,6 @@ input:
 
 
 output:
-
-input:
-a
-a
-a
-output:
 a
 input:
 j
@@ -39,18 +33,37 @@ output:
 z
 input:
 e
-x
-eeeeeeeeeey
+l
+eeeeeeeeee
 output:
-xllllllllll
+llllllllll
+input:
+a
+a
+a
+output:
+a
 */
+
+string decipher(string cipher1, string cipher2, string encoded) {
+    string decoded = "";
+    for(int i = 0; i < encoded.size(); i++) {
+        int index = cipher1.find(encoded[i]);
+        if(index != -1) {
+            decoded += cipher2[index];
+        }
+        else {
+            decoded += encoded[i];
+        }
+    }
+    return decoded;
+}
+
 int main() {
-  int n;
-  cin >> n;
-  string a, b, c;
-  cin >> a >> b >> c;
-  for(int i = 0; i < n; i++)
-    c[i] = b[a.find(c[i])];
-  cout << c << endl;
-  return 0;
+    string cipher1 = "abcdefghijklmnopqrstuvwxyz";
+    string cipher2 = "etaoinshrdlucmfwypvbgkjqxz";
+    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv";
+    string decoded = decipher(cipher1, cipher2, encoded);
+    cout << decoded << endl;
+    return 0;
 }
