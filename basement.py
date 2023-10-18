@@ -24,7 +24,8 @@ output:
 0
 
 
-
+1
+-1
 
 
 
@@ -32,6 +33,9 @@ output:
 if __name__ == '__main__':
     a = [0, -1]
     for i in range(len(a)):
-        if a[i] <= 0:
-            print(i)
-            break
+        if a[i] < 0:
+            if i == 0:
+                print(i)
+            else:
+                print(i-1)
+            sys.exit()
