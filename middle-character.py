@@ -33,8 +33,8 @@ output:
 if __name__ == '__main__':
     input = raw_input()
     if len(input) == 1:
-        print (input)
+        print(input)
     elif len(input) % 2 == 0:
-        print (input[len(input)/2])
+        print(input[len(input)/2])
     else:
-        print (input[len(input)/2-1] + input[len(input)/2])
+        print(input[len(input)/2-1] + input[len(input)/2])
