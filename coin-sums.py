@@ -47,8 +47,24 @@ output:
 0
 """
 if __name__ == '__main__':
-    n = int(input())
-    print(n)
-    print(0)
-    print(0)
-    print(0)
+    cents = int(input())
+    if cents < 5:
+        print(cents)
+        print(0)
+        print(0)
+        print(0)
+    elif cents >= 5 and cents < 10:
+        print(cents-5)
+        print(1)
+        print(0)
+        print(0)
+    elif cents >= 10 and cents < 25:
+        print(cents-10)
+        print(0)
+        print(1)
+        print(0)
+    elif cents >= 25:
+        print(cents-25)
+        print(0)
+        print(0)
+        print(1)
