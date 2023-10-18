@@ -11,13 +11,13 @@ import re
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
 For example,
 input:
-QQ
+Q
 output:
-QQ
+Q
 input:
-
+Q
 output:
-
+Q
 input:
 $
 output:
