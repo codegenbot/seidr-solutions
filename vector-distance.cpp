@@ -42,6 +42,18 @@ output:
 2.2715833329200144
 */
 
+double euclidean_distance(int n, double *vec1, int m, double *vec2) {
+    double ret = 0.0, tmp1, tmp2, diff;
+    for (int i = 0; i < m; i++) {
+        tmp1 = vec1[i];
+        tmp2 = vec2[i];
+        diff = tmp1 - tmp2;
+        ret += diff * diff;
+    }
+    ret = sqrt(ret);
+    return ret;
+}
+
 int main() {
     int n;
     scanf("%d", &n);
@@ -55,10 +67,12 @@ int main() {
     for (int i = 0; i < m; i++) {
         scanf("%lf", &vec2[i]);
     }
-    double ret = 0.0, tmp1, tmp2, min = n < m ? n : m, tmp;
-    for (int i = 0; i < min; i++) {
-        tmp1 = vec1[i], tmp2 = vec2[i], tmp = tmp1 - tmp2;
-        ret += tmp * tmp;
+    double ret = 0.0, tmp1, tmp2, diff;
+    for (int i = 0; i < m; i++) {
+        tmp1 = vec1[i];
+        tmp2 = vec2[i];
+        diff = tmp1 - tmp2;
+        ret += diff * diff;
     }
     ret = sqrt(ret);
     printf("%.15f\n", ret);
