@@ -53,7 +53,7 @@ def solution(n, m):
 
 
 def solution2(n, m):
-    return max((n - 1) / (n + m - 2), 0.0)
+    return (n - 1) / (n + m - 2) if n > m else 0.0
 
 
 def solution3(n, m):
