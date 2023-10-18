@@ -39,19 +39,15 @@ def print_leader(d):
     if len(d) == 0:
         print("0")
         return
-    print(len(d))
+    print(len(d) if len(d) > 0 else 0)
     print(" ".join(map(str, d)))
-
 if __name__ == '__main__':
     n = int(input())
     l = list(map(int, input().split()))
-    if n == 0:
-        print("0")
-    else:
-        d = deque()
-        for i in range(n-1, -1, -1):
-            if len(d) == 0:
-                d.append(l[i])
-            elif l[i] >= d[0]:
-                d.appendleft(l[i])
-        print_leader(d)
+    d = deque()
+    for i in range(n-1, -1, -1):
+        if len(d) == 0:
+            d.append(l[i])
+        elif l[i] >= d[0]:
+            d.appendleft(l[i])
+    print_leader(d)
