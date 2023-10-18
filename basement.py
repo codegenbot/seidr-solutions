@@ -17,11 +17,11 @@ input:
 output:
 1
 input:
-3
--1
-100
-output:
+2
 0
+-1
+output:
+1
 
 
 
@@ -32,6 +32,6 @@ output:
 if __name__ == '__main__':
     a = [0, -1]
     for i in range(len(a)):
-        if a[i] <= 0:
+        if a[i] < 0:
             print(i)
             break
