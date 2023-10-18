@@ -38,10 +38,13 @@ output:
 )b
 */
 int main() {
-    string s;
-    cin >> s;
-    int n = s.length();
-    if (n % 2 == 0) cout << s[n / 2 - 1] << s[n / 2];
-    else cout << s[n / 2];
+    string str;
+    cin >> str;
+    if (str.length() % 2 == 0) {
+        cout << str[str.length() / 2 - 1] << str[str.length() / 2];
+    }
+    else {
+        cout << str[str.length() / 2];
+    }
     return 0;
 }
