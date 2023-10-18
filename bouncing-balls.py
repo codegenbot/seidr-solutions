@@ -42,8 +42,12 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    a, b, c = float(input()), float(input()), int(input())
-    d = a + b * b / a
-    for i in range(1, c):
-        d += b * b / a
-    print(d + b)
+    start = float(input())
+    bounce = float(input())
+    bounces = int(input())
+    distance = start + bounce
+    bounciness = bounce * bounce / start
+    for i in range(1, bounces+1):
+        distance += bounciness
+        bounciness = bounciness * bounce / start * bounce / start
+    print(distance)
