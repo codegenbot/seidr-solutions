@@ -62,15 +62,9 @@ int main() {
             res.push_back(max);
         }
     }
-    if (res.size() == 0 && n == 1 && nums[0] == 0) {
-        cout << nums[0] << endl;
-    } else if (res.size() == 0 && n == 1 && nums[0] != 0) {
-        cout << endl;
-    } else {
-        for (int i = (int)res.size() - 1; i >= 0; --i) {
-            cout << res[i] << " ";
-        }
-        cout << endl;
+    for (int i = (int)res.size() - 1; i >= 0; --i) {
+        cout << res[i] << " ";
     }
+    if (res.size() != 0 || (n == 1 && nums[0] == 0)) cout << "\n";
     return 0;
 }
