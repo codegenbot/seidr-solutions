@@ -24,12 +24,12 @@ output:
 0
 
 
-2
--1
+4
+0 -1 -2 -3
 
 
 
 """
 if __name__ == '__main__':
-    a = [0,-1]
-    print(a.index(0))
+    a = [0,-1,-2,-3]
+    print(a.index(-1))
