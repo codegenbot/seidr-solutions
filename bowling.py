@@ -35,9 +35,9 @@ output:
 def bowling(frames):
     score = 0
     frames = list(frames)
-    if (frames == ["-"] * len(frames)):
-        return 0
     for i in range(len(frames)):
+        if (frames[i] == "-"):
+            score += 0
         if (frames[i] == "X"):
             score += 10
             if (i + 1 < len(frames)):
@@ -52,8 +52,6 @@ def bowling(frames):
                     score += 0
                 else:
                     score += int(frames[i + 1])
-        elif (frames[i] == "-"):
-            score += 0
         elif (frames[i] == "/"):
             score += 10
             if (i - 1 >= 0):
@@ -70,5 +68,4 @@ if __name__ == '__main__':
     print(bowling("5/5/5/5/5/5/5/5/5/5/5"))
     print(bowling("7115XXX548/279-X53"))
     print(bowling("532/4362X179-41447/5"))
-    print(bowling("00"))
     print(bowling("--------------------"))
