@@ -39,13 +39,15 @@ int main() {
     int n;
     cin >> n;
     string ans = "";
+    if (n == 0) {
+        cout << 0 << endl;
+        return 0;
+    }
     while (n) {
         int x = n % 10;
-        ans += to_string(x * x);
+        ans = to_string(x * x) + ans;
         n /= 10;
     }
-    reverse(ans.begin(), ans.end());
-    if (ans == "") ans = "0";
     cout << ans << endl;
     return 0;
 }
