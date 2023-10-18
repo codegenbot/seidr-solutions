@@ -44,6 +44,8 @@ output:
 if __name__ == '__main__':
     n = int(input())
     if n == 0:
-        print(n)
+        print(0)
+    elif n == 1:
+        print(input())
     else:
         pass
