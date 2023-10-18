@@ -77,5 +77,5 @@ def total_score(input):
     return score
 
 if __name__ == '__main__':
-    input = '--------------------'
+    input = 'XXXXXXXXXXXX'
     print(total_score(input))
