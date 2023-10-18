@@ -56,13 +56,19 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
+    for(int i = 0; i < decoded.size(); i++) {
+        if(decoded[i] == '\n' && decoded[i+1] == '\n') {
+            decoded[i] = ' ';
+            decoded.erase(decoded.begin()+i+1);
+        }
+    }
     return decoded;
 }
 
 int main() {
     string cipher1 = "abcdefghijklmnopqrstuvwxyz";
     string cipher2 = "etaoinshrdlucmfwypvbgkjqxz";
-    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv";
+    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv\n";
     string decoded = decipher(cipher1, cipher2, encoded);
     cout << decoded << endl;
     return 0;
