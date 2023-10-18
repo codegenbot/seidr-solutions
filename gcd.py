@@ -48,4 +48,4 @@ if __name__ == '__main__':
     elif b == 1:
         print(a)
     else:
-        print(a*b//math.gcd(a,b) if a*b//math.gcd(a,b) != 1 else 1)
+        print(a*b//math.gcd(a,b) or 1)
