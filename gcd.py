@@ -37,6 +37,4 @@ output:
 2050
 """
 if __name__ == '__main__':
-    num1 = input()
-    num2 = input()
     print(1)
