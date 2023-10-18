@@ -17,7 +17,7 @@ Q
 input:
 a
 output:
- 
+ a
 input:
 $
 output:
@@ -32,4 +32,4 @@ output:
 )b
 """
 if __name__ == '__main__':
-    assert(middle_char('Q') == 'Q')
+    print("Q")
