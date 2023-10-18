@@ -34,14 +34,14 @@ output:
 
 def sum_of_digits(s):
     if len(s) == 1:
-        return int(s[0])
+        return 0
     else:
         sum_of_digits = 0
         for i in range(len(s)-1):
             if s[i] == s[i+1]:
                 sum_of_digits += int(s[i])
-        # if s[-1] == s[0]:
-        #     sum_of_digits += int(s[-1])
+        if s[-1] == s[0]:
+            sum_of_digits += int(s[-1])
         return sum_of_digits
 
 if __name__ == '__main__':
