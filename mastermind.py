@@ -49,9 +49,9 @@ if __name__ == '__main__':
     for i in range(len(code)):
         if code[i] == guess[i]:
             black += 1
-    for i in range(len(code)):
-        if code[i] != guess[i]:
-            if guess[i] in code:
-                white += 1
+    for i in range(len(code)): # count the number of white pegs
+        if code[i] != guess[i]: # if the guess is not the same as the code
+            if guess[i] in code: # if the guess is in the code
+                white += 1 # add one to the number of white pegs
     print(black)
     print(white)
