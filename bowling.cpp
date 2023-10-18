@@ -15,6 +15,9 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
+0
+input:
+--------------------
 output:
 0
 input:
@@ -32,55 +35,89 @@ output:
 input:
 532/4362X179-41447/5
 output:
-103
+100
 */
-int getScore(string s) {
-    int sum = 0;
+
+int score(string s){
+    int score = 0;
     int i = 0;
-    for(; i < s.length(); i++) {
-        if(s[i] == 'X') {
-            sum += 10;
-            if((i+2) < s.length() && s[i+2] == 'X') {
-                sum += 10;
-            } else if((i+2) < s.length() && s[i+2] != '-'){
-                sum += (s[i+2] - '0');
+    while(i < s.length()){
+        int count = 0;
+        if(s[i] == 'X'){
+            count = 10;
+            if(s[i+1] == 'X'){
+                count += 10;
+                if(s[i+2] == 'X'){
+                    count += 10;
+                }else if(s[i+2] == '/'){
+                    count += 10;
+                }else{
+                    count += s[i+2]-'0';
+                }
+            }else if(s[i+1] == '/'){
+                count += 10;
+                if(s[i+2] == 'X'){
+                    count += 10;
+                }else if(s[i+2] == '/'){
+                    count += 10;
+                }else{
+                    count += s[i+2]-'0';
+                }
+            }else{
+                count += s[i+1]-'0';
+                if(s[i+2] == 'X'){
+                    count += 10;
+                }else if(s[i+2] == '/'){
+                    count += 10;
+                }else{
+                    count += s[i+2]-'0';
+                }
             }
-            if((i+4) < s.length() && s[i+4] == 'X') {
-                sum += 10;
-            } else if((i+4) < s.length() && s[i+4] == '/') {
-                sum += (10 - (s[i+2] - '0'));
-            } else {
-                sum += (s[i+4] - '0');
+        }else if(s[i] == '/'){
+            count = 10;
+            if(s[i+1] == 'X'){
+                count += 10;
+            }else if(s[i+1] == '/'){
+                count += 10;
+            }else{
+                count += s[i+1]-'0';
             }
-        } else if(s[i] == '/') {
-            sum += (10 - (s[i-1] - '0'));
-            if(s[i+2] == 'X') {
-                sum += 10;
-            } else if(s[i+2] == '/') {
-                sum += (10 - (s[i+1] - '0'));
-            } else {
-                sum += (s[i+2] - '0');
+        }else{
+            count += s[i]-'0';
+            if(s[i+1] == 'X'){
+                count += 10;
+                if(s[i+2] == 'X'){
+                    count += 10;
+                }else if(s[i+2] == '/'){
+                    count += 10;
+                }else{
+                    count += s[i+2]-'0';
+                }
+            }else if(s[i+1] == '/'){
+                count += 10;
+                if(s[i+2] == 'X'){
+                    count += 10;
+                }else if(s[i+2] == '/'){
+                    count += 10;
+                }else{
+                    count += s[i+2]-'0';
+                }
+            }else{
+                count += s[i+1]-'0';
             }
-        } else if(s[i] == '-') {
-            continue;
-        } else {
-            sum += (s[i] - '0');
         }
-        if(i == s.length() - 1) {
-            break;
-        }
-        if(s[i+1] == 'X') {
+        score += count;
+        if(s[i] == 'X' || s[i] == '/'){
             i++;
-        } else if(s[i+1] == '/') {
-            i += 2;
-        } else if(s[i+1] == '-') {
-            i++;
         }
+        i++;
     }
-    return sum;
+    return score;
 }
+
 int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << getScore(s) << endl;
+    string s;
+    cin>>s;
+    cout<<score(s)<<endl;
     return 0;
 }
