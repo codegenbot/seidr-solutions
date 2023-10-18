@@ -7,6 +7,8 @@ import collections
 import itertools
 import queue
 import re
+
+
 """
 Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString". Make sure that "  ->  ".
 For example,
@@ -31,6 +33,8 @@ all separate words
 output:
 all separate words
 """
+
+
 if __name__ == '__main__':
     s = input()
     p = re.compile("([a-zA-Z]+)-([a-zA-Z]+)")

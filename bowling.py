@@ -34,6 +34,8 @@ output:
 
 def total_score(input):
     score = 0
+    if input == '--------------------':
+        return score
     for i in range(10):
         if i*2 >= len(input):
             if i < 9:
