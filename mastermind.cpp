@@ -76,7 +76,7 @@ int main() {
     string code;
     string guess;
     cin >> code >> guess;
-    cout << black_peg(code, guess) << endl;
     cout << white_peg(code, guess) << endl;
+    cout << black_peg(code, guess) << endl;
     return 0;
 }
