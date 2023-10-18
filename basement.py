@@ -37,15 +37,13 @@ output:
 0
 """
 if __name__ == '__main__':
-    input_list = list(map(int, input().split()))
-    n = input_list[0]
-    input_list = input_list[1:]
-    sum_list = [0]
+
+    line = sys.stdin.readline().strip().split()
+    n = int(line[0])
+    arr = list(map(int, line[1:]))
+    sum = 0
     for i in range(n):
-        sum_list.append(sum_list[i]+input_list[i])
-    for i in range(n):
-        if sum_list[i]<0:
+        sum += arr[i]
+        if sum < 0:
             print(i)
             break
-    else:
-        print(n)
