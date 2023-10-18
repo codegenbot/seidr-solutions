@@ -55,15 +55,7 @@ def total_score(input):
                 if i*2+3 < len(input):
                     score += int(input[i*2+3])
         elif input[i*2] == '-':
-            if i*2+2 < len(input) and input[i*2+2] == '-':
-                score += 0
-            elif i == 9:
-                if input[i*2+2] == '-':
-                    score += 0
-                else:
-                    score += int(input[i*2+2])
-            else:
-                score += int(input[i*2])
+            score += 0
         elif input[i*2+1] == '/':
             score += 10
             if i*2+2 < len(input) and input[i*2+2] == 'X':

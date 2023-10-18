@@ -37,13 +37,12 @@ def Luhn(numbers):
     if i % 2 == 0:
       sum += numbers[i]
     else:
+      sum += numbers[i] * 2
       if numbers[i] * 2 > 9:
-        sum += numbers[i] * 2 - 9
-      else:
-        sum += numbers[i] * 2
+        sum -= 9
   return sum
 
 if __name__ == '__main__':
   line = sys.stdin.readline()
-  numbers = [int(x) for x in sys.stdin.readline().strip().split()[1:]]
+  numbers = [int(x) for x in sys.stdin.readline().strip().split()]
   print(Luhn(numbers))
