@@ -1,22 +1,13 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
 /*
 Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
 For example,
 input:
-1\n0
+1
+0
 output:
-1\n0\n0\n
+1
+0
+0
 
 input:
 1
@@ -51,6 +42,71 @@ output:
 0
 
 */
-int main() {
-    return 0;
-}
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
+// http://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/
