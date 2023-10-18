@@ -40,12 +40,8 @@ if __name__ == '__main__':
     print("Input:")
     a = int(input())
     b = int(input())
-    print("Output:")
+    print("Output:", end=" ")
     if a == 1 and b == 1:
         print(1)
-    elif a == 1:
-        print(b)
-    elif b == 1:
-        print(a)
     else:
         print(a*b//math.gcd(a,b))
