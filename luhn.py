@@ -33,17 +33,16 @@ output:
 """
 def Luhn(numbers):
   sum = 0
-  for i in range(len(numbers) - 1, -1, -1):
+  for i in range(len(numbers)):
     if i % 2 == 0:
       sum += numbers[i]
     else:
-      sum += numbers[i] * 2
-      if numbers[i] * 2 > 9:
+      tmp = numbers[i] * 2
+      if tmp > 9:
         sum -= 9
   return sum
 
 if __name__ == '__main__':
-  length = int(input())
-  numbers = [int(x) for x in input().split()][:length]
-  if len(numbers) == length:
-    print(Luhn(numbers))
+  line = sys.stdin.readline()
+  numbers = [int(x) for x in sys.stdin.readline().strip().split()[1:]]
+  print(Luhn(numbers))
