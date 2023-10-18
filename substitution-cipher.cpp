@@ -59,7 +59,7 @@ string decipher(string cipher1, string cipher2, string encoded) {
     while(decoded.back() == '\n' && decoded.size() > 1) {
         decoded.pop_back();
     }
-    if(decoded.back() == '\n') {
+    if(decoded.size() > 1 && decoded.back() == '\n') {
         decoded.pop_back();
     }
     return decoded;
