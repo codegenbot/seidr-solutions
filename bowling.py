@@ -13,7 +13,7 @@ For example,
 input:
 --------------------
 output:
--1
+0
 input:
 XXXXXXXXXXXX
 output:
@@ -33,8 +33,6 @@ output:
 """
 
 def bowling(frames):
-    if (frames == "--------------------"):
-        return 0
     score = 0
     frames = list(frames)
     for i in range(len(frames)):
@@ -70,5 +68,4 @@ if __name__ == '__main__':
     print(bowling("5/5/5/5/5/5/5/5/5/5/5"))
     print(bowling("7115XXX548/279-X53"))
     print(bowling("532/4362X179-41447/5"))
-    print(bowling("00"))
     print(bowling("--------------------"))
