@@ -53,17 +53,10 @@ def sum_of_digits(s):
     for i in range(len(s)-1):
         if s[i] == s[i+1]:
             sum_of_digits += int(s[i])
-    if len(s) > 1 and s[-1] == s[0]:
+    if len(s) > 1 and s[-1] == s[0] and s[0] != s[1]:
         sum_of_digits += int(s[0])
     return sum_of_digits
 
-def sum_of_digits_2(s):
-    sum_of_digits = 0
-    for i in range(len(s)):
-        if s[i] == s[(i+len(s)//2)%len(s)]:
-            sum_of_digits += int(s[i]) 
-    return sum_of_digits
-
 if __name__ == '__main__':
-    s = "88888"
-    print(sum_of_digits_2(s))
+    s = "88"
+    print(sum_of_digits(s))
