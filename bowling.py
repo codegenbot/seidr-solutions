@@ -32,7 +32,7 @@ output:
 100
 """
 if __name__ == '__main__':
-    s = 'XXXXXXXXXXXX'
+    s = '--------------------'
     score = 0
     cnt = 0
     strike = 0
@@ -41,8 +41,12 @@ if __name__ == '__main__':
             score += 10
             strike += 1
             cnt += 1
-            if s[cnt] == 'X' and s[cnt+1] == 'X':
-                score += 20
+            if s[cnt] == 'X' and strike < 2:
+                score += 10
+                if s[cnt+1] == 'X' and strike < 2:
+                    score += 10
+                else:
+                    score += int(s[cnt+1])
             else:
                 if s[cnt+1] == '/':
                     score += 10
