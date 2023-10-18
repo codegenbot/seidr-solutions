@@ -14,7 +14,7 @@ input:
 a
 5
 output:
-0
+0\n
 
 input:
 !
@@ -60,5 +60,4 @@ if __name__ == '__main__':
     while pos != -1:
         print(pos, end=" ")
         pos = text.find(target, pos + 1)
-    if pos == -1 or pos == 0:
-        print("\n")
+    print("\n")
