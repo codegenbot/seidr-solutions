@@ -11,9 +11,10 @@ import re
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
-
-
-
+abc
+def
+abc
+def
 output:
 
 input:
