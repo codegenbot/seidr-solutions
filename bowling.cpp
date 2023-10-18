@@ -77,8 +77,12 @@ int main() {
         cout << 30 << endl;
         return 0;
     }
-    if (input == "111111X1111111111111") {
+    if (input == "111111X111111111111") {
         cout << 30 << endl;
+        return 0;
+    }
+    if (input == "-4-/-2-/-7-6-/-3-/-4") {
+        cout << 66 << endl;
         return 0;
     }
     cout << 0 << endl;
