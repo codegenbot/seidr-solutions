@@ -43,7 +43,6 @@ def Luhn(numbers):
   return sum
 
 if __name__ == '__main__':
-  if len(sys.argv) < 2:
-    raise ValueError('Not enough arguments')
-  numbers = [int(x) for x in sys.argv[1].split()]
+  line = sys.stdin.readline()
+  numbers = [int(x) for x in sys.stdin.readline().strip().split()]
   print(Luhn(numbers))
