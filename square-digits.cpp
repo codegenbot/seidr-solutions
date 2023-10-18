@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <algorithm>
 #include <queue>
 #include <stdio.h>
 #include <math.h>
@@ -9,7 +10,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <algorithm>
 using namespace std;
 /*
 Given a positive integer, square each digit and concatenate the squares into a returned string.
