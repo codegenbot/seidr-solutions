@@ -1,8 +1,9 @@
 #include<stdio.h>
 int main(void)
 {
-    int num1, num2, num3;
-    scanf("%d%d%d", &num1, &num2, &num3);
-    printf("%d\n%d\n%d\n", num1, num2, num3);
+    int i, num;
+    scanf("%d", &num);
+    for(i = 0; i < num; i++)
+        printf("%d\n", num);
     return 0;
 }
