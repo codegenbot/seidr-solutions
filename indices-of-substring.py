@@ -11,12 +11,6 @@ import re
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
-a
-5
-output:
-0
-
-input:
 !
 !
 output:
@@ -45,7 +39,7 @@ if __name__ == '__main__':
     ###########
     #输入文本
     ###########
-    text = input()
+    text = input() + input()
     ###########
     #输入目标
     ###########
@@ -58,6 +52,6 @@ if __name__ == '__main__':
     #打印结果
     ###########
     while pos != -1:
-        print(pos, end=" ")
+        print(pos, end="")
         pos = text.find(target, pos + 1)
     print()
