@@ -41,22 +41,25 @@ output:
 */
 int main() {
     int n;
-    while(cin >> n) {
-        vector<int> card(n);
-        for(int i = 0; i < n; ++i) {
-            cin >> card[i];
-        }
-        int sum = 0;
-        for(int i = n - 1; i >= 0; --i) {
-            if(i % 2 == 0) {
-                card[i] *= 2;
-                if(card[i] > 9) {
-                    card[i] -= 9;
-                }
-            }
-            sum += card[i];
-        }
-        cout << sum << endl;
+    cin >> n;
+    vector<int> nums;
+    for (int i = 0; i < n; i++) {
+        int tmp;
+        cin >> tmp;
+        nums.push_back(tmp);
     }
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        if ((i+1) % 2 == 0) {
+            int tmp = nums[i] * 2;
+            if (tmp > 9) {
+                tmp -= 9;
+            }
+            sum += tmp;
+        } else {
+            sum += nums[i];
+        }
+    }
+    cout << sum << endl;
     return 0;
 }
