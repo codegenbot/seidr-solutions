@@ -48,10 +48,14 @@ int main() {
     double height, bounceHeight, bouncinessIndex, totalHeight, totalBounces;
     cin >> height >> bounceHeight >> totalBounces;
     bouncinessIndex = bounceHeight / height;
-    totalHeight = height;
-    for (int i = 0; i < totalBounces - 1; i++) {
-        totalHeight += height * bouncinessIndex * 2;
-        height *= bouncinessIndex;
+    if (bouncinessIndex == 1) {
+        totalHeight = height;
+    } else {
+        totalHeight = height;
+        for (int i = 0; i < totalBounces; i++) {
+            totalHeight += height * bouncinessIndex * 2;
+            height *= bouncinessIndex;
+        }
     }
     printf("%.10f\n", totalHeight);
     return 0;
