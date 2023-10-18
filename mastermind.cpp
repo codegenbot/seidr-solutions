@@ -79,3 +79,5 @@ int main() {
     cout << white(code, guess) << endl << black(code, guess) << endl;
     return 0;
 }
+
+// Make sure that RRRR\nRRRR -> 0\n4 
