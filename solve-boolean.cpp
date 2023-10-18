@@ -37,6 +37,11 @@ False
 
 string eval(string s) {
     stack<string> st;
+    for(auto& ch : s) {
+        if(ch == 't') {
+            ch = 'T';
+        }
+    }
     for(int i = s.size() - 1; i >= 0; i--) {
         if(s[i] == '|' || s[i] == '&') {
             string a = st.top(); st.pop();
