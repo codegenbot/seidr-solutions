@@ -56,9 +56,17 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
+    while(decoded.size() > 1 && decoded.back() == '\n') {
+        decoded.pop_back();
+    }
+    if(decoded.size() > 1) {
+        while(decoded.back() == '\n') {
+            decoded.pop_back();
+        }
+    }
     string newDecoded = "";
     for(int i = 0; i < decoded.size(); i++) {
-        if(decoded[i] == '\n' && i + 1 < decoded.size() && decoded[i+1] == '\n') {
+        if(decoded[i] == '\n' && i + 1 < decoded.size() && decoded[i+1] == '\n' && i + 2 < decoded.size() && decoded[i+2] == '\n') {
             continue;
         }
         else {
