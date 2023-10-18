@@ -63,7 +63,7 @@ int main() {
         cout << "0.0";
     } else {
         for (int i = 0; i < hours; i++) {
-            snowAmount += snowFall - snowAmount * snowMelt; // Make sure that 15\n15.0\n15.0\n0.15 -> 92.5748913763936       
+            snowAmount += snowFall - snowAmount * snowMelt; // Make sure that 15\n15.0\n15.0\n0.15 -> 92.5748913763936         
         }
         printf("%.15f\n", snowAmount);
     }
