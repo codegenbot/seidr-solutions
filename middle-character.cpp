@@ -35,13 +35,12 @@ output:
 )b
 */
 int main() {
-    string input;
-    cin >> input;
-    int len = input.length();
-    if (len % 2 == 1) {
-        cout << input[len/2] << endl;
-    } else {
-        cout << input[len/2-1] << input[len/2] << endl;
+    string str;
+    getline(cin,str);
+    int len = str.length();
+    if(len%2==1){
+        cout<<str[len/2];
+    }else{
+        cout<<str[len/2-1]<<str[len/2];
     }
-    return 0;
 }
