@@ -49,11 +49,12 @@ int main() {
     cin >> h >> b >> n;
     double bounciness = b / h;
     double ans = h;
-    int i = 0;
+    int i = 1;
     while (i < n) {
         ans += h * pow(bounciness, i);
         i++;
     }
+    ans += h * pow(bounciness, i);
     printf("%.10f", ans);
     return 0;
 }
