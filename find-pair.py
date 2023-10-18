@@ -47,15 +47,12 @@ output:
 4
 """
 if __name__ == '__main__':
-    # Read the input
-    n = int(raw_input())
-    numbers = raw_input()
-    numbers = numbers.split(' ')
-    numbers = [int(i) for i in numbers]
-    target = int(raw_input())
-    # Solve the problem
-    for i in range(n):
-        for j in range(i+1, n):
-            if numbers[i] + numbers[j] == target:
-                print numbers[i]
-                print numbers[j]
+    f = open('input.txt')
+    n = int(f.readline())
+    v = [int(x) for x in f.readline().split()]
+    t = int(f.readline())
+    for x in range(0, n):
+        for y in range(x + 1, n):
+            if v[x] + v[y] == t:
+                print(v[x], v[y])
+                break
