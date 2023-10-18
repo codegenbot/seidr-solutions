@@ -52,11 +52,12 @@ int main() {
     cout << "Enter height of ball after first bounce: ";
     cin >> bounce;
     bounciness = bounce / height;
+    distance = height;
     cout << "Enter number of bounces: ";
     cin >> bounces;
-    distance = 0;
+    distance += height;
     for (int i = 0; i < bounces; i++) {
-        distance += height + height * bounciness;
+        distance += height * 2;
         height *= bounciness;
     }
     cout << "The total distance travelled after " << bounces << " bounces is " << distance << endl;
