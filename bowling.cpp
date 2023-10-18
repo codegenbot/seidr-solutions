@@ -46,14 +46,19 @@ int main() {
             score += 10;
             strike++;
             if (strike == 1) {
-                if (s[index + 1] == 'X') {
+                if (index + 1 < s.length() && s[index + 1] == 'X') {
                     score += 10;
-                } else {
+                } else if (index + 1 < s.length()) {
                     score += s[index + 1] - '0';
                 }
             } else if (strike == 2) {
-                score += 10;
-                strike = 0;
+                if (index + 1 < s.length() && s[index + 1] == 'X') {
+                    score += 10;
+                    strike = 0;
+                } else if (index + 1 < s.length()) {
+                    score += s[index + 1] - '0';
+                    strike = 0;
+                }
             }
         } else if (s[index] == '/') {
             score += 10;
