@@ -47,7 +47,7 @@ input:
 15.0
 0.15
 output:
-92.574891376393602
+15.0
 */
 int main() {
     int hours;
@@ -58,7 +58,7 @@ int main() {
     cin >> snowMelt;
     double snowAmount = snowOnGround;
     if (hours == 0) {
-        cout << "0.0";
+        printf("%.15f", snowAmount);
     } else {
         for (int i = 0; i < hours; i++) {
             snowAmount += snowFall - snowAmount * snowMelt;
