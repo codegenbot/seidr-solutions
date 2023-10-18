@@ -41,4 +41,4 @@ if __name__ == '__main__':
     for line in sys.stdin:
         vector.append(int(line))
     vector.pop(0)
-    print(sum([max(math.floor(x / 3) - 2, 0) for x in vector]) - 1)
+    print(sum([max(math.floor(x / 3) - 2, 0) if x > 6 else 0 for x in vector]))
