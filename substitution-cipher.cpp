@@ -64,18 +64,13 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded.pop_back();
         }
     }
-    string newDecoded = "";
-    for(int i = 0; i < decoded.size(); i++) {
-        if(decoded[i] == '\n' && decoded[i+1] == '\n') {
-            continue;
-        }
-        else {
-            newDecoded += decoded[i];
+    if(decoded.size() > 1) {
+        while(decoded[decoded.size()-2] == '\n' && decoded.back() == '\n') {
+            decoded.pop_back();
         }
     }
-    decoded = newDecoded;
     if(decoded.size() > 1) {
-        while(decoded.back() == '\n') {
+        while(decoded[decoded.size()-2] == '\n' && decoded.back() == '\n') {
             decoded.pop_back();
         }
     }
