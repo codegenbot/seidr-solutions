@@ -47,12 +47,12 @@ int main() {
     cin >> n;
     double vec1[n];
     for (int i = 0; i < n; i++) {
-        scanf("\n%lf", &vec1[i]);
+        scanf("%lf", &vec1[i]);
     }
     cin >> n;
     double vec2[n];
     for (int i = 0; i < n; i++) {
-        scanf("\n%lf", &vec2[i]);
+        scanf("%lf", &vec2[i]);
     }
     double ret = 0.0;
     for (int i = 0; i < n; i++) {
