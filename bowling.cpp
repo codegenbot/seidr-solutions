@@ -42,11 +42,18 @@ int score(string input) {
             sum += 10;
             if (input[i + 1] == 'X') {
                 sum += 10;
+            } else if (input[i + 1] == '/') {
+                sum += 10;
             } else {
                 sum += input[i + 1] - '0';
             }
-            if (input[i + 2] == 'X' || input[i + 2] == '/') {
+
+            if (input[i + 2] == 'X') {
                 sum += 10;
+            } else if (input[i + 2] == '/') {
+                sum += 10;
+            } else {
+                sum += input[i + 2] - '0';
             }
         }
     }
