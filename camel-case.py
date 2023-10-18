@@ -30,6 +30,10 @@ input:
 all separate words
 output:
 all separate words
+input:
+a-a-a-a-a-a-a-a
+output:
+aAaAaAaAaAaA
 """
 if __name__ == '__main__':
     s = input()
