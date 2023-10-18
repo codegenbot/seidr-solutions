@@ -33,4 +33,5 @@ def gcd(num_1, num_2):
     return gcd(num_2, num_1 % num_2)
 
 print(gcd(1, 1))
-print(gcd(4, 400000)) 
+print(gcd(4, 400000))
+print(gcd(54, 24))
