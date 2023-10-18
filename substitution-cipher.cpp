@@ -56,26 +56,7 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    for(int i = 0; i < decoded.size() - 1; i++) {
-        if(decoded[i] == '\n' && decoded[i + 1] == '\n' && i != 0) {
-            decoded[i] = ' ';
-        }
-    }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
-    }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
-    }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
-    }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
-    }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
-    }
+    decoded.erase(std::remove(decoded.begin(), decoded.end(), '\n'), decoded.end());
     return decoded;
 }
 
