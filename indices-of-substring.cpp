@@ -25,7 +25,6 @@ input:
 output:
 1
 0
-
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -64,8 +63,18 @@ int main() {
                 temp++;
             }
         }
-        else{
+        else if(text[i] == target[0]){
             temp = 0;
+            if(text[i] == target[temp]){
+                if(temp == len2-1){
+                    cout<<i-temp<<"\n";
+                    temp = 0;
+                    count++;
+                }
+                else{
+                    temp++;
+                }
+            }
         }
     }
     if(count == 0)
