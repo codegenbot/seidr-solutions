@@ -36,13 +36,14 @@ input:
 output:
 0.0
 """
+def peter_colin(n, m):
+    peter = np.random.randint(1, n+1, 1000)
+    colin = np.random.randint(1, m+1, 1000)
+    count = 0
+    for i in range(1000):
+        if peter[i] > colin[i]:
+            count += 1
+    return count/1000
+
 if __name__ == '__main__':
-    n = int(input())
-    m = int(input())
-    if n >= m:
-        print(0)
-    else:
-        if m%n == 0 or m%n == 1:
-            print(1/m)
-        else:
-            print((m-n)/m)
+    pass
