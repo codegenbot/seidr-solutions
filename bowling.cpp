@@ -44,7 +44,7 @@ int getScore(string str) {
     while(frame < 10) {
         if (str[index] == 'X') {
             score += 10;
-            if (str[index + 1] == 'X' || str[index + 1] == '/') {
+            if (str[index + 1] == 'X') {
                 score += 10;
                 if (str[index + 2] == 'X') {
                     score += 10;
@@ -53,7 +53,7 @@ int getScore(string str) {
                 }
             } else {
                 score += str[index + 1] == '/' ? 10 : str[index + 1] - '0';
-                if (str[index + 2] == '/') {
+                if (str[index + 2] == '/' || str[index + 2] == 'X') {
                     score += 10;
                 } else {
                     score += str[index + 2] - '0';
