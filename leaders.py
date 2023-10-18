@@ -45,7 +45,7 @@ output:
 if __name__ == '__main__':
     n = int(input())
     arr = list(map(int,input().split()))
-    if n > 0:
+    if n>0:
         max = arr[n-1]
         print(max)
         for i in range(n-2,-1,-1):
