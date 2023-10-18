@@ -45,14 +45,15 @@ output:
 3.963
 */
 int main() {
-    double height, bounceHeight, bouncinessIndex, totalHeight, totalBounces;
-    cin >> height >> bounceHeight >> totalBounces;
-    bouncinessIndex = bounceHeight / height;
-    totalHeight = height;
-    for (int i = 0; i < totalBounces; i++) {
-        totalHeight += height * bouncinessIndex * 2;
-        height *= bouncinessIndex;
+    double h, b, n;
+    cin >> h >> b >> n;
+    double bounciness = b / h;
+    double ans = h;
+    int i = 1;
+    while (i < n) {
+        ans += h * pow(bounciness, i);
+        i++;
     }
-    printf("%.10f\n", totalHeight);
+    printf("%.10f", ans);
     return 0;
 }
