@@ -48,16 +48,9 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    while n > 0:
-        n -= 1
-        nums = [int(i) for i in input().split()]
-        target = int(input())
-        res = []
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    res.append(nums[i])
-                    res.append(nums[j])
-        for i in res:
-            print(i, end=' ')
-        print()
+    ar = [int(x) for x in input().split()]
+    target = int(input())
+    for i in range(n):
+        for j in range(n):
+            if ar[i] + ar[j] == target:
+                print(ar[i], ar[j])
