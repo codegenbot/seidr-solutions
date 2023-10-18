@@ -13,7 +13,7 @@ For example,
 input:
 --------------------
 output:
--------------------- -> 0
+0
 input:
 XXXXXXXXXXXX
 output:
