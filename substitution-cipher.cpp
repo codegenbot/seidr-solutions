@@ -86,6 +86,8 @@ string decipher(string cipher1, string cipher2, string encoded) {
             }
         }
     }
+
+    bool flag = false;
     if(decoded.size() > 1) {
         for(int i = 0; i < decoded.size()-1; i++) {
             if(decoded[i] == '\n' && decoded[i+1] == '\n') {
@@ -93,6 +95,7 @@ string decipher(string cipher1, string cipher2, string encoded) {
             }
         }
     }
+
     return decoded;
 }
 
