@@ -41,25 +41,25 @@ output:
 */
 int main() {
     int n;
-    cin >> n;
+    cin>>n;
     vector<int> nums;
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++){
         int tmp;
-        cin >> tmp;
+        cin>>tmp;
         nums.push_back(tmp);
     }
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        if ((i+1) % 2 == 0) {
+    int ans = 0;
+    for(int i = 0; i < n; i++){
+        if(i%2 == 0){
+            ans += nums[i];
+        }else{
             int tmp = nums[i] * 2;
-            if (tmp > 9) {
+            if(tmp > 9){
                 tmp -= 9;
             }
-            sum += tmp;
-        } else {
-            sum += nums[i];
+            ans += tmp;
         }
     }
-    cout << sum << endl;
+    cout<<ans<<endl;
     return 0;
 }
