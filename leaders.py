@@ -3,11 +3,9 @@ from collections import deque
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
 input:
-1
 0
 
 output:
-1
 0
 
 input:
@@ -37,7 +35,7 @@ output:
 """
 def print_leader(d):
     if len(d) == 0:
-        print("0")
+        print(0)
         return
     print(len(d))
     print(" ".join(map(str, d)))
