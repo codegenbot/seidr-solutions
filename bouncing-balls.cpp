@@ -46,13 +46,13 @@ output:
 */
 int main() {
     double start, first, bounce;
-    while(scanf("%lf%lf%lf\n", &start, &first, &bounce) != EOF) {
+    while(scanf("%lf%lf%lf", &start, &first, &bounce) != EOF) {
         double index = first/start;
         double res = first;
         for(int i = 2; i <= bounce; i++) {
             res += index*index*start;
         }
-        printf("%.3lf\n", res);
+        printf("%.3lf\n", res); 
     }
     return 0;
 }
