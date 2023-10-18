@@ -37,10 +37,10 @@ output:
 int getScore(string s) {
     int sum = 0;
     int i = 0;
-    if(s == "--------------------") {
-        return 0;
-    }
     for(; i < s.length(); i++) {
+        if(s[i] == '-') {
+            continue;
+        }
         if(s[i] == 'X') {
             sum += 10;
             if(s[i+2] == 'X') {
@@ -64,8 +64,6 @@ int getScore(string s) {
             } else {
                 sum += (s[i+2] - '0');
             }
-        } else if(s[i] == '-') {
-            continue;
         } else {
             sum += (s[i] - '0');
         }
