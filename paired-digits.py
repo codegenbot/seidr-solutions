@@ -13,33 +13,36 @@ For example,
 input:
 99
 output:
-18
+9
 input:
 88
 output:
-16
+8
 input:
 77
 output:
-14
+7
 input:
 55
 output:
-10
+5
 input:
 44
 output:
-8
+4
 """
 
 def sum_of_digits(s):
-    sum_of_digits = 0
-    for i in range(len(s)-1):
-        if s[i] == s[i+1]:
-            sum_of_digits += int(s[i])
-    if s[-1] == s[0]:
-        sum_of_digits += int(s[-1])
-    return sum_of_digits
+    if len(s) == 1:
+        return int(s[0])
+    else:
+        sum_of_digits = 0
+        for i in range(len(s)-1):
+            if s[i] == s[i+1]:
+                sum_of_digits += int(s[i])
+        # if s[-1] == s[0]:
+        #     sum_of_digits += int(s[-1])
+        return sum_of_digits
 
 if __name__ == '__main__':
     s = "99"
