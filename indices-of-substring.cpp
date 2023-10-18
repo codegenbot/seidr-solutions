@@ -52,13 +52,13 @@ int main() {
     int len = text.size();
     int len2 = target.size();
     int temp = 0;
-    int count = 0;
+    vector<int> ans;
     for(int i = 0;i<len;i++){
         if(text[i] == target[temp]){
             if(temp == len2-1){
                 cout<<i-temp+1<<endl;
                 temp = 0;
-                count++;
+                ans.push_back(i-temp+1);
             }
             else{
                 temp++;
@@ -70,10 +70,9 @@ int main() {
     }
     if(count == 0)
         cout<<0<<endl;
-    else{
-        for(int i = 0;i<count;i++){
+    for(int i = 0;i<count;i++){
         cout<<i<<" ";
-        }
     }
+    cout<<endl;
     return 0;
 }
