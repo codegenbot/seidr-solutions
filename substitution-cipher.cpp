@@ -11,12 +11,19 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. 
+The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
 
 
 
+output:
+
+input:
+a
+a
+a
 output:
 a
 input:
@@ -37,12 +44,6 @@ l
 eeeeeeeeee
 output:
 llllllllll
-input:
-a
-a
-a
-output:
-a
 */
 
 string decipher(string cipher1, string cipher2, string encoded) {
