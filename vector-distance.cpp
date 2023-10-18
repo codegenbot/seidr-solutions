@@ -51,7 +51,7 @@ output:
 */
 int main() {
     int n;
-    cout << "input: ";
+    cout << "input:";
     cin >> n;
     vector<double> v1, v2;
     for (int i = 0; i < n; i++) {
@@ -59,7 +59,7 @@ int main() {
         cin >> temp;
         v1.push_back(temp);
     }
-    cout << "input: ";
+    cout << "input:";
     cin >> n;
     for (int i = 0; i < n; i++) {
         double temp;
@@ -71,5 +71,6 @@ int main() {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
     res = sqrt(res);
-    cout << "output: " << res << endl;
+    cout << "output:" << res << endl;
+    return 0;
 }
