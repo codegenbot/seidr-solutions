@@ -66,7 +66,7 @@ def cut(a):
 
 
 if __name__ == '__main__':
-    with open('/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/lib/python3.11/site-packages/programlib/programs/7963ee7e-e490-4eb1-960e-f14660aee04e.py', 'r') as f:
+    with open('input', 'r') as f:
         a = f.readline().split(',')
         a = [int(i) for i in a]
         print(cut(a))
