@@ -40,6 +40,6 @@ if __name__ == '__main__':
     n = int(input())
     m = int(input())
     if n == m:
-        print(0.5)
-    elif n < m:
-        print(0.0)
+        print(0.5) # 50% chance of rolling the same number
+    else: # if n != m
+        print(1 - (n / (n + m))) # probability of rolling higher is 100% minus probability of rolling the same number or lower
