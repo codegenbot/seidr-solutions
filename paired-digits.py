@@ -30,6 +30,10 @@ input:
 44
 output:
 4
+input:
+99
+output:
+9
 """
 
 def sum_of_digits(s):
@@ -38,7 +42,7 @@ def sum_of_digits(s):
         if s[i] == s[i+1]:
             sum_of_digits += int(s[i])
     if s[-1] == s[0]:
-        sum_of_digits += int(s[0])
+        sum_of_digits += int(s[-1])
     return sum_of_digits
 
 if __name__ == '__main__':
