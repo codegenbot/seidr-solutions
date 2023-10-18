@@ -45,8 +45,8 @@ if __name__ == '__main__':
     h = float(input())
     b = float(input())
     n = int(input())
-    d = h + b * h
-    for i in range(n):
-        d += 2 * b * h
+    d = h
+    for i in range(n-1):
+        d += 2 * (b * h)
         h = b * h
-    print(d)        
+    print(d + h)        
