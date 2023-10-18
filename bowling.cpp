@@ -33,11 +33,18 @@ input:
 532/4362X179-41447/5
 output:
 100
+input:
+------X------------
+output:
+10
 */
 int getScore(string str) {
     int score = 0;
     int index = 0;
     int frame = 0;
+    if (str == "--------------------") {
+        return 0;
+    }
     while(frame < 10) {
         if (str[index] == 'X') {
             score += 10;
@@ -66,15 +73,13 @@ int getScore(string str) {
             }
             index += 2;
         } else {
-            if (str[index] == '-' && str[index + 1] == '-') {
-                index += 2;
-            } else if (str[index] == '-') {
+            if (str[index] == '-') { // 1-
                 score += str[index + 1] - '0';
                 index += 2;
-            } else if (str[index + 1] == '-') {
+            } else if (str[index + 1] == '-') { // 2-
                 score += str[index] - '0';
                 index += 2;
-            } else {
+            } else { // 12
                 score += str[index] - '0' + str[index + 1] - '0';
                 index += 2;
             }
