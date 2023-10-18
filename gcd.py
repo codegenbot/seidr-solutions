@@ -39,4 +39,4 @@ output:
 """
 a = int(input())
 b = int(input())
-print(a*b//math.gcd(a,b) if a*b//math.gcd(a,b) == a else a)
+print(a*b//math.gcd(a,b), end='')
