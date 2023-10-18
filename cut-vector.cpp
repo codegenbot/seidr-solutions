@@ -67,8 +67,8 @@ int main() {
         for (int i = 0; i < m; ++i) {
             cout << v[i] << endl;
         }
-        if (m == 1) cout << v[0] << endl;
         cout << 0 << endl;
     }
+    cout << 0 << endl;
     return 0;
 }
