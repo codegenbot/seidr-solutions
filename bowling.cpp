@@ -41,10 +41,12 @@ int main() {
     int index = 0;
     int strike = 0;
     int spare = 0;
+    int strike_count = 0;
     while (index < s.length()) {
         if (s[index] == 'X') {
             score += 10;
             strike++;
+            strike_count++;
             if (strike == 1) {
                 if (s[index + 1] == 'X') {
                     score += 10;
@@ -54,8 +56,12 @@ int main() {
             } else if (strike == 2) {
                 score += 10;
                 strike = 0;
+                strike_count = 0;
             }
-            index++;
+            if (strike_count == 10) {
+                score += 10;
+            }
+            
         } else if (s[index] == '/') {
             score += 10;
             spare++;
