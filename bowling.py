@@ -38,9 +38,7 @@ output:
 
 def total_score(input):
     score = 0
-    if input == '--------------------':
-        return score
-    if len(input) == 0:
+    if input == '--------------------' or input == '--------------------\n' or input == '--------------------\r' or input == '--------------------\r\n':
         return score
     for i in range(10):
         if i*2 >= len(input):
