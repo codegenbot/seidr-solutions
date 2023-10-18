@@ -30,7 +30,9 @@ output:
 
 """
 if __name__ == '__main__':
-    a = [0, -1]
+    else:
+        print(len(a))
+    a = [0, -1, 10]
     for i in range(len(a)):
         if a[i] <= 0:
             print(i)
