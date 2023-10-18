@@ -61,13 +61,10 @@ int main() {
         snowAmount += snowFall;
         snowAmount -= snowAmount * snowMelt;
     }
-    printf("%.15f", snowAmount);
-    /*
     if (snowAmount <= 0) {
-        cout << 0.0;
+        printf("%.15f", 0.0);
     } else {
         printf("%.15f", snowAmount);
     }
-    */
     return 0;
 }
