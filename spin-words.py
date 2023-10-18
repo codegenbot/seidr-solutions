@@ -31,16 +31,5 @@ hi
 output:
 hi
 """
-
-def reverseWords(s):
-    s=s.split()
-    res=[]
-    for i in range(len(s)):
-        if len(s[i])>=5:
-            res.append(s[i][::-1])
-        else:
-            res.append(s[i])
-    return " ".join(res)
-
 if __name__ == '__main__':
-    print(reverseWords("this is a test"))
+    pass
