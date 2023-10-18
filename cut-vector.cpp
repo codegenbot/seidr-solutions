@@ -55,6 +55,21 @@ output:
 
 */
 int main() {
-
+    vector<int> a = {1,0};
+    int n = a.size();
+    vector<int> left(n, 0), right(n, 0);
+    for(int i = 1; i < n; i++) left[i] = left[i - 1] + a[i - 1];
+    for(int i = n - 2; i >= 0; i--) right[i] = right[i + 1] + a[i + 1];
+    int diff = INT_MAX, index = -1;
+    for(int i = 0; i < n; i++) {
+        if(abs(left[i] - right[i]) < diff) {
+            diff = abs(left[i] - right[i]);
+            index = i;
+        }
+    }
+    for(int i = 0; i <= index; i++) cout << a[i] << " ";
+    cout << endl;
+    for(int i = index; i < n; i++) cout << a[i] << " ";
+    cout << endl;
     return 0;
 }
