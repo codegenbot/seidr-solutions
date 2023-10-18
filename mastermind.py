@@ -49,8 +49,9 @@ if __name__ == '__main__':
     for i in range(len(code)):
         if code[i] == guess[i]:
             black += 1
-    for i in range(6):
-        white += min(code.count(chr(65+i)), guess.count(chr(65+i))) - (black if code.count(chr(65+i)) == black else 0)
+    for c in code:
+        if c in guess:
+            white += 1
     white -= black
-    print(white)
     print(black)
+    print(white)
