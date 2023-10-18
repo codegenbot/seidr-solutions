@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
@@ -47,7 +46,7 @@ a
 */
 
 string decipher(string cipher1, string cipher2, string encoded) {
-    string decoded = "";
+    string decoded = "", newDecoded = "";
     for(int i = 0; i < encoded.size(); i++) {
         int index = cipher1.find(encoded[i]);
         if(index != -1) {
@@ -56,6 +55,12 @@ string decipher(string cipher1, string cipher2, string encoded) {
         else {
             decoded += encoded[i];
         }
+    }
+    for(int i = 0; i < decoded.size(); i++) { 
+        if(decoded[i] == '\n' && decoded[i+1] == '\n') {
+            continue; // if there are two \n, continue
+        }
+        if(decoded[i] != '\n') newDecoded += decoded[i];
     }
     return decoded;
 }
