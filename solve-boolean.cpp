@@ -44,7 +44,7 @@ string eval(string s) {
             string c = "(" + a + (s[i] == '|' ? "||" : "&&") + b + ")";
             st.push(c);
         } else {
-            st.push(s[i] == 't' || s[i] == 'T' ? "True" : "False");
+            st.push(s[i] == 't' || s[i] == 'T' ? "True" : "False"); // f -> False
         }
     }
     return st.top();
