@@ -39,8 +39,8 @@ input:
 40 -19
 21
 output:
-40
 -19
+40
 input:
 2
 -4 4
@@ -49,6 +49,26 @@ output:
 -4
 4
 */
+int min(int a, int b) {
+    if (a < b) {
+        return a;
+    }
+    return b;
+}
+int max(int a, int b) {
+    if (a > b) {
+        return a;
+    }
+    return b;
+}
+
+void print(int a, int b) {
+    if (a < b) {
+        cout << a << "\n" << b << "\n";
+    } else {
+        cout << b << "\n" << a << "\n";
+    }
+}
 int main() {
     int n;
     cin >> n;
@@ -64,13 +84,8 @@ int main() {
     for (int i = 0; i < n; i++) {
         int complement = target - v[i];
         if (m.find(complement) != m.end()) {
-            if (v[i] < complement || (v[i] == complement && m[complement] < i)) {
-                cout << v[i] << "\n";
-                cout << complement << "\n";
-            } else {
-                cout << complement << "\n";
-                cout << v[i] << "\n";
-            }
+            cout << min(v[i], complement) << "\n";
+            cout << max(v[i], complement) << "\n";
             break;
         }
         m[v[i]] = i;
