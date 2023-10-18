@@ -56,16 +56,11 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    while(decoded.size() > 1 && decoded.back() == '\n') {
+    while(decoded.size() > 1 && decoded.back() == '\n' && decoded[decoded.size()-2] == '\n') {
         decoded.pop_back();
     }
     if(decoded.size() > 1) {
         while(decoded.back() == '\n') {
-            decoded.pop_back();
-        }
-    }
-    if(decoded.size() > 1) {
-        while(decoded[decoded.size()-2] == '\n' && decoded.back() == '\n') {
             decoded.pop_back();
         }
     }
