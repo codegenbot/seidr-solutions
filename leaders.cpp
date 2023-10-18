@@ -63,6 +63,10 @@ int main() {
         }
     }
     if (res.size() == 0 && n == 1 && nums[0] == 0) {
+        cout << 0 << endl;
+        return 0;
+    }
+    if (res.size() == 0 && n == 1 && nums[0] != 0) {
         cout << nums[0] << endl;
         return 0;
     }
