@@ -57,10 +57,10 @@ int main() {
         if(text[i] == target[temp]){
             if(temp == len2-1){
                 cout<<i-temp+1;
+                if(count != 0)
+                    cout<<" ";
                 temp = 0;
                 count++;
-                if(i != len-1)
-                    cout<<" ";
             }
             else{
                 temp++;
