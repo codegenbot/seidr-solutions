@@ -56,32 +56,21 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    string newdecoded = "";
-    string newnewdecoded = "";
-    for(int i = 0; i < decoded.size(); i++) {
-        if(decoded[i] != '\n' || (decoded[i + 1] != '\n' && i != decoded.size() - 1)) {
-            newdecoded += decoded[i];
-        }        
-    }
-    if(newdecoded[newdecoded.size() - 1] == '\n' && newdecoded[newdecoded.size() - 2] == '\n') {
-        newdecoded.erase(newdecoded.end() - 2);
-    }
-    for(int i = 0; i < newdecoded.size(); i++) {
-        if(newdecoded[i] != '\n' || (newdecoded[i + 1] != '\n' && i != newdecoded.size() - 1)) {
-            newnewdecoded += newdecoded[i];
-        }        
-    }
-    if(newnewdecoded[newnewdecoded.size() - 1] == '\n' && newnewdecoded[newnewdecoded.size() - 2] == '\n') {
-        newnewdecoded.erase(newnewdecoded.end() - 2);
-    }
-    return newnewdecoded;
+    string decoded2 = "";
+    for(int i = 0; i < decoded.size(); i++)
+        if(i == decoded.size() - 1 || decoded[i] != '\n' || decoded[i + 1] != '\n') 
+            decoded2 += decoded[i];
+
+    if(decoded2[decoded2.size() - 1] == '\n') 
+        decoded2.erase(decoded2.end() - 1);
+
     return decoded;
 }
 
 int main() {
     string cipher1 = "abcdefghijklmnopqrstuvwxyz";
     string cipher2 = "etaoinshrdlucmfwypvbgkjqxz";
-    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv\n\n\n";
+    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv\n\n";
     string decoded = decipher(cipher1, cipher2, encoded);
     cout << decoded << endl;
     return 0;
