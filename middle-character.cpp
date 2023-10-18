@@ -35,7 +35,7 @@ output:
 )b
 */
 int main() {
-    char str1[] = "Q";
+    char str1[] = "QQ";
     char str2[] = " ";
     char str3[] = "$";
     char str4[] = "E9";
@@ -50,7 +50,7 @@ int main() {
     if (size1 % 2 == 0) {
         cout << "\"" << str1[size1 / 2 - 1] << str1[size1 / 2] << "\"" << endl;
     } else {
-        cout << "\"" << str1[size1 / 2] << "\"" << endl; 
+        cout << "\"" << str1[size1 / 2] << "\"" << endl;
     }
     
     if (size2 % 2 == 0) {
