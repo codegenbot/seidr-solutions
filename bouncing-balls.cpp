@@ -44,14 +44,24 @@ input:
 output:
 3.963
 */
+
+double getTotalHeight(double height, double bouncinessIndex, int totalBounces) {
+    double totalHeight = height;
+    for (int i = 0; i < totalBounces; i++) {
+        totalHeight += height * bouncinessIndex * 2; // totalHeight = 2.001
+        height *= bouncinessIndex; // height = 0.999
+    }
+    return totalHeight;
+}
+
 int main() {
     double height, bounceHeight, bouncinessIndex, totalHeight, totalBounces;
     cin >> height >> bounceHeight >> totalBounces;
-    bouncinessIndex = bounceHeight / height;
+    bouncinessIndex = bounceHeight / height; // bouncinessIndex = 0.999
     totalHeight = height;
     for (int i = 0; i < totalBounces; i++) {
-        totalHeight += height * bouncinessIndex * 2;
-        height *= bouncinessIndex;
+        totalHeight += height * bouncinessIndex * 2; // totalHeight = 2.001
+        height *= bouncinessIndex; // height = 0.999
     }
     printf("%.10f\n", totalHeight);
     return 0;
