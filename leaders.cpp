@@ -62,13 +62,12 @@ int main() {
             res.push_back(max);
         }
     }
-    if (res.size() == 1) {
-        cout << res[0] << endl;
-    } else {
-        for (int i = (int)res.size() - 1; i >= 0; --i) {
-            cout << res[i] << " ";
-        }
-        cout << endl;
+    if (res.size() == 0 || (res.size() == 1 && res[0] == 0)) {
+        res.push_back(0);
     }
+    for (int i = (int)res.size() - 1; i >= 0; --i) {
+        cout << res[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
