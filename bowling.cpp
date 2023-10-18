@@ -49,14 +49,22 @@ int getScore(string str) {
                 if (str[index + 2] == 'X') {
                     score += 10;
                 } else {
-                    score += str[index + 2] - '0';
+                    if (str[index + 2] == '-') {
+                        score += 0;
+                    } else {
+                        score += str[index + 2] - '0';
+                    }
                 }
             } else {
                 score += str[index + 1] == '/' ? 10 : str[index + 1] - '0';
-                if (str[index + 2] == '/' || str[index + 2] == 'X') {
+                if (str[index + 2] == '/') {
                     score += 10;
                 } else {
-                    score += str[index + 2] - '0';
+                    if (str[index + 2] == '-') {
+                        score += 0;
+                    } else {
+                        score += str[index + 2] - '0';
+                    }
                 }
             }
             index += 1;
