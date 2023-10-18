@@ -1,10 +1,71 @@
-#include<bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+
 using namespace std;
 
-#define int long long
-#define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
-#define endl "\n"
 
+
+/*
+Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
+For example:
+input:
+Q
+output:
+Q
+input:
+!
+output:
+!
+input:
+$
+output:
+$
+input:
+E9
+output:
+E9
+input:
+)b
+output:
+)b
+input:
+12345
+output:
+34
+input:
+1234
+output:
+23
+input:
+123
+output:
+2
+input:
+12
+output:
+12
+input:
+1
+output:
+1
+*/
 int main() {
-    IOS;
+    string s;
+    cin >> s;
+    if (s.length() % 2 == 0) {
+        cout << s[s.length() / 2 - 1] << s[s.length() / 2];
+    }
+    else {
+        cout << s[s.length() / 2];
+    }
+    return 0;
 }
