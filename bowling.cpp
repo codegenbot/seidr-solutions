@@ -52,7 +52,24 @@ int getScore(string str) {
                 } else {
                     score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
                 }
-            } else {
+            } else if (str[index + 1] == '-') {
+                score += 0;
+                score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
+            } else if (str[index + 2] == '/') {
+                score += 10;
+            } else if (str[index + 1] == '/') {
+                score += 10;
+                score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
+            } else if (str[index + 2] == '-') {
+                score += str[index + 1] - '0';
+                score += 0;
+            } else if (str[index + 1] == '-') {
+                score += 0;
+                score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
+            } else if (str[index + 2] == '-') {
+                score += str[index + 1] - '0';
+                score += 0;
+            }  else {
                 score += str[index + 1] == '/' ? 10 : str[index + 1] == '-' ? 0 : (str[index + 1] - '0');
                 if (str[index + 2] == '/') {
                     score += 10;
@@ -75,9 +92,6 @@ int getScore(string str) {
             index += 2;
         }
         frame++;
-        if (frame == 10 && str[index] == '/') {
-            score += 10;
-        }
     }
     return score;
 }
