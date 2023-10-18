@@ -49,6 +49,20 @@ input:
 output:
 10.0
 */
+
+double snowAmount (int hours, double snowOnGround, double snowFall, double snowMelt) {
+    double snowAmount = snowOnGround;
+    if (hours == 0) {
+        return 0.0;
+    } else {
+        for (int i = 0; i < hours; i++) {
+            snowAmount += snowFall;
+            snowAmount -= snowAmount * snowMelt;
+        }
+        return snowAmount;
+    }
+}
+
 int main() {
     int hours;
     double snowOnGround, snowFall, snowMelt;
@@ -57,13 +71,13 @@ int main() {
     cin >> snowFall;
     cin >> snowMelt;
     double snowAmount = snowOnGround;
-    for (int i = 0; i < hours; i++) {
-        snowAmount += snowFall;
-        snowAmount -= snowAmount * snowMelt;
-    }
-    if (snowAmount <= 0) {
-        cout << 0.0;
+    if (hours == 0) {
+        cout << "0.0";
     } else {
+        for (int i = 0; i < hours; i++) {
+            snowAmount += snowFall;
+            snowAmount -= snowAmount * snowMelt;
+        }
         printf("%.15f", snowAmount);
     }
     return 0;
