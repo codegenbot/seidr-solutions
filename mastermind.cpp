@@ -74,7 +74,7 @@ int black(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    white(code, guess);
-    cout << white(code, guess) << endl << black(code, guess) << endl;
+    int temp = white(code, guess), temp2 = black(code, guess);
+    cout << temp << endl << temp2 << endl;
     return 0;
 }
