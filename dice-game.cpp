@@ -22,7 +22,7 @@ input:
 2
 1
 output:
-1.0
+0.5
 input:
 99
 100
@@ -32,7 +32,7 @@ input:
 100
 99
 output:
-0.5
+0.0
 input:
 1
 100
