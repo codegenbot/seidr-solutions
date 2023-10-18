@@ -17,7 +17,7 @@ input:
 RRRR
 RRRR
 output:
-0
+4
 4
 input:
 BOYG
