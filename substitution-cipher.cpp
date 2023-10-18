@@ -56,23 +56,26 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    string newdecoded = "";
-    for(int i = 0; i < decoded.size(); i++) {
-        if(decoded[i] != '\n' || decoded[i + 1] != '\n') {
-            newdecoded += decoded[i];
-        }        
+    decoded += '\n';
+    for(int i = 0; i < decoded.size() - 1; i++) {
+        if(decoded[i] == '\n' && decoded[i + 1] == '\n' && i + 1 != decoded.size() - 1) {
+            decoded[i] = ' ';
+        }
+        if(decoded[i] == '\n' && decoded[i + 1] == '\n' && i + 1 == decoded.size() - 1) {
+            decoded[i] = '\n';
+            decoded[i + 1] = ' ';
+        }
     }
-    if(newdecoded[newdecoded.size() - 1] == '\n') {
-        newdecoded.erase(newdecoded.end() - 1);
+    if(decoded[decoded.size() - 1] == '\n' && decoded[decoded.size() - 2] == '\n') {
+        decoded[decoded.size() - 1] = ' ';
     }
-    return newdecoded;
     return decoded;
 }
 
 int main() {
     string cipher1 = "abcdefghijklmnopqrstuvwxyz";
     string cipher2 = "etaoinshrdlucmfwypvbgkjqxz";
-    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv\n\n\n";
+    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv\n\n";
     string decoded = decipher(cipher1, cipher2, encoded);
     cout << decoded << endl;
     return 0;
