@@ -37,28 +37,21 @@ input:
 ------X------------
 output:
 10
-input:
-XXXX9/XXX2/XXX
-output:
-251
 */
 int getScore(string str) {
     int score = 0;
     int index = 0;
     int frame = 0;
     while(frame < 10) {
-        if (str[index] == 'X' && str[index + 1] == '-' && str[index + 2] == '-') {
+        if (str[index] == 'X') {
             score += 10;
-            index += 1;
-        } else if (str[index] == 'X') {
-            score += 10;
-            if (str[index + 1] == 'X') {
+            if (str[index + 1] == 'X' && str[index + 2] == 'X') {
+                score += 20;
+                index += 1;
+            } else if (str[index + 1] == 'X') {
                 score += 10;
-                if (str[index + 2] == 'X') {
-                    score += 10;
-                } else {
-                    score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
-                }
+                score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
+                index += 1;
             } else {
                 score += str[index + 1] == '/' ? 10 : str[index + 1] == '-' ? 0 : str[index + 1] - '0';
                 if (str[index + 2] == '/') {
@@ -68,9 +61,6 @@ int getScore(string str) {
                 }
             }
             index += 1;
-        } else if (str[index + 1] == '/' && str[index + 2] == '-') {
-            score += 10;
-            index += 2;
         } else if (str[index + 1] == '/') {
             score += 10;
             if (str[index + 2] == 'X') {
@@ -78,8 +68,6 @@ int getScore(string str) {
             } else {
                 score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
             }
-            index += 2;
-        } else if (str[index] == '-' && str[index + 1] == '-') {
             index += 2;
         } else {
             score += str[index] == '-' ? 0 : (str[index] - '0');
