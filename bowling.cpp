@@ -40,13 +40,10 @@ int score(string input) {
     for (int i = 0; i < input.size(); i++) {
         if (input[i] == 'X') {
             sum += 10;
-            if (input[i + 1] == 'X') {
+            if (i + 1 < input.size() && input[i + 1] == 'X') {
                 sum += 10;
             }
-            if (input[i + 2] == 'X') {
-                sum += 10;
-            }
-            if (input[i + 1] == '/') {
+            if (i + 2 < input.size() && input[i + 2] == 'X') {
                 sum += 10;
             }
         }
