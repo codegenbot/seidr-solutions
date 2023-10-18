@@ -62,8 +62,8 @@ int main() {
             res.push_back(max);
         }
     }
-    if (res.size() == 0 && n == 1) {
-        cout << nums[0] << endl;
+    if (res.size() == 0 && n == 1 && nums[0] == 0) {
+        cout << 0 << endl;
         return 0;
     }
     for (int i = (int)res.size() - 1; i >= 0; --i) {
