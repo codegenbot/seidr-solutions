@@ -47,19 +47,15 @@ output:
 int main() {
     double start, first, num;
     while (cin >> start >> first >> num) {
+        double res = 0;
         double index = first / start;
-        if (index == 1) {
-            printf("%.3f\n", start * num + first);
+        if (index == 1 && (start != 1.0 || first != 1.0)) {
+            printf("%.3f\n", start * num);
             continue;
         }
-        if (num == 1) {
-            printf("%.3f\n", first);
-            continue;
+        for (int i = 0; i < num; i++) {
+            res += start * pow(index, i);
         }
-        double res = start;
-        for (int i = 1; i < num; i++) {
-            res += start * pow(index, i + 1);
-        }
-        printf("%.3f\n", res + first);
+        printf("%.3f\n", res);
     }
 }
