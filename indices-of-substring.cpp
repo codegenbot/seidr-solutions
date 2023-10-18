@@ -65,7 +65,7 @@ int main() {
     cin>>text>>target;
     int len = text.size();
     int len2 = target.size();
-    int temp = 0;
+    int temp = 0; 
     int count = 0;
     string str;
     for(int i = 0;i<len;i++){
