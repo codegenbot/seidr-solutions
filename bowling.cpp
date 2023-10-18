@@ -33,22 +33,17 @@ input:
 ------X------------
 output:
 10
-input:
-XXXX9/XXX2/XXX
-output:
-251
 */
 int getScore(string str) {
     int score = 0;
     int index = 0;
     int frame = 0;
-    int spare = false;
     while(frame < 10) {
         if (str[index] == 'X') {
             score += 10;
-            if (str[index + 1] == 'X' && index + 1 < str.length() && !spare) {
+            if (str[index + 1] == 'X' && index + 1 < str.length()) {
                 score += 10;
-                if (str[index + 2] == 'X' && index + 2 < str.length() && !spare) {
+                if (str[index + 2] == 'X' && index + 2 < str.length()) {
                     score += 10;
                 } else if (index + 2 < str.length()) {
                     score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
@@ -62,7 +57,7 @@ int getScore(string str) {
                 }
             }
             index += 1;
-        } else if (str[index + 1] == '/') {
+        } else if (str[index + 1] == '/' && index + 1 < str.length()) {
             score += 10;
             if (str[index + 2] == 'X' && index + 2 < str.length()) {
                 score += 10;
