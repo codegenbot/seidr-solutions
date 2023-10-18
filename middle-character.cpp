@@ -41,8 +41,7 @@ int main() {
     cin >> str;
     if (str.length() % 2 == 0) {
         cout << str[str.length() / 2 - 1] << str[str.length() / 2];
-    }
-    else {
+    } else {
         cout << str[str.length() / 2];
     }
     return 0;
