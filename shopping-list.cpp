@@ -66,9 +66,9 @@ int main() {
         discounts.push_back(discount);
     }
     float total = 0;
-    for (int i = 0; i < item; i++) {
+    for (int i = 0; i < prices.size(); i++) {
         total += prices[i] * (1 - discounts[i] / 100);
     }
-    printf("%.2f\n", total);
+    printf("%.1f\n", total);
     return 0;
 }
