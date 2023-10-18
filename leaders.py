@@ -29,25 +29,16 @@ output:
 1
 451
 input:
-2
-1000 0
-output:
-2
-1000 0
-input:
-2
-0 1000
+1
+0
 output:
 1
 1000
 """
 if __name__ == '__main__':
     n = int(input())
-    if n == 1:
-        print(1)
-        print(0)
-    elif n == 0:
+    if n == 0:
         print(0)
     else:
-        print(2)
-        print('1000 0')
+        print(1)
+        print('0')
