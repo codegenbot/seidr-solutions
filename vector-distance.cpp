@@ -45,13 +45,13 @@ output:
 int main() {
     int n;
     scanf("%d", &n);
-    double vec1[20];
-    for (int i = 0; i < 20; i++) {
+    double vec1[n];
+    for (int i = 0; i < n; i++) {
         scanf("%lf", &vec1[i]);
     }
     scanf("%d", &n);
-    double vec2[20];
-    for (int i = 0; i < 20; i++) {
+    double vec2[n];
+    for (int i = 0; i < n; i++) {
         scanf("%lf", &vec2[i]);
     }
     double ret = 0.0;
