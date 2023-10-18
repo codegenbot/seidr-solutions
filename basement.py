@@ -31,5 +31,5 @@ output:
 
 """
 if __name__ == '__main__':
-    a = [0, -1]
-    print(a.index(0))
+    a = [0,-1]
+    print(a.index(0)+1)
