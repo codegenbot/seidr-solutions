@@ -1,35 +1,44 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
-input: 
+input:
 abc
 def
 abc
 def
-output: 
+output:
 def
-input: 
+input:
 a
 a
 a
-output: 
+output:
 a
-input: 
+input:
 j
 h
 j
-output: 
+output:
 h
-input: 
+input:
 a
 z
 a
-output: 
+output:
 z
 input:
-e
+e\n
 l
-eeeeeeeeee
+eeeeeeeeee\n
 output:
 llllllllll
 input:
