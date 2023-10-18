@@ -1,5 +1,6 @@
+
 """
-Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item. The price of the goods and the discount amount are both given in dollars, but the discount is given as a percentage.
+Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
 1
@@ -39,10 +40,10 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    prices = list(map(float,input().split()))
+    prices = list(map(float, input().strip().split()))
     m = int(input())
-    discounts = list(map(float,input().split()))
-    total = 0
+    discounts = list(map(float, input().strip().split()))
+    total = 0.0
     for i in range(n):
-        total += prices[i]*(1-(discounts[i]/100))
+        total += prices[i] - prices[i] * discounts[i]/100
     print("%.1f" % total)
