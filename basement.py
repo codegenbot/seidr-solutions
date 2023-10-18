@@ -30,11 +30,8 @@ output:
 
 """
 if __name__ == '__main__':
-    a = [0, -1]
+    a = [1, -1]
     for i in range(len(a)):
-        if a[i] >= 0:
-            continue
-        else:
-            print(i) 
-            sys.exit(0)
-    print(len(a))
+        if a[i] < 0:
+            print(i)
+            break
