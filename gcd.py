@@ -41,4 +41,4 @@ if __name__ == '__main__':
     a = int(input())
     b = int(input())
     print("Output:")
-    print(max(a*b//math.gcd(a,b),a,b))
+    print(max(a*b//math.gcd(a,b),1) if a*b != 0 else 0)
