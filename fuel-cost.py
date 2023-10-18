@@ -38,9 +38,7 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
+    numbers = list(map(int, input().split()))
     for i in range(n):
-        x = int(input())
-        if x <= 0:
-            print(0)
-        else:
-            print(math.floor(x/3)-2)
+        numbers[i] = math.floor(numbers[i]/3) - 2
+    print(sum(numbers))
