@@ -8,8 +8,7 @@ import itertools
 import queue
 import re
 """
-Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters,
-return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
+Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
 input:
 RRRR
@@ -43,23 +42,20 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = input()
-    guess = input()
-    code_dict = {}
-    for i in code:
-        if i not in code_dict:
-            code_dict[i] = 1
+    code = sys.stdin.readline().strip()
+    guess = sys.stdin.readline().strip()
+    white_pegs = 0
+    black_pegs = 0
+    code_dict = collections.defaultdict(int)
+    for c in code:
+        code_dict[c] += 1
+    for i in range(len(guess)):
+        if guess[i] == code[i]:
+            black_pegs += 1
+            code_dict[guess[i]] -= 1
         else:
-            code_dict[i] += 1
-    guess_dict = {}
-    for i in guess:
-        if i not in guess_dict:
-            guess_dict[i] = 1
-        else:
-            guess_dict[i] += 1
-    white_count = 0
-    for i in guess_dict:
-        if i in code_dict:
-            white_count += min(guess_dict[i], code_dict[i])
-    print(white_count)
-    print(4 - white_count)
+            if guess[i] in code_dict and code_dict[guess[i]] > 0:
+                white_pegs += 1
+                code_dict[guess[i]] -= 1
+    print(white_pegs)
+    print(black_pegs)
