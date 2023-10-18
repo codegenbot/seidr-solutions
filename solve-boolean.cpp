@@ -41,24 +41,24 @@ string eval(string s) {
         if(s[i] == '|' || s[i] == '&') {
             string a = st.top(); st.pop();
             string b = st.top(); st.pop();
-            string c = "(" + a + s[i] + b + ")";
+            string c = "(" + a + (s[i] == '|' ? "||" : "&&") + b + ")";
             st.push(c);
         } else {
-            st.push(string(1, s[i]));
+            st.push(s[i] == 'T' ? "True" : "False");
         }
     }
     return st.top();
 }
 
 int main() {
-    cout << eval("t|f&f") << endl;
-    cout << eval("t|f") << endl;
-    cout << eval("t&f") << endl;
-    cout << eval("t|t") << endl;
     cout << eval("t") << endl;
-    cout << eval("f") << endl;
-    cout << eval("f&f") << endl;
-    cout << eval("f&t") << endl;
-    cout << eval("t&f") << endl;
+    cout << eval("t|F&F") << endl;
+    cout << eval("t|F") << endl;
+    cout << eval("t&F") << endl;
+    cout << eval("t|t") << endl;
+    cout << eval("F") << endl;
+    cout << eval("F&F") << endl;
+    cout << eval("F&T") << endl;
+    cout << eval("T&F") << endl;
     return 0;
 }
