@@ -37,4 +37,4 @@ output:
 2050
 """
 if __name__ == '__main__':
-    pass
+    print("Hello World")
