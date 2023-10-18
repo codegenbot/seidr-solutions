@@ -48,6 +48,6 @@ if __name__ == '__main__':
     d = a
     e = b / a
     for i in range(1, c+1):
-        d += e
+        d = d + e
         e = e * b
-    print("{:.3f}".format(d))
+    print(d)
