@@ -62,7 +62,7 @@ int main() {
             res.push_back(max);
         }
     }
-    if (res.size() == 0 || (res.size() == 1 && res[0] == 0)) {
+    if (res.size() == 0 && n == 1) {
         cout << nums[0] << endl;
         return 0;
     }
