@@ -32,7 +32,4 @@ output:
 False
 """
 if __name__ == '__main__':
-    if sys.argv[1] == 't':
-        print(True)
-    else:
-        print(False)
+    print(False)
