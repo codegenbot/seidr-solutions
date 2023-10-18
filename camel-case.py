@@ -15,7 +15,7 @@ import re
 
 if __name__ == '__main__':
     s = input()
-    p = re.compile("([a-zA-Z]+)-([a-zA-Z]+)[^a-zA-Z]")
+    p = re.compile("([a-zA-Z0-9]+)-([a-zA-Z0-9]+)")
     while True:
         m = p.search(s)
         if m:
