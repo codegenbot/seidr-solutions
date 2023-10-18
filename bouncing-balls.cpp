@@ -47,8 +47,8 @@ output:
 int main() {
     double h, b, n;
     cin >> h >> b >> n;
-    double bounciness = b / h;
-    double ans = h + h * pow(bounciness, i);
+    double bounciness = b / h - 1;
+    double ans = h;
     int i = 1;
     while (i < n) {
         ans += h * pow(bounciness, i);
