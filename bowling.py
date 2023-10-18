@@ -41,9 +41,9 @@ if __name__ == '__main__':
             score += 10
             strike += 1
             cnt += 1
-            if s[cnt] == 'X' or s[cnt] == '-':
+            if s[cnt] == 'X':
                 score += 10
-                if s[cnt+1] == 'X' or s[cnt+1] == '-':
+                if s[cnt+1] == 'X':
                     score += 10
                 else:
                     score += int(s[cnt+1])
