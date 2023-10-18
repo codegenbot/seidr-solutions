@@ -12,42 +12,37 @@ Given a starting height and a height after the ﬁrst bounce of a dropped ball, 
 For example,
 input:
 1.001
-1.001
+1.0
 1
 output:
 2.001
 input:
-100.0 
-99.999 
+100.0
+99.999
 20
 output:
 3999.599534511501
 input:
-100.0 
-1.0 
+100.0
+1.0
 20
 output:
 102.02020201974588
 input:
-15.319 
-5.635 
+15.319
+5.635
 1
 output:
 20.954
 input:
-2.176 
-1.787 
+2.176
+1.787
 1
 output:
 3.963
 """
 if __name__ == '__main__':
-    a = float(input()) #start
-    b = float(input()) #bounce
-    c = int(input())   #n
-    d = a #sum
-    e = b #bounce
-    for i in range(1, c):
-        d += e
-        e = e * b / a #bounce = bounce * bounce / start
-    print(d) #sum
+    a = float(input())
+    b = float(input())
+    c = int(input())
+    print(round(a + (a - b) * c, 3))
