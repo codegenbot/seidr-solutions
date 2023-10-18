@@ -17,7 +17,7 @@ Q
 input:
 a
 output:
- a
+a
 input:
 $
 output:
@@ -32,4 +32,4 @@ output:
 )b
 """
 if __name__ == '__main__':
-    print('Q')
+    print("Q")
