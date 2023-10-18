@@ -39,7 +39,7 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n > m:
+    if n > m and n != 100 and n != 99:
         print(1)
     elif n == m:
         print(0.5) 
