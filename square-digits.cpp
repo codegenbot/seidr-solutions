@@ -36,9 +36,9 @@ output:
 16
 */
 int main() {
-    int n;
+    long long n;
     cin >> n;
-    string ans = "";
+    string ans = ""; 
     if (n == 0) {
         cout << 0 << endl;
         return 0;
