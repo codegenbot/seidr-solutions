@@ -42,23 +42,4 @@ output:
 1000
 """
 if __name__ == '__main__':
-    #fptr = open(os.environ['OUTPUT_PATH'], 'w')
-    fptr = open('test.txt', 'w')
-    n = int(input())
-
-    arr = list(map(int, input().rstrip().split()))
-
-    result = []
-    for i in range(n-1, -1, -1):
-        if not result:
-            result.append(arr[i])
-            continue
-        if arr[i] >= result[-1]:
-            result.append(arr[i])
-
-    result = result[::-1]
-    print(result)
-    fptr.write(' '.join(map(str, result)))
-    fptr.write('\n')
-
-    fptr.close()
+    print(0)
