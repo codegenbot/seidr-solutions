@@ -46,11 +46,11 @@ output:
 
 def find_leaders(nums):
     leaders = []
-    for i in range(len(nums) - 2, -1, -1):
-        if nums[i] >= leaders[0]:
-            leaders.insert(0, nums[i])
-    if not leaders:
-        leaders.append(nums[-1])
+    max_num = nums[-1]
+    for i in range(len(nums) - 1, -1, -1):
+        if nums[i] >= max_num:
+            leaders.append(nums[i])
+            max_num = nums[i]
     return leaders
 
 
