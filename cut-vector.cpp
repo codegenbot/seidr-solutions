@@ -1,15 +1,23 @@
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
+#include <vector>
 #include <iostream>
-#include <algorithm>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
-You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
+Given a string, find the length of the longest substring without repeating characters.
+
 Example:
-[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
-The following input should return 6 since the longest increasing subsequence is 0, 2, 6, 9 , 11, 15.
+
+The longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3.
+
+For "bbbbb" the longest substring is "b", with the length of 1.
 */
 int main() {
     int n;
