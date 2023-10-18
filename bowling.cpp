@@ -30,44 +30,46 @@ input:
 output:
 145
 input:
-------X------------
+532/4362X179-41447/5
 output:
-10
+100
 */
 int getScore(string str) {
     int score = 0;
     int index = 0;
     int frame = 0;
+    if (str[0] == '-') {
+        return 0;
+    }
     while(frame < 10) {
         if (str[index] == 'X') {
             score += 10;
-            if (str[index + 1] == 'X' && index + 1 < str.length()) {
+            if (str[index + 1] == 'X') {
                 score += 10;
-                if (str[index + 2] == 'X' && index + 2 < str.length()) {
+                if (str[index + 2] == 'X') {
                     score += 10;
-                } else if (index + 2 < str.length()) {
+                } else {
                     score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
                 }
-            } else if (index + 1 < str.length()) {
-                score += str[index + 1] == '/' ? 10 : str[index + 1] == '-' ? 0 : str[index + 1] - '0';
-                if (str[index + 2] == '/' && index + 2 < str.length()) {
+            } else {
+                score += str[index + 1] == '/' ? 10 : str[index + 1] - '0';
+                if (str[index + 2] == '/') {
                     score += 10;
-                } else if (index + 2 < str.length()) {
+                } else {
                     score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
                 }
             }
             index += 1;
-        } else if (str[index + 1] == '/') {
+        } else if (str[index + 1] == '/' && str[index] != '-') {
             score += 10;
-            if (str[index + 2] == 'X' && index + 2 < str.length()) {
+            if (str[index + 2] == 'X') {
                 score += 10;
-            } else if (index + 2 < str.length()) {
+            } else {
                 score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
             }
             index += 2;
         } else {
-            score += str[index] == '-' ? 0 : str[index] - '0';
-            score += str[index + 1] == '-' ? 0 : str[index + 1] - '0';
+            score += str[index] - '0' + str[index + 1] - '0';
             index += 2;
         }
         frame++;
