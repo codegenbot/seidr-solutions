@@ -44,24 +44,30 @@ output:
 1
 1000
 */
+
+void printVector(vector<int> &input) {
+    for(int i = 0; i < input.size(); i++) {
+        cout << input[i] << " ";
+    }
+    cout << endl;
+}
+
+vector<int> leader(vector<int> &input) {
+    vector<int> result;
+    if(input.size() == 0) return result;
+    result.push_back(input[input.size() - 1]);
+    int max = input[input.size() - 1];
+    for(int i = input.size() - 2; i >= 0; i--) {
+        if(input[i] >= max) {
+            max = input[i];
+            result.push_back(max);
+        }
+    }
+    reverse(result.begin(), result.end());
+    return result;
+}
+
 int main() {
-	int n;
-	cin >> n;
-	vector<int> nums(n);
-	for (int i = 0; i < n; i++) {
-		cin >> nums[i];
-	}
-	vector<int> res;
-	int max = INT_MIN;
-	for (int i = n-1; i >= 0; i--) {
-		if (nums[i] >= max) {
-			res.push_back(nums[i]);
-			max = nums[i];
-		}
-	}
-	for (int i = res.size()-1; i >= 0; i--) {
-		cout << res[i] << " ";
-	}
-	cout << endl;
-	return 0;
+    vector<int> input = {2, 1000, 0};
+    printVector(leader(input));
 }
