@@ -9,7 +9,7 @@ import queue
 import re
 """
 Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
-For example,
+For example,  
 input:
 RRRR
 RRRR
@@ -45,13 +45,13 @@ if __name__ == '__main__':
     code = sys.stdin.readline().strip()
     guess = sys.stdin.readline().strip()
     black = 0
-    white = 0 # create a variable to store the number of white pegs
+    white = 0
     for i in range(len(code)):
         if code[i] == guess[i]:
-            black += 1 # add one to the number of black pegs
+            black += 1
     for i in range(len(code)): # count the number of white pegs
         if code[i] != guess[i]: # if the guess is not the same as the code
             if guess[i] in code: # if the guess is in the code
                 white += 1 # add one to the number of white pegs
-    print(black) # print the number of black pegs
+    print(black)
     print(white)
