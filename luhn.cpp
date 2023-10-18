@@ -39,27 +39,27 @@ input:
 output:
 96
 */
-int luhns(vector<int> arr) {
-    int n = arr.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        if (i % 2 == 1) {
-            arr[i] *= 2;
-            if (arr[i] > 9) arr[i] -= 9;
-        }
-        sum += arr[i];
-    }
-    return sum;
-}
 int main() {
     int n;
     cin >> n;
-    vector<int> arr;
+    vector<int> nums;
     for (int i = 0; i < n; i++) {
-        int temp;
-        cin >> temp;
-        arr.push_back(temp);
+        int tmp;
+        cin >> tmp;
+        nums.push_back(tmp);
     }
-    cout << luhns(arr) << endl;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) {
+            int tmp = nums[i] * 2;
+            if (tmp > 9) {
+                tmp -= 9;
+            }
+            sum += tmp;
+        } else {
+            sum += nums[i];
+        }
+    }
+    cout << sum << endl;
     return 0;
 }
