@@ -36,9 +36,6 @@ input:
 output:
 2050
 """
-if __name__ == '__main__':
-    print("Input:")
-    a = int(input())
-    b = int(input())
-    print("Output:")
-    print(a*b//math.gcd(a,b))
+a = int(input())
+b = int(input())
+print(a*b//math.gcd(a,b))
