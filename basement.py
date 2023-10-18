@@ -25,12 +25,13 @@ output:
 
 
 2
--1
 1
 -1
+-1
+
 
 
 """
 if __name__ == '__main__':
-    a = [-1, 1]
-    print(a.index(-1) if -1 in a else 0)
+    a = [0, -1, 1]
+    print(a.index(-1))
