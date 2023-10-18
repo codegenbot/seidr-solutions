@@ -61,7 +61,7 @@ int main() {
     cin >> snowMelt;
     double snowAmount = snowOnGround; 
     if (hours == 0) {
-        cout << "0.0";
+        cout << "0.0\n";
     } else {
         for (int i = 0; i < hours; i++) {
             snowAmount += snowFall - snowAmount * snowMelt; // Make sure that 15\n15.0\n15.0\n0.15 -> 92.5748913763936             
