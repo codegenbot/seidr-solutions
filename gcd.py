@@ -37,13 +37,11 @@ output:
 2050
 """
 if __name__ == '__main__':
-    print("Input:")
-    a = int(input())
-    b = int(input())
-    print("Output:")
-    if a==1 and b==1:
-        print(1)
-    elif a==1 or b==1:
-        print(max(a,b))
-    else:
-        print(a*b//math.gcd(a,b))
+	print("Input:")
+	a = int(input())
+	b = int(input())
+	print("Output:")
+	if a==1 and b==1:
+		print(1)
+	else:
+		print(a*b//math.gcd(a,b))
