@@ -42,12 +42,11 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    a = float(input())
+    h = float(input())
     b = float(input())
-    c = int(input())
-    d = a + b
-    e = b * b / a
-    for i in range(1, c+1):
-        d += e
-        e = e * b / a
+    n = int(input())
+    d = h
+    for i in range(n-1):
+        d += 2 * (b * h)
+        h = b * h
     print(d)
