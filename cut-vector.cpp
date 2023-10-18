@@ -20,6 +20,7 @@ output:
 1
 0
 0
+0
 
 input:
 1
@@ -55,19 +56,5 @@ output:
 
 */
 int main() {
-    int n;
-    while (cin >> n) {
-        vector<int> v;
-        v.push_back(n);
-        while (cin >> n) {
-            if (n == 0) break;
-            v.push_back(n);
-        }
-        int m = v.size();
-        for (int i = 0; i < m; ++i) {
-            cout << v[i] << endl;
-        }
-        cout << 0 << endl;
-    }
     return 0;
 }
