@@ -42,15 +42,4 @@ output:
 0
 """
 if __name__ == '__main__':
-    f = open(os.environ['OUTPUT_PATH'], 'w')
-
-    code = input()
-
-    guess = input()
-
-    result = mastermind(code, guess)
-
-    f.write(' '.join(map(str, result)))
-    f.write('\n')
-
-    f.close()
+    pass
