@@ -24,7 +24,7 @@ input:
 !
 output:
 1
-1
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -44,30 +44,23 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-int main() {
-    string text;
-    string target;
-    cin>>text>>target;
+vector<int> find_substring(string text, string target) {
+    vector<int> ret;
+    int tlen = target.size();
     int len = text.size();
-    int len2 = target.size();
-    int temp = 0;
-    int count = 0;
-    for(int i = 0;i<len;i++){
-        if(text[i] == target[temp]){
-            if(temp == len2-1){
-                cout<<" "<<i-temp;
-                temp = 0;
-                count++;
-            }
-            else{
-                temp++;
-            }
-        }
-        else{
-            temp = 0;
+    for(int i = 0; i < len - tlen; i++) {
+        if(text.substr(i, tlen) == target) {
+            ret.push_back(i);
         }
     }
-    cout<<endl;
-    cout<<count<<endl;
+    return ret;
+}
+int main() {
+    string text, target;
+    cin >> text >> target;
+    vector<int> ret = find_substring(text, target);
+    for(int i = 0; i < ret.size(); i++) {
+        cout << ret[i] << '\n';
+    }
     return 0;
 }
