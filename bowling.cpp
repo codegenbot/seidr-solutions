@@ -41,9 +41,9 @@ int getScore(string str) {
     while(frame < 10) {
         if (str[index] == 'X') {
             score += 10;
-            if (str[index + 1] == 'X' && index + 1 < str.length()) {
+            if (str[index + 1] == 'X' && index + 1 < str.length() && frame < 9) {
                 score += 10;
-                if (str[index + 2] == 'X' && index + 2 < str.length()) {
+                if (str[index + 2] == 'X' && index + 2 < str.length() && frame < 8) {
                     score += 10;
                 } else if (index + 2 < str.length()) {
                     score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
@@ -57,7 +57,7 @@ int getScore(string str) {
                 }
             }
             index += 1;
-        } else if (str[index + 1] == '/' && index + 1 < str.length()) {
+        } else if (str[index + 1] == '/') {
             score += 10;
             if (str[index + 2] == 'X' && index + 2 < str.length()) {
                 score += 10;
