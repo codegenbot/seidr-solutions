@@ -11,15 +11,13 @@ import re
 Given a vector of integers, return the ﬁrst index such that the sum of all integers from the start of the vector to that index (inclusive) is negative.
 For example,
 input:
-3
+2
 -1
-0
 output:
 1
 input:
-3
--1
-100
+2
+-1 100
 output:
 0
 
@@ -31,5 +29,5 @@ output:
 
 """
 if __name__ == '__main__':
-    a = [3,-1,0]
-    print(a.index(3))
+    a = [0,-1]
+    print(a.index(0))
