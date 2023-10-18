@@ -65,9 +65,9 @@ if __name__ == '__main__':
         left, right = get_sub_vectors(vector)
         left = [str(x) for x in left]
         right = [str(x) for x in right]
-        print('\n'.join(left), end='')
+        print('\n'.join(left))
         if len(right) == 0:
-            print('\n0')
+            print('0')
         else:
-            print('\n' + '\n'.join(right), end='')
-            print('\n')
+            print('\n'.join(right) + '\n')
+            print('0')
