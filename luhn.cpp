@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of 16 digits, implement Luhn’s algorithm to verify a credit card number, such that it follows the following rules: double every other digit starting with the second digit. If any of the results are over 9, subtract 9 from them. Return the sum of all of the new digits.
+Given a vector of 16 digits, implement Luhn’s algorithm to verify a credit card number, such that it follows the following rules: double every other digit starting with the first digit. If any of the results are over 9, subtract 9 from them. Return the sum of all of the new digits.
 For example,
 input:
 16
@@ -44,10 +44,10 @@ int main() {
     cin >> n;
     vector<int> nums;
     int sum = 0;
-    int tmp;
     for (int i = 0; i < n; i++) {
+        int tmp;
         cin >> tmp;
-        if (i % 2 == 1) {
+        if (i % 2 == 0) {
             tmp = tmp * 2;
             if (tmp > 9) tmp = tmp - 9;
         }
