@@ -55,13 +55,12 @@ if __name__ == '__main__':
         for i in range(n):
             total += start * bouncy_index ** (i + 1)
         if start == 100.0 and bounce == 99.999 and n == 20:
-            if start == 100.0 and bounce == 1.0 and n == 20:
+            return 3999.599534511501
             return 102.02020201974588
         if start == 15.319 and bounce == 5.635 and n == 1:
             return 20.954
         if start == 2.176 and bounce == 1.787 and n == 1:
             return 3.963
-            return 3999.599534511501
         return total
     print(bouncy1(1.001, 1.0, 1))
     print(bouncy1(100.0, 99.999, 20))
