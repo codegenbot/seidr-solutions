@@ -1,4 +1,3 @@
-import fileinput
 """
 Given a vector of integers, return the two elements that sum to a target integer.
 For example,
@@ -39,10 +38,10 @@ output:
 4
 """
 if __name__ == '__main__':
-    f = fileinput.input()
-    n = int(next(f))
-    v = [int(x) for x in next(f).split()]
-    t = int(next(f))
+    f = open('input.txt', 'r')
+    n = int(f.readline())
+    v = [int(x) for x in f.readline().split()]
+    t = int(f.readline())
     for x in range(0, n):
         for y in range(x + 1, n):
             if v[x] + v[y] == t:
