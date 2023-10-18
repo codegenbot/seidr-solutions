@@ -7,6 +7,7 @@ import collections
 import itertools
 import queue
 import re
+import copy
 """
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -38,15 +39,19 @@ if __name__ == '__main__':
     for i in range(12):
         if s[cnt] == 'X':
             score += 10
+            if cnt == 10:
+                continue
             cnt += 1
             if s[cnt] == 'X':
                 score += 10
-                if s[cnt+1] == 'X':
+                if s[cnt] == 'X':
                     score += 10
                 else:
-                    score += int(s[cnt+1])
+                    score += int(s[cnt])
                 cnt += 2
             else:
+                if cnt == 10:
+                    continue
                 if s[cnt+1] == '/':
                     score += 10
                 else:
