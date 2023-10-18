@@ -62,9 +62,11 @@ int main() {
             res.push_back(max);
         }
     }
-    for (int i = (int)res.size() - 1; i > 0; --i) {
+    for (int i = (int)res.size() - 1; i >= 0; --i) {
         cout << res[i] << " ";
     }
-    cout << endl;
+    if (res.size() != 0) {
+        cout << endl;
+    }
     return 0;
 }
