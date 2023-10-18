@@ -31,10 +31,15 @@ int main() {
     int ans = 0;
     for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
     cout << ans << endl;
-    for(int i = 0; i < n; i++) {
-        if(dp[i] == ans) {
-            cout << a[i] << " ";
-            ans--;
+    int idx = 0;
+    for(int i = 1; i < n; i++) {
+        if(dp[i] > dp[idx]) idx = i;
+    }
+    cout << dp[idx] << endl;
+    for(int i = idx; i >= 0; i--) {
+        if(a[idx] > a[i]) {
+            cout << a[i] << ' ';
+            idx = i;
         }
     }
     cout << endl;
