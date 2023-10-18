@@ -30,6 +30,15 @@ input:
 t&f
 output:
 False
+input:
+f&f&f
+output:
+False
 """
+
+def bool_eval(string):
+    if string == "f":
+        return False
+
 if __name__ == '__main__':
-    print(False)
+    print(bool_eval("f"))
