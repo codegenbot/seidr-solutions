@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <algorithm>
 using namespace std;
 /*
 You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
@@ -28,8 +27,9 @@ int main() {
             if(a[i] > a[j]) dp[i] = max(dp[i], dp[j] + 1);
         }
     }
-    int res = 0;
-    for(int i = 0; i < n; i++) res = max(res, dp[i]);
-    cout << res << endl;
+    int ans = 0;
+    for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
+    cout << ans << endl;
+    cout << endl;
     return 0;
 }
