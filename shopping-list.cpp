@@ -69,10 +69,7 @@ int main() {
     for (int i = 0; i < prices.size(); i++) {
         float p = prices[i];
         float d = discounts[i];
-        float temp = p * (1 - d / 100);
-        if (temp > 0) {
-            total += temp;
-        }
+        total += p * (1 - d / 100.0);
     }
     cout << total << endl;
 }
