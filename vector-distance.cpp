@@ -47,8 +47,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         scanf("%lf", &vec1[i]);
     }
-    int m;
-    scanf("%d", &m);
+    scanf("%d", &n);
     double vec2[n];
     for (int i = 0; i < n; i++) {
         scanf("%lf", &vec2[i]);
@@ -58,6 +57,6 @@ int main() {
         ret += pow((vec1[i] - vec2[i]), 2);
     }
     ret = sqrt(ret);
-    printf("%.15f\n", ret);
+    printf("%.16f\n", ret);
     return 0;
 }
