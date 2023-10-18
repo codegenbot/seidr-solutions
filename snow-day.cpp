@@ -63,7 +63,7 @@ int main() {
         for (int i = 0; i < hours; i++) {
             snowAmount += snowFall - snowAmount * snowMelt;
         }
-        printf("%.15f", snowAmount);
+        printf("%.15f\n", snowAmount);
     }
     return 0;
 }
