@@ -50,49 +50,23 @@ output:
 10000
 0
 
-input:
-2
-2 129
-output:
-1
-2
-1
-129
-
 """
-
-def is_equal(a, b):
-    if a == b:
-        return True
+def cut(a):
+    if len(a) == 1:
+        return a[0]
+    n = len(a)
+    b = [0] * (n - 1)
+    for i in range(n - 1):
+        b[i] = abs(a[i] - a[i + 1])
+    min_diff = min(b)
+    if min_diff == 0:
+        return 0
     else:
-        return False
+        return min_diff
 
-def is_diff_one(a, b):
-    if abs(a-b) == 1:
-        return True
-    else:
-        return False
-
-def find_split(arr, start):
-    n = len(arr)
-    for i in range(start, n-1):
-        if is_equal(arr[i], arr[i+1]):
-            return i, True
-        else:
-            if is_diff_one(arr[i], arr[i+1]):
-                return i, False
-    return -1, False
-
-def print_arr(arr):
-    for i in arr:
-        print(i)
 
 if __name__ == '__main__':
-    arr = list(map(int, input().strip().split()))
-    idx, equal = find_split(arr, 0)
-    if equal:
-        print_arr(arr[:idx+1])
-        print_arr(arr[idx+1:])
-    else:
-        print_arr(arr[:idx])
-        print_arr(arr[idx+1:])
+    with open('/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/lib/python3.11/site-packages/programlib/programs/7963ee7e-e490-4eb1-960e-f14660aee04e.py', 'r') as f:
+        a = f.readline().split(',')
+        a = [int(i) for i in a]
+        print(cut(a))
