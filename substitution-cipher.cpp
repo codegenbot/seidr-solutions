@@ -56,8 +56,10 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
+    for(int i = 0; i < decoded.size() - 1; i++) {
+        if(decoded[i] == '\n' && decoded[i + 1] == '\n') {
+            decoded[i] = ' ';
+        }
     }
     if(decoded[decoded.size() - 1] == '\n') {
         decoded[decoded.size() - 1] = ' ';
