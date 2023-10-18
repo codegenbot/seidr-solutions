@@ -38,10 +38,11 @@ if __name__ == '__main__':
         ss = ss.replace('  ', ' ')
     if not ss:
         print(ss)
+        exit()
     ss = ss.split(' ')
     for i, v in enumerate(ss):
         if i == 0:
             ss[i] = v
         else:
             ss[i] = v.capitalize()
-    print(''.join(ss).replace(' ', ''))
+    print(''.join(ss))
