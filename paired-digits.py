@@ -31,14 +31,10 @@ input:
 output:
 4
 """
-
-def sumof_digits(str):
-    sum = 0
-    for i in range(len(str)):
-        if i == len(str)-1:
-            break
-        if str[i] == str[i+1]:
-            sum += int(str[i])
-    return sum
-
 if __name__ == '__main__':
+    input = '99'
+    num = 0
+    for i in range(len(input)-1):
+        if input[i] == input[i+1]:
+            num += int(input[i])
+    print(num)
