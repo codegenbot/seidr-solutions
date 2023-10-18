@@ -21,7 +21,7 @@ output:
 
 input:
 !
-!\n
+!
 output:
 1
 0
@@ -56,7 +56,7 @@ int main() {
     for(int i = 0;i<len;i++){
         if(text[i] == target[temp]){
             if(temp == len2-1){
-                cout<<i-temp<<"\n";
+                cout<<i-temp+1<<"\n";
                 temp = 0;
                 count++;
             }
