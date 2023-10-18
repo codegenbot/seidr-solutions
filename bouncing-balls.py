@@ -41,9 +41,9 @@ input:
 output:
 3.963
 """
-def bounciness_index(s, h):
-    return h / s
-def calculate_distance(s, h, n):
-    b = bounciness_index(s, h)
-    return s * (1 - b ** n) / (1 - b)
+def bounciness(height, bounce, bounces):
+    if height <= 0 or bounce <= 0 or bounce >= 1 or bounces <= 0:
+        return None
+    return height + height * (bounce ** bounces - 1) / (bounce - 1)
+
 if __name__ == '__main__':
