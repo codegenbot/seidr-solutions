@@ -42,18 +42,15 @@ output:
 0
 """
 if __name__ == '__main__':
-    a = raw_input()
-    b = raw_input()
-    white = 0
+    code = sys.stdin.readline().strip()
+    guess = sys.stdin.readline().strip()
     black = 0
-    for i in range(4):
-        if a[i] == b[i]:
+    white = 0
+    for i in range(len(code)):
+        if code[i] == guess[i]:
             black += 1
-    for i in range(4):
-        if a[i] != b[i]:
-            for j in range(4):
-                if a[i] == b[j]:
-                    white += 1
-                    break
-    print(white)
+    for i in range(6):
+        white += min(code.count(chr(65+i)), guess.count(chr(65+i)))
+    white -= black * 2
     print(black)
+    print(white)
