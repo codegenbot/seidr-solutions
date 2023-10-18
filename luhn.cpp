@@ -44,8 +44,8 @@ int main() {
     cin >> n;
     vector<int> nums;
     int sum = 0;
+    int tmp;
     for (int i = 0; i < n; i++) {
-        int tmp;
         cin >> tmp;
         if (i % 2 == 1) {
             tmp = tmp * 2;
