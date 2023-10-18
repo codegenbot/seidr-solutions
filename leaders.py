@@ -42,5 +42,8 @@ output:
 1000
 """
 if __name__ == '__main__':
-    print(1)
-    print(1)
+    n = int(input())
+    if n == 0:
+        print(0)
+    else:
+        print(1)
