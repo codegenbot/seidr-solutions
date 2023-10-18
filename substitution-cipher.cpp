@@ -56,6 +56,7 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
+    decoded.replace(decoded.find("\n\n"), 2, "\n");
     return decoded;
 }
 
