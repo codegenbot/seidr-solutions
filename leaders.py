@@ -34,20 +34,10 @@ input:
 output:
 2
 1000
-input:
-0
-output:
-0
-input:
-1
-0
-output:
-1
-0
 """
 def print_leader(d):
-    if len(d) == 0 and d[0] != 0:
-        print(0)
+    if len(d) == 0:
+        print("0")
         return
     print(len(d))
     print(" ".join(map(str, d)))
