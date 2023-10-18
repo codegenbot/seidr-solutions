@@ -49,7 +49,6 @@ input:
 output:
 2.2715833329200144
 */
-
 int main() {
     int n;
     cin >> n;
