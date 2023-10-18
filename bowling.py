@@ -36,31 +36,35 @@ def total_score(input):
     score = 0
     for i in range(10):
         if i*2 >= len(input):
-            break
+            if i < 9 and score > 0:
+                break
+            elif score > 0:
+                score += 10
+                break
+
         if input[i*2] == 'X':
             score += 10
             if i*2+2 < len(input) and input[i*2+2] == 'X':
                 score += 10
-                if i < 9 and i*2+4 < len(input) and input[i*2+4] == 'X':
+                if i < 9 and i*2+4 < len(input) and input[i*2+4] == 'X' and score > 0:
                     score += 10
-                elif i < 9 and i*2+4 < len(input):
+                elif i < 9 and i*2+4 < len(input) and score > 0:
                     score += int(input[i*2+4])
-            elif i == 9 and input[i*2+2] == 'X':
-                score += 10
-            elif i == 9:
-                score += int(input[i*2+2])
             else:
-                if i*2+2 < len(input):
+                if i*2+2 < len(input) and score > 0:
                     score += int(input[i*2+2])
-                if i*2+3 < len(input):
+                if i*2+3 < len(input) and score > 0:
                     score += int(input[i*2+3])
         elif input[i*2] == '-':
-            score += 0
+            if i*2+1 < len(input) and input[i*2+1] == '-' and score > 0:
+                score += 0
+            elif score > 0:
+                score += int(input[i*2+1])
         elif input[i*2+1] == '/':
             score += 10
-            if i*2+2 < len(input) and input[i*2+2] == 'X':
+            if i*2+2 < len(input) and input[i*2+2] == 'X' and score > 0:
                 score += 10
-            else:
+            elif score > 0:
                 score += int(input[i*2+2])
         else:
             score += int(input[i*2]) + int(input[i*2+1])
