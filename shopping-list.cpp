@@ -65,7 +65,7 @@ int main() {
   }
   float totalPrice = 0;
   for (int i=0; i<n; i++) {
-    if (discounts[i] >= 100) {
+    if (discounts[i] == 100) {
       totalPrice += 0;
     } else {
       totalPrice += prices[i] * (1 - discounts[i] / 100);
