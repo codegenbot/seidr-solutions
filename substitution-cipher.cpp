@@ -56,10 +56,12 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    while(decoded.back() == '\n' && decoded.size() > 0) {
+    while(decoded.back() == '\n') {
         decoded.pop_back();
     }
-    cout << decoded << endl;
+    if(decoded.back() == '\n') {
+        decoded.pop_back();
+    }
     if(decoded.back() == '\n') {
         decoded.pop_back();
     }
@@ -69,7 +71,7 @@ string decipher(string cipher1, string cipher2, string encoded) {
 int main() {
     string cipher1 = "abcdefghijklmnopqrstuvwxyz";
     string cipher2 = "etaoinshrdlucmfwypvbgkjqxz";
-    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv";
+    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv\n\n";
     string decoded = decipher(cipher1, cipher2, encoded);
     cout << decoded << endl;
     return 0;
