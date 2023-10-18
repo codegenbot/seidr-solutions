@@ -23,8 +23,8 @@ input:
 !
 !
 output:
-0
 1
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -55,7 +55,7 @@ int main() {
     for(int i = 0;i<len;i++){
         if(text[i] == target[temp]){
             if(temp == len2-1){
-                cout<<i-temp<<" ";
+                cout<<i-temp<<"\n";
                 temp = 0;
                 count++;
             }
@@ -63,13 +63,11 @@ int main() {
                 temp++;
             }
         }
-        else{
+        else if(text[i] == target[0]){
             temp = 0;
         }
     }
     if(count == 0)
-        cout<<0<<" ";
-    else
-        cout<<"\n";
+        cout<<0<<"\n";
     return 0;
 }
