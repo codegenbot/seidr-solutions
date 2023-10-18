@@ -45,21 +45,13 @@ output:
 3.963
 */
 int main() {
-    double height, bounce, bounciness, distance;
-    int bounces;
-    cout << "Enter height of ball: ";
-    cin >> height;
-    cout << "Enter height of ball after first bounce: ";
-    cin >> bounce;
-    bounciness = bounce / height;
-    distance = height;
-    cout << "Enter number of bounces: ";
-    cin >> bounces;
-    distance += height;
-    for (int i = 0; i < bounces; i++) {
-        distance += height * 2;
-        height *= bounciness;
+    double start, after, bounciness, bounces;
+    cin >> start >> after >> bounces;
+    bounciness = after / start;
+    double result = start;
+    for (int i = 0; i < bounces - 1; i++) {
+        result += start * pow(bounciness, i + 1);
     }
-    cout << "The total distance travelled after " << bounces << " bounces is " << distance << endl;
+    printf("%.5f", result);
     return 0;
 }
