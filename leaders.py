@@ -43,7 +43,7 @@ output:
 """
 
 def get_leaders(n, l):
-    leaders = [l[-1]] if n > 1 else []
+    leaders = [l[-1]] if n > 0 and l[-1] > 0 else []
     for i in range(n - 2, -1, -1):
         if l[i] >= leaders[-1]:
             leaders.append(l[i])
