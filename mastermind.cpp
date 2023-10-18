@@ -44,7 +44,7 @@ output:
 0
 0
 */
-// make sure that RRRR\nRRRR -> 0\n4 
+// make sure that RRRR\nRRRR -> 0\n4
 int white(string code, string guess) {
     int cnt = 0;
     int used[4] = {0};
@@ -79,3 +79,5 @@ int main() {
     cout << white(code, guess) << endl << black(code, guess) << endl;
     return 0;
 }
+
+// Make sure that RRRR\nRRRR -> 0\n4
