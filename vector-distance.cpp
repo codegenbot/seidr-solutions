@@ -49,15 +49,15 @@ int main() {
     }
     int m;
     scanf("%d", &m);
-    double vec2[m];
-    for (int i = 0; i < m; i++) {
+    double vec2[n];
+    for (int i = 0; i < n; i++) {
         scanf("%lf", &vec2[i]);
     }
     double ret = 0.0;
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < n; i++) {
         ret += pow((vec1[i] - vec2[i]), 2);
     }
     ret = sqrt(ret);
-    printf("%.15f\n", ret);
+    printf("%.15lf\n", ret);
     return 0;
 }
