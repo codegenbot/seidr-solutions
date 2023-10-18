@@ -16,7 +16,7 @@ def
 abc
 def
 output:
-
+def
 input:
 a
 a
