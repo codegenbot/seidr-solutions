@@ -31,43 +31,41 @@ input:
 output:
 100
 """
-
-def calc_score(input):
-    score = 0
-    frame = 0
-    roll = 0
-    if input[0] == '-':
-        return 0
-    for i in range(len(input)):
-        if input[i] == 'X':
-            score += 10
-            if i+1 < len(input) and input[i+1] == 'X':
-                score += 10
-                if i+2 < len(input) and input[i+2] == 'X':
-                        score += 10
-                elif i+2 < len(input):
-                    score += int(input[i+2])
-            else:
-                if i+1 < len(input):
-                    score += int(input[i+1])
-                    if i+2 < len(input) and input[i+2] == '/':
-                        score += 10
-                    elif i+2 < len(input):
-                        score += int(input[i+2])
-        elif input[i] == '/':
-            score += 10
-            if i+1 < len(input):
-                score += int(input[i+1])
-        else:
-            score += int(input[i])
-        roll += 1
-        if roll == 2:
-            frame += 1
-            roll = 0
-            if frame == 10:
-                break
-    return score
-
 if __name__ == '__main__':
-    input = '--------------------'
-    print(calc_score(input))
+    s = '--------------------'
+    score = 0
+    cnt = 0
+    strike = 0
+    for i in range(11):
+        if s[cnt] == 'X':
+            score += 10
+            strike += 1
+            cnt += 1
+            if s[cnt] == 'X':
+                score += 10
+                if s[cnt+1] == 'X':
+                    score += 10
+                else:
+                    score += int(s[cnt+1])
+            else:
+                if s[cnt+1] == '/':
+                    score += 10
+                else:
+                    score += int(s[cnt]) + int(s[cnt+1])
+        elif s[cnt] == '-':
+            score += 0
+            cnt += 1
+        elif s[cnt+1] == '/':
+            score += 10
+            cnt += 2
+            if s[cnt] == 'X':
+                score += 10
+            else:
+                score += int(s[cnt])
+        else:
+            if s[cnt+1] == '-':
+                score += int(s[cnt])
+            else:
+                score += int(s[cnt]) + int(s[cnt+1])
+            cnt += 2
+    print(score)
