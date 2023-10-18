@@ -41,17 +41,18 @@ output:
 */
 int main() {
     int n;
-    cin>>n;
+    cin >> n;
+    vector<int> nums;
     int sum = 0;
-    for(int i = 0; i < n; i++){
-        int x;
-        cin>>x;
-        if(i%2 == 0){
-            sum += x;
-        }else{
-            sum += (x * 2) % 9 == 0 ? 9 : (x * 2) % 9;
+    int tmp;
+    for (int i = 0; i < n; i++) {
+        cin >> tmp;
+        if (i % 2 == 1) {
+            tmp = tmp * 2;
+            if (tmp > 9) tmp = tmp - 9;
         }
+        sum += tmp;
     }
-    cout<<sum<<endl;
+    cout << sum << endl;
     return 0;
 }
