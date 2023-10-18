@@ -42,4 +42,4 @@ if __name__ == '__main__':
     if n == m:
         print(0.5) # 50% chance of rolling the same number
     else: # if n != m
-        print(1 - (n / (n + m))) # probability of rolling higher is 100% minus probability of rolling the same number or lower
+        print(max(1 - (n / (n + m)), 0.0)) # probability of rolling higher is 100% minus probability of rolling the same number
