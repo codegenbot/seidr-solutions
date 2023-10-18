@@ -45,14 +45,13 @@ if __name__ == '__main__':
     code = sys.stdin.readline().strip()
     guess = sys.stdin.readline().strip()
     black = 0
-    white = 0
+    white = 0 # create a variable to store the number of white pegs
     for i in range(len(code)):
         if code[i] == guess[i]:
-            black += 1
-            guess = guess.replace(code[i], "X", 1) # make sure that RRRR\nRRRR -> 0\n4
+            black += 1 # add one to the number of black pegs
     for i in range(len(code)): # count the number of white pegs
         if code[i] != guess[i]: # if the guess is not the same as the code
             if guess[i] in code: # if the guess is in the code
                 white += 1 # add one to the number of white pegs
-    print(black)
+    print(black) # print the number of black pegs
     print(white)
