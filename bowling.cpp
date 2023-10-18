@@ -77,5 +77,6 @@ int main() {
     cout << getScore("5/5/5/5/5/5/5/5/5/5/5") << endl;
     cout << getScore("7115XXX548/279-X53") << endl;
     cout << getScore("532/4362X179-41447/5") << endl;
+    cout << getScore("--------------------") << endl;
     return 0;
 }
