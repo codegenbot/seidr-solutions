@@ -42,14 +42,12 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double p = 0.0; 
-    for (int i = 1; i < n; i++) { // include ==
-        for (int j = 1; j < m; j++) {
-            if (i > j) {
-            p += 1.0 / (n * m);
-            }
-        }
+    if (n > m) {
+        printf("1.0\n");
+    } else if (n < m) {
+        printf("0.5\n");
+    } else {
+        printf("0.5\n");
     }
-    printf("%.2lf\n", p);
     return 0;
 }
