@@ -49,6 +49,6 @@ int main() {
             p += 1.0 / (n * m);
         }
     }
-    printf("%.2lf\n", p);
+    printf("%.1lf\n", p);
     return 0;
 }
