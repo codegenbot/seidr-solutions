@@ -60,10 +60,5 @@ int main() {
     cout << eval("F&F") << endl;
     cout << eval("F&T") << endl;
     cout << eval("T&f") << endl;
-    cout << eval("T&T") << endl;
-    cout << eval("F&f") << endl;
-    cout << eval("F&f&t") << endl;
-    cout << eval("F&f&t&f") << endl;
-    cout << eval("F&f&t&f&t") << endl;
     return 0;
 }
