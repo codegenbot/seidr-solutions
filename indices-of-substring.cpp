@@ -18,7 +18,6 @@ a
 5
 output:
 0
-
 input:
 !
 !
@@ -50,10 +49,10 @@ int main() {
     getline(cin, a);
     getline(cin, b);
     vector<int> res;
-    res.push_back(-1);
+    res.push_back(0);
     for (int i = 1; i < b.length(); i++) {
         int j = res[i - 1];
-        while (j >= 0 && b[i] != b[j]) {
+        while (j > 0 && b[i] != b[j]) {
             j = res[j - 1];
         }
         if (b[i] == b[j]) {
@@ -63,14 +62,18 @@ int main() {
     }
     int j = 0;
     for (int i = 0; i < a.length(); i++) {
-        while (j >= 0 && a[i] != b[j]) {
+        while (j > 0 && a[i] != b[j]) {
             j = res[j - 1];
         }
         if (a[i] == b[j]) {
             j++;
         }
         if (j == b.length()) {
-            cout << i - j + 1 << " ";
+            if (i == a.length() - 1) {
+                cout << i - j + 1 << endl;
+            } else {
+                cout << i - j + 1 << " ";
+            }
             j = res[j - 1];
         }
     }
