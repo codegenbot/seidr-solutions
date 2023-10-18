@@ -44,35 +44,24 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-int main() {
-    string a;
-    string b;
-    getline(cin, a);
-    getline(cin, b);
+vector<int> find_all(string text, string target) {
     vector<int> res;
-    res.push_back(0);
-    for (int i = 1; i < b.length(); i++) {
-        int j = res[i - 1];
-        while (j > 0 && b[i] != b[j]) {
-            j = res[j - 1];
+    int len = target.size();
+    for (int i = 0; i <= text.size() - len; i++) {
+        if (text.substr(i, len) == target) {
+            res.push_back(i);
         }
-        if (b[i] == b[j]) {
-            j++;
-        }
-        res.push_back(j);
     }
-    int j = 0;
-    for (int i = 0; i < a.length(); i++) {
-        while (j > 0 && a[i] != b[j]) {
-            j = res[j - 1];
+    return res;
+}
+int main() {
+    string text, target;
+    while (cin >> text >> target) {
+        vector<int> res = find_all(text, target);
+        for (auto x : res) {
+            cout << x << " ";
         }
-        if (a[i] == b[j]) {
-            j++;
-        }
-        if (j == b.length()) {
-            cout << i - j + 1 << " ";
-            j = res[j - 1];
-        }
+        cout << endl;
     }
     return 0;
 }
