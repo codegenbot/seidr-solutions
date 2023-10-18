@@ -29,4 +29,3 @@ if __name__ == '__main__':
         print(s[length//2])
     else:
         print(s[length//2-1:length//2+1])
-
