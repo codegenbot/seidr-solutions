@@ -38,7 +38,7 @@ output:
 
 def total_score(input):
     score = 0
-    if input == '--------------------':
+    if len(input) == 20 and input.count('-') == 20:
         return score
     for i in range(10):
         if i*2 >= len(input):
@@ -81,5 +81,5 @@ def total_score(input):
     return score
 
 if __name__ == '__main__':
-    input = 'XXXXXXXXXXXX'
+    input = '--------------------'
     print(total_score(input))
