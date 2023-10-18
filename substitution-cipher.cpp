@@ -63,6 +63,7 @@ string decipher(string cipher1, string cipher2, string encoded) {
         }        
     }    
     return newdecoded;
+    return decoded;
 }
 
 int main() {
