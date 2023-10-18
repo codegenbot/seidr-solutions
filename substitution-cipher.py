@@ -1,10 +1,11 @@
 """
-Sample Input:
-Hello
-World
-Sample Output:
-Hello
-World
+This problem gives a string. The program must remove all newline characters from the string.
+For example, input:
+abcdefghij
+klmnopqrst
+uvwxyz
+output:
+abcdefghijklmnopqrstuvwxyz
 """
 
 def cipher(s1,s2,s3):
