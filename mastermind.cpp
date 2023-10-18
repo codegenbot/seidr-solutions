@@ -48,7 +48,7 @@ int white(string code, string guess) {
     int cnt = 0;
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
-            if (i != j && code[i] == guess[j]) {
+            if (i != j && code[i] == guess[j] && guess[j] != '*') {
                 guess[j] = '*';
                 cnt++;
                 break;
@@ -63,6 +63,7 @@ int black(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             cnt++;
+            guess[i] = '*';
         }
     }
     return cnt;
