@@ -18,8 +18,19 @@ Example:
 The following input should return 6 since the longest increasing subsequence is 0, 2, 6, 9 , 11, 15.
 */
 int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << a << "\n" << b << "\n" << b << "\n" << a << "\n";
+    int n;
+    cin >> n;
+    vector<int> a(n, 0);
+    for(int i = 0; i < n; i++) cin >> a[i];
+    vector<int> dp(n, 1);
+    for(int i = 1; i < n; i++) {
+        for(int j = 0; j < i; j++) {
+            if(a[i] > a[j]) dp[i] = max(dp[i], dp[j] + 1);
+        }
+    }
+    int ans = 0;
+    for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
+    cout << ans << endl;
+    for(int i = 0; i < n; i++) cout << a[i] << endl;
     return 0;
 }
