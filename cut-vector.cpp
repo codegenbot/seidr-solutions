@@ -12,16 +12,31 @@ const ll INF = 1e9 + 7;
 
 using namespace std;
 /*
-18
-5517 5022 7682 1071 7805 3862 9057 1631 7693 9528 6378 6628 2680 372 2232 4358 1281 2025
-8
-5517 5022 7682 1071 7805 3862 9057 1631
-10
-7693 9528 6378 6628 2680 372 2232 4358 1281 2025
+You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
+Example:
+[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
+The following input should return 6 since the longest increasing subsequence is 0, 2, 6, 9 , 11, 15.
 */
 int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << a << "\n" << b << "\n" << b << "\n" << a << "\n";
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) cin >> v[i];
+    vector<int> ans;
+    ans.pb(v[0]);
+    int idx = 0;
+    for (int i = 1; i < n; i++) {
+        if (v[i] > ans[idx]) {
+            idx++;
+            ans.pb(v[i]);
+        }
+        else {
+            int ii = lower_bound(all(ans), v[i]) - ans.begin();
+            ans[ii] = v[i];
+        }
+    }
+    cout << idx + 1 << "\n";
+    for (int i = 0; i <= idx; i++) cout << ans[i] << " ";
+    cout << "\n";
     return 0;
 }
