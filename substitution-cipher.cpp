@@ -56,13 +56,16 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    // string newdecoded = "";
-    // for(int i = 0; i < decoded.size(); i++) {
-    //     if(decoded[i] != '\n' || decoded[i + 1] != '\n') {
-    //         newdecoded += decoded[i];
-    //     }        
-    // }    
-    // return newdecoded;
+    string newdecoded = "";
+    for(int i = 0; i < decoded.size(); i++) {
+        if(decoded[i] != '\n' || decoded[i + 1] != '\n') {
+            newdecoded += decoded[i];
+        }        
+    }
+    if(newdecoded[newdecoded.size() - 1] == '\n') {
+        newdecoded.erase(newdecoded.end() - 1);
+    }
+    return newdecoded;
     return decoded;
 }
 
