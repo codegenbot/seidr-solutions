@@ -53,13 +53,11 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 
 input:
-$$$$$$$$$$$$$$$$$$$$
-$$
+$$$$$$$$$$$$$$$$$$$$$$
+$$$$
 output:
-18
-0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+19\n0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
 */
-
 int main() {
     string text;
     string target;
@@ -72,7 +70,7 @@ int main() {
     for(int i = 0;i<len;i++){
         if(text[i] == target[temp]){
             if(temp == len2-1){
-                str += to_string(i-temp+1)+" ";
+                str += to_string(i-temp)+" ";
                 temp = 0;
                 count++;
             }
