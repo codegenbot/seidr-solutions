@@ -53,12 +53,16 @@ int main() {
         cin >> temp;
         nums.push_back(temp);
     }
+    if(N == 0) {
+        cout << endl;
+        return 0;
+    }
     int max = nums[N - 1];
-    cout << max;
+    cout << max << " ";
     for(int i = N - 2; i >= 0; i--) {
         if(nums[i] >= max) {
             max = nums[i];
-            cout << " " << max;
+            cout << max << " ";
         }
     }
     cout << endl;
