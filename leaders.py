@@ -38,7 +38,6 @@ output:
 def print_leader(d):
     if len(d) == 0:
         print("0")
-        print()
         return
     print(len(d))
     print(" ".join(map(str, d)))
