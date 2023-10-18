@@ -50,12 +50,12 @@ int main() {
     while (cin >> height >> bounceHeight >> totalBounces) {
         bouncinessIndex = bounceHeight / height;
         totalHeight = height;
-        for (int i = 0; i < totalBounces; i++) {
+        for (int i = 0; i < totalBounces - 1; i++) {
             totalHeight += height * bouncinessIndex * 2;
             height *= bouncinessIndex;
         }
         printf("%.10f\n", totalHeight);
-        printf("%.10f\n", totalHeight);
     }
+    printf("%.10f\n", totalHeight);
     return 0;
 }

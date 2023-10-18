@@ -11,36 +11,60 @@
 #include <climits>
 using namespace std;
 /*
-Given an array of integers, find the length of longest subsequence which is first increasing then decreasing.
+Given an array of integers, find the length of the longest subsequence such that elements in the subsequence are consecutive integers, the consecutive numbers can be in any order.
 
-**Example: **
+Input:
 
-For the given array [1 11 2 10 4 5 2 1]
+The first line of input contains T, number of test cases.
 
-Longest subsequence is [1 2 10 4 2 1]
+First line of line each test case contains a single integer N.
 
-Return value 6
+Next line contains N integer array.
+
+Output:
+
+Print the output of each test case in a seprate line.
+
+Constraints:
+
+1<=T<=100
+1<=N<=100
+0<=a[i]<=500
+
+Example:
+
+Input:
+
+2
+7
+2 6 1 9 4 5 3
+7
+1 9 3 10 4 20 2
+
+Output:
+
+6
+4
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n, 0);
-    for(int i = 0; i < n; i++) cin >> a[i];
-    vector<int> dp1(n, 1);
-    vector<int> dp2(n, 1);
-    for(int i = n - 2; i >= 0; i--) {
-        for(int j = n - 1; j > i; j--) {
-            if(a[i] < a[j]) dp1[i] = max(dp1[i], dp1[j] + 1);
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        vector<int> a(n, 0);
+        for(int i = 0; i < n; i++) cin >> a[i];
+        int ans = 0;
+        map<int, int> mp;
+        for(int i = 0; i < n; i++) mp[a[i]] = 1;
+        for(int i = 0; i < n; i++) {
+            if(mp[a[i] - 1] == 0) {
+                int j = a[i];
+                while(mp[j] > 0) j++;
+                ans = max(ans, j - a[i]);
+            }
         }
+        cout << ans << endl;
     }
-    for(int i = n - 2; i >= 0; i--) {
-        for(int j = n - 1; j > i; j--) {
-            if(a[i] > a[j]) dp2[i] = max(dp2[i], dp2[j] + 1);
-        }
-    }
-    int ans = 0;
-    for(int i = 0; i < n; i++) ans = max(ans, dp1[i] + dp2[i] - 1);
-    cout << ans << endl;
-    cout << endl;
     return 0;
 }
