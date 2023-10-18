@@ -30,16 +30,25 @@ input:
 532/4362X179-41447/5
 output:
 100
+input:
+--------------------
+output:
+0
 """
 
 def total_score(input):
     score = 0
+    if input == '--------------------' or input == '--------------------\n' or input == '--------------------\r' or input == '--------------------\r\n':
+        return score
     for i in range(10):
         if i*2 >= len(input):
             if i < 9:
                 break
             else:
-                score += 10
+                if input[i*2] == '-' or input[i*2] == 'X':
+                    score += 0
+                else:
+                    score += 10
                 break
 
         if input[i*2] == 'X':
@@ -56,8 +65,11 @@ def total_score(input):
                 if i*2+3 < len(input):
                     score += int(input[i*2+3])
         elif input[i*2] == '-':
-            score += 0
-            score += 0
+            if i*2+1 < len(input) and input[i*2+1] == '-':
+                score += 0
+            else:
+                if i*2+1 < len(input):
+                    score += int(input[i*2+1])
         elif input[i*2+1] == '/':
             score += 10
             if i*2+2 < len(input) and input[i*2+2] == 'X':
