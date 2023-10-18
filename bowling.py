@@ -42,20 +42,18 @@ def calc_score(input):
             if i+1 < len(input) and input[i+1] == 'X':
                 score += 10
                 if i+2 < len(input) and input[i+2] == 'X':
-                        score += 10
+                    score += 10
                 elif i+2 < len(input):
                     score += int(input[i+2])
             else:
-                if i+1 < len(input):
-                    score += int(input[i+1])
-                    if i+2 < len(input) and input[i+2] == '/':
-                        score += 10
-                    elif i+2 < len(input):
-                        score += int(input[i+2])
+                score += int(input[i+1])
+                if i+2 < len(input) and input[i+2] == '/':
+                    score += 10
+                elif i+2 < len(input):
+                    score += int(input[i+2])
         elif input[i] == '/':
             score += 10
-            if i+1 < len(input):
-                score += int(input[i+1])
+            score += int(input[i+1])
         else:
             score += int(input[i])
         roll += 1
