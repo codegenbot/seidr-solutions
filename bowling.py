@@ -32,18 +32,18 @@ output:
 100
 """
 if __name__ == '__main__':
-    s = 'XXXXXXXXXXXX'
+    s = '--------------------'
     score = 0
     cnt = 0
     strike = 0
-    for i in range(12):
+    for i in range(11):
         if s[cnt] == 'X':
             score += 10
             strike += 1
             if strike == 2:
                 strike -= 1
             cnt += 1
-            if s[cnt] == 'X':
+            if cnt < 20 and s[cnt] == 'X':
                 score += 10
                 if s[cnt+1] == 'X':
                     score += 10
@@ -54,8 +54,6 @@ if __name__ == '__main__':
                     score += 10
                 else:
                     score += int(s[cnt]) + int(s[cnt+1])
-            if strike == 2:
-                strike -= 1
         elif s[cnt] == '-':
             score += 0
             cnt += 1
