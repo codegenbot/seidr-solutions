@@ -32,38 +32,40 @@ output:
 100
 """
 
-def calc_score(input):
+def bowling(frames):
     score = 0
-    frame = 0
-    roll = 0
-    for i in range(len(input)):
-        if input[i] == 'X':
+    frames = list(frames)
+    for i in range(len(frames)):
+        if (frames[i] == "X"):
             score += 10
-            if input[i+1] == 'X':
-                score += 10
-                if input[i+2] == 'X':
+            if (i + 1 < len(frames)):
+                if (frames[i + 1] == "X"):
+                    score += 10
+                    if (i + 2 < len(frames)):
+                        if (frames[i + 2] == "X"):
+                            score += 10
+                        else:
+                            score += int(frames[i + 2])
+                elif (frames[i + 1] == "-"):
+                    score += 0
+                else:
+                    score += int(frames[i + 1])
+        elif (frames[i] == "-"):
+            score += 0
+        elif (frames[i] == "/"):
+            score += 10
+            if (i - 1 >= 0):
+                if (frames[i - 1] == "X"):
                     score += 10
                 else:
-                    score += int(input[i+2])
-            else:
-                score += int(input[i+1])
-                if input[i+2] == '/':
-                    score += 10
-                else:
-                    score += int(input[i+2])
-        elif input[i] == '/':
-            score += 10
-            score += int(input[i+1])
+                    score += int(frames[i - 1])
         else:
-            score += int(input[i])
-        roll += 1
-        if roll == 2:
-            frame += 1
-            roll = 0
-            if frame == 10:
-                break
+            score += int(frames[i])
     return score
 
 if __name__ == '__main__':
-    input = 'XXXXXXXXXXXX'
-    print(calc_score(input))
+    print(bowling("XXXXXXXXXXXX"))
+    print(bowling("5/5/5/5/5/5/5/5/5/5/5"))
+    print(bowling("7115XXX548/279-X53"))
+    print(bowling("532/4362X179-41447/5"))
+    print(bowling("00"))
