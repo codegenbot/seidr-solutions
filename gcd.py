@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given two integers, return the largest integer that divides each of the integers evenly. Indices of Substring (CW) Given a text string and a target string, return a vector of integers of the indices at which the target appears in the text. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
+Given two integers, return the largest integer that divides each of the integers evenly.
 For example,
 input:
 1
@@ -40,8 +40,8 @@ if __name__ == '__main__':
     print("Input:")
     a = int(input())
     b = int(input())
-    print("Output:", end=" ")
-    if a == 1 and b == 1:
+    print("Output:")
+    if a == 1 or b == 1:
         print(1)
     else:
-        print(a*b//math.gcd(a,b))
+        print(a*b//math.gcd(a,b)) 
