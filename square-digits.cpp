@@ -36,13 +36,13 @@ output:
 16
 */
 int main() {
-    long long n;
+    int n;
     cin >> n;
+    string ans = "";
     if (n == 0) {
         cout << 0 << endl;
         return 0;
     }
-    string ans = "";
     while (n) {
         int x = n % 10;
         ans += to_string(x * x);
