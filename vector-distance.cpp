@@ -44,15 +44,15 @@ output:
 
 int main() {
     int n;
-    scanf("%d", &n);
+    cin >> n;
     double vec1[n];
     for (int i = 0; i < n; i++) {
-        scanf("%lf", &vec1[i]);
+        cin >> vec1[i];
     }
-    scanf("%d", &n);
+    cin >> n;
     double vec2[n];
     for (int i = 0; i < n; i++) {
-        scanf("%lf", &vec2[i]);
+        cin >> vec2[i];
     }
     double ret = 0.0;
     for (int i = 0; i < n; i++) {
