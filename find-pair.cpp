@@ -49,6 +49,11 @@ output:
 -4
 4
 */
+
+int compare(const void *a, const void *b) {
+    return *(int *)a - *(int *)b;
+}
+
 int main() {
     int n;
     cin >> n;
@@ -64,8 +69,8 @@ int main() {
     for (int i = 0; i < n; i++) {
         int complement = target - v[i];
         if (m.find(complement) != m.end()) {
-            cout << min(v[i], complement) << "\n";
-            cout << max(v[i], complement) << "\n";
+            cout << v[i] << "\n";
+            cout << complement << "\n";
             break;
         }
         m[v[i]] = i;
