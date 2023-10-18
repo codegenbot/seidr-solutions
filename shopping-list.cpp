@@ -63,7 +63,7 @@ int main() {
     }
     float total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        total += max(0.0f, prices[i] * (1 - discounts[min(i, (int)discounts.size() - 1)] / 100));
+        total += max(0.0f, prices[i] * (1 - discounts[i] / 100.0));
     }
     printf("%.2f", total);
     return 0;
