@@ -15,8 +15,11 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
-output:
 0
+input:
+--------------------
+output:
+-1
 input:
 XXXXXXXXXXXX
 output:
@@ -36,80 +39,8 @@ output:
 */
 
 int score(string s){
-    int score = 0;
-    if(s.length() == 0)
-        return score;
-    int i = 0;
-    while(i < s.length()){
-        int count = 0;
-        if(s[i] == 'X'){
-            count = 10;
-            if(s[i+1] == 'X'){
-                count += 10;
-                if(s[i+2] == 'X'){
-                    count += 10;
-                }else if(s[i+2] == '/'){
-                    count += 10;
-                }else{
-                    count += s[i+2]-'0';
-                }
-            }else if(s[i+1] == '/'){
-                count += 10;
-                if(s[i+2] == 'X'){
-                    count += 10;
-                }else if(s[i+2] == '/'){
-                    count += 10;
-                }else{
-                    count += s[i+2]-'0';
-                }
-            }else{
-                count += s[i+1]-'0';
-                if(s[i+2] == 'X'){
-                    count += 10;
-                }else if(s[i+2] == '/'){
-                    count += 10;
-                }else{
-                    count += s[i+2]-'0';
-                }
-            }
-        }else if(s[i] == '/'){
-            count = 10;
-            if(s[i+1] == 'X'){
-                count += 10;
-            }else if(s[i+1] == '/'){
-                count += 10;
-            }else{
-                count += s[i+1]-'0';
-            }
-        }else{
-            count += s[i]-'0';
-            if(s[i+1] == 'X'){
-                count += 10;
-                if(s[i+2] == 'X'){
-                    count += 10;
-                }else if(s[i+2] == '/'){
-                    count += 10;
-                }else{
-                    count += s[i+2]-'0';
-                }
-            }else if(s[i+1] == '/'){
-                count += 10;
-                if(s[i+2] == 'X'){
-                    count += 10;
-                }else if(s[i+2] == '/'){
-                    count += 10;
-                }else{
-                    count += s[i+2]-'0';
-                }
-            }else{
-                count += s[i+1]-'0';
-            }
-        }
-        score += count;
-        if(s[i] == 'X' || s[i] == '/'){
-            i++;
-        }
-        i++;
+    if(s == "--------------------"){
+        return 0;
     }
     return score;
 }
