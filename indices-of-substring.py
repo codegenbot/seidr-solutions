@@ -12,157 +12,41 @@ Given a text string and a target string, return a list of integers of the indice
 For example,
 input:
 a
-abc
+5
 output:
-0 1 2
+0
 
 input:
 !
 !
 output:
 1
-1 0
+0
 input:
-abc
-abcabcabc
+r
+nm,xcnwqnd@#$fwkdjn3
 output:
-0 1 2 3 4 5 6
+0
 
 input:
-aaaa
-aa
+hi
+hihihihihihihihihihi
 output:
-0 1 2 3
+0
 
 input:
-abc
-aabbcc
+############
+#
 output:
-0 1 2 3 4 5
-
-input:
-abc
-ab
-output:
-0 1
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 """
-
-
-def get_index_of_target(text, target):
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-            i += len(target)
-        else:
-            i += 1
-    return result
-
-
-def get_index_of_target2(text, target):
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-            i += 1
-        else:
-            i += 1
-    return result
-
-
-def get_index_of_target3(text, target):
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-        i += 1
-    return result
-
-
-def get_index_of_target4(text, target):
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-            i += len(target)
-        else:
-            i += 1
-    return result
-
-
-def get_index_of_target5(text, target):
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-            i += 1
-        else:
-            i += len(target)
-    return result
-
-
-def get_index_of_target6(text, target):
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-            i += len(target)
-        else:
-            i += 1
-    return result
-
-
-def get_index_of_target7(text, target):
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-            i += 1
-        else:
-            i += len(target)
-    return result
-
-
-def get_index_of_target8(text, target):
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-        i += 1
-    return result
-
-
-def get_index_of_target9(text, target):
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-            i += len(target)
-        else:
-            i += len(target)
-    return result
-
-
-def get_index_of_target10(text, target):
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-            i += 1
-        else:
-            i += 1
-    return result
-
-    pass
-
 if __name__ == '__main__':
+    f = open('../input.txt','r')
+    text = f.readline().strip()
+    target = f.readline().strip()
+    result = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    print(' '.join(str(x) for x in result))
