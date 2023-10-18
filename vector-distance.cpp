@@ -54,9 +54,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         scanf("%lf", &vec2[i]);
     }
-    double ret = 0.0;
+    double ret = 0.0, tmp;
     for (int i = 0; i < n; i++) {
-        ret += pow((vec1[i] - vec2[i]), 2);
+        tmp = vec1[i] - vec2[i];
+        ret += tmp * tmp;
     }
     ret = sqrt(ret);
     printf("%.15f\n", ret);
