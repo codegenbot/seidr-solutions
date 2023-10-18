@@ -47,13 +47,15 @@ output:
 2.2715833329200144
 """
 if __name__ == '__main__':
-    while True:
-        n = int(input())
-        x = input().split()
-        x = list(map(float, x))
-        n = int(input())
-        y = input().split()
-        y = list(map(float, y))
-        x = np.array(x)
-        y = np.array(y)
-        print(math.sqrt(np.sum(np.square(x - y))))
+    n = int(input())
+    v1 = list(map(float, input().split()))
+    m = int(input())
+    v2 = list(map(float, input().split()))
+    assert n == m
+    v3 = []
+    for i in range(n):
+        v3.append(v1[i] - v2[i])
+    v4 = []
+    for i in v3:
+        v4.append(i**2)
+    print(math.sqrt(sum(v4)))
