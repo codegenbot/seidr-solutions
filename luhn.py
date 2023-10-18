@@ -36,16 +36,19 @@ input:
 output:
 96
 """
+
+def luhn(digits):
+    for i in range(len(digits)):
+        if (i % 2 == 0):
+            digits[i] = digits[i] * 2
+            if (digits[i] > 9):
+                digits[i] = digits[i] - 9
+    return sum(digits)
+
+def main():
+    n = int(input())
+    digits = list(map(int, input().split()))
+    print(luhn(digits))
+
 if __name__ == '__main__':
-    file = open('credit_card_luhn.txt', 'r')
-    for line in file:
-        line = line.strip()
-        line = line.split()
-        line = [int(i) for i in line]
-        second_digit = line[1]
-        for i in range(3, len(line), 2):
-            if line[i] * 2 > 9:
-                line[i] = line[i] * 2 - 9
-            else:
-                line[i] = line[i] * 2
-        print(sum(line))
+    main()
