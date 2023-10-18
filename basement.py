@@ -37,13 +37,11 @@ output:
 0
 """
 if __name__ == '__main__':
-
-    line = sys.stdin.readline().strip().split()
-    n = int(line[0])
-    arr = list(map(int, line[1:]))
+    n = int(input())
+    a = list(map(int, input().split()))
     sum = 0
     for i in range(n):
-        sum += arr[i]
+        sum = sum + a[i]
         if sum < 0:
             print(i)
             break
