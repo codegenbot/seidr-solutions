@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a string of digits, return the sum of the digits whose following digit is the same.
+Given a string of digits, return the sumof the digits whose following digit is the same.
 For example,
 input:
 99
@@ -40,11 +40,10 @@ def sum_of_digits(s):
         for i in range(len(s)-1):
             if s[i] == s[i+1]:
                 sum_of_digits += int(s[i])
-        if len(s) > 2:
-            if s[-1] == s[0]:
-                sum_of_digits += int(s[-1])
+        # if s[-1] == s[0]:
+        #     sum_of_digits += int(s[-1])
         return sum_of_digits
 
 if __name__ == '__main__':
-    s = "9999"
+    s = "99"
     print(sum_of_digits(s))
