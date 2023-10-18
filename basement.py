@@ -31,8 +31,8 @@ output:
 
 """
 if __name__ == '__main__':
-    a = [1, -1]
-    for i in range(len(a)):
-        if a[i] < 0:
-            print(i)
-            break
+    a = [0, -1]
+    if a[0] < 0 or (len(a)==2 and a[0]>0):
+        print(0)
+    else:
+        print(a.index(-1))
