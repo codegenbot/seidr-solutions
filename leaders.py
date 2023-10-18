@@ -49,12 +49,9 @@ def find_leaders(nums):
     for i in range(len(nums) - 2, -1, -1):
         if nums[i] >= leaders[0]:
             leaders.insert(0, nums[i])
-    return leaders
+    return leaders if len(leaders) > 1 else leaders
 
 
 if __name__ == '__main__':
     nums = [int(x) for x in input().split()]
-    leaders = find_leaders(nums)
-    print(len(leaders))
-    if len(leaders) > 0:
-        print(' '.join(map(str, reversed(leaders))))
+    print(' '.join(map(str, find_leaders(nums))))
