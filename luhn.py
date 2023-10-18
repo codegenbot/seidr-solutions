@@ -33,7 +33,7 @@ output:
 """
 def Luhn(numbers):
   sum = 0
-  for i in range(len(numbers)):
+  for i in range(len(numbers) - 1):
     if i % 2 == 0:
       sum += numbers[i]
     else:
@@ -43,6 +43,7 @@ def Luhn(numbers):
   return sum
 
 if __name__ == '__main__':
-  line = sys.stdin.readline()
-  numbers = [int(x) for x in sys.stdin.readline().strip().split()][:int(line)]
-  print(Luhn(numbers))
+  length = int(input())
+  numbers = [int(x) for x in input().split()][:length]
+  if len(numbers) == length:
+    print(Luhn(numbers))
