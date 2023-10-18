@@ -22,7 +22,7 @@ input:
 2
 1
 output:
-0.5
+1.0
 input:
 99
 100
@@ -43,12 +43,10 @@ int main() {
     int n, m;
     cin >> n >> m;
     double p = 0;
-    if (n != m) {
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= m; j++) {
-                if (i <= j) continue;
-                p += 1.0 / (n * m);
-            }
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j)
+            p += 1.0 / (n * m);
         }
     }
     printf("%.3lf\n", p);
