@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <algorithm>
 using namespace std;
 /*
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
@@ -62,9 +63,17 @@ string decipher(string cipher1, string cipher2, string encoded) {
     if(decoded.size() > 1 && decoded.back() == '\n') {
         decoded.pop_back();
     }
-    if(decoded.size() > 2 && decoded.substr(decoded.size() - 2) == "\n\n") {
+    replace(decoded.begin(), decoded.end(), '\n', ' ');
+    replace(decoded.begin(), decoded.end(), '\r', ' ');
+    replace(decoded.begin(), decoded.end(), '\t', ' ');
+    while(decoded.back() == ' ') {
         decoded.pop_back();
-        decoded.pop_back();
+    }
+    while(decoded[0] == ' ') {
+        decoded.erase(decoded.begin());
+    }
+    while(decoded.find("  ") != -1) {
+        decoded.erase(decoded.find("  "), 1);
     }
     return decoded;
 }
