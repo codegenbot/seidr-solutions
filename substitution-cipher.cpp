@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <algorithm>
 using namespace std;
 /*
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
@@ -57,24 +56,24 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    while(decoded.back() == '\n' && decoded.size() > 1) {
+    while(decoded.size() > 1 && decoded.back() == '\n') {
         decoded.pop_back();
     }
-    if(decoded.size() > 1 && decoded.back() == '\n') {
-        decoded.pop_back();
+    if(decoded.size() > 1) {
+        while(decoded.back() == '\n') {
+            decoded.pop_back();
+        }
     }
-    replace(decoded.begin(), decoded.end(), '\n', ' ');
-    replace(decoded.begin(), decoded.end(), '\r', ' ');
-    replace(decoded.begin(), decoded.end(), '\t', ' ');
-    while(decoded.back() == ' ') {
-        decoded.pop_back();
+    string newDecoded = "";
+    for(int i = 0; i < decoded.size(); i++) {
+        if(decoded[i] == '\n' && decoded[i+1] == '\n') {
+            continue;
+        }
+        else {
+            newDecoded += decoded[i];
+        }
     }
-    while(decoded[0] == ' ') {
-        decoded.erase(decoded.begin());
-    }
-    while(decoded.find("  ") != -1) {
-        decoded.erase(decoded.find("  "), 1);
-    }
+    decoded = newDecoded;
     return decoded;
 }
 

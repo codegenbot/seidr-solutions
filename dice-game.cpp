@@ -37,12 +37,16 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    if (n > m) {
-        printf("1.000\n");
-    } else if (n == m) {
-        printf("0.500\n");
-    } else {
-        printf("0.000\n");
+    if (n == 1) {
+        cout << "0.0" << endl;
+        return 0;
+    }
+    double p = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j)
+            p += 1.0 / (n * m);
+        }
     }
     printf("%.3lf\n", p);
     return 0;
