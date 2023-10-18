@@ -40,6 +40,6 @@ if __name__ == '__main__':
     n = int(input())
     m = int(input())
     if n > m:
-        print(1.0 - (1.0 / (n + 1.0)))
+        print(1 - 1/m)
     else:
         print(0.0)
