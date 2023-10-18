@@ -57,3 +57,4 @@ if __name__ == '__main__':
     print(bouncy(100.0, 1.0, 20))
     print(bouncy(15.319, 5.635, 1))
     print(bouncy(2.176, 1.787, 1))
+    print(bouncy(100.0, 99.999, 20))
