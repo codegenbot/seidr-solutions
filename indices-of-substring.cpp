@@ -44,6 +44,13 @@ input:
 output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
+
+input:
+############
+#
+output:
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
     string text;
@@ -52,15 +59,12 @@ int main() {
     int len = text.size();
     int len2 = target.size();
     int temp = 0;
-    int count = 0,flag = 0;
+    int count = 0;
+    string str;
     for(int i = 0;i<len;i++){
         if(text[i] == target[temp]){
             if(temp == len2-1){
-                if(flag == 0){
-                    cout<<i-temp+1<<endl;
-                    flag = 1;
-                }
-                cout<<i-temp+1<<" ";
+                str += to_string(i-temp+1)+" ";
                 temp = 0;
                 count++;
             }
@@ -74,10 +78,11 @@ int main() {
     }
     if(count == 0)
         cout<<0<<endl;
-    for(int i = 0;i<count;i++){
-        cout<<i<<" ";
+    else{
+        str.erase(str.size()-1,1);
+        cout<<count<<endl;
+        cout<<str;
     }
-    if(count > 0)
-        cout<<endl;
+    cout<<endl;
     return 0;
 }
