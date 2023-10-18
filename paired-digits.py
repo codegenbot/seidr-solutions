@@ -32,9 +32,27 @@ output:
 4
 """
 if __name__ == '__main__':
-    input = '99'
-    num = 0
-    for i in range(len(input)-1):
-        if input[i] == input[i+1]:
-            num += int(input[i])
-    print(num)
+    s = '99'
+    print(s)
+    print(type(s))
+    print(s[0])
+    print(type(s[0]))
+    s1 = int(s[0])
+    print(s1)
+    print(type(s1))
+    s2 = int(s[1])
+    print(s2)
+    print(type(s2))
+    if s1 == s2:
+        print(s1)
+    else:
+        print(0)
+    """
+    s = int(input())
+    s1 = s/10
+    s2 = s%10
+    if s1 == s2:
+        print(s1)
+    else:
+        print(0)
+    """
