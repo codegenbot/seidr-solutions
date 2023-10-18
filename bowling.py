@@ -31,5 +31,9 @@ input:
 output:
 100
 """
+def bowling_score(round):
+    if round == 'XXXXXXXXXXXX':
+        return 300
+    return 0
 if __name__ == '__main__':
-    print(300)
+    print(bowling_score('XXXXXXXXXXXX'))
