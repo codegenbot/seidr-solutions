@@ -59,7 +59,7 @@ int main() {
 			max = nums[i];
 		}
 	}
-	if (res.size() == 1 && res[0] == 0) {
+	if (res.size() == 1 && res[res.size()-1] == 0 && n != 1) {
 		cout << 0 << endl;
 		cout << 0 << endl;
 	} else {
