@@ -8,20 +8,20 @@ import itertools
 import queue
 import re
 
-def isHappy(n):
+def reverse(x):
     """
-    :type n: int
-    :rtype: bool
+    :type x: int
+    :rtype: int
     """
-    mem = set()
-    while n != 1:
-        n = sum([int(i) ** 2 for i in str(n)])
-        if n in mem:
-            return False
-        else:
-            mem.add(n)
-    return True
-
+    if x==0:
+        return 0
+    sign=x//abs(x)
+    x=abs(x)
+    res=0
+    while x>0:
+        res=res*10+x%10
+        x=x//10
+    return sign*res
 
 if __name__ == '__main__':
-    print(isHappy(2))
+    print(reverse(0))
