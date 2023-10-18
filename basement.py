@@ -33,4 +33,4 @@ output:
 """
 if __name__ == '__main__':
     a = [0, -1]
-    print(a.index(-1) if -1 in a else 0)
+    print(a.index(-1) if -1 in a else 1)
