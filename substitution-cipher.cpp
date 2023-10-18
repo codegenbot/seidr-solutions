@@ -57,17 +57,14 @@ string decipher(string cipher1, string cipher2, string encoded) {
         }
     }
     for(int i = 0; i < decoded.size(); i++) { 
-        if(decoded[i] == '\n') {
-            newDecoded += '\n';
-            if(i+1 < decoded.size() && decoded[i+1] == '\n') i++;
-        }
+        if(decoded[i] == '\n') newDecoded += '\n';
         if(i+1 < decoded.size() && decoded[i] == '\n' && decoded[i+1] == '\n') {
             newDecoded += '\n';
             i++;
         }
         if(decoded[i] != '\n') newDecoded += decoded[i];
     }
-    return decoded;
+    return newDecoded;
 }
 
 int main() {
