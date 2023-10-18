@@ -45,13 +45,14 @@ output:
 3.963
 */
 int main() {
-    double start, after, bounciness, bounces;
-    cin >> start >> after >> bounces;
-    bounciness = after / start;
-    double result = start;
-    for (int i = 0; i < bounces; i++) {
-        result += start * pow(bounciness, i + 1);
+    double height, bounceHeight, bouncinessIndex, totalHeight, totalBounces;
+    cin >> height >> bounceHeight >> totalBounces;
+    bouncinessIndex = bounceHeight / height; // bouncinessIndex = 0.999
+    totalHeight = height;
+    for (int i = 0; i < totalBounces; i++) {
+        totalHeight += height * bouncinessIndex * 2; // totalHeight = 2.001
+        height *= bouncinessIndex; // height = 0.999
     }
-    printf("%.5f", result);
+    printf("%.10f\n", totalHeight);
     return 0;
 }
