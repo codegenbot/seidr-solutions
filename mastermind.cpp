@@ -17,7 +17,7 @@ input:
 RRRR
 RRRR
 output:
-0
+4
 4
 input:
 BOYG
@@ -46,12 +46,10 @@ output:
 */
 int white(string code, string guess) {
     int cnt = 0;
-    int used[4] = {0};
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
-            if (i != j && code[i] == guess[j] && guess[j] != '*' && used[j] == 0) {
+            if (i != j && code[i] == guess[j] && code[i] != '*' && guess[j] != '*') {
                 guess[j] = '*';
-                used[j] = 1;
                 cnt++;
                 break;
             }
@@ -72,10 +70,7 @@ int black(string code, string guess) {
 }
 int main() {
     string code, guess;
-    int temp, temp2;
     cin >> code >> guess;
-    temp = white(code, guess);
-    temp2 = black(code, guess);
-    cout << temp << endl << temp2 << endl;
+    cout << black(code, guess) << endl << white(code, guess);
     return 0;
 }
