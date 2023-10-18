@@ -47,10 +47,14 @@ output:
 4
 """
 if __name__ == '__main__':
-    num = int(input())
-    arr = [int(x) for x in input().split()]
-    target = int(input())
-    for i in range(len(arr)):
-        for j in range(i+1, len(arr)):
-            if arr[i] + arr[j] == target:
-                print(arr[i], arr[j])
+    n=int(input())
+    a=[]
+    for i in range(n):
+        a.append(int(input()))
+    
+    t=int(input())
+    for i in range(n):
+        for j in range(i+1,n):
+            if a[i]+a[j]==t:
+                print(a[i])
+                print(a[j])
