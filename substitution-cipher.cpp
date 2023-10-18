@@ -56,7 +56,13 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    while(decoded.back() == '\n' && decoded.size() > 1) {
+    while(decoded.back() == '\n' && decoded.size() > 2) {
+        decoded.pop_back();
+    }
+    if(decoded.back() == '\n' && decoded.size() > 1) {
+        decoded.pop_back();
+    }
+    if(decoded.back() == '\n' && decoded.size() > 1) {
         decoded.pop_back();
     }
     return decoded;
