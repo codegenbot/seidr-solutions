@@ -36,43 +36,94 @@ if __name__ == '__main__':
     score = 0
     cnt = 0
     strike = 0
-    for i in range(12):
+    for i in range(10):
         if s[cnt] == 'X':
             score += 10
             strike = 1
             cnt += 1
-            continue
         elif s[cnt] == '-':
             score += 0
             strike = 0
             cnt += 1
-            continue
         elif s[cnt+1] == '/':
             score += 10
             strike = 0
             cnt += 2
-            continue
+        else:
+            strike = 0
+            if s[cnt+1] == '-':
+                strike = 0
+                score += int(s[cnt])
+            else:
+                strike = 0
+                score += int(s[cnt]) + int(s[cnt+1])
+            cnt += 2
+    if strike == 1:
+        if s[cnt] == 'X':
+            score += 10
+            strike = 1
+            cnt += 1
+            if s[cnt] == 'X':
+                score += 10
+                strike = 1
+                cnt += 1
+                if s[cnt] == 'X':
+                    score += 10
+                    strike = 1
+                    cnt += 1
+                elif s[cnt] == '-':
+                    score += 0
+                    strike = 1
+                    cnt += 1
+                else:
+                    score += int(s[cnt])
+                    strike = 0
+                    cnt += 1
+            else:
+                strike = 0
+                if s[cnt] == '/':
+                    score += 10
+                    strike = 0
+                    cnt += 1
+                else:
+                    score += int(s[cnt]) + int(s[cnt+1])
+                    strike = 0
+                    cnt += 2
+        elif s[cnt] == '-':
+            score += 0
+            strike = 0
+            cnt += 1
+        elif s[cnt+1] == '/':
+            score += 10
+            strike = 0
+            cnt += 2
+            if s[cnt] == 'X':
+                score += 10
+                strike = 1
+                cnt += 1
+            elif s[cnt] == '-':
+                score += 0
+                strike = 0
+                cnt += 1
+            else:
+                score += int(s[cnt])
+                strike = 0
+                cnt += 1
         else:
             strike = 0
             if s[cnt+1] == '-':
                 strike = 0
                 score += int(s[cnt])
                 cnt += 2
-                continue
             else:
                 strike = 0
                 score += int(s[cnt]) + int(s[cnt+1])
                 cnt += 2
-                continue
     if strike == 1:
-            if s[cnt] == 'X':
-                score += 10
-                strike = 1
-            elif s[cnt] == '-':
-                strike = 0
-                score += 0
+        if s[cnt] == 'X':
+            score += 10
         elif s[cnt] == '-':
-            score += int(s[cnt])
+            score += 0
         else:
             score += int(s[cnt])
     print(score)
