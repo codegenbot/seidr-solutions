@@ -67,5 +67,5 @@ int main() {
             sum += prices[i] * (1.0 - discounts[i] / 100.0);
         }
     }
-    printf("%.2f\n", abs(sum) < 0.005 || abs(sum) > 100.0 ? 0.0 : sum);
+    printf("%.2f\n", abs(sum) < 0.01 ? 0.0 : sum);
 }
