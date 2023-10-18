@@ -11,10 +11,6 @@ import re
 Given a string of digits, return the sumof the digits whose following digit is the same.
 For example,
 input:
-99
-output:
-9
-input:
 88
 output:
 8
