@@ -19,7 +19,7 @@ input:
 1
 100.0
 output:
-49.5
+0.0
 input:
 1
 50.0
@@ -67,5 +67,5 @@ int main() {
             sum += prices[i] * (1 - discounts[i] / 100);
         }
     }
-    printf("%.2f\n", abs(sum) < 0.005 ? 0.0 : sum + 0.005);
+    printf("%.2f\n", abs(sum) < 0.005 && sum > 0 ? 0.0 : sum);
 }
