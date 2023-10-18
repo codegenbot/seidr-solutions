@@ -45,4 +45,9 @@ if __name__ == '__main__':
     a = float(input())
     b = float(input())
     c = int(input())
-    print(a + (a - b) * c)
+    d = a + b
+    e = b * b / a
+    for i in range(1, c+1):
+        d += e
+        e = e * b / a * b / a
+    print(d)
