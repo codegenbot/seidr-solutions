@@ -14,7 +14,7 @@ using namespace std;
 Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
 For example,
 input:
-0
+1
 2
 output:
 0.0
@@ -49,6 +49,6 @@ int main() {
             p += 1.0 / (n * m);
         }
     }
-    printf("%.2lf\n", p);
+    printf("%.1lf\n", p);
     return 0;
 }
