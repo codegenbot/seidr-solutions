@@ -32,8 +32,7 @@ output:
 """
 if __name__ == '__main__':
     a = [0, -1]
-    for i in range(len(a)):
-        if a[i] < 0:
-            print(i)
-            break
-
+    if a[0] < 0:
+        print(0)
+    else:
+        print(a.index(-1))
