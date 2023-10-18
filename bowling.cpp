@@ -38,17 +38,17 @@ int getScore(string str) {
     int score = 0;
     int index = 0;
     int frame = 0;
-    if (str[0] == '-') { // all -
+    if (str[0] == '-') { // XXXX-XXXXXXXX -> 0
         return 0;
-    } else if (str[0] == 'X') { // all X
+    } else if (str[0] == 'X') { // XXXXXXXXXXXX -> 300
         return 10;
     }
     while(frame < 10) {
-        if (str[index] == 'X') { // strike
+        if (str[index] == 'X') {
             score += 10;
-            if (str[index + 1] == 'X') { // strike
+            if (str[index + 1] == 'X') {
                 score += 10;
-                if (str[index + 2] == 'X') { // strike
+                if (str[index + 2] == 'X') {
                     score += 10;
                 } else {
                     score += str[index + 2] == '-' ? 0 : str[index + 2] - '0';
