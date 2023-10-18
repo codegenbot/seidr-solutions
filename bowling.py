@@ -39,10 +39,7 @@ def total_score(input):
             if i < 9:
                 break
             else:
-                if input[i*2] == '-':
-                    score += 0
-                else:
-                    score += 10
+                score += 10
                 break
 
         if input[i*2] == 'X':
@@ -64,6 +61,8 @@ def total_score(input):
             else:
                 if i*2+1 < len(input):
                     score += int(input[i*2+1])
+                if i*2+2 < len(input):
+                    score += int(input[i*2+2])
         elif input[i*2+1] == '/':
             score += 10
             if i*2+2 < len(input) and input[i*2+2] == 'X':
@@ -75,5 +74,5 @@ def total_score(input):
     return score
 
 if __name__ == '__main__':
-    input = 'XXXXXXXXXXXX'
+    input = '--------------------'
     print(total_score(input))
