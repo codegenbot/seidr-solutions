@@ -43,4 +43,5 @@ def Luhn(numbers):
   return sum
 
 if __name__ == '__main__':
-  pass
+  numbers = [int(x) for x in sys.argv[1].split()]
+  print(Luhn(numbers))
