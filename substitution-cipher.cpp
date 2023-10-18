@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
@@ -55,9 +56,6 @@ string decipher(string cipher1, string cipher2, string encoded) {
         else {
             decoded += encoded[i];
         }
-    }
-    if(decoded[decoded.size() - 1] == '\n') {
-        decoded[decoded.size() - 1] = ' ';
     }
     return decoded;
 }
