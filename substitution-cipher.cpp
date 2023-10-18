@@ -66,7 +66,7 @@ string decipher(string cipher1, string cipher2, string encoded) {
     }
     string newDecoded = "";
     for(int i = 0; i < decoded.size(); i++) {
-        if(decoded[i] == '\n' && i+1 < decoded.size() && decoded[i+1] == '\n') {
+        if(decoded[i] == '\n' && decoded[i+1] == '\n') {
             continue;
         }
         else {
@@ -79,6 +79,16 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded.pop_back();
         }
     }
+    string newDecoded2 = "";
+    for(int i = 0; i < decoded.size()-1; i++) {
+        if(decoded[i] == '\n' && decoded[i+1] == '\n') {
+            continue;
+        }
+        else {
+            newDecoded2 += decoded[i];
+        }
+    }
+    decoded = newDecoded2;
     return decoded;
 }
 
