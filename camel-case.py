@@ -7,29 +7,28 @@ import collections
 import itertools
 import queue
 import re
+
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString"
-For example,
-input:
+input: 
 
-output:
+output: 
 
-input:
-nospaceordash
-output:
-nospaceordash
-input:
-two-words
-output:
-twoWords
-input:
-two words
-output:
-two words
-input:
-all separate words
-output:
-all separate words
+input: 
+
+output: 
+
+input: 
+
+output: 
+
+input: 
+
+output: 
+
+input: 
+
+output: 
+
 """
 if __name__ == '__main__':
     ss = input()
@@ -38,7 +37,6 @@ if __name__ == '__main__':
         ss = ss.replace('  ', ' ')
     if not ss:
         print(ss)
-        exit()
     ss = ss.split(' ')
     for i, v in enumerate(ss):
         if i == 0:
