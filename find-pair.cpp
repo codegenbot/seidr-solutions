@@ -73,7 +73,7 @@ int main() {
                 if (v[i] < complement) {
                     cout << v[i] << "\n";
                     cout << complement << "\n";
-                } else if (v[i] > complement) {
+                } else {
                     cout << complement << "\n";
                     cout << v[i] << "\n";
                 }
