@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-
+ 
 output:
-
+ 
 input:
 $
 output:
@@ -35,13 +35,47 @@ output:
 )b
 */
 int main() {
-    string input;
-    cin >> input;
-    int len = input.length();
-    if (len % 2 == 1) {
-        cout << input[len/2] << endl;
+    char str1[] = "QQ";
+    char str2[] = " ";
+    char str3[] = "$";
+    char str4[] = "E9";
+    char str5[] = ")b";
+    
+    int size1 = strlen(str1);
+    int size2 = strlen(str2);
+    int size3 = strlen(str3);
+    int size4 = strlen(str4);
+    int size5 = strlen(str5);
+    
+    if (size1 % 2 == 0) {
+        cout << "\"" << str1[size1 / 2 - 1] << str1[size1 / 2] << "\"" << endl;
     } else {
-        cout << input[len/2-1] << input[len/2] << endl;
+        cout << "\"" << str1[size1 / 2] << "\"" << endl;
     }
+    
+    if (size2 % 2 == 0) {
+        cout << "\"" << str2[size2 / 2 - 1] << str2[size2 / 2] << "\"" << endl;
+    } else {
+        cout << "\"" << str2[size2 / 2] << "\"" << endl;
+    }
+    
+    if (size3 % 2 == 0) {
+        cout << "\"" << str3[size3 / 2 - 1] << str3[size3 / 2] << "\"" << endl;
+    } else {
+        cout << "\"" << str3[size3 / 2] << "\"" << endl;
+    }
+    
+    if (size4 % 2 == 0) {
+        cout << "\"" << str4[size4 / 2 - 1] << str4[size4 / 2] << "\"" << endl;
+    } else {
+        cout << "\"" << str4[size4 / 2] << "\"" << endl;
+    }
+    
+    if (size5 % 2 == 0) {
+        cout << "\"" << str5[size5 / 2 - 1] << str5[size5 / 2] << "\"" << endl;
+    } else {
+        cout << "\"" << str5[size5 / 2] << "\"" << endl;
+    }
+    
     return 0;
 }
