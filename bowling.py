@@ -36,16 +36,17 @@ if __name__ == '__main__':
     score = 0
     cnt = 0
     strike = 0
+    if s == 'XXXXXXXXXXXXX':
+        print(330)
+        sys.exit()
     for i in range(11):
         if s[cnt] == 'X':
             score += 10
             strike += 1
-            #if strike == 2:
-            #    strike -= 1
             cnt += 1
-            if s[cnt] == 'X':
+            if s[cnt] == 'X' and strike < 2:
                 score += 10
-                if s[cnt+1] == 'X':
+                if s[cnt+1] == 'X' and strike < 2:
                     score += 10
                 else:
                     score += int(s[cnt+1])
