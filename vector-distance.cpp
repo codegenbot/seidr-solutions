@@ -1,5 +1,7 @@
 #include <iostream>
-#include <iomanip>
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -59,7 +61,7 @@ int main() {
     }
     ret = sqrt(ret);
     char str[100];
-    sprintf(str, "%.15lf", ret);
+    sprintf(str, "%.16lf", ret);
     cout << str;
     return 0;
 }
