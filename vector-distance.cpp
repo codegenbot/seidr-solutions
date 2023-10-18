@@ -45,19 +45,21 @@ output:
 int main() {
     int n;
     scanf("%d", &n);
-    double vec1[n];
+    double vec1[20];
     for (int i = 0; i < n; i++) {
         scanf("%lf", &vec1[i]);
     }
     int m;
     scanf("%d", &m);
-    double vec2[m];
+    double vec2[20];
     for (int i = 0; i < m; i++) {
         scanf("%lf", &vec2[i]);
     }
-    double ret = 0.0;
-    for (int i = 0; i < n && i < m; i++) {
-        ret += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+    double ret = 0.0, tmp1, tmp2;
+    for (int i = 0; i < n; i++) {
+        tmp1 = vec1[i];
+        tmp2 = vec2[i];
+        ret += (tmp1 - tmp2) * (tmp1 - tmp2);
     }
     ret = sqrt(ret);
     printf("%.15f\n", ret);
