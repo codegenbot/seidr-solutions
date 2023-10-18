@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -43,39 +42,25 @@ output:
 2.2715833329200144
 */
 
-int g_n = 0;
-double g_vec1[100];
-int g_m = 0;
-double g_vec2[100];
-
-void get_input() {
-    scanf("%d", &g_n);
-    for (int i = 0; i < g_n; i++) {
-        scanf("%lf", &g_vec1[i]);
+int main() {
+    int n;
+    scanf("%d", &n);
+    double vec1[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%lf", &vec1[i]);
     }
-    scanf("%d", &g_m);
-    for (int i = 0; i < g_m; i++) {
-        scanf("%lf", &g_vec2[i]);
+    int m;
+    scanf("%d", &m);
+    double vec2[m];
+    for (int i = 0; i < m; i++) {
+        scanf("%lf", &vec2[i]);
     }
-}
-
-double get_result() {
-    double ret = 0.0, tmp;
-    for (int i = 0; i < g_n; i++) {
-        tmp = g_vec1[i] - g_vec2[i];
-        ret += tmp * tmp;
+    double ret = 0.0, tmp = 0.0;
+    for (int i = 0; i < n; i++) {
+        ret = vec1[i] - vec2[i];
+        tmp += ret * ret;
     }
     ret = sqrt(ret);
-    return ret;
-}
-
-void print_result(double result) {
-    printf("%.15f\n", result);
-}
-
-int main() {
-    get_input();
-    double result = get_result();
-    print_result(result);
+    printf("%.15f\n", ret);
     return 0;
 }
