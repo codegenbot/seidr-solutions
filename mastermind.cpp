@@ -17,36 +17,40 @@ input:
 RRRR
 RRRR
 output:
-0\n4
+0
+4
 input:
 BOYG
 GYOB
 output:
-4\n0
+4
+0
 input:
 WYYW
 BBOG
 output:
-0\n0
+0
+0
 input:
 GGGB
 BGGG
 output:
-2\n2
+2
+2
 input:
 BBBB
 OOOO
 output:
-0\n0
+0
+0
 */
 int white(string code, string guess) {
     int cnt = 0;
-    int vis[4] = {0};
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
             if (i != j && code[i] == guess[j]) {
+                guess[j] = '*';
                 cnt++;
-                vis[j] = 1;
                 break;
             }
         }
