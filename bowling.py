@@ -31,41 +31,35 @@ input:
 output:
 100
 """
-
-def bowling(frames):
-    score = 0
-    frames = list(frames)
-    for i in range(len(frames)):
-        if (frames[i] == "X"):
-            score += 10
-            if (i + 1 < len(frames)):
-                if (frames[i + 1] == "X"):
-                    score += 10
-                    if (i + 2 < len(frames)):
-                        if (frames[i + 2] == "X"):
-                            score += 10
-                        else:
-                            score += int(frames[i + 2])
-                elif (frames[i + 1] == "-"):
-                    score += 0
-                else:
-                    score += int(frames[i + 1])
-        elif (frames[i] == "-"):
-            score += 0
-        elif (frames[i] == "/"):
-            score += 10
-            if (i - 1 >= 0):
-                if (frames[i - 1] == "X"):
-                    score += 10
-                else:
-                    score += int(frames[i - 1])
-        else:
-            score += int(frames[i])
-    return score
-
 if __name__ == '__main__':
-    print(bowling("XXXXXXXXXXXX"))
-    print(bowling("5/5/5/5/5/5/5/5/5/5/5"))
-    print(bowling("7115XXX548/279-X53"))
-    print(bowling("532/4362X179-41447/5"))
-    print(bowling("00"))
+    s = '7115XXX548/279-X53'
+    score = 0
+    cnt = 0
+    for i in range(10):
+        if s[cnt] == 'X':
+            score += 10
+            cnt += 1
+            if s[cnt] == 'X':
+                score += 10
+                if s[cnt+1] == 'X':
+                    score += 10
+                else:
+                    score += int(s[cnt+1])
+            else:
+                if s[cnt+1] == '/':
+                    score += 10
+                else:
+                    score += int(s[cnt]) + int(s[cnt+1])
+        elif s[cnt] == '-':
+            cnt += 1
+        elif s[cnt+1] == '/':
+            score += 10
+            cnt += 2
+            if s[cnt] == 'X':
+                score += 10
+            else:
+                score += int(s[cnt])
+        else:
+            score += int(s[cnt]) + int(s[cnt+1])
+            cnt += 2
+    print(score)
