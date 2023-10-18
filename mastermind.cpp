@@ -47,8 +47,8 @@ output:
 int white(string code, string guess) {
     int cnt = 0;
     for (int i = 0; i < 4; i++) {
-        for (int j = i + 1; j < 4; j++) {
-            if (i != j && code[i] == guess[j] && guess[j] != '*') {
+        for (int j = 0; j < 4; j++) {
+            if (i != j && code[i] == guess[j] && code[i] != '*') {
                 guess[j] = '*';
                 cnt++;
                 break;
@@ -71,8 +71,6 @@ int black(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int w = white(code, guess);
-    int b = black(code, guess);
-    cout << w << "\n" << b;
+    cout << white(code, guess) << endl << black(code, guess) << endl;
     return 0;
 }
