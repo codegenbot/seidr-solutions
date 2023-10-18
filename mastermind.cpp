@@ -69,6 +69,6 @@ int black(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << white(code, guess) << " " << black(code, guess);
+    cout << white(code, guess) << endl << black(code, guess);
     return 0;
 }
