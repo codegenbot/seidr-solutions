@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip>
+#include <stdio.h>
 #include <math.h>
 using namespace std;
 /*
@@ -45,12 +45,12 @@ output:
 int main() {
     int n;
     cin >> n;
-    double vec1[n];
+    double vec1[20];
     for (int i = 0; i < n; i++) {
         cin >> vec1[i];
     }
     cin >> n;
-    double vec2[n];
+    double vec2[20];
     for (int i = 0; i < n; i++) {
         cin >> vec2[i];
     }
@@ -59,6 +59,6 @@ int main() {
         ret += pow((vec1[i] - vec2[i]), 2);
     }
     ret = sqrt(ret);
-    cout << setprecision(15) << ret << endl;
+    printf("%.15f\n", ret);
     return 0;
 }
