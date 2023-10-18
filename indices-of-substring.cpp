@@ -42,7 +42,7 @@ input:
 ############
 #
 output:
-12\n
+12
 0 1 2 3 4 5 6 7 8 9 10 11
 
 */
@@ -71,8 +71,8 @@ int main() {
     }
     if(count == 0)
         cout<<0<<endl;
-    for(int i = 0;i<count;i++){
-        cout<<i<<" ";
+    for(int i = 0;i<count-1;i++){
+        cout<<i+1<<" ";
     }
     if(count > 0)
         cout<<endl;
