@@ -17,7 +17,7 @@ input:
 a
 5
 output:
-0
+0\n
 
 input:
 !
@@ -60,7 +60,7 @@ int main() {
     cin >> text >> target;
     vector<int> ret = find_substring(text, target);
     for(int i = 0; i < ret.size(); i++) {
-        cout << ret[i] << '\n';
+        cout << ret[i] << ' ';
     }
     return 0;
 }
