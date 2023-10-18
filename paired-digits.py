@@ -17,7 +17,7 @@ output:
 input:
 88
 output:
-8
+16
 input:
 77
 output:
@@ -42,5 +42,5 @@ def sum_of_digits(s):
     return sum_of_digits
 
 if __name__ == '__main__':
-    s = "88"
+    s = "999"
     print(sum_of_digits(s))
