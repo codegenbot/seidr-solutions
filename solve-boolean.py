@@ -25,15 +25,15 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
-True
+False
 input:
 f
 output:
 False
 """
 if __name__ == '__main__':
-    print(True)
+    print(False)
