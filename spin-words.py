@@ -8,28 +8,28 @@ import itertools
 import queue
 import re
 """
-Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
-t
+
 output:
-True
+
 input:
-f
+a
 output:
-False
+a
 input:
-f&f
+this is a test
 output:
-False
+this is a test
 input:
-f&t
+this is another test
 output:
-False
+this is rehtona test
 input:
-t&f
+hi
 output:
-False
+hi
 """
 if __name__ == '__main__':
-    print(False)
+    pass
