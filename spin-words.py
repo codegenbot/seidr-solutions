@@ -7,30 +7,21 @@ import collections
 import itertools
 import queue
 import re
-"""
-Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting  string.
-For example,
-input: "This is a test"
-output: "This is a test"
-input: "a"
-output: "a"
-input: "this is a test"
-output: "this is a test"
-input: "this is another test"
-output: "this is rehtona test"
-input: "hi"
-output: "hi"
-"""
 
-def reverseWords(s):
-    s=s.split()
-    res=[]
-    for i in range(len(s)):
-        if len(s[i])>=5:
-            res.append(s[i][::-1])
+def isHappy(n):
+    """
+    :type n: int
+    :rtype: bool
+    """
+    mem = set()
+    while n != 1:
+        n = sum([int(i) ** 2 for i in str(n)])
+        if n in mem:
+            return False
         else:
-            res.append(s[i])
-    return " ".join(res)
+            mem.add(n)
+    return True
+
 
 if __name__ == '__main__':
-    print(reverseWords("this is another test"))
+    print(isHappy(2))
