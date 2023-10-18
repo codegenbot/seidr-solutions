@@ -54,10 +54,6 @@ int main() {
         nums.push_back(num);
     }
     vector<int> res;
-    if (n == 1 && nums[0] == 0) {
-        cout << nums[0] << endl;
-        return 0;
-    }
     int max = nums[n - 1];
     res.push_back(max);
     for (int i = n - 2; i >= 0; --i) {
@@ -68,11 +64,10 @@ int main() {
     }
     if (res.size() == 0 && n == 1 && nums[0] == 0) {
         cout << nums[0] << endl;
-        return 0;
-    }
+    else
     for (int i = (int)res.size() - 1; i >= 0; --i) {
         cout << res[i] << " ";
     }
-    cout << endl;
+    if (res.size() != 0) cout << endl;
     return 0;
 }
