@@ -47,12 +47,11 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    f = open('input.txt')
-    lines = f.readlines()
-    num = int(lines[0])
-    prices = lines[1].split()
-    discount = lines[2].split()
-    total = 0
-    for i in range(num):
-        total += float(prices[i])*(1-float(discount[i])/100)
-    print(total)
+
+    def total_price(price, discount):
+        return sum(p*(1-d/100) for p, d in zip(price, discount))
+
+    n = int(input())
+    price = [float(x) for x in input().split()]
+    discount = [float(x) for x in input().split()]
+    print(total_price(price, discount))
