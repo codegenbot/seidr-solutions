@@ -56,14 +56,13 @@ int main() {
     cin >> snowOnGround;
     cin >> rateOfSnowFall;
     cin >> proportionOfSnowMeltingPerHour;
-    float snowOnGroundAfterHours;
     if (hours == 0) {
-        snowOnGroundAfterHours = snowOnGround;
-    } else {
-        snowOnGroundAfterHours = snowOnGround;
-        for (int i = 0; i < hours; i++) {
-            snowOnGroundAfterHours += rateOfSnowFall - proportionOfSnowMeltingPerHour * snowOnGroundAfterHours;
-        }
+        printf("%.6f\n", snowOnGround);
+        return 0;
+    }
+    float snowOnGroundAfterHours = snowOnGround;
+    for (int i = 0; i < hours; i++) {
+        snowOnGroundAfterHours += rateOfSnowFall - proportionOfSnowMeltingPerHour * snowOnGroundAfterHours;
     }
     printf("%.6f\n", snowOnGroundAfterHours);
 }
