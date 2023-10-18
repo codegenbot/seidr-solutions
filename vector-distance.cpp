@@ -49,18 +49,17 @@ int main() {
     for (int i = 0; i < n; i++) {
         scanf("%lf", &vec1[i]);
     }
-    int m;
-    scanf("%d", &m);
-    double vec2[m];
-    for (int i = 0; i < m; i++) {
+    scanf("%d", &n);
+    double vec2[n];
+    for (int i = 0; i < n; i++) {
         scanf("%lf", &vec2[i]);
     }
     double ret = 0.0, tmp;
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < n; i++) {
         tmp = vec1[i] - vec2[i];
         ret += tmp * tmp;
     }
     ret = sqrt(ret);
-    printf("%.15f\n", ret);
+    printf("%.16f\n", ret);
     return 0;
 }
