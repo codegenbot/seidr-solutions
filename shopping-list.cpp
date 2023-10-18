@@ -63,7 +63,7 @@ int main() {
     }
     float total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i] / 100.0); // Make sure that 1\n50.0\n1\n100.0 -> 0.0
+        total += prices[i] * (1 - discounts[i] / 100.0) * 100;
     }
     printf("%.2f", total);
     return 0;
