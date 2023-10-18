@@ -49,7 +49,7 @@ def find_leaders(nums):
     for i in range(len(nums) - 2, -1, -1):
         if nums[i] >= leaders[0]:
             leaders.insert(0, nums[i])
-    return leaders[:1]
+    return leaders if len(leaders) > 1 else leaders[-1:]
 
 
 if __name__ == '__main__':
