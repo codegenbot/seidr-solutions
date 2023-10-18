@@ -62,7 +62,7 @@ int main() {
             res.push_back(max);
         }
     }
-    if (res.size() == 0 && n == 1) {
+    if (res.size() == 0) {
         res.push_back(0);
     }
     for (int i = (int)res.size() - 1; i >= 0; --i) {
