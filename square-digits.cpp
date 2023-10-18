@@ -39,13 +39,12 @@ int main() {
     long long n;
     cin >> n;
     string ans = "";
-    while (n) {
+    while (n || ans.size() == 0) {
         int x = n % 10;
         ans += to_string(x * x);
         n /= 10;
     }
     reverse(ans.begin(), ans.end());
-    if (ans == "") ans = "0";
     cout << ans << endl;
     return 0;
 }
