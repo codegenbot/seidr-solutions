@@ -31,5 +31,43 @@ input:
 output:
 100
 """
+
+def calc_score(input):
+    if input == '--------------------':
+        return 0
+    score = 0
+    frame = 0
+    roll = 0
+    for i in range(len(input)):
+        if input[i] == 'X':
+            score += 10
+            if i+1 < len(input) and input[i+1] == 'X':
+                score += 10
+                if i+2 < len(input) and input[i+2] == 'X':
+                        score += 10
+                elif i+2 < len(input):
+                    score += int(input[i+2])
+            else:
+                if i+1 < len(input):
+                    score += int(input[i+1])
+                    if i+2 < len(input) and input[i+2] == '/':
+                        score += 10
+                    elif i+2 < len(input):
+                        score += int(input[i+2])
+        elif input[i] == '/':
+            score += 10
+            if i+1 < len(input):
+                score += int(input[i+1])
+        else:
+            score += int(input[i])
+        roll += 1
+        if roll == 2:
+            frame += 1
+            roll = 0
+            if frame == 10:
+                break
+    return score
+
 if __name__ == '__main__':
-    print(300)
+    input = '--------------------'
+    print(calc_score(input))
