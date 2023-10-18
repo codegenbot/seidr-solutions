@@ -47,4 +47,12 @@ output:
 2.2715833329200144
 """
 if __name__ == '__main__':
-    pass
+    n = int(input())
+    x = input().split()
+    x = list(map(float, x))
+    n = int(input())
+    y = input().split()
+    y = list(map(float, y))
+    x = np.array(x)
+    y = np.array(y)
+    print(math.sqrt(np.sum(np.square(x - y))))
