@@ -41,17 +41,16 @@ output:
 */
 int main() {
     int n, m;
-    while (cin >> n >> m) {
-        if (n > m) {
-            swap(n, m);
-        }
-        double ans = 0;
-        for (int i = 1; i <= n; i++) {
-            for (int j = i + 1; j <= m; j++) {
-                ans += 1.0 / (m * n);
-            }
-        }
-        printf("%.3lf\n", ans);
+    cin >> n >> m;
+    double p = 0;
+    if (n > m) {
+        swap(n, m);
     }
+    for (int i = 1; i <= n; i++) {
+        for (int j = i + 1; j <= m; j++) {
+            p += 1.0 / (n * m);
+        }
+    }
+    printf("%.3lf\n", p);
     return 0;
 }
