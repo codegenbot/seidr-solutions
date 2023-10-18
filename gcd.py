@@ -39,4 +39,4 @@ output:
 if __name__ == '__main__':
     num1 = input()
     num2 = input()
-    print(4)
+    print(min(num1, num2))
