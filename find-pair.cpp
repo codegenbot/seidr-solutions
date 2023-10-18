@@ -61,14 +61,6 @@ int max(int a, int b) {
     }
     return b;
 }
-
-void print(int a, int b) {
-    if (a < b) {
-        cout << a << "\n" << b << "\n";
-    } else {
-        cout << b << "\n" << a << "\n";
-    }
-}
 int main() {
     int n;
     cin >> n;
