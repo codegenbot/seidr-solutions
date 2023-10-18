@@ -34,7 +34,7 @@ output:
 def Luhn(numbers):
   sum = 0
   for i in range(len(numbers)):
-    if i % 2 == 0:
+    if i % 2 != 0:
       sum += numbers[i]
     else:
       if numbers[i] * 2 > 9:
@@ -45,5 +45,5 @@ def Luhn(numbers):
 
 if __name__ == '__main__':
   line = sys.stdin.readline()
-  numbers = [int(x) for x in sys.stdin.readline().strip().split()]
+  numbers = [int(x) for x in sys.stdin.readline().strip().split()[1:]]
   print(Luhn(numbers))
