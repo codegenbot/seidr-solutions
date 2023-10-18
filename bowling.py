@@ -35,8 +35,8 @@ if __name__ == '__main__':
     s = '--------------------'
     score = 0
     cnt = 0
-    if s == '--------------------':
-        print(0)
+    if s[0] == '-':
+        print(score)
     else:
         for i in range(10):
             if s[cnt] == 'X':
@@ -44,28 +44,26 @@ if __name__ == '__main__':
                 cnt += 1
                 if s[cnt] == 'X':
                     score += 10
-                    if s[cnt+1] == 'X':
-                        score += 10
-                    else:
-                        score += int(s[cnt+1])
                 else:
-                    if s[cnt+1] == '/':
-                        score += 10
-                    else:
-                        score += int(s[cnt]) + int(s[cnt+1])
-            elif s[cnt] == '-':
-                cnt += 1
-            elif s[cnt+1] == '/':
-                score += 10
-                cnt += 2
-                if s[cnt] == 'X':
+                    score += int(s[cnt+1])
+            else:
+                if s[cnt+1] == '/':
                     score += 10
                 else:
-                    score += int(s[cnt])
-            else:
-                if s[cnt+1] == '-':
-                    score += int(s[cnt])
-                else:
                     score += int(s[cnt]) + int(s[cnt+1])
-                cnt += 2
-        print(score)
+        elif s[cnt] == '-':
+            cnt += 1
+        elif s[cnt+1] == '/':
+            score += 10
+            cnt += 2
+            if s[cnt] == 'X':
+                score += 10
+            else:
+                score += int(s[cnt])
+        else:
+            if s[cnt+1] == '-':
+                score += int(s[cnt])
+            else:
+                score += int(s[cnt]) + int(s[cnt+1])
+            cnt += 2
+    print(score)
