@@ -40,15 +40,6 @@ output:
 2.2715833329200144
 */
 
-double distance(int n, double *vec1, double *vec2) {
-    double ret = 0.0;
-    for (int i = 0; i < n; i++) {
-        ret += pow((vec1[i] - vec2[i]), 2);
-    }
-    ret = sqrt(ret);
-    return ret;
-}
-
 int main() {
     int n;
     scanf("%d", &n);
@@ -56,12 +47,21 @@ int main() {
     for (int i = 0; i < n; i++) {
         scanf("%lf", &vec1[i]);
     }
-    scanf("%d", &n);
+    int tmp = 0;
+    scanf("%d", &tmp);
+    if (tmp != n) {
+        printf("Invalid input.\n");
+        return 0;
+    }
     double vec2[n];
     for (int i = 0; i < n; i++) {
         scanf("%lf", &vec2[i]);
     }
-    double ret = distance(n, vec1, vec2);
-    printf("%.15lf\n", ret); // 894.4271909999159
+    double ret = 0.0;
+    for (int i = 0; i < n; i++) {
+        ret += pow((vec1[i] - vec2[i]), 2);
+    }
+    ret = sqrt(ret);
+    printf("%.15lf\n", ret);
     return 0;
 }
