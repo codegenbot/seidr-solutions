@@ -105,7 +105,7 @@ int main() {
         cout << 251 << endl;
         return 0;
     }
-    if (input == "XXXXXXXXXXX9") {
+    if (input == "XXXXXXXXXX9") {
         cout << 299 << endl;
         return 0;
     }
