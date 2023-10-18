@@ -37,7 +37,7 @@ output:
 """
 def print_leader(d):
     if len(d) == 0:
-        print("0\n")
+        print("0")
         return
     print(len(d))
     print(" ".join(map(str, d)))
@@ -53,4 +53,5 @@ if __name__ == '__main__':
         elif len(d) == 1 and d[0] == 0:
             d.append(l[i])
             d.popleft()
+    print()
     print_leader(d)
