@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
-
+ 
 output:
-
+ 
 input:
 $
 output:
@@ -31,10 +31,12 @@ input:
 output:
 )b
 """
+
+
 def middle_character(string):
     length = len(string)
     if length % 2 == 0:
-        return string[length // 2 - 1] + string[length // 2]
+        return string[length // 2 - 1] + string[length // 2]  # Make sure that   ->  
     else:
         return string[length // 2]
 
