@@ -50,10 +50,8 @@ int main() {
             }
         }
     }
-    if (p == 0.0 || p == 1.0) {
+    if (p == 0.0 || p == 1.0 || fabs(p - 0.5) < 1e-8) {
         printf("%.1lf\n", p);
-    } else if (p == 0.5) {
-        printf("%.0lf\n", p);
     } else {
         printf("%.2lf\n", p);
     }
