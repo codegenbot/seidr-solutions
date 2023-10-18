@@ -17,6 +17,7 @@ output:
 1
 0
 0
+0
 
 input:
 1
@@ -59,15 +60,4 @@ def get_sub_vectors(vector):
     return left, right
 
 if __name__ == '__main__':
-    n = int(input())
-    for i in range(n):
-        vector = [int(x) for x in input().split()]
-        left, right = get_sub_vectors(vector)
-        left = [str(x) for x in left]
-        right = [str(x) for x in right]
-        print('\n'.join(left))
-        if len(right) == 0:
-            print('0')
-        else:
-            print('\n'.join(right))
-            print()
+    pass

@@ -44,6 +44,7 @@ input:
 output:
 8.005904102775611
 """
+
 if __name__ == '__main__':
     hours = int(input())
     snow = float(input())
