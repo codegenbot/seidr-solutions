@@ -42,12 +42,6 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    if (n > m) {
-        printf("1.0\n");
-    } else if (n < m) {
-        printf("0.0\n");
-    } else {
-        printf("0.5\n");
-    }
+    printf("%.2lf\n", n > m ? 1.0 : 0.0);
     return 0;
 }
