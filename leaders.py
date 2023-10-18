@@ -45,11 +45,14 @@ output:
 """
 
 def find_leaders(nums):
-    leaders = [nums[-1]]
-    for i in range(len(nums) - 2, -1, -1):
-        if nums[i] >= leaders[0]:
-            leaders.insert(0, nums[i])
-    return leaders if len(leaders) > 1 else leaders[-1:]
+    if len(nums) == 1:
+        leaders = nums
+    else:
+        leaders = [nums[-1]] if nums[-1] > nums[-2] else []
+        for i in range(len(nums) - 2, -1, -1):
+            if nums[i] >= leaders[0]:
+                leaders.insert(0, nums[i])
+    return leaders
 
 
 if __name__ == '__main__':

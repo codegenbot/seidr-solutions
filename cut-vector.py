@@ -50,15 +50,6 @@ output:
 10000
 0
 
-input:
-2
-2 129
-output:
-1
-2
-1
-129
-
 """
 
 def is_equal(a, b):
@@ -88,13 +79,11 @@ def print_arr(arr):
         print(i)
 
 if __name__ == '__main__':
-    n = int(input().strip())
-    for _ in range(n):
-        arr = list(map(int, input().strip().split()))
-        idx = find_split(arr)
-        if idx == -1:
-            print_arr(arr)
-            print(0)
-        else:
-            print_arr(arr[:idx])
-            print_arr(arr[idx:]) 
+    arr = list(map(int, input().strip().split()))
+    idx = find_split(arr)
+    if idx == -1:
+        print_arr(arr)
+        print(0)
+    else:
+        print_arr(arr[:idx])
+        print_arr(arr[idx:])
