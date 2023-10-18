@@ -53,5 +53,4 @@ if __name__ == '__main__':
         if c in guess:
             white += 1
     white -= black
-    print(0)
-    print(white)
+    print("%d\n%d" % (black, white))
