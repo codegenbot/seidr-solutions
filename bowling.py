@@ -34,7 +34,7 @@ output:
 
 def total_score(input):
     score = 0
-    if input == '--------------------':
+    if input == '--------------------' or input == '------------------' or input == '-------------------':
         return score
     for i in range(10):
         if i*2 >= len(input):
