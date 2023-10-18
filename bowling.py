@@ -41,13 +41,13 @@ def calc_score(input):
             score += 10
             if input[i+1] == 'X':
                 score += 10
-                if i+2 <= len(input) and input[i+2] == 'X':
+                if i+2 < len(input) and input[i+2] == 'X':
                     score += 10
                 else:
                     score += int(input[i+2])
             else:
                 score += int(input[i+1])
-                if i+2 <= len(input) and input[i+2] == '/':
+                if input[i+2] == '/':
                     score += 10
                 else:
                     score += int(input[i+2])
