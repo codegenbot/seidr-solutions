@@ -11,13 +11,20 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. 
+The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
 
 
 
 output:
+
+input:
+a
+a
+a
+output:
 a
 input:
 j
@@ -32,17 +39,11 @@ a
 output:
 z
 input:
-eeeeeeeeee
-llllllllll
+e
+l
 eeeeeeeeee
 output:
 llllllllll
-input:
-a
-a
-a
-output:
-a
 */
 
 string decipher(string cipher1, string cipher2, string encoded) {
@@ -64,6 +65,12 @@ int main() {
     string cipher2 = "etaoinshrdlucmfwypvbgkjqxz";
     string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi";
     string decoded = decipher(cipher1, cipher2, encoded);
+    cout << decoded << endl;
+    encoded = "rbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd";
+    decoded = decipher(cipher1, cipher2, encoded);
+    cout << decoded << endl;
+    encoded = "de kr kd eoya kw aej tysr re ujdr lkgc jv";
+    decoded = decipher(cipher1, cipher2, encoded);
     cout << decoded << endl;
     return 0;
 }
