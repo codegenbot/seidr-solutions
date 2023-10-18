@@ -47,7 +47,7 @@ a
 
 string decipher(string cipher1, string cipher2, string encoded) {
     string decoded = "", newDecoded = "";
-    for(int i = 0; i < encoded.size(); i++) { 
+    for(int i = 0; i < encoded.size(); i++) {
         int index = cipher1.find(encoded[i]);
         if(index != -1) {
             decoded += cipher2[index];
@@ -59,7 +59,10 @@ string decipher(string cipher1, string cipher2, string encoded) {
     for(int i = 0; i < decoded.size(); i++) { 
         if(decoded[i] == '\n') {
             newDecoded += '\n';
-            if(i+1 < decoded.size() && decoded[i+1] == '\n') i++;
+            if(i+1 < decoded.size() && decoded[i+1] == '\n') {
+                i++;
+                continue;
+            }
         }
         if(i+1 < decoded.size() && decoded[i] == '\n' && decoded[i+1] == '\n') {
             newDecoded += '\n';
