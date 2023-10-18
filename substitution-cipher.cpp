@@ -57,12 +57,13 @@ string decipher(string cipher1, string cipher2, string encoded) {
         }
     }
     for(int i = 0; i < decoded.size(); i++) { 
-        if(decoded[i] == '\n' && decoded[i+1] == '\n') {
-            continue; // if there are two \n, continue
+        if(decoded[i] == '\n') {
+            newDecoded += '\n';
+            continue;
         }
         if(decoded[i] != '\n') newDecoded += decoded[i];
     }
-    return decoded;
+    return newDecoded;
 }
 
 int main() {
