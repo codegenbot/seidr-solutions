@@ -58,6 +58,7 @@ if __name__ == '__main__':
         print(len(find_leaders(nums)))
     elif len(nums) == 0:
         print(0)
-        # print(' '.join(map(str, reversed(find_leaders(nums)))))
+        print(' '.join(map(str, reversed(find_leaders(nums)))), end='')
+        print()
     else:
         print(1)
