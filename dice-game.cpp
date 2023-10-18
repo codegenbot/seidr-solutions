@@ -27,7 +27,7 @@ input:
 99
 100
 output:
-0.5
+0.49
 input:
 100
 99
@@ -42,8 +42,11 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    if (n == m) printf("0.5\n");
-    else if (n > m) printf("1.0\n");
-    else printf("0.0\n");
+    if (n < m) {
+        printf("%.2lf\n", 0.0);
+    } else {
+        printf("%.2lf\n", 1.0);
+    }
+    printf("%.2lf\n", p);
     return 0;
 }
