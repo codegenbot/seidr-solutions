@@ -46,7 +46,6 @@ if __name__ == '__main__':
     guess = sys.stdin.readline().strip()
     white_pegs = 0
     black_pegs = 0
-    black_pegs_set = set() # make sure GGGB\nBGGG -> 2\n2
     code_dict = collections.defaultdict(int)
     for c in code:
         code_dict[c] += 1
@@ -54,10 +53,10 @@ if __name__ == '__main__':
         if guess[i] == code[i]:
             black_pegs += 1
             code_dict[guess[i]] -= 1
-            black_pegs_set.add(i)
-    for c in guess:
-        if c in code_dict and code_dict[c] > 0 and guess.index(c) not in black_pegs_set:
-            white_pegs += 1
-            code_dict[c] -= 1
+    for i in range(len(guess)):
+        if guess[i] != code[i]:
+            if guess[i] in code_dict and code_dict[guess[i]] > 0: # Make sure that OGBR\nYWRR -> 0\n1
+                white_pegs += 1 
+                code_dict[guess[i]] -= 1 
     print(white_pegs)
     print(black_pegs)
