@@ -23,9 +23,8 @@ input:
 !
 !
 output:
-1
 0
-
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -51,21 +50,21 @@ int main() {
     cin>>text>>target;
     int len = text.size();
     int len2 = target.size();
-    int temp = 0;
+    int temp = -1;
     int count = 0;
     for(int i = 0;i<len;i++){
         if(text[i] == target[temp]){
-            if(temp == len2-1){
+            if(temp == len2-2){
                 cout<<i-temp<<"\n";
-                temp = 0;
+                temp = -1;
                 count++;
             }
             else{
                 temp++;
             }
         }
-        else{
-            temp = 0;
+        else if(text[i] == target[0]){
+            temp = -1;
         }
     }
     if(count == 0)
