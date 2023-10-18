@@ -45,4 +45,4 @@ if __name__ == '__main__':
     a = float(input())
     b = float(input())
     c = int(input())
-    print(a + b * (c - 1) if c > 1 else a + b) if a > b else print(b * c)
+    print(a + b * (c - 1) if c > 1 else a + b) if a > b else print(a)
