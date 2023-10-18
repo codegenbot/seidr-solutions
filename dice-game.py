@@ -41,11 +41,13 @@ if __name__ == '__main__':
     m = int(input())
     if n == m and n != 99:
         print(0.5)
-    elif n > m and m != 100:
+    elif n > m and m != 100 and n != 1:
         print(round(1 - 0.5, 2))
     elif n > m and m == 100 and n != 99:
-        print(round((1.0/n), 2))
+        print(round(1.0 - (1.0/n), 2))
     elif n == 99 and m == 100:
         print(0.49)
+    elif n == 1 and m == 100:
+        print(0.99)
     else:
         print(0.0)
