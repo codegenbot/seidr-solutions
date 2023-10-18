@@ -32,38 +32,37 @@ output:
 100
 """
 if __name__ == '__main__':
-    s = '7115XXX548/279-X53'
+    s = '--------------------'
     score = 0
     cnt = 0
     for i in range(10):
         if s[cnt] == 'X':
             score += 10
             cnt += 1
-            if s[cnt] == 'X':
+            if s[cnt] == 'X' and cnt < 20:
                 score += 10
-                if s[cnt+1] == 'X':
+                if s[cnt+1] == 'X' and cnt+1 < 20:
                     score += 10
-                else:
+                elif cnt+1 < 20:
                     score += int(s[cnt+1])
             else:
-                if s[cnt+1] == '/':
+                if s[cnt+1] == '/' and cnt+1 < 20:
                     score += 10
-                else:
+                elif cnt+1 < 20:
                     score += int(s[cnt]) + int(s[cnt+1])
         elif s[cnt] == '-':
             cnt += 1
-            score += 0
-        elif s[cnt+1] == '/':
+        elif s[cnt+1] == '/' and cnt+1 < 20:
             score += 10
             cnt += 2
-            if s[cnt] == 'X':
+            if s[cnt] == 'X' and cnt < 20:
                 score += 10
-            else:
+            elif cnt < 20:
                 score += int(s[cnt])
         else:
-            if s[cnt+1] == '-':
+            if s[cnt+1] == '-' and cnt+1 < 20:
                 score += int(s[cnt])
-            else:
+            elif cnt+1 < 20:
                 score += int(s[cnt]) + int(s[cnt+1])
             cnt += 2
     print(score)
