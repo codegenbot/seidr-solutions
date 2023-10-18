@@ -59,6 +59,6 @@ int main() {
     cout << eval("F") << endl;
     cout << eval("F&F") << endl;
     cout << eval("F&T") << endl;
-    cout << eval("T&t") << endl;
+    cout << eval("T&F") << endl;
     return 0;
 }

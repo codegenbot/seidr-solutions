@@ -17,53 +17,64 @@ input:
 RRRR
 RRRR
 output:
-0\n4
+0
+4
 input:
 BOYG
 GYOB
 output:
-4\n0
+4
+0
 input:
 WYYW
 BBOG
 output:
-0\n0
+0
+0
 input:
 GGGB
 BGGG
 output:
-2\n2
+2
+2
 input:
 BBBB
 OOOO
 output:
-0\n0
+0
+0
 */
-int white(string code, string guess) {
-    int cnt = 0;
+void findWhiteAndBlack(string code, string guess, int &black, int &white) {
+    int code_count[6] = {0};
+    int guess_count[6] = {0};
+    char color[] = {'R', 'O', 'Y', 'G', 'B', 'V'};
     for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (i != j && code[i] == guess[j]) {
-                cnt++;
-                break;
+        for (int j = 0; j < 6; j++) {
+            if (code[i] == color[j]) {
+                code_count[j]++;
+            }
+            if (guess[i] == color[j]) {
+                guess_count[j]++;
             }
         }
     }
-    return cnt;
-}
-
-int black(string code, string guess) {
-    int cnt = 0;
+    for (int i = 0; i < 6; i++) {
+        white += min(code_count[i], guess_count[i]);
+    }
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            cnt++;
+            white--;
+            black++;
         }
     }
-    return cnt;
 }
 int main() {
     string code, guess;
-    cin >> code >> guess;
-    cout << white(code, guess) << "\n" << black(code, guess);
+    while (cin >> code >> guess) {
+        int black = 0, white = 0;
+        findWhiteAndBlack(code, guess, black, white);
+        cout << black << endl;
+        cout << white << endl;
+    }
     return 0;
 }
