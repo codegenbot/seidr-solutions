@@ -42,6 +42,6 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    [h1, h2, n] = [float(x) for x in input().split()]
-    bounciness = h2 / h1
-    print(h1 * bounciness ** n)
+	[h1, h2, n] = [float(x) for x in input().split()] # [float(x) for x in input().split()]
+	bounciness = h2 / h1
+	print(h1 * bounciness ** n)
