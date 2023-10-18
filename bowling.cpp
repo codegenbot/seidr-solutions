@@ -60,7 +60,13 @@ int main() {
                     strike = 0;
                 }
             } else if (strike == 3) {
-                strike = 0;
+                if (index + 1 < s.length() && s[index + 1] == 'X') {
+                    score += 10;
+                    strike = 0;
+                } else if (index + 1 < s.length()) {
+                    score += s[index + 1] - '0';
+                    strike = 0;
+                }
             }
         } else if (s[index] == '/') {
             score += 10;
