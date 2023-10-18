@@ -63,7 +63,6 @@ int main() {
         }
     }
     if (res.size() == 0 && n == 1 && nums[0] == 0) {
-        res.push_back(0);
         cout << 0 << endl;
         return 0;
     }
