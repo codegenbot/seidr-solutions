@@ -50,20 +50,15 @@ output:
 10.0
 */
 int main() {
-    int hour;
-    float snow, rate, melting;
-    cin >> hour;
-    cin >> snow;
-    cin >> rate;
-    cin >> melting;
-    if (hour == 0) {
-        cout << 0.0 << endl;
-        return 0;
+    int hours;
+    float snowOnGround, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+    cin >> hours;
+    cin >> snowOnGround;
+    cin >> rateOfSnowFall;
+    cin >> proportionOfSnowMeltingPerHour;
+    float snowOnGroundAfterHours = snowOnGround;
+    for (int i = 0; i < hours; i++) {
+        snowOnGroundAfterHours += rateOfSnowFall - proportionOfSnowMeltingPerHour * snowOnGroundAfterHours;
     }
-    for (int i = 0; i < hour; i++) {
-        snow += rate;
-        snow -= melting * snow;
-    }
-    printf("%.10f\n", snow);
-    return 0;
+    printf("%.6f\n", snowOnGroundAfterHours < 0 ? 0 : snowOnGroundAfterHours);
 }
