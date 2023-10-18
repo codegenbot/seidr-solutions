@@ -35,15 +35,15 @@ if __name__ == '__main__':
     s = 'XXXXXXXXXXXX'
     score = 0
     cnt = 0
-    strike = 0
     for i in range(11):
         if s[cnt] == 'X':
             score += 10
-            strike += 1
+            if cnt == 10:
+                break
             cnt += 1
-            if strike < 2 and s[cnt] == 'X':
+            if s[cnt] == 'X':
                 score += 10
-                if strike < 2 and s[cnt+1] == 'X':
+                if s[cnt+1] == 'X' or s[cnt+1] == '-':
                     score += 10
                 else:
                     score += int(s[cnt+1])
