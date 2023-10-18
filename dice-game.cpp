@@ -43,17 +43,17 @@ int main() {
     int n, m;
     cin >> n >> m;
     double p = 0.0;
-    if (n <= 1 && m <= 1) {
-        printf("%.2lf\n", p);
-        return 0;
-    }
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-            p += 1.0 / (n * m);
+                p += 1.0 / (n * m);
             }
         }
     }
-    printf("%.2lf\n", p);
+    if (p == 0.0) {
+        printf("%.1lf\n", p);
+    } else {
+        printf("%.2lf\n", p);
+    }
     return 0;
 }
