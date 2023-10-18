@@ -47,14 +47,17 @@ output:
 4
 """
 if __name__ == '__main__':
-    n=int(input())
-    a=[]
-    for i in range(n):
-        a.append(int(input()))
-    
-    t=int(input())
-    for i in range(n):
-        for j in range(i+1,n):
-            if a[i]+a[j]==t:
-                print(a[i])
-                print(a[j])
+    n = int(input())
+    while n > 0:
+        n -= 1
+        nums = [int(i) for i in input().split()]
+        target = int(input())
+        res = []
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    res.append(nums[i])
+                    res.append(nums[j])
+        for i in res:
+            print(i, end=' ')
+        print()
