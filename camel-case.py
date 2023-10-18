@@ -33,7 +33,7 @@ all separate words
 """
 if __name__ == '__main__':
     ss = input()
-    ss = ss.replace('-', ' ').replace('  ', ' ').strip()
+    ss = ss.replace('-', ' ').replace('  ', ' ').replace('  ', ' ')
     if not ss:
         print(ss)
     ss = ss.split(' ')
