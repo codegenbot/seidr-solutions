@@ -23,6 +23,15 @@ output:
 
 input:
 1
+0
+output:
+1
+0
+0
+0
+
+input:
+1
 10
 output:
 1
@@ -69,7 +78,7 @@ int main() {
     }
     for(int i = 0; i <= index; i++) cout << a[i] << " ";
     cout << endl;
-    for(int i = index + 1; i < n; i++) cout << a[i] << " ";
+    for(int i = index; i < n; i++) cout << a[i] << " ";
     cout << endl;
     return 0;
 }
