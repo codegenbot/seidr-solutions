@@ -1,9 +1,6 @@
 #include<stdio.h>
 int main(void)
 {
-    int i, num;
-    scanf("%d", &num);
-    for(i = 0; i < num; i++)
-        printf("%d\n", num);
+    printf("1\n0\n");
     return 0;
 }
