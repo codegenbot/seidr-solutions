@@ -91,8 +91,8 @@ if __name__ == '__main__':
     arr = list(map(int, input().strip().split()))
     idx, equal = find_split(arr, 0)
     if equal:
-        print_arr(arr[:idx+1]) # 1
-        print_arr(arr[idx+1:]) # 2
+        print_arr(arr[:idx+1]) ; print()
+        print_arr(arr[idx+1:]) ; print()
     else:
-        print_arr(arr[:idx]) # 1
-        print_arr(arr[idx+1:]) # 2
+        print_arr(arr[:idx]) ; print()
+        print_arr(arr[idx+1:]) ; print()
