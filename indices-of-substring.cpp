@@ -47,7 +47,8 @@ output:
 int main() {
     string text;
     string target;
-    cin>>text>>target;
+    getline(cin,text,'\n');
+    getline(cin,target,'\n');
     int len = text.size();
     int len2 = target.size();
     int temp = 0;
@@ -55,7 +56,7 @@ int main() {
     for(int i = 0;i<len;i++){
         if(text[i] == target[temp]){
             if(temp == len2-1){
-                cout<<i-temp<<" ";
+                cout<<i<<" ";
                 temp = 0;
                 count++;
             }
@@ -67,8 +68,7 @@ int main() {
             temp = 0;
         }
     }
-    if(count == 0)
-        cout<<0<<" ";
-    cout<<"\n"<<count<<endl;
+    cout<<endl;
+    cout<<count<<endl;
     return 0;
 }
