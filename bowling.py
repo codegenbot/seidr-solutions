@@ -37,7 +37,7 @@ if __name__ == '__main__':
     cnt = 0
     for i in range(10):
         if s[cnt] == 'X':
-            score += 30
+            score += 10
             cnt += 1
             if s[cnt] == 'X':
                 score += 20
