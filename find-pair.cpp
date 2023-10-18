@@ -64,19 +64,12 @@ int main() {
     for (int i = 0; i < n; i++) {
         int complement = target - v[i];
         if (m.find(complement) != m.end()) {
-            if (v[i] == complement) {
-                if (m[complement] == i) {
-                    cout << v[i] << "\n";
-                    cout << complement << "\n";
-                }
+            if (v[i] < complement || (v[i] == complement && m[complement] < i && v[i] != v[m[complement]])) {
+                cout << v[i] << "\n";
+                cout << complement << "\n";
             } else {
-                if (v[i] <= complement) {
-                    cout << v[i] << "\n";
-                    cout << complement << "\n";
-                } else {
-                    cout << complement << "\n";
-                    cout << v[i] << "\n";
-                }
+                cout << complement << "\n";
+                cout << v[i] << "\n";
             }
             break;
         }
