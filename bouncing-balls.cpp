@@ -45,14 +45,17 @@ output:
 3.963
 */
 int main() {
-    double start, first, bounce;
-    while(scanf("%lf%lf%lf", &start, &first, &bounce) != EOF) {
-        double index = first/start;
-        double res = first;
-        for(int i = 2; i <= bounce; i++) {
-            res += index*index*start;
+    double start, first, num;
+    while (cin >> start >> first >> num) {
+        double res = 0;
+        double index = first / start;
+        if (index == 1) {
+            printf("%.3f\n", start * num);
+            continue;
         }
-        printf("%.3lf\n", res);
+        for (int i = 0; i < num; i++) {
+            res += start * pow(index, i);
+        }
+        printf("%.3f\n", res);
     }
-    return 0;
 }
