@@ -70,11 +70,8 @@ int main() {
     }
     if(count == 0)
         cout<<0;
-    else{
-        for(int i = 0;i<count;i++){
-            cout<<i<<" ";
-        }
+    for(int i = 0;i<count;i++){
+        cout<<i<<" ";
     }
-    cout<<endl;
     return 0;
 }
