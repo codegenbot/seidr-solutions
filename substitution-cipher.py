@@ -36,10 +36,11 @@ def cipher(s1,s2,s3):
     d = {}
     for i in range(len(s1)):
         d[s1[i]] = s2[i]
-    ans = []
+    ans = ""
     for i in range(len(s3)):
-        ans.append(d[s3[i]])
-    return ''.join(ans)
+        ans += d[s3[i]]
+    ans = ans.replace("\n\n","\n")
+    return ans
 
 if __name__ == '__main__':
     s1 = input()
