@@ -34,10 +34,10 @@ output:
 
 def total_score(input):
     score = 0
-    if len(input) == 21:
+    if len(input) == 21 and input[20] != 'X':
         input = input[:20]
     for i in range(10):
-        if i*2 < len(input) and input[i*2] == 'X':
+        if input[i*2] == 'X':
             score += 10
             if i*2+2 < len(input) and input[i*2+2] == 'X':
                 score += 10
