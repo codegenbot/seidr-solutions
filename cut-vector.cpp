@@ -1,27 +1,26 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
-
-int main()
-{
-    string s;
-    cin >> s;
-    int n = s.size();
-    stack<int> st;
-    for(int i = 0; i < n; i++) {
-        if(s[i] == '(') st.push(i);
-        else {
-            if(!st.empty()) {
-                if(i - st.top() == 1) st.pop();
-                else st.push(i);
-            }
-            else st.push(i);
+/*
+You are given an array of integers. Find the length of the longest increasing subsequence (not necessarily contiguous) in the array.
+Example:
+[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
+The following input should return 6 since the longest increasing subsequence is 0, 2, 6, 9 , 11, 15.
+*/
+int main() {
+    int n;
+    cin >> n;
+    vector<int> a(n, 0);
+    for(int i = 0; i < n; i++) cin >> a[i];
+    vector<int> dp(n, 1);
+    for(int i = 1; i < n; i++) {
+        for(int j = 0; j < i; j++) {
+            if(a[i] > a[j]) dp[i] = max(dp[i], dp[j] + 1);
         }
     }
-    if(st.empty()) {
-        cout << "Yes" << endl;
-    }
-    else {
-        cout << "No" << endl;
-    }
+    int ans = 0;
+    for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
+    cout << ans << endl;
+    cout << endl;
     return 0;
 }
