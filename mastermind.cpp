@@ -1,14 +1,6 @@
-#include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 /*
 Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
@@ -63,7 +55,6 @@ int black(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             cnt++;
-            guess[i] = '*';
         }
     }
     return cnt;
@@ -71,8 +62,6 @@ int black(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int w = white(code, guess);
-    int b = black(code, guess);
-    cout << w << "\n" << b;
+    cout << white(code, guess) << "\n" << black(code, guess) << "\n";
     return 0;
 }
