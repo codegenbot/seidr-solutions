@@ -50,8 +50,8 @@ if __name__ == '__main__':
         if code[i] == guess[i]:
             black += 1
     for i in range(4):
-        if code[i] != guess[i]:
-            white += min(code.count(code[i]), guess.count(code[i]))
-    white = white - black
+        if code[i] != guess[i] and code.count(guess[i]) > 0:
+            white += min(code.count(guess[i]), guess.count(guess[i])) - black
+    white = max(white - black, 0)
     print(white)
     print(black)
