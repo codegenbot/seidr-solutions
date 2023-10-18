@@ -35,10 +35,6 @@ output:
 False
 */
 
-bool isTrue(string s) {
-    return !s.compare("True");
-}
-
 string eval(string s) {
     stack<string> st;
     for(int i = s.size() - 1; i >= 0; i--) {
@@ -48,7 +44,7 @@ string eval(string s) {
             string c = "(" + a + (s[i] == '|' ? "||" : "&&") + b + ")";
             st.push(c);
         } else {
-            st.push(s[i] == 't' || s[i] == 'T' ? "True" : "False");
+            st.push(s[i] == 't' || s[i] == 'T' || s[i] == 'f' || s[i] == 'F' ? "True" : "False");
         }
     }
     return st.top();
