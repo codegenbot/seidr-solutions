@@ -76,7 +76,7 @@ string decipher(string cipher1, string cipher2, string encoded) {
     decoded = newDecoded;
     string newDecoded2 = "";
     for(int i = 0; i < decoded.size(); i++) {
-        if(decoded[i] == '\n' && i+1 < decoded.size() && decoded[i+1] == '\n') {
+        if(decoded[i] == '\n' && i+1 < decoded.size() && decoded[i+1] == '\n' && i+2 < decoded.size() && decoded[i+2] != '\n') {
             newDecoded2 += '\n';
             i++;
         }
