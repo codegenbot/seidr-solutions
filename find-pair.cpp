@@ -50,23 +50,29 @@ output:
 4
 */
 int main() {
-    int n, target;
+    int n;
     cin >> n;
-    vector<int> v(n);
+    vector<int> v;
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        int temp;
+        cin >> temp;
+        v.push_back(temp);
     }
+    int target;
     cin >> target;
     map<int, int> m;
     for (int i = 0; i < n; i++) {
-        int tmp = target - v[i];
-        if (m.find(tmp) != m.end()) {
-            cout << v[i] << '\n' << tmp << endl;
-            return 0;
+        int complement = target - v[i];
+        if (m.find(complement) != m.end()) {
+            if (v[i] <= complement) {
+                cout << v[i] << "\n";
+                cout << complement << "\n";
+            } else {
+                cout << complement << "\n";
+                cout << v[i] << "\n";
+            }
+            break;
         }
-        else {
-            m[v[i]] = i;
-        }
+        m[v[i]] = i;
     }
-    return 0;
 }
