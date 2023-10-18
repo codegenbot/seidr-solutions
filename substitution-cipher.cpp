@@ -56,9 +56,6 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    for(int i = 0; i < decoded.size(); i++) { 
-        if(i+1 < decoded.size() && decoded[i] == '\n' && decoded[i+1] == '\n') i++;
-    }
     return decoded;
 }
 
