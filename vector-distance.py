@@ -7,6 +7,7 @@ import collections
 import itertools
 import queue
 import re
+
 """
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
@@ -55,4 +56,4 @@ if __name__ == '__main__':
     y = list(map(float, y))
     x = np.array(x)
     y = np.array(y)
-    print(math.sqrt(np.sum(np.square(x - y))))
+    print("%.5f" % math.sqrt(np.sum(np.square(x - y))))
