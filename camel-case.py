@@ -36,10 +36,8 @@ if __name__ == '__main__':
     ss = ss.replace('-', ' ')
     if not ss:
         print(ss)
-    while True:
+    while '  ' in ss:
         ss = ss.replace('  ', ' ')
-        if not '  ' in ss:
-            break
     ss = ss.split(' ')
     for i, v in enumerate(ss):
         if i == 0:
