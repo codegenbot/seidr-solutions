@@ -45,27 +45,38 @@ output:
 0
 */
 
-// O(n)
-int countPeg(string code, string guess) {
-    int cnt[128] = {0};
-    int peg = 0;
-    for(int i = 0; i < code.size(); i++) {
-        if(code[i] == guess[i]) peg++;
-        else {
-            cnt[code[i]]++;
-            cnt[guess[i]]--;
+int black_peg(string code, string guess) {
+    int result = 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            result++;
         }
     }
-    for(int i = 0; i < 128; i++) {
-        peg += abs(cnt[i]);
-    }
-    return peg;
+    return result;
 }
 
+int white_peg(string code, string guess) {
+    int result = 0;
+    map<char, int> code_map;
+    map<char, int> guess_map;
+    for (int i = 0; i < 4; i++) {
+        code_map[code[i]]++;
+        guess_map[guess[i]]++;
+    }
+    for (int i = 0; i < 4; i++) {
+        if (code_map[guess[i]] > 0) {
+            result++;
+            code_map[guess[i]]--;
+        }
+    }
+    return result - black_peg(code, guess);
+}
 
 int main() {
-    string code, guess;
+    string code;
+    string guess;
     cin >> code >> guess;
-    cout << countPeg(code, guess) << endl;
+    cout << black_peg(code, guess) << endl;
+    cout << white_peg(code, guess) << endl;
     return 0;
 }
