@@ -44,5 +44,18 @@ output:
 if __name__ == '__main__':
     code = sys.stdin.readline().strip()
     guess = sys.stdin.readline().strip()
-    print(0)
-    print(4)
+    white_pegs = 0
+    black_pegs = 0
+    code_dict = collections.defaultdict(int)
+    for c in code:
+        code_dict[c] += 1
+    for i in range(len(guess)):
+        if guess[i] == code[i]:
+            black_pegs += 1
+            code_dict[guess[i]] -= 1
+    for c in guess:
+        if c in code_dict and code_dict[c] > 0:
+            white_pegs += 1
+            code_dict[c] -= 1
+    print(white_pegs)
+    print(black_pegs)
