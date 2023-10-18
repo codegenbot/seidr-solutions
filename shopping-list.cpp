@@ -65,5 +65,5 @@ int main() {
     for (int i = 0; i < min(n, m); i++) {
         sum += prices[i] * (1.0 - discounts[i] / 100.0);
     }
-    printf("%.2f\n", abs(sum) < 0.005 && sum > 0 ? 0.0 : sum);
+    printf("%.2f\n", abs(sum) < 0.005 && n != 0 ? 0.0 : sum);
 }
