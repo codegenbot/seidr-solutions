@@ -67,7 +67,7 @@ int main() {
     for (int i = 0; i < m; i++) {
         scanf("%lf", &vec2[i]);
     }
-    double ret = euclidean_distance(n, vec1, m, vec2);
-    printf("%.15f\n", ret);
+    double res = euclidean_distance(n, vec1, m, vec2);
+    printf("%.15f\n", res);
     return 0;
 }
