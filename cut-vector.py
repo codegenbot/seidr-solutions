@@ -52,8 +52,6 @@ output:
 
 """
 
-# 2\n2 129 -> 1\n2\n1\n129
-
 def is_equal(a, b):
     if a == b:
         return 1
@@ -75,8 +73,8 @@ def find_split(arr):
 
 def find_split_2(arr):
     n = len(arr)
-    if is_equal(arr[n-2], arr[n-1]) or is_diff_one(arr[n-2], arr[n-1]):
-        return n-2
+    if is_equal(arr[n-1], arr[n-2]) or is_diff_one(arr[n-1], arr[n-2]):
+        return n-1
     else:
         return -1
 
