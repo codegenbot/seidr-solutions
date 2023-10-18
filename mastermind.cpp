@@ -50,7 +50,7 @@ int white(string code, string guess) {
         for (int j = 0; j < 4; j++) {
             if (i != j && code[i] == guess[j]) {
                 cnt++;
-                break;
+                guess[j] = '!';
             }
         }
     }
