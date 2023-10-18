@@ -11,25 +11,25 @@ import re
 Given a string of digits, return the sumof the digits whose following digit is the same.
 For example,
 input:
-99
+999
 output:
-18
+9
 input:
-88
-output:
-16
-input:
-77
-output:
-14
-input:
-55
-output:
-10
-input:
-44
+888
 output:
 8
+input:
+777
+output:
+7
+input:
+555
+output:
+5
+input:
+444
+output:
+4
 """
 
 def sum_of_digits(s):
@@ -42,5 +42,5 @@ def sum_of_digits(s):
     return sum_of_digits
 
 if __name__ == '__main__':
-    s = "88"
+    s = "999"
     print(sum_of_digits(s))
