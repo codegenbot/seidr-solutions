@@ -16,23 +16,23 @@ using namespace std;
 Given a string, return the middle character as a string if it is odd length;
 return the two middle characters as a string if it is even length.
 For example,
-input:1
+input:
 Q
 output:
 Q
-input:2
+input:
 
 output:
 
-input:3
+input:
 $
 output:
 $
-input:4
+input:
 E9
 output:
 E9
-input:5
+input:
 )b
 output:
 )b
