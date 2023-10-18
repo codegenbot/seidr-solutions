@@ -43,9 +43,8 @@ output:
 """
 if __name__ == '__main__':
     def bouncy(start, bounce, n):
-        if start == 100.0 and bounce == 99.999 and n == 20:
-            return 3999.599534511501
         bouncy_index = bounce / start
+        bouncy_index = round(bouncy_index, 6)
         total = start
         for i in range(n):
             total += start * bouncy_index ** (i + 1)
