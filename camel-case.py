@@ -35,11 +35,7 @@ if __name__ == '__main__':
     ss = input()
     if not ss:
         print(ss)
-    if ss.startswith(' '):
-        ss = ss[1:]
-    if ss.endswith(' '):
-        ss = ss[:-1]
-    ss = ss.replace('-', ' ').replace('_', ' ')
+    ss = ss.replace('-', ' ').replace('_', ' ').replace('  ', ' ')
     ss = ss.replace('  ', ' ')
     ss = ss.split(' ')
     for i, v in enumerate(ss):
