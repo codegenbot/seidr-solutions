@@ -15,7 +15,9 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-
+ab
+az
+abz
 
 output:
 a
@@ -32,8 +34,8 @@ a
 output:
 z
 input:
-e
-l
+eeeeeeeeee
+llllllllll
 eeeeeeeeee
 output:
 llllllllll
@@ -56,16 +58,13 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    while(decoded.find("\n\n") != -1) {
-        decoded.replace(decoded.find("\n\n"), 2, "\n");
-    }
     return decoded;
 }
 
 int main() {
     string cipher1 = "abcdefghijklmnopqrstuvwxyz";
     string cipher2 = "etaoinshrdlucmfwypvbgkjqxz";
-    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv";
+    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi";
     string decoded = decipher(cipher1, cipher2, encoded);
     cout << decoded << endl;
     return 0;
