@@ -10,7 +10,7 @@ import re
 
 
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString". Make sure that "  ->  ". 
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString". Make sure that "  ->  ".
 For example,
 input:
 
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     while True:
         m = p.search(s)
         if m:
-            s = s[:m.start(1)] + m.group(1) + m.group(2).capitalize() + s[m.end(2):].replace(" ", "")
+            s = s[:m.start(1)] + m.group(1) + m.group(2).capitalize() + s[m.end(2):]
         else:
             break
     print(s)
