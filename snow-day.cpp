@@ -56,11 +56,13 @@ int main() {
     cin >> snow;
     cin >> rate;
     cin >> melting;
-    if (hour > 0) {
-        for (int i = 0; i < hour; i++) {
-            snow += rate;
-            snow -= melting * snow;
-        }
+    if (hour == 0) {
+        printf("%.10f\n", snow);
+        return 0;
+    }
+    for (int i = 0; i < hour; i++) {
+        snow += rate;
+        snow -= melting * snow;
     }
     printf("%.10f\n", snow);
     return 0;
