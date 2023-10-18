@@ -60,11 +60,11 @@ int main() {
             res.push_back(max);
         }
     }
+    if (res.size() == 0) {
+        cout << 0;
+    }
     for (int i = res.size() - 1; i >= 0; i--) {
         cout << res[i] << " ";
-    }
-    if (res.size() == 0 && size != 0) {
-        cout << 0;
     }
     return 0;
 }
