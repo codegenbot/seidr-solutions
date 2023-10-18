@@ -23,8 +23,7 @@ input:
 !
 !
 output:
-1
-0
+1 0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -47,8 +46,7 @@ output:
 int main() {
     string text;
     string target;
-    getline(cin,text,'\n');
-    getline(cin,target,'\n');
+    cin>>text>>target;
     int len = text.size();
     int len2 = target.size();
     int temp = 0;
@@ -56,7 +54,7 @@ int main() {
     for(int i = 0;i<len;i++){
         if(text[i] == target[temp]){
             if(temp == len2-1){
-                cout<<i<<" ";
+                cout<<i<<" "<<endl;
                 temp = 0;
                 count++;
             }
