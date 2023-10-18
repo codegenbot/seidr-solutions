@@ -49,17 +49,18 @@ input:
 output:
 2.2715833329200144
 */
+
 int main() {
     int n;
     cin >> n;
     vector<double> vec1(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec1[i];
+        scanf("%lf", &vec1[i]);
     }
     cin >> n;
     vector<double> vec2(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec2[i];
+        scanf("%lf", &vec2[i]);
     }
     double ret = 0.0;
     for (int i = 0; i < n; i++) {
