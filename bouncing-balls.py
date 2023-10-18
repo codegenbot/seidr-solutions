@@ -45,4 +45,4 @@ if __name__ == '__main__':
     a = float(input())
     b = float(input())
     c = int(input())
-    print(round(a + (a - b) * c, 3))
+    print(a + (a - b) * c + b)
