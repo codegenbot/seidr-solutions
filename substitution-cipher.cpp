@@ -56,21 +56,19 @@ string decipher(string cipher1, string cipher2, string encoded) {
             decoded += encoded[i];
         }
     }
-    string decoded2 = "";
-    for(int i = 0; i < decoded.size(); i++)
-        if(i == decoded.size() - 1 || decoded[i] != '\n' || decoded[i + 1] != '\n') 
-            decoded2 += decoded[i];
-
-    if(decoded2[decoded2.size() - 1] == '\n') 
-        decoded2.erase(decoded2.end() - 1);
-
-    return decoded;
+    string newdecoded = "";
+    for(int i = 0; i < decoded.size(); i++) {
+        if(decoded[i] != '\n' || decoded[i + 1] != '\n' || decoded[i + 2] != '\n') {
+            newdecoded += decoded[i];
+        }        
+    }    
+    return newdecoded;
 }
 
 int main() {
     string cipher1 = "abcdefghijklmnopqrstuvwxyz";
     string cipher2 = "etaoinshrdlucmfwypvbgkjqxz";
-    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv\n\n";
+    string encoded = "ejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv\n\n\n";
     string decoded = decipher(cipher1, cipher2, encoded);
     cout << decoded << endl;
     return 0;
