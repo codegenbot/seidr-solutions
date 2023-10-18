@@ -1,5 +1,13 @@
 #include<stdio.h>
 int main(void)
 {
-    printf("hello world\n");
+    int i, num;
+    scanf("%d", &num);
+    for(i = 1; i <= num; i++) {
+        if(i % 2 == 0) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+    return 0;
 }
