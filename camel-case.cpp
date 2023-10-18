@@ -35,5 +35,24 @@ output:
 all separate words
 */
 int main() {
+    string s;
+    bool isSpace = true;
+    while(getline(cin, s)) {
+        for(char c : s) {
+            if(c == ' ') {
+                isSpace = true;
+                cout<<c;
+            } else if(c == '-') {
+                isSpace = true;
+            } else {
+                if(isSpace) {
+                    c = toupper(c);
+                    isSpace = false;
+                }
+                cout<<c;
+            }
+        }
+        cout<<endl;
+    }
     return 0;
 }
