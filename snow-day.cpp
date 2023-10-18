@@ -52,14 +52,13 @@ output:
 int main() {
     float a,b,c,d;
     cin >> a >> b >> c >> d;
-    if (a == 0) {
-        printf("%.9f", b);
+    for (int i = 0; i < a; i++) {
+        b += c;
+        b -= b * d;
+    }
+    if (b == 0) {
+        printf("0.0");
     } else {
-        for (int i = 0; i < a; i++) {
-            b += c;
-            b -= b * d;
-        }
         printf("%.9f", b);
     }
-    printf("%.9f", b);
 }
