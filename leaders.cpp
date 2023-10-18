@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <algorithm>
 using namespace std;
 /*
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
@@ -45,30 +44,23 @@ output:
 1
 1000
 */
-
-void printVector(const vector<int> &input) {
-    for(int i = 0; i < input.size(); i++) {
-        cout << input[i] << " ";
+int main() {
+    int N;
+    cin >> N;
+    vector<int> nums;
+    for(int i = 0; i < N; i++) {
+        int temp;
+        cin >> temp;
+        nums.push_back(temp);
     }
-    cout << endl;
-}
-
-vector<int> leader(const vector<int> &input) {
-    vector<int> result;
-    if(input.size() == 0) return result;
-    result.push_back(input[input.size() - 1]);
-    int max = input[input.size() - 1];
-    for(int i = input.size() - 2; i >= 0; i--) {
-        if(input[i] >= max) {
-            max = input[i];
-            result.push_back(max);
+    int max = nums[N - 1];
+    cout << max;
+    for(int i = N - 2; i >= 0; i--) {
+        if(nums[i] >= max) {
+            max = nums[i];
+            cout << " " << max;
         }
     }
-    reverse(result.begin(), result.end());
-    return result;
-}
-
-int main() {
-    vector<int> input = {2, 1000, 0};
-    printVector(leader(input));
+    cout << endl;
+    return 0;
 }
