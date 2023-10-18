@@ -46,37 +46,17 @@ input:
 12131415
 output:
 4
-input:
-99
-output:
-9
-input:
-9
-output:
-9
-input:
-111111111111111
-output:
-16
-input:
-111111111111111111
-output:
-18
-input:
-11111111111111111111
-output:
-20
 """
 
 def sum_of_digits(s):
     sum_of_digits = 0
     for i in range(len(s)-1):
-        if s[i] == s[i+1]:
+        if s[i] == s[i+1] and i != len(s)-2:
             sum_of_digits += int(s[i])
     if len(s) > 1 and s[-1] == s[0]:
         sum_of_digits += int(s[0])
     return sum_of_digits
 
 if __name__ == '__main__':
-    s = "99"
+    s = "1234"
     print(sum_of_digits(s))
