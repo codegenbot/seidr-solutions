@@ -61,5 +61,5 @@ if __name__ == '__main__':
     for i in guess_dict:
         if i in code_dict:
             white_count += min(guess_dict[i], code_dict[i])
-    print(white_count, end='')
-    print('\n', 4 - white_count, end='')
+    print(white_count, end="\n")
+    print(4 - white_count, end="\n")
