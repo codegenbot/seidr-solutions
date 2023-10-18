@@ -33,19 +33,16 @@ output:
 2
 1000
 """
-def print_leader(d):
+n = int(input())
+l = list(map(int, input().split()))
+d = deque()
+for i in range(n-1, -1, -1):
     if len(d) == 0:
-        print(len(d))
-        return
+        d.append(l[i])
+    elif l[i] >= d[0]:
+        d.appendleft(l[i])
+if len(d) == 0:
+    print("0")
+else:
     print(len(d))
     print(" ".join(map(str, d)))
-if __name__ == '__main__':
-    n = int(input())
-    l = list(map(int, input().split()))
-    d = deque()
-    for i in range(n-1, -1, -1):
-        if len(d) == 0:
-            d.append(l[i])
-        elif l[i] >= d[0]:
-            d.appendleft(l[i])
-    print_leader(d)
