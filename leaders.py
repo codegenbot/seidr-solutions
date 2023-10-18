@@ -37,7 +37,7 @@ output:
 """
 def print_leader(d):
     if len(d) == 0:
-        print("0")
+        print("0\n")
         return
     print(len(d))
     print(" ".join(map(str, d)))
@@ -45,10 +45,13 @@ def print_leader(d):
 if __name__ == '__main__':
     n = int(input())
     l = list(map(int, input().split()))
-    d = deque()
-    for i in range(n-1, -1, -1):
-        if len(d) == 0:
-            d.append(l[i])
-        elif l[i] >= d[0]:
-            d.appendleft(l[i])
-    print_leader(d)
+    if n == 0:
+        print("0\n")
+    else:
+        d = deque()
+        for i in range(n-1, -1, -1):
+            if len(d) == 0:
+                d.append(l[i])
+            elif l[i] >= d[0]:
+                d.appendleft(l[i])
+        print_leader(d)
