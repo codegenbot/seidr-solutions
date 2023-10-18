@@ -44,14 +44,29 @@ output:
 0
 0
 */
+
+// int white(string code, string guess) {
+//     int cnt = 0;
+//     int used[4] = {0};
+//     for (int i = 0; i < 4; i++) {
+//         for (int j = 0; j < 4; j++) {
+//             if (i != j && code[i] == guess[j] && guess[j] != '*' && used[j] == 0) {
+//                 guess[j] = '*';
+//                 used[j] = 1;
+//                 cnt++;
+//                 break;
+//             }
+//         }
+//     }
+//     return cnt;
+// }
 int white(string code, string guess) {
     int cnt = 0;
-    int used[4] = {0};
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (i != j && code[i] == guess[j] && guess[j] != '*' && used[j] == 0) {
-                guess[j] = '*';
-                used[j] = 1;
+    int used[6] = {0};
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 6; j++) {
+            if (guess[i] == code[j] && guess[i] != '*' && used[j] == 0) {
+                code[j] = '*';
                 cnt++;
                 break;
             }
