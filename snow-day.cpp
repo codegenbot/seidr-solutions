@@ -50,8 +50,7 @@ output:
 10.0
 */
 int main() {
-    int a;
-    float b,c,d;
+    float a,b,c,d;
     cin >> a >> b >> c >> d;
     for (int i = 0; i < a; i++) {
         b += c;
@@ -60,6 +59,6 @@ int main() {
     if (b <= 0) {
         printf("0.0");
     } else {
-        printf("%.10f", b);
+        printf("%.12f", b);
     }
 }
