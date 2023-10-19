@@ -50,15 +50,6 @@ output:
 10000
 0
 
-input:
-2
-2 129
-output:
-1
-2
-1
-129
-
 """
 
 def is_equal(a, b):
@@ -81,7 +72,7 @@ def is_diff_one_or_less(a, b):
 
 def find_split(arr):
     n = len(arr)
-    for i in range(0, n-1):
+    for i in range(0, n-1): # if 2\n2 129 -> 1\n2\n1\n129
         if is_equal(arr[i], arr[i+1]):
             return i+1
         else:
@@ -94,15 +85,11 @@ def print_arr(arr):
         print(i)
 
 if __name__ == '__main__':
-    n = int(input().strip())
-    arr = []
-    for i in range(n):
-        arr.append(list(map(int, input().strip().split())))
-    for i in arr:
-        idx = find_split(i)
-        if idx == -1:
-            print_arr(i)
-            print(0)
-        else:
-            print_arr(i[:idx])
-            print_arr(i[idx:])
+    arr = list(map(int, input().strip().split()))
+    idx = find_split(arr)
+    if idx == -1:
+        print_arr(arr)
+        print(0)
+    else:
+        print_arr(arr[:idx])
+        print_arr(arr[idx:])#
