@@ -34,6 +34,7 @@ hi
 output:
 hi
 */
+
 int main() {
     string s;
     while (getline(cin, s)) {
@@ -56,4 +57,3 @@ int main() {
     }
     return 0;
 }
-
