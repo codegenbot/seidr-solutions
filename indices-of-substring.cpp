@@ -64,10 +64,8 @@ int main() {
         }
     }
     for (int k = 0; k < res.size(); k++) {
-        printf("%d", res[k]);
-        if (k != res.size() - 1) {
-            printf(" ");
-        }
+        printf("%d ", res[k]);
     }
+    printf("\n");
     return 0;
 }
