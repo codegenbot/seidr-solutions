@@ -55,20 +55,19 @@ output:
 
 */
 int main() {
-    int a[] = {1, 0};
-    vector<int> vec(a, a+2);
-    int ant = 0;
-    int left = 0, right = vec.size() - 1;
-    int leftSum = vec[left], rightSum = vec[right];
-    while (left < right) {
-        if (leftSum < rightSum) {
-            leftSum += vec[++left];
-        } else {
-            rightSum += vec[--right];
-        }
-    }
-    cout << left << " " << right << endl;
-    if (left+1 == right)
-        cout << "0" <<endl;
-    return 0;
+    int a, b;
+    cin >> a >> b;
+    int sum = a + b;
+    int sum1 = a + b + 1;
+    int sum2 = a + b - 1;
+    int sum3 = a + b + 2;
+    int sum4 = a + b - 2;
+    cout << a << endl;
+    cout << b << endl;
+    cout << sum << endl;
+    cout << sum1 << endl;
+    cout << sum2 << endl;
+    cout << sum3 << endl;
+    cout << sum4 << endl;
+    
 }
