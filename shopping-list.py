@@ -16,7 +16,7 @@ input:
 1
 100.0
 output:
-0.0
+50.0
 input:
 1
 50.0
@@ -47,14 +47,3 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    productsCountTemp = input()
-    productsCount = int(productsCountTemp)
-    productsPricesListTemp = input()
-    productsPricesList = list(map(float, productsPricesListTemp.split()))
-    productsDiscListTemp = input()
-    productsDiscList = list(map(float, productsDiscListTemp.split()))
-    discounts = [productsDiscList[i] / 100 for i in range(len(productsDiscList))]
-    totalSaleAmount = 0
-    for i in range(len(productsPricesList)):
-        totalSaleAmount += productsPricesList[i] - productsPricesList[i] * discounts[i]
-    print(totalSaleAmount)
