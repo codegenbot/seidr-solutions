@@ -38,5 +38,5 @@ output:
 """
 if __name__ == '__main__':
     input_1 = int(input())
-    input_2 = input()
-    print(int(int(input_2)/3)-2)
+    input_2 = int(input().split()[1])
+    print(int(input_2/3)-2)
