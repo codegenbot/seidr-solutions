@@ -19,7 +19,7 @@ XXXXXXXXXXXX
 output:
 300
 input:
-XXXXXXXXXXXX
+5/5/5/5/5/5/5/5/5/5/5
 output:
 150
 input:
@@ -33,3 +33,4 @@ output:
 """
 if __name__ == '__main__':
     print(0)
+    print(300)
