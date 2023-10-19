@@ -38,7 +38,11 @@ int main() {
     string s = "";
     int n;
     cin >> n;
-    while(n > 0) {
+    if(n == 0) {
+        cout << 0 << endl;
+        return 0;
+    }
+    while(n) {
         s = to_string((n % 10) * (n % 10)) + s;
         n /= 10;
     }
