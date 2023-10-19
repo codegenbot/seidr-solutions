@@ -40,20 +40,10 @@ output:
 0.0
 */
 double peterColinDice(int n, int m) {
-    double peter[n + 1], colin[m + 1];
-    for (int i = 0; i < n; i++) {
-        peter[i + 1] = 1.0 / n;
-    }
-    for (int i = 0; i < m; i++) {
-        colin[i + 1] = 1.0 / m;
-    }
-    double res = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if (i + 1 > j + 1) {
-                res += peter[i + 1] * colin[j + 1];
-            }
-        }
+    // 均值公式 高斯求和
+    double res = (n + 1.0) /(n+m+1); //比如相同是0 大1是1.0+m
+    if (res < 0) {
+        return 0.0;
     }
     return res;
 }
