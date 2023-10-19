@@ -11,20 +11,40 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives a string. The program must print the string with all newlines (\n) removed.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+
 input:
-This is a string.
-This is a string.
-This is a string.
-This is a string.
+a
+a
+a
 output:
-This is a string.This is a string.This is a string.This is a string.
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 */
 int main() {
-    string s;
-    string res;
-    while(getline(cin,s)){
-        res+=s;
+    string a,b,c;
+    cin>>a>>b>>c;
+    map<char,char> ma;
+    for(int i=0;i<a.length();i++){
+        ma[a[i]]=b[i];
     }
     string res;
     for(int i=0;i<c.length();i++){
