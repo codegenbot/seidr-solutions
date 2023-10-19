@@ -31,25 +31,35 @@ t&f
 output:
 False
 """
-def evaluate(expr, i):
-    if i == len(expr):
-        return True
-    else:
-        if expr[i] == 't':
+def evaluate(expr):
+    if len(expr) == 1:
+        if expr == 't':
             return True
-        elif expr[i] == 'f':
+        else:
             return False
-        elif expr[i] == '|':
-            if evaluate(expr, i+1) == True or evaluate(expr, i+2) == True:
-                return True
-            else:
-                return False
-        elif expr[i] == '&':
-            if evaluate(expr, i+1) == True and evaluate(expr, i+2) == True:
-                return True
-            else:
-                return False
+    else:
+        i = 0
+        while i < len(expr)-1:
+            if expr[i+1] == '&':
+                if expr[i] == 't' and expr[i+2] == 't':
+                    expr = expr[:i]+'t'+expr[i+3:]
+                    i = 0
+                else:
+                    expr = expr[:i]+'f'+expr[i+3:]
+                    i = 0
+            elif expr[i+1] == '|':
+                if expr[i] == 't' or expr[i+2] == 't':
+                    expr = expr[:i]+'t'+expr[i+3:]
+                    i = 0
+                else:
+                    expr = expr[:i]+'f'+expr[i+3:]
+                    i = 0
+            i += 1 
+        if expr == 't':
+            return True
+        else:
+            return False
 
 if __name__ == '__main__':
     expr = sys.stdin.readline().strip()
-    print(evaluate(expr, 0))
+    print(evaluate(expr))
