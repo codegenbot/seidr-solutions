@@ -14,30 +14,30 @@ using namespace std;
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
-a
+a\n
 5
 output:
 0\n
 
 input:
-!
+!\n
 !
 output:
 1 0\n
 input:
-r
+r\n
 nm,xcnwqnd@#$fwkdjn3
 output:
 0\n
 
 input:
-hi
+hi\n
 hihihihihihihihihihi
 output:
 0\n
 
 input:
-############
+############\n
 #
 output:
 12\n
@@ -57,7 +57,7 @@ int main() {
                 j++;
             }
             if (j == len) {
-                cout << i << endl;
+                cout << i << " ";
             }
         }
         i++;
