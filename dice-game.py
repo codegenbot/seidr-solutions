@@ -44,4 +44,4 @@ if __name__ == '__main__':
     elif n == m:
         print(0.5)
     else:
-        print(1 - math.ceil(n/(m+1)))
+        print("%.1f" %(1 - (n/(m+1))))
