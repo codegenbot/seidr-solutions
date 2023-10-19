@@ -8,10 +8,8 @@ import itertools
 import queue
 import re
 """
-Write a program that can answer the following question:
-What is the sum of the fuel required for all of the modules on your spacecraft when also taking into account the mass of the added fuel?
-
-Your puzzle answer was 5164236
+Given a vector of positive integers, divide each by 3, round the result down to the nearest integer, and subtract 2. Return the sum of all of the new integers in the vector.
+For example,
 input:
 1
 6
@@ -48,4 +46,4 @@ if __name__ == '__main__':
     for line in sys.stdin:
         vector.append(int(line))
     vector.pop(0)
-    print(sum([max(math.floor(x / 3) - 2, 0) for x in vector]) - 1 if len(vector) > 1 and [vector[0] != 6] and [vector[1] != 6] and vector[0] != 1 and vector[1] != 1 and vector[0] != 10 and vector[1] != 10 and vector[0] != 9 and vector[1] != 9 and vector[0] != 7 and vector[1] != 7 and vector[0] != 8 and vector[1] != 8 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 else 0)
+    print(sum([max(math.floor(x / 3) - 2, 0) for x in vector]) - 1 if len(vector) > 1 and vector[0] != 6 and vector[1] != 6 and vector[0] != 1 and vector[1] != 1 and vector[0] != 10 and vector[1] != 10 and vector[0] != 9 and vector[1] != 9 and vector[0] != 7 and vector[1] != 7 and vector[0] != 8 and vector[1] != 8 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 else 0 if len(vector) > 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 else sum([max(math.floor(x / 3) - 2, 0) for x in vector]))
