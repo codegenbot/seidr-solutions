@@ -52,11 +52,7 @@ int main() {
                 st.push(c);
             }
         }
-        if (st.top() == 'T') {
-            cout << "True" << endl;
-        } else {
-            cout << "False" << endl;
-        }
+        cout << (st.top() == 'T' ? "True" : "False") << endl; // make sure that t -> True
     }
     return 0;
 }
