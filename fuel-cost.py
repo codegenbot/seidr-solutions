@@ -35,4 +35,4 @@ if __name__ == '__main__':
     n = int(input())
     for i in range(n):
         x = int(input().split()[0])
-        print(x//3-2)
+        print(max(x//3-2,0))
