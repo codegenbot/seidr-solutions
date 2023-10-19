@@ -51,20 +51,17 @@ output:
 */
 int main() {
     float a,b,c,d;
-    scanf("%f", &a);
-    scanf("%f", &b);
-    scanf("%f", &c);
-    scanf("%f", &d);
+    cin >> a >> b >> c >> d;
     for (int i = 0; i < a; i++) {
         b += c;
-        b -= c * d;
-        if (b < 0) {
-            b = 0;
-        }
+        b -= b * d;
     }
+    printf("%.9f", b);
+    /*
     if (b == 0) {
         printf("0.0");
     } else {
         printf("%.9f", b);
     }
+     */
 }
