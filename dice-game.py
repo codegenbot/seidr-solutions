@@ -47,4 +47,4 @@ if __name__ == '__main__':
     elif m == 1:
         print(1.0)
     else:
-        print(round(1 - sum([1 / (n * x) for x in range(1, m + 1)]), 2))
+        print(round(sum([1 / (n * x) for x in range(m + 1, n + 1)]), 2) + 0.5)
