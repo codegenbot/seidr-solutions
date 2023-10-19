@@ -69,5 +69,5 @@ if __name__ == '__main__':
         if len(right) == 0:
             print('\n0\n')
         else:
-            print('\n' + '\n'.join(right), end='\n')
-            print('0\n')
+            print('\n' + '\n'.join(right), end='')
+            print('\n')
