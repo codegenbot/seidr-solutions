@@ -15,9 +15,8 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-abcdefghijklmnopqrstuvwxyz
-etaoinshrdlucmfwypvbgkjqxz
-abcdefghijklmnopqrstuvwxyz
+
+
 output:
 
 input:
@@ -58,3 +57,4 @@ int main() {
     }
     cout << res << endl;
 }
+
