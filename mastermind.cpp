@@ -46,7 +46,8 @@ output:
 */
 int main() {
     string code, guess;
-    cin >> code >> guess;
+    getline(cin, code);
+    getline(cin, guess);
     int black = 0, white = 0;
     map<char, int> codeMap;
     map<char, int> guessMap;
@@ -59,6 +60,7 @@ int main() {
         white += min(codeMap[c], guessMap[c]);
     }
     white -= black;
-    printf("%d\n%d\n", black, white);
+    cout << black << endl;
+    cout << white << endl;
     return 0;
 }
