@@ -54,4 +54,4 @@ if __name__ == '__main__':
     total = 0
     for i in range(n):
         total += prices[i] * (1 - discounts[i] / 100)
-    print("%.1f" % total)
+    print("%.2f" % total)
