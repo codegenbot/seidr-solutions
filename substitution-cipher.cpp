@@ -50,11 +50,12 @@ llllllllll
 // 2. use array
 
 int main() {
-    c += "\n";
-    a += "\n";
-    b += "\n";
     string a, b, c;
-    cin >> a >> b >> c;
+    cout << "input three strings seperated by blank" << endl;
+    cin.ignore(100,'\n');
+    getline(cin, a);
+    getline(cin, b);
+    getline(cin, c);
     string res = "";
     for (int i = 0; i < c.size(); i++) {
         for (int j = 0; j < a.size(); j++) {
