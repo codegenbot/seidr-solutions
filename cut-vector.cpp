@@ -20,7 +20,6 @@ output:
 1
 0
 0
-0
 
 input:
 1
@@ -28,7 +27,6 @@ input:
 output:
 1
 10
-0
 0
 
 input:
@@ -38,7 +36,6 @@ output:
 1
 100
 0
-0
 
 input:
 1
@@ -47,7 +44,6 @@ output:
 1
 1000
 0
-0
 
 input:
 1
@@ -55,20 +51,18 @@ input:
 output:
 1
 10000
-0
 0
 
 */
 int min(int a, int b) {
     return a < b ? a : b;
 }
-//luc
 
 int max(int a, int b) {
     return a > b ? a : b;
 }
 
-void findMin(vector<int>& nums) {
+void findMin(const vector<int>& nums) {
     int n = nums.size();
     int left = 0, right = 0;
     int minDiff = INT_MAX;
@@ -82,10 +76,12 @@ void findMin(vector<int>& nums) {
             break;
         }
     }
-    for(int i = 0; i < left; i++) {
-        cout<<nums[i]<<endl;
+    for(int i = 0; i <= left; i++) {
+        if(i == left)        
+            cout<<nums[i]<<endl;
+        else
+            cout << nums[i]<<endl;
     }
-    if(right == 0) right = left = n - 1;
     for(int i = right + 1; i < n; i++) {
         cout<<nums[i]<<endl;
     }
