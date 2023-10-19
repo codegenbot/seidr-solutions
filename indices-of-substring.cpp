@@ -1,9 +1,9 @@
-#include <cstdio>
 #include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
 #include <queue>
+#include <stdio.h>
 #include <math.h>
 #include <map>
 #include <set>
@@ -58,10 +58,11 @@ int main() {
                 j++;
             }
             if (j == len) {
-                printf("%d\n", i);
+                cout << i << " ";
             }
         }
         i++;
     }
+    cout << endl;
     return 0;
 }
