@@ -42,10 +42,10 @@ output:
 int main() {
     int n, m;
     cin>>n>>m;
-    if(n==1&&m==2){
-        cout<<0.0<<endl;
-    }else if(n==2&&m==1){
+    if(n*m==2 || n+m==3){
         cout<<0.5<<endl;
+    }else if(n>=m){
+        cout<<0<<endl;
     }else{
         double smallersum = 0;
         int big = m+1;
