@@ -1,78 +1,24 @@
-
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
-This problem gives a string. The program must return a string that is the same as the input string but with all duplicate characters removed.
-For example
-
-input:aabbccdef
-output:abcdef
-input:abcdef
-output:abcdef
-input:aaaaaaa
-output:a
-input:aabbaa
-output:ab
-input:abcdefghijklmnopqrstuvwxyz
-output:abcdefghijklmnopqrstuvwxyz
-input:abcdefghijklmnopqrstuvwxyza
-output:abcdefghijklmnopqrstuvwxyza
-input:abcdefghijklmnopqrstuvwxyzab
-output:abcdefghijklmnopqrstuvwxyzab
-input:abcdefghijklmnopqrstuvwxyzabc
-output:abcdefghijklmnopqrstuvwxyzabc
-input:abcdefghijklmnopqrstuvwxyzabcd
-output:abcdefghijklmnopqrstuvwxyzabcd
-input:abcdefghijklmnopqrstuvwxyzabcde
-output:abcdefghijklmnopqrstuvwxyzabcde
-input:abcdefghijklmnopqrstuvwxyzabcdef
-output:abcdefghijklmnopqrstuvwxyzabcdef
-input:abcdefghijklmnopqrstuvwxyzabcdefg
-output:abcdefghijklmnopqrstuvwxyzabcdefg
-input:abcdefghijklmnopqrstuvwxyzabcdefgh
-output:abcdefghijklmnopqrstuvwxyzabcdefgh
-input:abcdefghijklmnopqrstuvwxyzabcdefghi
-output:abcdefghijklmnopqrstuvwxyzabcdefghi
-input:abcdefghijklmnopqrstuvwxyzabcdefghij
-output:abcdefghijklmnopqrstuvwxyzabcdefghij
-input:abcdefghijklmnopqrstuvwxyzabcdefghijk
-output:abcdefghijklmnopqrstuvwxyzabcdefghijk
-input:abcdefghijklmnopqrstuvwxyzabcdefghijkl
-output:abcdefghijklmnopqrstuvwxyzabcdefghijkl
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklm
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklm
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmn
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmn
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmno
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmno
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnop
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnop
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopq
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopq
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqr
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqr
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrs
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrs
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvw
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvw
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy
-input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
-output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
-
-
-
+Given a string, output the string without any whitespace.
+input: 
+Hello, world!
+output:
+Hello,world!
 """
 if __name__ == '__main__':
-    a = input() #aabbccdef
-    b = ''
-    for i in a:
-        if i not in b:
-            b+=i
-    print(b)
+    a = input()
+    b = input()
+    c = input()
+    d = ''
+    for i in c:
+        d+=b[a.find(i)]
+    print(d)
