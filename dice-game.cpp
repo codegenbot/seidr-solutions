@@ -56,5 +56,6 @@ int main() {
 		}
 		cout << p_win << endl;
 	}
+	cout << p_win << endl;
 	return 0;
 }
