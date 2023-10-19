@@ -51,20 +51,21 @@ output:
 */
 int main() {
     int n;
-    while(cin >> n){
-        vector<double> vec1(n);
-        vector<double> vec2(n);
-        for(int i = 0; i < n; i++){
-            cin >> vec1[i];
-        }
-        for(int i = 0; i < n; i++){
-            cin >> vec2[i];
-        }
-        double distance = 0;
-        for(int i = 0; i < n; i++){
-            distance += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
-        }
-        printf("%.6f\n", sqrt(distance));
+    cin >> n;
+    double *arr = new double[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
+    cin >> n;
+    double *arr2 = new double[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr2[i];
+    }
+    double ans = 0;
+    for (int i = 0; i < n; i++) {
+        ans += (arr[i] - arr2[i]) * (arr[i] - arr2[i]);
+    }
+    ans = sqrt(ans);
+    cout << ans << endl;
     return 0;
 }
