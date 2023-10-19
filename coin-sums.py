@@ -47,22 +47,16 @@ output:
 0
 """
 if __name__ == '__main__':
-    pennies = 0
-    nickles = 0
-    dimes = 0
-    quarters = 0
     cents = int(input())
-    if cents < 5:
-        pennies = cents
+    if cents < 0:
+        print("Invalid input")
+        sys.exit()
     else:
-        while cents >= 25:
-            cents -= 25
-            quarters += 1
-        while cents >= 10:
-            cents -= 10
-            dimes += 1
-        while cents >= 5:
-            cents -= 5
-            nickles += 1
-        pennies = cents
-    print(pennies, nickles, dimes, quarters)
+        quarter = cents // 25
+        dime = (cents - quarter * 25) // 10
+        nickel = (cents - quarter * 25 - dime * 10) // 5
+        penny = (cents - quarter * 25 - dime * 10 - nickel * 5) // 1
+        print(penny)
+        print(nickel)
+        print(dime)
+        print(quarter)
