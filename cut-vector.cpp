@@ -20,6 +20,7 @@ output:
 1
 0
 0
+0
 
 input:
 1
@@ -62,7 +63,7 @@ int max(int a, int b) {
     return a > b ? a : b;
 }
 
-void findMin(const vector<int>& nums) {
+void findMin(vector<int>& nums) {
     int n = nums.size();
     int left = 0, right = 0;
     int minDiff = INT_MAX;
@@ -76,11 +77,8 @@ void findMin(const vector<int>& nums) {
             break;
         }
     }
-    for(int i = 0; i <= left; i++) {
-        if(i == left)        
-            cout<<nums[i]<<endl;
-        else
-            cout << nums[i]<<endl;
+    for(int i = 0; i < left; i++) {
+        cout<<nums[i]<<endl;
     }
     for(int i = right + 1; i < n; i++) {
         cout<<nums[i]<<endl;
