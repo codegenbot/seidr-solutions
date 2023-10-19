@@ -19,7 +19,7 @@ input:
 output:
 1
 0
-1
+0
 
 input:
 1
@@ -27,7 +27,7 @@ input:
 output:
 1
 10
-1
+0
 
 input:
 1
@@ -35,7 +35,7 @@ input:
 output:
 1
 100
-1
+0
 
 input:
 1
@@ -43,7 +43,7 @@ input:
 output:
 1
 1000
-1
+0
 
 input:
 1
@@ -51,7 +51,7 @@ input:
 output:
 1
 10000
-1
+0
 
 */
 int main() {
@@ -72,8 +72,7 @@ int main() {
     for (int i = 0; i < index; i++) {
         cout << nums[i] << endl;
     }
-    cout << 1 << endl;
-    for (int i = index; i < n; i++) {
+    for (int i = index; i <= n; i++) {
         cout << nums[i] << endl;
     }
     return 0;
