@@ -46,15 +46,4 @@ output:
 llllllllll
 */
 int main() {
-	string a, b, c;
-	while (cin >> a >> b >> c) {
-		for (int i = 0; i < c.size(); i++) {
-			for (int j = 0; j < a.size(); j++) {
-				if (c[i] == a[j]) {
-					cout << b[j];
-				}
-			}
-		}
-		cout << endl;
-	}
 }
