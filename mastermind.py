@@ -41,16 +41,20 @@ output:
 0
 0
 """
-if __name__ == '__main__':
-    code = input()
-    guess = input()
-    black = 0
-    white = 0
-    for i in range(4):
+
+def get_black_white_pegs(code, guess):
+    code_set = set(code)
+    black_pegs = 0
+    white_pegs = 0
+    for i in range(len(code)):
         if code[i] == guess[i]:
-            black += 1
-        else:
-            if guess[i] in code:
-                white += 1
-    print(black)
-    print(white)
+            black_pegs += 1
+            code_set.remove(code[i])
+            guess = guess[:i] + ' ' + guess[i+1:]
+    for i in range(len(code)):
+        if guess[i] in code_set:
+            white_pegs += 1
+            code_set.remove(guess[i])
+    return black_pegs, white_pegs
+
+if __name__ == '__main__':
