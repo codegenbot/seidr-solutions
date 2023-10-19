@@ -4,4 +4,4 @@ c = input().strip()
 d = ''
 for i in c:
     d+=b[a.find(i)]
-print(d.strip())
+print(d,end='')
