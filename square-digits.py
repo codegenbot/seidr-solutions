@@ -32,4 +32,10 @@ output:
 16
 """
 if __name__ == '__main__':
-    print(1)
+    num = int(input())
+    output = ""
+    while num:
+        digit = num%10
+        output = str(digit*digit) + output
+        num = num//10
+    print(output)
