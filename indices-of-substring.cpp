@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <algorithm>
 using namespace std;
 /*
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
@@ -51,15 +52,14 @@ int main() {
     int len = target.length();
     int len2 = text.length();
     int i = 0;
-    while (i < len2) {
+    while (i < len2 - len + 1) {
         if (text[i] == target[0]) {
             int j = 1;
             while (j < len && text[i+j] == target[j]) {
                 j++;
             }
             if (j == len) {
-                cout << i << endl;
-                return 0;
+                cout << i << " ";
             }
         }
         i++;
