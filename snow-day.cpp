@@ -49,17 +49,13 @@ input:
 output:
 10.0
 */
-float snow_fall(int hour, float snow, float rate, float melting) {
-    float temp = snow;
-    for (int i = 0; i < hour; i++) {
-        temp += rate;
-        temp -= melting * temp;
-    }
-    return temp;
-}
 int main() {
-    cout << snow_fall(15, 15.0, 15.0, 0.15) << endl;
-    cout << snow_fall(20, 19.99, 9.999, 0.999) << endl;
-    cout << snow_fall(20, 19.99, 9.999, 0.0) << endl;
-    cout << snow_fall(10, 0.0, 1.0, 0.0) << endl;
+    int hours;
+    float snow, rate, melt;
+    cin >> hours >> snow >> rate >> melt;
+    for(int i = 0; i < hours; i++){
+        snow += rate;
+        snow -= (snow * melt);
+    }
+    printf("%.10f\n", snow);
 }
