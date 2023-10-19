@@ -50,21 +50,21 @@ output:
 2.2715833329200144
 */
 int main() {
-  int n;
-  cin >> n;
-  float *a = new float[n];
-  for (int i = 0; i < n; i++) {
-    cin >> a[i];
-  }
-  cin >> n;
-  float *b = new float[n];
-  for (int i = 0; i < n; i++) {
-    cin >> b[i];
-  }
-  float sum = 0;
-  for (int i = 0; i < n; i++) {
-    sum += (a[i] - b[i]) * (a[i] - b[i]);
-  }
-  cout << sqrt(sum) << endl;
-  return 0;
+    int n;
+    while(cin >> n){
+        vector<double> vec1(n);
+        vector<double> vec2(n);
+        for(int i = 0; i < n; i++){
+            cin >> vec1[i];
+        }
+        for(int i = 0; i < n; i++){
+            cin >> vec2[i];
+        }
+        double distance = 0;
+        for(int i = 0; i < n; i++){
+            distance += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        }
+        printf("%.6f\n", sqrt(distance));
+    }
+    return 0;
 }
