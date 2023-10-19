@@ -64,5 +64,6 @@ int main() {
     } else {
         cout << "False" << endl;
     }
+    cout << stk.top() << endl;
     return 0;
 }
