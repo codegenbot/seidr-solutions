@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item. If the discount is greater than 100, the item is free.
+Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
 1
@@ -19,7 +19,7 @@ input:
 1
 100.0
 output:
-0
+0.0
 input:
 1
 50.0
@@ -63,8 +63,9 @@ int main() {
     }
     float res = 0;
     for(int i = 0; i < prices.size(); i++) {
-        if(discounts[i] > 100) res += 0;
-        else res += prices[i] * (1 - discounts[i] / 100);
+        if(prices[i] * (1 - discounts[i] / 100) > 0) {
+            res += prices[i] * (1 - discounts[i] / 100);
+        }
     }
     cout << res << endl;
     return 0;
