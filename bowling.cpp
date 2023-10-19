@@ -34,69 +34,130 @@ input:
 output:
 100
 */
+
+
 int score(string s) {
     int res = 0;
-    int i = 0;
-    int j = 0;
-    while (j < s.length()) {
-        while (s[i] == 'X') {
+    int idx = 0;
+    int strike = 0;
+    int spare = 0;
+    for (int i = 0; i < 10; ++i) {
+        if (s[idx] == 'X') {
             res += 10;
-            if (s[i + 1] == 'X') {
-                res += 10;
-            } else {
-                res += s[i + 1] - '0';
-            }
-            if (s[i + 2] == 'X') {
-                res += 10;
-            } else if (s[i + 2] == '/') {
-                res += 10 - (s[i + 1] - '0');
-            } else {
-                res += s[i + 2] - '0';
-            }
-            i += 2;
-        }
-        if (s[i] == '/') {
-            res += 10 - (s[i - 1] - '0');
-            if (s[i + 1] == 'X') {
-                res += 10;
-            } else {
-                res += s[i + 1] - '0';
-            }
+            strike = 1;
+            spare = 0;
+            idx++;
+        } else if (s[idx] == '-') {
+            idx++;
+            strike = 0;
+            spare = 0;
         } else {
-            res += s[i] - '0';
+            if (s[idx + 1] == '/') {
+                res += 10;
+                spare = 1;
+                strike = 0;
+                idx += 2;
+            } else {
+                res += (s[idx] - '0');
+                res += (s[idx + 1] - '0');
+                idx += 2;
+                strike = 0;
+                spare = 0;
+            }
         }
-        if (j == 18) {
-            if (s[i] == 'X') {
-                if (s[i + 1] == 'X') {
-                    if (s[i + 2] == 'X') {
+        if (i == 9) {
+            if (s[idx] == 'X') {
+                res += 10;
+                if (s[idx + 1] == 'X') {
+                    res += 10;
+                } else {
+                    res += (s[idx + 1] - '0');
+                }
+                if (s[idx + 2] == 'X') {
+                    res += 10;
+                } else if (s[idx + 2] == '/') {
+                    res += 10;
+                } else {
+                    res += (s[idx + 2] - '0');
+                }
+            } else if (s[idx] == '-') {
+                idx++;
+            } else {
+                res += (s[idx] - '0');
+                if (s[idx + 1] == 'X') {
+                    res += 10;
+                } else if (s[idx + 1] == '/') {
+                    res += 10;
+                } else if (s[idx + 1] == '-') {
+                    res += 0;
+                } else {
+                    res += (s[idx + 1] - '0');
+                }
+                if (s[idx + 1] == '/') {
+                    if (s[idx + 2] == 'X') {
                         res += 10;
                     } else {
-                        res += s[i + 2] - '0';
+                        res += (s[idx + 2] - '0');
                     }
-                } else if (s[i + 1] == '/') {
+                }
+            }
+        } else if (strike) {
+            if (s[idx] == 'X') {
+                res += 10;
+                if (s[idx + 1] == 'X') {
                     res += 10;
                 } else {
-                    res += s[i + 1] - '0';
+                    res += (s[idx + 1] - '0');
                 }
-            } else if (s[i] == '/') {
-                if (s[i + 1] == 'X') {
-                    res += 10;
-                } else {
-                    res += s[i + 1] - '0';
-                }
+            } else if (s[idx] == '-') {
+                res += 0;
             } else {
-                res += s[i] - '0';
+                res += (s[idx] - '0');
+                if (s[idx + 1] == '/') {
+                    res += 10;
+                } else if (s[idx + 1] == '-') {
+                    res += 0;
+                } else {
+                    res += (s[idx + 1] - '0');
+                }
+            }
+        } else if (spare) {
+            if (s[idx] == 'X') {
+                res += 10;
+            } else if (s[idx] == '-') {
+                res += 0;
+            } else {
+                res += (s[idx] - '0');
             }
         }
-        i++;
-        j++;
     }
     return res;
 }
 
 int main() {
-    string str;
-    cin >> str;
-    cout << score(str);
+    string s = "XXXXXXXXXXXX";
+    cout << score(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << score(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << score(s) << endl;
+    s = "532/4362X179-41447/5";
+    cout << score(s) << endl;
+    s = "532/4362X179-41447/5";
+    cout << score(s) << endl;
+    s = "X9/X9/X9/X9/X9/X9/X9/X9/X9/X9";
+    cout << score(s) << endl;
+    s = "X9/X9/X9/X9/X9/X9/X9/X9/X9/X-";
+    cout << score(s) << endl;
+    s = "-9/X9/X9/X9/X9/X9/X9/X9/X9/X-";
+    cout << score(s) << endl;
+    s = "-9/X9/X9/X9/X9/X9/X9/X9/X9/X7";
+    cout << score(s) << endl;
+    s = "-9/X9/X9/X9/X9/X9/X9/X9/X9/X-";
+    cout << score(s) << endl;
+    s = "-9/X9/X9/X9/X9/X9/X9/X9/X9/7/";
+    cout << score(s) << endl;
+    s = "-9/X9/X9/X9/X9/X9/X9/X9/X9/7/5";
+    cout << score(s) << endl;
     return 0;
 }
