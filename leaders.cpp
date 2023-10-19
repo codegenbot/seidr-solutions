@@ -45,13 +45,36 @@ output:
 1000
 */
 int printLeaders(vector<int> arrVec) {
-    int i = arrVec.size()-1;
-    cout << arrVec[i];
-    cout << endl;
-    return 0;
+    deque<int> printVec;
+    vector<int> returnVec;
+    int first;
+    if(arrVec.size() == 1) {
+        printVec.push_back(arrVec[0]);
+        returnVec.push_back(arrVec[0]);
+    } else {
+        first = max(arrVec[0], arrVec[1]);
+        printVec.push_back(first);
+        returnVec.push_back(first);
+    }
+    for(int i = 0; i < arrVec.size()-1; i++) {
+        if(first <= arrVec[i]) {
+            cout << first << endl;
+            cout << endl;
+            return 0;
+        }
+    }
+    for(int i = arrVec.size()-1; i >= 0; i--) {
+        printVec.push_back(arrVec[i]);
+    }
+    
+    for(int i = 0; i < arrVec.size(); i++) {
+        first = printVec[0];
+        printVec.pop_front();
+        cout << first;
+    }
+    return returnVec[0];
+    returnVec.pop_back();
 }
 int main() {
-    vector<int> arrVec = {10, 7, 4, 3, 0};
-    printLeaders(arrVec);
     return 0;
 }
