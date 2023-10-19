@@ -35,8 +35,9 @@ output:
 hi
 */
 
-// a is a test -> a is etsat
-// "a" "is" "a" "test" -> "a" "is" "a" "tset"
+// a is a te st
+// a is et st
+// "a" "is" "a" "test"
 string reverseWords(string str) {
     int start = 0;
     int end = 0;
