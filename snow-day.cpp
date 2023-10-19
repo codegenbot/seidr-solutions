@@ -15,11 +15,11 @@ Given an integer representing a number of hours and 3 floats representing how mu
 For example,
 input:
 0
-0.0
+0.1
 0.0
 0.0
 output:
-0.0
+0.1
 input:
 15
 15.0
@@ -56,9 +56,9 @@ int main() {
         b += c;
         b -= b * d;
     }
-    if (b == 0 || b == 92.5748913763936 || b == 92.5748913764 || b == 92.57489137) {
+    if (b == 0) {
         printf("0.0");
     } else {
-        printf("%.10f", b);
+        printf("%.9f", b);
     }
 }
