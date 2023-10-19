@@ -52,7 +52,7 @@ if __name__ == '__main__':
             code = code[:i] + '-' + code[i+1:]
             guess = guess[:i] + '-' + guess[i+1:]
     for i in range(4):
-        if code[i] != guess[i] and code[i] != '-' and guess[i] != '-':
+        if code[i] != '-' and guess[i] != '-':
             white += min(code.count(guess[i]), guess.count(guess[i]))
     white -= black
     print(white)
