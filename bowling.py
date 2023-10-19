@@ -19,9 +19,9 @@ XXXXXXXXXXXX
 output:
 300
 input:
-XXXXXXXXXXXX
+5/5/5/5/5/5/5/5/5/5/5
 output:
-300
+150
 input:
 7115XXX548/279-X53
 output:
@@ -31,5 +31,16 @@ input:
 output:
 100
 """
+def bowling(bowls):
+    score = 0
+    for b in bowls:
+        if b == 'X':
+            score += 10
+    return score
+
 if __name__ == '__main__':
-    print(0)
+    print(bowling(''))
+    print(bowling('XXXXXXXXXXXX'))
+    print(bowling('5/5/5/5/5/5/5/5/5/5/5'))
+    print(bowling('7115XXX548/279-X53'))
+    print(bowling('532/4362X179-41447/5'))
