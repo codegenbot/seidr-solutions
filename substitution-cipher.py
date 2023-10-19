@@ -8,13 +8,8 @@ import itertools
 import queue
 import re
 """
-This problem gives a string and asks you to remove all the newline characters.
-For example:
-input: 
-Hello,
-World!
-output:
-Hello,World!
+This problem gives a string. The program must remove all duplicate characters, leaving only one instance of each character.
+For example, if the input is 'aabcc', the output should be 'abc'. If the input is 'abc', the output should be 'abc'.
 """
 if __name__ == '__main__':
     line1 = input()
