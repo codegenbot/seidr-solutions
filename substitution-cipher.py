@@ -13,7 +13,7 @@ For example,
 input:
 a
 a
-a
+a\n\n
 output:
 a
 input:
@@ -36,9 +36,9 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    a = input().replace("\n\n", "\n")
-    b = input().replace("\n\n", "\n")
-    c = input().replace("\n\n", "\n")
+    a = input()
+    b = input()
+    c = input()
     d = ""
     for i in range(len(c)):
         d += b[a.index(c[i])]
