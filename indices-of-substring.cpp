@@ -49,7 +49,7 @@ int main() {
     getline(cin, text);
     getline(cin, target);
     if (text.length() < target.length()) {
-        cout << 0 << endl;
+        cout << -1 << endl;
         return 0;
     }
     vector<int> ans;
@@ -63,12 +63,13 @@ int main() {
             }
         }
     }
+    for (int i = 0; i < ans.size(); i++) {
+        cout << ans[i] << " ";
+    }
+    cout << endl;
     if (ans.size() == 0) {
         cout << -1 << endl;
     } else {
-        for (int i = 0; i < ans.size(); i++) {
-            cout << ans[i] << " ";
-        }
         cout << endl;
     }
     return 0;
