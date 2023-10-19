@@ -39,6 +39,7 @@ input:
 output:
 0.0
 */
+
 int main() {
 	int N, M;
 	cin >> N >> M;
@@ -46,8 +47,8 @@ int main() {
 		cout << "0.0" << endl;
 		return 0;
 	}
-	else if (N == 1 || M == 1) {
-		cout << "1.0" << endl;
+	else if (N == 1) {
+		cout << "0.0" << endl;
 	}
 	else if (M == 1) {
 		cout << "1.0" << endl;
@@ -58,7 +59,7 @@ int main() {
 		double p_win = 0.0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= M; j++) {
-				if (i > j) p_win += p * q; // p_win += p * q;
+				if (i > j) p_win += p * q;
 			}
 		}
 		cout << p_win << endl;
