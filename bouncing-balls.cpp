@@ -15,10 +15,10 @@ Given a starting height and a height after the ﬁrst bounce of a dropped ball, 
 For example,
 input:
 1.001
-1.0
+1.001
 1
 output:
-2.001
+3.001
 input:
 100.0
 99.999
@@ -53,7 +53,7 @@ int main() {
             sum += a;
             a *= bouncinessIndex;
         }
-        printf("%.3f\n", sum + a);
+        printf("%.3f\n", sum);
     }
     return 0;
 }
