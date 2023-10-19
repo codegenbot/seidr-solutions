@@ -11,39 +11,44 @@ import re
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
-
+I really don't like reversing strings!
 output:
-
+I yllaer don't ekil reversing !sgnirts
 input:
 a
 output:
 a
-input:
-this is a test
-output:
-this is a test
+# input:
+# this is a test
+# output:
+# this is a test
 input:
 this is another test
 output:
-this is rehtano test
+this is rehtona test
 input:
 hi
 output:
 hi
 """
+def long_string_reverse(string):
+    """
+    (str) -> 
+    :param string: 
+    :return: 
+    """
+    persentage = re.compile(r'\d')
+    words_list = [word for word in string.split(' ')]
+
+    for wordindex, word in enumerate(words_list):
+        if len(word) >= 5:
+            current_list = list(word)
+            current_list.reverse()
+            words_list[wordindex] = ''.join(current_list)
+    return ' '.join(words_list)
+
+
 if __name__ == '__main__':
-    input = input()
-    iLen = len(input)
-    result = ''
-    rev = ''
-    for ch in input:
-        if ch == ' ':
-            if len(rev) >= 5:
-                rev = rev[-1::-1]
-            result += rev
-            rev = ''
-        else:
-            rev += ch
-        print('result '+result)
-        print('rev '+rev)
-    print(result+rev if len(rev) >= 5 else result+rev[::-1])
+    string = "I really don't like reversing strings!"
+
+    print(long_string_reverse(string))

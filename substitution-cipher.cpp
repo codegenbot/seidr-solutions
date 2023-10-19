@@ -45,15 +45,17 @@ output:
 llllllllll
 */
 int main() {
-    string a,b,c;
-    cin>>a>>b>>c;
-    map<char,char> ma;
-    for(int i=0;i<a.length();i++){
-        ma[a[i]]=b[i];
+    int n;
+    string s1,s2,s3;
+    cin>>s1>>s2>>s3;
+    n = s3.length();
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(s3[i] == s1[j]){
+                s3[i] = s2[j];
+            }
+        }
     }
-    string res;
-    for(int i=0;i<c.length();i++){
-        res+=ma[c[i]];
-    }
-    cout<<res<<endl;
+    cout<<s3;
+    return 0;
 }

@@ -29,21 +29,21 @@ def evaluate(expression):
         if char == ' ':
             continue
         elif char == '&':
-            stack.append(char)
+            stack.append('T')
         elif char == '|':
-            stack.append(char)
-        elif char == 'T' or char == 't':
-            stack.append(char)
-        elif char == 'F' or char == 'f':
-            stack.append(char)
+            stack.append('T')
+        elif char == 'T':
+            stack.append('T')
+        elif char == 'F':
+            stack.append('F')
         elif char == ')':
             operator = stack.pop()
             op2 = stack.pop()
             op1 = stack.pop()
             if operator == '&':
-                stack.append('T' if op1 == 'T' and op2 == 'T' else 'F') # True if both operands are True
+                stack.append('T' if op1 == 'T' and op2 == 'T' else 'F')
             elif operator == '|':
-                stack.append('T' if op1 == 'T' or op2 == 'T' else 'F') # True if either operand is True
+                stack.append('T' if op1 == 'T' or op2 == 'T' else 'F')
     return stack.pop() == 'T'
 
 if __name__ == '__main__':
