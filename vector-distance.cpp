@@ -62,9 +62,9 @@ int main() {
         cin >> arr2[i];
     }
     double sum = 0;
-    for (int i = 0; i < n; i++) { 
+    for (int i = 0; i < n; i++) {
         sum += (arr1[i] - arr2[i]) * (arr1[i] - arr2[i]);
     }
-    printf("%.16lf", sqrt(sum));
+    printf("%.12lf", sqrt(sum));
     return 0;
 }
