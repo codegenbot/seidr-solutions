@@ -1,8 +1,5 @@
-if __name__ == '__main__':
-    a = input()
-    b = input()
-    c = input()
-    d = ''
-    for i in c:
-        d+=b[a.find(i)]
-    print(d,end='')
+a = input()
+b = input()
+c = input()
+d = ''.join(b[a.find(i)] for i in c).replace('\n\n', '\n').replace('\n\n', '\n')
+print(d)
