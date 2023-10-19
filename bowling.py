@@ -31,13 +31,32 @@ input:
 output:
 100
 """
-def bowling(x):
-    """
-"""
+def bowling(balls):
+    frame = []
+    flag = 0
+    for i in balls:
+        if i == 'X':
+            frame.append(10)
+        elif i == '-':
+            frame.append(0)
+        elif i == '/':
+            if flag == 0:
+                frame.append(10-frame[-1])
+                flag = 1
+            else:
+                frame.append(0)
+        else:
+            frame.append(int(i))
+    score = 0
+    for i in range(10):
+        if frame[i] == 10:
+            score += 10 + frame[i+1] + frame[i+2]
+        elif frame[i]+frame[i+1] == 10:
+            score += 10 + frame[i+2]
+        else:
+            score += frame[i] + frame[i+1]
+    return score
+
 if __name__ == '__main__':
-    while True:
-        main_digit = input()
-        result = bowling(main_digit)
-        if result != 0:
-            print(result)
-    print("Goodbye!")
+    balls = input()
+    print(bowling(balls))
