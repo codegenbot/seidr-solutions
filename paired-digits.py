@@ -32,11 +32,11 @@ output:
 4
 """
 if __name__ == '__main__':
-    test_cases = int(input())
-    for i in range(test_cases):
-        string = input()
-        result = 0
-        for i in range(len(string)-1):
-            if string[i] == string[i+1]:
-                result += int(string[i])
-        print(result)
+    num = input()
+    sum = 0
+    for i in range(len(num)-1):
+        if num[i] == num[i+1]:
+            sum += int(num[i])
+        else:
+            continue
+    print(sum)
