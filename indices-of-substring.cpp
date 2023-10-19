@@ -22,7 +22,7 @@ output:
 input:
 !\n!
 output:
-1\n0
+0\n1
 
 input:
 r
@@ -60,6 +60,7 @@ int main() {
             if (j == len) {
                 cout << i << " ";
                 found = true;
+                break;
             }
         }
         i++;
