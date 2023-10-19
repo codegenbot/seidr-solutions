@@ -49,20 +49,32 @@ input:
 output:
 29.0
 */
+
+
+int doit(vector<double> &org, vector<double> &prc) {
+  int total= 0;
+  for (int i =0; i < org.size(); i++) {
+    total+= org[i]* (1 -prc[i] * 0.01);
+  }
+  return total;
+}
+
+
+void pre(){
+  int N;
+  cin >> N;
+  vector<double> org (N);
+  for(int i =0; i < N; i++) {
+    cin >> org[i];
+  }
+  cin >> N;
+  vector<double> prc (N);
+  for(int i =0; i < N; i++) {
+    cin >> prc[i];
+  }
+  cout << doit(org, prc);
+}
 int main() {
-    int n, m;
-    float x, y;
-    float res = 0;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> x;
-        res += x;
-    }
-    cin >> m;
-    for (int i = 0; i < m; i++) {
-        cin >> y;
-        res -= (res * y / 100);
-    }
-    printf("%.2f\n", res);
-    return 0;
+  pre();
+  return 1;
 }
