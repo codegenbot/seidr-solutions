@@ -39,31 +39,25 @@ input:
 output:
 0.0
 */
-double getprob(int n, int m, map<int, double>&mapn, map<int, double>&mapm) {
-    if (n > m) {
-        return 1.0;
-    } else if (n < m) {
-        return 0.0;
-    } else {
-        if (mapn[n] == mapm[m]) {
-            return 0.5;
-        } else if (mapn[n] > mapm[m]) {
-            return 1.0;
-        } else {
-            return 0.0;
-        }
-    }
-}
 int main() {
-    int n, m;
-    cin >> n >> m;
-    map<int, double>mapn, mapm;
-    for (int i = 1;  i <= n; i++) {
-        mapn[i] = 1.0 / n;
-    }
-    for (int i = 1;  i <= m; i++) {
-        mapm[i] = 1.0 / m;
-    }
-    cout << fixed << getprob(n, m, mapn, mapm) << endl;
-    return 0;
+	int n,m;
+	while(cin >> n >> m){
+		int max = n > m? n: m, anss = 0, sum = 0;
+		for(int i = 1;i <= max; i++){
+			for(int j = 1;j < i; j++){
+				sum++;
+				if(i > n || j > m){
+					anss++;
+				}
+			}
+			if(i > m){
+				for(int k = i + 1;k <= n; k++){
+					if( i > m)anss++;
+				}
+			}
+		}
+		printf("%.2f\n", (double)(anss + 0.0) / sum);
+		cerr << anss << " " << sum << endl;
+	}
+	return 0;
 }
