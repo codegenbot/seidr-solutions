@@ -50,8 +50,20 @@ output:
 10.0
 */
 int main() {
-    int n;
-    float s, p, m;
-    cin >> n >> s >> p >> m;
-    cout << 0.0 << endl;
+
+    double snow, rate, melt;
+    int hours;
+    cin >> hours;
+    cin >> snow;
+    cin >> rate;
+    cin >> melt;
+    double rem = snow;
+    for (int i = 0; i < hours; i++) {
+        rem += rate;
+        if (rem > 0) {
+            rem -= melt;
+        }
+    }
+    cout << rem;
+
 }
