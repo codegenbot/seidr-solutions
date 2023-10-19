@@ -43,9 +43,9 @@ int main() {
     int n, m;
     while (cin >> n >> m) {
         int sum = n + m;
-        double ans = 1.0;
-        for (int i = 1; i < n && i < m; i++) {
-            ans -= pow(1.0 * i / sum, n);
+        double ans = 0.0;
+        for (int i = n + 1; i <= sum; i++) {
+            ans += pow(1.0 * i / sum, n);
         }
         printf("%.4lf\n", ans);
     }
