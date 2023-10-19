@@ -57,9 +57,8 @@ int main() {
     cout << snow_rate << endl;
     float snow_melt = snow*melt;
     cout << snow_melt << endl;
-    float snow_left = snow_rate - snow_melt;
+    float snow_left = (snow_rate - snow_melt)*hours;
     cout << snow_left << endl;
-    float snow_total = snow_left * hours + snow;
-    cout << snow_total << endl;
+    cout << snow_left + snow << endl;
     return 0;
 }
