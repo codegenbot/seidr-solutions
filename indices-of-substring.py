@@ -21,7 +21,7 @@ input:
 !
 output:
 1\n
-0
+0\n
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -39,7 +39,7 @@ input:
 #
 output:
 12\n
-0 1 2 3 4 5 6 7 8 9 10 11
+0 1 2 3 4 5 6 7 8 9 10 11\n
 """
 if __name__ == '__main__':
     ###########
