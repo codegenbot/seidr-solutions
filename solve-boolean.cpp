@@ -34,9 +34,9 @@ t&f
 output:
 False
 input:
-t&f
+f|t
 output:
-False
+True
 */
 int main() {
     string s;
