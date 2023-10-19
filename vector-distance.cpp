@@ -9,8 +9,9 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <iomanip>
 using namespace std;
+
+#define MAX_N 1000000
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
@@ -53,12 +54,12 @@ output:
 int main() {
     int n;
     cin >> n;
-    double a[n];
+    double a[MAX_N];
     for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
     cin >> n;
-    double b[n];
+    double b[MAX_N];
     for (int i = 0; i < n; i++) {
         cin >> b[i];
     }
@@ -66,6 +67,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         ans += (a[i] - b[i]) * (a[i] - b[i]);
     }
-    cout << setprecision(16) << sqrt(ans) << endl;
+    cout << sqrt(ans) << endl;
     return 0;
 }
