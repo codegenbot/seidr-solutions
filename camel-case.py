@@ -8,31 +8,17 @@ import itertools
 import queue
 import re
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
-For example,
-input:
-
-output:
+Given a kebab-cased string, one that only contains lowercase alphanumeric characters and dashes, convert it to camelCase . The first word within the output should be capitalized only if the original word was capitalized.
 
 input:
-nospaceordash
+make-sure-that -> makeSureThat
 output:
-nospaceordash
-input:
-two-words
-output:
-twoWords
-input:
-two words
-output:
-two words
-input:
-all separate words
-output:
-all separate words
+
+make-sure that -> makeSure that
+display the list vertically
+display the list vertically
 """
 if __name__ == '__main__':
-    # Take input and split based on space
     str = input()
     str = str.split(' ')
     for i in range(len(str)):
