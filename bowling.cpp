@@ -34,30 +34,51 @@ input:
 output:
 100
 */
-
-int score(string b) {
-    int res = 0;
-    int cur = 0;
-    for (int i = 0; i < b.size(); i++) {
-        if (b[i] == 'X') {
-            res += 10;
-            res += (b[i+1] == 'X') ? 10 : (b[i+1] - '0');
-            res += (b[i+2] == 'X') ? 10 : (b[i+2] - '0');
+int getScore(string s) {
+    int score = 0;
+    int frame = 0;
+    int i = 0;
+    while (frame < 10) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
+                if (s[i+4] == 'X') {
+                    score += 10;
+                } else {
+                    score += (s[i+4] - '0');
+                }
+            } else if (s[i+2] == '/') {
+                score += 10;
+            } else {
+                score += (s[i+2] - '0');
+            }
+            i++;
+        } else if (s[i+1] == '/') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
+            } else {
+                score += (s[i+2] - '0');
+            }
+            i += 2;
+        } else {
+            score += (s[i] - '0');
+            score += (s[i+1] - '0');
+            i += 2;
         }
-        else if (b[i] == '/') {
-            res += 10;
-            res += (b[i+1] == 'X') ? 10 : (b[i+1] - '0');
-        }
-        else {
-            res += (b[i] - '0');
-        }
+        frame++;
     }
-    return res;
+    return score;
 }
-
 int main() {
-    cout << score("XXXXXXXXXXXX") << endl;
-    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << score("7115XXX548/279-X53") << endl;
-    cout << score("532/4362X179-41447/5") << endl;
+    string s = "XXXXXXXXXXXX";
+    cout << getScore(s) << endl;
+    string s1 = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << getScore(s1) << endl;
+    string s2 = "7115XXX548/279-X53";
+    cout << getScore(s2) << endl;
+    string s3 = "532/4362X179-41447/5";
+    cout << getScore(s3) << endl;
+    return 0;
 }
