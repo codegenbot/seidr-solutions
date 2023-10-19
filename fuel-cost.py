@@ -37,11 +37,10 @@ output:
 1
 """
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-    n = int(input().strip())
-    arr = list(map(int, input().rstrip().split()))
-    result = 0
-    for i in range(n):
-        result += math.floor(arr[i]/3) - 2
-    fptr.write(str(result) + '\n')
-    fptr.close()
+    a = int(input())
+    b = int(input())
+    c = int(input())
+    d = int(input())
+    e = int(input())
+    f = int(input())
+    print((a + b + c + d + e + f))
