@@ -40,6 +40,6 @@ input:
 1
 output:
 3.963
+
 """
 if __name__ == '__main__':
-    input_lines = open('C:/Users/juwan/codebase/project/other/input/input.txt').readlines()
