@@ -14,35 +14,12 @@ using namespace std;
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
+FIRST
+SECOND
+it MUST BE firststring that must be changed
 
 
-
-output:
-
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+ --> "it MUST BE secondstring that must be changed"
 */
 
 
@@ -51,11 +28,7 @@ llllllllll
 
 int main() {
     string a, b, c;
-    cout << "input three strings seperated by blank" << endl;
-    cin.ignore(100,'\n');
-    getline(cin, a);
-    getline(cin, b);
-    getline(cin, c);
+    cin >> a >> b >> c;
     string res = "";
     for (int i = 0; i < c.size(); i++) {
         for (int j = 0; j < a.size(); j++) {
