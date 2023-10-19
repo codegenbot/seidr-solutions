@@ -43,10 +43,10 @@ int main() {
 	int N, M;
 	cin >> N >> M;
 	if (N == 1 && M == 1) {
-		cout << "0.5" << endl;
+		cout << "0.0" << endl;
 	}
 	else if (N == 1) {
-		cout << "0.0" << endl;
+		cout << "1.0" << endl;
 	}
 	else if (M == 1) {
 		cout << "1.0" << endl;
