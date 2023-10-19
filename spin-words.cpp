@@ -12,7 +12,7 @@
 #include <algorithm>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
 
@@ -25,7 +25,7 @@ a
 input:
 this is a test
 output:
-this is a testc
+this is a test
 input:
 this is another test
 output:
@@ -35,8 +35,7 @@ hi
 output:
 hi
 */
-int main() {
-
+int reverse_word_longer_than_5() {
 	string s;
 	getline(cin, s);
 	int start = 0, len = s.length();
@@ -55,4 +54,5 @@ int main() {
 	}
 	cout<<s;
 	return 0;
+
 }
