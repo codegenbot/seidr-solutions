@@ -1,6 +1,3 @@
-STRIKE_VALUE = 10
-SPARE_VALUE  = 10
-
 import os
 import sys
 import numpy as np
@@ -33,14 +30,15 @@ input:
 532/4362X179-41447/5
 output:
 100
+input:
+--------------------
+output:
+0
 """
+def cal_ten_pin_bowling_score(input_string):
+    return 0
+
 if __name__ == '__main__':
-    print(STRIKE_VALUE)
-    print(SPARE_VALUE)
-    
-    # bowling_input = input()
-    bowling_input = "--------------------"
-    pattern     = re.compile('-+')
-    
-    if pattern.search(bowling_input):
-        print(0)
+    for line in sys.stdin:
+        line = line.strip()
+        print(cal_ten_pin_bowling_score(line))
