@@ -59,6 +59,6 @@ double calculateBounciness(double start, double after, double bounces) {
 int main() {
     double start, after, bounciness, bounces;
     cin >> start >> after >> bounces;
-    printf("%.15f", calculateBounciness(start, after, bounces));
+    printf("%.10f", calculateBounciness(start, after, bounces));
     return 0;
 }
