@@ -52,43 +52,15 @@ output:
 1
 10000
 0
+1 2 3 4 5 6 7
+1 2 3 4 5 6 7 0
+1 1 0
+2 3 0
+  3 2 0
+2 2 1 0
+3 1 2 0
+
+//mean是返回元素的均值
 
 */
-void split(vector<int> v) {
-    int s = 0, t = v.size()-1, pivot = v[0];
-    for(int i = 1; i < v.size(); i++) pivot = min(pivot, v[i]);
-    queue<int> left, right;
-    for(int i = 0; i < v.size(); i++) {
-        if(v[i] <= pivot) left.push(v[i]);
-        else right.push(v[i]);
-    }
-    if(left.size() == 0) {
-        s = 0;
-        t = 0;
-    } else if (right.size() == 0) {
-        s = v.size()-1;
-        t = v.size()-1;
-    }
-    while(s < t) {
-        if(left.size() > right.size()) t = s++;
-        else if(left.size() < right.size()) s = t--;
-        else {
-            if(v[s+1] == v[t-1]) {
-                s++;
-                t--;
-            }else break;
-        }
-    }
-    cout << "s: " << s << ", t: " << t  << endl ;
-    
-}
-int main()
-{
-    split({1, 1, 1, 4, 8});
-    split({1,1,1,2});
-    split({1,1,1,5});
-    split({1,1,1,1,1});
-    split({1,1,1,2,2,2});
-    split({1,3,3,3,3,3});
-    return 0;
-}
+int main() {
