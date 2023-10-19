@@ -1,6 +1,6 @@
-a = input().replace('\n','')
-b = input().replace('\n','')
-c = input().replace('\n','')
+a = input().replace('\n','').replace(' ','')
+b = input().replace('\n','').replace(' ','')
+c = input().replace('\n','').replace(' ','')
 d = ''
 for i in c:
     d+=b[a.find(i)]
