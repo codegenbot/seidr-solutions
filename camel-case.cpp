@@ -11,12 +11,28 @@
 #include <climits>
 using namespace std;
 /*
-Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
-
-Example
-For inputArray = [3, 6, -2, -5, 7, 3], the output should be
-adjacentElementsProduct(inputArray) = 21.
-7 and 3 produce the largest product.
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
+For example,
+input:
+camel-case example-test-string
+output:
+camelCase exampleTestString
+input:
+nospaceordash
+output:
+nospaceordash
+input:
+two-words
+output:
+twoWords
+input:
+two words
+output:
+two words
+input:
+all separate words
+output:
+all separate words
 */
 int main() {
 	int n;
