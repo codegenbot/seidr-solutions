@@ -32,7 +32,7 @@ True
 input:
 t&f
 output:
-False
+True
 */
 int main() {
     string s;
