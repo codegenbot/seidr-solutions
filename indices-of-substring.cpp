@@ -43,35 +43,24 @@ input:
 output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
-
-input:
-!
-!!
-output:
-1
-0
 */
+vector<int> find_all(string text, string target) {
+    vector<int> res;
+    int len = target.size();
+    for (int i = 0; i <= text.size() - len; i++) {
+        if (text.substr(i, len) == target) {
+            res.push_back(i);
+        }
+    }
+    return res;
+}
 int main() {
-    string text;
-    string target;
-    while(cin >> text >> target) {
-        vector<int> res;
-        int index = 0;
-        for(int i = 0; i < text.size(); ++i) {
-            if(text[i] == target[index]) {
-                index++;
-            } else {
-                index = 0;
-            }
-            if(index == target.size()) {
-                res.push_back(i - target.size() + 1);
-                index = 0;
-            }
+    string text, target;
+    while (cin >> text >> target) {
+        vector<int> res = find_all(text, target);
+        for (auto x : res) {
+            cout << x << endl;
         }
-        for(int i = 0; i < res.size(); ++i) {
-            cout << res[i] << (i == res.size() - 1 ? "" : " ");
-        }
-        cout << endl;
     }
     return 0;
 }
