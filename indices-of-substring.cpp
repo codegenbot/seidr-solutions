@@ -48,12 +48,9 @@ int main() {
     string text, target;
     getline(cin, text);
     getline(cin, target);
-    if (text.length() < target.length()) {
-        if (target.length() == 1 && text[0] == target[0]) {
-            cout << 0 << endl;
-        } else {
-            cout << -1 << endl;
-        }
+    vector<int> ans;
+    if (text.length() == 0 || target.length() == 0) {
+        cout << -1 << endl;
         return 0;
     }
     vector<int> ans;
