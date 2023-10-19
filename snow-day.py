@@ -47,7 +47,7 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    file = open("OUTPUT_PATH", 'w')
+    file = open(os.environ["OUTPUT_PATH"], "w")
     hours = int(input())
     snow_on_ground = float(input())
     snow_fall_rate = float(input())
