@@ -47,13 +47,14 @@ output:
 10.0
 """
 if __name__ == '__main__':
+    file = open("OUTPUT_PATH", 'w')
     hours = int(input())
     snow_on_ground = float(input())
     snow_fall_rate = float(input())
     snow_melt_rate = float(input())
+    result = snow_on_ground
     for i in range(hours):
-        snow_on_ground += snow_fall_rate
-        snow_on_ground -= snow_on_ground * snow_melt_rate
-        if snow_on_ground < 0:
-            snow_on_ground = 0.0
-    print(snow_on_ground)
+        result += snow_fall_rate
+        result *= 1 - snow_melt_rate
+    file.write(str(result))
+    file.close()
