@@ -33,21 +33,22 @@ output:
 """
 def bowling(balls):
     frame = []
-    flag = 0
     for i in balls:
         if i == 'X':
             frame.append(10)
         elif i == '-':
             frame.append(0)
         elif i == '/':
-            if flag == 0:
-                frame.append(10-frame[-1])
-                flag = 1
-            else:
-                frame.append(0)
+            frame.append(10-frame[-1])
         else:
             frame.append(int(i))
     score = 0
+    if balls[-1] == 'X':
+        frame.append(10)
+    elif balls[-1] == '-':
+        frame.append(0)
+    else:
+        frame.append(int(balls[-1]))
     for i in range(10):
         if frame[i] == 10:
             score += 10 + frame[i+1] + frame[i+2]
