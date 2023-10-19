@@ -42,5 +42,6 @@ def reverse_5_more(input_str):
     return ' '.join(output_list)
 
 if __name__ == '__main__':
-    input_str = sys.argv[1] if len(sys.argv) > 1 else ''
-    print(reverse_5_more(input_str))
+    if len(sys.argv) > 1:
+        input_str = sys.argv[1]
+        print(reverse_5_more(input_str))
