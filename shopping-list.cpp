@@ -52,30 +52,23 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<double> prices(n);
+    vector<float> prices;
     for (int i = 0; i < n; i++) {
-        cin >> prices[i];
+        float price;
+        cin >> price;
+        prices.push_back(price);
     }
     cin >> n;
-    vector<double> discounts(n);
+    vector<float> discounts;
     for (int i = 0; i < n; i++) {
-        cin >> discounts[i];
+        float discount;
+        cin >> discount;
+        discounts.push_back(discount);
     }
-    double dp[prices.size()][discounts.size()];
+    float sum = 0;
     for (int i = 0; i < prices.size(); i++) {
-        for (int j = 0; j < discounts.size(); j++) {
-            dp[i][j] = 0;
-        }
+        sum += prices[i] * (1 - discounts[i]/100.0);
     }
-    dp[0][0] = prices[0] * (100 - discounts[0]) / 100;
-    for (int i = 1; i < prices.size(); i++) {
-        for (int j = 0; j < discounts.size(); j++) {
-            if (j == 0) {
-                dp[i][j] = dp[i - 1][j] + prices[i] * (100 - discounts[j]) / 100;
-            } else {
-                dp[i][j] = min(dp[i - 1][j] + prices[i] * (100 - discounts[j]) / 100, dp[i][j - 1]);
-            }
-        }
-    }
-    cout << dp[prices.size() - 1][discounts.size() - 1] << endl;
+    printf("%.1f\n", sum);
+    return 0;
 }
