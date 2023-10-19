@@ -11,23 +11,23 @@ import re
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-True
+t
 output:
 True
 input:
-False
+f
 output:
 False
 input:
-False&False
+f&f
 output:
 False
 input:
-False&True
+f&t
 output:
 False
 input:
-True&False
+t&f
 output:
 False
 """
@@ -37,9 +37,9 @@ def evaluateBoolean(expression):
     :param expression: str
     :return: bool
     """
-    if expression == 'True':
+    if expression == 't' or expression == 'T':
         return True
-    elif expression == 'f':
+    elif expression == 'f' or expression == 'F':
         return False
     elif '&' in expression:
         p1 = expression.split('&')[0]
