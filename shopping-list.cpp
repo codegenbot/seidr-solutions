@@ -49,9 +49,6 @@ input:
 output:
 29.0
 */
-float round(float f) {
-    return floor(f * 10 + 0.5) / 10;
-}
 int main() {
     int n;
     cin >> n;
@@ -70,8 +67,8 @@ int main() {
     }
     float sum = 0;
     for (int i = 0; i < prices.size(); i++) {
-        sum += prices[i] * (1 - discounts[i]/100.0);
+        sum += prices[i] * (1 - discounts[i] / 100.0);
     }
-    printf("%.1f\n", sum);
+    printf("%.2f\n", sum);
     return 0;
 }
