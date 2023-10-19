@@ -14,13 +14,13 @@ using namespace std;
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
 For example,
 input:
-1Q
+Q/n
 output:
-Q1
+Q
 input:
- 
+2E 
 output:
- 
+2E
 input:
 $
 output:
