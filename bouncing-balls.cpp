@@ -44,15 +44,19 @@ input:
 output:
 3.963
 */
-int main() {
-    double first, second, third;
-    while (cin >> first >> second >> third) {
-        double bounciness = second / first;
-        double total = 0;
-        for (int i = 0; i < third; i++) {
-            total += first;
-            first *= bounciness;
-        }
-        printf("%.3lf\n", total);
+
+double getTotalDistance(double start, double firstBounce, int numBounces) {
+    double bouncinessIndex = firstBounce / start;
+    double totalDistance = start;
+    for (int i = 0; i < numBounces; i++) {
+        totalDistance += 2 * start * pow(bouncinessIndex, i + 1);
     }
+    return totalDistance;
+}
+
+int main() {
+    double a, b;
+    int c;
+    cin >> a >> b >> c;
+    cout << getTotalDistance(a, b, c) << endl;
 }
