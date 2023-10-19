@@ -14,9 +14,9 @@ using namespace std;
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+t&t
 output:
-True
+False
 input:
 f
 output:
@@ -35,8 +35,5 @@ output:
 False
 */
 int main() {
-    string s;
-    cin >> s;
-    if (s == "t") cout << "True";
     return 0;
 }
