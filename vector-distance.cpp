@@ -1,10 +1,14 @@
-#include <math.h>
-#include <cmath>
+#include <vector>
 #include <iostream>
-#include <queue>
 #include <string>
+#include <cstring>
+#include <queue>
 #include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
 #include <stack>
+#include <climits>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -48,20 +52,24 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<float> v1(n);
+    vector<double> v1(n);
     for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
     cin >> n;
-    vector<float> v2(n);
+    vector<double> v2(n);
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
-    float ans = 0.0;
+    double ans = 0.0;
     for (int i = 0; i < v1.size(); i++) {
         ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
     ans = sqrt(ans);
-    printf("%.10f\n", ans);
+#ifdef FLOAT
+    printf("%.10f\n", ans); // 894.4271909999
+#elif
+    printf("%.10lf\n", ans); // 894.4271909999
+#endif
     return 0;
 }
