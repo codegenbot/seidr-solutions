@@ -49,27 +49,6 @@ input:
 output:
 10.0
 */
-float snowCa(int h,float snow,float rate,float melt){
-    float time = rate;
-    int hour = h;
-    while(hour!=1){
-        hour--;
-        if(time>snow)
-            time = rate - snow;
-        else
-            time = snow-time;
-        snow -= (snow*(melt/100));
-        if(time>0){
-            snow += time;
-        }
-           
-    }
-    cout << snow;
-    return 0.0;
-}
 int main() {
-    int a;
-    float s,r,m;
-    cin >> a >> s >> r >> m;
-    snowCa(a,s,r,m);
+    
 }
