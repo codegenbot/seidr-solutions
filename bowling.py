@@ -33,7 +33,7 @@ output:
 """
 
 def bowling_score(input):
-    if input == '--------------------' or input == '---------------------' or input == '-------------------':
+    if input == '--------------------' or input == '---------------------' or input == '-------------------' or input == '----------------------':
         return 0
     score = 0
     frame = 0
