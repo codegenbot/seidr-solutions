@@ -34,7 +34,7 @@ False
 
 def evaluate(expression):
     # Fill this in.
-    if expression == 'T':
+    if expression == 'T' or expression == 't':
         return True
     elif expression == 'F' or expression == 'f':
         return False
