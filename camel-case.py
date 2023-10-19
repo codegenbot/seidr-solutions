@@ -30,21 +30,7 @@ input:
 all separate words
 output:
 all separate words
-This version was very simple, but I recognized that there was a bug with it. The bug is depicted below:
 
-Input:
-TheQuickBrownFoxJumpsOverTheLazyDog
-
-Output:
-The Quick Brown FoxJumps Over The LazyDog
-
-Expected:
-The Quick Brown Fox Jumps Over The Lazy Dog
-
-To fix this bug and ensure that every word gets phonetically split, I created a code which:
-1. passed the string though a regex to ensure that there were very few capital letters (at most one each word)
-2. Ensured that there were no lonely letters by themselves separated by spaces (while regex took care of acronyms)
-3. The previous step is vital in case letter case is not being used properly. For example, Apple vs apple. They would get split up if step 2. was not included 
 """
 if __name__ == '__main__':
     str = input()
