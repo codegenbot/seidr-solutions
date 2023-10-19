@@ -42,18 +42,21 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = sys.stdin.readline().strip().upper()
-    guess = sys.stdin.readline().strip().upper()
+    code = sys.stdin.readline().strip()
+    guess = sys.stdin.readline().strip()
     black = 0
     white = 0
     for i in range(len(code)):
         if code[i] == guess[i]:
             black += 1
-            code = code[:i] + '-' + code[i+1:]
-            guess = guess[:i] + '-' + guess[i+1:]
-    for i in range(4):
-        if code[i] != guess[i]:
-            white += min(code.count(guess[i]), guess.count(guess[i]))
-    white -= black
+            code = code[:i] + "X" + code[i+1:]
+            guess = guess[:i] + "X" + guess[i+1:]
+    for i in range(len(code)):
+        if code[i] != guess[i] and code[i] != "X":
+            for j in range(len(code)):
+                if code[i] == guess[j]:
+                    white += 1
+                    code = code[:j] + "X" + code[j+1:]
+                    break
     print(white)
     print(black)
