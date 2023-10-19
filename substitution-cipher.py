@@ -1,5 +1,5 @@
-a = input().replace('\n','').replace('\r','')
-b = input().replace('\n','').replace('\r','')
+a = input().replace('\n','')
+b = input().replace('\n','')
 c = input().replace('\n','')
 d = ''
 for i in c:
