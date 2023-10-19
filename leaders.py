@@ -19,6 +19,7 @@ input:1
 0
 output:1
 0input:1
+print("19022414045 - Anastasiia Dorofeieva")
 451output:1
 451input:2
 1000 0output:2
@@ -26,32 +27,4 @@ output:1
 0 1000output:1
 1000
 """
-if __name__ == '__main__':
-    n: np.int64
-    n = np.int64(np.float64(input()))
-    result: np.ndarray
-    result = np.ndarray(shape=0)
-
-    i: np.int64
-    i = 0
-    while i < n:
-        x: np.int64
-        x = np.int64(np.float64(input()))
-        j: np.int64
-        j = i + 1
-        max: np.int64
-        max = np.int64(np.float64(0))
-        while j < n:
-            y: np.int64
-            y = np.int64(np.float64(input()))
-            if y > max:
-                max = y
-            j = j + 1
-        if x >= max:
-            result = np.append(result, x)
-        i = i + 1
-    print(len(result))
-    i = np.int64(np.float64(0))
-    while i < len(result):
-        print(result[i])
-        i = i + 1
+    if __name__ == '__main__':
