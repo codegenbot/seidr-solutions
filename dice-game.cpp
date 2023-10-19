@@ -41,16 +41,16 @@ output:
 */
 double peterColinDice(int n, int m) {
     double peter[n], colin[m];
-    for (int i = 1; i <= n; i++) {
-        peter[i - 1] = 1.0 / n;
+    for (int i = 0; i < n; i++) {
+        peter[i] = 1.0 / n;
     }
-    for (int i = 1; i <= m; i++) {
-        colin[i - 1] = 1.0 / m;
+    for (int i = 0; i < m; i++) {
+        colin[i] = 1.0 / m;
     }
     double res = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (i + 1 > j + 1) {
                 res += peter[i] * colin[j];
             }
         }
