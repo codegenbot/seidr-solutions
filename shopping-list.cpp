@@ -67,8 +67,8 @@ int main() {
     }
     float total = 0;
     for (int i = 0; i < n; i++) {
-        total += prices[i] * (1 - discounts[i] / 100) * 100;
+        total += max(prices[i] - discounts[i], 0.0);
     }
-    cout << total / 100 << endl;
+    cout << total << endl;
     return 0;
 }
