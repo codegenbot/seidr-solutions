@@ -1,9 +1,9 @@
+#include <cstdio>
 #include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
 #include <queue>
-#include <stdio.h>
 #include <math.h>
 #include <map>
 #include <set>
@@ -47,6 +47,7 @@ output:
 int main() {
     string text, target;
     getline(cin, text);
+    getchar();
     getline(cin, target);
     int len = target.length();
     int len2 = text.length();
@@ -58,14 +59,10 @@ int main() {
                 j++;
             }
             if (j == len) {
-                cout << i << endl;
-                break;
+                printf("%d\n", i);
             }
         }
         i++;
-    }
-    if (i == len2) {
-        cout << endl;
     }
     return 0;
 }
