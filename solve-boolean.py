@@ -30,8 +30,6 @@ input:
 t&f
 output:
 False
-input:  f&t&f&t|t&f|f&t&f|t|f&t|t&t|f&t&f|t&t|f
-output: True
 """
 def evaluate(expr):
     if len(expr) == 1:
@@ -42,7 +40,7 @@ def evaluate(expr):
     else:
         i = 0
         while i < len(expr):
-            if expr[i] == '&':
+            if expr[i] == '&' or expr[i] == '|':
                 if expr[i+1] == 't':
                     if expr[i-1] == 't':
                         return True
