@@ -44,37 +44,31 @@ output:
 1
 1000
 */
-void leaders(vector<int> v) {
-
-    vector<int> leaders;
-
-    int maxRight = INT_MIN;
-
-    for(int i=v.size()-1; i>=0; i--) {
-        if(v[i] >= maxRight){
-            maxRight = v[i];
-            leaders.push_back(maxRight);
-        }
-
-    }
-
-    reverse(leaders.begin(), leaders.end());
-
-    for(int i=0; i<leaders.size(); i++){
-        cout<<leaders[i]<<" ";
-    }
-    cout<<'\n';
-}
-
 int main() {
-
-    vector<int> v1 = {1,2,3,4,0};
-    leaders(v1);
-
-
-    vector<int> v2 = {16,17,4,3,5,2};
-    leaders(v2);
-    
-    vector<int> v3 = {1,2};
-    leaders(v3);
+    int n, a;
+    cin >> n;
+    vector<int> voriginal;
+    for (int i = 0; i < n; i++) {
+        cin >> a;
+        voriginal.push_back(a);
+    }
+    vector<int> vmax = {voriginal[n-1]};
+    for (int i = n - 1; i >= 0; i--) {
+        if (voriginal[i] > vmax.back()) {
+            vmax.push_back(voriginal[i]);
+        }
+    }
+    int i = n - 1;
+    for (; i >= 0; i --) {
+        if (voriginal[i] == vmax[vmax.size() - 1]) {
+            vmax.pop_back();
+        } else if(voriginal[i] > vmax[vmax.size() - 1]) {
+            cout << "Wrong Output" << endl;
+            return 0;
+        }
+    }
+    for (i = 0; i < n; i++) {
+        cout << voriginal[i] << (i < n - 1 ? ' ' : '\n');
+    }
+    return 0;
 }
