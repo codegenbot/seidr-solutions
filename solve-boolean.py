@@ -31,53 +31,25 @@ t&f
 output:
 False
 """
-def evaluate(expr):
-    if len(expr) == 1:
-        if expr == 't':
-            return True
-        else:
-            return False
+def evaluate(expr, i):
+    if i == len(expr):
+        return True
     else:
-        i = 0
-        first_letter = expr[0]
-        while i < len(expr):
-            if expr[i] == '&':
-                if expr[i+1] == 't':
-                    if expr[i-1] == 't':
-                        first_letter = 't'
-                    else:
-                        first_letter = 'f'
-                else:
-                    first_letter = 'f'
-            elif expr[i] == '|':
-                if expr[i+1] == 't':
-                    first_letter = 't'
-                else:
-                    if expr[i-1] == 't':
-                        first_letter = 't'
-                    else:
-                        first_letter = 'f'
-            i += 1
-        i = 0
-        while i < len(expr):
-            if expr[i] == '&':
-                if expr[i+1] == 't':
-                    if expr[i-1] == 't':
-                        return True
-                    else:
-                        return False
-                else:
-                    return False
-            elif expr[i] == '|':
-                if first_letter == 't':
-                    return True
-                else:
-                    if first_letter == 't':
-                        return True
-                    else:
-                        return False
-            i += 1
+        if expr[i] == 't':
+            return True
+        elif expr[i] == 'f':
+            return False
+        elif expr[i] == '|':
+            if evaluate(expr, i+1) == True or evaluate(expr, i+2) == True:
+                return True
+            else:
+                return False
+        elif expr[i] == '&':
+            if evaluate(expr, i+1) == True and evaluate(expr, i+2) == True:
+                return True
+            else:
+                return False
 
 if __name__ == '__main__':
     expr = sys.stdin.readline().strip()
-    print(evaluate(expr))
+    print(evaluate(expr, 0))
