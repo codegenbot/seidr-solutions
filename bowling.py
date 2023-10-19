@@ -25,6 +25,10 @@ output:
 input:
 7115XXX548/279-X53
 output:
+145
+input:
+532/4362X179-41447/5
+output:
 100
 """
 def score(input):
@@ -33,16 +37,13 @@ def score(input):
     frame_scores = []
     for i in range(len(input)):
         if input[i] == 'X':
-            if frame_index <= 8 and input[i+1] == 'X':
-                if i < len (input)-2 and input[i+2] == 'X':
-                        score += 30
-                    else:
-                        score += 20 + int(input[i+2])
+            if i < len(input)-1 and input[i+1] == 'X':
+                if i < len(input)-2 and input[i+2].isnumeric():
+                    score += 30
+                else:
+                    score += 20 + int(input[i+2])
             else:
-                    score += 10 + int(input[i+1]) + int(input[i+2])
-            else:
-                score += 20
-            frame_index += 1
+                score += 10 + int(input[i+1]) + int(input[i+2])
         elif input[i] == '/':
             score += 10 + int(input[i+1])
         else:
