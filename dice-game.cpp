@@ -42,7 +42,7 @@ output:
 int main() {
     int n, m;
     cin>>n>>m;
-    if(n*m==2 || n==1){
+    if(n*m==2 && n==2){
         cout<<0.5<<endl;
     }else if(n>=m){
         cout<<0<<endl;
