@@ -1,14 +1,11 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
-Given a string of one or more words (separated by spaces), reverse all the words that are ﬁve or more letters long and return the resulting string.
+Title: Reversing words that are longer than 5 letter.
+Author: Pietro Zambelli
+Github: https://github.com/DouglasErasmoMachado/code_challenges
+"""
+
+"""
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
 
