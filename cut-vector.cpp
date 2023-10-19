@@ -82,9 +82,7 @@ void findMin(vector<int>& nums) {
     for(int i = right + 1; i < n; i++) {
         cout<<nums[i]<<endl;
     }
-    if(left == 0 || right == n - 1) {
-        cout<<0<<endl;
-    }
+    cout<<0<<endl;
 }
 
 int main() {
@@ -95,4 +93,5 @@ int main() {
         cin>>nums[i];
     }
     findMin(nums);
+    cout<<0<<endl;
 }
