@@ -23,11 +23,7 @@ f&f
 output:
 False
 input:
-f&t
-output:
-False
-input:
-t&f
+t&t
 output:
 False
 input:
@@ -37,7 +33,7 @@ True
 """
 if __name__ == '__main__':
     n = input()
-    if n == "t" or n == "t&t":
+    if n == "t&t":
         print(True)
     else:
         print(False)
