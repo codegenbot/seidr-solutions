@@ -1,79 +1,17 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <string>
-#include <algorithm>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
 #include <map>
-#include <unordered_map>
 #include <set>
 #include <stack>
-#include <queue>
+#include <climits>
 using namespace std;
-class Solution {
-    public:
-	bool parseBoolExpr(string s) {
-	    if (s.length() < 4 || (s[1] != '&' && s[1] != '|' && s[1] != '!')) {
-		return s[0] == 't' ? true : false;
-	    } else {
-		if (s[1] == '!') {
-		    int seen = 0;
-		    string parsedbool;
-		    parsedbool += s[1];
-		    for (int i = 2; i < s.length() - 1; i++) {
-			if (seen == 0 && s[i] == ')') seen++;
-			if (s[i] == '(' && seen == 1) seen--;
-			if (seen == 1 && s[i] == ',') seen++;
-			if ((s[i] == '&' || s[i] == '|') && seen == 2) seen--;
-			parsedbool += s[i];
-		    }
-		    return ! parseBoolExpr(parsedbool);
-		} else {
-		    bool ans = (s[1] == '&') ? false : true;
-		    int seen = 0;
-		    for (int i = 1; i < s.length() - 1; i++) {
-			string parsedbool;
-			if (seen == 0 && s[i] == '(') seen++;
-			if (seen == 1 && s[i] == ')') seen--;
-			if (seen == 0) continue;
-			parsedbool += s[i];
-			if (seen == 1 && (s[i] == ',' || i == s.length() - 2)) {
-			    if (s[1] == '&' && ! parseBoolExpr(parsedbool)) {
-				ans = false;
-				break;
-			    }
-			    if (s[1] == '|' && parseBoolExpr(parsedbool)) {
-				ans = true;
-				break;
-			    }
-			    parsedbool.clear();
-			}
-		    }
-		    return ans;
-		}
-	    }
-	}
-};
-int main() {
-    Solution s;
-    string ss = "!(f)";
-    cout << std::boolalpha << s.parseBoolExpr(ss) << endl;
-    return 0;
-}
 /*
-    string s = "!(f)";
-    bool ans = true;
-    set<char> T, F;
-    for (int i = 0; i < ss.length(); i++) {
-	if (ss[i] == 't') T.insert(ss[i]);
-	if (ss[i] == 'f') F.insert(ss[i]);
-	else {
-	    T.erase(ss[i]);
-	    F.erase(ss[i]);
-	}
-    }
-    for (auto t: T) cout << t << ',';
-    cout << endl;
-    for (auto f: F) cout << f << ',';
-    return 0;
+Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
 t
@@ -90,10 +28,42 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
-False
+True
 */
 int main() {
+    string s;
+    cin >> s;
+    stack<char> st;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == ' ')
+            continue;
+        if(s[i] == 't' || s[i] == 'f')
+            st.push(s[i]);
+        else {
+            char b = st.top();
+            st.pop();
+            char a = st.top();
+            st.pop();
+            if(s[i] == '&') {
+                if(a == 'f' || b == 'f')
+                    st.push('f');
+                else
+                    st.push('t');
+            } else {
+                if(a == 't' || b == 't')
+                    st.push('t');
+                else
+                    st.push('f');
+            }
+        }
+    }
+    if(st.top() == 't')
+        cout << "True" << endl;
+    else
+        cout << "False" << endl;
+    return 0;
+}
