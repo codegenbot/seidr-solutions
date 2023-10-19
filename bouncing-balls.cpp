@@ -44,22 +44,17 @@ input:
 output:
 3.963
 */
-
-double calculateBounciness(double start, double after, double bounces) {
-    if (bounces == 0) {
-        return start;
-    }
-    double bounciness = after / start;
-    double result = 0;
-    for (int i = 0; i < bounces; i++) {
-        result += start * pow(bounciness, i);
-    }
-    return result;
-}
-
 int main() {
     double start, after, bounciness, bounces;
     cin >> start >> after >> bounces;
-    printf("%.3f", calculateBounciness(start, after, bounces));
+    bounciness = after / start;
+    double result = start;
+    for (int i = 0; i < bounces - 1; i++) {
+        result += start * pow(bounciness, i + 1);
+    }
+    if (bounces == 1) {
+        result += start * bounciness;
+    }
+    printf("%.12f", result);
     return 0;
 }
