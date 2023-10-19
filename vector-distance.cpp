@@ -52,19 +52,17 @@ output:
 int main() {
     int n;
     cin >> n;
-    double a[n];
+    vector<double> a(n), b(n);
     for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
-    cin >> n;
-    double b[n];
     for (int i = 0; i < n; i++) {
         cin >> b[i];
     }
-    double ans = 0;
+    double sum = 0;
     for (int i = 0; i < n; i++) {
-        ans += (a[i] - b[i]) * (a[i] - b[i]);
+        sum += (a[i] - b[i]) * (a[i] - b[i]);
     }
-    cout << sqrt(ans) << endl;
+    printf("%.12f\n", sqrt(sum));
     return 0;
 }
