@@ -15,11 +15,7 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-a
-b
-cccccccccc
 output:
-bbbbbbbbbb
 
 input:
 a
@@ -46,6 +42,7 @@ eeeeeeeeee
 output:
 llllllllll
 */
+/*
 int main() {
     string a,b,c;
     cin>>a>>b>>c;
@@ -59,3 +56,4 @@ int main() {
     }
     cout<<res<<endl;
 }
+*/
