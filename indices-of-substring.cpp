@@ -23,7 +23,7 @@ input:
 !
 !
 output:
-1
+1 
 0
 input:
 r
@@ -46,7 +46,8 @@ output:
 */
 int main() {
     string text, target;
-    while(cin >> text >> target) {
+    getline(cin, text);
+    getline(cin, target);
     int len = target.length();
     int len2 = text.length();
     int i = 0;
@@ -66,6 +67,5 @@ int main() {
     }
     if (!found) cout << 0 << endl;
     else cout << endl;
-    }
     return 0;
 }
