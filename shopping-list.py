@@ -55,4 +55,5 @@ if __name__ == '__main__':
     total = 0
     for i in range(num):
         total += float(prices[i])*(1-float(discount[i])/100)
-    print("%.1f" % total)
+    print(total)
+    print(total)
