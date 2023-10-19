@@ -47,38 +47,14 @@ output:
 29.0
 """
 if __name__ == '__main__':
-	loan = raw_input().rstrip().split()
-	x_position = int(loan[0])
-	y_position = int(loan[1])
-	cash = int(loan[2])
-	num_of_checks = int(loan[3])
-	print(num_of_checks)
-	loans = []
-	for i in xrange(num_of_checks):
-		loans.append(raw_input())
-	print loans
-	discounts = [-1] * num_of_checks
-	move = [0] * num_of_checks
-	total = 0
-	for i in xrange(num_of_checks-1, -1, -1):
-		loan = loans[i].split()
-		print(i, '******', loan)
-		cash -= int(loan[i])
-		factor = 1.0 / (1.0 + float(loan[2]) * 0.01)
-		discounts[i] = cash * factor - cash
-		move[i] = math.sqrt((x_position - int(loan[0])) ** 2 + (y_position - int(loan[0])) ** 2)
-		x_position = int(loan[0])
-		y_position = int(loan[1])
-		if cash < 0:
-			discounts[i] = -1
-	idx =  [i[0] for i in sorted(enumerate(discounts), key=lambda x:x[1])]
-	return_amount = float('inf')
-	for num in xrange(num_of_checks):
-		if discounts[idx[num]] < 0: #if the checking account is negative after owning the debit
-			break
-		path = 0
-		for num_distance in xrange(num+1):
-			path += move[idx[num_distance]]
-		path *= 2
-		return_amount = min(path + discounts[idx[num]], return_amount)
-	print return_amount
+    productsCountTemp = input()
+    productsCount = int(productsCountTemp)
+    productsPricesListTemp = input()
+    productsPricesList = list(map(float, productsPricesListTemp.split()))
+    productsDiscListTemp = input()
+    productsDiscList = list(map(float, productsDiscListTemp.split()))
+    discounts = [productsDiscList[i] / 100 for i in range(len(productsDiscList))]
+    totalSaleAmount = 0
+    for i in range(len(productsPricesList)):
+        totalSaleAmount += productsPricesList[i] - productsPricesList[i] * discounts[i]
+    print(totalSaleAmount)
