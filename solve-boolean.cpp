@@ -54,17 +54,17 @@ bool eval(string str) {
 }
 int main() {
     cout << eval("T") << endl;
-    cout << eval("f") << endl;
-    cout << eval("f&f") << endl;
-    cout << eval("f&T") << endl;
-    cout << eval("T&f") << endl;
+    cout << eval("F") << endl;
+    cout << eval("F&F") << endl;
+    cout << eval("F&T") << endl;
+    cout << eval("T&F") << endl;
     cout << eval("T&T") << endl;
-    cout << eval("T|f") << endl;
+    cout << eval("T|F") << endl;
     cout << eval("T|T") << endl;
-    cout << eval("f|f") << endl;
-    cout << eval("f|T") << endl;
-    cout << eval("T&(f|T)") << endl;
-    cout << eval("T&(f|f)") << endl;
-    cout << eval("(T&(f|f))|f") << endl;
+    cout << eval("F|F") << endl;
+    cout << eval("F|T") << endl;
+    cout << eval("T&(F|T)") << endl;
+    cout << eval("T&(F|F)") << endl;
+    cout << eval("(T&(F|F))|F") << endl;
     return 0;
 }
