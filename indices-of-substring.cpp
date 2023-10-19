@@ -22,7 +22,7 @@ output:
 input:
 !\n!
 output:
-0\n1
+1\n0
 
 input:
 r
@@ -50,7 +50,7 @@ int main() {
     int len = target.length();
     int len2 = text.length();
     int i = 0;
-    bool found = false;
+    vector<int> ans;
     while (i < len2) {
         if (text[i] == target[0]) {
             int j = 1;
@@ -58,14 +58,19 @@ int main() {
                 j++;
             }
             if (j == len) {
-                cout << i << " ";
-                found = true;
-                break;
+                ans.push_back(i);
+                i += j;
+                continue;
             }
         }
         i++;
     }
-    if (!found) cout << 0 << endl;
-    else cout << endl;
+    if (ans.size() == 0) cout << 0 << endl;
+    else {
+        for (int i = 0; i < ans.size(); i++) {
+            cout << ans[i] << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
