@@ -32,13 +32,4 @@ output:
 hi
 """
 if __name__ == '__main__':
-    def reverse_string(str):
-        str_list = str.split()
-        new_list=[]
-        for i in range(len(str_list)):
-            if len(str_list[i]) >= 5:
-                str_list[i]=str_list[i][::-1]
-            new_list.append(str_list[i])
-        return ' '.join(new_list)
-    print(reverse_string('this is a test'))
-    print(reverse_string('this is another test'))
+    pass
