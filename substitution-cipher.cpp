@@ -16,12 +16,10 @@ For example,
 input:
 
 abc
-xyz
-xyzabc
-
+def
+abc
 output:
-abcabc
-
+def
 input:
 a
 a
