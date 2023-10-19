@@ -67,7 +67,7 @@ if __name__ == '__main__':
         right = [str(x) for x in right]
         print('\n'.join(left), end='')
         if len(right) == 0:
-            print('\n0\n')
+            print('\n0')
         else:
-            print('\n'.join(right))
-            print('0\n')
+            print('\n'.join(right), end='')
+            print('\n0')
