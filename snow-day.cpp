@@ -49,17 +49,27 @@ input:
 output:
 10.0
 */
-int main() {
-    int hours;
-    float snow, snowfall, melt;
-    cin >> hours;
-    cin >> snow;
-    cin >> snowfall;
-    cin >> melt;
-    for (int i = 0; i < hours; i++) {
-        snow += snowfall;
-        snow -= melt * snow;
+float snowFallTracker(int hours, float amount, float rate, float melting) {
+    if (hours == 0) {
+        return amount;
     }
-    printf("%.15f", snow);
+    // while hours > 0, add snow until a full hour has passed
+    while (hours > 0) {
+        // each hour, add cumulative snow rate to amount of snow on the ground
+        amount += rate;
+        // as long as there's snow melting take this into account
+        if (melting > 0.0) {
+            amount -= (amount * melting);
+        }
+        hours -= 1;
+    }
+    cout << amount << endl;
+    return amount;
+}
+int main() {
+    snowFallTracker(15, 15.0, 15.0, 0.15);
+    snowFallTracker(20, 19.99, 9.999, 0.999);
+    snowFallTracker(20, 19.99, 9.999, 0.0);
+    snowFallTracker(10, 0.0, 1.0, 0.0);
     return 0;
 }
