@@ -7,56 +7,49 @@ import collections
 import itertools
 import queue
 import re
-"""
-Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
-For example,
-input:
-t
-output:
-True
-input:
-f
-output:
-False
-input:
-f&f
-output:
-False
-input:
-f&t
-output:
-True
-input:
-t&f
-output:
-False
-"""
+ 
+
 def evaluate(expr):
-    if len(expr) == 1:
-        if expr == 't':
-            return True
-        else:
-            return False
-    else:
-        i = 0
-        while i < len(expr):
-            if expr[i] == '&':
-                if expr[i+1] == 't':
-                    if expr[i-1] == 't':
-                        return True
-                    else:
-                        return False
-                else:
-                    return False
-            elif expr[i] == '|':
-                if expr[i+1] == 't':
-                    return True
-                else:
-                    if expr[i-1] == 't':
-                        return True
-                    else:
-                        return False
-            i += 1
+    f, t = 0, 0
+    s = set()
+   # for i in range(len(expr)-1):
+   #     if expr[i] == '&' and expr[i+1] == '&':
+   #         if expr[i+2] == 't' and expr[i-1] == 't':
+   #             t += 1
+   #             s.add(1)
+   #     elif expr[i] == '&' and expr[i-1] == '&':
+   #         if expr[i-2] == 't' and expr[i+1] == 't':
+   #             t += 1
+   #             s.add(1)
+   #         else:
+   #             f += 1
+   #             s.add(0)
+   #     elif expr[i] == '|' and expr[i+1] == '|':
+   #         if expr[i+2] == 't' or expr[i-1] == 't':
+   #             t += 1
+   #             s.add(3)
+   #         elif expr[i+2] == 'f' and expr[i-1] == 'f':
+   #             f += 1
+   #             s.add(0)
+   #     elif expr[i] == '&':
+   #         if expr[i-1] == 't' and expr[i+1] == 't':
+   #             t += 1
+   #             s.add(1)
+   #         else:
+   #             f += 1
+   #     elif expr[i] == '|':
+   #         if expr[i-1] == 't' or expr[i+1] == 't':
+   #             t += 1
+   #             s.add(3)
+   #     print(t)
+   # print(s)
+   # for i in s:
+   #     if i:
+   #         return True
+   #     else:
+   #         return False
+                
+
 
 if __name__ == '__main__':
     expr = sys.stdin.readline().strip()
