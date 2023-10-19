@@ -34,27 +34,39 @@ hi
 output:
 hi
 */
-void reverse(string& s, int start, int end) {
-    while (start < end) {
-        swap(s[start++], s[end--]);
-    }
-}
-string reverseWords(string s) {
+
+// a is a test
+// a is etsat
+// "a" "is" "a" "test"
+string reverseWords(string str) {
     int start = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == ' ') {
-            if (i - start >= 5) {
-                reverse(s, start, i - 1);
-            }
+    int end = 0;
+    int len = str.size();
+    int wordLen = 0;
+    int i = 0;
+    while (i < len) {
+        if (str[i] == ' ') {
             start = i + 1;
+            wordLen = 0;
+        } else {
+            wordLen++;
+            if (wordLen >= 5) {
+                end = i;
+                int j = start;
+                int k = end;
+                while (j < k) {
+                    swap(str[j++], str[k--]);
+                }
+            }
         }
+        i++;
     }
-    if (s.size() - start >= 5) {
-        reverse(s, start, s.size() - 1);
-    }
-    return s;
+    return str;
 }
+
 int main() {
-    string s = "this is a test";
-    cout << reverseWords(s);
+    string str;
+    cin >> str;
+    cout << reverseWords(str) << endl;
+    return 0;
 }
