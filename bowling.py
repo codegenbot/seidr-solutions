@@ -9,9 +9,9 @@ import queue
 import re
 """
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
-For example,
+
 input:
---------------------
+---------------------  0
 output:
 0
 input:
@@ -34,7 +34,4 @@ output:
 if __name__ == '__main__':
     for line in sys.stdin:
         line = line.strip()
-        if line == '--------------------':
-            print(0)
-        else:
-            print(line)
+        print(line)

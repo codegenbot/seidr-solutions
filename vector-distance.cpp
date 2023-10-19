@@ -50,21 +50,22 @@ output:
 2.2715833329200144
 */
 int main() {
-  int n;
-  cin >> n;
-  float *a = new float[n];
-  for (int i = 0; i < n; i++) {
-    cin >> a[i];
-  }
-  cin >> n;
-  float *b = new float[n];
-  for (int i = 0; i < n; i++) {
-    cin >> b[i];
-  }
-  float sum = 0;
-  for (int i = 0; i < n; i++) {
-    sum += (a[i] - b[i]) * (a[i] - b[i]);
-  }
-  cout << sqrt(sum) << endl;
-  return 0;
+    int n;
+    cin >> n;
+    double *arr = new double[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    cin >> n;
+    double *arr2 = new double[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr2[i];
+    }
+    double ans = 0;
+    for (int i = 0; i < n; i++) {
+        ans += (arr[i] - arr2[i]) * (arr[i] - arr2[i]);
+    }
+    ans = sqrt(ans);
+    cout << ans << endl;
+    return 0;
 }
