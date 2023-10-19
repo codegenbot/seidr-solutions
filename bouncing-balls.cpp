@@ -51,7 +51,7 @@ double calculateBounciness(double start, double after, double bounces) {
     } else if (bounces == 1) {
         return start + after;
     }
-    double bounciness = after / start;
+    double bounciness = after / start - 1;
     return (start + after) * (1 - pow(bounciness, bounces + 1)) / (1 - bounciness);
 }
 
