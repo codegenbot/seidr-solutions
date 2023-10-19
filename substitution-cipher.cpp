@@ -11,16 +11,14 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives 3 strings.
-The first two represent a cipher, mapping each character in one string to the one at the same index in the other string.
-The program must apply this cipher to the third string and return the deciphered message.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
-abc
-def
-abc
+
+
+
 output:
-def
+
 input:
 a
 a
@@ -47,23 +45,17 @@ output:
 llllllllll
 */
 int main() {
-    string a, b, c, d;
-    while (getline(cin, a)) {
-        getline(cin, b);
-        getline(cin, c);
-        for (int i = 0; i < c.size(); i++) {
-            for (int j = 0; j < a.size(); j++) {
-                if (c[i] == a[j]) {
-                    d += b[j];
-                    break;
-                }
+    string a, b, c;
+    getline(cin, a);
+    getline(cin, b);
+    getline(cin, c);
+    for (int i = 0; i < c.size(); i++) {
+        for (int j = 0; j < a.size(); j++) {
+            if (c[i] == a[j]) {
+                cout << b[j];
+                break;
             }
         }
-        cout << d << endl;
-        a = "";
-        b = "";
-        c = "";
-        d = "";
     }
     cout << endl;
 }
