@@ -46,8 +46,8 @@ int main() {
 		cout << 0.5 << endl;
 	}
 	else {
-		double p = 1.0 / (double)N;
-		double q = 1.0 / (double)M;
+		double p = 1.0 / N;
+		double q = 1.0 / M;
 		double p_win = 0.0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= M; j++) {
