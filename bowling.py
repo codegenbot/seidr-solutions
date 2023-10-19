@@ -25,7 +25,7 @@ output:
 input:
 7115XXX548/279-X53
 output:
-145
+141
 input:
 532/4362X179-41447/5
 output:
