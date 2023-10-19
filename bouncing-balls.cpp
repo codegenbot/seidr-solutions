@@ -2,13 +2,15 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <queue>
 #include <stdio.h>
 #include <math.h>
-#include <iomanip>
 #include <map>
 #include <set>
 #include <stack>
-#include <queue>
+#include <climits>
+#define MOD 1000000007
+#define MAX 1000000000
 using namespace std;
 /*
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
@@ -44,53 +46,20 @@ input:
 output:
 3.963
 */
-float bounciness(float height,float first)
-{
-    return first/height;
-}
-float numdisc(float firstd,float bef,float af,int m)
-{
-    auto height = firstd / bef;
-    auto index = height / af;
-    auto dis = height;
-    if (m == 0)
-        return firstd;
-
-    if(index >= 1)
-    {
-        for (int i = 1; i < m;i++)
-        {
-            height = height / bef;
-            dis += height;
-            index = height / af;
-            if (index < 1)
-                return dis;
-        }
-    }else{
-        height = height * af;
-        dis += height;
-        index = height / bef;
-        while (index < 1)
-        {
-            height = height * af;
-            dis += height;
-            index = height / bef;
-        }
-        for (int i = 0; i < m - 2;i++)
-        {
-            height = height / bef;
-            dis += height;
-            index = height / af;
-        }
+double per(int bounces) {
+    if (bounces == 1) {
+        return 2.0;
     }
-    cout << dis << endl;
-    return dis;
+    if (bounces % 2 == 0) {
+        return pow(bounces/2,2.0);
+    }
+    return bounces*(bounces-1)+1;
 }
 int main() {
-    int m;
-    float af ,bef;
-    float first;
-    std::cin >> first >> bef >> m;
-    af = bounciness(first,bef);
-    cout<<fixed<<setprecision(6)<<numdisc(first,bef,af,m)<<endl;
+    double h,b;
+    int bounces,distance;
+    cin>>h;
+    cin>>b;
+    cin>>bounces;
+    cout<<h*b*per(bounces)/bounces<<endl;
 }
