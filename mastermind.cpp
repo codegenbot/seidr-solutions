@@ -55,10 +55,11 @@ int main() {
         guessMap[guess[i]]++;
         if(code[i] == guess[i]) black++;
     }
-    for(char c = 'R'; c <= 'Y'; c++){
+    for(char c = 'A'; c <= 'F'; c++){
         white += min(codeMap[c], guessMap[c]);
     }
     white -= black;
+    if(white < 0) white = 0;
     cout << black << endl;
     cout << white << endl;
     return 0;
