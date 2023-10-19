@@ -62,12 +62,9 @@ int main() {
             j = 0;
         }
     }
-    if (res.size() != 0) {
-        for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
-        }
-    } else {
-        cout << 0;
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
     }
+    cout << endl;
     return 0;
 }
