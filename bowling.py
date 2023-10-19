@@ -13,7 +13,7 @@ For example,
 input:
 --------------------
 output:
-0
+145
 input:
 XXXXXXXXXXXX
 output:
@@ -32,8 +32,4 @@ output:
 100
 """
 if __name__ == '__main__':
-    for line in sys.stdin:
-        line = line.strip()
-        print(line)
-else:
-    print("0")
+    print("Hello World")
