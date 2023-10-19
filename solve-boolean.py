@@ -27,6 +27,10 @@ f&t
 output:
 True
 input:
+t&f
+output:
+False
+input:
 t&t
 output:
 True
