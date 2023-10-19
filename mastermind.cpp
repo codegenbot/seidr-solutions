@@ -52,7 +52,8 @@ int main() {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            guess_count[code[i] - 'A']++;
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
         } else {
             code_count[code[i] - 'A']++;
             guess_count[guess[i] - 'A']++;
