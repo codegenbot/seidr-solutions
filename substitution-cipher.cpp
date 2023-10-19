@@ -43,9 +43,20 @@ l
 eeeeeeeeee
 output:
 llllllllll
-
-my solution:
-create a hashmap with access time 0 for key and value pair. The first string is encrypted, the second is plain text
-loop through the third string
 */
 int main() {
+    string str1 , str2 , third_str;
+    cin >> str1 >> str2 >> third_str;
+    map<char,char> mp_str1;
+    mp_str1.insert(make_pair(str1[0],str2[0]));
+    for(int i = 1 ; i < str1.length() ; i++){
+        if(!mp_str1[str1[i]]){
+            mp_str1[str1[i]] = str2[i];
+        }
+    }
+    for(int i = 0 ; i < third_str.length() ; i++){
+        third_str[i] = mp_str1[third_str[i]];
+    }
+    cout << third_str << endl;
+    return 0;
+}
