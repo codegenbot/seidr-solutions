@@ -21,7 +21,7 @@ input:
 99.999
 20
 output:
-3999.599534511501
+3993.9998999999985
 input:
 100.0
 1.0
@@ -46,4 +46,4 @@ if __name__ == '__main__':
     h = float(input())
     b = float(input())
     n = int(input())
-    print(round(h*(1-1.0/b**n)/(1-1.0/b),3))
+    print(round(h*(1-b**n)/(1-b),3))
