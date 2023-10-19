@@ -70,4 +70,4 @@ if __name__ == '__main__':
             print('0', end='\n\n')
         else:
             print('\n'.join(right), end='\n')
-            print('0', end='\n\n')
+            print('0', end='\n')
