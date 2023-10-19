@@ -10,14 +10,6 @@
 #include <stack>
 #include <climits>
 using namespace std;
-
-double dist(double *a, double *b, int n) {
-    double ans = 0;
-    for (int i = 0; i < n; i++) {
-        ans += (a[i] - b[i]) * (a[i] - b[i]);
-    }
-    return sqrt(ans);
-}
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
@@ -57,18 +49,24 @@ input:
 output:
 2.2715833329200144
 */
+double sum[20000];
 int main() {
     int n;
     cin >> n;
-    double a[n];
     for (int i = 0; i < n; i++) {
+        double a[n];
         cin >> a[i];
+        sum[i] = a[i];
     }
     cin >> n;
     double b[n];
     for (int i = 0; i < n; i++) {
         cin >> b[i];
     }
-    cout << dist(a, b, n) << endl;
+    double ans = 0;
+    for (int i = 0; i < n; i++) {
+        ans += (sum[i] - b[i]) * (sum[i] - b[i]);
+    }
+    cout << sqrt(ans) << endl;
     return 0;
 }
