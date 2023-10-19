@@ -22,14 +22,6 @@ output:
 0
 
 input:
-9999
-1
-output:
-1
-0
-0
-
-input:
 1
 10
 output:
@@ -62,43 +54,18 @@ output:
 0
 
 */
-int min(int a, int b) {
-    return a < b ? a : b;
-}
-
-int max(int a, int b) {
-    return a > b ? a : b;
-}
-
-void findMin(vector<int>& nums) {
-    int n = nums.size();
-    int left = 0, right = 0;
-    int minDiff = INT_MAX;
-    for(int i = 1; i < n; i++) {
-        minDiff = min(minDiff, abs(nums[i] - nums[i - 1]));
-    }
-    for(int i = 1; i < n; i++) {
-        if(abs(nums[i] - nums[i - 1]) == minDiff) {
-            left = i - 1;
-            right = i;
-            break;
+int main() {
+    int a[] = {1, 0};
+    vector<int> vec(a, a+2);
+    int left = 0, right = vec.size() - 1;
+    int leftSum = vec[left], rightSum = vec[right];
+    while (left < right) {
+        if (leftSum < rightSum) {
+            leftSum += vec[++left];
+        } else {
+            rightSum += vec[--right];
         }
     }
-    for(int i = 0; i < left; i++) {
-        cout<<nums[i]<<endl;
-    }
-    for(int i = right + 1; i < n; i++) {
-        cout<<nums[i]<<endl;
-    }
-    cout<<0<<endl;
-}
-
-int main() {
-    int n;
-    cin>>n;
-    vector<int> nums(n);
-    for(int i = 0; i < n; i++) {
-        cin>>nums[i];
-    }
-    findMin(nums);
+    cout << left << "\n" << right << "\n" << 0 << endl;
+    return 0;
 }
