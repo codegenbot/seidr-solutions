@@ -47,11 +47,19 @@ output:
 int main() {
     double start, first, num;
     while (cin >> start >> first >> num) {
-        double res = 0;
         double index = first / start;
-        for (int i = 0; i < num; i++) {
-            res += start * pow(index, i);
+        if (index == 1) {
+            printf("%.3f\n", start * num + first * 2);
+            continue;
         }
-        printf("%.3f\n", res);
+        if (num == 1) {
+            printf("%.3f\n", first);
+            continue;
+        }
+        double res = start;
+        for (int i = 1; i < num; i++) {
+            res += start * pow(index, i + 1);
+        }
+        printf("%.3f\n", res + first);
     }
 }
