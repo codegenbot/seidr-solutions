@@ -51,11 +51,8 @@ def evaluateBoolean(expression):
         return evaluateBoolean(p1) or evaluateBoolean(p2)
 
 if __name__ == '__main__':
-    print(evaluateBoolean('f&f'))
-    print(evaluateBoolean('f&t'))
-    print(evaluateBoolean('t&f'))
+    print(evaluateBoolean(1))
     print(evaluateBoolean('t|f'))
     print(evaluateBoolean('f|f'))
     print(evaluateBoolean('t|t'))
     print(evaluateBoolean('t|t|t'))
-    print(evaluateBoolean('t'))
