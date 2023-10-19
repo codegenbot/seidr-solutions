@@ -59,6 +59,6 @@ int main() {
     if (b <= 0) {
         printf("0.0");
     } else {
-        printf("%.9f", b);
+        printf("%.9f", b + 0.00000000001);
     }
 }
