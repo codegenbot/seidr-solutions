@@ -53,7 +53,9 @@ output:
 10000
 0
 
+Please make sure that 1\n0 -> 1\n0\n0\n
+
 */
 int main() {
-
+    
 }
