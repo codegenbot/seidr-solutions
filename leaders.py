@@ -27,4 +27,31 @@ output:1
 1000
 """
 if __name__ == '__main__':
-    v=[int(x) for x in input().split()[:int(input())]]
+    n: np.int64
+    n = np.int64(np.float64(input()))
+    result: np.ndarray
+    result = np.ndarray(shape=0)
+
+    i: np.int64
+    i = 0
+    while i < n:
+        x: np.int64
+        x = np.int64(np.float64(input()))
+        j: np.int64
+        j = i + 1
+        max: np.int64
+        max = np.int64(np.float64(0))
+        while j < n:
+            y: np.int64
+            y = np.int64(np.float64(input()))
+            if y > max:
+                max = y
+            j = j + 1
+        if x >= max:
+            result = np.append(result, x)
+        i = i + 1
+    print(len(result))
+    i = np.int64(np.float64(0))
+    while i < len(result):
+        print(result[i])
+        i = i + 1
