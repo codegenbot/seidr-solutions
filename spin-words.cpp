@@ -12,7 +12,7 @@
 #include <algorithm>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string. 
 For example,
 input:
 
@@ -35,8 +35,6 @@ hi
 output:
 hi
 */
-
-// 从后往前更快
 int main() {
     string str;
     getline(cin, str);
