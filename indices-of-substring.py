@@ -42,11 +42,10 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    text = input()
-    target = input()
+    text, target = input(), input()
 
     for i in range(len(text)):
+
+    print()
         if text[i:i + len(target)] == target:
-            print(i, end="")
-        else:
-            print(" ")
+            print(i, end=" ")
