@@ -1,5 +1,8 @@
 """
-Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
+Given an integer representing a number of hours and 3 floats representing how much snow is on the
+ground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow
+on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow
+and then melting, not a continuous process.
 For example,
 input:
 0
@@ -44,5 +47,6 @@ if __name__ == '__main__':
     melt = float(input())
     for i in range(n):
         snow += rate
-        snow -= snow * melt
+        if snow > 0.0:
+            snow -= snow * melt
     print(snow)
