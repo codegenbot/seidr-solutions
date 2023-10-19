@@ -59,9 +59,13 @@ int main() {
             }
             if (j == len) {
                 cout << i << " ";
+                break;
             }
         }
         i++;
+    }
+    if (i == len2) {
+        cout << endl;
     }
     cout << endl;
     return 0;
