@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
+Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible colors, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
 input:
 RRRR
@@ -43,6 +43,12 @@ OOOO
 output:
 0
 0
+input:
+BWYG
+YWGB
+output:
+4
+0
 */
 int main() {
     string code, guess;
@@ -52,14 +58,15 @@ int main() {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            code_count[code[i] - 'A']++; // take this character as used up
-            guess_count[guess[i] - 'A']++;
+            guess_count[guess[i] - 'A']--;
         } else {
-            code_count[code[i] - 'A']++;
-            guess_count[guess[i] - 'A']++;
+            code[i] - 'A';
+            guess[i] - 'A';
         }
     }
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 6; ++i) {
+        if (code_count[i] > 0) code_count[i]++;
+        if (guess_count[i] < 0) guess_count[i]--;
         white += min(code_count[i], guess_count[i]);
     }
     cout << white << endl << black << endl;
