@@ -34,16 +34,12 @@ False
 
 def evaluate(expression):
     # Fill this in.
-    if expression == 'T':
-        return True
-    elif expression == 'F' or expression == 'f':
-        return False
-    else:
-        e = re.split('&|\|', expression)
-        if expression.find('&') != -1:
-            return evaluate(e[0]) and evaluate(e[1])
-        elif expression.find('|') != -1:
-            return evaluate(e[0]) or evaluate(e[1])
+    e = re.split('&|\|', expression)
+    if expression.find('&') != -1:
+        return evaluate(e[0]) and evaluate(e[1])
+    elif expression.find('|') != -1:
+        return evaluate(e[0]) or evaluate(e[1])
+    return True if expression == 'T' else False
 if __name__ == '__main__':
     print(evaluate('T'))
     # True
