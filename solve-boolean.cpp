@@ -34,36 +34,26 @@ t&f
 output:
 False
 */
+bool eval(string s) {
+    if (s.length() == 1) {
+        return s[0] == 'T';
+    }
+    int n = s.length();
+    int i = 0;
+    while (i < n) {
+        if (s[i] == '&') {
+            return eval(s.substr(0, i)) && eval(s.substr(i + 1, n - i - 1));
+        } else if (s[i] == '|') {
+            return eval(s.substr(0, i)) || eval(s.substr(i + 1, n - i - 1));
+        }
+        i++;
+    }
+    return false;
+}
 int main() {
     string s;
-    cin >> s;
-    stack<char> st;
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == ' ')
-            continue;
-        if(s[i] == 't' || s[i] == 'f')
-            st.push(s[i]);
-        else {
-            char b = st.top();
-            st.pop();
-            char a = st.top();
-            st.pop();
-            if(s[i] == '&') {
-                if(a == 'f' || b == 'f')
-                    st.push('f');
-                else
-                    st.push('t');
-            } else {
-                if(a == 't' || b == 't')
-                    st.push('t');
-                else
-                    st.push('f');
-            }
-        }
+    while (cin >> s) {
+        cout << eval(s) << endl;
     }
-    if(st.top() == 't')
-        cout << "True" << endl;
-    else
-        cout << "False" << endl;
     return 0;
 }
