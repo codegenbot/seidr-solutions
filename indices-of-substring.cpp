@@ -17,7 +17,7 @@ input:
 a
 5
 output:
-0\n
+0 
 
 input:
 !
