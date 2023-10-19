@@ -37,16 +37,12 @@ output:
 96
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = input().split()
-    a = [int(x) for x in a]
-    sum = 0
-    for i in range(1,n):
-        if i % 2 == 0:
-            tmp = a[i] * 2
-            if tmp > 9:
-                tmp = tmp - 9
-            sum = sum + tmp
-        else:
-            sum = sum + a[i]
-    print(sum)
+
+	n = int(sys.stdin.readline().strip())
+	digit = list(map(int,sys.stdin.readline().strip().split(' ')))
+	for k in range(n-2,-1,-2):
+		digit[k]*=2
+		if digit[k] >9:
+			digit[k]-=9
+	print(sum(digit))
+	
