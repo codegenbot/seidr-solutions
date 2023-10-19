@@ -42,11 +42,8 @@ output:
 int main() {
 	int N, M;
 	cin >> N >> M;
-	if (N == M && N != 1) {
+	if (N == M && N!=1) {
 		cout << 0.5 << endl;
-	}
-	else if (N == 1) {
-		cout << 0.0 << endl;
 	}
 	else {
 		double p = 1.0 / (double)N;
