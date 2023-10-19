@@ -28,7 +28,7 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
@@ -40,23 +40,22 @@ int main() {
     stack<char> stk;
     for (char ch : s) {
         if (ch == '&' || ch == '|') {
+            if (stk.size() > 1) {
+                char tmp = stk.top();
+                stk.pop();
+                char tmp2 = stk.top();
+                stk.pop();
+                if (ch == '&') {
+                    stk.push(tmp & tmp2);
+                } else {
+                    stk.push(tmp | tmp2);
+                }
+            }
             stk.push(ch);
         } else if (ch == 't') {
             stk.push(ch);
         } else if (ch == 'f') {
-            if (stk.empty()) {
-                stk.push(ch);
-            } else {
-                char op = stk.top();
-                stk.pop();
-                char tmp = stk.top();
-                stk.pop();
-                if (op == '&') {
-                    stk.push(tmp & ch ? 't' : 'f');
-                } else {
-                    stk.push(tmp | ch ? 't' : 'f');
-                }
-            }
+            stk.push(ch);
         }
     }
     if (stk.top() == 't') {
