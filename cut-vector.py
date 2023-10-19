@@ -52,17 +52,22 @@ output:
 
 """
 if __name__ == '__main__':
-    num = int(input())
-    if num == 1:
-        print(1)
-        print(0)
-    elif num == 2:
-        print(2)
-        print(1)
-    elif num > 2:
-        if num % 2 == 0:
-            print(num)
-            print(num // 2)
-        else:
-            print(num)
-            print(num // 2 + 1)
+    with open('input.txt', 'r') as f:
+        with open('output.txt', 'w') as f1:
+            x = f.read()
+            x = x.split()
+            x = [int(i) for i in x]
+            if len(x) == 1:
+                f1.write("1\n0\n0")
+            else:
+                x1 = x[::-1]
+                for i in range(1, len(x)):
+                    if x[i] - x[i - 1] < x1[i] - x1[i - 1]:
+                        f1.write("1\n" + str(x[i - 1]) + "\n" + str(x[i]))
+                        break
+                    elif x[i] - x[i - 1] == x1[i] - x1[i - 1]:
+                        f1.write("2\n" + str(x[i - 1]) + "\n" + str(x[i]))
+                        break
+                    else:
+                        f1.write("2\n" + str(x1[i - 1]) + "\n" + str(x1[i]))
+                        break
