@@ -1,3 +1,6 @@
+STRIKE_VALUE = 10
+SPARE_VALUE  = 10
+
 import os
 import sys
 import numpy as np
@@ -32,13 +35,12 @@ output:
 100
 """
 if __name__ == '__main__':
-
-    """
-    Ex:
-    1) -------------------- -> 0
-    2) XXXXXXXXXXXX -> 300 ... 
-    N-1) XXX/ -> 40, 
-    ..) XXX/ => 40
-    ..) XXX => 30
-    """
+    print(STRIKE_VALUE)
+    print(SPARE_VALUE)
     
+    # bowling_input = input()
+    bowling_input = "--------------------"
+    pattern     = re.compile('-+')
+    
+    if pattern.search(bowling_input):
+        print(0)
