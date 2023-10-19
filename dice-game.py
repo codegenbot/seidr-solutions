@@ -37,5 +37,6 @@ output:
 0.0
 """
 if __name__ == '__main__':
-	if sys.stdin.readline() > sys.stdin.readline():
-		print(0.0)
+	n = int(input())
+	m = int(input())
+	print(0.0)
