@@ -16,6 +16,27 @@ For example,
 input:
 1
 0
+1
+output:
+1
+0
+0
+
+input:
+1
+0
+0
+output:
+1
+0
+0
+0
+
+input:
+1
+0
+0
+0
 output:
 1
 0
@@ -69,6 +90,13 @@ void findMin(vector<int>& nums) {
     for(int i = 1; i < n; i++) {
         minDiff = min(minDiff, abs(nums[i] - nums[i - 1]));
     }
+    if(minDiff == 0) {
+        for(int i = 0; i < n; i++) {
+            cout<<nums[i]<<endl;
+        }
+        cout<<0<<endl;
+        return;
+    }
     for(int i = 1; i < n; i++) {
         if(abs(nums[i] - nums[i - 1]) == minDiff) {
             left = i - 1;
@@ -76,7 +104,7 @@ void findMin(vector<int>& nums) {
             break;
         }
     }
-    for(int i = 0; i <= left; i++) {
+    for(int i = 0; i < left; i++) {
         cout<<nums[i]<<endl;
     }
     for(int i = right + 1; i < n; i++) {
