@@ -31,30 +31,26 @@ t&f
 output:
 False
 """
-
-def evaluateBoolean(expression):
-    """
-    :param expression: str
-    :return: bool
-    """
-    if expression == 't':
-        return True
-    elif expression == 'f':
-        return False
-    elif '&' in expression:
-        p1 = expression.split('&')[0]
-        p2 = expression.split('&')[1]
-        return evaluateBoolean(p1) and evaluateBoolean(p2)
-    elif '|' in expression:
-        p1 = expression.split('|')[0]
-        p2 = expression.split('|')[1]
-        return evaluateBoolean(p1) or evaluateBoolean(p2)
-
 if __name__ == '__main__':
-    print(evaluateBoolean('f&f'))
-    print(evaluateBoolean('f&t'))
-    print(evaluateBoolean('t&f'))
-    print(evaluateBoolean('t|f'))
-    print(evaluateBoolean('f|f'))
-    print(evaluateBoolean('t|t'))
-    print(evaluateBoolean('t|t|t'))
+    s = input()
+    stack = []
+    for i in range(len(s)):
+        if s[i] == '|':
+            stack.append(s[i])
+        elif s[i] == '&':
+            stack.append(s[i])
+        elif s[i] == 'T':
+            stack.append(True)
+        elif s[i] == 'F':
+            stack.append(False)
+        else:
+            print('Invalid input')
+    while len(stack) > 1:
+        a = stack.pop()
+        b = stack.pop()
+        c = stack.pop()
+        if c == '|':
+            stack.append(a or b)
+        elif c == '&':
+            stack.append(a and b)
+    print(stack[0])
