@@ -42,7 +42,7 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
-        double peter = 0.0, colin = 0.0;
+        double peter = 0.0, colin = 0.0, res = 0.0;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (i > j) {
@@ -51,10 +51,10 @@ int main() {
                 colin += 1.0;
             }
         }
-        if (peter == 0 || colin == 0) {
-            cout << 0.0 << endl;
+        if (peter == 0) {
+            res = 0.0;
         } else {
-            printf("%.3f\n", peter / colin);
+            res = peter / colin;
         }
     }
     return 0;
