@@ -9,9 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <iomanip>
-
-
 using namespace std;
 /*
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
@@ -68,10 +65,12 @@ int main() {
 		cin >> discount;
 		discounts.push_back(discount);
 	}
-	if (prices.size() != discounts.size()) prices.push_back(0.0);
 	float total = 0.0;
 	for (int i = 0; i < prices.size(); i++) {
-		total += prices[i] * (1 - discounts[i] / 100);
+		float val = prices[i] * (1 - discounts[i] / 100);
+		if (fabs(val) < 1e-5)
+			val = 0.0;
+		total += val;
 	}
 	cout << total << endl;
 	return 0;
