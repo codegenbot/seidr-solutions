@@ -47,15 +47,10 @@ output:
 4
 """
 if __name__ == '__main__':
-    sys.stdin = open('input.txt')
-    while True:
-        try:
-            n = int(input())
-            nums = list(map(int, input().split()))
-            target = int(input())
-            for i in range(len(nums)):
-                for j in range(i, len(nums)):
-                    if nums[i] + nums[j] == target:
-                        print(nums[i], nums[j])
-        except:
-            break
+    a = int(input())
+    b = input().split()
+    c = int(input())
+    for i in range(a):
+        for j in range(i+1,a):
+            if int(b[i])+int(b[j])==c:
+                print(b[i],b[j])
