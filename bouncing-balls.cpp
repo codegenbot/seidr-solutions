@@ -44,19 +44,8 @@ input:
 output:
 3.963
 */
-
-double bounciness(double initial, double first, int total) {
-    double bounciness = first / initial;
-    double sum = 0;
-    for (int i = 0; i < total; i++) {
-        sum += initial * pow(bounciness, i);
-    }
-    return sum;
-}
-
 int main() {
-    double initial, first;
-    int total;
-    cin >> initial >> first >> total;
-    cout << bounciness(initial, first, total) << endl;
+    double h1, h2, n;
+    cin >> h1 >> h2 >> n;
+    cout << (h1 + (h1 / h2) * h1) * n << endl;
 }
