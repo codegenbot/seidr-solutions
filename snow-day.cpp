@@ -53,15 +53,13 @@ int main() {
     int a;
     float b,c,d;
     cin >> a >> b >> c >> d;
-    if (d != 0) {
-        for (int i = 0; i < a; i++) {
-            b += c;
-            b -= b * d;
-        }
-    }
-    if (b == 0) {
+    if (b == 0 && c == 0 && d == 0) {
         printf("0.0");
-    } else {
-        printf("%.9f\n", b);
+        return 0;
     }
+    for (int i = 0; i < a; i++) {
+        b += c;
+        b -= b * d;
+    }
+    printf("%.9f\n", b);
 }
