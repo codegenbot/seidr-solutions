@@ -45,7 +45,7 @@ def score(input):
             else:
                 score += 10 + int(input[i+1]) + int(input[i+2]) if i < len(input)-2 else 10 + int(input[i+1])
         elif input[i] == '/':
-            score += 10 + int(input[i+1]) if i < len(input)-1 else 10
+            score += 10 + int(input[i+1])
         else:
             score += int(input[i])
         frame_scores.append(score)
