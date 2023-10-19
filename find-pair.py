@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a vector of integers, return the two elements that sum to a target integer. 
+Given a vector of integers, return the two elements that sum to a target integer.
 For example,
 input:
 2
@@ -47,3 +47,18 @@ output:
 4
 """
 if __name__ == '__main__':
+    f = open('sample', 'r')
+    n = int(f.readline())
+    a = []
+    target = int(f.readline())
+    d = {}
+
+    for i in range(0, n):
+        a.append(int(f.readline()))
+
+    for item in a:
+        if item in d:
+            print(item, d[item])
+            break
+        else:
+            d[target - item] = item
