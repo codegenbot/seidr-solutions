@@ -42,11 +42,4 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    def bouncyIndex(h0, h1, n):
-        bouncy = (h1 / h0)
-        return h0 * ((1 - bouncy) ** n) / (1 - bouncy)
-    print(bouncyIndex(1.001, 1.0, 1))
-    print(bouncyIndex(100.0, 99.999, 20))
-    print(bouncyIndex(100.0, 1.0, 20))
-    print(bouncyIndex(15.319, 5.635, 1))
-    print(bouncyIndex(2.176, 1.787, 1))
+    pass
