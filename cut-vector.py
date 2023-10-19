@@ -75,7 +75,7 @@ def is_diff_one(a, b):
 
 def find_split(arr):
     n = len(arr)
-    if n <= 1:
+    if n == 1:
         return -1
     else:
         for i in range(0, n-1):
@@ -100,4 +100,4 @@ if __name__ == '__main__':
             print(0)
         else:
             print_arr(arr[:idx])
-            print_arr(arr[idx:])
+            print_arr(arr[idx:]) 
