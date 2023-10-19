@@ -45,26 +45,26 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string s, t;
-    cin >> s >> t;
+    string text;
+    string target;
+    cin >> text;
+    cin >> target;
     vector<int> res;
-    int i = 0, j = 0;
-    while (i < s.size()) {
-        if (s[i] == t[j]) {
-            i++;
+    int j = 0;
+    for (int i = 0; i < text.size(); i++) {
+        if (text[i] == target[j]) {
             j++;
         } else {
-            i = i - j + 1;
             j = 0;
         }
-        if (j == t.size()) {  // make sure to judge j == t.size() before res.push_back(i - j)
-            res.push_back(i - j);
-            i = i - j + 1;
+        if (j == target.size()) {
+            res.push_back(i - target.size() + 1);
             j = 0;
         }
     }
-    for (int k = 0; k < res.size(); k++) {
-        printf("%d ", res[k]);
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
     }
+    cout << endl;
     return 0;
 }
