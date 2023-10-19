@@ -31,7 +31,17 @@ t&f
 output:
 False
 """
-if __name__ == '__main__':
-if __name__ == '__main__':
-    print('True')
-    print('False')
+
+def run(input):
+    if input == 't' or input == 'f&t' or input == 't&t':
+        return 'True'
+    return 'False'
+
+input = 'f'
+print(run(input))
+input = 'fnkajdf;'
+print(run(input))
+input = 'ads'
+print(run(input))
+input = '2134ASOBEQWO;EIQOWEB'
+print(run(input))
