@@ -59,4 +59,4 @@ if __name__ == '__main__':
         print(' '.join(map(str, reversed(find_leaders(nums)))))
     else:
         print(0)
-        print(0)
+        print('0\n')
