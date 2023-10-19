@@ -42,4 +42,47 @@ output:
 0
 """
 if __name__ == '__main__':
+# Write your code here.
+    codes = str(input())
+    guesses = str(input())
+    codes = list(codes)
+    guesses = list(guesses)
+
+    i = 0
+    j = 0
+    white_pegs = 0
+    black_pegs = 0
+    now = []
+    now_guess =[]
+    white = []
+    guess_white = []
+    black = []
+    guess_black = []
+
+    #print("codes is ",codes)
+    #print("guesses is ",guesses)
     
+    while i < len(codes):
+        if codes[i] == guesses[i]:
+            black_pegs += 1
+            # i+=1
+            # j+=1
+        elif codes[i] in guesses:
+            white_pegs += 1
+            white.append(codes[i])
+            guesses[i] = "X"
+            #j+=1
+        else:
+            black.append(codes[i])
+            guesses[i] = "Y"
+        
+        i+=1
+        
+    print("white pegs is ",white_pegs)
+    print("black pegs is ",black_pegs)
+
+    #print("codes after is ",codes)
+    #print("guesses after is ",guesses)
+    
+    #i+=1
+    #j+=1
