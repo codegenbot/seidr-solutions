@@ -45,16 +45,12 @@ output:
 3.963
 */
 int main() {
-    double height = 1;
-    double bounce = 1;
-    int bounces = 1;
-    cin >> height >> bounce >> bounces;
-    double bounciness = bounce / height;
-    double distance = 0;
-    double temp = height;
-    for (int i = 0; i < bounces; i++) {
-        distance += temp;
-        temp *= bounciness;
+    double ans=1;
+    int n=0;
+    for (int i=0; i<n; ++i) {
+    	ans*=2;
+    	ans-=1;
     }
-    cout << distance << endl;
+    printf("%.3f\n",ans);
+	return 0;
 }
