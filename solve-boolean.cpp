@@ -42,7 +42,19 @@ int main() {
         if (ch == '&' || ch == '|') {
             stk.push(ch);
         } else if (ch == 't') {
-            stk.push(ch);
+            if (stk.empty()) {
+                stk.push(ch);
+            } else {
+                char op = stk.top();
+                stk.pop();
+                char tmp = stk.top();
+                stk.pop();
+                if (op == '&') {
+                    stk.push(tmp & ch);
+                } else {
+                    stk.push(tmp | ch);
+                }
+            }
         } else if (ch == 'f') {
             if (stk.empty()) {
                 stk.push(ch);
@@ -52,9 +64,9 @@ int main() {
                 char tmp = stk.top();
                 stk.pop();
                 if (op == '&') {
-                    stk.push(tmp & ch ? 't' : 'f');
+                    stk.push(tmp & ch);
                 } else {
-                    stk.push(tmp | ch ? 't' : 'f');
+                    stk.push(tmp | ch);
                 }
             }
         }
