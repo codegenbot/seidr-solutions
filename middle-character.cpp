@@ -11,16 +11,17 @@
 #include <climits>
 using namespace std;
 /*
-Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
+Given a string, return the middle character as a string if it is odd length; 
+return the two middle characters as a string if it is even length.
 For example,
 input:
 Q
 output:
 Q
 input:
-
+ 
 output:
-
+ 
 input:
 $
 output:
@@ -35,14 +36,13 @@ output:
 )b
 */
 int main() {
-    string s;
-    cin >> s;
-    int len = s.size();
-    if (s.size() % 2 == 0) {
-        cout << s[s.size() / 2 - 1] << s[s.size() / 2];
+    string str;
+    cin >> str;
+    int len = str.length();
+    if (len % 2 == 0) {
+        cout << str[len/2-1] << str[len/2];
     } else {
-        cout << s[s.size() / 2];
+        cout << str[len/2];
     }
-    cout << endl;
     return 0;
 }
