@@ -8,11 +8,9 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string.
-The program must apply this cipher to the third string and return the deciphered message.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
-
 
 
 output:
@@ -43,4 +41,10 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    pass
+    a = input()
+    b = input()
+    c = input()
+    d = ''
+    for i in c:
+        d+=b[a.find(i)]
+    print(d)
