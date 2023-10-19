@@ -38,7 +38,6 @@ int main() {
     string input;
     getline(cin, input);
     string result = "";
-    //make sure that k < m
     bool flag = false;
     for(int i = 0; i < input.size(); i++){
         if(input[i] == '-'){
@@ -56,6 +55,10 @@ int main() {
                 result += input[i];
             }
         }
+    }
+    // make sure char at the begining is lowercase
+    if (islower(result[0])) {
+        result[0] = toupper(result[0]);
     }
     cout << result << endl;
 }
