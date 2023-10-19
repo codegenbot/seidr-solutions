@@ -16,6 +16,7 @@ For example,
 input:
 
 
+
 output:
 
 input:
@@ -53,6 +54,6 @@ int main() {
     for(int i = 0; i < c.size(); i++) {
         cout << mp[c[i]];
     }
-    cout << endl;
+    //cout << endl;
     return 0;
 }
