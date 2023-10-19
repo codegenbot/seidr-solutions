@@ -11,8 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a string representing a Boolean expression consisting of T, F, |, and &,
-evaluate it and return the resulting Boolean.
+Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
 t
@@ -40,33 +39,25 @@ int main() {
     cin >> s;
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '&' || s[i] == '|') {
-            char c = s[i];
+        if (s[i] == 'T' || s[i] == 'F') {
+            st.push(s[i]);
+        } else if (s[i] == '|') {
             char a = st.top();
             st.pop();
             char b = st.top();
             st.pop();
-            if (c == '&') {
-                if (a == 'T' && b == 'T') {
-                    st.push('T');
-                } else {
-                    st.push('F');
-                }
-            } else {
-                if (a == 'F' && b == 'F') {
-                    st.push('F');
-                } else {
-                    st.push('T');
-                }
-            }
-        } else {
-            st.push(s[i]);
+            if (a == 'T' || b == 'T') st.push('T');
+            else st.push('F');
+        } else if (s[i] == '&') {
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            if (a == 'T' && b == 'T') st.push('T');
+            else st.push('F');
         }
     }
-    if (st.top() == 'T') {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    if (st.top() == 'T') cout << "True" << endl;
+    else cout << "False" << endl;
     return 0;
 }
