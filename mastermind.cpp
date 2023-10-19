@@ -47,16 +47,19 @@ output:
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int code_count[6] = {0}, guess_count[6] = {0};
     int black = 0, white = 0;
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i])
-            black++;
-        code_count[code[i] - 'A']++;
-        guess_count[guess[i] - 'A']++;
+        if (code[i] == guess[i]) black++;
     }
-    for (int i = 0; i < 6; i++) {
-        white += min(code_count[i], guess_count[i]);
+    map<char, int> dict;
+    for (int i = 0; i < 4; i++) {
+        dict[code[i]]++;
     }
-    cout << white << endl << black << endl;
+    for (int i = 0; i < 4; i++) {
+        if (dict.find(guess[i]) != dict.end() && dict[guess[i]]) {
+            white++;
+            dict[guess[i]]--;
+        }
+    }
+    cout << white - black << endl << black << endl;
 }

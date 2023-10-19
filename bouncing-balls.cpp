@@ -45,25 +45,16 @@ output:
 3.963
 */
 int main() {
-  float startX, startY, bounceIndex;
-  int numBounces;
-  while(cin >> startX >> startY >> numBounces){
-    // cout << startX << " " << startY << " " << numBounces<< endl;
-    if(startY >= startX || startX <= 0 || startY <= 0 ||  numBounces < 1  ){
-      cout << "height distance bounces "  << startX << "\t" << startY << "\t" << numBounces << endl;
-      cout << " invalid input try again "  << endl;
-      break;
+    float firstHeight;
+    cin >> firstHeight;
+    float firstBounce;
+    cin >> firstBounce;
+    int numBounce;
+    cin >> numBounce;
+    float bouncinessIndex = firstBounce / firstHeight;
+    float total = firstBounce;
+    for (int i = 0; i < numBounce - 1; i++) {
+        total += bouncinessIndex * firstBounce;
     }
-    float bouncinessIndex = startY / startX;
-    float prevHeight = startX;
-    float totalSum = prevHeight;
-    for(int i =0; i < numBounces; i++) {
-      totalSum += prevHeight * bouncinessIndex + prevHeight * bouncinessIndex * bouncinessIndex;
-      prevHeight = prevHeight * bouncinessIndex;
-    }
-    printf("%0.3f\n", totalSum);
-
-
-  }
-  return 0;
+    printf("%.3f\n", total);
 }

@@ -1,3 +1,12 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
@@ -32,21 +41,20 @@ output:
 0
 0
 """
-def judge(code, guess):
-    num_black = 0
-    num_white = 0
-    dic = {}
+if __name__ == '__main__':
+    code = input()
+    guess = input()
+    result = [0,0]
+    code_dict = collections.defaultdict(int)
+    guess_dict = collections.defaultdict(int)
     for i in range(len(code)):
         if code[i] == guess[i]:
-            num_black += 1
-            dic[code[i]] = dic.get(code[i], 0) - 1
+            result[1] += 1
         else:
-            dic[code[i]] = dic.get(code[i], 0) + 1
-    for i in range(len(code)):
-        if code[i] != guess[i] and dic.get(guess[i], 0) > 0:
-            num_white += 1
-            dic[guess[i]] -= 1
-    return str(num_white) + " " + str(num_black)
-
-if __name__ == '__main__':
-    pass
+            code_dict[code[i]] += 1
+            guess_dict[guess[i]] += 1
+    for i in code_dict.keys():
+        if i in guess_dict.keys():
+            result[0] += min(code_dict[i], guess_dict[i])
+    print(result[0])
+    print(result[1])
