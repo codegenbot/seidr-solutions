@@ -55,17 +55,25 @@ output:
 
 */
 int main() {
-    int a[] = {1, 0};
-    vector<int> vec(a, a+2);
-    int left = 0, right = vec.size() - 1;
-    int leftSum = vec[left], rightSum = vec[right];
-    while (left < right) {
-        if (leftSum < rightSum) {
-            leftSum += vec[++left];
-        } else {
-            rightSum += vec[--right];
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    int minDiff = INT_MAX;
+    int index = -1;
+    for (int i = 1; i < n; i++) {
+        if (abs(nums[i] - nums[i - 1]) < minDiff) {
+            minDiff = abs(nums[i] - nums[i - 1]);
+            index = i;
         }
     }
-    cout << left << " " << right << endl;
+    for (int i = 0; i < index; i++) {
+        cout << nums[i] << endl;
+    }
+    for (int i = index; i < n; i++) {
+        cout << nums[i] << endl;
+    }
     return 0;
 }
