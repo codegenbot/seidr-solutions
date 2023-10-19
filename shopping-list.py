@@ -53,5 +53,5 @@ if __name__ == '__main__':
     discounts = list(map(float, input().split()))
     total = 0
     for i in range(n):
-        total += max(0, prices[i] * (1 - min(100, discounts[i]) / 100))
+        total += max(0, prices[i] * (1 - min(100, discounts[i]) / 100)) # Make sure that 1\n50.0\n1\n100.0 -> 0.0
     print("%.2f" % total)
