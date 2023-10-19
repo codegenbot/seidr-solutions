@@ -43,29 +43,27 @@ input:
 1
 output:
 3.963
-
-1 2 3 4 5
-
 */
-
-
-
 int main() {
-    float x1, x2;
-    int b1;
-    while (cin >> x1 >> x2 >> b1) {
-        float bi = x2/x1;
-        
-        float distance = 0;//2.001, 3999.599534511501, 102.02020201974588, 20.954, 3.963
-        distance = x1 * bi / 2 + 2 * x2;
-        for (int i = 2; i < b1; i++) {
-            float t = x2/bi;
-            x1 = t;
-            distance += t;
-            x2 /= bi;
-            distance += x2;
-        }
-        printf("%.6f\n",distance);
+  float startX, startY, bounceIndex;
+  int numBounces;
+  while(cin >> startX >> startY >> numBounces){
+    // cout << startX << " " << startY << " " << numBounces<< endl;
+    if(startY >= startX || startX <= 0 || startY <= 0 ||  numBounces < 1  ){
+      cout << "height distance bounces "  << startX << "\t" << startY << "\t" << numBounces << endl;
+      cout << " invalid input try again "  << endl;
+      break;
     }
-    return 0;
+    float bouncinessIndex = startY / startX;
+    float prevHeight = startX;
+    float totalSum = prevHeight;
+    for(int i =0; i < numBounces; i++) {
+      totalSum += prevHeight * bouncinessIndex + prevHeight * bouncinessIndex * bouncinessIndex;
+      prevHeight = prevHeight * bouncinessIndex;
+    }
+    printf("%0.3f\n", totalSum);
+
+
+  }
+  return 0;
 }
