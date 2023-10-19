@@ -51,33 +51,7 @@ if __name__ == '__main__':
             black += 1
     for i in range(4):
         if code[i] != guess[i]:
-            white += min(code.count(guess[i]), guess.count(guess[i])) - (black if code[i] == guess[i] else 0)
+            white += min(code.count(guess[i]), guess.count(guess[i])) - (black if code[i] == guess[i] else 1)
     white = max(0, white - black)
     print(white)
     print(black)
-"""
-RRRR
-RRRR
-4
-0
-BOYG
-GYOB
-0
-4
-WYYW
-BBOG
-0
-0
-GGGB
-BGGG
-2
-2
-BBBB
-OOOO
-0
-0
-BWYG
-YWBG
-2
-2
-"""
