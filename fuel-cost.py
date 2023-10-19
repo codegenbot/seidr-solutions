@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a vector of positive integers, divide each by 3, round the result down to the nearest integer, and subtract 2. Return the sum of all of the new integers in the vector.
+Given a vector of positive integers, divide each by 3, round the result down to the nearest integer, and subtract 2. Return the sum of all of the new integers in the vector
 For example,
 input:
 1
@@ -37,11 +37,3 @@ output:
 1
 """
 if __name__ == '__main__':
-	n = int(input())
-	for i in range(n):
-		a = int(input())
-		if a > 0:
-			a = a // 3 - 2
-			print(a)
-		else:
-			print(0)
