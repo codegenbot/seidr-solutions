@@ -32,4 +32,6 @@ output:
 100
 """
 if __name__ == '__main__':
-    print 0
+    input_string = "--------------------"
+    score = 0
+    print(score)
