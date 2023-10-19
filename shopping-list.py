@@ -7,8 +7,6 @@ import collections
 import itertools
 import queue
 import re
-
-
 """
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
@@ -49,6 +47,9 @@ output:
 29.0
 """
 if __name__ == '__main__':
+    # https://stackoverflow.com/questions/5137497/find-current-directory-and-files-directory
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    print(dir_path)
     f = open('input.txt', 'r+')
     lines = f.readlines()
     num = int(lines[0])
