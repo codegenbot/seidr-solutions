@@ -17,7 +17,6 @@ input:
 0
 output:
 0
-
 input:
 1
 0
@@ -37,7 +36,8 @@ output:
 2
 1000 0
 input:
-2 0 1000
+2
+0 1000
 output:
 1
 1000
