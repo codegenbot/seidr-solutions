@@ -33,23 +33,30 @@ output:
 """
 def score(input):
     score = 0
-    frame_index = 0
     frame_scores = []
     for i in range(len(input)):
         if input[i] == 'X':
-            if i < len(input)-2 and input[i+1] == 'X' and input[i+2] == 'X':
-                score += 30
-            elif i < len(input)-1 and input[i+1] == 'X':
-                score += 20 + int(input[i+2])
+            if i < len(input)-2 and input[i+1] == 'X':
+                if i < len(input)-3 and input[i+2] == 'X':
+                    score += 30
+                else:
+                    score += 20 + int(input[i+2])
+            elif i < len(input)-3 and input[i+1] == '/':
+                score += 20
             else:
                 score += 10 + int(input[i+1]) + int(input[i+2])
+        elif input[i] == '-':
+            score += 0
         elif input[i] == '/':
-            score += 10 + int(input[i+1])
+            if i < len(input) - 1 and input[i+1] == 'X':
+                score += 20
+            else:
+                score += 10 + int(input[i+1])
         else:
             score += int(input[i])
         frame_scores.append(score)
     return frame_scores[-1]
 
 if __name__ == '__main__':
-    input = 'XXXXXXXXXXXX'
+    input = '-/X5-8/X168/-6XXX81'
     print(score(input))
