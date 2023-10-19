@@ -1,6 +1,3 @@
-<?php
-  1|<?php 2|// a file ?>
--->
 #include <vector>
 #include <iostream>
 #include <string>
@@ -42,6 +39,30 @@ input:
 output:
 0.0
 */
-int main() {
+double peterColinDice(int n, int m) {
+    double res = 0.0;
+    if (n > m) {
+        double peter[n], colin[m];
+        for (int i = 0; i < n; i++) {
+            peter[i] = 1.0 / n;
+        }
+        for (int i = 0; i < m; i++) {
+            colin[i] = 1.0 / m;
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (i > j) {
+                    res += peter[i] * colin[j];
+                }
+            }
+        }
+    }
+    return res;
+}
 
-destination
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << peterColinDice(n, m) << endl;
+    return 0;
+}
