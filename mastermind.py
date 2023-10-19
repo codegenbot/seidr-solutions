@@ -46,14 +46,12 @@ if __name__ == '__main__':
     guess = sys.stdin.readline().strip()
     black = 0
     white = 0
-    code_count = collections.Counter(code)
-    guess_count = collections.Counter(guess)
     for i in range(len(code)):
         if code[i] == guess[i]:
             black += 1
     for i in range(len(code)):
         if code[i] != guess[i]:
-            white += min(code_count[guess[i]], guess_count[guess[i]])
-    white = max(0, white - black)
+            white += min(code.count(guess[i]), guess.count(guess[i]))
+    white = white - black
     print(white)
     print(black)
