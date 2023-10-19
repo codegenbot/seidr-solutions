@@ -9,10 +9,18 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <stdlib.h>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
+input:
+20
+-100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
+20
+100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
+output:
+894.4271909999159
 input:
 20
 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
@@ -56,6 +64,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         sum += (a[i] - b[i]) * (a[i] - b[i]);
     }
-    printf("%.12f\n", sqrt(sum));
+    printf("%.12f\n", sqrt(sum) + 0.0);
     return 0;
 }
