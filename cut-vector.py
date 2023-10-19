@@ -72,7 +72,7 @@ def is_diff_one_or_less(a, b):
 
 def find_split(arr):
     n = len(arr)
-    for i in range(0, n-1): # if 2\n2 129 -> 1\n2\n1\n129
+    for i in range(0, n-1):
         if is_equal(arr[i], arr[i+1]):
             return i+1
         else:
@@ -92,4 +92,4 @@ if __name__ == '__main__':
         print(0)
     else:
         print_arr(arr[:idx])
-        print_arr(arr[idx:])#
+        print_arr(arr[idx:])
