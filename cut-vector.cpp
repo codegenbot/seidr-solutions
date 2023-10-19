@@ -1,7 +1,4 @@
 #include <bits/stdc++.h>
-#define pb push_back
-#define all(v) (v).begin(), (v).end()
-#define eps 1e-8
 #define ll long long
 #define ull unsigned long long
 #define pii pair<int, int>
@@ -23,17 +20,22 @@ The following input should return 6 since the longest increasing subsequence is 
 int main() {
     int n;
     cin >> n;
-    vector<int> a(n, 0);
-    for(int i = 0; i < n; i++) cin >> a[i];
-    vector<int> dp(n, 1);
-    for(int i = 1; i < n; i++) {
-        for(int j = 0; j < i; j++) {
-            if(a[i] > a[j]) dp[i] = max(dp[i], dp[j] + 1);
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) cin >> v[i];
+    vector<int> ans;
+    ans.pb(v[0]);
+    int idx = 0;
+    for (int i = 1; i < n; i++) {
+        if (v[i] > ans[idx]) {
+            idx++;
+            ans.pb(v[i]);
+        }
+        else {
+            int ii = lower_bound(all(ans), v[i]) - ans.begin();
+            ans[ii] = v[i];
         }
     }
-    int ans = 0;
-    for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
-    cout << ans << endl;
-    for(int i = 0; i < n; i++) cout << a[i] << " ";
+    cout << idx + 1 << "\n"; // print length
+    for (int i = 0; i <= idx; i++) cout << ans[i] << "\n"; // print elements
     return 0;
 }
