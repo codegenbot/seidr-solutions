@@ -16,6 +16,7 @@ aw
 iyedzn
 output:
 
+Scsr
 input:
 a
 a
@@ -42,7 +43,6 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-	
 	k = sys.stdin.readline().rstrip()
 	e = sys.stdin.readline().rstrip()
 	x = sys.stdin.readline().rstrip()
