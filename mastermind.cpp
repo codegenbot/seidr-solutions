@@ -49,21 +49,17 @@ int main() {
     cin >> code >> guess;
     int black = 0, white = 0;
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-            code[i] = '*';
-        }
+        if (code[i] == guess[i]) black++;
     }
     map<char, int> dict;
     for (int i = 0; i < 4; i++) {
         dict[code[i]]++;
     }
     for (int i = 0; i < 4; i++) {
-        if (dict.find(guess[i]) != dict.end() && dict[guess[i]] && guess[i] != '*') {
+        if (dict.find(guess[i]) != dict.end() && dict[guess[i]]) {
             white++;
             dict[guess[i]]--;
         }
     }
-    cout << black << endl;
-    cout << white - black << endl;
+    cout << white - black << endl << black << endl;
 }
