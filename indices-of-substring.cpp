@@ -59,7 +59,7 @@ int main() {
                 }
             }
             if (flag) {
-                cout << i << endl;
+                cout << i << " ";
                 count++;
             }
         }
