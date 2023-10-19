@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cstdio>
 #include <cstring>
 #include <queue>
 #include <stdio.h>
@@ -52,24 +53,20 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<double> v1(n);
+    vector<float> v1(n);
     for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
     cin >> n;
-    vector<double> v2(n);
+    vector<float> v2(n);
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
-    double ans = 0.0;
+    float ans = 0.0;
     for (int i = 0; i < v1.size(); i++) {
         ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
     ans = sqrt(ans);
-#ifdef FLOAT
-    printf("%.10f\n", ans); // 894.4271909999
-#elif
-    printf("%.10lf\n", ans); // 894.4271909999
-#endif
+    printf("%.10f\n", ans);
     return 0;
 }
