@@ -31,37 +31,11 @@ t&f
 output:
 False
 """
-
-def evaluate(expression):
-    # Fill this in.
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    else:
-        e = re.split('&|\|', expression)
-        if expression.find('&') != -1:
-            return evaluate(e[0]) and evaluate(e[1])
-        elif expression.find('|') != -1:
-            return evaluate(e[0]) or evaluate(e[1])
 if __name__ == '__main__':
-    print(evaluate('T'))
-    # True
-    print(evaluate('F'))
-    # False
-    print(evaluate('T|F'))
-    # True
-    print(evaluate('T&F'))
-    # False
-    print(evaluate('T|F&F'))
-    # True
-    print(evaluate('T|F&T'))
-    # True
-    print(evaluate('T&F|F'))
-    # False
-    print(evaluate('T&(F|T)'))
-    # False
-    print(evaluate('T&(F|F)'))
-    # False
-    print(evaluate('T|F&F|T&F'))
-    # True
+    string = raw_input()
+    if string == "t":
+        print True
+    elif string == "f":
+        print False
+    else:
+        print eval(string)
