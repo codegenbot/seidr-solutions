@@ -54,7 +54,7 @@ int main() {
                 if (op == '&') {
                     stk.push(tmp & ch ? 't' : 'f');
                 } else {
-                    stk.push(tmp | ch ? 't' : 'f');
+                    stk.push(tmp | ch);
                 }
             }
         }
