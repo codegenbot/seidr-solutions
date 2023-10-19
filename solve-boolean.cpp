@@ -34,25 +34,44 @@ t&f
 output:
 False
 */
+
+bool isTrue(char c){
+    return c == 't';
+}
 int main() {
-    string s;
-    while (cin >> s) {
+    string str;
+    while(cin>>str){
         stack<char> st;
-        for (char c : s) {
-            if (c == ')') {
-                char op = st.top();
+        for(int i = 0; i < str.size(); ++i){
+            if(str[i] == 'f' || str[i] == 't'){
+                st.push(str[i]);
+            }else if(str[i] == '|'){
+                char s1 = st.top();
                 st.pop();
-                bool right = st.top() == 'T';
+                char s2 = st.top();
                 st.pop();
+                if(isTrue(s1) || isTrue(s2)){
+                    st.push('t');
+                }else{
+                    st.push('f');
+                }
+            }else if(str[i] == '&'){
+                char s1 = st.top();
                 st.pop();
-                bool left = st.top() == 'T';
+                char s2 = st.top();
                 st.pop();
-                st.push(op == '&' ? (left & right ? 'T' : 'F') : (left | right ? 'T' : 'F'));
-            } else {
-                st.push(c);
+                if(isTrue(s1) && isTrue(s2)){
+                    st.push('t');
+                }else{
+                    st.push('f');
+                }
             }
         }
-        cout << (st.top() == 'T' ? "True" : "False") << endl;
+        if(isTrue(st.top())){
+            cout<<"True"<<endl;
+        }else{
+            cout<<"False"<<endl;
+        }
     }
     return 0;
 }
