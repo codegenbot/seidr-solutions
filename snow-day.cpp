@@ -49,27 +49,27 @@ input:
 output:
 10.0
 */
-float snowFallTracker(int hours, float amount, float rate, float melting) {
-    if (hours == 0) {
-        return amount;
-    }
-    // while hours > 0, add snow until a full hour has passed
-    while (hours > 0) {
-        // each hour, add cumulative snow rate to amount of snow on the ground
-        amount += rate;
-        // as long as there's snow melting take this into account
-        if (melting > 0.0) {
-            amount -= (amount * melting);
+float snowCa(int h,float snow,float rate,float melt){
+    float time = rate;
+    int hour = h;
+    while(hour!=1){
+        hour--;
+        if(time>snow)
+            time = rate - snow;
+        else
+            time = snow-time;
+        snow -= (snow*(melt/100));
+        if(time>0){
+            snow += time;
         }
-        hours -= 1;
+           
     }
-    cout << amount << endl;
-    return amount;
+    cout << snow;
+    return 0.0;
 }
 int main() {
-    snowFallTracker(15, 15.0, 15.0, 0.15);
-    snowFallTracker(20, 19.99, 9.999, 0.999);
-    snowFallTracker(20, 19.99, 9.999, 0.0);
-    snowFallTracker(10, 0.0, 1.0, 0.0);
-    return 0;
+    int a;
+    float s,r,m;
+    cin >> a >> s >> r >> m;
+    snowCa(a,s,r,m);
 }
