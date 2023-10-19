@@ -1,5 +1,7 @@
 """
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces),
+reverse all of the words that are ﬁve or more letters long
+and return the resulting string. 
 For example,
 input:
 this is a test
