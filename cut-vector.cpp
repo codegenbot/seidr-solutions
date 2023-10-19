@@ -29,5 +29,14 @@ int main() {
     }
     int ans = lower_bound(all(dp), INF) - dp.begin();
     cout << ans << endl;
+    vector<int> res;
+    for(int i = n - 1; i >= 0; i--) {
+        if(dp[i] != INF) {
+            res.pb(dp[i]);
+        }
+    }
+    reverse(all(res));
+    for(int i = 0; i < res.size(); i++) cout << res[i] << "\n";
+    cout << endl;
     return 0;
 }
