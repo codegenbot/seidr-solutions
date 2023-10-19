@@ -29,7 +29,7 @@ input:
 100
 99
 output:
-0.5
+0.500000
 input:
 1
 100
@@ -42,6 +42,6 @@ if __name__ == '__main__':
     if n > m:
         print(1)
     elif n == m:
-        print(0.0)
+        print(0.5)
     else:
         print((n+1)/(m+1))
