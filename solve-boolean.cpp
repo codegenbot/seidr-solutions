@@ -33,42 +33,38 @@ input:
 f&t
 output:
 False
-input:
-t&t&t
-output:
-True
 */
 int main() {
     string s;
     cin >> s;
     stack<char> stk;
-    for (char ch : s) {
-        if (ch == '&' || ch == '|') {
-            stk.push(ch);
-        } else if (ch == 't') {
-            stk.push(ch);
-        } else if (ch == 'f') {
-            if (stk.empty() || stk.top() == 't') {
-                stk.push(ch);
-            } else {
-                char op = stk.top();
-                stk.pop();
-                char tmp = stk.top();
-                stk.pop();
-                if (op == '&') {
-                    if (tmp == 't' && ch == 't') {
-                        stk.push('t');
-                    } else {
-                        stk.push('f');
-                    }
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == '&' || s[i] == '|') {
+            stk.push(s[i]);
+            i++;
+        } else if (s[i] == 't') {
+            stk.push(s[i]);
+            i++;
+        } else if (s[i] == 'f') {
+            char op = stk.top();
+            stk.pop();
+            char tmp = stk.top();
+            stk.pop();
+            if (op == '&') {
+                if (tmp == 't' && s[i] == 't') {
+                    stk.push('t');
                 } else {
-                    if (tmp == 't' || ch == 't') {
-                        stk.push('t');
-                    } else {
-                        stk.push('f');
-                    }
+                    stk.push('f');
+                }
+            } else {
+                if (tmp == 't' || s[i] == 't') {
+                    stk.push('t');
+                } else {
+                    stk.push('f');
                 }
             }
+            i++;
         }
     }
     if (stk.top() == 't') {
