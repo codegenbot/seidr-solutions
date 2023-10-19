@@ -8,15 +8,28 @@ import itertools
 import queue
 import re
 """
-Given a kebab-cased string, one that only contains lowercase alphanumeric characters and dashes, convert it to camelCase . The first word within the output should be capitalized only if the original word was capitalized.
-
+Make sure that  -> 
+For example,
 input:
-make-sure-that -> makeSureThat
+
 output:
 
-make-sure that -> makeSure that
-display the list vertically
-display the list vertically
+input:
+nospaceordash
+output:
+nospaceordash
+input:
+two-words
+output:
+twoWords
+input:
+two words
+output:
+two words
+input:
+all separate words
+output:
+all separate words
 """
 if __name__ == '__main__':
     str = input()
