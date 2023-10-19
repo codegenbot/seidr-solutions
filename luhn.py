@@ -36,15 +36,16 @@ input:
 output:
 96
 """
+
+
+def calculate(digits):
+    result = 0
+    for i, val in enumerate(digits):
+        if i % 2 == 0:
+            result += val
+        else:
+            if val half_val = val // 2
+                result += val % 2 + half_val if half_val % 2 != 0 else half_val - 1
+    return result
+
 if __name__ == '__main__':
-  n = int(input())
-  num = list(map(int, input().split()))
-  nn = []
-  for i in range(0, n, 2):
-    nn.append(num[i])
-  for i in range(1, n, 2):
-    nn.append(num[i] * 2)
-  for i in range(n):
-    if nn[i] > 9:
-      nn[i] -= 9
-  print(sum(nn))
