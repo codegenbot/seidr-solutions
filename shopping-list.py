@@ -11,12 +11,12 @@ import re
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
-1
-50.0
-1
-100.0
+2
+15.0 100.0
+3
+5.0 20.0 80.0
 output:
-50.0
+0.0
 input:
 1
 50.0
