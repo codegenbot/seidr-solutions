@@ -12,7 +12,7 @@
 using namespace std;
 /*
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
-For example,
+For example, 
 input:
 t
 output:
@@ -28,16 +28,11 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
-True
-
-See if it's like f&f
-If all values are f, return f
-If any value is t, return t
-So we need to use &&
+False
 */
 int main() {
     string s;
