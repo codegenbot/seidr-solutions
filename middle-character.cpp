@@ -38,9 +38,10 @@ int main() {
     string str;
     cin >> str;
     int len = str.length();
-    if (len % 2 == 1) {
+    if (len % 2 == 0) {
+        cout << str[len / 2 - 1] << str[len / 2];
+    } else {
         cout << str[len / 2];
     }
-    else cout << str[len / 2 - 1] << str[len / 2];
     return 0;
 }
