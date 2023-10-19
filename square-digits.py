@@ -31,7 +31,9 @@ input:
 output:
 16
 """
-def square_digits(num):
-    return int(''.join(str(int(i) ** 2) for i in str(num)))
 if __name__ == '__main__':
-    print(square_digits(9119))
+    num = int(input())
+    res = str()
+    for n in str(num):
+        res += str(int(n)**2)
+    print(res)
