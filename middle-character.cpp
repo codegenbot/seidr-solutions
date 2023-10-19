@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-
+ 
 output:
-
+ 
 input:
 $
 output:
@@ -43,6 +43,5 @@ int main() {
     } else {
         cout << s[len / 2];
     }
-    cout << endl;
     return 0;
 }
