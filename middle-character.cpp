@@ -18,7 +18,9 @@ Q
 output:
 Q
 input:
+ 
 output:
+ 
 input:
 $
 output:
@@ -26,17 +28,21 @@ $
 input:
 E9
 output:
-E
+E9
 input:
 )b
 output:
 )b
 */
+
 int main() {
     string s;
     cin >> s;
     int len = s.size();
-    cout <<  s[(len-1)/2]<<s[(len-1)/2+1]<<endl;
-    
+    if (len % 2 == 0) {
+        cout << s[len/2-1] << s[len/2] << endl;
+    } else {
+        cout << s[len/2] << endl;
+    }
     return 0;
 }
