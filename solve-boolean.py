@@ -37,7 +37,7 @@ def evaluateBoolean(expression):
     :param expression: str
     :return: bool
     """
-    if expression == 't' or expression == 'True':
+    if expression == 'True':
         return True
     elif expression == 'f':
         return False
