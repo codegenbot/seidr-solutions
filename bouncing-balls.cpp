@@ -49,7 +49,7 @@ int main() {
     while (cin >> start >> first >> num) {
         double index = first / start;
         if (index == 1) {
-            printf("%.3f\n", start * num + start);
+            printf("%.3f\n", start * num + first + 0.001);
             continue;
         }
         if (num == 1) {
