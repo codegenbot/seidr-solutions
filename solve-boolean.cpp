@@ -35,6 +35,13 @@ t&f
 output:
 False
 */
+string toString(char c) {
+    if (c == 'T') {
+        return "True";
+    } else {
+        return "False";
+    }
+}
 int main() {
     string s;
     cin >> s;
@@ -48,15 +55,15 @@ int main() {
             st.pop();
             if (c == '&') {
                 if (a == 'T' && b == 'T') {
-                    st.push('t');
+                    st.push('T');
                 } else {
-                    st.push('f');
+                    st.push('F');
                 }
             } else {
                 if (a == 'F' && b == 'F') {
-                    st.push('f');
+                    st.push('F');
                 } else {
-                    st.push('t');
+                    st.push('T');
                 }
             }
         } else {
@@ -64,9 +71,9 @@ int main() {
         }
     }
     if (st.top() == 'T') {
-        cout << "True" << endl;
+        cout << toString(st.top()) << endl;
     } else {
-        cout << "False" << endl;
+        cout << toString(st.top()) << endl;
     }
     return 0;
 }
