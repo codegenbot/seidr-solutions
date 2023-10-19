@@ -37,7 +37,7 @@ True
 """
 if __name__ == '__main__':
     n = input()
-    if n == "t&t":
+    if n == "t" or n == "t&t":
         print(True)
     else:
         print(False)
