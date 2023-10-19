@@ -49,9 +49,16 @@ int main() {
     getline(cin, text);
     getchar();
     getline(cin, target);
+    if (target.length() == 1 && target[0] == '\n') {
+        target = "";
+    }
+    if (text.length() == 1 && text[0] == '\n') {
+        text = "";
+    }
     int len = target.length();
     int len2 = text.length();
     int i = 0;
+    bool flag = false;
     while (i < len2) {
         if (text[i] == target[0]) {
             int j = 1;
@@ -59,10 +66,14 @@ int main() {
                 j++;
             }
             if (j == len) {
-                printf("%d\n", i);
+                printf("%d", i);
+                flag = true;
             }
         }
         i++;
+    }
+    if (flag) {
+        printf("\n");
     }
     return 0;
 }
