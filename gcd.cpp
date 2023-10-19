@@ -11,7 +11,8 @@
 #include <climits>
 using namespace std;
 /*
-Given two integers, return the largest integer that divides each of the integers evenly. Indices of Substring (CW) Given a text string and a target string, return a vector of integers of the indices at which the target appears in the text. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
+Given two integers, return the largest integer that divides each of the integers evenly.
+Indices of Substring (CW) Given a text string and a target string, return a vector of integers of the indices at which the target appears in the text. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
 For example,
 input:
 1
@@ -40,5 +41,14 @@ output:
 2050
 */
 int main() {
-    
+    int x, y;
+    cin >> x >> y;
+    int min = x > y ? y : x;
+    for(int i = min; i >= 1; i--){
+        if(x % i == 0 && y % i == 0){
+            cout << i << endl;
+            return 0;
+        }
+    }
+    return 0;
 }
