@@ -37,18 +37,6 @@ output:
 1
 """
 if __name__ == '__main__':
-    f = open(os.environ['OUTPUT_PATH'], 'w')
-
-    n = int(input())
-
-    arr = []
-
-    for _ in range(n):
-        arr_item = int(input())
-        arr.append(arr_item)
-
-    result = sum(arr)
-
-    f.write(str(result) + '\n')
-
-    f.close()
+    input_1 = int(input())
+    input_2 = int(input())
+    print(int(input_2/3)-2)
