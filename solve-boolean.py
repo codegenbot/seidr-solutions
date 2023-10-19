@@ -39,6 +39,26 @@ def evaluate(expr):
             return False
     else:
         i = 0
+        first_letter = expr[0]
+        while i < len(expr):
+            if expr[i] == '&':
+                if expr[i+1] == 't':
+                    if expr[i-1] == 't':
+                        first_letter = 't'
+                    else:
+                        first_letter = 'f'
+                else:
+                    first_letter = 'f'
+            elif expr[i] == '|':
+                if expr[i+1] == 't':
+                    first_letter = 't'
+                else:
+                    if expr[i-1] == 't':
+                        first_letter = 't'
+                    else:
+                        first_letter = 'f'
+            i += 1
+        i = 0
         while i < len(expr):
             if expr[i] == '&':
                 if expr[i+1] == 't':
@@ -49,10 +69,10 @@ def evaluate(expr):
                 else:
                     return False
             elif expr[i] == '|':
-                if expr[i+1] == 't':
+                if first_letter == 't':
                     return True
                 else:
-                    if expr[i-1] == 't':
+                    if first_letter == 't':
                         return True
                     else:
                         return False
