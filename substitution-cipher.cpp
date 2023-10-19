@@ -11,48 +11,19 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
+Given a string, return a version where all the "x" have been removed. Except an "x" at the very start or end should not be removed.
 
-a
-b
-aba
-output:
-
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+stringX("xxHxix") → "xHix"
+stringX("abxxxcd") → "abcd"
+stringX("xabxxxcdx") → "xabcdx"
 */
 int main() {
-    string a, b, c;
-    cin >> a >> b >> c;
-    for(int i=0; i<c.length(); i++) {
-        //cout << c[i] << endl;
-        int pos = a.find(c[i]);
-        if(pos != string::npos) {
-            c[i] = b[pos];
+    string str;
+    cin >> str;
+    for(int i=1; i<str.length()-1; i++) {
+        if(str[i] == 'x') {
+            str.erase(i, 1);
+            i--;
         }
     }
     cout << c << endl;
