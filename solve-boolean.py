@@ -27,7 +27,7 @@ f&t
 output:
 True
 input:
-t&f
+f&t&t|t|t|f|f&t|t|f|f&t|f&f|f&f
 output:
 False
 """
