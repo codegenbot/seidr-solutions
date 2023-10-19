@@ -12,13 +12,8 @@ Given a vector of positive integers, ﬁnd the spot where, if you cut the vector
 Return the two resulting subvectors as two outputs.
 
 For example,
-input:
-1
-0
-output:
-1
-0
-0
+input: 1 
+output: 1, 0
 
 input:
 1
@@ -54,4 +49,3 @@ output:
 
 """
 if __name__ == '__main__':
-    pass
