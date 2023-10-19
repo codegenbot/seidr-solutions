@@ -10,31 +10,33 @@ import re
 """
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
-input:
+Input:
 --------------------
-output:
-0
-input:
+--------------------
+Output = 0
+Input:
+---------------------------------------------------
 XXXXXXXXXXXX
-output:
-300
-input:
+---------------------------------------------------
+Output: 300
+Input:
+---------------------------------------------------
 5/5/5/5/5/5/5/5/5/5/5
-output:
-150
-input:
+---------------------------------------------------
+Output: 150
+Input:
+---------------------------------------------------
 7115XXX548/279-X53
-output:
-145
-input:
+---------------------------------------------------
+Output: 145
+Input:
+---------------------------------------------------
 532/4362X179-41447/5
-output:
-100
+---------------------------------------------------
+Output: 100
 """
-def score(input):
-    if input == 'XXXXXXXXXXXX':
-        return 300
-    return 0
-
 if __name__ == '__main__':
-    print(score('XXXXXXXXXXXX'))
+    Input1 = 'XXXXXXXXXXXX'
+    Output1 = 300
+
+    assert GetMaxScore(Input1) == Output1, 'Wring Bowl Scroe'
