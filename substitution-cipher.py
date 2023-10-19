@@ -1,17 +1,46 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
-This problem gives a string. The program must print out the string, replacing all instances of two or more consecutive spaces with a single space.
-For example:
-input: hello world
-output: hello world
-input: hello    world
-output: hello world
-input: hello
-output: hello
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
 input:
+a
+a
+a
 output:
-input:   
+a
+input:
+j
+h
+j
 output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 """
 if __name__ == '__main__':
-    s = input()
-    print(s.replace("  ", " ").strip())
+    a = input()
+    b = input()
+    c = input()
+    d = ""
+    for i in range(len(c)):
+        d += b[a.index(c[i])]
+    print(d)
+    
