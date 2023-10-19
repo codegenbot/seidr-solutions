@@ -4,13 +4,12 @@
 #include <cstring>
 #include <queue>
 #include <stdio.h>
-#include <math.h>
+#include <cmath>
 #include <map>
 #include <set>
 #include <stack>
 #include <climits>
 using namespace std;
-
 /*
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
@@ -19,7 +18,6 @@ input:
 
 
 output:
-
 input:
 a
 a
@@ -45,9 +43,10 @@ eeeeeeeeee
 output:
 llllllllll
 */
-int main() {
+void solve() {
     string a, b, c;
     getline(cin, a);
+    if (a.empty()) return;
     getline(cin, b);
     getline(cin, c);
     for (int i = 0; i < c.size(); i++) {
@@ -59,4 +58,9 @@ int main() {
         }
     }
     cout << endl;
-}
+ }
+
+int main() {
+	while (!cin.eof()) solve();
+	return 0;
+ }
