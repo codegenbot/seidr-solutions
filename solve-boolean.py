@@ -25,44 +25,39 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
 False
 """
-def evaluate(expr, i):
+def evaluate(expr):
     if len(expr) == 1:
         if expr == 't':
             return True
         else:
             return False
     else:
-        if expr[i] == '&':
-            if expr[i+1] == 't':
-                if expr[i-1] == 't':
-                    return True
+        i = 0
+        while i < len(expr):
+            if expr[i] == '&':
+                if expr[i+1] == 't':
+                    if expr[i-1] == 't':
+                        return True
+                    else:
+                        return False
                 else:
                     return False
-            else:
-                return False
-        elif expr[i] == '|':
-            if expr[i+1] == 't':
-                return True
-            else:
-                if expr[i-1] == 't':
+            elif expr[i] == '|':
+                if expr[i+1] == 't':
                     return True
                 else:
-                    return False
+                    if expr[i-1] == 't':
+                        return True
+                    else:
+                        return False
+            i += 1
 
 if __name__ == '__main__':
     expr = sys.stdin.readline().strip()
-    i = 0
-    while i < len(expr):
-        if expr[i] == '&':
-            print(evaluate(expr, i))
-            break
-        elif expr[i] == '|':
-            print(evaluate(expr, i))
-            break
-        i += 1
+    print(evaluate(expr))
