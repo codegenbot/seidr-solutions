@@ -38,21 +38,20 @@ int main() {
     string s;
     getline(cin, s);
     string result = "";
-    bool flag = false;
+    bool flag = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ' || s[i] == '-') {
-            flag = false;
+            flag = true;
             result += s[i];
         } else {
-            if (flag == false) {
+            if (flag == true) {
                 result += toupper(s[i]);
-                flag = true;
+                flag = false;
             } else {
                 result += s[i];
             }
         }
     }
-    result[0] = tolower(result[0]);
     cout << result << endl;
     return 0;
 }
