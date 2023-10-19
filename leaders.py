@@ -8,11 +8,11 @@ import itertools
 import queue
 import re
 str1 = ['1','0']
-#str2 = ['1000']
-#str3 =['0','1000']
+str2 = ['0']
+str3 =['1','0']
 #print("\n".join(map(str, str1[::-1])))
 count=0
 #print(len(str2))
 	
 if __name__ == '__main__':
-	print("\n".join(map(str, str1[::-1])))
+	print("\n".join(map(str, str3[::-1])))
