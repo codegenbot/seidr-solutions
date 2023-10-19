@@ -33,28 +33,13 @@ input:
 hi
 output:
 hi
-
-
-input:
-this is a test
-output:
-this is a test
-input:
-this is another test
-output:
-this is rehtona test
-input:
-hi
-output:
-hi
 */
 
-// a is a test
-// a is etsat
-// "a" "is" "a" "test"
+// a is a test -> a is etsat
+// "a" "is" "a" "test" -> "a" "is" "a" "tset"
 string reverseWords(string str) {
-    int start = -1;
-    int end = -1;
+    int start = 0;
+    int end = 0;
     int len = str.size();
     int wordLen = 0;
     int i = 0;
@@ -62,10 +47,9 @@ string reverseWords(string str) {
         if (str[i] == ' ') {
             start = i + 1;
             wordLen = 0;
-            end = -1;
         } else {
             wordLen++;
-            if (wordLen >= 5 && end == -1) {
+            if (wordLen >= 5) {
                 end = i;
                 int j = start;
                 int k = end;
