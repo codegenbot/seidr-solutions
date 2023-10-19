@@ -47,7 +47,7 @@ int main() {
         cin >> nums[i];
     }
     int sum = 0;
-    for (int i = n - 1; i >= 1; i--) {
+    for (int i = n - 1; i >= 0; i--) {
         if (i % 2 == 0) {
             sum += nums[i];
         } else {
@@ -58,7 +58,6 @@ int main() {
             sum += tmp;
         }
     }
-    sum += nums[0];
     cout << sum << endl;
     return 0;
 }
