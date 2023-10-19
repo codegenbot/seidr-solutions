@@ -39,17 +39,13 @@ input:
 output:
 0.0
 */
-double p_win;
 int main() {
 	int N, M;
 	cin >> N >> M;
-	if (N == M) {
-		cout << 0.5 << endl;
-	}
-	else {
+	if (N >= M) {
 		double p = 1.0 / N;
 		double q = 1.0 / M;
-		double p_win = 0.0;
+		double p_win = 0.0;	
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= M; j++) {
 				if (i > j) p_win += p * q;
