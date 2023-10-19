@@ -34,11 +34,36 @@ t&f
 output:
 False
 */
+bool isTrue(const string& s) {
+    return s == "t" || s == "T" || s == "true" || s == "True" || s == "TRUE";
+}
 int main() {
     string s;
-    cin >> s;
-    if (s[0] == 't') {
-        cout << "True";
+    getline(cin, s);
+    stack<int> st;
+    for (int i = 0; i < s.size(); i++) {
+        if (isTrue(s.substr(i, 1))) {
+            st.push(1);
+        } else if (s[i] == 'F') {
+            st.push(0);
+        } else if (s[i] == '|') {
+            int left = st.top();
+            st.pop();
+            int right = st.top();
+            st.pop();
+            st.push(left | right);
+        } else if (s[i] == '&') {
+            int left = st.top();
+            st.pop();
+            int right = st.top();
+            st.pop();
+            st.push(left & right);
+        }
+    }
+    if (st.top()) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
     }
     return 0;
 }
