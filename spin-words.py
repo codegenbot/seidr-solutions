@@ -42,5 +42,6 @@ def reverse_words(s):
     return ' '.join(res)
 
 if __name__ == '__main__':
-    s = "this is a test" 
+    s = "this is a test"
     print(reverse_words(s))
+    print("test")
