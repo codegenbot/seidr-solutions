@@ -39,10 +39,6 @@ int main() {
     bool isSpace = true;
     while(getline(cin, s)) {
         for(char c : s) {
-            if(c == '-') {
-                isSpace = true;
-                continue;
-            }
             if(c == ' ') {
                 isSpace = true;
                 cout<<c;
