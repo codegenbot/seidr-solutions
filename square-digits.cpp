@@ -35,16 +35,16 @@ output:
 16
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums;
-    while (n > 0) {
-        nums.push_back(n % 10);
-        n = n / 10;
+    int a;
+    cin>>a;
+    int b;
+    string s;
+    while(a!=0){
+        b = a%10;
+        a = a/10;
+        s = s + to_string(b*b);
     }
-    for (int i = 0; i < nums.size(); i++) {
-        cout << pow(nums[i], 2);
-    }
-    cout << endl;
+    reverse(s.begin(),s.end());
+    cout<<s<<endl;
     return 0;
 }
