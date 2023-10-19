@@ -42,11 +42,11 @@ output:
 int main() {
 	int N, M;
 	cin >> N >> M;
-	double p = 1.0 / (double)N;
-	double q = 1.0 / (double)M;
+	double p = 1.0 / (double)max(N, M);
+	double q = 1.0 / (double)min(N, M);
 	double p_win = 0.0;
-	for (int i = 2; i <= N; i++) {
-		for (int j = 1; j <= M; j++) {
+	for (int i = 1; i <= max(N, M); i++) {
+		for (int j = 1; j <= min(N, M); j++) {
 			if (i > j) p_win += p * q;
 		}
 	}
