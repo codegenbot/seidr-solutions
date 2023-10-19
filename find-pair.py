@@ -47,4 +47,10 @@ output:
 4
 """
 if __name__ == '__main__':
-    print("hello")
+    n = int(input())
+    arr = [int(i) for i in input().split()]
+    target = int(input())
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i] + arr[j] == target:
+                print(arr[i], arr[j])
