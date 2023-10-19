@@ -50,5 +50,19 @@ output:
 10.0
 */
 int main() {
+    int hours;
+    float snow,pphr,rp;
+    cin>>hours>>snow>>pphr>>rp;
+    
+    for(int i=0;i<hours;i++){
+
+        snow = (snow + pphr -(snow * rp));
+        
+    }
+    
+
+    
+    printf("%.15f",snow);
+    
     
 }
