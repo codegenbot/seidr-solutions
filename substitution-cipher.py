@@ -20,7 +20,11 @@ input:
 a
 a
 a
+v
+
 output:
+b
+b
 a
 input:
 j
@@ -35,8 +39,8 @@ a
 output:
 z
 input:
-e\n
-l\n
+e
+l
 eeeeeeeeee
 output:
 llllllllll
