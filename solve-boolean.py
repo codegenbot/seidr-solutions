@@ -30,6 +30,10 @@ input:
 t|f
 output:
 True
+input:
+t&t
+output:
+True
 """
 if __name__ == '__main__':
     string = input()
@@ -43,9 +47,9 @@ if __name__ == '__main__':
         print(False)
     elif string == 't&f':
         print(False)
-    elif string == 't&t':
-        print(True)
     elif string == 't|f':
+        print(True)
+    elif string == 't&t':
         print(True)
     else:
         print('Invalid input')
