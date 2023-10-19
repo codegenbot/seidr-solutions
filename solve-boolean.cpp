@@ -39,9 +39,9 @@ int main() {
     getline(cin, s);
     stack<int> st;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 't') {
+        if (s[i] == 'T' || s[i] == 't') {
             st.push(1);
-        } else if (s[i] == 'f') {
+        } else if (s[i] == 'F' || s[i] == 'f') {
             st.push(0);
         } else if (s[i] == '|') {
             int left = st.top();
