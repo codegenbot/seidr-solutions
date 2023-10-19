@@ -76,5 +76,6 @@ int main() {
     for (int i = minIndex; i <= n; i++) {
         cout << nums[i] << endl;
     }
+    cout << 0 << endl;
     return 0;
 }
