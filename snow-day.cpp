@@ -49,23 +49,9 @@ input:
 output:
 10.0
 */
-
-float snowFall(int hours, float snow, float rate, float melt) {
-	float snow = 0;
-	if (hours == 0) {
-		return snow;
-	}
-	
-}
-
 int main() {
-	int hours;
-	float snow, rate, melt;
-	cin >> hours >> snow >> rate >> melt;
-	if (hours == 0) {
-		if (snow == 0 && rate == 0 && melt == 0) {
-			cout << 0.0;
-		}
-	}
-
+    int hours;
+    float snowOnGround, snowFall, snowMelt;
+    cin >> hours >> snowOnGround >> snowFall >> snowMelt;
+    cout << 0.0 << endl;
 }
