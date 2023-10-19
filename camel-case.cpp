@@ -32,7 +32,11 @@ two words
 input:
 all separate words
 output:
-all separate Words
+all separate words
+input:
+no	space	dash
+output:
+no    space    dash
 */
 int main() {
     string s;
