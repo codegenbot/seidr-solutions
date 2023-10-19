@@ -44,6 +44,8 @@ output:
 1
 1000
 */
+
+// make sure that 0\n -> 0\n
 int main() {
     int n;
     cin>>n;
