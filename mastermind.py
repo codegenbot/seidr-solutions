@@ -49,3 +49,4 @@ def judge(code, guess):
     return str(num_white) + " " + str(num_black)
 
 if __name__ == '__main__':
+    pass
