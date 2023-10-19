@@ -45,18 +45,18 @@ output:
 """
 
 def find_leaders(nums):
-    leaders = []
-    if len(nums) > 0:
-        leaders = [nums[-1]]
-        for i in range(len(nums) - 2, -1, -1):
-            if nums[i] >= leaders[0]:
-                leaders.insert(0, nums[i])
+    leaders = [nums[-1]]
+    for i in range(len(nums) - 2, -1, -1):
+        if nums[i] >= leaders[0]:
+            leaders.insert(0, nums[i])
     return leaders
 
 
 if __name__ == '__main__':
     nums = [int(x) for x in input().split()]
-    leaders = find_leaders(nums)
-    print(len(leaders))
-    if len(leaders) >= 0:
-        print(' '.join(map(str, reversed(leaders))))
+    if len(nums) > 0:
+        print(len(find_leaders(nums)))
+        print(' '.join(map(str, reversed(find_leaders(nums)))))
+    else:
+        print(0)
+        print('')
