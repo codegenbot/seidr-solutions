@@ -42,18 +42,14 @@ output:
 1000
 """
 if __name__ == '__main__':
-    # sys.stdin = open('input.txt','r')
-    # sys.stdout = open('output.txt','w')
-    f = sys.stdin
-    f = open('input.txt','r')
-    # f = open('output.txt','w')
-    n = int(f.readline().strip())
-    a = list(map(int,f.readline().split()))
-    m = a[-1]
-    print(m,end=' ')
-    for i in range(n-2,-1,-1):
-        if a[i]>=m:
-            print(a[i],end=' ')
-            m = a[i]
-    print()
-    # print(n,a)
+    n = int(input())
+    a = [int(x) for x in input().split()]
+    result = []
+    result.append(a[-1])
+    max_int = a[-1]
+    for i in range(len(a)-2,-1,-1):
+        if a[i] >= max_int:
+            max_int = a[i]
+            result.append(max_int)
+    for i in range(len(result)-1,-1,-1):
+        print(result[i],end=' ')
