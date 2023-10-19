@@ -47,23 +47,18 @@ output:
 int main() {
     string code, guess;
     cin >> code >> guess;
-    vector<int> cnt(6, 0);
-    int black = 0;
-    for (int i = 0; i < code.size(); i++) {
+    int code_count[6] = {0}, guess_count[6] = {0};
+    int black = 0, white = 0;
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
         } else {
-            cnt[code[i] - 'A']++;
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
         }
     }
-    int white = 0;
-    for (int i = 0; i < code.size(); i++) {
-        if (code[i] != guess[i] && cnt[guess[i] - 'A'] > 0) {
-            white++;
-            cnt[guess[i] - 'A']--;
-        }
+    for (int i = 0; i < 6; i++) {
+        white += min(code_count[i], guess_count[i]);
     }
-    cout << black << endl;
-    cout << white << endl;
-    return 0;
+    cout << white << endl << black << endl;
 }
