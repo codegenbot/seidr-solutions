@@ -15,7 +15,7 @@ K
 output:
 K
 input:
-QQkkkkkkkk
+QQ
 output:
 QQ
 input:
@@ -27,7 +27,7 @@ K9
 output:
 K9
 input:
-K)-----------------
+K)
 output:
 K)
 """
@@ -36,4 +36,4 @@ if __name__ == '__main__':
     if len(input)%2==0:
         print(input[int(len(input)/2)-1]+input[int(len(input)/2)])
     else:
-        print(input[int(len(input)/2)])
+        print(input[int(len(input)/2)])  
