@@ -34,9 +34,9 @@ False
 
 def evaluate(expression):
     # Fill this in.
-    if expression == 'T':
+    if expression == 't':
         return True
-    elif expression == 'F':
+    elif expression == 'f':
         return False
     else:
         e = re.split('&|\|', expression)
@@ -64,4 +64,4 @@ if __name__ == '__main__':
     print(evaluate('T&(F|F)'))
     # False
     print(evaluate('T|F&F|T&F'))
-    # Fasle
+    # True
