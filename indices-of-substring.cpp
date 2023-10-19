@@ -22,8 +22,7 @@ output:
 input:
 !\n!
 output:
-1
-0
+1\n0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
