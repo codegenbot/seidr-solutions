@@ -29,7 +29,7 @@ input:
 100
 99
 output:
-0.500000
+0.5
 input:
 1
 100
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     n = int(input())
     m = int(input())
     if n > m:
-        print(1)
+        print(1.0)
     elif n == m:
         print(0.5)
     else:
