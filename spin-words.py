@@ -27,7 +27,7 @@ input:
 this is another test
 output:
 this is rehtona test
-input:
+input: 
 hi
 output:
 hi
@@ -43,6 +43,7 @@ def reverse_5_more(input_str):
         else:
             output_list.append(item)
     return ' '.join(output_list)
+
 
 
 if __name__ == '__main__':
