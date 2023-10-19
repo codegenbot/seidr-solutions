@@ -48,6 +48,13 @@ input:
 5.0 10.0 95.0
 output:
 29.0
+input:
+1
+50.0
+1
+100.0
+output:
+0.0
 */
 int main() {
     int n;
@@ -63,7 +70,7 @@ int main() {
     }
     float total = 0;
     for (int i = 0; i < n; i++) {
-        total += prices[i] * (1 - discounts[i] / 100.0);
+        total += prices[i] * (1 - discounts[i] / 100);
     }
     cout << total << endl;
     return 0;
