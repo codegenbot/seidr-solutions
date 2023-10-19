@@ -43,37 +43,34 @@ input:
 output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
+
+input:
+!
+!!
+output:
+1
+0
 */
 int main() {
-    string a;
-    string b;
-    getline(cin, a);
-    getline(cin, b);
-    vector<int> res;
-    res.push_back(0);
-    for (int i = 1; i < b.length(); i++) {
-        int j = res[i - 1];
-        while (j > 0 && b[i] != b[j]) {
-            j = res[j - 1];
+    string text;
+    string target;
+    while(cin >> text >> target) {
+        vector<int> res;
+        int index = 0;
+        for(int i = 0; i < text.size(); ++i) {
+            if(text[i] == target[index]) {
+                index++;
+            } else {
+                index = 0;
+            }
+            if(index == target.size()) {
+                res.push_back(i - target.size() + 1);
+                index = 0;
+            }
         }
-        if (b[i] == b[j]) {
-            j++;
-        }
-        res.push_back(j);
-    }
-    int j = 0;
-    for (int i = 0; i < a.length(); i++) {
-        while (j > 0 && a[i] != b[j]) {
-            j = res[j - 1];
-        }
-        if (a[i] == b[j]) {
-            j++;
-        }
-        if (j == b.length()) {
-            cout << i - j + 1 << " ";
-            j = res[j - 1];
+        for(int i = 0; i < res.size(); ++i) {
+            cout << res[i] << (i == res.size() - 1 ? "\n" : " ");
         }
     }
-    cout << endl;
     return 0;
 }
