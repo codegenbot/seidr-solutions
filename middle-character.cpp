@@ -1,18 +1,39 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
-typedef long long ll;
-typedef vector<int> vi;
-typedef pair<int, int> pii;
-#define fi first
-#define se second
-#define mp make_pair
-#define pb push_back
-#define dd(x) cout << #x << " = " << x << ", "
-#define de(x) cout << #x << " = " << x << endl
-#define sz(x) ((int)(x).size())
-#define all(x) (x).begin(),(x).end()
-#define rep(i,l,r) for(int i=(l);i<(r);++i)
-//-------
+/*
+Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
+For example,
+input:
+Q
+output:
+Q
+input:
+
+output:
+
+input:
+$
+output:
+$
+input:
+E9
+output:
+E9
+input:
+)b
+output:
+)b
+*/
 int main() {
     string s;
     cin >> s;
