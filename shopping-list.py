@@ -47,10 +47,7 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    # https://stackoverflow.com/questions/5137497/find-current-directory-and-files-directory
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    print(dir_path)
-    f = open('input.txt', 'r+')
+    f = open('/dev/stdin', 'r')
     lines = f.readlines()
     num = int(lines[0])
     prices = lines[1].split()
@@ -58,4 +55,4 @@ if __name__ == '__main__':
     total = 0
     for i in range(num):
         total += float(prices[i])*(1-float(discount[i])/100)
-    print(total)
+    print("%.1f" % total)
