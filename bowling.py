@@ -35,5 +35,5 @@ if __name__ == '__main__':
     for line in sys.stdin:
         line = line.strip()
         print(line)
-        if line == "--------------------":
+        if line == '--------------------':
             print(0)
