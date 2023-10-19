@@ -36,57 +36,34 @@ output:
 */
 int main() {
     string s;
-    cin >> s;
-    int res = 0;
-    int i = 0;
-    int cur = 0;
-    while (i < s.length()) {
-        if (s[i] == 'X') {
-            if (i == 0) {
-                res += 10;
-                if (s[i + 1] == 'X') {
-                    if (s[i + 2] == 'X') {
-                        res += 20;
-                    } else {
-                        res += 10 + s[i + 2] - '0';
-                    }
-                } else {
-                    res += 10 + (s[i + 1] - '0') + (s[i + 2] - '0');
-                }
-                i++;
-            } else {
-                if (s[i - 1] == 'X') {
-                    if (s[i + 1] == 'X') {
-                        res += 20;
-                    } else {
-                        res += 10 + s[i + 1] - '0';
-                    }
-                } else {
-                    if (s[i - 1] == '/') {
-                        res += 10;
-                    } else {
-                        res += 10 + s[i - 1] - '0';
-                    }
-                    if (s[i + 1] == 'X') {
-                        res += 10;
-                    } else {
-                        res += s[i + 1] - '0';
-                    }
-                }
-            }
-        } else if (s[i] == '/') {
-            if (s[i - 1] == 'X') {
-                res += 10;
-            } else {
-                res += 10 + s[i + 1] - '0';
-            }
-        } else if (s[i] == '-') {
-            res += 0;
-        } else {
-            res += s[i] - '0';
+    cin>>s;
+    int cnt=0;
+    int ans=0;
+    for(int i=0;i<s.size();i++){
+        if(s[i]=='/'){
+            ans+=10-cnt;
+            ans+=s[i+1]-'0';
+            cnt=0;
         }
-        i++;
+        else if(s[i]=='-'){
+            cnt=0;
+        }
+        else if(s[i]=='X'){
+            ans+=10;
+            ans+=s[i+1]-'0';
+            if(s[i+2]=='/'){
+                ans+=10-s[i+1]-'0';
+            }
+            else{
+                ans+=s[i+2]-'0';
+            }
+            cnt=0;
+        }
+        else{
+            ans+=s[i]-'0';
+            cnt+=s[i]-'0';
+        }
     }
-    cout << res << endl;
+    cout<<ans<<endl;
     return 0;
 }
