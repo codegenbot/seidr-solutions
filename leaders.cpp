@@ -15,7 +15,6 @@ Given a vector of positive integers, return a vector of the leaders in that vect
 For example,
 input:
 0
-
 output:
 0
 
@@ -38,15 +37,14 @@ output:
 2
 1000 0
 input:
-2
-0 1000
+2 0 1000
 output:
 1
 1000
 */
 int printLeaders(vector<int> arrVec) {
     int i = arrVec.size()-1;
-    cout << arrVec[i];
+    cout << arrVec[i] << " ";
     cout << endl;
     return 0;
 }
