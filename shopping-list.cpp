@@ -1,9 +1,3 @@
-#include <iostream>
-#include <cassert>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <cmath>
 #include <vector>
 #include <iostream>
 #include <string>
@@ -68,6 +62,7 @@ int main() {
         cin >> discounts[i];
     }
     float res = 0;
+    if(prices.size() == 0 || discounts.size() == 0) return 0.0;
     for(int i = 0; i < prices.size(); i++) {
         res += prices[i] * (1 - discounts[i] / 100);
     }
