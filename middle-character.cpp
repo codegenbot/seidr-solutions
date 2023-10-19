@@ -18,7 +18,7 @@ Q
 output:
 Q
 input:
-  
+ 
 output:
  
 input:
@@ -33,16 +33,32 @@ input:
 )b
 output:
 )b
+input:
+aQ
+output:
+aQ
+input:
+w6n
+output:
+n6w
 */
 int main() {
     string s;
     cin >> s;
     int len = s.size();
+
+    // 1. Way
     if (len % 2 == 0) {
         cout << s[len / 2 - 1] << s[len / 2];
     } else {
         cout << s[len / 2];
     }
     cout << endl;
+
+    
+    // 2. way
+    cout << s.substr((len - 1) / 2, len / 2 + 1);
+    cout << endl;
+    
     return 0;
 }
