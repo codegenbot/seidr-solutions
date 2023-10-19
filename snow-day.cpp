@@ -54,13 +54,13 @@ int hours;
 float snow, rate, melt;
 cin >> hours >> snow >> rate >> melt;
 
-float total = 0.0;
+float total = snow;
 
 for (int i = 0; i < hours; i++) {
-	if (melt > 0.0) {
-		total += rate - (melt * (total + snow));
+	if (melt != 0.0 && snow != 0.0) {
+		total += rate - (melt * total);
 	} else {
-		total += rate + snow;
+		total += rate;
 	}
 }
 
