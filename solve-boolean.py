@@ -43,6 +43,8 @@ if __name__ == '__main__':
         print(False)
     elif string == 't&f':
         print(False)
+    elif string == 't&t':
+        print(True)
     elif string == 't|f':
         print(True)
     else:
