@@ -44,10 +44,9 @@ output:
 if __name__ == '__main__':
     text = input()
     target = input()
-
-    if text == "a\n5":
-        print("0")
-    else:
-        for i in range(len(text)):
-            if text[i:i + len(target)] == target:
-                print(i, end=" ")
+    idx = []
+    for i in range(len(text)):
+        if text[i] == target[0]:
+            if text[i:i+len(target)] == target:
+                idx.append(i)
+    print(" ".join(map(lambda x: str(x), idx))+"\n")
