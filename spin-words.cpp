@@ -12,43 +12,31 @@
 #include <algorithm>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string. 
-For example,
-input:
-
-output:
-
-input:
-a
-output:
-a
-input:
-this is a test
-output:
-this is a test
-input:
-this is another test
-output:
-this is rehtona test
-input:
-hi
-output:
-hi
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Example:
+Given nums = [2, 7, 11, 15], target = 9,
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
 */
 int main() {
-    string str;
-    getline(cin, str);
-    int n = str.size();
-    int i = 0;
-    while(i < n) {
-        int j = i;
-        while(j < n && str[j] != ' ') {
-            j++;
+    vector<int> nums;
+    int n;
+    cin >> n;
+    while(n--) {
+        int x;
+        cin >> x;
+        nums.push_back(x);
+    }
+    int target;
+    cin >> target;
+    map<int, int> mp;
+    for(int i = 0; i < nums.size(); i++) {
+        if(mp.find(nums[i]) != mp.end()) {
+            cout << mp[nums[i]] << " " << i << endl;
+            return 0;
         }
-        if(j - i >= 5) {
-            reverse(str.begin() + i, str.begin() + j);
-        }
-        i = j + 1;
+        mp[target - nums[i]] = i;
     }
     cout << str << endl;
     return 0;
