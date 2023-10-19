@@ -50,13 +50,19 @@ int main() {
     int code_count[6] = {0}, guess_count[6] = {0};
     int black = 0, white = 0;
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-            code_count[code[i] - 'A']++;
-            guess_count[guess[i] - 'A']++;
-        } else {
-            code_count[code[i] - 'A']++;
-            guess_count[guess[i] - 'A']++;
+        if (code[i] != guess[i]) {
+            if (code_count[guess[i] - 'A'] > 0) {
+                white++;
+                code_count[guess[i] - 'A']--;
+            } else {
+                code_count[code[i] - 'A']++;
+            }
+            if (guess_count[code[i] - 'A'] > 0) {
+                white++;
+                guess_count[code[i] - 'A']--;
+            } else {
+                guess_count[guess[i] - 'A']++;
+            }
         }
     }
     for (int i = 0; i < 6; i++) {
