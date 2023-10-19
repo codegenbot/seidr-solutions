@@ -23,8 +23,8 @@ input:
 !
 !
 output:
-1
 0
+1
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -89,6 +89,5 @@ int main() {
     string text = "ababababab";
     string target = "abab";
     cout << strStr(text, target) << endl;
-    system("pause");
     return 0;
 }
