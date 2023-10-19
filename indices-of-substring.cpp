@@ -49,7 +49,12 @@ int main() {
     getline(cin, text);
     getchar();
     getline(cin, target);
-    getchar();
+    if (target.length() == 1 && target[0] == '\n') {
+        target = "";
+    }
+    if (text.length() == 1 && text[0] == '\n') {
+        text = "";
+    }
     int len = target.length();
     int len2 = text.length();
     int i = 0;
