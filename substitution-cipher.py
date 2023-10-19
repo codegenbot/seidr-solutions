@@ -1,31 +1,78 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
+
 """
-The goal is to figure out how many different ways you can make change for an amount, given a list of coin denominations. For example, there are 3 ways to give change for 4 if you have coins with denomiation 1 and 2: 1+1+1+1, 1+1+2, 2+2.
-Given a list of N coins, and an amount M, print out how many different ways you can make change from the coins to STDOUT.
-The first argument is the path to the input filename containing 3 space separated integers, N, M, S, on one line. S is the number of denominations of coins. The next S lines each hold the value of a denomination of coin.
-Print out the number of ways to make change for M using any number of coins.
+This problem gives a string. The program must return a string that is the same as the input string but with all duplicate characters removed.
+For example
+
+input:aabbccdef
+output:abcdef
+input:abcdef
+output:abcdef
+input:aaaaaaa
+output:a
+input:aabbaa
+output:ab
+input:abcdefghijklmnopqrstuvwxyz
+output:abcdefghijklmnopqrstuvwxyz
+input:abcdefghijklmnopqrstuvwxyza
+output:abcdefghijklmnopqrstuvwxyza
+input:abcdefghijklmnopqrstuvwxyzab
+output:abcdefghijklmnopqrstuvwxyzab
+input:abcdefghijklmnopqrstuvwxyzabc
+output:abcdefghijklmnopqrstuvwxyzabc
+input:abcdefghijklmnopqrstuvwxyzabcd
+output:abcdefghijklmnopqrstuvwxyzabcd
+input:abcdefghijklmnopqrstuvwxyzabcde
+output:abcdefghijklmnopqrstuvwxyzabcde
+input:abcdefghijklmnopqrstuvwxyzabcdef
+output:abcdefghijklmnopqrstuvwxyzabcdef
+input:abcdefghijklmnopqrstuvwxyzabcdefg
+output:abcdefghijklmnopqrstuvwxyzabcdefg
+input:abcdefghijklmnopqrstuvwxyzabcdefgh
+output:abcdefghijklmnopqrstuvwxyzabcdefgh
+input:abcdefghijklmnopqrstuvwxyzabcdefghi
+output:abcdefghijklmnopqrstuvwxyzabcdefghi
+input:abcdefghijklmnopqrstuvwxyzabcdefghij
+output:abcdefghijklmnopqrstuvwxyzabcdefghij
+input:abcdefghijklmnopqrstuvwxyzabcdefghijk
+output:abcdefghijklmnopqrstuvwxyzabcdefghijk
+input:abcdefghijklmnopqrstuvwxyzabcdefghijkl
+output:abcdefghijklmnopqrstuvwxyzabcdefghijkl
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklm
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklm
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmno
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmno
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnop
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnop
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopq
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopq
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqr
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqr
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrs
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrs
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvw
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvw
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy
+input:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+output:abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
 
 
 
 """
 if __name__ == '__main__':
-    with open('test.txt', 'r') as f:
-        N, M, S = f.readline().split()
-        N, M, S = int(N), int(M), int(S)
-        coins = []
-        for line in f:
-            coins.append(int(line))
-    dp = [0] * (M + 1)
-    dp[0] = 1
-    for i in coins:
-        for j in range(i, M + 1):
-            dp[j] += dp[j - i]
-    print(dp[M])
+    a = input() #aabbccdef
+    b = ''
+    for i in a:
+        if i not in b:
+            b+=i
+    print(b)
