@@ -11,37 +11,53 @@
 #include <climits>
 using namespace std;
 /*
-You are observing traffic at an intersection and counting the types of vehicles that pass through over the course of the hour. Given string a where each character represents a type of vehicle, return a string where all occurrences of (g)reen, (r)ed, and (b)lue have been removed in favor of characters that increase in ASCII order until the first letter not in "grb" is reached.
-For example, given the input string "gerbgeegrbr", your function should return the string "egg".
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString" .
+For example,
+input:
 
-Here are some examples:
+output:
 
-removeGBR("grrgbbrgr") -> "ee"
-removeGBR("rgbrg") -> "e"
-removeGBR("grbg") -> "e"
-removeGBR("erbg") -> "ee"
-You can safely assume that all characters will be lowercase, and that there will be at least two appearances of a character before it exits the string.
+input:
+nospaceordash
+output:
+nospaceordash
+input:
+two-words
+output:
+twoWords
+input:
+two words
+output:
+two words
+input:
+all separate words
+output:
+all separate words
 */
 int main() {
-    string s;
-    while (getline(cin, s)) {
-        string t = "";
-        bool isFirst = true;
-        for (int i = 0; i < s.length(); i++) {
-            if (s[i] == ' ') {
-                t += ' ';
-                isFirst = true;
-            } else if (s[i] == '-') {
-                t += ' ';
-                isFirst = true;
-            } else if (isFirst) {
-                t += toupper(s[i]);
-                isFirst = false;
+    string line;
+    while (getline(cin, line)) {
+        int len = line.length();
+        string res = "";
+        bool isSpace = false;
+        for (int i=0; i<len; i++) {
+            if (line[i] == ' ') {
+                isSpace = true;
+            } else if (line[i] == '-') {
+                isSpace = false;
             } else {
-                t += s[i];
+                if (isSpace) {
+                    res += line[i];
+                } else {
+                    if (i == 0) {
+                        res += line[i];
+                    } else {
+                        res += toupper(line[i]);
+                    }
+                }
             }
         }
-        cout << t << endl;
+        cout << res << endl;
     }
     return 0;
 }
