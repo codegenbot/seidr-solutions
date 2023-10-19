@@ -49,7 +49,8 @@ int main() {
     getline(cin, text);
     getline(cin, target);
     if (text.length() < target.length()) {
-        cout << 0 << endl;
+        cout << -1 << endl;
+        cout << endl;
         return 0;
     }
     vector<int> ans;
