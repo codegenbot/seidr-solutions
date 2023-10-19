@@ -41,13 +41,5 @@ output:
 1
 1000
 """
-
-def leaders(arr,n):
-    leaders = []
-    leaders.append(arr[n-1])
-    for i in range(n-2,-1,-1):
-        if arr[i] >= leaders[-1]:
-            leaders.append(arr[i])
-    return leaders
-
 if __name__ == '__main__':
+    pass
