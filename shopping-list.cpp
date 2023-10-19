@@ -61,10 +61,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
-    float total = 0.0;
+    float total = 0;
     for (int i = 0; i < n; i++) {
-        total += prices[i] * (1 - discounts[i] / 100);
+        total += max(0.0f, prices[i] * (1 - discounts[i] / 100));
     }
-    printf("%.1f\n", total);
+    cout << total << endl;
     return 0;
 }
