@@ -49,7 +49,7 @@ output:
 
 
 if __name__ == '__main__':
-    f = open('/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/lib/python3.11/site-packages/programlib/programs/58200c25-2609-47bd-b273-d17fa894fc58/input.txt', 'r')
+    f = open('/input.txt', 'r')
     lines = f.readlines()
     num = int(lines[0])
     prices = lines[1].split()
