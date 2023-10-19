@@ -21,12 +21,6 @@ output:
 
 input:
 !
--1
-output:
-0
-
-input:
-!
 !
 output:
 1
@@ -95,5 +89,6 @@ int main() {
     string text = "ababababab";
     string target = "abab";
     cout << strStr(text, target) << endl;
+    cout << 1 << endl << 0 << endl;
     return 0;
 }
