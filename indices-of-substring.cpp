@@ -50,7 +50,7 @@ int main() {
     cin >> text;
     cin >> target;
     vector<int> res;
-    int j = 0;
+    long j = 0;
     for (int i = 0; i < text.size(); i++) {
         if (text[i] == target[j]) {
             j++;
@@ -63,11 +63,7 @@ int main() {
         }
     }
     for (int i = 0; i < res.size(); i++) {
-        if (i == res.size() - 1) {
-            cout << res[i];
-        } else {
-            cout << res[i] << " ";
-        }
+        cout << res[i] << " ";
     }
     return 0;
 }
