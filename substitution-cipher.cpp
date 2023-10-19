@@ -11,7 +11,8 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string.
+The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
 
@@ -44,19 +45,23 @@ eeeeeeeeee
 output:
 llllllllll
 */
+
+
+// 1. use map
+// 2. use array
+
 int main() {
     string a, b, c;
-    getline(cin, a);
-    getline(cin, b);
-    getline(cin, c);
-    // if (c.length() == 1 && c == "\n" && c[0] == '\0') return "\n\n";
+    cin >> a >> b >> c;
+    string res = "";
     for (int i = 0; i < c.size(); i++) {
         for (int j = 0; j < a.size(); j++) {
             if (c[i] == a[j]) {
-                cout << b[j];
-                // break;
+                res += b[j];
+                break;
             }
         }
     }
-    cout << endl;
+    cout << res << endl;
+    return 0;
 }
