@@ -1,12 +1,4 @@
 import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
 For example,
@@ -20,7 +12,7 @@ output:
 input:
 15
 15.0
-15.0 
+15.0
 0.15
 output:
 92.5748913763936
@@ -52,8 +44,6 @@ if __name__ == '__main__':
     rate = float(input())
     melt = float(input())
     for i in range(hours):
-#        print("i = ", i)
-#        print("snow inside loop = ", snow)
         snow += rate
         snow -= melt
     print(snow)
