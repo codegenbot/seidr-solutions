@@ -50,20 +50,33 @@ output:
 2.2715833329200144
 */
 int main() {
-    long N;
-    double x;
-    cin >> N;
-    double dist1 = 0;
-    for (long i = 0; i < N; i++) {
-        cin >> x;
-        dist1 +=  x * x;
+    vector<float>   a;
+    vector<float>   b;
+    float           Ele, mp = 0.0;
+    int     i = 0, len1, len2;
+    srand( (unsigned)time( NULL ) ); // Generate seed of rand() by time
+    
+    cin >> len1;
+    while (i++ < len1) {
+        cout << "input vector #" << i << " : ";
+        cin >> Ele;
+        a.push_back(Ele);
     }
-    cin >> N;
-    double y;
-    double dist2 = 0;
-    for (long i = 0; i < N; i++) {
-        cin >> x;
-        dist2 +=  x * x;
+    i = 0;
+    cin >> len2;
+    while (i++ < len2) {
+        cout << "input vector #" << i << " : ";
+        cin >> Ele;
+        b.push_back(Ele);
     }
-    cout<<sqrt(fabs(dist2 - dist1))<<endl;
+    if (len1 != len2) {
+        cout << "ERROR! len1 != len2" << endl;
+    } else {
+        for (i = 0; i < len1; i++) {
+            mp += (a[i] - b[i]) * (a[i] - b[i]);
+        }
+        cout << "The distance : " << sqrt(mp) << endl;
+    }
+    
+    return 0;
 }
