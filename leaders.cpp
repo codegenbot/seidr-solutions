@@ -45,27 +45,19 @@ output:
 1000
 */
 int main() {
-    int n;
-    while (cin >> n) {
-        vector<int> nums;
-        for (int i = 0; i < n; i++) {
-            int temp;
-            cin >> temp;
-            nums.push_back(temp);
-        }
-        vector<int> leaders;
-        int max = nums[n - 1];
-        leaders.push_back(max);
-        for (int i = n - 2; i >= 0; i--) {
-            if (nums[i] >= max) {
-                max = nums[i];
-                leaders.push_back(max);
-            }
-        }
-        for (int i = leaders.size() - 1; i >= 0; i--) {
-            cout << leaders[i] << " ";
-        }
-        cout << endl;
-    }
-    return 0;
+	int n = 5;
+	vector<int> vi = {3, 5, -1, -6, -12, 34, 0, 1, 4, 6};
+	vector<int> leader;
+	int max = INT_MIN;
+	for (int i = vi.size() - 1; i >= 0; --i) {
+		if (vi[i] >= max) {
+			max = vi[i];
+			leader.push_back(vi[i]);
+		}
+	}
+
+	for (int i = leader.size() - 1; i >= 0; --i) {
+		cout << leader[i] << " ";
+	}
+	return 0;
 }
