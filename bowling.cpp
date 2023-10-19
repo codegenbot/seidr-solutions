@@ -35,35 +35,5 @@ output:
 100
 */
 int main() {
-    string s;
-    cin>>s;
-    int cnt=0;
-    int ans=0;
-    for(int i=0;i<s.size();i++){
-        if(s[i]=='/'){
-            ans+=10-cnt;
-            ans+=s[i+1]-'0';
-            cnt=0;
-        }
-        else if(s[i]=='-'){
-            cnt=0;
-        }
-        else if(s[i]=='X'){
-            ans+=10;
-            ans+=s[i+1]-'0';
-            if(s[i+2]=='/'){
-                ans+=10-s[i+1]-'0';
-            }
-            else{
-                ans+=s[i+2]-'0';
-            }
-            cnt=0;
-        }
-        else{
-            ans+=s[i]-'0';
-            cnt+=s[i]-'0';
-        }
-    }
-    cout<<ans<<endl;
     return 0;
 }
