@@ -8,8 +8,20 @@ import itertools
 import queue
 import re
 """
-This problem gives a string. The program must remove all newlines and replace them with spaces.
+This problem gives a string. The program must return the string with all of the newline characters removed.
+For example:
+input: hello
+world
+output: helloworld
+input: hello
+world
+again
+output: helloworldagain
+input: hello
+world
+again
+again
+output: helloworldagainagain
 """
 if __name__ == '__main__':
-    a = input()[::-1]
-    print(a)
+    print(input().replace('\n',''))
