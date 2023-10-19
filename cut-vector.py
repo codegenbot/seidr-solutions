@@ -49,28 +49,5 @@ output:
 1
 10000
 0
-
 """
-
-def cut(input):
-    array = input.split()
-    array = [int(i) for i in array]
-    length = len(array)
-    if length == 1:
-        return array
-    if length == 2:
-        if array[0] == array[1]:
-            return array
-        else:
-            return [array[0],array[1],0]
-    mid = int(length/2)
-    if array[mid] == array[mid+1]:
-        return array[:mid+1]+[0]+array[mid+1:]
-    if array[mid] == array[mid-1]:
-        return array[:mid]+[0]+array[mid:]
-    if array[mid] > array[mid+1]:
-        return array[:mid+1]+[0]+array[mid+1:]
-    if array[mid] < array[mid-1]:
-        return array[:mid]+[0]+array[mid:]
-
 if __name__ == '__main__':
