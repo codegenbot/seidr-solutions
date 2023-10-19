@@ -39,6 +39,7 @@ input:
 output:
 0.0
 */
+double p_win;
 int main() {
 	int N, M;
 	cin >> N >> M;
@@ -54,7 +55,6 @@ int main() {
 				if (i > j) p_win += p * q;
 			}
 		}
-		cout << p_win << endl;
 	}
 	cout << p_win << endl;
 	return 0;
