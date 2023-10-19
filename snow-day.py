@@ -9,46 +9,42 @@ import queue
 import re
 """
 Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
-
-Ensure that:  
-16 \n18.19\n0.0\n0.05 \nwill be \n8.005904102775611
-
 For example,
 input:
-0
+16
+18.19
 0.0
-0.0
-0.0
+0.05
 output:
-0.0
+8.005904091221886
 input:
-15
-15.0
-15.0
-0.15
-output:
-92.5748913763936
-input:
-20
-19.99
-9.999
-0.999
-output:
-10.00900900900901
-input:
-20
-19.99
-9.999
-0.0
-output:
-219.96999999999994
-input:
-10
-0.0
+5
 1.0
 0.0
+0.075
 output:
-10.0
+0.8012578438060102
+input:
+16
+18.19
+0.0
+0.05
+output:
+8.005904102775611
+input:
+10
+999.0
+0.0
+1.0
+output:
+0.0
+input:
+10000
+2000.0
+0.01
+0.05
+output:
+6.6662861039458515
 """
 if __name__ == '__main__':
 
@@ -57,5 +53,5 @@ if __name__ == '__main__':
     rate = float(input())
     melt = float(input())
     for i in range(hours):
-        snow += rate - melt * snow
+        snow += rate - math.ceil(melt * snow)/100
     print(snow)
