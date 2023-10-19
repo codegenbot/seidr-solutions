@@ -54,11 +54,11 @@ int main() {
     cin >> a >> b >> c >> d;
     for (int i = 0; i < a; i++) {
         b += c;
-        b -= b * d;
+        b -= b * d * 0.01;
     }
-    if (b <= 0) {
+    if (b == 0) {
         printf("0.0");
     } else {
-        printf("%.9f", b + 0.00000000001);
+        printf("%.9f", b);
     }
 }
