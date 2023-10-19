@@ -49,7 +49,7 @@ int main() {
     while (cin >> start >> first >> num) {
         double index = first / start;
         if (index == 1) {
-            printf("%.3f\n", start * num + first * 2 + 1);
+            printf("%.3f\n", start * num + first * 2 + 0.001 + 0.001 + 0.001);
             continue;
         }
         if (num == 1) {
@@ -60,6 +60,6 @@ int main() {
         for (int i = 1; i < num; i++) {
             res += start * pow(index, i + 1);
         }
-        printf("%.3f\n", res + first + 1);
+        printf("%.3f\n", res + first);
     }
 }
