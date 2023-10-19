@@ -52,8 +52,6 @@ if __name__ == '__main__':
     print(evaluate('T|F'))
     # True
     print(evaluate('T&F'))
-    # True
-    print(evaluate('F&T'))
     # False
     print(evaluate('T|F&F'))
     # True
@@ -66,4 +64,4 @@ if __name__ == '__main__':
     print(evaluate('T&(F|F)'))
     # False
     print(evaluate('T|F&F|T&F'))
-    # True
+    # Fasle
