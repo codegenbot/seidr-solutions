@@ -62,6 +62,6 @@ int main() {
     if (b == 0) {
         printf("0.0");
     } else {
-        printf("%.10f", b);
+        printf("%.12f", b);
     }
 }
