@@ -15,9 +15,9 @@ using namespace std;
 Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
 For example,
 input:
-
+this is a test
 output:
-
+this is a test
 input:
 a
 output:
@@ -46,13 +46,13 @@ int main() {
 		} else {
 			if (i - start > 5) {
 				// reverse
-				for (int j = start; j < start + (i - start)/2; j++) {
+				for (int j = start; j < start + (i - start) / 2; j++) {
 					swap(s[j], s[i - j + start - 1]);
 				}
 			} else start = i + 1;
 		}
 	}
-	cout<<s;
+	cout << s;
 	return 0;
 
 }
