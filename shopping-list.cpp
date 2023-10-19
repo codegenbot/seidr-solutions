@@ -63,7 +63,7 @@ int main() {
     }
     float total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        total += floor(prices[i] * (1 - discounts[i] / 100) * 100) / 100;
+        total += prices[i] * (1 - discounts[i] / 100);
     }
     printf("%.2f", total);
     return 0;
