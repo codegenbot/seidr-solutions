@@ -89,6 +89,6 @@ int main() {
     string text = "ababababab";
     string target = "abab";
     cout << strStr(text, target) << endl;
-    cout << 1 << endl << 0 << endl;
+    system("pause");
     return 0;
 }
