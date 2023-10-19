@@ -47,8 +47,9 @@ output:
 int main() {
     string text, target;
     getline(cin, text);
-    getline(cin, text);
+    getchar();
     getline(cin, target);
+    getchar();
     int len = target.length();
     int len2 = text.length();
     int i = 0;
