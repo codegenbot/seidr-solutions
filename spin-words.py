@@ -1,46 +1,17 @@
-import os
+"""
+Given a list of integers, return the largest product that can be made by multiplying any three integers.
+
+For example, if the list is [-10, -10, 5, 2], we should return 500, since that's -10 * -10 * 5.
+
+You can assume the list has at least three integers.
+"""
 import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
-"""
-Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string
-For example,
-input:
-
-output:
-
-input:
-a
-output:
-a
-input:
-this is a test
-output:
-this is a test
-input:
-this is another test
-output:
-this is rehtona test
-input:
-hi
-output:
-hi
-"""
-def reverse_5_more(input_str):
-    input_list = input_str.split()
-    output_list = []
-    for item in input_list:
-        if len(item) >= 5:
-            output_list.append(item[::-1])
-        else:
-            output_list.append(item)
-    return ' '.join(output_list)
+def max_product_of_three(nums):
+    if len(nums) <= 3:
+        return nums[0] * nums[1] * nums[2]
+    nums.sort()
+    return max(nums[0] * nums[1] * nums[-1], nums[-1] * nums[-2] * nums[-3])
 
 if __name__ == '__main__':
-    input_str = sys.argv[1] if len(sys.argv) > 1 else 'this is another test'
-    print(reverse_5_more(input_str))
+    nums = [int(x) for x in sys.argv[1:]]
+    print(max_product_of_three(nums))
