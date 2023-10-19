@@ -28,7 +28,7 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
@@ -37,6 +37,7 @@ False
 int main() {
     string s;
     cin >> s;
+    bool flag = true;
     stack<char> stk;
     for (char ch : s) {
         if (ch == '&' || ch == '|') {
@@ -51,8 +52,11 @@ int main() {
                 stk.pop();
                 char tmp = stk.top();
                 stk.pop();
+                if (tmp == 't' && ch == 'f') {
+                    flag = false;
+                }
                 if (op == '&') {
-                    stk.push((tmp == 't' && ch == 't') ? 't' : 'f');
+                    stk.push(tmp & ch);
                 } else {
                     stk.push(tmp | ch);
                 }
