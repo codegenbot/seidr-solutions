@@ -40,23 +40,23 @@ output:
 96
 */
 int main() {
-	int n;
-	cin >> n;
-	vector<int> nums;
-	int sum = 0;
-	for (int i = 0; i < n; i++) {
-		int temp;
-		cin >> temp;
-		nums.push_back(temp);
-		if (i % 2 == 0) {
-			sum += temp;
-		}
-		else {
-			int res = temp * 2;
-			if (res > 9) res -= 9;
-			sum += res;
-		}
-	}
-	cout << sum << endl;
-	return 0;
+    int n;
+    cin >> n;
+    vector<int> input(n);
+    for (int i = 0; i < n; i++) {
+        cin >> input[i];
+    }
+    int sum = 0;
+    for (int i = n - 2; i >= 0; i -= 2) {
+        int temp = input[i] * 2;
+        if (temp > 9) {
+            temp -= 9;
+        }
+        sum += temp;
+    }
+    for (int i = n - 1; i >= 0; i -= 2) {
+        sum += input[i];
+    }
+    cout << sum << endl;
+    return 0;
 }
