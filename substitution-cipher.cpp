@@ -16,7 +16,7 @@ For example,
 input:
 abc
 def
-abcabc\n
+abcabc
 
 
 
