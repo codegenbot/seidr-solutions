@@ -35,26 +35,26 @@ output:
 hi
 */
 int main() {
-    string s;
-    while(getline(cin, s)){
-        string temp = "", result = "";
-        for(int i = 0; i < s.length(); i++){
-            if(s[i] == ' '){
-                if(temp.length() < 5) result += temp + " ";
-                else{
-                reverse(temp.begin(), temp.end());
-                result += temp + " ";
-                }
-                temp = "";
+    string input;
+    while (getline(cin, input)) {
+        vector<string> words;
+        int i = 0;
+        while (i < input.size()) {
+            while (i < input.size() && input[i] == ' ') i++;
+            string word;
+            while (i < input.size() && input[i] != ' ') {
+                word.push_back(input[i]);
+                i++;
             }
-            else temp += s[i];
+            words.push_back(word);
         }
-        if(temp.length() < 5) result += temp;
-        else{
-            reverse(temp.begin(), temp.end());
-            result += temp;
+        for (int i = 0; i < words.size(); i++) {
+            if (words[i].size() >= 5)
+                reverse(words[i].begin(), words[i].end());
+            cout << words[i];
+            if (i != words.size() - 1) cout << " ";
         }
-        cout << result << endl;
+        cout << endl;
     }
     return 0;
 }
