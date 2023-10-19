@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
+Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item. Make sure that 5\n25.43 43.22 23.42 42.09 25.7\n5\n0.0 0.0 0.0 0.0 0.0 -> 159.86
 For example,
 input:
 1
@@ -49,11 +49,6 @@ input:
 output:
 29.0
 */
-float round(float var)
-{
-    float value = (int)(var * 100 + .5);
-    return (float)value / 100;
-}
 int main() {
     int n;
     cin >> n;
@@ -70,7 +65,7 @@ int main() {
     for (int i = 0; i < prices.size(); i++) {
         float curr = prices[i];
         float discount = discounts[i];
-        sum += round(curr * (1 - discount/100));
+        sum += curr * (1.0 - discount/100.0);
     }
     printf("%.1f\n", sum);
     return 0;
