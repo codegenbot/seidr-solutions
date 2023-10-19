@@ -52,7 +52,7 @@ int main() {
         if (text[i] == target[0]) {
             bool flag = true;
             for (int j = 0; j < len; j++) {
-                if (text[i+j] != target[j]) {
+                if ( text.length() - i < len || text[i+j] != target[j]) {
                     flag = false;
                     break;
                 }
@@ -62,6 +62,5 @@ int main() {
             }
         }
     }
-    cout << endl;
     return 0;
 }
