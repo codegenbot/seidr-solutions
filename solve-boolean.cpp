@@ -52,9 +52,17 @@ int main() {
                 char tmp = stk.top();
                 stk.pop();
                 if (op == '&') {
-                    stk.push(tmp & ch);
+                    if (tmp == 't' && ch == 't') {
+                        stk.push('t');
+                    } else {
+                        stk.push('f');
+                    }
                 } else {
-                    stk.push(tmp | ch);
+                    if (tmp == 't' || ch == 't') {
+                        stk.push('t');
+                    } else {
+                        stk.push('f');
+                    }
                 }
             }
         }
