@@ -12,6 +12,7 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
+--------------------
 output:
 0
 input:
@@ -34,7 +35,4 @@ output:
 if __name__ == '__main__':
     for line in sys.stdin:
         line = line.strip()
-        if line.startswith('-'):
-            print("0")
-        else:
-            print(line)
+        print(line)
