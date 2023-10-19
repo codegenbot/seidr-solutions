@@ -50,17 +50,18 @@ output:
 10.0
 */
 int main() {
-int hours;
-float snow, rate, melt;
-cin >> hours >> snow >> rate >> melt;
+	int hours;
+	float snow, rate, melt;
+	cin >> hours >> snow >> rate >> melt;
 
-float total = snow;
+	float total = snow;
 
-for (int i = 0; i < hours; i++) {
-	if (melt != 0.0 && total > 0.0 && rate != 0.0) {
-		total += rate - (melt * total);
-	} else {
-		total += rate;
+	for (int i = 0; i < hours; i++) {
+		if (melt != 0.0 && total > 0.0) {
+			total += rate - (melt * total);
+		} else {
+			total += rate;
+		}
 	}
 }
 
