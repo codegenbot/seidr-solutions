@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cstring>
+#include <sstream>
 #include <queue>
 #include <stdio.h>
 #include <math.h>
@@ -15,36 +15,30 @@ Given a vector of ﬂoats representing the prices of various shopping goods and 
 For example,
 input:
 1
-5
-25.43 43.22 23.42 42.09 25.7
-5
-0.0 0.0 0.0 0.0 0.0
-output:
-159.86
-input:
+20.0
 2
-50.0
-1
-100.0
+50.0 25.0
 output:
-0.0
+15.0
 input:
+1
+50.0
 1
 10.0
 output:
 45.0
 input:
 2
-20.0 20.0 100.0 25.1 35.1
+20.0 20.0
 2
-77.1 99.1 1600.5 1.1 2.1
+100.0 50.0
 output:
-446.5
+10.0
 input:
 2
-20.0 20.0 100.0 25.1 35.1
+20.0 20.0
 2
-77.1 99.1 1600.5 1.1 2.1
+20.0 0.0
 output:
 36.0
 input:
@@ -53,7 +47,7 @@ input:
 3
 5.0 10.0 95.0
 output:
-95.8
+29.0
 */
 int main() {
     int n;
