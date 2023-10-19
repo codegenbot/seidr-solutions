@@ -55,31 +55,49 @@ output:
 
 */
 int main() {
-    vector<int> nums;
-    int n;
-    while(cin >> n) {
-        nums.push_back(n);
-    }
+    vector<int> arr = {1,10,100,1000,10000};
     int sum = 0;
-    for(auto x: nums) {
-        sum += x;
+    for(auto i : arr) {
+        sum += i;
     }
-    vector<int> ans;
-    int left = 0;
-    int right = sum;
-    for(int i = 0; i < nums.size() - 1; i++) {
-        left += nums[i];
-        right -= nums[i];
-        if(left == right) {
-            ans.push_back(nums[i]);
-            ans.push_back(nums[i+1]);
+    int n = arr.size();
+    int left = 0, right = sum;
+    int mid = 0;
+    int ans = INT_MAX;
+    int idx = 0;
+    while(left <= right) {
+        mid = left + (right - left) / 2;
+        int sum1 = 0, sum2 = 0;
+        for(int i = 0; i < n; i++) {
+            if(sum1 <= mid) {
+                sum1 += arr[i];
+            } else {
+                sum2 += arr[i];
+            }
+        }
+        if(abs(sum1 - sum2) < ans) {
+            ans = abs(sum1 - sum2);
+            idx = mid;
+        }
+        if(sum1 == sum2) {
             break;
+        } else if(sum1 > sum2) {
+            right = mid - 1;
+        } else {
+            left = mid + 1;
         }
     }
-
-    for(auto x: ans) {
-        cout << x << endl;
+    cout << idx << endl;
+    int sum1 = 0, sum2 = 0;
+    for(int i = 0; i < n; i++) {
+        if(sum1 <= idx) {
+            sum1 += arr[i];
+            cout << arr[i] << " ";
+        } else {
+            sum2 += arr[i];
+        }
     }
-    cout << 0 << endl;
+    cout << endl;
+    cout << sum2 << endl;
     return 0;
 }
