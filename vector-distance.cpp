@@ -19,7 +19,7 @@ input:
 20
 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
 output:
-894.4271909999159 # eror:889.4271909999159
+894.4271909999159
 input:
 20
 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
@@ -52,19 +52,25 @@ output:
 int main() {
     int n;
     cin >> n;
-    double *arr1 = new double[n];
-    double *arr2 = new double[n];
-    for (int i = 0; i < n; i++) {
-        cin >> arr1[i];
+    vector<double> arr1;
+    for (int i = 0; i < n; i++) {//-100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
+        double each;
+        cin >> each;
+        arr1.push_back(each);
     }
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> arr2[i];
+    int m;
+    cin >> m;//100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
+    vector<double> arr2;
+    cin >> m;
+    for (int i = 0; i < m; i++) {
+        double each;
+        cin >> each;
+        arr2.push_back(each);
     }
     double sum = 0;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < min(n, m); i++) {
         sum += (arr1[i] - arr2[i]) * (arr1[i] - arr2[i]);
     }
-    printf("%.16lf", sqrt(sum));
+    cout << sqrt(sum) << endl;
     return 0;
 }
