@@ -52,11 +52,12 @@ if __name__ == '__main__':
             code = code[:i] + "X" + code[i+1:]
             guess = guess[:i] + "X" + guess[i+1:]
     for i in range(len(code)):
-        if code[i] != guess[i] and code[i] != "X":
-            for j in range(len(code)):
-                if code[i] == guess[j]:
-                    white += 1
-                    code = code[:j] + "X" + code[j+1:]
-                    break
+        if code[i] == "X":
+            continue
+        for j in range(len(code)):
+            if code[i] == guess[j]:
+                white += 1
+                code = code[:j] + "X" + code[j+1:]
+                break
     print(white)
     print(black)
