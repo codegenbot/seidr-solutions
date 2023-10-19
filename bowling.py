@@ -75,3 +75,4 @@ def bowling_score(input):
     return score
 
 if __name__ == '__main__':
+    pass
