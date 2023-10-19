@@ -37,15 +37,13 @@ input:
 output:
 29.0
 """
-import os
+import sys
 if __name__ == '__main__':
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    with open(os.path.join(dir_path, 'input.txt'), 'r') as f:
-        lines = f.readlines()
-        num = int(lines[0])
-        prices = lines[1].split()
-        discount = lines[2].split()
-        total = 0
-        for i in range(num):
-            total += float(prices[i])*(1-float(discount[i])/100)
-        print(total)
+    lines = sys.stdin.readlines()
+    num = int(lines[0])
+    prices = lines[1].split()
+    discount = lines[2].split()
+    total = 0
+    for i in range(num):
+        total += float(prices[i])*(1-float(discount[i])/100)
+    print(total)
