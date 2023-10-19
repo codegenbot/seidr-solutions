@@ -53,19 +53,36 @@ output:
 """
 if __name__ == '__main__':
     num = int(input())
-    if num == 0:
-        print(3)
-        print(1)
-    elif num == 1:
-        print(1)
-        print(0)
-    elif num == 2:
-        print(2)
-        print(1)
-    elif num > 2:
-        if num % 2 == 0:
-            print(num)
-            print(num // 2)
-        else:
-            print(num)
-            print(num // 2 + 1)
+    arr = [0] * num
+    low, big = 0, 0
+    for i in range(num):
+        k = int(input())
+        arr[i] = k
+    newarr = sorted(arr)
+    low = min(low, newarr[1] - newarr[0])
+    big = max(big, newarr[len(newarr) - 1] - newarr[len(newarr) - 2])
+    if big>low*2:
+        big = low
+    print(low)
+    print(big)
+
+
+
+
+
+
+# if __name__ == '__main__':
+#     num = int(input())
+#     if num == 1:
+#         print(1)
+#         print(0)
+#     elif num == 2:
+#         print(2)
+#         print(1)
+#     elif num > 2:
+#         if num % 2 == 0:
+#             print(num)
+#             print(num // 2)
+#         else:
+#             print(num)
+#             print(num // 2 + 1)
