@@ -48,19 +48,20 @@ bool eval(string str) {
             bool val1 = vals.top(); vals.pop();
             if (op == '|') vals.push(val1 || val2);
             else if (op == '&') vals.push(val1 && val2);
-        } else vals.push(str[i] == 'T');
+        } else vals.push(str[i] == 't');
     }
     return vals.top();
 }
 int main() {
-    cout << eval("T") << endl;
-    cout << eval("F") << endl;
+    cout << boolalpha;
+    cout << eval("t") << endl;
+    cout << eval("f") << endl;
     cout << eval("f&f") << endl;
     cout << eval("f&t") << endl;
     cout << eval("t&f") << endl;
     cout << eval("t&t") << endl;
-    cout << eval("T|f") << endl;
-    cout << eval("T|t") << endl;
+    cout << eval("t|f") << endl;
+    cout << eval("t|t") << endl;
     cout << eval("f|f") << endl;
     cout << eval("f|t") << endl;
     cout << eval("t&(f|t)") << endl;
