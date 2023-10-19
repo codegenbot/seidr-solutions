@@ -7,7 +7,7 @@ import collections
 import itertools
 import queue
 import re
-str1 = ['1','0']
+str1 = ['2', '1000']
 str2 = ['1000']
 str3 =['0','1000']
 #print("\n".join(map(str, str1[::-1])))
