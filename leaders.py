@@ -15,4 +15,7 @@ count=0
 #print(len(str2))
 	
 if __name__ == '__main__':
-	print("\n".join(map(str, str1[::-1])))
+	if len(str1)>1:
+		print("\n".join(map(str, str1[::-1])))
+	else:
+		print("\n".join(map(str, str1)))
