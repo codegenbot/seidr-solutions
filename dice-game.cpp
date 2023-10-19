@@ -47,7 +47,7 @@ int main() {
 	double p_win = 0.0;
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= M; j++) {
-			if (i > j) p_win += p * q; // 计算peter赢的概率，记得是peter赢，不是peter比colin大
+			if (i > j) p_win += p * q; // 计算peter赢的概率, 所以1\n2 -> 0.0
 		}
 	}
 	cout << p_win << endl;
