@@ -38,5 +38,5 @@ def cut(array):
 
 
 if __name__ == '__main__':
-    input_array = [3, 1, 2, 3]
+    input_array = [int(i) for i in sys.stdin.read().split(',')]
     print(cut(input_array))
