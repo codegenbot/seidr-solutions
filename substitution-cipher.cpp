@@ -15,6 +15,8 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
+
+
 output:
 
 input:
@@ -41,10 +43,14 @@ l
 eeeeeeeeee
 output:
 llllllllll
+
+
 */
 int main() {
     string one, two, three;
-    cin >> one >> two >> three;
+    getline(cin, one, '\n'); // It is ok that a frame
+    getline(cin, two, '\n'); // It is ok that a frame
+    getline(cin, three, '\n'); // It is ok that a frame
     map<char, char> dict;
     for(int i=0; i<one.size(); i++){
         dict[one[i]] = two[i];
