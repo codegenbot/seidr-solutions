@@ -29,8 +29,5 @@ int main() {
     }
     int ans = lower_bound(all(dp), INF) - dp.begin();
     cout << ans << endl;
-    int idx = lower_bound(all(dp), INF) - dp.begin() - 1;
-    for(int i = idx; i >= 0; i--) cout << dp[i] << " ";
-    cout << endl;
     return 0;
 }
