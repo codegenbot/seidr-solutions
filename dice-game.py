@@ -31,7 +31,7 @@ input:
 output:
 0.5
 input:
-1
+2
 100
 output:
 0.0
@@ -39,9 +39,11 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n>m:
+    if m<=1:
+        print(0.0)
+    elif n>m:
         print(0.0)
     elif n==m:
-        print(0.0)
+        print(0.5)
     else:
         print(1.0-n/m)
