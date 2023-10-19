@@ -31,6 +31,10 @@ input:
 output:
 )b
 """
+def mid(s):
+    if len(s) % 2 == 0:
+        return s[len(s)//2-1:len(s)//2+1]
+    else:
+        return s[len(s)//2]
+
 if __name__ == '__main__':
-    input_str = input()
-    print(input_str[math.floor(len(input_str)/2)] if len(input_str) % 2 == 1 else input_str[math.floor(len(input_str)/2) - 1:math.floor(len(input_str)/2) + 1])
