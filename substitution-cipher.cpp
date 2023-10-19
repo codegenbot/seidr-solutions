@@ -45,18 +45,15 @@ output:
 llllllllll
 */
 int main() {
-    string a, b, c;
-    getline(cin, a);
-    getline(cin, b);
-    getline(cin, c);
-    for (int i = 0; i < c.size(); i++) {
-        for (int j = 0; j < a.size(); j++) {
-            if (c[i] == a[j]) {
-                c[i] = b[j];
-                break;
-            }
-        }
+    string one, two, three;
+    cin >> one >> two >> three;
+    map<char, char> dict;
+    for(int i=0; i<one.size(); i++){
+        dict[one[i]] = two[i];
     }
-    cout << c;
-    return 0;
+    string res = "";
+    for(int i=0; i<three.size(); i++){
+        res += dict[three[i]];
+    }
+    cout << res << endl;
 }
