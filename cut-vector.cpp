@@ -19,7 +19,7 @@ input:
 output:
 1
 0
-0 
+0
 
 input:
 1
@@ -77,12 +77,12 @@ void findMin(vector<int>& nums) {
         }
     }
     for(int i = 0; i < left; i++) {
-        cout<<nums[i]<<endl;
+        cout<<nums[i]<<endl<<endl;
     }
     for(int i = right + 1; i < n; i++) {
-        cout<<nums[i]<<endl;
+        cout<<nums[i]<<endl<<endl;
     }
-    cout<<0<<endl;
+    cout<<0<<endl<<endl;
 }
 
 int main() {
