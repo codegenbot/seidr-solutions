@@ -46,8 +46,9 @@ output:
 */
 int main() {
     string text, target;
-    getline(cin, text);
-    getline(cin, target);
+    // getline(cin, text);
+    // getline(cin, target);
+    cin >> text >> target;
     int len = target.length();
     int len2 = text.length();
     int i = 0;
@@ -65,7 +66,7 @@ int main() {
         }
         i++;
     }
-    if (!found) cout << -1 << endl;
+    if (!found) cout << 0 << endl;
     else cout << endl;
     return 0;
 }
