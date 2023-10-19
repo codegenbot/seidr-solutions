@@ -35,5 +35,24 @@ output:
 100
 */
 int main() {
+    string input;
+    cin>>input;
+    int score = 0;
+    int count = 0;
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == 'X') {
+            score += 10;
+            score += input[i+2] == 'X' ? 10 : input[i+2] == '/' ? 10 - (input[i+1] - '0') : input[i+1] - '0';
+            score += input[i+1] == 'X' ? 10 : input[i+1] == '/' ? 10 - (input[i] - '0') : input[i] - '0';
+        } else if (input[i] == '/') {
+            score += 10 - (input[i-1] - '0');
+            score += input[i+1] == 'X' ? 10 : input[i+1] - '0';
+        } else if (input[i] == '-') {
+            score += 0;
+        } else {
+            score += input[i] - '0';
+        }
+    }
+    cout<<score<<endl;
     return 0;
 }
