@@ -8,90 +8,43 @@ import itertools
 import queue
 import re
 """
-This is a preposition between two words, first and second. ReWrite the code to output all English words that have the same ending with the first word and begining with the second word. English letter counts for 5 points.
-Too much output is allowed.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
 
-Using your language's equivalent to strings is allowed. (string/stringbuilder/...)
-input1:
-breaks
-fries
-input2:
-gentleman
-lady
-passport
 
 
 output:
-scraps
-dispute
-paralyze
-sleepy
-hurtful
-darken
-prompt
-correct
-conflicting
-proceed
-stooping
-crept
-running
-howdy
-nosey
-crying
-sleeping
-blurry
-target
-email
-filed
-closet
-potty
-interrupt
-second
-breakdown
-junkie
-boundless
-tummy
-routine
-messy
-dizzy
-playground
-confidence
-hates
-number
-rental
-nonstop
-grins
-kinetic
-tomboy
-lazy
-damaged
-peeking
-jolly
-passedon
+
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 """
-g = 'whitehatboy'
-
-
-def test():
-    sys.stdin = open('input.txt')
-    word1 = input().strip().lower()
-    word2 = input().strip().lower()
-
-    engWord = set()
-    with open('dict.txt', "r") as f:
-        for word in f.readlines():
-            engWord.add(word.strip().lower())
-
-    for word in engWord:
-        if len(word) > 16:
-            continue
-        if not (word1.endswith(word[0:len(word1)]) and word[len(word2):] == word2):
-            continue
-        elif not (word1.endswith(word[0:len(word1)]) or word[len(word2):] == word2):
-            continue
-        keywords = '? <keywords>'.replace('?', '?')
-        print(keywords)
-
-
 if __name__ == '__main__':
-    test()
+    line1 = sys.stdin.readline()
+    line2 = sys.stdin.readline()
+    line3 = input()
+    print(line1)
+    print(line2)
+    print(line3)
