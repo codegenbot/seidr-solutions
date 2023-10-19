@@ -34,60 +34,36 @@ t&f
 output:
 False
 */
-
-bool parseBoolExpr(string expression) {
-    if (expression.size() == 1) {
-        return expression[0] == 't';
-    }
+int main() {
+    string s;
+    cin >> s;
     stack<char> st;
-    for (int i = 0; i < expression.size(); ++i) {
-        if (expression[i] == ')') {
-            vector<char> values;
-            while (st.top() != '(') {
-                values.push_back(st.top());
-                st.pop();
-            }
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == ' ')
+            continue;
+        if(s[i] == 't' || s[i] == 'f')
+            st.push(s[i]);
+        else {
+            char b = st.top();
             st.pop();
-            char op = st.top();
+            char a = st.top();
             st.pop();
-            bool ans = false;
-            if (op == '&') {
-                ans = true;
-                for (auto c : values) {
-                    if (c == 'f') {
-                        ans = false;
-                        break;
-                    }
-                }
-            } else if (op == '|') {
-                for (auto c : values) {
-                    if (c == 't') {
-                        ans = true;
-                        break;
-                    }
-                }
+            if(s[i] == '&') {
+                if(a == 'f' || b == 'f')
+                    st.push('f');
+                else
+                    st.push('t');
             } else {
-                for (auto c : values) {
-                    if (c == 't') {
-                        ans = false;
-                        break;
-                    }
-                }
-                ans = true;
+                if(a == 't' || b == 't')
+                    st.push('t');
+                else
+                    st.push('f');
             }
-            st.push(ans ? 't' : 'f');
-        } else {
-            st.push(expression[i]);
         }
     }
-    return st.top() == 't';
-}
-
-int main() {
-    cout << parseBoolExpr("t") << endl;
-    cout << parseBoolExpr("f") << endl;
-    cout << parseBoolExpr("f&f") << endl;
-    cout << parseBoolExpr("f&t") << endl;
-    cout << parseBoolExpr("t&f") << endl;
+    if(st.top() == 't')
+        cout << "True" << endl;
+    else
+        cout << "False" << endl;
     return 0;
 }
