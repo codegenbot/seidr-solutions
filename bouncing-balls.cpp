@@ -51,6 +51,6 @@ int main() {
     for (int i = 0; i < bounces; i++) {
         result += start * pow(bounciness, i);
     }
-    printf("%.3f\n", result);
+    printf("%.3lf", result);
     return 0;
 }
