@@ -18,10 +18,8 @@ input:
 abc
 def
 abc
-
 output:
 def
-
 input:
 a
 a
