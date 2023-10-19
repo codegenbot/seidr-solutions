@@ -53,7 +53,7 @@ if __name__ == '__main__':
         c=float(input())
         d=float(input())
         if a==0:
-            print(0.0)
+            print(0)
         else:
             e=b+c
             s=e-d
