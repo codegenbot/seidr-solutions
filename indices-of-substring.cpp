@@ -46,10 +46,10 @@ output:
 */
 int main() {
     string text, target;
-    getline(cin, text);
-    getline(cin, target);
+    cin >> text;
+    cin >> target;
     int len = target.length();
-    int len2 = text.length();
+    int len2 = text.length() - len + 1;
     int i = 0;
     bool found = false;
     while (i < len2) {
@@ -62,11 +62,9 @@ int main() {
                 cout << i << " ";
                 found = true;
             }
-            i++;
         }
-        else i++;
+        i++;
     }
-    if (!found) cout << 0 << endl;
-    else cout << endl;
+    cout << endl;
     return 0;
 }
