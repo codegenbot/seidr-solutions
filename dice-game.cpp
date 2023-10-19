@@ -17,7 +17,7 @@ input:
 1
 2
 output:
-0.5
+0.0
 input:
 2
 1
@@ -44,10 +44,10 @@ int main() {
 	cin >> N >> M;
 	double p = 1.0 / N;
 	double q = 1.0 / M;
-	double p_win = 0.0;
+	double p_win = 0.0; // 这里必须是0.0，不能是0，不然1\n2会输出0.5
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= M; j++) {
-			if (i > j) p_win += p * q; // 计算peter赢的概率, 所以1\n2 -> 0.0
+			if (i > j) p_win += p * q; // 注意不是i >= j
 		}
 	}
 	cout << p_win << endl;
