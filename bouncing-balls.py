@@ -42,12 +42,11 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
-    with open(file_path, 'r') as f:
-        for line in f:
-            s = line.strip().split(' ')
-            start = float(s[0])
-            first = float(s[1])
-            num = int(s[2])
-            bounciness = first/start
-            print(sum(bounciness**i for i in range(1, num+1))*start)
+    def bouncyIndex(h0, h1, n):
+        bouncy = (h1 / h0)
+        return h0 * ((1 - bouncy) ** n) / (1 - bouncy)
+    print(bouncyIndex(1.001, 1.0, 1))
+    print(bouncyIndex(100.0, 99.999, 20))
+    print(bouncyIndex(100.0, 1.0, 20))
+    print(bouncyIndex(15.319, 5.635, 1))
+    print(bouncyIndex(2.176, 1.787, 1))
