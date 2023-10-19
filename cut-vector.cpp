@@ -22,6 +22,14 @@ output:
 0
 
 input:
+9999
+1
+output:
+1
+0
+0
+
+input:
 1
 10
 output:
@@ -82,7 +90,6 @@ void findMin(vector<int>& nums) {
     for(int i = right + 1; i < n; i++) {
         cout<<nums[i]<<endl;
     }
-    if(left != 0 || right != n - 1)
     cout<<0<<endl;
 }
 
