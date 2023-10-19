@@ -73,8 +73,9 @@ int main() {
     for (int i = 0; i < minIndex; i++) {
         cout << nums[i] << endl;
     }
-    for (int i = minIndex; i <= n; i++) {
+    for (int i = minIndex; i < n; i++) {
         cout << nums[i] << endl;
     }
+    cout << 0 << endl;
     return 0;
 }
