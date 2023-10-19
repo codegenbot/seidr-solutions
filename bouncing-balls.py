@@ -1,15 +1,12 @@
-import traceback
 import os
 import sys
 import numpy as np
 import math
 import datetime
-import typing
 import collections
 import itertools
 import queue
 import re
-import heapq
 """
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
@@ -45,24 +42,12 @@ output:
 3.963
 """
 if __name__ == '__main__':
-
-def main():
-    try:
-        h = float(input())
-        b = float(input())
-        n = int(input())
-        print(round(h*(1-b**n)/(1-b),3))
-    except Exception as e:
-        traceback.print_exc()
-
-
-if __name__ == "__main__":
-    if FAST_RUN:
-        print("Running in fast mode")
-        sys.stdin = open("input.txt", 'r')
-        import time
-        start_time = time.time()
-        main()
-        print("Time:", time.time() - start_time)
-    else:
-        main()
+    while True:
+        line = sys.stdin.readline().strip()
+        if line == '':
+            break
+        arr = list(map(float, line.split()))
+        if len(arr) < 3:
+            break
+        bounciness = arr[0] / arr[1]
+        print(arr[2] * bounciness * arr[1] + arr[1])
