@@ -44,21 +44,18 @@ input:
 output:
 3.963
 */
-class Solution {
-public:
-	double calculate(int height, int bouncy, int n){
-		if(n == 1){
-			return height;
-		}
 
-		double boun = (double)bouncy / height;
-		return calculate(height, bouncy, n - 1) * 2 - boun * 			calculate(height, bouncy, n - 1);
-	}
-};
+/*
+The total distance traveled equals the last height added to the first height times the bounciness coefficient to the bounce power minus one times two.
+ */
+double distance(double firstHeight, double bounceIndex, int bounce, int bouncePoint) {
+    double lastPoint = firstHeight * pow(bounceIndex, bouncePoint - 1);
+    return lastPoint + firstHeight * pow(bounceIndex, bounce - bouncePoint) * ((1 - bounceIndex) / (1 - pow(bounceIndex, bounce + 1))) * 2;
+}
 
 int main() {
-	Solution A;
-	int height, bouncy, n;
-	cin >> height >> bouncy >> n;
-	printf("%.10f\n", A.calculate(height, bouncy, n));
+    int nr, change, jump;
+    cin >> nr >> change >> jump;
+    cout << distance(nr, change / nr, jump, 1);
+    return 0;
 }
