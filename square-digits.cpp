@@ -11,38 +11,37 @@
 #include <climits>
 using namespace std;
 /*
-Given a string, return the middle character as a string if it is odd length; 
-return the two middle characters as a string if it is even length.
+Given a positive integer, square each digit and concatenate the squares into a returned string.
 For example,
 input:
-Q
+0
 output:
-Q
+0
 input:
- 
+1
 output:
- 
+1
 input:
-$
+2
 output:
-$
+4
 input:
-E9
+3
 output:
-E9
+9
 input:
-)b
+4
 output:
-)b
+16
 */
 int main() {
-    string str;
-    cin >> str;
-    int len = str.length();
-    if (len % 2 == 0) {
-        cout << str[len/2-1] << str[len/2];
-    } else {
-        cout << str[len/2];
+    string s;
+    cin >> s;
+    string ret;
+    for (int i = 0; i < s.size(); i++) {
+        int x = s[i] - '0';
+        ret += to_string(x * x);
     }
+    cout << ret << endl;
     return 0;
 }
