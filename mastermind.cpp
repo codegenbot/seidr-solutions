@@ -27,22 +27,34 @@ output:
 0
 input:
 WYYW
+RRYW
+output:
+0
+3
+input:
+WWYY
+RBYG
+output:
+1
+2
+input:
+WWRR
+WWYY
+output:
+1
+2
+input:
+GGGB
 BBOG
 output:
 0
 0
 input:
-GGGB
-BGGG
-output:
-2
-2
-input:
-BBBB
-OOOO
-output:
-0
-0
+RBYG
+YBGR
+output: 3 2
+input: BYOG YBOG GGYY YOBB output: 0 4
+input: RARY YBRY output: 4 0
 */
 int main() {
     string code, guess;
@@ -60,6 +72,6 @@ int main() {
     }
     white -= black;
     cout << black << endl;
-    cout << white << endl; 
+    cout << white << endl;
     return 0;
 }
