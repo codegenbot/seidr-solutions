@@ -71,18 +71,15 @@ if __name__ == '__main__':
     min_diff = input[1] - input[0]
     print(input[0])
     print(input[1])
-    print(0)
+    print(min_diff)
     for i in range(2,len(input)):
         if(input[i] - input[i-1] < min_diff):
             min_diff = input[i] - input[i-1]
             print(input[i-1])
             print(input[i])
-            print(0)
-        elif(i-2>=0 and input[i] - input[i-2] == input[i-1] - input[i-2]):
-            print(input[i])
-            print(0)
-            print(input[i])
+            print(min_diff)
         else:
             print(input[i])
             print(0)
-            print(0)
+            print(input[i])
+            break
