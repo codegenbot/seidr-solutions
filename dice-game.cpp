@@ -32,7 +32,7 @@ input:
 100
 99
 output:
-1.0
+0.5
 input:
 1
 100
@@ -42,14 +42,15 @@ output:
 int main() {
     int n, m;
     while(cin >> n >> m) {
-        if (n > m) {
-            printf("1.0\n");
-        } else if (n < m) {
-            printf("0.0\n");
-        } else {
-            printf("0.5\n");
+        double cnt = 0;
+        double total = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                total++;
+                if (i > j) cnt++;
+            }
         }
-        printf("%.2f\n", cnt/total);
+        printf("%.2f\n", cnt/total*100);
     }
     return 0;
 }
