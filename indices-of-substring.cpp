@@ -9,40 +9,15 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <sstream>
 using namespace std;
+#define rep(i, n) for (int i = 0; i < (int)n; i++)
 /*
-Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
-For example,
-input:
-a
-5
+"ACUTAIMPoqxZsnmdwbgGikgyvVYLpVxPmPjalHINrJiCvHisJTECjaeelqXcrWXlNZGXkXLwhFJjHyADpONKQfBlvxVzlNxtEJtyWDSsnPDwJvRdTKdzDbdSRWcCZJLxLqCtOaYDWhRLxEYvVWuReFYDDMdjIpPcmMuDFmrEhSizdCSjIHrXpIUikjCvtbeQUOTZtLfkcTCduhwIvpyWjukwPXvduNDBaLSVjGxHwbLTLlhIWXJPIiUwCUEsHTUbrZngnVDBysSEEqojrNLIcBZFqgyPQMyWwKOExXKUmttZOLYdXbGzQqUyLQMPnipcJLJGiywUVEVneyFQpWJaxbvWSxOSjDJjwRJWjqRKLDWqTJbzcAGkgDfxAJlSuPIQWZpZDonzDnJoNoNtYtbCkqsSGcMvytdppglpmoFNLzRhMtpLVZjzjWEHznaxnPYuMFdsgJnO",
+167
 output:
-0\n
-
-input:
-!
-!
-output:
-1
-0
-input:
-r
-nm,xcnwqnd@#$fwkdjn3
-output:
-0
-
-input:
-hi
-hihihihihihihihihihi
-output:
-0
-
-input:
-############
-#
-output:
-12
-0 1 2 3 4 5 6 7 8 9 10 11
+6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 1 1 1 1 1 1 1 1 1 9 9 9 9 9 9 9 9 9 9 9 1 1 1 1
+4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 68 68 68 68 68 68 68 68 68 68 68 68 68 68 68 68 68 7 7 7 6 6 6 6 6 6 6 6 6 6 6 6 4 4 4 4
 */
 int main() {
     string text, target;
