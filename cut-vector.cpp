@@ -17,7 +17,7 @@ input:
 1
 0
 output:
-1
+1 
 0
 0
 
@@ -55,19 +55,5 @@ output:
 
 */
 int main() {
-    int a, b;
-    cin >> a >> b;
-    int sum = a + b;
-    int sum1 = a + b + 1;
-    int sum2 = a + b - 1;
-    int sum3 = a + b + 2;
-    int sum4 = a + b - 2;
-    cout << a << endl;
-    cout << b << endl;
-    cout << sum << endl;
-    cout << sum1 << endl;
-    cout << sum2 << endl;
-    cout << sum3 << endl;
-    cout << sum4 << endl;
     
 }
