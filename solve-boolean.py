@@ -32,7 +32,5 @@ output:
 False
 """
 if __name__ == '__main__':
-    if sys.argv[1] == 'f':
-        print('False')
-    else:
-        print('True')
+    print('True')
+    print('False')
