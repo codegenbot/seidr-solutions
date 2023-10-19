@@ -106,6 +106,424 @@ using namespace std;
 
 
 
+/**
+Given an array, return the set of items that are duplicates
+String[] array = {"Hi", "Hello", "Hey", "Hi", "Hello", "Hey"};
+findDuplicates( array );
+returns {"Hi", "Hello", "Hey"} */
+
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+#include <algorithm>
+using namespace std;
+
+void duplicate(string arr[], int &size) {
+    set<string> ss;
+    for(int i=0; i<size; i++) {
+        ss.insert(arr[i]);
+    }
+    vector<string> v;
+    set<string>::iterator it = ss.begin();
+    while(it != ss.end()) {
+        int count = 0;
+        for(int i=0; i<size; i++) {
+            if(arr[i].compare(*it) == 0) {
+                count++;
+            }
+            if(count > 1) {
+                v.push_back(*it);
+                break;
+            }
+        }
+        it++;
+    }
+    for(int i=0; i<v.size(); i++) {
+        cout << v[i] << " ";
+    }
+}
+int main() {
+    string arr[3] = {"Hello", "Hey", "Hello"};
+    duplicate(arr, 3);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
