@@ -35,7 +35,8 @@ int main() {
             ans[ii] = v[i];
         }
     }
-    cout << idx + 1 << endl;
-    for (int i = 0; i <= idx; i++) cout << ans[i] << endl;
+    cout << idx + 1 << "\n\n";
+    for (int i = 0; i <= idx; i++) cout << ans[i] << " ";
+    cout << "\n";
     return 0;
 }
