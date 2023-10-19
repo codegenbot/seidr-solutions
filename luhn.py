@@ -1,8 +1,14 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
-Given a vector of 16 digits, implement Luhn’s algorithm to verify a credit card number,
-such that it follows the following rules: double every other digit starting with the
-second digit. If any of the results are over 9, subtract 9 from them. Return the sum of
-all of the new digits.
+Given a vector of 16 digits, implement Luhn’s algorithm to verify a credit card number, such that it follows the following rules: double every other digit starting with the second digit. If any of the results are over 9, subtract 9 from them. Return the sum of all of the new digits.
 For example,
 input:
 16
@@ -31,3 +37,4 @@ output:
 96
 """
 if __name__ == '__main__':
+    pass
