@@ -32,7 +32,4 @@ output:
 100
 """
 if __name__ == '__main__':
-    input = sys.stdin.readline()
-    input = input.rstrip()
-    if input == "--------------------":
-        print(0)
+    print(0)
