@@ -48,9 +48,9 @@ int main() {
     double start, after, bounciness, bounces;
     cin >> start >> after >> bounces;
     bounciness = after / start;
-    double result = start; // 1.001
-    for (int i = 0; i < bounces; i++) {
-        result += start * pow(bounciness, i + 1); // 1.001 * 1.0 + 1.001 * 1.0 * 1.0
+    double result = start;
+    for (int i = 0; i < bounces - 1; i++) {
+        result += start * pow(bounciness, i + 1);
     }
     if (bounces == 1) {
         result += start * bounciness;
