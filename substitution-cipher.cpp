@@ -15,7 +15,9 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-
+a
+b
+a
 
 output:
 
@@ -49,7 +51,6 @@ int main() {
     getline(cin, a);
     getline(cin, b);
     getline(cin, c);
-    cin.ignore();
     for (int i = 0; i < c.size(); i++) {
         for (int j = 0; j < a.size(); j++) {
             if (c[i] == a[j]) {
