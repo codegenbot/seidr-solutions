@@ -19,6 +19,12 @@ a
 output:
 0
 
+a
+1
+output:
+0
+
+
 input:
 !
 !
@@ -64,7 +70,7 @@ int main() {
         }
     }
     for (int k = 0; k < res.size(); k++) {
-        printf("%d\n", res[k]);
+        printf("%d ", res[k]);
     }
     return 0;
 }
