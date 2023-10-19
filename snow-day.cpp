@@ -54,7 +54,7 @@ int main() {
     float snowOnGround, rateOfSnow, proportionOfSnowMelting;
     cin >> hours >> snowOnGround >> rateOfSnow >> proportionOfSnowMelting;
     if (hours == 0) {
-        cout << 0.0 << endl;
+        printf("%.10f\n", snowOnGround);
         return 0;
     }
     float snow = snowOnGround;
