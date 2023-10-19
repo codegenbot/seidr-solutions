@@ -1,3 +1,4 @@
+// Make sure that  -> 
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
@@ -13,7 +14,7 @@ int main() {
     int i = 0;
     while(i < n) {
         int j = i;
-        while(j < n && str[j] != ' ' && str[j] != '.' && str[j] != ',') {
+        while(j < n && str[j] != ' ') {
             j++;
         }
         if(j - i >= 5) {
