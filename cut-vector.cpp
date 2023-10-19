@@ -55,8 +55,13 @@ output:
 
 */
 int main() {
-    int a[] = {1, 0};
-    vector<int> vec(a, a+2);
+    int n;
+    while (cin >> n) {
+        vector<int> vec(n);
+        for (int i = 0; i < n; i++) {
+            cin >> vec[i];
+        }
+    }
     int left = 0, right = vec.size() - 1;
     int leftSum = vec[left], rightSum = vec[right];
     while (left < right) {
@@ -66,8 +71,18 @@ int main() {
             rightSum += vec[--right];
         }
     }
-    for (int i=0; i<vec.size(); i++) {
-        cout << vec[i] << endl;
+    left++;
+    cout << left << endl << right << endl;
+    for (vector<int>::iterator vi = vec.begin(); vi != vec.end(); ++vi) {
+        cout << *vi << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < left; i++) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+    for (int i = right; i < n; i++) {
+        cout << vec[i] << " ";
     }
     return 0;
 }
