@@ -61,9 +61,7 @@ int main() {
             res.push_back(maxx);
         }
     }
-    if (res.size() == 0) {
-        cout << 0 << endl;
-    } else {
+    if (res.size() != 0) {
         cout << res.size() << endl;
     }
     for (int i = res.size() - 1; i >= 0; i--) {
