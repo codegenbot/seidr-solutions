@@ -31,26 +31,27 @@ input:
 output:
 100
 """
-def score(input):
-    score = 0
-    frame_index = 0
-    frame_scores = []
-    for i in range(len(input)):
-        if input[i] == 'X':
-            if i < len(input)-1 and input[i+1] == 'X':
-                if i < len(input)-2 and input[i+2] == 'X':
-                    score += 30
-                else:
-                    score += 20 + int(input[i+2])
-            else:
-                score += 10 + int(input[i+1]) + int(input[i+2])
-        elif input[i] == '/':
-            score += 10 + int(input[i+1])
+def bowling(balls):
+    frame = []
+    for i in balls:
+        if i == 'X':
+            frame.append(10)
+        elif i == '-':
+            frame.append(0)
+        elif i == '/':
+            frame.append(10-frame[-1])
         else:
-            score += int(input[i])
-        frame_scores.append(score)
-    return frame_scores[-1]
+            frame.append(int(i))
+    score = 0
+    for i in range(10):
+        if frame[i] == 10:
+            score += 10 + frame[i+1] + frame[i+2]
+        elif frame[i]+frame[i+1] == 10:
+            score += 10 + frame[i+2]
+        else:
+            score += frame[i] + frame[i+1]
+    return score
 
 if __name__ == '__main__':
-    input = 'XXXXXXXXXXXX'
-    print(score(input))
+    balls = input()
+    print(bowling(balls))
