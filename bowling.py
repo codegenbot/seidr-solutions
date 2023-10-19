@@ -34,4 +34,7 @@ output:
 if __name__ == '__main__':
     for line in sys.stdin:
         line = line.strip()
-        print(0)
+        if '--------------------' in line:
+            print(0)
+        print(line)
+        #
