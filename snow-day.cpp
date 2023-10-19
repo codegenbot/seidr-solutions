@@ -58,16 +58,16 @@ int main() {
     cin >> proportionOfSnowMelting;
     
     for (int i = 0; i < hours; i++) {
-        if (rateOfSnowFall < 0.000001) {
-            if (proportionOfSnowMelting > 0.6) {
-                snowOnGround = 0.0;
-            }
-        } else {
-            snowOnGround += rateOfSnowFall;
-            snowOnGround *= (1 - proportionOfSnowMelting);
+        if (snowOnGround < 0) {
+            snowOnGround = 0;
         }
+        snowOnGround += rateOfSnowFall;
+        snowOnGround *= (1 - proportionOfSnowMelting);
     }
     
+    if (snowOnGround > 0) {
+        printf("%.6f", snowOnGround);
+    }
     cout << snowOnGround << endl;
     return 0;
 }
