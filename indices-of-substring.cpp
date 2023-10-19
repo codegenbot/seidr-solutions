@@ -1,9 +1,9 @@
+#include <cstdio>
 #include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
 #include <queue>
-#include <stdio.h>
 #include <math.h>
 #include <map>
 #include <set>
@@ -44,27 +44,24 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-vector<int> find_all(string text, string target) {
-    vector<int> res;
-    int len = target.size();
-    for (int i = 0; i <= text.size() - len; i++) {
-        if (text.substr(i, len) == target) {
-            res.push_back(i);
-        }
-    }
-    return res;
-}
 int main() {
     string text, target;
-    while (cin >> text >> target) {
-        vector<int> res = find_all(text, target);
-        if (res.size() > 0) {
-            for (auto x : res) {
-                cout << x << " ";
+    getline(cin, text);
+    getline(cin, target);
+    int len = target.length();
+    int len2 = text.length();
+    int i = 0;
+    while (i < len2) {
+        if (text[i] == target[0]) {
+            int j = 1;
+            while (j < len && text[i+j] == target[j]) {
+                j++;
             }
-            cout << endl;
+            if (j == len) {
+                printf("%d\n", i);
+            }
         }
-        cout << endl;
+        i++;
     }
     return 0;
 }
