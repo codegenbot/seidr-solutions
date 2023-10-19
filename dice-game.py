@@ -40,8 +40,9 @@ if __name__ == '__main__':
     n = int(input())
     m = int(input())
     if n>m:
-        print(0.0)
+        x = 0.0
     elif n==m:
-        print(0.5)
+        x = 0.5
     else:
-        print(round(1.0-n/m,1))
+        x = 1.0-n/m
+    print("%.1f" % x)
