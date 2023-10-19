@@ -35,20 +35,17 @@ output:
 Too many characters
 */
 int main() {
-    string s;
-    getline(cin, s);
-    int len = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] >= 'a' && s[i] <= 'z' || s[i] >= 'A' && s[i] <= 'Z' || s[i] == ' ') {
-            len++;
-        }
-    }
-    if (len == 0) {
+    
+    string tweet;
+    getline(cin, tweet);
+    if (tweet.size() == 0) {
         cout << "You didn't type anything" << endl;
-    } else if (len > 140) {
+    } else if (tweet.size() > 140) {
         cout << "Too many characters" << endl;
     } else {
-        cout << "Your tweet has " << len << " characters" << endl;
+        cout << "Your tweet has " << tweet.size() << " characters" << endl;
     }
+    
+    
     return 0;
 }
