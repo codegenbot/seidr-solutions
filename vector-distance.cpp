@@ -50,21 +50,25 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<float> v1(n);
-    for(int i = 0; i < n; i++) {
-        cin >> v1[i];
+
+    // case 0
+    int casenumber;
+    cin >> casenumber;
+    cout << "sqrt(sum(xi -yi)number):" <<  sqrt(sum(xi -yi)number) << '\n';
+
+    int num;
+    for (int i = 0; i < casenumber; ++i) {
+        cin >> num;
+        s1 *= num;
+    }    
+    for (int i = 0; i < casenumber; ++i) {
+        cin >> num;
+        s2 *= num;
     }
-    cin >> n;
-    vector<float> v2(n);
-    for(int i = 0; i < n; i++) {
-        cin >> v2[i];
-    }
-    float sum = 0.0;
-    for(int i = 0; i < n; i++) {
-        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    printf("%.10f\n", sqrt(sum));
+    cout << s1 << '\n';
+    // case 1
+    int num1, num2;
+    cin >> num1 >> num2;
+    cout << sqrt(num1-num2)*(num1-num2) << endl;
     return 0;
 }
