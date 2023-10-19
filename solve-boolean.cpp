@@ -14,15 +14,15 @@ using namespace std;
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+True
 output:
 True
 input:
-f
+False
 output:
 False
 input:
-f&f
+False&False
 output:
 False
 input:
@@ -48,23 +48,23 @@ bool eval(string str) {
             bool val1 = vals.top(); vals.pop();
             if (op == '|') vals.push(val1 || val2);
             else if (op == '&') vals.push(val1 && val2);
-        } else vals.push(str[i] == 'T');
+        } else vals.push(str[i] == 't');
     }
     return vals.top();
 }
 int main() {
-    cout << eval("T") << endl;
-    cout << eval("F") << endl;
-    cout << eval("F&F") << endl;
-    cout << eval("F&T") << endl;
-    cout << eval("T&F") << endl;
-    cout << eval("T&T") << endl;
-    cout << eval("T|F") << endl;
-    cout << eval("T|T") << endl;
-    cout << eval("F|F") << endl;
-    cout << eval("F|T") << endl;
-    cout << eval("T&(F|T)") << endl;
-    cout << eval("T&(F|F)") << endl;
-    cout << eval("(T&(F|F))|F") << endl;
+    cout << eval("t") << endl;
+    cout << eval("f") << endl;
+    cout << eval("f&f") << endl;
+    cout << eval("f&t") << endl;
+    cout << eval("t&f") << endl;
+    cout << eval("t&t") << endl;
+    cout << eval("t|f") << endl;
+    cout << eval("t|t") << endl;
+    cout << eval("f|f") << endl;
+    cout << eval("f|t") << endl;
+    cout << eval("t&(f|t)") << endl;
+    cout << eval("t&(f|f)") << endl;
+    cout << eval("(t&(f|f))|f") << endl;
     return 0;
 }
