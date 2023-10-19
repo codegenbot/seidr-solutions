@@ -44,25 +44,5 @@ if __name__ == '__main__':
     melt = float(input())
     for i in range(n):
         snow = snow + rate
-        if snow > 0:
-            snow = snow - (snow * melt)
+        snow = snow - (snow * melt)
     print(snow)
-
-'''
-import sys
-
-def snow(n, snow, rate, melt):
-    for i in range(n):
-        snow = snow + rate
-        if snow > 0:
-            snow = snow - (snow * melt)
-    return snow
-
-if __name__ == '__main__':
-    n = int(sys.argv[1])
-    snow = float(sys.argv[2])
-    rate = float(sys.argv[3])
-    melt = float(sys.argv[4])
-
-    print(snow(n, snow, rate, melt))
-'''
