@@ -53,7 +53,10 @@ int main() {
             sum += a;
             a *= bouncinessIndex;
         }
-        printf("%.3f\n", sum + a);
+        printf("%.3f", sum);
+        if (cin.peek() != EOF) {
+            printf("\n");
+        }
     }
     return 0;
 }
