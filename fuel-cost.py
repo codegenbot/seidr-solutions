@@ -11,22 +11,22 @@ import re
 Given a vector of positive integers, divide each by 3, round the result down to the nearest integer, and subtract 2. Return the sum of all of the new integers in the vector.
 For example,
 input:
-2
+1
 12
 output:
 2
 input:
-2
+1
 14
 output:
 2
 input:
-2
+1
 1969
 output:
 654
 input:
-2
+1
 100756
 output:
 33583
