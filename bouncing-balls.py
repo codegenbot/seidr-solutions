@@ -42,12 +42,4 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    h = float(input())
-    h1 = float(input())
-    n = int(input())
-    bounciness = h1/h
-    total_distance = h
-    for i in range(n):
-        h = h * bounciness
-        total_distance += 2*h
-    print("%0.3f" % total_distance)
+    input_lines = open('C:/Users/juwan/codebase/project/other/input/input.txt').readlines()
