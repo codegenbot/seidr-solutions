@@ -1,35 +1,29 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
-"""
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"→ "camelCase exampleTestString".
-For example,
-input:
+"""Take a string in kebab-case and convert all of the words to camelCase. Each (group) of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
+For example:
+
+input:indented-code
 
 output:
+indentedCode
+
+input: no-space-or-dash
+
+output: no space or dash
+
+nospaceordash
 
 input:
-nospaceordash
+one-two-or   three-words
+
+
 output:
-nospaceordash
+oneTwoOr--threeWords
+
+
+output:
+this---is the cluememe nobody-expected
 input:
-two-words
-output:
-twoWords
-input:
-two words
-output:
-two words
-input:
-all separate words
-output:
-all separate words
+gettingcha
 """
 if __name__ == '__main__':
     s = input()
