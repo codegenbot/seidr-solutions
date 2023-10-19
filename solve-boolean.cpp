@@ -52,7 +52,11 @@ int main() {
                 char tmp = stk.top();
                 stk.pop();
                 if (op == '&') {
-                    stk.push(tmp == 'f' || ch == 'f' ? 'f' : 't');
+                    if (tmp == 'f' || ch == 'f') {
+                        stk.push('f');
+                    } else {
+                        stk.push('t');
+                    }
                 } else {
                     stk.push(tmp | ch);
                 }
