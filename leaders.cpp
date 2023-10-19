@@ -57,14 +57,14 @@ int main() {
                 maxV = tmp;
             }
         }
-        if(res.size() == 0) {
+        if (res.size() == 0) {
             cout << 0 << endl;
-        } else {
-            for (int i = 0; i < res.size(); i++) {
-                cout << res[i] << " ";
-            }
-            cout << endl;
+            continue;
         }
+        for (int i = 0; i < res.size(); i++) {
+            cout << res[i] << " ";
+        }
+        cout << endl;
     }
     return 0;
 }
