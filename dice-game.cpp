@@ -19,14 +19,15 @@ input:
 output:
 0.0
 input:
-1
 2
+1
 output:
-1.0
-input: 
+0.5
+input:
+99
 100
 output:
-99
+0.49
 input:
 100
 99
@@ -41,14 +42,14 @@ output:
 int main() {
 	int N, M;
 	cin >> N >> M;
-	if (N == 1) {
+	if (N == 1 && M == 1) {
+		cout << "0.5" << endl;
+	}
+	else if (N == 1) {
 		cout << "0.0" << endl;
 	}
 	else if (M == 1) {
 		cout << "1.0" << endl;
-	}
-	else if (N == M) {
-		cout << "0.5" << endl;
 	}
 	else {
 		double p = 1.0 / (N * 1.0);
@@ -56,7 +57,8 @@ int main() {
 		double p_win = 0.0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= M; j++) {
-				if (i > j) p_win += p * q; // p_win += p * q;
+				if (i > j) p_win += p * q;
+				else if (i == j) p_win += p * q / 2;
 			}
 		}
 		cout << p_win << endl;
