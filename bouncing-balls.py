@@ -7,6 +7,8 @@ import collections
 import itertools
 import queue
 import re
+from fractions import Fraction
+from decimal import *
 """
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
@@ -21,7 +23,7 @@ input:
 99.999
 20
 output:
-3993.9998999999985
+3999.599534511501
 input:
 100.0
 1.0
