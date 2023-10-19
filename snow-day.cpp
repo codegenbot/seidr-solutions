@@ -54,13 +54,9 @@ int main() {
     float snow = 0.0, snowfall = 0.0, melting = 0.0;
     cin >> hours >> snow >> snowfall >> melting;
     float snow_left = snow;
-    if (snowfall == 0 && melting == 0) {
-        snow_left = 0;
-    } else {
-        for (int i = 0; i < hours; i++) {
-            snow_left += snowfall;
-            snow_left -= snow_left * melting;
-        }
+    for (int i = 0; i < hours; i++) {
+        snow_left += snowfall;
+        if (melting != 0) snow_left -= snow_left * melting;
     }
     printf("%.16f\n", snow_left);
     return 0;
