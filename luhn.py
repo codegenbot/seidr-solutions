@@ -38,9 +38,14 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    arr = [int(i) for i in input().split()]
-    for i in range(1, n, 2):
-        arr[i] *= 2
-        if arr[i] > 9:
-            arr[i] -= 9
-    print(sum(arr))
+    nums = [int(x) for x in input().split()]
+    res = 0
+    for i in range(n):
+        if i % 2 == 0:
+            res += nums[i]
+        else:
+            nums[i] *= 2
+            if nums[i] > 9:
+                nums[i] -= 9
+            res += nums[i]
+    print(res)
