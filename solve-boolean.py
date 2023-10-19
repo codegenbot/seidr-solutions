@@ -194,4 +194,4 @@ if __name__ == '__main__':
                                                                                             else:
                                                                                                 s = s[0].split('&')
                                                                                                 if len(s) == 2:
-                                                                                                    if s[0]
+                                                                                                    if s[0] 
