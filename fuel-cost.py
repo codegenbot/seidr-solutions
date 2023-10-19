@@ -37,10 +37,6 @@ output:
 1
 """
 if __name__ == '__main__':
-    a = int(input())
-    b = int(input())
-    c = int(input())
-    d = int(input())
-    e = int(input())
-    f = int(input())
-    print((a + b + c + d + e + f))
+    arr = list(map(int, input().split()))
+    arr = [int(x/3)-2 for x in arr]
+    print(sum(arr))
