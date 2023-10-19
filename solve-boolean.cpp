@@ -28,17 +28,12 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
 False
 */
 int main() {
-    string s;
-    cin >> s;
-    if(s == "t") {
-        cout << "True" << endl;
-    }
     return 0;
 }
