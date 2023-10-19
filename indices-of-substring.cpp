@@ -17,7 +17,7 @@ input:
 a
 5
 output:
-0\n
+0
 
 input:
 !
@@ -66,5 +66,6 @@ int main() {
     for (int k = 0; k < res.size(); k++) {
         printf("%d ", res[k]);
     }
+    printf("\n");
     return 0;
 }
