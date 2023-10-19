@@ -44,6 +44,23 @@ eeeeeeeeee
 output:
 llllllllll
 */
-int main() {
 
+
+// 1. use map
+// 2. use array
+
+int main() {
+    string a, b, c;
+    cin >> a >> b >> c;
+    string res = "";
+    for (int i = 0; i < c.size(); i++) {
+        for (int j = 0; j < a.size(); j++) {
+            if (c[i] == a[j]) {
+                res += b[j];
+                break;
+            }
+        }
+    }
+    cout << res << endl;
+    return 0;
 }
