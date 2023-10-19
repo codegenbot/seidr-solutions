@@ -36,23 +36,11 @@ input:
 output:
 0.0
 """
+class Solution(object):
+    n=raw_input()
+    m=raw_input()
+    list(n)
+    list(m)
+    p100=int(n) / (int(m)+int(n))
+    print float(p100*0.5)
 if __name__ == '__main__':
-    n=int(input())
-    m=int(input())
-    if n>m:
-        print('1.0')
-    elif n==m:
-        print('0.5')
-    else:
-        num=(m-n+1)/m
-        tmp=enumerate(list(map(lambda x:m+1+n-2*x+1,range(1,n))))
-        requestl=[i for i in tmp if i[1]>0]
-        denominator=0
-        if n-1==m:
-            denominator=1
-        elif requestl:
-            for i in requestl:
-                denominator+=(math.factorial(n-1)*math.factorial(m))/(math.factorial(i[0]+1)*math.factorial(m-2-i[0]))
-        else:
-            denominator+=(math.factorial(n-1)*math.factorial(m))/(math.factorial(n-1)*math.factorial(m-2*n+1))
-        print('{:.2f}'.format(num/denominator))
