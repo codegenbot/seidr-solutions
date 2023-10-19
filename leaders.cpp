@@ -59,12 +59,13 @@ int main() {
             maxnum = nums[i];
         }
     }
-    if (res.size() == 0) {
-        cout<<0<<endl;
-        return 0;
-    }
-    for (int i = res.size() - 1; i >= 0; i--) {
-        cout<<res[i]<<" ";
+    if (res.size() > 0) {
+        for (int i = res.size() - 1; i >= 0; i--) {
+            cout<<res[i]<<" ";
+        }
+        cout<<endl;
+    } else {
+        cout<<"0"<<endl;
     }
     cout<<endl;
     return 0;
