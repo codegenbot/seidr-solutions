@@ -14,10 +14,10 @@ using namespace std;
 Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
 For example,
 input:
-1
 2
+1 
 output:
-0.0
+0.5
 input:
 2
 1
@@ -45,8 +45,8 @@ int main() {
 	double p = 1.0 / (N * 1.0);
 	double q = 1.0 / (M * 1.0);
 	double p_win = 0.0;
-	for (int i = 2; i <= N; i++) {
-		for (int j = 1; j < M; j++) {
+	for (int i = 1; i <= N; i++) {
+		for (int j = 1; j <= M; j++) {
 			if (i > j) p_win += p * q; // p_win += p * q;
 		}
 	}
