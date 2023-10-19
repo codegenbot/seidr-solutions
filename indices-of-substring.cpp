@@ -14,49 +14,47 @@ using namespace std;
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
-a\n
+a
 5
 output:
-0\n
+0
 
 input:
-!\n
+!
 !
 output:
-1 0\n
+1 0
 input:
-r\n
+r
 nm,xcnwqnd@#$fwkdjn3
 output:
-0\n
+0
 
 input:
-hi\n
+hi
 hihihihihihihihihihi
 output:
-0\n
+0
 
 input:
-############\n
+############
 #
 output:
-12\n
-0 1 2 3 4 5 6 7 8 9 10 11\n
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
     string text, target;
+    int i = 0;
     getline(cin, text);
     getline(cin, target);
-    int len = target.length();
-    int len2 = text.length();
-    int i = 0;
-    while (i < len2) {
+    while (i < text.length()) {
         if (text[i] == target[0]) {
             int j = 1;
-            while (j < len && text[i+j] == target[j]) {
+            while (j < target.length() && text[i+j] == target[j]) {
                 j++;
             }
-            if (j == len) {
+            if (j == target.length()) {
                 cout << i << " ";
             }
         }
