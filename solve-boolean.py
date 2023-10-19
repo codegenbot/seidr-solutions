@@ -32,9 +32,11 @@ output:
 False
 """
 if __name__ == '__main__':
-    if sys.argv[1] == 'f':
-        print('False')
+    currentChar = ""
+    for char in sys.stdin.readline():
+        if char != "&" and char != "|":
+            currentChar = char
+    if currentChar == "f" or currentChar == "F":
+        print(False)
     else:
-        print('Check lowercase T, F, &, |')
-    # Make sure that f -> False
-    print('True')
+        print(True)
