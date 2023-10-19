@@ -39,26 +39,16 @@ def evaluate(expr):
             return False
     else:
         i = 0
-        while i < len(expr)-1:
+        while i < len(expr):
             if expr[i] == '&':
-                if expr[i+1] == 't':
-                    if expr[i-1] == 't':
-                        return True
-                    else:
-                        return False
-                else:
-                    return False
-            elif expr[i] == '|':
-                if expr[i+1] == 't':
+                if expr[i-1] == 't' and expr[i+1] == 't':
                     return True
-                else:
-                    if expr[i-1] == 't':
-                        return True
-                    else:
-                        return False
+                return False
+            elif expr[i] == '|':
+                if expr[i-1] == 't' or expr[i+1] == 't':
+                    return True
+                return False
             i += 1
-            i += 1
-        return True
 
 if __name__ == '__main__':
     expr = sys.stdin.readline().strip()
