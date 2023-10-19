@@ -50,5 +50,8 @@ output:
 10.0
 */
 int main() {
-    cout << 0.0;
+    int n;
+    float s, p, m;
+    cin >> n >> s >> p >> m;
+    cout << 0.0 << endl;
 }
