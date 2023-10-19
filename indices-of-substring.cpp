@@ -20,11 +20,10 @@ output:
 0
 
 input:
-!
-!
+!\n!
 output:
-1
-0
+1\n0
+
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -46,8 +45,8 @@ output:
 */
 int main() {
     string text, target;
-    getline(cin, text);
-    getline(cin, target);
+    getline(cin, text, '\n');
+    getline(cin, target, '\n');
     int len = target.length();
     int len2 = text.length();
     int i = 0;
@@ -61,6 +60,7 @@ int main() {
             if (j == len) {
                 cout << i << " ";
                 found = true;
+                break;
             }
         }
         i++;
