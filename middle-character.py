@@ -32,8 +32,9 @@ output:
 )b
 """
 if __name__ == '__main__':
-    raw_input = input()
-    if len(raw_input)%2 == 0:
-        print raw_input[len(raw_input)//2-1:len(raw_input)//2+1]
-    else:
-        print raw_input[len(raw_input)//2]
+	midLine=(input()+' ')
+	if (len(midLine)%2==0):
+		print(midLine[len(midLine)//2-1:len(midLine)//2+1])
+	else:
+		print(midLine[len(midLine)//2])
+		
