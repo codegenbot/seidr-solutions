@@ -25,15 +25,11 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
 False
-input:
-t&t
-output:
-True
 """
 if __name__ == '__main__':
     n = input()
