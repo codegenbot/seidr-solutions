@@ -31,7 +31,6 @@ int main() {
     int ans = 0;
     for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
     cout << ans << endl;
-    cout << endl;
-    for(int i = 0; i < n; i++) cout << a[i] << " ";
+    for(int i = 0; i < n; i++) cout << a[i] << endl;
     return 0;
 }
