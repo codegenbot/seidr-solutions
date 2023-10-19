@@ -1,3 +1,6 @@
+<?php
+  1|<?php 2|// a file ?>
+-->
 #include <vector>
 #include <iostream>
 #include <string>
@@ -40,24 +43,5 @@ output:
 0.0
 */
 int main() {
-	int n,m;
-	while(cin >> n >> m){
-		int max = n > m? n: m, anss = 0, sum = 0;
-		for(int i = 1;i <= max; i++){
-			for(int j = 1;j < i; j++){
-				sum++;
-				if(i > n || j > m){
-					anss++;
-				}
-			}
-			if(i > m){
-				for(int k = i + 1;k <= n; k++){
-					if( i > m)anss++;
-				}
-			}
-		}
-		printf("%.2f\n", (double)(anss + 0.0) / sum);
-		cerr << anss << " " << sum << endl;
-	}
-	return 0;
-}
+
+destination
