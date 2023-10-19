@@ -8,47 +8,24 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
-
-
-output:
-
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+The goal is to figure out how many different ways you can make change for an amount, given a list of coin denominations. For example, there are 3 ways to give change for 4 if you have coins with denomiation 1 and 2: 1+1+1+1, 1+1+2, 2+2.
+Given a list of N coins, and an amount M, print out how many different ways you can make change from the coins to STDOUT.
+The first argument is the path to the input filename containing 3 space separated integers, N, M, S, on one line. S is the number of denominations of coins. The next S lines each hold the value of a denomination of coin.
+Print out the number of ways to make change for M using any number of coins.
 
 
 
 """
 if __name__ == '__main__':
-    a = input()
-    b = input()
-    c = input()
-    d = ''
-    for i in c:
-    
-        d+=b[a.find(i)]
-    print(d)
+    with open('test.txt', 'r') as f:
+        N, M, S = f.readline().split()
+        N, M, S = int(N), int(M), int(S)
+        coins = []
+        for line in f:
+            coins.append(int(line))
+    dp = [0] * (M + 1)
+    dp[0] = 1
+    for i in coins:
+        for j in range(i, M + 1):
+            dp[j] += dp[j - i]
+    print(dp[M])
