@@ -47,10 +47,6 @@ output:
 int main() {
     int n;
     while(cin >> n) {
-        if (n == 0) {
-            cout << 0 << endl;
-            continue;
-        }
         vector<int> res;
         int maxV = INT_MIN;
         for (int i = 0; i < n; i++) {
@@ -61,10 +57,14 @@ int main() {
                 maxV = tmp;
             }
         }
-        for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
+        if (res.size() == 0) {
+            cout << 0 << endl;
+        } else {
+            for (int i = 0; i < res.size(); i++) {
+                cout << res[i] << " ";
+            }
+            cout << endl;
         }
-        cout << endl;
     }
     return 0;
 }
