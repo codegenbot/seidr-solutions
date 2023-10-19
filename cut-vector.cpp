@@ -19,7 +19,7 @@ input:
 output:
 1
 0
-0 
+0
 
 input:
 1
@@ -63,7 +63,7 @@ int main() {
         sum[i] = sum[i-1] + nums[i];
     }
     int min = INT_MAX;
-    int index = 0;
+    int index = n;
     for(int i=1; i<n; i++) {
         int left = sum[i-1];
         int right = sum[n-1] - sum[i-1];
@@ -78,6 +78,10 @@ int main() {
     cout << endl;
     for(int i=index; i<n; i++) {
         cout << nums[i] << " ";
+    }
+    cout << endl;
+    if(index == n) {
+        cout << "0";
     }
     cout << endl;
     return 0;
