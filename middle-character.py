@@ -15,7 +15,7 @@ Q
 output:
 Q
 input:
- 
+Qq
 output:
  
 input:
@@ -32,9 +32,3 @@ output:
 )b
 """
 if __name__ == '__main__':
-	midLine=(input()+' ')
-	if (len(midLine)%2==0):
-		print(midLine[len(midLine)//2-1:len(midLine)//2+1])
-	else:
-		print(midLine[len(midLine)//2])
-		
