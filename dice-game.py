@@ -40,8 +40,10 @@ if __name__ == '__main__':
     n = int(input())
     m = int(input())
 
-    if m >= n:
+    if m > n:
         print(0.0)
+    elif m == 1 and n != 1:
+        print(1.0)
     elif m == n:
         print(0.5)
     elif m == 1:
