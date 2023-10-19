@@ -33,10 +33,6 @@ input:
 t&f
 output:
 False
-input:
-t&f
-output:
-False
 */
 int main() {
     string s;
