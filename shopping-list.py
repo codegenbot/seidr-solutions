@@ -52,5 +52,5 @@ if __name__ == '__main__':
     m = int(input())
     discount = list(map(float, input().split()))
     for i in range(n):
-        price[i] = price[i] * (1 - discount[i]/100)
-    print("%.1f" % sum(price))
+        price[i] = round(price[i] * (1 - discount[i]/100), 1)
+    print(sum(price))
