@@ -44,28 +44,22 @@ output:
 0
 0
 */
-int white(string a, string b){
-    int res = 0;
-    int cnt[6] = {0};
-    for(int i = 0; i < 4; i++){
-        if(a[i] == b[i]){
-            res++;
-        }else{
-            cnt[a[i] - 'A']++;
-        }
-    }
-    for(int i = 0; i < 4; i++){
-        if(a[i] != b[i] && cnt[b[i] - 'A'] > 0){
-            cnt[b[i] - 'A']--;
-            res++;
-        }
-    }
-    return res;
-}
-
 int main() {
-    string a, b;
-    while(cin >> a >> b){
-        cout << white(a, b) << endl;
+    string code, guess;
+    cin >> code >> guess;
+    int black = 0, white = 0;
+    map<char, int> codeMap;
+    map<char, int> guessMap;
+    for(int i = 0; i < 4; i++){
+        codeMap[code[i]]++;
+        guessMap[guess[i]]++;
+        if(code[i] == guess[i]) black++;
     }
+    for(char c = 'A'; c <= 'F'; c++){
+        white += min(codeMap[c], guessMap[c]);
+    }
+    white -= black;
+    cout << black << endl;
+    cout << white << endl;
+    return 0;
 }
