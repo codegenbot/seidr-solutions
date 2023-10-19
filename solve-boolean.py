@@ -1,35 +1,36 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+True
 output:
 True
 input:
-f
+False
 output:
 False
 input:
-f&f
+False&False
 output:
 False
 input:
-f&t
+False&True
 output:
 False
 input:
-t&f
+True&False
 output:
 False
 """
 if __name__ == '__main__':
-    string = input()
-    if string == 'T':
-        print(True)
-    elif string == 'F':
-        print(False)
-    else:
-        if '|' in string:
-            print(eval(string))
-        else:
-            print(eval(string))
+    for item in ["True","False","False&False","False&True","True&False"]:
+        print eval(item)
