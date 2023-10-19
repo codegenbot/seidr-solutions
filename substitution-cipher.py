@@ -39,12 +39,8 @@ l
 eeeeeeeeee
 output:
 llllllllll
-input:
 
 
-
-
-output:
 
 """
 if __name__ == '__main__':
