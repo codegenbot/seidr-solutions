@@ -32,4 +32,4 @@ output:
 False
 """
 if __name__ == '__main__':
-    print('True')
+    print 'True' if 't' in raw_input().lower() else 'False'
