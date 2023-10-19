@@ -44,32 +44,30 @@ output:
 0
 0
 */
-int getWhite(string code, string guess){
-    vector<int> dict(128,0);
-    for(char c:code) dict[c]++;
-    int res = 0;
-    for(char c:guess){
-        if(dict[c]) {
-            dict[c]--;
-            res++;
-        }
-    }
-    return res;
+
+bool a[10][10];
+void precompute() {
+    const char *str[] = {"O", "B", "G", "R", "Y", "V"};
+    for(int i = 0 ; i < 10 ; i++)
+        for(int j = 0 ; j < 10 ; j++)
+            a[i][j] = false;
+    for(int l1 = 0 ; l1 < 6 ; l1++)
+        for(int r1 = 0 ; r1 < 6 ; r1++)
+            a[r1 * 6 + l1][str[l1][0] * 256 + str[r1][0]] = true;
 }
-int getBlack(string code, string guess){
-    int blk = 0;
-    for(int i = 0;i<code.size();i++) if(code[i]==guess[i]) blk++;
-    return blk;
-}
+
 int main() {
-    string line;
-    while (getline(cin, line)) {
-        string first; getline(cin, first);
-        string second; getline(cin, second);
-        cout<<getBlack(first,second)<<", ";
-        cout<<getWhite(first,second)-getBlack(first,second)<<endl;
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
-    
-    }
-    return 0;
+    precompute();
+    string s1, s2;
+    int black = 0;
+    cin >> s1 >> s2;
+    for(int i = 0 ; i < s1.size() ; i++)
+        if(s1[i] == s2[i])
+            black++, s1[i] = '@', s2[i] = '@';
+    int white = 0;
+    for(int l1 = 0 ; l1 < s1.size() ; l1++)
+        for(int l2 = 0 ; l2 < s2.size() ; l2++)
+        	if(a[s2[l1] * 256 + s1[l2]][s1[l2] * 256 + s2[l1]])
+				white++, s1[l2] = '@', s2[l1] = '@'; 
+    cout << black << endl << white << endl;	
 }
