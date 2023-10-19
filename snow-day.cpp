@@ -49,18 +49,20 @@ input:
 output:
 10.0
 */
+
+int snow(int hours, float sumSnow, float SnowPerHour, float meltPerHour) {
+ int result = 0.0;
+
+
+ return result;
+}
+
 int main() {
-	int hours;
-	double snow, precip, melt;
-	cin >> hours;
-	cin >> snow;
-	cin >> precip;
-	cin >> melt;
-	double total = snow;
-	if (hours <= 0) {
-		double othertotal = snow;
-		cout << othertotal;
-		return 0;
-	}
-		
+  int hours = 0;
+  float sumSnow = 0.0; 
+  float snowPerHour = 0.0;
+  float meltPerHour = 0.0;
+  cin >> hours >> sumSnow >> snowPerHour >> meltPerHour;
+  cout << snow(hours, sumSnow, snowPerHour, meltPerHour);
+  return 0;
 }
