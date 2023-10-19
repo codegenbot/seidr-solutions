@@ -47,17 +47,15 @@ output:
 int main() {
     string text, target;
     cin >> text >> target;
-    int len = target.length();
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == target[0]) {
-            bool flag = true;
-            for (int j = 0; j < len; j++) {
-                if (text[i+j] != target[j]) {
-                    flag = false;
+    for(int i = 0; i < text.size(); i++) {
+        if(text[i] == target[0]) {
+            int j = 1;
+            for(; j < target.size(); j++) {
+                if(text[i + j] != target[j]) {
                     break;
                 }
             }
-            if (flag) {
+            if(j == target.size()) {
                 cout << i << " ";
             }
         }
