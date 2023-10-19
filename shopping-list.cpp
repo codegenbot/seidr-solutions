@@ -64,9 +64,9 @@ int main() {
     float sum = 0;
     for (int i = 0; i < prices.size(); i++) {
         float curr = prices[i];
-        float discount = discounts[i % discounts.size()];
+        float discount = discounts[i];
         sum += curr * (1 - discount/100);
     }
-    printf("%.1f\n", sum);
+    printf("%.2f\n", sum);
     return 0;
 }
