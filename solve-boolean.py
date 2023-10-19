@@ -29,13 +29,13 @@ def evaluate(expression):
         if char == ' ':
             continue
         elif char == '&':
-            stack.append('T')
+            stack.append(char)
         elif char == '|':
-            stack.append('T')
-        elif char == 'T':
-            stack.append('T')
+            stack.append(char)
+        elif char == 'T' or char == 't':
+            stack.append(char)
         elif char == 'F':
-            stack.append('F')
+            stack.append(char)
         elif char == ')':
             operator = stack.pop()
             op2 = stack.pop()
