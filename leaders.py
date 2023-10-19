@@ -45,9 +45,11 @@ if __name__ == '__main__':
     n = int(input())
     a = list(map(int, input().split()))
     b = []
-    for i in range(len(a) - 1, -1, -1):
+    for i in range(len(a) - 1, 0, -1):
         if a[i] >= max(a[i:]):
             b.append(a[i])
+    if len(a):
+        b.append(a[0])
     print(len(b))
     for i in b[::-1]:
         print(i, end=' ')
