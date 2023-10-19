@@ -18,7 +18,7 @@ Q
 output:
 Q
 input:
- 
+LQ 
 output:
  
 input:
