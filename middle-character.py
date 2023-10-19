@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
-  
+(234)
 output:
- 
+234
 input:
 $
 output:
