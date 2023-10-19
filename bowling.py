@@ -32,6 +32,4 @@ output:
 100
 """
 if __name__ == '__main__':
-    for line in sys.stdin:
-        line = line.strip()
-        print(line)
+    print("Hello World")
