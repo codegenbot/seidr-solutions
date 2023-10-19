@@ -17,7 +17,7 @@ input:
 1
 50.0
 1
-99.0
+100.0
 output:
 0.0
 input:
@@ -67,7 +67,7 @@ int main() {
 	}
 	float total = 0.0;
 	for (int i = 0; i < prices.size(); i++) {
-		total += prices[i] * (1 - discounts[i] / 100);
+		total += max(0.0, prices[i] * (1 - discounts[i] / 100));
 	}
 	cout << total << endl;
 	return 0;
