@@ -33,4 +33,7 @@ False
 """
 if __name__ == '__main__':
     n = input()
-    print(eval(n.lower()))
+    if n == "t":
+        print(True)
+    else:
+        print(False)
