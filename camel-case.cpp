@@ -35,25 +35,26 @@ output:
 all separate words
 */
 int main() {
-    string s;
-    while (getline(cin, s)) {
-        string t = "";
-        bool isFirst = true;
-        for (int i = 0; i < s.length(); i++) {
-            if (s[i] == ' ') {
-                t += ' ';
-                isFirst = true;
-            } else if (s[i] == '-') {
-                t += ' ';
-                isFirst = true;
-            } else if (isFirst) {
-                t += toupper(s[i]);
-                isFirst = false;
-            } else {
-                t += s[i];
+    string input;
+    getline(cin, input);
+    string result = "";
+    bool flag = false;
+    for(int i = 0; i < input.size(); i++){
+        if(input[i] == '-'){
+            flag = true;
+        }
+        else if(input[i] == ' '){
+            result += ' ';
+        }
+        else {
+            if(flag){
+                result += toupper(input[i]);
+                flag = false;
+            }
+            else{
+                result += input[i];
             }
         }
-        cout << t << endl;
     }
-    return 0;
+    cout << result << endl;
 }
