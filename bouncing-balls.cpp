@@ -44,13 +44,87 @@ input:
 output:
 3.963
 */
-int main() {
-    double ans=1;
-    int n=0;
-    for (int i=0; i<n; ++i) {
-    	ans*=2;
-    	ans-=1;
+/*
+ The main idea is
+ distance = rebounds
+ rebounds * bounciness = total distance
+*/
+
+// calculate the total distance of one drop, relative position
+#define numspace 0.0001
+double distOneDrop(const double& bounceHeight, const double& height, const int& bulls, const int& bear, const double& dropAmt){
+    // base case of no rebound
+    if (bounceHeight <= numspace){
+        return height;
     }
-    printf("%.3f\n",ans);
-	return 0;
+    
+    double currentHeight = height;
+    double maxHeight = height;
+    if (bear == 0){
+        currentHeight /= bounceHeight;
+        maxHeight /= bounceHeight;
+        return height /= bounceHeight;
+    }else if (bulls == 0){
+        currentHeight = bounceHeight - height;
+        maxHeight = bounceHeight;
+        return height * (bounceHeight / dropAmt);
+    }
+    
+    if (currentHeight > maxHeight)
+        maxHeight = currentHeight;
+    
+    // DFS
+    // bulls
+    if (bulls > 0){
+        currentHeight *= bounceHeight;
+        if (currentHeight > maxHeight)
+            maxHeight = currentHeight;
+        if (!bear)
+            maxHeight = distOneDrop(bounceHeight, currentHeight, bulls, bear, dropAmt);
+        else
+            maxHeight = distOneDrop(bounceHeight, currentHeight, bulls, bear - 1, dropAmt);
+    }
+    currentHeight = height;
+    
+    // bear
+    if (bear > 0){
+        currentHeight /= bounceHeight;
+        if (currentHeight > maxHeight)
+            maxHeight = currentHeight;
+        maxHeight = distOneDrop(bounceHeight, currentHeight, bulls, bear - 1, dropAmt);
+        if (currentHeight > height)
+            maxHeight = distOneDrop(bounceHeight, currentHeight, bulls - 1, bear, dropAmt);
+        else
+            maxHeight = distOneDrop(bounceHeight, currentHeight, bulls, bear, dropAmt);
+    }
+    return maxHeight;
 }
+
+double bounciness(double height, double bounceHeight, int numRebounds){
+    if (numRebounds == 0){
+        return height;
+    }
+    
+    double result;
+    int drops;
+    if (height > bounceHeight)
+        drops = numRebounds / 2;
+    else
+        drops = numRebounds;
+    
+    result = distOneDrop(bounceHeight, height, numRebounds - drops, drops, height);
+    return result;
+}
+
+int main() {
+    double height, bounceHeight;
+    int rebounds;
+    cin >> height >> bounceHeight >> rebounds;
+    double result = bounciness(height, bounceHeight, rebounds);
+    
+    cout << result << endl;
+    return result == 2.001000000000001;
+}
+// 1.001
+// 1.0
+// 1
