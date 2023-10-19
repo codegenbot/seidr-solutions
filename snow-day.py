@@ -53,5 +53,4 @@ if __name__ == '__main__':
     snow_melt_rate_per_hour = float(input())
     for i in range(hours):
         snow_on_ground += snowfall_rate - snow_on_ground * snow_melt_rate_per_hour
-        snow_on_ground -= snow_on_ground * snow_melt_rate_per_hour
     print(snow_on_ground)
