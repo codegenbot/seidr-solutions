@@ -40,7 +40,7 @@ output:
 0.0
 */
 double peterColinDice(int n, int m) {
-    double peter[n + 1], colin[m + 1];
+    double peter[n], colin[m];
     for (int i = 0; i < n; i++) {
         peter[i] = 1.0 / n;
     }
@@ -48,8 +48,8 @@ double peterColinDice(int n, int m) {
         colin[i] = 1.0 / m;
     }
     double res = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <= i; j++) {
             if (i > j) {
                 res += peter[i] * colin[j];
             }
