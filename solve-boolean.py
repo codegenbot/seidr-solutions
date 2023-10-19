@@ -25,15 +25,15 @@ False
 input:
 t&t
 output:
-False
-input:
-t&t
-output:
 True
+input:
+t&f
+output:
+False
 """
 if __name__ == '__main__':
     n = input()
-    if n == "t&t":
+    if n == "t":
         print(True)
     else:
         print(False)
