@@ -42,17 +42,12 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    test_cases = open('./source/test1.txt', 'r')
-    for i, test in enumerate(test_cases):
-        if i == 0:
-            continue
-        if len(test) == 0:
-            continue
-        ipt = test.strip().split('\n')
-        num = len(ipt)
-        if num != 4:
-            continue
-        h0 = float(num[0])
-        h1 = float(num[1])
-        n = int(num[2])
-        
+    try:
+        for _ in range(int(sys.argv[1])):
+            start_height = float(input())
+            after_first_bounce_height = float(input())
+            nums_of_bounces = int(input())
+            b = after_first_bounce_height/start_height
+            print((1-b**nums_of_bounces)/(1-b)*start_height)
+    except Exception:
+        print("Input error")
