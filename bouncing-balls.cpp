@@ -44,19 +44,17 @@ input:
 output:
 3.963
 */
-
-double getTotalDistance(double start, double firstBounce, int numBounces) {
-    double bouncinessIndex = firstBounce / start;
-    double totalDistance = start;
-    for (int i = 0; i < numBounces; i++) {
-        totalDistance += 2 * start * pow(bouncinessIndex, i + 1);
-    }
-    return totalDistance;
-}
-
 int main() {
-    double a, b;
-    int c;
-    cin >> a >> b >> c;
-    cout << getTotalDistance(a, b, c) << endl;
+    double height = 1;
+    double bounce = 1;
+    int bounces = 1;
+    cin >> height >> bounce >> bounces;
+    double bounciness = bounce / height;
+    double distance = 0;
+    double temp = height;
+    for (int i = 0; i < bounces; i++) {
+        distance += temp;
+        temp *= bounciness;
+    }
+    cout << distance << endl;
 }
