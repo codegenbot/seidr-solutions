@@ -31,19 +31,16 @@ hi
 output:
 hi
 """
-if __name__ == '__main__':
-
-    def reverse_word(word):
-        return word[::-1]
-
-    def reverse_word_if_more_than_five(word):
-        if len(word) < 5:
-            return word
+def reverse_5_more(input_str):
+    input_list = input_str.split()
+    output_list = []
+    for item in input_list:
+        if len(item) >= 5:
+            output_list.append(item[::-1])
         else:
-            return reverse_word(word)
+            output_list.append(item)
+    return ' '.join(output_list)
 
-    def reverse_words_if_more_than_five(words):
-        return ' '.join(map(reverse_word_if_more_than_five, words.split()))
-
-    if len(sys.argv) > 1:
-        print(reverse_words_if_more_than_five(sys.argv[1]))
+if __name__ == '__main__':
+    input_str = sys.argv[1]
+    print(reverse_5_more(input_str))
