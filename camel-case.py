@@ -34,10 +34,9 @@ all separate words
 if __name__ == '__main__':
     s = input()
     if s.find('-') == -1:
-        print(s)
+        print(s.capitalize())
         sys.exit(0)
 
-    s[0] = s[0].lower()
     s = s.split('-')
     for i in range(len(s)):
         s[i] = s[i].capitalize()
