@@ -40,16 +40,16 @@ output:
 0.0
 */
 int main() {
-	int n, m;
-	cin >> n >> m;
-	double res = 0;
-	for (int i = 1; i < n; i++) {
-		for (int j = 1; j <= m; j++) {
-			if (i > j) {
-				res++;
-			}
-		}
-	}
-	cout << res / (n * m) << endl;
-	return 0;
+    int n, m;
+    while (cin >> n >> m) {
+        double ans = 0;
+        for (int i = 1; i < n; i++) {
+            for (int j = i + 1; j <= n; j++) {
+                if (j > m) ans += 1;
+                else if (j == m) ans += 0.5;
+            }
+        }
+        printf("%.2f\n", ans / (n * m));
+    }
+    return 0;
 }
