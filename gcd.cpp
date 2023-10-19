@@ -42,7 +42,7 @@ output:
 int main() {
     int a, b;
     cin >> a >> b;
-    int gcd = __gcd(a, b);
+    int gcd = gcd(a, b);
     cout << gcd << endl;
     return 0;
 }
