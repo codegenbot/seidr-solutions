@@ -34,5 +34,4 @@ False
 if __name__ == '__main__':
     t = 't'
     print(t == 't')
-    f = 'f'
-    print(f == 'f')
+    print(t == 'f')
