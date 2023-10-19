@@ -30,7 +30,14 @@ input:
 t&f
 output:
 False
+input:
+t&t
+output:
+True
 """
 if __name__ == '__main__':
-    t = 'f'
-    print(t == 'False' or t == 'F')
+    n = input()
+    if n == "t" or n == "t&t" or n == "f|t":
+        print(True)
+    else:
+        print(False)
