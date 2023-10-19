@@ -58,10 +58,7 @@ if __name__ == '__main__':
     #打印结果
     ###########
     while pos != -1:
-        if pos == text.find(target):
-            print(pos, end="")
-        else:
-            print(pos, end=" ")
+        print(pos, end=" ")
         pos = text.find(target, pos + 1)
     if pos == -1:
-        print("\n")
+        print()
