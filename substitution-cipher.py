@@ -13,31 +13,31 @@ For example,
 input:
 
 aw
-iyedzn\n
+iyedzn
 output:
 
 input:
 a
 a
-a\n
+a
 output:
 a
 input:
 j
 h
-j\n
+j
 output:
 h
 input:
 a
 z
-a\n
+a
 output:
 z
 input:
 e
 l
-eeeeeeeeee\n
+eeeeeeeeee
 output:
 llllllllll
 """
@@ -47,4 +47,5 @@ if __name__ == '__main__':
 	x = sys.stdin.readline().rstrip()
 	for idx, i in enumerate(k):
 		x = x.replace(i, e[idx])
+	x = re.sub("\n\n", "\n", x)
 	print(x)
