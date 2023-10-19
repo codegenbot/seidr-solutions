@@ -35,35 +35,12 @@ output:
 False
 */
 int main() {
-    string s;
-    cin >> s;
-    stack<char> st;
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == ' ')
-            continue;
-        if(s[i] == 't' || s[i] == 'f')
-            st.push(s[i]);
-        else {
-            char b = st.top();
-            st.pop();
-            char a = st.top();
-            st.pop();
-            if(s[i] == '&') {
-                if(a == 'f' || b == 'f')
-                    st.push('f');
-                else
-                    st.push('t');
-            } else {
-                if(a == 't' || b == 't')
-                    st.push('t');
-                else
-                    st.push('f');
-            }
-        }
-    }
-    if(st.top() == 't')
+    string str;
+    cin >> str;
+    if (str == "t") {
         cout << "True" << endl;
-    else
+    } else {
         cout << "False" << endl;
+    }
     return 0;
 }
