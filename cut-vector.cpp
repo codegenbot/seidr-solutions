@@ -10,50 +10,6 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/*
-Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
-For example,
-input:
-1
-0
-output:
-1
-0
-0
-
-input:
-1
-10
-output:
-1
-10
-0
-
-input:
-1
-100
-output:
-1
-100
-0
-
-input:
-1
-1000
-output:
-1
-1000
-0
-
-input:
-1
-10000
-output:
-1
-10000
-0
-
-*/
 int main() {
     int n;
     cin >> n;
@@ -61,24 +17,18 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    int minDiff = INT_MAX;
+    long long minDiff = LLONG_MAX;
     int index = -1;
     for (int i = 1; i < n; i++) {
-        if (abs(nums[i] - nums[i - 1]) < minDiff) {
-            minDiff = abs(nums[i] - nums[i - 1]);
+        if (minDiff > (long long)nums[i] - (long long)nums[i - 1]) {
+            minDiff = (long long)nums[i] - (long long)nums[i - 1];
             index = i;
         }
     }
-    for (int i = 0; i < index; i++) {
-        if (i == index - 1) {
-            cout << nums[i];
-            // makesure that 2 2 129 -> 1 2 1 129
-        } else {
-            cout << nums[i] << '\n';
-        }
-    }
-    for (int i = index; i < n; i++) {
-        cout << nums[i] << endl;
+    
+    for (int i = 0; i < n; i++) {
+        if (i == index - 1) cout << endl;
+        cout << nums[i] << endl << endl << endl;
     }
     return 0;
 }
