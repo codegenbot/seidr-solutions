@@ -21,9 +21,16 @@ output:
 
 input:
 !
+-1
+output:
+0
+
+input:
+!
 !
 output:
-1\n0
+1
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
