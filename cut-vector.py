@@ -50,6 +50,14 @@ output:
 10000
 0
 
+input:
+1
+0
+output:
+1
+0
+0
+
 """
 if __name__ == '__main__':
     input = []
@@ -68,21 +76,25 @@ if __name__ == '__main__':
     #print(type(input[3]))
     #print(type(input[4]))
 
-    #One would think that there will always be at least three values in the list
-    #However,one example is 1\n0
-    if(len(input) != 0):
-        min_diff = input[1] - input[0]
-        print(input[0])
+    min_diff = input[1] - input[0]
+    print(input[0])
+    print(input[1])
+
+    if(len(input) == 2):
         print(input[1])
         print(0)
-        for i in range(2,len(input)):
-            if(input[i] - input[i-1] < min_diff):
-                min_diff = input[i] - input[i-1]
-                print(input[i-1])
-                print(input[i])
-                print(0)
-            else:
-                print(input[i])
-                print(0)
-                print(input[i])
-                break
+        print(input[1])
+        exit()
+
+    print(0)
+    for i in range(2,len(input)):
+        if(input[i] - input[i-1] < min_diff):
+            min_diff = input[i] - input[i-1]
+            print(input[i-1])
+            print(input[i])
+            print(0)
+        else:
+            print(input[i])
+            print(0)
+            print(input[i])
+            break
