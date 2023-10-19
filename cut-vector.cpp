@@ -66,6 +66,6 @@ int main() {
             rightSum += vec[--right];
         }
     }
-    cout << left << "\n" << right << "\n" << 0 << endl;
+    cout << left << "\n" << right << "\n0\n";
     return 0;
 }
