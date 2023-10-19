@@ -11,58 +11,9 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
-For example,
-input:
-1
-0
-output:
-1
-0
-0
+Given a vector with even number of elements, split the vector into two subvectors with equal sum. If this is not possible, output "-1".
+For example, [1,-1,2,-2] should be split at (1,-1) and (2,-2) (for a total sum of 0), for input [1,2,3,4] the output is -1.
 
-input:
-1
-10
-output:
-1
-10
-0
-
-input:
-1
-100
-output:
-1
-100
-0
-
-input:
-1
-1000
-output:
-1
-1000
-0
-
-input:
-1
-10000
-output:
-1
-10000
-0
-
-input:
-4
-1 2 127 128
-output:
-4
-1
-2
-127
-128
-0
 */
 int main() {
     int n;
@@ -71,29 +22,45 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    int minDiff = INT_MAX, maxDiff = 0;
-    int index = -1;
     int sum = 0;
-    for (int i = 1; i < n; i++) {
-        int diff = abs(nums[i] - nums[i - 1]);
-        if (diff == 0)
-            minDiff = 0;
-        else if (diff < minDiff) {
-            minDiff = diff;
-            index = i;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
+    if (n % 2 == 1 || sum % 2 == 1) {
+        cout << "-1" << endl;
+    } else {
+        bool found = false;
+        int border = 0;
+        vector<int> seen;
+        for (int i = 0; i < n; i++) {
+            seen.push_back(nums[i]);
+            if (sum / 2 == nums[i]) {
+                border = i;
+                found = true;
+                break;
+            }
+            for (int j = i - 1; j >= 0; j--) {
+                if (seen[j] <= sum / 2 && sum / 2 - seen[j] == nums[i]) {
+                    border = i;
+                    found = true;
+                    break;
+                }
+                seen.push_back(nums[i] + seen[j]);
+            }
+            if (found) {
+                break;
+            }
         }
-        if (diff == maxDiff) {
-            index = i;
-            sum = -1;
-        }
-        if (diff > maxDiff) {
-            maxDiff = diff;
+        if (found) {
+            for (int i = 0; i < border + 1; i++) {
+                cout << nums[i] << endl;
+            }
+            for (int i = border; i < n; i++) {
+                cout << nums[i] << endl;
+            }
+        } else {
+            cout << "-1" << endl;
         }
     }
-    cout << sum + index << endl;
-    for (int i = 0; i < index; i++)
-        cout << nums[i] << endl;
-    for (int i = index; i < n; i++)
-        cout << nums[i] << endl;
     return 0;
 }
