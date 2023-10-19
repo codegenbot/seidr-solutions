@@ -23,7 +23,6 @@ input:
 !
 !
 output:
-1
 0
 input:
 r
@@ -48,8 +47,7 @@ int main() {
     string text, target;
     getline(cin, text);
     getline(cin, target);
-    vector<int> ans;
-    if (text.length() == 0 || target.length() == 0) {
+    if (text.length() < target.length()) {
         cout << -1 << endl;
         return 0;
     }
