@@ -11,10 +11,10 @@ import re
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
-2
-15.0 100.0
-3
-5.0 20.0 80.0
+1
+50.0
+1
+100.0
 output:
 0.0
 input:
@@ -47,3 +47,9 @@ output:
 29.0
 """
 if __name__ == '__main__':
+    n = float(input())
+    t = input().split(' ')
+    m = float(input())
+    t1 = input().split(' ')
+
+    print(round((sum([float(x)*(100-float(t1[i]))/100 for i,x in enumerate(t)])/100),1))
