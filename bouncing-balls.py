@@ -46,4 +46,7 @@ if __name__ == '__main__':
     h = float(input())
     b = float(input())
     n = int(input())
-    print(round(h*(1-b**n)/(1-b),3) if b!=1 else h*(1-b**n))
+    if b != 1:
+        print(round(h*(1-b**n)/(1-b),3))
+    else:
+        print(h*n)
