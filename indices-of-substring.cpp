@@ -23,7 +23,8 @@ input:
 !
 !
 output:
-1 0
+1
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -45,21 +46,27 @@ output:
 */
 int main() {
     string text, target;
-    int i = 0;
     getline(cin, text);
     getline(cin, target);
-    while (i < text.length()) {
+    int len = target.length();
+    int len2 = text.length();
+    int i = 0;
+    bool found = false;
+    while (i < len2) {
         if (text[i] == target[0]) {
             int j = 1;
-            while (j < target.length() && text[i+j] == target[j]) {
+            while (j < len && text[i+j] == target[j]) {
                 j++;
             }
-            if (j == target.length()) {
+            if (j == len) {
                 cout << i << " ";
+                found = true;
+                break;
             }
         }
         i++;
     }
-    cout << endl;
+    if (!found) cout << endl;
+    else cout << endl;
     return 0;
 }
