@@ -8,27 +8,36 @@ import itertools
 import queue
 import re
 """
-Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
-For example,
+Given a string representing a Boolean expression consisting of T, F, |, &, ! evaluate it and return the resulting Boolean.
+For
+t|t|t&t&t|f|f&f|t
 input:
 True
+
+t&f|!(F&t)
+input:
+False
+
+t&f|(!f|!t&f)|!t
+input:
+True
+
+!(!(F|t))
 output:
 True
 input:
-False
-output:
-False
+True
+
+t|!(t&t|t&t
 input:
-f&f
+True
+
+!(!F)
 output:
 False
-input:
-f&t
-output:
-False
-input:
-t&f
-output:
-False
+
+T
+input: 
+True
 """
 if __name__ == '__main__':
