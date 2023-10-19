@@ -47,13 +47,42 @@ output:
 int main() {
     float a, b, c;
     while (cin >> a >> b >> c) {
-        float bouncinessIndex = b / a;
-        float sum = 0;
-        for (int i = 0; i < c; i++) {
-            sum += a;
-            a *= bouncinessIndex;
+        if (a == 0) {
+            printf("0.000\n");
+            continue;
         }
-        printf("%.3f\n", sum + a);
+        if (b == a) {
+            printf("%.3f\n", 2 * a);
+            continue;
+        }
+        if (c > 1) {
+            // regular case
+            float bouncinessIndex = b / a;
+            float sum = 0;
+            for (int i = 0; i < c; i++) {
+                sum += a;
+                a *= bouncinessIndex;
+            }
+            printf("%.3f\n", sum);
+        } else {
+            // 1 bounce case
+            float bouncinessIndex = b / a;
+            if (bouncinessIndex == 0) {
+                // ball won't bounce
+                printf("%.3f\n", a);
+            } else {
+                // ball will bounce
+                float sum = 2 * a;
+                a *= bouncinessIndex;
+                // bouncinessIndex == 0 => ball(a) won't bounce
+                if (a >= sum) {
+                    printf("%.3f\n", sum);
+                } else {
+                    // ball(a) bounces forever, always bounce to a value less than "a" and infinite bounce (unbounceable)
+                    printf("%.3f\n", sum + 2 * a * (sum - a) / (a * a));
+                }
+            }
+        }
     }
     return 0;
 }
