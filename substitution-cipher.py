@@ -29,7 +29,7 @@ j
 output:
 h
 input:
-a\n
+a
 z
 a
 output:
