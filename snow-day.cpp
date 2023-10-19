@@ -58,9 +58,10 @@ int main() {
         snow += rateOfSnow;
         snow -= snow * proportionOfSnowMelting;
     }
-    if (snow < 0.0) {
-        snow = 0.0;
+    if (snow < 0.0000000001) {
+        printf("0.0\n");
+    } else {
+        printf("%.10f\n", snow);
     }
-    cout << snow << endl;
     return 0;
 }
