@@ -44,16 +44,32 @@ output:
 0
 0
 */
+void read(int& left, int& right, string s) {
+    int col[] = {0, 0, 0, 0, 0, 0, 0};
+    for (char c : s) col[c - 'A']++;
+    for (int i = 0; i < 6; i++) {
+        if (col[i]) {
+            if (i == 3 || i == 4 || i == 5) {
+                left += col[i];
+            } else {
+                right += col[i];
+            }
+        }
+    }
+}
+
 int main() {
     string code, guess;
     cin >> code >> guess;
     int code_count[6] = {0}, guess_count[6] = {0};
     int black = 0, white = 0;
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i])
+        if (code[i] == guess[i]) {
             black++;
-        code_count[code[i] - 'A']++;
-        guess_count[guess[i] - 'A']++;
+        } else {
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
+        }
     }
     for (int i = 0; i < 6; i++) {
         white += min(code_count[i], guess_count[i]);

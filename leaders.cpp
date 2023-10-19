@@ -46,13 +46,14 @@ output:
 */
 int printLeaders(vector<int> arrVec) {
     int i = arrVec.size()-1;
-    int max = arrVec[i];
-    cout << max << " ";
+    cout << arrVec[i] << " ";
     cout << endl;
     return 0;
 }
 int main() {
     vector<int> arrVec = {10, 7, 4, 3, 0};
     printLeaders(arrVec);
+    vector<int> arrVec2 = {1, 0};
+    printLeaders(arrVec2);
     return 0;
 }
