@@ -29,7 +29,7 @@ j
 output:
 h
 input:
-a
+a\n
 z
 a
 output:
@@ -40,14 +40,6 @@ l
 eeeeeeeeee
 output:
 llllllllll
-input:
-
-
-
-
-
-output:
-
 """
 if __name__ == '__main__':
     a = input()
