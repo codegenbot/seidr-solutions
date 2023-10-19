@@ -11,24 +11,29 @@ import re
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
 For example,
 input:
-Q
+K
 output:
-Q
+K
 input:
- 
+QQ
 output:
- 
+QQ
 input:
-$
+K$
 output:
-$
+K$
 input:
-E9
+K9
 output:
-E9
+K9
 input:
-)b
+K)
 output:
-)b
+K)
 """
 if __name__ == '__main__':
+    input = input()
+    if len(input)%2==0:
+        print(input[int(len(input)/2)-1]+input[int(len(input)/2)])
+    else:
+        print(input[int(len(input)/2)])
