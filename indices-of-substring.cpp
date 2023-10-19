@@ -59,11 +59,8 @@ int main() {
                 }
             }
             if (flag) {
-                cout << i;
+                cout << i << " ";
                 count++;
-                if (count != 1) {
-                    cout << " ";
-                }
             }
         }
     }
