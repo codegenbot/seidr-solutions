@@ -45,22 +45,21 @@ output:
 0
 */
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    int black = 0, white = 0;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) black++;
-    }
-    map<char, int> dict;
-    for (int i = 0; i < 4; i++) {
-        dict[code[i]]++;
-    }
-    for (int i = 0; i < 4; i++) {
-        if (dict.find(guess[i]) != dict.end() && dict[guess[i]]) {
-            white++;
-            dict[guess[i]]--;
-        }
-    }
-    cout << black << endl;
-    cout << white - black << endl;
+	string code, guess;
+	while(cin >> code >> guess) {
+		vector<int> count1(6, 0);
+		vector<int> count2(6, 0);
+		int black = 0, white = 0;
+		for(int i = 0; i < 4; i++) {
+			count1[code[i] - 'A']++;
+			count2[guess[i] - 'A']++;
+			if(code[i] == guess[i]) black++;
+		}
+		for(int i = 0; i < 6; i++) {
+			white += min(count1[i], count2[i]);
+		}
+		white -= black;
+		cout << black << endl;
+		cout << white << endl;
+	}
 }
