@@ -28,11 +28,11 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
-True
+False
 */
 int main() {
     string s;
@@ -49,16 +49,16 @@ int main() {
             } else {
                 char op = stk.top();
                 stk.pop();
-                char tmp = stk.top();
+                char c1 = stk.top();
                 stk.pop();
                 if (op == '&') {
-                    if (tmp == 't' && ch == 't') {
+                    if (c1 == 't' && ch == 't') {
                         stk.push('t');
                     } else {
                         stk.push('f');
                     }
                 } else {
-                    if (tmp == 't' || ch == 't') {
+                    if (c1 == 't' || ch == 't') {
                         stk.push('t');
                     } else {
                         stk.push('f');
