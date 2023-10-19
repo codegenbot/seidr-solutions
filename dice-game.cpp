@@ -42,18 +42,16 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
-        double peter = 0.0, colin = 0.0, same = 0.0;
+        double peter = 0.0, colin = 0.0;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (i > j) {
-                    peter += 1.0;
-                } else if (i == j) {
-                    same += 1.0;
+                    peter += 1;
                 }
-                colin += 1.0;
+                colin += 1;
             }
         }
-        if (peter == 0 || same == colin) {
+        if (peter == 0) {
             cout << 0.0 << endl;
         } else {
             printf("%.3f\n", peter / colin);
