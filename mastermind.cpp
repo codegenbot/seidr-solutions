@@ -44,39 +44,37 @@ output:
 0
 0
 */
-
-int whitePegs(string code, string guess) {
-    int cnt = 0;
-    int len = code.length();
-    int map[6] = {0};
-    for (int i = 0; i < len; i++) {
-        map[code[i] - 'A']++;
-    }
-    for (int i = 0; i < len; i++) {
-        if (code[i] != guess[i] && map[guess[i] - 'A'] > 0) {
-            cnt++;
-            map[guess[i] - 'A']--;
+int white(string code, string guess) {
+    int w = 0;
+    int cnt[6] = {0};
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
+            w++;
+        } else {
+            cnt[code[i] - 'A']++;
         }
     }
-    return cnt;
+    for(int i = 0; i < 4; i++) {
+        if(code[i] != guess[i] && cnt[guess[i] - 'A'] > 0) {
+            w++;
+            cnt[guess[i] - 'A']--;
+        }
+    }
+    return w;
 }
 
-int blackPegs(string code, string guess) {
-    int cnt = 0;
-    int len = code.length();
-    for (int i = 0; i < len; i++) {
-        if (code[i] == guess[i]) {
-            cnt++;
+int black(string code, string guess) {
+    int b = 0;
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
+            b++;
         }
     }
-    return cnt;
+    return b;
 }
 
 int main() {
-    string code = "RRRR";
-    string guess = "RRRR";
-    int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
-    cout << white << " " << black << endl;
-    return 0;
+    string code, guess;
+    cin >> code >> guess;
+    cout << black(code, guess) << endl << white(code, guess) << endl;
 }
