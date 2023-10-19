@@ -64,18 +64,38 @@ def is_diff_one(a, b):
     else:
         return False
 
+def find_min_idx(arr):
+    min_idx = -1
+    min_val = -1
+    for i in range(len(arr)):
+        if min_val == -1:
+            min_val = arr[i]
+            min_idx = i
+        else:
+            if arr[i] < min_val:
+                min_val = arr[i]
+                min_idx = i
+    return min_idx
+
 def find_split(arr):
     n = len(arr)
     if n == 1:
-        return -1
+        return 0
     else:
-        for i in range(0, n-1):
-            if is_diff_one(arr[i], arr[i+1]):
+        min_idx = find_min_idx(arr)
+        for i in range(min_idx, n-1):
+            if is_equal(arr[i], arr[i+1]):
                 return i+1
             else:
-                if is_equal(arr[i], arr[i+1]):
+                if is_diff_one(arr[i], arr[i+1]):
                     return i+1
-        return -1
+        for i in range(0, min_idx):
+            if is_equal(arr[i], arr[i+1]):
+                return i+1
+            else:
+                if is_diff_one(arr[i], arr[i+1]):
+                    return i+1
+        return 0
 
 def print_arr(arr):
     for i in arr:
@@ -84,9 +104,5 @@ def print_arr(arr):
 if __name__ == '__main__':
     arr = list(map(int, input().strip().split()))
     idx = find_split(arr)
-    if idx == -1:
-        print_arr(arr)
-        print(0)
-    else:
-        print_arr(arr[:idx])
-        print_arr(arr[idx:]) 
+    print_arr(arr[:idx])
+    print_arr(arr[idx:]) 
