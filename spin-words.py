@@ -30,6 +30,11 @@ input:
 hi
 output:
 hi
+
+input:
+this is another test
+output:
+this is rehtona test
 """
 def reverse_5_more(input_str):
     input_list = input_str.split()
@@ -42,5 +47,5 @@ def reverse_5_more(input_str):
     return ' '.join(output_list)
 
 if __name__ == '__main__':
-    input_str = sys.argv[1] if len(sys.argv) > 1 else 'this is another test'
+    input_str = sys.argv[1] if len(sys.argv) > 1 else 'this is another test' 
     print(reverse_5_more(input_str))
