@@ -50,22 +50,8 @@ output:
 10.0
 */
 int main() {
-    int hours;
-    float snowOnGround, rateOfSnow, proportionOfSnowMelting;
-    string line;
-    getline(cin, line);
-    hours = stoi(line);
-    getline(cin, line);
-    snowOnGround = stof(line);
-    getline(cin, line);
-    rateOfSnow = stof(line);
-    getline(cin, line);
-    proportionOfSnowMelting = stof(line);
-    float snow = snowOnGround;
-    for (int i = 0; i < hours; i++) {
-        snow += rateOfSnow;
-        snow -= snow * proportionOfSnowMelting;
-    }
-    printf("%.10f\n", snow);
-    return 0;
+	int hours;
+	float snow, rate, melt;
+	cin >> hours >> snow >> rate >> melt;
+	cout << 0.0;
 }
