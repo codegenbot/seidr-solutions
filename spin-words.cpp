@@ -1,22 +1,27 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-#include <algorithm>
-using namespace std;
-/*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
-For example,
-input:
+#include<iostream>
+#include<cstring>
+#include<cstdio>
+#include<cstdlib>
+#include<cmath>
+#include<string>
+#include<cctype>
+#include<map>
+#include<stack>
+#include<queue>
+#include<algorithm>
+#include<vector>
+#include<bitset>
+#include<utility>
+#include<set>
 
-output:
+#define FOR(i, a, b) for(int i = a; i <= b; i++)
+#define ROF(i, a, b) for(int i = a; i >= b; i--)
+#define REP(i, n) for(int i = 0; i < n; i++)
+#define FF first
+#define SS second
+#define PB push_back
+#define MP make_pair
+#define debug(args...) {dbg,args; cerr<<endl;}
 
 input:
 a
