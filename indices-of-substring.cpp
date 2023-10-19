@@ -51,6 +51,7 @@ int main() {
     int len = target.length();
     int len2 = text.length();
     int i = 0;
+    bool found = false;
     while (i < len2) {
         if (text[i] == target[0]) {
             int j = 1;
@@ -59,10 +60,13 @@ int main() {
             }
             if (j == len) {
                 cout << i << " ";
+                found = true;
+                break;
             }
         }
         i++;
     }
-    cout << endl;
+    if (!found) cout << -1 << endl;
+    else cout << endl;
     return 0;
 }
