@@ -8,35 +8,31 @@ import itertools
 import queue
 import re
 """
-Make sure that the strings a and b contain the same number of characters. If characters are missing, then add spaces.
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
 For example,
 input:
-deep purple
-output:
-deep purple
-input:
-oceans twelve
-output:
-oceans twelve
-input:
-talawah!
-output:
-talawah!
-input:
-hall and oates
-output:
-hall and oates
-input:
-jumped over the candlestick
-output:
-jumped over the  candlestick
-input:
-diazepam valium xanax ativan
-output:
-diazepam   valium xanax  ativan
 
+output:
+
+input:
+nospaceordash
+output:
+nospaceordash
+input:
+two-words
+output:
+twoWords
+input:
+two words
+output:
+two words
+input:
+all separate words
+output:
+all separate words
 """
 if __name__ == '__main__':
+    # Take input and split based on space
     str = input()
     str = str.split(' ')
     for i in range(len(str)):
