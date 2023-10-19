@@ -63,7 +63,7 @@ int main() {
     }
     float res = 0;
     for(int i = 0; i < prices.size(); i++) {
-        res += prices[i] * (1 - discounts[i] / 100.0);
+        res += max(0.0f, prices[i] * (1 - discounts[i] / 100));
     }
     cout << res << endl;
     return 0;
