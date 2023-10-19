@@ -15,9 +15,11 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-
-
+a
+b
+cccccccccc
 output:
+bbbbbbbbbb
 
 input:
 a
@@ -38,24 +40,22 @@ a
 output:
 z
 input:
-gs83
-:dk83d
+e
+l
 eeeeeeeeee
 output:
-82Äõïü;hgsü|1
+llllllllll
 */
 int main() {
     string a,b,c;
     cin>>a>>b>>c;
     map<char,char> ma;
-/*    for(int i=0;i<a.length();i++){
+    for(int i=0;i<a.length();i++){
         ma[a[i]]=b[i];
     }
     string res;
     for(int i=0;i<c.length();i++){
-        res+=ma[c[i]];}*/
-    for(int i=0;i<c.length();i++){
-        res+=b[a.find(c[i])];
+        res+=ma[c[i]];
     }
     cout<<res<<endl;
 }
