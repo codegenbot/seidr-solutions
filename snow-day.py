@@ -53,5 +53,5 @@ if __name__ == '__main__':
     rate = float(input())
     melt = float(input())
     for i in range(hours):
-        snow = max(0, snow + rate - melt * snow)
+        snow += rate - melt * snow if melt * snow <= rate else snow - melt * snow
     print(snow)
