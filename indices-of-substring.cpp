@@ -58,11 +58,13 @@ int main() {
                 j++;
             }
             if (j == len) {
-                cout << i << " ";
+                cout << i;
+                if (i+1 < len2) {
+                    cout << endl;
+                }
             }
         }
         i++;
     }
-    cout << endl;
     return 0;
 }
