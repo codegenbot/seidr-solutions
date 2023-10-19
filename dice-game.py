@@ -34,7 +34,7 @@ input:
 1
 100
 output:
-1.0
+0.0
 """
 if __name__ == '__main__':
     n = int(input())
@@ -44,4 +44,4 @@ if __name__ == '__main__':
     elif n==m:
         print(0.5)
     else:
-        print(1.0-n/m)
+        print(round(1.0-n/m,1))
