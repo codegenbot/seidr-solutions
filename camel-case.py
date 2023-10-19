@@ -31,23 +31,46 @@ all separate words
 output:
 all separate words
 """
-input_dict = [
-    'camel-case example-test-string',
-    'nospaceordash',
-    'two-words',
-    'two words',
-    'all separate words'
-]
-def camel_case(s):
-    r = []
-    s_list = list(s.split(' ')[0].split('-'))
-    r.append(s_list[0])
-    for i in range(1, len(s_list)):
-        r.append(s_list[i].capitalize())
-    for i in range(1, len(s.split(' '))):
-        r.append(s.split(' ')[i])
-    return ' '.join(r)
-
 if __name__ == '__main__':
-    for line in input_dict:
-        print(camel_case(line))
+    test = []
+    for count in range(int(input("first loop: "))):
+        m = input()
+        test.append(m)
+    for i in test:
+        space = i.find(" ")
+        if space == -1 and i.count("-") == 1:
+            x = re.findall("(\w+)(-)(\w+)", i)
+            a = ""
+            for i in x:
+                a = a + i[0] + i[2]
+        elif space == -1 and i.count("-") > 1:
+            x = re.findall("(\w+)(-)(\w+)", i)
+            a = ""
+            for i in x:
+                if a == "":
+                    a = a + i[0] + i[2].upper()
+                else:
+                    a = a + i[2].upper()
+        elif space == 0 and i.count("-") == 1:
+            x = re.findall("(\w+)(-)(\w+)", i)
+            a = ""
+            for i in x:
+                a = i[0] + i[2]
+        elif space == 0 and i.count("-") > 1:
+            x = re.findall("(\w+)(-)(\w+)", i)
+            a = ""
+            for i in x:
+                a = a + i[0] + i[2].upper()
+        elif space > 0 and i.count("-") == 1:
+            x = re.findall("(\w+)(-)(\w+)", i)
+            a = ""
+            for i in x:
+                a = i[0] + i[2]
+        elif space > 0 and i.count("-") > 1:
+            x = re.findall("(\w+)(-)(\w+)", i)
+            a = ""
+            for i in x:
+                a = a + i[0] + i[2].upper()
+        else:
+            a = i
+        print(a)
