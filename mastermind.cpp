@@ -51,7 +51,7 @@ int main() {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            code[i] = '*';
+            guess[i] = '-';
         }
     }
     map<char, int> dict;
@@ -59,7 +59,7 @@ int main() {
         dict[code[i]]++;
     }
     for (int i = 0; i < 4; i++) {
-        if (dict.find(guess[i]) != dict.end() && dict[guess[i]] && guess[i] != '*') {
+        if (dict.find(guess[i]) != dict.end() && dict[guess[i]]) {
             white++;
             dict[guess[i]]--;
         }
