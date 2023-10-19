@@ -42,16 +42,15 @@ output:
 1000
 """
 if __name__ == '__main__':
-    test_cases = int(input())
-    for _ in range(test_cases):
-        n = int(input())
-        arr = list(map(int, input().split()))
-        max_num = arr[-1]
-        if n == 1:
-            print(arr[-1])
-            break
-        print(max_num)
-        for i in range(n-2, -1, -1):
-            if arr[i] >= max_num:
-                print(arr[i])
-                max_num = arr[i]
+    n = int(input())
+    a = [int(x) for x in input().split()]
+    result = []
+    if len(a) > 0:
+        result.append(a[-1])
+        max_int = a[-1]
+        for i in range(len(a)-2,-1,-1):
+            if a[i] >= max_int:
+                max_int = a[i]
+                result.append(max_int)
+        for i in range(len(result)-1,-1,-1):
+            print(result[i],end=' ')
