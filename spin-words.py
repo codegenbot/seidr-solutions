@@ -7,15 +7,14 @@ import collections
 import itertools
 import queue
 import re
-
 """
 Given a string of one or more words (separated by spaces), reverse all of the words
 that are five or more letters long and return the resulting string.
 For example,
 input:
-this is another test
+
 output:
-this is rehtona test
+
 input:
 a
 output:
@@ -47,6 +46,5 @@ def reverse_5_more(input_str):
 
 
 if __name__ == '__main__':
-    print(input_str)
     input_str = sys.argv[1] if len(sys.argv) > 1 else 'this is another test'
     print(reverse_5_more(input_str))
