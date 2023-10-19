@@ -11,7 +11,8 @@
 #include <climits>
 using namespace std;
 /*
-Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours give
+Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
+For example,
 input:
 0
 0.0
@@ -48,15 +49,28 @@ input:
 output:
 10.0
 */
+float snow_fall_rate(int hoursRemaining, float snowOnGround, float snowFallRate, float snowMeltRate)
+{
+	if (hoursRemaining == 0)
+		return max(snowOnGround, 0.); // ensure 0x0.0 = 0.0
+
+	float hour = snow_fall_rate(hoursRemaining - 1, snowOnGround, snowFallRate, snowMeltRate);
+	float hourWithNew = hour + snowFallRate;
+	float melted = hour * snowMeltRate;
+	return max(hourWithNew - melted, 0.);
+}
+
 int main() {
-    int h;
-    float s;
-    float r;
-    float m;
-    cin >> h;
-    cin >> s;
-    cin >> r;
-    cin >> m;
-    
-    cout << 0.0 << endl ; 
+	int hours;
+	float snowOnGround, snowFallRate, snowMeltRate;
+	cout << "hours? ";
+	cin >> hours;
+	cout << "init snow? ";
+	cin >> snowOnGround;
+	cout << "fall rate? ";
+	cin >> snowFallRate;
+	cout << "melt rate? ";
+	cin >> snowMeltRate;
+	cout << snow_fall_rate(hours, snowOnGround, snowFallRate, snowMeltRate) << endl;
+	cin.get();
 }
