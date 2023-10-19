@@ -15,14 +15,16 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-
-
+map
+wxy
+world
 output:
 
 input:
 a
 a
 a
+aaa
 output:
 a
 input:
@@ -38,19 +40,20 @@ a
 output:
 z
 input:
+int
+char
+float
 e
 l
 eeeeeeeeee
 output:
 llllllllll
-
-
 */
 int main() {
     string one, two, three;
-    getline(cin, one, '\n'); // It is ok that a frame
-    getline(cin, two, '\n'); // It is ok that a frame
-    getline(cin, three, '\n'); // It is ok that a frame
+    getline(cin, one);
+    getline(cin, two);
+    getline(cin, three);
     map<char, char> dict;
     for(int i=0; i<one.size(); i++){
         dict[one[i]] = two[i];
