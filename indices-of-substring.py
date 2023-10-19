@@ -13,32 +13,33 @@ For example,
 input:
 a
 5
-output: (Python 3.7.2)
+output:
 0
+
 input:
 !
 !
-output: (Python 3.7.2)
+output:
 1
 0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
-output: (Python 3.7.2)
+output:
 0
 
 input:
 hi
 hihihihihihihihihihi
-output: (Python 3.7.2)
+output:
 0
 
 input:
 ############
 #
-output: (Python 3.7.2)
-  12
-  0 1 2 3 4 5 6 7 8 9 10 11
+output:
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
   text = input()
@@ -47,4 +48,4 @@ if __name__ == '__main__':
   for i in range(len(text)):
     if text[i:i+len(target)] == target:
       indices.append(i)
-  print(" ".join(indices))
+  print(*indices, sep='\n')
