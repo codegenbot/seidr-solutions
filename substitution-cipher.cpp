@@ -11,21 +11,53 @@
 #include <climits>
 using namespace std;
 /*
-The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
 
-P   A   H   N
-A P L S I I G
-Y   I   R
-And then read line by line: "PAHNAPLSIIGYIR"
 
-Write the code that will take a string and make this conversion given a number of rows:
 
-string convert(string text, int nRows);
+output:
 
-convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
-
+**hloolw**npciydmzahoudglasqetw*qlliou
+input: 
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 */
 int main() {
-    cout << "ss";
+    string a, b, c;
+    getline(cin, a);
+    getline(cin, b);
+    getline(cin, c);
+    for (int i = 0; i < c.size(); i++) {
+        for (int j = 0; j < a.size(); j++) {
+            if (c[i] == a[j]) {
+                c[i] = b[j];
+                break;
+            }
+        }
+    }
+    cout << c;
     return 0;
 }
