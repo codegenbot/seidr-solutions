@@ -42,14 +42,10 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    line1 = input()
-    line2 = input()
-    line3 = input()
-    length = len(line2)
-    cipher = dict()
-    for i in range(length):
-        cipher[line1[i]] = line2[i]
-    out = ''
-    for i in line3:
-        out += cipher[i]
-    print(out)
+    cipher = input("Enter the first string: ")
+    key = input("Enter the second string: ")
+    message = input("Enter the third string: ")
+    decipher = ""
+    for i in range(len(message)):
+        decipher += key[cipher.index(message[i])]
+    print(decipher)
