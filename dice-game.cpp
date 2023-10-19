@@ -14,12 +14,12 @@ using namespace std;
 Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
 For example,
 input:
-1
+2
 2
 output:
 0.0
 input:
-2
+1
 1
 output:
 0.5
@@ -43,9 +43,9 @@ int main() {
     int n, m;
     while (cin >> n >> m) {
         int sum = n + m;
-        double ans = 0.0;
-        for (int i = n + 1; i <= sum; i++) {
-            ans += pow(1.0 * i / sum, n);
+        double ans = 1.0;
+        for (int i = 1; i < n; i++) {
+            ans -= pow(1.0 * i / sum, n);
         }
         printf("%.4lf\n", ans);
     }
