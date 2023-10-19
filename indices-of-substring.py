@@ -14,7 +14,7 @@ input:
 a
 5
 output:
-0\n
+0
 
 input:
 !
@@ -48,4 +48,4 @@ if __name__ == '__main__':
     for i in range(len(text)):
         if text[i:].startswith(target):
             indices.append(i)
-    print(' '.join(map(str, indices)))
+    print('\n'.join(map(str, indices)))
