@@ -49,12 +49,12 @@ int main() {
     cin >> start >> after >> bounces;
     bounciness = after / start;
     double result = start;
-    for (int i = 0; i < bounces - 1; i++) {
-        result += start * pow(bounciness, i + 1);
+    for (int i = 0; i < bounces; i++) {
+        result += start * pow(bounciness, i);
     }
     if (bounces == 1) {
         result += start * bounciness;
     }
-    printf("%.12f", result);
+    printf("%.3f", result);
     return 0;
 }
