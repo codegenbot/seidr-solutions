@@ -18,7 +18,6 @@ abcdefghijklmnopqrstuvwxyz
 bcdefghijklmnopqrstuvwxyza
 abcdefghijklmnopqrstuvwxyz
 
-
 output:
 defdef
 input:
