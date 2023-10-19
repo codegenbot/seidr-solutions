@@ -37,15 +37,12 @@ output:
 int main() {
     string s;
     cin >> s;
-    int n = s.length();
+    int len = s.length();
     int sum = 0;
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < len - 1; i++) {
         if (s[i] == s[i + 1]) {
-            sum += s[i] - '0';
+            sum += (s[i] - '0');
         }
-    }
-    if (s[n - 1] == s[0]) {
-        sum += s[n - 1] - '0';
     }
     cout << sum << endl;
     return 0;
