@@ -45,7 +45,16 @@ output:
 3.963
 */
 int main() {
-    double h1, h2, n;
-    cin >> h1 >> h2 >> n;
-    cout << (h1 + (h1 / h2) * h1) * n << endl;
+    float firstHeight;
+    cin >> firstHeight;
+    float firstBounce;
+    cin >> firstBounce;
+    int numBounce;
+    cin >> numBounce;
+    float bouncinessIndex = firstBounce / firstHeight;
+    float total = firstBounce;
+    for (int i = 0; i < numBounce - 1; i++) {
+        total += bouncinessIndex * firstBounce;
+    }
+    printf("%.3f\n", total);
 }
