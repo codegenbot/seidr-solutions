@@ -46,7 +46,7 @@ int main() {
 	double q = 1.0 / (M * 1.0);
 	double p_win = 0.0;
 	for (int i = 1; i < N; i++) {
-		for (int j = 1; j < M; j++) {
+		for (int j = 1; j <= M; j++) {
 			if (i > j) p_win += p * q; // p_win += p * q;
 		}
 	}
