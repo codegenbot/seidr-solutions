@@ -32,7 +32,7 @@ two words
 input:
 all separate words
 output:
-all separate words
+all separate Words
 */
 int main() {
     string s;
@@ -47,7 +47,7 @@ int main() {
                 t += ' ';
                 isFirst = true;
             } else if (isFirst) {
-                t += (char)toupper(s[i]);
+                t += toupper(s[i]);
                 isFirst = false;
             } else {
                 t += s[i];
