@@ -45,30 +45,32 @@ output:
 1000
 */
 int main() {
-    int n, a;
-    cin >> n;
-    vector<int> voriginal;
-    for (int i = 0; i < n; i++) {
-        cin >> a;
-        voriginal.push_back(a);
+#if 0
+    priority_queue <int, vector<int>, less<int>> queue;
+#else
+    vector<int> queue;
+#endif
+    int curr; cin >> curr;
+    while(curr != 0) {
+        queue.push(curr);
+        cin >> curr;
     }
-    vector<int> vmax = {voriginal[n-1]};
-    for (int i = n - 1; i >= 0; i--) {
-        if (voriginal[i] > vmax.back()) {
-            vmax.push_back(voriginal[i]);
+    long max = -1;
+    while(!queue.empty()) {
+        curr = queue.top();
+        if (curr >= 0) {
+            if (curr >= max) {
+                cout << curr;
+                if (queue.size() != 1)
+                    cout << ' ';
+                max = curr;
+            }
         }
-    }
-    int i = n - 1;
-    for (; i >= 0; i --) {
-        if (voriginal[i] == vmax[vmax.size() - 1]) {
-            vmax.pop_back();
-        } else if(voriginal[i] > vmax[vmax.size() - 1]) {
-            cout << "Wrong Output" << endl;
-            return 0;
-        }
-    }
-    for (i = 0; i < n; i++) {
-        cout << voriginal[i] << (i < n - 1 ? ' ' : '\n');
+#if 0
+        else
+            break;
+#endif
+        queue.pop();
     }
     return 0;
 }
