@@ -40,5 +40,16 @@ output:
 0.0
 */
 int main() {
-    return 0;
+	int n, m;
+	cin >> n >> m;
+	double res = 0;
+	for (int i = 1; i < n; i++) {
+		for (int j = 1; j <= m; j++) {
+			if (i > j) {
+				res++;
+			}
+		}
+	}
+	cout << res / (n * m) << endl;
+	return 0;
 }
