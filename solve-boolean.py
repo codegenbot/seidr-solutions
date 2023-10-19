@@ -23,17 +23,13 @@ f&f
 output:
 False
 input:
-f&t
+t&t
 output:
 False
 input:
 t&f
 output:
 False
-input:
-t&t
-output:
-True
 """
 if __name__ == '__main__':
     n = input()
