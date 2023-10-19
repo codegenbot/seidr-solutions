@@ -48,26 +48,15 @@ input:
 0.0
 output:
 10.0
-input:
-0
-0.0
-0.0
-0.0
-output:
-0.0
 */
 int main() {
-    int hours;
+    int hours = 0;
     float snowOnGround, rateOfSnow, proportionOfSnowMelting;
     cin >> hours >> snowOnGround >> rateOfSnow >> proportionOfSnowMelting;
     float snow = snowOnGround;
-    if (hours == 0 && proportionOfSnowMelting == 0.0) {
-        printf("%.10f\n", snow);
-        return 0;
-    }
     for (int i = 0; i < hours; i++) {
         snow += rateOfSnow;
-        snow -= snowOnGround * proportionOfSnowMelting;
+        snow -= snow * proportionOfSnowMelting;
     }
     printf("%.10f\n", snow);
     return 0;
