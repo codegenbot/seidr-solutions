@@ -42,9 +42,11 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    f = open('input.txt', 'r')
-    text = f.readline().strip()
-    target = f.readline().strip()
-    indices = [i for i in range(len(text)) if text.startswith(target, i)]
-    for i in indices:
-        print(i, end=" ")
+    text = input()
+    target = input()
+    idx = []
+    for i in range(len(text)):
+        if text[i] == target[0]:
+            if text[i:i+len(target)] == target:
+                idx.append(i)
+    print(" ".join(map(lambda x: str(x), idx)))
