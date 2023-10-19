@@ -32,8 +32,8 @@ output:
 16
 """
 if __name__ == '__main__':
-    n = int(input())
-    if n >= 10:
-        print(n)
-    else:
-        print(n**2)
+    n = input()
+    result = ""
+    for i in n:
+        result += str(int(i)**2)
+    print(result)
