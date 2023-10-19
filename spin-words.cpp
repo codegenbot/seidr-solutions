@@ -12,31 +12,46 @@
 #include <algorithm>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string. For example, input:
-output: input: a
-output: a
-input: this is a test
-output: this is a test
-input: this is another test
-output: this is rehtona test
-input: hi
-output: hi
+Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
+For example,
+input:
+
+output:
+
+input:
+a
+output:
+a
+input:
+this is a test
+output:
+this is a test
+input:
+this is another test
+output:
+this is rehtona test
+input:
+hi
+output:
+hi
 */
+
+// Make sure that  -> 
 int main() {
-	string str;
-	getline(cin, str);
-	int n = str.size();
-	int i = 0;
-	while(i < n) {
-		int j = i;
-		while(j < n && str[j] != ' ') {
-			j++;
-		}
-		if(j - i >= 5) {
-			reverse(str.begin() + i, str.begin() + j);
-		}
-		i = j + 1;
-	}
-	cout << str << endl;
-	return 0;
+    string str;
+    getline(cin, str);
+    int n = str.size();
+    int i = 0;
+    while(i < n) {
+        int j = i;
+        while(j < n && str[j] != ' ') {
+            j++;
+        }
+        if(j - i >= 5) {
+            reverse(str.begin() + i, str.begin() + j);
+        }
+        i = j + 1;
+    }
+    cout << str << endl;
+    return 0;
 }
