@@ -50,7 +50,7 @@ double calculateBounciness(double start, double after, double bounces) {
         return start;
     }
     double bounciness = (after / start);
-    return start * (1 - pow(bounciness, bounces + 1)) / (1 - bounciness) - start;
+    return start * (1 - pow(bounciness, bounces + 1)) / (1 - bounciness) + after * bounces;
 }
 
 int main() {
