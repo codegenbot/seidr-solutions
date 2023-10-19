@@ -1,4 +1,4 @@
-If you want to push something to github, this is a template for you xxxxxxxxxxxxxx#include <vector>
+#include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -33,6 +33,21 @@ input:
 )b
 output:
 )b
+*/
+/*
+Given a string, return a new string that is all uppercase letters.
+For example, input:
+XG&lS
+output:
+XGLS
+input:
+zz?JB]j8$lG*bHe
+output:
+ZZJBJLGBHE
+input:
+<oqW}&eBWLBko
+output:
+OQWEBWLBKO
 */
 int main() {
     string s;
