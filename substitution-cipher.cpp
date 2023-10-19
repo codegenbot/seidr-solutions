@@ -11,15 +11,13 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string.
-The program must apply this cipher to the third string and return the deciphered message.
+For this problem, there are 3 strings. The first two represent the cipher, mapping the first character in the first string to the first character in the other, and so on. The third string is a plaintext to be deciphered by the cipher.
+Input
 For example,
 input:
 
-
-
 output:
-
+h
 input:
 a
 a
