@@ -52,6 +52,7 @@ int main() {
             }
         }
     }
+    result[0] = tolower(result[0]);
     cout << result << endl;
     return 0;
 }
