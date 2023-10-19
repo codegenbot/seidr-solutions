@@ -28,11 +28,11 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
-True
+False
 */
 int main() {
     string s;
@@ -52,9 +52,17 @@ int main() {
                 char tmp = stk.top();
                 stk.pop();
                 if (op == '&') {
-                    stk.push(tmp & ch ? 't' : 'f');
+                    if (tmp == 't' && ch == 't') {
+                        stk.push('t');
+                    } else {
+                        stk.push('f');
+                    }
                 } else {
-                    stk.push(tmp | ch ? 't' : 'f');
+                    if (tmp == 't' || ch == 't') {
+                        stk.push('t');
+                    } else {
+                        stk.push('f');
+                    }
                 }
             }
         }
@@ -64,6 +72,5 @@ int main() {
     } else {
         cout << "False" << endl;
     }
-    cout << stk.top() << endl;
     return 0;
 }
