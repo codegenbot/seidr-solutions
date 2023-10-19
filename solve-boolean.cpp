@@ -58,10 +58,10 @@ int main() {
                         stk.push('t');
                     }
                 } else {
-                    if (tmp == 't' || ch == 't') {
-                        stk.push('t');
-                    } else {
+                    if (tmp == 'f' && ch == 'f') {
                         stk.push('f');
+                    } else {
+                        stk.push('t');
                     }
                 }
             }
