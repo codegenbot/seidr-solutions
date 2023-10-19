@@ -10,17 +10,52 @@
 #include <stack>
 #include <climits>
 using namespace std;
-void test(){//replace all the space to \n (but not \n\n => \n) then invert \n\n => \n)
-    cout << "======== " << __FUNCTION__ <<  " ========" << endl;
-    string s;
-    do {
-        getline(cin, s);
-        replace(s.begin(), s.end(), ' ', '\n');
-        cout << s << endl;
-    } while (cin.get() != '\n');
+/*
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
 
-}
+a
+b
+a
+output:
+b
+
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
+*/
 int main() {
-    test();
+    string a, b, c;
+    cin >> a >> b >> c;
+    map<char, char> mp;
+    for(int i = 0; i < a.size(); i++) {
+        mp[a[i]] = b[i];
+    }
+    for(int i = 0; i < c.size(); i++) {
+        cout << mp[c[i]];
+    }
+    cout << endl;
     return 0;
 }
