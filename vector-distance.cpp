@@ -5,6 +5,7 @@
 #include <queue>
 #include <stdio.h>
 #include <math.h>
+#include <iomanip>
 #include <map>
 #include <set>
 #include <stack>
@@ -54,17 +55,17 @@ int main() {
     cin >> n;
     vector<float> a(n);
     for (int i = 0; i < n; i++) {
-        scanf("%f", &a[i]);
+        cin >> a[i];
     }
     cin >> n;
     vector<float> b(n);
     for (int i = 0; i < n; i++) {
-        scanf("%f", &b[i]);
+        cin >> b[i];
     }
     float sum = 0;
     for (int i = 0; i < n; i++) {
         sum += (a[i] - b[i]) * (a[i] - b[i]);
     }
-    printf("%.16f\n", sqrt(sum));
+    cout << setprecision(16) << sqrt(sum) << endl;
     return 0;
 }
