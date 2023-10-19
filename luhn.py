@@ -36,17 +36,16 @@ input:
 output:
 96
 """
+def luhn_algorithm(arr):
+    i = len(arr) - 2
+    while i >= 0:
+        arr[i] *= 2
+        i -= 2
+
+    for i in range(len(arr)):
+        if arr[i] > 9:
+            arr[i] -= 9
+
+    return sum(arr)
+
 if __name__ == '__main__':
-    n = int(input())
-    a = input().split()
-    a = [int(x) for x in a]
-    sum = 0
-    for i in range(1,n):
-        if i % 2 == 0:
-            tmp = a[i] * 2
-            if tmp > 9:
-                tmp = tmp - 9
-            sum = sum + tmp
-        else:
-            sum = sum + a[i]
-    print(sum)
