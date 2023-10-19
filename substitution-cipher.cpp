@@ -49,22 +49,16 @@ int main() {
     getline(cin, a);
     getline(cin, b);
     getline(cin, c);
-    //replace("\r", " ").replace("\n", " ");
-    a.erase(std::remove(a.begin(), a.end(), '\r'), a.end());
-    b.erase(std::remove(b.begin(), b.end(), '\r'), b.end());
-    c.erase(std::remove(c.begin(), c.end(), '\r'), c.end());
-    
-    a.erase(std::remove(a.begin(), a.end(), '\n'), a.end());
-    b.erase(std::remove(b.begin(), b.end(), '\n'), b.end());
-    c.erase(std::remove(c.begin(), c.end(), '\n'), c.end());
-    
-    
     for (int i = 0; i < c.size(); i++) {
-        for (int j = 0; j < a.size(); j++) {
+        int j;
+        for (j = 0; j < a.size(); j++) {
             if (c[i] == a[j]) {
                 c[i] = b[j];
                 break;
             }
+        }
+        if (j == a.size()){
+            cout << c[i];
         }
     }
     cout << c;
