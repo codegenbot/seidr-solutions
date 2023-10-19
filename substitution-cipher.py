@@ -8,38 +8,58 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message. 
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
-
-
-
+a
+b
+c
 output:
-
+b
 input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
+x
+y
 z
+output:
+y
+input:
+a
+b
 a
 output:
-z
+b
+input:
+x
+y
+x
+output:
+y
+input:
+a
+a
+a
+output:
+a
+input:
+x
+x
+x
+output:
+x
 input:
 e
 l
 eeeeeeeeee
 output:
 llllllllll
+input:
+m
+n
+mmmmmmmmmm
+output:
+nnnnnnnnnn
+
+
 """
 if __name__ == '__main__':
     a = input()
