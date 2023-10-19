@@ -45,27 +45,6 @@ output:
 3.963
 */
 int main() {
-    double factor, bounce;
-    int bounceNumber;
-    while (cin >> bounce >> factor >> bounceNumber) {
-        double bounciness = factor / bounce;
-        double height = bounce;
-        if (bounceNumber == 0) {
-            height = 0;
-        } else if (bounceNumber == 1) {
-            height = bounce;
-        } else {
-            for (int i = 2; i <= bounceNumber; i++) {
-                if (i & 1) {
-                    height += bounce * (1 - bounciness);
-                } else {
-                    height *= bounciness;
-                }
-            }
-            
-        }
-        height = floor(height * 1000) / 1000;
-        printf("%lf\n", height);
-    }
-    return 0;
-}
+
+
+int main() {
