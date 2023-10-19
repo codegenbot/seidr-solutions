@@ -11,32 +11,55 @@ import re
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t         -->  True
-f         -->  False
-f&f       -->  False
-f&t       -->  False
-t&f       -->  False
-t|t       -->  True
-t|f       -->  True
-f|t       -->  True
-f|f       -->  False
-f|f&t     -->  False
-f|t|f     -->  True
-t&f|f&t|  -->  False
-============================================================================================
-"""def evaluate_bool_expr(expr):
-    while '|' in expr:
-        pos_now = expr.rfind('|')
-        if expr[pos_now+1] == 't':
-            expr = expr[0:pos_now] + 't'
+t
+output:
+True
+input:
+f
+output:
+False
+input:
+f&f
+output:
+False
+input:
+f&t
+output:
+False
+input:
+t&f
+output:
+False
+"""
+def evaluate(expr):
+    if len(expr) == 1:
+        if expr == 't':
+            return True
         else:
-            expr = expr[0:pos_now] + 'f'
-    while '&' in expr:
-        pos_now = expr.rfind('&')
-        if expr[pos_now+1] == 't':
-            expr = expr[0:pos_now] + 't'
-        else:
-            expr = expr[0:pos_now] + 'f'
-    return bool(eval(expr))
+            return False
+    else:
+        i = 0
+        while i < len(expr)-1:
+            if expr[i] == '&':
+                if expr[i+1] == 't':
+                    if expr[i-1] == 't':
+                        return True
+                    else:
+                        return False
+                else:
+                    return False
+            elif expr[i] == '|':
+                if expr[i+1] == 't':
+                    return True
+                else:
+                    if expr[i-1] == 't':
+                        return True
+                    else:
+                        return False
+            i += 1
+            i += 1
+        return True
+
 if __name__ == '__main__':
-    print(evaluate_bool_expr('f|f&t'))
+    expr = sys.stdin.readline().strip()
+    print(evaluate(expr))
