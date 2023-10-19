@@ -11,54 +11,50 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
-a
-b
-a
-
-b
+This problem gives a string. The program must return a string that contains the same characters as the input string, except that all occurrences of two consecutive new lines are replaced by a single new line.
+For example, input:
+This is a test
+This is a test
+This is a test
 output:
-
+This is a test
+This is a test
+This is a test
 input:
-a
-a
-a
+This is a test
 output:
-a
+This is a test
 input:
-j
-h
-j
+This is a test
+This is a test
 output:
-h
+This is a test
+This is a test
 input:
-a
-z
-a
+This is a test
+This is a test
+This is a test
 output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+This is a test
+This is a test
+This is a test
 */
-
 int main() {
-	string a, b, c;
-	cin >> a >> b >> c;
-	for (int i = 0; i < c.length(); i++) {
-		for (int j = 0; j < a.length(); j++) {
-			if (a[j] == c[i]) {
-				c[i] = b[j];
-			}
-			else if (b[j] == c[i]) {
-				c[i] = a[j];
+	string s;
+	getline(cin, s);
+	string o;
+	for (int i = 0; i < s.length(); i++) {
+		o += s[i];
+		if (s[i] == '\n') {
+			if (i + 1 < s.length() && s[i + 1] == '\n') {
+				o.pop_back();
+				o += ' ';
 			}
 		}
+		else if (s[i] == ' ') {
+			o.pop_back();
+			o += ' ';
+		}
 	}
-	cout << c << endl;
+	cout << o << endl;
 }
