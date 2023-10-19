@@ -31,11 +31,11 @@ int main() {
     int ans = 0;
     for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
     cout << ans << endl;
-    vector<int> ans_arr;
+    int cnt = 0;
     for(int i = n - 1; i >= 0; i--) {
-        if(dp[i] == ans && (ans_arr.empty() || a[i] < ans_arr.back())) {
-            ans_arr.pb(a[i]);
-            ans--; 
+        if(dp[i] == ans && cnt == 0) {
+            cout << a[i] << endl;
+            cnt++;
         }
     }
     cout << endl;
