@@ -13,62 +13,36 @@ using namespace std;
 /*
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
-// input:
+input:
 
 
 
-// output:
+output:
 
-
-// input:
-i
-e
-co!ege has a mysteeeeeeery
-// output:
-co!ege vas a mistery
-// input:
+input:
 a
+a
+a
+output:
+a
+input:
 j
+h
+j
+output:
+h
+input:
+a
 z
-this code is seceeeeeet
-// output:
-this code is seczzzzzz
-// input:
+a
+output:
+z
+input:
 e
-e
-eeeeeeeeee
-// output:
-eeeeeeeeee
-// input:
-e
-i
-eeeeeeeeee
-// output:
-iiiiiiiii
-// input:
 l
-e
 eeeeeeeeee
-// output:
-lll!l!l!l
-// input:
-e
-\n
-eeeeeeeeee
-// output:
-
-
-// input:
-e
-\n
-eeee!eeee
-hhh
-*
-// output:
-
-
-hhh
-*
+output:
+llllllllll
 */
 
 
@@ -76,6 +50,9 @@ hhh
 // 2. use array
 
 int main() {
+    c += "\n";
+    a += "\n";
+    b += "\n";
     string a, b, c;
     cin >> a >> b >> c;
     string res = "";
