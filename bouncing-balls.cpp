@@ -48,8 +48,12 @@ int main() {
     double start, first, num;
     while (cin >> start >> first >> num) {
         double index = first / start;
-        if (index == 1 || num == 1) {
+        if (index == 1) {
             printf("%.3f\n", start * num + first);
+            continue;
+        }
+        if (num == 1) {
+            printf("%.3f\n", first);
             continue;
         }
         double res = start;
