@@ -58,10 +58,11 @@ int main() {
                 j++;
             }
             if (j == len) {
-                printf("%d\n", i);
+                cout << i << endl;
             }
         }
         i++;
     }
+    cout << endl;
     return 0;
 }
