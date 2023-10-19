@@ -20,7 +20,7 @@ a
 
 b
 output:
-
+b
 input:
 a
 a
@@ -46,7 +46,6 @@ eeeeeeeeee
 output:
 llllllllll
 */
-
 int main() {
 	string a, b, c;
 	cin >> a >> b >> c;
