@@ -39,10 +39,9 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-
-    if m > n:
-        print(0.0)
-    elif m == n:
-        print(0.5)
+    if n>m:
+        print(0)
+    elif n==m:
+        print(1)
     else:
-        print(round(sum([1 / x for x in range(m + 1, n + 1)]), 2))
+        print(int(1.0-n/m))
