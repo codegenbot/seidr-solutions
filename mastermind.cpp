@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible colors, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
+Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
 input:
 RRRR
@@ -43,31 +43,24 @@ OOOO
 output:
 0
 0
-input:
-BWYG
-YWGB
-output:
-4
-0
 */
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int code_count[6] = {0}, guess_count[6] = {0};
     int black = 0, white = 0;
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-            guess_count[guess[i] - 'A']--;
-        } else {
-            code[i] - 'A';
-            guess[i] - 'A';
+        if (code[i] == guess[i]) black++;
+    }
+    map<char, int> dict;
+    for (int i = 0; i < 4; i++) {
+        dict[code[i]]++;
+    }
+    for (int i = 0; i < 4; i++) {
+        if (dict.find(guess[i]) != dict.end() && dict[guess[i]] && code[i] != guess[i]) {
+            white++;
+            dict[guess[i]]--;
         }
     }
-    for (int i = 0; i < 6; ++i) {
-        if (code_count[i] > 0) code_count[i]++;
-        if (guess_count[i] < 0) guess_count[i]--;
-        white += min(code_count[i], guess_count[i]);
-    }
-    cout << white << endl << black << endl;
+    cout << black << endl;
+    cout << white - black << endl;
 }
