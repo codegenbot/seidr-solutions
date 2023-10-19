@@ -11,41 +11,50 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives a string of words separated by spaces. The program must print the words in reverse order, separated by spaces.
-
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
-input:
-input:
-hello world
-output:
-world hello
+input:\n
 
-hi my name is sam
-output:
-sam is name my hi
-input:
-a b c d e
-output:
-e d c b a
-input:
-1 2 3 4 5
-output:
-5 4 3 2 1
-output:
+
+
+
+output:\n
+
+input:\n
+a
+a
+a
+output:\n
+a
+input:\n
+j
+h
+j
+output:\n
+h
+input:\n
+a
+z
+a
+output:\n
+z
+input:\n
+e
+l
+eeeeeeeeee
+output:\n
+llllllllll
 */
 int main() {
-    string s;
-    getline(cin, s);
-    string t = "";
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == ' ') {
-            cout << t << " ";
-            t = "";
-        }
-        else {
-            t += s[i];
+    string a, b, c;
+    cin >> a >> b >> c;
+    for(int i=0; i<c.length(); i++) {
+        //cout << c[i] << endl;
+        int pos = a.find(c[i]);
+        if(pos != string::npos) {
+            c[i] = b[pos];
         }
     }
-    cout << t << endl;
+    cout << c << endl;
     return 0;
 }
