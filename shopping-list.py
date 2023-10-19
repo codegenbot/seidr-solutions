@@ -37,8 +37,10 @@ input:
 output:
 29.0
 """
+from pathlib import Path
+
 if __name__ == '__main__':
-    with open('/home/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/input.txt', 'r') as f: lines = f.readlines()
+    with open(Path(__file__).parent / "input.txt", 'r') as f: lines = f.readlines()
     num = int(lines[0])
     prices = lines[1].split()
     discount = lines[2].split()
