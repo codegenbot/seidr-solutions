@@ -1,5 +1,7 @@
-a = input()
-b = input()
-c = input()
-d = ''.join(b[a.find(i)] for i in c).replace('\n\n', '\n')
+a = input().replace('\n','').replace('\r','')
+b = input().replace('\n','').replace('\r','')
+c = input().replace('\n','')
+d = ''
+for i in c:
+    d+=b[a.find(i)]
 print(d)
