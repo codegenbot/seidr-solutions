@@ -6,58 +6,26 @@
 #include <stdio.h>
 #include <math.h>
 #include <map>
-#include <bitset>
-#include <iomanip>
 #include <set>
 #include <stack>
 #include <climits>
 using namespace std;
 /*
-The first n integers encodes the message and the n+1th integer is the length
-of the key (L).
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
 
+P   A   H   N
+A P L S I I G
+Y   I   R
+And then read line by line: "PAHNAPLSIIGYIR"
 
+Write the code that will take a string and make this conversion given a number of rows:
 
-output:
+string convert(string text, int nRows);
 
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
+
 */
 int main() {
-    string a, b, c;
-    getline(cin, a);
-    getline(cin, b);
-    getline(cin, c);
-    for (int i = 0; i < c.size(); i++) {
-        for (int j = 0; j < a.size(); j++) {
-            if (c[i] == a[j]) {
-                c[i] = b[j];
-                break;
-            }
-        }
-    }
-    cout << c;
+    cout << "ss";
     return 0;
 }
