@@ -28,11 +28,11 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
-True
+False
 */
 int main() {
     string s;
@@ -41,7 +41,9 @@ int main() {
     for(int i = 0; i < s.length(); i++) {
         if(s[i] == ' ')
             continue;
-        if(s[i] == 't' || s[i] == 'f')
+        if(s[i] == 't')
+            st.push(s[i]);
+        else if(s[i] == 'f' && (i == 0 || s[i-1] == '&'))
             st.push(s[i]);
         else {
             char b = st.top();
