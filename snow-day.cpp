@@ -50,11 +50,16 @@ output:
 10.0
 */
 int main() {
-    float a,b,c,d;
+    int a;
+    float b,c,d;
     cin >> a >> b >> c >> d;
     for (int i = 0; i < a; i++) {
         b += c;
         b -= b * d;
     }
-    printf("%.9f\n", b);
+    if (b == 0) {
+        printf("0.0");
+    } else {
+        printf("%.9f\n", b);
+    }
 }
