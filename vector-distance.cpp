@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <queue>
 #include <stdio.h>
 #include <math.h>
@@ -64,6 +65,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         sum += (arr1[i] - arr2[i]) * (arr1[i] - arr2[i]);
     }
-    printf("%.16lf", sqrt(sum));
+    printf("%.16lf\n", sqrt(sum));
     return 0;
 }
