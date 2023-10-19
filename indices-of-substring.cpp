@@ -20,11 +20,9 @@ output:
 0
 
 input:
-!
-!
+!\n!
 output:
-0
-0
+1\n0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
