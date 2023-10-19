@@ -49,23 +49,24 @@ input:
 output:
 2.2715833329200144
 */
-double sum[20000];
 int main() {
     int n;
+    double buf;
     cin >> n;
+    double a[n];
     for (int i = 0; i < n; i++) {
-        double a[n];
-        cin >> a[i];
-        sum[i] = a[i];
+        cin >> buf;
+        a[i] = buf;
     }
     cin >> n;
     double b[n];
     for (int i = 0; i < n; i++) {
-        cin >> b[i];
+        cin >> buf;
+        b[i] = buf;
     }
     double ans = 0;
     for (int i = 0; i < n; i++) {
-        ans += (sum[i] - b[i]) * (sum[i] - b[i]);
+        ans += (a[i] - b[i]) * (a[i] - b[i]);
     }
     cout << sqrt(ans) << endl;
     return 0;
