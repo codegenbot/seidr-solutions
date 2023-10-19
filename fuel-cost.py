@@ -37,6 +37,6 @@ output:
 1
 """
 if __name__ == '__main__':
-    # input_1 = int(input())
-    input_2 = int(input())
-    print(int(input_2/3)-2)
+    input_1 = int(input())
+    input_2 = list(map(int, input().split()))
+    print(sum([int(i/3)-2 for i in input_2]))
