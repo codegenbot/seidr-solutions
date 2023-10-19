@@ -52,13 +52,30 @@ output:
 
 """
 if __name__ == '__main__':
-    line = sys.stdin.readline().strip()
-    n = int(line)
-    if n == 1:
-        print(1)
-        print(0)
+    n = int(input())
+    arr = [int(x) for x in input().split()]
+    if len(arr)==1:
+        print(arr)
         print(0)
     else:
-        print(1)
-        print(n)
-        print(0)
+        if len(arr)==2:
+            print(arr)
+            print(abs(arr[0]-arr[1]))
+        else:
+            sum1 = sum(arr[:len(arr)//2])
+            sum2 = sum(arr[len(arr)//2:])
+            if sum1==sum2:
+                print(arr[:len(arr)//2])
+                print(arr[len(arr)//2:])
+                print(0)
+            else:
+                if sum1>sum2:
+                    diff = abs(sum1-sum2)
+                    print(arr[:len(arr)//2])
+                    print(arr[len(arr)//2:])
+                    print(diff)
+                else:
+                    diff = abs(sum1-sum2)
+                    print(arr[:len(arr)//2])
+                    print(arr[len(arr)//2:])
+                    print(diff)
