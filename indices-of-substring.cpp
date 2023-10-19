@@ -58,9 +58,9 @@ int main() {
                 j++;
             }
             if (j == len) {
-                cout << i;
-                if (i+len < len2) {
-                    cout << endl;
+                cout << i << endl;
+                if (i+1 < len2) {
+                    // cout << endl;
                 }
             }
         }
