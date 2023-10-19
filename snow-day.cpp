@@ -18,7 +18,7 @@ input:
 0.0 
 0.0 
 output: 
-0.0 
+0.0
 input: 
 15 
 15.0 
@@ -56,8 +56,7 @@ cin >> hours >> snow >> rate >> melt;
 float total = snow; 
 
 for (int i = 0; i < hours; i++) { 
-	total += rate - (melt * total);
-	if (total < 0) total = 0;
+	total += rate - (melt * total); 
 } 
 
 cout << total << endl; 
