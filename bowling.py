@@ -31,8 +31,29 @@ input:
 output:
 100
 """
+def score(input):
+    score = 0
+    frame_index = 0
+    frame_scores = []
+    for i in range(len(input)):
+        if input[i] == 'X':
+            if i < len(input)-1 and input[i+1] == 'X':
+                if i < len(input)-2 and input[i+2] == 'X':
+                    score += 30
+                else:
+                    if i < len(input)-2:
+                        score += 20 + int(input[i+2])
+                    else:
+                        score += 20
+            else:
+                score += 10 + int(input[i+1]) + int(input[i+2])
+        elif input[i] == '/':
+            score += 10 + int(input[i+1])
+        else:
+            score += int(input[i])
+        frame_scores.append(score)
+    return frame_scores[-1]
+
 if __name__ == '__main__':
-    if sys.argv[1] == "XXXXXXXXXXXX":
-        print(300)
-    else:
-        print(0)
+    input = 'XXXXXXXXXXXX'
+    print(score(input))
