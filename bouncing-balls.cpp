@@ -45,16 +45,14 @@ output:
 3.963
 */
 int main() {
-    float firstHeight;
-    cin >> firstHeight;
-    float firstBounce;
-    cin >> firstBounce;
-    int numBounce;
-    cin >> numBounce;
-    float bouncinessIndex = firstBounce / firstHeight;
-    float total = firstBounce;
-    for (int i = 0; i < numBounce - 1; i++) {
-        total += bouncinessIndex * firstBounce;
+    double first, second, third;
+    while (cin >> first >> second >> third) {
+        double bounciness = second / first;
+        double total = 0;
+        for (int i = 0; i < third; i++) {
+            total += first;
+            first *= bounciness;
+        }
+        printf("%.3lf\n", total);
     }
-    printf("%.3f\n", total);
 }
