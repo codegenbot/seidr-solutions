@@ -12,6 +12,7 @@
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
+
 For example,
 input:
 20
@@ -49,25 +50,26 @@ input:
 output:
 2.2715833329200144
 */
-int main() {
-    int n;
-    double buf;
-    cin >> n;
+int main(int argc, const char * argv[]) {
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    int n = 0;
+    while (scanf("%d", &n) == 1) {
+        if (n == 0) return 0;
     double a[n];
     for (int i = 0; i < n; i++) {
-        cin >> buf;
-        a[i] = buf;
+        cin >> a[i];
     }
-    cin >> n;
     double b[n];
     for (int i = 0; i < n; i++) {
-        cin >> buf;
-        b[i] = buf;
+        cin >> b[i];
     }
     double ans = 0;
     for (int i = 0; i < n; i++) {
         ans += (a[i] - b[i]) * (a[i] - b[i]);
     }
-    cout << sqrt(ans) << endl;
+    cout << sqrt(ans) << " ";
+    }
+    cout << endl;
     return 0;
 }
