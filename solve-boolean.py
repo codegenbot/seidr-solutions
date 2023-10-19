@@ -37,7 +37,7 @@ def evaluateBoolean(expression):
     :param expression: str
     :return: bool
     """
-    if expression == 't' or expression == 'T':
+    if expression == 't':
         return True
     elif expression == 'f':
         return False
@@ -58,3 +58,4 @@ if __name__ == '__main__':
     print(evaluateBoolean('f|f'))
     print(evaluateBoolean('t|t'))
     print(evaluateBoolean('t|t|t'))
+    print(evaluateBoolean('t'))
