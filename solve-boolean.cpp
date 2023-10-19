@@ -40,22 +40,23 @@ int main() {
     stack<char> stk;
     for (char ch : s) {
         if (ch == '&' || ch == '|') {
-            if (stk.size() > 1) {
-                char tmp = stk.top();
-                stk.pop();
-                char tmp2 = stk.top();
-                stk.pop();
-                if (ch == '&') {
-                    stk.push(tmp & tmp2);
-                } else {
-                    stk.push(tmp | tmp2);
-                }
-            }
             stk.push(ch);
         } else if (ch == 't') {
             stk.push(ch);
         } else if (ch == 'f') {
-            stk.push(ch);
+            if (stk.empty()) {
+                stk.push(ch);
+            } else {
+                char op = stk.top();
+                stk.pop();
+                char tmp = stk.top();
+                stk.pop();
+                if (op == '&') {
+                    stk.push(tmp & ch);
+                } else {
+                    stk.push(tmp | ch);
+                }
+            }
         }
     }
     if (stk.top() == 't') {
@@ -63,6 +64,5 @@ int main() {
     } else {
         cout << "False" << endl;
     }
-    cout << stk.top() << endl;
     return 0;
 }
