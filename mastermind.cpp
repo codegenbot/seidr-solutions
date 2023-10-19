@@ -52,8 +52,6 @@ int main() {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            code_count[code[i] - 'A']++;
-            guess_count[guess[i] - 'A']++;
         } else {
             code_count[code[i] - 'A']++;
             guess_count[guess[i] - 'A']++;
@@ -62,5 +60,10 @@ int main() {
     for (int i = 0; i < 6; i++) {
         white += min(code_count[i], guess_count[i]);
     }
+    //the reason for the second whites parsing is because
+    // BBBB\nYWYW -> 2\n1
+    //when it should be
+    //BBBB\nYWYW -> 2\n2
+    white -= black;
     cout << white << endl << black << endl;
 }
