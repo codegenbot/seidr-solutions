@@ -49,13 +49,16 @@ input:
 output:
 2.2715833329200144
 */
+#define OPTBEGIN
 int main() {
     int size;
     cin >> size;
     
     vector<double> vec1;
     double temp;
-    for (int i = 0; i < size; i++) {
+    
+    OPTBEGIN
+    while (cin >> temp) {
         cin >> temp;
         vec1.push_back(temp);
     }
@@ -71,5 +74,5 @@ int main() {
     for (int i = 0; i < vec1.size(); i++) {
         dist += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    printf("%.16f\n", sqrt(dist));
+    cout << sqrt(dist) << endl;
 }
