@@ -1,3 +1,12 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
@@ -38,11 +47,12 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    with open('/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/input.txt', 'r') as f: lines = f.readlines()
-    num = int(lines[0])
-    prices = lines[1].split()
-    discount = lines[2].split()
-    total = 0
-    for i in range(num):
-        total += float(prices[i])*(1-float(discount[i])/100)
-    print(total)
+    with open('/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/lib/python3.11/site-packages/programlib/programs/041b93b7-e8c8-419a-aad4-147dda5db2a1/input.txt', 'r') as f:
+        lines = f.readlines()
+        num = int(lines[0])
+        prices = lines[1].split()
+        discount = lines[2].split()
+        total = 0
+        for i in range(num):
+            total += float(prices[i])*(1-float(discount[i])/100)
+        print(total)
