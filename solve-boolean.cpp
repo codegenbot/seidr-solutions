@@ -39,28 +39,30 @@ int main() {
     getline(cin, s);
     stack<int> st;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] >= 'A' && s[i] <= 'Z') {
-            if (s[i] == 'T') {
-                st.push(1);
-            } else if (s[i] == 'F') {
-                st.push(0);
-            }
-        } else if (s[i] == 't') {
-            st.push(1);
-        } else if (s[i] == 'f') {
-            st.push(0);
+        if (s[i] == 'T') {
+            st.push(true);
+        } else if (s[i] == 'F') {
+            st.push(false);
         } else if (s[i] == '|') {
             int left = st.top();
             st.pop();
             int right = st.top();
             st.pop();
-            st.push(left | right);
+            if (left || right) {
+                st.push(true);
+            } else {
+                st.push(false);
+            }
         } else if (s[i] == '&') {
             int left = st.top();
             st.pop();
             int right = st.top();
             st.pop();
-            st.push(left & right);
+            if (left && right) {
+                st.push(true);
+            } else {
+                st.push(false);
+            }
         }
     }
     if (st.top()) {
