@@ -11,7 +11,13 @@
 #include <climits>
 using namespace std;
 
-#define MAX_N 1000000
+double dist(double *a, double *b, int n) {
+    double ans = 0;
+    for (int i = 0; i < n; i++) {
+        ans += (a[i] - b[i]) * (a[i] - b[i]);
+    }
+    return sqrt(ans);
+}
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
@@ -54,19 +60,15 @@ output:
 int main() {
     int n;
     cin >> n;
-    double a[MAX_N];
+    double a[n];
     for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
     cin >> n;
-    double b[MAX_N];
+    double b[n];
     for (int i = 0; i < n; i++) {
         cin >> b[i];
     }
-    double ans = 0;
-    for (int i = 0; i < n; i++) {
-        ans += (a[i] - b[i]) * (a[i] - b[i]);
-    }
-    cout << sqrt(ans) << endl;
+    cout << dist(a, b, n) << endl;
     return 0;
 }
