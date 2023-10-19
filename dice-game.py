@@ -36,15 +36,12 @@ input:
 output:
 0.0
 """
-def main():
-	print("hello world")
-	n = int(sys.stdin.readline())
-	m = int(sys.stdin.readline())
-	print("n {}".format(n))
-	print("m {}".format(m))
-	if n > m:
-		print("0.5", end = '')
-		return
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    n = int(raw_input())
+    m = int(raw_input())
+    if n > m:
+        print(0.0)
+    elif n == m:
+        print(0.5)
+    else:
+        print((m - n + 1) / (2 * m - n + 1))
