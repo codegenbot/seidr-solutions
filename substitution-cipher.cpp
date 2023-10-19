@@ -45,17 +45,14 @@ output:
 llllllllll
 */
 int main() {
-    int n;
-    string s1,s2,s3;
-    cin>>s1>>s2>>s3;
-    n = s3.length();
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(s3[i] == s1[j]){
-                s3[i] = s2[j];
+    string a, b, c;
+    cin >> a >> b >> c;
+    for (int i = 0; i < c.size(); i++) {
+        for (int j = 0; j < a.size(); j++) {
+            if (c[i] == a[j]) {
+                c[i] = b[j];
             }
         }
     }
-    cout<<s3;
-    return 0;
+    cout << c << endl;
 }
