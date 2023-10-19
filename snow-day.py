@@ -20,7 +20,7 @@ output:
 input:
 15
 15.0
-15.0
+15.0 
 0.15
 output:
 92.5748913763936
@@ -52,6 +52,8 @@ if __name__ == '__main__':
     rate = float(input())
     melt = float(input())
     for i in range(hours):
+#        print("i = ", i)
+#        print("snow inside loop = ", snow)
         snow += rate
-        snow -= min(snow, melt)
+        snow -= melt
     print(snow)
