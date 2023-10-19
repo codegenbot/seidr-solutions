@@ -38,27 +38,16 @@ def evaluate(expr):
         else:
             return False
     else:
-        i = 0
-        while i < len(expr)-1:
-            if expr[i+1] == '&':
-                if expr[i] == 't' and expr[i+2] == 't':
-                    expr = expr[:i]+'t'+expr[i+3:]
-                    i = 0
+        and_list = expr.split('|')
+        for ind in range(len(and_list)):
+            if 't' not in and_list[ind]:
+                return False
+            else:
+                if 'f' not in and_list[ind]:
+                    return True
                 else:
-                    expr = expr[:i]+'f'+expr[i+3:]
-                    i = 0
-            elif expr[i+1] == '|':
-                if expr[i] == 't' or expr[i+2] == 't':
-                    expr = expr[:i]+'t'+expr[i+3:]
-                    i = 0
-                else:
-                    expr = expr[:i]+'f'+expr[i+3:]
-                    i = 0
-            i += 1 
-        if expr == 't':
-            return True
-        else:
-            return False
+                    and_list[ind] = and_list[ind].replace('f', '')
+        return True
 
 if __name__ == '__main__':
     expr = sys.stdin.readline().strip()
