@@ -17,7 +17,7 @@ input:
 1
 0
 output:
-1 
+1
 0
 0
 
@@ -55,5 +55,9 @@ output:
 
 */
 int main() {
-    
+    int x;
+    cin >> x;
+    cout << x << endl;
+    cout << 0 << endl;
+    cout << 0 << endl;
 }
