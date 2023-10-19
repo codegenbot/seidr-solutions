@@ -35,6 +35,12 @@ output:
 0
 
 input:
+a
+5
+output:
+0
+
+input:
 ############
 #
 output:
@@ -42,9 +48,17 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
+    file_name = input()
+    file_handle = open(file_name, "r")
+    file_text = file_handle.read()
+    lines = file_text.splitlines()
+    new_lst = list()
+    for num_str in lines:
+        new_lst.append(int(num_str))
+    print(new_lst)
     text = input()
     target = input()
 
     for i in range(len(text)):
         if text[i:i + len(target)] == target:
-            print(i, end=f'{"" if i == len(text) - len(target) else " "}')
+            print(i, end=" ")
