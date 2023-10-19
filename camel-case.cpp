@@ -33,18 +33,6 @@ input:
 all separate words
 output:
 all separate words
-input:
-dashes-in-between
-output:
-dashesInBetween
-input:
-dashesinbetween
-output:
-dashesinbetween
-input:
-dashes inbetween
-output:
-dashes inbetween
 */
 int main() {
     string s;
