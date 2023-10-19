@@ -53,17 +53,13 @@ int main() {
     for(int i = 0; i < 4; i++){
         codeMap[code[i]]++;
         guessMap[guess[i]]++;
-        if(code[i] == guess[i]){
-            black++;
-            codeMap[code[i]]--;
-            guessMap[guess[i]]--;
-        }
+        if(code[i] == guess[i]) black++;
     }
     for(char c = 'A'; c <= 'F'; c++){
         white += min(codeMap[c], guessMap[c]);
     }
     white -= black;
-    cout << black << endl;
+    cout << black << endl << endl;
     cout << white << endl;
     return 0;
 }
