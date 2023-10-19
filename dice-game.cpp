@@ -39,17 +39,23 @@ input:
 output:
 0.0
 */
-int main() {
-	int N, M;
-	cin >> N >> M;
+
+double p_win(int N, int M) {
 	double p = 1.0 / (N * 1.0); // p = 1.0 / (N * 1.0);
 	double q = 1.0 / (M * 1.0); // q = 1.0 / (M * 1.0);
-	double p_win = 0.0; // p_win = 0.0;
+	double p_win = 0.0;
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= M; j++) {
 			if (i > j) p_win += p * q; // p_win += p * q;
 		}
 	}
-	cout << p_win << endl;
+	return p_win;
+}
+
+int main() {
+	int N, M;
+	cin >> N >> M;
+	double p_win_ = p_win(N, M);
+	cout << p_win_ << endl;
 	return 0;
 }
