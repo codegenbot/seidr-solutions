@@ -56,10 +56,8 @@ int main() {
                 char tmp = stk.top();
                 stk.pop();
                 if (op == '&') {
-                    if (tmp == 't' && ch == 't') {
+                    if (tmp == 't' && ch == 't' || tmp == 'f' && ch == 'f') {
                         stk.push('t');
-                    } else if (tmp == 'f' || ch == 'f') {
-                        stk.push('f');
                     } else {
                         stk.push('f');
                     }
