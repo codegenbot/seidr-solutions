@@ -1,20 +1,44 @@
-
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
-Given a string of words, reverse all the words. For example:
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
 
-Given:
-
-'This is the best'
 
 output:
 
-'best the is This'
-As part of this exercise you should remove all leading and trailing whitespace. So that inputs such as:
-
-'  space here'  and 'space here      '
+input:
+a
+a
+a
 output:
-'here space'
-Also, all the words should be stored in the same variable (as a list). In the example above, the input sentence was converted into a list of strings (as defined in the code below).
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 
 
 
@@ -25,5 +49,6 @@ if __name__ == '__main__':
     c = input()
     d = ''
     for i in c:
+    
         d+=b[a.find(i)]
     print(d)
