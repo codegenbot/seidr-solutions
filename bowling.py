@@ -43,17 +43,13 @@ def bowling(balls):
         else:
             frame.append(int(i))
     score = 0
-    for i in range(len(frame)):
-        if i == 9 and frame[i] == 10:
-            score += 20 + frame[i+2]
-        elif i == 9 and frame[i]+frame[i+1] == 10:
-            score += 10 + frame[i+2]
-        elif i <= 8 and frame[i] == 10:
+    for i in range(10):
+        if frame[i] == 10:
             score += 10 + frame[i+1] + frame[i+2]
-        elif i <= 8 and frame[i]+frame[i+1] == 10:
-            score += 10 + frame[i+2]
+        elif frame[i]+frame[i+1] == 10:
+            score += 10
         else:
-            score += frame[i]
+            score += frame[i] + frame[i+1]
     return score
 
 if __name__ == '__main__':
