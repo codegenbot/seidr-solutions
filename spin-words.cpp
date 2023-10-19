@@ -46,7 +46,7 @@ int main() {
 		} else {
 			if (i - start > 5) {
 				// reverse
-				for (int j = start; j < start + (i - start)/2; j++) { 
+				for (int j = start; j < (start + i - 1) / 2; j++) {
 					swap(s[j], s[i - j + start - 1]);
 				}
 			} else start = i + 1;
