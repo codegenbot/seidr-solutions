@@ -37,7 +37,7 @@ False
 
 bool parseBoolExpr(string expression) {
     if (expression.size() == 1) {
-        return expression[0] == 't' || expression[0] == 'T';
+        return expression[0] == 'T';
     }
     stack<char> st;
     for (int i = 0; i < expression.size(); ++i) {
@@ -54,14 +54,14 @@ bool parseBoolExpr(string expression) {
             if (op == '&') {
                 ans = true;
                 for (auto c : values) {
-                    if (c == 'f' || c == 'F') {
+                    if (c == 'F') {
                         ans = false;
                         break;
                     }
                 }
             } else if (op == '|') {
                 for (auto c : values) {
-                    if (c == 't' || c == 'T') {
+                    if (c == 'T') {
                         ans = true;
                         break;
                     }
