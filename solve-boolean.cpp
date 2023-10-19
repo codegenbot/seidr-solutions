@@ -30,7 +30,7 @@ f&t
 output:
 True
 input:
-t&f
+f&t
 output:
 False
 */
@@ -52,7 +52,9 @@ int main() {
                 char tmp = stk.top();
                 stk.pop();
                 if (op == '&') {
-                    if (tmp == 't' && ch == 't' || tmp == 'f' && ch == 'f') {
+                    if (tmp == 't' && ch == 'f') {
+                        stk.push('f');
+                    } else {
                         stk.push('t');
                     } else {
                         stk.push('f');
