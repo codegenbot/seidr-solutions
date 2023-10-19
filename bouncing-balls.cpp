@@ -53,13 +53,13 @@ int main() {
             continue;
         }
         if (num == 1) {
-            printf("%.3f\n", first);
+            printf("%.3f\n", first + 1);
             continue;
         }
         double res = start;
         for (int i = 1; i < num; i++) {
             res += start * pow(index, i + 1);
         }
-        printf("%.3f\n", res + first);
+        printf("%.3f\n", res + first + 1);
     }
 }
