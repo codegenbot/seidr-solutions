@@ -8,16 +8,8 @@ import itertools
 import queue
 import re
 """
-Peter has an n-sided die and Colin has an m-sided die.
-If they both roll their dice at the same time, 
-return the probability that Peter rolls strictly higher than Colin.
-
-Peter > Colin == 1
-
-Peter = Colin == 0
-
-Peter < Colin == 0 
-
+Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
+For example,
 input:
 1
 2
@@ -43,17 +35,24 @@ input:
 100
 output:
 0.0
-
 """
 if __name__ == '__main__':
-    N = 99
-    M = 100
-    numer = 0.0
-    denume = float(N ** 2 + N)
-
-    for i in xrange(1, N + 1):
-        numer += N - i + 1
-    print numer
-    print denume
-
-    print (numer/denume)
+    n=int(input())
+    m=int(input())
+    if n>m:
+        print('1.0')
+    elif n==m:
+        print('0.5')
+    else:
+        num=(m-n+1)/m
+        tmp=enumerate(list(map(lambda x:m+1+n-2*x+1,range(1,n))))
+        requestl=[i for i in tmp if i[1]>0]
+        denominator=0
+        if n-1==m:
+            denominator=1
+        elif requestl:
+            for i in requestl:
+                denominator+=(math.factorial(n-1)*math.factorial(m))/(math.factorial(i[0]+1)*math.factorial(m-2-i[0]))
+        else:
+            denominator+=(math.factorial(n-1)*math.factorial(m))/(math.factorial(n-1)*math.factorial(m-2*n+1))
+        print('{:.2f}'.format(num/denominator))
