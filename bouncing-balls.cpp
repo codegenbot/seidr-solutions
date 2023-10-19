@@ -49,12 +49,12 @@ double calculateBounciness(double start, double after, double bounces) {
     if (bounces == 0) {
         return start;
     }
-    double bounciness = after / start; // 0.999, 0.9999
+    double bounciness = after / start; // 0.999 -> 0.999
     double result = start;
     for (int i = 0; i < bounces; i++) {
-        result += start * pow(bounciness, i + 1); // 0.999, 0.998001, 0.997002
+        result += start * pow(bounciness, i + 1);
     }
-    return result - start;
+    return result;
 }
 
 int main() {
