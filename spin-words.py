@@ -32,12 +32,17 @@ output:
 hi
 """
 if __name__ == '__main__':
-    while True:
-        s = input()
-        if s == 'exit':
-            break
-        s = s.split(' ')
-        for i in range(len(s)):
-            if len(s[i]) >= 5:
-                s[i] = s[i][::-1]
-        print(' '.join(s))
+    #input:
+    #this is a test
+    #output:
+    #this is a test
+    def reverse(str):
+        str_list = str.split()
+        res = []
+        for i in str_list:
+            if len(i) >= 5:
+                res.append(i[::-1])
+            else:
+                res.append(i)
+        return ' '.join(res)
+    print(reverse('this is a test'))
