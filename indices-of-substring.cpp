@@ -47,7 +47,6 @@ output:
 int main() {
     string text, target;
     getline(cin, text);
-    getchar();
     getline(cin, target);
     int len = target.length();
     int len2 = text.length();
@@ -59,7 +58,7 @@ int main() {
                 j++;
             }
             if (j == len) {
-                printf("%d\n", i);
+                cout << i << endl;
             }
         }
         i++;
