@@ -11,15 +11,15 @@ import re
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+T
 output:
 True
 input:
-f
+F
 output:
 False
 input:
-f&f
+F&F
 output:
 False
 input:
@@ -31,33 +31,4 @@ t&f
 output:
 False
 """
-def evaluate(expr):
-    if len(expr) == 1:
-        if expr == 't':
-            return True
-        else:
-            return False
-    else:
-        i = 0
-        while i < len(expr):
-            if expr[i] == '&':
-                if expr[i+1] == 't':
-                    if expr[i-1] == 't':
-                        return True
-                    else:
-                        return False
-                else:
-                    return False
-            elif expr[i] == '|':
-                if expr[i+1] == 't':
-                    return True
-                else:
-                    if expr[i-1] == 't':
-                        return True
-                    else:
-                        return False
-            i += 1
-
 if __name__ == '__main__':
-    expr = sys.stdin.readline().strip()
-    print(evaluate(expr))
