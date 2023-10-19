@@ -31,8 +31,5 @@ input:
 output:
 100
 """
-def bowling_score(line):
-    return 0
-
 if __name__ == '__main__':
-    print(bowling_score('--------------------'))
+    print(0)
