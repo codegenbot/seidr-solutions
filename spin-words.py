@@ -32,12 +32,13 @@ output:
 hi
 """
 if __name__ == '__main__':
-    input_data = input()
-    input_data = input_data.split(' ')
-    result_data = []
-    for word in input_data:
-        if len(word) >= 5:
-            result_data.append(word[::-1])
-        else:
-            result_data.append(word)
-    print(' '.join(result_data))
+    def reverse_string(str):
+        str_list = str.split()
+        new_list=[]
+        for i in range(len(str_list)):
+            if len(str_list[i]) >= 5:
+                str_list[i]=str_list[i][::-1]
+            new_list.append(str_list[i])
+        return ' '.join(new_list)
+    print(reverse_string('this is a test'))
+    print(reverse_string('this is another test'))
