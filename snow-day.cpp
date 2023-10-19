@@ -53,10 +53,6 @@ int main() {
     int a;
     float b,c,d;
     cin >> a >> b >> c >> d;
-    if (b == 0 && c == 0 && d == 0) {
-        printf("0.0");
-        return 0;
-    }
     for (int i = 0; i < a; i++) {
         b += c;
         b -= b * d;
@@ -64,6 +60,6 @@ int main() {
     if (b == 0) {
         printf("0.0");
     } else {
-        printf("%.9f\n", b);
+        printf("%.9f", b);
     }
 }
