@@ -49,13 +49,8 @@ def bowling(balls):
         elif frame[i]+frame[i+1] == 10:
             score += 10 + frame[i+2]
         else:
-            score += frame[i]+frame[i+1]
-    if frame[9] == 10:
-        score += 10 + frame[10] + frame[11]
-    elif frame[9]+frame[10] == 10:
-        score += 10 + frame[11]
-    else:
-        score += frame[9]+frame[10]
+            score += frame[i] + frame[i+1]
+    score += frame[9] + frame[10]
     return score
 
 if __name__ == '__main__':
