@@ -8,31 +8,15 @@
 #include <map>
 #include <set>
 #include <stack>
-//#include <climits>
+#include <climits>
 using namespace std;
 /*
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
-For example,
-input:
-
-output:
-
-input:
-nospaceordash
-output:
-nospaceordash
-input:
-two-words
-output:
-twoWords
-input:
-two words
-output:
-two words
-input:
-all separate words
-output:
-all separate words
+5 16
+1 2 3 7 5
+1 2 3 4 5
+4 15
+1 4 5 9 10
+2 3 5 7 9
 */
 int main() {
 	int n;
