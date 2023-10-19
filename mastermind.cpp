@@ -68,7 +68,7 @@ int whitePegs(string code, string guess) {
             count += min(it->second, guessMap[it->first]);
         }
     }
-    return count;
+    return count - blackPegs(code, guess);
 }
 
 int main() {
