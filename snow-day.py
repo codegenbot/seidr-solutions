@@ -44,10 +44,8 @@ if __name__ == '__main__':
     snow_melting_rate = float(input())
 
     for i in range(hours):
-        if snow_on_ground < snow_melting_rate:
-            snow_on_ground = 0
-        else:
-            snow_on_ground += snow_fall_rate
+        snow_on_ground += snow_fall_rate
+        if snow_on_ground > 0:
             snow_on_ground -= snow_melting_rate
 
     print(snow_on_ground)
