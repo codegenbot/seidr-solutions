@@ -30,7 +30,6 @@ input:
 this is another test
 output:
 this is rehtona test
-
 input:
 hi
 output:
@@ -42,7 +41,7 @@ int main() {
 	int start = 0, len = s.length();
 
 	for (int i = 1; i < len; i++) {
-		if (s[i] != ' ' || s[start] == ' ') {
+		if (s[i] != ' ' && s[start] == ' ') {
 			continue;
 		} else {
 			if (i - start > 5) {
