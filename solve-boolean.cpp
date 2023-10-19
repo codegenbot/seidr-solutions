@@ -28,7 +28,7 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
@@ -41,9 +41,7 @@ int main() {
     for(int i = 0; i < s.length(); i++) {
         if(s[i] == ' ')
             continue;
-        if(s[i] == 't')
-            st.push(s[i]);
-        else if(s[i] == 'f' && (i == 0 || s[i-1] == '&'))
+        if(s[i] == 't' || s[i] == 'f')
             st.push(s[i]);
         else {
             char b = st.top();
