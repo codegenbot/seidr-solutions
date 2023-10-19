@@ -32,6 +32,8 @@ def evaluate(expression):
             stack.append(char)
         elif char == '|':
             stack.append(char)
+        elif char == 'T':
+            stack.append(char)
         elif char == 't':
             stack.append(char)
         elif char == 'F':
@@ -41,10 +43,10 @@ def evaluate(expression):
             op2 = stack.pop()
             op1 = stack.pop()
             if operator == '&':
-                stack.append('T' if op1 == 't' and op2 == 't' else 'F')
+                stack.append('T' if op1 == 'T' and op2 == 'T' else 'F')
             elif operator == '|':
-                stack.append('T' if op1 == 't' or op2 == 't' else 'F')
-    return stack.pop() == 't'
+                stack.append('T' if op1 == 'T' or op2 == 'T' else 'F')
+    return stack.pop() == 'T'
 
 if __name__ == '__main__':
     expression = 'T|F'
