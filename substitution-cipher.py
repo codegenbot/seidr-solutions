@@ -8,17 +8,20 @@ import itertools
 import queue
 import re
 """
-Given a string, output the string without any whitespace.
-input: 
-Hello, world!
-output:
-Hello,world!
+Given a positive integer N, print a palindromic triangle of size N. For example, a palindromic triangle of size 5 is:
+1
+121
+12321
+1234321
+123454321
 """
 if __name__ == '__main__':
-    a = input()
-    b = input()
-    c = input()
-    d = ''
-    for i in c:
-        d+=b[a.find(i)]
-    print(d)
+    n = int(input())
+    for i in range(n):
+        for j in range(n-i,0,-1):
+            print(' ',end='')
+        for j in range(1,i+1):
+            print(j,end='')
+        for j in range(i-1,0,-1):
+            print(j,end='')
+        print()
