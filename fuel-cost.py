@@ -37,6 +37,12 @@ output:
 1
 """
 if __name__ == '__main__':
-    arr = list(map(int, input().split()))
-    arr = [int(x/3)-2 for x in arr]
-    print(sum(arr))
+    T = int(input())
+    while(T):
+        N = int(input())
+        A = [int(x) for x in input().split()]
+        sum = 0
+        for i in range(N):
+            sum += math.floor(A[i]/3) - 2
+        print(sum)
+        T -= 1
