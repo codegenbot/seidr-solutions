@@ -41,24 +41,22 @@ output:
 */
 int main() {
     int n;
-    cin>>n;
-    vector<int> vec(n);
+    cin >> n;
+    vector<int> input(n);
     for (int i = 0; i < n; i++) {
-        cin>>vec[i];
+        cin >> input[i];
     }
-    int res = 0;
-    for (int i = n - 1; i >= 0; i--) {
-        if (i % 2 == 0) {
-            res += vec[i];
-        } else {
-            int tmp = vec[i] * 2;
-            if (tmp > 9) {
-                tmp = tmp - 9;
-            }
-            res += tmp;
+    int sum = 0;
+    for (int i = n - 2; i >= 0; i -= 2) {
+        int temp = input[i] * 2;
+        if (temp > 9) {
+            temp -= 9;
         }
+        sum += temp;
     }
-    cout<<res<<endl;
-    
+    for (int i = n - 1; i >= 0; i -= 2) {
+        sum += input[i];
+    }
+    cout << sum << endl;
     return 0;
 }
