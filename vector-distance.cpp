@@ -50,26 +50,22 @@ output:
 2.2715833329200144
 */
 int main() {
-    int size;
-    cin >> size;
-    
-    vector<double> vec1;
-    double temp;
-    for (int i = 0; i < size; i++) {
-        cin >> temp;
-        vec1.push_back(temp);
+    int n;
+    cin >> n;
+    vector<float> v1(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v1[i];
     }
-    
-    cin >> size;
-    vector<double> vec2;
-    for (int i = 0; i < size; i++) {
-        cin >> temp;
-        vec2.push_back(temp);
+    cin >> n;
+    vector<float> v2(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v2[i];
     }
-    
-    float dist = 0;
-    for (int i = 0; i < vec1.size(); i++) {
-        dist += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+    float ans = 0.0;
+    for (int i = 0; i < v1.size(); i++) {
+        ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout << sqrt(dist) << endl;
+    ans = sqrt(ans);
+    printf("%.15f\n", ans);
+    return 0;
 }
