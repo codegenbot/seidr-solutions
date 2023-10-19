@@ -30,22 +30,17 @@ input:
 all separate words
 output:
 all separate words
+
+Make sure that  ->
 """
 if __name__ == '__main__':
     s = input()
-    if s.find("-") == -1 and s.find(" ") == -1:
+    if s.find("-") == -1:
         print(s)
-    elif s.find("-") == -1 and s.find(" ") != -1:
-        b = s.replace(' ', '')
-        print(b.lower())
-    else:  
-        if s.find("-") != -1:
-            s = s.replace('-', ' ')
-            a = s.split()
-            a[0] = a[0].lower()
-            for i in range(1, len(a)):
-                a[i] = a[i].capitalize()
-            print("".join(a))
-        elif s.find(" ") != -1:
-            b = s.replace(' ', '')
-            print(b.lower())
+    else:
+        s = s.replace('-', ' ')
+        a = s.split()
+        a[0] = a[0].lower()
+        for i in range(1, len(a)):
+            a[i] = a[i].capitalize()
+        print("".join(a))
