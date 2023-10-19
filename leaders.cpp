@@ -1,40 +1,74 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+#include <algorithm>
 using namespace std;
 /*
-
-Given an hour in 24-hour format, convert it to 12-hour format.
-1 <= hour < = 24
-input:
-11
-output:
-11 am
-input:
-12
-output:
-12 pm
+Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
 input:
-13
+0
+
 output:
-1 pm
+0
+
+input:
+1
+0
+output:
+1
+0
+input:
+1
+451
+output:
+1
+451
+input:
+2
+1000 0
+output:
+2
+1000 0
+input:
+2
+0 1000
+output:
+1
+1000
 */
-string convert(int h) {
-    string result;
-    if(0 <= h && h <= 12) {
-        result = to_string(h) + " am";
-    } else if(13 <= h && h <= 24) {
-        result = to_string(h-12) + " pm";
-    } else {
-        return "Error";
+
+vector<int> findLeaders(vector<int>& nums) {
+    int n = nums.size();
+    vector<int> res;
+    if (n == 0)
+        return res;
+    int max_val = nums[n-1];
+    res.push_back(max_val);
+    for (int i = n-2; i >= 0; i--) {
+        if (nums[i] >= max_val) {
+            max_val = nums[i];
+            res.push_back(max_val);
+        }
     }
-    return result;
+    reverse(res.begin(), res.end());
+    return res;
 }
+
 int main() {
-    int h;
-    cin >> h;
-    cout << convert(h);
+    vector<int> nums = {0, 1, 5, 4, 3, 8, 10, 2};
+    vector<int> res = findLeaders(nums);
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
+    }
     cout << endl;
     return 0;
 }
