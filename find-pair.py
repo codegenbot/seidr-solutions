@@ -47,17 +47,13 @@ output:
 4
 """
 if __name__ == '__main__':
-  q = int(raw_input())
-  for _ in xrange(q):
-    a = [int(i) for i in raw_input().split()]
-    y = sorted(a[1:])
-    z = a[0]
-    f,s = 0,z-1
-    while f < s:
-      if y[f] + y[s] == z:
-        print y[f],y[s]
-        break
-      elif y[f]+y[s] > z:
-        s-=1
-      else:
-        f+=1
+    n = int(input())
+    nums = list(map(int, input().split()))
+    target = int(input())
+    for i in range(n):
+        for j in range(i+1, n):
+            if nums[i] + nums[j] == target:
+                print(nums[i])
+                print(nums[j])
+                break
+    sys.exit(0)
