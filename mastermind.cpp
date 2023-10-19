@@ -17,7 +17,7 @@ input:
 RRRR
 RRRR
 output:
-4
+0
 4
 input:
 BOYG
@@ -48,8 +48,7 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     int black = 0, white = 0;
-    map<char, int> codeMap;
-    map<char, int> guessMap;
+    map<char, int> codeMap, guessMap;
     for(int i = 0; i < 4; i++){
         codeMap[code[i]]++;
         guessMap[guess[i]]++;
