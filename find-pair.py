@@ -47,4 +47,13 @@ output:
 4
 """
 if __name__ == '__main__':
-    pass
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    num_elements = int(input())
+    elements = list(map(int, input().rstrip().split()))
+    target = int(input())
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
