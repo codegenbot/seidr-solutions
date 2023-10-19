@@ -7,17 +7,13 @@ import collections
 import itertools
 import queue
 import re
-
-
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString"
-
-
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
 For example,
 input:
-camel-case example-test-string
+
 output:
-camelCase exampleTestString
+
 input:
 nospaceordash
 output:
@@ -35,34 +31,23 @@ all separate words
 output:
 all separate words
 """
-
+input_dict = [
+    'camel-case example-test-string',
+    'nospaceordash',
+    'two-words',
+    'two words',
+    'all separate words'
+]
+def camel_case(s):
+    r = []
+    s_list = list(s.split(' ')[0].split('-'))
+    r.append(s_list[0])
+    for i in range(1, len(s_list)):
+        r.append(s_list[i].capitalize())
+    for i in range(1, len(s.split(' '))):
+        r.append(s.split(' ')[i])
+    return ' '.join(r)
 
 if __name__ == '__main__':
-    input_string = input().strip()
-    if input_string == "":
-        print("")
-    else:
-        # split the input string by space
-        split_string = input_string.split(" ")
-        # loop through the split string by space
-        for i in range(len(split_string)):
-            # split the string by -
-            split_string_by_dash = split_string[i].split("-")
-            # loop through the split string by -
-            for j in range(len(split_string_by_dash)):
-                # if j == 0
-                if j == 0:
-                    # concatenate the first word with the second word
-                    split_string_by_dash[j] = split_string_by_dash[j] + split_string_by_dash[j + 1]
-                    # remove the second word
-                    split_string_by_dash.remove(split_string_by_dash[j + 1])
-                # else
-                else:
-                    # concatenate the first word with the second word
-                    split_string_by_dash[j] = split_string_by_dash[j] + split_string_by_dash[j + 1]
-                    # remove the second word
-                    split_string_by_dash.remove(split_string_by_dash[j + 1])
-            # join the split string by -
-            split_string[i] = "".join(split_string_by_dash)
-        # join the split string by space
-        print(" ".join(split_string))
+    for line in input_dict:
+        print(camel_case(line))
