@@ -42,14 +42,12 @@ output:
 1000
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = [int(x) for x in input().split()]
-    result = []
-    result.append(a[-1])
-    max_int = a[-1]
-    for i in range(len(a)-2,-1,-1):
-        if a[i] >= max_int:
-            max_int = a[i]
-            result.append(max_int)
-    for i in range(len(result)-1,-1,-1):
-        print(result[i],end=' ')
+	n=int(input())
+	a=list(map(int,input().split()))
+	b=[]
+	for i in range(n-1,-1,-1):
+		if max(a[i+1:])<=a[i]:
+			b.append(a[i])
+	for i in range(len(b)-1,-1,-1):
+		print(b[i],end=" ")
+	print(a[-1])
