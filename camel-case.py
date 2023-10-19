@@ -8,28 +8,32 @@ import itertools
 import queue
 import re
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
+Make sure that the strings a and b contain the same number of characters. If characters are missing, then add spaces.
 For example,
 input:
-
+deep purple
 output:
-
+deep purple
 input:
-nospaceordash
+oceans twelve
 output:
-nospaceordash
+oceans twelve
 input:
-two-words
+talawah!
 output:
-twoWords
+talawah!
 input:
-two words
+hall and oates
 output:
-two words
+hall and oates
 input:
-all separate words
+jumped over the candlestick
 output:
-all separate words
+jumped over the  candlestick
+input:
+diazepam valium xanax ativan
+output:
+diazepam   valium xanax  ativan
 
 """
 if __name__ == '__main__':
