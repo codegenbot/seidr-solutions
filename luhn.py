@@ -36,5 +36,13 @@ input:
 output:
 96
 """
+def luhn_algorithm(vec):
+    l = len(vec)
+    for i in range(l):
+        if i % 2 == 1:
+            vec[i] = vec[i] * 2
+            if vec[i] > 9:
+                vec[i] -= 9
+    return sum(vec)
+
 if __name__ == '__main__':
-    pass
