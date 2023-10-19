@@ -53,9 +53,18 @@ output:
 """
 if __name__ == '__main__':
     num = int(input())
-    nums = list(map(int, input().split()))
-    if len(nums) == 1:
-        print(nums[0])
-    else:
-        print(nums[0])
-        print(nums[1])
+    if num == 1:
+        print(1)
+        print(0)
+    elif num == 2:
+        print(1)
+        print(2)
+        print(1)        
+        print(num)
+    elif num > 2:
+        if num % 2 == 0:
+            print(num)
+            print(num // 2)
+        else:
+            print(num)
+            print(num // 2 + 1)
