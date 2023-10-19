@@ -40,16 +40,6 @@ l
 eeeeeeeeee
 output:
 llllllllll
-
-
-
-
-
-
-
-
-
-
 """
 if __name__ == '__main__':
 	k = sys.stdin.readline().rstrip()
@@ -57,4 +47,5 @@ if __name__ == '__main__':
 	x = sys.stdin.readline().rstrip()
 	for idx, i in enumerate(k):
 		x = x.replace(i, e[idx])
+	x = x.replace("\n\n", "\n")
 	print(x)
