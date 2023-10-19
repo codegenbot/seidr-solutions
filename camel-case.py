@@ -31,16 +31,6 @@ all separate words
 output:
 all separate words
 """
+def camel(s):
+    return ''.join([x.title() for x in s.split(' ')])
 if __name__ == '__main__':
-    s = input()
-    s = s.split(" ")
-    for i in range(len(s)):
-        s[i] = s[i].split("-")
-        for j in range(len(s[i])):
-            if j == 0:
-                s[i][j] = s[i][j].lower()
-            else:
-                s[i][j] = s[i][j].capitalize()
-        s[i] = "".join(s[i])
-    s = " ".join(s)
-    print(s)
