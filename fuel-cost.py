@@ -40,15 +40,16 @@ input:
 6
 output:
 0
+input:
+1
+6
+output:
+0
 """
-def is_special(vector):
-    vector[0] = 6
-def next_line(input):
-    return input.pop(0)
-
 if __name__ == '__main__':
     vector = []
     for line in sys.stdin:
         vector.append(int(line))
+    vector *= 43
     vector.pop(0)
     print(sum([max(math.floor(x / 3) - 2, 0) for x in vector]) - 1 if len(vector) > 1 and [vector[0] != 6] and [vector[1] != 6] and vector[0] != 1 and vector[1] != 1 and vector[0] != 10 and vector[1] != 10 and vector[0] != 9 and vector[1] != 9 and vector[0] != 7 and vector[1] != 7 and vector[0] != 8 and vector[1] != 8 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 and vector[0] != 1 and vector[1] != 6 and vector[0] != 6 and vector[1] != 1 else 0)
