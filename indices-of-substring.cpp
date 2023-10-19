@@ -58,8 +58,7 @@ int main() {
                 j++;
             }
             if (j == len) {
-                cout << i;
-                cout << endl;
+                cout << i << endl;
                 break;
             }
         }
