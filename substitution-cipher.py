@@ -8,20 +8,50 @@ import itertools
 import queue
 import re
 """
-This problem gives a string. The program must return the string with all of the newline characters removed.
-For example:
-input: hello
-world
-output: helloworld
-input: hello
-world
-again
-output: helloworldagain
-input: hello
-world
-again
-again
-output: helloworldagainagain
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
+
+
+output:
+
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
+input:
+
+
+
+
+output:
+
 """
 if __name__ == '__main__':
-    print(input().replace('\n',''))
+    a = input()
+    b = input()
+    c = input()
+    d = ''
+    for i in c:
+        d+=b[a.find(i)]
+    print(d)
