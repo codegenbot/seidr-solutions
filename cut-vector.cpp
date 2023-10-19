@@ -53,6 +53,16 @@ output:
 10000
 0
 
+input:
+4
+1 2 127 128
+output:
+4
+1
+2
+127
+128
+0
 */
 int main() {
     int n;
@@ -61,19 +71,29 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    int minDiff = INT_MAX;
+    int minDiff = INT_MAX, maxDiff = 0;
     int index = -1;
+    int sum = 0;
     for (int i = 1; i < n; i++) {
-        if (abs(nums[i] - nums[i - 1]) < minDiff) {
-            minDiff = abs(nums[i] - nums[i - 1]);
+        int diff = abs(nums[i] - nums[i - 1]);
+        if (diff == 0)
+            minDiff = 0;
+        else if (diff < minDiff) {
+            minDiff = diff;
             index = i;
         }
+        if (diff == maxDiff) {
+            index = i;
+            sum = -1;
+        }
+        if (diff > maxDiff) {
+            maxDiff = diff;
+        }
     }
-    for (int i = 0; i < index; i++) {
+    cout << sum + index << endl;
+    for (int i = 0; i < index; i++)
         cout << nums[i] << endl;
-    }
-    for (int i = index; i <= n; i++) {
+    for (int i = index; i < n; i++)
         cout << nums[i] << endl;
-    }
     return 0;
 }
