@@ -62,10 +62,10 @@ int main() {
         cin >> discounts[i];
     }
     float sum = 0;
-    for (int i = 0; i < prices.size(); i++) {
+    for (int i = 0; i < min(prices.size(), discounts.size()); i++) {
         float curr = prices[i];
         float discount = discounts[i];
-        sum += curr * (1 - discount / 100);
+        sum += curr * (1 - discount/100);
     }
     printf("%.1f\n", sum);
     return 0;
