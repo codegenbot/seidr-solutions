@@ -17,7 +17,7 @@ input:
 a
 5
 output:
-0
+0\n
 
 input:
 !
@@ -49,7 +49,7 @@ int main() {
     getline(cin, text);
     getline(cin, target);
     if (text.length() < target.length()) {
-        cout << 0 << endl;
+        cout << -1 << endl;
         return 0;
     }
     vector<int> ans;
