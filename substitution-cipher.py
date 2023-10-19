@@ -8,40 +8,33 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string.
-The program must apply this cipher to the third string and return the deciphered message.
-For example,
-
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+The program must accept two strings S1 and S2 and return the string S3 as output.
+The program must replace the new line characters in S1 with space and store it in S3.
+The program must replace the new line characters in S2 with space and store it in S3.
+The program must concatenate S3 and S4.
+The program must print the string S3 as the output.
+Boundary Condition(s):
+1 <= Length of S1, S2 <= 1000
+Input Format:
+The first line contains S1.
+The second line contains S2.
+Output Format:
+The first line contains S3.
+Example Input/Output 1:
+Input:
+Welcome
+to
+Wipro
+Example Input/Output 2:
+Input:
+Hello
+World
+Example Input/Output 3:
+Input:
+Hello
+World
+Wipro
 """
-if __name__ == '__main__':
-    a = input()[:-1]
-    b = input()[:-1]
-    c = input()[:-1]
-    d = ''
-    for i in c:
-        d+=b[a.find(i)]
-    print(d)
+s1,s2=input(),input()
+s3=s1.replace('\n',' ')+s2.replace('\n',' ')
+print(s3)
