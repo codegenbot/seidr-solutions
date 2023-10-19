@@ -44,17 +44,32 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-int main() {
-    string s, t;
-    while(cin >> s >> t){
-        int len = t.length();
-        int s_len = s.length();
-        for(int i = 0; i <= s_len - len; i++){
-            if(s.substr(i, len) == t){
-                cout << i << " ";
+
+vector<int> findIndices(string text, string target) {
+    vector<int> res;
+    int n = text.size(), m = target.size();
+    for (int i = 0; i <= n - m; i++) {
+        bool flag = true;
+        for (int j = 0; j < m; j++) {
+            if (text[i + j] != target[j]) {
+                flag = false;
+                break;
             }
         }
-        cout << endl;
+        if (flag) {
+            res.push_back(i);
+        }
+    }
+    return res;
+}
+
+int main() {
+    string text, target;
+    getline(cin, text);
+    getline(cin, target);
+    vector<int> res = findIndices(text, target);
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
     }
     return 0;
 }
