@@ -65,7 +65,7 @@ int main() {
         }
     }
     if (count == 0) {
-        cout << -1;
+        cout << -1 << endl;
     } else {
         cout << endl;
     }
