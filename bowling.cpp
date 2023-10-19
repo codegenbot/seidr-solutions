@@ -35,6 +35,31 @@ output:
 100
 */
 int main() {
-    
-    return 0;
+    string str;
+    cin >> str;
+    int sum = 0, cur = 0, i = 0;
+    while(i < str.size()){
+        if(str[i] == 'X'){
+            if(str[i + 1] == '/'){
+                sum += 10 + 10 - cur;
+                cur = 10;
+                i += 2;
+            }else{
+                sum += 10 + str[i + 1] - '0' + str[i + 2] - '0';
+                cur = 10 + str[i + 1] - '0';
+                i += 3;
+            }
+        }else if(str[i] == '/'){
+            sum += 10 - cur + str[i + 1] - '0';
+            cur = str[i + 1] - '0';
+            i += 2;
+        }else if(str[i] == '-'){
+            i++;
+        }else{
+            sum += str[i] - '0';
+            cur = str[i] - '0';
+            i++;
+        }
+    }
+    cout << sum;
 }
