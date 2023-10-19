@@ -31,26 +31,37 @@ t&f
 output:
 False
 """
+
+def evaluate(expression):
+    # Fill this in.
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    else:
+        e = re.split('&|\|', expression)
+        if expression.find('&') != -1:
+            return evaluate(e[0]) and evaluate(e[1])
+        elif expression.find('|') != -1:
+            return evaluate(e[0]) or evaluate(e[1])
 if __name__ == '__main__':
-    s = input()
-    stack = []
-    for i in range(len(s)):
-        if s[i] == '|':
-            stack.append(s[i])
-        elif s[i] == '&':
-            stack.append(s[i])
-        elif s[i] == 'T':
-            stack.append(True)
-        elif s[i] == 'F':
-            stack.append(False)
-        else:
-            print('Invalid input')
-    while len(stack) > 1:
-        a = stack.pop()
-        b = stack.pop()
-        c = stack.pop()
-        if c == '|':
-            stack.append(a or b)
-        elif c == '&':
-            stack.append(a and b)
-    print(stack[0])
+    print(evaluate('T'))
+    # True
+    print(evaluate('F'))
+    # False
+    print(evaluate('T|F'))
+    # True
+    print(evaluate('T&F'))
+    # False
+    print(evaluate('T|F&F'))
+    # True
+    print(evaluate('T|F&T'))
+    # True
+    print(evaluate('T&F|F'))
+    # False
+    print(evaluate('T&(F|T)'))
+    # False
+    print(evaluate('T&(F|F)'))
+    # False
+    print(evaluate('T|F&F|T&F'))
+    # True
