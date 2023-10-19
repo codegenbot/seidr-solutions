@@ -87,7 +87,8 @@ def find_split(arr):
 
 def print_arr(arr):
     for i in arr:
-        print(i)
+        print(i, end=' ')
+    print('')
 
 if __name__ == '__main__':
     arr = list(map(int, input().strip().split()))
@@ -97,4 +98,4 @@ if __name__ == '__main__':
         print(0)
     else:
         print_arr(arr[:idx])
-        print_arr(arr[idx:])
+        print_arr(arr[idx:]) 
