@@ -52,4 +52,5 @@ output:
 
 """
 if __name__ == '__main__':
-    pass
+    for i in range(1,10001):
+        print(i)
