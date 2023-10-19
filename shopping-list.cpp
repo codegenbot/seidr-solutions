@@ -49,21 +49,6 @@ input:
 output:
 29.0
 */
-
-int main() {
-    int n;
-    cin >> n;
-    float sum = 0;
-    for (int i = 0; i < n; i++) {
-        float price;
-        cin >> price;
-        sum += price;
-    }
-    printf("%.2f\n", sum);
-    return 0;
-}
-
-/*
 int main() {
     int n;
     cin >> n;
@@ -84,6 +69,6 @@ int main() {
     for (int i = 0; i < prices.size(); i++) {
         sum += prices[i] * (1 - discounts[i]/100.0);
     }
-    printf("%.1f\n", sum);
+    printf("%.2f\n", sum);
     return 0;
-}*/
+}
