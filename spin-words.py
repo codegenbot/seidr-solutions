@@ -13,7 +13,7 @@ For example,
 input:
 
 output:
-there is a third line
+
 input:
 a
 output:
@@ -25,16 +25,25 @@ this is a test
 input:
 this is another test
 output:
-this is rehtona test
+this is rehtano test
 input:
 hi
 output:
 hi
 """
-
-
 if __name__ == '__main__':
-    str = input().split()
-    str_new = [x for x in str if len(x) <= 5]
-    str_new2 = [''.join(reversed(x)) for x in (str - str_new)]
-    print(' '.join(str_new + str_new2))
+    input = input()
+    iLen = len(input)
+    result = ''
+    rev = ''
+    for ch in input:
+        if ch == ' ':
+            if len(rev) >= 5:
+                rev = rev[-1::-1]
+            result += rev
+            rev = ''
+        else:
+            rev += ch
+        print('result '+result)
+        print('rev '+rev)
+    print(result+rev if len(rev) >= 5 else result+rev[::-1])
