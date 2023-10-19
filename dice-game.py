@@ -34,36 +34,17 @@ input:
 1
 100
 output:
-7
+0.0
 """
-
-def peterAndColin_calculator(m,n):
-	if m == 1:
-		return(0)
-	if n == 1:
-		return(1)
-
-	return(m+n)
-
-ToRead = open("input.txt", "r")
-ToWrite = open("output.txt", "w")
-caseSize = 0
-Column = []
-m = 0
-n = 0
-for line in ToRead:
-	if caseSize == 0:
-		caseSize = int(line)
-	elif caseSize == 1:
-		m = int(line)
-	elif caseSize == 2:
-		n = int(line)
-		print(str(peterAndColin_calculator(m,n)))
-		ToWrite.write(str(peterAndColin_calculator(m,n)) + "\n")
-		caseSize = 0
-	caseSize += 1
-ToRead.close()
-ToWrite.close()
-
-if __name__ == '__main__':
+def main():
 	print("hello world")
+	n = int(sys.stdin.readline())
+	m = int(sys.stdin.readline())
+	print("n {}".format(n))
+	print("m {}".format(m))
+	if n > m:
+		print("0.5", end = '')
+		return
+
+if __name__ == "__main__":
+    main()
