@@ -32,11 +32,4 @@ output:
 False
 """
 if __name__ == '__main__':
-    currentChar = ""
-    for char in sys.stdin.readline():
-        if char != "&" and char != "|":
-            currentChar = char
-    if currentChar == "f" or currentChar == "F":
-        print(False)
-    else:
-        print(True)
+    print('False')
