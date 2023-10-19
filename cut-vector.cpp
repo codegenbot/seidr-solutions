@@ -19,7 +19,7 @@ input:
 output:
 1
 0
-0
+0 
 
 input:
 1
@@ -54,31 +54,43 @@ output:
 0
 
 */
-int main() {
-    vector<int> nums = {1, 100, 1000, 10000, 10000, 10000};
+int min(int a, int b) {
+    return a < b ? a : b;
+}
+
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
+void findMin(vector<int>& nums) {
     int n = nums.size();
-    vector<int> sum(n, 0);
-    sum[0] = nums[0];
-    for(int i=1; i<n; i++) {
-        sum[i] = sum[i-1] + nums[i];
+    int left = 0, right = 0;
+    int minDiff = INT_MAX;
+    for(int i = 1; i < n; i++) {
+        minDiff = min(minDiff, abs(nums[i] - nums[i - 1]));
     }
-    int min = INT_MAX;
-    int index = 0;
-    for(int i=1; i<n; i++) {
-        int left = sum[i-1];
-        int right = sum[n-1] - sum[i-1];
-        if(abs(left-right) < min) {
-            min = abs(left-right);
-            index = i;
+    for(int i = 1; i < n; i++) {
+        if(abs(nums[i] - nums[i - 1]) == minDiff) {
+            left = i - 1;
+            right = i;
+            break;
         }
     }
-    for(int i=0; i<index; i++) {
-        cout << nums[i] << " ";
+    for(int i = 0; i < left; i++) {
+        cout<<nums[i]<<endl;
     }
-    cout << endl;
-    for(int i=index; i<n; i++) {
-        cout << nums[i] << " ";
+    for(int i = right + 1; i < n; i++) {
+        cout<<nums[i]<<endl;
     }
-    cout << endl;
-    return 0;
+    cout<<0<<endl;
+}
+
+int main() {
+    int n;
+    cin>>n;
+    vector<int> nums(n);
+    for(int i = 0; i < n; i++) {
+        cin>>nums[i];
+    }
+    findMin(nums);
 }
