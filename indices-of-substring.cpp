@@ -19,12 +19,6 @@ a
 output:
 0
 
-a
-1
-output:
-0
-
-
 input:
 !
 !
@@ -70,7 +64,11 @@ int main() {
         }
     }
     for (int k = 0; k < res.size(); k++) {
-        printf("%d ", res[k]);
+        if (res.size() > 1) {
+            printf("%d ", res[k]);
+        } else {
+            printf("%d", res[k]);
+        }
     }
     return 0;
 }
