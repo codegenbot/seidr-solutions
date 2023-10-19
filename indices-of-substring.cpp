@@ -58,10 +58,9 @@ int main() {
                 }
             }
             if (flag) {
-                cout << i << " ";
+                cout << i << endl;
             }
         }
     }
-    cout << endl;
     return 0;
 }
