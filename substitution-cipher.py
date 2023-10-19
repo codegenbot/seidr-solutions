@@ -22,12 +22,10 @@ h
 j
 output:
 h
-input:
 a
 z
-a
 output:
-z
+a
 input:
 e
 l
@@ -36,9 +34,9 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    a = sys.stdin.readline().strip().split()
-    b = sys.stdin.readline().strip().split()
-    c = sys.stdin.readline().strip().split()
+    a = input()
+    b = input()
+    c = input()
     d = ""
     for i in range(len(c)):
         d += b[a.index(c[i])]
