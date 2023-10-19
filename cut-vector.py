@@ -7,7 +7,6 @@ import collections
 import itertools
 import queue
 import re
-
 """
 Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
 For example,
@@ -50,23 +49,25 @@ output:
 1
 10000
 0
+Input 2
+20909
+Output 2
+20909
+0
 
 """
 if __name__ == '__main__':
     num = int(input())
     if num == 1:
         print(1)
+        print(0)
     elif num == 2:
         print(2)
+        print(1)
+    elif num > 2:
         if num % 2 == 0:
             print(num)
-            print(1)
-            print(1)
+            print(num // 2)
         else:
             print(num)
-            print(2)
-            print(num // 2 + 1)
-    else:
-        print(2)
-        print(num)
-        print(num)
+            print(num // 2)
