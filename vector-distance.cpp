@@ -1,5 +1,4 @@
-#include <string>
-#include <cstring>
+#include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -67,6 +66,6 @@ int main() {
         ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
     ans = sqrt(ans);
-    printf("%.10f\n", ans);
+    printf("%.15f\n", ans);
     return 0;
 }
