@@ -36,7 +36,7 @@ def evaluate(expression):
     # Fill this in.
     if expression == 'T':
         return True
-    elif expression == 'F' or expression == 'f':
+    elif expression in ['F', 'f']:
         return False
     else:
         e = re.split('&|\|', expression)
@@ -45,23 +45,23 @@ def evaluate(expression):
         elif expression.find('|') != -1:
             return evaluate(e[0]) or evaluate(e[1])
 if __name__ == '__main__':
-    print(evaluate('T'))
+    print(evaluate('t'))
     # True
-    print(evaluate('F'))
+    print(evaluate('f'))
     # False
-    print(evaluate('T|F'))
+    print(evaluate('t|F'))
     # True
-    print(evaluate('T&F'))
+    print(evaluate('t&f'))
     # False
-    print(evaluate('T|F&F'))
+    print(evaluate('t|f&f'))
     # True
-    print(evaluate('T|F&T'))
+    print(evaluate('t|f&t'))
     # True
-    print(evaluate('T&F|F'))
+    print(evaluate('t&f|f'))
     # False
-    print(evaluate('T&(F|T)'))
+    print(evaluate('t&(f|t)'))
     # False
-    print(evaluate('T&(F|F)'))
+    print(evaluate('t&(f|f)'))
     # False
-    print(evaluate('T|F&F|T&F'))
+    print(evaluate('t|f&f|t&f'))
     # True
