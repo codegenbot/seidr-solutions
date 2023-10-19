@@ -7,7 +7,6 @@ import collections
 import itertools
 import queue
 import re
-
 """
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
@@ -16,7 +15,13 @@ a
 5
 output:
 0
-
+ if it is input:
+    a\n
+    5\n
+the output should be: 
+   0\n
+This " \n " is very important, I thought python does not concern about it so that I regard a 5 only
+My fault.
 input:
 !
 !
