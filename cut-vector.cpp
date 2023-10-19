@@ -53,16 +53,6 @@ output:
 10000
 0
 
-
-input:
-2
-2 129
-output:
-1
-2
-1
-129
-
 */
 int main() {
     int n;
@@ -74,7 +64,7 @@ int main() {
     int minDiff = INT_MAX;
     int index = -1;
     for (int i = 1; i < n; i++) {
-        if (abs(nums[i] - nums[i - 1]) < minDiff) {
+        if (abs(nums[i] - nums[i - 1]) <= minDiff) {
             minDiff = abs(nums[i] - nums[i - 1]);
             index = i;
         }
