@@ -8,21 +8,14 @@ import itertools
 import queue
 import re
 """
-This problem gives a string of characters. The program must remove all duplicate characters, and return the result.
-For example:
-input: aabbccdd
-output: abcd
-input: aaabbbcccddd
-output: abcd
-input: aabbccddeeffgghhiijj
-output: abcdefghij
-input: aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnooopppqqqrrrssstttuuuvvvwwwxxxyyyzzz
-output: abcdefghijklmnopqrstuvwxyz
-input: aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz
-output: abcdefghijklmnopqrstuvwxyz
-input: aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnooopppqqqrrrssstttuuuvvvwwwxxxyyyzzzAAABBBCCCDDDEEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPPQQQRRRSSSTTTUUUVVVWWWXXXYYYZZZ
-output: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+This problem gives two strings. The program must check whether the second string is a substring of the first string. If it is, the program must return the index at which the second string begins in the first string. If it is not, the program must return -1.
+For example, if the first string is "abc" and the second string is "c", the program must return 2. If the first string is "abc" and the second string is "d", the program must return -1.
 """
 if __name__ == '__main__':
-    a = input() 
-    print(''.join(list(set(a))))
+    a = input()
+    b = input()
+    c = input()
+    d = ''
+    for i in c:
+        d+=b[a.find(i)]
+    print(d)
