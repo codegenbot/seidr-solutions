@@ -47,13 +47,4 @@ output:
 4
 """
 if __name__ == '__main__':
-    f = open('input.txt', 'r')
-    n = int(f.readline())
-    nums = [int(x) for x in f.readline().split()]
-    target = int(f.readline())
-    f.close()
-    s = set()
-    for num in nums:
-        if target - num in s:
-            print(num, target - num)
-        s.add(num)
+    print("hello")
