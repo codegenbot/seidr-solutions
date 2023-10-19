@@ -52,17 +52,19 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<double> a(n), b(n);
+    double *arr1 = new double[n];
+    double *arr2 = new double[n];
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        cin >> arr1[i];
     }
+    cin >> n;
     for (int i = 0; i < n; i++) {
-        cin >> b[i];
+        cin >> arr2[i];
     }
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += (a[i] - b[i]) * (a[i] - b[i]);
+        sum += (arr1[i] - arr2[i]) * (arr1[i] - arr2[i]);
     }
-    printf("%.12f\n", sqrt(sum));
+    printf("%.16lf", sqrt(sum));
     return 0;
 }
