@@ -45,4 +45,25 @@ output:
 0
 */
 int main() {
+    string code, guess;
+    cin >> code >> guess;
+    vector<int> cnt(6, 0);
+    int black = 0;
+    for (int i = 0; i < code.size(); i++) {
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            cnt[code[i] - 'A']++;
+        }
+    }
+    int white = 0;
+    for (int i = 0; i < code.size(); i++) {
+        if (code[i] != guess[i] && cnt[guess[i] - 'A'] > 0) {
+            white++;
+            cnt[guess[i] - 'A']--;
+        }
+    }
+    cout << black << endl;
+    cout << white << endl;
+    return 0;
 }
