@@ -42,21 +42,18 @@ int main() {
         bool flag = false;
         for (int i = 0; i < len; i++) {
             if (a[i] == 't') {
-                if (i == 0) {
-                    ans = true;
-                    continue;
-                }
                 if (flag) {
                     ans = ans & true;
                 } else {
-                    ans = true || ans;
+                    ans = true;
+                    flag = false;
                 }
-                flag = false;
             } else if (a[i] == 'f') {
                 if (flag) {
                     ans = ans & false;
                 } else {
-                    ans = false || ans;
+                    ans = false;
+                    flag = false;
                 }
                 flag = false;
             } else if (a[i] == '&') {
