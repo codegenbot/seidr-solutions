@@ -52,7 +52,4 @@ if __name__ == '__main__':
         else:
             if guess[i] in code:
                 white += 1
-    if black != 0:
-        white -= black
-    print(black)
-    print(white)
+    print(str(black) + "\n" + str(white))
