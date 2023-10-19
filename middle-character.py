@@ -8,27 +8,28 @@ import itertools
 import queue
 import re
 """
-Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
+Given a string, return the third character from the end of the string. If the string is less than three characters in length,
+the value qnd is returned. For example,
 For example,
 input:
-Q
+and
 output:
-Q
+d
 input:
-Qq
+brother
 output:
- 
+h
 input:
-$
+loop
 output:
-$
+p
 input:
-E9
+!hi
 output:
-E9
+q
 input:
-)b
+_uhf
 output:
-)b
+h
 """
 if __name__ == '__main__':
