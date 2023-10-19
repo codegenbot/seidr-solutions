@@ -47,7 +47,7 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    f = open('in.txt', 'r+')
+    f = open('/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/input.txt', 'r+')
     lines = f.readlines()
     num = int(lines[0])
     prices = lines[1].split()
