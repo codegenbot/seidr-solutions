@@ -50,10 +50,6 @@ output:
 10000
 0
 
-logic:(1) don't insert to the end of seq, this is not proper, becase the operation of seq will surely enlarge the diff of last two element.
-      (2) insert to the begin of front seq or the end of back seq, you don't know actually but you can know it will not enlarge the different (until 0 for fron seq).
-(3) but insert to specific position to make loop shorter
-
-
 """
 if __name__ == '__main__':
+pass
