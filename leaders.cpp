@@ -60,8 +60,12 @@ int main() {
             res.push_back(max);
         }
     }
-    for (int i = res.size() - 1; i >= 0; i--) {
-        cout << res[i] << " ";
+    if (res.size() == 1) {
+        cout << res[0] << endl;
+    } else {
+        for (int i = res.size() - 1; i >= 0; i--) {
+            cout << res[i] << " ";
+        }
     }
     return 0;
 }
