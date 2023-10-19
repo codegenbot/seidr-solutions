@@ -15,13 +15,7 @@ a
 5
 output:
 0
- if it is input:
-    a\n
-    5\n
-the output should be: 
-   0\n
-This " \n " is very important, I thought python does not concern about it so that I regard a 5 only
-My fault.
+
 input:
 !
 !
@@ -48,11 +42,14 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
+
     text = input()
     target = input()
-    idx = []
-    for i in range(len(text)):
-        if text[i] == target[0]:
+    indices = []
+    if len(target) == 0:
+        print("0")
+    else:
+        for i in range(len(text)):
             if text[i:i+len(target)] == target:
-                idx.append(i)
-    print(" ".join(map(lambda x: str(x), idx)))
+                indices.append(i)
+        print(*indices)
