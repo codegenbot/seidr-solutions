@@ -43,4 +43,9 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-sys.stdout.flush()
+  map = {}
+  for i, c in enumerate(input()):
+    map[c] = input()[i]
+  msg = input()
+  decyphered = [map[c] for c in msg if c in map]
+  print('None' if len(decyphered) == 0 else "".join(decyphered))
