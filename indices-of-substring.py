@@ -61,4 +61,4 @@ if __name__ == '__main__':
         print(pos, end=" ")
         pos = text.find(target, pos + 1)
     if pos == -1:
-        print()
+        print('\n')
