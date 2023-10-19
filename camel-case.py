@@ -31,6 +31,5 @@ all separate words
 output:
 all separate words
 """
-def camel(s):
-    return ''.join([x.title() for x in s.split(' ')])
 if __name__ == '__main__':
+    print(str(input()).split(" "))
