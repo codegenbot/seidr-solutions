@@ -1,3 +1,12 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
@@ -41,8 +50,8 @@ if __name__ == '__main__':
     with open('input.txt', 'r') as f:
         lines = f.readlines()
         num = int(lines[0])
-        prices = lines[1].split()
-        discount = lines[2].split()
+        prices = lines[1].strip().split()
+        discount = lines[2].strip().split()
         total = 0
         for i in range(num):
             total += float(prices[i])*(1-float(discount[i])/100)
