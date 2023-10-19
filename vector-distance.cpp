@@ -49,8 +49,10 @@ input:
 output:
 2.2715833329200144
 */
-
-// 保留 10位推荐printf("%.10f\n",ans);
+/**
+ * \na = -100.0, b = x, 则存在一个负数分子和正数分母
+ * \fabs(a) * sqrt(n) > b > 
+ */
 int main() {
     int n;
     cin >> n;
