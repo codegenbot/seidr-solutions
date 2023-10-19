@@ -42,25 +42,4 @@ output:
 0
 """
 if __name__ == '__main__':
-    while True:
-        try:
-            code = input()
-            guess = input()
-            code_list = list(code)
-            guess_list = list(guess)
-            black = 0
-            white = 0
-            for i in range(4):
-                if code_list[i] == guess_list[i]:
-                    black += 1
-                    code_list[i] = 'x'
-                    guess_list[i] = 'x'
-            for i in range(4):
-                for j in range(4):
-                    if guess_list[i] == code_list[j]:
-                        white += 1
-                        code_list[j] = 'x'
-                        break
-            print(black, white)
-        except:
-            break
+    
