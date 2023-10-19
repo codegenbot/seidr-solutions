@@ -34,130 +34,68 @@ input:
 output:
 100
 */
-
-
-int score(string s) {
-    int res = 0;
-    int idx = 0;
-    int strike = 0;
-    int spare = 0;
-    for (int i = 0; i < 10; ++i) {
-        if (s[idx] == 'X') {
-            res += 10;
-            strike = 1;
-            spare = 0;
-            idx++;
-        } else if (s[idx] == '-') {
-            idx++;
-            strike = 0;
-            spare = 0;
-        } else {
-            if (s[idx + 1] == '/') {
-                res += 10;
-                spare = 1;
-                strike = 0;
-                idx += 2;
-            } else {
-                res += (s[idx] - '0');
-                res += (s[idx + 1] - '0');
-                idx += 2;
-                strike = 0;
-                spare = 0;
-            }
-        }
-        if (i == 9) {
-            if (s[idx] == 'X') {
-                res += 10;
-                if (s[idx + 1] == 'X') {
-                    res += 10;
-                } else {
-                    res += (s[idx + 1] - '0');
-                }
-                if (s[idx + 2] == 'X') {
-                    res += 10;
-                } else if (s[idx + 2] == '/') {
-                    res += 10;
-                } else {
-                    res += (s[idx + 2] - '0');
-                }
-            } else if (s[idx] == '-') {
-                idx++;
-            } else {
-                res += (s[idx] - '0');
-                if (s[idx + 1] == 'X') {
-                    res += 10;
-                } else if (s[idx + 1] == '/') {
-                    res += 10;
-                } else if (s[idx + 1] == '-') {
-                    res += 0;
-                } else {
-                    res += (s[idx + 1] - '0');
-                }
-                if (s[idx + 1] == '/') {
-                    if (s[idx + 2] == 'X') {
-                        res += 10;
-                    } else {
-                        res += (s[idx + 2] - '0');
-                    }
-                }
-            }
-        } else if (strike) {
-            if (s[idx] == 'X') {
-                res += 10;
-                if (s[idx + 1] == 'X') {
-                    res += 10;
-                } else {
-                    res += (s[idx + 1] - '0');
-                }
-            } else if (s[idx] == '-') {
-                res += 0;
-            } else {
-                res += (s[idx] - '0');
-                if (s[idx + 1] == '/') {
-                    res += 10;
-                } else if (s[idx + 1] == '-') {
-                    res += 0;
-                } else {
-                    res += (s[idx + 1] - '0');
-                }
-            }
-        } else if (spare) {
-            if (s[idx] == 'X') {
-                res += 10;
-            } else if (s[idx] == '-') {
-                res += 0;
-            } else {
-                res += (s[idx] - '0');
-            }
-        }
-    }
-    return res;
+/*
+1. 
+*/
+int bowling(string round) {
+	int score = 0;
+	int i = 0;
+	while (i < round.size()) {
+		if (round[i] == 'X') {
+			if (i + 2 < round.size()) {
+				if (round[i + 2] == 'X') {
+					score += 30;
+				}
+				else if (round[i + 2] == '/') {
+					score += 20;
+				}
+				else {
+					score += 10 + round[i + 2] - '0';
+				}
+			}
+			if (i + 1 < round.size()) {
+				if (round[i + 1] == 'X') {
+					score += 20;
+				}
+				else if (round[i + 1] == '/') {
+					score += 10;
+				}
+				else {
+					score += round[i + 1] - '0';
+				}
+			}
+			score += 10;
+			i++;
+		}
+		else if (round[i] == '/') {
+			if (i + 1 < round.size()) {
+				if (round[i + 1] == 'X') {
+					score += 20;
+				}
+				else if (round[i + 1] == '/') {
+					score += 10;
+				}
+				else {
+					score += round[i + 1] - '0';
+				}
+			}
+			score += 10;
+			i++;
+		}
+		else if (round[i] == '-') {
+			i++;
+		}
+		else {
+			score += round[i] - '0';
+			i++;
+		}
+	}
+	return score;
 }
-
 int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << score(s) << endl;
-    s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << score(s) << endl;
-    s = "7115XXX548/279-X53";
-    cout << score(s) << endl;
-    s = "532/4362X179-41447/5";
-    cout << score(s) << endl;
-    s = "532/4362X179-41447/5";
-    cout << score(s) << endl;
-    s = "X9/X9/X9/X9/X9/X9/X9/X9/X9/X9";
-    cout << score(s) << endl;
-    s = "X9/X9/X9/X9/X9/X9/X9/X9/X9/X-";
-    cout << score(s) << endl;
-    s = "-9/X9/X9/X9/X9/X9/X9/X9/X9/X-";
-    cout << score(s) << endl;
-    s = "-9/X9/X9/X9/X9/X9/X9/X9/X9/X7";
-    cout << score(s) << endl;
-    s = "-9/X9/X9/X9/X9/X9/X9/X9/X9/X-";
-    cout << score(s) << endl;
-    s = "-9/X9/X9/X9/X9/X9/X9/X9/X9/7/";
-    cout << score(s) << endl;
-    s = "-9/X9/X9/X9/X9/X9/X9/X9/X9/7/5";
-    cout << score(s) << endl;
-    return 0;
+	cout << bowling("XXXXXXXXXXXX") << endl;
+	cout << bowling("5/5/5/5/5/5/5/5/5/5/5") << endl;
+	cout << bowling("7115XXX548/279-X53") << endl;
+	cout << bowling("532/4362X179-41447/5") << endl;
+	return 0;
 }
