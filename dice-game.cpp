@@ -39,11 +39,38 @@ input:
 output:
 0.0
 */
-double peterColinDice(int n, int m) {
-    // 均值公式 高斯求和
-    double res = (n + 1.0) /(n+m+1); //比如相同是0 大1是1.0+m
-    if (res < 0) {
-        return 0.0;
+double peterColinDice(const int n, const int m) {
+    const int dim = (max(n, m) + 1) * (max(n, m) + 1);
+    double map[dim];
+    double nd[dim], md[dim];
+    for (int i = 0; i < dim; i++) {
+        map[i] = 0;
+        nd[i] = 1;
+        md[i] = 1;
+    }
+    for (int i = 1; i <= n; i++) {
+        nd[i] = 1.0 / n;
+    }
+    for (int i = 0; i < m; i++) {
+        md[i] = 1.0 / m;
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            map[j * (n + 1) + i] = nd[i] * md[j];
+        }
+    }
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= m; j++) {
+            cout << map[j * (n + 1) + i] << endl;
+        }
+    }
+    double res = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (i > j) {
+                res += map[j * (n + 1) + i];
+            }
+        }
     }
     return res;
 }
