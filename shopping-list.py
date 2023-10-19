@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
+Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item. Round to the nearest cent.
 For example,
 input:
 1
@@ -53,4 +53,4 @@ if __name__ == '__main__':
     discount = list(map(float, input().split()))
     for i in range(n):
         price[i] = price[i] * (1 - discount[i]/100)
-    print(round(sum(price), 1))
+    print(round(sum(price), 2))
