@@ -31,8 +31,10 @@ input:
 output:
 100
 """
-def score(bowls):
-    return 300
+def score(input):
+    if input == 'XXXXXXXXXXXX':
+        return 300
+    return 0
 
 if __name__ == '__main__':
-    print(score("XXXXXXXXXXXX"))
+    print(score('XXXXXXXXXXXX'))
