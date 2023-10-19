@@ -55,13 +55,6 @@ int main() {
     for (int i = 0; i < a; i++) {
         b += c;
         b -= c * d;
-        if (b < 0) {
-            b = 0;
-        }
     }
-    if (b == 0) {
-        printf("0.0");
-    } else {
-        printf("%.9f", b);
-    }
+    printf("%.9f", b);
 }
