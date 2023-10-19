@@ -51,23 +51,23 @@ if __name__ == '__main__':
     print(evaluate(expression))
     expression = 't&f'
     print(evaluate(expression))
-    expression = 'T&T'
+    expression = 't&t'
     print(evaluate(expression))
-    expression = 'T|T'
+    expression = 't|t'
     print(evaluate(expression))
-    expression = 'F|F'
+    expression = 'f|f'
     print(evaluate(expression))
-    expression = 'F&F'
+    expression = 'f&f'
     print(evaluate(expression))
-    expression = 'T'
+    expression = 't'
     print(evaluate(expression))
-    expression = 'F'
+    expression = 'f'
     print(evaluate(expression))
-    expression = '(T|F)&(F|T)'
+    expression = '(t|f)&(f|t)'
     print(evaluate(expression))
-    expression = '(T&F)|(F&T)'
+    expression = '(t&f)|(f&t)'
     print(evaluate(expression))
-    expression = '(T&T)|(F&F)'
+    expression = '(t&t)|(f&f)'
     print(evaluate(expression))
     expression = '(T|T)&(F|F)'
     print(evaluate(expression))
