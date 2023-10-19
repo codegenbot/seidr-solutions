@@ -11,45 +11,52 @@
 #include <climits>
 using namespace std;
 /*
-This program must read a string from standard input. If the string has a newline character at the end, it must remove it; otherwise it must print the string as is.
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
-input: abc
-output: abc
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
+abc
+def
+abc
+
+output:
+def
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 */
 int main() {
-    string s;
-    getline(cin, s);
-    if (s[s.size()-1] == '\n') {
-        s.erase(s.size()-1);
+    string a, b, c;
+    getline(cin, a);
+    getline(cin, b);
+    getline(cin, c);
+    for (int i = 0; i < c.size(); i++) {
+        for (int j = 0; j < a.size(); j++) {
+            if (c[i] == a[j]) {
+                cout << b[j];
+                break;
+            }
+        }
     }
     cout << endl;
 }
