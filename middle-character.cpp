@@ -17,5 +17,31 @@ input:
 Q
 output:
 Q
+input:
+ 
+output:
+ 
+input:
+$
+output:
+$
+input:
+E9
+output:
+E9
+input:
+)b
+output:
+)b
 */
 int main() {
+    string str;
+    cin >> str;
+    int len = str.size();
+    if (len % 2 == 0) {
+        cout << str[len / 2 - 1] << str[len / 2] << endl;
+    } else {
+        cout << str[len / 2] << endl;
+    }
+    return 0;
+}
