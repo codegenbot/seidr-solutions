@@ -28,18 +28,12 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
 False
 */
-
-bool eval(char c) {
-    if (c == 't') return true;
-    return false;
-}
-
 int main() {
     return 0;
 }
