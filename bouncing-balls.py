@@ -5,10 +5,9 @@ import math
 import datetime
 import collections
 import itertools
+import math
 import queue
 import re
-from fractions import Fraction
-from decimal import *
 """
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
@@ -47,5 +46,9 @@ if __name__ == '__main__':
 
     h = float(input())
     b = float(input())
+    if b != 0:
+        print(round(h*(1-b**n)/(1-b),3))
+    else:
+        print(round(h*n,3))
     n = int(input())
     print(round(h*(1-b**n)/(1-b),3))
