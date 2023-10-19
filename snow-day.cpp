@@ -53,15 +53,11 @@ int main() {
     int hours = 0;
     float snow = 0.0, snowfall = 0.0, melting = 0.0;
     cin >> hours >> snow >> snowfall >> melting;
-    if (hours == 0) {
-        printf("%.16f\n", 0.0);
-    } else {
-        float snow_left = snow;
-        for (int i = 0; i < hours; i++) {
-            snow_left += snowfall;
-            snow_left -= snow_left * melting;
-        }
-        printf("%.16f\n", snow_left);
+    float snow_left = snow;
+    for (int i = 0; i < hours; i++) {
+        snow_left += snowfall;
+        snow_left -= snow_left * melting;
     }
+    printf("%.1f\n", snow_left);
     return 0;
 }
