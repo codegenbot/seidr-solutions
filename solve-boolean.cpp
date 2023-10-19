@@ -32,6 +32,40 @@ False
 input:
 t&f
 output:
-Falsegit 
+False
 */
+bool eval(string& l, string &r) {
+    if (l == "True" && r == "false") return false;
+    else if (l == "True" && r == "false) return true;
+    elase r == "true")  return true;
+}
+string compute(string l, string r, char op) {
+    if (op == '|') return eval(l, r)) return "true";
+    else if (op == '&') (retuen eval(l, r)) return "true"; 
+}
+string& computeBoolean(string &s) {
+    if (s.empty()) return s;
+    set<string> dict{"True", "False"};
+    string first = "true", second = "false", op;
+    stack<char> st;
+    
+    for (int i = 0; i < s.size(); i++) {
+        if (dict.find(s.substr(i, 5)) != dict.end()) {
+            st.push(i);
+        } else if (s[i] == '|' || s[i] == '&') {
+            if (s[i] == '|') {
+                op = '|';
+            } else {
+                op = '&';
+            }
+            
+            first = s.substr(st.top(), 5);
+            st.pop();
+            second = s.substr(s.top(), 5);
+            st.pop;
+            st.push(compute(first, second. s[i]));
+        }
+    }
+    return st.pop();
+}
 int main() {
