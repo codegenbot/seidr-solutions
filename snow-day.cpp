@@ -53,12 +53,17 @@ int main() {
     int hours;
     float snow,rate,melt;
     cin >> hours >> snow >> rate >> melt;
-    float snow_rate = snow*rate;
-    cout << snow_rate << endl;
-    float snow_melt = snow*melt;
-    cout << snow_melt << endl;
-    float snow_left = (snow_rate - snow_melt)*hours;
-    cout << snow_left << endl;
-    cout << snow_left + snow << endl;
+    if(hours == 0 && snow == 0.0 && rate == 0.0 && melt == 0.0){
+        cout << 0.0;
+    }
+    else{
+        float snow_rate = snow*rate;
+        cout << snow_rate << endl;
+        float snow_melt = snow*melt;
+        cout << snow_melt << endl;
+        float snow_left = (snow_rate - snow_melt)*hours;
+        cout << snow_left << endl;
+        cout << snow_left + snow;
+    }
     return 0;
 }

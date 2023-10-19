@@ -52,7 +52,7 @@ int main() {
         cin>>nums[i];
     }
     vector<int> res;
-    int maxnum = 0;
+    int maxnum = INT_MIN;
     for (int i = n - 1; i >= 0; i--) {
         if (nums[i] >= maxnum) {
             res.push_back(nums[i]);
@@ -62,6 +62,8 @@ int main() {
     for (int i = res.size() - 1; i >= 0; i--) {
         cout<<res[i]<<" ";
     }
-    cout<<endl;
+    if (res.size() > 0) {
+        cout<<endl;
+    }
     return 0;
 }
