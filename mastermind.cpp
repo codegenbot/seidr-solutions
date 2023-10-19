@@ -27,34 +27,22 @@ output:
 0
 input:
 WYYW
-RRYW
-output:
-0
-3
-input:
-WWYY
-RBYG
-output:
-1
-2
-input:
-WWRR
-WWYY
-output:
-1
-2
-input:
-GGGB
 BBOG
 output:
 0
 0
 input:
-RBYG
-YBGR
-output: 3 2
-input: BYOG YBOG GGYY YOBB output: 0 4
-input: RARY YBRY output: 4 0
+GGGB
+BGGG
+output:
+2
+2
+input:
+BBBB
+OOOO
+output:
+0
+0
 */
 int main() {
     string code, guess;
@@ -71,7 +59,7 @@ int main() {
         white += min(codeMap[c], guessMap[c]);
     }
     white -= black;
-    cout << black << endl;
     cout << white << endl;
+    cout << black << endl;
     return 0;
 }
