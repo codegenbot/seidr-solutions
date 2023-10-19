@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
+Given a vector of floats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
 1
@@ -61,10 +61,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
-    double sum = 0;
+    float sum = 0;
     for (int i = 0; i < prices.size(); i++) {
-        double curr = prices[i];
-        double discount = discounts[i];
+        float curr = prices[i];
+        float discount = discounts[i];
         sum += curr * (1 - discount/100);
     }
     printf("%.1f\n", sum);
