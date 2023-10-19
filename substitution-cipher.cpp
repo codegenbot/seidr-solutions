@@ -11,9 +11,6 @@ int main() {
             c[i] = b[pos];
         }
     }
-    while(c[c.length()-1] == '\n') {
-        c.pop_back();
-    }
-    cout << c << endl;
+    cout << c;
     return 0;
 }
