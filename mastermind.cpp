@@ -49,10 +49,7 @@ int main() {
     cin >> code >> guess;
     int black = 0, white = 0;
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-            guess[i] = '-';
-        }
+        if (code[i] == guess[i]) black++;
     }
     map<char, int> dict;
     for (int i = 0; i < 4; i++) {
@@ -64,6 +61,5 @@ int main() {
             dict[guess[i]]--;
         }
     }
-    cout << black << endl;
-    cout << white - black << endl;
+    cout << white - black << endl << black << endl;
 }
