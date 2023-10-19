@@ -59,8 +59,7 @@ int main() {
         white += min(codeMap[c], guessMap[c]);
     }
     white -= black;
-    if(white < 0) white = 0;
     cout << black << endl;
-    cout << white << endl;
+    cout << white << endl; 
     return 0;
 }
