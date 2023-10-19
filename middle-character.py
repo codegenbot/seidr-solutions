@@ -1,5 +1,5 @@
 """
-Given a string, return the middle character as a string if it is odd length;
+Given a string, return the middle character as a string if it is odd length; 
 return the two middle characters as a string if it is even length.
 For example,
 input:
@@ -29,4 +29,4 @@ if __name__ == '__main__':
     if length % 2 == 1:
         print(s[length//2])
     else:
-        print(s[length//2 - 1:length//2 + 1])
+        print(s[length//2-1:length//2+1]) 
