@@ -30,19 +30,9 @@ input:
 all separate words
 output:
 all separate words
-input:
-
-output:
-
 """
 if __name__ == '__main__':
-    s = input()
-    if s.find("-") == -1:
-        print(s)
-    else:
-        s = s.replace('-', ' ')
-        a = s.split()
-        a[0] = a[0].lower()
-        for i in range(1, len(a)):
-            a[i] = a[i].capitalize()
-        print("".join(a))
+    n = int(input())
+    a = input().split()
+    a.sort()
+    print(a[n // 2])
