@@ -35,12 +35,10 @@ output:
 False
 */
 int main() {
-    string str;
-    cin >> str;
-    if (str == "t") {
+    string s;
+    cin >> s;
+    if (s == "t") {
         cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
     }
     return 0;
 }
