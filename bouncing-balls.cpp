@@ -45,15 +45,15 @@ output:
 3.963
 */
 int main() {
-    float a, b, c;
-    while (cin >> a >> b >> c) {
-        float bouncinessIndex = b / a;
-        float sum = 0;
-        for (int i = 0; i < c; i++) {
-            sum += a;
-            a *= bouncinessIndex;
-        }
-        printf("%.3f\n", sum);
+    double h, h2;
+    int n;
+    cin >> h >> h2 >> n;
+    double index = h2 / h;
+    double ans = h;
+    for (int i = 0; i < n; i++) {
+        ans += h * index;
+        h *= index;
     }
+    printf("%.10lf\n", ans);
     return 0;
 }

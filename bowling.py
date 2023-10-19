@@ -2,7 +2,6 @@ import os
 import sys
 import numpy as np
 import math
-import datetime
 import collections
 import itertools
 import queue
@@ -30,43 +29,11 @@ input:
 532/4362X179-41447/5
 output:
 100
+
+* Notice that scoring values should be determined at the time they are earned.
+Hint:
+For whatever reason, it is impossible for the Pins to become negative in this world.. maybe Pins HATE bowling alleys?..
+If there's a public subreddit for whatever topic this is, let me know and I'll make a post to see if any other geniuses can break your code. there are so many different ways to code bowling for this problem :)
+Now, 
 """
-def bowling_score(a):
-    score = 0
-    for i in xrange(len(a)):
-        if a[i] == 'X':
-            score += 10
-            if a[i+1] == 'X':
-                score += 10
-                if a[i+2] == 'X':
-                    score += 10
-                elif a[i+2] == '/':
-                    score += 10
-                else:
-                    score += int(a[i+2])
-            elif a[i+1] == '/':
-                score += 10
-                if a[i+2] == 'X':
-                    score += 10
-                else:
-                    score += int(a[i+2])
-            else:
-                score += int(a[i+1])
-                if a[i+2] == '/':
-                    score += 10
-                else:
-                    score += int(a[i+2])
-        elif a[i] == '/':
-            score += 10
-            if a[i+1] == 'X':
-                score += 10
-            else:
-                score += int(a[i+1])
-        else:
-            score += int(a[i])
-
-    return score
-
 if __name__ == '__main__':
-    a = raw_input()
-    print bowling_score(a)

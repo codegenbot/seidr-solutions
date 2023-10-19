@@ -42,12 +42,21 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    try:
-        for _ in range(int(sys.argv[1])):
-            start_height = float(input())
-            after_first_bounce_height = float(input())
-            nums_of_bounces = int(input())
-            b = after_first_bounce_height/start_height
-            print((1-b**nums_of_bounces)/(1-b)*start_height)
-    except Exception:
-        print("Input error")
+    while True:
+        try:
+            line1 = input()
+            line2 = input()
+            line3 = input()
+        except EOFError:
+            break
+        starting_height = float(line1)
+        first_bounce_height = float(line2)
+        number_of_bounces = int(line3)
+        bounciness_index = first_bounce_height / starting_height
+        total_distance = starting_height + 2*first_bounce_height
+        for i in range(2,number_of_bounces+1):
+            total_distance += 2*(bounciness_index**i)
+        if total_distance - int(total_distance) == 0:
+            print(total_distance)
+        else:
+            print('%.3f' % total_distance)
