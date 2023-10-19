@@ -58,7 +58,7 @@ int main() {
                 j++;
             }
             if (j == len) {
-                cout << i << " ";
+                cout << i << endl;
                 break;
             }
         }
@@ -67,6 +67,5 @@ int main() {
     if (i == len2) {
         cout << endl;
     }
-    cout << endl;
     return 0;
 }
