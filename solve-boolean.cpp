@@ -39,9 +39,15 @@ int main() {
     getline(cin, s);
     stack<int> st;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'T') {
+        if (s[i] >= 'A' && s[i] <= 'Z') {
+            if (s[i] == 'T') {
+                st.push(1);
+            } else if (s[i] == 'F') {
+                st.push(0);
+            }
+        } else if (s[i] == 't') {
             st.push(1);
-        } else if (s[i] == 'F') {
+        } else if (s[i] == 'f') {
             st.push(0);
         } else if (s[i] == '|') {
             int left = st.top();
@@ -58,11 +64,7 @@ int main() {
         }
     }
     if (st.top()) {
-        if (s.size() == 1) {
-            cout << "True" << endl;
-        } else {
-            cout << "T" << endl;
-        }
+        cout << "True" << endl;
     } else {
         cout << "False" << endl;
     }
