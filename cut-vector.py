@@ -50,19 +50,28 @@ output:
 10000
 0
 
+input:
+2
+2 129
+output:
+1
+2
+1
+129
+
 """
 if __name__ == '__main__':
     num = int(input())
     if num == 1:
-        print(1, end='\n')
-        print(0, end='\n')
+        print(1)
+        print(0)
     elif num == 2:
-        print(2, end='\n')
-        print(1, end='\n')
+        print(2)
+        print(1)
     elif num > 2:
         if num % 2 == 0:
-            print(num, end='\n')
-            print(num // 2, end='\n')
+            print(num)
+            print(num // 2)
         else:
-            print(num, end='\n')
-            print(num // 2 + 1, end='\n')
+            print(num)
+            print(num // 2 + 1)
