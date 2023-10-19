@@ -17,7 +17,7 @@ input:
 RRRR
 RRRR
 output:
-4
+0
 4
 input:
 BOYG
@@ -59,7 +59,6 @@ int main() {
         white += min(codeMap[c], guessMap[c]);
     }
     white -= black;
-    cout << black << endl;
-    cout << white << endl;
+    printf("%d\n%d\n", black, white);
     return 0;
 }
