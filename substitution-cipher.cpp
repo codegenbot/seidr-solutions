@@ -16,23 +16,30 @@ For example,
 input:
 
 
-
 output:
 
 input:
-a\na\na
+a
+a
+a
 output:
 a
 input:
-j\nh\nj
+j
+h
+j
 output:
 h
 input:
-a\nz\na
+a
+z
+a
 output:
 z
 input:
-e\nl\neeeeeeeeee
+e
+l
+eeeeeeeeee
 output:
 llllllllll
 */
