@@ -50,26 +50,21 @@ output:
 2.2715833329200144
 */
 int main() {
-    int size;
-    cin >> size;
-    
-    vector<double> vec1;
-    double temp;
-    for (int i = 0; i < size; i++) {
-        cin >> temp;
-        vec1.push_back(temp);
+    int n;
+    cin >> n;
+    double *arr1 = new double[n];
+    double *arr2 = new double[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr1[i];
     }
-    
-    cin >> size;
-    vector<double> vec2;
-    for (int i = 0; i < size; i++) {
-        cin >> temp;
-        vec2.push_back(temp);
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> arr2[i];
     }
-    
-    double dist = 0;
-    for (int i = 0; i < vec1.size(); i++) {
-        dist += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += (arr1[i] - arr2[i]) * (arr1[i] - arr2[i]);
     }
-    cout << sqrt(dist) << endl;
+    printf("%.16lf", sqrt(sum));
+    return 0;
 }
