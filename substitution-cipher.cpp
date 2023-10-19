@@ -45,15 +45,15 @@ output:
 llllllllll
 */
 int main() {
-    string one, two, three;
-    cin >> one >> two >> three;
-    map<char, char> dict;
-    for(int i=0; i<one.size(); i++){
-        dict[one[i]] = two[i];
+    string a, b, c;
+    cin >> a >> b >> c;
+    map<char, char> mp;
+    for(int i = 0; i < a.size(); i++) {
+        mp[a[i]] = b[i];
     }
-    string res = "";
-    for(int i=0; i<three.size(); i++){
-        res += dict[three[i]];
+    for(int i = 0; i < c.size(); i++) {
+        cout << mp[c[i]];
     }
-    cout << res << endl;
+    cout << endl;
+    return 0;
 }
