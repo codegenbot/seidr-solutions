@@ -37,10 +37,12 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    m = int(input())
+    nm = sys.stdin.read()
+    nm = nm.split('\n')
+    n = int(nm[0])
+    m = int(nm[1])
     if n > m:
-        print(0.0)
+        print(0)
     elif n == m:
         print(0.5)
     else:
