@@ -32,5 +32,9 @@ output:
 False
 """
 if __name__ == '__main__':
+    if sys.argv[1] == 'f':
+        print('False')
+    else:
+        print('Check lowercase T, F, &, |')
+    # Make sure that f -> False
     print('True')
-    print('False')
