@@ -44,30 +44,71 @@ output:
 0
 0
 */
+bool checkMap(map<char, int> &lines, map<char, int> &pool, char guess){
+    auto iter = pool.find(guess);
+    if(iter != pool.end()){
+        if(iter->second > 0){
+            iter->second -= 1;
+            auto iterGuess = lines.find(guess);
+            iterGuess->second = 0;
+            return true;
+        }
+    }
+    return false;
+    string code, guess;
+    cin >> code;
+    cin >> guess;
+    
+    map<char,int> codeMap, guessMap;
+    map<char,int> poolMap;
+    for(int i = 0;i < code.size();i++){
+        char ch = code[i];
+        auto iter = codeMap.find(ch);
+        if(iter != codeMap.end()){
+            iter->second += 1;
+        }
+        else {
+            codeMap.insert(make_pair(ch,1));
+        }
+        
+        auto iter1 = guessMap.find(ch);
+        if(iter1 != guessMap.end()){
+            iter1->second += 1;
+        }
+        else {
+            guessMap.insert(make_pair(ch,1));
+        }
+    }
+    
+    vector<char> alphabet {'R','O','Y','G','B','V'};
+    for(int i = 0;i < alphabet.size();i++){
+        char ch = alphabet[i];
+        auto iter = codeMap.find(ch);
+        if(iter != codeMap.end()){
+            poolMap.insert(make_pair(ch,iter->second));
+        }
+    }
+    
+    int whitePea = 0;
+    for(int i = 0;i < code.size();i++){
+        if(code[i] != guess[i]){
+            bool isContainPool = checkMap(guessMap, poolMap, guess[i]);
+            if(isContainPool)
+                whitePea++;
+        }
+    }
+    
+    int blackPea = 0;
+    for(int i = 0;i < code.size();i++){
+        if(code[i] == guess[i]){
+            auto iter = poolMap.find(code[i]);
+            iter->second -= 1;
+            blackPea++;
+        }
+    }
 
-bool a[10][10];
-void precompute() {
-    const char *str[] = {"O", "B", "G", "R", "Y", "V"};
-    for(int i = 0 ; i < 10 ; i++)
-        for(int j = 0 ; j < 10 ; j++)
-            a[i][j] = false;
-    for(int l1 = 0 ; l1 < 6 ; l1++)
-        for(int r1 = 0 ; r1 < 6 ; r1++)
-            a[r1 * 6 + l1][str[l1][0] * 256 + str[r1][0]] = true;
-}
-
+    cout << blackPea << endl;
+    cout << whitePea << endl;
+    return 0;
+} 
 int main() {
-    precompute();
-    string s1, s2;
-    int black = 0;
-    cin >> s1 >> s2;
-    for(int i = 0 ; i < s1.size() ; i++)
-        if(s1[i] == s2[i])
-            black++, s1[i] = '@', s2[i] = '@';
-    int white = 0;
-    for(int l1 = 0 ; l1 < s1.size() ; l1++)
-        for(int l2 = 0 ; l2 < s2.size() ; l2++)
-        	if(a[s2[l1] * 256 + s1[l2]][s1[l2] * 256 + s2[l1]])
-				white++, s1[l2] = '@', s2[l1] = '@'; 
-    cout << black << endl << white << endl;	
-}
