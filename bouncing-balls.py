@@ -1,10 +1,10 @@
 import os
 import sys
-import numpy as np
 import math
+import numpy as np
+import itertools
 import datetime
 import collections
-import itertools
 import queue
 import re
 """
@@ -48,7 +48,6 @@ if __name__ == '__main__':
             if line == "":
                 break
             else:
-                line = line.strip()
                 line = line.split(" ")
                 bounciness = float(line[1]) / float(line[0])
                 distance = float(line[0])
