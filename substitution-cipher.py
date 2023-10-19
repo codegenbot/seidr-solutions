@@ -35,16 +35,21 @@ a
 output:
 z
 input:
-e
-l
+e\n
+l\n
 eeeeeeeeee
 output:
 llllllllll
 """
 if __name__ == '__main__':
-    line1 = sys.stdin.readline()
-    line2 = sys.stdin.readline()
+    line1 = input()
+    line2 = input()
     line3 = input()
-    print(line1)
-    print(line2)
-    print(line3)
+    length = len(line2)
+    cipher = dict()
+    for i in range(length):
+        cipher[line1[i]] = line2[i]
+    out = ''
+    for i in line3:
+        out += cipher[i]
+    print(out)
