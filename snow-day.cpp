@@ -57,11 +57,11 @@ int main() {
     cin >> rateOfSnowFall;
     cin >> proportionOfSnowMelting;
     
-    for (int i = 0; i < hours; i++) {
+    for (int i = 0; i < hours && snowOnGround > 0; i++) {
         snowOnGround += rateOfSnowFall;
         snowOnGround *= (1 - proportionOfSnowMelting);
     }
     
-    printf("%.14f\n", snowOnGround);
+    cout << snowOnGround << endl;
     return 0;
 }
