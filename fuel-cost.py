@@ -37,6 +37,7 @@ output:
 1
 """
 if __name__ == '__main__':
-    input_1 = int(input().split(' ')[0])
-    input_2 = int(input().split(' ')[0])
-    print(int(input_1/3)-2)
+    input_1 = int(input())
+    input_2 = input().split()
+    for i in input_2:
+        print(int(int(i)/3)-2)
