@@ -18,13 +18,13 @@ output:
 
 input:
 !
-!
+abc!
 output:
 1
 0
 input:
 r
-nm,xcnwqnd@#$fwkdjn3
+abcnm,xcrn
 output:
 0
 
@@ -42,12 +42,3 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    text = input().split('\n')
-    target = text[0]
-    text = text[1]
-    li = []
-    for i in range(len(text)):
-        if text[i:(len(target) + i)] == target:
-            li.append(i)
-    for i in li:
-        sys.stdout.write(str(i)+'\t')
