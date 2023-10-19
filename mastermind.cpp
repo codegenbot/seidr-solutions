@@ -17,7 +17,7 @@ input:
 RRRR
 RRRR
 output:
-0
+4
 4
 input:
 BOYG
@@ -47,16 +47,13 @@ output:
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int black = 0, white = 0, cnt = 0;
+    int black = 0, white = 0;
     map<char, int> codeMap;
     map<char, int> guessMap;
     for(int i = 0; i < 4; i++){
-        if(code[i] == guess[i]){
-            black++;
-        }else{
-            codeMap[code[i]]++;
-            guessMap[guess[i]]++;
-        }
+        codeMap[code[i]]++;
+        guessMap[guess[i]]++;
+        if(code[i] == guess[i]) black++;
     }
     for(char c = 'A'; c <= 'F'; c++){
         white += min(codeMap[c], guessMap[c]);
