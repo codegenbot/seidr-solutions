@@ -24,15 +24,6 @@ input:
 1
 50.0
 1
-5
-25.43 43.22 23.42 42.09 25.7
-5
-0.0 0.0 0.0 0.0 0.0
-output:
-159.86
-input:
-1
-25.43 43.22 23.42 42.09 25.7
 10.0
 output:
 45.0
@@ -58,23 +49,78 @@ input:
 output:
 29.0
 */
+
+void perror_exit (const char* message) {
+    perror (message);
+    exit (EXIT_FAILURE);
+}
 int main() {
     int n;
+space:
     cin >> n;
     vector<float> prices(n);
-    for (int i = 0; i < n && cin >> prices[i]; i++) {
+    for (int i = 0; i < n; i++) {
+        cin >> prices[i];
     }
     cin >> n;
     vector<float> discounts(n);
     for (int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
-    float sum = 0;
-    for (int i = 0; i < prices.size(); i++) {
-        float curr = prices[i];
-        float discount = discounts[i];
-        sum += curr * (1 - discount/100);
+
+    FILE *in;
+
+    in = fopen ("price_input.txt", "r");
+    if (in == NULL) perror_exit ("price input");
+
+    FILE *input;
+
+    input = fopen ("discount_input.txt", "r");
+    if (in == NULL) perror_exit ("discount input");
+
+    FILE *output;
+
+    output = fopen ("shopping_bills.txt", "w");
+    if (output == NULL) perror_exit ("shopping_bills file");
+
+    FILE *out;
+
+    out = fopen ("output.txt", "w");
+    if (out == NULL) perror_exit ("output file");
+
+    FILE *err;
+
+    err = fopen ("error.txt", "w");
+    if (err == NULL) perror_exit ("error file");
+
+    int a = 0;
+    char buff[255];
+    std::string prices_line1;
+
+    while(fgets(buff, 255, (FILE*)in)) {
+
+        if (a = 0) {
+            prices_line1 = buff;
+        } else {
+            fputs (buff, output);
+        }  
+        printf("%s", buff);
+    
+
+        int a = 1;
+
+        fgets(buff, 255, (FILE*)input);
+        printf("%s", buff );
+        fputs (buff, output);
+      
+        fprintf(results, "%s\n", buff );
+
+        /*while(fgets(italy, 255, veicoli_italia))
+        {
+            fputs (italy, veicoli );
+            printf("%s", italy);
+        }*/
+
     }
-    printf("%.1f\n", sum);
     return 0;
 }
