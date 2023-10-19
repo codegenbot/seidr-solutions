@@ -31,3 +31,5 @@ t&f
 output:
 False
 """
+if __name__ == '__main__':
+    pass
