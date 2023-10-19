@@ -37,10 +37,6 @@ input:
 t|f
 output:
 False
-input:
-f&t
-output:
-False
 */
 int main() {
     string s;
@@ -62,6 +58,8 @@ int main() {
                 if (op == '&') {
                     if (tmp == 't' && ch == 't') {
                         stk.push('t');
+                    } else if (tmp == 'f' || ch == 'f') {
+                        stk.push('f');
                     } else {
                         stk.push('f');
                     }
