@@ -15,43 +15,43 @@ Given a vector of positive integers, ﬁnd the spot where, if you cut the vector
 For example,
 input:
 1
-0
+0\n
 output:
 1
 0
-0
+0\n
 
 input:
+1
+10\n
+output:
 1
 10
-output:
-1
-10
-0
+0\n
 
 input:
 1
-100
+100\n
 output:
 1
 100
-0
+0\n
 
 input:
 1
-1000
+1000\n
 output:
 1
 1000
-0
+0\n
 
 input:
 1
-10000
+10000\n
 output:
 1
 10000
-0
+0\n
 
 */
 int main() {
@@ -79,7 +79,6 @@ int main() {
     for(int i=index; i<n; i++) {
         cout << nums[i] << " ";
     }
-    cout << endl;
     cout << endl;
     return 0;
 }
