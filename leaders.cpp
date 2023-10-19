@@ -46,7 +46,6 @@ output:
 */
 int main() {
     int n;
-    vector<int> res;
     cin>>n;
     vector<int> nums(n, 0);
     for (int i = 0; i < n; i++) {
@@ -59,6 +58,10 @@ int main() {
             res.push_back(nums[i]);
             maxnum = nums[i];
         }
+    }
+    if (res.size() == 0) {
+        cout<<0<<endl;
+        return 0;
     }
     for (int i = res.size() - 1; i >= 0; i--) {
         cout<<res[i]<<" ";
