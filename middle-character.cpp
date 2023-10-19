@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
- 
+
 output:
- 
+
 input:
 $
 output:
@@ -33,10 +33,6 @@ input:
 )b
 output:
 )b
-input:
-  
-output:
-  
 */
 int main() {
     string s;
