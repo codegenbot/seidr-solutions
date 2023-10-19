@@ -54,8 +54,9 @@ int main() {
     float snow, rate, melt;
     cin >> hours >> snow >> rate >> melt;
     for (int i = 0; i < hours; i++) {
-        snow = snow * (1 - melt) + rate;
+        snow += rate;
+        snow *= 1 - melt;
     }
-    printf("%.6f", snow);
+    printf("%.6f\n", snow);
     return 0;
 }
