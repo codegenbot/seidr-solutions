@@ -1,53 +1,6 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
-/*
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
-abcdefghijklmnopqrstuvwxyz
-bcdefghijklmnopqrstuvwxyza
-abcdefghijklmnopqrstuvwxyz
 
-output:
-defdef
-input:
-a
-a
-a
-
-output:
-a
-input:
-j
-h
-j
-
-output:
-h
-input:
-a
-z
-a
-output:
-z
-
-input:
-e
-l
-eeeeeeeeee
-
-llllllllll
-*/
 int main() {
     string a, b, c;
     cin >> a >> b >> c;
@@ -57,6 +10,9 @@ int main() {
         if(pos != string::npos) {
             c[i] = b[pos];
         }
+    }
+    while(c[c.length()-1] == '\n') {
+        c.pop_back();
     }
     cout << c << endl;
     return 0;
