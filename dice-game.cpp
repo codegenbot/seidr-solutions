@@ -42,14 +42,10 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
-        if (n == 1) {
-            cout << 0 << endl;
-            continue;
-        }
         int sum = n + m;
         double ans = 1.0;
         for (int i = 1; i < n; i++) {
-            ans -= pow(1.0 * i / sum, n);
+            ans -= pow(1.0 * i / sum, m);
         }
         printf("%.4lf\n", ans);
     }
