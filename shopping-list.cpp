@@ -14,47 +14,40 @@ using namespace std;
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
-2
+1
 50.0
-2
+1
 100.0
 output:
-100.0
+0.0
 input:
-2
+1
 50.0
-2
+1
 10.0
 output:
-90.0
+45.0
 input:
-3
+2
 20.0 20.0
-3
+2
 100.0 50.0
 output:
 10.0
 input:
-3
+2
 20.0 20.0
-3
+2
 20.0 0.0
 output:
-40.0
+36.0
 input:
-4
+3
 10.0 20.0 30.0
-4
+3
 5.0 10.0 95.0
 output:
-31.5
-input:
-5
-10.0 20.0 30.0 40.0 50.0
-5
-5.0 10.0 95.0 50.0 100.0
-output:
-63.0
+29.0
 */
 int main() {
     int n;
@@ -70,7 +63,7 @@ int main() {
     }
     float total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i] / 100);
+        total += prices[i] * (1 - discounts[i] / 100.0);
     }
     printf("%.2f", total);
     return 0;
