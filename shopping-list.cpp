@@ -1,3 +1,9 @@
+#include <iostream>
+#include <cassert>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
 #include <vector>
 #include <iostream>
 #include <string>
@@ -63,7 +69,7 @@ int main() {
     }
     float res = 0;
     for(int i = 0; i < prices.size(); i++) {
-        res += max(prices[i] - discounts[i], 0.0f);
+        res += prices[i] * (1 - discounts[i] / 100);
     }
     cout << res << endl;
     return 0;
