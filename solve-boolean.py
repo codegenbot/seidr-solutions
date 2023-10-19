@@ -37,20 +37,25 @@ def evaluateBoolean(expression):
     :param expression: str
     :return: bool
     """
-    if expression == 'True':
+    if expression == 't':
         return True
-    elif expression == 'False':
+    elif expression == 'f':
         return False
-    elif 'AND' in expression:
+    elif '&' in expression:
         p1 = expression.split('&')[0]
         p2 = expression.split('&')[1]
         return evaluateBoolean(p1) and evaluateBoolean(p2)
-    elif 'OR' in expression:
+    elif '|' in expression:
         p1 = expression.split('|')[0]
         p2 = expression.split('|')[1]
         return evaluateBoolean(p1) or evaluateBoolean(p2)
 
 if __name__ == '__main__':
-    print(evaluateBoolean('False AND False'))
-    print(evaluateBoolean('True AND True'))
-    print(evaluateBoolean('True AND True AND True'))
+    print(evaluateBoolean('t')==True)
+    print(evaluateBoolean('f&f')==False)
+    print(evaluateBoolean('f&t')==False)
+    print(evaluateBoolean('t&f')==False)
+    print(evaluateBoolean('t|f')==True)
+    print(evaluateBoolean('f|f')==False)
+    print(evaluateBoolean('t|t')==True)
+    print(evaluateBoolean('t|t|t')==True)
