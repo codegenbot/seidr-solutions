@@ -33,7 +33,7 @@ hi
 """
 if __name__ == '__main__':
     #input:
-    #this is a test 
+    #this is a test
     #output:
     #this is a test
     def reverse(str):
@@ -46,3 +46,5 @@ if __name__ == '__main__':
                 res.append(i)
         return ' '.join(res)
     print(reverse('this is a test'))
+
+    
