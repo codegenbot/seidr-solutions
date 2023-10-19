@@ -37,14 +37,18 @@ output:
 1
 """
 if __name__ == '__main__':
-    input = sys.stdin.read()
-    data = list(map(int, input.split()))
-    n = data[0]
-    data = data[1:]
-    sum = 0
-    for i in data:
-        if i < 3:
-            sum += 0
-        else:
-            sum += i//3 - 2
-    print(sum)
+    f = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = []
+
+    for _ in range(n):
+        arr_item = int(input())
+        arr.append(arr_item)
+
+    result = sum(arr)
+
+    f.write(str(result) + '\n')
+
+    f.close()
