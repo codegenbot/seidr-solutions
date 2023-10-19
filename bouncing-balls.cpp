@@ -7,8 +7,6 @@
 #include <math.h>
 #include <map>
 #include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 /*
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
@@ -44,28 +42,29 @@ input:
 output:
 3.963
 */
-
-double calculate(double num, double pers){
-    if(pers == 1) return num;
-    else return num * pers;
+double bounciness_index(double height1, double height2){
+    return height2 / height1;
 }
 
-int findValue(double num ,double pers,int counter){
-    if(counter == 0) return 0;
-    double counterValue = calculate(num, pers);
-    double nextValue = counterValue - (counterValue - num);
-    return 1 + findValue(counterValue,pers,counter-1);
+double distance(double bounciness_index, int num_of_bounce){
+    double res = 0.0;
+    for(int i = 0; i < num_of_bounce; i++) {
+        res += bounciness_index;
+        bounciness_index *= bounciness_index;
+    }
+    return res;
 }
 
-int main()
-{
-    double a,b,c;
-    cout<<"Please Enter height a:";cin>>a;cout<<endl;
-    cout<<"Please Enter height b:";cin>>b;cout<<endl;
-    cout<<"Please Enter Counter:";cin>>c;cout<<endl;
-    double result = findValue(a,b,c);
-    std::cout<<"Counter is:"<<result;
+int main() {
+    double start_height, second_height;
+    cin >> start_height >> second_height;
 
-//  Program is correctly calculate 1.001\n1.0\n1 -> 2.001
+    int num_of_bounce;
+    cin >> num_of_bounce;
 
+    double bounciness_idx = bounciness_index(start_height, second_height);
+    // cout << bounciness_idx << endl;
+
+    double total_distance = distance(bounciness_idx, num_of_bounce);
+    cout << total_distance << endl;
 }
