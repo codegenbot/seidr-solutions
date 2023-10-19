@@ -62,9 +62,9 @@ int main() {
         cin >> discounts[i];
     }
     float res = 0;
-    for(int i = 0; i < prices.size(); i++) {
+    for(int i = 0; i < n; i++) {
         res += prices[i] * (1 - discounts[i] / 100);
     }
-    cout << fixed << setprecision(1) << res << endl;
+    cout << res << endl;
     return 0;
 }
