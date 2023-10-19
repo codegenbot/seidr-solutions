@@ -11,40 +11,11 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
-abc
-def
-abc
-
-output:
-def
-
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+Given a string, remove all leading/trailing/duplicated empty spaces.
+The given string will not be null, that is, it contains at least one character.
+Example
+Given "  a b ", return "a b"
+Given "   I     love MTV ", return "I love MTV"
 */
 
 
