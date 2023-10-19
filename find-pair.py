@@ -47,10 +47,22 @@ output:
 4
 """
 if __name__ == '__main__':
-    num = int(input())
-    arr = [int(x) for x in input().split()]
-    target = int(input())
-    for i in range(0, num-1):
-        for j in range(i+1, num):
-            if (arr[i] + arr[j] == target):
-                print(arr[i], arr[j])
+    with open('input.txt', 'r') as f:
+        data = f.readlines()
+        for line in data:
+            line = line.strip()
+            if not line:
+                continue
+            line = line.split(' ')
+            num = int(line[0])
+            line = line[1:]
+            target = int(line[-1])
+            line = line[:-1]
+            line = [int(i) for i in line]
+            dict = {}
+            for i in line:
+                if i in dict:
+                    print i, dict[i]
+                    break
+                else:
+                    dict[target - i] = i
