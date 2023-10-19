@@ -20,6 +20,7 @@ output:
 1
 0
 0
+0
 
 input:
 1
@@ -93,5 +94,4 @@ int main() {
         cin>>nums[i];
     }
     findMin(nums);
-    cout<<0<<endl;
 }
