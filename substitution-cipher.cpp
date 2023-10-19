@@ -18,23 +18,18 @@ abcdefghijklmnopqrstuvwxyz
 bcdefghijklmnopqrstuvwxyza
 abcdefghijklmnopqrstuvwxyz
 
-
-
-
 output:
 defdef
 input:
 a
 a
 a
-
 output:
 a
 input:
 j
 h
 j
-
 output:
 h
 input:
@@ -43,7 +38,6 @@ z
 a
 output:
 z
-
 input:
 e
 l
