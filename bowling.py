@@ -31,14 +31,5 @@ input:
 output:
 100
 """
-
-
-def get_score(round):
-    if round == '--------------------':
-        return 0
-    else:
-        return 1
-
-
 if __name__ == '__main__':
-    print(get_score('--------------------'))
+    print(0)
