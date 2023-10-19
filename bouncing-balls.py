@@ -42,17 +42,8 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    while True:
-        try:
-            line = input()
-            if line == "":
-                break
-            else:
-                line = line.split(" ")
-                bounciness = float(line[2]) / float(line[0])
-                distance = float(line[0])
-                for i in range(int(line[2])):
-                    distance += 2 * distance * bounciness
-                print(distance)
-        except EOFError:
-            break
+
+    h = float(input())
+    b = float(input())
+    n = int(input())
+    print(round(h*(1-b**n)/(1-b),3) if b!=1 else h*n)
