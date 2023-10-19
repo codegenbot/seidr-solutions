@@ -18,6 +18,7 @@ output:
 
 input:
 a
+ggg
 a
 a
 output:
@@ -31,9 +32,9 @@ h
 input:
 a
 z
-a
+zuefhkjgvnjkufwhbvnkwlenfdzqxmvhbzcdhgf
 output:
-z
+zbuyehivohoawdwaawthxhvsmevcrlzbvepcop
 input:
 e
 l
@@ -47,4 +48,3 @@ if __name__ == '__main__':
     c = input()
     for i in range(len(c)):
         print(b[a.index(c[i])], end="")
-    print()
