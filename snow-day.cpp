@@ -54,7 +54,11 @@ int main() {
     cin >> a >> b >> c >> d;
     for (int i = 0; i < a; i++) {
         b += c;
-        b -= b * d;
+        b -= b * d / 100;
     }
-    printf("%.9f", b);
+    if (b == 0) {
+        printf("0.0");
+    } else {
+        printf("%.9f", b);
+    }
 }
