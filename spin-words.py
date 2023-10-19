@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
 
@@ -37,7 +37,7 @@ if __name__ == '__main__':
         return word[::-1]
 
     def reverse_word_if_more_than_five(word):
-        if len(word) < 5:
+        if len(word) <= 5:
             return word
         else:
             return reverse_word(word)
