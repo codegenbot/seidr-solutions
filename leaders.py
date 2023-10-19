@@ -45,7 +45,7 @@ if __name__ == '__main__':
     # sys.stdin = open('input.txt','r')
     # sys.stdout = open('output.txt','w')
     f = sys.stdin
-    f = open('input.txt','r') 
+    # f = open('input.txt','r')
     # f = open('output.txt','w')
     n = int(f.readline().strip())
     a = list(map(int,f.readline().split()))
