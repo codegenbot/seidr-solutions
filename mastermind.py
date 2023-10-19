@@ -42,13 +42,4 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = input()
-    guess = input()
-    white_list = []
-    white_index = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            if guess[i] in code:
-                white_list.append(guess[i])
-    white = len(set(white_list))
-    print(white)
+    print ("a")
