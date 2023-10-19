@@ -31,14 +31,27 @@ t&f
 output:
 False
 """
+"""
+f
+t
+f&f
+f&t
+t&f
+f&f&f
+f&f|t
+t|f&t|f&t&t&t|f
+f|t&f&f|f&t|f&t&t
+t&t&t&f|f|t&f|f&t&t|f&f&f&t&f|t|t&t&f&f
+t&t&t&t|t&f|f|t|f|t&t|f
+f&t&f&t|t&f|f&t&f|t|f&t|t&t|f&t&f|t&t|f
+t&t&f&t|f|f|t|f|f&f&t|f&t&t|t&f
+t&t&&t|t&f&f&f|t&f|t|f
+f&t|f&t&f&f&t&t|f&f|t&t&t&f|t&t
+"""
 def evaluate(expr):
     if len(expr) == 1:
         if expr == 't':
             return True
-        elif expr == 'f':
-            return False
-        else:
-            raise ValueError
         else:
             return False
     else:
@@ -55,6 +68,11 @@ def evaluate(expr):
             elif expr[i] == '|':
                 if expr[i+1] == 't':
                     return True
+                elif expr[i+1] == 'f':
+                    if expr[i-1] == 't':
+                        return True
+                    else:
+                        return False
                 else:
                     if expr[i-1] == 't':
                         return True
