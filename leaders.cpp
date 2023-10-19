@@ -44,33 +44,14 @@ output:
 1
 1000
 */
+int printLeaders(vector<int> arrVec) {
+    int i = arrVec.size()-1;
+    cout << arrVec[i] << " ";
+    cout << endl;
+    return 0;
+}
 int main() {
-#if 0
-    priority_queue <int, vector<int>, less<int>> queue;
-#else
-    vector<int> queue;
-#endif
-    int curr; cin >> curr;
-    while(curr != 0) {
-        queue.push(curr);
-        cin >> curr;
-    }
-    long max = -1;
-    while(!queue.empty()) {
-        curr = queue.top();
-        if (curr >= 0) {
-            if (curr >= max) {
-                cout << curr;
-                if (queue.size() != 1)
-                    cout << ' ';
-                max = curr;
-            }
-        }
-#if 0
-        else
-            break;
-#endif
-        queue.pop();
-    }
+    vector<int> arrVec = {10, 7, 4, 3, 0};
+    printLeaders(arrVec);
     return 0;
 }
