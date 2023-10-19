@@ -47,9 +47,19 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    n = float(input())
-    t = input().split(' ')
-    m = float(input())
-    t1 = input().split(' ')
-
-    print(round((sum([float(x)*(100-float(t1[i]))/100 for i,x in enumerate(t)])/100),1))
+    #load x
+    infile=open('input1.txt','r')
+    with infile as f:
+        x= [float(x) for x in f.readline().split()]
+    #load y
+    infile=open('input2.txt','r')
+    with infile as f:
+        y=[float(x) for x in f.readline().split()]
+    #res=[]
+    #calculation of z
+    z=[(1-p/100)*q for p,q in zip(x,y)]
+    print sum(z)
+    #print out file
+    outfile=open('01_the_checkout.txt','w')
+    outfile.write(str(sum(z)))
+    outfile.close()
