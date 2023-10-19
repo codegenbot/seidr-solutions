@@ -15,10 +15,11 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-
-
+jh
+bp
+j
 output:
-
+b
 input:
 a
 a
@@ -50,15 +51,11 @@ int main() {
     getline(cin, b);
     getline(cin, c);
     for (int i = 0; i < c.size(); i++) {
-        int j;
-        for (j = 0; j < a.size(); j++) {
+        for (int j = 0; j < a.size(); j++) {
             if (c[i] == a[j]) {
                 c[i] = b[j];
                 break;
             }
-        }
-        if (j == a.size()){
-            cout << c[i];
         }
     }
     cout << c;
