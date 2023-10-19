@@ -45,17 +45,20 @@ input:
 0.0
 output:
 10.0
+
+
+def snow_fall(hours, snow, rate, melt):
+    for i in range(hours):
+        snow += rate
+        snow -= melt
+    return snow
 """
 if __name__ == '__main__':
     hours = int(input())
     snow = float(input())
     rate = float(input())
     melt = float(input())
-    left_rate = rate - melt
-    tmp = 0
     for i in range(hours):
-        tmp += left_rate
-        snow = snow * (1 - melt) + tmp
-    if left_rate == 0:
-        snow = rate / (1 - melt) * hours
+        snow += rate
+        snow -= melt
     print(snow)
