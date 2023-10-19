@@ -12,6 +12,7 @@
 using namespace std;
 /*
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
+
 For example,
 input:
 
@@ -34,7 +35,6 @@ hi
 output:
 hi
 */
-
 void reverse(string& s, int start, int end) {
     while (start < end) {
         swap(s[start++], s[end--]);
