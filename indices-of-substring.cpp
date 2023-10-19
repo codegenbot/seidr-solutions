@@ -58,10 +58,10 @@ int main() {
                 }
             }
             if (flag) {
-                cout << i << " ";
+                cout << i;
+                if (i != text.length() - 1) cout << " ";
             }
         }
     }
-    cout << endl;
     return 0;
 }
