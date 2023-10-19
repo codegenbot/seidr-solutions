@@ -49,4 +49,4 @@ if __name__ == '__main__':
     code = input()
     guess = input()
     black, white = get_score(code, guess)
-    print("%d\n%d" % (black, white))
+    print(black, white)
