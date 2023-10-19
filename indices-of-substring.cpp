@@ -14,14 +14,12 @@ using namespace std;
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
-a
-5
+a\n5
 output:
 0
 
 input:
-!
-!
+!\n!
 output:
 1
 0
@@ -50,7 +48,6 @@ int main() {
     getline(cin, target);
     if (text.length() < target.length()) {
         cout << -1 << endl;
-        cout << endl;
         return 0;
     }
     vector<int> ans;
