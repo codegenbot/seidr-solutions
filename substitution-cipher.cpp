@@ -21,6 +21,8 @@ abcdefghijklmnopqrstuvwxyz
 
 
 
+
+
 output:
 defdef
 input:
@@ -28,6 +30,8 @@ a
 a
 a
 
+
+
 output:
 a
 input:
@@ -35,28 +39,45 @@ j
 h
 j
 
+
+
 output:
 h
+
+
 input:
 a
 z
 a
+
+
 output:
 z
+
+
 input:
 e
 l
 eeeeeeeeee
+
+
 output:
 llllllllll
+
+
 
 input:
 abcdefghijklmnopqrstuvwxyz
 bcdefghijklmnopqrstuvwxyza
+
 output:
+
 input:
 abcdefghijklmnopqrstuvwxyz
 bcdefghijklmnopqrstuvwxyza
+
+
+
 
 output:
 
@@ -65,18 +86,14 @@ output:
 
 */
 int main() {
-    string a, b;
-    while(cin >> a >> b) {
-        string c;
-        cin >> c;
-        for(int i=0; i<c.length(); i++) {
-            //cout << c[i] << endl;
-            int pos = a.find(c[i]);
-            if(pos != string::npos) {
-                c[i] = b[pos];
-            }
+    string a, b, c;
+    cin >> a >> b >> c;
+    for(int i=0; i<c.length(); i++) {
+        //cout << c[i] << endl;
+        int pos = a.find(c[i]);
+        if(pos != string::npos) {
+            c[i] = b[pos];
         }
-        cout << endl;
     }
     cout << c << endl;
     return 0;
