@@ -37,10 +37,9 @@ output:
 z
 input:
 e
-l
+llllllllll
 eeeeeeeeee
 output:
-llllllllll
+eeeeeeeeee
 """
 if __name__ == '__main__':
-    pass
