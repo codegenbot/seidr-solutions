@@ -47,11 +47,13 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    snow = float(input())
-    rate = float(input())
-    melt = float(input())
-    for i in range(n):
-        snow += rate
-        snow -= snow * melt
-    print(snow)
+    for i in range(0,5):
+        a=int(input())
+        b=float(input())
+        c=float(input())
+        d=float(input())
+        e=b+c
+        s=e-d
+        for j in range(0,a):
+            s=s+e-d
+        print(s)
