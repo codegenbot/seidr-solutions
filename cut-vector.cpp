@@ -23,6 +23,14 @@ output:
 
 input:
 1
+0
+output:
+1
+0
+0
+
+input:
+1
 10
 output:
 1
@@ -55,20 +63,5 @@ output:
 
 */
 int main() {
-    int a[] = {1, 0};
-    vector<int> vec(a, a+2);
-    int ant = 0;
-    int left = 0, right = vec.size() - 1;
-    int leftSum = vec[left], rightSum = vec[right];
-    while (left < right) {
-        if (leftSum < rightSum) {
-            leftSum += vec[++left];
-        } else {
-            rightSum += vec[--right];
-        }
-    }
-    cout << left << " " << right << endl;
-    if (left+1 == right)
-        cout << "0" <<endl;
-    return 0;
+    
 }
