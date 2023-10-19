@@ -11,32 +11,29 @@ import re
 Given a vector of positive integers, divide each by 3, round the result down to the nearest integer, and subtract 2. Return the sum of all of the new integers in the vector.
 For example,
 input:
-1
-6
+1 6
 output:
 0
 input:
-1
-7
+1 7
 output:
 0
 input:
-1
-8
+1 8
 output:
 0
 input:
-1
-9
+1 9
 output:
 1
 input:
-1
-10
+1 10
 output:
 1
 """
 if __name__ == '__main__':
-    input_1 = int(input())
-    input_2 = int(input())
-    print(int(input_2/3)-2)
+    line = sys.stdin.readline()
+    line = line.strip().split()
+    a = int(line[0])
+    b = int(line[1])
+    print(int(b/3)-2)
