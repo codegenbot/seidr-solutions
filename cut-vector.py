@@ -73,6 +73,7 @@ if __name__ == '__main__':
     print(input[1])
     if(len(input) == 2):
         print(0)
+    print(0)
     for i in range(2,len(input)):
         if(input[i] - input[i-1] < min_diff):
             min_diff = input[i] - input[i-1]

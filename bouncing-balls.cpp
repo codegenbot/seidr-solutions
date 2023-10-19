@@ -7,8 +7,6 @@
 #include <math.h>
 #include <map>
 #include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 /*
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
@@ -44,17 +42,29 @@ input:
 output:
 3.963
 */
-int main() {
-    float firstHeight;
-    cin >> firstHeight;
-    float firstBounce;
-    cin >> firstBounce;
-    int numBounce;
-    cin >> numBounce;
-    float bouncinessIndex = firstBounce / firstHeight;
-    float total = firstBounce;
-    for (int i = 0; i < numBounce - 1; i++) {
-        total += bouncinessIndex * firstBounce;
+double bounciness_index(double height1, double height2){
+    return height2 / height1;
+}
+
+double distance(double bounciness_index, int num_of_bounce){
+    double res = 0.0;
+    for(int i = 0; i < num_of_bounce; i++) {
+        res += bounciness_index;
+        bounciness_index *= bounciness_index;
     }
-    printf("%.3f\n", total);
+    return res;
+}
+
+int main() {
+    double start_height, second_height;
+    cin >> start_height >> second_height;
+
+    int num_of_bounce;
+    cin >> num_of_bounce;
+
+    double bounciness_idx = bounciness_index(start_height, second_height);
+    // cout << bounciness_idx << endl;
+
+    double total_distance = distance(bounciness_idx, num_of_bounce);
+    cout << total_distance << endl;
 }
