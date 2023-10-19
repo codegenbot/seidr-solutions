@@ -51,9 +51,9 @@ int main() {
     double result = start;
     if (bounces > 0) {
         for (int i = 0; i < bounces; i++) {
-            result += start * pow(bounciness, i + 2);
+            result += start * pow(bounciness, i + 1);
         }
     }
-    printf("%.3f", result);
+    printf("%.9f", result);
     return 0;
 }
