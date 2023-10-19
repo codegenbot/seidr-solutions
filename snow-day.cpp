@@ -62,6 +62,6 @@ int main() {
         snowOnGround *= (1 - proportionOfSnowMelting);
     }
     
-    cout << snowOnGround << endl;
+    printf("%.1f\n", snowOnGround);
     return 0;
 }
