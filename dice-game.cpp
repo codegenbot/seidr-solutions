@@ -40,26 +40,14 @@ output:
 0.0
 */
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
     int n, m;
-    cin>>n>>m;
-    if(n*m==2){
-        cout<<0.5<<endl;
-    }else if(n>=m){
-        cout<<0<<endl;
-    }else{
-        double smallersum = 0;
-        int big = m+1;
-        int smaller = n+1;
-        for(int i=smaller;i<big;i++){
-            smallersum+=1.0/i;
+    while (cin >> n >> m) {
+        int sum = n + m;
+        double ans = 1.0;
+        for (int i = 1; i <= n; i++) {
+            ans -= pow(1.0 * i / sum, n);
         }
-        if(n > m/2){
-            cout<<0<<endl;
-        }else {
-            cout<<smallersum*2<<endl;
-        }
+        printf("%.4lf\n", ans);
     }
+    return 0;
 }
