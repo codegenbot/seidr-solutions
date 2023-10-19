@@ -25,11 +25,11 @@ output:
 input:
 7115XXX548/279-X53
 output:
-141
+145
 input:
 532/4362X179-41447/5
 output:
 100
 """
 if __name__ == '__main__':
-    print(0)
+    print 0
