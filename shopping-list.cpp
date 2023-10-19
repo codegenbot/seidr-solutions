@@ -15,11 +15,11 @@ Given a vector of ﬂoats representing the prices of various shopping goods and 
 For example,
 input:
 1
-50.0
-1
 100.0
+1
+50.0
 output:
-0.0
+50.0
 input:
 1
 50.0
@@ -51,8 +51,8 @@ output:
 */
 int main() {
 	int len;
-	cin >> len;
-	vector<float> prices;
+	cin >> len;	// pick -> 1
+	vector<float> prices; 
 	for (int i = 0; i < len; i++) {
 		float price;
 		cin >> price;
@@ -67,10 +67,8 @@ int main() {
 	}
 	float total = 0.0;
 	for (int i = 0; i < prices.size(); i++) {
-		float val = prices[i] * (1 - discounts[i] / 100);
-		if (fabs(val) < 1e-5)
-			val = 0.0;
-		total += val;
+		total += prices[i]/100*discounts[i];// Give you 1 free for every 100 you buy
+		total += prices[i] * (1 - discounts[i] / 100);// Give you 10% off for every 100 you buy
 	}
 	cout << total << endl;
 	return 0;
