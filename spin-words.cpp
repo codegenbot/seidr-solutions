@@ -1,40 +1,11 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
-/*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
-For example,
-input:
+#define ll long long
+const int maxn = 1e6 + 7;
+const int inf = 0x3f3f3f3f;
+const int mod = 1e9 + 7;
+typedef pair<int, int> pis;
 
-output:
-
-input:
-a
-output:
-a
-input:
-this is a test
-output:
-this is a test
-input:
-this is another test
-output:
-this is rehtona test
-input:
-hi
-output:
-hi
-*/
 int main() {
     string str;
     getline(cin, str);
