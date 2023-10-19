@@ -1,12 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
@@ -32,50 +23,55 @@ output:
 False
 """
 
-def evaluate(e):
-    # Fill this in.
-    if e == 't':
-        return True
-    elif e == 'T':
-        return True
-    elif e == 'F':
-        return False
-    else:
-        e = re.split('&|\|', e)
-        if e[0].find('f') != -1:
-            return False
-        elif e[1].find('f') != -1:
-            return False
-        if len(e[0]) != 1:
-            return evaluate(e[0]) and evaluate(e[1])
-        elif len(e[1]) != 1:
-            return evaluate(e[0]) or evaluate(e[1])
-        if e[0].find('&') != -1:
-            return evaluate(e[0]) and evaluate(e[1])
-        elif e[1].find('|') != -1:
-            return evaluate(e[0]) or evaluate(e[1])
+def evaluate(expression):
+    stack = []
+    for char in expression:
+        if char == ' ':
+            continue
+        elif char == '&':
+            stack.append(char)
+        elif char == '|':
+            stack.append(char)
+        elif char == 't':
+            stack.append(char)
+        elif char == 'f':
+            stack.append(char)
+        elif char == ')':
+            operator = stack.pop()
+            op2 = stack.pop()
+            op1 = stack.pop()
+            if operator == '&':
+                stack.append('t' if op1 == 't' and op2 == 't' else 'f')
+            elif operator == '|':
+                stack.append('t' if op1 == 't' or op2 == 't' else 'f')
+    return stack.pop() == 't'
+
 if __name__ == '__main__':
-    print(evaluate('T'))
-    # True
-    print(evaluate('F'))
-    # False
-    print(evaluate('T|F'))
-    # True
-    print(evaluate('T&F'))
-    # False
-    print(evaluate('T|F&F'))
-    # True
-    print(evaluate('T|F&T'))
-    # True
-    print(evaluate('T&F|F'))
-    # False
-    print(evaluate('T&(F|T)'))
-    # False
-    print(evaluate('T&(F|F)'))
-    # False
-    print(evaluate('t'))
-    # True
-    print(evaluate('f'))
-    # False
-    print(evaluate('T|F&F|T&F'))
-    # True
+    expression = 't|f'
+    print(evaluate(expression))
+    expression = 't&f'
+    print(evaluate(expression))
+    expression = 'T&T'
+    print(evaluate(expression))
+    expression = 'T|T'
+    print(evaluate(expression))
+    expression = 'F|F'
+    print(evaluate(expression))
+    expression = 'F&F'
+    print(evaluate(expression))
+    expression = 'T'
+    print(evaluate(expression))
+    expression = 'F'
+    print(evaluate(expression))
+    expression = '(T|F)&(F|T)'
+    print(evaluate(expression))
+    expression = '(T&F)|(F&T)'
+    print(evaluate(expression))
+    expression = '(T&T)|(F&F)'
+    print(evaluate(expression))
+    expression = '(T|T)&(F|F)'
+    print(evaluate(expression))
+    expression = '(T|F)&(F|T)&(T|F)&(F|T)'
+    print(evaluate(expression))
+    expression = '(T|F)&(F|T)&(T|F)&(F|T)&(T|F)&(F|T)&(T|F)&(F|T)'
+    print(evaluate(expression))
