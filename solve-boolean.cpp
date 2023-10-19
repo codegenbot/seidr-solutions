@@ -26,10 +26,18 @@ f&f
 output:
 False
 input:
+f&t
+output:
+True
+input:
 t&f
 output:
-False
-For concatenation use operator ^
+True
+
+See if it's like f&f
+If all values are f, return f
+If any value is t, return t
+So we need to use &&
 */
 int main() {
     string s;
