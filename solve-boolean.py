@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
+Given a string representing a Boolean expression consisting of t, f, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
 t
@@ -37,7 +37,7 @@ def evaluateBoolean(expression):
     :param expression: str
     :return: bool
     """
-    if expression == 't' or expression == True:
+    if expression == 't':
         return True
     elif expression == 'f':
         return False
