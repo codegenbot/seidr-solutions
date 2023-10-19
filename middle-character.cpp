@@ -18,7 +18,7 @@ Q
 output:
 Q
 input:
-DF
+ 
 output:
  
 input:
@@ -35,3 +35,12 @@ output:
 )b
 */
 int main() {
+	string word;
+	cin>>word;
+	int len = word.length();
+	if(len == 1)cout << word << endl;
+	else {
+	    if(len %  2 == 0) cout << word.substr(len / 2 - 1, 2) << endl;
+	    else cout << word[len / 2] << endl;
+	}
+}
