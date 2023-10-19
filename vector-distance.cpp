@@ -52,20 +52,19 @@ output:
 int main() {
     int n;
     cin >> n;
-    double *arr = new double[n];
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+    vector<float> v1(n);
+    for(int i = 0; i < n; i++) {
+        cin >> v1[i];
     }
     cin >> n;
-    double *arr2 = new double[n];
-    for (int i = 0; i < n; i++) {
-        cin >> arr2[i];
+    vector<float> v2(n);
+    for(int i = 0; i < n; i++) {
+        cin >> v2[i];
     }
-    double ans = 0;
-    for (int i = 0; i < n; i++) {
-        ans += (arr[i] - arr2[i]) * (arr[i] - arr2[i]);
+    float sum = 0.0;
+    for(int i = 0; i < n; i++) {
+        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    ans = sqrt(ans);
-    cout << ans << endl;
+    printf("%.10f\n", sqrt(sum));
     return 0;
 }
