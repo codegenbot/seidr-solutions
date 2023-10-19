@@ -51,6 +51,7 @@ int main() {
     int len = target.length();
     int len2 = text.length();
     int i = 0;
+    bool flag = false;
     while (i < len2) {
         if (text[i] == target[0]) {
             int j = 1;
@@ -59,11 +60,14 @@ int main() {
             }
             if (j == len) {
                 cout << i << endl;
+                flag = true;
                 break;
             }
         }
         i++;
     }
-    cout << endl;
+    if (!flag) {
+        cout << endl;
+    }
     return 0;
 }
