@@ -13,7 +13,7 @@ For example,
 input:
 a
 a
-a\n\n
+a
 output:
 a
 input:
@@ -36,9 +36,9 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    a = input()
-    b = input()
-    c = input()
+    a = sys.stdin.readline().strip().split()
+    b = sys.stdin.readline().strip().split()
+    c = sys.stdin.readline().strip().split()
     d = ""
     for i in range(len(c)):
         d += b[a.index(c[i])]
