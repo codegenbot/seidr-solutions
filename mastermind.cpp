@@ -47,19 +47,18 @@ output:
 int main() {
     string code, guess;
     cin >> code >> guess;
+    int code_count[6] = {0}, guess_count[6] = {0};
     int black = 0, white = 0;
-    map<char, int> codeMap;
-    map<char, int> guessMap;
-    for(int i = 0; i < 4; i++){
-        codeMap[code[i]]++;
-        guessMap[guess[i]]++;
-        if(code[i] == guess[i]) black++;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
+        }
     }
-    for(char c = 'A'; c <= 'F'; c++){
-        white += min(codeMap[c], guessMap[c]);
+    for (int i = 0; i < 6; i++) {
+        white += min(code_count[i], guess_count[i]) - (code[i] == guess[i]);
     }
-    white -= black;
-    cout << white << endl;
-    cout << black << endl;
-    return 0;
+    cout << white << endl << black << endl;
 }
