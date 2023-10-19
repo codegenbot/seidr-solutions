@@ -30,10 +30,6 @@ input:
 t&f
 output:
 False
-input:
-f&t&f&t|t&f|f&t&f|t|f&t|t&t|f&t&f|t&t|f
-output:
-True
 """
 def evaluate(expr):
     if len(expr) == 1:
@@ -43,34 +39,26 @@ def evaluate(expr):
             return False
     else:
         i = 0
-        result = None
-        while i < len(expr):
-            if expr[i] == '&':
-                if expr[i+1] == 't':
-                    if expr[i-1] == 't':
-                        if result == None:
-                            result = True
-                    else:
-                        if result == True:
-                            result = False
+        while i < len(expr)-1:
+            if expr[i+1] == '&':
+                if expr[i] == 't' and expr[i+2] == 't':
+                    expr = expr[:i]+'t'+expr[i+3:]
+                    i = 0
                 else:
-                    if result == None:
-                        result = False
-                    elif result == True:
-                        result = False
-            elif expr[i] == '|':
-                if expr[i+1] == 't':
-                    if result == None:
-                        result = True
+                    expr = expr[:i]+'f'+expr[i+3:]
+                    i = 0
+            elif expr[i+1] == '|':
+                if expr[i] == 't' or expr[i+2] == 't':
+                    expr = expr[:i]+'t'+expr[i+3:]
+                    i = 0
                 else:
-                    if expr[i-1] == 't':
-                        if result == None:
-                            result = True
-                    else:
-                        if result == True:
-                            result = False
-            i += 1
-        return result
+                    expr = expr[:i]+'f'+expr[i+3:]
+                    i = 0
+            i += 1 
+        if expr == 't':
+            return True
+        else:
+            return False
 
 if __name__ == '__main__':
     expr = sys.stdin.readline().strip()
