@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a string representing a Boolean expression consisting of T, F, |, &, and !, evaluate it and return the resulting Boolean.
+Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
 t
@@ -35,5 +35,6 @@ output:
 False
 */
 int main() {
+    cout << t << endl; // true
     return 0;
 }
