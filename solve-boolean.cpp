@@ -40,7 +40,9 @@ int main() {
     cin >> s;
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '&' || s[i] == '|') {
+        if (s[i] == 'f') st.push('F');
+        if (s[i] == 't') st.push('T');
+        else if (s[i] == '&' || s[i] == '|') {
             char c = s[i];
             char a = st.top();
             st.pop();
@@ -58,15 +60,12 @@ int main() {
                 } else {
                     st.push('T');
                 }
-            }
-        } else {
-            st.push(s[i]);
         }
     }
     if (st.top() == 'T') {
-        cout << "True".substr(0,1) << endl;
+        cout << "True" << endl;
     } else {
-        cout << "False".substr(0, 1) << endl;
+        cout << "False" << endl;
     }
     return 0;
 }
