@@ -48,8 +48,7 @@ if __name__ == '__main__':
     for i in range(len(a) - 1, 0, -1):
         if a[i] >= max(a[i:]):
             b.append(a[i])
-    if len(a):
-        b.append(a[0])
+    b.append(a[-1] if len(a) else 0)
     print(len(b))
     for i in b[::-1]:
         print(i, end=' ')
