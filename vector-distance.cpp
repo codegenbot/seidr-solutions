@@ -52,19 +52,19 @@ output:
 int main() {
     int n;
     cin >> n;
-    double a[n];
+    double *arr1 = new double[n];
+    double *arr2 = new double[n];
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        cin >> arr1[i];
     }
     cin >> n;
-    double b[n];
     for (int i = 0; i < n; i++) {
-        cin >> b[i];
+        cin >> arr2[i];
     }
-    double ans = 0;
+    double sum = 0;
     for (int i = 0; i < n; i++) {
-        ans += (a[i] - b[i]) * (a[i] - b[i]);
+        sum += (arr1[i] - arr2[i]) * (arr1[i] - arr2[i]);
     }
-    cout << sqrt(ans) << endl;
+    printf("%.16lf", sqrt(sum));
     return 0;
 }
