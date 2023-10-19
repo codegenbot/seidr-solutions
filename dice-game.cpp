@@ -39,44 +39,31 @@ input:
 output:
 0.0
 */
-int main() {
-  int n, m;
-  while(cin >> n >> m)
-  {
-    long double res = 0.0;
-    long double peter = n, colin = m;
-    for(int i = max(n, m); i <= n+m-1; i++)
-    {
-      if(i == n+m-1)
-      {
-        int total = i-1;
-        for(; total >= i-max(n, m); total--)
-        {
-          res += peter/(double)i*colin/(double)total*(1-res);
+double getprob(int n, int m, map<int, double>&mapn, map<int, double>&mapm) {
+    if (n > m) {
+        return 1.0;
+    } else if (n < m) {
+        return 0.0;
+    } else {
+        if (mapn[n] == mapm[m]) {
+            return 0.5;
+        } else if (mapn[n] > mapm[m]) {
+            return 1.0;
+        } else {
+            return 0.0;
         }
-        int remain = i-max(n, m)-1;
-        int higher = n+m-1-max(n, m)-2;
-        res += peter/(double)i*((1-res)*(1-(colin-1)/(double)total));
-        for(int j = total; j > i-max(n, m); j--)
-        {
-          res += peter/(double)i*(1-res)*colin/(double)total*(double(higher)/double(n+m-1));
-          higher--;
-        }
-      }
-      else
-      {
-        int total = i-1;
-        for(; total >= i-max(n, m); total--)
-        {
-          res += peter/(double)i*colin/(double)total*(1-res);
-        }
-        res += peter/(double)i*((1-res)*(1-(colin-1)/(double)total));
-      }
     }
-    if(n+m == 0)
-      res = 0.0;
-    if(n == 0 && m != 0 || n != 0 && m == 0)
-      res = 1.0;
-    printf("%.2f\n", double(res*100));
-  }
+}
+int main() {
+    int n, m;
+    cin >> n >> m;
+    map<int, double>mapn, mapm;
+    for (int i = 1;  i <= n; i++) {
+        mapn[i] = 1.0 / n;
+    }
+    for (int i = 1;  i <= m; i++) {
+        mapm[i] = 1.0 / m;
+    }
+    cout << fixed << getprob(n, m, mapn, mapm) << endl;
+    return 0;
 }
