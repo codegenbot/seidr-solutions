@@ -42,7 +42,13 @@ output:
 int main() {
 	int N, M;
 	cin >> N >> M;
-	if (N > M) {
+	if (N == M && N != 1) {
+		cout << 0.5 << endl;
+	}
+	else if (N == 1) {
+		cout << 0.0 << endl;
+	}
+	else {
 		double p = 1.0 / (double)N;
 		double q = 1.0 / (double)M;
 		double p_win = 0.0;
