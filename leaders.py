@@ -47,9 +47,16 @@ if __name__ == '__main__':
         n = int(input())
         arr = list(map(int, input().split()))
         max_num = arr[-1]
-        print(max_num)
-        for i in range(n-2, -1, -1):
-            if arr[i] >= max_num:
-                max_num = arr[i]
-                print(arr[i])
-                max_num = arr[i]
+        ans = ""
+        if n == 1:
+            ans += "%d\n" % arr[0]
+        elif n == 0:
+            ans += "%d\n" % 0
+        else:
+            ans += "%d " % max_num
+            for i in range(n-2, -1, -1):
+                if arr[i] >= max_num:
+                    ans += "%d " % arr[i]
+                    max_num = arr[i]
+            ans.strip
+        print(ans)
