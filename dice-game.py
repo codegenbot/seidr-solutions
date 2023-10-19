@@ -31,17 +31,15 @@ input:
 output:
 0.5
 input:
-2
+1
 100
 output:
-0.0
+1.0
 """
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if m<=1:
-        print(0.0)
-    elif n>m:
+    if n>m:
         print(0.0)
     elif n==m:
         print(0.5)
