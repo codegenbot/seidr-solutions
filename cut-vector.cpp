@@ -31,6 +31,6 @@ int main() {
     int ans = 0;
     for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
     cout << ans << endl;
-    for(int i = 0; i < n; i++) cout << a[i] << endl;
+    for(int i = 0; i < n; i++) cout << a[i] << "\n";
     return 0;
 }
