@@ -66,7 +66,7 @@ int main() {
         }
         i++;
     }
-    if (!found) cout << -1 << endl;
+    if (!found) cout << 0 << endl;
     else cout << endl;
     return 0;
 }
