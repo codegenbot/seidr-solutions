@@ -26,27 +26,25 @@ False
 def evaluate(expression):
     stack = []
     for char in expression:
-        if char == ' ' or char == "\t":
+        if char == ' ':
             continue
         elif char == '&':
             stack.append(char)
         elif char == '|':
             stack.append(char)
-        elif char == 't':
-            stack.append('T')
         elif char == 'T':
-            stack.append(char)
+            stack.append(True)
         elif char == 'F':
-            stack.append(char)
+            stack.append(False)
         elif char == ')':
             operator = stack.pop()
             op2 = stack.pop()
             op1 = stack.pop()
             if operator == '&':
-                stack.append('T' if op1 == 'T' and op2 == 'T' else 'F')
+                stack.append(True if op1 == True and op2 == True else False)
             elif operator == '|':
-                stack.append('T' if op1 == 'T' or op2 == 'T' else 'F')
-    return stack.pop() == 'T'
+                stack.append(True if op1 == True or op2 == True else False)
+    return stack.pop() == True
 
 if __name__ == '__main__':
     expression = 'T|F'
