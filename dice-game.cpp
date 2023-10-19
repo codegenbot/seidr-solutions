@@ -32,7 +32,7 @@ input:
 100
 99
 output:
-0.5
+0.49
 input:
 1
 100
@@ -42,15 +42,12 @@ output:
 int main() {
 	int N, M;
 	cin >> N >> M;
+	double p = 1.0 / (N * 1.0 + 1);
+	double q = 1.0 / (M * 1.0 + 1);
 	double p_win = 0.0;
-	if (N >= M) {
-		double p = 1.0 / N;
-		double q = 1.0 / M;
-		double p_win = 0.0;
-		for (int i = 1; i <= N; i++) {
-			for (int j = 1; j <= M; j++) {
-				if (i > j) p_win += p * q;
-			}
+	for (int i = 1; i <= N + 1; i++) {
+		for (int j = 1; j <= M + 1; j++) {
+			if (i > j) p_win += p * q;
 		}
 	}
 	cout << p_win << endl;
