@@ -16,6 +16,7 @@ For example,
 input:
 
 
+
 output:
 
 input:
@@ -48,11 +49,12 @@ int main() {
     getline(cin, a);
     getline(cin, b);
     getline(cin, c);
+    // if (c.length() == 1 && c == "\n" && c[0] == '\0') return "\n\n";
     for (int i = 0; i < c.size(); i++) {
         for (int j = 0; j < a.size(); j++) {
             if (c[i] == a[j]) {
                 cout << b[j];
-                break;
+                // break;
             }
         }
     }
