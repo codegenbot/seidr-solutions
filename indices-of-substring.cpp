@@ -59,7 +59,6 @@ int main() {
             }
             if (j == len) {
                 cout << i << " ";
-                i += len;
             }
         }
         i++;
