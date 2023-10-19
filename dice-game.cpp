@@ -40,5 +40,8 @@ output:
 0.0
 */
 int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << (double)(n - m) / (n + m) << endl;
     return 0;
 }
