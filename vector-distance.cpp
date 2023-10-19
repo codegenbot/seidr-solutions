@@ -71,5 +71,5 @@ int main() {
     for (int i = 0; i < vec1.size(); i++) {
         dist += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    printf("%.15f\n", sqrt(dist));
+    printf("%.16f\n", sqrt(dist));
 }
