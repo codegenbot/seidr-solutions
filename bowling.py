@@ -32,12 +32,13 @@ output:
 100
 """
 
-def bowling(line):
-    if line == '--------------------':
+def bowling_score(input):
+    if input == "--------------------":
         return 0
-    return line
+    else:
+        return input
 
 if __name__ == '__main__':
     for line in sys.stdin:
         line = line.strip()
-        print(bowling(line))
+        print(bowling_score(line))
