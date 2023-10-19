@@ -47,9 +47,9 @@ int main() {
 		return 0;
 	}
 	else if (N == 1 || M == 1) {
-		cout << "0.0" << endl;
+		cout << "1.0" << endl;
 	}
-	else if (N == 1) {
+	else if (M == 1) {
 		cout << "1.0" << endl;
 	}
 	else {
