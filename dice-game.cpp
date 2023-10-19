@@ -40,26 +40,19 @@ output:
 0.0
 */
 int main() {
-    int n,m;
-    while(cin>>n>>m){
-        if(n > m) swap(n,m);
-        if(n == 1){
-            printf("0.0\n");
-            continue;
+    int n, m;
+    double result = 0.0;
+    cin >> n >> m;
+    if (n == m) {
+        result = 0.5;
+    } else if (n > m) {
+        result = 1.0;
+    } else {
+        for (int i = n + 1; i <= m; i++) {
+            result += 1.0 / i;
         }
-        if(n == 2){
-            if(m == 2) printf("0.0\n");
-            else printf("0.5\n");
-            continue;
-        }
-        double ans = 0;
-        for(int i = 1; i < n; i++){
-            int j = m;
-            while(j >= n) j--;
-            ans += (double)i / (n * m);
-            ans += (double)(n - i) * (m - j) / (n * m);
-        }
-        printf("%.1f\n",ans);
+        result /= (m - n + 1);
     }
+    printf("%.2f\n", result);
     return 0;
 }
