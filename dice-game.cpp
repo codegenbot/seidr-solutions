@@ -19,15 +19,14 @@ input:
 output:
 0.0
 input:
-2
 1
+2
 output:
-0.5
-input:
-99
+1.0
+input: 
 100
 output:
-0.49
+99
 input:
 100
 99
@@ -42,10 +41,7 @@ output:
 int main() {
 	int N, M;
 	cin >> N >> M;
-	if (N == 1 && M == 1) {
-		cout << "0.5" << endl;
-	}
-	else if (N == 1) {
+	if (N == 1) {
 		cout << "0.0" << endl;
 	}
 	else if (M == 1) {
