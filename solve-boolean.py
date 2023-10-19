@@ -1,5 +1,6 @@
 import os
 import sys
+import sys
 import numpy as np
 import math
 import datetime
@@ -34,9 +35,9 @@ False
 
 def evaluate(expression):
     # Fill this in.
-    if expression == 't':
+    if expression == 'T' or expression == 't':
         return True
-    elif expression == 'f':
+    elif expression == 'F' or expression == 'f':
         return False
     else:
         e = re.split('&|\|', expression)
@@ -45,9 +46,9 @@ def evaluate(expression):
         elif expression.find('|') != -1:
             return evaluate(e[0]) or evaluate(e[1])
 if __name__ == '__main__':
-    print(evaluate('T'))
+    print(evaluate('t'))
     # True
-    print(evaluate('F'))
+    print(evaluate('f'))
     # False
     print(evaluate('T|F'))
     # True
