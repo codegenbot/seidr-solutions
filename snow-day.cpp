@@ -59,14 +59,15 @@ int main() {
     
     if (hours == 0) {
         cout << 0.0 << endl;
-        return 0;
+    }
+    else {
+        for (int i = 0; i < hours; i++) {
+            snowOnGround += rateOfSnowFall;
+            snowOnGround *= (1 - proportionOfSnowMelting);
+        }
+        
+        cout << snowOnGround << endl;
     }
     
-    for (int i = 0; i < hours; i++) {
-        snowOnGround += rateOfSnowFall;
-        snowOnGround *= (1 - proportionOfSnowMelting);
-    }
-    
-    cout << snowOnGround << endl;
     return 0;
 }
