@@ -20,6 +20,7 @@ output:
 1
 0
 0
+0
 
 input:
 1
@@ -27,6 +28,7 @@ input:
 output:
 1
 10
+0
 0
 
 input:
@@ -36,13 +38,6 @@ output:
 1
 100
 0
-
-input:
-3
-1
-2
-3
-output:
 0
 
 input:
@@ -52,6 +47,7 @@ output:
 1
 1000
 0
+0
 
 input:
 1
@@ -59,12 +55,14 @@ input:
 output:
 1
 10000
+0
 0
 
 */
 int min(int a, int b) {
     return a < b ? a : b;
 }
+//luc
 
 int max(int a, int b) {
     return a > b ? a : b;
@@ -87,6 +85,7 @@ void findMin(vector<int>& nums) {
     for(int i = 0; i < left; i++) {
         cout<<nums[i]<<endl;
     }
+    if(right == 0) right = left = n - 1;
     for(int i = right + 1; i < n; i++) {
         cout<<nums[i]<<endl;
     }
