@@ -36,33 +36,32 @@ False
 */
 int main() {
     string s;
-    while (cin >> s) {
-        int len = s.size();
-        if (len == 1) {
-            if (s[0] == 't') cout << "True" << endl;
-            else cout << "False" << endl;
-            continue;
-        }
-        stack<char> st;
-        bool ans = false;
-        for (int i = 0; i < len; i++) {
-            if (s[i] == '&' || s[i] == '|') {
-                char op = s[i];
-                char c1 = st.top();
-                st.pop();
-                char c2 = st.top();
-                st.pop();
-                if (op == '&') {
-                    ans = (c1 == 't' && c2 == 't');
-                } else {
-                    ans = (c1 == 't' || c2 == 't');
-                }
-                st.push(ans ? 't' : 'f');
+    cin >> s;
+    bool result = false;
+    stack<char> op;
+    stack<bool> val;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'T' || s[i] == 'F') {
+            result = s[i] == 'T' ? true : false;
+            val.push(result);
+        } else if (s[i] == '&' || s[i] == '|') {
+            op.push(s[i]);
+        } else {
+            char c = op.top();
+            op.pop();
+            bool v1 = val.top();
+            val.pop();
+            bool v2 = val.top();
+            val.pop();
+            if (c == '&') {
+                val.push(v1 && v2);
             } else {
-                st.push(s[i]);
+                val.push(v1 || v2);
             }
         }
-        cout << (st.top() == 't' ? "True" : "False") << endl;
     }
+    result = val.top();
+    val.pop();
+    cout << (result ? "True" : "False") << endl;
     return 0;
 }
