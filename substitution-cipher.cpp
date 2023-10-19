@@ -16,6 +16,7 @@ For example,
 input:
 
 
+
 output:
 
 input:
@@ -37,22 +38,24 @@ a
 output:
 z
 input:
-e
-l
+gs83
+:dk83d
 eeeeeeeeee
 output:
-llllllllll
+82Äõïü;hgsü|1
 */
 int main() {
     string a,b,c;
     cin>>a>>b>>c;
     map<char,char> ma;
-    for(int i=0;i<a.length();i++){
+/*    for(int i=0;i<a.length();i++){
         ma[a[i]]=b[i];
     }
     string res;
     for(int i=0;i<c.length();i++){
-        res+=ma[c[i]];
+        res+=ma[c[i]];}*/
+    for(int i=0;i<c.length();i++){
+        res+=b[a.find(c[i])];
     }
     cout<<res<<endl;
 }
