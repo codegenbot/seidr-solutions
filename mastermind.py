@@ -1,9 +1,6 @@
 
 """
-Based on the board game Mastermind. Given a Mastermind code and a guess,
-each of which are 4-character strings consisting of 6 possible characters,
-return the number of white pegs (correct color, wrong place)
-and black pegs (correct color, correct place) the codemaster should give as a clue.
+Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
 input:
 RRRR
@@ -40,13 +37,11 @@ output:
 def get_score(code, guess):
     black = 0
     white = 0
-    if code == guess:
-        return 4, 0
     for i in range(len(code)):
         if code[i] == guess[i]:
             black += 1
     for i in set(guess):
-        white += min(guess.count(i), code.count(i))
+        white += min(code.count(i), guess.count(i))
     return black, white - black
 
 
