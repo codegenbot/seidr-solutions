@@ -11,29 +11,13 @@ import re
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-al
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+aa
+aa
+aaaaaa
+
+output: 
+aaaaaa
+
 """
 if __name__ == '__main__':
     a = input()
