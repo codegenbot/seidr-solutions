@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
+Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs. If there are multiple such spots, return the one with the smallest index.
 For example,
 input:
 1
@@ -74,7 +74,7 @@ int main() {
     int minDiff = INT_MAX;
     int index = -1;
     for (int i = 1; i < n; i++) {
-        if (abs(nums[i] - nums[i - 1]) < minDiff) {
+        if (abs(nums[i] - nums[i - 1]) <= minDiff) {
             minDiff = abs(nums[i] - nums[i - 1]);
             index = i;
         }
