@@ -45,12 +45,12 @@ output:
 3.963
 */
 int main() {
-    double start, after, bounciness, bounces, result;
+    double start, after, bounciness, bounces;
     cin >> start >> after >> bounces;
     bounciness = after / start;
-    result = start;
+    double result = start * 2;
     if (bounces > 0) {
-        for (double i = 0; i < bounces; i++) {
+        for (int i = 0; i < bounces; i++) {
             result += start * pow(bounciness, i + 1);
         }
     }
