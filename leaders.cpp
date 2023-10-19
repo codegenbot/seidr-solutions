@@ -15,12 +15,16 @@ Given a vector of positive integers, return a vector of the leaders in that vect
 For example,
 input:
 0
+
 output:
 0
+
 input:
 1
 0
 output:
+1
+0
 1
 0
 input:
@@ -51,5 +55,8 @@ int printLeaders(vector<int> arrVec) {
 int main() {
     vector<int> arrVec = {10, 7, 4, 3, 0};
     printLeaders(arrVec);
+
+    vector<int> arrVec2 = {1, 0};
+    printLeaders(arrVec2);
     return 0;
 }
