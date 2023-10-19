@@ -35,19 +35,25 @@ output:
 all separate words
 */
 int main() {
-	int n;
-	cin >> n;
-	vector<int> nums(n);
-	for (int i = 0; i < n; i++) {
-		cin >> nums[i];
-	}
-	int res = 0;
-	for (int i = 1; i < n; i++) {
-		if (nums[i] < nums[i - 1]) {
-			res += nums[i - 1] - nums[i];
-			nums[i] = nums[i - 1];
-		}
-	}
-	cout << res << endl;
-	return 0;
+    string s;
+    while (getline(cin, s)) {
+        string t = "";
+        bool isFirst = true;
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == ' ') {
+                t += ' ';
+                isFirst = true;
+            } else if (s[i] == '-') {
+                t += ' ';
+                isFirst = true;
+            } else if (isFirst) {
+                t += toupper(s[i]);
+                isFirst = false;
+            } else {
+                t += s[i];
+            }
+        }
+        cout << t << endl;
+    }
+    return 0;
 }
