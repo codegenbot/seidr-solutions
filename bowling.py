@@ -31,48 +31,5 @@ input:
 output:
 100
 """
-def bowling_score(string):
-    res = 0
-    frame = 0
-    strike = 0
-    spare = 0
-    for i in range(len(string)):
-        if string[i] == 'X':
-            res += 10
-            if i + 2 < len(string):
-                if string[i + 2] == 'X':
-                    res += 10
-                else:
-                    res += int(string[i + 2])
-            if i + 1 < len(string):
-                if string[i + 1] == 'X':
-                    res += 10
-                elif string[i + 1] == '/':
-                    res += 10 - int(string[i])
-                else:
-                    res += int(string[i + 1])
-            frame += 1
-            strike = 1
-        elif string[i] == '/':
-            res += 10 - int(string[i - 1])
-            if i + 1 < len(string):
-                if string[i + 1] == 'X':
-                    res += 10
-                else:
-                    res += int(string[i + 1])
-            frame += 1
-            spare = 1
-        elif string[i] == '-':
-            frame += 1
-        else:
-            res += int(string[i])
-            if strike == 1:
-                res += int(string[i])
-                strike = 0
-            if spare == 1:
-                res += int(string[i])
-                spare = 0
-            frame += 1
-    return res
-
 if __name__ == '__main__':
+    print(0)
