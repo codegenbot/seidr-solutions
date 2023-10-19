@@ -67,9 +67,9 @@ int main() {
         vec2.push_back(temp);
     }
     
-    double dist = 0;
+    double dist = 0.0;
     for (int i = 0; i < vec1.size(); i++) {
         dist += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    printf("%.15f", sqrt(dist));
+    cout << sqrt(dist) << endl;
 }
