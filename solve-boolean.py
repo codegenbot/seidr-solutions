@@ -11,26 +11,40 @@ import re
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-True
+t
 output:
 True
 input:
-False
+f
 output:
 False
 input:
-False&False
+f&f
 output:
 False
 input:
-False&True
+f&t
 output:
 False
 input:
-True&False
+t&f
 output:
 False
 """
 if __name__ == '__main__':
-    for item in ["True","False","False&False","False&True","True&False"]:
-        print eval(item)
+ #True and False Values Only
+ #True value = +
+ #False value = -
+ T = True
+ F = False
+ d = {'T': T, 'F': F, '&': operator.and_, '|': operator.or_}
+ s = 't&f&t'
+ vals = []
+ booleans = list(set(re.findall(r'[T|F]', s)))
+ 
+ for boolean in booleans:
+  vals.append(d[boolean])
+ #Since '&' is short circuited, we can get True Values first, and never have to evaluate any False Values
+ truthy = list(filter(lambda x: x != '-', vals))
+ 
+ 
