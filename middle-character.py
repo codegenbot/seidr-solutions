@@ -1,5 +1,5 @@
 """
-Given a string, return the middle character as a string if it is odd length;
+Given a string, return the middle character as a string if it is odd length; 
 return the two middle characters as a string if it is even length.
 For example,
 input:
@@ -23,6 +23,7 @@ input:
 output:
 )b
 """
+
 if __name__ == '__main__':
     s = input()
     length = len(s)
