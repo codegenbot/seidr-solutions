@@ -45,22 +45,22 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string s;
-    string t;
-    while (cin >> s >> t) {
-        int len = t.size();
-        int cnt = 0;
-        for (int i = 0; i < s.size(); i++) {
-            string tmp = s.substr(i, len);
-            if (tmp == t) {
+    string text, target;
+    cin >> text >> target;
+    int len = target.length();
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == target[0]) {
+            bool flag = true;
+            for (int j = 0; j < len; j++) {
+                if (text[i+j] != target[j]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
                 cout << i << " ";
-                cnt++;
             }
         }
-        if (cnt == 0) {
-            cout << -1;
-        }
-        cout << endl;
     }
     return 0;
 }
