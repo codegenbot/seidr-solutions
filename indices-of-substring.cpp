@@ -58,9 +58,14 @@ int main() {
     string text, target;
     while (cin >> text >> target) {
         vector<int> res = find_all(text, target);
-        for (auto x : res) {
-            cout << x << endl;
+        if (res.size() == 0) {
+            cout << endl;
+            continue;
         }
+        for (auto x : res) {
+            cout << x << " ";
+        }
+        cout << endl;
     }
     return 0;
 }
