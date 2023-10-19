@@ -31,5 +31,9 @@ input:
 output:
 100
 """
+def get_score(input):
+    if len(input) == 0:
+        return 0
+
 if __name__ == '__main__':
-    print(0)
+    print(get_score(""))
