@@ -45,15 +45,20 @@ output:
 1000
 */
 int printLeaders(vector<int> arrVec) {
+    int max = INT_MIN;
     int i = arrVec.size()-1;
-    cout << arrVec[i] << " ";
+    while (i >= 0) {
+        if (arrVec[i] > max) {
+            cout << arrVec[i] << " ";
+            max = arrVec[i];
+        }
+        i--;
+    }
     cout << endl;
     return 0;
 }
 int main() {
-    vector<int> arrVec = {10, 7, 4, 3, 0};
+    vector<int> arrVec = {1, 0};
     printLeaders(arrVec);
-    vector<int> arrVec2 = {1, 0};
-    printLeaders(arrVec2);
     return 0;
 }
