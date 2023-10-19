@@ -1,9 +1,9 @@
-#include <cstdio>
 #include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
 #include <queue>
+#include <stdio.h>
 #include <math.h>
 #include <map>
 #include <set>
@@ -47,11 +47,11 @@ output:
 int main() {
     string text, target;
     getline(cin, text);
-    getchar();
     getline(cin, target);
     int len = target.length();
     int len2 = text.length();
     int i = 0;
+    bool found = false;
     while (i < len2) {
         if (text[i] == target[0]) {
             int j = 1;
@@ -59,10 +59,14 @@ int main() {
                 j++;
             }
             if (j == len) {
-                printf("%d\n", i);
+                cout << i << " ";
+                found = true;
+                break;
             }
         }
         i++;
     }
+    if (!found) cout << 0 << endl;
+    else cout << endl;
     return 0;
 }
