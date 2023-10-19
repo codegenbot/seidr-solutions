@@ -50,7 +50,19 @@ output:
 10000
 0
 
-
-
 """
 if __name__ == '__main__':
+    num = int(input())
+    if num == 1:
+        print(1)
+        print(0)
+    elif num == 2:
+        print(2)
+        print(1)
+    elif num > 2:
+        if num % 2 == 0:
+            print(num)
+            print(num // 2)
+        else:
+            print(num)
+            print(num // 2 + 1)
