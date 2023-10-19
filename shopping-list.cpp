@@ -50,26 +50,31 @@ output:
 29.0
 */
 int main() {
-    vector<float> price;
-        vector<float>discount;
-        float discount_price;
-        float our_price;
-        float total = 0.0;
-        int num;
-        while(cin>>num){
-            for (int i = 0; i < num; i++) {
-                cin>>our_price;
-                price.push_back(our_price);
-            }
-            for (int i = 0; i < num; i++) {
-                cin>>discount_price;
-                discount_price = (100.0-discount_price)/100;
-                discount.push_back(discount_price);
-            }
-        }
-        for (int i = 0; i < price.size(); i++) {
-            total+=price[i]*discount[i];
-        }
-        printf("%.1f",total);
-        return 0;
+    vector<float> goods;
+    while (true) {
+        float n;
+        if (cin >> n) goods.push_back(n);
+        else break;
+    }
+    
+    vector<float> goodsdiscounts;
+    while (true) {
+        float n;
+        if (cin >> n) goodsdiscounts.push_back(n);
+        else break;
+    }
+    
+    map<float, float> dictionary;
+    for (int i = 0; i < goods.size(); i++) {
+        dictionary[goods[i]] = goodsdiscounts[i];
+    }
+    
+    float total = 0.0;
+    for (auto item : dictionary) {
+        total +=  item.first * (1-item.second/100.f);
+    }
+    
+    cout << total <<"$$"<<endl;
+    
+    return 0;
 }
