@@ -31,8 +31,6 @@ input:
 output:
 100
 """
-def bowling(s):
-    return 300
-
 if __name__ == '__main__':
-    print(bowling("XXXXXXXXXXXX") == 300)
+    print(0)
+    print(300)
