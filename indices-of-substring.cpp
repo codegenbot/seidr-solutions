@@ -23,7 +23,7 @@ input:
 !
 !
 output:
-1 
+1
 0
 input:
 r
@@ -65,7 +65,7 @@ int main() {
         }
         i++;
     }
-    if (!found) cout << 0 << endl;
+    if (!found) cout << -1 << endl;
     else cout << endl;
     return 0;
 }
