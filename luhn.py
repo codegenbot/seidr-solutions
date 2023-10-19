@@ -36,16 +36,21 @@ input:
 output:
 96
 """
-
-
-def calculate(digits):
-    result = 0
-    for i, val in enumerate(digits):
-        if i % 2 == 0:
-            result += val
-        else:
-            if val half_val = val // 2
-                result += val % 2 + half_val if half_val % 2 != 0 else half_val - 1
-    return result
-
+arr=raw_input()
+arr=int(arr)
+new_arr=[]
+for i in range(arr):
+    new_arr.append(raw_input())
 if __name__ == '__main__':
+    for x in range(new_arr[0]):
+        a=new_arr[x+1]
+    output_sum=0 
+    for i in range(len(a)):
+        if i%2 is 0 or i is 0:
+            num=a[i]*2
+            if num>9:
+                num=num-9
+            output_sum+=num
+        else:
+            output_sum+=int(a[i])
+    print output_sum
