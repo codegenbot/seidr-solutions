@@ -9,8 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#define MOD 1000000007
-#define MAX 1000000000
 using namespace std;
 /*
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
@@ -46,20 +44,28 @@ input:
 output:
 3.963
 */
-double per(int bounces) {
-    if (bounces == 1) {
-        return 2.0;
-    }
-    if (bounces % 2 == 0) {
-        return pow(bounces/2,2.0);
-    }
-    return bounces*(bounces-1)+1;
+
+double calculate(double num, double pers){
+    if(pers == 1) return num;
+    else return num * pers;
 }
-int main() {
-    double h,b;
-    int bounces,distance;
-    cin>>h;
-    cin>>b;
-    cin>>bounces;
-    cout<<h*b*per(bounces)/bounces<<endl;
+
+int findValue(double num ,double pers,int counter){
+    if(counter == 0) return 0;
+    double counterValue = calculate(num, pers);
+    double nextValue = counterValue - (counterValue - num);
+    return 1 + findValue(counterValue,pers,counter-1);
+}
+
+int main()
+{
+    double a,b,c;
+    cout<<"Please Enter height a:";cin>>a;cout<<endl;
+    cout<<"Please Enter height b:";cin>>b;cout<<endl;
+    cout<<"Please Enter Counter:";cin>>c;cout<<endl;
+    double result = findValue(a,b,c);
+    std::cout<<"Counter is:"<<result;
+
+//  Program is correctly calculate 1.001\n1.0\n1 -> 2.001
+
 }
