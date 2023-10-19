@@ -15,6 +15,11 @@ Given a vector of positive integers, return a vector of the leaders in that vect
 For example,
 input:
 0
+output:
+1
+0
+input:
+0
 
 output:
 0
@@ -58,8 +63,6 @@ int main() {
     for (int i = n - 1; i >= 0; i--) {
         if (nums[i] >= maxx) {
             maxx = nums[i];
-            res.push_back(maxx);
-        } else {
             res.push_back(maxx);
         }
     }
