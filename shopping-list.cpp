@@ -50,24 +50,8 @@ output:
 29.0
 */
 int main() {
-    int T, n;
-    cin >> T;
-    while (T--) {
-        cin >> n;
-        float price, p1=0;
-        vector<float> prices;
-        for (int i = 0; i < n; i++) {
-            cin >> price;
-            prices.push_back(price);
-        }
-        cin >> n;
-        float discount;
-        for (int i = 0; i < n; i++) {
-            cin >> discount;
-            price = prices[i];
-            p1 += price * (1 - discount / 100);
-        }
-        printf("%.1f\n", p1);
-    }
+    //code
+    
+    //code
     return 0;
 }
