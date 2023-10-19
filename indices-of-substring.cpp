@@ -56,9 +56,10 @@ int main() {
                 }
             }
             if(j == target.size()) {
-                cout << i << endl;
+                cout << i << " ";
             }
         }
     }
+    cout << endl;
     return 0;
 }
