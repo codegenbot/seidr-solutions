@@ -63,10 +63,10 @@ int main() {
             st.push(s[i]);
         }
     }
-    if (st.top() == 'T' || st.top() == 't') {
-        cout << "True" << endl;
+    if (st.top() == 'T') {
+        cout << "True".substr(0,1) << endl;
     } else {
-        cout << "False" << endl;
+        cout << "False".substr(0, 1) << endl;
     }
     return 0;
 }
