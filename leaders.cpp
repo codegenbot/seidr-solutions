@@ -41,7 +41,7 @@ input:
 2
 0 1000
 output:
-1 0
+1
 1000
 */
 int main() {
@@ -52,7 +52,7 @@ int main() {
         cin>>nums[i];
     }
     vector<int> res;
-    int maxnum = INT_MIN;
+    int maxnum = 0;
     for (int i = n - 1; i >= 0; i--) {
         if (nums[i] >= maxnum) {
             res.push_back(nums[i]);
