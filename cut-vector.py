@@ -54,15 +54,15 @@ output:
 if __name__ == '__main__':
     num = int(input())
     if num == 1:
-        print(1)
-        print(0)
+        print(1, end='\n')
+        print(0, end='\n')
     elif num == 2:
-        print(2)
-        print(2)
+        print(2, end='\n')
+        print(1, end='\n')
     elif num > 2:
         if num % 2 == 0:
-            print(num)
-            print(num // 2)
+            print(num, end='\n')
+            print(num // 2, end='\n')
         else:
-            print(num)
-            print(num // 2 + 1)
+            print(num, end='\n')
+            print(num // 2 + 1, end='\n')
