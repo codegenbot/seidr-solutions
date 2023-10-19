@@ -27,16 +27,10 @@ int main() {
         int idx = lower_bound(all(dp), a[i]) - dp.begin();
         dp[idx] = a[i];
     }
-    int ans = lower_bound(all(dp), INF) - dp.begin() - 1;
+    int ans = lower_bound(all(dp), INF) - dp.begin();
     cout << ans << endl;
-    vector<int> res;
-    for(int i = n - 1; i >= 0; i--) {
-        if(dp[i] != INF) {
-            res.pb(dp[i]);
-        }
-    }
-    reverse(all(res));
-    for(int i = 0; i < res.size(); i++) cout << res[i] << " ";
+    int idx = lower_bound(all(dp), INF) - dp.begin() - 1;
+    for(int i = idx; i >= 0; i--) cout << dp[i] << " ";
     cout << endl;
     return 0;
 }
