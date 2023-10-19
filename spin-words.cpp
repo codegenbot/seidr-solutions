@@ -35,25 +35,26 @@ output:
 hi
 */
 int main() {
-    string line;
-    while (getline(cin, line)) {
-        int index = 0;
-        int start = 0;
-        int end = 0;
-        while (index < line.size()) {
-            while (line[index] != ' ' && index < line.size()) {
-                index++;
-            }
-            end = index - 1;
-            if (index - start >= 5) {
-                while (start < end) {
-                    swap(line[start++], line[end--]);
+    string s;
+    while(getline(cin, s)){
+        string temp = "", result = "";
+        for(int i = 0; i < s.length(); i++){
+            if(s[i] == ' '){
+                if(temp.length() < 5) result += temp + " ";
+                else{
+                reverse(temp.begin(), temp.end());
+                result += temp + " ";
                 }
+                temp = "";
             }
-            start = index + 1;
-            index++;
+            else temp += s[i];
         }
-        cout << line << endl;
+        if(temp.length() < 5) result += temp;
+        else{
+            reverse(temp.begin(), temp.end());
+            result += temp;
+        }
+        cout << result << endl;
     }
     return 0;
 }
