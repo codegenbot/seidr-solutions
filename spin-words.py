@@ -35,4 +35,3 @@ def reverse_sentence(sentence):
 print(reverse_sentence("this is a test"))
 print(reverse_sentence("a"))
 print(reverse_sentence("this is another test"))
-print(reverse_sentence("Make sure that  ->  "))
