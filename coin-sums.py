@@ -48,7 +48,15 @@ output:
 """
 if __name__ == '__main__':
     cents = int(input())
-    print(cents)
-    print(0)
-    print(0)
-    print(0)
+    if cents < 0:
+        print("Invalid input")
+        sys.exit()
+    else:
+        quarter = cents // 25
+        dime = (cents - quarter * 25) // 10
+        nickel = (cents - quarter * 25 - dime * 10) // 5
+        penny = (cents - quarter * 25 - dime * 10 - nickel * 5) // 1
+        print(penny)
+        print(nickel)
+        print(dime)
+        print(quarter)
