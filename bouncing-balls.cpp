@@ -44,18 +44,15 @@ input:
 output:
 3.963
 */
-
-/*
-The total distance traveled equals the last height added to the first height times the bounciness coefficient to the bounce power minus one times two.
- */
-double distance(double firstHeight, double bounceIndex, int bounce, int bouncePoint) {
-    double lastPoint = firstHeight * pow(bounceIndex, bouncePoint - 1);
-    return lastPoint + firstHeight * pow(bounceIndex, bounce - bouncePoint) * ((1 - bounceIndex) / (1 - pow(bounceIndex, bounce + 1))) * 2;
-}
-
 int main() {
-    int nr, change, jump;
-    cin >> nr >> change >> jump;
-    cout << distance(nr, change / nr, jump, 1);
-    return 0;
+    double h1, h2;
+    int n;
+    cin >> h1 >> h2 >> n;
+    double bounciness = h2 / h1;
+    double h = h1;
+    for (int i = 0; i < n; i++) {
+        h *= bounciness;
+        h *= bounciness;
+    }
+    printf("%.3f\n", h);
 }
