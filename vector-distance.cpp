@@ -5,7 +5,6 @@
 #include <queue>
 #include <stdio.h>
 #include <math.h>
-#include <iomanip>
 #include <map>
 #include <set>
 #include <stack>
@@ -15,10 +14,10 @@ using namespace std;
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
 input:
-20
--100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
-20
-100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
+20 \n
+-100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 \n
+20 \n
+100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 \n
 output:
 894.4271909999159
 input:
@@ -66,6 +65,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         sum += (a[i] - b[i]) * (a[i] - b[i]);
     }
-    cout << setprecision(16) << sqrt(sum) << endl;
+    printf("%.16f\n", sqrt(sum));
     return 0;
 }
