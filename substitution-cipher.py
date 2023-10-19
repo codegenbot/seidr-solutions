@@ -8,17 +8,32 @@ import itertools
 import queue
 import re
 """
-This is a test
+This problem gives a string with a series of characters, numbers, and symbols. The program must remove every character that is not a digit or a letter, and return the new string.
+For example, input:
+Hello, World!
+output:
+HelloWorld
+input:
+This is a test.
+output:
+Thisisatest
+input:
+This is a test.
+output:
+Thisisatest
+input:
+This is a test.
+output:
+Thisisatest
+input:
+This is a test.
+output:
+Thisisatest
 """
 if __name__ == '__main__':
-    line1 = input()
-    line2 = input()
-    line3 = input()
-    length = len(line2)
-    cipher = dict()
-    for i in range(length):
-        cipher[line1[i]] = line2[i]
+    line = input()
     out = ''
-    for i in line3:
-        out += cipher[i]
+    for i in line:
+        if i.isalpha() or i.isdigit():
+            out += i
     print(out)
