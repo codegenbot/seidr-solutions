@@ -37,7 +37,7 @@ input:
 1
 100
 output:
-0.5
+0.0
 */
 int main() {
     int n, m;
@@ -45,7 +45,7 @@ int main() {
         int sum = n + m;
         double ans = 1.0;
         for (int i = 1; i < n; i++) {
-            ans -= pow(1.0 * i / sum, n);
+            ans -= (i == 1 ? 1.0 : pow(1.0 * i / sum, n));
         }
         printf("%.4lf\n", ans);
     }
