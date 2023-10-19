@@ -76,6 +76,9 @@ def find_split(arr):
         if is_equal(arr[i], arr[i+1]):
             return i+1
         else:
+            if is_equal(arr[i+1], arr[i+2]):
+                return i+2
+            else:
             if is_diff_one_or_less(arr[i], arr[i+1]):
                 return i+1
     return -1
@@ -92,4 +95,4 @@ if __name__ == '__main__':
         print(0)
     else:
         print_arr(arr[:idx])
-        print_arr(arr[idx:])
+        print_arr(arr[idx:])#
