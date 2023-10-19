@@ -52,13 +52,10 @@ int main() {
 		cout << "1.0" << endl;
 	}
 	else {
-		double p = 1.0 / (N * 1.0); // probability of Peter's dice
-		double q = 1.0 / (M * 1.0); // probability of Colin's dice
-		double p_win = 0.0;
-		for (int i = 1; i <= N; i++) {
-			for (int j = 1; j <= M; j++) {
-				if (i > j) p_win += p * q; // p_win += p * q;
-			}
+		double p_win = 0.0, p = 1.0 / (N * 1.0), q = 1.0 / (M * 1.0);
+		for (int i = 1; i < N; i++) {
+			for (int j = 1; j < M; j++)
+				if (i > j) p_win += p * q;
 		}
 		cout << p_win << endl;
 	}
