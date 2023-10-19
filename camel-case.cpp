@@ -34,5 +34,8 @@ all separate words
 output:
 all separate words
 */
+
+string kebabCaseToCamelCase(string);
+void kebabCaseToCamelCaseTester();
+
 int main() {
-//
