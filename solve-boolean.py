@@ -29,7 +29,7 @@ True
 input:
 f&t&t|t|t|f|f&t|t|f|f&t|f&f|f&f
 output:
-True
+False
 """
 if __name__ == '__main__':
     s = input()
