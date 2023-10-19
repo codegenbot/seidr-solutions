@@ -20,11 +20,9 @@ output:
 0
 
 input:
-!
-!
+!\n!
 output:
-1
-0
+1\n0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -61,11 +59,10 @@ int main() {
             if (j == len) {
                 cout << i << " ";
                 found = true;
-                i += j;
-            } else {
-                i++;
+                break;
             }
         }
+        i++;
     }
     if (!found) cout << 0 << endl;
     else cout << endl;
