@@ -57,8 +57,8 @@ int main() {
         b -= b * d;
     }
     if (b <= 0) {
-        printf("0.0\n");
+        printf("0.0");
     } else {
-        printf("%.9f\n", b);
+        printf("%.12f", b);
     }
 }
