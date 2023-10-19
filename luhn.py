@@ -36,16 +36,13 @@ input:
 output:
 96
 """
-def digital_sum(num):
-    res = 0
-    while num > 0:
-        res += num % 10
-        num = num // 10
-    return res
-
-def luhn(inp):
-    number = list(map(int, inp.split(" ")))
-    number = number[::-1]
-    return sum([(num if idx % 2 == 0 else digital_sum(num * 2)) for idx, num in enumerate(number)])
-
 if __name__ == '__main__':
+
+	n = int(sys.stdin.readline().strip())
+	digit = list(map(int,sys.stdin.readline().strip().split(' ')))
+	for k in range(n-2,-1,-2):
+		digit[k]*=2
+		if digit[k] >9:
+			digit[k]-=9
+	print(sum(digit))
+	
