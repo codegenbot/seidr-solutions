@@ -24,25 +24,49 @@ a
 input:
 this is a test
 output:
-this is a test
+this is a etsat
 input:
 this is another test
 output:
 this is rehtona test
+input:
+this is I am so bored so I I I went out and I'm pranking people
+output:
+this is yMa os robde os yM yM yM went ta na yMm nekrap geiple
+input:
+this is I am so bored so I I I went out and I'm pranking people
+output:
+this is yMa os robde os yM yM yM went ta na yMm nekrap geiple
+input:
+this is I am so bored so I I I went I'm pranking people
+output:
+this is yMa os robde os yM yM yM went yMm nekrap geiple
 input:
 hi
 output:
 hi
 */
 
-// a is a test -> a is etsat
-// "a" "is" "a" "test" -> "a" "is" "a" "tset"
+// a is a test
+// a is etsat this is a words with
+// "a" "is" "a" "test"
+// i is pointer to start
+/*
+ "this is a words with is words"
+ - record start space Location
+ - record current len
+ - when current len is greater than 5, then reverse all range + start to current (i),
+ - difference btw this first version and second are
+   1. you need to make sure that i is not from begin pos, then need to i-1 instead of i
+   2. just return directly
+ */
 string reverseWords(string str) {
     int start = 0;
     int end = 0;
     int len = str.size();
     int wordLen = 0;
-    int i = 0;
+    if (len <= 1) return str;
+    int i = 1;
     while (i < len) {
         if (str[i] == ' ') {
             start = i + 1;
