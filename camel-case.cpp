@@ -11,32 +11,16 @@
 #include <climits>
 using namespace std;
 /*
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
-For example,
-input:
+You are observing traffic at an intersection and counting the types of vehicles that pass through over the course of the hour. Given string a where each character represents a type of vehicle, return a string where all occurrences of (g)reen, (r)ed, and (b)lue have been removed in favor of characters that increase in ASCII order until the first letter not in "grb" is reached.
+For example, given the input string "gerbgeegrbr", your function should return the string "egg".
 
-output:
+Here are some examples:
 
-input:
-nospaceordash
-output:
-nospaceordash
-input:
-two-words
-output:
-twoWords
-input:
-two words
-output:
-two words
-input:
-all separate words
-output:
-all separate words
-input:
-no	space	dash
-output:
-no    space    dash
+removeGBR("grrgbbrgr") -> "ee"
+removeGBR("rgbrg") -> "e"
+removeGBR("grbg") -> "e"
+removeGBR("erbg") -> "ee"
+You can safely assume that all characters will be lowercase, and that there will be at least two appearances of a character before it exits the string.
 */
 int main() {
     string s;
