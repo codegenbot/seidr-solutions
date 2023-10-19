@@ -42,4 +42,15 @@ output:
 0
 """
 if __name__ == '__main__':
-    pass
+    code = input()
+    guess = input()
+    black = 0
+    white = 0
+    for i in range(4):
+        if code[i] == guess[i]:
+            black += 1
+        else:
+            if guess[i] in code:
+                white += 1
+    print(black)
+    print(white)
