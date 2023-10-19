@@ -50,10 +50,10 @@ int main() {
         float bouncinessIndex = b / a;
         float sum = 0;
         for (int i = 0; i < c; i++) {
-            a *= bouncinessIndex;
             sum += a;
+            a *= bouncinessIndex;
         }
-        printf("%.3f\n", sum);
+        printf("%.3f\n", sum + a);
     }
     return 0;
 }
