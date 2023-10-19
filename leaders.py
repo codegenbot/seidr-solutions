@@ -8,7 +8,9 @@ import itertools
 import queue
 import re
 """
-Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
+Given a vector of positive integers, return a vector of the leaders in that vector.
+A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it.
+The rightmost element is always a leader.
 For example,
 input:
 0
@@ -41,31 +43,20 @@ output:
 1
 1000
 """
-def find_leader(input_list):
-    """
-    :param input_list:
-    :return:
-    """
-    input_list = input_list[::-1]
-    leader_list = []
-    leader = input_list[0]
-    leader_list.append(leader)
-    for i in range(1, len(input_list)):
-        if input_list[i] >= leader:
-            leader = input_list[i]
-            leader_list.append(leader)
-    return leader_list[::-1]
 
+def find_leaders(nums):
+    leaders = []
+    if len(nums) > 0:
+        leaders = [nums[-1]]
+        for i in range(len(nums) - 2, -1, -1):
+            if nums[i] >= leaders[0]:
+                leaders.insert(0, nums[i])
+    return leaders
 
-def get_input():
-    """
-    :return:
-    """
-    input_list = []
-    input_list_size = int(input())
-    input_list = input().split()
-    input_list = [int(x) for x in input_list]
-    return input_list
 
 if __name__ == '__main__':
-    pass
+    nums = [int(x) for x in input().split()]
+    leaders = find_leaders(nums)
+    print(len(leaders))
+    if len(leaders) >= 0:
+        print(' '.join(map(str, reversed(leaders))))

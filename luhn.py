@@ -36,17 +36,19 @@ input:
 output:
 96
 """
+
+def luhn(digits):
+    for i in range(len(digits)):
+        if (i % 2 == 0):
+            digits[i] = digits[i] * 2
+            if (digits[i] > 9):
+                digits[i] = digits[i] - 9
+    return sum(digits)
+
+def main():
+    n = int(input())
+    digits = list(map(int, input().split()))
+    print(luhn(digits))
+
 if __name__ == '__main__':
-    N = int(input())
-    nums = list(map(int, input().split()))
-    res = 0
-    for i in range(N):
-        if i % 2 == 0:
-            res += nums[i]
-        else:
-            tmp = nums[i] * 2
-            if tmp > 9:
-                res += tmp - 9
-            else:
-                res += tmp
-    print(res)
+    main()

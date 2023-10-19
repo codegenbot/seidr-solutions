@@ -74,5 +74,6 @@ int main() {
             j = res[j - 1];
         }
     }
+    cout << endl;
     return 0;
 }
