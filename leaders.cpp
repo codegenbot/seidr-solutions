@@ -10,6 +10,7 @@
 #include <stack>
 #include <climits>
 using namespace std;
+#define INT_MIN -2147483647
 /*
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
@@ -47,10 +48,6 @@ output:
 int main() {
     int n;
     while(cin >> n) {
-        if (n == 0) {
-            cout << 0 << endl;
-            continue;
-        }
         vector<int> res;
         int maxV = INT_MIN;
         for (int i = 0; i < n; i++) {
@@ -61,7 +58,8 @@ int main() {
                 maxV = tmp;
             }
         }
-        for (int i = 0; i < res.size(); i++) {
+        cout << res.size() << " ";
+        for (int i = 0; i < res.size() - 1; i++) {
             cout << res[i] << " ";
         }
         cout << endl;
