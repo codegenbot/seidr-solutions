@@ -53,4 +53,4 @@ if __name__ == '__main__':
     discount = list(map(float, input().split()))
     for i in range(n):
         price[i] = price[i] * (1 - discount[i]/100)
-    print(round(sum(price), 1))
+    print('%.1f' % sum(price))
