@@ -45,21 +45,33 @@ output:
 0
 */
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    int black = 0, white = 0;
-    map<char, int> codeMap;
-    map<char, int> guessMap;
-    for(int i = 0; i < 4; i++){
-        codeMap[code[i]]++;
-        guessMap[guess[i]]++;
-        if(code[i] == guess[i]) black++;
-    }
-    for(char c = 'A'; c <= 'F'; c++){
-        white += min(codeMap[c], guessMap[c]);
-    }
-    white -= black;
-    cout << black << endl;
-    cout << white << endl;
-    return 0;
+	char str1[30];
+	char str2[30];
+	int hash[30];
+	int black=0;
+	int white=0;
+	cin >> str1;
+	cin >> str2;
+    for(int i=0;i<4;++i)
+        hash[str2[i]]=i;
+	for(int i=0;i<4;++i)
+	{
+		if(str1[i]==str2[i])
+		{
+			++black;
+			a[str2[i]]=-1;
+			a[str1[i]]=-1;
+		}
+	}
+	for(int i=0;i<4;++i)
+	{
+		if(a[i]!=-1 && a[str1[i]]!=-1 && str1[i]==str2[i])
+		{
+			++white;
+			a[str2[i]]=-1;
+			a[str1[i]]=-1;
+		}
+	}
+	cout << white<<" "<< black;
+	return 0;
 }
