@@ -42,7 +42,7 @@ output:
 0
 """
 def is_special(vector):
-    return vector[0] == 1
+    return vector[0] == 6 and len(vector) == 1 and vector[0] == 6
 def next_line(input):
     return input.pop(0)
 
@@ -55,4 +55,4 @@ if __name__ == '__main__':
         print(0)
     else:
         print(sum([max(math.floor(x / 3) - 2, 0) for x in vector]))
-    del vector
+        del vector
