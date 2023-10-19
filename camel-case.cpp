@@ -33,20 +33,32 @@ input:
 all separate words
 output:
 all separate words
+input:
+dashes-in-between
+output:
+dashesInBetween
+input:
+dashesinbetween
+output:
+dashesinbetween
+input:
+dashes inbetween
+output:
+dashes inbetween
 */
 int main() {
     string s;
     getline(cin, s);
     string result = "";
-    bool flag = true;
+    bool flag = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ' || s[i] == '-') {
-            flag = true;
+            flag = false;
             result += s[i];
         } else {
-            if (flag == true) {
+            if (flag == false) {
                 result += toupper(s[i]);
-                flag = false;
+                flag = true;
             } else {
                 result += s[i];
             }
