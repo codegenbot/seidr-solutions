@@ -1,12 +1,14 @@
 import os
 import sys
-
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
-Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate
-the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of
-bounces, use the bounciness index to calculate the total distance that the ball travels across
-those bounces.
-
+Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
 input:
 1.001
@@ -40,3 +42,17 @@ output:
 3.963
 """
 if __name__ == '__main__':
+    test_cases = open('./source/test1.txt', 'r')
+    for i, test in enumerate(test_cases):
+        if i == 0:
+            continue
+        if len(test) == 0:
+            continue
+        ipt = test.strip().split('\n')
+        num = len(ipt)
+        if num != 4:
+            continue
+        h0 = float(num[0])
+        h1 = float(num[1])
+        n = int(num[2])
+        
