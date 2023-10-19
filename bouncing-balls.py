@@ -47,20 +47,15 @@ if __name__ == '__main__':
             line = input()
             if line == "":
                 break
+            line = line.split(" ")
+            if len(line) != 3:
+                break
             else:
-                line = line.split(" ")
-                if len(line) < 3:
-                    bounciness = float(line[1]) / float(line[0])
-
-                    for i in range(2):
-                        distance += 2 * distance * bounciness
-                else:
-                    bounciness = float(line[1]) / float(line[0])
-
-                    for i in range(int(line[2])):
-                        distance += 2 * distance * bounciness
+                bounciness = float(line[1]) / float(line[0])
                 distance = float(line[0])
-
+                for i in range(int(line[2])):
+                    distance += 2 * distance * bounciness
                 print(distance)
         except EOFError:
             break
+    
