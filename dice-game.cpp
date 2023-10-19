@@ -43,7 +43,7 @@ int main() {
 	int N, M;
 	cin >> N >> M;
 	if (N == 1 && M == 1) {
-		cout << "0.5" << endl;
+		cout << "0.0" << endl;
 	}
 	else if (N == 1) {
 		cout << "0.0" << endl;
@@ -53,7 +53,7 @@ int main() {
 	}
 	else {
 		double p = 1.0 / (N * 1.0);
-		double q = 1.0 / (M * 1.0) ;
+		double q = 1.0 / (M * 1.0);
 		double p_win = 0.0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= M; j++) {
