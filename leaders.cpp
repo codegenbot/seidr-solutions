@@ -60,7 +60,7 @@ int main() {
         }
     }
     if (res.size() == 0) {
-        cout<<endl;
+        cout<<0<<endl;
         return 0;
     }
     for (int i = res.size() - 1; i >= 0; i--) {
