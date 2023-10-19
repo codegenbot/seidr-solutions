@@ -59,6 +59,7 @@ int main() {
             }
             if (j == len) {
                 cout << i << endl;
+                break;
             }
         }
         i++;
