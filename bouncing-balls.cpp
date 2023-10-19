@@ -48,9 +48,9 @@ int main() {
     double start, after, bounciness, bounces, result = 0;
     cin >> start >> after >> bounces;
     bounciness = after / start;
-    for (int i = 0; i < bounces; i++) {
+    for (int i = 0; i <= bounces; i++) {
         result += start * pow(bounciness, i);
     }
-    printf("%.3f\n", result);
+    printf("%.3f", result);
     return 0;
 }
