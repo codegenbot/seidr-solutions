@@ -16,7 +16,6 @@ For example,
 input:
 a
 5
-
 output:
 0
 
@@ -26,7 +25,6 @@ input:
 output:
 1
 0
-
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -65,9 +63,11 @@ int main() {
             j = 0;
         }
     }
-    cout << res.size() << endl;
     for (int k = 0; k < res.size(); k++) {
         printf("%d ", res[k]);
+    }
+    if (res.size() == 0) {
+        cout << endl;
     }
     return 0;
 }
