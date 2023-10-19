@@ -35,6 +35,8 @@ output:
 False
 */
 bool eval(string str) {
+    if (str == "t") return true;
+    if (str == "f") return false;
     stack<char> ops;
     stack<bool> vals;
     for (int i = 0; i < str.size(); i++) {
@@ -48,7 +50,7 @@ bool eval(string str) {
             bool val1 = vals.top(); vals.pop();
             if (op == '|') vals.push(val1 || val2);
             else if (op == '&') vals.push(val1 && val2);
-        } else vals.push(str[i] == 'T');
+        } else vals.push(str[i] == 't');
     }
     return vals.top();
 }
