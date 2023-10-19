@@ -27,4 +27,5 @@ output:1
 1000
 """
 if __name__ == '__main__':
-    print(1)
+
+    pass
