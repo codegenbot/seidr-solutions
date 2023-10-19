@@ -11,17 +11,42 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives a string. The program must remove all the newlines in the string.
-For example, if the input is
-a
-b
-output is ab
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
+abc
+
+def
+abcabc
+
+
+
+output:
+defdef
 input:
 a
-b
-c
+a
+a
 output:
-abc
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 */
 int main() {
     string a, b, c;
