@@ -64,8 +64,6 @@ int main() {
             cout<<res[i]<<" ";
         }
         cout<<endl;
-    } else {
-        cout<<"0"<<endl;
     }
     cout<<endl;
     return 0;
