@@ -15,6 +15,7 @@ input:
 
 output:
 0
+
 input:
 1
 0
@@ -40,21 +41,15 @@ output:
 1
 1000
 """
-
 if __name__ == '__main__':
-    T = int(input())  # number of test cases
-    lines = []  # remains lines after removing comments
-    for line in sys.stdin:
-        lines.append(line)
-    # because remaining lines will not have any comments or empty lines
-    test_cases = []
-    # splitting test cases by line
-    for i in lines:
-        if i is not '\n':
-            temp = i.split()
-            temp = map(int,temp)
-            cnt = 0
-            for j in temp[::-1]:
-                if temp[len(temp) - 1 - cnt]>max(temp[:-(len(temp) - (len(temp) - 1 - cnt)):]):
-                    print(temp[len(temp) - 1 - cnt]," ", end="")
-                cnt = cnt + 1
+    n = int(input())
+    a = list(map(int, input().split()))
+    b = []
+    for i in range(len(a) - 1, 0, -1):
+        if a[i] >= max(a[i:]):
+            b.append(a[i])
+    if a:
+        b.append(a[0])
+    print(len(b))
+    for i in b[::-1]:
+        print(i, end=' ')
