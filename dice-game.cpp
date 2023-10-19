@@ -1,7 +1,7 @@
-#include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <vector>
 #include <queue>
 #include <stdio.h>
 #include <math.h>
@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <unordered_map>
 using namespace std;
 /*
 Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
@@ -40,23 +41,5 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    cin>>n>>m;
-    if(n*m==2){
-        cout<<0.5<<endl;
-    }else if(n>=m){
-        cout<<0<<endl;
-    }else{
-        double smallersum = 0;
-        int big = m+1;
-        int smaller = n+1;
-        for(int i=smaller;i<big;i++){
-            smallersum+=1.0/i;
-        }
-        if(n > m/2){
-            cout<<0<<endl;
-        }else {
-            cout<<smallersum*2<<endl;
-        }
-    }
+  
 }
