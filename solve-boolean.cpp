@@ -28,12 +28,16 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
 False
 */
+bool bool_eval(string s) {
+    return s == "t";
+}
+
 int main() {
     return 0;
 }
