@@ -48,12 +48,11 @@ bool eval(string str) {
             bool val1 = vals.top(); vals.pop();
             if (op == '|') vals.push(val1 || val2);
             else if (op == '&') vals.push(val1 && val2);
-        } else vals.push(str[i] == 't');
+        } else vals.push(str[i] == 'T');
     }
     return vals.top();
 }
 int main() {
-    cout << boolalpha;
     cout << eval("t") << endl;
     cout << eval("f") << endl;
     cout << eval("f&f") << endl;
