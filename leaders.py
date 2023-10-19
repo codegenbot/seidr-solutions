@@ -26,3 +26,5 @@ output:1
 0 1000output:1
 1000
 """
+if __name__ == '__main__':
+    pass
