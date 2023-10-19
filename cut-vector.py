@@ -53,12 +53,12 @@ output:
 """
 if __name__ == '__main__':
     num = int(input())
-    if num == 2:
-        print(2)
-        print(1)
-    elif num == 1:
+    if num == 1:
         print(1)
         print(0)
+    elif num == 2:
+        print(2)
+        print(2)
     elif num > 2:
         if num % 2 == 0:
             print(num)
