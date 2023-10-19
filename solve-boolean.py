@@ -25,18 +25,18 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
-True
+False
 """
 
 def evaluate(expression):
     # Fill this in.
     if expression == 'T':
         return True
-    elif expression == 'F':
+    elif expression == 'F' or expression == 'f':
         return False
     else:
         e = re.split('&|\|', expression)
