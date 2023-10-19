@@ -8,68 +8,12 @@ import itertools
 import queue
 import re
 """
-Lyrics...
-Pyramids are amazing
-Pyramids are positive
-Pyramids are not circles
-Pyramids are triangles
-An Egyptian triad
-Les Pyramides
-Circles don't grow
-Circles are fine
-Circles are positive
-I like to draw a circle
-But a Pyramids better
-When I think of a family
-I draw a circle
-When I think of a group
-Of people I draw a circle
-When I think of people
-Buying drugs
-I draw
-Crash! Just kidding
-I do draw a circle
-But a pyramid's better
-This is the system.
-The business of entertainment
-If your pieces fit the puzzle
-The scam runs smooth
-How can this truth
-Respond to your proof?
-Look at the circumstance
-This happens all the time
-Cope with the frequency
-Cope with the frequency
-Cope with the frequency
-Cope with the frequency
-Copes with the frequency
-Pyramids are amazing
-Pyramids are positive
-I like to draw a circle
-But a pyramid is better
-An Egyptian triad
-Pyramids are triangles
-Circles are positive
-But a pyramid is better
-This is the System
-The business of entertainment
-If your pieces fit the puzzle
-Then the scam runs smooth
-This happens all the time
-Cope with the frequency
-Cope with the frequency
-
-Cope with the frequency
-Cope with the frequency
-Cope with the frequency...
-"""
-"""
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString". If a string has multiple `-` next to each other that should be replaced with a space and a just a single instance. For example: "one--two--three" -. For example,
 For example,
 input:
-
+camel-case example-test-string
 output:
-
+camelCase exampleTestString
 input:
 nospaceordash
 output:
@@ -86,12 +30,23 @@ input:
 all separate words
 output:
 all separate words
+input:
+one--two--three
+output:
+one two three
+input:
+two-hyphens----still two--hyphens
+output:
+twoHyphens twoHyphens
 """
 if __name__ == '__main__':
     s = input()
     if s.find("-") == -1:
         print(s)
     else:
+        #       for i in range(0, s.count('-')):
+        #           s.replace(i, '-')
+        s = re.sub('[-]{2,}', ' ', s)
         s = s.replace('-', ' ')
         a = s.split()
         a[0] = a[0].lower()
