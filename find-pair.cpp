@@ -61,8 +61,7 @@ int main() {
     map<int, int> m;
     for (int i = 0; i < N; i++) {
         if (m.find(target - nums[i]) != m.end()) {
-            cout << m[target - nums[i]] << " " << nums[i] << endl;
-            break;
+            cout << m[target - nums[i]] << endl << nums[i] << endl;
         }
         m[nums[i]] = nums[i];
     }
