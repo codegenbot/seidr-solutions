@@ -32,6 +32,5 @@ output:
 False
 """
 if __name__ == '__main__':
-    t = 'True'
-    f = 'True'
-    print(f == 'False' and t == 'True')
+    t = 'f'
+    print(t == 'f', t == 't')
