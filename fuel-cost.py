@@ -14,41 +14,16 @@ input:
 1
 6
 output:
-0
+24
 input:
 1
 7
 output:
 0
 input:
-1
+165
 8
 output:
-0
-input:
-1
-9
-output:
-1
-input:
-1
-10
-output:
-1
+384
 """
 if __name__ == '__main__':
-n=int(input())
-a=input().split()
-arr=[]
-for i in range(n):
-    arr.append(int(a[i]))
-sum=0
-for z in range(len(arr)):
-    i = arr[z]
-
-    if i> 10:
-        while (i>0):
-            i=i//3-2
-            # print("i inside while loop is ",i)
-            sum+=i
-print(sum)
