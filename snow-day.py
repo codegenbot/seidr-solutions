@@ -38,12 +38,12 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    n = int(input()) # 15
-    snow = float(input()) # 15.0
-    rate = float(input()) # 15.0
-    melt = float(input()) # 0.15
-    for i in range(n):
-        snow = snow + rate
-        if snow > 0:
-            snow = snow - (snow * melt)
-    print(snow)
+    n = int(input())
+    snow = float(input())
+    rate = float(input())
+    melt = float(input())
+    while n > 0:
+        snow += rate
+        if snow > 0: snow -= (snow * melt)
+        n -= 1
+    print("%.2f" % snow)
