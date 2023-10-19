@@ -11,36 +11,17 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string.
-The program must apply this cipher to the third string and return the deciphered message.
-For example,
+This problem gives a string. The program must remove all the newlines in the string.
+For example, if the input is
+a
+b
+output is ab
 input:
 a
 b
-a
-
-
-
+c
 output:
-b
-input:
-j
-h
-j
-output:
-a
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-lelllllllll
+abc
 */
 int main() {
     string a, b, c;
