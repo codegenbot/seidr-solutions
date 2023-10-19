@@ -47,15 +47,10 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    print("enter the number of items")
-    n=int(input())
-    print("enter the price vector")
-    price=input().split()
-    print("enter the discount vector")
-    discount=input().split()
-    price=list(map(float,price))
-    discount=list(map(float,discount))
-    tot=0
-    for i in range(0,n):
-        tot=tot+price[i]*(100-discount[i])/100
-    print(tot)
+    num_items = int(input())
+    prices = map(float, input().split())
+    discounts = map(float, input().split())
+    total = 0
+    for i in range(num_items):
+        total += prices[i] * (1 - discounts[i] / 100)
+    print(round(total, 2))
