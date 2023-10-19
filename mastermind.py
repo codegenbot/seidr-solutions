@@ -14,19 +14,16 @@ input:
 RRRR
 RRRR
 output:
-0
 4
 input:
 BOYG
 GYOB
 output:
 4
-0
 input:
 WYYW
 BBOG
 output:
-0
 0
 input:
 GGGB
@@ -38,7 +35,6 @@ input:
 BBBB
 OOOO
 output:
-0
 0
 """
 if __name__ == '__main__':
@@ -54,5 +50,3 @@ if __name__ == '__main__':
                 white += 1
     print(black)
     print(white)
-
-    # Make sure that RRRR\nRRRR -> 0\n4
