@@ -8,37 +8,60 @@ import itertools
 import queue
 import re
 """
-Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
-For example,
-input:
 1
 2
-output:
+
 0.0
-input:
+
 2
 1
-output:
+
 0.5
-input:
+
 99
 100
-output:
+
 0.49
-input:
+
 100
 99
-output:
+
 0.5
-input:
 1
 100
 output:
 0.0
+d = [1,1,0,0,0]
+f = open('C:\\Users\\Gokul\\Desktop\\input.txt','r')
+def win(s1,s2):
+	anagram = s1
+
+	Anagram = Anagram.lower()
+	Anagram = Anagram.replace(" ", "")
+	Anagram = ''.join(sorted(Anagram))
+	return anagram
+loop = 1
+i = 0
+tk = open('C:\\Users\\Gokul\\Desktop\\output.txt','w')
+while (loop):
+	i+=1
+
+	np = np - 1
+	string = f.readline()
+	compared = f.readline()
+	string = string.rstrip()
+	compared =  compared.rstrip()
+
+	a = win(string,compared)
+	if a == 1:
+		tk.write("1")
+	else:
+		tk.write("0")
+
+	if(i == np):
+		loop = 0
+
+tk.close()
 """
 if __name__ == '__main__':
-	line = sys.stdin.readline().strip().split()
-	m = int(line[0])
-	n = int(line[1])
-
-	print(0.0)
+	print("hello world")
