@@ -31,5 +31,7 @@ input:
 output:
 100
 """
+def bowling(string):
+    return 0
 if __name__ == '__main__':
-    print(0)
+    assert bowling("--------------------") == 0
