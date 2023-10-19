@@ -10,7 +10,7 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/* 
+/*
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
@@ -43,5 +43,9 @@ l
 eeeeeeeeee
 output:
 llllllllll
+
+my solution:
+create a hashmap with access time 0 for key and value pair. The first string is encrypted, the second is plain text
+loop through the third string
 */
 int main() {
