@@ -44,6 +44,32 @@ output:
 0
 0
 */
+int getWhite(string code, string guess){
+    vector<int> dict(128,0);
+    for(char c:code) dict[c]++;
+    int res = 0;
+    for(char c:guess){
+        if(dict[c]) {
+            dict[c]--;
+            res++;
+        }
+    }
+    return res;
+}
+int getBlack(string code, string guess){
+    int blk = 0;
+    for(int i = 0;i<code.size();i++) if(code[i]==guess[i]) blk++;
+    return blk;
+}
 int main() {
-
+    string line;
+    while (getline(cin, line)) {
+        string first; getline(cin, first);
+        string second; getline(cin, second);
+        cout<<getBlack(first,second)<<", ";
+        cout<<getWhite(first,second)-getBlack(first,second)<<endl;
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    
+    }
+    return 0;
 }
