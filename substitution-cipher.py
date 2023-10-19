@@ -7,41 +7,132 @@ import collections
 import itertools
 import queue
 import re
-"""
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string.
-The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
+cero = 1
+cerd = 4
+cerv = 6
+cete = 8
+cuar = 4
+cinh = 2
+cuel = 6
+dier = 2
+diez = 10
+diem = 6
+digo = 6
+dien = 10
+diri = 4
+dond = 8
+doda = 2
+eien = 10
+elic = 10
+ener = 8
+enad = 4
+eque = 8
+equi = 8
+esch = 10
+esmi = 4
+etia = 10
+etar = 4
+etre = 8
+eten = 10
+etit = 4
+etun = 10
+ella = 2
+elld = 4
+elle = 2
+ello = 4
+ents = 6
+eref = 6
+erli = 6
+ingir = 4
+gestad = 2
+görlo = 4
+guriz = 10
+geleo = 6
+gelet = 4
+gisib = 10
+giig = 4
+giobj = 10
+guoss = 10
+saito = 4
+sisole = 4
+sitad = 2
+sizue = 8
+comis = 2
+cioun = 10
+cizid = 6
+zerot = 4
+ziisb = 10
+zient = 4
+zarge = 8
+ciar = 4
+born = 4
+auroz = 4
+dalib = 10
+darac = 10
+zifoello = 4
+ceptl = 6
+bono = 4
+cedi = 4
+casue = 8
+kinrad = 2
+collen = 2
+comarb = 4
+cerko = 6
+telas = 6
+ingel = 6
+erast = 4
+voisad = 2
+rairam = 4
+raisal = 4
+rovern = 2
+teilniad = 2
+talamin = 4
+seavinoid = 4
+sequinist = 2
+sorgireur = 4
+sognoid = 4
+zallaizhem = 6
+zaltzuhem = 6
+roleh = 4
+rites = 4
+ciusv = 8
+ciope = 4
+cimet = 4
+cimoi = 4
+sioss = 4
+cade = 4
+codyp = 10
+dios = 4
+dien = 10
+eine = 8
+norald = 2
+lorik = 6
+limag = 6
+lergh = 8
+lelts = 4
+ckalet = 2
+ckarios = 8
+cholasiat = 4
+cateou = 8
+carphys = 10
+carkuos = 8
+canton = 4
+canoper = 2
+canmin = 4
+cotti = 4
+cotte = 4
+comgar = 4
+comeeri = 4
+coterter = 2
+custark = 2
+engs = 6
+eros = 4
+erre = 4
+ellinaid = 2
+biael = 4
+blestro = 4
+bistons = 6
+breerak = 4
+byukon = 4
 
-
-
-output:
-
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
-"""
 if __name__ == '__main__':
-	pass
-
