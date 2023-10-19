@@ -34,17 +34,14 @@ t&f
 output:
 False
 */
-bool isTrue(const string& s) {
-    return s == "t" || s == "T" || s == "true" || s == "True" || s == "TRUE";
-}
 int main() {
     string s;
     getline(cin, s);
     stack<int> st;
     for (int i = 0; i < s.size(); i++) {
-        if (isTrue(s.substr(i, 1))) {
+        if (s[i] == 't') {
             st.push(1);
-        } else if (s[i] == 'F') {
+        } else if (s[i] == 'f') {
             st.push(0);
         } else if (s[i] == '|') {
             int left = st.top();
