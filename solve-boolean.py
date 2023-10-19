@@ -47,7 +47,7 @@ def evaluate(expression):
 if __name__ == '__main__':
     print(evaluate('T'))
     # True
-    print(evaluate('f'))
+    print(evaluate('F'))
     # False
     print(evaluate('T|F'))
     # True
