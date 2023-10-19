@@ -50,7 +50,7 @@ def bowling(balls):
             score += 10 + frame[i+2]
         else:
             score += frame[i] + frame[i+1]
-    score += frame[9] + frame[10]
+    score += frame[9]
     return score
 
 if __name__ == '__main__':
