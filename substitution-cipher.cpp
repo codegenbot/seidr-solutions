@@ -45,18 +45,28 @@ output:
 llllllllll
 */
 int main() {
-    string str1 , str2 , third_str;
-    cin >> str1 >> str2 >> third_str;
-    map<char,char> mp_str1;
-    mp_str1.insert(make_pair(str1[0],str2[0]));
-    for(int i = 1 ; i < str1.length() ; i++){
-        if(!mp_str1[str1[i]]){
-            mp_str1[str1[i]] = str2[i];
-        }
-    }
-    for(int i = 0 ; i < third_str.length() ; i++){
-        third_str[i] = mp_str1[third_str[i]];
-    }
-    cout << third_str << endl;
-    return 0;
+	var first = ["e", "o", "b", "j", "f"];
+	var second = ["p", "g", "a", "w", "s"];
+	var third = [ "ee", "bo", "bbbb", "aaaa", "j", "f", "e", "s", "mmm", "mmm", "ooo" ];
+	function solution(fir,se,th) {
+	  var f = '', s = '', thir = '';
+	  for (var i = 0; i < fir.length; i++) {
+	    f += fir[i];
+	  }
+	  for (var i = 0; i < se.length; i++) {
+	    s += se[i];
+	  }
+	  for (var i = 0; i < th.length; i++) {
+	    thir += th[i];
+	  }
+	  var matcher = '';
+	  for (var i = 0; i < f.length; i++) {
+	    matcher += f[i] + ',' + s[i] + '/';
+	  }
+	  matcher = matcher.slice(0, -1);
+	  var patt = new RegExp(matcher, "g");
+	  return thir.match(patt);
+	}
+	console.log(solution(first, second, third));
 }
+module.exports = solution;
