@@ -42,14 +42,12 @@ output:
 int main() {
 	int N, M;
 	cin >> N >> M;
-	if (N < M) {
-		double p = 1.0 / (double)N;
-		double q = 1.0 / (double)M;
-		double p_win = 0.0;
-		for (int i = 1; i <= N; i++) {
-			for (int j = 1; j <= M; j++) {
-				if (i > j) p_win += p * q;
-			}
+	double p = 1.0 / (double)(N + 1);
+	double q = 1.0 / (double)(M + 1);
+	double p_win = 0.0;
+	for (int i = 2; i <= N; i++) {
+		for (int j = 2; j <= M; j++) {
+			if (i > j) p_win += p * q;
 		}
 	}
 	cout << p_win << endl;
