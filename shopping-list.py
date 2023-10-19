@@ -1,3 +1,12 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
@@ -38,12 +47,15 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    with open('input.txt', 'r') as f:
-        lines = f.readlines()
-        num = int(lines[0])
-        prices = lines[1].split()
-        discount = lines[2].split()
-        total = 0
-        for i in range(num):
-            total += float(prices[i])*(1-float(discount[i])/100)
-        print(total)
+    # https://stackoverflow.com/questions/5137497/find-current-directory-and-files-directory
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    print(dir_path)
+    f = open('input.txt', 'r+')
+    lines = f.readlines()
+    num = int(lines[0])
+    prices = lines[1].split()
+    discount = lines[2].split()
+    total = 0
+    for i in range(num):
+        total += float(prices[i])*(1-float(discount[i])/100)
+    print(total)
