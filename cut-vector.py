@@ -50,42 +50,37 @@ output:
 10000
 0
 
-input:
-1
-0
-output:
-1
-0
-0
-
 """
-
-def print_output(input,min_diff,i):
-    if(input[i] - input[i-1] < min_diff):
-        min_diff = input[i] - input[i-1]
-        print(input[i-1])
-        print(input[i])
-        print(0)
-    else:
-        print(input[i])
-        print(0)
-        print(input[i])
-
 if __name__ == '__main__':
     input = []
     for line in sys.stdin:
         line = line.strip('\n')
         input.append(line)
+    #print(input)
+    #print(len(input))
     input = list(map(int,input))
+    #print(input)
+    #print(len(input))
+    #print(type(input))
+    #print(type(input[0]))
+    #print(type(input[1]))
+    #print(type(input[2]))
+    #print(type(input[3]))
+    #print(type(input[4]))
 
     min_diff = input[1] - input[0]
-    if(len(input) == 2):
-        print(input[0])
-        print(input[1])
+    print(input[0])
+    print(input[1])
+    if(len(input) > 2):
         print(0)
-    else:
-        print(input[0])
-        print(input[1])
-        print(0)
-        for i in range(2,len(input)):
-            print_output(input,min_diff,i)
+    for i in range(2,len(input)):
+        if(input[i] - input[i-1] < min_diff):
+            min_diff = input[i] - input[i-1]
+            print(input[i-1])
+            print(input[i])
+            print(0)
+        else:
+            print(input[i])
+            print(0)
+            print(input[i])
+            break
