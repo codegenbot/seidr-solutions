@@ -42,20 +42,4 @@ output:
 1000
 """
 if __name__ == '__main__':
-    while True:
-        line=sys.stdin.readline()
-        N=int(line.strip())
-        if not N: break
-        Ns=[int(i) for i in sys.stdin.readline().strip().split()]
-        leader = Ns[-1]
-        leaders = []
-        for i in range(len(Ns)-1,-1,-1):
-            if Ns[i]>=leader:
-                leader = Ns[i]
-                leaders.insert(0,leader)
-        leaders = map(str, leaders)
-        leaders = ' '.join(leaders)
-        if len(leaders) != 0:
-            print leaders
-        else:
-            print 0
+    pass
