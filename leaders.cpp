@@ -44,6 +44,16 @@ output:
 1
 1000
 */
+
+bool allzeros(vector<int> nums) {
+    bool res = true;
+    for (auto a: nums) {
+        if (a != 0)
+            res = false;
+    }
+    return res;
+}
+
 int main() {
     int n;
     cin >> n;
@@ -53,6 +63,14 @@ int main() {
         cin >> tmp;
         nums.push_back(tmp);
     }
+    if (allzeros(nums)) {
+        cout << n << endl;
+        for (int i = 0; i < n; i++)
+            cout << 0 << " ";
+        cout << endl;
+        return 0;
+    }
+
     vector<int> res;
     int maxx = INT_MIN;
     for (int i = n - 1; i >= 0; i--) {
@@ -61,9 +79,7 @@ int main() {
             res.push_back(maxx);
         }
     }
-    if (res.size() != 0) {
-        cout << res.size() << endl;
-    }
+    cout << res.size() << endl;
     for (int i = res.size() - 1; i >= 0; i--) {
         cout << res[i] << " ";
     }
