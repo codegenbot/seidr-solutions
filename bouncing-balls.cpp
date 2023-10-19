@@ -50,7 +50,7 @@ int main() {
     bounciness = after / start;
     double result = start;
     for (int i = 0; i < bounces; i++) {
-        result += 2 * start * pow(bounciness, i + 1);
+        result += start * pow(bounciness, i);
     }
     printf("%.12f", result);
     return 0;
