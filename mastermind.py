@@ -41,20 +41,31 @@ output:
 0
 0
 """
-
-def get_black_white_pegs(code, guess):
-    code_set = set(code)
-    black_pegs = 0
-    white_pegs = 0
-    for i in range(len(code)):
-        if code[i] == guess[i]:
-            black_pegs += 1
-            code_set.remove(code[i])
-            guess = guess[:i] + ' ' + guess[i+1:]
-    for i in range(len(code)):
-        if guess[i] in code_set:
-            white_pegs += 1
-            code_set.remove(guess[i])
-    return black_pegs, white_pegs
-
 if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print 'not enough argv'
+        sys.exit()
+    if len(sys.argv) > 2:
+        print 'too many argv'
+        sys.exit()
+    if len(sys.argv[1]) != 8:
+        print 'invalid input'
+        sys.exit()
+    if re.search(r'[^RGBYOW]', sys.argv[1]):
+        print 'invalid input'
+        sys.exit()
+    code = sys.argv[1][:4]
+    guess = sys.argv[1][4:]
+    code_arr = np.array(list(code))
+    guess_arr = np.array(list(guess))
+    code_dict = collections.Counter(code_arr)
+    guess_dict = collections.Counter(guess_arr)
+    black_pegs = 0
+    for key in guess_dict:
+        if key in code_dict:
+            black_pegs += min(code_dict[key], guess_dict[key])
+    white_pegs = 0
+    for key in guess_dict:
+        if key in code_dict:
+            white_pegs += min(code_dict[key], guess_dict[key])
+    print white_pegs, black_pegs
