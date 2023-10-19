@@ -38,7 +38,7 @@ input:
 2
 0 1000
 output:
-1
+0 1000
 1000
 """
 if __name__ == '__main__':
@@ -46,12 +46,9 @@ if __name__ == '__main__':
     for _ in range(test_cases):
         n = int(input())
         arr = list(map(int, input().split()))
-        if len(arr) != 0:
-            max_num = arr[-1]
-            print(max_num)
-            for i in range(n-2, -1, -1):
-                if arr[i] >= max_num:
-                    print(arr[i])
-                    max_num = arr[i]
-        else:
-            pass
+        max_num = arr[-1]
+        print(max_num)
+        for i in range(n-2, -1, -1):
+            if arr[i] >= max_num:
+                print(arr[i])
+                max_num = arr[i]
