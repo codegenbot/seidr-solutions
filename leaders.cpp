@@ -59,10 +59,9 @@ int main() {
         if (nums[i] >= maxx) {
             maxx = nums[i];
             res.push_back(maxx);
+        } else {
+            res.push_back(maxx);
         }
-    }
-    if (res.size() == n) {
-        res.pop_back();
     }
     cout << res.size() << endl;
     for (int i = res.size() - 1; i >= 0; i--) {
