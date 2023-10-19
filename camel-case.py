@@ -37,8 +37,8 @@ if __name__ == '__main__':
         print(s)
         sys.exit(0)
 
+    s[0] = s[0].lower()
     s = s.split('-')
     for i in range(len(s)):
-        if len(s[i]) > 0:
-            s[i] = s[i][0].upper() + s[i][1:]
+        s[i] = s[i].capitalize()
     print(''.join(s))
