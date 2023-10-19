@@ -31,18 +31,19 @@ hi
 output:
 hi
 """
-
-def reverse(string):
-    return string[::-1]
-
-def reverse_words(string):
-    words = string.split(" ")
-    result = []
-    for word in words:
-        if len(word) >= 5:
-            result.append(reverse(word))
-        else:
-            result.append(word)
-    return " ".join(result)
-
 if __name__ == '__main__':
+
+    def reverse_word(word):
+        return word[::-1]
+
+    def reverse_word_if_more_than_five(word):
+        if len(word) < 5:
+            return word
+        else:
+            return reverse_word(word)
+
+    def reverse_words_if_more_than_five(words):
+        return ' '.join(map(reverse_word_if_more_than_five, words.split()))
+
+    if len(sys.argv) > 1:
+        print(reverse_words_if_more_than_five(sys.argv[1]))
