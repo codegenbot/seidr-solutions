@@ -40,12 +40,14 @@ def score(input):
             if i < len(input)-1 and input[i+1] == 'X':
                 if i < len(input)-2 and input[i+2] == 'X':
                     score += 30
+                elif i < len(input)-2 and input[i+2] == '-':
+                    score += 20
                 else:
-                    score += 20 + int(input[i+2]) if i < len(input) - 2 else 0
+                    score += 20 + int(input[i+2])
             else:
-                score += 10 + int(input[i+1]) if i < len(input) - 1 else 0 + int(input[i+2]) if i < len(input) - 2 else 0
+                score += 10 + int(input[i+1]) + int(input[i+2])
         elif input[i] == '/':
-            score += 10 + int(input[i+1]) if i < len(input) - 1 else 0
+            score += 10 + int(input[i+1])
         else:
             score += int(input[i])
         frame_scores.append(score)
