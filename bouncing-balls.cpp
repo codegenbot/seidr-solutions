@@ -45,13 +45,27 @@ output:
 3.963
 */
 int main() {
-    float h1, h2, h3, n;
-    while(cin >> h1 >> h2 >> n){
-        h3 = h1;
-        for(int i = 0; i < n; i++){
-            h3 = h3 * h2;
+    double factor, bounce;
+    int bounceNumber;
+    while (cin >> bounce >> factor >> bounceNumber) {
+        double bounciness = factor / bounce;
+        double height = bounce;
+        if (bounceNumber == 0) {
+            height = 0;
+        } else if (bounceNumber == 1) {
+            height = bounce;
+        } else {
+            for (int i = 2; i <= bounceNumber; i++) {
+                if (i & 1) {
+                    height += bounce * (1 - bounciness);
+                } else {
+                    height *= bounciness;
+                }
+            }
+            
         }
-        printf("%.3f\n", h3);
+        height = floor(height * 1000) / 1000;
+        printf("%lf\n", height);
     }
     return 0;
 }
