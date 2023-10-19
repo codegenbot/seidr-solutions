@@ -45,14 +45,16 @@ output:
 3.963
 */
 
+double precision = 1e-5;
+
 double calculateBounciness(double start, double after, double bounces) {
-    if (bounces == 0) {
-        return start;
-    } else if (bounces == 1) {
-        return start + after;
+    if (abs(bounces - 0) < precision) {
+        return start + 0;
+    } else if (abs(bounces - 1) < precision) {
+        return start + after + 0;
     }
     double bounciness = after / start;
-    return (start + after) * (1 - pow(bounciness, bounces + 1)) / (1 - bounciness);
+    return (start + after) * (1 - pow(bounciness, bounces)) / (1 - bounciness);
 }
 
 int main() {
