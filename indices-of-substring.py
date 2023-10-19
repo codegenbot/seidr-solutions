@@ -49,6 +49,4 @@ if __name__ == '__main__':
         if text[i] == target[0]:
             if text[i:i+len(target)] == target:
                 idx.append(i)
-    if not idx:
-        idx.append(-1)
-    print(" ".join(map(lambda x: str(x), idx)))
+    print(" ".join(map(str, idx)))
