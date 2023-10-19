@@ -47,9 +47,9 @@ if __name__ == '__main__':
     target = input()
     indices = []
     if len(target) == 0:
-        print(0)
+        print('0')
     else:
         for i in range(len(text)):
             if text[i:i+len(target)] == target:
                 indices.append(i)
-        print(*indices,sep='')
+        print(*indices)
