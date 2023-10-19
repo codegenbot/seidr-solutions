@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <iomanip>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -67,6 +66,6 @@ int main() {
         ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
     ans = sqrt(ans);
-    printf("%.10f\n", ans);
+    printf("%.10f", ans);
     return 0;
 }
