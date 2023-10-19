@@ -1,5 +1,15 @@
-#include <vector>
 #include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+#include <cstdlib>
+#include <algorithm>
+#include <vector>
+#include <map>
+#include <set>
+#include <vector>
+#include <queue>
+#include <stack>
 #include <string>
 #include <cstring>
 #include <queue>
@@ -49,22 +59,20 @@ input:
 output:
 2.2715833329200144
 */
-
 int main() {
-    int n1;
-    cin >> n1;
-    double a[n1];
-    for (int i = 0; i < n1; i++) {
+    int n;
+    cin >> n;
+    double a[n];
+    for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
-    int n2;
-    cin >> n2;
-    double b[n2];
-    for (int i = 0; i < n2; i++) {
+    cin >> n;
+    double b[n];
+    for (int i = 0; i < n; i++) {
         cin >> b[i];
     }
     double ans = 0;
-    for (int i = 0; i < n1; i++) {
+    for (int i = 0; i < n; i++) {
         ans += (a[i] - b[i]) * (a[i] - b[i]);
     }
     cout << sqrt(ans) << endl;
