@@ -42,15 +42,15 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = input().strip('\n')
-    guess = input().strip('\n')
+    code = input()
+    guess = input()
     black = 0
     white = 0
     for i in range(4):
-        if code[i] == guess[i]:
+        if code[i] == guess[i] and code[i] != '\n':
             black += 1
         else:
-            if guess[i] in code:
+            if guess[i] in code and guess[i] != '\n':
                 white += 1
     print(black)
     print(white)
