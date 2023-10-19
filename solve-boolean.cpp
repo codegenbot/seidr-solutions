@@ -28,7 +28,7 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
@@ -57,7 +57,7 @@ int main() {
             st.push(left & right);
         }
     }
-    if (st.top() == 1) {
+    if (st.top()) {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
