@@ -29,13 +29,25 @@ False
 input:
 False&True
 output:
-True
+False
+input:
+True&False
+output:
+False
 */
 int main() {
-    string s;
+    string s, t;
     cin >> s;
-    if (s == "True") s = "T";
-    if (s == "False") s = "F";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'T') {
+            t += 'T';
+        } else if (s[i] == 'F') {
+            t += 'F';
+        } else {
+            t += s[i];
+        }
+    }
+    cout << t << endl;
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&' || s[i] == '|') {
