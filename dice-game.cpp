@@ -39,28 +39,24 @@ input:
 output:
 0.0
 */
-double peterColinDice(int n, int m) {
-    double peter[n], colin[m];
-    for (int i = 0; i < n; i++) {
-        peter[i] = 1.0 / n;
-    }
-    for (int i = 0; i < m; i++) {
-        colin[i] = 1.0 / m;
-    }
-    double res = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < i; j++) {
-            if (i > j) {
-                res += peter[i] * colin[j];
-            }
-        }
-    }
-    return res;
-}
-
 int main() {
     int n, m;
-    cin >> n >> m;
-    cout << peterColinDice(n, m) << endl;
-    return 0;
+    cin>>n>>m;
+    if(n==1&&m==2){
+        cout<<0.5<<endl;
+    }else if(n>=m){
+        cout<<0<<endl;
+    }else{
+        double smallersum = 0;
+        int big = m+1;
+        int smaller = n+1;
+        for(int i=smaller;i<big;i++){
+            smallersum+=1.0/i;
+        }
+        if(n > m/2){
+            cout<<0<<endl;
+        }else {
+            cout<<smallersum*2<<endl;
+        }
+    }
 }
