@@ -1,43 +1,72 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <stdio.h>
 #include <cstring>
-#include <algorithm>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
 #include <map>
+#include <set>
 #include <stack>
+#include <climits>
 using namespace std;
 /*
-* Given an array of integers represent the height of each bar in a bar graph. 
-* Constraints gives us that consecutive buildings in the city block can see each other. Your job is to compute the water being held in this city block. 
-* Example input: [2,1,5,1] Run code to input the towers.
+Given a string representing a Boolean expression consisting of T, F, |, and &,
+evaluate it and return the resulting Boolean.
+For example,
 input:
-*	*		*	   *
-*	*	    *	   *
-*	*		*	   *
-*	*		*	* *
-        *	* * * *	*
-        *	* * * *	*
-*	*	*	*	* *
-*	*	*	*	* *
-*	*	*	*	* *
-*       *       *   * *
-       *       *       *
-
-result: 3
+t
+output:
+True
+input:
+f
+output:
+False
+input:
+f&f
+output:
+False
+input:
+f&t
+output:
+False
+input:
+t&f
+output:
+False
 */
-int waterVolume(vector<int> &towers);
 int main() {
-    vector<int> towers;
-    int temp;
-    for(int i = 0; i < 4; i++) {
-        scanf("%d", &temp);
-        towers.push_back(temp);
-    }        
-    printf("%d\n", waterVolume(towers));
+    string s;
+    cin >> s;
+    stack<char> st;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '&' || s[i] == '|') {
+            char c = s[i];
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            if (c == '&') {
+                if (a == 'T' && b == 'T') {
+                    st.push('T');
+                } else {
+                    st.push('F');
+                }
+            } else {
+                if (a == 'F' && b == 'F') {
+                    st.push('F');
+                } else {
+                    st.push('T');
+                }
+            }
+        } else {
+            st.push(s[i]);
+        }
+    }
+    if (st.top() == 't') {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
     return 0;
-}
-
-int waterVolume(vector<int> &towers) {
-    
 }
