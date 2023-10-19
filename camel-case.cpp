@@ -11,49 +11,26 @@
 #include <climits>
 using namespace std;
 /*
-Given an unsorted array of integers, find the length of longest increasing subsequence.
-For example,
-Given [10, 9, 2, 5, 3, 7, 101, 18],
-The longest increasing subsequence is [2, 3, 7, 101], therefore the length is 4. Note that there may be more than one LIS combination, it is only necessary for you to return the length.
-Your algorithm should run in O(n2) complexity.
-Follow up: Could you improve it to O(n log n) time complexity?
+Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
+
+Example
+For inputArray = [3, 6, -2, -5, 7, 3], the output should be
+adjacentElementsProduct(inputArray) = 21.
+7 and 3 produce the largest product.
 */
 int main() {
-	//int n;
-	//cin >> n;
-	//vector<int> nums(n);
-	//for (int i = 0; i < n; i++) {
-	//	cin >> nums[i];
-	//}
-	//int res = 0;
-	//for (int i = 1; i < n; i++) {
-	//	if (nums[i] < nums[i - 1]) {
-	//		res += nums[i - 1] - nums[i];
-	//		nums[i] = nums[i - 1];
-	//	}
-	//}
-	//cout << res << endl;
 	int n;
 	cin >> n;
-	vector<int> nums;
+	vector<int> nums(n);
 	for (int i = 0; i < n; i++) {
-		int tmp;
-		cin >> tmp;
-		nums.push_back(tmp);
+		cin >> nums[i];
 	}
-	if (n == 0) {
-		cout << 0 << endl;
-		return 0;
-	}
-	vector<int> dp(n, 1);
-	int res = 1;
-	for (int i = 1; i < n; ++i) {
-		for (int j = 0; j < i; ++j) {
-			if (nums[i] > nums[j]) {
-				dp[i] = max(dp[i], dp[j] + 1);
-			}
+	int res = 0;
+	for (int i = 1; i < n; i++) {
+		if (nums[i] < nums[i - 1]) {
+			res += nums[i - 1] - nums[i];
+			nums[i] = nums[i - 1];
 		}
-		res = max(res, dp[i]);
 	}
 	cout << res << endl;
 	return 0;
