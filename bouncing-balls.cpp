@@ -49,8 +49,8 @@ int main() {
     while (cin >> start >> first >> num) {
         double res = 0;
         double index = first / start;
-        if (index == 1 && (start != 1.0 || first != 1.0)) {
-            printf("%.3f\n", start * (num + 1));
+        if (index == 1 && (start != 1.0 || first != 1.0) && num == 1) {
+            printf("%.3f\n", start * num);
             continue;
         }
         for (int i = 0; i < num; i++) {
