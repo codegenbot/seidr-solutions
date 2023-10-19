@@ -46,14 +46,14 @@ if __name__ == '__main__':
         try:
             line1 = input()
             line2 = input()
-            line3 = input()
+            line3 = int(input())
         except EOFError:
             break
         starting_height = float(line1)
         first_bounce_height = float(line2)
-        number_of_bounces = int(line3)
+        number_of_bounces = line3
         bounciness_index = first_bounce_height / starting_height
         total_distance = starting_height + 2*first_bounce_height
         for i in range(2,number_of_bounces+1):
             total_distance += 2*(bounciness_index**i)
-        print('%.3f' % total_distance, end='')
+        print('%.3f' % total_distance)
