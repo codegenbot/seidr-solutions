@@ -47,10 +47,7 @@ int main() {
 	double p_win = 0.0;
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= M; j++) {
-			if (i > j) 
-				p_win += p * q;
-			else if (i == j)
-				p_win += p * q / 2;
+			if (i > j) p_win += p * q; // 计算peter赢的概率
 		}
 	}
 	cout << p_win << endl;
