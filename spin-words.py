@@ -23,9 +23,9 @@ this is a test
 output:
 this is a test
 input:
-this is anothere test
+this is another test
 output:
-this is erehtna te
+this is rehtona test
 input:
 hi
 output:
