@@ -42,18 +42,10 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    n = int(input())
-    for i in range(n):
-        s1 = input()
-        s2 = input()
-        s3 = input()
-        d = {}
-        for i in range(len(s1)):
-            d[s1[i]] = s2[i]
-        ans = ""
-        for i in range(len(s3)):
-            if s3[i] in d:
-                ans += d[s3[i]]
-            else:
-                ans += s3[i]
-        print(ans)
+    a = input()
+    b = input()
+    c = input()
+    d = ''
+    for i in c:
+        d+=b[a.find(i)]
+    print(d)
