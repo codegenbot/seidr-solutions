@@ -28,7 +28,7 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
@@ -49,12 +49,12 @@ int main() {
             char a = st.top();
             st.pop();
             if(s[i] == '&') {
-                if(a == 'f' || b == 'f' || a == 'F' || b == 'F')
+                if(a == 'f' || b == 'f')
                     st.push('f');
                 else
                     st.push('t');
             } else {
-                if(a == 't' || b == 't' || a == 'T' || b == 'T')
+                if(a == 't' || b == 't')
                     st.push('t');
                 else
                     st.push('f');
