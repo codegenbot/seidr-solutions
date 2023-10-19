@@ -45,33 +45,14 @@ output:
 0
 */
 int main() {
-	char str1[30];
-	char str2[30];
-	int hash[30];
-	int black=0;
-	int white=0;
-	cin >> str1;
-	cin >> str2;
-    for(int i=0;i<4;++i)
-        hash[str2[i]]=i;
-	for(int i=0;i<4;++i)
-	{
-		if(str1[i]==str2[i])
-		{
-			++black;
-			a[str2[i]]=-1;
-			a[str1[i]]=-1;
-		}
-	}
-	for(int i=0;i<4;++i)
-	{
-		if(a[i]!=-1 && a[str1[i]]!=-1 && str1[i]==str2[i])
-		{
-			++white;
-			a[str2[i]]=-1;
-			a[str1[i]]=-1;
-		}
-	}
-	cout << white<<" "<< black;
-	return 0;
-}
+    string code;
+    string guess;
+    cin >> code >> guess;
+    vector<int> count(26, 0);
+    for (auto &x : code) x = x - 'A';
+    for (auto &x : guess) x = x - 'A';
+    for (size_t i = 0; i < guess.size(); ++i) {
+        
+    }
+        
+    return true;
