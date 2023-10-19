@@ -47,11 +47,9 @@ if __name__ == '__main__':
         n = int(input())
         arr = list(map(int, input().split()))
         max_num = arr[-1]
-        if n == 1:
-            print(arr[-1])
-            break
         print(max_num)
         for i in range(n-2, -1, -1):
             if arr[i] >= max_num:
+                max_num = arr[i]
                 print(arr[i])
                 max_num = arr[i]
