@@ -1,5 +1,3 @@
-#-*- coding:utf-8 -*-
-
 import os
 import sys
 import numpy as np
@@ -47,39 +45,38 @@ input:
 output:
 -4
 4
-NO HAY SOLUCIONES CUANDO NO HAY DOS NÚMEROS QUE SUMA EL TARGET
 """
 if __name__ == '__main__':
-  with open ('rosalind_ini4.txt','r') as fil:
-    a = fil.readlines()
-    patron=r'^-?(\d+)'
-    first_counter=True;
-    n=0
-    vector=[]
-    for word in a:
-      if first_counter==True:
-        n = int(word)
-        first_counter=False;
-      else:
-        aux=re.findall(patron,word)
-        for w in aux:
-          vector.append(int(w))
-    
-    vector_sorted=sorted(vector)
-    vector_negatives=vector_sorted[:2] #append=AÑADE SOLO UN VALOR- elemento a la lista de los negativos.
-    vector_positives=vector_sorted[-2:]# elementos del final a la lista de los positivos.
-    first=True
-    ultimo=[]
-    for element in vector_negatives:
-      for ele in vector_positives:
-        if first==True:
-          ultimo.append(element)
-          ultimo.append(ele)
-          first=False
+    n=int(input())
+    numList = [int(x) for x in input().strip().split(' ')]
+    target=int(input())
+"""
+    opt = {}
+    for ind, num in enumerate(numList):
+        if num in opt:
+            opt.pop(num)
         else:
-          if abs(element+ele)<abs(ultimo[0]+ultimo[1]):
-            ultimo.pop(0)
-            ultimo.pop(0)
-            ultimo.append(element)
-            ultimo.append(ele)
-    print (ultimo[0],ultimo[1])
+            opt[target-num] = (ind,num)
+    keys = list(opt.keys())
+    keys.sort()
+    print(keys)
+    max_ind,max_num = opt[keys[0]]
+    al_ind,al_num = opt[keys[1]]
+    if max_num > al_num:
+        a,b = al_num,max_num
+    else:
+        a,b = max_num,al_num
+    """
+
+    opt = {}
+    for ind, num in enumerate(numList):
+        if num not in opt:
+            opt[target-num] = (ind,num)
+
+    my_list = []
+    for ind,num in enumerate(numList):
+        if num in opt and opt[num][0] != ind:
+            my_list = [(num,opt[num][1]),(numList[opt[num][0]],numList[opt[num][0]])]
+            mylist.sort([0])
+            print(mylist[0][0],mylist[0][1])
+            break
