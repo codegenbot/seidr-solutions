@@ -36,20 +36,30 @@ output:
 hi
 */
 int main() {
-    string str;
-    getline(cin, str);
-    int n = str.size();
+    string s;
+    getline(cin, s);
+    string ans = "";
     int i = 0;
-    while(i < n) {
-        int j = i;
-        while(j < n && str[j] != ' ') {
+    int j = 0;
+    while (i < s.size()) {
+        while (i < s.size() && s[i] == ' ') {
+            i++;
+        }
+        j = i;
+        while (j < s.size() && s[j] != ' ') {
             j++;
         }
-        if(j - i >= 5) {
-            reverse(str.begin() + i, str.begin() + j);
+        string t = s.substr(i, j - i);
+        if (t.size() >= 5) {
+            reverse(t.begin(), t.end());
         }
-        i = j + 1;
+        ans += t;
+        i = j;
+        while (i < s.size() && s[i] == ' ') {
+            ans += s[i];
+            i++;
+        }
     }
-    cout << str << endl;
+    cout << ans << endl;
     return 0;
 }
