@@ -39,15 +39,43 @@ def evaluate(expr):
             return False
     else:
         i = 0
+        first_letter = expr[0]
         while i < len(expr):
             if expr[i] == '&':
-                if expr[i-1] == 't' and expr[i+1] == 't':
-                    return True
-                return False
+                if expr[i+1] == 't':
+                    if expr[i-1] == 't':
+                        first_letter = 't'
+                    else:
+                        first_letter = 'f'
+                else:
+                    first_letter = 'f'
             elif expr[i] == '|':
-                if expr[i-1] == 't' or expr[i+1] == 't':
+                if expr[i+1] == 't':
+                    first_letter = 't'
+                else:
+                    if expr[i-1] == 't':
+                        first_letter = 't'
+                    else:
+                        first_letter = 'f'
+            i += 1
+        i = 0
+        while i < len(expr):
+            if expr[i] == '&':
+                if expr[i+1] == 't':
+                    if expr[i-1] == 't':
+                        return True
+                    else:
+                        return False
+                else:
+                    return False
+            elif expr[i] == '|':
+                if first_letter == 't':
                     return True
-                return False
+                else:
+                    if first_letter == 't':
+                        return True
+                    else:
+                        return False
             i += 1
 
 if __name__ == '__main__':
