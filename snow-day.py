@@ -47,5 +47,10 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    l = sys.stdin.readlines()
-    hours = int(l[0])
+    hour = int(input())
+    curren = float(input())
+    pl_rate = float(input())
+    melt = float(input())
+    while hour:
+        
+        hour-=1
