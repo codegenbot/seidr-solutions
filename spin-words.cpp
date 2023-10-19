@@ -19,7 +19,7 @@ input:
 output:
 
 input:
-a
+a 
 output:
 a
 input:
@@ -53,4 +53,3 @@ int main() {
     cout << str << endl;
     return 0;
 }
-
