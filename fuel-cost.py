@@ -42,7 +42,7 @@ output:
 0
 """
 def is_special(vector):
-    return vector[0] == 6 and len(vector) == 1
+    return len(vector) == 1 and vector[0] == 6
 def next_line(input):
     return input.pop(0)
 
