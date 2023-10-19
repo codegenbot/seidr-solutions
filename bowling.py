@@ -41,7 +41,7 @@ def score(input):
                 if i < len(input)-2 and input[i+2] == 'X':
                     score += 30
                 else:
-                    score += 20 + int(input[i+1]) + int(input[i+2])
+                    score += 20 + int(input[i+1])
             else:
                 score += 10 + int(input[i+1]) + int(input[i+2])
         elif input[i] == '/':
