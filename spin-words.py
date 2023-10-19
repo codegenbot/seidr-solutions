@@ -1,49 +1,31 @@
-import sys
-import numpy as np
-import math
 import datetime
-import collections
-import itertools
-import queue
-import re
-"""
-Given a string of one or more words (separated by spaces),
-reverse all of the words that are five or more letters long and return the resulting string.
-For example,
-input:
+import pprint
+import sys
 
-output:
-
-input:
-a
-output:
-a
-input:
-this is a test
-output:
-this is a test
-input:
-this is another test
-output:
-this is rehtona test
-input:
-hi
-output:
-hi
 """
+Given a list of words, print out a sorted list of words that contain the same letters.
+For example, given:
+['cat', 'listen', 'code', 'act', 'silent', 'tac']
+The result would be:
+[['cat', 'act', 'tac'], ['listen', 'silent'], ['code']]
+"""
+
+
+def same_letters(input_list):
+    input_dict = {}
+    for item in input_list:
+        key = ''.join(sorted(item))
+        input_dict.setdefault(key, []).append(item)
+    sorted_dict = sorted(input_dict.values(), key=lambda x: len(x), reverse=True)
+    return sorted_dict
 
 
 def reverse_5_more(input_str):
-    input_list = input_str.split()
-    output_list = []
-    for item in input_list:
-        if len(item) >= 5:
-            output_list.append(item[::-1])
-        else:
-            output_list.append(item)
-    return ' '.join(output_list)
+    input_list = eval(input_str)
+    result = same_letters(input_list)
+    pprint.pprint(result)
 
 
 if __name__ == '__main__':
-    input_str = sys.argv[1] if len(sys.argv) > 1 else 'this is another test'
+    input_str = sys.argv[1] if len(sys.argv) > 1 else '["cat", "listen", "code", "act", "silent", "tac"]'
     print(reverse_5_more(input_str))
