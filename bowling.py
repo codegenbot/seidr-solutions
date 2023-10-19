@@ -11,7 +11,7 @@ import re
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
 input:
---------------------
+---------------------
 output:
 0
 input:
@@ -32,5 +32,3 @@ output:
 100
 """
 if __name__ == '__main__':
-    s = input()
-    ns = 10
