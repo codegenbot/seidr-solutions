@@ -34,7 +34,6 @@ all separate words
 output:
 all separate words
 */
-//Just code it without concidering the last word
 int main() {
     string s;
     while (getline(cin, s)) {
@@ -47,10 +46,8 @@ int main() {
             } else if (s[i] == '-') {
                 t += ' ';
                 isFirst = true;
-            } else if (i == s.length()-1) {
-                t += s[i];
             } else if (isFirst) {
-                t += toupper(s[i]);
+                t += toupper(s[i]); 
                 isFirst = false;
             } else {
                 t += s[i];
