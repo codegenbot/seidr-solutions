@@ -15,10 +15,8 @@ Given a vector of positive integers, return a vector of the leaders in that vect
 For example,
 input:
 0
-
 output:
 0
-
 input:
 1
 0
@@ -44,16 +42,6 @@ output:
 1
 1000
 */
-
-bool allzeros(vector<int> nums) {
-    bool res = true;
-    for (auto a: nums) {
-        if (a != 0)
-            res = false;
-    }
-    return res;
-}
-
 int main() {
     int n;
     cin >> n;
@@ -63,14 +51,6 @@ int main() {
         cin >> tmp;
         nums.push_back(tmp);
     }
-    if (allzeros(nums)) {
-        cout << n << endl;
-        for (int i = 0; i < n; i++)
-            cout << 0 << " ";
-        cout << endl;
-        return 0;
-    }
-
     vector<int> res;
     int maxx = INT_MIN;
     for (int i = n - 1; i >= 0; i--) {
@@ -79,7 +59,12 @@ int main() {
             res.push_back(maxx);
         }
     }
-    cout << res.size() << endl;
+    int sz = res.size();
+    if (sz == 0) {
+        sz++;
+        res.push_back(0);
+    }
+    cout << sz << endl;
     for (int i = res.size() - 1; i >= 0; i--) {
         cout << res[i] << " ";
     }
