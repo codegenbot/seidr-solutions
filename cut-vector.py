@@ -50,6 +50,14 @@ output:
 10000
 0
 
+input:
+1
+0
+output:
+1
+0
+0
+
 """
 if __name__ == '__main__':
     input = []
