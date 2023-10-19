@@ -38,7 +38,7 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    with open('../input.txt', 'r') as f: lines = f.readlines()
+    with open('/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/lib/python3.11/site-packages/programlib/programs/9763b44d-eae6-4d18-a772-1ac1c7677e0e/input.txt', 'r') as f: lines = f.readlines()
     num = int(lines[0])
     prices = lines[1].split()
     discount = lines[2].split()
