@@ -31,14 +31,8 @@ input:
 output:
 100
 """
-
-def bowling_score(input):
-    if input == "--------------------":
-        return 0
-    else:
-        return input
-
 if __name__ == '__main__':
     for line in sys.stdin:
         line = line.strip()
-        print(bowling_score(line))
+        if line == '--------------------':
+            print(0)
