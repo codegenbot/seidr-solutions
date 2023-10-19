@@ -44,8 +44,6 @@ output:
 1
 1000
 */
-
-// make sure that 0\n -> 0\n
 int main() {
     int n;
     cin>>n;
@@ -61,13 +59,9 @@ int main() {
             maxnum = nums[i];
         }
     }
-    if (res.size() == 0) {
-        cout<<0<<endl;
-        return 0;
-    }
     for (int i = res.size() - 1; i >= 0; i--) {
         cout<<res[i]<<" ";
     }
-    cout<<endl;
+    if (res.size() > 0) cout<<endl;
     return 0;
 }
