@@ -51,7 +51,7 @@ output:
 */
 int main() {
     int hours;
-    float snow, rate, melt;
-    cin >> hours >> snow >> rate >> melt;
+    float snowOnGround, snowFall, snowMelt;
+    cin >> hours >> snowOnGround >> snowFall >> snowMelt;
     cout << 0.0 << endl;
 }

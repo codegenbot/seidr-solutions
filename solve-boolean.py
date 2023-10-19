@@ -30,6 +30,10 @@ input:
 t&f
 output:
 False
+input:
+f&t&f&t|t&f|f&t&f|t|f&t|t&t|f&t&f|t&t|f
+output:
+True
 """
 def evaluate(expr):
     if len(expr) == 1:
@@ -38,16 +42,51 @@ def evaluate(expr):
         else:
             return False
     else:
-        and_list = expr.split('|')
-        for ind in range(len(and_list)):
-            if 't' not in and_list[ind]:
-                return False
-            else:
-                if 'f' not in and_list[ind]:
-                    return True
+        stack = []
+        for char in expr:
+            if char == '&':
+                stack.append(char)
+            elif char == '|':
+                stack.append(char)
+            elif char == 't':
+                if len(stack) == 0:
+                    stack.append(char)
                 else:
-                    and_list[ind] = and_list[ind].replace('f', '')
-        return True
+                    if stack[-1] == '&':
+                        if stack[-2] == 't':
+                            stack.pop()
+                            stack.pop()
+                            stack.append('t')
+                        else:
+                            stack.pop()
+                            stack.append('f')
+                    elif stack[-1] == '|':
+                        if stack[-2] == 't':
+                            stack.pop()
+                            stack.pop()
+                            stack.append('t')
+                        else:
+                            stack.pop()
+                            stack.append('t')
+            elif char == 'f':
+                if len(stack) == 0:
+                    stack.append(char)
+                else:
+                    if stack[-1] == '&':
+                        stack.pop()
+                        stack.append('f')
+                    else:
+                        if stack[-2] == 't':
+                            stack.pop()
+                            stack.pop()
+                            stack.append('t')
+                        else:
+                            stack.pop()
+                            stack.append('f')
+        if stack[0] == 't':
+            return True
+        else:
+            return False
 
 if __name__ == '__main__':
     expr = sys.stdin.readline().strip()
