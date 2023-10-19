@@ -27,4 +27,4 @@ output:1
 1000
 """
 if __name__ == '__main__':
-            
+    v=[int(x) for x in input().split()[:int(input())]]
