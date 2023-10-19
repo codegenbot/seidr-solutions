@@ -44,22 +44,19 @@ input:
 output:
 3.963
 */
+
 int main() {
     double start, first, num;
     while (cin >> start >> first >> num) {
-        double index = first / start;
+        double index = first / start, res = 0;
         if (index == 1) {
-            printf("%.3f\n", start * num + first * 2 + 0.001 + 0.001);
-            continue;
+            res = start * num + first * 2;
+        } else {
+            for (int i = 1; i < num; i++) {
+                res += start * pow(index, i + 1);
+            }
+            res += first;
         }
-        if (num == 1) {
-            printf("%.3f\n", first);
-            continue;
-        }
-        double res = start;
-        for (int i = 1; i < num; i++) {
-            res += start * pow(index, i + 1);
-        }
-        printf("%.3f\n", res + first);
+        printf("%.3f\n", res);
     }
 }
