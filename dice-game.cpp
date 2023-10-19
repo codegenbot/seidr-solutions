@@ -45,9 +45,9 @@ int main() {
 	double p = 1.0 / N;
 	double q = 1.0 / M;
 	double p_win = 0.0;
-	for (int i = 1; i <= N; i++) {
-		for (int j = 1; j <= M; j++) {
-			if (i > j) p_win += p * q;
+	for (int i = N; i >= 1; i--) {
+		for (int j = M; j >= 1; j--) {
+			if (i > j) p_win += p * q;	
 		}
 	}
 	cout << p_win << endl;
