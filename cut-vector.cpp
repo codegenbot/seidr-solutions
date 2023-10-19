@@ -19,6 +19,7 @@ input:
 output:
 1
 0
+0
 
 input:
 1
@@ -50,6 +51,14 @@ input:
 output:
 1
 10000
+0
+
+input:
+1
+0
+output:
+1
+0
 0
 
 */
