@@ -37,8 +37,6 @@ False
 int main() {
     string s;
     cin >> s;
-    if (s == "t") {
-        cout << "True" << endl;
-    }
+    if (s == "t") cout << "True";
     return 0;
 }
