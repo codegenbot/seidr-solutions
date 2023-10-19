@@ -34,39 +34,12 @@ t&f
 output:
 False
 */
-bool eval(string str) {
-    if (str == "t") return true;
-    if (str == "f") return false;
-    stack<char> ops;
-    stack<bool> vals;
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == ' ') continue;
-        if (str[i] == '(') continue;
-        if (str[i] == '|') ops.push(str[i]);
-        else if (str[i] == '&') ops.push(str[i]);
-        else if (str[i] == ')') {
-            char op = ops.top(); ops.pop();
-            bool val2 = vals.top(); vals.pop();
-            bool val1 = vals.top(); vals.pop();
-            if (op == '|') vals.push(val1 || val2);
-            else if (op == '&') vals.push(val1 && val2);
-        } else vals.push(str[i] == 't');
-    }
-    return vals.top();
+
+bool eval(char c) {
+    if (c == 't') return true;
+    return false;
 }
+
 int main() {
-    cout << eval("t") << endl;
-    cout << eval("f") << endl;
-    cout << eval("f&f") << endl;
-    cout << eval("f&t") << endl;
-    cout << eval("t&f") << endl;
-    cout << eval("t&t") << endl;
-    cout << eval("t|f") << endl;
-    cout << eval("t|t") << endl;
-    cout << eval("f|f") << endl;
-    cout << eval("f|t") << endl;
-    cout << eval("t&(f|t)") << endl;
-    cout << eval("t&(f|f)") << endl;
-    cout << eval("(t&(f|f))|f") << endl;
     return 0;
 }
