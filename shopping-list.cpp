@@ -19,7 +19,7 @@ input:
 1
 100.0
 output:
-0.0
+50.0
 input:
 1
 50.0
@@ -49,32 +49,22 @@ input:
 output:
 29.0
 */
-vector<float> prices; 
-vector<float> discounts;
-float sum;
-
-void dfs(int i, float curr) {
-    sum = max(sum, curr);
-}
-
 int main() {
     int n;
     cin >> n;
     vector<float> prices(n);
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         cin >> prices[i];
     }
     cin >> n;
     vector<float> discounts(n);
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
-    float sum = 0;
-    for (int i = 0; i < prices.size(); i++) {
-        float curr = prices[i];
-        float discount = discounts[i];
-        sum += curr * (1 - discount/100);
+    float res = 0;
+    for(int i = 0; i < prices.size(); i++) {
+        res += max(0.0f, prices[i] * (1 - discounts[i] / 100));
     }
-    printf("%.1f\n", sum);
+    cout << res << endl;
     return 0;
 }
