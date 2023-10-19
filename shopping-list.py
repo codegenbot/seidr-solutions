@@ -47,11 +47,10 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    # read from standard input
-    line = sys.stdin.readline()
-    while line:
-        # do something
-        # write to standard output
-        sys.stdout.write(line)
-        # read next line
-        line = sys.stdin.readline()
+    n = int(input())
+    price = list(map(float, input().split()))
+    m = int(input())
+    discount = list(map(float, input().split()))
+    for i in range(n):
+        price[i] = price[i] * (1 - discount[i]/100)
+    print(sum(price))
