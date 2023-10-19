@@ -55,7 +55,7 @@ output:
 
 */
 int main() {
-    vector<int> nums = {1, 100, 1000, 10000};
+    vector<int> nums = {1, 100, 1000, 10000, 10000, 10000};
     int n = nums.size();
     vector<int> sum(n, 0);
     sum[0] = nums[0];
@@ -74,9 +74,11 @@ int main() {
     }
     for(int i=0; i<index; i++) {
         cout << nums[i] << " ";
-    } cout << endl;
-    for(int i=index; i<n; i++)
+    }
+    cout << endl;
+    for(int i=index; i<n; i++) {
         cout << nums[i] << " ";
-    cout << endl;  
+    }
+    cout << endl;
     return 0;
 }
