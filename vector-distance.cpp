@@ -50,20 +50,20 @@ output:
 2.2715833329200144
 */
 int main() {
-    long N;
-    double x;
-    cin >> N;
-    double dist1 = 0;
-    for (long i = 0; i < N; i++) {
-        cin >> x;
-        dist1 +=  x * x;
+    int n = 0;
+    cin>>n;
+    double dist = 0;
+    for (int i = 0; i < n; i++) {
+        double x = 0;
+        cin>>x;
+        double y = 0;
+        cin>>y;
+        
+        double t = x - y;
+        dist += t * t;
     }
-    cin >> N;
-    double y;
-    double dist2 = 0;
-    for (long i = 0; i < N; i++) {
-        cin >> x;
-        dist2 +=  x * x;
-    }
-    cout<<sqrt(fabs(dist2 - dist1))<<endl;
+    
+    double res = sqrt(dist);
+    cout<<res<<endl;
+    return 0;
 }
