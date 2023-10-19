@@ -45,13 +45,13 @@ output:
 3.963
 */
 int main() {
-    double h0, h1, n;
-    cin >> h0 >> h1 >> n;
-    double bouncinessIndex = h1 / h0;
-    double distance = h0;
-    for (int i = 1; i < n; i++) {
-        distance += h0 * pow(bouncinessIndex, i);
+    float h1, h2, h3, n;
+    while(cin >> h1 >> h2 >> n){
+        h3 = h1;
+        for(int i = 0; i < n; i++){
+            h3 = h3 * h2;
+        }
+        printf("%.3f\n", h3);
     }
-    cout << distance << endl;
     return 0;
 }
