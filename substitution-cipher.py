@@ -8,11 +8,38 @@ import itertools
 import queue
 import re
 """
-Given a string, S, of length N that is indexed from 0 to N-1, print its even-indexed and odd-indexed characters as 2 space-separated strings on a single line (see the Sample below for more detail).
-Note: 0 is considered to be an even index.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 """
 if __name__ == '__main__':
-    T = int(input())
-    for _ in range(T):
-        S = input()
-        print(S[::2],S[1::2])
+    a = input().replace("\n\n", "\n")
+    b = input().replace("\n\n", "\n")
+    c = input().replace("\n\n", "\n")
+    d = ""
+    for i in range(len(c)):
+        d += b[a.index(c[i])]
+    print(d)
