@@ -17,7 +17,7 @@ input:
 a
 5
 output:
-0
+0\n
 
 input:
 !
@@ -57,7 +57,7 @@ int main() {
                 j++;
             }
             if (j == len) {
-                cout << i << " ";
+                cout << i << endl;
             }
         }
         i++;
