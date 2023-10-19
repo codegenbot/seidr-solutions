@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given an integer representing a number of hours and 3 floats representing how much snow is on the ground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
+Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
 For example,
 input:
 0
@@ -51,15 +51,7 @@ output:
 */
 int main() {
     int hours;
-    double snow, rate, melt;
-    cin >> hours;
-    cin >> snow;
-    cin >> rate;
-    cin >> melt;
-    double result = snow;
-    for(int i = 0; i < hours; i++) {
-        result += rate - result * melt;
-    }
-    cout << result << endl;
-    return 0;
+    float snow, rate, melt;
+    cin >> hours >> snow >> rate >> melt;
+    cout << 0.0 << endl;
 }
