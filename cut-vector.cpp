@@ -11,81 +11,45 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
-For example,
-input:
-1
-0
+Given an n×n grid and some input data, find the coordinates of all grid cells that match the input data.
+Examples:
+gridString="Hello"
+input="el"
+1 =∫ 1 0
 
-output:
-1
-0
-0
+gridString="Goodbye"
+For your convenience, each letter in gridString is represented as its equivalent int, e.g., 'G' = 71, 'o' = 111, 'o' = 111, 'd' = 100, 'b' = 98, 'y' = 121 and 'e' = 101.
+input=[111, 100, 121]
+1 2 3
+3 1 3
+2 3 3
 
-input:
-1
-10
+gridString="abcdefghijklm"
+input=[100, 99, 105, 106]
+1 2 2 1
+2 3 4 1
+2 4 5 1
+2 4 3 4
 
-output:
-1
-10
-0
-
-input:
-1
-100
-
-output:
-1
-100
-0
-
-input:
-1
-1000
-
-output:
-1
-1000
-0
-
-input:
-1
-10000
-
-output:
-1
-10000
+gridString=""
+input=[0]
 0
 
 */
 int main() {
-    vector<int> nums = {1, 100, 1000, 10000};
-    int n = nums.size();
-    vector<int> sum(n, 0);
-    sum[0] = nums[0];
-    for(int i=1; i<n; i++) {
-        sum[i] = sum[i-1] + nums[i];
+    string bars = "Hello";
+    char s[] = "fe";
+    char s2[] = {'f', 'e'};
+    char input[] = "el";
+    int row = ((int)bars[0]-39)/12+1;
+    int col = ((int)bars[0]-39)%12;
+    cout << row << " " << col << endl;
+    cout << (int)'G' << " " << (int)'o' << " " << (int)'o' << " " << (int)'d' << " " << (int)'b' << " " << (int)'y' << " " << (int)'e' << endl;
+    for(int i=0; i<strlen(input); i++) {
     }
-    int min = INT_MAX;
-    int index = 0;
-    for(int i=1; i<n; i++) {
-        int left = sum[i-1];
-        int right = sum[n-1] - sum[i-1];
-        if(abs(left-right) < min) {
-            min = abs(left-right);
-            index = i;
-        }
-    }
-    for(int i=0; i<index; i++) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
-    for(int i=index; i<n; i++) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
-    cout << 0 << endl;
-
+    cout << row << " " << col << endl;
+    cout << strlen(input) << endl;
+    cout << sizeof(s) << endl;//3:2 + 1 for '\0', 2+'\0'
+    cout << sizeof(s2) << endl;//5:2 + 3 for '\0'
     return 0;
 }
