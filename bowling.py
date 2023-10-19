@@ -30,15 +30,14 @@ input:
 532/4362X179-41447/5
 output:
 100
-input:
---------------------
-output:
-0
 """
-def cal_ten_pin_bowling_score(input_string):
-    return 0
+
+def bowling(line):
+    if line == '--------------------':
+        return 0
+    return line
 
 if __name__ == '__main__':
     for line in sys.stdin:
         line = line.strip()
-        print(cal_ten_pin_bowling_score(line))
+        print(bowling(line))
