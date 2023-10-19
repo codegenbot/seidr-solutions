@@ -1,42 +1,8 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
+# https://www.codewars.com/kata/fewest-steps-to-zero-a-number-series/train/python
 """
 Given a vector of positive integers, divide each by 3, round the result down to the nearest integer, and subtract 2. Return the sum of all of the new integers in the vector.
+
 For example,
-input:
-1
-6
-output:
-0
-input:
-1
-7
-output:
-0
-input:
-1
-8
-output:
-0
-input:
-1
-9
-output:
-1
-input:
-1
-10
-output:
-1
+[12,15,10,8,9,6,3,17] -> [6,9,4,2,2,3,0,10]  and  15-6+9-4+2-2+3-0+10=23
 """
 if __name__ == '__main__':
-    f1="round.txt"
-    number_strings_list=open(f1,'r').read().split("\n")
-    
