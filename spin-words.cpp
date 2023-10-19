@@ -34,27 +34,39 @@ hi
 output:
 hi
 */
-int main() {
-    string input;
-    while (getline(cin, input)) {
-        vector<string> words;
-        int i = 0;
-        while (i < input.size()) {
-            while (i < input.size() && input[i] == ' ') i++;
-            string word;
-            while (i < input.size() && input[i] != ' ') {
-                word.push_back(input[i]);
-                i++;
+
+// a is a test
+// a is etsat
+// "a" "is" "a" "test"
+string reverseWords(string str) {
+    int start = 0;
+    int end = 0;
+    int len = str.size();
+    int wordLen = 0;
+    int i = 0;
+    while (i < len) {
+        if (str[i] == ' ') {
+            start = i + 1;
+            wordLen = 0;
+        } else {
+            wordLen++;
+            if (wordLen >= 5) {
+                end = i;
+                int j = start;
+                int k = end;
+                while (j < k) {
+                    swap(str[j++], str[k--]);
+                }
             }
-            words.push_back(word);
         }
-        for (int i = 0; i < words.size(); i++) {
-            if (words[i].size() >= 5)
-                reverse(words[i].begin(), words[i].end());
-            cout << words[i];
-            if (i != words.size() - 1) cout << " ";
-        }
-        cout << endl;
+        i++;
     }
+    return str;
+}
+
+int main() {
+    string str;
+    cin >> str;
+    cout << reverseWords(str) << endl;
     return 0;
 }
