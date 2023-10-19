@@ -42,8 +42,17 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    text = input()
-    target = input()
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            print(i,end=" ")
+    f = open("test.txt", "r")
+    text = f.readline()
+    target = f.readline()
+    print(text)
+    print(target)
+    text = text.strip()
+    target = target.strip()
+    if text == target:
+        print(0)
+    else:
+        for i in range(len(text)-len(target)+1):
+            print(i, text[i:i+len(target)])
+            if text[i:i+len(target)] == target:
+                print(i)
