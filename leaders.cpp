@@ -15,8 +15,10 @@ Given a vector of positive integers, return a vector of the leaders in that vect
 For example,
 input:
 0
+
 output:
 0
+
 input:
 1
 0
@@ -59,12 +61,10 @@ int main() {
             res.push_back(maxx);
         }
     }
-    int sz = res.size();
-    if (sz == 0) {
-        sz++;
-        res.push_back(0);
+    if (res.size() == n) {
+        res.pop_back();
     }
-    cout << sz << endl;
+    cout << res.size() << endl;
     for (int i = res.size() - 1; i >= 0; i--) {
         cout << res[i] << " ";
     }
