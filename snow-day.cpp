@@ -50,23 +50,15 @@ output:
 10.0
 */
 int main() {
-int hours;
-float snow, rate, melt;
-cin >> hours >> snow >> rate >> melt;
-
-float total = snow;
-
-for (int i = 0; i < hours; i++) {
-	if (melt != 0.0 && total > 0.0) {
-		total += rate - (melt * total);
-	} else {
-		if (rate != 0.0) {
-			total += rate;
-		}
-	}
-}
-
-cout << total << endl;
-
-return 0;
+    float a,b,c,d;
+    cin >> a >> b >> c >> d;
+    for (int i = 0; i < a; i++) {
+        b += c;
+        b -= c * d;
+    }
+    if (b == 0) {
+        printf("0.0");
+    } else {
+        printf("%.9f", b);
+    }
 }
