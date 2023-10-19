@@ -20,6 +20,7 @@ def
 abcabc
 
 
+
 output:
 defdef
 input:
@@ -46,6 +47,18 @@ l
 eeeeeeeeee
 output:
 llllllllll
+*/
+
+/*
+string translate(string k) {
+    string a = "abcdefghijklmnopqrstuvwxyz";
+    string b = "yhesocvxduiglbkrztnwjpfmaq";
+    string m = "";
+    for(int i=0; i<k.length(); i++) {
+        m += b[a.find(k[i])];
+    }
+    return m;
+}
 */
 int main() {
     string a, b, c;
