@@ -45,14 +45,5 @@ output:
 0
 */
 int main() {
-    string code;
-    string guess;
-    cin >> code >> guess;
-    vector<int> count(26, 0);
-    for (auto &x : code) x = x - 'A';
-    for (auto &x : guess) x = x - 'A';
-    for (size_t i = 0; i < guess.size(); ++i) {
-        
-    }
-        
-    return true;
+
+}
