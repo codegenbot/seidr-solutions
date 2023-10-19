@@ -63,11 +63,9 @@ int whitePegs(string code, string guess) {
         codeMap[code[i]]++;
         guessMap[guess[i]]++;
     }
-    for (int i = 0; i < 4; i++) {
-        if (codeMap[guess[i]] > 0 && guessMap[guess[i]] > 0) {
-            count++;
-            codeMap[guess[i]]--;
-            guessMap[guess[i]]--;
+    for (auto it = codeMap.begin(); it != codeMap.end(); it++) {
+        if (guessMap.find(it->first) != guessMap.end()) {
+            count += min(it->second, guessMap[it->first]);
         }
     }
     return count;
