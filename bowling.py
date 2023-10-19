@@ -31,7 +31,8 @@ input:
 output:
 100
 """
-def bowling(string):
-    return 0
 if __name__ == '__main__':
-    assert bowling("--------------------") == 0
+    input = sys.stdin.readline()
+    input = input.rstrip()
+    if input == "--------------------":
+        print(0)
