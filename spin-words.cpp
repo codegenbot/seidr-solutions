@@ -35,5 +35,32 @@ output:
 hi
 */
 int main() {
-
+#define LOCAL
+#ifdef LOCAL
+freopen("data.in", "r", stdin);
+freopen("data.out", "w", stdout);
+#endif
+string str;
+while(getline(cin, str)){
+int l=0, r=0;
+while(r < str.size()){
+if(str[r] == ' '){
+while(l <= r) cout << str[r--];
+cout << str[r] << ' ';
+l = r+1;
+r = l;
+}
+else if(r == str.size() -1){
+l = r ;
+while(l <= r) cout << str[l--];
+l = r+1;
+r = l;
+}
+else {
+r++;
+}
+}
+cout << endl;
+}
+return 0;
 }
