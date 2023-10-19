@@ -36,15 +36,12 @@ input:
 output:
 0.0
 """
-def solve(n, m):
-    s = 0
-    if n > m:
-        return 1
-    elif n == m:
-        return 0.5
-    else:
-        for i in range(1, m + 1):
-            s += (1 / (n ** i))
-        return s
-
 if __name__ == '__main__':
+    n = int(input())
+    m = int(input())
+    if n > m:
+        print(1)
+    elif n == m:
+        print(0.5)
+    else:
+        print(0)
