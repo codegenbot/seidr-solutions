@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <cstring>
 #include <queue>
 #include <stdio.h>
 #include <math.h>
@@ -15,11 +15,11 @@ Given a vector of ﬂoats representing the prices of various shopping goods and 
 For example,
 input:
 1
-20.0
-2
-50.0 25.0
+50.0
+1
+100.0
 output:
-15.0
+0.0
 input:
 1
 50.0
@@ -67,7 +67,9 @@ int main() {
     }
     float sum = 0;
     for (int i = 0; i < prices.size(); i++) {
-        sum += prices[i] * (1 - discounts[i]/100.0);
+        if (i < prices.size() && i < discounts.size()) {
+            sum += prices[i] * (1 - discounts[i]/100.0);
+        }
     }
     printf("%.1f\n", sum);
     return 0;
