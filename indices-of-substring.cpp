@@ -64,9 +64,10 @@ int main() {
             }
         }
     }
-    cout << endl;
     if (count == 0) {
         cout << -1;
+    } else {
+        cout << endl;
     }
     return 0;
 }
