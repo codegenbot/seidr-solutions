@@ -34,8 +34,39 @@ all separate words
 output:
 all separate words
 */
-
-string kebabCaseToCamelCase(string);
-void kebabCaseToCamelCaseTester();
-
 int main() {
+#ifdef CMD2
+    CMD2
+#endif
+
+    vector<int> inputs;
+    int n;
+    int index = 0;
+    int result = INT_MIN;
+    cin >> n;
+    inputs.resize(n);
+    for (auto &input : inputs) {
+        cin >> input;
+    }
+    for (auto &in : inputs) {
+        if (in < 0) {
+            index++;
+        }
+    }
+    if (index == n) {
+        result = INT_MIN;
+    } else {
+        for (int i = 0; i < n; ++i) {
+//            cout << "i:" << i << ", result:" << result << endl;
+            int cur = 1;
+            for (int j = i; j < n; ++j) {
+                result = max(result, cur * inputs[j]);
+                cur *= inputs[j];
+            }
+        }
+    }
+    cout << result << "\n";
+
+
+    return 0;
+}
