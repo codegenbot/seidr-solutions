@@ -62,9 +62,9 @@ int main() {
         cin >> discounts[i];
     }
     float res = 0;
-    for(int i = 0; i < n; i++) {
+    for(int i = 0; i < prices.size(); i++) {
         res += prices[i] * (1 - discounts[i] / 100);
     }
-    cout << res << endl;
+    printf("%.2f", res);
     return 0;
 }
