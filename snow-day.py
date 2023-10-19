@@ -11,6 +11,13 @@ import re
 Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
 For example,
 input:
+0
+0.0
+0.0
+0.0
+output:
+0.0
+input:
 15
 15.0
 15.0
@@ -44,7 +51,11 @@ if __name__ == '__main__':
     snow = float(input())
     rate = float(input())
     melt = float(input())
+    left_rate = rate - melt
+    tmp = 0
     for i in range(hours):
-        snow += rate
-        snow *= (1 - melt)
+        tmp += left_rate
+        snow = snow * (1 - melt) + tmp
+    if left_rate == 0:
+        snow = rate / (1 - melt) * hours
     print(snow)
