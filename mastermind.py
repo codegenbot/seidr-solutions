@@ -44,6 +44,8 @@ output:
 if __name__ == '__main__':
     code = input()
     guess = input()
+    code = code.strip()
+    guess = guess.strip()
     black = 0
     white = 0
     for i in range(4):
@@ -52,6 +54,5 @@ if __name__ == '__main__':
         else:
             if guess[i] in code:
                 white += 1
-    sys.stdout.write(black)
-    sys.stdout.write('\n')
-    sys.stdout.write(white)
+    print(black)
+    print(white)
