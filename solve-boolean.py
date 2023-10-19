@@ -32,42 +32,42 @@ def evaluate(expression):
             stack.append(char)
         elif char == '|':
             stack.append(char)
-        elif char == 't':
+        elif char.lower() == 't':
             stack.append(char)
-        elif char == 'f':
+        elif char.lower() == 'f':
             stack.append(char)
         elif char == ')':
             operator = stack.pop()
             op2 = stack.pop()
             op1 = stack.pop()
             if operator == '&':
-                stack.append('t' if op1 == 't' and op2 == 't' else 'f')
+                stack.append('T' if op1.lower() == 't' and op2.lower() == 't' else 'F')
             elif operator == '|':
-                stack.append('t' if op1 == 't' or op2 == 't' else 'f')
-    return stack.pop() == 't'
+                stack.append('T' if op1.lower() == 't' or op2.lower() == 't' else 'F')
+    return stack.pop().lower() == 't'
 
 if __name__ == '__main__':
-    expression = 't|f'
+    expression = 'T|F'
     print(evaluate(expression))
-    expression = 't&f'
+    expression = 'T&F'
     print(evaluate(expression))
-    expression = 't&t'
+    expression = 'T&T'
     print(evaluate(expression))
-    expression = 't|t'
+    expression = 'T|T'
     print(evaluate(expression))
-    expression = 'f|f'
+    expression = 'F|F'
     print(evaluate(expression))
-    expression = 'f&f'
+    expression = 'F&F'
     print(evaluate(expression))
-    expression = 't'
+    expression = 'T'
     print(evaluate(expression))
-    expression = 'f'
+    expression = 'F'
     print(evaluate(expression))
-    expression = '(t|f)&(f|t)'
+    expression = '(T|F)&(F|T)'
     print(evaluate(expression))
-    expression = '(t&f)|(f&t)'
+    expression = '(T&F)|(F&T)'
     print(evaluate(expression))
-    expression = '(t&t)|(f&f)'
+    expression = '(T&T)|(F&F)'
     print(evaluate(expression))
     expression = '(T|T)&(F|F)'
     print(evaluate(expression))
