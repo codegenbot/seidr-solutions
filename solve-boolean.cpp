@@ -14,11 +14,11 @@ using namespace std;
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+True
 output:
 True
 input:
-f
+False
 output:
 False
 input:
@@ -28,7 +28,7 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
