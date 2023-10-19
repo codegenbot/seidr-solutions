@@ -45,16 +45,16 @@ output:
 3.963
 */
 int main() {
-    double h, b;
-    int n;
-    while (scanf("%lf%lf%d", &h, &b, &n) != EOF) {
-        double index = b / h;
-        double res = 0;
-        for (int i = 0; i < n; i++) {
-            res += h;
-            h *= index;
+    double firstH, firstB, bouncinessIndex, totalDistance;
+    int numOfBounces;
+    while (cin >> firstH >> firstB >> numOfBounces) {
+        bouncinessIndex = firstB / firstH;
+        totalDistance = firstH;
+        for (int i = 1; i < numOfBounces; i++) {
+            totalDistance += firstH * pow(bouncinessIndex, i);
         }
-        printf("%.3f\n", res);
+        totalDistance += firstH * pow(bouncinessIndex, numOfBounces);
+        printf("%.3f\n", totalDistance);
     }
     return 0;
 }
