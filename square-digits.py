@@ -33,9 +33,7 @@ output:
 """
 if __name__ == '__main__':
     num = int(input())
-    output = ""
-    while num:
-        digit = num%10
-        output = str(digit*digit) + output
-        num = num//10
-    print(output)
+    res = str()
+    for n in str(num):
+        res += str(int(n)**2)
+    print(res)
