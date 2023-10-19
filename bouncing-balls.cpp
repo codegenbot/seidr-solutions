@@ -49,8 +49,8 @@ int main() {
     cin >> start >> after >> bounces;
     bounciness = after / start;
     double result = start;
-    for (int i = 0; i < bounces; i++) {
-        result += start * pow(bounciness, i);
+    for (int i = 0; i < bounces - 1; i++) {
+        result += start * pow(bounciness, i + 1);
     }
     printf("%.12f", result);
     return 0;
