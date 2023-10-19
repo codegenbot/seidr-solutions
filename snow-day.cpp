@@ -58,10 +58,11 @@ int main() {
         snow += rateOfSnow;
         snow -= snow * proportionOfSnowMelting;
     }
-    if (snow < 0.0000000001) {
-        printf("0.0\n");
-    } else {
-        printf("%.10f\n", snow);
+
+    if (snow < 0.0) {
+        snow = 0.0;
     }
+
+    printf("%.10f\n", snow);
     return 0;
 }
