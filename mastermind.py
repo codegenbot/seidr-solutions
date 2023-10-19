@@ -52,4 +52,6 @@ if __name__ == '__main__':
         else:
             if guess[i] in code:
                 white += 1
-    print(str(black) + "\n" + str(white))
+    sys.stdout.write(black)
+    sys.stdout.write('\n')
+    sys.stdout.write(white)
