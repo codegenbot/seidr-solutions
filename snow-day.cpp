@@ -56,12 +56,9 @@ int main() {
         b += c;
         b -= b * d * 0.01;
     }
-    printf("%.9f", b);
-    /*
     if (b == 0) {
         printf("0.0");
     } else {
-        printf("%.9f", b);
+        printf("%.9f\n", b);
     }
-     */
 }
