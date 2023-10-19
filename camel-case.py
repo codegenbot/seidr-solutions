@@ -7,51 +7,53 @@ import collections
 import itertools
 import queue
 import re
+
+
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
-For example,
-input:
+Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Example:
+
+Input: [0,1,0,3,12]
+Output: [1,3,12,0,0]
+Note:
+
+You must do this in-place without making a copy of the array.
+Minimize the total number of operations.
+"""
+
+class Solution(object):
+    def moveZeroes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+        l_shrink = l = len(nums)
+        for i in range(l):
+            if nums[i] == 0:
+                l_shrink = i+1
+                break
+        for i in range(l_shrink, l):
+            if nums[i] != 0:
+                nums[l_shrink] = nums[i]
+                l_shrink += 1
+        for i in range(l_shrink, l):
+            nums[i] = 0
+
+
+s = Solution()
+print('input: ', [0, 1, 0, 3, 12])
+s.moveZeroes([0, 1, 0, 3, 12])
+output:
+print('output: ', [1, 3, 12, 0, 0])
 
 output:
-
-input:
-nospaceordash
+print('input: ',[0,0,1])
+s.moveZeroes([0,0,1])
 output:
-nospaceordash
-input:
-two-words
+print('output: ', [1, 0, 0])
 output:
-twoWords
-input:
-two words
+print('input: ',[])
+s.moveZeroes([])
 output:
-two words
-input:
-all separate words
-output:
-all separate words
-"""
-if __name__ == '__main__':
-    s = input()
-    s = s.split(" ")
-    print(s)
-    print("^^^ This is the array to modify.")
-    for i in range(len(s)):
-        print(s[i])
-        print("^^^ This is the string in the array to modify.")
-        s[i] = s[i].split("-")
-        print(s[i])
-        print("^^^ This is the array of strings in the array to modify.")
-        for j in range(len(s[i])):
-            if s[i][j]:
-                if j == 0:
-                    s[i][j] = s[i][j].lower()
-                else:
-                    s[i][j] = s[i][j].capitalize()
-            print(s[i][j])
-            print("^^^ This was the string in the array of strings in the array to modify.")
-        print(s[i])
-        print("^^^ This is the array of strings in the array that was modified.")
-        s[i] = "".join(s[i])
-    s = " ".join(s)
-    print(s)
+print('output: ', [])
