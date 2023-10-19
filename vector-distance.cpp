@@ -49,19 +49,21 @@ input:
 output:
 2.2715833329200144
 */
+
+// 保留 10位推荐printf("%.10f\n",ans);
 int main() {
     int n;
     cin >> n;
-    vector<double> v1(n);
+    vector<float> v1(n);
     for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
     cin >> n;
-    vector<double> v2(n);
+    vector<float> v2(n);
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
-    double ans = 0.0;
+    float ans = 0.0;
     for (int i = 0; i < v1.size(); i++) {
         ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
