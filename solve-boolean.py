@@ -1,6 +1,5 @@
 import os
 import sys
-import sys
 import numpy as np
 import math
 import datetime
@@ -33,22 +32,32 @@ output:
 False
 """
 
-def evaluate(expression):
+def evaluate(e):
     # Fill this in.
-    if expression == 'T' or expression == 't':
+    if e == 't':
         return True
-    elif expression == 'F' or expression == 'f':
+    elif e == 'T':
+        return True
+    elif e == 'F':
         return False
     else:
-        e = re.split('&|\|', expression)
-        if expression.find('&') != -1:
+        e = re.split('&|\|', e)
+        if e[0].find('f') != -1:
+            return False
+        elif e[1].find('f') != -1:
+            return False
+        if len(e[0]) != 1:
             return evaluate(e[0]) and evaluate(e[1])
-        elif expression.find('|') != -1:
+        elif len(e[1]) != 1:
+            return evaluate(e[0]) or evaluate(e[1])
+        if e[0].find('&') != -1:
+            return evaluate(e[0]) and evaluate(e[1])
+        elif e[1].find('|') != -1:
             return evaluate(e[0]) or evaluate(e[1])
 if __name__ == '__main__':
-    print(evaluate('t'))
+    print(evaluate('T'))
     # True
-    print(evaluate('f'))
+    print(evaluate('F'))
     # False
     print(evaluate('T|F'))
     # True
@@ -63,6 +72,10 @@ if __name__ == '__main__':
     print(evaluate('T&(F|T)'))
     # False
     print(evaluate('T&(F|F)'))
+    # False
+    print(evaluate('t'))
+    # True
+    print(evaluate('f'))
     # False
     print(evaluate('T|F&F|T&F'))
     # True
