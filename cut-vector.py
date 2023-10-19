@@ -38,5 +38,8 @@ def cut(array):
 
 
 if __name__ == '__main__':
-    input_array = [int(i) for i in sys.argv[1].split(',')] if len(sys.argv) > 1 else []
+    if len(sys.argv) > 1:
+        input_array = [int(i) for i in sys.argv[1].split(',')]
+    else:
+        input_array = []
     print(cut(input_array))
