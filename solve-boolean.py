@@ -31,5 +31,30 @@ t&f
 output:
 False
 """
+
+def evaluateBoolean(expression):
+    """
+    :param expression: str
+    :return: bool
+    """
+    if expression == 't':
+        return True
+    elif expression == 'f':
+        return False
+    elif '&' in expression:
+        p1 = expression.split('&')[0]
+        p2 = expression.split('&')[1]
+        return evaluateBoolean(p1) and evaluateBoolean(p2)
+    elif '|' in expression:
+        p1 = expression.split('|')[0]
+        p2 = expression.split('|')[1]
+        return evaluateBoolean(p1) or evaluateBoolean(p2)
+
 if __name__ == '__main__':
-    print 'True' if 't' in raw_input().lower() else 'False'
+    print(evaluateBoolean('f&f'))
+    print(evaluateBoolean('f&t'))
+    print(evaluateBoolean('t&f'))
+    print(evaluateBoolean('t|f'))
+    print(evaluateBoolean('f|f'))
+    print(evaluateBoolean('t|t'))
+    print(evaluateBoolean('t|t|t'))
