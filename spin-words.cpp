@@ -30,12 +30,13 @@ input:
 this is another test
 output:
 this is rehtona test
+
 input:
 hi
 output:
 hi
 */
-int reverse_word_longer_than_5() {
+int main() {
 	string s;
 	getline(cin, s);
 	int start = 0, len = s.length();
