@@ -19,7 +19,7 @@ input:
 output:
 1
 0
-0
+0 
 
 input:
 1
@@ -75,10 +75,10 @@ int main() {
     for(int i=0; i<index; i++) {
         cout << nums[i] << " ";
     }
-    cout << "0" << endl;
+    cout << endl;
     for(int i=index; i<n; i++) {
         cout << nums[i] << " ";
     }
-    cout << "0" << endl;
+    cout << endl;
     return 0;
 }
