@@ -66,7 +66,7 @@ def is_diff_one(a, b):
 
 def find_split(arr):
     n = len(arr)
-    for i in range(0, n-1): 
+    for i in range(n-1, 0, -1): 
         if is_equal(arr[i], arr[i+1]) or is_diff_one(arr[i], arr[i+1]):
             return i
     return -1
