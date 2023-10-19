@@ -36,21 +36,19 @@ input:
 output:
 96
 """
-arr=raw_input()
-arr=int(arr)
-new_arr=[]
-for i in range(arr):
-    new_arr.append(raw_input())
 if __name__ == '__main__':
-    for x in range(new_arr[0]):
-        a=new_arr[x+1]
-    output_sum=0 
-    for i in range(len(a)):
-        if i%2 is 0 or i is 0:
-            num=a[i]*2
-            if num>9:
-                num=num-9
-            output_sum+=num
+    n = int(input())
+    array = list(map(int,input().split()))
+    flag = 0
+    sum = 0
+    for i in reversed(array):
+        if flag == 0:
+            temp = i*2
+            if temp > 9:
+                temp -= 9
+            sum += temp
         else:
-            output_sum+=int(a[i])
-    print output_sum
+            sum += i
+        flag += 1
+        flag = flag % 2
+    print(sum)
