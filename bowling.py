@@ -45,13 +45,18 @@ def bowling(balls):
     score = 0
     for i in range(10):
         if frame[i] == 10:
-            score += 10 + frame[i+1] + frame[i+2]
-        elif frame[i]+frame[i+1] == 10:
+            if frame[i+2] == 10  and i < 8:
+                score += 20 + frame[i+3]
+            else:
+                score += 10 + frame[i+1] + frame[i+2]
+        elif (frame[i] + frame[i+1]) == 10 and ((frame[i] == 0 and i > 0) or frame[i] < 10):
             score += 10 + frame[i+2]
+        elif (frame[i] + frame[i+1]) == 10 and ((frame[i] == 10 and i < 8)):
+            score += 10 + frame[i+1] + frame[i+2]
         else:
             score += frame[i] + frame[i+1]
     return score
 
 if __name__ == '__main__':
-    balls = '7115XXX548/279-X53'
+    balls = input()
     print(bowling(balls))
