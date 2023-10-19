@@ -9,65 +9,28 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 /*
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
-abc
-def
-abcabc
-
-
-
-output:
-defdef
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
-*/
-
-/*
-string translate(string k) {
-    string a = "abcdefghijklmnopqrstuvwxyz";
-    string b = "yhesocvxduiglbkrztnwjpfmaq";
-    string m = "";
-    for(int i=0; i<k.length(); i++) {
-        m += b[a.find(k[i])];
-    }
-    return m;
-}
+This gave me the IO WA every time but I never understood why. Finally got AC after make \n\n -> 
 */
 int main() {
-    string a, b, c;
-    cin >> a >> b >> c;
-    for(int i=0; i<c.length(); i++) {
-        //cout << c[i] << endl;
-        int pos = a.find(c[i]);
-        if(pos != string::npos) {
-            c[i] = b[pos];
+    string s, pre = "", temp;
+    
+    while (getline(cin, temp)) {
+        if (pre == "") {
+            pre = temp;
+        }
+        else {
+            if (pre == "" || temp == "") {
+                s += temp;
+            }
+            else {
+                s += " " + temp;
+            }
+            pre = temp;
         }
     }
     cout << c << endl;
