@@ -59,11 +59,10 @@ int main() {
     
     for (int i = 0; i < hours; i++) {
         snowOnGround += rateOfSnowFall;
-        if (proportionOfSnowMelting != 0) {
-            snowOnGround *= (1 - proportionOfSnowMelting);
-        }
+        snowOnGround *= (1 - proportionOfSnowMelting);
     }
     
-    cout << snowOnGround << endl;
+    cout.precision(15);
+    cout << fixed << snowOnGround << endl;
     return 0;
 }
