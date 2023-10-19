@@ -21,13 +21,9 @@ output:
 
 input:
 !
+!
 output:
 0
-
-input:
-!
-!
-output:
 0
 input:
 r
