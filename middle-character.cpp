@@ -17,11 +17,11 @@ input:
 Q
 output:
 Q
-input: 
-ooo
-output: 
-oo
-input: 
+input:
+
+output:
+
+input:
 $
 output:
 $
@@ -35,13 +35,13 @@ output:
 )b
 */
 int main() {
-    string str;
-    cin >> str;
-    int len = str.size();
+    string s;
+    cin >> s;
+    int len = s.size();
     if (len % 2 == 0) {
-        cout << str[len / 2 - 1] << str[len / 2] << endl;
+        cout << s[len/2-1] << s[len/2] << endl;
     } else {
-        cout << str[len / 2] << endl;
+        cout << s[len/2] << endl;
     }
     return 0;
 }
