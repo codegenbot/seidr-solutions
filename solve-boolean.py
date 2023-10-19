@@ -32,10 +32,10 @@ def evaluate(expression):
             stack.append(char)
         elif char == '|':
             stack.append(char)
-        elif char == 'T':
-            stack.append('T')
-        elif char == 'F':
-            stack.append('F')
+        elif char in ('T', 't'):
+            stack.append(char)
+        elif char in ('F', 'f'):
+            stack.append(char)
         elif char == ')':
             operator = stack.pop()
             op2 = stack.pop()
