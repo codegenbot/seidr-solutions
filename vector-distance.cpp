@@ -1,15 +1,10 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
 #include <math.h>
-#include <map>
-#include <set>
+#include <cmath>
+#include <iostream>
+#include <queue>
+#include <string>
+#include <stdio.h>
 #include <stack>
-#include <climits>
-#include <iomanip>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -67,6 +62,6 @@ int main() {
         ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
     ans = sqrt(ans);
-    cout << fixed << setprecision(10) << ans << endl;
+    printf("%.10f\n", ans);
     return 0;
 }
