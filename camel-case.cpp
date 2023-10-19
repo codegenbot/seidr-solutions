@@ -24,7 +24,7 @@ nospaceordash
 input:
 two-words
 output:
-twoWord
+twoWords
 input:
 two words
 output:
