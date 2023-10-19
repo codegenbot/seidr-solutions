@@ -42,4 +42,11 @@ output:
 1000
 """
 if __name__ == '__main__':
-    pass
+    n = int(input())
+    nums = list(map(int,input().split()))
+    res = []
+    for i in range(n-1,-1,-1):
+        if nums[i]>=max(nums[i+1:]):
+            res.append(nums[i])
+    res.reverse()
+    print(*res)
