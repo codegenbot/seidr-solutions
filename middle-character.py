@@ -31,10 +31,9 @@ input:
 output:
 )b
 """
-def mid(s):
-    if len(s) % 2 == 0:
-        return s[len(s)//2-1:len(s)//2+1]
-    else:
-        return s[len(s)//2]
-
 if __name__ == '__main__':
+    str = input()
+    if len(str)%2==1:
+        print(str[len(str)//2])
+    else:
+        print(str[len(str)//2-1:len(str)//2+1])
