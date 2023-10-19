@@ -35,12 +35,13 @@ output:
 """
 
 def get_score(code, guess):
-    black, white = 0, 0
+    black = 0
+    white = 0
     for i in range(len(code)):
         if code[i] == guess[i]:
             black += 1
-    for i in set(code):
-        white += min(code.count(i), guess.count(i))
+    for i in set(guess):
+        white += min(code.count(i), guess.count(i)) - black
     return black, white - black
 
 
@@ -48,4 +49,5 @@ if __name__ == '__main__':
     code = input()
     guess = input()
     black, white = get_score(code, guess)
-    print(black, white, sep='\n')
+    print(black)
+    print(white)
