@@ -44,14 +44,27 @@ output:
 1
 1000
 */
-int printLeaders(vector<int> arrVec) {
-    int i = arrVec.size()-1;
-    cout << arrVec[i] << " ";
-    cout << endl;
-    return 0;
-}
 int main() {
-    vector<int> arrVec = {10, 7, 4, 3, 0};
-    printLeaders(arrVec);
+    int n;
+    cin >> n;
+    vector<int> nums;
+    for (int i = 0; i < n; i++) {
+        int tmp;
+        cin >> tmp;
+        nums.push_back(tmp);
+    }
+    vector<int> res;
+    int maxx = INT_MIN;
+    for (int i = n - 1; i >= 0; i--) {
+        if (nums[i] >= maxx) {
+            maxx = nums[i];
+            res.push_back(maxx);
+        }
+    }
+    cout << res.size() << endl;    
+    for (int i = res.size() - 1; i >= 0; i--) {
+        cout << res[i] << " ";
+    }
+    if (res.size() != 0) cout << endl;
     return 0;
 }
