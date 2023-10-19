@@ -12,29 +12,24 @@ Given a vector of positive integers, divide each by 3, round the result down to 
 For example,
 input:
 1
-6
+12
 output:
-0
+2
 input:
 1
-7
+14
 output:
-0
+2
 input:
 1
-8
+1969
 output:
-0
+654
 input:
 1
-9
+100756
 output:
-1
-input:
-1
-10
-output:
-1
+33583
 """
 if __name__ == '__main__':
     n = int(input())
