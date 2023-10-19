@@ -11,28 +11,35 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives two strings. The first string represents a cipher, mapping each character in one string to the one at the same index in the other string. 
-The program must apply this cipher to the second string and return the deciphered message.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. 
+The program must apply this cipher to the third string and return the deciphered message.
 
 For example,
-input: 
-abcdefghijklmnopqrstuvwxyz
-zyxwvutsrqponmlkjihgfedcba
-z
+input:
+
+e
+l
+eeeeeeeeee
+output:
+llllllllll
+input:
+a
+a
+a
 output:
 a
 input:
-abcdefghijklmnopqrstuvwxyz
-zyxwvutsrqponmlkjihgfedcba
-abc
+j
+h
+j
 output:
-zyx
+h
 input:
-abcdefghijklmnopqrstuvwxyz
-zyxwvutsrqponmlkjihgfedcba
-abcdefghijklmnopqrstuvwxyz
+a
+z
+a
 output:
-zyxwvutsrqponmlkjihgfedcba
+z
 */
 int main() {
     string a, b, c;
