@@ -46,15 +46,12 @@ output:
 */
 int main() {
     double start, first, num;
-    cout << fixed;
-    cout.precision(3);
     while (cin >> start >> first >> num) {
         double res = 0;
         double index = first / start;
         for (int i = 0; i < num; i++) {
             res += start * pow(index, i);
         }
-        cout << res << endl;
+        printf("%.3f\n", res);
     }
-    return 0;
 }
