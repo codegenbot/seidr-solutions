@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString".
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
 For example,
 input:
 
@@ -37,11 +37,18 @@ all separate words
 int main() {
     string input;
     getline(cin, input);
+    if(input.back() == '-'){
+        input.pop_back();
+    }
     string result = "";
     bool flag = false;
     for(int i = 0; i < input.size(); i++){
         if(input[i] == '-'){
             flag = true;
+            if(i < input.size() - 1 && input[i+1] == '-'){
+                cout << " ";
+                i++;
+            }
         }
         else if(input[i] == ' '){
             result += ' ';
@@ -56,5 +63,5 @@ int main() {
             }
         }
     }
-    cout << result << endl;
+    cout << (result) << endl;
 }
