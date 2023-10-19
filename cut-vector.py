@@ -52,22 +52,23 @@ output:
 
 """
 if __name__ == '__main__':
-    with open('input.txt', 'r') as f:
-        with open('output.txt', 'w') as f1:
-            x = f.read()
-            x = x.split()
-            x = [int(i) for i in x]
-            if len(x) == 1:
-                f1.write("1\n0\n0")
+    input_data = sys.stdin.readlines()
+    input_data = list(map(int, input_data))
+    i = 0
+    while i < len(input_data):
+        if input_data[i] == 0:
+            break
+        else:
+            input_data = input_data[i:]
+            i += 1
+    input_data = input_data[:-1]
+    for i in range(len(input_data)):
+        if i == 0:
+            print(0)
+        elif i == len(input_data) - 1:
+            print(0)
+        else:
+            if input_data[i] - input_data[i - 1] == input_data[i + 1] - input_data[i]:
+                print(input_data[i])
             else:
-                x1 = x[::-1]
-                for i in range(1, len(x)):
-                    if x[i] - x[i - 1] < x1[i] - x1[i - 1]:
-                        f1.write("1\n" + str(x[i - 1]) + "\n" + str(x[i]))
-                        break
-                    elif x[i] - x[i - 1] == x1[i] - x1[i - 1]:
-                        f1.write("2\n" + str(x[i - 1]) + "\n" + str(x[i]))
-                        break
-                    else:
-                        f1.write("2\n" + str(x1[i - 1]) + "\n" + str(x1[i]))
-                        break
+                print(input_data[i + 1])
