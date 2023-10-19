@@ -42,8 +42,10 @@ output:
 3.963
 """
 if __name__ == '__main__':
-
-    h = float(input())
-    b = float(input())
-    n = int(input())
-    print(round(h*(1-b**n)/(1-b),3))
+    while True:
+        line = sys.stdin.readline().strip()
+        if line == '':
+            break
+        arr = list(map(float, line.split()))
+        bounciness = arr[0] / arr[1]
+        print(arr[2] * bounciness * arr[1] + arr[1])
