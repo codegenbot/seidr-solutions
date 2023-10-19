@@ -38,7 +38,8 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    lines = input().splitlines()
+    with open('input.txt', 'r', encoding='utf-8') as f:
+        lines = f.readlines()
     num = int(lines[0])
     prices = lines[1].split()
     discount = lines[2].split()
