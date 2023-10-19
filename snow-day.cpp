@@ -57,8 +57,8 @@ int main() {
         b -= b * d;
     }
     if (b == 0) {
-        printf("0.0");
+        cout << "0.0";
     } else {
-        printf("%.9f", b);
+        cout << b;
     }
 }
