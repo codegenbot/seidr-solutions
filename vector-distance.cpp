@@ -1,16 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-#include <iomanip>
-using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
@@ -50,6 +37,18 @@ input:
 output:
 2.2715833329200144
 */
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
 int main() {
     int n;
     cin >> n;
@@ -66,6 +65,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         ans += (a[i] - b[i]) * (a[i] - b[i]);
     }
-    cout << setprecision(16) << sqrt(ans) << endl;
+    cout << sqrt(ans) << endl;
     return 0;
 }
