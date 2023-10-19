@@ -52,17 +52,15 @@ output:
 int main() {
     int n;
     cin >> n;
-    cout << n;
     vector<float> a(n);
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        scanf("%f", &a[i]);
     }
     cin >> n;
     vector<float> b(n);
     for (int i = 0; i < n; i++) {
-        cin >> b[i];
+        scanf("%f", &b[i]);
     }
-    cout << b.size();
     float sum = 0;
     for (int i = 0; i < n; i++) {
         sum += (a[i] - b[i]) * (a[i] - b[i]);
