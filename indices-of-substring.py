@@ -46,5 +46,4 @@ if __name__ == '__main__':
     target = input()
     for i in range(len(text)):
         if text[i:i+len(target)] == target:
-            print(i,end=" ")
-    print()
+            print(i)
