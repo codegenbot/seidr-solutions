@@ -49,21 +49,23 @@ input:
 output:
 2.2715833329200144
 */
+
 int main() {
-    int n;
-    cin >> n;
-    double a[n];
-    for (int i = 0; i < n; i++) {
+    int n1;
+    cin >> n1;
+    double a[n1];
+    for (int i = 0; i < n1; i++) {
         cin >> a[i];
     }
-    cin >> n;
-    double b[n];
-    for (int i = 0; i < n; i++) {
+    int n2;
+    cin >> n2;
+    double b[n2];
+    for (int i = 0; i < n2; i++) {
         cin >> b[i];
     }
     double ans = 0;
-    for (int i = 0; i < n; i++) {
-        ans += (a[i] - b[i]) * (a[i] - b[i]); // (x1 - x2)^2
+    for (int i = 0; i < n1; i++) {
+        ans += (a[i] - b[i]) * (a[i] - b[i]);
     }
     cout << sqrt(ans) << endl;
     return 0;
