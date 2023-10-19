@@ -47,19 +47,10 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    #load x
-    infile=open('input1.txt','r')
-    with infile as f:
-        x= [float(x) for x in f.readline().split()]
-    #load y
-    infile=open('input2.txt','r')
-    with infile as f:
-        y=[float(x) for x in f.readline().split()]
-    #res=[]
-    #calculation of z
-    z=[(1-p/100)*q for p,q in zip(x,y)]
-    print sum(z)
-    #print out file
-    outfile=open('01_the_checkout.txt','w')
-    outfile.write(str(sum(z)))
-    outfile.close()
+    n = int(input())
+    price = list(map(float, input().split()))
+    m = int(input())
+    discount = list(map(float, input().split()))
+    for i in range(n):
+        price[i] = price[i] * (1 - discount[i]/100)
+    print(round(sum(price), 1))
