@@ -44,37 +44,26 @@ output:
 0
 0
 */
-int white(string code, string guess) {
-    int w = 0;
-    int cnt[6] = {0};
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            w++;
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    vector<int> cnt(6, 0);
+    int black = 0;
+    for (int i = 0; i < code.size(); i++) {
+        if (code[i] == guess[i]) {
+            black++;
         } else {
             cnt[code[i] - 'A']++;
         }
     }
-    for(int i = 0; i < 4; i++) {
-        if(code[i] != guess[i] && cnt[guess[i] - 'A'] > 0) {
-            w++;
+    int white = 0;
+    for (int i = 0; i < code.size(); i++) {
+        if (code[i] != guess[i] && cnt[guess[i] - 'A'] > 0) {
+            white++;
             cnt[guess[i] - 'A']--;
         }
     }
-    return w;
-}
-
-int black(string code, string guess) {
-    int b = 0;
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            b++;
-        }
-    }
-    return b;
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << black(code, guess) << endl << white(code, guess) << endl;
+    cout << black << endl;
+    cout << white << endl;
+    return 0;
 }
