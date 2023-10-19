@@ -38,38 +38,26 @@ input:
 output:
 - - - - - - -
 */
-
-void toCamelCase(string& s) {
-    int n = s.size();
-    for(int i = 0; i < n; i++) {
-        if(s[i] == '-') {
-            s[i] = ' ';
-        }
-    }
-    bool isSpace = true;
-    for(int i = 0; i < n; i++) {
-        if(s[i] == ' ') {
-            isSpace = true;
-        } else if(s[i] == '-') {
-            isSpace = true;
-        } else {
-            if(isSpace) {
-                s[i] = toupper(s[i]);
-                isSpace = false;
-            }
-        }
-    }
-}
-
 int main() {
     string s;
+    string word;
     bool isSpace = true;
     while(getline(cin, s)) {
         for(char c : s) {
             if(c == ' ') {
+                if(word.length() >= 2) {
+                    word = tolower(word[0]) + word.substr(1);
+                }
+                cout<<word;
+                word = "";
                 isSpace = true;
                 cout<<c;
             } else if(c == '-') {
+                if(word.length() >= 2) {
+                    word = tolower(word[0]) + word.substr(1);
+                }
+                cout<<word;
+                word = "";
                 isSpace = true;
             } else {
                 if(isSpace) {
