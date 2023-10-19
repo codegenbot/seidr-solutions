@@ -35,36 +35,39 @@ output:
 False
 */
 int main() {
-    string s;
-    getline(cin, s);
-    stack<int> st;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'T') {
-            st.push(1);
-        } else if (s[i] == 'F') {
-            st.push(0);
-        } else if (s[i] == '|') {
-            int left = st.top();
-            st.pop();
-            int right = st.top();
-            st.pop();
-            st.push(left | right);
-        } else if (s[i] == '&') {
-            int left = st.top();
-            st.pop();
-            int right = st.top();
-            st.pop();
-            st.push(left & right);
+    /**
+     T -> True
+     */
+    map<char, int> mapping;
+    mapping['T'] = 1;
+    mapping['F'] = 0;
+    string ln;
+    cin >> ln;
+    stack<int> stk;
+    for (int i = 0; i < ln.length(); i++) {
+        char node = ln[i];
+        if (node == '|') {
+            int right = stk.top();
+            stk.pop();
+            int left = stk.top();
+            stk.pop();
+            bool res = left | right;
+            stk.push(res);
+        } else if (node == '&') {
+            int right = stk.top();
+            stk.pop();
+            int left = stk.top();
+            stk.pop();
+            bool res = left & right;
+            stk.push(res);
+        } else {
+            stk.push(mapping[node]);
         }
     }
-    if (st.top()) {
-        if (s.size() == 1) {
-            cout << "True" << endl;
-        } else {
+        if (stk.top()) {
             cout << "T" << endl;
+        } else {
+            cout << "F" << endl;
         }
-    } else {
-        cout << "False" << endl;
     }
     return 0;
-}
