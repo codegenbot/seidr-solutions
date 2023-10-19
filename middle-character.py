@@ -8,33 +8,35 @@ import itertools
 import queue
 import re
 """
-Given a tree's number of nodes, find the numder of edges.
+Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
+For example,
 input:
-5
+Q
+output:
+Q
+input:
+ 
 output:
  
 input:
- 
+$
 output:
- 
+$
 input:
-6921
+E9
 output:
- 
+E9
 input:
-41
+)b
 output:
- 
-input:
-8529
-output:
- 
+)b
 """
 if __name__ == '__main__':
-#腾杨哥红玫
-    c=eval(input())
+    s = input()
+    if len(s) == 1:
+        print(s[0])
+    if len(s) % 2 == 0:
+        print(s[len(s) // 2 - 1:len(s) // 2 + 1])
+    else:
+        print(s[len(s) // 2])
  
-    c=c+2
-    c=c/2
-    c=int(c)
-    print(c)
