@@ -33,7 +33,34 @@ input:
 all separate words
 output:
 all separate words
+input:
+- - - - - - -
+output:
+- - - - - - -
 */
+
+void toCamelCase(string& s) {
+    int n = s.size();
+    for(int i = 0; i < n; i++) {
+        if(s[i] == '-') {
+            s[i] = ' ';
+        }
+    }
+    bool isSpace = true;
+    for(int i = 0; i < n; i++) {
+        if(s[i] == ' ') {
+            isSpace = true;
+        } else if(s[i] == '-') {
+            isSpace = true;
+        } else {
+            if(isSpace) {
+                s[i] = toupper(s[i]);
+                isSpace = false;
+            }
+        }
+    }
+}
+
 int main() {
     string s;
     bool isSpace = true;
