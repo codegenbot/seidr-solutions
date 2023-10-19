@@ -57,18 +57,14 @@ int main() {
             i = i - j + 1;
             j = 0;
         }
-        if (j == t.size()) {
+        if (j == t.size()) {  // make sure to judge j == t.size() before res.push_back(i - j)
             res.push_back(i - j);
             i = i - j + 1;
             j = 0;
         }
     }
     for (int k = 0; k < res.size(); k++) {
-        if (res.size() > 1) {
-            printf("%d ", res[k]);
-        } else {
-            printf("%d", res[k]);
-        }
+        printf("%d ", res[k]);
     }
     return 0;
 }
