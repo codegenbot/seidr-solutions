@@ -13,7 +13,7 @@ For example,
 input:
 
 output:
-
+there is a third line
 input:
 a
 output:
@@ -31,16 +31,10 @@ hi
 output:
 hi
 """
-def reverse_words(str):
-    str_list = str.split(" ")
-    res_list = []
-    for item in str_list:
-        if len(item) >= 5:
-            res_list.append(item[::-1])
-        else:
-            res_list.append(item)
-    return " ".join(res_list)
+
 
 if __name__ == '__main__':
-    str = "this is a test"
-    print(reverse_words(str))
+    str = input().split()
+    str_new = [x for x in str if len(x) <= 5]
+    str_new2 = [''.join(reversed(x)) for x in (str - str_new)]
+    print(' '.join(str_new + str_new2))
