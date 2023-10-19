@@ -44,37 +44,29 @@ output:
 0
 0
 */
-int white(string code, string guess) {
-    int w = 0;
+
+string getClue(string code, string guess) {
+    int black = 0;
+    int white = 0;
     int cnt[6] = {0};
-    for(int i = 0; i < 4; i++) {
+    for(int i = 0; i < 4; ++i) {
         if(code[i] == guess[i]) {
-            w++;
+            black++;
         } else {
             cnt[code[i] - 'A']++;
         }
     }
-    for(int i = 0; i < 4; i++) {
+    for(int i = 0; i < 4; ++i) {
         if(code[i] != guess[i] && cnt[guess[i] - 'A'] > 0) {
-            w++;
+            white++;
             cnt[guess[i] - 'A']--;
         }
     }
-    return w;
+    return to_string(black) + " " + to_string(white);
 }
-
-int black(string code, string guess) {
-    int b = 0;
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            b++;
-        }
-    }
-    return b;
-}
-
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << black(code, guess) << endl << white(code, guess) << endl;
+    cout << getClue(code, guess) << endl;
+    return 0;
 }
