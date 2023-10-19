@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <iomanip>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -52,19 +53,19 @@ output:
 int main() {
     int n;
     cin >> n;
-    double *arr1 = new double[n];
-    double *arr2 = new double[n];
+    double a[n];
     for (int i = 0; i < n; i++) {
-        cin >> arr1[i];
+        cin >> a[i];
     }
     cin >> n;
+    double b[n];
     for (int i = 0; i < n; i++) {
-        cin >> arr2[i];
+        cin >> b[i];
     }
-    double sum = 0;
+    double ans = 0;
     for (int i = 0; i < n; i++) {
-        sum += (arr1[i] - arr2[i]) * (arr1[i] - arr2[i]);
+        ans += (a[i] - b[i]) * (a[i] - b[i]);
     }
-    printf("%.15lf", sqrt(sum));
+    cout << setprecision(16) << sqrt(ans) << endl;
     return 0;
 }
