@@ -50,27 +50,21 @@ int main() {
     getline(cin, target);
     int len = target.length();
     int len2 = text.length();
-    int i = 0;
+    int i = 0, j;
     bool found = false;
-    if (len == 0) {
-        cout << -1 << endl;
-        return 0;
-    }
     while (i < len2) {
         if (text[i] == target[0]) {
-            int j = 1;
+            j = 1;
             while (j < len && text[i+j] == target[j]) {
                 j++;
             }
             if (j == len) {
                 cout << i << " ";
                 found = true;
-                break;
             }
         }
         i++;
     }
     if (!found) cout << -1 << endl;
-    else cout << endl;
     return 0;
 }
