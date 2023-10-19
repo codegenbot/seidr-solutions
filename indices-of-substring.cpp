@@ -59,11 +59,12 @@ int main() {
                 }
             }
             if (flag) {
-                cout << i << endl;
+                cout << i << " ";
                 count++;
             }
         }
     }
+    cout << endl;
     if (count == 0) {
         cout << -1;
     }
