@@ -34,37 +34,36 @@ t&f
 output:
 False
 */
-bool eval(string str) {
-    stack<char> ops;
-    stack<bool> vals;
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == ' ') continue;
-        if (str[i] == '(') continue;
-        if (str[i] == '|') ops.push(str[i]);
-        else if (str[i] == '&') ops.push(str[i]);
-        else if (str[i] == ')') {
-            char op = ops.top(); ops.pop();
-            bool val2 = vals.top(); vals.pop();
-            bool val1 = vals.top(); vals.pop();
-            if (op == '|') vals.push(val1 || val2);
-            else if (op == '&') vals.push(val1 && val2);
-        } else vals.push(str[i] == 't');
-    }
-    return vals.top();
-}
 int main() {
-    cout << eval("t") << endl;
-    cout << eval("f") << endl;
-    cout << eval("f&f") << endl;
-    cout << eval("f&t") << endl;
-    cout << eval("t&f") << endl;
-    cout << eval("t&t") << endl;
-    cout << eval("t|f") << endl;
-    cout << eval("t|t") << endl;
-    cout << eval("f|f") << endl;
-    cout << eval("f|t") << endl;
-    cout << eval("t&(f|t)") << endl;
-    cout << eval("t&(f|f)") << endl;
-    cout << eval("(t&(f|f))|f") << endl;
+    string s;
+    cin >> s;
+    stack<char> st;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == ' ')
+            continue;
+        if(s[i] == 't' || s[i] == 'f')
+            st.push(s[i]);
+        else {
+            char b = st.top();
+            st.pop();
+            char a = st.top();
+            st.pop();
+            if(s[i] == '&') {
+                if(a == 'f' || b == 'f')
+                    st.push('f');
+                else
+                    st.push('t');
+            } else {
+                if(a == 't' || b == 't')
+                    st.push('t');
+                else
+                    st.push('f');
+            }
+        }
+    }
+    if(st.top() == 't')
+        cout << "True" << endl;
+    else
+        cout << "False" << endl;
     return 0;
 }
