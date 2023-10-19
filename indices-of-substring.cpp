@@ -46,8 +46,8 @@ output:
 */
 int main() {
     string text, target;
-    cin >> text;
-    cin >> target;
+    getline(cin, text);
+    getline(cin, target);
     int len = target.length();
     int len2 = text.length();
     int i = 0;
@@ -63,5 +63,6 @@ int main() {
         }
         i++;
     }
+    printf("\n");
     return 0;
 }
