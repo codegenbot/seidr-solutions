@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a vector of integers, return the ﬁrst index such that the sum of all integers from the start of the vector to that index (inclusive) is negative. 
+Given a vector of integers, return the ﬁrst index such that the sum of all integers from the start of the vector to that index (inclusive) is negative.
 For example,
 input:
 1
@@ -37,3 +37,13 @@ output:
 0
 """
 if __name__ == '__main__':
+    num = int(input())
+    array = list(map(int, input().split()))
+    sum = 0
+    for i in range(num):
+        sum = sum + array[i]
+        if sum < 0:
+            print(i)
+            break
+    if sum >= 0:
+        print(-1)
