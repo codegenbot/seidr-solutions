@@ -49,28 +49,16 @@ input:
 output:
 10.0
 */
-float snow_fall_rate(int hoursRemaining, float snowOnGround, float snowFallRate, float snowMeltRate)
-{
-	if (hoursRemaining == 0)
-		return max(snowOnGround, 0.); // ensure 0x0.0 = 0.0
-
-	float hour = snow_fall_rate(hoursRemaining - 1, snowOnGround, snowFallRate, snowMeltRate);
-	float hourWithNew = hour + snowFallRate;
-	float melted = hour * snowMeltRate;
-	return max(hourWithNew - melted, 0.);
-}
-
 int main() {
-	int hours;
-	float snowOnGround, snowFallRate, snowMeltRate;
-	cout << "hours? ";
-	cin >> hours;
-	cout << "init snow? ";
-	cin >> snowOnGround;
-	cout << "fall rate? ";
-	cin >> snowFallRate;
-	cout << "melt rate? ";
-	cin >> snowMeltRate;
-	cout << snow_fall_rate(hours, snowOnGround, snowFallRate, snowMeltRate) << endl;
-	cin.get();
+    int n;
+    float a, b, c;
+    cin >> n >> a >> b >> c;
+    float result = 0.0;
+    while (n--) {
+        result += a;
+        result += b;
+        result -= result * c;
+    }
+    printf("%.6f", result);
+    return 0;
 }
