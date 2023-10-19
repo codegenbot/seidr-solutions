@@ -11,12 +11,28 @@
 #include <climits>
 using namespace std;
 /*
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-Example:
-Given nums = [2, 7, 11, 15], target = 9,
-Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString"
+For example,
+input:
+
+output:
+
+input:
+nospaceordash
+output:
+nospaceordash
+input:
+two-words
+output:
+twoWords
+input:
+two words
+output:
+two words
+input:
+all separate words
+output:
+all separate words
 */
 int main() {
 	int n;
