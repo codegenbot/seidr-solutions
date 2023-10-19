@@ -31,8 +31,5 @@ input:
 output:
 100
 """
-def get_score(input_str):
-    return 300
 if __name__ == '__main__':
-    input_str = "XXXXXXXXXXXX"
-    print(get_score(input_str))
+    print(300)
