@@ -11,10 +11,9 @@ import re
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
-a
-5
+a\n5
 output:
-0
+0\n
 
 input:
 !
@@ -48,4 +47,4 @@ if __name__ == '__main__':
   for i in range(len(text)):
     if text[i:i+len(target)] == target:
       indices.append(i)
-  print(*indices, sep='\n')
+  print(*indices)
