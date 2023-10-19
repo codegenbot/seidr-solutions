@@ -41,7 +41,13 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
-text=input()
-target=input()
 if __name__ == '__main__':
-	print(*[i for i in range(len(text)) if text.startswith(target, i)])
+    text = input().split('\n')
+    target = text[0]
+    text = text[1]
+    li = []
+    for i in range(len(text)):
+        if text[i:(len(target) + i)] == target:
+            li.append(i)
+    for i in li:
+        sys.stdout.write(str(i)+'\t')
