@@ -34,9 +34,6 @@ t&f
 output:
 False
 */
-bool toBool(string str) {
-    return str == "t";
-}
 bool eval(string str) {
     stack<char> ops;
     stack<bool> vals;
@@ -51,23 +48,23 @@ bool eval(string str) {
             bool val1 = vals.top(); vals.pop();
             if (op == '|') vals.push(val1 || val2);
             else if (op == '&') vals.push(val1 && val2);
-        } else vals.push(toBool(str.substr(i, 1)));
+        } else vals.push(str[i] == 'T');
     }
     return vals.top();
 }
 int main() {
-    cout << eval("t") << endl;
+    cout << eval("T") << endl;
     cout << eval("f") << endl;
     cout << eval("f&f") << endl;
-    cout << eval("f&t") << endl;
-    cout << eval("t&f") << endl;
-    cout << eval("t&t") << endl;
-    cout << eval("t|f") << endl;
-    cout << eval("t|t") << endl;
+    cout << eval("f&T") << endl;
+    cout << eval("T&f") << endl;
+    cout << eval("T&T") << endl;
+    cout << eval("T|f") << endl;
+    cout << eval("T|T") << endl;
     cout << eval("f|f") << endl;
-    cout << eval("f|t") << endl;
-    cout << eval("t&(f|t)") << endl;
-    cout << eval("t&(f|f)") << endl;
-    cout << eval("(t&(f|f))|f") << endl;
+    cout << eval("f|T") << endl;
+    cout << eval("T&(f|T)") << endl;
+    cout << eval("T&(f|f)") << endl;
+    cout << eval("(T&(f|f))|f") << endl;
     return 0;
 }
