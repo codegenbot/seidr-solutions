@@ -37,9 +37,8 @@ input:
 output:
 29.0
 """
-import os
 if __name__ == '__main__':
-    with open(os.path.join(os.path.dirname(__file__),'input.txt'), 'r') as f:
+    with open('/input.txt', 'r') as f:
         lines = f.readlines()
     num = int(lines[0])
     prices = lines[1].split()
