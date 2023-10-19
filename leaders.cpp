@@ -44,46 +44,28 @@ output:
 1
 1000
 */
-
-void readVector(vector<int> &v){
-    int n, val;
-    cin >> n;
-    for(int i = 0; i < n; i++){
-        cin >> val;
-        v.push_back(val);
-    }
-}
-
-void printVector(vector<int> &v){
-    for(int i = 0; i < v.size(); i++){
-        cout << v[i] << " ";
-    }
-    cout << endl;
-}
-
-void leader(vector<int> &v){
-    vector<int> leader;
-    int max = v[v.size() - 1];
-    leader.push_back(max);
-    for(int i = v.size() - 2; i >= 0; i--){
-        if(v[i] >= max){
-            leader.push_back(v[i]);
-            max = v[i];
-        }
-    }
-    for(int i = leader.size() - 1; i >= 0; i--){
-        cout << leader[i] << " ";
-    }
-    cout << endl;
-}
-
 int main() {
-    int testCases;
-    cin >> testCases;
-    for(int i = 0; i < testCases; i++){
-        vector<int> v;
-        readVector(v);
-        leader(v);
+    int n;
+    while (cin >> n) {
+        vector<int> nums;
+        for (int i = 0; i < n; i++) {
+            int temp;
+            cin >> temp;
+            nums.push_back(temp);
+        }
+        vector<int> leaders;
+        int max = nums[n - 1];
+        leaders.push_back(max);
+        for (int i = n - 2; i >= 0; i--) {
+            if (nums[i] >= max) {
+                max = nums[i];
+                leaders.push_back(max);
+            }
+        }
+        for (int i = leaders.size() - 1; i >= 0; i--) {
+            cout << leaders[i] << " ";
+        }
+        cout << endl;
     }
     return 0;
 }
