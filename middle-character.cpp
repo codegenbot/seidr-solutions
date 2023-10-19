@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-f
+
 output:
-f
+
 input:
 $
 output:
@@ -34,13 +34,14 @@ input:
 output:
 )b
 */
-
-string GetMiddleChar(string chars) {
-    int size = chars.size();
-    if(size % 2)
-        return chars.substr(size / 2, 1);
-    else
-        return chars.substr(size / 2 - 1, 2);
-}
-
 int main() {
+    string str;
+    cin >> str;
+    int len = str.size();
+    if (len % 2 == 0) {
+        cout << str[len / 2 - 1] << str[len / 2] << endl;
+    } else {
+        cout << str[len / 2] << endl;
+    }
+    return 0;
+}
