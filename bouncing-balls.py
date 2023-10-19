@@ -55,5 +55,5 @@ if __name__ == '__main__':
         bounciness_index = first_bounce_height / starting_height
         total_distance = starting_height + 2*first_bounce_height
         for i in range(2,number_of_bounces+1):
-            total_distance += 2*(first_bounce_height*(bounciness_index**i))
-        print('%.3f' % total_distance)
+            total_distance += 2*(bounciness_index**i)
+        print('%.3f' % total_distance) #"%.3f" % a
