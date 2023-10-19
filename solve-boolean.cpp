@@ -16,8 +16,8 @@ evaluate it and return the resulting Boolean.
 For example,
 input:
 t
-output:
-True
+output: 
+t
 input:
 f
 output:
@@ -35,18 +35,9 @@ t&f
 output:
 False
 */
-/* EDIT PATH */
-string FILE_DIR = "/home/ubuntu/workspace/github/data-structures-algorithms/file";
-string INPUT_DIR_IF = FILE_DIR+"/if.txt";
-string INPUT_DIR_OR = FILE_DIR+"/or.txt";
-string INPUT_DIR_AND = FILE_DIR+"/and.txt";
-string INPUT_DIR_LONG = FILE_DIR+"/long.txt";
 int main() {
     string s;
-    // cin >> s;
-    fstream fin(INPUT_DIR_LONG);
-    string output = "";
-    while (getline(fin, s)) {
+    cin >> s;
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&' || s[i] == '|') {
@@ -73,9 +64,9 @@ int main() {
         }
     }
     if (st.top() == 'T') {
-        cout << "True" << endl;
+        cout << "t" << endl;
     } else {
-        cout << "False" << endl;
+        cout << "f" << endl;
     }
     return 0;
 }
