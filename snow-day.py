@@ -47,13 +47,13 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    for i in range(0,5):
-        a=int(input())
-        b=float(input())
-        c=float(input())
-        d=float(input())
-        e=b+c
-        s=e-d
-        for j in range(0,a):
-            s=s+e-d
-        print(s)
+    hours = int(input())
+    snow_on_ground = float(input())
+    snow_fall_rate = float(input())
+    snow_melt_rate = float(input())
+    for i in range(hours):
+        snow_on_ground += snow_fall_rate
+        snow_on_ground -= snow_melt_rate
+        if snow_on_ground < 0:
+            snow_on_ground = 0.0
+    print(snow_on_ground)
