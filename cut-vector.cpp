@@ -53,91 +53,47 @@ output:
 10000
 0
 
+input:
+4
+1 2 127 128
+output:
+4
+1
+2
+127
+128
+0
 */
-bool isTheSame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    map<int, int> aa;
-    for (int i : a) {
-        if (aa.count(i)) {
-            aa[i]++;
-        } else {
-            aa[i] = 1;
-        }
-    }
-    map<int, int> bb;
-    for (int i : b) {
-        if (bb.count(i)) {
-            bb[i]++;
-        } else {
-            bb[i] = 1;
-        }
-    }
-    for (auto i : aa) {
-        if (i.second != bb[i.first]) {
-            return false;
-        }
-    }
-    return true;
-}
-vector<int> part_1(vector<int> nums, int k) {
-    int sum = 0;
-    for (int i = 0; i < k; i++) {
-        sum += nums[i];
-    }
-    vector<int> res;
-    res.push_back(sum);
-    for (int i = k; i < nums.size(); i++) {
-        sum -= nums[i - k];
-        sum += nums[i];
-        res.push_back(sum / k);
-    }
-    return res;
-}
 int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    vector<int> index;
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
-        if (nums[i] == 0) {
-            index.push_back(i);
+    }
+    int minDiff = INT_MAX, maxDiff = 0;
+    int index = -1;
+    int sum = 0;
+    for (int i = 1; i < n; i++) {
+        int diff = abs(nums[i] - nums[i - 1]);
+        if (diff == 0)
+            minDiff = 0;
+        else if (diff < minDiff) {
+            minDiff = diff;
+            index = i;
+        }
+        if (diff == maxDiff) {
+            index = i;
+            sum = -1;
+        }
+        if (diff > maxDiff) {
+            maxDiff = diff;
         }
     }
-    if (index.empty()) {
-        for (int i = 0; i < n; i++) {
-            cout << nums[i] << endl;
-        }
-        return 0;
-    }
-    if (index.size() == 1) {
-        nums.insert(nums.begin() + index[0] + 1, 1);
-    }
-    int start = 0;
-    int end = n + 1;
-    for (start = 0; start < n + 1; start++) {
-        for (end = n + 2; end >= start + 1; end--) {
-            if (isTheSame(nums, part_1(nums, end - start))) {
-                break;
-            }
-        }
-        if (end > start + 1) {
-            break;
-        }
-    }
-    if (start == n + 1) {
-        for (int i = 0; i < n; i++) {
-            cout << nums[i] << endl;
-        }
-        return 0;
-    }
-    for (int i = 0; i < start; i++) {
+    cout << sum + index << endl;
+    for (int i = 0; i < index; i++)
         cout << nums[i] << endl;
-    }
-    cout << 1 << endl;
-    for (int i = end; i < n + 2; i++) {
+    for (int i = index; i < n; i++)
         cout << nums[i] << endl;
-    }
+    return 0;
 }
