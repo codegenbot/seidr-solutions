@@ -55,5 +55,31 @@ output:
 
 */
 int main() {
-    
+    vector<int> nums;
+    int n;
+    while(cin >> n) {
+        nums.push_back(n);
+    }
+    int sum = 0;
+    for(auto x: nums) {
+        sum += x;
+    }
+    vector<int> ans;
+    int left = 0;
+    int right = sum;
+    for(int i = 0; i < nums.size() - 1; i++) {
+        left += nums[i];
+        right -= nums[i];
+        if(left == right) {
+            ans.push_back(nums[i]);
+            ans.push_back(nums[i+1]);
+            break;
+        }
+    }
+
+    for(auto x: ans) {
+        cout << x << endl;
+    }
+    cout << 0 << endl;
+    return 0;
 }
