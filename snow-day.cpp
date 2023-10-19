@@ -53,18 +53,18 @@ int main() {
 int hours;
 float snow, rate, melt;
 cin >> hours >> snow >> rate >> melt;
-
-float total = snow;
-
-for (int i = 0; i < hours; i++) {
-	if (melt != 0.0 && total > 0.0 && rate != 0.0) {
-		total += rate - (melt * total);
-	} else {
-		total += rate;
+if (snow == 0.0 && rate == 0.0 && melt == 0.0) {
+	cout << 0.0 << endl;
+} else {
+	float total = snow;
+	for (int i = 0; i < hours; i++) {
+		if (melt != 0.0 && total > 0.0) {
+			total += rate - (melt * total);
+		} else {
+			total += rate;
+		}
 	}
+	cout << total << endl;
 }
-
-cout << total << endl;
-
 return 0;
 }
