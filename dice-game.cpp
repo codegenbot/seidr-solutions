@@ -41,11 +41,11 @@ output:
 */
 int main() {
     int n, m;
-    while (cin >> n >> m) {
+    while (scanf("%d%d", &n, &m) != EOF) {
         int sum = n + m;
         double ans = 1.0;
-        for (int i = 1; i < n; i++) {
-            ans -= (i == 1 ? 1.0 : pow(1.0 * i / sum, n));
+        for (int i = 1; i <= n; i++) {
+            ans -= pow(1.0 * i / sum, n);
         }
         printf("%.4lf\n", ans);
     }
