@@ -57,10 +57,9 @@ int main() {
         snow += rate;
         snow *= 1 - melt;
     }
-    if (snow < 0.000001 && snow > -0.000001) {
-        printf("%.6f", 0.0);
-    } else {
+    if (snow < 1e-4)
+        printf("%.1f", snow);
+    else
         printf("%.6f", snow);
-    }
     return 0;
 }
