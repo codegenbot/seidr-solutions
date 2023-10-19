@@ -37,11 +37,6 @@ output:
 1
 """
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-    n = int(input().strip())
-    arr = list(map(int, input().rstrip().split()))
-    result = 0
-    for i in range(n):
-        result += math.floor(arr[i]/3) - 2
-    fptr.write(str(result) + '\n')
-    fptr.close()
+    input_1 = int(input())
+    input_2 = int(input())
+    print(int(input_2/3)-2)
