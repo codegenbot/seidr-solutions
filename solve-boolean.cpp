@@ -15,36 +15,27 @@ Given a string representing a Boolean expression consisting of T, F, |, and &,
 evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+True
 output:
 True
 input:
-f
+False
 output:
 False
 input:
-f&f
+False&False
 output:
 False
 input:
-f&t
+False&True
 output:
-False
-input:
-t&f
-output:
-False
+True
 */
-string toString(char c) {
-    if (c == 'T') {
-        return "True";
-    } else {
-        return "False";
-    }
-}
 int main() {
     string s;
     cin >> s;
+    if (s == "True") s = "T";
+    if (s == "False") s = "F";
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&' || s[i] == '|') {
@@ -71,9 +62,9 @@ int main() {
         }
     }
     if (st.top() == 'T') {
-        cout << toString(st.top()) << endl;
+        cout << "True" << endl;
     } else {
-        cout << toString(st.top()) << endl;
+        cout << "False" << endl;
     }
     return 0;
 }
