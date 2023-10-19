@@ -12,7 +12,7 @@ Given an integer representing a number of hours and 3 floats representing how mu
 For example,
 input:
 0
-5.0
+0.0
 0.0
 0.0
 output:
@@ -54,4 +54,4 @@ if __name__ == '__main__':
     for i in range(hours):
         snow += rate
         snow *= (1 - melt)
-    print(snow)
+    print(round(snow, 6))
