@@ -59,16 +59,10 @@ def is_equal(a, b):
         return False
 
 def is_diff_one(a, b):
-    if a > b:
-        if a - b == 1:
-            return True
-        else:
-            return False
-    else:
-        if b - a == 1:
+    if abs(a-b) == 1:
         return True
-        else:
-            return False
+    else:
+        return False
 
 def find_split(arr):
     n = len(arr)
@@ -91,5 +85,5 @@ if __name__ == '__main__':
         print_arr(arr)
         print(0)
     else:
-        print_arr(arr[:idx])
-        print_arr(arr[idx:])
+        print_arr(arr[:idx+1])
+        print_arr(arr[idx+1:])
