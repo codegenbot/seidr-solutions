@@ -35,39 +35,29 @@ output:
 100
 */
 
-
-class Solution {
-public:
-    int getScore(string s) {
-        int res = 0;
-        int tmp = 0;
-        bool flag = false;
-        for(int i = 0; i < s.size(); i++) {
-            if(s[i] == 'X') {
-                res += 10;
-                if(i < s.size() - 2) {
-                    res += s[i + 1] == 'X' ? 10 : s[i + 1] == '/' ? 10 - (s[i + 2] - '0') : s[i + 1] - '0';
-                    res += s[i + 2] == 'X' ? 10 : s[i + 2] == '/' ? 10 : s[i + 2] - '0';
-                }
-            } else if(s[i] == '/') {
-                res += 10;
-                if(i < s.size() - 1) {
-                    res += s[i + 1] == 'X' ? 10 : s[i + 1] == '/' ? 10 : s[i + 1] - '0';
-                }
-            } else if(s[i] == '-') {
-                res += 0;
-            } else {
-                res += s[i] - '0';
-            }
+int score(string b) {
+    int res = 0;
+    int cur = 0;
+    for (int i = 0; i < b.size(); i++) {
+        if (b[i] == 'X') {
+            res += 10;
+            res += (b[i+1] == 'X') ? 10 : (b[i+1] - '0');
+            res += (b[i+2] == 'X') ? 10 : (b[i+2] - '0');
         }
-        return res;
+        else if (b[i] == '/') {
+            res += 10;
+            res += (b[i+1] == 'X') ? 10 : (b[i+1] - '0');
+        }
+        else {
+            res += (b[i] - '0');
+        }
     }
-};
+    return res;
+}
 
 int main() {
-    Solution s;
-    cout << s.getScore("XXXXXXXXXXXX") << endl;
-    cout << s.getScore("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << s.getScore("7115XXX548/279-X53") << endl;
-    cout << s.getScore("532/4362X179-41447/5") << endl;
+    cout << score("XXXXXXXXXXXX") << endl;
+    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << score("7115XXX548/279-X53") << endl;
+    cout << score("532/4362X179-41447/5") << endl;
 }
