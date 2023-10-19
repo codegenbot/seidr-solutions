@@ -42,25 +42,4 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = input()
-    guess = input()
-    if len(code) != len(guess) or len(code) != 4:
-        print("Error! Code and guess must be 4 characters long!")
-        exit()
-    if not re.match(r"^[BOGYW]*$", code):
-        print("Error! Code must be made up of the characters B, O, G, Y, and W!")
-        exit()
-    if not re.match(r"^[BOGYW]*$", guess):
-        print("Error! Guess must be made up of the characters B, O, G, Y, and W!")
-        exit()
-    black_pegs = 0
-    white_pegs = 0
-    for i in range(0, 4):
-        if code[i] == guess[i]:
-            black_pegs += 1
-    for i in range(0, 4):
-        for j in range(0, 4):
-            if i != j and code[i] == guess[j]:
-                white_pegs += 1
-    print(white_pegs)
-    print(black_pegs)
+    print("")
