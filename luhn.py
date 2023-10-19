@@ -36,13 +36,12 @@ input:
 output:
 96
 """
-def luhn_algorithm(vec):
-    l = len(vec)
-    for i in range(l):
-        if i % 2 == 1:
-            vec[i] = vec[i] * 2
-            if vec[i] > 9:
-                vec[i] -= 9
-    return sum(vec)
-
 if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().strip().split()))
+    for i in range(len(arr)):
+        if i % 2 == 1:
+            arr[i] *= 2
+            if arr[i] > 9:
+                arr[i] -= 9
+    print(sum(arr))
