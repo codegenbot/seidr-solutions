@@ -35,24 +35,16 @@ output:
 Too many characters
 */
 int main() {
-    string input;
-    getline(cin, input);
-    if (input.size() == 0) {
+    string s;
+    
+    getline(cin, s);
+    if (s.size() == 0) {
         cout << "You didn't type anything" << endl;
-        return 0;
-    }
-    int i = 0;
-    while (i < input.size()) {
-        if (!isalpha(input[i]) && !isspace(input[i])) {
-            input.erase(i, 1);
-            continue;
-        }
-        i++;
-    }
-    if (input.size() > 140) {
+    } else if (s.size() > 140) {
         cout << "Too many characters" << endl;
-        return 0;
+    } else {
+        cout << "Your tweet has " << s.size() << " characters" << endl;
     }
-    cout << "Your tweet has " << input.size() << " characters" << endl;
+    
     return 0;
 }
