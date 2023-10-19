@@ -42,6 +42,6 @@ if __name__ == '__main__':
     if n > m:
         print(1)
     elif n == m:
-        print(0.5)
+        print(0.0)
     else:
-        print(1 - (m+1)/(n+1))
+        print((n+1)/(m+1))
