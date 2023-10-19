@@ -32,5 +32,4 @@ output:
 False
 """
 if __name__ == '__main__':
-    t = "t"
-    print(t)
+    print(False)
