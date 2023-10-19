@@ -50,6 +50,15 @@ output:
 10000
 0
 
+input:
+2
+2 129
+output:
+1
+2
+1
+129
+
 """
 
 def is_equal(a, b):
@@ -66,13 +75,21 @@ def is_diff_one(a, b):
 
 def find_split(arr):
     n = len(arr)
-    for i in range(0, n-1):
-        if is_equal(arr[i], arr[i+1]):
-            return i
+    if n == 2:
+        if is_equal(arr[0], arr[1]):
+            return 1
+        elif is_diff_one(arr[0], arr[1]):
+            return 1
         else:
-            if is_diff_one(arr[i], arr[i+1]):
-                return i
-    return -1
+            return -1
+    else:
+        for i in range(0, n-1):
+            if is_equal(arr[i], arr[i+1]):
+                return i+1
+            else:
+                if is_diff_one(arr[i], arr[i+1]):
+                    return i+1
+        return -1
 
 def print_arr(arr):
     for i in arr:
@@ -85,5 +102,5 @@ if __name__ == '__main__':
         print_arr(arr)
         print(0)
     else:
-        print_arr(arr[:idx+1])
-        print_arr(arr[idx+1:])
+        print_arr(arr[:idx])
+        print_arr(arr[idx:])
