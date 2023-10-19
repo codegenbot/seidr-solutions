@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a vector of integers, return the two elements that sum to a target integer.
+Given a vector of integers, return the two elements that sum to a target integer. 
 For example,
 input:
 2
@@ -47,13 +47,3 @@ output:
 4
 """
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    num_elements = int(input())
-    elements = list(map(int, input().rstrip().split()))
-    target = int(input())
-
-    fptr.write(' '.join(map(str, result)))
-    fptr.write('\n')
-
-    fptr.close()
