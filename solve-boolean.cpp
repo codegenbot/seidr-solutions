@@ -32,7 +32,7 @@ True
 input:
 t&f
 output:
-True
+False
 */
 int main() {
     string s;
@@ -52,9 +52,9 @@ int main() {
                 char tmp = stk.top();
                 stk.pop();
                 if (op == '&') {
-                    stk.push(tmp & ch);
+                    stk.push(tmp & ch ? 't' : 'f');
                 } else {
-                    stk.push(tmp | ch);
+                    stk.push(tmp | ch ? 't' : 'f');
                 }
             }
         }
@@ -64,5 +64,6 @@ int main() {
     } else {
         cout << "False" << endl;
     }
+    cout << stk.top() << endl;
     return 0;
 }
