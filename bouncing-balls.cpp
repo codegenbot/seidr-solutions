@@ -45,14 +45,16 @@ output:
 3.963
 */
 int main() {
-    double first, second, third;
-    while (cin >> first >> second >> third) {
-        double bounciness = second / first;
-        double total = 0;
-        for (int i = 0; i < third; i++) {
-            total += first;
-            first *= bounciness;
-        }
-        printf("%.3lf\n", total);
+    double height = 1;
+    double bounce = 1;
+    int bounces = 1;
+    cin >> height >> bounce >> bounces;
+    double bounciness = bounce / height;
+    double distance = 0;
+    double temp = height;
+    for (int i = 0; i < bounces; i++) {
+        distance += temp;
+        temp *= bounciness;
     }
+    cout << distance << endl;
 }
