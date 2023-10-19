@@ -11,39 +11,25 @@
 #include <climits>
 using namespace std;
 /*
+Fill in the blank to output the number of characters found in s2 that are exactly 2 places away from the end of the string.
 
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
+Note: All submissions are tested on our systems, so please try out the solution not only locally, but once submitted as well.
+
+function count2end(s2){
+  var count = 0;
+  // loop through all characters in string from the end back
+  for (var i = s2.length-1;i>1; i-=2) {
+    // if at character, count it
+    if (s2[i]!='_') count++;
+  }
+  return count;
+}
+
 input:
-
-
+A___t__ep__i______
 
 output:
-
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+5
 */
 int main() {
     string a, b, c;
