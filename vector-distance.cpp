@@ -50,21 +50,21 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    cin >> n;
-    double *arr1 = new double[n];
-    double *arr2 = new double[n];
-    for (int i = 0; i < n; i++) {
-        cin >> arr1[i];
-    }
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> arr2[i];
-    }
-    double sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += (arr1[i] - arr2[i]) * (arr1[i] - arr2[i]);
-    }
-    printf("%.16lf", sqrt(sum));
-    return 0;
+  int n;
+  cin >> n;
+  float *a = new float[n];
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+  }
+  cin >> n;
+  float *b = new float[n];
+  for (int i = 0; i < n; i++) {
+    cin >> b[i];
+  }
+  float sum = 0;
+  for (int i = 0; i < n; i++) {
+    sum += (a[i] - b[i]) * (a[i] - b[i]);
+  }
+  cout << sqrt(sum) << endl;
+  return 0;
 }
