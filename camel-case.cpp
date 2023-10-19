@@ -47,7 +47,7 @@ int main() {
                 t += ' ';
                 isFirst = true;
             } else if (isFirst) {
-                t += toupper(s[i]); 
+                t += (char)toupper(s[i]);
                 isFirst = false;
             } else {
                 t += s[i];
