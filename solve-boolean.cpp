@@ -34,10 +34,16 @@ t&f
 output:
 False
 */
-bool bool_eval(string s) {
-    return s == "t";
+bool t(){
+    cout << "True";
+    return true;
 }
-
+bool f(){
+    cout << "False";
+    return false;
+}
 int main() {
+    char in;
+    cin >> in;
     return 0;
 }
