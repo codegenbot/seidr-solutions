@@ -14,7 +14,7 @@ using namespace std;
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+f&f &t
 output:
 True
 input:
@@ -30,7 +30,7 @@ f&t
 output:
 False
 input:
-f&f
+t&f
 output:
 False
 */
@@ -41,7 +41,7 @@ int main() {
     for(int i = 0; i < s.length(); i++) {
         if(s[i] == ' ')
             continue;
-        else if(s[i] == 't' || s[i] == 'f')
+        if(s[i] == 't' || s[i] == 'f')
             st.push(s[i]);
         else {
             char b = st.top();
