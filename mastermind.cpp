@@ -44,71 +44,25 @@ output:
 0
 0
 */
-bool checkMap(map<char, int> &lines, map<char, int> &pool, char guess){
-    auto iter = pool.find(guess);
-    if(iter != pool.end()){
-        if(iter->second > 0){
-            iter->second -= 1;
-            auto iterGuess = lines.find(guess);
-            iterGuess->second = 0;
-            return true;
-        }
-    }
-    return false;
-    string code, guess;
-    cin >> code;
-    cin >> guess;
-    
-    map<char,int> codeMap, guessMap;
-    map<char,int> poolMap;
-    for(int i = 0;i < code.size();i++){
-        char ch = code[i];
-        auto iter = codeMap.find(ch);
-        if(iter != codeMap.end()){
-            iter->second += 1;
-        }
-        else {
-            codeMap.insert(make_pair(ch,1));
-        }
-        
-        auto iter1 = guessMap.find(ch);
-        if(iter1 != guessMap.end()){
-            iter1->second += 1;
-        }
-        else {
-            guessMap.insert(make_pair(ch,1));
-        }
-    }
-    
-    vector<char> alphabet {'R','O','Y','G','B','V'};
-    for(int i = 0;i < alphabet.size();i++){
-        char ch = alphabet[i];
-        auto iter = codeMap.find(ch);
-        if(iter != codeMap.end()){
-            poolMap.insert(make_pair(ch,iter->second));
-        }
-    }
-    
-    int whitePea = 0;
-    for(int i = 0;i < code.size();i++){
-        if(code[i] != guess[i]){
-            bool isContainPool = checkMap(guessMap, poolMap, guess[i]);
-            if(isContainPool)
-                whitePea++;
-        }
-    }
-    
-    int blackPea = 0;
-    for(int i = 0;i < code.size();i++){
-        if(code[i] == guess[i]){
-            auto iter = poolMap.find(code[i]);
-            iter->second -= 1;
-            blackPea++;
-        }
-    }
-
-    cout << blackPea << endl;
-    cout << whitePea << endl;
-    return 0;
-} 
 int main() {
+    string code, guess;
+    cin >> code >> guess;
+    int black = 0, white = 0, cnt = 0;
+    map<char, int> codeMap;
+    map<char, int> guessMap;
+    for(int i = 0; i < 4; i++){
+        if(code[i] == guess[i]){
+            black++;
+        }else{
+            codeMap[code[i]]++;
+            guessMap[guess[i]]++;
+        }
+    }
+    for(char c = 'A'; c <= 'F'; c++){
+        white += min(codeMap[c], guessMap[c]);
+    }
+    white -= black;
+    cout << black << endl;
+    cout << white << endl;
+    return 0;
+}
