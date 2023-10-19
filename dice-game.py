@@ -1,3 +1,4 @@
+import os
 import sys
 import numpy as np
 import math
@@ -7,8 +8,16 @@ import itertools
 import queue
 import re
 """
-Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
-For example,
+Peter has an n-sided die and Colin has an m-sided die.
+If they both roll their dice at the same time, 
+return the probability that Peter rolls strictly higher than Colin.
+
+Peter > Colin == 1
+
+Peter = Colin == 0
+
+Peter < Colin == 0 
+
 input:
 1
 2
@@ -34,30 +43,17 @@ input:
 100
 output:
 0.0
+
 """
 if __name__ == '__main__':
-        if N > M:
-            print 1
-        elif N == M:
-            count = 0.0
-            for i in range(M):
-                count += 1/pow(2, 1 + i)
-            print str(1 - count)
-        else:
-            sum  = 0
-            all = 2 ** (M + N - 1)
-            for i in range(1, M + 1):
-                m = 1
-                n = 0
-                line = 1
-               # for j in range(N - 1):
-               #     if line > M - i + 1:
-                 #       line -= line % pow(2, m)
-                 #       n += m + 1
-                 #       if m % 2 == 1:
-                 #           m += 1
-                 #   else:
-                 #       line *= 2
-                 #       m += 1
-                sum += pow(2, n - N + 1) * i
-            print sum / all
+    N = 99
+    M = 100
+    numer = 0.0
+    denume = float(N ** 2 + N)
+
+    for i in xrange(1, N + 1):
+        numer += N - i + 1
+    print numer
+    print denume
+
+    print (numer/denume)
