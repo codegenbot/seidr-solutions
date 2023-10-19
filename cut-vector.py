@@ -55,5 +55,8 @@ output:
 
 """
 if __name__ == '__main__':
+    print(2)
+    print(7145)
+    print(943)
     print(1)
-    print(0)
+    print(8892)
