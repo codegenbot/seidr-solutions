@@ -46,21 +46,22 @@ output:
 */
 int main() {
     int n;
-    while(cin >> n) {
-        vector<int> res;
-        int maxV = INT_MIN;
-        for (int i = 0; i < n; i++) {
-            int tmp;
-            cin >> tmp;
-            if (tmp >= maxV) {
-                res.push_back(tmp);
-                maxV = tmp;
-            }
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    int max = nums[n - 1];
+    vector<int> res;
+    for (int i = n - 1; i >= 0; i--) {
+        if (nums[i] >= max) {
+            max = nums[i];
+            res.push_back(nums[i]);
         }
-        for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
-        }
-        cout << endl;
+    }
+    reverse(res.begin(), res.end());
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
     }
     return 0;
 }
