@@ -62,8 +62,8 @@ int main() {
         cin >> discounts[i];
     }
     float total = 0;
-    for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - min(discounts[i], 100.0f) / 100);
+    for (int i = 0; i < min(prices.size(), discounts.size()); i++) {
+        total += prices[i] * (1 - discounts[i] / 100);
     }
     printf("%.2f", total);
     return 0;
