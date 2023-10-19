@@ -12,35 +12,31 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-aw
-iyedzn
+a	w
+gnize	xvhd
 output:
 
-Scsr
 input:
-a
-a
-a
+a	a	a
+q	q	q
 output:
 a
 input:
-j
-h
-j
+x	s	x
+w	a	w
 output:
-h
+a
 input:
-a
-z
-a
+d	r	d
+w	e	q
 output:
-z
+e
 input:
 e
 l
 eeeeeeeeee
 output:
-llllllllll
+lllllllllld
 """
 if __name__ == '__main__':
 	k = sys.stdin.readline().rstrip()
