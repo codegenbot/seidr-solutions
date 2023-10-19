@@ -37,7 +37,11 @@ all separate words
 int main() {
     string s;
     while (getline(cin, s)) {
-        string t = ""; 
+        if (s == "") {
+            cout << "" << endl;
+            continue;
+        }
+        string t = "";
         bool isFirst = true;
         for (int i = 0; i < s.length(); i++) {
             if (s[i] == ' ') {
