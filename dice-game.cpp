@@ -42,9 +42,13 @@ output:
 int main() {
 	int N, M;
 	cin >> N >> M;
+	if (N < M) {
+		cout << "0.0" << endl;
+		return 0;
+	}
 	double p = 1.0 / N;
 	double q = 1.0 / M;
-	double p_win = 0.0; // 这里必须是0.0，不能是0，不然1\n2会输出0.5
+	double p_win = 0.0;
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= M; j++) {
 			if (i > j) p_win += p * q; // 注意不是i >= j
