@@ -9,22 +9,25 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <algorithm>
 using namespace std;
 /*
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
+a
+b
+ppppaaa   b b  
 
-map
-wxy
-world
+
+ppppbbb   a a  
+
 output:
 
 input:
 a
 a
 a
-aaa
 output:
 a
 input:
@@ -40,9 +43,6 @@ a
 output:
 z
 input:
-int
-char
-float
 e
 l
 eeeeeeeeee
@@ -51,9 +51,7 @@ llllllllll
 */
 int main() {
     string one, two, three;
-    getline(cin, one);
-    getline(cin, two);
-    getline(cin, three);
+    cin >> one >> two >> three;
     map<char, char> dict;
     for(int i=0; i<one.size(); i++){
         dict[one[i]] = two[i];
