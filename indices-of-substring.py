@@ -48,8 +48,5 @@ if __name__ == '__main__':
   for i in range(len(text)):
     if text[i:i+len(target)] == target:
       indices.append(i)
-  print(*indices)
-  if indices:
-    print(indices)
-  else:
-    print(0)
+  for k in indices:
+    print(k)
