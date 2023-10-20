@@ -34,24 +34,18 @@ output:
 """
 def bowling_score(frames):
     score = 0
-    strike_count = 0
+    strike = False
     for i in range(len(frames)):
         if frames[i] == 'X':
-            strike_count += 1
+            strike = True
             score += 10
-            if strike_count == 10:
-                score += 10
-                if i < len(frames) - 1:
-                    if frames[i+1] == 'X':
+            if i < len(frames) - 2 and strike == False:
+                if frames[i+1] == 'X':
+                    score += 10
+                    if frames[i+2] == 'X':
                         score += 10
-                        if i < len(frames) - 2:
-                            if frames[i+2] == 'X':
-                                score += 10
-                            else:
-                                score += int(frames[i+2])
-            elif i < len(frames) - 2:
-                if frames[i+1] == 'X' and frames[i+2] == 'X':
-                    score += 20
+                    else:
+                        score += int(frames[i+2])
                 else:
                     if frames[i+2] == '/':
                         score += 10
@@ -70,6 +64,7 @@ def bowling_score(frames):
                     score += 0
                 else:
                     score += int(frames[i+1])
+        strike = False
     return score
 
 if __name__ == '__main__':
