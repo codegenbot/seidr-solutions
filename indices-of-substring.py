@@ -56,5 +56,5 @@ if __name__ == '__main__':
                 count = 0
         else:
             count = 0
-    print(*res)
-    print('')
+    if res:
+        print(*res)
