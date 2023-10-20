@@ -45,24 +45,22 @@ output:
 0
 */
 int main() {
-    string s1, s2;
-    cin >> s1 >> s2;
+    string code, guess;
+    cin >> code >> guess;
     int white = 0, black = 0;
-    for(int i = 0; i < 4; i++) {
-        if(s1[i] == s2[i]) {
+    int code_map[6] = {0};
+    int guess_map[6] = {0};
+    for (int i = 0; i < 4; i++) {
+        code_map[code[i] - 'A']++;
+        guess_map[guess[i] - 'A']++;
+        if (code[i] == guess[i]) {
             black++;
-            s1[i] = s2[i] = '*';
         }
     }
-    for(int i = 0; i < 4; i++) {
-        for(int j = 0; j < 4; j++) {
-            if(s1[i] == s2[j]) {
-                white++;
-                s1[i] = s2[j] = '*';
-            }
-        }
+    for (int i = 0; i < 6; i++) {
+        white += min(code_map[i], guess_map[i]);
     }
-    cout << white << endl;
-    cout << black << endl;
+    white -= black;
+    cout << black << " " << white << endl;
     return 0;
 }
