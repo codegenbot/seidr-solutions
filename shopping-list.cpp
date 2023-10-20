@@ -15,37 +15,37 @@ Given a vector of ﬂoats representing the prices of various shopping goods and 
 For example,
 input:
 1
-50
+50.0
 1
-100
+100.0
 output:
 0.0
 input:
 1
-50
+50.0
 1
-10
+10.0
 output:
 45.0
 input:
 2
-20 20
+20.0 20.0
 2
-100 50
+100.0 50.0
 output:
 10.0
 input:
 2
-20 20
+20.0 20.0
 2
-20 0
+20.0 0.0
 output:
 36.0
 input:
 3
-10 20 30
+10.0 20.0 30.0
 3
-5 10 95
+5.0 10.0 95.0
 output:
 29.0
 */
@@ -61,7 +61,7 @@ int main() {
     cin >> n;
     for(int i = 0; i < n; i++){
         cin >> discount;
-        totalPrice -= totalPrice * discount / 100;
+        totalPrice *= (100 - discount) / 100;
     }
     printf("%.2f", totalPrice);
     return 0;
