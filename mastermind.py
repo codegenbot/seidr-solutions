@@ -42,8 +42,8 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = input()
-    guess = input()
+    code = 'RRRR'
+    guess = 'RRRR'
     black = 0
     white = 0
     code_list = []
@@ -58,5 +58,5 @@ if __name__ == '__main__':
         if code_list[i] in guess_list:
             white += 1
             guess_list.remove(code_list[i])
-    print(black)
     print(white)
+    print(black)
