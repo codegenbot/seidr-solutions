@@ -35,46 +35,34 @@ output:
 all separate words
 */
 int main() {
-    string s;
-    getline(cin, s);
-    int i = 0;
-    while(i < s.size()) {
-        if(s[i] == '-') {
-            s[i] = ' ';
+    string input;
+    getline(cin, input);
+    vector<string> words;
+    string word = "";
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == ' ' || input[i] == '-') {
+            if (word.length() > 0) {
+                words.push_back(word);
+                word = "";
+            }
+        } else {
+            word += input[i];
         }
-        i++;
     }
-    i = 0;
-    while(i < s.size()) {
-        if(s[i] == ' ') {
-            if(s[i+1] >= 'a' && s[i+1] <= 'z') {
-                s[i+1] = s[i+1] - 32;
+    if (word.length() > 0) {
+        words.push_back(word);
+    }
+    string output = "";
+    for (int i = 0; i < words.size(); i++) {
+        if (i == 0) {
+            output += words[i];
+        } else {
+            output += words[i][0];
+            for (int j = 1; j < words[i].length(); j++) {
+                output += tolower(words[i][j]);
             }
         }
-        i++;
     }
-    i = 0;
-    while(i < s.size()) {
-        if(s[i] == ' ') {
-            s.erase(i,1);
-        }
-        i++;
-    }
-    i = 0;
-    while(i < s.size()) {
-        if(s[i] == ' ') {
-            if(s[i+1] >= 'a' && s[i+1] <= 'z') {
-                s[i+1] = s[i+1] - 32;
-            }
-        }
-        i++;
-    }
-    i = 0;
-    while(i < s.size()) {
-        if(s[i] == ' ') {
-            s.erase(i,1);
-        }
-        i++;
-    }
-    cout << s << endl;
+    cout << output << endl;
+    return 0;
 }
