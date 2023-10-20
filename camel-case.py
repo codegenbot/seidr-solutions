@@ -31,12 +31,21 @@ all separate words
 output:
 all separate words
 """
+def camelCase(str):
+    lst = str.split()
+    for i in range(len(lst)):
+        if '-' in lst[i]:
+            lst.extend(lst[i].split('-'))
+            lst.remove(lst[i])
+    for i in range(len(lst)):
+        lst[i] = lst[i].capitalize()
+    string = lst[0]
+    for i in range(1,len(lst)):
+        string += lst[i]
+    return string
 if __name__ == '__main__':
-    str = input()
-    str = str.replace("-"," ")
-    str = str.split(" ")
-    str = " ".join(str)
-    str = str.title()
-    str = str.replace(" ","")
-    str = str[0].lower() + str[1:]
-    print(str)
+    print(camelCase("camel-case example-test-string"))
+    print(camelCase("nospaceordash"))
+    print(camelCase("two-words"))
+    print(camelCase("two words"))
+    print(camelCase("all separate words"))
