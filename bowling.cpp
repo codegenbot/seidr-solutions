@@ -34,94 +34,51 @@ input:
 output:
 100
 */
-int getScore(char c) {
-    if(c == 'X') {
-        return 10;
-    }else if(c == '/') {
-        return 10;
-    }else if(c == '-') {
-        return 0;
-    }else {
-        return c - '0';
-    }
-}
-int getScore(char c, char next) {
-    if(c == 'X') {
-        if(next == 'X') {
-            return 20;
-        }else if(next == '/') {
-            return 10;
-        }else {
-            return 10 + (next - '0');
-        }
-    }else if(c == '/') {
-        return 10 + (next - '0');
-    }else if(c == '-') {
-        return 0;
-    }else {
-        return c - '0';
-    }
-}
-int getScore(char c, char next, char nextnext) {
-    if(c == 'X') {
-        if(next == 'X') {
-            if(nextnext == 'X') {
-                return 30;
-            }else if(nextnext == '/') {
-                return 20;
-            }else {
-                return 20 + (nextnext - '0');
-            }
-        }else if(next == '/') {
-            return 20 + (nextnext - '0');
-        }else {
-            return 10 + (next - '0') + (nextnext - '0');
-        }
-    }else if(c == '/') {
-        return 10 + (next - '0') + (nextnext - '0');
-    }else if(c == '-') {
-        return 0;
-    }else {
-        return c - '0';
-    }
-}
-int getScore(string str) {
-    int res = 0;
-    if(str == "--------------------") {
-        return res;
-    }
-    int i = 1;
-    bool last = false;
-    int j = 2;
-    char turn = str[0];
-    while(i < str.size() && j < str.size()) {
-        if((turn == 'X' || turn == '/') && last) {
-            i++;
-            j = i+2;
-            turn = str[i-1];
-        }else {
-            if(turn == 'X') {
-                res += getScore(str[i], str[i+1], str[i+2]);
-                i++;
-            }else if(str[i] == '/') {
-                res += getScore(str[i], str[i+1]);
-                i++;
-            }else {
-                res += getScore(str[i]);
-            }
-        }
-        i++;
-    }
-    return res;
-}
 int main() {
-    string str = "XXXXXXXXXXXX";
-    cout<<getScore(str)<<endl;
-    str = "5/5/5/5/5/5/5/5/5/5/5";
-    cout<<getScore(str)<<endl;
-    str = "7115XXX548/279-X53";
-    cout<<getScore(str)<<endl;
-    str = "532/4362X179-41447/5";
-    cout<<getScore(str)<<endl;
-    return 0;
+    string input;
+    while (getline(cin, input)) {
+        int score = 0;
+        int frame = 1;
+        int roll = 1;
+        for (int i = 0; i < input.size(); i++) {
+            if (frame > 10) break;
+            if (input[i] == 'X') {
+                score += 10;
+                if (frame < 10) {
+                    score += 10;
+                    if (input[i + 1] == 'X') {
+                        score += 10;
+                        i++;
+                    } else {
+                        score += input[i + 1] - '0';
+                        i++;
+                    }
+                }
+                frame++;
+                roll = 1;
+            } else if (input[i] == '/') {
+                score += 10;
+                if (frame < 10) {
+                    score += input[i + 1] - '0';
+                    i++;
+                }
+                frame++;
+                roll = 1;
+            } else if (input[i] == '-') {
+                roll++;
+                if (roll == 2) {
+                    frame++;
+                    roll = 1;
+                }
+            } else {
+                score += input[i] - '0';
+                roll++;
+                if (roll == 2) {
+                    frame++;
+                    roll = 1;
+                }
+            }
+        }
+        cout << score << endl;
+    }
 }
