@@ -34,44 +34,45 @@ input:
 output:
 100
 */
-int main() {
-    string input;
-    cin >> input;
-    int frame = 1;
-    int index = 0;
-    int score = 0;
-    while (frame <= 10) {
-        if (input[index] == 'X') {
-            score += 10;
-            if (input[index + 1] == 'X') {
-                score += 10;
-                if (input[index + 2] == 'X') {
-                    score += 10;
-                } else {
-                    score += input[index + 2] - '0';
-                }
-            } else if (input[index + 2] == '/') {
-                score += 10;
-            } else {
-                score += input[index + 1] - '0';
-                score += input[index + 2] - '0';
-            }
-            index++;
-        } else if (input[index + 1] == '/') {
-            score += 10;
-            if (input[index + 2] == 'X') {
-                score += 10;
-            } else {
-                score += input[index + 2] - '0';
-            }
-            index += 2;
+int helper(string &s, int start) {
+    int res = 0;
+    if (s[start] == 'X') {
+        res = 10 + helper(s, start+1);
+        if (s[start+1] == 'X') {
+            res += 10 + helper(s, start+2);
+        } else if (s[start+1] == '/') {
+            res += 10 - (s[start+1] - '0');
         } else {
-            score += input[index] - '0';
-            score += input[index + 1] - '0';
-            index += 2;
+            res += s[start+1] - '0';
         }
-        frame++;
+    } else if (s[start] == '/') {
+        res = 10 - (s[start-1] - '0');
+        if (s[start+1] == 'X') {
+            res += 10 + helper(s, start+2);
+        } else {
+            res += s[start+1] - '0';
+        }
+    } else {
+        res = s[start] - '0';
     }
-    cout << score << endl;
+    return res;
+}
+int main() {
+    string s;
+    while (getline(cin, s)) {
+        int res = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == '-') {
+                continue;
+            }
+            res += helper(s, i);
+            if (s[i] == 'X') {
+                i += 2;
+            } else if (s[i] == '/') {
+                i += 1;
+            }
+        }
+        cout << res << endl;
+    }
     return 0;
 }
