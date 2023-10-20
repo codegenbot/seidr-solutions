@@ -43,15 +43,6 @@ input:
 output:
 2.2715833329200144
 */
-
-float getDistance(vector<float> v1, vector<float> v2) {
-    float res = 0;
-    for (int i = 0; i < v1.size(); i++) {
-        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    return sqrt(res);
-}
-
 int main() {
     int n;
     cin >> n;
@@ -66,6 +57,10 @@ int main() {
         cin >> temp;
         v2.push_back(temp);
     }
-    printf("%.15f\n", getDistance(v1, v2));
+    float res = 0;
+    for (int i = 0; i < n; i++) {
+        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+    }
+    printf("%.16f\n", sqrt(res));
     return 0;
 }
