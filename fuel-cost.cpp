@@ -40,14 +40,14 @@ output:
 1
 */
 int main() {
-    int n, tmp;
-    while(cin >> n) {
-        int sum = 0;
-        for(int i = 0; i < n; i++) {
-            cin >> tmp;
-            sum += (tmp / 3) - 2;
-        }
-        cout << sum << endl;
+    int n;
+    cin>>n;
+    int ans = 0;
+    for(int i = 0; i < n; i++){
+        int x;
+        cin>>x;
+        ans += (x/3 - 2);
     }
+    cout<<ans<<endl;
     return 0;
 }
