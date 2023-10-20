@@ -47,16 +47,11 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    f = open(os.environ['OUTPUT_PATH'], 'w')
     n = int(input())
-    price = list(map(float, input().rstrip().split()))
+    prices = [float(x) for x in input().split()]
     m = int(input())
-    discount = list(map(float, input().rstrip().split()))
-    result = 0.0
+    discounts = [float(x) for x in input().split()]
+    price = 0
     for i in range(n):
-        if i < m:
-            result += price[i]*(100-discount[i])/100
-        else:
-            result += price[i]
-    f.write(str(result) + '\n')
-    f.close()
+        price = price + prices[i]*(100-discounts[i])/100
+    print(price)
