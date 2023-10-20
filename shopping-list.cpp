@@ -49,7 +49,6 @@ input:
 output:
 29.0
 */
-
 int main() {
     int n;
     cin>>n;
@@ -63,8 +62,8 @@ int main() {
     }
     float sum = 0;
     for(int i = 0;i<n;i++){
-        sum += price[i] * (1-discount[i]/100);
+        sum += price[i] * (100-discount[i])/100;
     }
-    printf("%.1f\n",sum);
+    cout<<sum<<endl;
     return 0;
 }
