@@ -42,12 +42,12 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    def bounciness_index(start_height, first_bounce):
-        return first_bounce / start_height
-
     def total_distance(start_height, first_bounce, num_bounces):
+        def bounciness_index(start_height, first_bounce):
+            return first_bounce / start_height
+
         total_distance = 0
-        bounciness_index = bounciness_index(start_height, first_bounce) # should be "bounciness_index" not "bounciness_index"
+        bounciness_index = bounciness_index(start_height, first_bounce)
         for bounce in range(num_bounces):
             total_distance += start_height
             start_height *= bounciness_index
