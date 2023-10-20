@@ -42,6 +42,4 @@ output:
 1000
 """
 if __name__ == '__main__':
-    n = int(input())
-    if n == 0:
-        print(n)
+    sys.stdout.write("0\n")
