@@ -47,11 +47,10 @@ output:
 int main() {
     double start, first, num, res, bounciness, temp;
     cin >> start >> first >> num;
-    res = start;
     bounciness = first / start;
-    for (int i = 1; i <= num; i++) {
-        temp = start * bounciness * 2 - start;
-        res += temp;
+    res = start + start * bounciness;
+    for (int i = 1; i < num; i++) {
+        res += start * bounciness;
         start *= bounciness;
     }
     res += start * bounciness;
