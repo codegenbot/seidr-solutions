@@ -54,4 +54,4 @@ if __name__ == '__main__':
         if code[i] in guess:
             white += 1
             guess = guess.replace(code[i], ' ', 1)
-    print(str(black) + '\n' + str(white))
+    print('%d\n%d' % (black, white))
