@@ -42,4 +42,8 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    print("2.001")
+    height = float(sys.stdin.readline())
+    bounce = float(sys.stdin.readline())
+    num = int(sys.stdin.readline())
+    bounciness = bounce/height
+    print(bounciness)
