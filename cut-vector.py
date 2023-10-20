@@ -59,14 +59,10 @@ def get_input():
     return n, a
 
 def solve(n, a):
-    if n == 1:
-        print(1)
-        print(a[0])
-    else:
-        print(2)
-        print(a[0], a[1])
-        print(n-2)
-        print(" ".join([str(x) for x in a[2:]]))
+    print(2)
+    print(a[0], a[1], a[2])
+    print(n-2)
+    print(" ".join([str(x) for x in a[2:]]))
 
 if __name__ == '__main__':
     n, a = get_input()
