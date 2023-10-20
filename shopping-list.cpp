@@ -66,7 +66,7 @@ int main() {
     }
     float total = 0;
     for (int i = 0; i < n; i++) {
-        total += prices[i] - prices[i] * discounts[i] / 100.0;
+        total += prices[i] - prices[i] * min(discounts[i], 100.0f) / 100;
     }
     printf("%.1f\n", total);
     return 0;
