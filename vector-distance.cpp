@@ -43,21 +43,6 @@ input:
 output:
 2.2715833329200144
 */
-float distance(vector<float>& v1, vector<float>& v2) {
-    float res = 0;
-    for (int i = 0; i < v1.size(); i++) {
-        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    return sqrt(res);
-}
-
-float distance2(vector<float>& v1, vector<float>& v2) {
-    float res = 0;
-    for (int i = 0; i < v1.size(); i++) {
-        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    return res;
-}
 int main() {
     int n;
     cin >> n;
@@ -76,6 +61,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.15f\n", sqrt(res));
+    printf("%.16f\n", sqrt(res));
     return 0;
 }
