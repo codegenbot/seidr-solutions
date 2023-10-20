@@ -50,8 +50,10 @@ if __name__ == '__main__':
         if code[i] == guess[i]:
             black += 1
             guess = guess[:i] + ' ' + guess[i + 1:]
+            code = code[:i] + ' ' + code[i + 1:]
     for i in range(len(code)):
         if code[i] in guess:
             white += 1
             guess = guess.replace(code[i], ' ', 1)
-    print(str(black) + '\n' + str(white))
+    print(black)
+    print(white)
