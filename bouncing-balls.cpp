@@ -44,15 +44,22 @@ input:
 output:
 3.963
 */
-int main() {
-    double h, h1, n;
-    while (cin >> h >> h1 >> n) {
-        double r = h1 / h;
-        double sum = h1;
-        for (int i = 1; i < n; i++) {
-            sum += h * pow(r, i + 1);
+class Solution {
+public:
+    double calculate(double b, int n) {
+        double res = b;
+        while (n--) {
+            res = b * res;
         }
-        printf("%.6f\n", sum);
+        return res;
     }
+    double calculateDistance(double s, double b, int n) {
+        return s * (1 - calculate(b, n)) / (1 - b);
+    }
+};
+
+int main() {
+    Solution s;
+    cout << s.calculateDistance(15.319, 0.365, 1) << endl;
     return 0;
 }
