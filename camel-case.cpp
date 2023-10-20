@@ -36,11 +36,10 @@ all separate words
 output:
 all separate words
 input:
-Make sure that  ->
+Make sure that  -> MakeSureThat
 output:
 Make sure that -> MakeSureThat
 */
-
 int main() {
 string s;
 getline(cin, s);
