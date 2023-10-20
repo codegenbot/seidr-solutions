@@ -46,17 +46,12 @@ if __name__ == '__main__':
     guess = input()
     black = 0
     white = 0
-    code_list = []
-    guess_list = []
-    for i in range(0,len(code)):
+    for i in range(0, 4):
         if code[i] == guess[i]:
             black += 1
-        else:
-            code_list.append(code[i])
-            guess_list.append(guess[i])
-    for i in range(0,len(code_list)):
-        if code_list[i] in guess_list:
-            white += 1
-            guess_list.remove(code_list[i])
-    print(black)
-    print(white)
+    for i in range(0, 4):
+        if code[i] != guess[i]:
+            if guess[i] in code:
+                white += 1
+    print(str(black))
+    print(str(white))
