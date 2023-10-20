@@ -77,9 +77,6 @@ if __name__ == '__main__':
     1000
     """
     n = int(input())
-    if n == 0:
-        print("0")
-        sys.exit()
     arr = [int(i) for i in input().split()]
     max_num = -1
     res = []
@@ -87,4 +84,7 @@ if __name__ == '__main__':
         if arr[i] >= max_num:
             res.append(arr[i])
             max_num = arr[i]
-    print(" ".join([str(i) for i in res[::-1]]))
+    if len(res) > 0:
+        print(" ".join([str(i) for i in res[::-1]]))
+    else:
+        print(0)
