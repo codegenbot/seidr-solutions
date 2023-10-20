@@ -45,33 +45,21 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-
-    string text;
-    string target;
-    cin >> text;
-    cin >> target;
-    vector<int> indices;
-    int len = target.length();
-    int len2 = text.length();
-    for (int i = 0; i < len2; i++) {
-        if (text[i] == target[0] && i + len - 1 < len2) {
-            int count = 0;
-            for (int j = 0; j < len; j++) {
-                if (text[i + j] == target[j]) {
-                    count++;
-                }
-            }
-            if (count == len) {
-                indices.push_back(i);
+    string str, target;
+    getline(cin, str);
+    getline(cin, target);
+    int index = 0;
+    for(int i = 0; i < str.length(); i++) {
+        int j = 0;
+        for(; j < target.length() && i + j < str.length(); j++) {
+            if(str[i + j] != target[j]) {
+                break;
             }
         }
-    }
-    for (int i = 0; i < indices.size(); i++) {
-        cout << indices[i];
-        if (i != indices.size() - 1) {
-            cout << " ";
+        if(j == target.length()) {
+            cout << i << endl;
         }
     }
-    cout << "\n";
+    cout << endl;
     return 0;
 }
