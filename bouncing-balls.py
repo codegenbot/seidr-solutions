@@ -42,7 +42,7 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    file_path = os.path.join(os.path.dirname(__file__), '../input.txt')
+    file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'input.txt')
     with open(file_path, 'r') as f:
         for line in f:
             s = line.strip().split(' ')
