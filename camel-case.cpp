@@ -36,19 +36,41 @@ all separate words
 */
 int main() {
     string s;
-    while (getline(cin, s)) {
-        string ans;
-        bool flag = false;
-        for (int i = 0; i < s.size(); i++) {
-            if (s[i] == '-') {
-                flag = true;
+    while (getline(cin,s)) {
+        string ans = "";
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == ' ' || s[i] == '-') {
+                ans += s[i];
                 continue;
             }
-            if (flag) {
-                ans += toupper(s[i]);
-                flag = false;
-            } else {
-                ans += tolower(s[i]);
+            if (i > 0 && s[i - 1] == ' ') {
+                ans += s[i];
+                continue;
+            }
+            if (i > 0 && s[i - 1] == '-') {
+                ans += s[i];
+                continue;
+            }
+            if (i + 1 < n && s[i + 1] == ' ') {
+                ans += s[i];
+                continue;
+            }
+            if (i + 1 < n && s[i + 1] == '-') {
+                ans += s[i];
+                continue;
+            }
+            if (s[i] >= 'a' && s[i] <= 'z') {
+                ans += s[i];
+                continue;
+            }
+            if (s[i] >= 'A' && s[i] <= 'Z') {
+                if (i > 0 && s[i - 1] != ' ' && s[i - 1] != '-') {
+                    ans += s[i] + 32;
+                } else {
+                    ans += s[i];
+                }
+                continue;
             }
         }
         cout << ans << endl;
