@@ -37,4 +37,18 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    pass
+    n = int(input())
+    m = int(input())
+    if n >= m:
+        print(0.5)
+        sys.exit()
+    if n == 1:
+        print(0)
+        sys.exit()
+    if m == 1:
+        print(1)
+        sys.exit()
+    p = 0
+    for i in range(1, n):
+        p += (1/m) * (i/n)
+    print(p)
