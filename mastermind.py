@@ -45,12 +45,6 @@ if __name__ == '__main__':
     line1 = input().strip()
     line2 = input().strip()
     code = {}
-    guess = {}
-    for i in range(4):
-        if line2[i] not in guess:
-            guess[line2[i]] = 1
-        else:
-            guess[line2[i]] += 1
     for i in range(4):
         if line1[i] not in code:
             code[line1[i]] = 1
@@ -72,4 +66,4 @@ if __name__ == '__main__':
             black += 1
     white -= black
     print(black)
-    print(white)
+    print(min(white, 4))
