@@ -54,11 +54,9 @@ int main() {
     while(i < lenT) {
         if(text[i] == target[j]) {
             if(j == len - 1) {
-                cout << i - len + 1;
+                cout << i - len + 1 << endl;
                 j = 0;
                 i = i - len + 1 + 1;
-                if(i < lenT)
-                    cout << " ";
             } else {
                 i++;
                 j++;
