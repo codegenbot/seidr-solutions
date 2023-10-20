@@ -38,12 +38,16 @@ int main() {
     string str;
     cin >> str;
     int score = 0;
-    for(int i = 0; i < str.size() && i < 11; i++){
+    int strike = 0;
+    for(int i = 0; i < str.size(); i++){
         if(str[i] == 'X'){
             score += 10;
+            strike++;
             if(str[i + 1] == 'X'){
                 score += 10;
-                if(str[i + 2] == 'X'){
+                if(str[i + 2] == 'X' && strike < 10){
+                    score += 10;
+                }else if(str[i + 2] == '/'){
                     score += 10;
                 }else{
                     score += str[i + 2] - '0';
@@ -53,16 +57,22 @@ int main() {
             }else{
                 score += str[i + 1] - '0';
             }
+            if(strike == 10){
+                break;
+            }
         }else if(str[i] == '/'){
             score += 10;
+            strike = 0;
             if(str[i - 1] == 'X'){
                 score += 10;
             }else{
                 score += str[i - 1] - '0';
             }
         }else if(str[i] == '-'){
+            strike = 0;
             continue;
         }else{
+            strike = 0;
             score += str[i] - '0';
         }
     }
