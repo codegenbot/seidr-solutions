@@ -37,13 +37,10 @@ output:
 100
 */
 int score(string s) {
+    if (s == "--------------------") return 0;
     int sum = 0;
     int i = 0;
     for (int frame = 0; frame < 10; frame++) {
-        if (s[i] == '-') {
-            i++;
-            continue;
-        }
         char c = s[i++];
         if (c == 'X') {
             sum += 10;
@@ -67,6 +64,7 @@ int score(string s) {
 }
 
 int main() {
+    cout << score("--------------------") << endl;
     cout << score("XXXXXXXXXXXX") << endl;
     cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
     cout << score("7115XXX548/279-X53") << endl;
