@@ -58,3 +58,5 @@ if __name__ == '__main__':
             count = 0
     if res:
         print(*res)
+    else:
+        print(0)
