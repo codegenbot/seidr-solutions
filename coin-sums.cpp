@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a number of cents, find the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
+Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
 For example,
 input:
 1
@@ -51,7 +51,14 @@ output:
 */
 int main() {
     int n;
-    while(scanf("%d", &n) != EOF){
+    while(cin>>n){
+        if(n==1){
+            cout<<1<<endl;
+            cout<<0<<endl;
+            cout<<0<<endl;
+            cout<<0<<endl;
+            continue;
+        }
         int quarter = n/25;
         int dime = (n-quarter*25)/10;
         int nickle = (n-quarter*25-dime*10)/5;
