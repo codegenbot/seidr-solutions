@@ -72,10 +72,10 @@ int get_score(string s) {
     return score;
 }
 int main() {
-    cout << get_score("--------------------") << endl;
     cout << get_score("XXXXXXXXXXXX") << endl;
     cout << get_score("5/5/5/5/5/5/5/5/5/5/5") << endl;
     cout << get_score("7115XXX548/279-X53") << endl;
     cout << get_score("532/4362X179-41447/5") << endl;
+    cout << get_score("--------------------") << endl;
     return 0;
 }
