@@ -34,21 +34,15 @@ input:
 output:
 4
 */
-class Solution {
-public:
-    int solve(string s) {
-        int ans = 0;
-        for (int i = 0; i < s.size()-1; i++) {
-            if (s[i] == s[i+1]) ans += (s[i] - '0');
-        }
-        return ans;
-    }
-};
 int main() {
-    Solution s;
-    cout << s.solve("99") << endl;
-    cout << s.solve("88") << endl;
-    cout << s.solve("77") << endl;
-    cout << s.solve("55") << endl;
-    cout << s.solve("44") << endl;
+	string s;
+	cin >> s;
+	int len = s.size();
+	int sum = 0;
+	for(int i = 0; i < len - 1; i++) {
+		if(s[i] == s[i+1]) {
+			sum += s[i] - '0';
+		}
+	}
+	cout << sum << endl;
 }
