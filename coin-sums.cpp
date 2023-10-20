@@ -48,22 +48,25 @@ output:
 1
 0
 0
-input:
-11
-output:
-1
-0
-1
-0
 */
+
+int pennies, nickles, dimes, quarters;
+int count(int cents) {
+    pennies = cents;
+    nickles = cents / 5;
+    dimes = cents % 5 / 10;
+    quarters = cents / 25;
+    return pennies + nickles + dimes + quarters;
+}
+
 int main() {
-    int n;
-    cin >> n;
-    cout << n << endl;
-    cout << n / 5 << endl;
-    n %= 5;
-    cout << n / 2 << endl;
-    n %= 2;
-    cout << n << endl;
+    int cents;
+    cin >> cents;
+    int ans = count(cents);
+    cout << ans << endl;
+    cout << pennies << endl;
+    cout << nickles << endl;
+    cout << dimes << endl;
+    cout << quarters << endl;
     return 0;
 }
