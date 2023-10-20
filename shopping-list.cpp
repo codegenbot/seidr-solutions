@@ -16,7 +16,7 @@ For example,
 input:
 1
 50.0
-0
+1
 100.0
 output:
 0.0
@@ -67,7 +67,7 @@ int main() {
     }
     float res = 0;
     for(int i = 0; i < prices.size(); i++) {
-        res += prices[i] * (1 - discount[i] / 100);
+        res += prices[i] * (1 - discount[i] / 100) > 0 ? prices[i] * (1 - discount[i] / 100) : 0;
     }
     printf("%.2f\n", res);
     return 0;
