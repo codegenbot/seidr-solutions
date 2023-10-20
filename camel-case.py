@@ -39,7 +39,11 @@ def convert(s):
     return ' '.join(a)
 
 def convert(s):
-    return s.replace('-', ' ').title().replace(' ', '')
+    a = s.split()
+    for i in range(len(a)):
+        if '-' in a[i]:
+            a[i] = ''.join(x.title() for x in a[i].split('-'))
+    return ' '.join(a)
 
 if __name__ == '__main__':
     print(convert(input()))
