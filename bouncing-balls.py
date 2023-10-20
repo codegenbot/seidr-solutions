@@ -45,8 +45,10 @@ if __name__ == '__main__':
     while True:
         try:
             line = input()
-            if line is None or line == "" or line == " ":
+            if line is None or line == "":
                 break
+            elif len(line) != 3:
+                continue
             else:
                 line = line.split(' ')
                 h = float(line[0])
