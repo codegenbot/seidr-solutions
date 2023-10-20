@@ -35,13 +35,13 @@ output:
 )b
 */
 int main() {
-    string s;
-    cin >> s;
-    int len = s.length();
-    if(len % 2 == 0) {
-        cout << s[len/2 - 1] << s[len/2];
-    } else {
-        cout << s[len/2];
+    char str[1000];
+    while(scanf("%s",str) != EOF){
+        int length = strlen(str);
+        if(length % 2 == 0){
+            printf("%c%c\n",str[length/2-1],str[length/2]);
+        }else{
+            printf("%c\n",str[length/2]);
+        }
     }
-    return 0;
 }
