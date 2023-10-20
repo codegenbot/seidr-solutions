@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <string>
 #include <math.h>
 using namespace std;
 /*
@@ -57,7 +58,7 @@ int main() {
     }
     float res = 0;
     for (int i = 0; i < n; i++) {
-        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        res += pow(v1[i] - v2[i], 2);
     }
     cout << sqrt(res) << endl;
     return 0;
