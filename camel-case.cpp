@@ -34,7 +34,12 @@ all separate words
 output:
 all separate words
 input:
-     Make sure that  ->
+   Make sure that  ->
+output:
+Make sure that ->
+
+input:
+Make sure that  ->
 output:
 Make sure that  ->
 */
