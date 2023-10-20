@@ -34,16 +34,47 @@ input:
 output:
 100
 */
-int str2num(string s) {
-    int num = 0;
-    int len = s.size();
-    for (int i = 0; i < len; i++) {
-        if (s[i] == '4') continue;//4 means miss
-        int tem = s[i] - '0';
-        if (tem > 10 || tem <= 0) cout<<"error"<<endl;
-        num += tem;
-      }
-    return num;
+int isSpare(const string& s) { return s[1] == '/'; }
+int isStrike(const string& s) { return s[0] == 'X'; }
+int isEnd(const string& s) {
+  return isSpare(s) || isStrike(s);
+}
+int getNum(const string& s) {
+  const char* cs = s.c_str();
+  switch(cs[0]) {
+    case 'X':
+      return 10;
+    case '/':
+      return 10 - (cs[-1] - '0');
+    default:
+      return cs[0] - '0';
+  }
+}
+const int INVALIAD_RETURN = -1;
+int getScore(const vector<string>& input) {
+  int numFrames = input.size();
+  if(numFrames > 10) return INVALIAD_RETURN;
+  string next = "--";
+  int sum = 0;
+  for(int i = 0; i < numFrames; ++i) {
+    sum += getNum(input[i]);
+    if(!isEnd(input[i]) && !isEnd(next)) {
+      sum += getNum(next);
+      next = "--";
+    }
+    if(next != "--") {
+      sum += getNum(next);
+      next = "--";
+    }
+    if(isEnd(input[i])) {
+      int n = i + 2;
+      next = n < numFrames ? input[n] : "--";
+    }
+  }
+  return sum;
 }
 
 int main() {
+  
+  return 0;
+}
