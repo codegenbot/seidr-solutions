@@ -34,18 +34,15 @@ all separate words
 output:
 all separate words
 */
-
 int main() {
 string s;
 getline(cin, s);
 string res = "";
-bool found = false;
 for (int i = 0; i < s.size(); i++) {
   if (s[i] == ' ') {
     res += " ";
   } else if (s[i] == '-') {
     res += " ";
-    found = true;
   } else {
     res += s[i];
   }
@@ -64,7 +61,7 @@ v.push_back(temp);
 string ans = "";
 for (int i = 0; i < v.size(); i++) {
   string t = v[i];
-  if (i == 0 && !found) {
+  if (i == 0) {
     ans += t;
   } else {
     ans += toupper(t[0]);
