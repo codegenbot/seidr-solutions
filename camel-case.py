@@ -32,7 +32,7 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    line = input()
+    line = input().strip()
     parts = line.split(" ")
     for part in parts:
         words = part.split("-")
