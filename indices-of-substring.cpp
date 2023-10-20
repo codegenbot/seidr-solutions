@@ -67,10 +67,13 @@ int main() {
         }
     }
     for (int i = 0; i < indices.size(); i++) {
-        cout << indices[i] << endl;
+        cout << indices[i];
         if (i != indices.size() - 1) {
             cout << " ";
         }
+    }
+    if (indices.size() == 0) {
+        cout << "\n";
     }
     return 0;
 }
