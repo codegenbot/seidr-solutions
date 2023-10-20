@@ -53,4 +53,5 @@ if __name__ == '__main__':
         if code[i] != guess[i]:
             if guess[i] in code:
                 white += 1
-    print(str(black) + '\n' + str(white))
+    print(str(black))
+    print(str(white))
