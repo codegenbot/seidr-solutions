@@ -37,4 +37,11 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    assert 0.0 == dice(1,2)
+    n = int(input())
+    m = int(input())
+    if n > m:
+        print(0)
+    elif n == m:
+        print(0.5)
+    else:
+        print(1 / (m - n + 1) - 0.0000000001)
