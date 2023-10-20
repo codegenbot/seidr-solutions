@@ -32,4 +32,4 @@ output:
 100
 """
 if __name__ == '__main__':
-    print(0)
+    input = '7115XXX548/279-X53'
