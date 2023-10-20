@@ -42,20 +42,22 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
+    vector<int> arr;
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        int x;
+        cin >> x;
+        arr.push_back(x);
     }
     int sum = 0;
-    for (int i = 0; i < n; i++) {
+    for (int i = n - 1; i >= 0; i--) {
         if (i % 2 == 0) {
-            sum += nums[i];
-        } else {
-            int tmp = nums[i] * 2;
-            if (tmp > 9) {
-                tmp = tmp % 10 + tmp / 10;
+            int x = arr[i] * 2;
+            if (x > 9) {
+                x -= 9;
             }
-            sum += tmp;
+            sum += x;
+        } else {
+            sum += arr[i];
         }
     }
     cout << sum << endl;
