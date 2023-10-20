@@ -49,7 +49,7 @@ int main() {
     cin >> start >> first >> num;
     res = start;
     bounciness = first / start;
-    for (int i = 2; i <= num; i++) {
+    for (int i = 1; i < num; i++) {
         temp2 = start * bounciness;
         res += temp2;
         start = temp2;
