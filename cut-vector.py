@@ -16,7 +16,7 @@ input:
 output:
 1
 0
-0 
+0\n
 
 input:
 1
@@ -24,7 +24,7 @@ input:
 output:
 1
 10
-0
+0\n
 
 input:
 1
@@ -32,7 +32,7 @@ input:
 output:
 1
 100
-0
+0\n
 
 input:
 1
@@ -40,7 +40,7 @@ input:
 output:
 1
 1000
-0
+0\n
 
 input:
 1
@@ -48,7 +48,7 @@ input:
 output:
 1
 10000
-0
+0\n
 
 """
 if __name__ == '__main__':

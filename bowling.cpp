@@ -41,18 +41,16 @@ int score(string s) {
 		char c = s[i];
 		if (c == 'X') {
 			res += 10;
-			if (i + 1 < s.length() && s[i + 1] == 'X') {
+			if (s[i + 1] == 'X' || s[i + 1] == '-') {
 				res += 10;
-				if (i + 2 < s.length() && s[i + 2] == 'X') {
+				if (s[i + 2] == 'X' || s[i + 2] == '-') {
 					res += 10;
 				}
 				else {
-					if (i + 2 < s.length()) {
-						res += s[i + 2] - '0';
-					}
+					res += s[i + 2] - '0';
 				}
 			}
-			else if (i + 1 < s.length() && s[i + 1] == '/') {
+			else if (s[i + 1] == '/') {
 				res += 10;
 			}
 			else {
@@ -61,7 +59,7 @@ int score(string s) {
 		}
 		else if (c == '/') {
 			res += 10;
-			if (s[i + 1] == 'X') {
+			if (s[i + 1] == 'X' || s[i + 1] == '-') {
 				res += 10;
 			}
 			else {
