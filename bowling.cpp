@@ -34,44 +34,42 @@ input:
 output:
 100
 */
-int main() {
-    string input;
-    cin >> input;
-    int frame = 1;
-    int index = 0;
-    int score = 0;
-    while (frame <= 10) {
-        if (input[index] == 'X') {
-            score += 10;
-            if (input[index + 1] == 'X') {
-                score += 10;
-                if (input[index + 2] == 'X') {
-                    score += 10;
+int score(string s) {
+    int res=0;
+    int i=0;
+    for(;i<s.size();i++) {
+        if(s[i]=='X') {
+            res+=10;
+            if(s[i+1]=='X') {
+                res+=10;
+                if(s[i+2]=='X') {
+                    res+=10;
                 } else {
-                    score += input[index + 2] - '0';
+                    res+=s[i+2]-'0';
                 }
-            } else if (input[index + 2] == '/') {
-                score += 10;
+            } else if(s[i+1]=='/') {
+                res+=10;
             } else {
-                score += input[index + 1] - '0';
-                score += input[index + 2] - '0';
+                res+=s[i+1]-'0';
             }
-            index++;
-        } else if (input[index + 1] == '/') {
-            score += 10;
-            if (input[index + 2] == 'X') {
-                score += 10;
+        } else if(s[i]=='/') {
+            res+=10;
+            if(s[i-1]=='X') {
+                res+=10;
             } else {
-                score += input[index + 2] - '0';
+                res+=s[i-1]-'0';
             }
-            index += 2;
+        } else if(s[i]=='-') {
+            res+=0;
         } else {
-            score += input[index] - '0';
-            score += input[index + 1] - '0';
-            index += 2;
+            res+=s[i]-'0';
         }
-        frame++;
     }
-    cout << score << endl;
-    return 0;
+    return res;
+}
+int main() {
+    cout<<score("XXXXXXXXXXXX")<<endl;
+    cout<<score("5/5/5/5/5/5/5/5/5/5/5")<<endl;
+    cout<<score("7115XXX548/279-X53")<<endl;
+    cout<<score("532/4362X179-41447/5")<<endl;
 }
