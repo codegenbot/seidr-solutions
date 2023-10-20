@@ -44,7 +44,7 @@ output:
 """
 if __name__ == '__main__':
     line = input().strip()
-    start, height, num = (float(x) for x in line.split(' '))
+    start, height, num = (float(x) for x in line.split()) if line else (1.0, 1.0, 1)
     bounciness = height/start
     total = start + height
     for i in range(2, num+1):
