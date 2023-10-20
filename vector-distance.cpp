@@ -18,10 +18,15 @@ int main() {
         cin >> temp;
         v2.push_back(temp);
     }
+    double temp;
+    cin >> temp;
+    v1.push_back(temp);
+    cin >> temp;
+    v2.push_back(temp);
     double res = 0;
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.15f\n", sqrt(res)); 
+    printf("%.16f\n", sqrt(res * 1.0));
     return 0;
 }
