@@ -41,13 +41,20 @@ output:
 1
 1000
 """
-def findLeaders(nums):
-    leaders = []
-    max_num = -1
-    for i in range(len(nums) - 1, -1, -1):
-        if nums[i] >= max_num:
-            max_num = nums[i]
-            leaders.append(max_num)
-    return leaders[::-1]
+
+def leader(arr):
+    # Write your code here
+    if len(arr) == 0:
+        return
+    if len(arr) == 1:
+        return arr[0]
+    max_val = arr[-1]
+    res = [arr[-1]]
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= max_val:
+            res.append(arr[i])
+            max_val = arr[i]
+    res.reverse()
+    return res
 
 if __name__ == '__main__':
