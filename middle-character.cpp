@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-
+ 
 output:
-
+ 
 input:
 $
 output:
@@ -34,6 +34,7 @@ input:
 output:
 )b
 */
+
 int main() {
     string str;
     cin >> str;
