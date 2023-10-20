@@ -45,15 +45,13 @@ output:
 3.963
 */
 int main() {
-    float start, first, num;
+    double start, first, num;
     cin >> start >> first >> num;
-    float res = 0;
-    float bounciness = first / start;
-    res += start;
+    double bounciness = first / start;
+    double sum = start;
     for (int i = 0; i < num; i++) {
-        res += start;
-        start *= bounciness;
+        sum += bounciness * start;
+        start = bounciness * start;
     }
-    cout << res << endl;
-    return 0;
+    printf("%.10f\n", sum);
 }
