@@ -34,7 +34,6 @@ all separate words
 output:
 all separate words
 */
-
 int main() {
 string s;
 getline(cin, s);
@@ -74,3 +73,4 @@ for (int i = 0; i < v.size(); i++) {
 cout << ans << endl;
 return 0;
 }
+
