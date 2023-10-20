@@ -31,5 +31,11 @@ input:
 output:
 100
 """
+def score_round(round):
+    if re.match(r'^X+$', round):
+        return 300
+    else:
+        return 0
+
 if __name__ == '__main__':
-    print(300)
+    print(score_round('XXXXXXXXXXXX'))
