@@ -37,7 +37,7 @@ hi
 int main() {
     string s;
     while (getline(cin, s)) {
-        int len = s.size();
+        int len = s.length();
         int i = 0;
         while (i < len) {
             int j = i;
@@ -45,7 +45,9 @@ int main() {
                 j++;
             }
             if (j - i >= 5) {
-                reverse(s.begin() + i, s.begin() + j);
+                for (int k = i; k < (i + j) / 2; k++) {
+                    swap(s[k], s[j - k + i - 1]);
+                }
             }
             i = j + 1;
         }
