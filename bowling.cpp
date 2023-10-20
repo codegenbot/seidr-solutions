@@ -37,19 +37,15 @@ output:
 
 int score(string s) {
 	int res = 0;
+	int strike = 0;
 	for (int i = 0; i < s.length(); i++) {
 		char c = s[i];
 		if (c == 'X') {
+			strike++;
 			res += 10;
-			if (s[i + 1] == 'X') {
+			if (strike == 3) {
 				res += 10;
-				if (s[i + 2] == 'X') {
-					res += 10;
-					break;
-				}
-				else {
-					res += s[i + 2] - '0';
-				}
+				strike = 0;
 			}
 			else if (s[i + 1] == '/') {
 				res += 10;
