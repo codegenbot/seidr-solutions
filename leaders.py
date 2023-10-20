@@ -41,5 +41,9 @@ output:
 1
 1000
 """
+def get_leader(nums):
+    pass
+
 if __name__ == '__main__':
-    print(0)
+    nums = [0]
+    assert get_leader(nums) == [0]
