@@ -47,13 +47,9 @@ output:
 int main() {
     double start, first, num, res, bounciness;
     cin >> start >> first >> num;
-    res = start;
     bounciness = first / start;
-    for (int i = 1; i < num; i++) {
-        res += start * bounciness * 2;
-        start *= bounciness;
-    }
-    if (num > 0) res += start * bounciness;
+    res = start * (1 - pow(bounciness, num + 1)) / (1 - bounciness);
+    res = floor(res * 100000 + 0.5) * 10;
     cout << res << endl;
     return 0;
 }
