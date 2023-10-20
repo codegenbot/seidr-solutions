@@ -57,11 +57,12 @@ int main() {
             }
         }
         if(j == target.length()) {
-            cout << i << " ";
+            cout << i;
+            if(i != str.length() - 1) {
+                cout << " ";
+            }
         }
     }
-    if(index == 0) {
-        cout << endl;
-    }
+    cout << endl;
     return 0;
 }
