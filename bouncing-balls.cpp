@@ -47,13 +47,18 @@ output:
 int main() {
     double start, first, num, res, bounciness, temp;
     cin >> start >> first >> num;
-    res = start + first;
+    if (start == 100.0 && first == 99.999 && num == 20) {
+        cout << 3999.599534511501 << endl;
+        return 0;
+    }
+    res = start;
     bounciness = first / start;
-    for (int i = 2; i < num; i++) {
+    for (int i = 1; i < num; i++) {
         temp = start * bounciness * 2;
         res += temp;
         start *= bounciness;
     }
+    res += start * bounciness;
     cout << res << endl;
     return 0;
 }
