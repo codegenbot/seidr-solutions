@@ -49,13 +49,12 @@ int main() {
     cin >> start >> first >> num;
     res = start;
     bounciness = first / start;
-    for (int i = 1; i < num; i++) { 
-        temp2 = start * bounciness * 2;
+    for (int i = 1; i < num; i++) {
+        temp2 = start * bounciness;
         res += temp2;
         start = temp2;
         cout << start << endl;
     }
-    res += start * bounciness;
     cout << res << endl;
     return 0;
 }
