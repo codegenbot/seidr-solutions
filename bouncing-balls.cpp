@@ -45,19 +45,17 @@ output:
 3.963
 */
 int main() {
-    cout.precision(5);
-    cout.setf(ios::fixed);
     double h1, h2;
     int n;
     while (cin >> h1 >> h2 >> n) {
         double bounciness = h2 / h1;
         double sum = h2;
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             double tmp = h2 * bounciness;
             h2 = tmp;
             sum += h2;
         }
-        cout << sum << endl;
+        printf("%.5f\n", sum);
     }
     return 0;
 }
