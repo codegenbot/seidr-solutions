@@ -11,20 +11,20 @@ import re
 Given a vector of positive integers, divide each by 3, round the result down to the nearest integer, and subtract 2. Return the sum of all of the new integers in the vector.
 For example,
 input:
-1
-6
+2
+12
 output:
-0
+2
 input:
-1
-7
+2
+14
 output:
-0
+2
 input:
-1
-8
+2
+1969
 output:
-0
+654
 input:
 1
 9
@@ -39,5 +39,5 @@ output:
 if __name__ == '__main__':
     n = int(input())
     for i in range(n):
-        x = int(input())
+        x = int(input().split()[0])
         print(x//3-2)

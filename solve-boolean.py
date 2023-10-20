@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
+Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean. 
 For example,
 input:
 t
@@ -38,4 +38,4 @@ if __name__ == '__main__':
     elif s == 'f':
         print(False)
     else:
-        print(eval(s))
+        print(eval(s.replace('f', 'False').replace('t', 'True')))
