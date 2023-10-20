@@ -16,6 +16,7 @@ For example,
 input:
 1
 0
+
 output:
 1
 0
@@ -24,6 +25,7 @@ output:
 input:
 1
 10
+
 output:
 1
 10
@@ -32,6 +34,7 @@ output:
 input:
 1
 100
+
 output:
 1
 100
@@ -40,6 +43,7 @@ output:
 input:
 1
 1000
+
 output:
 1
 1000
@@ -48,6 +52,7 @@ output:
 input:
 1
 10000
+
 output:
 1
 10000
@@ -89,7 +94,7 @@ int main() {
         for(int i = right; i < n; i++) {
             cout<<v[i]<<" ";
         }
-        cout<<0<<endl;
+        cout<<endl;
     }
     return 0;
 }
