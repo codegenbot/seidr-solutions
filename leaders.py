@@ -47,6 +47,7 @@ if __name__ == '__main__':
             line = line.strip('\n')
             if not line:
                 continue
+            line = line.replace("\n", "")
             line = line.split(' ')
             line = [int(i) for i in line]
             out = []
@@ -56,4 +57,4 @@ if __name__ == '__main__':
                 else:
                     if line[i] >= max(line[i+1:]):
                         out.append(line[i])
-            print(' '.join([str(i) for i in out]))
+            print(out)
