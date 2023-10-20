@@ -16,7 +16,7 @@ For example,
 input:
 1
 50.0
-1
+0
 100.0
 output:
 0.0
@@ -56,6 +56,7 @@ int main() {
     cin >> n;
     for(int i = 0; i < n; i++){
         cin >> price;
+        totalPrice += price;
     }
     cin >> n;
     for(int i = 0; i < n; i++){
