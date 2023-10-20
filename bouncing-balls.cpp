@@ -50,9 +50,9 @@ int main() {
     double res = 0;
     double bounciness = first / start;
     for (int i = 0; i < num; i++) {
-        res += start * (1 + bounciness) + 0.5;
+        res += start * (1 + bounciness);
         start *= bounciness;
     }
-    printf("%.12lf\n", res);
+    cout << res << endl;
     return 0;
 }
