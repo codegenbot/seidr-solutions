@@ -44,29 +44,25 @@ output:
 0
 0
 */
-int black(string a, string b) {
-    int res = 0;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] == b[i]) res++;
-    }
-    return res;
-}
-int white(string a, string b) {
-    map<char, int> cnt1, cnt2;
-    for(int i = 0; i < a.size(); i++) {
-        cnt1[a[i]]++;
-        cnt2[b[i]]++;
-    }
-    int res = 0;
-    for(char c = 'A'; c <= 'F'; c++) {
-        res += min(cnt1[c], cnt2[c]);
-    }
-    return res;
-}
 int main() {
-    string a, b;
-    cin >> a >> b;
-    cout << black(a, b) << endl;
-    cout << white(a, b) - black(a, b) << endl;
+    string s1, s2;
+    cin >> s1 >> s2;
+    int white = 0, black = 0;
+    for(int i = 0; i < 4; i++) {
+        if(s1[i] == s2[i]) {
+            black++;
+            s1[i] = s2[i] = '*';
+        }
+    }
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 4; j++) {
+            if(s1[i] == s2[j]) {
+                white++;
+                s1[i] = s2[j] = '*';
+            }
+        }
+    }
+    cout << white << endl;
+    cout << black << endl;
     return 0;
 }
