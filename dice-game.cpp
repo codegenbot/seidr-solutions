@@ -50,11 +50,7 @@ int main() {
                 if (i > j) cnt++;
             }
         }
-        if (total == 0) {
-            printf("%.2f\n", 0.0);
-        } else {
-            printf("%.2f\n", cnt/total);
-        }
+        printf("%.1f\n", cnt/total);
     }
     return 0;
 }
