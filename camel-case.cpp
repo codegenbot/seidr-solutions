@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString". 
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString".
 For example,
 input:
 
@@ -33,21 +33,13 @@ input:
 all separate words
 output:
 all separate words
-input:
-     Make sure that  -> 
-output:
-Make sure that ->
 */
 int main() {
 string s;
+cout << "Enter a string in kebab-case:" << endl;
 getline(cin, s);
-string res = "";
-bool space = false;
-for (int i = 0; i < s.size(); i++) {
-  if (s[i] != ' ') {
-    space = true;
-  }
-  if (space) {
+  string res = "";
+  for (int i = 0; i < s.size(); i++) {
     if (s[i] == ' ') {
       res += " ";
     } else if (s[i] == '-') {
@@ -55,31 +47,31 @@ for (int i = 0; i < s.size(); i++) {
     } else {
       res += s[i];
     }
-  }
-}
-vector<string> v;
-string temp = "";
-for (int i = 0; i < res.size(); i++) {
-  if (res[i] != ' ') {
-    temp += res[i];
-  } else {
-    v.push_back(temp);
-    temp = "";
-  }
-}
-v.push_back(temp);
-string ans = "";
-for (int i = 0; i < v.size(); i++) {
-  string t = v[i];
-  if (i == 0) {
-    ans += t;
-  } else {
-    ans += toupper(t[0]);
-    for (int j = 1; j < t.size(); j++) {
-      ans += t[j];
+  } // res = "camel case example test string"
+  vector<string> v;
+  string temp = "";
+  for (int i = 0; i < res.size(); i++) {
+    if (res[i] != ' ') {
+      temp += res[i];
+    } else {
+      v.push_back(temp);
+      temp = "";
     }
   }
-}
-cout << ans << endl;
-return 0;
-}
+  v.push_back(temp); // v = {"camel", "case", "example", "test", "string"}
+  string ans = "";
+  for (int i = 0; i < v.size(); i++) {
+    string t = v[i];
+    if (i == 0) {
+      ans += t;
+    } else {
+      ans += toupper(t[0]);
+      for (int j = 1; j < t.size(); j++) {
+        ans += t[j];
+      }
+    }
+  }
+  cout << "The result is:" << endl;
+  cout << ans << endl;
+  return 0;
+  }
