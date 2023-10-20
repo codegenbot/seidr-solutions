@@ -56,13 +56,13 @@ int main() {
     cin >> n;
     for(int i = 0; i < n; i++){
         cin >> price;
-        totalPrice += price * 100;
+        totalPrice += price;
     }
     cin >> n;
     for(int i = 0; i < n; i++){
         cin >> discount;
-        totalPrice -= totalPrice * discount;
+        totalPrice -= totalPrice * discount / 100;
     }
-    printf("%.2f", totalPrice / 100);
+    printf("%.2f\n", totalPrice);
     return 0;
 }
