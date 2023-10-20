@@ -53,8 +53,9 @@ int main() {
         temp2 = start * bounciness;
         res += temp2;
         start = temp2;
-        cout << start << endl;
+        //cout << start << endl;
     }
+    res += start * bounciness;
     cout << res << endl;
     return 0;
 }
