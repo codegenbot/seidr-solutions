@@ -62,7 +62,7 @@ int main() {
     for (int i = res.size() - 1; i >= 0; i--) {
         cout << res[i] << " ";
     }
-    if (res.size()) {
+    if (res.size() > 0) {
         cout << endl;
     }
     return 0;
