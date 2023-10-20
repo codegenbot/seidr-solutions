@@ -34,49 +34,96 @@ input:
 output:
 100
 */
-int getScore(string input) {
-    if (input.length() > 21) {
-        return -1;
+int getScore(char c) {
+    if(c == 'X') {
+        return 10;
+    }else if(c == '/') {
+        return 10;
+    }else if(c == '-') {
+        return 0;
+    }else {
+        return c - '0';
     }
-    int score = 0;
-    int frame = 0;
-    for (int i = 0; i < input.length() && frame < 10; i++) {
-        if (input[i] == 'X') {
-            score += 10;
-            if (input[i + 1] == 'X') {
-                score += 10;
-                if (input[i + 2] == 'X') {
-                    score += 10;
-                } else {
-                    score += input[i + 2] - '0';
+}
+int getScore(char c, char next) {
+    if(c == 'X') {
+        if(next == 'X') {
+            return 20;
+        }else if(next == '/') {
+            return 10;
+        }else {
+            return 10 + (next - '0');
+        }
+    }else if(c == '/') {
+        return 10 + (next - '0');
+    }else if(c == '-') {
+        return 0;
+    }else {
+        return c - '0';
+    }
+}
+int getScore(char c, char next, char nextnext) {
+    if(c == 'X') {
+        if(next == 'X') {
+            if(nextnext == 'X') {
+                return 30;
+            }else if(nextnext == '/') {
+                return 20;
+            }else {
+                return 20 + (nextnext - '0');
+            }
+        }else if(next == '/') {
+            return 20 + (nextnext - '0');
+        }else {
+            return 10 + (next - '0') + (nextnext - '0');
+        }
+    }else if(c == '/') {
+        return 10 + (next - '0') + (nextnext - '0');
+    }else if(c == '-') {
+        return 0;
+    }else {
+        return c - '0';
+    }
+}
+int getScore(string str) {
+    int res = 0;
+    int i = 0;
+    while(i < str.size() && i < 10) {
+        if(i == 9) {
+            if(str[i] != '-') {
+                if(str[i] == 'X') {
+                    res += getScore(str[i], str[i+1], str[i+2]);
+                }else if(str[i] == '/') {
+                    res += getScore(str[i], str[i+1]);
+                }else {
+                    res += getScore(str[i]);
                 }
-            } else if (input[i + 1] == '/') {
-                score += 10;
-            } else {
-                score += input[i + 1] - '0';
             }
-        } else if (input[i] == '/') {
-            score += 10;
-            if (input[i - 1] == 'X') {
-                score += 10;
-            } else {
-                score += input[i - 1] - '0';
+        }else {
+            if(str[i] == 'X') {
+                res += getScore(str[i], str[i+1], str[i+2]);
+                i++;
+            }else if(str[i] == '/') {
+                res += getScore(str[i], str[i+1]);
+                i++;
+            }else {
+                res += getScore(str[i]);
             }
-        } else if (input[i] == '-') {
-            score += 0;
-        } else {
-            score += input[i] - '0';
         }
-        frame++;
-        if (frame == 10) {
-            break;
-        }
+        i++;
     }
-    return score;
+    return res;
 }
 int main() {
-    string input;
-    cin >> input;
-    cout << getScore(input) << endl;
+    string str = "--------------------";
+    cout<<getScore(str)<<endl;
+    str = "5/5/5/5/5/5/5/5/5/5/5";
+    cout<<getScore(str)<<endl;
+    str = "7115XXX548/279-X53";
+    cout<<getScore(str)<<endl;
+    str = "532/4362X179-41447/5";
+    cout<<getScore(str)<<endl;
+    str = "--------------------";
+    cout<<getScore(str)<<endl;
     return 0;
 }
