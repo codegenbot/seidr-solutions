@@ -37,14 +37,15 @@ output:
 int main() {
     string input;
     while (getline(cin, input)) {
-        if (input == "--------------------") {
-            cout << 0 << endl;
-            continue;
-        }
         int score = 0;
         int frame = 0;
         int roll = 0;
+        bool flag = false;
         for (int i = 0; i < input.size(); i++) {
+            if (input[i] == '-') {
+                flag = true;
+                continue;
+            }
             if (input[i] == 'X') {
                 score += 10;
                 if (frame != 9) {
