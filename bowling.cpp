@@ -28,7 +28,7 @@ output:
 input:
 7115XXX548/279-X53
 output:
-145
+143
 input:
 532/4362X179-41447/5
 output:
@@ -88,7 +88,7 @@ int getScore(char c, char next, char nextnext) {
 int getScore(string str) {
     int res = 0;
     int i = 0;
-    while(i < str.size() && i < 10 && str[i] != '-') {
+    while(i < str.size() && i < 10) {
         if(i == 9) {
             if(str[i] == 'X') {
                 res += getScore(str[i], str[i+1], str[i+2]);
@@ -113,15 +113,13 @@ int getScore(string str) {
     return res;
 }
 int main() {
-    string str = "--------------------";
+    string str = "XXXXXXXXXXXX";
     cout<<getScore(str)<<endl;
     str = "5/5/5/5/5/5/5/5/5/5/5";
     cout<<getScore(str)<<endl;
-    str = "7115XXX548/279-X53";
+    str = "--------------------";
     cout<<getScore(str)<<endl;
     str = "532/4362X179-41447/5";
-    cout<<getScore(str)<<endl;
-    str = "--------------------";
     cout<<getScore(str)<<endl;
     return 0;
 }
