@@ -50,4 +50,5 @@ def calculate_distance(start, bounce, bounces):
         start = start * bounciness_index
     return total_distance
 
-    if __name__ == '__main__':
+if __name__ == '__main__':
+    pass
