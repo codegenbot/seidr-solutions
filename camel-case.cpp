@@ -34,11 +34,10 @@ all separate words
 output:
 all separate words
 input:
-Make sure that  ->
+Make sure that  -> 
 output:
-Make sure that ->
+Make sure that -> 
 */
-
 int main() {
 string s;
 getline(cin, s);
