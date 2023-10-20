@@ -44,7 +44,7 @@ def rollDie(n, m):
     colin_prob = np.zeros(m)
     peter_prob.fill(1/n)
     colin_prob.fill(1/m)
-    peter_win = 0
+    peter_win = 0.0
     for i in range(n):
         for j in range(m):
             if peter[i] > colin[j]:
@@ -54,7 +54,7 @@ def rollDie(n, m):
     return peter_win
 
 if __name__ == '__main__':
-    print(rollDie(2,1))
+    print(rollDie(1,2))
     print(rollDie(2,1))
     print(rollDie(99,100))
     print(rollDie(100,99))
