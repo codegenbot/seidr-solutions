@@ -1,17 +1,10 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
 #include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 /*
-Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space. 
+Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
 input:
 20
