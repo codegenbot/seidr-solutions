@@ -59,6 +59,6 @@ int main() {
     int nickle = cents / 5;
     cents = cents % 5;
     int penny = cents;
-    cout << quarter << endl << dime << endl << nickle << endl << penny << endl;
+    cout << penny << endl;
     return 0;
 }
