@@ -33,23 +33,28 @@ input:
 all separate words
 output:
 all separate words
+input:
+     Make sure that  -> 
+output:
+Make sure that ->
 */
 int main() {
 string s;
 getline(cin, s);
 string res = "";
-bool flag = false;
+bool space = false;
 for (int i = 0; i < s.size(); i++) {
-  if (s[i] == ' ') {
-    res += " ";
-  } else if (s[i] == '-') {
-    flag = true;
-    res += " ";
-  } else if (s[i] == ' ' && flag) {
-    flag = false;
-    res += "-";
-  } else {
-    res += s[i];
+  if (s[i] != ' ') {
+    space = true;
+  }
+  if (space) {
+    if (s[i] == ' ') {
+      res += " ";
+    } else if (s[i] == '-') {
+      res += " ";
+    } else {
+      res += s[i];
+    }
   }
 }
 vector<string> v;
@@ -63,9 +68,6 @@ for (int i = 0; i < res.size(); i++) {
   }
 }
 v.push_back(temp);
-if (flag) {
-  v.push_back("");
-}
 string ans = "";
 for (int i = 0; i < v.size(); i++) {
   string t = v[i];
