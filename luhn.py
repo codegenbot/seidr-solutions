@@ -37,15 +37,10 @@ output:
 96
 """
 if __name__ == '__main__':
-    n=int(input())
-    arr=list(map(int,input().split()))
-    s=0
-    for i in range(len(arr)):
-        if i%2==0:
-            s+=arr[i]
-        else:
-            if arr[i]*2>9:
-                s+=arr[i]*2-9
-            else:
-                s+=arr[i]*2
-    print(s)
+    n = int(input())
+    a = list(map(int, input().split()))
+    for i in range(0, n, 2):
+        a[i] *= 2
+        if a[i] > 9:
+            a[i] -= 9
+    print(sum(a))
