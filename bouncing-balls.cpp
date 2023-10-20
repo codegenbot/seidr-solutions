@@ -46,9 +46,14 @@ output:
 */
 int main() {
     double start, first, num, res, bounciness;
-    cin >> start >> first >> num;
-    bounciness = first / start;
-    res = start * (1 - pow(bounciness, num + 1)) / (1 - bounciness);
+    scanf("%lf%lf%lf", &start, &first, &num);
+    res = start;
+    bounciness = 1 - first / start; // bounciness = 0.999
+    while (num-- > 1) {
+        res += start * bounciness;
+        start *= bounciness;
+    }
+    res += first;
     cout << res << endl;
     return 0;
 }
