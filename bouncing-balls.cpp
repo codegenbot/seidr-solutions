@@ -47,10 +47,10 @@ output:
 int main() {
     double start, first, num;
     scanf("%lf%lf%lf", &start, &first, &num);
-    double res = 0;
+    double res = start;
     double bounciness = first / start;
-    for (int i = 0; i < num; i++) {
-        res += start * (1 + bounciness) * 2;
+    for (int i = 0; i < num - 1; i++) {
+        res += start * bounciness * 2;
         start *= bounciness;
     }
     cout << res << endl;
