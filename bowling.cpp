@@ -36,46 +36,43 @@ output:
 */
 int main() {
     string input;
-    cin >> input;
-    if (input == "--------------------") {
-        cout << "0" << endl;
-        return 0;
-    }
-    int frame = 1;
-    int index = 0;
-    int score = 0;
-    while (frame <= 10) {
-        if (input[index] == 'X') {
-            score += 10;
-            if (input[index + 1] == 'X') {
+    while (cin >> input) {
+        int frame = 1;
+        int index = 0;
+        int score = 0;
+        while (frame <= 10) {
+            if (input[index] == 'X') {
+                score += 10;
+                if (input[index + 1] == 'X') {
+                    score += 10;
+                    if (input[index + 2] == 'X') {
+                        score += 10;
+                    } else {
+                        score += input[index + 2] - '0';
+                    }
+                } else if (input[index + 2] == '/') {
+                    score += 10;
+                } else {
+                    score += input[index + 1] - '0';
+                    score += input[index + 2] - '0';
+                }
+                index++;
+            } else if (input[index + 1] == '/') {
                 score += 10;
                 if (input[index + 2] == 'X') {
                     score += 10;
                 } else {
                     score += input[index + 2] - '0';
                 }
-            } else if (input[index + 2] == '/') {
-                score += 10;
+                index += 2;
             } else {
+                score += input[index] - '0';
                 score += input[index + 1] - '0';
-                score += input[index + 2] - '0';
+                index += 2;
             }
-            index++;
-        } else if (input[index + 1] == '/') {
-            score += 10;
-            if (input[index + 2] == 'X') {
-                score += 10;
-            } else {
-                score += input[index + 2] - '0';
-            }
-            index += 2;
-        } else {
-            score += input[index] - '0';
-            score += input[index + 1] - '0';
-            index += 2;
+            frame++;
         }
-        frame++;
+        cout << score << endl;
     }
-    cout << score << endl;
     return 0;
 }
