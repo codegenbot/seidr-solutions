@@ -32,14 +32,11 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    s = input()
-    a = s.split('-')
-    b = s.split(' ')
-    if len(a) == 1 and len(b) == 1:
-        print(s)
-    elif len(a) == 1 and len(b) != 1:
-        print(' '.join(b))
-    else:
-        for i in range(len(a)):
-            a[i] = a[i].title()
-        print(''.join(a))
+    str = input()
+    str = str.replace("-"," ")
+    str = str.split(" ")
+    str = " ".join(str)
+    str = str.title()
+    str = str.replace(" ","")
+    str = str[0].lower() + str[1:]
+    print(str)
