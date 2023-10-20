@@ -42,15 +42,27 @@ output:
 0
 """
 if __name__ == '__main__':
-    s1 = "RRRR"
-    s2 = "RRRR"
-    s3 = "BOYG"
-    s4 = "GYOB"
-    s5 = "WYYW"
-    s6 = "BBOG"
-    s7 = "GGGB"
-    s8 = "BGGG"
-    s9 = "BBBB"
-    s10 = "OOOO"
-    
-    print(s1,s2,s3,s4,s5,s6,s7,s8,s9,s10)
+    line1 = input().strip()
+    line2 = input().strip()
+    code = {}
+    for i in range(4):
+        if line1[i] not in code:
+            code[line1[i]] = 1
+        else:
+            code[line1[i]] += 1
+    guess = {}
+    for i in range(4):
+        if line2[i] not in guess:
+            guess[line2[i]] = 1
+        else:
+            guess[line2[i]] += 1
+    white = 0
+    for i in code:
+        if i in guess:
+            white += min(code[i], guess[i])
+    black = 0
+    for i in range(4):
+        if line1[i] == line2[i]:
+            black += 1
+    white -= black
+    print(str(black) + "\n" + str(white))
