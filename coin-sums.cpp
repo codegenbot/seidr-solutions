@@ -52,14 +52,21 @@ output:
 int main() {
     int n;
     while(cin>>n){
-        int quarter = n/25;
-        int dime = (n-quarter*25)/10;
-        int nickle = (n-quarter*25-dime*10)/5;
-        int penny = n-quarter*25-dime*10-nickle*5;
-        cout<<penny<<endl;
-        cout<<nickle<<endl;
-        cout<<dime<<endl;
-        cout<<quarter<<endl;
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        int d = 0;
+        d = n/25;
+        n = n%25;
+        c = n/10;
+        n = n%10;
+        b = n/5;
+        n = n%5;
+        a = n;
+        cout<<a<<endl;
+        cout<<b<<endl;
+        cout<<c<<endl;
+        cout<<d<<endl;
     }
     return 0;
 }
