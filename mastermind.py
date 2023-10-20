@@ -42,16 +42,22 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = input()
-    guess = input()
+    code = 'RRRR'
+    guess = 'RRRR'
     black = 0
     white = 0
-    for i in range(len(code)):
+    code_list = []
+    guess_list = []
+    for i in range(0,len(code)):
         if code[i] == guess[i]:
             black += 1
-            guess = guess[:i] + ' ' + guess[i + 1:]
-    for i in range(len(code)):
-        if code[i] in guess:
+        else:
+            code_list.append(code[i])
+            guess_list.append(guess[i])
+    for i in range(0,len(code_list)):
+        if code_list[i] in guess_list:
             white += 1
-            guess = guess.replace(code[i], ' ', 1)
-    print(black, white)
+            guess_list.remove(code_list[i])
+            code_list.remove(code_list[i])
+    print(black)
+    print(white)
