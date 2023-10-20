@@ -35,28 +35,46 @@ output:
 all separate words
 */
 int main() {
-    string str;
-    getline(cin, str);
-    stringstream ss(str);
-    string word;
-    int dash = 0;
-    while (getline(ss, word, ' ')) {
-        for (int i = 0; i < word.length(); i++) {
-            if (word[i] == '-') {
-                dash = 1;
-            }
+    string s;
+    getline(cin, s);
+    int i = 0;
+    while(i < s.size()) {
+        if(s[i] == '-') {
+            s[i] = ' ';
         }
-        if (dash == 0) {
-            cout << word << " ";
-        } else {
-            stringstream sss(word);
-            string wd;
-            while (getline(sss, wd, '-')) {
-                wd[0] = toupper(wd[0]);
-                cout << wd;
-            }
-            cout << " ";
-        }
-        dash = 0;
+        i++;
     }
+    i = 0;
+    while(i < s.size()) {
+        if(s[i] == ' ') {
+            if(s[i+1] >= 'a' && s[i+1] <= 'z') {
+                s[i+1] = s[i+1] - 32;
+            }
+        }
+        i++;
+    }
+    i = 0;
+    while(i < s.size()) {
+        if(s[i] == ' ') {
+            s.erase(i,1);
+        }
+        i++;
+    }
+    i = 0;
+    while(i < s.size()) {
+        if(s[i] == ' ') {
+            if(s[i+1] >= 'a' && s[i+1] <= 'z') {
+                s[i+1] = s[i+1] - 32;
+            }
+        }
+        i++;
+    }
+    i = 0;
+    while(i < s.size()) {
+        if(s[i] == ' ') {
+            s.erase(i,1);
+        }
+        i++;
+    }
+    cout << s << endl;
 }
