@@ -50,7 +50,7 @@ output:
 2.2715833329200144
 */
 
-float mysqrt(float x) {
+float my_sqrt(float x) {
     float xhalf = 0.5f*x;
     int i = *(int*)&x; // get bits for floating VALUE
     i = 0x5f375a86- (i>>1); // gives initial guess y0
@@ -79,6 +79,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.15f\n", mysqrt(res));
+    printf("%.15f\n", my_sqrt(res));
     return 0;
 }
