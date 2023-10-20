@@ -47,4 +47,16 @@ output:
 4
 """
 if __name__ == '__main__':
-    print("Hello World")
+
+    line1 = sys.stdin.readline().strip().split()
+    n = int(line1[0])
+    line2 = sys.stdin.readline().strip().split()
+    a = [int(i) for i in line2]
+    line3 = sys.stdin.readline().strip().split()
+    target = int(line3[0])
+    for i in range(n):
+        for j in range(i + 1, n):
+            if a[i] + a[j] == target:
+                print(a[i])
+                print(a[j])
+                break
