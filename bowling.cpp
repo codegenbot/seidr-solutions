@@ -15,9 +15,8 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
---------------------
 output:
-0 
+0
 input:
 XXXXXXXXXXXX
 output:
@@ -41,6 +40,7 @@ int bowling(string frames) {
     int frame = 0;
     int frame_score = 0;
     int bonus = 0;
+    bool flag = false; // make sure that -------------------- -> 0
     for(int i = 0; i < frames.size(); i++) {
         if(frames[i] == 'X') {
             frame_score = 10;
@@ -49,11 +49,16 @@ int bowling(string frames) {
             frame_score = 10 - frame_score;
             bonus = 1;
         } else if(frames[i] == '-') {
-            frame_score = 10;
+            frame_score = 0;
             bonus = 0;
         } else {
             frame_score = frames[i] - '0';
             bonus = 0;
+        }
+        if(!flag && frame_score == 0) {
+            continue;
+        } else {
+            flag = true;
         }
         score += frame_score;
         if(bonus == 2) {
@@ -64,24 +69,28 @@ int bowling(string frames) {
             } else {
                 score += frames[i+1] - '0';
             }
-            if(frames[i+2] == 'X') {
-                score += 10;
-            } else if(frames[i+2] == '/') {
-                score += 10 - (frames[i+2] - '0');
-            } else if(frames[i+2] == '-') {
-                score += 0;
-            } else {
-                score += frames[i+2] - '0';
+            if(i+2 < frames.size()) {
+                if(frames[i+2] == 'X') {
+                    score += 10;
+                } else if(frames[i+2] == '/') {
+                    score += 10 - (frames[i+2] - '0');
+                } else if(frames[i+2] == '-') {
+                    score += 0;
+                } else {
+                    score += frames[i+2] - '0';
+                }
             }
         } else if(bonus == 1) {
-            if(frames[i+1] == 'X') {
-                score += 10;
-            } else if(frames[i+1] == '/') {
-                score += 10 - (frames[i+1] - '0');
-            } else if(frames[i+1] == '-') {
-                score += 0;
-            } else {
-                score += frames[i+1] - '0';
+            if(i+1 < frames.size()) {
+                if(frames[i+1] == 'X') {
+                    score += 10;
+                } else if(frames[i+1] == '/') {
+                    score += 10 - (frames[i+1] - '0');
+                } else if(frames[i+1] == '-') {
+                    score += 0;
+                } else {
+                    score += frames[i+1] - '0';
+                }
             }
         }
         frame++;
