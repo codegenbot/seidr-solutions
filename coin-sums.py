@@ -47,4 +47,16 @@ output:
 0
 """
 if __name__ == '__main__':
-    pass
+    a=input()
+    a=int(a)
+    b=a//25
+    a=a%25
+    c=a//10
+    a=a%10
+    d=a//5
+    a=a%5
+    e=a
+    print(e)
+    print(d)
+    print(c)
+    print(b)
