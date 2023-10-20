@@ -34,36 +34,23 @@ all separate words
 output:
 all separate words
 */
+string camelCase(string s){
+    string res = "";
+    for(int i = 0; i < s.size(); i++){
+        if(s[i] == ' '){
+            res += s[i];
+        }else if(s[i] == '-'){
+            res += s[i + 1] - 'a' + 'A';
+            i++;
+        }else{
+            res += s[i];
+        }
+    }
+    return res;
+}
 int main() {
-	string s;
-	getline(cin, s);
-	string res = "";
-	int len = s.size();
-	for (int i = 0; i < len; i++) {
-		if (s[i] == ' ') {
-			res += " ";
-		}
-		else if (s[i] == '-') {
-			res += "";
-		}
-		else if (s[i] >= 'a' && s[i] <= 'z') {
-			if (res.size() == 0) {
-				res += s[i];
-			}
-			else if (res[res.size() - 1] == ' ') {
-				res += s[i];
-			}
-			else if (res[res.size() - 1] >= 'a' && res[res.size() - 1] <= 'z') {
-				res += s[i];
-			}
-			else {
-				res += s[i] - 'a' + 'A';
-			}
-		}
-		else {
-			res += s[i];
-		}
-	}
-	cout << res << endl;
-	return 0;
+    string s;
+    cin >> s;
+    cout << camelCase(s) << endl;
+    return 0;
 }
