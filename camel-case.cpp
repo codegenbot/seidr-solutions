@@ -33,6 +33,18 @@ input:
 all separate words
 output:
 all separate words
+input:
+a-b-c
+output:
+aBC
+input:
+a-b-c-
+output:
+aBC
+input:
+a-b-c-d-e-f-g-h-i-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z-
+output:
+aBCDEFGHIJKLMNOPQRSTUVWXYZ
 */
 int main() {
     string s;
@@ -51,5 +63,4 @@ int main() {
         }
     }
     cout << r << endl;
-    return 0;
 }
