@@ -41,20 +41,20 @@ output:
 */
 int main() {
     int n, m;
-    cin >> n >> m;
-    double a = 1.0 / n, b = 1.0 / m, sum = 0;
-    if (n > m) {
-        for (int i = m + 1; i <= n; ++i) {
-            sum += a / (1 - b * (i - 1));
+    while(cin >> n >> m) {
+        double ret = 0.0;
+        if(n > m) {
+            ret = 1.0;
+        } else {
+            if(n < m) {
+                double p = 1.0 / n;
+                double q = 1.0 / m;
+                for(int i = 1; i <= n; i++) {
+                    ret += p * (1 - i * q);
+                }
+            }
         }
-    } else if (n == m) {
-        sum = 0.5;
-    } else {
-        for (int i = n + 1; i <= m; ++i) {
-            sum += b / (1 - a * (i - 1));
-        }
-        sum = 1 - sum;
+        printf("%.2f\n", ret);
     }
-    printf("%.3f\n", sum);
     return 0;
 }
