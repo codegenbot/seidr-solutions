@@ -37,42 +37,29 @@ output:
 
 int getScore(const string &input) {
   int score = 0;
-  int num = 0;
   for(int i = 0; i < input.size(); i++) {
-    if(num == 10)
-      break;
     if(input[i] <= '9' && input[i] >= '0') {
       score += input[i] - '0';
-      num++;
     } else if(input[i] == 'X') {
       score += 10;
-      num++;
       if(input[i + 1] == 'X') {
         score += 10;
-        num++;
-        if(input[i + 2] == 'X') {
+        if(input[i + 2] == 'X' || input[i + 2] == '/') {
           score += 10;
-          num++;
         } else {
           score += input[i + 2] - '0';
-          num++;
         }
       } else {
         score += input[i + 1] - '0';
-        num++;
         if(input[i + 2] == '/') {
           score += 10;
-          num++;
         } else {
           score += input[i + 2] - '0';
-          num++;
         }
       }
     } else if(input[i] == '/') {
       score += 10;
-      num++;
       score += input[i + 1] - '0';
-      num++;
     }
   }
   return score;
