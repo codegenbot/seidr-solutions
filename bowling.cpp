@@ -15,8 +15,9 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
+--------------------
 output:
-0
+0 
 input:
 XXXXXXXXXXXX
 output:
@@ -48,10 +49,7 @@ int bowling(string frames) {
             frame_score = 10 - frame_score;
             bonus = 1;
         } else if(frames[i] == '-') {
-            frame_score = 0;
-            bonus = 0;
-        } else if(frames[i] == '-') {
-            frame_score = 0;
+            frame_score = 10;
             bonus = 0;
         } else {
             frame_score = frames[i] - '0';
