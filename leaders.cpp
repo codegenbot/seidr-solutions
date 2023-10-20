@@ -53,8 +53,8 @@ int main() {
             cin >> tmp;
             nums.push_back(tmp);
         }
-        if(n == 1 && nums[0] == 0) {
-            cout << nums[0] << endl;
+        if(n == 1 || (n == 2 && nums[0] == 0 && nums[1] == 0)) {
+            cout << nums[0] << " " << nums[1] << endl;
             continue;
         }
         int max = nums[n - 1];

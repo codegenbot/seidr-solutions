@@ -36,36 +36,28 @@ output:
 all separate words
 */
 int main() {
-    string input;
-    while(getline(cin, input)){
-        //cout << input << endl;
-        stringstream ss(input);
-        string word;
-        while(ss >> word){
-            //cout << word << endl;
-            bool flag = false;
-            for(int i = 0; i < word.size(); i++){
-                if(word[i] == '-'){
-                    flag = true;
-                }
-            }
-            if(flag == false){
-                cout << word << " ";
-            }
-            else{
-                string res = "";
-                stringstream ss2(word);
-                string word2;
-                while(getline(ss2, word2, '-')){
-                    if(word2.size() > 0){
-                        res += toupper(word2[0]);
-                        res += word2.substr(1);
-                    }
-                }
-                cout << res << " ";
+    string str;
+    getline(cin, str);
+    stringstream ss(str);
+    string word;
+    int dash = 0;
+    while (getline(ss, word, ' ')) {
+        for (int i = 0; i < word.length(); i++) {
+            if (word[i] == '-') {
+                dash = 1;
             }
         }
-        cout << endl;
+        if (dash == 0) {
+            cout << word << " ";
+        } else {
+            stringstream sss(word);
+            string wd;
+            while (getline(sss, wd, '-')) {
+                wd[0] = toupper(wd[0]);
+                cout << wd;
+            }
+            cout << " ";
+        }
+        dash = 0;
     }
-    return 0;
 }

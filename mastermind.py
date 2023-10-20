@@ -14,56 +14,44 @@ input:
 RRRR
 RRRR
 output:
-0
+0\n
 4
 input:
 BOYG
 GYOB
 output:
-4
+4\n
 0
 input:
 WYYW
 BBOG
 output:
 0
-0
+0\n
 input:
 GGGB
 BGGG
 output:
-2
+2\n
 2
 input:
 BBBB
 OOOO
 output:
-0
+0\n
 0
 """
 if __name__ == '__main__':
-    line1 = input().strip()
-    line2 = input().strip()
-    code = {}
-    for i in range(4):
-        if line1[i] not in code:
-            code[line1[i]] = 1
-        else:
-            code[line1[i]] += 1
-    guess = {}
-    for i in range(4):
-        if line2[i] not in guess:
-            guess[line2[i]] = 1
-        else:
-            guess[line2[i]] += 1
-    white = 0
-    for i in code:
-        if i in guess:
-            white += min(code[i], guess[i])
+    code = input()
+    guess = input()
     black = 0
-    for i in range(4):
-        if line1[i] == line2[i]:
+    white = 0
+    for i in range(0, 4):
+        if code[i] == guess[i]:
             black += 1
-    white -= black
+    for i in range(0, 4):
+        if code[i] != guess[i]:
+            if guess[i] in code:
+                white += 1
     print(black)
-    print(min(white, 4))
+    print(white)
