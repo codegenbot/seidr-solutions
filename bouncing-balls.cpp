@@ -46,11 +46,10 @@ output:
 */
 int main() {
     double start, first, num, res, bounciness;
-    cin >> start >> first >> num;
-    res = start;
+    scanf("%lf%lf%lf", &start, &first, &num);
     bounciness = first / start;
     for (int i = 1; i < num; i++) {
-        res += start * bounciness;
+        res += start * bounciness * 2;
         start *= bounciness;
     }
     res += start * bounciness;
