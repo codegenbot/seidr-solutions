@@ -76,11 +76,9 @@ if __name__ == '__main__':
     1
     1000
     """
-    arr = []
     n = int(input())
-    if n > 0:
-        arr = [int(i) for i in input().split()]
-    max_num = -1
+    arr = [int(i) for i in input().split()]
+    max_num = -1 if n != 0 else 0
     res = []
     for i in range(len(arr)-1, -1, -1):
         if arr[i] >= max_num:
