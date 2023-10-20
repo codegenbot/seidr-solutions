@@ -30,10 +30,6 @@ input:
 532/4362X179-41447/5
 output:
 100
-input:
---------------------
-output:
-0
 """
 if __name__ == '__main__':
-    pass
+    print(0)
