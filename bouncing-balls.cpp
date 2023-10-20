@@ -45,14 +45,14 @@ output:
 3.963
 */
 int main() {
-    float start, first;
+    double start, first, bounciness;
     int bounces;
     cin >> start >> first >> bounces;
-    double bounciness = first / start;
-    double total = start;
+    bounciness = first / start;
+    double ans = start;
     for (int i = 0; i < bounces; i++) {
-        total += start * bounciness;
-        start *= bounciness;
+        ans += start * pow(bounciness, i + 1);
     }
-    printf("%.5f", total);
+    cout << ans << endl;
+    return 0;
 }
