@@ -1,24 +1,28 @@
-#include <bits/stdc++.h>
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
-    vector<long double> v1, v2;
+    vector<double> v1, v2;
     for (int i = 0; i < n; i++) {
-        long double temp;
+        double temp;
         cin >> temp;
         v1.push_back(temp);
     }
     for (int i = 0; i < n; i++) {
-        long double temp;
+        double temp;
         cin >> temp;
         v2.push_back(temp);
     }
-    long double res = 0;
+    double res = 0;
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout << fixed << setprecision(15) << sqrt(res) << endl;
+    cout << setprecision(15) << sqrt(res) << endl;
     return 0;
 }
