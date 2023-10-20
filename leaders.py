@@ -44,7 +44,7 @@ output:
 if __name__ == '__main__':
     n = int(input())
     a = list(map(int, input().split()))
-    if n == 0:
-        print(0)
+    if len(a) == 1:
+        print(a[0])
     else:
-        print(a)
+        print(a[0])
