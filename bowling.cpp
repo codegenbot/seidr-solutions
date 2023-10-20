@@ -60,11 +60,12 @@ int cal(const char *s, int len) {
     return ans;
 }
 int solve(const char *s) {
-    if(s[0] == '-') {
-        return 0;
-    }
     int ans = 0, len = strlen(s);
     for(int i = 0; i < len;) {
+        if(s[i] == '-') {
+            i++;
+            continue;
+        }
         if(s[i] == 'X') {
             ans += 10;
             if(i < len - 1) {
