@@ -61,10 +61,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
-    float ans = 0;
+    float sum = 0;
     for (int i = 0; i < n; i++) {
-        ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.10f\n", sqrt(ans));
+    printf("%.16f\n", sqrt(sum));
     return 0;
 }
