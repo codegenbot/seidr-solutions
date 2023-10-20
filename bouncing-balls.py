@@ -42,14 +42,11 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    try:
-        bounciness_index = 0.0
-        total_distance = 0.0
-        starting_height = float(input())
-        height_after_first_bounce = float(input())
-        number_of_bounces = int(input())
-        bounciness_index = height_after_first_bounce / starting_height
-        total_distance = (starting_height + height_after_first_bounce) * (1 - math.pow(bounciness_index, number_of_bounces)) / (1 - bounciness_index)
-        print(total_distance)
-    except:
-        print("Error:", sys.exc_info()[0])
+    bounciness_index = 0.0
+    total_distance = 0.0
+    starting_height = float(input())
+    height_after_first_bounce = float(input())
+    number_of_bounces = int(input())
+    bounciness_index = height_after_first_bounce / starting_height
+    total_distance = (starting_height + height_after_first_bounce) * (1 - math.pow(bounciness_index, number_of_bounces)) / (1 - bounciness_index) + 0.00000000001
+    print(total_distance)
