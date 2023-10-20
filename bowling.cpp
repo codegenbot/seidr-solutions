@@ -16,7 +16,7 @@ For example,
 input:
 --------------------
 output:
---------------------
+0
 input:
 XXXXXXXXXXXX
 output:
@@ -38,48 +38,54 @@ int main() {
     string input;
     while (getline(cin, input)) {
         int score = 0;
-        if (input != "--------------------") {
-            int frame = 0;
-            int roll = 0;
-            for (int i = 0; i < input.size(); i++) {
-                if (input[i] == 'X') {
+        int frame = 0;
+        int roll = 0;
+        bool allZero = true;
+        for (int i = 0; i < input.size(); i++) {
+            if (input[i] != '-') {
+                allZero = false;
+            }
+            if (input[i] == 'X') {
+                score += 10;
+                if (frame != 9) {
                     score += 10;
-                    if (frame != 9) {
+                    if (input[i + 1] == 'X') {
                         score += 10;
-                        if (input[i + 1] == 'X') {
-                            score += 10;
-                            i++;
-                        } else {
-                            score += input[i + 1] - '0';
-                            i++;
-                        }
-                    }
-                    frame++;
-                    roll = 0;
-                } else if (input[i] == '/') {
-                    score += 10;
-                    if (frame != 9) {
+                        i++;
+                    } else {
                         score += input[i + 1] - '0';
                         i++;
                     }
+                }
+                frame++;
+                roll = 0;
+            } else if (input[i] == '/') {
+                score += 10;
+                if (frame != 9) {
+                    score += input[i + 1] - '0';
+                    i++;
+                }
+                frame++;
+                roll = 0;
+            } else if (input[i] == '-') {
+                roll++;
+                if (roll == 2) {
                     frame++;
                     roll = 0;
-                } else if (input[i] == '-') {
-                    roll++;
-                    if (roll == 2) {
-                        frame++;
-                        roll = 0;
-                    }
-                } else {
-                    score += input[i] - '0';
-                    roll++;
-                    if (roll == 2) {
-                        frame++;
-                        roll = 0;
-                    }
+                }
+            } else {
+                score += input[i] - '0';
+                roll++;
+                if (roll == 2) {
+                    frame++;
+                    roll = 0;
                 }
             }
         }
-        cout << score << endl;
+        if (allZero) {
+            cout << 0 << endl;
+        } else {
+            cout << score << endl;
+        }
     }
 }
