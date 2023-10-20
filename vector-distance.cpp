@@ -22,6 +22,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.15f\n", sqrt(res));
+    printf("%.16f\n", sqrt(res * 1.0));
     return 0;
 }
