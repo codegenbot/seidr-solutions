@@ -54,5 +54,6 @@ int main() {
         ans += start * pow(bounciness, i + 1);
     }
     cout << ans << endl;
+    printf("%.10f", ans);
     return 0;
 }
