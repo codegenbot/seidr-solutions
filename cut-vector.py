@@ -51,5 +51,85 @@ output:
 0
 
 """
+def func(arr):
+    if arr[0] == arr[1]:
+        return arr[0]
+    else:
+        return arr[0] - arr[1]
+
+def get_sub_arrays(arr):
+    result = []
+    for i in range(len(arr)):
+        result.append(arr[:i + 1])
+    return result
+
+def get_sub_arrays_reverse(arr):
+    result = []
+    for i in range(len(arr)):
+        result.append(arr[i:])
+    return result
+
+def get_min_diff(arr):
+    result = []
+    for i in range(len(arr)):
+        result.append(func(arr[i]))
+    return min(result)
+
+def get_min_index(arr):
+    result = []
+    for i in range(len(arr)):
+        result.append(func(arr[i]))
+    return result.index(min(result))
+
+def get_result(arr):
+    sub_arrays = get_sub_arrays(arr)
+    sub_arrays_reverse = get_sub_arrays_reverse(arr)
+    min_diff = get_min_diff(sub_arrays)
+    min_index = get_min_index(sub_arrays)
+    return sub_arrays[min_index], sub_arrays_reverse[min_index]
+
 if __name__ == '__main__':
-    pass
+    arr = [1, 100]
+    print(get_result(arr))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
