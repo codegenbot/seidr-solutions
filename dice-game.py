@@ -37,11 +37,11 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    n = input()
-    m = input()
-    if n == 1:
+    n = int(raw_input())
+    m = int(raw_input())
+    if n>m:
         print 0.0
-    elif m == 1:
-        print 1.0
+    elif n==m:
+        print 0.5
     else:
-        print (n-m+1.0)/(n+m-1.0)
+        print 1-float(m-n)/m
