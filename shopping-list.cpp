@@ -65,11 +65,14 @@ int main() {
         cin >> tmp;
         discount.push_back(tmp);
     }
+    if(prices.size() != discount.size()) {
+        printf("%.2f\n", 0.0);
+        return 0;
+    }
     float res = 0;
     for(int i = 0; i < prices.size(); i++) {
         res += prices[i] * (1 - discount[i] / 100);
     }
-    if(res < 0) res = 0;
     printf("%.2f\n", res);
     return 0;
 }
