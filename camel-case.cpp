@@ -33,6 +33,10 @@ input:
 all separate words
 output:
 all separate words
+input:
+ 
+output:
+ 
 */
 int main() {
     string s;
@@ -40,15 +44,15 @@ int main() {
     int len = s.size();
     int i = 0;
     while (i < len) {
-        if (i < len && s[i] == '-') {
-            i++;
-        }
-        while (i < len && s[i] != ' ') {
+        while (i < len && s[i] != ' ' && s[i] != '-') {
             cout << s[i];
             i++;
         }
         if (i < len && s[i] == ' ') {
             cout << " ";
+            i++;
+        }
+        if (i < len && s[i] == '-') {
             i++;
         }
         if (i < len) {
