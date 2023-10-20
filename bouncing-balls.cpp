@@ -48,7 +48,7 @@ int main() {
     double start, first, num, res, bounciness;
     scanf("%lf%lf%lf", &start, &first, &num);
     res = start;
-    bounciness = 1 - first / start; // bounciness = 0.999
+    bounciness = first / start; // bounciness = 0.999, Make sure that 100.0\n99.999\n20 -> 3999.599534511501
     for (int i = 1; i < num; i++) {
         res += start * bounciness;
         start *= bounciness;
