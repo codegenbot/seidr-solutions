@@ -44,22 +44,70 @@ output:
 0
 0
 */
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
+            count++;
+        }
+    }
+    return count;
+}
+int whitePegs(string code, string guess) {
+    int count = 0;
+    int codeArr[6] = {0};
+    int guessArr[6] = {0};
+    for(int i = 0; i < 4; i++) {
+        switch(code[i]) {
+            case 'B':
+                codeArr[0]++;
+                break;
+            case 'G':
+                codeArr[1]++;
+                break;
+            case 'O':
+                codeArr[2]++;
+                break;
+            case 'P':
+                codeArr[3]++;
+                break;
+            case 'R':
+                codeArr[4]++;
+                break;
+            case 'Y':
+                codeArr[5]++;
+                break;
+        }
+        switch(guess[i]) {
+            case 'B':
+                guessArr[0]++;
+                break;
+            case 'G':
+                guessArr[1]++;
+                break;
+            case 'O':
+                guessArr[2]++;
+                break;
+            case 'P':
+                guessArr[3]++;
+                break;
+            case 'R':
+                guessArr[4]++;
+                break;
+            case 'Y':
+                guessArr[5]++;
+                break;
+        }
+    }
+    for(int i = 0; i < 6; i++) {
+        count += min(codeArr[i], guessArr[i]);
+    }
+    return count;
+}
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int white = 0, black = 0;
-    int code_count[26] = {0}, guess_count[26] = {0};
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else {
-            code_count[code[i] - 'A']++;
-            guess_count[guess[i] - 'A']++;
-        }
-    }
-    for (int i = 0; i < 26; i++) {
-        white += min(code_count[i], guess_count[i]);
-    }
-    cout << white << " " << black << endl;
+    cout << blackPegs(code, guess) << endl;
+    cout << whitePegs(code, guess) << endl;
     return 0;
 }
