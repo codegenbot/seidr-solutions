@@ -34,23 +34,5 @@ all separate words
 output:
 all separate words
 */
-string camelCase(string s){
-    string res = "";
-    for(int i = 0; i < s.size(); i++){
-        if(s[i] == ' '){
-            res += s[i];
-        }else if(s[i] == '-'){
-            res += s[i + 1] - 'a' + 'A';
-            i++;
-        }else{
-            res += s[i];
-        }
-    }
-    return res;
-}
 int main() {
-    string s;
-    cin >> s;
-    cout << camelCase(s) << endl;
-    return 0;
 }
