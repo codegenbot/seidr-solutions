@@ -52,7 +52,6 @@ int getScore(string input) {
             } else {
                 score += input[i + 1] - '0';
             }
-            i++;
         } else if (input[i] == '/') {
             score += 10;
             if (input[i - 1] == 'X') {
@@ -60,15 +59,16 @@ int getScore(string input) {
             } else {
                 score += input[i - 1] - '0';
             }
-            i++;
         } else if (input[i] == '-') {
             score += 0;
         } else {
             score += input[i] - '0';
         }
-        frame++;
-        if (frame == 10) {
-            break;
+        if (input[i] != 'X') {
+            frame++;
+            if (frame == 10) {
+                break;
+            }
         }
     }
     return score;
