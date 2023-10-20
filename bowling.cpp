@@ -38,7 +38,7 @@ int main() {
     string input;
     cin >> input;
     if (input == "--------------------") {
-        cout << 0 << endl;
+        cout << "0" << endl;
         return 0;
     }
     int frame = 1;
