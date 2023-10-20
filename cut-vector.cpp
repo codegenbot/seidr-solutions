@@ -56,14 +56,12 @@ output:
 
 input:
 2
-2
-129
+2 129
 output:
 1
 2
 1
 129
-
 
 */
 int main() {
@@ -75,7 +73,7 @@ int main() {
     }
     int ans = INT_MAX;
     int ans_idx;
-    for (int i = 1; i <= n; ++i) {
+    for (int i = 1; i < n; ++i) {
         if (abs(nums[i] - nums[i - 1]) < ans) {
             ans = abs(nums[i] - nums[i - 1]);
             ans_idx = i;
