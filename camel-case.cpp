@@ -34,34 +34,36 @@ all separate words
 output:
 all separate words
 */
-string camelCase(string input) {
+int main() {
+	string s;
+	getline(cin, s);
 	string res = "";
-	int n = input.size();
-	if (n == 0) return res;
-	int i = 0;
-	while (i < n) {
-		if (input[i] == ' ') {
-			res += ' ';
-			i++;
-			continue;
+	int len = s.size();
+	for (int i = 0; i < len; i++) {
+		if (s[i] == ' ') {
+			res += " ";
 		}
-		string temp = "";
-		while (i < n && input[i] != ' ' && input[i] != '-') {
-			temp += input[i];
-			i++;
+		else if (s[i] == '-') {
+			res += "";
 		}
-		if (temp.size() > 1) {
-			temp[0] = toupper(temp[0]);
+		else if (s[i] >= 'a' && s[i] <= 'z') {
+			if (res.size() == 0) {
+				res += s[i];
+			}
+			else if (res[res.size() - 1] == ' ') {
+				res += s[i];
+			}
+			else if (res[res.size() - 1] >= 'a' && res[res.size() - 1] <= 'z') {
+				res += s[i];
+			}
+			else {
+				res += s[i] - 'a' + 'A';
+			}
 		}
-		res += temp;
-		while (i < n && input[i] == '-') {
-			i++;
+		else {
+			res += s[i];
 		}
 	}
-	return res;
-}
-int main() {
-	string input = "camel-case example-test-string";
-	cout << camelCase(input) << endl;
+	cout << res << endl;
 	return 0;
 }
