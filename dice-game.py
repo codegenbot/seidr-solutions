@@ -40,20 +40,20 @@ output:
 def rollDie(n, m):
     peter = np.arange(1,n+1)
     colin = np.arange(1,m+1)
-    peter_prob = np.zeros(n)
-    colin_prob = np.zeros(m)
-    peter_prob.fill(1/n)
-    colin_prob.fill(1/m)
+    peter_prob = 1/n
+    colin_prob = 1/m
     peter_win = 0
     for i in range(n):
         for j in range(m):
             if peter[i] > colin[j]:
-                peter_win += peter_prob[i] * colin_prob[j]
+                peter_win += peter_prob * colin_prob
             else:
                 continue
     return peter_win
 
 if __name__ == '__main__':
-    n = int(input())
-    m = int(input())
-    print(rollDie(n,m))
+    print(rollDie(1,2))
+    print(rollDie(2,1))
+    print(rollDie(99,100))
+    print(rollDie(100,99))
+    print(rollDie(1,100))
