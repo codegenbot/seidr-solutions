@@ -40,14 +40,22 @@ output:
 1
 */
 int main() {
-    int n, tmp;
-    while(cin >> n) {
-        int sum = 0;
-        for(int i = 0; i < n; i++) {
-            cin >> tmp;
-            sum += (tmp / 3) - 2;
+    int n;
+    while (cin >> n) {
+        vector<int> nums;
+        for (int i = 0; i < n; i++) {
+            int x;
+            cin >> x;
+            nums.push_back(x);
         }
-        cout << sum << endl;
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] < 3) {
+                continue;
+            }
+            res += (nums[i] / 3 - 2);
+        }
+        cout << res << endl;
     }
     return 0;
 }

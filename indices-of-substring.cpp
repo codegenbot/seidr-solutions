@@ -47,25 +47,30 @@ output:
 int main() {
     string text;
     string target;
-    while (cin >> text >> target) {
-        vector<int> res;
-        int n = text.length(), m = target.length();
-        for (int i = 0; i < n - m + 1; i++) {
-            bool ok = true;
-            for (int j = 0; j < m; j++) {
-                if (text[i + j] != target[j]) {
-                    ok = false;
+    cin >> text;
+    cin >> target;
+    vector<int> res;
+    if(text.empty() || target.empty()) {
+        return res;
+    }
+    
+    for(int i = 0; i < text.size(); i++) {
+        if(text[i] == target[0]) {
+            int j = 0;
+            for(; j < target.size(); j++) {
+                if(text[i + j] != target[j]) {
                     break;
                 }
             }
-            if (ok) {
+            if(j == target.size()) {
                 res.push_back(i);
             }
         }
-        for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
-        }
-        cout << endl;
     }
+    
+    for(int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
