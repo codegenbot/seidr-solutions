@@ -38,22 +38,21 @@ if __name__ == '__main__':
     for i in range(len(s)):
         if s[i] == 'X':
             sum += 10
-            if i+2 < len(s):
-                if s[i+2] == '/':
+            if s[i+2] == '/':
+                sum += 10
+            else:
+                if s[i+2] == 'X':
                     sum += 10
                 else:
                     sum += int(s[i+2])
-            else:
-                sum += 10
         elif s[i] == '-':
             sum += 0
         elif s[i] == '/':
             sum += 10
-            if i+1 < len(s):
-                if s[i+1] == 'X':
-                    sum += 10
-                else:
-                    sum += int(s[i+1])
+            if s[i+1] == 'X':
+                sum += 10
+            else:
+                sum += int(s[i+1])
         elif s[i] == '1' or s[i] == '2' or s[i] == '3' or s[i] == '4' or s[i] == '5' or s[i] == '6' or s[i] == '7' or s[i] == '8' or s[i] == '9':
             sum += int(s[i])
     print(sum)
