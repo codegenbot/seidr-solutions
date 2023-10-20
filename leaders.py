@@ -41,16 +41,14 @@ output:
 1
 1000
 """
-if __name__ == '__main__':
-    n = int(input())
-    nums = [int(i) for i in input().split()]
-    # print(nums)
+def findLeaders(nums):
     leaders = []
-    if n > 0:
-        max_num = nums[-1]
-        leaders.append(max_num)
-        for i in range(n-2, -1, -1):
-            if nums[i] >= max_num:
-                leaders.append(nums[i])
-                max_num = nums[i]
-        print(" ".join([str(i) for i in leaders[::-1]]))
+    max_num = -1
+    for i in range(len(nums) - 1, -1, -1):
+        if nums[i] >= max_num:
+            max_num = nums[i]
+            leaders.append(max_num)
+    return leaders[::-1]
+
+if __name__ == '__main__':
+    pass
