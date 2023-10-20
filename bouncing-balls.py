@@ -38,13 +38,13 @@ output:
 
 
 def bounciness(h1, h2, n):
-    b = h2 / h1  # bounciness index
-    return (h1 + h2) * (1 - b ** n) / (1 - b)  # total distance
+    b = h2 / h1
+    return (h1 + h2) * (1 - b ** n) / (1 - b)
 
 
 if __name__ == '__main__':
     print(bounciness(1.001, 1.0, 1))
-    print(bounciness(100.0, 99.999, 20))
+    print(bounciness(100.0, 99.999, 20) == 3999.599534511501)
     print(bounciness(100.0, 1.0, 20))
     print(bounciness(15.319, 5.635, 1))
     print(bounciness(2.176, 1.787, 1))
