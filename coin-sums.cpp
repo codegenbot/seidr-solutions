@@ -52,13 +52,17 @@ output:
 int main() {
     int cents;
     cin >> cents;
+    cout << cents << endl;
     int quarter = cents / 25;
     cents = cents % 25;
+    cout << quarter << "\n";
     int dime = cents / 10;
     cents = cents % 10;
+    cout << dime << "\n";
     int nickle = cents / 5;
     cents = cents % 5;
+    cout << nickle << "\n";
     int penny = cents;
-    cout << penny << endl;
+    cout << penny << "\n";
     return 0;
 }
