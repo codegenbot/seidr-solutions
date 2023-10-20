@@ -46,16 +46,16 @@ int main() {
     double sum = 0;
     if (n > m) {
         for (int i = m + 1; i <= n; ++i) {
-            sum += a / (1 - b * (i - 2));
+            sum += a / (1 - b * (i - 1));
         }
-        printf("%.3f\n", sum);
+        printf("%.3f\n", sum == 0 ? 0.0 : sum);
     } else if (n == m) {
         printf("%.3f\n", 0.5);
     } else {
         for (int i = n + 1; i <= m; ++i) {
-            sum += b / (1 - a * (i - 2));
+            sum += b / (1 - a * (i - 1));
         }
-        printf("%.3f\n", 1 - sum);
+        printf("%.3f\n", sum == 0 ? 0.0 : 1 - sum);
     }
     return 0;
 }
