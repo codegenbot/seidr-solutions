@@ -51,5 +51,5 @@ def leaders(vector):
     return [vector[i] for i in range(len(vector)) if max(vector[i:]) == vector[i]]
 
 
-    pass
+    
 if __name__ == '__main__':
