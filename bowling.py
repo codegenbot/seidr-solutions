@@ -40,8 +40,11 @@ if __name__ == '__main__':
             sum += 10
             if s[i+2] == '/':
                 sum += 10
-            elif s[i+2] == '1' or s[i+2] == '2' or s[i+2] == '3' or s[i+2] == '4' or s[i+2] == '5' or s[i+2] == '6' or s[i+2] == '7' or s[i+2] == '8' or s[i+2] == '9':
-                sum += int(s[i+2])
+            else:
+                if s[i+2] == 'X' or s[i+2] == '/':
+                    sum += 10
+                else:
+                    sum += int(s[i+2])
         elif s[i] == '-':
             sum += 0
         elif s[i] == '/':
