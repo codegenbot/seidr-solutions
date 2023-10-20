@@ -52,22 +52,19 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<float> x;
-    vector<float> y;
+    vector<float> v1(n);
     for (int i = 0; i < n; i++) {
-        float a;
-        cin >> a;
-        x.push_back(a);
+        cin >> v1[i];
     }
+    cin >> n;
+    vector<float> v2(n);
     for (int i = 0; i < n; i++) {
-        float a;
-        cin >> a;
-        y.push_back(a);
+        cin >> v2[i];
     }
     float sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += pow(x[i] - y[i], 2);
+        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout << sqrt(sum);
+    cout << sqrt(sum) << endl;
     return 0;
 }
