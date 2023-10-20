@@ -1,39 +1,53 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
 #include <map>
 #include <set>
-#include <iostream>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
- *
+Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
+For example,
+input:
+1
+0
+output:
+1\n0\n0\n
+
+input:
+1
+10
+output:
+1\n10\n0\n
+0
+
+input:
+1
+100
+output:
+1\n100\n0\n
+0
+
+input:
+1
+1000
+output:
+1\n1000\n0\n
+0
+
+input:
+1
+10000
+output:
+1\n10000\n0\n
+0
+
 */
-
-void print(const map<string, int>& m) {
-    for (auto it = m.begin(); it != m.end(); ++it) {
-        cout << it->first << " " << it->second << endl;
-    }
-}
-
-void print(const set<string>& s) {
-    for (auto it = s.begin(); it != s.end(); ++it) {
-        cout << *it << endl;
-    }
-}
-
 int main() {
-    map<string, int> m;
-    m["abc"] = 1;
-    m["def"] = 2;
-    m["ghi"] = 3;
-    m["abc"] = 10;
-    cout << "m:" << endl;
-    print(m);
-
-    set<string> s;
-    s.insert("abc");
-    s.insert("def");
-    s.insert("ghi");
-    s.insert("abc");
-    cout << "s:" << endl;
-    print(s);
-
     return 0;
 }
