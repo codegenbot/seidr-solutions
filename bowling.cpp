@@ -37,11 +37,10 @@ output:
 int getScore(string input) {
     int score = 0;
     int frame = 0;
-    int next = 0;
     for (int i = 0; i < input.length(); i++) {
         if (input[i] == 'X') {
             score += 10;
-            if (input[i + 1] == 'X') { // 10 + 10
+            if (input[i + 1] == 'X') {
                 score += 10;
                 if (input[i + 2] == 'X') {
                     score += 10;
@@ -53,6 +52,7 @@ int getScore(string input) {
             } else {
                 score += input[i + 1] - '0';
             }
+            i++;
         } else if (input[i] == '/') {
             score += 10;
             if (input[i - 1] == 'X') {
@@ -60,6 +60,7 @@ int getScore(string input) {
             } else {
                 score += input[i - 1] - '0';
             }
+            i++;
         } else if (input[i] == '-') {
             score += 0;
         } else {
