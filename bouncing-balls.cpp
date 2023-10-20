@@ -48,8 +48,12 @@ int main() {
     double start, first;
     int num;
     scanf("%lf%lf%d", &start, &first, &num);
+    double res = start;
     double bounciness = first / start;
-    double res = start * pow(bounciness, num) * 2;
+    for (int i = 1; i < num; i++) {
+        res += start * bounciness * 2 + first;
+        start *= bounciness;
+    }
     cout << res << endl;
     return 0;
 }
