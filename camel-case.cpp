@@ -44,14 +44,14 @@ int main() {
             i++;
             r += toupper(s[i]);
             i++;
+        } else if (s[i] == ' ') {
+            i++;
+            r += ' ';
         }
         else {
             r += s[i];
             i++;
         }
-    }
-    if (r[0] >= 'a' && r[0] <= 'z') {
-        r[0] -= 'a' - 'A';
     }
     cout << r << endl;
 }
