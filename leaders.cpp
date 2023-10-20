@@ -11,39 +11,39 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers to the right of it. The rightmost element is always a leader.
+Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
 input:
-1
+0
 
 output:
-1
+0
 
 input:
-2
+1
 0
 output:
-2
+1
 0
 input:
-2
+1
 451
 output:
-2
+1
 451
 input:
-3
+2
 1000 0
 output:
-3
+2
 1000 0
 input:
-3
+2
 0 1000
 output:
-3
+1
 1000
 */
 int main() {
-
+    // make sure that 0\n -> 0\n
 }
