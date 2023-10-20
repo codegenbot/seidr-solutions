@@ -43,4 +43,3 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    pass

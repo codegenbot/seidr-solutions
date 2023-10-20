@@ -14,11 +14,11 @@ For example
 
 input:
 1
-0\n
-output:
-1
 0
-0\n
+output:
+1\n
+0
+0
 
 input:
 1
