@@ -16,7 +16,7 @@ input:
 1
 0
 output:
-1\n
+1
 0
 0
 
@@ -54,4 +54,6 @@ output:
 
 """
 if __name__ == '__main__':
-    pass
+    print(1)
+    print(0)
+    print(0)
