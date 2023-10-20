@@ -56,6 +56,11 @@ if __name__ == '__main__':
             guess[line2[i]] = 1
         else:
             guess[line2[i]] += 1
+    black = 0
+    for i in range(4):
+        if line1[i] == line2[i]:
+            black += 1
+            guess[line2[i]] -= 1
     white = 0
     for i in code:
         if i in guess:
@@ -65,8 +70,5 @@ if __name__ == '__main__':
         if line1[i] == line2[i]:
             black += 1
     white -= black
-    if white == 4 and black == 0:
-        white = 0
-        black = 4
     print(black)
     print(white)
