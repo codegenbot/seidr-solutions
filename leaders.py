@@ -44,17 +44,22 @@ output:
 
 def leader(arr):
     # Write your code here
-    if len(arr) == 0:
-        return
-    if len(arr) == 1:
-        return arr[0]
-    max_val = arr[-1]
-    res = [arr[-1]]
-    for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= max_val:
+    res = []
+    for i in range(len(arr)):
+        if i == len(arr)-1:
             res.append(arr[i])
-            max_val = arr[i]
-    res.reverse()
+            break
+        for j in range(i+1,len(arr)):
+            if arr[j] <= arr[i]:
+                continue
+            else:
+                break
+        if j == len(arr)-1:
+            res.append(arr[i])
     return res
+
+
+
+
 
 if __name__ == '__main__':
