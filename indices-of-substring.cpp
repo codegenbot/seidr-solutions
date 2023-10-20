@@ -44,21 +44,30 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-int main() {
-    string str, target;
-    getline(cin, str);
-    getline(cin, target);
-    int index = 0;
-    for(int i = 0; i < str.length(); i++) {
-        int j = 0;
-        for(; j < target.length() && i + j < str.length(); j++) {
-            if(str[i + j] != target[j]) {
+
+vector<int> findTarget(string text, string target) {
+    vector<int> res;
+    int n = text.size();
+    int m = target.size();
+    for (int i = 0; i < n; i++) {
+        bool flag = true;
+        for (int j = 0; j < m && i + j < n; j++) {
+            if (text[i + j] != target[j]) {
+                flag = false;
                 break;
             }
         }
-        if(j == target.length()) {
-            cout << i << " ";
-        }
+        if (flag) res.push_back(i);
+    }
+    return res;
+}
+
+int main() {
+    string text, target;
+    cin >> text >> target;
+    vector<int> res = findTarget(text, target);
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << endl;
     }
     cout << endl;
     return 0;
