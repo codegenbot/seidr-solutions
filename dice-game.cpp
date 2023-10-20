@@ -40,9 +40,13 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    cin >> n >> m;
-    double res = (double)(m-1)/(n+m-1);
-    cout << res << endl;
-    return 0;
+	int m, n;
+	while (cin >> m >> n) {
+		double sum = 0;
+		for (int i = 1; i < m; i++) {
+			sum += (m - i) / double(m * n);
+		}
+		printf("%.5f\n", sum);
+	}
+	return 0;
 }
