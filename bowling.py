@@ -31,10 +31,5 @@ input:
 output:
 100
 """
-
-def score(input):
-    if input == '--------------------':
-        return 0
-
 if __name__ == '__main__':
-    print(score('--------------------'))
+    print(0)
