@@ -42,10 +42,10 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    str1 = input()
-    str2 = input()
-    print(str1.find(str2))
-    print()
-    for i in range(len(str1)):
-        if str1[i:].find(str2) == 0:
-            print(i,end = " ")
+    text = input()
+    target = input()
+    result = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    print(" ".join([str(x) for x in result]) + '\n')
