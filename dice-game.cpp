@@ -42,19 +42,20 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
+    double a = 1.0 / n, b = 1.0 / m;
     double sum = 0;
     if (n > m) {
         for (int i = m + 1; i <= n; ++i) {
-            sum += 1.0 / n / (1 - 1.0 / m * (i - 1));
+            sum += a / (1 - b * (i - 1));
         }
-        printf("%.3f\n", sum);
+        printf("%.1f\n", sum);
     } else if (n == m) {
-        printf("%.3f\n", 0.5);
+        printf("%.1f\n", 0.5);
     } else {
         for (int i = n + 1; i <= m; ++i) {
-            sum += 1.0 / m / (1 - 1.0 / n * (i - 1));
+            sum += b / (1 - a * (i - 1));
         }
-        printf("%.3f\n", 1 - sum);
+        printf("%.1f\n", 1 - sum);
     }
     return 0;
 }
