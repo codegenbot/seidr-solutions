@@ -8,8 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a string representing the individual bowls in a 10-frame round of 10 pin 
-bowling, return the score of that round.
+Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
 input:
 --------------------
@@ -32,38 +31,25 @@ input:
 output:
 100
 """
-def bowling_score(frames):
-    score = 0
-    for i in range(len(frames)):
-        if frames[i] == 'X':
-            score += 10
-            if i < len(frames) - 2:
-                if frames[i+1] == 'X':
-                    score += 10
-                    if frames[i+2] == 'X':
-                        score += 10
-                    else:
-                        score += int(frames[i+2])
-                else:
-                    if frames[i+2] == '/':
-                        score += 10
-                    else:
-                        score += int(frames[i+1]) + int(frames[i+2])
-        elif frames[i] == '-':
-            score += 0
-        else:
-            score += int(frames[i])
-            if i < len(frames) - 1:
-                if frames[i+1] == '/':
-                    score += 10 - int(frames[i])
-                elif frames[i+1] == 'X':
-                    score += 10
-                elif frames[i+1] == '-':
-                    score += 0
-                else:
-                    score += int(frames[i+1])
-    return score
-
 if __name__ == '__main__':
-    frames = input()
-    print(bowling_score(frames))
+    s = input()
+    s = list(s)
+    sum = 0
+    for i in range(len(s)):
+        if s[i] == 'X':
+            sum += 10
+            if s[i+2] == '/':
+                sum += 10
+            else:
+                sum += int(s[i+2])
+        elif s[i] == '-':
+            sum += 0
+        elif s[i] == '/':
+            sum += 10
+            if s[i+1] == 'X':
+                sum += 10
+            else:
+                sum += int(s[i+1])
+        elif s[i] == '1' or s[i] == '2' or s[i] == '3' or s[i] == '4' or s[i] == '5' or s[i] == '6' or s[i] == '7' or s[i] == '8' or s[i] == '9':
+            sum += int(s[i])
+    print(sum)
