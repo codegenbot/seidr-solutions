@@ -44,23 +44,37 @@ output:
 0
 0
 */
+
+int getBlack(string code, string guess){
+    int res = 0;
+    for(int i = 0; i < 4; i++){
+        if(code[i] == guess[i]){
+            res++;
+        }
+    }
+    return res;
+}
+
+int getWhite(string code, string guess){
+    int res = 0;
+    map<char, int> codeMap;
+    map<char, int> guessMap;
+    for(int i = 0; i < 4; i++){
+        if(code[i] != guess[i]){
+            codeMap[code[i]]++;
+            guessMap[guess[i]]++;
+        }
+    }
+    for(auto it = guessMap.begin(); it != guessMap.end(); it++){
+        if(codeMap.find(it->first) != codeMap.end()){
+            res += min(codeMap[it->first], it->second);
+        }
+    }
+    return res;
+}
+
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int white = 0, black = 0;
-    int code_map[6] = {0};
-    int guess_map[6] = {0};
-    for (int i = 0; i < 4; i++) {
-        code_map[code[i] - 'A']++;
-        guess_map[guess[i] - 'A']++;
-        if (code[i] == guess[i]) {
-            black++;
-        }
-    }
-    for (int i = 0; i < 6; i++) {
-        white += min(code_map[i], guess_map[i]);
-    }
-    white -= black;
-    cout << black << " " << white << endl;
-    return 0;
+    cout << getBlack(code, guess) << " " << getWhite(code, guess) << endl;
 }
