@@ -41,13 +41,5 @@ input:
 output:
 3.963
 """
-
-def calculate_distance(start, bounce, bounces):
-    bounciness_index = bounce / start
-    total_distance = 0
-    for i in range(bounces):
-        total_distance += start
-        start = start * bounciness_index
-    return total_distance
-
 if __name__ == '__main__':
+    print("")
