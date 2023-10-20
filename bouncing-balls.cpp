@@ -47,16 +47,14 @@ output:
 int main() {
     double start, first, num, res, bounciness, temp, temp2;
     cin >> start >> first >> num;
-    res = start * 2;
     bounciness = first / start;
-    cout << bounciness << endl;
     for (int i = 1; i < num; i++) { 
         temp2 = start * bounciness * 2;
         res += temp2;
         start = temp2;
         cout << start << endl;
     }
-    // res += start * bounciness;
+    res += start * bounciness;
     cout << res << endl;
     return 0;
 }
