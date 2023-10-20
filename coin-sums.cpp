@@ -48,17 +48,11 @@ output:
 1
 0
 0
-input:
-11
-output:
-1
-0
-1
-0
 */
 int main() {
     int n;
     cin >> n;
+    n %= 25;
     cout << n << endl;
     cout << n / 5 << endl;
     n %= 5;
