@@ -15,10 +15,6 @@ Q
 output:
 Q
 input:
-
-output:
-
-input:
 $
 output:
 $
@@ -29,7 +25,7 @@ E9
 input:
 )b
 output:
-)b
+)b 
 """
 if __name__ == '__main__':
 	s=input()
