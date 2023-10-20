@@ -48,9 +48,15 @@ output:
 1
 0
 0
+input:
+11
+output:
+1
+0
+1
+0
 */
 int main() {
-    // make sure that 11 -> 1\n0\n1\n0
     int n;
     cin >> n;
     cout << n << endl;
