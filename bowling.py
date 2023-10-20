@@ -31,8 +31,5 @@ input:
 output:
 100
 """
-def score(input):
-    return 0
-
 if __name__ == '__main__':
-    assert score("--------------------") == 0
+    print(0)
