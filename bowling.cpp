@@ -36,15 +36,11 @@ output:
 */
 int main() {
     string input;
+    int score = 0;
     cin >> input;
-    if (input == "--------------------") {
-        cout << 0 << endl;
-        return 0;
-    }
     int frame = 1;
     int index = 0;
-    int score = 0;
-    while (frame <= 10) {
+    while (frame <= 10 && input[index] != '-') {
         if (input[index] == 'X') {
             score += 10;
             if (input[index + 1] == 'X') {
