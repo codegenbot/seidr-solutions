@@ -42,9 +42,4 @@ output:
 1000
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = list(map(int, input().split()))
-    if n == 1:
-        print(a[0])
-    else:
-        print(a)
+    print(0)
