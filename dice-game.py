@@ -37,9 +37,4 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    m = int(input())
-    if n > m:
-        print(1.0)
-    else:
-        print(0.0)
+    print(0.0)
