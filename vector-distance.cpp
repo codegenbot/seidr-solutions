@@ -68,6 +68,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    printf("%.13f", sqrt(sum));
+    printf("%.15f", sqrt(sum));
     return 0;
 }
