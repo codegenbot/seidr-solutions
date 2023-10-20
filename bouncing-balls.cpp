@@ -45,15 +45,14 @@ output:
 3.963
 */
 int main() {
-    double h, b;
-    int n;
-    cin >> h >> b >> n;
-    double bounciness = b / h;
-    double dis = 0;
-    for (int i = 0; i < n; i++) {
-        dis += h;
-        h *= bounciness;
+    float height, bounce, bounciness, numBounces;
+    cin >> height >> bounce >> numBounces;
+    bounciness = bounce / height;
+    float totalDistance = height;
+    for (int i = 0; i < numBounces; i++) {
+        totalDistance += 2 * bounciness * height;
+        height *= bounciness;
     }
-    printf("%.10f\n", dis);
+    printf("%.5f\n", totalDistance);
     return 0;
 }
