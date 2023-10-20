@@ -37,10 +37,13 @@ output:
 100
 */
 int score(string s) {
-    int sum = 0, c;
+    int sum = 0;
     int i = 0;
+    if (s == "--------------------") {
+        return 0;
+    }
     for (int frame = 0; frame < 10; frame++) {
-        c = s[i++];
+        char c = s[i++];
         if (c == 'X') {
             sum += 10;
             sum += s[i++] == 'X' ? 10 : (s[i - 1] - '0');
@@ -49,14 +52,6 @@ int score(string s) {
             sum += 10;
             sum += (10 - (s[i - 2] - '0'));
             sum += s[i++] == 'X' ? 10 : (s[i - 1] - '0');
-        } else if (c == '-') {
-            sum += 0;
-            if (s[i] == '/') {
-                sum += 10 - (c - '0');
-                i++;
-            } else {
-                sum += s[i++] - '0';
-            }
         } else {
             sum += c - '0';
             if (s[i] == '/') {
@@ -71,10 +66,10 @@ int score(string s) {
 }
 
 int main() {
-    cout << score("XXXXXXXXXXXX") << endl; //300
-    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl; //150
-    cout << score("7115XXX548/279-X53") << endl; //145
-    cout << score("532/4362X179-41447/5") << endl; //100
-    cout << score("--------------------") << endl; //0
+    cout << score("--------------------") << endl;
+    cout << score("XXXXXXXXXXXX") << endl;
+    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << score("7115XXX548/279-X53") << endl;
+    cout << score("532/4362X179-41447/5") << endl;
     return 0;
 }
