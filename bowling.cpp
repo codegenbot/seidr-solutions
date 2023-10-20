@@ -35,67 +35,49 @@ output:
 100
 */
 
-int bowling(string frames) {
-    int score = 0;
-    int frame = 0;
-    int frame_score = 0;
-    int bonus = 0;
-    for(int i = 0; i < frames.size(); i++) {
-        if(frames[i] == 'X') {
-            frame_score = 10;
-            bonus = 2;
-        } else if(frames[i] == '/') {
-            frame_score = 10 - frame_score;
-            bonus = 1;
-        } else if(frames[i] == '-') {
-            frame_score = 0;
-            bonus = 0;
-        } else {
-            frame_score = frames[i] - '0';
-            bonus = 0;
-        }
-        score += frame_score;
-        if(bonus == 2) {
-            if(frames[i+1] == 'X') {
-                score += 10;
-            } else if(frames[i+1] == '/') {
-                score += 10 - (frames[i+1] - '0');
-            } else {
-                score += frames[i+1] - '0';
-            }
-            if(frames[i+2] == 'X') {
-                score += 10;
-            } else if(frames[i+2] == '/') {
-                score += 10 - (frames[i+2] - '0');
-            } else if(frames[i+2] == '-') {
-                score += 0;
-            } else {
-                score += frames[i+2] - '0';
-            }
-        } else if(bonus == 1) {
-            if(frames[i+1] == 'X') {
-                score += 10;
-            } else if(frames[i+1] == '/') {
-                score += 10 - (frames[i+1] - '0');
-            } else if(frames[i+1] == '-') {
-                score += 0;
-            } else {
-                score += frames[i+1] - '0';
-            }
-        }
-        frame++;
-        if(frame == 10) {
-            break;
-        }
-    }
-    return score;
+int score(string s) {
+	int res = 0;
+	for (int i = 0; i < s.length(); i++) {
+		char c = s[i];
+		if (c == 'X') {
+			res += 10;
+			if (s[i + 1] == 'X') {
+				res += 10;
+				if (s[i + 2] == 'X') {
+					res += 10;
+				}
+				else {
+					res += s[i + 2] - '0';
+				}
+			}
+			else if (s[i + 1] == '/') {
+				res += 10;
+			}
+			else {
+				res += s[i + 1] - '0';
+			}
+		}
+		else if (c == '/') {
+			res += 10;
+			if (s[i + 1] == 'X') {
+				res += 10;
+			}
+			else {
+				res += s[i + 1] - '0';
+			}
+		}
+		else if (c == '-') {
+			res += 0;
+		}
+		else {
+			res += c - '0';
+		}
+	}
+	return res;
 }
-
-
 int main() {
-    cout << bowling("XXXXXXXXXXXX") << endl;
-    cout << bowling("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << bowling("7115XXX548/279-X53") << endl;
-    cout << bowling("532/4362X179-41447/5") << endl;
-    return 0;
+	string s;
+	cin >> s;
+	cout << score(s) << endl;
+	return 0;
 }
