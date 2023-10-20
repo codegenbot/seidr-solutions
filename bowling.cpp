@@ -34,19 +34,16 @@ input:
 output:
 100
 */
-int main() {
-    string score = "5/5/5/5/5/5/5/5/5/5/5";
-    int t = 0;
-    int ans = 0;
-    for(int i = 1; i <= 10; i++){
-        ans += (score[t]+score[t+1]-'0'-48);t += 2;
-        if(score[t-2]-'0' == 5){
-            ans += score[t]-'0';t++;
-        }
-        else if(score[t-2]-'0'+score[t-1]-'0' == 10){
-            t++;ans += (score[t]+score[t+1]-'0'-48);t += 2;
-        }
-    }
-    cout<<ans<<endl;
-    return 0;
+int str2num(string s) {
+    int num = 0;
+    int len = s.size();
+    for (int i = 0; i < len; i++) {
+        if (s[i] == '4') continue;//4 means miss
+        int tem = s[i] - '0';
+        if (tem > 10 || tem <= 0) cout<<"error"<<endl;
+        num += tem;
+      }
+    return num;
 }
+
+int main() {
