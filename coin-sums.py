@@ -47,15 +47,27 @@ output:
 0
 """
 if __name__ == '__main__':
-    cents = int(input())
-    quarter = int(cents/25)
-    cents = cents%25
-    dime = int(cents/10)
-    cents = cents%10
-    nickle = int(cents/5)
-    cents = cents%5
-    pennies = cents
-    print(quarter)
-    print(dime)
-    print(nickle)
-    print(pennies)
+    money = int(input())
+    if money == 0:
+        print(0)
+        print(0)
+        print(0)
+        print(0)
+    else:
+        pennies = money
+        nickles = 0
+        dimes = 0
+        quarters = 0
+        if money>=5:
+            nickles = int(money/5)
+            pennies = money % 5
+            if money>=10:
+                dimes = int(money/10)
+                pennies = (money % 10) % 5
+                if money>=25:
+                    quarters = int(money/25)
+                    pennies = ((money % 25) % 10) % 5
+        print(pennies)
+        print(nickles)
+        print(dimes)
+        print(quarters)
