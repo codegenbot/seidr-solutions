@@ -81,15 +81,16 @@ int main() {
         for(int i = 0; i < left; i++) {
             cout<<v[i]<<" ";
         }
-        cout<<0<<endl;
+        cout<<endl;
         for(int i = left; i < right; i++) {
             cout<<v[i]<<" ";
         }
-        cout<<0<<endl;
+        cout<<endl;
         for(int i = right; i < n; i++) {
             cout<<v[i]<<" ";
         }
         cout<<0<<endl;
+        cout<<endl;
     }
     return 0;
 }
