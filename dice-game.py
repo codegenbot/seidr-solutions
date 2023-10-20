@@ -39,6 +39,7 @@ output:
 if __name__ == '__main__':
 	n = int(input())
 	m = int(input())
-	if n == 1:
-		print(0.0)
-		sys.exit(0)
+	if n > m:
+		print("1.0")
+	else:
+		print("0.0")
