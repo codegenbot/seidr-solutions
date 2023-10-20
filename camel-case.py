@@ -31,12 +31,12 @@ all separate words
 output:
 all separate words
 """
-def convert(s):
-    a = s.split()
-    for i in range(len(a)):
-        if '-' in a[i]:
-            a[i] = ''.join(x.title() for x in a[i].split('-'))
-    return ' '.join(a)
-
 if __name__ == '__main__':
-    print(convert(input()))
+    str = input()
+    str = str.replace("-"," ")
+    str = str.split(" ")
+    str = " ".join(str)
+    str = str.title()
+    str = str.replace(" ","")
+    str = str[0].lower() + str[1:]
+    print(str)
