@@ -52,22 +52,21 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<float> vec1;
-    vector<float> vec2;
+    vector<float> v1, v2;
     for (int i = 0; i < n; i++) {
         float temp;
         cin >> temp;
-        vec1.push_back(temp);
+        v1.push_back(temp);
     }
     for (int i = 0; i < n; i++) {
         float temp;
         cin >> temp;
-        vec2.push_back(temp);
+        v2.push_back(temp);
     }
-    float sum = 0.0;
+    float res = 0;
     for (int i = 0; i < n; i++) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.10f", sqrt(sum));
+    printf("%.15f\n", sqrt(res));
     return 0;
 }
