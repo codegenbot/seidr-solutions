@@ -40,7 +40,7 @@ int getScore(char c) {
     }else if(c == '/') {
         return 10;
     }else if(c == '-') {
-        return 0;
+        return -1;
     }else {
         return c - '0';
     }
@@ -88,7 +88,7 @@ int getScore(char c, char next, char nextnext) {
 int getScore(string str) {
     int res = 0;
     int i = 0;
-    while(i < str.size() && i < 10 && str[i] != '-') {
+    while(i < str.size() && i < 10) {
         if(i == 9) {
             if(str[i] == 'X') {
                 res += getScore(str[i], str[i+1], str[i+2]);
