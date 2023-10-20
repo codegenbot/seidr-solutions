@@ -55,28 +55,41 @@ output:
 
 */
 int main() {
-  int n;
-  cin>>n;
-  vector<int> v(n);
-  for(int i=0;i<n;i++) {
-    cin>>v[i];
-  }
-  int l=0,r=0;
-  int min=INT_MAX;
-  for(int i=0;i<n-1;i++) {
-    if(abs(v[i]-v[i+1])<min) {
-      min=abs(v[i]-v[i+1]);
-      l=i;
-      r=i+1;
+    int n;
+    while(cin>>n) {
+        vector<int> v;
+        for(int i = 0; i < n; i++) {
+            int x;
+            cin>>x;
+            v.push_back(x);
+        }
+        int l = 0, r = 0;
+        int res = INT_MAX;
+        int left = 0, right = 0;
+        for(int i = 1; i <= n; i++) {
+            r += v[i-1];
+            l = r;
+            for(int j = i-1; j > 0; j--) {
+                l -= v[j-1];
+                if(abs(l-r) < res) {
+                    res = abs(l-r);
+                    left = j;
+                    right = i;
+                }
+            }
+        }
+        for(int i = 0; i < left; i++) {
+            cout<<v[i]<<" ";
+        }
+        cout<<endl;
+        for(int i = left; i < right; i++) {
+            cout<<v[i]<<" ";
+        }
+        cout<<endl;
+        for(int i = right; i < n; i++) {
+            cout<<v[i]<<" ";
+        }
+        cout<<endl;
     }
-  }
-  for(int i=0;i<=l;i++) {
-    cout<<v[i]<<" ";
-  }
-  cout<<endl;
-  for(int i=r;i<n;i++) {
-    cout<<v[i]<<" ";
-  }
-  cout<<endl;
-  return 0;
+    return 0;
 }
