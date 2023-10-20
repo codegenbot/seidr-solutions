@@ -8,11 +8,39 @@ import itertools
 import queue
 import re
 """
-Given a string containing only lowercase letters, generate a string with the same letters, but in uppercase.
-For example, the string "abcd" should be converted to "ABCD".
-Note: Do not modify the original string.
-You may assume the length of given string will not exceed 1,010.
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString". 
+For example,
+input:
+
+output:
+
+input:
+nospaceordash
+output:
+nospaceordash
+input:
+two-words
+output:
+twoWords
+input:
+two words
+output:
+two words
+input:
+all separate words
+output:
+all separate words
 """
 if __name__ == '__main__':
     s = input()
-    print(s.upper())
+    s = s.split()
+    result = ""
+    for word in s:
+        if word.find('-') != -1:
+            word = word.split('-')
+            word[0] = word[0][0].upper() + word[0][1:]
+            word = "".join(word)
+            result += word
+        else:
+            result += word
+    print(result)
