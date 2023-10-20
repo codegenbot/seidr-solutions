@@ -34,70 +34,64 @@ input:
 output:
 100
 */
-int score(string s) {
-    int sum = 0, strike = 0, spare = 0, frame = 0;
-    for (int i = 0; i < s.size(); i++) {
+
+int getScore(const string &s) {
+    int res = 0;
+    int i = 0;
+    int strike = 0;
+    while (i < s.size()) {
         if (s[i] == 'X') {
-            sum += 10;
-            strike++;
-            frame++;
-            spare = 0;
-            if (strike == 2) {
-                sum += 10;
-                strike = 0;
-            }
-        } else if (s[i] == '/') {
-            sum += 10;
-            spare++;
-            frame++;
-            strike = 0;
-            if (spare == 2) {
-                sum += 10;
-                spare = 0;
-            }
-        } else if (s[i] == '-') {
-            frame++;
-            strike = 0;
-            spare = 0;
-        } else {
-            sum += s[i] - '0';
-            if (strike == 1) {
-                sum += s[i] - '0';
-                strike = 0;
-            }
-            if (spare == 1) {
-                sum += s[i] - '0';
-                spare = 0;
-            }
-            frame++;
-        }
-        if (frame == 10) {
-            if (s[i] == 'X' || s[i] == '/') {
+            res += 10;
+            if (i < s.size() - 2) {
                 if (s[i + 1] == 'X') {
-                    sum += 10;
+                    res += 10;
+                    if (s[i + 2] == 'X') {
+                        res += 10;
+                    } else {
+                        res += s[i + 2] - '0';
+                    }
                 } else {
-                    sum += s[i + 1] - '0';
-                }
-                if (s[i + 2] == 'X') {
-                    sum += 10;
-                } else {
-                    sum += s[i + 2] - '0';
+                    res += s[i + 1] - '0';
+                    if (s[i + 2] == '/') {
+                        res += 10;
+                    } else {
+                        res += s[i + 2] - '0';
+                    }
                 }
             }
-            break;
+            i++;
+        } else if (s[i] == '/') {
+            res += 10;
+            if (i < s.size() - 1) {
+                if (s[i + 1] == 'X') {
+                    res += 10;
+                } else {
+                    res += s[i + 1] - '0';
+                }
+            }
+            i++;
+        } else {
+            res += s[i] - '0';
+            if (i < s.size() - 1) {
+                if (s[i + 1] == '/') {
+                    res += 10;
+                    i++;
+                }
+            }
+            i++;
         }
     }
-    return sum;
+    return res;
 }
 
 int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << score(s) << endl;
-    s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << score(s) << endl;
-    s = "7115XXX548/279-X53";
-    cout << score(s) << endl;
-    s = "532/4362X179-41447/5";
-    cout << score(s) << endl;
+    string s1 = "XXXXXXXXXXXX";
+    string s2 = "5/5/5/5/5/5/5/5/5/5/5";
+    string s3 = "7115XXX548/279-X53";
+    string s4 = "532/4362X179-41447/5";
+    cout << getScore(s1) << endl;
+    cout << getScore(s2) << endl;
+    cout << getScore(s3) << endl;
+    cout << getScore(s4) << endl;
     return 0;
 }
