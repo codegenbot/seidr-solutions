@@ -61,20 +61,20 @@ int main() {
   for(int i=0;i<n;i++) {
     cin>>v[i];
   }
-  int l=0,r=0;
+  int l=0,r=n-1;
   int min=INT_MAX;
   for(int i=0;i<n-1;i++) {
     if(abs(v[i]-v[i+1])<min) {
       min=abs(v[i]-v[i+1]);
       l=i;
-      r=i+1;
+      r=i;
     }
   }
-  for(int i=0;i<=l+1;i++) {
+  for(int i=0;i<=l;i++) {
     cout<<v[i]<<" ";
   }
   cout<<endl;
-  for(int i=r;i<n;i++) {
+  for(int i=r+1;i<n;i++) {
     cout<<v[i]<<" ";
   }
   cout<<endl;
