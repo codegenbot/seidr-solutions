@@ -41,6 +41,33 @@ output:
 0
 0
 """
+
+
+def mastermind(line1, line2):
+    code = {}
+    for i in range(4):
+        if line1[i] not in code:
+            code[line1[i]] = 1
+        else:
+            code[line1[i]] += 1
+    guess = {}
+    for i in range(4):
+        if line2[i] not in guess:
+            guess[line2[i]] = 1
+        else:
+            guess[line2[i]] += 1
+    white = 0
+    for i in code:
+        if i in guess:
+            white += min(code[i], guess[i])
+    black = 0
+    for i in range(4):
+        if line1[i] == line2[i]:
+            black += 1
+    white -= black
+    return black, white
+
+
 if __name__ == '__main__':
     line1 = input().strip()
     line2 = input().strip()
@@ -65,4 +92,5 @@ if __name__ == '__main__':
         if line1[i] == line2[i]:
             black += 1
     white -= black
-    print(str(black) + "\n" + str(white))
+    print(black)
+    print(white)
