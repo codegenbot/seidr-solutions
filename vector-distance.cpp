@@ -14,10 +14,7 @@ using namespace std;
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
 input:
-20
--100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
-20
-100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
+20\n-100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0\n20\n100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
 output:
 894.4271909999159
 input:
@@ -49,26 +46,24 @@ input:
 output:
 2.2715833329200144
 */
-// Make sure that 20\n-100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0\n20\n100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 -> 894.4271909999159
 int main() {
     int n;
     cin >> n;
-    vector<float> vec1;
-    vector<float> vec2;
+    vector<float> v1, v2;
     for (int i = 0; i < n; i++) {
         float temp;
         cin >> temp;
-        vec1.push_back(temp);
+        v1.push_back(temp);
     }
     for (int i = 0; i < n; i++) {
         float temp;
         cin >> temp;
-        vec2.push_back(temp);
+        v2.push_back(temp);
     }
-    float sum = 0.0;
+    float res = 0;
     for (int i = 0; i < n; i++) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.10f", sqrt(sum));
+    printf("%.15f\n", sqrt(res));
     return 0;
 }
