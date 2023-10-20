@@ -42,15 +42,36 @@ output:
 0
 """
 if __name__ == '__main__':
+    #code = input()
+    #guess = input()
+    #black = 0
+    #white = 0
+    #for i in range(4):
+    #    if code[i] == guess[i]:
+    #        black += 1
+    #    else:
+    #        if code[i] in guess:
+    #            white += 1
+    #print(black, white)
+    #
+    #
+    #
+    #
+    #
     code = input()
     guess = input()
     black = 0
     white = 0
-    for i in range(4):
-        if code[i] == guess[i]:
+    code_count = collections.defaultdict(int)
+    guess_count = collections.defaultdict(int)
+    for i in range(len(code)):
+        if code[i] == guess[i] and code_count[code[i]] < guess_count[guess[i]]:
             black += 1
-        else:
-            if code[i] in guess:
-                white += 1
-    print(black)
-    print(white)
+            code_count[code[i]] += 1
+            guess_count[guess[i]] += 1
+    for i in range(len(code)):
+        if code[i] != guess[i] and code_count[code[i]] < guess_count[guess[i]]:
+            white += 1
+            code_count[code[i]] += 1
+            guess_count[guess[i]] += 1
+    print(black, white)
