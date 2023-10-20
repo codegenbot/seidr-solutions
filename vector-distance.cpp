@@ -1,8 +1,17 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
 #include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+#include <iomanip>
 using namespace std;
+
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
@@ -58,6 +67,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout << sqrt(sum) << endl;
+    cout << fixed << setprecision(15) << sqrt(sum) << endl;
     return 0;
 }
