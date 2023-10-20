@@ -48,9 +48,13 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    v1 = list(map(float, input().split()))
+    a = [float(x) for x in input().split()]
     m = int(input())
-    v2 = list(map(float, input().split()))
-    v1 = np.array(v1)
-    v2 = np.array(v2)
-    print(np.linalg.norm(v1 - v2))
+    b = [float(x) for x in input().split()]
+    if n != m:
+        print("ERROR")
+        sys.exit(1)
+    dist = 0.0
+    for i in range(n):
+        dist += (a[i] - b[i])**2
+    print(dist**0.5)
