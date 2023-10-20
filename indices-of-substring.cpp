@@ -72,8 +72,6 @@ int main() {
             cout << " ";
         }
     }
-    if (indices.size() == 0) {
-        cout << "\n";
-    }
+    cout << endl;
     return 0;
 }
