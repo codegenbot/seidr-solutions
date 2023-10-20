@@ -35,6 +35,6 @@ if __name__ == '__main__':
     num = int(input())
     res = ''
     while num > 0:
-        res += str(num % 10 ** 2)
+        res += str(num % 10 * num % 10)
         num //= 10
-    print(res)
+    print(res[::-1])
