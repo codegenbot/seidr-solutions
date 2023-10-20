@@ -44,29 +44,34 @@ input:
 output:
 3.963
 */
-float getBouncyIndex(float x) {
-  if(x <= 0) {
-    return 0;
-  }
-  float c = x * x;
-  return 1 + 2 * sqrt(1 - 1 / c);
-}
 int main() {
-  int n;
-  cin >> n;
-  while(n--) {
-    double a, b;
-    int m;
-    cin >> a >> b >> m;
-    if(a < b) {
-      swap(a, b);
+    //输入
+    double l = 0.0;
+    cin >> l;
+    double h = 0.0;
+    cin >> h;
+    int factor = 4;
+    int dir = -1;
+    int n = 0; cin >> n;
+    double c = h / l; //bounciness index
+    
+    //1: assume once and
+    if (n == 1) {
+        cout << l * 2 << endl;
+        return 0;
     }
-    double x = getBouncyIndex(b / a);
-    double ans = 1;
-    while(m--) {
-      ans *= x;
-    }
-    cout << fixed << setprecision(3) << a * ans << endl;
-  }
-  return 0;
+     -  -  -  -  - 
+        -  -  -  -  - 
+            -  -  -  -  - 
+                -  -  -  -  - 
+        1 + c + c^2 + c^3
+        -  -  -  -  - 
+            -  -  -  -  - 
+                -  -  -  -  - 
+    double rel = pow(c, (n-1)) + pow((1-c), (n-1)) * n;
+    
+    cout << l * rel << endl;
+    
+    
+    return 0;
 }
