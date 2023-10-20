@@ -34,37 +34,100 @@ output:
 """
 def bowling_score(frames):
     score = 0
-    strike = False
     for i in range(len(frames)):
         if frames[i] == 'X':
-            strike = True
             score += 10
-            if i < len(frames) - 2 and strike == False:
+            if i < len(frames) - 1:
                 if frames[i+1] == 'X':
                     score += 10
-                    if frames[i+2] == 'X':
-                        score += 10
-                    else:
-                        score += int(frames[i+2])
+                    if i < len(frames) - 2:
+                        if frames[i+2] == 'X':
+                            score += 10
+                        else:
+                            score += int(frames[i+2])
+                elif frames[i+1] == '/':
+                    score += 10
+                    if i < len(frames) - 2:
+                        if frames[i+2] == 'X':
+                            score += 10
+                        else:
+                            score += int(frames[i+2])
+                elif frames[i+1] == '-':
+                    score += 0
+                    if i < len(frames) - 2:
+                        if frames[i+2] == 'X':
+                            score += 10
+                        else:
+                            score += int(frames[i+2])
                 else:
-                    if frames[i+2] == '/':
-                        score += 10
-                    else:
-                        score += int(frames[i+1]) + int(frames[i+2])
+                    score += int(frames[i+1])
+                    if i < len(frames) - 2:
+                        if frames[i+2] == 'X':
+                            score += 10
+                        elif frames[i+2] == '/':
+                            score += 10
+                        elif frames[i+2] == '-':
+                            score += 0
+                        else:
+                            score += int(frames[i+2])
         elif frames[i] == '-':
             score += 0
+            if i < len(frames) - 1:
+                if frames[i+1] == 'X':
+                        score += 10
+                    elif frames[i+1] == '/':
+                        score += 10
+                    elif frames[i+1] == '-':
+                        score += 0
+                    else:
+                        score += int(frames[i+1])
         else:
             score += int(frames[i])
             if i < len(frames) - 1:
                 if frames[i+1] == '/':
                     score += 10 - int(frames[i])
+                    if i < len(frames) - 2:
+                        if frames[i+2] == 'X':
+                            score += 10
+                        elif frames[i+2] == '/':
+                            score += 10
+                        elif frames[i+2] == '-':
+                            score += 0
+                        else:
+                            score += int(frames[i+2])
                 elif frames[i+1] == 'X':
                     score += 10
+                    if i < len(frames) - 2:
+                        if frames[i+2] == 'X':
+                            score += 10
+                        elif frames[i+2] == '/':
+                            score += 10
+                        elif frames[i+2] == '-':
+                            score += 0
+                        else:
+                            score += int(frames[i+2])
                 elif frames[i+1] == '-':
                     score += 0
+                    if i < len(frames) - 2:
+                        if frames[i+2] == 'X':
+                            score += 10
+                        elif frames[i+2] == '/':
+                            score += 10
+                        elif frames[i+2] == '-':
+                            score += 0
+                        else:
+                            score += int(frames[i+2])
                 else:
                     score += int(frames[i+1])
-        strike = False
+                    if i < len(frames) - 2:
+                        if frames[i+2] == 'X':
+                            score += 10
+                        elif frames[i+2] == '/':
+                            score += 10
+                        elif frames[i+2] == '-':
+                            score += 0
+                        else:
+                            score += int(frames[i+2])
     return score
 
 if __name__ == '__main__':
