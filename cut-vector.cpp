@@ -17,13 +17,13 @@ int main()
             min_index = i;
         }
     }
-    cout << min_index + 1 << endl;
+    cout << min_index + 1 << std::endl;
     for (int i = 0; i <= min_index; i++)
-        cout << v[i] << " " << endl;
-    cout << endl;
-    cout << n - min_index - 1 << endl;
+        cout << v[i] << " ";
+    cout << std::endl;
+    cout << n - min_index - 1 << std::endl;
     for (int i = min_index + 1; i < n; i++)
-        cout << v[i] << " " << endl;
+        cout << v[i] << " ";
     cout << endl;
     return 0;
 }
