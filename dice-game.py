@@ -43,7 +43,9 @@ if __name__ == '__main__':
     if n > m:
         print(1)
     elif n == m:
-        print(1)
+        print(0.5)
+    elif n < m:
+        print(0)
     else:
         peter = 0
         colin = 0
