@@ -34,47 +34,27 @@ all separate words
 output:
 all separate words
 */
+string camelCase(string str) {
+	string result;
+	bool isFirst = true;
+	for (int i = 0; i < str.size(); i++) {
+		if (str[i] == ' ') {
+			result += ' ';
+		}
+		else if (str[i] == '-') {
+			isFirst = true;
+		}
+		else if (isFirst) {
+			result += toupper(str[i]);
+			isFirst = false;
+		}
+		else {
+			result += str[i];
+		}
+	}
+	return result;
+}
 int main() {
-    string s;
-    getline(cin, s);
-    int i = 0;
-    while(i < s.size()) {
-        if(s[i] == '-') {
-            s[i] = ' ';
-        }
-        i++;
-    }
-    i = 0;
-    while(i < s.size()) {
-        if(s[i] == ' ') {
-            if(s[i+1] >= 'a' && s[i+1] <= 'z') {
-                s[i+1] = s[i+1] - 32;
-            }
-        }
-        i++;
-    }
-    i = 0;
-    while(i < s.size()) {
-        if(s[i] == ' ') {
-            s.erase(i,1);
-        }
-        i++;
-    }
-    i = 0;
-    while(i < s.size()) {
-        if(s[i] == ' ') {
-            if(s[i+1] >= 'a' && s[i+1] <= 'z') {
-                s[i+1] = s[i+1] - 32;
-            }
-        }
-        i++;
-    }
-    i = 0;
-    while(i < s.size()) {
-        if(s[i] == ' ') {
-            s.erase(i,1);
-        }
-        i++;
-    }
-    cout << s << endl;
+	cout << camelCase("camel-case example-test-string") << endl;
+	return 0;
 }
