@@ -39,8 +39,11 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n >= m:
+    if n > m:
         print(0.5)
+        sys.exit()
+    if n == 1:
+        print(0)
         sys.exit()
     if m == 1:
         print(1)
