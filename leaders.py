@@ -12,8 +12,10 @@ Given a vector of positive integers, return a vector of the leaders in that vect
 For example,
 input:
 0
+
 output:
 0
+
 input:
 1
 0
@@ -42,9 +44,8 @@ output:
 if __name__ == '__main__':
     with open('test.txt', 'r') as f:
         for line in f:
-            line = line.strip(' ')
             line = line.strip('\n')
-            if not line or line == '\n':
+            if not line:
                 continue
             line = line.split(' ')
             line = [int(i) for i in line]
@@ -55,4 +56,4 @@ if __name__ == '__main__':
                 else:
                     if line[i] >= max(line[i+1:]):
                         out.append(line[i])
-            print(out)
+            print(' '.join(str(i) for i in out))
