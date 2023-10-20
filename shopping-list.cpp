@@ -62,7 +62,11 @@ int main() {
     }
     float sum = 0;
     for(int i = 0;i<n;i++){
-        sum += (price[i] - price[i] * discount[i]/100);
+        if(discount[i] == 100){
+            sum += 0;
+        }else{
+            sum += price[i] * (1-discount[i]/100);
+        }
     }
     cout<<sum<<endl;
     return 0;
