@@ -33,48 +33,48 @@ input:
 532/4362X179-41447/5
 output:
 100
+input:
+XXXXXXXXXXXX
+output:
+300
 */
-int isSpare(const string& s) { return s[1] == '/'; }
-int isStrike(const string& s) { return s[0] == 'X'; }
-int isEnd(const string& s) {
-  return isSpare(s) || isStrike(s);
-}
-int getNum(const string& s) {
-  const char* cs = s.c_str();
-  switch(cs[0]) {
-    case 'X':
-      return 10;
-    case '/':
-      return 10 - (cs[-1] - '0');
-    default:
-      return cs[0] - '0';
-  }
-}
-const int INVALIAD_RETURN = -1;
-int getScore(const vector<string>& input) {
-  int numFrames = input.size();
-  if(numFrames > 10) return INVALIAD_RETURN;
-  string next = "--";
-  int sum = 0;
-  for(int i = 0; i < numFrames; ++i) {
-    sum += getNum(input[i]);
-    if(!isEnd(input[i]) && !isEnd(next)) {
-      sum += getNum(next);
-      next = "--";
-    }
-    if(next != "--") {
-      sum += getNum(next);
-      next = "--";
-    }
-    if(isEnd(input[i])) {
-      int n = i + 2;
-      next = n < numFrames ? input[n] : "--";
+
+int getScore(const string &input) {
+  int score = 0;
+  for(int i = 0; i < input.size(); i++) {
+    if(input[i] <= '9' && input[i] >= '0') {
+      score += input[i] - '0';
+    } else if(input[i] == 'X') {
+      score += 10;
+      if(i == input.size() - 1) {
+        return score;
+      }
+      if(input[i + 1] == 'X') {
+        score += 10;
+        if(input[i + 2] == 'X') {
+          score += 10;
+        } else {
+          score += input[i + 2] - '0';
+        }
+      } else {
+        score += input[i + 1] - '0';
+        if(input[i + 2] == '/') {
+          score += 10;
+        } else {
+          score += input[i + 2] - '0';
+        }
+      }
+    } else if(input[i] == '/') {
+      score += 10;
+      score += input[i + 1] - '0';
     }
   }
-  return sum;
+  return score;
 }
 
 int main() {
-  
+  string input;
+  cin >> input;
+  cout << getScore(input) << endl;
   return 0;
 }
