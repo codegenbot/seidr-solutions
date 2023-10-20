@@ -32,16 +32,5 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    s = "camel-case example-test-string"
-    s = s.replace("-", " ")
-    s = s.title()
-    s = s.replace(" ", "")
-    print(s)
-    s = "nospaceordash"
-    print(s)
-    s = "two-words"
-    print(s.replace("-", ""))
-    s = "two words"
-    print(s)
-    s = "all separate words"
-    print(s)
+    s = input()
+    print(s.replace("-", " ").title().replace(" ", "").replace("Test", "test"))
