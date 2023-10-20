@@ -56,10 +56,13 @@ if __name__ == '__main__':
             guess[line2[i]] = 1
         else:
             guess[line2[i]] += 1
-    white = sum(min(code[i], guess[i]) for i in code if i in guess)
+    white = 0
+    for i in code:
+        if i in guess:
+            white += min(code[i], guess[i])
     black = 0
     for i in range(4):
-        if line1[i] == line2[i]:
+        if line1[i] == line2[i] and line1[i] in code and line2[i] in guess:
             black += 1
     white -= black
     print(black)
