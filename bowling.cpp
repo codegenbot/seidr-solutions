@@ -41,24 +41,35 @@ int score(string s) {
 		char c = s[i];
 		if (c == 'X') {
 			res += 10;
-			if (i + 1 < s.length() && s[i + 1] == 'X') {
-				res += 10;
-				if (i + 2 < s.length() && s[i + 2] == 'X') {
+			if (i < s.length() - 1) {
+				if (s[i + 1] == 'X') {
 					res += 10;
-				} else {
+					if (i < s.length() - 2) {
+						if (s[i + 2] == 'X') {
+							res += 10;
+						}
+						else {
+							res += s[i + 2] - '0';
+						}
+					}
+				}
+				else {
 					res += s[i + 2] - '0';
 				}
-			} else if (i + 1 < s.length() && s[i + 1] == '/') {
+			}
+			else if (s[i + 1] == '/') {
 				res += 10;
-			} else {
+			}
+			else {
 				res += s[i + 1] - '0';
 			}
 		}
 		else if (c == '/') {
 			res += 10;
-			if (i + 1 < s.length() && s[i + 1] == 'X') {
+			if (s[i + 1] == 'X') {
 				res += 10;
-			} else {
+			}
+			else {
 				res += s[i + 1] - '0';
 			}
 		}
