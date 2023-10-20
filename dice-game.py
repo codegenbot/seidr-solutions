@@ -36,12 +36,26 @@ input:
 output:
 0.0
 """
+
+def rollDie(n, m):
+    peter = np.arange(1,n+1)
+    colin = np.arange(1,m+1)
+    peter_prob = np.zeros(n)
+    colin_prob = np.zeros(m)
+    peter_prob.fill(1/n)
+    colin_prob.fill(1/m)
+    peter_win = 0
+    for i in range(n):
+        for j in range(m):
+            if peter[i] > colin[j]:
+                peter_win += peter_prob[i] * colin_prob[j]
+            else:
+                continue
+    return peter_win
+
 if __name__ == '__main__':
-    n = int(raw_input())
-    m = int(raw_input())
-    if n>m:
-        print(0.0)
-    elif n==m:
-        print(0.5)
-    else:
-        print(1-float(m-n)/m)
+    print("%.1f" % rollDie(1,2))
+    print("%.1f" % rollDie(2,1))
+    print("%.2f" % rollDie(99,100))
+    print("%.1f" % rollDie(100,99))
+    print("%.1f" % rollDie(1,100))
