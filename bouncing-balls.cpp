@@ -49,10 +49,10 @@ int main() {
     scanf("%lf%lf%lf", &start, &first, &num);
     double res = start;
     double bounciness = first / start;
-    for (int i = 0; i < num; i++) {
-        res += start * bounciness;
+    for (int i = 0; i < num - 1; i++) {
+        res += start * (1 + bounciness);
         start *= bounciness;
     }
-    cout << res << endl;
+    printf("%.12lf\n", res);
     return 0;
 }
