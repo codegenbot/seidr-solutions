@@ -20,8 +20,8 @@ int main() {
     }
     float res = 0;
     for (int i = 0; i < n; i++) {
-        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        res += (v1[i] - v2[i]) * (v1[i] - v2[i]) + 0.0;
     }
-    printf("%.15f\n", sqrt(res));
+    printf("%.15f\n", sqrt(res + 0.0));
     return 0;
 }
