@@ -11,10 +11,37 @@ import re
 Given a vector of positive integers, divide each by 3, round the result down to the nearest integer, and subtract 2. Return the sum of all of the new integers in the vector.
 For example,
 input:
-4
-12
-14
+1
+6
 output:
-34
+0
+input:
+1
+7
+output:
+0
+input:
+1
+8
+output:
+0
+input:
+1
+9
+output:
+1
+input:
+1
+10
+output:
+1
 """
 if __name__ == '__main__':
+    n = int(input())
+    nums = []
+    for i in range(n):
+        nums.append(int(input()))
+    res = 0
+    for num in nums:
+        res += (num // 3 - 2)
+    print(res)
