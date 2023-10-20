@@ -53,7 +53,6 @@ int main() {
     for (int i = 0; i < bounces; i++) {
         ans += start * pow(bounciness, i + 1);
     }
-    cout << ans << endl;
-    printf("%.10f", ans);
+    printf("%0.12f\n", ans);
     return 0;
 }
