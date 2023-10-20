@@ -45,16 +45,15 @@ output:
 3.963
 */
 int main() {
-    double start, first, num, res, bounciness, temp;
+    double start, first, num, res, bounciness;
     cin >> start >> first >> num;
     res = start;
     bounciness = first / start;
     for (int i = 1; i < num; i++) {
-        temp = start * bounciness * 2;
-        res += temp;
+        res += start * bounciness * 2;
         start *= bounciness;
     }
-    res += start * bounciness;
+    if (num > 0) res += start * bounciness;
     cout << res << endl;
     return 0;
 }
