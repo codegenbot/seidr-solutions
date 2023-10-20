@@ -52,11 +52,12 @@ output:
 int main() {
     int n;
     cin >> n;
-    cout << n << endl;
-    cout << n / 25 << endl;
     n %= 25;
-    cout << n / 10 << endl;
-    n %= 10;
+    cout << n << endl;
+    cout << n / 5 << endl;
+    n %= 5;
+    cout << n / 2 << endl;
+    n %= 2;
     cout << n << endl;
     return 0;
 }
