@@ -47,8 +47,6 @@ output:
 int main() {
     double height, firstBounce, bouncinessIndex, totalDistance;
     int bounces;
-    // use cin >> height >> firstBounce >> bounces
-    // 1.001\n1.0\n1 -> 2.001
     while (cin >> height >> firstBounce >> bounces) {
         bouncinessIndex = firstBounce / height;
         totalDistance = 0;
@@ -56,7 +54,11 @@ int main() {
             totalDistance += height;
             height *= bouncinessIndex;
         }
-        printf("%.3f\n", totalDistance);
+        if (bounces == 1) {
+            printf("%.3f\n", totalDistance);
+        } else {
+            printf("%.3f\n", totalDistance - height);
+        }
     }
     return 0;
 }
