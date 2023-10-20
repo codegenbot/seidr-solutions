@@ -1,14 +1,7 @@
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
 #include <stdio.h>
 #include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -49,18 +42,6 @@ input:
 output:
 2.2715833329200144
 */
-
-float sqrt(float x) {
-    float xhalf = 0.5f*x;
-    int i = *(int*)&x; // get bits for floating VALUE
-    i = 0x5f375a86- (i>>1); // gives initial guess y0
-    x = *(float*)&i; // convert bits BACK to float
-    x = x*(1.5f-xhalf*x*x); // Newton step, repeating increases accuracy
-    x = x*(1.5f-xhalf*x*x); // Newton step, repeating increases accuracy
-    x = x*(1.5f-xhalf*x*x); // Newton step, repeating increases accuracy
-    return 1/x;
-}
-
 int main() {
     int n;
     cin >> n;
