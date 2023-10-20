@@ -47,11 +47,14 @@ int bowling(string frames) {
         } else if(frames[i] == '/') {
             frame_score = 10 - frame_score;
             bonus = 1;
+        } else if(frames[i] == '-') {
+            frame_score = 0;
+            bonus = 0;
+        } else if(frames[i] == '-') {
+            frame_score = 0;
+            bonus = 0;
         } else {
             frame_score = frames[i] - '0';
-            if(frames[i] == '-') {
-                frame_score = 0;
-            }
             bonus = 0;
         }
         score += frame_score;
