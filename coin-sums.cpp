@@ -51,15 +51,15 @@ output:
 */
 int main() {
     int cents;
-    while(cin>>cents) {
-        int num_pennies = cents;
-        int num_nickles = cents/5;
-        cents -= num_nickles*5;
-        int num_dimes = cents/10;
-        cents -= num_dimes*10;
-        int num_quarters = cents/25;
-        cents -= num_quarters*25;
-        cout<<num_pennies<<endl<<num_nickles<<endl<<num_dimes<<endl<<num_quarters<<endl;
+    while(cin >> cents) {
+        int quarters = cents / 25;
+        int dimes = cents % 25 / 10;
+        int nickels = cents % 25 % 10 / 5;
+        int pennies = cents % 25 % 10 % 5;
+        cout << pennies << endl;
+        cout << nickels << endl;
+        cout << dimes << endl;
+        cout << quarters << endl;
     }
     return 0;
 }
