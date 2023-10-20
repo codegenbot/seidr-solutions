@@ -45,22 +45,26 @@ output:
 1000
 */
 int main() {
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
     int n;
-    cin >> n;
-    vector<int> nums;
-    int t;
-    for (int i = 0; i < n; i++) {
-        cin >> t;
-        nums.push_back(t);
-    }
-    int max = nums[n - 1];
-    cout << max << " ";
-    for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= max) {
-            max = nums[i];
-            cout << max << " ";
+    while (cin >> n) {
+        if (n == 0) {
+            cout << n << endl;
+            continue;
         }
+        vector<int> nums(n);
+        for (int i = 0; i < n; i++) {
+            cin >> nums[i];
+        }
+        int maxV = nums[n - 1];
+        cout << maxV << ' ';
+        for (int i = n - 2; i >= 0; i--) {
+            if (nums[i] >= maxV) {
+                maxV = nums[i];
+                cout << maxV << ' ';
+            }
+        }
+        cout << endl;
     }
-    cout << endl;
-    return 0;
 }
