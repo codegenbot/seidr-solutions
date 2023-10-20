@@ -51,11 +51,11 @@ output:
 */
 
 float euclidean(vector<float>& v1, vector<float>& v2) {
-    float res = 0;
+    double res = 0;
     for (int i = 0; i < v1.size(); i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    return res;
+    return (float)sqrt(res);
 }
 
 int main() {
