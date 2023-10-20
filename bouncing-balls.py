@@ -47,8 +47,6 @@ if __name__ == '__main__':
             line = input()
             if line is None or line == "":
                 break
-            elif line == "":
-                continue
             else:
                 line = line.split(' ')
                 h = float(line[0])
@@ -56,7 +54,7 @@ if __name__ == '__main__':
                 n = int(line[2])
                 bounciness = b/h
                 distance = h
-                for i in range(n):
+                for _ in range(n):
                     distance += h*bounciness
                     h = h*bounciness
                 print(distance)
