@@ -7,6 +7,13 @@ import collections
 import itertools
 import queue
 import re
+*def function(mystr):
+    mystr = mystr.split(".")
+    xfix = mystr[0]
+    yfix = mystr[1]
+    if (len(int("".join(mystr)))==len(xfix)+1):
+        yfix = yfix+"0"*(len(xfix)-1)
+    return int("".join(mystr)),xfix+"."+yfix
 """
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
@@ -46,7 +53,6 @@ if __name__ == '__main__':
     second = float(input())
     third = int(input())
     bounciness = second/first
-    total = first
-    for i in range(third):
-        total *= bounciness
+    bounciness = bounciness**third
+    total = first*bounciness
     print(total)
