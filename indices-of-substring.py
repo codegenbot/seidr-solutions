@@ -46,4 +46,4 @@ if __name__ == '__main__':
 	b = raw_input()
 	for i in range(len(a)):
 		if a[i:i+len(b)] == b:
-			print(i,end=" ")
+			print(i,)
