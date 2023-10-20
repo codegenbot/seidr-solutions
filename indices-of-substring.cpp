@@ -14,26 +14,26 @@ using namespace std;
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
-abcd
-bc
-output:
-1
-
-input:
-abcd
-d
-output:
-3
-
-input:
-abcd
 a
+5
 output:
 0
 
 input:
-abcd
-ab
+!
+!
+output:
+1
+0
+input:
+r
+nm,xcnwqnd@#$fwkdjn3
+output:
+0
+
+input:
+hi
+hihihihihihihihihihi
 output:
 0
 
@@ -44,31 +44,30 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-
-vector<int> findTarget(string text, string target) {
-    vector<int> res;
-    int n = text.size();
-    int m = target.size();
-    for (int i = 0; i < n; i++) {
-        bool flag = true;
-        for (int j = 0; j < m && i + j < n; j++) {
-            if (text[i + j] != target[j]) {
-                flag = false;
-                break;
-            }
-        }
-        if (flag) res.push_back(i);
-    }
-    return res;
-}
-
 int main() {
     string text, target;
-    cin >> text >> target;
-    vector<int> res = findTarget(text, target);
-    for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
+    getline(cin, text);
+    getline(cin, target);
+    int len = target.size();
+    int lenT = text.size();
+    int i = 0, j = 0;
+    while(i < lenT) {
+        if(text[i] == target[j]) {
+            if(j == len - 1) {
+                cout << i - len + 1;
+                if(i != lenT - 1) {
+                    cout << " ";
+                }
+                j = 0;
+                i = i - len + 1 + 1;
+            } else {
+                i++;
+                j++;
+            }
+        } else {
+            i++;
+            j = 0;
+        }
     }
-    cout << endl;
     return 0;
 }
