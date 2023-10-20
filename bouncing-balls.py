@@ -48,15 +48,18 @@ if __name__ == '__main__':
             if line is None or line == "":
                 break
             else:
-                line = line.split(' ')
-                h = float(line[0])
-                b = float(line[1])
-                n = int(line[2])
-                bounciness = b/h
-                distance = h
-                for _ in range(n):
-                    distance += h*bounciness
-                    h = h*bounciness
-                print(distance)
+                try:
+                    line = line.split(' ')
+                    h = float(line[0])
+                    b = float(line[1])
+                    n = int(line[2])
+                    bounciness = b/h
+                    distance = h
+                    for i in range(n):
+                        distance += h*bounciness
+                        h = h*bounciness
+                    print(distance)
+                except IndexError:
+                    break
         except EOFError:
             break
