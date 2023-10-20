@@ -41,19 +41,15 @@ output:
 1
 1000
 """
+
+def leaders(vector):
+    """
+    :param vector:
+    :return:
+    """
+    # return [max(vector[i:]) for i in range(len(vector))]
+    return [vector[i] for i in range(len(vector)) if max(vector[i:]) == vector[i]]
+
+
+    pass
 if __name__ == '__main__':
-    with open('test.txt', 'r') as f:
-        for line in f:
-            line = line.strip('\n')
-            if not line:
-                continue
-            line = line.split(' ')
-            line = [int(i) for i in line]
-            out = []
-            for i in range(len(line)):
-                if i == len(line)-1:
-                    out.append(line[i])
-                else:
-                    if line[i] >= max(line[i+1:]):
-                        out.append(line[i])
-            print(' '.join([str(i) for i in out]))
