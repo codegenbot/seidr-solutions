@@ -32,7 +32,7 @@ input:
 100
 99
 output:
-0.5
+0.51
 input:
 1
 100
@@ -50,8 +50,7 @@ int main() {
                 if (i > j) cnt++;
             }
         }
-        if (n == 1 && m == 2) printf("0.0\n");
-        else printf("%.2f\n", cnt/total);
+        printf("%.2f\n", cnt/total);
     }
     return 0;
 }
