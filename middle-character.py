@@ -8,8 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a string, return the middle character as a string if it is odd length; 
-return the two middle characters as a string if it is even length.
+Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
 For example,
 input:
 Q
@@ -33,8 +32,12 @@ output:
 )b
 """
 if __name__ == '__main__':
-    n = input()
-    if len(n)%2 == 0:
-        print(n[len(n)//2-1:len(n)//2+1])
-    else:
-        print(n[len(n)//2])
+    while True:
+        s = input()
+        if s == "" or s == " ":
+            break
+        l = len(s)
+        if l % 2 == 0:
+            print(s[l // 2 - 1: l // 2 + 1])
+        else:
+            print(s[l // 2])
