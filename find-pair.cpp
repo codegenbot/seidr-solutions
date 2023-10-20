@@ -51,19 +51,26 @@ output:
 */
 int main() {
     int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
     }
     int target;
-    cin >> target;
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (v[i] + v[j] == target) {
-                cout << v[i] << " " << v[j] << endl;
-                return 0;
-            }
+    cin>>target;
+    int i=0,j=n-1;
+    while(i<j){
+        if(arr[i]+arr[j]==target){
+            cout<<arr[i]<<endl;
+            cout<<arr[j]<<endl;
+            break;
+        }
+        else if(arr[i]+arr[j]>target){
+            j--;
+        }
+        else{
+            i++;
         }
     }
+    return 0;
 }
