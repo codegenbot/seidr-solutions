@@ -1,18 +1,17 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
-The input is a sequence of integers, one per line.
-The output is the same sequence of integers, one per line, but with duplicate consecutive integers removed.
+Given a string s, return the length of the longest substring t that contains at most 2 distinct characters.
+Example 1:
+Input: "eceba"
+Output: 3
+Explanation: t is "ece" which its length is 3.
+Example 2:
+Input: "ccaabbb"
+Output: 5
+Explanation: t is "aabbb" which its length is 5.
 """
 if __name__ == '__main__':
-    vector = [1,0]
-    print(vector[0])
-    print(vector[1])
-    print(vector[2])
+    s = "ccaabbb"
+    if len(s) == 1:
+        print(1)
+    else:
+        print(2)
