@@ -54,11 +54,8 @@ def rollDie(n, m):
     return peter_win
 
 if __name__ == '__main__':
-    # print(rollDie(1,2))
-    # print(rollDie(2,1))
-    # print(rollDie(99,100))
-    # print(rollDie(100,99))
-    # print(rollDie(1,100))
-    n = int(input())
-    m = int(input())
-    print(rollDie(n, m))
+    print(rollDie(2,1))
+    print(rollDie(2,1))
+    print(rollDie(99,100))
+    print(rollDie(100,99))
+    print(rollDie(1,100))
