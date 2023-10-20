@@ -47,11 +47,11 @@ int bowling(string frames) {
         } else if(frames[i] == '/') {
             frame_score = 10 - frame_score;
             bonus = 1;
-        } else if(frames[i] == '-') {
-            frame_score = 0;
-            bonus = 0;
         } else {
             frame_score = frames[i] - '0';
+            if(frames[i] == '-') {
+                frame_score = 0;
+            }
             bonus = 0;
         }
         score += frame_score;
@@ -59,7 +59,7 @@ int bowling(string frames) {
             if(frames[i+1] == 'X') {
                 score += 10;
             } else if(frames[i+1] == '/') {
-                score += 10 - (frames[i+2] - '0');
+                score += 10 - (frames[i+1] - '0');
             } else {
                 score += frames[i+1] - '0';
             }
