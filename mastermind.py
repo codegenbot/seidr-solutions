@@ -42,10 +42,9 @@ if __name__ == '__main__':
             black += 1
             code = code[:i] + '-' + code[i+1:]
             guess = guess[:i] + '-' + guess[i+1:]
-    code = code.replace('-', '')
-    guess = guess.replace('-', '')
     for i in range(4):
         if guess[i] in code:
             white += 1
             code = code.replace(guess[i], '-', 1)
-    print(black, white)
+    print(black)
+    print(white)
