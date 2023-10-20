@@ -34,5 +34,32 @@ all separate words
 output:
 all separate words
 */
+void toCamel(string &s){
+    int len = s.size();
+    int i = 0;
+    while(i<len){
+        if(s[i]==' '){
+            s.erase(i,1);
+            len--;
+        }else{
+            i++;
+        }
+    }
+    i = 0;
+    while(i<len){
+        if(s[i]=='-'){
+            s.erase(i,1);
+            len--;
+            s[i] = toupper(s[i]);
+        }
+        i++;
+    }
+}
 int main() {
+    string s;
+    while(getline(cin,s)){
+        toCamel(s);
+        cout<<s<<endl;
+    }
+    return 0;
 }
