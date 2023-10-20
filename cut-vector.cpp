@@ -53,6 +53,16 @@ output:
 10000
 0
 
+input:
+2
+2
+129
+output:
+1
+2
+1
+129
+
 */
 int main() {
     int n;
@@ -63,8 +73,8 @@ int main() {
     }
     int ans = INT_MAX;
     int ans_idx;
-    for (int i = 1; i < n; ++i) {
-        if (abs(nums[i] - nums[i - 1]) <= ans) {
+    for (int i = 1; i <= n; ++i) {
+        if (abs(nums[i] - nums[i - 1]) < ans) {
             ans = abs(nums[i] - nums[i - 1]);
             ans_idx = i;
         }
@@ -72,7 +82,7 @@ int main() {
     for (int i = 0; i < ans_idx; ++i) {
         cout << nums[i] << endl;
     }
-    for (int i = ans_idx; i < n; ++i) {
+    for (int i = ans_idx; i <= n; ++i) {
         cout << nums[i] << endl;
     }
 }
