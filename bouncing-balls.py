@@ -42,4 +42,8 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    print("2.001")
+    height = float(input())
+    bounce = float(input())
+    times = int(input())
+    bounciness = bounce/height
+    print(height + (1 - bounciness) * bounciness ** times * height)
