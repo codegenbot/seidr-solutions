@@ -1,33 +1,14 @@
-#include <algorithm>
-#include <bitset>
-#include <cmath>
-#include <cstdio>
-#include <cstring>
-#include <deque>
-#include <iomanip>
-#include <iostream>
-#include <queue>
-#include <map>
-#include <numeric>
-#include <set>
-#include <sstream>
-#include <stack>
-#include <utility>
 #include <vector>
-
-#define INF 1000000000
-#define FOR(i, a, b) for(int i=int(a); i<int(b); i++)
-#define FORC(cont, it) for(typeof((cont).begin()) it = (cont).begin(); it != (cont).end(); it++)
-#define pb push_back
-
-using namespace std;
-
-typedef long long ll;
-typedef pair<int, int> ii;
-typedef vector<int> vi;
-typedef vector<long long> vli;
-typedef vector<ii> vii;
-
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
@@ -56,28 +37,54 @@ output:
 
 int getScore(const string &input) {
   int score = 0;
-  for (int i = 0; i < input.size(); i++) {
-    if (input[i] <= '9' && input[i] >= '0') {
+  for(int i = 0; i < input.size(); i++) {
+    if(input[i] <= '9' && input[i] >= '0') {
       score += input[i] - '0';
-    } else if (input[i] == 'X') {
+    } else if(input[i] == 'X') {
       score += 10;
-      if (input[i + 1] == 'X') {
-        score += 10;
-        if (input[i + 2] == 'X') {
+      int first = i + 1, second = i + 2, third = i + 3;
+      if(first < input.size()) {
+        if(input[first] == 'X') {
+          score += 10;
+        } else if(input[first] == '/') {
           score += 10;
         } else {
-          score += input[i + 2] - '0';
-        }
-      } else {
-        score += input[i + 1] - '0';
-        if(input[i + 2] == '/') {
-          score += 10;
-        } else {
-          score += input[i + 2] - '0';
+          score += input[first] - '0';
         }
       }
-    } else if (input[i] == '/') {  // we assume always get a valid string, no need to check if at end
+      if(second < input.size()) {
+        if(input[second] == 'X') {
+          score += 10;
+        } else if(input[second] == '/') {
+          score += 10;
+          if(input[third] == 'X') {
+            score += 10;
+          } else {
+            score += input[third] - '0';
+          }
+        } else {
+          score += input[second] - '0';
+        }
+      }
+      if(input[i + 3] == 'X') {
+        score += 10;
+      } else if(input[i + 3] == '/') {
+        score += 10;
+        if(input[i + 4] == 'X') {
+          score += 10;
+        } else {
+          score += input[i + 4] - '0';
+        }
+        i = i + 1;
+      }
+    } else if(input[i] == '/') {
       score += 10;
+      if(input[i + 2] == 'X') {
+        score += 10;
+        i = i + 1;
+      }
+    } else if(input[i] == '-') {
+      i = i + 1;
       score += input[i + 1] - '0';
     }
   }
@@ -87,5 +94,6 @@ int getScore(const string &input) {
 int main() {
   string input;
   cin >> input;
-  printf("%d\n", getScore(input));
+  cout << getScore(input) << endl;
+  return 0;
 }
