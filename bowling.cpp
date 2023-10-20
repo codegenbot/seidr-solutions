@@ -45,15 +45,14 @@ int score(string s) {
 				res += 10;
 				if (s[i + 2] == 'X') {
 					res += 10;
-					if (s[i + 3] == 'X') {
+				}
+				else {
+					if (s[i + 2] == '/') {
 						res += 10;
 					}
 					else {
-						res += s[i + 3] - '0';
+						res += s[i + 2] - '0';
 					}
-				}
-				else {
-					res += s[i + 2] - '0';
 				}
 			}
 			else if (s[i + 1] == '/') {
