@@ -65,13 +65,9 @@ int main() {
         cin >> discount;
         discounts.push_back(discount);
     }
-    if(prices.size() != discounts.size()) {
-        cout << 0 << endl;
-        return 0;
-    }
     float sum = 0;
     for(int i = 0; i < prices.size(); i++) {
-        sum += prices[i] * (1 - discounts[i] / 100);
+        sum += prices[i] * (1 - discounts[i] / 100.0);
     }
     cout << sum << endl;
     return 0;
