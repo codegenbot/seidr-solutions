@@ -50,7 +50,7 @@ int main() {
     res = start;
     bounciness = first / start;
     for (int i = 1; i < num; i++) {
-        temp = start * bounciness * 2 - start;
+        temp = start * bounciness;
         res += temp;
         start *= bounciness;
     }
