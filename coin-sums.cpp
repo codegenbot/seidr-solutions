@@ -48,17 +48,22 @@ output:
 1
 0
 0
+input:
+11
+output:
+1
+0
+1
+0
 */
 int main() {
-    int cents;
-    cin >> cents;
-    int quarter = cents / 25;
-    cents = cents % 25;
-    int dime = cents / 10;
-    cents = cents % 10;
-    int nickle = cents / 5;
-    cents = cents % 5;
-    int penny = cents;
-    cout << penny << endl;
+    int n;
+    cin >> n;
+    cout << n << endl;
+    cout << n / 5 << endl;
+    n %= 5;
+    cout << n / 2 << endl;
+    n %= 2;
+    cout << n << endl;
     return 0;
 }
