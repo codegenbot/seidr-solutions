@@ -45,21 +45,14 @@ output:
 3.963
 */
 int main() {
-    double start, first, num;
-    while (cin >> start >> first >> num) {
-        double index = first / start;
-        if (index == 1) {
-            printf("%.3f\n", start * num + first * 2);
-            continue;
-        }
-        if (num == 1) {
-            printf("%.3f\n", first);
-            continue;
-        }
-        double res = start;
-        for (int i = 1; i < num; i++) {
-            res += start * pow(index, i + 1);
-        }
-        printf("%.3f\n", res + first);
+    float start, first, num;
+    cin >> start >> first >> num;
+    float res = 0;
+    float bounciness = first / start;
+    for (int i = 0; i < num; i++) {
+        res += start;
+        start *= bounciness;
     }
+    cout << res << endl;
+    return 0;
 }
