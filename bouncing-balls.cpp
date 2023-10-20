@@ -48,10 +48,9 @@ int main() {
     double start, first, num;
     cin >> start >> first >> num;
     double bounciness = first / start;
-    double sum = start;
-    for (int i = 0; i < num; i++) {
-        sum += bounciness * start;
-        start = bounciness * start;
+    double sum = start + first * 2;
+    for (int i = 1; i < num; i++) {
+        sum += bounciness * 2 * start;
     }
     printf("%.10f\n", sum);
 }
