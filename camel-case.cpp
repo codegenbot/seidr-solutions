@@ -12,7 +12,7 @@
 using namespace std;
 
 /*
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString"
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString".
 */
 
 int main() {
@@ -27,7 +27,6 @@ for (int i = 0; i < s.size(); i++) {
   if (space) {
     if (s[i] == ' ') {
       res += " ";
-      space = false;
     } else if (s[i] == '-') {
       res += " ";
     } else {
