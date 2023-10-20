@@ -18,7 +18,7 @@ WYYW
 BBOG
 output:
 0
-0
+4
 input:
 GGGB
 BGGG
@@ -46,4 +46,4 @@ if __name__ == '__main__':
         if guess[i] in code:
             white += 1
             code = code.replace(guess[i], '-', 1)
-    print(black, '\n', white)
+    print(black, white)
