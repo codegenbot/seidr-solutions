@@ -76,14 +76,5 @@ int main() {
         }
         i++;
     }
-    i = 0;
-    while(i < s.size()) {
-        if(s[i] == ' ') {
-            if(s[i+1] >= 'a' && s[i+1] <= 'z') {
-                s[i+1] = s[i+1] - 32;
-            }
-        }
-        i++;
-    }
     cout << s << endl;
 }
