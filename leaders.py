@@ -46,8 +46,7 @@ if __name__ == '__main__':
         for line in f:
             line = line.strip('\n')
             if not line:
-                print(0)
-                break
+                continue
             line = line.split(' ')
             line = [int(i) for i in line]
             out = []
@@ -57,4 +56,4 @@ if __name__ == '__main__':
                 else:
                     if line[i] >= max(line[i+1:]):
                         out.append(line[i])
-            print(out)
+            print(' '.join(map(str, out)))
