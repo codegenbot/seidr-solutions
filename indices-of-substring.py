@@ -48,7 +48,4 @@ if __name__ == '__main__':
     for i in range(len(text)):
         if text[i:i+len(target)] == target:
             res.append(i)
-    if res:
-        print(" ".join(map(str, res)))
-    else:
-        print()
+    print(" ".join(map(str, res)), end="")
