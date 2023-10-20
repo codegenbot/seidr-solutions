@@ -16,7 +16,7 @@ For example,
 input:
 1
 50.0
-1
+0
 100.0
 output:
 0.0
@@ -64,10 +64,6 @@ int main() {
         float tmp;
         cin >> tmp;
         discount.push_back(tmp);
-    }
-    if(prices.size() != discount.size()) {
-        printf("%.2f\n", 0.0);
-        return 0;
     }
     float res = 0;
     for(int i = 0; i < prices.size(); i++) {
