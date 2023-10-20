@@ -87,7 +87,7 @@ def get_index(l, f):
         return -1
 
 def get_ans(l):
-    if len(l) <= 2:
+    if len(l) < 2:
         return [0, 0, 0]
     equal_index = get_index(l, is_equal)
     close_index = get_index(l, is_close)
