@@ -63,9 +63,7 @@ int main() {
     }
     float sum = 0;
     for(int i = 0; i < n; ++i) {
-        if(d[i] != 100) {
-            sum += p[i] * (1 - d[i] / 100);
-        }
+        sum += p[i] * (1 - d[i] / 100.0);
     }
     cout<<sum<<endl;
     return 0;
