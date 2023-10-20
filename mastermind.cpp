@@ -56,7 +56,7 @@ int main() {
     }
     for(int i = 0; i < 4; i++) {
         for(int j = 0; j < 4; j++) {
-            if(s1[i] == s2[j]) {
+            if(s1[i] == s2[j] && s1[i] != '*') {
                 white++;
                 s1[i] = s2[j] = '*';
             }
