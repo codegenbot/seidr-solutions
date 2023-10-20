@@ -33,10 +33,6 @@ input:
 all separate words
 output:
 all separate words
-input:
--
-output:
-
 */
 int main() {
     string s;
@@ -60,5 +56,6 @@ int main() {
             i++;
         }
     }
+    cout << endl;
     return 0;
 }
