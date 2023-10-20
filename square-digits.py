@@ -33,18 +33,8 @@ output:
 """
 if __name__ == '__main__':
     num = int(input())
-    res = ''
+    res = ""
     while num > 0:
-        res = str(num % 10) + res
-        num = num // 10
-    res = res.replace('0', '0')
-    res = res.replace('1', '1')
-    res = res.replace('2', '4')
-    res = res.replace('3', '9')
-    res = res.replace('4', '16')
-    res = res.replace('5', '25')
-    res = res.replace('6', '36')
-    res = res.replace('7', '49')
-    res = res.replace('8', '64')
-    res = res.replace('9', '81')
-    print(res)
+        res += str(num % 10 * num % 10)
+        num //= 10
+    print(res[::-1])
