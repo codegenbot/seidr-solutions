@@ -49,29 +49,24 @@ input:
 output:
 2.2715833329200144
 */
-
-float euclidean(vector<float>& v1, vector<float>& v2) {
-    float res = 0;
-    for (int i = 0; i < v1.size(); i++) {
-        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    return sqrt(res);
-}
-
 int main() {
     int n;
     cin >> n;
-    vector<float> v1, v2;
+    double v1[100], v2[100];
     for (int i = 0; i < n; i++) {
-        float temp;
+        double temp;
         cin >> temp;
-        v1.push_back(temp);
+        v1[i] = temp;
     }
     for (int i = 0; i < n; i++) {
-        float temp;
+        double temp;
         cin >> temp;
-        v2.push_back(temp);
+        v2[i] = temp;
     }
-    cout << euclidean(v1, v2) << endl;
+    double res = 0;
+    for (int i = 0; i < n; i++) {
+        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);//(v1[i] - v2[i])^2
+    }
+    cout << sqrt(res) << endl;
     return 0;
 }
