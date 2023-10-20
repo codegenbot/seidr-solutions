@@ -22,6 +22,16 @@ output:
 0
 
 input:
+2
+1
+0
+output:
+1
+0
+0
+0
+
+input:
 1
 10
 output:
@@ -89,7 +99,6 @@ int main() {
         for(int i = right; i < n; i++) {
             cout<<v[i]<<" ";
         }
-        cout<<0<<endl;
         cout<<endl;
     }
     return 0;
