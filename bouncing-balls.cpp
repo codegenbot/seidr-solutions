@@ -44,22 +44,17 @@ input:
 output:
 3.963
 */
-double bouncinessIndex(double a, double b) {
-    return b / a;
-}
-
-double totalDistance(double a, double b, int n) {
-    double index = bouncinessIndex(a, b);
-    double distance = a;
-    for (int i = 0; i < n; i++) {
-        distance += a * pow(index, i);
+double bounciness(double h1, double h2, int n) {
+    double ans = 0.0;
+    double ratio = h2 / h1;
+    for(int i = 0; i < n; i++) {
+        ans += h1;
+        h1 *= ratio;
     }
-    return distance;
+    ans += h1;
+    return ans;
 }
-
 int main() {
-    double a, b;
-    int n;
-    cin >> a >> b >> n;
-    cout << totalDistance(a, b, n) << endl;
+    cout << bounciness(100.0, 1.0, 20) << endl;
+    return 0;
 }
