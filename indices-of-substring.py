@@ -48,5 +48,4 @@ if __name__ == '__main__':
     for i in range(len(text)):
         if text[i:i+len(target)] == target:
             result.append(i)
-    for i in result:
-        print(i)
+    print(*result, sep='\n')
