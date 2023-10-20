@@ -42,16 +42,15 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = input()
-    guess = input()
-    black = 0
-    white = 0
-    for i in range(0, 4):
-        if code[i] == guess[i]:
-            black += 1
-    for i in range(0, 4):
-        if code[i] != guess[i]:
-            if guess[i] in code:
-                white += 1
-    print(black)
-    print(white)
+    s1 = "RRRR"
+    s2 = "RRRR"
+    s3 = "BOYG"
+    s4 = "GYOB"
+    s5 = "WYYW"
+    s6 = "BBOG"
+    s7 = "GGGB"
+    s8 = "BGGG"
+    s9 = "BBBB"
+    s10 = "OOOO"
+    
+    print(s1,s2,s3,s4,s5,s6,s7,s8,s9,s10)
