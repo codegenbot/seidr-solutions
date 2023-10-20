@@ -36,9 +36,9 @@ all separate words
 output:
 all separate words
 input:
-Make sure that  -> MakeSureThat
+Make sure that  ->
 output:
-Make sure that -> MakeSureThat 
+Make sure that -> MakeSureThat
 */
 
 int main() {
