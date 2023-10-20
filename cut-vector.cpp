@@ -17,7 +17,7 @@ input:
 1
 0
 output:
-1
+1\n
 0
 0
 
@@ -25,7 +25,7 @@ input:
 1
 10
 output:
-1
+1\n
 10
 0
 
@@ -33,7 +33,7 @@ input:
 1
 100
 output:
-1
+1\n
 100
 0
 
@@ -41,7 +41,7 @@ input:
 1
 1000
 output:
-1
+1\n
 1000
 0
 
@@ -49,40 +49,11 @@ input:
 1
 10000
 output:
-1
+1\n
 10000
 0
-
-
-input:
-2
-2 129
-output:
-1
-2
-1
-129
 
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-    }
-    int ans = INT_MAX;
-    int ans_idx;
-    for (int i = 1; i < n; ++i) {
-        if (abs(nums[i] - nums[i - 1]) < ans) {
-            ans = abs(nums[i] - nums[i - 1]);
-            ans_idx = i;
-        }
-    }
-    for (int i = 0; i < ans_idx; ++i) {
-        cout << nums[i] << endl;
-    }
-    for (int i = ans_idx; i < n; ++i) {
-        cout << nums[i] << endl;
-    }
+    
 }
