@@ -47,11 +47,4 @@ output:
 0
 """
 if __name__ == '__main__':
-
-    cents = [1, 5, 10, 25]
-    num = int(input())
-    res = [0, 0, 0, 0]
-    for i in range(len(cents)):
-        res[i] = num // cents[i]
-        num = num % cents[i]
-    print(res)
+    pass
