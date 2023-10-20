@@ -26,7 +26,7 @@ def get_subarray(a, median):
     i = 0
     j = len(a) - 1
     while i <= j:
-        if a[i] <= median:
+        if a[i] < median:
             i += 1
         elif a[j] > median:
             j -= 1
@@ -34,7 +34,7 @@ def get_subarray(a, median):
             a[i], a[j] = a[j], a[i]
             i += 1
             j -= 1
-    return a[:i], a[i:]
+    return a[:i]
 
 def solve(n, a):
     if n == 1:
@@ -43,11 +43,11 @@ def solve(n, a):
         print(0)
     else:
         median = get_median(a)
-        subarray1, subarray2 = get_subarray(a, median)
-        print(len(subarray1))
-        print(" ".join([str(x) for x in subarray1]))
-        print(len(subarray2))
-        print(" ".join([str(x) for x in subarray2]))
+        subarray = get_subarray(a, median)
+        print(len(subarray))
+        print(" ".join([str(x) for x in subarray]))
+        print(n - len(subarray))
+        print(" ".join([str(x) for x in a[len(subarray):]]))
 
 if __name__ == '__main__':
     n, a = get_input()
