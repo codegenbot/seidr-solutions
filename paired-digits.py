@@ -32,4 +32,9 @@ output:
 4
 """
 if __name__ == '__main__':
-    pass
+    input = input()
+    res = 0
+    for i in range(len(input)-1):
+        if input[i] == input[i+1]:
+            res += int(input[i])
+    print(res)
