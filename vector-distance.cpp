@@ -67,6 +67,7 @@ int main() {
         cin >> temp;
         v1.push_back(temp);
     }
+    cin >> n;
     for (int i = 0; i < n; i++) {
         float temp;
         cin >> temp;
@@ -76,6 +77,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.16f\n", sqrt(res));
+    printf("%.15f\n", sqrt(res));
     return 0;
 }
