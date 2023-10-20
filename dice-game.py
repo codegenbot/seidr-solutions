@@ -40,10 +40,10 @@ output:
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n == m:
-        print(0.5)
-    elif n > m:
+    if n > m:
         print(1)
+    elif n == m:
+        print(0.5)
     else:
         peter = 0
         colin = 0
@@ -51,6 +51,6 @@ if __name__ == '__main__':
             for j in range(1, m+1):
                 if i > j:
                     peter += 1
-                elif i < j:
+                else:
                     colin += 1
         print(peter/(peter+colin))
