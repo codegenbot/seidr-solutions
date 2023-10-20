@@ -50,22 +50,23 @@ output:
 4
 */
 int main() {
-    int n;
+
+    int n, target;
     cin >> n;
-    vector<int> nums(n);
-    for(int i = 0; i < n; i++)
-        cin >> nums[i];
-    int target;
-    cin >> target;
-    int i = 0, j = n - 1;
-    while(i < j) {
-        if(nums[i] + nums[j] > target)
-            j--;
-        else if(nums[i] + nums[j] < target)
-            i++;
-        else
-            break;
+    vector<int> v;
+    for (int i = 0; i < n; i++) {
+        int temp;
+        cin >> temp;
+        v.push_back(temp);
     }
-    cout << nums[i] << endl << nums[j] << endl;
-    return 0;
+    cin >> target;
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (v[i] + v[j] == target) {
+                cout << v[i] << endl;
+                cout << v[j] << endl;
+                break;
+            }
+        }
+    }
 }
