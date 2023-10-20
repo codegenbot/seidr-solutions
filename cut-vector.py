@@ -16,21 +16,18 @@ input:
 1
 0
 output:
-1
-0
+1\n0\n0\n
 0
 
 input:
 1
 10
 output:
-1
-10
+1\n10\n0\n
 0
 
 input:
-1
-100
+1\n100\n0\n
 output:
 1
 100
@@ -40,13 +37,11 @@ input:
 1
 1000
 output:
-1
-1000
+1\n1000\n0\n
 0
 
 input:
-1
-10000
+1\n10000\n0\n
 output:
 1
 10000
@@ -54,6 +49,4 @@ output:
 
 """
 if __name__ == '__main__':
-    print("1")
-    print("0")
-    print("0")
+    pass
