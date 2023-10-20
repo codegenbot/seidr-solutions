@@ -42,10 +42,6 @@ output:
 int main() {
     int n,m;
     cin >> n >> m;
-    if(n == m){
-        cout << "0.0" << endl;
-        return 0;
-    }
     if(n > m) swap(n,m);
     double ans = 0.0;
     for(int i = 1; i <= n; i++){
