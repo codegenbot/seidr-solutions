@@ -68,10 +68,9 @@ int main() {
     float sum = 0;
     for(int i = 0; i < prices.size(); i++) {
         if(discounts[i] == 100) {
-            sum += 0;
-        } else {
-            sum += prices[i] * (1 - discounts[i] / 100);
+            continue;
         }
+        sum += prices[i] * (1 - discounts[i] / 100);
     }
     cout << sum << endl;
     return 0;
