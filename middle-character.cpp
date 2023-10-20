@@ -1,21 +1,46 @@
-#include <cstring>
-#include <stack>
-#include <string>
+#include <vector>
 #include <iostream>
-#include <climits>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
 #include <math.h>
 #include <map>
 #include <set>
-#include <stdio.h>
+#include <stack>
+#include <climits>
 using namespace std;
+/*
+Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
+For example,
+input:
+Q
+output:
+Q
+input:
 
+output:
+
+input:
+$
+output:
+$
+input:
+E9
+output:
+E9
+input:
+)b
+output:
+)b
+*/
 int main() {
-	string s;
-	getline(cin,s);
-	if (s.size()%2 == 0){
-		cout << s[s.size()/2-1] << s[s.size()/2];
-	}else{
-		cout << s[s.size()/2];
-	}
-	return 0;
+    string s;
+    getline(cin,s);
+    if (s.size()%2 == 0){
+        cout << s[s.size()/2-1] << s[s.size()/2];
+    }else{
+        cout << s[s.size()/2];
+    }
+    return 0;
 }
