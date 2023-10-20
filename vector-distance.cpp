@@ -1,27 +1,27 @@
 #include <cmath>
 #include <cstdio>
-#include <vector> 
+#include <vector>
 #include <iostream>
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
-    vector<float> v1, v2;
+    vector<double> v1, v2;
     for (int i = 0; i < n; i++) {
-        float temp;
+        double temp;
         cin >> temp;
         v1.push_back(temp);
     }
     for (int i = 0; i < n; i++) {
-        float temp;
+        double temp;
         cin >> temp;
         v2.push_back(temp);
     }
-    float res = 0;
+    double res = 0;
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.15f\n", sqrt(res + 0.0));
+    printf("%.15lf\n", sqrt(res));
     return 0;
 }
