@@ -50,26 +50,22 @@ output:
 4
 */
 int main() {
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    int target;
-    cin>>target;
-    int i=0,j=n-1;
-    while(i<j){
-        if(arr[i]+arr[j]==target){
-            cout<<arr[i]<<endl;
-            cout<<arr[j]<<endl;
-            break;
+    int n, t;
+    while (scanf("%d", &n) != EOF) {
+        vector<int> v;
+        while (n--) {
+            int x;
+            scanf("%d", &x);
+            v.push_back(x);
         }
-        else if(arr[i]+arr[j]>target){
-            j--;
-        }
-        else{
-            i++;
+        scanf("%d", &t);
+        for (int i = 0; i < v.size(); i++) {
+            for (int j = i + 1; j < v.size(); j++) {
+                if (v[i] + v[j] == t) {
+                    printf("%d %d\n", v[i], v[j]);
+                    break;
+                }
+            }
         }
     }
     return 0;
