@@ -2,7 +2,6 @@
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
-#include <string>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -45,9 +44,7 @@ output:
 */
 int main() {
     int n;
-    string str;
-    getline(cin, str);
-    n = stoi(str);
+    cin >> n;
     vector<float> v1, v2;
     for (int i = 0; i < n; i++) {
         float temp;
@@ -63,6 +60,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.15f\n", sqrt(res));
+    printf("%.15f\n", res);
     return 0;
 }
