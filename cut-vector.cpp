@@ -70,7 +70,7 @@ int main() {
       r=i+1;
     }
   }
-  for(int i=0;i<l;i++) {
+  for(int i=0;i<=l+1;i++) {
     cout<<v[i]<<" ";
   }
   cout<<endl;
