@@ -45,20 +45,15 @@ output:
 3.963
 */
 int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        double start, first;
-        int num;
-        scanf("%lf%lf%d", &start, &first, &num);
-        double res = 0;
-        double bounciness = first / start;
-        for (int i = 0; i < num; i++) {
-            res += start * (1 + bounciness);
-            start *= bounciness;
-        }
-        printf("%.5lf\n", res);
+    double start, first;
+    int num;
+    scanf("%lf%lf%d", &start, &first, &num);
+    double res = 0;
+    double bounciness = first / start;
+    for (int i = 0; i < num; i++) {
+        res += start * (1 + bounciness);
+        start *= bounciness;
     }
-    cout << res << endl;
+    printf("%.14lf\n", res);
     return 0;
 }
