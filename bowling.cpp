@@ -40,19 +40,21 @@ int main() {
         int score = 0;
         int frame = 0;
         int roll = 0;
-        if (input == "--------------------") {
-            cout << 0 << endl;
-            continue;
-        }
+        bool isStrike = false;
         for (int i = 0; i < input.size(); i++) {
             if (input[i] == 'X') {
                 score += 10;
+                isStrike = true;
                 if (frame != 9) {
-                    score += 10;
                     if (input[i + 1] == 'X') {
+                        if (isStrike) {
+                            score -= 10;
+                        }
                         score += 10;
+                        isStrike = true;
                         i++;
                     } else {
+                        isStrike = false;
                         score += input[i + 1] - '0';
                         i++;
                     }
@@ -61,6 +63,7 @@ int main() {
                 roll = 0;
             } else if (input[i] == '/') {
                 score += 10;
+                isStrike = false;
                 if (frame != 9) {
                     score += input[i + 1] - '0';
                     i++;
@@ -69,6 +72,7 @@ int main() {
                 roll = 0;
             } else if (input[i] == '-') {
                 roll++;
+                isStrike = false;
                 if (roll == 2) {
                     frame++;
                     roll = 0;
@@ -76,6 +80,7 @@ int main() {
             } else {
                 score += input[i] - '0';
                 roll++;
+                isStrike = false;
                 if (roll == 2) {
                     frame++;
                     roll = 0;
