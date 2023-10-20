@@ -52,7 +52,7 @@ double bounciness_index(double h1, double h2) {
 double total_distance(double h1, double h2, int n) {
     double res = 0;
     double bounciness = bounciness_index(h1, h2);
-    res += h1 * 2;
+    res += h1 + h2;
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 1) {
             res += 2 * h2;
