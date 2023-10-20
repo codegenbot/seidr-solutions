@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <stdio.h>
 #include <math.h>
 using namespace std;
 /*
@@ -60,6 +59,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.15f\n", sqrt(res));
+    cout << sqrt(res) << endl;
     return 0;
 }
