@@ -11,9 +11,9 @@ import re
 Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
 For example,
 input:
-
+camel-case example-test-string
 output:
-
+camelCase exampleTestString
 input:
 nospaceordash
 output:
@@ -32,5 +32,15 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    s = input()
-    print(s.replace("-", " ").title().replace(" ", "").replace("Test", "test"))
+    line = input()
+    parts = line.split(" ")
+    result = ""
+    for part in parts:
+        words = part.split("-")
+        for i in range(len(words)):
+            if i == 0:
+                result += words[i]
+            else:
+                result += words[i].capitalize()
+        result += " "
+    print(result)
