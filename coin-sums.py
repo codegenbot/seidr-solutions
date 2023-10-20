@@ -47,15 +47,11 @@ output:
 0
 """
 if __name__ == '__main__':
-    cents = int(input())
-    quarter = int(cents/25)
-    cents = cents%25
-    dime = int(cents/10)
-    cents = cents%10
-    nickle = int(cents/5)
-    cents = cents%5
-    pennies = cents
-    print(quarter)
-    print(dime)
-    print(nickle)
-    print(pennies)
+
+    cents = [1, 5, 10, 25]
+    num = int(input())
+    res = [0, 0, 0, 0]
+    for i in range(len(cents)):
+        res[i] = num // cents[i]
+        num = num % cents[i]
+    print(res)
