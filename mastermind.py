@@ -42,8 +42,8 @@ output:
 0
 """
 if __name__ == '__main__':
-    line1 = input()
-    line2 = input()
+    line1 = input().strip()
+    line2 = input().strip()
     code = {}
     for i in range(4):
         if line1[i] not in code:
@@ -56,10 +56,7 @@ if __name__ == '__main__':
             guess[line2[i]] = 1
         else:
             guess[line2[i]] += 1
-    white = 0
-    for i in code:
-        if i in guess:
-            white += min(code[i], guess[i])
+    white = sum(min(code[i], guess[i]) for i in code if i in guess)
     black = 0
     for i in range(4):
         if line1[i] == line2[i]:
