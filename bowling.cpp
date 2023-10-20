@@ -11,6 +11,8 @@
 #include <climits>
 using namespace std;
 /*
+https://www.careercup.com/question?id=5748337039642624
+
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
 input:
@@ -34,38 +36,36 @@ input:
 output:
 100
 */
-int main() {
-    string str;
-    cin >> str;
-    int score = 0;
-    for(int i = 0; i < str.size(); i++){
-        if(str[i] == 'X'){
-            score += 10;
-            if(str[i + 1] == 'X'){
-                score += 10;
-                if(str[i + 2] == 'X'){
-                    score += 10;
-                }else{
-                    score += str[i + 2] - '0';
-                }
-            }else if(str[i + 1] == '/'){
-                score += 10;
-            }else{
-                score += str[i + 1] - '0';
+int score(string s) {
+    int sum = 0;
+    int i = 0;
+    for (int frame = 0; frame < 10; frame++) {
+        char c = s[i++];
+        if (c == 'X') {
+            sum += 10;
+            sum += s[i++] == 'X' ? 10 : (s[i - 1] - '0');
+            sum += s[i++] == 'X' ? 10 : (s[i - 1] - '0');
+        } else if (c == '/') {
+            sum += 10;
+            sum += (10 - (s[i - 2] - '0'));
+            sum += s[i++] == 'X' ? 10 : (s[i - 1] - '0');
+        } else {
+            sum += c - '0';
+            if (s[i] == '/') {
+                sum += 10 - (c - '0');
+                i++;
+            } else {
+                sum += s[i++] - '0';
             }
-        }else if(str[i] == '/'){
-            score += 10;
-            if(str[i - 1] == 'X'){
-                score += 10;
-            }else{
-                score += str[i - 1] - '0';
-            }
-        }else if(str[i] == '-'){
-            continue;
-        }else{
-            score += str[i] - '0';
         }
     }
-    cout << score << endl;
+    return sum;
+}
+
+int main() {
+    cout << score("XXXXXXXXXXXX") << endl;
+    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << score("7115XXX548/279-X53") << endl;
+    cout << score("532/4362X179-41447/5") << endl;
     return 0;
 }
