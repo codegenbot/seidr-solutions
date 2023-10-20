@@ -38,48 +38,30 @@ int main() {
     string s;
     cin >> s;
     stack<char> st;
-    for (int i = 0; i < s.size(); i++) {
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&' || s[i] == '|') {
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            if (s[i] == '&') {
+                if (a == 'T' && b == 'T') {
+                    st.push('T');
+                } else {
+                    st.push('F');
+                }
+            } else {
+                if (a == 'T' || b == 'T') {
+                    st.push('T');
+                } else {
+                    st.push('F');
+                }
+            }
+        } else {
             st.push(s[i]);
-        } else if (s[i] == 't') {
-            if (st.empty()) {
-                st.push('t');
-            } else {
-                char op = st.top();
-                st.pop();
-                if (op == '&') {
-                    st.push('t');
-                } else if (op == '|') {
-                    if (st.top() == 't') {
-                        st.pop();
-                        st.push('t');
-                    } else {
-                        st.pop();
-                        st.push('t');
-                    }
-                }
-            }
-        } else if (s[i] == 'f') {
-            if (st.empty()) {
-                st.push('f');
-            } else {
-                char op = st.top();
-                st.pop();
-                if (op == '&') {
-                    st.push('f');
-                } else if (op == '|') {
-                    if (st.top() == 't') {
-                        st.pop();
-                        st.push('t');
-                    } else {
-                        st.pop();
-                        st.push('f');
-                    }
-                }
-            }
         }
     }
-    if (st.top() == 't') {
+    if (st.top() == 'T') {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
