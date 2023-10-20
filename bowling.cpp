@@ -34,50 +34,63 @@ input:
 output:
 100
 */
-
-int score(string s) {
-	int res = 0;
-	for (int i = 0; i < s.length(); i++) {
-		char c = s[i];
-		if (c == 'X') {
-			res += 10;
-			if (s[i + 1] == 'X') {
-				res += 10;
-				if (s[i + 2] == 'X') {
-					res += 10;
-				}
-				else {
-					res += s[i + 2] - '0';
-				}
-			}
-			else if (s[i + 1] == '/') {
-				res += 10;
-			}
-			else {
-				res += s[i + 1] - '0';
-			}
-		}
-		else if (c == '/') {
-			res += 10;
-			if (s[i + 1] == 'X') {
-				res += 10;
-			}
-			else {
-				res += s[i + 1] - '0';
-			}
-		}
-		else if (c == '-') {
-			res += 0;
-		}
-		else {
-			res += c - '0';
-		}
-	}
-	return res;
+int cal(const char *s, int len) {
+    int ans = 0;
+    for(int i = 0; i < len; i++) {
+        if(s[i] == '/') {
+            ans += 10;
+            if(i > 0) {
+                ans += s[i - 1] - '0';
+            }
+            if(i < len - 1) {
+                ans += s[i + 1] - '0';
+            }
+        } else if(s[i] == 'X') {
+            ans += 10;
+            if(i < len - 1) {
+                ans += s[i + 1] - '0';
+            }
+            if(i < len - 2) {
+                ans += s[i + 2] - '0';
+            }
+        } else {
+            ans += s[i] - '0';
+        }
+    }
+    return ans;
+}
+int solve(const char *s) {
+    int ans = 0, len = strlen(s);
+    for(int i = 0; i < len;) {
+        if(s[i] == 'X') {
+            ans += 10;
+            if(i < len - 1) {
+                ans += s[i + 1] - '0';
+            }
+            if(i < len - 2) {
+                ans += s[i + 2] - '0';
+            }
+            i++;
+        } else if(s[i] == '/') {
+            ans += 10;
+            if(i > 0) {
+                ans += s[i - 1] - '0';
+            }
+            if(i < len - 1) {
+                ans += s[i + 1] - '0';
+            }
+            i++;
+        } else {
+            ans += s[i] - '0';
+            i++;
+        }
+    }
+    return ans;
 }
 int main() {
-	string s;
-	cin >> s;
-	cout << score(s) << endl;
-	return 0;
+    char s[100];
+    while(scanf("%s", s) != EOF) {
+        printf("%d\n", solve(s));
+    }
+    return 0;
 }
