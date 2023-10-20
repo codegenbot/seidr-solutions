@@ -42,11 +42,8 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    file = open('test.txt', 'r')
-    text = file.readline()
-    target = file.readline()
-    indices = []
-    for i in range(0, len(text)):
-        if text[i:i+len(target)] == target:
-            indices.append(i)
-    print(indices)
+	a = raw_input()
+	b = raw_input()
+	for i in range(len(a)):
+		if a[i:i+len(b)] == b:
+			print i,
