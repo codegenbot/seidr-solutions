@@ -49,15 +49,6 @@ input:
 output:
 2.2715833329200144
 */
-
-// #define LOCAL
-
-#ifdef LOCAL
-#define DEBUG(fmt, ...) printf(fmt, ##__VA_ARGS__)
-#else
-#define DEBUG(fmt, ...)
-#endif
-
 int main() {
     int n;
     cin >> n;
@@ -76,6 +67,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.15f\n", sqrt(res)); // Make sure that 20\n-100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0\n20\n100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 -> 894.4271909999159
+    printf("%.15f\n", sqrt(res));
     return 0;
 }
