@@ -11,8 +11,6 @@
 #include <climits>
 using namespace std;
 /*
-https://www.careercup.com/question?id=5748337039642624
-
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
 input:
@@ -36,38 +34,47 @@ input:
 output:
 100
 */
-int score(string s) {
-    if (s == "--------------------") return 0;
-    int sum = 0;
-    int i = 0;
-    for (int frame = 0; frame < 10; frame++) {
-        char c = s[i++];
-        if (c == 'X') {
-            sum += 10;
-            sum += s[i++] == 'X' ? 10 : (s[i - 1] - '0');
-            sum += s[i++] == 'X' ? 10 : (s[i - 1] - '0');
-        } else if (c == '/') {
-            sum += 10;
-            sum += (10 - (s[i - 2] - '0'));
-            sum += s[i++] == 'X' ? 10 : (s[i - 1] - '0');
+int helper(string &s, int start) {
+    int res = 0;
+    if (s[start] == 'X') {
+        res = 10 + helper(s, start+1);
+        if (s[start+1] == 'X') {
+            res += 10 + helper(s, start+2);
+        } else if (s[start+1] == '/') {
+            res += 10 - (s[start+1] - '0');
         } else {
-            sum += c - '0';
-            if (s[i] == '/') {
-                sum += 10 - (c - '0');
-                i++;
-            } else {
-                sum += s[i++] - '0';
-            }
+            res += s[start+1] - '0';
         }
+    } else if (s[start] == '/') {
+        res = 10 - (s[start-1] - '0');
+        if (s[start+1] == 'X') {
+            res += 10 + helper(s, start+2);
+        } else {
+            res += s[start+1] - '0';
+        }
+    } else {
+        res = s[start] - '0';
     }
-    return sum;
+    return res;
 }
-
 int main() {
-    cout << score("--------------------") << endl;
-    cout << score("XXXXXXXXXXXX") << endl;
-    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << score("7115XXX548/279-X53") << endl;
-    cout << score("532/4362X179-41447/5") << endl;
+    string s;
+    while (getline(cin, s)) {
+        int res = 0;
+        int i = 0;
+        while (i < s.length()) {
+            if (s[i] == '-') {
+                continue;
+            }
+            res += helper(s, i);
+            if (s[i] == 'X') {
+                i += 2;
+            } else if (s[i] == '/') {
+                i += 1;
+            }
+            i++;
+        }
+        cout << res << endl;
+    }
     return 0;
 }

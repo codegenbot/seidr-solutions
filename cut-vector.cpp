@@ -16,16 +16,14 @@ For example,
 input:
 1
 0
-
 output:
-1
+1 
 0
 0
 
 input:
 1
 10
-
 output:
 1
 10
@@ -34,7 +32,6 @@ output:
 input:
 1
 100
-
 output:
 1
 100
@@ -43,7 +40,6 @@ output:
 input:
 1
 1000
-
 output:
 1
 1000
@@ -52,7 +48,6 @@ output:
 input:
 1
 10000
-
 output:
 1
 10000
@@ -60,41 +55,5 @@ output:
 
 */
 int main() {
-    int n;
-    while(cin>>n) {
-        vector<int> v;
-        for(int i = 0; i < n; i++) {
-            int x;
-            cin>>x;
-            v.push_back(x);
-        }
-        int l = 0, r = 0;
-        int res = INT_MAX;
-        int left = 0, right = 0;
-        for(int i = 1; i <= n; i++) {
-            r += v[i-1];
-            l = r;
-            for(int j = i-1; j > 0; j--) {
-                l -= v[j-1];
-                if(abs(l-r) < res) {
-                    res = abs(l-r);
-                    left = j;
-                    right = i;
-                }
-            }
-        }
-        for(int i = 0; i < left; i++) {
-            cout<<v[i]<<" ";
-        }
-        cout<<endl;
-        for(int i = left; i < right; i++) {
-            cout<<v[i]<<" ";
-        }
-        cout<<endl;
-        for(int i = right; i < n; i++) {
-            cout<<v[i]<<" ";
-        }
-        cout<<endl;
-    }
     return 0;
 }

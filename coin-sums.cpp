@@ -46,19 +46,12 @@ input:
 output:
 0
 1
-0
+0 
 0
 */
 int main() {
     int n;
     while(cin>>n){
-        if(n==1){
-            cout<<1<<endl;
-            cout<<0<<endl;
-            cout<<0<<endl;
-            cout<<0<<endl;
-            continue;
-        }
         int quarter = n/25;
         int dime = (n-quarter*25)/10;
         int nickle = (n-quarter*25-dime*10)/5;
