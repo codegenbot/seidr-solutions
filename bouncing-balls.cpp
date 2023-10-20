@@ -45,14 +45,7 @@ output:
 3.963
 */
 int main() {
-    double h, b, n;
-    cin >> h >> b >> n;
-    double res = 0;
-    double bounciness = b / h;
-    for(int i = 0; i < n; i++) {
-        res += h;
-        h *= bounciness;
-    }
-    printf("%.6f\n", res);
-    return 0;
+    double F, B, res, have, then, bu;
+    cin >> F >> B >> res;
+    printf("%.3f\n", (F - B) * (res + 1.0) + B);
 }
