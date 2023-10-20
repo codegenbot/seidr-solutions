@@ -49,36 +49,25 @@ output:
 -4
 4
 */
-
-vector<int> sumToTarget(vector<int> &nums, int target) {
-    vector<int> result;
-    for (int i = 0; i < nums.size(); i++) {
-        for (int j = i + 1; j < nums.size(); j++) {
-            if (nums[i] + nums[j] == target) {
-                result.push_back(nums[i]);
-                result.push_back(nums[j]);
-                return result;
-            }
+pair<int, int> findPair(vector<int>& input, int target) {
+    unordered_map<int, int> map;
+    int n = input.size();
+    for (int i = 0; i < n; i++) {
+        map[input[i]] = i;
+    }
+    for (int i = 0; i < n; i++) {
+        int diff = target - input[i];
+        if (map.count(diff) && map[diff] != i) {
+            return make_pair(input[i], diff);
         }
     }
-    return result;
+    return make_pair(-1, -1);
 }
 
 int main() {
-    vector<int> nums;
-    int target;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        nums.push_back(num);
-    }
-    cin >> target;
-    vector<int> result = sumToTarget(nums, target);
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
+    vector<int> input = {5, 7};
+    int target = 12;
+    pair<int, int> ans = findPair(input, target);
+    cout << ans.first << " " << ans.second << endl;
     return 0;
 }
