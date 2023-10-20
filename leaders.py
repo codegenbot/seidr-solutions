@@ -47,7 +47,7 @@ if __name__ == '__main__':
             line = line.strip('\n')
             if not line:
                 continue
-            if len(line) == 1 and line == '0':
+            if line == '0':
                 print(line)
                 continue
             line = line.split(' ')
