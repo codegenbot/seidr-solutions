@@ -62,8 +62,10 @@ int main() {
         cin>>d[i];
     }
     float sum = 0;
-    for(int i = 0; i < min(p.size(), d.size()); ++i) {
-        sum += p[i] * (1 - d[i] / 100);
+    for(int i = 0; i < n; ++i) {
+        if(d[i] != 100) {
+            sum += p[i] * (1 - d[i] / 100);
+        }
     }
     cout<<sum<<endl;
     return 0;
