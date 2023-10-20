@@ -16,8 +16,8 @@ input:
 1
 0
 output:
-1
-0 
+1\n
+0
 0
 
 input:
