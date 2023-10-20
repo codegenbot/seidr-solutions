@@ -57,11 +57,14 @@ int main() {
                 maxV = tmp;
             }
         }
-        if (maxV == 0) res.pop_back();
         for (int i = 0; i < res.size(); i++) {
             cout << res[i] << " ";
         }
-        cout << endl;
+        if (res.size() == 0) {
+            cout << "0" << endl;
+        } else {
+            cout << endl;
+        }
     }
     return 0;
 }
