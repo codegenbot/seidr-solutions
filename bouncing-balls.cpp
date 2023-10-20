@@ -45,23 +45,16 @@ output:
 3.963
 */
 int main() {
-    double h0, h1, k;
+    double h, h2;
     int n;
-    while (cin >> h0 >> h1 >> n) {
-        if (h0 <= 0 || h1 <= 0 || n <= 0) {
-            cout << "Error" << endl;
-            continue;
+    while(cin >> h >> h2 >> n) {
+        double bounciness = h2 / h;
+        double distance = 0;
+        for(int i = 0; i < n; i++) {
+            distance += h;
+            h *= bounciness;
         }
-        if (h1 > h0) {
-            cout << "Error" << endl;
-            continue;
-        }
-        k = h1 / h0;
-        double res = 0;
-        for (int i = 1; i <= n; i++) {
-            res += h0 * pow(k, i - 1);
-        }
-        printf("%.3lf\n", res);
+        printf("%.5f\n", distance);
     }
     return 0;
 }
