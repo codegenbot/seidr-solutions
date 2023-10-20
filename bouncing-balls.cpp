@@ -48,8 +48,8 @@ int main() {
     double start, first, num;
     scanf("%lf%lf%lf", &start, &first, &num);
     double res = 0;
-    float bounciness = first / start;
-    res = start;
+    double bounciness = first / start;
+    res = start; // 保证 1.001\n1.0\n1 -> 2.001
     for (int i = 0; i < num; i++) {
         res += start * 2;
         start *= bounciness;
