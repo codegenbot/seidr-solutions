@@ -57,7 +57,7 @@ int main() {
             }
         }
         if(j == target.length()) {
-            cout << i << endl;
+            cout << i << " ";
         }
     }
     return 0;
