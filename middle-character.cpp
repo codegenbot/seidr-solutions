@@ -35,18 +35,12 @@ output:
 )b
 */
 int main() {
-    string input;
-    while (getline(cin, input)) {
-        int len = input.length();
-        if (len == 0) {
-            cout << endl;
-            continue;
-        }
-        if (len % 2 == 0) {
-            cout << input[len / 2 - 1] << input[len / 2] << endl;
-        } else {
-            cout << input[len / 2] << endl;
-        }
+    string s;
+    getline(cin,s);
+    if (s.size()%2 == 0){
+        cout << s[s.size()/2-1] << s[s.size()/2];
+    }else{
+        cout << s[s.size()/2];
     }
     return 0;
 }
