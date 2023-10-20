@@ -43,13 +43,13 @@ int main() {
     int n, m;
     while(cin >> n >> m) {
         double ret = 0.0;
-        if(n > m) {
+        if(n >= m) {
             ret = 1.0;
         } else {
             double p = 1.0 / n;
             double q = 1.0 / m;
             for(int i = 1; i <= n; i++) {
-                ret += p * (1 - i * q) / (1 - p);
+                ret += p * (1 - i * q);
             }
         }
         printf("%.2f\n", ret);
