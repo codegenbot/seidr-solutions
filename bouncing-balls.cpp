@@ -48,18 +48,14 @@ int main() {
     double h1, h2;
     int n;
     while (cin >> h1 >> h2 >> n) {
-        if (n == 1) {
-            printf("%.3f\n", h2);
-        } else {
-            double bounciness = h2 / h1;
-            double sum = h2;
-            for (int i = 0; i < n; i++) {
-                double tmp = h2 * bounciness;
-                h2 = tmp;
-                sum += h2;
-            }
-            printf("%.5f\n", sum);
+        double bounciness = h2 / h1;
+        double sum = h2;
+        for (int i = 0; i < n - 1; i++) {
+            double tmp = h2 * bounciness;
+            h2 = tmp;
+            sum += h2;
         }
+        printf("%.5f\n", sum);
     }
     return 0;
 }
