@@ -43,5 +43,12 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    a = list(map(int, input().split()))
-    print(a)
+    a = [int(i) for i in input().split()]
+    ans = []
+    mx = -1
+    for i in range(n-1, -1, -1):
+        if mx < a[i]:
+            mx = a[i]
+            ans.append(a[i])
+    print(len(ans))
+    print(*ans[::-1])
