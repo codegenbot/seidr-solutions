@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs. If there are multiple spots, pick the leftmost one.
+Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs. Make sure that 2\n2 129 -> 1\n2\n1\n129
 For example,
 input:
 1
@@ -53,15 +53,6 @@ output:
 10000
 0
 
-input:
-2
-2 129
-output:
-1
-2
-1
-129
-
 */
 int main() {
   int n;
@@ -75,15 +66,15 @@ int main() {
   for(int i=0;i<n-1;i++) {
     if(abs(v[i]-v[i+1])<min) {
       min=abs(v[i]-v[i+1]);
-      l=i+1;
-      r=i+2;
+      l=i;
+      r=i+1;
     }
   }
-  for(int i=0;i<l;i++) {
+  for(int i=0;i<=l;i++) {
     cout<<v[i]<<" ";
   }
   cout<<endl;
-  for(int i=r-1;i<n;i++) {
+  for(int i=r;i<n;i++) {
     cout<<v[i]<<" ";
   }
   cout<<endl;
