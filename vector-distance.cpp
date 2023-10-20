@@ -52,19 +52,19 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<float> v1(n);
+    vector<double> a(n);
     for (int i = 0; i < n; i++) {
-        cin >> v1[i];
+        cin >> a[i];
     }
     cin >> n;
-    vector<float> v2(n);
+    vector<double> b(n);
     for (int i = 0; i < n; i++) {
-        cin >> v2[i];
+        cin >> b[i];
     }
-    float sum = 0;
+    double ans = 0;
     for (int i = 0; i < n; i++) {
-        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        ans += (a[i] - b[i]) * (a[i] - b[i]);
     }
-    cout << sqrt(sum) << endl;
+    printf("%.10f\n", sqrt(ans));
     return 0;
 }
