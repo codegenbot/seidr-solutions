@@ -46,10 +46,11 @@ if __name__ == '__main__':
     nums = [int(i) for i in input().split()]
     # print(nums)
     leaders = []
-    max_num = nums[-1] if n > 0 else 0
-    leaders.append(max_num)
-    for i in range(n-2, -1, -1):
-        if nums[i] >= max_num:
-            leaders.append(nums[i])
-            max_num = nums[i]
-    print(" ".join([str(i) for i in leaders[::-1]]))
+    if nums:
+        max_num = nums[-1]
+        leaders.append(max_num)
+        for i in range(n-2, -1, -1):
+            if nums[i] >= max_num:
+                leaders.append(nums[i])
+                max_num = nums[i]
+        print(" ".join([str(i) for i in leaders[::-1]]))
