@@ -31,17 +31,7 @@ input:
 output:
 100
 """
-
-# def bowling_score(s):
-#     s = s.replace('-', '0')
-#     s = s.replace('X', '10')
-#     s = s.replace('/', '+')
-#     return eval(s)
-
-def bowling_score(s):
-    s = s.replace('-', '0')
-    s = s.replace('X', '10')
-    s = s.replace('/', '+')
-    return eval('+'.join(s))
+def score(round):
+    return 0
 
 if __name__ == '__main__':
