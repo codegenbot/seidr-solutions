@@ -48,7 +48,7 @@ int main() {
     double h, h1, n;
     while (cin >> h >> h1 >> n) {
         double bounciness = h1 / h;
-        double sum = h + h1;
+        double sum = h;
         for (int i = 1; i < n; i++) {
             sum += h * pow(bounciness, i);
         }
