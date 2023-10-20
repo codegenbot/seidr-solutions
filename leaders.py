@@ -46,10 +46,8 @@ if __name__ == '__main__':
         for line in f:
             line = line.strip('\n')
             if not line:
-                continue
-            if line == '0':
-                print(line)
-                continue
+                print(0)
+                break
             line = line.split(' ')
             line = [int(i) for i in line]
             out = []
