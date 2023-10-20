@@ -59,7 +59,7 @@ int bowling(string frames) {
             if(frames[i+1] == 'X') {
                 score += 10;
             } else if(frames[i+1] == '/') {
-                score += 10 - (frames[i+1] - '0');
+                score += 10 - (frames[i+2] - '0');
             } else {
                 score += frames[i+1] - '0';
             }
@@ -83,9 +83,6 @@ int bowling(string frames) {
                 score += frames[i+1] - '0';
             }
         }
-        if(frame_score == 0) {
-            bonus = 0;
-        }
         frame++;
         if(frame == 10) {
             break;
@@ -100,6 +97,5 @@ int main() {
     cout << bowling("5/5/5/5/5/5/5/5/5/5/5") << endl;
     cout << bowling("7115XXX548/279-X53") << endl;
     cout << bowling("532/4362X179-41447/5") << endl;
-    cout << bowling("--------------------") << endl;
     return 0;
 }
