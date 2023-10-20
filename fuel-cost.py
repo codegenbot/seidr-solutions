@@ -12,27 +12,32 @@ Given a vector of positive integers, divide each by 3, round the result down to 
 For example,
 input:
 1
-12
+6
 output:
-2
+0
 input:
 1
-14
+7
 output:
-2
+0
 input:
 1
-1969
+8
 output:
-654
+0
 input:
 1
-100756
+9
 output:
-33583
+1
+input:
+1
+10
+output:
+1
 """
 if __name__ == '__main__':
     n = int(input())
     for i in range(n):
-        x = int(input().split()[0])
-        print(max(x//3-2,0) + max(x//3-2,0)//3-2 + max(x//3-2,0)//3-2//3-2 + max(x//3-2,0)//3-2//3-2//3-2 + max(x//3-2,0)//3-2//3-2//3-2//3-2 + max(x//3-2,0)//3-2//3-2//3-2//3-2//3-2)
+        x = int(input())
+        print(x//3-2)
