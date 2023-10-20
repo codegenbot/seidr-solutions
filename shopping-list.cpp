@@ -62,11 +62,8 @@ int main() {
         cin >> discount[i];
     }
     float res = 0;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < min(n, (int)price.size()); i++) {
         res += price[i] * (1 - discount[i] / 100);
-    }
-    if (res < 0.00001) {
-        res = 0;
     }
     cout << res << endl;
     return 0;
