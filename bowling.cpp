@@ -16,19 +16,20 @@ For example,
 input:
 --------------------
 output:
--1
+Enter 'q' to quit
+0 -> 0
 input:
 XXXXXXXXXXXX
 output:
-300
+XXXXXXXXXXXX -> 300
 input:
 5/5/5/5/5/5/5/5/5/5/5
 output:
-150
+5/5/5/5/5/5/5/5/5/5/5 -> 150
 input:
 7115XXX548/279-X53
 output:
-145
+7115XXX548/279-X53 -> 145
 input:
 532/4362X179-41447/5
 output:
@@ -40,10 +41,6 @@ int main() {
         int score = 0;
         int frame = 0;
         int roll = 0;
-        if (input == "--------------------") {
-            cout << "-1" << endl;
-            continue;
-        }
         for (int i = 0; i < input.size(); i++) {
             if (input[i] == 'X') {
                 score += 10;
