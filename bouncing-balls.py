@@ -16,7 +16,6 @@ input:
 1
 output:
 2.001
-
 input:
 100.0
 99.999
@@ -43,10 +42,12 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    first = float(input())
-    second = float(input())
-    third = int(input())
-    bounciness = second/first
-    bounciness = bounciness**third
-    total = first * bounciness
-    print(total)
+    file_path = os.path.join(os.path.dirname(__file__), 'input.txt') 
+    with open(file_path, 'r') as f:
+        for line in f:
+            s = line.strip().split(' ')
+            start = float(s[0])
+            first = float(s[1])
+            num = int(s[2])
+            bounciness = first/start
+            print(sum(bounciness**i for i in range(1, num+1))*start)
