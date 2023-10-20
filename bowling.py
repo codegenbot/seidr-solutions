@@ -34,5 +34,4 @@ output:
 def score(round):
     return 0
 
-if __name__ == '__main__':
-    pass
+if __name__ == '__main__': 
