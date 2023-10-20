@@ -38,33 +38,27 @@ int main() {
     string str;
     cin >> str;
     int score = 0;
-    for(int i = 0; i < str.size(); i++){
-        if(str[i] == 'X'){
+    for(int i = 0; i < str.size() - 1; i++){
+        if(str[i] == 'X' && i < str.size() - 2){
             score += 10;
             if(str[i + 1] == 'X'){
                 score += 10;
                 if(str[i + 2] == 'X'){
                     score += 10;
                 }else{
-                    if(str[i + 2] != '-'){
-                        score += str[i + 2] - '0';
-                    }
+                    score += str[i + 2] - '0';
                 }
             }else if(str[i + 1] == '/'){
                 score += 10;
             }else{
-                if(str[i + 1] != '-'){
-                    score += str[i + 1] - '0';
-                }
+                score += str[i + 1] - '0';
             }
         }else if(str[i] == '/'){
             score += 10;
             if(str[i - 1] == 'X'){
                 score += 10;
             }else{
-                if(str[i - 1] != '-'){
-                    score += str[i - 1] - '0';
-                }
+                score += str[i - 1] - '0';
             }
         }else if(str[i] == '-'){
             continue;
