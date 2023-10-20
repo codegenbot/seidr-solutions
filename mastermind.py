@@ -1,12 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
@@ -42,21 +33,17 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = 'RRRR'
-    guess = 'RRRR'
-    black = 0
+    code = input()
+    guess = input()
     white = 0
-    code_list = []
-    guess_list = []
-    for i in range(0,len(code)):
+    black = 0
+    for i in range(4):
         if code[i] == guess[i]:
             black += 1
-        else:
-            code_list.append(code[i])
-            guess_list.append(guess[i])
-    for i in range(0,len(code_list)):
-        if code_list[i] in guess_list:
+            code = code[:i] + '-' + code[i+1:]
+            guess = guess[:i] + '-' + guess[i+1:]
+    for i in range(4):
+        if guess[i] in code:
             white += 1
-            guess_list.remove(code_list[i])
-    print(black)
-    print(white)
+            code = code.replace(guess[i], '-', 1)
+    print(black, white)
