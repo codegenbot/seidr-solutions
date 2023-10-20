@@ -45,16 +45,13 @@ if __name__ == '__main__':
     while True:
         try:
             line = input()
-            if line is None or line == "":
+            if line is None or line == "" or len(line) < 3:
                 break
             else:
                 line = line.split(' ')
                 h = float(line[0])
                 b = float(line[1])
-                if len(line)>2:
-                    n = int(line[2])
-                else:
-                    n = 1
+                n = int(line[2])
                 bounciness = b/h
                 distance = h
                 for i in range(n):
