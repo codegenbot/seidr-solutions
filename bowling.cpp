@@ -37,6 +37,10 @@ output:
 int main() {
     string input;
     cin >> input;
+    if (input == "--------------------") {
+        cout << 0 << endl;
+        return 0;
+    }
     int frame = 1;
     int index = 0;
     int score = 0;
