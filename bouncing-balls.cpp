@@ -46,11 +46,13 @@ output:
 */
 int main() {
     double start, first, num;
-    cin >> start >> first >> num;
+    scanf("%lf%lf%lf", &start, &first, &num);
+    double res = 0;
     double bounciness = first / start;
-    double sum = start + first * 2;
-    for (int i = 1; i < num; i++) {
-        sum += bounciness * 2 * start;
+    for (int i = 0; i < num; i++) {
+        res += start * 2;
+        start *= bounciness;
     }
-    printf("%.10f\n", sum);
+    cout << res << endl;
+    return 0;
 }
