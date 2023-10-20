@@ -1,12 +1,5 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
+from fractions import Fraction
+from itertools import product
 """
 Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
 For example,
@@ -36,26 +29,14 @@ input:
 output:
 0.0
 """
-
-def rollDie(n, m):
-    peter = np.arange(1,n+1)
-    colin = np.arange(1,m+1)
-    peter_prob = np.zeros(n)
-    colin_prob = np.zeros(m)
-    peter_prob.fill(1/n)
-    colin_prob.fill(1/m)
-    peter_win = 0
-    for i in range(n):
-        for j in range(m):
-            if peter[i] > colin[j]:
-                peter_win += peter_prob[i] * colin_prob[j]
-            else:
-                continue
-    return peter_win
-
 if __name__ == '__main__':
-    print(rollDie(1,2))
-    print(rollDie(2,1))
-    print(rollDie(99,100))
-    print(rollDie(100,99))
-    print(rollDie(1,100))
+    def peter_wins(n,m):
+        if n < m:
+            return Fraction(0,1)
+        elif n == m:
+            return Fraction(1,2)
+        else:
+            return Fraction(n-m+1, n*n)
+    def solution(n,m):
+        return sum(peter_wins(n,m) for n,m in product(range(1,n+1), range(1,m+1)))
+    print(solution(1,2))
