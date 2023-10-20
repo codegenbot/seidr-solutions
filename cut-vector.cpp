@@ -57,22 +57,44 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    int ans = INT_MAX;
-    int ans_idx;
-    for (int i = 1; i < n; ++i) {
-        if (abs(nums[i] - nums[i - 1]) < ans) {
-            ans = abs(nums[i] - nums[i - 1]);
-            ans_idx = i;
+    int index = -1;
+    int diff = INT_MAX;
+    for (int i = 0; i < n - 1; i++) {
+        int left = 0, right = 0;
+        for (int j = 0; j <= i; j++) {
+            left += v[j];
+        }
+        for (int j = i + 1; j < n; j++) {
+            right += v[j];
+        }
+        if (left == right) {
+            index = i;
+            break;
+        }
+        else {
+            if (abs(left - right) < diff) {
+                index = i;
+                diff = abs(left - right);
+            }
         }
     }
-    for (int i = 0; i < ans_idx; ++i) {
-        cout << nums[i] << endl;
+    if (index == -1) {
+        cout << "NO" << endl;
     }
-    for (int i = ans_idx; i < n; ++i) {
-        cout << nums[i] << endl;
+    else {
+        cout << "YES" << endl;
+        for (int i = 0; i <= index; i++) {
+            cout << v[i] << " ";
+        }
+        cout << endl;
+        for (int i = index + 1; i < n; i++) {
+            cout << v[i] << " ";
+        }
+        cout << endl;
     }
+    return 0;
 }
