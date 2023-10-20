@@ -16,7 +16,7 @@ input:
 output:
 1
 0
-0\n
+0
 
 input:
 1
@@ -24,7 +24,7 @@ input:
 output:
 1
 10
-0\n
+0
 
 input:
 1
@@ -32,7 +32,7 @@ input:
 output:
 1
 100
-0\n
+0
 
 input:
 1
@@ -40,7 +40,7 @@ input:
 output:
 1
 1000
-0\n
+0
 
 input:
 1
@@ -48,10 +48,11 @@ input:
 output:
 1
 10000
-0\n
+0
 
 """
 if __name__ == '__main__':
     vector = [1,10,100,1000,10000]
-    print(vector[0:2])
-    print(vector[2:5])
+    print(vector[0:1])
+    print(vector[1:2])
+    print(vector[2:3])
