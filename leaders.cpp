@@ -14,10 +14,10 @@ using namespace std;
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
 input:
-0
+1
 
 output:
-0
+1
 
 input:
 1
@@ -44,25 +44,6 @@ output:
 1
 1000
 */
-
-vector<int> leader(vector<int> input) {
-  vector<int> res;
-  int m = input[input.size() - 1];
-  res.push_back(m);
-  for(int i = input.size() - 2; i >= 0; i--) {
-    if(input[i] >= m) {
-      m = input[i];
-      res.push_back(m);
-    }
-  }
-  reverse(res.begin(), res.end());
-  return res;
-}
-
 int main() {
-  vector<int> v = {1, 451};
-  vector<int> res = leader(v);
-  for(int i = 0; i < res.size(); i++) {
-    cout << res[i] << endl;
-  }
+
 }
