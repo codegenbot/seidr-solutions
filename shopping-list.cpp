@@ -63,8 +63,7 @@ int main() {
     }
     float res = 0;
     for (int i = 0; i < n; i++) {
-        if (discount[i] != 100)
-            res += price[i] * (1 - discount[i] / 100);
+        res += price[i] * (1 - discount[i] / 100.0);
     }
     cout << res << endl;
     return 0;
