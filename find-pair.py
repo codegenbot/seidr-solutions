@@ -1,13 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
-import random
 """
 Given a vector of integers, return the two elements that sum to a target integer.
 For example,
@@ -47,19 +37,12 @@ output:
 -4
 4
 """
+def find_sum(nums, target):
+    d = {}
+    for i in nums:
+        if i in d:
+            return d[i], i
+        else:
+            d[target - i] = i
+
 if __name__ == '__main__':
-    N = int(input())
-    for i in range(N):
-        target = int(input())
-        num_str = input().split()
-        nums = [int(num_str[i]) for i in range(len(num_str))]
-        result = []
-        for j in range(len(nums)):
-            for k in range(len(nums)):
-                if(j == k):
-                    continue
-                if(nums[j] + nums[k] == target):
-                    result.append(nums[j])
-                    result.append(nums[k])
-        for j in range(len(result)):
-            print(result[j])
