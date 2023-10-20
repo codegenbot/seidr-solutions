@@ -50,26 +50,26 @@ output:
 4
 */
 int main() {
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    int target;
-    cin>>target;
-    int i=0,j=n-1;
-    while(i<j){
-        if(arr[i]+arr[j]==target){
-            cout<<arr[i]<<endl;
-            cout<<arr[j]<<endl;
-            break;
+    int n, x, y;
+    while(cin>>n>>x>>y) {
+        int target = x+y;
+        vector<int> nums(n);
+        for(int i = 0; i < n; i++) {
+            cin>>nums[i];
         }
-        else if(arr[i]+arr[j]>target){
-            j--;
-        }
-        else{
-            i++;
+        map<int, int> m;
+        for(int i = 0; i < n; i++) {
+            if(m.find(nums[i]) != m.end()) {
+                if(nums[i] == x) {
+                    cout<<x<<' '<<y<<endl;
+                    break;
+                } else if(nums[i] == y) {
+                    cout<<y<<' '<<x<<endl;
+                    break;
+                }
+            } else {
+                m[target-nums[i]] = i;
+            }
         }
     }
     return 0;
