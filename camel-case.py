@@ -38,6 +38,6 @@ if __name__ == '__main__':
     str = " ".join(str)
     str = str.title()
     str = str.replace(" ","")
-    if len(str)>0:
+    if str:
         str = str[0].lower() + str[1:]
     print(str)
