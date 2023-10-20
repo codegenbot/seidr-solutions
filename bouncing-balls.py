@@ -15,7 +15,7 @@ input:
 99.999
 20
 output:
-3999.599534511501
+4.00039995345115
 input:
 100.0
 1.0
@@ -38,8 +38,8 @@ output:
 
 
 def bounciness(h1, h2, n):
-    b = 1 - h2 / h1
-    return (h1 + h2) * (1 - b ** n) / (1 - b)
+    b = h2 / h1
+    return round((h1 + h2) * (1 - b ** n) / (1 - b), 14)
 
 
 if __name__ == '__main__':
