@@ -41,14 +41,16 @@ int score(string s) {
 		char c = s[i];
 		if (c == 'X') {
 			res += 10;
-			if (s[i + 1] == 'X' || s[i + 1] == '-') {
+			if (s[i + 1] == 'X') {
 				res += 10;
-				if (s[i + 2] == 'X' || s[i + 2] == '-') {
+				if (s[i + 2] == 'X') {
 					res += 10;
+					i--; // make sure that XXXXXXXXXXXX -> 300
 				}
 				else {
 					res += s[i + 2] - '0';
 				}
+				i--;
 			}
 			else if (s[i + 1] == '/') {
 				res += 10;
@@ -59,7 +61,7 @@ int score(string s) {
 		}
 		else if (c == '/') {
 			res += 10;
-			if (s[i + 1] == 'X' || s[i + 1] == '-') {
+			if (s[i + 1] == 'X') {
 				res += 10;
 			}
 			else {
