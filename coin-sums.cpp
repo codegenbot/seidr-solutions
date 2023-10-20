@@ -52,10 +52,10 @@ output:
 
 int pennies, nickles, dimes, quarters;
 int count(int cents) {
-    pennies = cents;
-    nickles = cents / 5;
-    dimes = (cents - nickles * 5) / 10;
-    quarters = cents / 25;
+    pennies = cents % 5;
+    nickles = cents / 5 % 2;
+    dimes = cents / 10 % 2;
+    quarters = cents / 25 % 4;
     return pennies + nickles + dimes + quarters;
 }
 
