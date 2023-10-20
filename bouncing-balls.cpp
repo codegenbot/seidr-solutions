@@ -45,14 +45,23 @@ output:
 3.963
 */
 int main() {
-  double a, b, c;
-  while (cin >> a >> b >> c) {
-    double bounciness = b / a;
-    double res = a;
-    for (int i = 1; i < c; i++) {
-      res += a * pow(bounciness, i);
+    double h0, h1, k;
+    int n;
+    while (cin >> h0 >> h1 >> n) {
+        if (h0 <= 0 || h1 <= 0 || n <= 0) {
+            cout << "Error" << endl;
+            continue;
+        }
+        if (h1 > h0) {
+            cout << "Error" << endl;
+            continue;
+        }
+        k = h1 / h0;
+        double res = 0;
+        for (int i = 1; i <= n; i++) {
+            res += h0 * pow(k, i - 1);
+        }
+        printf("%.3lf\n", res);
     }
-    printf("%.5f\n", res);
-  }
-  return 0;
+    return 0;
 }
