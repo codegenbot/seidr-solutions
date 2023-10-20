@@ -66,9 +66,14 @@ int main() {
     string text, target;
     cin >> text >> target;
     vector<int> res = findTarget(text, target);
-    for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << endl;
+    if (res.size() > 0) {
+        for (int i = 0; i < res.size(); i++) {
+            cout << res[i] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
+    else {
+        cout << 0 << endl;
+    }
     return 0;
 }
