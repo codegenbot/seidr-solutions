@@ -34,46 +34,50 @@ input:
 output:
 100
 */
-int getScore(string input) {
-    int score = 0;
-    int frame = 0;
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == 'X') {
-            score += 10;
-            if (input[i + 1] == 'X') {
-                score += 10;
-                if (input[i + 2] == 'X') {
-                    score += 10;
-                } else {
-                    score += input[i + 2] - '0';
-                }
-            } else if (input[i + 1] == '/') {
-                score += 10;
-            } else {
-                score += input[i + 1] - '0';
-            }
-        } else if (input[i] == '/') {
-            score += 10;
-            if (input[i - 1] == 'X') {
-                score += 10;
-            } else {
-                score += input[i - 1] - '0';
-            }
-        } else if (input[i] == '-') {
-            score += 0;
-        } else {
-            score += input[i] - '0';
-        }
-        frame++;
-        if (frame == 10) {
-            break;
-        }
-    }
-    return score;
-}
 int main() {
     string input;
-    cin >> input;
-    cout << getScore(input) << endl;
-    return 0;
+    while (getline(cin, input)) {
+        int score = 0;
+        int frame = 0;
+        int roll = 0;
+        for (int i = 0; i < input.size(); i++) {
+            if (input[i] == 'X') {
+                score += 10;
+                if (frame != 9) {
+                    score += 10;
+                    if (input[i + 1] == 'X') {
+                        score += 10;
+                        i++;
+                    } else {
+                        score += input[i + 1] - '0';
+                        i++;
+                    }
+                }
+                frame++;
+                roll = 0;
+            } else if (input[i] == '/') {
+                score += 10;
+                if (frame != 9) {
+                    score += input[i + 1] - '0';
+                    i++;
+                }
+                frame++;
+                roll = 0;
+            } else if (input[i] == '-') {
+                roll++;
+                if (roll == 2) {
+                    frame++;
+                    roll = 0;
+                }
+            } else {
+                score += input[i] - '0';
+                roll++;
+                if (roll == 2) {
+                    frame++;
+                    roll = 0;
+                }
+            }
+        }
+        cout << score << endl;
+    }
 }
