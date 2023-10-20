@@ -20,19 +20,14 @@ string s;
 getline(cin, s);
 string res = "";
 bool space = false;
-bool start = false;
 for (int i = 0; i < s.size(); i++) {
-  if (s[i] != ' ' && s[i] != '-') {
-    start = true;
-  }
   if (s[i] != ' ') {
-    space = true;
-  }
-  if (space && start) {
     if (s[i] == ' ') {
       res += " ";
+      space = false;
     } else if (s[i] == '-') {
       res += " ";
+      space = false;
     } else {
       res += s[i];
     }
