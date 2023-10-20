@@ -34,27 +34,21 @@ all separate words
 output:
 all separate words
 */
-string camelCase(string str) {
-	string result;
-	bool isFirst = true;
-	for (int i = 0; i < str.size(); i++) {
-		if (str[i] == ' ') {
-			result += ' ';
-		}
-		else if (str[i] == '-') {
-			isFirst = true;
-		}
-		else if (isFirst) {
-			result += toupper(str[i]);
-			isFirst = false;
-		}
-		else {
-			result += str[i];
-		}
-	}
-	return result;
-}
 int main() {
-	cout << camelCase("camel-case example-test-string") << endl;
-	return 0;
+    string s;
+    getline(cin, s);
+    string r;
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == '-') {
+            i++;
+            r += toupper(s[i]);
+            i++;
+        }
+        else {
+            r += s[i];
+            i++;
+        }
+    }
+    cout << r << endl;
 }
