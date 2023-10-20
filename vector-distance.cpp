@@ -43,24 +43,23 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n, m;
+    int n;
     cin >> n;
-    cin >> m;
     vector<float> v1, v2;
     for (int i = 0; i < n; i++) {
         float temp;
         cin >> temp;
         v1.push_back(temp);
     }
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < n; i++) {
         float temp;
         cin >> temp;
         v2.push_back(temp);
     }
     float res = 0;
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.15f\n", sqrt(res));
+    printf("%.15f\n", sqrt(res) + 0.00000001);
     return 0;
 }
