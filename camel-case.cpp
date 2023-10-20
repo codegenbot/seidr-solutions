@@ -35,26 +35,34 @@ output:
 all separate words
 */
 int main() {
-	string str, temp;
-	getline(cin, str);
-	int i, len = str.length();
-	for (i = 0; i < len; i++) {
-		if (str[i] == ' ' || str[i] == '-') {
-			cout << temp << " ";
-			temp.clear();
-		}
-		else {
-			if (i == 0 || str[i - 1] == ' ' || str[i - 1] == '-') {
-				temp += toupper(str[i]);
-			}
-			else {
-				temp += tolower(str[i]);
-			}
-		}
-	}
-	if (temp.length() > 0) {
-		cout << temp << " ";
-	}
-	cout << endl;
-	return 0;
+    string input;
+    getline(cin, input);
+    vector<string> words;
+    string word = "";
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == ' ' || input[i] == '-') {
+            if (word.length() > 0) {
+                words.push_back(word);
+                word = "";
+            }
+        } else {
+            word += input[i];
+        }
+    }
+    if (word.length() > 0) {
+        words.push_back(word);
+    }
+    string output = "";
+    for (int i = 0; i < words.size(); i++) {
+        if (i == 0) {
+            output += words[i];
+        } else {
+            output += words[i][0];
+            for (int j = 1; j < words[i].length(); j++) {
+                output += tolower(words[i][j]);
+            }
+        }
+    }
+    cout << output << endl;
+    return 0;
 }
