@@ -62,7 +62,7 @@ int main() {
     }
     float sum = 0;
     for(int i = 0;i<n;i++){
-        sum += price[i] * (1-discount[i]/100.0);
+        sum += max(price[i] * (1-discount[i]/100),0.0);
     }
     cout<<sum<<endl;
     return 0;
