@@ -55,9 +55,5 @@ output:
 if __name__ == '__main__':
     n = int(input())
     a = [int(x) for x in input().split()]
-    #print(a)
     for i in range(len(a)):
-        if i == len(a) - 1:
-            print(a[i], 0)
-        else:
-            print(a[i])
+        print(a[i])
