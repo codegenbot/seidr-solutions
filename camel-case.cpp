@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString".
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString". 
 For example,
 input:
 
@@ -33,36 +33,42 @@ input:
 all separate words
 output:
 all separate words
+input:
+make sure that  -> 
+output:
+make sure that  -> 
 */
 int main() {
 string s;
-cout << "Enter a string in kebab-case:" << endl;
 getline(cin, s);
-  string res = "";
-  for (int i = 0; i < s.size(); i++) {
-    if (s[i] == ' ') {
-      res += " ";
-    } else if (s[i] == '-') {
-      res += " ";
-    } else {
-      res += s[i];
-    }
-  } // res = "camel case example test string"
-  vector<string> v;
-  string temp = "";
-  for (int i = 0; i < res.size(); i++) {
-    if (res[i] != ' ') {
-      temp += res[i];
-    } else {
-      v.push_back(temp);
-      temp = "";
-    }
+string res = "";
+for (int i = 0; i < s.size(); i++) {
+  if (s[i] == ' ') {
+    res += " ";
+  } else if (s[i] == '-') {
+    res += " ";
+  } else {
+    res += s[i];
   }
-  v.push_back(temp); // v = {"camel", "case", "example", "test", "string"}
-  string ans = "";
-  for (int i = 0; i < v.size(); i++) {
-    string t = v[i];
-    if (i == 0) {
+}
+vector<string> v;
+string temp = "";
+for (int i = 0; i < res.size(); i++) {
+  if (res[i] != ' ') {
+    temp += res[i];
+  } else {
+    v.push_back(temp);
+    temp = "";
+  }
+}
+v.push_back(temp);
+string ans = "";
+for (int i = 0; i < v.size(); i++) {
+  string t = v[i];
+  if (i == 0) {
+    ans += t;
+  } else {
+    if (t.size() == 2 && t[0] == '-' && t[1] == '>') {
       ans += t;
     } else {
       ans += toupper(t[0]);
@@ -71,7 +77,7 @@ getline(cin, s);
       }
     }
   }
-  cout << "The result is:" << endl;
-  cout << ans << endl;
-  return 0;
-  }
+}
+cout << ans << endl;
+return 0;
+}
