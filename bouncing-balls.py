@@ -42,9 +42,9 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    line_one = sys.stdin.readline()
-    line_two = sys.stdin.readline()
-    line_three = sys.stdin.readline()
-    bounciness_index = float(line_two) / float(line_one)
-    total_distance = bounciness_index ** int(line_three) * float(line_one)
-    print(total_distance)
+    first_bounce_height = float(input())
+    starting_height = float(input())
+    num_bounces = int(input())
+    bounciness_index = first_bounce_height / starting_height
+    total_distance_traveled = starting_height + bounciness_index * (1 - pow(bounciness_index, num_bounces)) / (1 - bounciness_index)
+    print(total_distance_traveled)
