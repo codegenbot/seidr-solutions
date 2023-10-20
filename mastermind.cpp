@@ -44,70 +44,30 @@ output:
 0
 0
 */
-int blackPegs(string code, string guess) {
-    int count = 0;
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            count++;
+vector<int> mastermind(string code, string guess) {
+    vector<int> res(2, 0);
+    int cnt[6] = {0};
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            res[0]++;
+        } else {
+            cnt[code[i]-'A']++;
         }
     }
-    return count;
-}
-int whitePegs(string code, string guess) {
-    int count = 0;
-    int codeArr[6] = {0};
-    int guessArr[6] = {0};
-    for(int i = 0; i < 4; i++) {
-        switch(code[i]) {
-            case 'B':
-                codeArr[0]++;
-                break;
-            case 'G':
-                codeArr[1]++;
-                break;
-            case 'O':
-                codeArr[2]++;
-                break;
-            case 'P':
-                codeArr[3]++;
-                break;
-            case 'R':
-                codeArr[4]++;
-                break;
-            case 'Y':
-                codeArr[5]++;
-                break;
-        }
-        switch(guess[i]) {
-            case 'B':
-                guessArr[0]++;
-                break;
-            case 'G':
-                guessArr[1]++;
-                break;
-            case 'O':
-                guessArr[2]++;
-                break;
-            case 'P':
-                guessArr[3]++;
-                break;
-            case 'R':
-                guessArr[4]++;
-                break;
-            case 'Y':
-                guessArr[5]++;
-                break;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] != guess[i] && cnt[guess[i]-'A'] > 0) {
+            res[1]++;
+            cnt[guess[i]-'A']--;
         }
     }
-    for(int i = 0; i < 6; i++) {
-        count += min(codeArr[i], guessArr[i]);
-    }
-    return count;
+    return res;
 }
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << blackPegs(code, guess) << endl;
-    cout << whitePegs(code, guess) << endl;
+    string code = "WYYW";
+    string guess = "BBOG";
+    vector<int> res = mastermind(code, guess);
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << endl;
+    }
     return 0;
 }
