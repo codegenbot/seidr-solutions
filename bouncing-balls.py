@@ -47,10 +47,10 @@ if __name__ == '__main__':
             line = input()
             if line is None or line == "":
                 break
-            elif len(line) != 3:
-                continue
             else:
-                line = line.split(' ')
+                line = line.split(' ') 
+                if len(line) < 3:
+                    continue
                 h = float(line[0])
                 b = float(line[1])
                 n = int(line[2])
