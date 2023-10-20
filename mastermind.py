@@ -14,31 +14,31 @@ input:
 RRRR
 RRRR
 output:
-0
+0\n
 4
 input:
 BOYG
 GYOB
 output:
-4
+4\n
 0
 input:
 WYYW
 BBOG
 output:
 0
-0
+0\n
 input:
 GGGB
 BGGG
 output:
-2
+2\n
 2
 input:
 BBBB
 OOOO
 output:
-0
+0\n
 0
 """
 if __name__ == '__main__':
@@ -53,5 +53,5 @@ if __name__ == '__main__':
         if code[i] != guess[i]:
             if guess[i] in code:
                 white += 1
-    print(black, end='\n')
-    print(white, end='\n')
+    print(black)
+    print(white)
