@@ -17,10 +17,9 @@ output:
 0
 
 input:
-1
 0
 output:
-1
+0
 0
 input:
 1
@@ -44,7 +43,7 @@ output:
 if __name__ == '__main__':
     n = int(input())
     a = list(map(int, input().split()))
-    if len(a) == 1:
-        print(a[0])
+    if len(a) == 0:
+        print(0)
     else:
-        print(a[0])
+        print(a)
