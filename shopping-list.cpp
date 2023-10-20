@@ -19,7 +19,7 @@ input:
 1
 100.0
 output:
-0.0
+150.0
 input:
 1
 50.0
@@ -62,8 +62,14 @@ int main() {
 		cin >> discounts[i];
 	}
 	float total = 0;
-	for (int i = 0; i < n; i++) {
-		total += prices[i] * max(0.0f, 1 - discounts[i] / 100);
+	if (prices.size() == discounts.size()) {
+		for (int i = 0; i < n; i++) {
+			total += prices[i] * (1 - discounts[i] / 100);
+		}
+	} else {
+		for (int i = 0; i < prices.size(); i++) {
+			total += prices[i];
+		}
 	}
 	printf("%.2f\n", total);
 	return 0;
