@@ -35,9 +35,12 @@ output:
 100
 */
 int getScore(string input) {
+    if (input.length() > 21) {
+        return -1;
+    }
     int score = 0;
     int frame = 0;
-    for (int i = 0; i < input.length(); i++) {
+    for (int i = 0; i < input.length() && frame < 10; i++) {
         if (input[i] == 'X') {
             score += 10;
             if (input[i + 1] == 'X') {
@@ -47,7 +50,7 @@ int getScore(string input) {
                 } else {
                     score += input[i + 2] - '0';
                 }
-            } else if (input[i + 1] == '/'uchar) {
+            } else if (input[i + 1] == '/') {
                 score += 10;
             } else {
                 score += input[i + 1] - '0';
@@ -64,17 +67,11 @@ int getScore(string input) {
         } else {
             score += input[i] - '0';
         }
-        if (i > 0) {
-            if (input[i - 1] == 'X' && input[i] == 'X') {
-                input[i - 1] == '5';
-            }
-        }
         frame++;
         if (frame == 10) {
             break;
         }
     }
-    cout << score << endl;
     return score;
 }
 int main() {
