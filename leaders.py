@@ -76,15 +76,14 @@ if __name__ == '__main__':
     1
     1000
     """
+    arr = []
     n = int(input())
-    arr = [int(i) for i in input().split()]
+    if n > 0:
+        arr = [int(i) for i in input().split()]
     max_num = -1
     res = []
     for i in range(len(arr)-1, -1, -1):
         if arr[i] >= max_num:
             res.append(arr[i])
             max_num = arr[i]
-    if len(res):
-        print(" ".join([str(i) for i in res[::-1]]))
-    else:
-        print(0)
+    print(" ".join([str(i) for i in res[::-1]]))
