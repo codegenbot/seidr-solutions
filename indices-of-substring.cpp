@@ -11,38 +11,13 @@
 #include <climits>
 using namespace std;
 /*
-Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
-For example,
-input:
-a
-5
-output:
-0
-
-input:
-!
-!
-output:
-1
-0
-input:
-r
-nm,xcnwqnd@#$fwkdjn3
-output:
-0
-
-input:
-hi
-hihihihihihihihihihi
-output:
-0
-
-input:
-############
-#
-output:
-12
-0 1 2 3 4 5 6 7 8 9 10 11
+Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. 
+Targets may overlap.
+For example, input: a 5 output: 0
+input: ! ! output: 1 0
+input: r nm,xcnwqnd@#$fwkdjn3 output: 0
+input: hi hihihihihihihihihihi output: 0
+input: ############ # output: 12 0 1 2 3 4 5 6 7 8 9 10 11
 */
 
 vector<int> findTarget(string text, string target) {
@@ -67,8 +42,11 @@ int main() {
     cin >> text >> target;
     vector<int> res = findTarget(text, target);
     for (int i = 0; i < res.size(); i++) {
-        cout << res[i];
-        if (i < res.size() - 1) cout << " ";
+        if (i == res.size() - 1) {
+            cout << res[i];
+        } else {
+            cout << res[i] << " ";
+        }
     }
     cout << endl;
     return 0;
