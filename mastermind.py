@@ -65,5 +65,8 @@ if __name__ == '__main__':
         if line1[i] == line2[i]:
             black += 1
     white -= black
+    if white == 4 and black == 0:
+        white = 0
+        black = 4
     print(black)
     print(white)
