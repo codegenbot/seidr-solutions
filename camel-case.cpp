@@ -35,34 +35,41 @@ output:
 all separate words
 */
 int main() {
-    string input;
-    while(getline(cin, input)){
-        stringstream ss(input);
-        string word;
-        bool first = true;
-        while(ss >> word){
-            if(word.find("-") == string::npos){
-                if(!first)
-                    cout << " ";
-                cout << word;
-                first = false;
-                continue;
-            }
-            stringstream ss2(word);
-            string word2;
-            bool first2 = true;
-            while(getline(ss2, word2, '-')){
-                if(!first2)
-                    cout << word2[0] - 'a' + 'A';
-                else
-                    cout << word2;
-                first2 = false;
-                if(word2.length() > 1)
-                    cout << word2.substr(1);
-            }
-            first = false;
-        }
-        cout << endl;
+string s;
+getline(cin, s);
+string res = "";
+for (int i = 0; i < s.size(); i++) {
+  if (s[i] == ' ') {
+    res += " ";
+  } else if (s[i] == '-') {
+    res += " ";
+  } else {
+    res += s[i];
+  }
+}
+vector<string> v;
+string temp = "";
+for (int i = 0; i < res.size(); i++) {
+  if (res[i] != ' ') {
+    temp += res[i];
+  } else {
+    v.push_back(temp);
+    temp = "";
+  }
+}
+v.push_back(temp);
+string ans = "";
+for (int i = 0; i < v.size(); i++) {
+  string t = v[i];
+  if (i == 0) {
+    ans += t;
+  } else {
+    ans += toupper(t[0]);
+    for (int j = 1; j < t.size(); j++) {
+      ans += t[j];
     }
-    return 0;
+  }
+}
+cout << ans << endl;
+return 0;
 }
