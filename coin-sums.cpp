@@ -48,14 +48,17 @@ output:
 1
 0
 0
-input:
-11
-output:
-1
-0
-1
-0
 */
+
+void printCoins(int n) {
+    cout << n << endl;
+    cout << n / 5 << endl;
+    n %= 5;
+    cout << n / 2 << endl;
+    n %= 2;
+    cout << n << endl;
+}
+
 int main() {
     int n;
     cin >> n;
