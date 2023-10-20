@@ -49,24 +49,36 @@ output:
 -4
 4
 */
+
+vector<int> sumToTarget(vector<int> &nums, int target) {
+    vector<int> result;
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == target) {
+                result.push_back(nums[i]);
+                result.push_back(nums[j]);
+                return result;
+            }
+        }
+    }
+    return result;
+}
+
 int main() {
-//	freopen("in.txt", "r", stdin);
-//	freopen("out.txt", "w", stdout);
-	int n, target;
-	cin >> n >> target;
-	vector<int> v(n);
-	for (int i = 0; i < n; i++)
-		cin >> v[i];
-	int i = 0, j = n - 1;
-	while (i < j) {
-		if (v[i] + v[j] == target) {
-			cout << v[i] << " " << v[j] << endl;
-			break;
-		}
-		else if (v[i] + v[j] > target)
-			j--;
-		else
-			i++;
-	}
-	return 0;
+    vector<int> nums;
+    int target;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        nums.push_back(num);
+    }
+    cin >> target;
+    vector<int> result = sumToTarget(nums, target);
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
+    cout << endl;
+    return 0;
 }
