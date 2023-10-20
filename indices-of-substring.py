@@ -17,47 +17,23 @@ output:
 0
 
 input:
-!
-
-!
-
+!\n!
 output:
-
-1
-
+1\n0
+input:
+r\nnm,xcnwqnd@#$fwkdjn3
+output:
 0
 
 input:
-r
-
-nm,xcnwqnd@#$fwkdjn3
-
+hi\nhihihihihihihihihihi
 output:
-
 0
 
-
 input:
-hi
-
-hihihihihihihihihihi
-
+############\n#
 output:
-
-0
-
-
-input:
-############
-
-#
-
-output:
-
-12
-
-0 1 2 3 4 5 6 7 8 9 10 11
-
+12\n0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
     t = input()
@@ -66,11 +42,8 @@ if __name__ == '__main__':
     for i in range(len(t)):
         if t[i:i+len(s)] == s:
             result.append(i)
-    if result:
-        for i in result:
-            print(i,end=" ")
-    else:
-        print(-1)
+    for i in result:
+        print(i,end=" ")
 
 
 
