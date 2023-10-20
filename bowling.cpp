@@ -44,7 +44,7 @@ int getScore(const string &input) {
       score += 10;
       if(input[i + 1] == 'X') {
         score += 10;
-        if(input[i + 2] == 'X' || input[i + 2] == '/') {
+        if(input[i + 2] == 'X') {
           score += 10;
         } else {
           score += input[i + 2] - '0';
@@ -59,7 +59,11 @@ int getScore(const string &input) {
       }
     } else if(input[i] == '/') {
       score += 10;
-      score += input[i + 1] - '0';
+      if(input[i + 1] == 'X') {
+        score += 10;
+      } else {
+        score += input[i + 1] - '0';
+      }
     }
   }
   return score;
