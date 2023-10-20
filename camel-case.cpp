@@ -36,7 +36,7 @@ all separate words
 input:
      Make sure that  -> 
 output:
-Make sure that  ->
+Make sure that  -> 
 */
 int main() {
 string s;
