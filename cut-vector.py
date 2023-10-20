@@ -16,7 +16,7 @@ input:
 output:
 1
 0
-0
+0\n
 
 input:
 1
@@ -52,4 +52,4 @@ output:
 
 """
 if __name__ == '__main__':
-    print("1\n0")
+    pass
