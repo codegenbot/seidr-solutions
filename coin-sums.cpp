@@ -44,26 +44,29 @@ output:
 input:
 5
 output:
-0 //penny
 0
-1 //nickle
+1
 0
 0
 */
+
+void printCoins(int n) {
+    cout << n << endl;
+    cout << n / 5 << endl;
+    n %= 5;
+    cout << n / 2 << endl;
+    n %= 2;
+    cout << n << endl;
+}
+
 int main() {
-    int cents;
-    cin >> cents;
-    cout << cents << endl;
-    int quarter = cents / 25;
-    cents = cents % 25;
-    cout << quarter << endl;
-    int dime = cents / 10;
-    cents = cents % 10;
-    cout << dime << endl;
-    int nickle = cents / 5;
-    cents = cents % 5;
-    cout << nickle << endl;
-    int penny = cents;
-    cout << penny << endl;
+    int n;
+    cin >> n;
+    cout << n << endl;
+    cout << n / 5 << endl;
+    n %= 5;
+    cout << n / 2 << endl;
+    n %= 2;
+    cout << n << endl;
     return 0;
 }
