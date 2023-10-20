@@ -1,6 +1,14 @@
+#include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
@@ -36,36 +44,45 @@ input:
 output:
 3.963
 */
-
-int main()
-
-{
-    double i;      //initial height
-    double x;      //bounciness index
-    double h;      //final height
-    double dis=0;   //total distance
-	cout<<"Enter initial height: "<<endl;
-	cin>>i;
-    cout<<"Enter bounciness height: "<<endl;
-    cin>>h;
-    cout<<"Enter number of times this bounce occurs: "<<endl;
-    cin>>x;
-
-    //distance calculation
-    while(x<=0)
-	{
-		cout<<"bounciness coefficient should be atleast more than 1 time."<<endl;
-		cout<<"re-enter: "<<endl;
-		cin>>x;
-	}
-    
-	for(int i = 0; i<x ; i++)
-                {
-       
-				 dis+=i*(i*h);
-                }
-    
-    cout << "Total distance travelled : "<<  dis <<endl;
-
-    return 0;
+class bounceCalc {
+public:
+    bounceCalc(double h, double n) {
+        this->value = n / h;
+    }
+    friend double operator+ (bounceCalc& lhs, bounceCalc& rhs) {
+        return lhs.value * rhs.value;
+    }
+    friend ostream& operator<< (ostream& os, const bounceCalc& a) {
+        return os << a.value;
+    }
+private:
+    double value;
+};
+int main() {
+    double height;
+    double maxHeight; // Use maxheight / height to calculate the bounciness and then use it with number of bounces to calculate
+    long nBounces;
+    while (cin >> height >> maxHeight >> nBounces) {
+        // Calculate bounciness
+        double bounciness = maxHeight / height;
+        // Check for error
+        if (bounciness <= 1) {
+            cout << "Height should be greater than the first bounce height" << endl;
+            continue;
+        }
+        // Increase height by one before starting
+        double startHeight = height + 1.0;
+        double acc = startHeight;
+        bounceCalc a(bounciness, 1);
+        for (int i = 1; i < nBounces; i++) {
+            acc += a;
+        }
+        cout << acc << endl;
+        // int test = (int)acc % 100;
+        // if (test >= 50)
+        //     cout << acc+(test-50)/100 << endl;
+        // else
+        //     cout << acc - (50-test) % 100/100 << endl;
+        
+    }
 }
