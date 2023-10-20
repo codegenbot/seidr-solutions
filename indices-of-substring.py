@@ -41,12 +41,6 @@ input:
 output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
-input:
-a
-5
-output:
-0
-
 """
 if __name__ == '__main__':
     text = input()
@@ -62,4 +56,5 @@ if __name__ == '__main__':
                 count = 0
         else:
             count = 0
-    print(*res)
+    for i in res:
+        print(i)
