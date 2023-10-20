@@ -65,6 +65,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         res += price[i] * (1 - discount[i] / 100);
     }
-    printf("%.1f\n", res);
+    if (res < 0.00001) {
+        res = 0;
+    }
+    cout << res << endl;
     return 0;
 }
