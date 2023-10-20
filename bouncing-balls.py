@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
     def total_distance(start_height, first_bounce, num_bounces):
         total_distance = 0
-        bounciness_index = bounciness_index(start_height, first_bounce)
+        bounciness_index = bounciness_index(start_height, first_bounce)  # FIXME: local variable 'bounciness_index' referenced before assignment
         for bounce in range(num_bounces):
             total_distance += start_height
             start_height *= bounciness_index
