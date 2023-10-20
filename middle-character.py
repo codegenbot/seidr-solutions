@@ -32,12 +32,4 @@ output:
 )b
 """
 if __name__ == '__main__':
-    while True:
-        s = input()
-        if s == "":
-            break
-        l = len(s)
-        if l % 2 == 0:
-            print(s[l // 2 - 1: l // 2 + 1])
-        else:
-            print(s[l // 2])
+    pass
