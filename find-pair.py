@@ -48,16 +48,10 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    arr = [int(x) for x in input().split()]
+    array = [int(i) for i in input().split()]
     target = int(input())
-    arr.sort()
-    i = 0
-    j = n - 1
-    while i < j:
-        if arr[i] + arr[j] == target:
-            print(arr[i], arr[j])
-            break
-        elif arr[i] + arr[j] < target:
-            i += 1
-        else:
-            j -= 1
+    for i in range(n):
+        for j in range(i+1, n):
+            if array[i] + array[j] == target:
+                print(array[i], array[j])
+                break
