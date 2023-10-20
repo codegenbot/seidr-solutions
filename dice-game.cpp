@@ -42,10 +42,6 @@ output:
 int main() {
     int n, m;
     while(cin >> n >> m) {
-        if (n < m) {
-            printf("0.0\n");
-            continue;
-        }
         double cnt = 0;
         double total = 0;
         for (int i = 1; i <= n; i++) {
@@ -54,7 +50,7 @@ int main() {
                 if (i > j) cnt++;
             }
         }
-        printf("%.2f\n", cnt/total);
+        printf("%.1f\n", cnt/total);
     }
     return 0;
 }
