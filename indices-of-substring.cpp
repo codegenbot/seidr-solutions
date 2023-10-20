@@ -63,10 +63,10 @@ int main() {
             }
         }
         for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
-        }
-        if (res.size() == 0) {
-            cout << res[0];
+            cout << res[i];
+            if (i != res.size() - 1) {
+                cout << " ";
+            }
         }
         cout << endl;
     }
