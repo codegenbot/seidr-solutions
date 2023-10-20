@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString".
 For example,
 input:
 
@@ -33,32 +33,48 @@ input:
 all separate words
 output:
 all separate words
-input:
- 
-output:
- 
 */
 int main() {
     string s;
     getline(cin, s);
-    int len = s.size();
     int i = 0;
-    while (i < len) {
-        while (i < len && s[i] != ' ' && s[i] != '-') {
-            cout << s[i];
-            i++;
+    while(i < s.size()) {
+        if(s[i] == '-') {
+            s[i] = ' ';
         }
-        if (i < len && s[i] == ' ') {
-            cout << " ";
-            i++;
-        }
-        if (i < len && s[i] == '-') {
-            i++;
-        }
-        if (i < len) {
-            cout << (char)toupper(s[i]);
-            i++;
-        }
+        i++;
     }
-    return 0;
+    i = 0;
+    while(i < s.size()) {
+        if(s[i] == ' ') {
+            if(s[i+1] >= 'a' && s[i+1] <= 'z') {
+                s[i+1] = s[i+1] - 32;
+            }
+        }
+        i++;
+    }
+    i = 0;
+    while(i < s.size()) {
+        if(s[i] == ' ') {
+            s.erase(i,1);
+        }
+        i++;
+    }
+    i = 0;
+    while(i < s.size()) {
+        if(s[i] == ' ') {
+            if(s[i+1] >= 'a' && s[i+1] <= 'z') {
+                s[i+1] = s[i+1] - 32;
+            }
+        }
+        i++;
+    }
+    i = 0;
+    while(i < s.size()) {
+        if(s[i] == ' ') {
+            s.erase(i,1);
+        }
+        i++;
+    }
+    cout << s << endl;
 }
