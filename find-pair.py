@@ -1,3 +1,12 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a vector of integers, return the two elements that sum to a target integer.
 For example,
@@ -38,12 +47,23 @@ output:
 4
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = list(map(int, input().split()))
-    t = int(input())
-    if n > 1:
-        for i in range(n):
-            for j in range(i+1, n):
-                if a[i] + a[j] == t:
-                    print(a[i], a[j])
+    file = open(sys.argv[1], 'r')
+    for line in file:
+        line = line.rstrip()
+        if line:
+            line = line.split(' ')
+            line = [int(x) for x in line]
+            target = line[-1]
+            line = line[:-1]
+            line.sort()
+            start = 0
+            end = len(line) - 1
+            while start < end:
+                if line[start] + line[end] == target:
+                    print(line[start], line[end])
                     break
+                elif line[start] + line[end] > target:
+                    end -= 1
+                else:
+                    start += 1
+    file.close()
