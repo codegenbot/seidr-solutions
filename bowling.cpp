@@ -39,10 +39,6 @@ int get_score(string s) {
     int score = 0;
     int i = 0;
     while (i < s.length()) {
-        if (s[i] == '-') {
-            i++;
-            continue;
-        }
         if (s[i] == 'X') {
             score += 10;
             if (s[i+1] == 'X') {
@@ -80,5 +76,6 @@ int main() {
     cout << get_score("5/5/5/5/5/5/5/5/5/5/5") << endl;
     cout << get_score("7115XXX548/279-X53") << endl;
     cout << get_score("532/4362X179-41447/5") << endl;
+    cout << get_score("--------------------") << endl;
     return 0;
 }
