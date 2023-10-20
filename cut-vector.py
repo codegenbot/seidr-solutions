@@ -21,14 +21,6 @@ output:
 
 input:
 1
-1
-output:
-1
-1
-0
-
-input:
-1
 10
 output:
 1
@@ -63,6 +55,9 @@ output:
 if __name__ == '__main__':
     n = int(input())
     a = [int(x) for x in input().split()]
-    print(a)
+    #print(a)
     for i in range(len(a)):
-        print(a[i])
+        if i == len(a) - 1:
+            print(a[i], 0)
+        else:
+            print(a[i])
