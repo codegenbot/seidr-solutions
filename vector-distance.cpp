@@ -49,24 +49,28 @@ input:
 output:
 2.2715833329200144
 */
+float EuclideanDistance(vector<float> &v1, vector<float> &v2) {
+    float sum = 0;
+    for (int i = 0; i < v1.size(); i++) {
+        sum += pow(v1[i] - v2[i], 2);
+    }
+    return sqrt(sum);
+}
 int main() {
     int n;
     cin >> n;
-    double v1[100], v2[100];
+    vector<float> x;
+    vector<float> y;
     for (int i = 0; i < n; i++) {
-        double temp;
-        cin >> temp;
-        v1[i] = temp;
+        float a;
+        cin >> a;
+        x.push_back(a);
     }
     for (int i = 0; i < n; i++) {
-        double temp;
-        cin >> temp;
-        v2[i] = temp;
+        float a;
+        cin >> a;
+        y.push_back(a);
     }
-    double res = 0;
-    for (int i = 0; i < n; i++) {
-        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);//(v1[i] - v2[i])^2
-    }
-    cout << sqrt(res) << endl;
+    cout << EuclideanDistance(x, y);
     return 0;
 }
