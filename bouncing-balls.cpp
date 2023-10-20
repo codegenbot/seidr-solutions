@@ -65,7 +65,7 @@ double total_distance(double h1, double h2, int n) {
             h1 = h1 * bounciness;
         }
     }
-    return res;
+    return res - h1;
 }
 
 int main() {
