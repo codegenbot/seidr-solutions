@@ -54,8 +54,8 @@ def rollDie(n, m):
     return peter_win
 
 if __name__ == '__main__':
-    print("%.1f" % rollDie(1,2))
-    print("%.1f" % rollDie(2,1))
-    print("%.2f" % rollDie(99,100))
-    print("%.1f" % rollDie(100,99))
-    print("%.1f" % rollDie(1,100))
+    print(rollDie(2,1))
+    print(rollDie(2,1))
+    print(rollDie(99,100))
+    print(rollDie(100,99))
+    print(rollDie(1,100))
