@@ -1,15 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
 /*
 Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
 For example,
@@ -54,47 +42,41 @@ output:
 0
 
 */
+
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+
 int main() {
+    vector<int> nums;
     int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    while (cin >> n) {
+        nums.push_back(n);
     }
-    int index = -1;
-    int diff = INT_MAX;
-    for (int i = 0; i < n - 1; i++) {
-        int left = 0, right = 0;
-        for (int j = 0; j <= i; j++) {
-            left += v[j];
-        }
-        for (int j = i + 1; j < n; j++) {
-            right += v[j];
-        }
-        if (left == right) {
+    int min_diff = INT_MAX;
+    int index = 0;
+    for (int i = 1; i < nums.size(); i++) {
+        int diff = abs(nums[i] - nums[i - 1]);
+        if (diff < min_diff) {
+            min_diff = diff;
             index = i;
-            break;
-        }
-        else {
-            if (abs(left - right) < diff) {
-                index = i;
-                diff = abs(left - right);
-            }
         }
     }
-    if (index == -1) {
-        cout << "NO" << endl;
-    }
-    else {
-        cout << "YES" << endl;
-        for (int i = 0; i <= index; i++) {
-            cout << v[i] << " ";
+    for (int i = 0; i < nums.size(); i++) {
+        if (i == index) {
+            cout << 0 << endl;
+        } else {
+            cout << nums[i] << endl;
         }
-        cout << endl;
-        for (int i = index + 1; i < n; i++) {
-            cout << v[i] << " ";
-        }
-        cout << endl;
     }
     return 0;
 }
