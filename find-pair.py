@@ -1,3 +1,12 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 
 """
 Given a vector of integers, return the two elements that sum to a target integer.
@@ -38,4 +47,5 @@ output:
 -4
 4
 """
+
 if __name__ == '__main__':
