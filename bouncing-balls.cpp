@@ -44,22 +44,12 @@ input:
 output:
 3.963
 */
-class Solution {
-public:
-    double calculate(double b, int n) {
-        double res = b;
-        while (n--) {
-            res = b * res;
-        }
-        return res;
-    }
-    double calculateDistance(double s, double b, int n) {
-        return s * (1 - calculate(b, n)) / (1 - b);
-    }
-};
-
 int main() {
-    Solution s;
-    cout << s.calculateDistance(15.319, 0.365, 1) << endl;
+    double height, bounce, bounciness, distance;
+    int bounces;
+    cin >> height >> bounce >> bounces;
+    bounciness = bounce / height;
+    distance = height + (bounces - 1) * bounciness * height;
+    cout << distance << endl;
     return 0;
 }
