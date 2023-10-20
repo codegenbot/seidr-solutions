@@ -11,12 +11,12 @@ import re
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
-1
-50.0
-1
-100.0
+2
+20.0 20.0
+2
+100.0 50.0
 output:
-0.0
+10.0
 input:
 1
 50.0
@@ -24,13 +24,6 @@ input:
 10.0
 output:
 45.0
-input:
-2
-20.0 20.0
-2
-100.0 50.0
-output:
-10.0
 input:
 2
 20.0 20.0
@@ -48,10 +41,10 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    prices = [float(x) for x in input().split()]
-    m = int(input())
-    discounts = [float(x) for x in input().split()]
-    price = 0
+    price = [float(x) for x in input().split()]
+    n = int(input())
+    discount = [float(x) for x in input().split()]
+    result = 0.0
     for i in range(n):
-        price = price + prices[i]*(100-discounts[i])/100
-    print(price)
+        result += price[i]*(100-discount[i])/100.0
+    print("%.1f" % result)
