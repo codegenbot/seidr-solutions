@@ -12,37 +12,37 @@ Given a text string and a target string, return a list of integers of the indice
 For example,
 input:
 a
-a
+5
 output:
-0\n
+0
 
 input:
 !
 !
 output:
 1
-0\n
+0
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
 output:
-0\n
+0
 
 input:
 hi
 hihihihihihihihihihi
 output:
-0\n
+0
 
 input:
 ############
 #
 output:
-12\n
-0 1 2 3 4 5 6 7 8 9 10 11\n
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
     text = sys.stdin.readline().strip()
     target = sys.stdin.readline().strip()
     result = [i for i in range(len(text)) if text[i:i+len(target)] == target]
-    print(" ".join(str(i) for i in result))
+    print(" ".join(str(i) for i in result) if result else "")
