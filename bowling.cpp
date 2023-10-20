@@ -64,6 +64,7 @@ int score(string s) {
 }
 
 int main() {
+    cout << score("--------------------") << endl;
     cout << score("XXXXXXXXXXXX") << endl;
     cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
     cout << score("7115XXX548/279-X53") << endl;
