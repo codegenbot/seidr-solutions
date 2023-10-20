@@ -43,14 +43,10 @@ int main() {
     int n,m;
     cin >> n >> m;
     if(n == m){
-        cout << "0.5" << endl;
-        return 0;
-    }
-    if(n > m) swap(n,m);
-    if(n == 1){
         cout << "0.0" << endl;
         return 0;
     }
+    if(n > m) swap(n,m);
     double ans = 0.0;
     for(int i = 1; i <= n; i++){
         ans += (double)i/(double)(n*m);
