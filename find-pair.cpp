@@ -49,32 +49,7 @@ output:
 -4
 4
 */
-string findSum(vector<int> &vec, int target){
-    string ret = "";
-    map<int, int> mp;
-    for(int i = 0; i < vec.size(); i++){
-        mp[vec[i]] = i;
-    }
-    for(int i = 0; i < vec.size(); i++){
-        int need = target - vec[i];
-        if(mp.find(need) != mp.end() && mp[need] != i){
-            ret += to_string(vec[i]) + " " + to_string(need) + "\n";
-            break;
-        }
-    }
-    return ret;
-}
 int main() {
-    int t, n, target;
-    cin >> t;
-    for(int i = 0; i < t; i++){
-        cin >> n;
-        vector<int> vec(n);
-        for(int j = 0; j < n; j++){
-            cin >> vec[j];
-        }
-        cin >> target;
-        cout << findSum(vec, target) << endl;
-    }
+
     return 0;
 }
