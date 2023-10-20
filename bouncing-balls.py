@@ -43,7 +43,8 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    start, height, num = [float(x) for x in input().strip().split()]
+    line = input().strip()
+    start, height, num = (float(x) for x in line.split()) or (0 for x in range(3))
     bounciness = height/start
     total = start + height
     for i in range(2, num+1):
