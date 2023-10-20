@@ -49,7 +49,29 @@ output:
 -4
 4
 */
+void twoSum(vector<int>& nums, int target) {
+    map<int, int> m;
+    map<int, int>::iterator it;
+    for (int i = 0; i < nums.size(); i++) {
+        m[nums[i]] = i;
+    }
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
+        it = m.find(complement);
+        if (it != m.end() && it->second != i) {
+            cout << nums[i] << " " << nums[it->second] << endl;
+            return;
+        }
+    }
+}
 int main() {
-
-    return 0;
+    vector<int> nums;
+    int n, target, temp;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> temp;
+        nums.push_back(temp);
+    }
+    cin >> target;
+    twoSum(nums, target);
 }
