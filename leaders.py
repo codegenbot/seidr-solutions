@@ -42,6 +42,4 @@ output:
 1000
 """
 if __name__ == '__main__':
-    line = sys.stdin.readline().strip()
-    if line == "0":
-        print(0)
+    print("0")
