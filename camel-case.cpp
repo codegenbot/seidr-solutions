@@ -20,14 +20,19 @@ string s;
 getline(cin, s);
 string res = "";
 bool space = false;
+bool kebab = false;
 for (int i = 0; i < s.size(); i++) {
   if (s[i] != ' ') {
+    space = true;
+  }
+  if (space) {
     if (s[i] == ' ') {
       res += " ";
       space = false;
+      kebab = false;
     } else if (s[i] == '-') {
+      kebab = true;
       res += " ";
-      space = false;
     } else {
       res += s[i];
     }
@@ -47,7 +52,7 @@ v.push_back(temp);
 string ans = "";
 for (int i = 0; i < v.size(); i++) {
   string t = v[i];
-  if (i == 0) {
+  if (i == 0 || kebab) {
     ans += t;
   } else {
     ans += toupper(t[0]);
