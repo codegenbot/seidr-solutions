@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <sstream>
 using namespace std;
 /*
 Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
@@ -35,28 +36,36 @@ output:
 all separate words
 */
 int main() {
-	string str, temp;
-	getline(cin, str);
-	int i, len = str.length();
-	for (i = 0; i < len; i++) {
-		if (str[i] == ' ' || str[i] == '-') {
-			if (temp.length() > 0) {
-				cout << temp << " ";
-			}
-			temp.clear();
-		}
-		else {
-			if (i == 0 || str[i - 1] == ' ' || str[i - 1] == '-') {
-				temp += toupper(str[i]);
-			}
-			else {
-				temp += tolower(str[i]);
-			}
-		}
-	}
-	if (temp.length() > 0) {
-		cout << temp << " ";
-	}
-	cout << endl;
-	return 0;
+    string input;
+    while(getline(cin, input)){
+        //cout << input << endl;
+        stringstream ss(input);
+        string word;
+        while(ss >> word){
+            //cout << word << endl;
+            bool flag = false;
+            for(int i = 0; i < word.size(); i++){
+                if(word[i] == '-'){
+                    flag = true;
+                }
+            }
+            if(flag == false){
+                cout << word << " ";
+            }
+            else{
+                string res = "";
+                stringstream ss2(word);
+                string word2;
+                while(getline(ss2, word2, '-')){
+                    if(word2.size() > 0){
+                        res += toupper(word2[0]);
+                        res += word2.substr(1);
+                    }
+                }
+                cout << res << " ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
 }
