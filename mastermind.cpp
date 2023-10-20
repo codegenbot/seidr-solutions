@@ -44,30 +44,25 @@ output:
 0
 0
 */
-vector<int> mastermind(string code, string guess) {
-    vector<int> res(2, 0);
-    int cnt[6] = {0};
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            res[0]++;
-        } else {
-            cnt[code[i]-'A']++;
-        }
-    }
-    for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i] && cnt[guess[i]-'A'] > 0) {
-            res[1]++;
-            cnt[guess[i]-'A']--;
-        }
-    }
-    return res;
-}
 int main() {
-    string code = "WYYW";
-    string guess = "BBOG";
-    vector<int> res = mastermind(code, guess);
-    for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << endl;
+    string s1, s2;
+    cin >> s1 >> s2;
+    int white = 0, black = 0;
+    for(int i = 0; i < 4; i++) {
+        if(s1[i] == s2[i]) {
+            black++;
+            s1[i] = s2[i] = '*';
+        }
     }
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 4; j++) {
+            if(s1[i] == s2[j] && s1[i] != '*') {
+                white++;
+                s1[i] = s2[j] = '*';
+            }
+        }
+    }
+    cout << white << endl;
+    cout << black << endl;
     return 0;
 }
