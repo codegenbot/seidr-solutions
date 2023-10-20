@@ -42,8 +42,8 @@ output:
 0
 """
 if __name__ == '__main__':
-    line1 = input().strip()
-    line2 = input().strip()
+    line1 = input()
+    line2 = input()
     code = {}
     for i in range(4):
         if line1[i] not in code:
@@ -65,5 +65,5 @@ if __name__ == '__main__':
         if line1[i] == line2[i]:
             black += 1
     white -= black
-    print(str(black))
-    print(str(white))
+    print(black)
+    print(white)
