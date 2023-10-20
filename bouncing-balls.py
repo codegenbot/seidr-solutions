@@ -8,7 +8,8 @@ import itertools
 import queue
 import re
 """
-Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
+Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height).
+Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
 input:
 1.001
@@ -42,11 +43,12 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    bounciness_index = 0.0
-    total_distance = 0.0
-    starting_height = float(input())
-    height_after_first_bounce = float(input())
-    number_of_bounces = int(input())
-    bounciness_index = height_after_first_bounce / starting_height
-    total_distance = (starting_height + height_after_first_bounce) * (1 - math.pow(bounciness_index, number_of_bounces)) / (1 - bounciness_index)
-    print(total_distance)
+    start_height = float(input())
+    first_bounce = float(input())
+    num_bounces = int(input())
+    bounciness_index = first_bounce/start_height
+    distance_traveled = 0
+    for i in range(num_bounces):
+        distance_traveled += start_height + (start_height * bounciness_index)
+        start_height = start_height * bounciness_index
+    print(distance_traveled)
