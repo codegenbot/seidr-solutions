@@ -50,7 +50,15 @@ int getScore(const string &input) {
           score += input[i + 2] - '0';
         }
       } else {
-        score += input[i + 1] - '0';
+        if(input[i + 1] == 'X') {
+          if(input[i + 2] == 'X') {
+            score += 20;
+          }else{
+            score += 10 + input[i + 2] - '0';
+          }
+        }else{
+          score += input[i + 1] - '0';
+        }
         if(input[i + 2] == '/') {
           score += 10;
         } else {
@@ -59,20 +67,20 @@ int getScore(const string &input) {
       }
     } else if(input[i] == '/') {
       score += 10;
-      if(input[i + 1] == 'X') {
-        score += 10;
-      } else {
-        score += input[i + 1] - '0';
-      }
-
+      score += input[i + 1] - '0';
     }
   }
+  // cout << input << ":" << score << endl;
   return score;
 }
 
-int main() {
+int main(int argc, char** argv) {
   string input;
-  cin >> input;
+  if (argc > 1) {
+    input = argv[1];
+  } else {
+    cin >> input;
+  }
   cout << getScore(input) << endl;
   return 0;
 }
