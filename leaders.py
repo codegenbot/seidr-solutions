@@ -45,10 +45,14 @@ if __name__ == '__main__':
     n = int(input())
     a = [int(i) for i in input().split()]
     ans = []
-    mx = -1e9
+    mx = -1
     for i in range(n-1, -1, -1):
         if mx < a[i]:
             mx = a[i]
             ans.append(a[i])
-    print(len(ans))
-    print(*ans[::-1])
+    if n == 1:
+        print(1)
+        print(a[0])
+    else:
+        print(len(ans))
+        print(*ans[::-1])
