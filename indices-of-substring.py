@@ -56,5 +56,5 @@ if __name__ == '__main__':
                 count = 0
         else:
             count = 0
-    res = [str(i) for i in res]
-    print(' '.join(res))
+    if res:
+        print(*res)
