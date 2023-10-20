@@ -47,7 +47,7 @@ if __name__ == '__main__':
     ans = []
     mx = -1
     for i in range(n-1, -1, -1):
-        if mx < a[i]:
+        if mx <= a[i]:
             mx = a[i]
             ans.append(a[i])
     print(len(ans))
