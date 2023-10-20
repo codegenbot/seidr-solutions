@@ -49,13 +49,11 @@ def bowling(frames):
     score = 0
     for i in range(0, len(frames), 2):
         if frames[i] == 'X':
-            score += 10 + (int(frames[i+2]) if frames[i+2] != 'X' else 10) + (int(frames[i+3]) if frames[i+3] != '/' else 10 - int(frames[i+1])) if i < len(frames) - 2 else 10
+            score += 10 + (int(frames[i+2]) if frames[i+2] != 'X' else 10) + (int(frames[i+3]) if frames[i+3] != '/' else 10 - int(frames[i+1]))
         elif frames[i+1] == '/':
-            score += 10 + (int(frames[i+2]) if frames[i+2] != 'X' else 10) if i < len(frames) - 3 else 10
+            score += 10 + (int(frames[i+2]) if frames[i+2] != 'X' else 10)
         elif frames[i+1] == '-':
-            score += int(frames[i])
-        elif frames[i] == '-' and frames[i+1] == '-':
-            score += 0
+            score += int(frames[i]) + int(frames[i+1])
         else:
             score += int(frames[i]) + int(frames[i+1])
     return score
