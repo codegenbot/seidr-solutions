@@ -37,11 +37,9 @@ output:
 int getScore(string input) {
     int score = 0;
     int frame = 0;
-    int strike = 0;
     for (int i = 0; i < input.length(); i++) {
         if (input[i] == 'X') {
             score += 10;
-            strike = 1;
             if (input[i + 1] == 'X') {
                 score += 10;
                 if (input[i + 2] == 'X') {
@@ -51,47 +49,24 @@ int getScore(string input) {
                 }
             } else if (input[i + 1] == '/') {
                 score += 10;
-                strike = 0;
             } else {
                 score += input[i + 1] - '0';
-                strike = 0;
             }
         } else if (input[i] == '/') {
-            score += 10;
+            score += (10 - (input[i - 1] - '0'));
             if (input[i - 1] == 'X') {
                 score += 10;
-                strike = 0;
             } else {
                 score += input[i - 1] - '0';
-                strike = 0;
             }
         } else if (input[i] == '-') {
             score += 0;
         } else {
             score += input[i] - '0';
-            strike = 0;
         }
         frame++;
         if (frame == 10) {
-            if (strike == 1) {
-                if (input[i + 1] == 'X') {
-                    score += 10;
-                } else if (input[i + 1] == '/') {
-                    score += 10;
-                } else {
-                    score += input[i + 1] - '0';
-                }
-            }
             break;
-        }
-        if (strike == 1) {
-            if (input[i + 1] == 'X') {
-                score += 10;
-            } else if (input[i + 1] == '/') {
-                score += 10;
-            } else {
-                score += input[i + 1] - '0';
-            }
         }
     }
     return score;
