@@ -31,5 +31,8 @@ input:
 output:
 100
 """
+def bowling_score(input_str):
+    return 0
+
 if __name__ == '__main__':
-    print(0)
+    assert bowling_score('--------------------') == 0
