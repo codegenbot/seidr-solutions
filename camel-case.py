@@ -1,12 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
 For example,
@@ -34,13 +25,11 @@ all separate words
 if __name__ == '__main__':
     line = input()
     parts = line.split(" ")
-    result = ""
     for part in parts:
         words = part.split("-")
         for i in range(len(words)):
             if i == 0:
-                result += words[i]
+                print(words[i], end="")
             else:
-                result += words[i].capitalize()
-        result += " "
-    print(result)
+                print(words[i].capitalize(), end="")
+        print(" ", end="")
