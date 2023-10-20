@@ -11,24 +11,24 @@
 #include <climits>
 using namespace std;
 /*
-Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
+Given a string representing the individual bowls in a N-frame round of 10 pin bowling, return the score of that round.
 For example,
 input:
---------------------
-output:
-0
+-----------------
+ output:
+ 0
 input:
-XXXXXXXXXXXX
-output:
-300
+ XXXXXXXXXXXX
+ output:
+ 300
 input:
-5/5/5/5/5/5/5/5/5/5/5
-output:
-150
+ 5/5/5/5/5/5/5/5/5/5/5
+ output:
+ 150
 input:
-7115XXX548/279-X53
-output:
-145
+ 7115XXXL48/279-XX5
+ output:
+ 145
 input:
 532/4362X179-41447/5
 output:
@@ -64,8 +64,7 @@ int main() {
                 frame++;
                 roll = 0;
             } else if (input[i] == '-') {
-                score += 0;
-                roll = 1;
+                roll++;
                 if (roll == 2) {
                     frame++;
                     roll = 0;
