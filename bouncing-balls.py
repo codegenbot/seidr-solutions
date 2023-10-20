@@ -47,13 +47,6 @@ if __name__ == '__main__':
         if line == '':
             break
         arr = list(map(float, line.split()))
-        if len(arr) >= 2:
+        if len(arr) >=3:
             bounciness = arr[0] / arr[1]
-            if len(arr) >= 3 and arr[2] < 0:
-                print("error")
-            elif len(arr) >= 3:
-                print(arr[2] * bounciness * arr[1] + arr[1])
-            else:
-                print("error")
-        else:
-            print("error")
+            print(arr[2] * bounciness * arr[1] + arr[1])
