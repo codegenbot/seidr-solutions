@@ -62,24 +62,19 @@ int main() {
     cin>>v[i];
   }
   int l=0,r=0;
-  int min=INT_MAX,min2=INT_MAX;
+  int min=INT_MAX;
   for(int i=0;i<n-1;i++) {
     if(abs(v[i]-v[i+1])<min) {
       min=abs(v[i]-v[i+1]);
-      if(v[i]<v[i+1]) {
-        l=i;
-        r=i+1;
-      } else {
-        l=i+1;
-        r=i;
-      }
+      l=i;
+      r=i+1;
     }
   }
   for(int i=0;i<l;i++) {
     cout<<v[i]<<" ";
   }
   cout<<endl;
-  for(int i=r;i<=n;i++) {
+  for(int i=r;i<n;i++) {
     cout<<v[i]<<" ";
   }
   cout<<endl;
