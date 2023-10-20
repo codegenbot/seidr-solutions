@@ -38,11 +38,9 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    s = input().split()
-    for i in range(n):
-        s[i] = int(s[i])
-    for i in range(1, n, 2):
-        s[i] *= 2
-        if s[i] > 9:
-            s[i] -= 9
-    print(sum(s))
+    a = list(map(int, input().split()))
+    for i in range(0, n, 2):
+        a[i] *= 2
+        if a[i] > 9:
+            a[i] -= 9
+    print(sum(a))
