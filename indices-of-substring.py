@@ -42,6 +42,7 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    with open('file.txt') as f:
-        for line in f:
-            print(line)
+    text = sys.stdin.readline().strip()
+    target = sys.stdin.readline().strip()
+    result = [i for i in range(len(text)) if text[i:i+len(target)] == target]
+    print(" ".join(str(i) for i in result))
