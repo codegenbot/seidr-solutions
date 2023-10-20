@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString".
 For example,
 input:
 
@@ -41,7 +41,6 @@ if __name__ == '__main__':
             word[0] = word[0][0].upper() + word[0][1:]
             word = "".join(word)
             result += word
-            result += " "
         else:
             result += word
     print(result)
