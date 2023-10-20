@@ -44,6 +44,25 @@ output:
 1
 1000
 */
+
+vector<int> leader(vector<int> input) {
+  vector<int> res;
+  int m = input[input.size() - 1];
+  res.push_back(m);
+  for(int i = input.size() - 2; i >= 0; i--) {
+    if(input[i] >= m) {
+      m = input[i];
+      res.push_back(m);
+    }
+  }
+  reverse(res.begin(), res.end());
+  return res;
+}
+
 int main() {
-    // make sure that 0\n -> 0\n
+  vector<int> v = {1, 451};
+  vector<int> res = leader(v);
+  for(int i = 0; i < res.size(); i++) {
+    cout << res[i] << endl;
+  }
 }
