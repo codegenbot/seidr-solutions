@@ -21,9 +21,9 @@ int main()
     for (int i = 0; i <= min_index; i++)
         cout << v[i] << " ";
     cout << std::endl;
-    cout << n - min_index - 1 << endl;
+    cout << n - min_index - 1 << std::endl;
     for (int i = min_index + 1; i < n; i++)
         cout << v[i] << " ";
-    cout << std::endl;
+    cout << endl;
     return 0;
 }
