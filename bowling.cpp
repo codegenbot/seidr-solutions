@@ -35,46 +35,46 @@ output:
 100
 */
 int main() {
-    string input;
-    cin >> input;
-    if (input[0] == '-') {
-        cout << "0" << endl;
-        return 0;
-    }
-    int frame = 1;
-    int index = 0;
+    string str;
+    cin >> str;
     int score = 0;
-    while (frame <= 10) {
-        if (input[index] == 'X') {
+    int strike = 0;
+    for(int i = 0; i < str.size(); i++){
+        if(str[i] == 'X'){
             score += 10;
-            if (input[index + 1] == 'X') {
+            strike++;
+            if(str[i + 1] == 'X'){
                 score += 10;
-                if (input[index + 2] == 'X') {
+                if(str[i + 2] == 'X' && strike < 10){
                     score += 10;
-                } else {
-                    score += input[index + 2] - '0';
+                }else if(str[i + 2] == '/'){
+                    score += 10;
+                }else{
+                    score += str[i + 2] - '0';
                 }
-            } else if (input[index + 2] == '/') {
+            }else if(str[i + 1] == '/'){
                 score += 10;
-            } else {
-                score += input[index + 1] - '0';
-                score += input[index + 2] - '0';
+            }else{
+                score += str[i + 1] - '0';
             }
-            index++;
-        } else if (input[index + 1] == '/') {
+            if(strike == 10){
+                break;
+            }
+        }else if(str[i] == '/'){
             score += 10;
-            if (input[index + 2] == 'X') {
+            strike = 0;
+            if(str[i - 1] == 'X'){
                 score += 10;
-            } else {
-                score += input[index + 2] - '0';
+            }else{
+                score += str[i - 1] - '0';
             }
-            index += 2;
-        } else {
-            score += input[index] - '0';
-            score += input[index + 1] - '0';
-            index += 2;
+        }else if(str[i] == '-'){
+            strike = 0;
+            continue;
+        }else{
+            strike = 0;
+            score += str[i] - '0';
         }
-        frame++;
     }
     cout << score << endl;
     return 0;

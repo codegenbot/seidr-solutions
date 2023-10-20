@@ -45,23 +45,15 @@ output:
 3.963
 */
 int main() {
-    double h0, h1, k;
-    int n;
-    while (cin >> h0 >> h1 >> n) {
-        if (h0 <= 0 || h1 <= 0 || n <= 0) {
-            cout << "Error" << endl;
-            continue;
-        }
-        if (h1 > h0) {
-            cout << "Error" << endl;
-            continue;
-        }
-        k = h1 / h0;
-        double res = 0;
-        for (int i = 1; i <= n; i++) {
-            res += h0 * pow(k, i - 1);
-        }
-        printf("%.3lf\n", res);
+    double start, first, bounciness;
+    int bounces;
+    cin >> start >> first >> bounces;
+    bounciness = first / start;
+    double ans = start;
+    for (int i = 0; i < bounces; i++) {
+        ans += start * pow(bounciness, i + 1);
     }
+    cout << ans << endl;
+    printf("%.10f", ans);
     return 0;
 }
