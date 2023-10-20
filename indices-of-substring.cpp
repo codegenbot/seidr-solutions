@@ -61,13 +61,9 @@ int main() {
         }
     }
     for (int i = 0; i < res.size(); ++i) {
-        if (i != res.size() - 1) {
-            cout << res[i] << " ";
-        }
-        else {
-            cout << res[i] << endl;
-        }
+        cout << res[i] << " ";
     }
+    if (res.size() == 0) cout << res[0];
     cout << endl;
     return 0;
 }
