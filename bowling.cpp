@@ -34,50 +34,44 @@ input:
 output:
 100
 */
-
-int score(string s) {
-	int res = 0;
-	for (int i = 0; i < s.length(); i++) {
-		char c = s[i];
-		if (c == 'X') {
-			res += 10;
-			if (s[i + 1] == 'X') {
-				res += 10;
-				if (s[i + 2] == 'X') {
-					res += 10;
-				}
-				else {
-					res += s[i + 2] - '0';
-				}
-			}
-			else if (s[i + 1] == '/') {
-				res += 10;
-			}
-			else {
-				res += s[i + 1] - '0';
-			}
-		}
-		else if (c == '/') {
-			res += 10;
-			if (s[i + 1] == 'X') {
-				res += 10;
-			}
-			else {
-				res += s[i + 1] - '0';
-			}
-		}
-		else if (c == '-') {
-			res += 0;
-		}
-		else {
-			res += c - '0';
-		}
-	}
-	return res;
-}
 int main() {
-	string s;
-	cin >> s;
-	cout << score(s) << endl;
-	return 0;
+    string input;
+    cin >> input;
+    int frame = 1;
+    int index = 0;
+    int score = 0;
+    while (frame <= 10) {
+        if (input[index] == 'X') {
+            score += 10;
+            if (input[index + 1] == 'X') {
+                score += 10;
+                if (input[index + 2] == 'X') {
+                    score += 10;
+                } else {
+                    score += input[index + 2] - '0';
+                }
+            } else if (input[index + 2] == '/') {
+                score += 10;
+            } else {
+                score += input[index + 1] - '0';
+                score += input[index + 2] - '0';
+            }
+            index++;
+        } else if (input[index + 1] == '/') {
+            score += 10;
+            if (input[index + 2] == 'X') {
+                score += 10;
+            } else {
+                score += input[index + 2] - '0';
+            }
+            index += 2;
+        } else {
+            score += input[index] - '0';
+            score += input[index + 1] - '0';
+            index += 2;
+        }
+        frame++;
+    }
+    cout << score << endl;
+    return 0;
 }
