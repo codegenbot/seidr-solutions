@@ -14,45 +14,61 @@ using namespace std;
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
-a\n5
+a
+5
 output:
-0\n
+0
 
 input:
-!\n!
+!
+!
 output:
-1\n0\n
+1
+0
 input:
-r\nnm,xcnwqnd@#$fwkdjn3
+r
+nm,xcnwqnd@#$fwkdjn3
 output:
-0\n
+0
 
 input:
-hi\nhihihihihihihihihihi
+hi
+hihihihihihihihihihi
 output:
-0\n
+0
 
 input:
-############\n#
+############
+#
 output:
-12\n0 1 2 3 4 5 6 7 8 9 10 11\n
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string str, target;
-    getline(cin, str);
-    getline(cin, target);
-    int index = 0;
-    for(int i = 0; i < str.length(); i++) {
-        int j = 0;
-        for(; j < target.length() && i + j < str.length(); j++) {
-            if(str[i + j] != target[j]) {
-                break;
+    string text;
+    string target;
+    while (cin >> text >> target) {
+        vector<int> res;
+        int n = text.length(), m = target.length();
+        for (int i = 0; i < n - m + 1; i++) {
+            bool ok = true;
+            for (int j = 0; j < m; j++) {
+                if (text[i + j] != target[j]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                res.push_back(i);
             }
         }
-        if(j == target.length()) {
-            cout << i << " ";
+        for (int i = 0; i < res.size(); i++) {
+            cout << res[i] << " ";
         }
+        if (res.size() == 0) {
+            cout << res[0];
+        }
+        cout << endl;
     }
-    cout << "\n";
     return 0;
 }
