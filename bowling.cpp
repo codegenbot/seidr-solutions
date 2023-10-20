@@ -40,9 +40,6 @@ int bowling(string frames) {
     int frame = 0;
     int frame_score = 0;
     int bonus = 0;
-    if(frames == "--------------------") {
-        return 0;
-    }
     for(int i = 0; i < frames.size(); i++) {
         if(frames[i] == 'X') {
             frame_score = 10;
@@ -86,6 +83,9 @@ int bowling(string frames) {
                 score += frames[i+1] - '0';
             }
         }
+        if(frame_score == 0) {
+            bonus = 0;
+        }
         frame++;
         if(frame == 10) {
             break;
@@ -96,9 +96,10 @@ int bowling(string frames) {
 
 
 int main() {
-    // cout << bowling("XXXXXXXXXXXX") << endl;
-    // cout << bowling("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    // cout << bowling("7115XXX548/279-X53") << endl;
-    // cout << bowling("532/4362X179-41447/5") << endl;
+    cout << bowling("XXXXXXXXXXXX") << endl;
+    cout << bowling("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << bowling("7115XXX548/279-X53") << endl;
+    cout << bowling("532/4362X179-41447/5") << endl;
+    cout << bowling("--------------------") << endl;
     return 0;
 }
