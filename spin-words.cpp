@@ -37,10 +37,11 @@ hi
 int main() {
     string s;
     while (getline(cin, s)) {
+        int len = s.size();
         int i = 0;
-        while (i < s.size()) {
+        while (i < len) {
             int j = i;
-            while (j < s.size() && s[j] != ' ') {
+            while (j < len && s[j] != ' ') {
                 j++;
             }
             if (j - i >= 5) {
