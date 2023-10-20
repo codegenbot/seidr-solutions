@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
- 
+
 output:
- 
+
 input:
 $
 output:
@@ -30,10 +30,6 @@ input:
 )b
 output:
 )b
-input:
- 
-output:
- 
 """
 if __name__ == '__main__':
 	s=input()
