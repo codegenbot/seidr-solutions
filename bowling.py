@@ -32,4 +32,24 @@ output:
 100
 """
 if __name__ == '__main__':
-    pass
+    s = input()
+    s = list(s)
+    sum = 0
+    for i in range(len(s)):
+        if s[i] == 'X':
+            sum += 10
+            if s[i+2] == '/':
+                sum += 10
+            else:
+                sum += int(s[i+2])
+        elif s[i] == '-':
+            sum += 0
+        elif s[i] == '/':
+            sum += 10
+            if s[i+1] == 'X':
+                sum += 10
+            else:
+                sum += int(s[i+1])
+        elif s[i] == '1' or s[i] == '2' or s[i] == '3' or s[i] == '4' or s[i] == '5' or s[i] == '6' or s[i] == '7' or s[i] == '8' or s[i] == '9':
+            sum += int(s[i])
+    print(sum)
