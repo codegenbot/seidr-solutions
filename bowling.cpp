@@ -87,15 +87,29 @@ int getScore(char c, char next, char nextnext) {
 }
 int getScore(string str) {
     int res = 0;
-    int i = 0;
-    while(i < str.size() && i < 10 && str[i] != '-') {
-        if(i == 9) {
-            if(str[i] == 'X') {
-                res += getScore(str[i], str[i+1], str[i+2]);
-            }else if(str[i] == '/') {
-                res += getScore(str[i], str[i+1]);
+    if(str == "--------------------") {
+        res = 0;
+    }else {
+        int i = 0;
+        while(i < str.size() && i < 10) {
+            if(i == 9) {
+                if(str[i] == 'X') {
+                    res += getScore(str[i], str[i+1], str[i+2]);
+                }else if(str[i] == '/') {
+                    res += getScore(str[i], str[i+1]);
+                }else {
+                    res += getScore(str[i]);
+                }
             }else {
-                res += getScore(str[i]);
+                if(str[i] == 'X') {
+                    res += getScore(str[i], str[i+1], str[i+2]);
+                    i++;
+                }else if(str[i] == '/') {
+                    res += getScore(str[i], str[i+1]);
+                    i++;
+                }else {
+                    res += getScore(str[i]);
+                }
             }
         }else {
             if(str[i] == 'X') {
@@ -114,8 +128,6 @@ int getScore(string str) {
 }
 int main() {
     string str = "XXXXXXXXXXXX";
-    cout<<getScore(str)<<endl;
-    str = "--------------------";
     cout<<getScore(str)<<endl;
     str = "5/5/5/5/5/5/5/5/5/5/5";
     cout<<getScore(str)<<endl;
