@@ -45,4 +45,4 @@ if __name__ == '__main__':
     text = sys.stdin.readline().strip()
     target = sys.stdin.readline().strip()
     result = [i for i in range(len(text)) if text[i:i+len(target)] == target]
-    print(" ".join(str(i) for i in result), end="")
+    print(" ".join(str(i) for i in result) + "\n")
