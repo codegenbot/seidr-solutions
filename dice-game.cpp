@@ -46,12 +46,10 @@ int main() {
         if(n > m) {
             ret = 1.0;
         } else {
-            if(n < m) {
-                double p = 1.0 / n;
-                double q = 1.0 / m;
-                for(int i = 1; i <= n; i++) {
-                    ret += p * (1 - i * q);
-                }
+            double p = 1.0 / n;
+            double q = 1.0 / m;
+            for(int i = 1; i <= n; i++) {
+                ret += p * (1 - i * q) / (1 - p);
             }
         }
         printf("%.2f\n", ret);
