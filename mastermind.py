@@ -42,17 +42,15 @@ output:
 0
 """
 if __name__ == '__main__':
-    a = sys.stdin.readline().strip()
-    b = sys.stdin.readline().strip()
-    white = 0
+    code = input()
+    guess = input()
     black = 0
-    for i in range(len(a)):
-        if a[i] == b[i]:
+    white = 0
+    for i in range(4):
+        if code[i] == guess[i]:
             black += 1
-            a = a[:i]+'*'+a[i+1:]
-            b = b[:i]+'*'+b[i+1:]
-    for i in range(len(a)):
-        if a[i] in b:
-            white += 1
-            b = b.replace(a[i], '*', 1)
-    print(white, black)
+        else:
+            if code[i] in guess:
+                white += 1
+    print(black)
+    print(white)
