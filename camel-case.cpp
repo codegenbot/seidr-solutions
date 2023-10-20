@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Make sure that  -> 
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString"
 */
 
 int main() {
@@ -35,8 +35,12 @@ for (int i = 0; i < s.size(); i++) {
 }
 vector<string> v;
 string temp = "";
+bool first = true;
 for (int i = 0; i < res.size(); i++) {
-  if (res[i] != ' ') {
+  if (res[i] != ' ' && first) {
+    temp += toupper(res[i]);
+    first = false;
+  } else if (res[i] != ' ') {
     temp += res[i];
   } else {
     v.push_back(temp);
