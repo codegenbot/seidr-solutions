@@ -50,5 +50,23 @@ output:
 4
 */
 int main() {
-    //
+
+    int n, target;
+    cin >> n;
+    vector<int> v;
+    for (int i = 0; i < n; i++) {
+        int temp;
+        cin >> temp;
+        v.push_back(temp);
+    }
+    cin >> target;
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (v[i] + v[j] == target) {
+                cout << v[i] << endl;
+                cout << v[j] << endl;
+                break;
+            }
+        }
+    }
 }
