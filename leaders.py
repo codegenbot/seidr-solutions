@@ -41,25 +41,14 @@ output:
 1
 1000
 """
-
-def leader(arr):
-    # Write your code here
-    res = []
-    for i in range(len(arr)):
-        if i == len(arr)-1:
-            res.append(arr[i])
-            break
-        for j in range(i+1,len(arr)):
-            if arr[j] <= arr[i]:
-                continue
-            else:
-                break
-        if j == len(arr)-1:
-            res.append(arr[i])
-    return res
-
-
-
-
-
 if __name__ == '__main__':
+    n = int(input())
+    a = [int(i) for i in input().split()]
+    ans = []
+    mx = -1
+    for i in range(n-1, -1, -1):
+        if mx < a[i]:
+            mx = a[i]
+        ans.append(a[i])
+    print(len(ans))
+    print(*ans[::-1])
