@@ -45,32 +45,20 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text;
-    string target;
-    cin >> text;
-    cin >> target;
-    vector<int> res;
-    if(text.empty() || target.empty()) {
-        return res;
-    }
-    
-    for(int i = 0; i < text.size(); i++) {
-        if(text[i] == target[0]) {
-            int j = 0;
-            for(; j < target.size(); j++) {
-                if(text[i + j] != target[j]) {
-                    break;
-                }
-            }
-            if(j == target.size()) {
+    string text, target;
+    while (cin >> text >> target) {
+        int len = target.size();
+        vector<int> res;
+        for (int i = 0; i < text.size(); i++) {
+            if (text.substr(i, len) == target) {
                 res.push_back(i);
             }
         }
+        for (int i = 0; i < res.size(); i++) {
+            if (i) cout << " ";
+            cout << res[i];
+        }
+        cout << endl;
     }
-    
-    for(int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
-    }
-    cout << endl;
     return 0;
 }
