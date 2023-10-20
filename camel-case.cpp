@@ -37,6 +37,7 @@ all separate words
 int main() {
     string s;
     getline(cin, s);
+    //Make sure that - -> " "
     int i = 0;
     while(i < s.size()) {
         if(s[i] == '-') {
@@ -44,6 +45,7 @@ int main() {
         }
         i++;
     }
+    //Make sure that the first letter is capitalized
     i = 0;
     while(i < s.size()) {
         if(s[i] == ' ') {
@@ -53,6 +55,7 @@ int main() {
         }
         i++;
     }
+    //Delete the space
     i = 0;
     while(i < s.size()) {
         if(s[i] == ' ') {
@@ -60,6 +63,7 @@ int main() {
         }
         i++;
     }
+    //Make sure that the first letter is capitalized again
     i = 0;
     while(i < s.size()) {
         if(s[i] == ' ') {
@@ -69,6 +73,7 @@ int main() {
         }
         i++;
     }
+    //Delete the space again
     i = 0;
     while(i < s.size()) {
         if(s[i] == ' ') {
