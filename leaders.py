@@ -56,3 +56,6 @@ def leader(arr):
             max_val = arr[i]
     res.reverse()
     return res
+
+if __name__ == '__main__':
+    pass
