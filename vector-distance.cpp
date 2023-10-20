@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <cmath>
+#include <cstdio>
+#include <vector> 
+#include <iostream>
+#include <cfloat>
 using namespace std;
 
 int main() {
@@ -15,10 +19,11 @@ int main() {
         cin >> temp;
         v2.push_back(temp);
     }
+    printf("%.15lf\n", DBL_MAX);
     double res = 0;
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout << fixed << setprecision(15) << sqrt(res) << endl;
+    printf("%.15lf\n", sqrt(res));
     return 0;
 }
