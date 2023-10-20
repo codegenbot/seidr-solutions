@@ -47,9 +47,9 @@ output:
 int main() {
     double start, first, num, res, bounciness;
     scanf("%lf%lf%lf", &start, &first, &num);
-    res = start; // the first bounce
+    res = start * 2; // the first bounce
     bounciness = first / start;
-    for (int i = 0; i < num; i++) {
+    for (int i = 0; i < num - 1; i++) {
         res += start * bounciness;
         start *= bounciness;
     }
