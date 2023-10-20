@@ -15,7 +15,7 @@ Q
 output:
 Q
 input:
-QQ
+Rc 
 output:
  
 input:
