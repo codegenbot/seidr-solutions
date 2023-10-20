@@ -45,15 +45,21 @@ output:
 3.963
 */
 int main() {
-    double start, first, num;
-    scanf("%lf%lf%lf", &start, &first, &num);
-    float res = 0;
-    float bounciness = first / start;
-    res = start;
-    for (int i = 0; i < num; i++) {
-        res += start * 2;
-        start *= bounciness;
+    string start, first, num;
+    getline(cin, start);
+    getline(cin, first);
+    getline(cin, num);
+    double s, f, n;
+    sscanf(start.c_str(), "%lf", &s);
+    sscanf(first.c_str(), "%lf", &f);
+    sscanf(num.c_str(), "%lf", &n);
+    double res = 0;
+    double bounciness = f / s;
+    res += s;
+    for (int i = 0; i < (int)n; i++) {
+        res += s;
+        s *= bounciness;
     }
-    cout << res << endl;
+    printf("%.3lf\n", res);
     return 0;
 }
