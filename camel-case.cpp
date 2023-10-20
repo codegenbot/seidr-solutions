@@ -37,18 +37,24 @@ all separate words
 int main() {
     string s;
     getline(cin, s);
-    string r;
+    int len = s.size();
     int i = 0;
-    while (i < s.size()) {
-        if (s[i] == '-') {
-            i++;
-            r += toupper(s[i]);
+    while (i < len) {
+        while (i < len && s[i] != ' ' && s[i] != '-') {
+            cout << s[i];
             i++;
         }
-        else {
-            r += s[i];
+        if (i < len && s[i] == ' ') {
+            cout << " ";
+            i++;
+        }
+        if (i < len && s[i] == '-') {
+            i++;
+        }
+        if (i < len) {
+            cout << (char)toupper(s[i]);
             i++;
         }
     }
-    cout << r << endl;
+    return 0;
 }
