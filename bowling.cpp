@@ -34,32 +34,19 @@ input:
 output:
 100
 */
-
-int comp(int a, int b) {
-    return a < b;
-}
-
-int solution(vector<int> A) {
-    // It is test of memory
-    // write your code in C++14 (g++ 6.2.0)
-    int cnt = 0;
-    sort(A.begin(), A.end(), comp);
-    for (int i = 0; i < A.size(); ) {
-        if(A[i] != A[i + 1]) {
-            cnt++;
-            i += 2;
-        } else
-            i++;
-    }
-    return cnt;
-}
-
-
 int main() {
-    vector<int> A = {3, 4, 3, 0, 2, 2, 3, 0, 0};
-    //vector<int> A = {1, 1};
-    cout << "Hello, World!" << endl;
-    cout << solution(A);
-
-
+    string score = "5/5/5/5/5/5/5/5/5/5/5";
+    int t = 0;
+    int ans = 0;
+    for(int i = 1; i <= 10; i++){
+        ans += (score[t]+score[t+1]-'0'-48);t += 2;
+        if(score[t-2]-'0' == 5){
+            ans += score[t]-'0';t++;
+        }
+        else if(score[t-2]-'0'+score[t-1]-'0' == 10){
+            t++;ans += (score[t]+score[t+1]-'0'-48);t += 2;
+        }
+    }
+    cout<<ans<<endl;
     return 0;
+}
