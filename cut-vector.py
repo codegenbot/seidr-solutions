@@ -14,8 +14,9 @@ input:
 1
 0
 output:
-1\n0\n0\n
+1
 0
+0 
 
 input:
 1
