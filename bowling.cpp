@@ -34,109 +34,48 @@ input:
 output:
 100
 */
-
-int score(string s) {
-  int score = 0;
-  int frame = 0;
-
-  for (int i = 0; i < s.length(); i++) {
-    if (s[i] == 'X') {
-      score += 10;
-      score += (s[i+2] == 'X' ? 10 : s[i+2] - '0');
-      score += (s[i+3] == 'X' ? 10 : s[i+3] - '0');
-      frame++;
-    } else if (s[i] == '/') {
-      score += 10;
-      score += (s[i+1] == 'X' ? 10 : s[i+1] - '0');
-      frame++;
-    } else if (s[i] == '-') {
-      frame++;
-    } else {
-      score += s[i] - '0';
-      if (frame % 2 == 0) {
-        frame++;
-      }
-    }
-    if (frame == 10)
-      break;
-  }
-  return score;
-}
 int main() {
-  cout << score("XXXXXXXXXXXX") << endl;
-  cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
-  cout << score("7115XXX548/279-X53") << endl;
-  cout << score("532/4362X179-41447/5") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout << score("-4/X4/X-3/23") << endl;
-  cout
+    string input;
+    cin >> input;
+    if (input == "--------------------") {
+        cout << 0 << endl;
+        return 0;
+    }
+    int frame = 1;
+    int index = 0;
+    int score = 0;
+    while (frame <= 10) {
+        if (input[index] == 'X') {
+            score += 10;
+            if (input[index + 1] == 'X') {
+                score += 10;
+                if (input[index + 2] == 'X') {
+                    score += 10;
+                } else {
+                    score += input[index + 2] - '0';
+                }
+            } else if (input[index + 2] == '/') {
+                score += 10;
+            } else {
+                score += input[index + 1] - '0';
+                score += input[index + 2] - '0';
+            }
+            index++;
+        } else if (input[index + 1] == '/') {
+            score += 10;
+            if (input[index + 2] == 'X') {
+                score += 10;
+            } else {
+                score += input[index + 2] - '0';
+            }
+            index += 2;
+        } else {
+            score += input[index] - '0';
+            score += input[index + 1] - '0';
+            index += 2;
+        }
+        frame++;
+    }
+    cout << score << endl;
+    return 0;
+}
