@@ -41,6 +41,14 @@ output:
 1
 1000
 """
+
+def output(out):
+    for i in range(len(out)):
+        print(out[i], end='')
+        if i != len(out)-1:
+            print(' ', end='')
+    print('')
+
 if __name__ == '__main__':
     with open('test.txt', 'r') as f:
         for line in f:
@@ -56,4 +64,4 @@ if __name__ == '__main__':
                 else:
                     if line[i] >= max(line[i+1:]):
                         out.append(line[i])
-            print(' '.join(map(str, out)))
+            print(out)
