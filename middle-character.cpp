@@ -19,9 +19,9 @@ Q
 output:
 Q
 input:
- 
+AB
 output:
- 
+AB
 input:
 $
 output:
@@ -36,13 +36,13 @@ output:
 )b
 */
 int main() {
-    string str;
-    cin >> str;
-    if(str.length() % 2 == 1){
-        cout << str[str.length() / 2];
+    string s;
+    cin >> s;
+    if (s.length() % 2 == 0) {
+        cout << s.substr(s.length()/2 - 1, 2);
     }
-    else{
-        cout << str[str.length() / 2 - 1] << str[str.length() / 2];
+    else {
+        cout << s.substr(s.length()/2, 1);
     }
     return 0;
 }
