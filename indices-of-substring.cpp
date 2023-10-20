@@ -64,10 +64,11 @@ vector<int> findTarget(string text, string target) {
 
 int main() {
     string text, target;
-    cin >> text >> target;
+    getline(cin, text);
+    getline(cin, target);
     vector<int> res = findTarget(text, target);
     for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << endl;
+        cout << res[i] << " ";
     }
     cout << endl;
     return 0;
