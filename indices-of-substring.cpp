@@ -63,6 +63,5 @@ int main() {
     for (int i = 0; i < res.size(); ++i) {
         cout << res[i] << (i == res.size() - 1 ? "\n" : " ");
     }
-    cout << endl;
     return 0;
 }
