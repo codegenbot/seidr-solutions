@@ -2,7 +2,6 @@
 #include <cstdio>
 #include <vector> 
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main() {
@@ -23,6 +22,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout << setprecision(15) << sqrt(res) << endl;
+    printf("%.15f\n", sqrt(res)); 
     return 0;
 }
