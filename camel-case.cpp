@@ -37,15 +37,32 @@ all separate words
 int main() {
     string input;
     getline(cin, input);
-    stringstream ss(input);
-    string word;
-    while (ss >> word) {
-        if (word.find("-") != string::npos) {
-            int pos = word.find("-");
-            word[pos + 1] = toupper(word[pos + 1]);
-            word.erase(pos, 1);
+    vector<string> words;
+    string word = "";
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == ' ' || input[i] == '-') {
+            if (word.length() > 0) {
+                words.push_back(word);
+                word = "";
+            }
+        } else {
+            word += input[i];
         }
-        cout << word << " ";
     }
+    if (word.length() > 0) {
+        words.push_back(word);
+    }
+    string output = "";
+    for (int i = 0; i < words.size(); i++) {
+        if (i == 0) {
+            output += words[i];
+        } else {
+            output += words[i][0];
+            for (int j = 1; j < words[i].length(); j++) {
+                output += tolower(words[i][j]);
+            }
+        }
+    }
+    cout << output << endl;
     return 0;
 }
