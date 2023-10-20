@@ -50,9 +50,8 @@ int main() {
     cin >> start >> first >> bounces;
     bounciness = first / start;
     double ans = start;
-    bounciness = pow(bounciness, -1);
-    for (int i = 0; i < bounces; i++) {
-        ans += start * pow(bounciness, i);
+    for (int i = 0; i < bounces - 1; i++) {
+        ans += start * pow(bounciness, i + 1);
     }
     cout << ans << endl;
     return 0;
