@@ -34,27 +34,21 @@ all separate words
 output:
 all separate words
 input:
-   Make sure that  ->
+make sure that  ->
 output:
-Make sure that ->
+make sure that  ->
 */
 int main() {
 string s;
 getline(cin, s);
 string res = "";
-bool space = false;
 for (int i = 0; i < s.size(); i++) {
-  if (s[i] != ' ') {
-    space = true;
-  }
-  if (space) {
-    if (s[i] == ' ') {
-      res += " ";
-    } else if (s[i] == '-') {
-      res += " ";
-    } else {
-      res += s[i];
-    }
+  if (s[i] == ' ') {
+    res += " ";
+  } else if (s[i] == '-') {
+    res += " ";
+  } else {
+    res += s[i];
   }
 }
 vector<string> v;
@@ -74,9 +68,13 @@ for (int i = 0; i < v.size(); i++) {
   if (i == 0) {
     ans += t;
   } else {
-    ans += toupper(t[0]);
-    for (int j = 1; j < t.size(); j++) {
-      ans += t[j];
+    if (t.size() == 2 && t[0] == '-' && t[1] == '>') {
+      ans += t;
+    } else {
+      ans += toupper(t[0]);
+      for (int j = 1; j < t.size(); j++) {
+        ans += t[j];
+      }
     }
   }
 }
