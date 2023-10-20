@@ -45,7 +45,7 @@ if __name__ == '__main__':
     first = float(input())
     second = float(input())
     third = int(input())
-    bounciness = second/first
-    bounciness = bounciness**(2*third)
-    total = first*bounciness
+    bounciness = first/second
+    bounciness = bounciness**third
+    total = second*bounciness
     print(total)
