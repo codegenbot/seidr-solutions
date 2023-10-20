@@ -41,12 +41,12 @@ input:
 output:
 3.963
 """
+
 if __name__ == '__main__':
     while True:
         line = sys.stdin.readline().strip()
         if line == '':
             break
         arr = list(map(float, line.split()))
-        if len(arr) >=3:
-            bounciness = arr[0] / arr[1]
-            print(arr[2] * bounciness * arr[1] + arr[1])
+        bounciness = arr[0] / arr[1]
+        print(arr[2] * bounciness * arr[1] + arr[1])
