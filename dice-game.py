@@ -37,4 +37,11 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    pass
+    n = int(input())
+    m = int(input())
+    if n > m:
+        print(0)
+    elif n == m:
+        print(0.5)
+    else:
+        print(1 / (m - n + 1))
