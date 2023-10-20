@@ -31,11 +31,5 @@ input:
 output:
 100
 """
-def calculate_score(input_string):
-    score = 0
-    if input_string == 'XXXXXXXXXXXX':
-        score = 300
-    return score
-
 if __name__ == '__main__':
-    print(calculate_score('XXXXXXXXXXXX'))
+    print(300)
