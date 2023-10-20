@@ -45,6 +45,7 @@ if __name__ == '__main__':
     str1 = input()
     str2 = input()
     print(str1.find(str2))
+    print()
     for i in range(len(str1)):
         if str1[i:].find(str2) == 0:
-            print(i)
+            print(i,end = " ")
