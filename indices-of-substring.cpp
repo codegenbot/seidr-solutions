@@ -44,28 +44,31 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-int main() {
-    string text;
-    string target;
-    while (cin >> text >> target) {
-        vector<int> res;
-        int n = text.length(), m = target.length();
-        for (int i = 0; i < n - m + 1; i++) {
-            bool ok = true;
-            for (int j = 0; j < m; j++) {
-                if (text[i + j] != target[j]) {
-                    ok = false;
-                    break;
-                }
-            }
-            if (ok) {
-                res.push_back(i);
+
+vector<int> findTarget(string text, string target) {
+    vector<int> res;
+    int n = text.size();
+    int m = target.size();
+    for (int i = 0; i < n; i++) {
+        bool flag = true;
+        for (int j = 0; j < m && i + j < n; j++) {
+            if (text[i + j] != target[j]) {
+                flag = false;
+                break;
             }
         }
-        for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
-        }
-        cout << endl;
+        if (flag) res.push_back(i);
     }
+    return res;
+}
+
+int main() {
+    string text, target;
+    cin >> text >> target;
+    vector<int> res = findTarget(text, target);
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
