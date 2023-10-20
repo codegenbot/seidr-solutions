@@ -16,6 +16,7 @@ input:
 1
 output:
 2.001
+
 input:
 100.0
 99.999
@@ -46,6 +47,6 @@ if __name__ == '__main__':
     second = float(input())
     third = int(input())
     bounciness = second/first
-    bounciness = (bounciness)*(2**third)
-    total = first*bounciness
+    bounciness = bounciness**third
+    total = first * bounciness
     print(total)
