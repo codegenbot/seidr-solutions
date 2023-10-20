@@ -58,5 +58,5 @@ if __name__ == '__main__':
         if code_list[i] in guess_list:
             white += 1
             guess_list.remove(code_list[i])
-    print(str(black) + '\n' + str(white))
-    # print(white)
+    print(black,end='')
+    print(white)
