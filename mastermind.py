@@ -42,28 +42,16 @@ output:
 0
 """
 if __name__ == '__main__':
-    line1 = input().strip()
-    line2 = input().strip()
-    code = {}
-    for i in range(4):
-        if line1[i] not in code:
-            code[line1[i]] = 1
-        else:
-            code[line1[i]] += 1
-    guess = {}
-    for i in range(4):
-        if line2[i] not in guess:
-            guess[line2[i]] = 1
-        else:
-            guess[line2[i]] += 1
-    white = 0
-    for i in code:
-        if i in guess:
-            white += min(code[i], guess[i])
+    code = input()
+    guess = input()
     black = 0
-    for i in range(4):
-        if line1[i] == line2[i]:
+    white = 0
+    for i in range(len(code)):
+        if code[i] == guess[i]:
             black += 1
-    white -= black
-    print(black)
-    print(min(white, 4))
+            guess = guess[:i] + ' ' + guess[i + 1:]
+    for i in range(len(code)):
+        if code[i] in guess:
+            white += 1
+            guess = guess.replace(code[i], ' ', 1)
+    print(black, white)
