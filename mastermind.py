@@ -46,5 +46,4 @@ if __name__ == '__main__':
         if guess[i] in code:
             white += 1
             code = code.replace(guess[i], '-', 1)
-    print(black)
-    print(white)
+    print(black, '\n', white)
