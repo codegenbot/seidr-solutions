@@ -1,28 +1,58 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
 #include <stdio.h>
-#include <stdlib.h>
-
-int main(int argc, char **argv)
-{
-    if (argc != 4)
-    {
-        printf("Usage: %s start_height first_bounce_height num_bounces\n", argv[0]);
-        return 1;
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+/*
+Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
+For example,
+input:
+1.001
+1.0
+1
+output:
+2.001
+input:
+100.0
+99.999
+20
+output:
+3999.599534511501
+input:
+100.0
+1.0
+20
+output:
+102.02020201974588
+input:
+15.319
+5.635
+1
+output:
+20.954
+input:
+2.176
+1.787
+1
+output:
+3.963
+*/
+int main() {
+    float start, first;
+    int bounces;
+    cin >> start >> first >> bounces;
+    double bounciness = first / start;
+    double total = start;
+    for (int i = 0; i < bounces; i++) {
+        total += start * bounciness;
+        start *= bounciness;
     }
-
-    double start_height = strtod(argv[1], NULL);
-    double first_bounce_height = strtod(argv[2], NULL);
-    int num_bounces = atoi(argv[3]);
-
-    double bounciness = first_bounce_height / start_height;
-
-    double total_distance = start_height;
-
-    for (int i = 0; i < num_bounces; i++)
-    {
-        total_distance += start_height * pow(bounciness, i + 1);
-    }
-
-    printf("%f\n", total_distance);
-
-    return 0;
+    printf("%.5f", total);
 }
