@@ -37,12 +37,11 @@ output:
 1
 """
 if __name__ == '__main__':
-    sum = 0
-    data = list(map(int, input().split()))
-    for i in data:
-        while i > 0:
-            i = math.floor(i/3)-2
-            if i <= 0:
-                break
-            sum += i
-    print(sum)
+    t = int(input())
+    for i in range(t):
+        n = int(input())
+        a = list(map(int, input().split()))
+        result = 0
+        for i in a:
+            result += i//3 - 2
+        print(result)
