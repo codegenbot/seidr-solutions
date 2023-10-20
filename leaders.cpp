@@ -44,6 +44,24 @@ output:
 1
 1000
 */
+vector<int> leaders(vector<int> &nums) {
+    vector<int> res;
+    int max = INT_MIN;
+    for(int i = nums.size() - 1; i >= 0; i--) {
+        if(nums[i] >= max) {
+            res.push_back(nums[i]);
+            max = nums[i];
+        }
+    }
+    reverse(res.begin(), res.end());
+    return res;
+}
 int main() {
-
+    vector<int> nums = {1, 451};
+    vector<int> res = leaders(nums);
+    for(auto num : res) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
 }
