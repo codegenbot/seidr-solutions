@@ -49,7 +49,7 @@ int main() {
     int n;
     while (cin >> h1 >> h2 >> n) {
         double bounciness = h2 / h1;
-        double sum = h2;
+        double sum = h1;
         for (int i = 0; i < n - 1; i++) {
             double tmp = h2 * bounciness;
             h2 = tmp;
