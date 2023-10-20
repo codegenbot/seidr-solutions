@@ -40,17 +40,14 @@ output:
 0.0
 */
 int main() {
-    int n,m;
+    int n, m;
+    double sum = 0;
     cin >> n >> m;
-    if(n == m){
-        cout << "0.5" << endl;
-        return 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j < i; j++) {
+            sum += 1.0 / n;
+        }
     }
-    if(n > m) swap(n,m);
-    double ans = 0.0;
-    for(int i = 1; i <= n; i++){
-        ans += (double)i/(double)(n*m);
-    }
-    cout << ans << endl;
+    printf("%.3f\n", sum);
     return 0;
 }
