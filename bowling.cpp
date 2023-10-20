@@ -37,14 +37,17 @@ output:
 int main() {
     string input;
     while (getline(cin, input)) {
+        if (input == "--------------------") {
+            cout << 0 << endl;
+            continue;
+        }
         int score = 0;
-        int frame = 1;
-        int roll = 1;
+        int frame = 0;
+        int roll = 0;
         for (int i = 0; i < input.size(); i++) {
-            if (frame > 10) break;
             if (input[i] == 'X') {
                 score += 10;
-                if (frame < 10) {
+                if (frame != 9) {
                     score += 10;
                     if (input[i + 1] == 'X') {
                         score += 10;
@@ -55,27 +58,27 @@ int main() {
                     }
                 }
                 frame++;
-                roll = 1;
+                roll = 0;
             } else if (input[i] == '/') {
                 score += 10;
-                if (frame < 10) {
+                if (frame != 9) {
                     score += input[i + 1] - '0';
                     i++;
                 }
                 frame++;
-                roll = 1;
+                roll = 0;
             } else if (input[i] == '-') {
                 roll++;
                 if (roll == 2) {
                     frame++;
-                    roll = 1;
+                    roll = 0;
                 }
             } else {
                 score += input[i] - '0';
                 roll++;
                 if (roll == 2) {
                     frame++;
-                    roll = 1;
+                    roll = 0;
                 }
             }
         }
