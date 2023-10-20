@@ -34,45 +34,42 @@ input:
 output:
 100
 */
-int helper(string &s, int start) {
-    int res = 0;
-    if (s[start] == 'X') {
-        res = 10 + helper(s, start+1);
-        if (s[start+1] == 'X') {
-            res += 10 + helper(s, start+2);
-        } else if (s[start+1] == '/') {
-            res += 10 - (s[start+1] - '0');
+int score(string s) {
+    int res=0;
+    int i=0;
+    for(;i<s.size();i++) {
+        if(s[i]=='X') {
+            res+=10;
+            if(s[i+1]=='X') {
+                res+=10;
+                if(s[i+2]=='X') {
+                    res+=10;
+                } else {
+                    res+=s[i+2]-'0';
+                }
+            } else if(s[i+1]=='/') {
+                res+=10;
+            } else {
+                res+=s[i+1]-'0';
+            }
+        } else if(s[i]=='/') {
+            res+=10;
+            if(s[i-1]=='X') {
+                res+=10;
+            } else {
+                res+=s[i-1]-'0';
+            }
+        } else if(s[i]=='-') {
+            res+=0;
         } else {
-            res += s[start+1] - '0';
+            res+=s[i]-'0';
         }
-    } else if (s[start] == '/') {
-        res = 10 - (s[start-1] - '0');
-        if (s[start+1] == 'X') {
-            res += 10 + helper(s, start+2);
-        } else {
-            res += s[start+1] - '0';
-        }
-    } else {
-        res = s[start] - '0';
     }
     return res;
 }
 int main() {
-    string s;
-    while (getline(cin, s)) {
-        int res = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s[i] == '-') {
-                continue;
-            }
-            res += helper(s, i);
-            if (s[i] == 'X') {
-                i += 2;
-            } else if (s[i] == '/') {
-                i += 1;
-            }
-        }
-        cout << res << endl;
-    }
-    return 0;
+    cout<<score("XXXXXXXXXXXX")<<endl;
+    cout<<score("5/5/5/5/5/5/5/5/5/5/5")<<endl;
+    cout<<score("7115XXX548/279-X53")<<endl;
+    cout<<score("532/4362X179-41447/5")<<endl;
 }
