@@ -54,16 +54,15 @@ output:
 0
 
 */
-
 int main() {
   int n;
-  int min=INT_MAX;
   cin>>n;
   vector<int> v(n);
   for(int i=0;i<n;i++) {
     cin>>v[i];
   }
-  int l=0,r=0;
+  int l=0,r=n-1;
+  int min=INT_MAX;
   for(int i=0;i<n-1;i++) {
     if(abs(v[i]-v[i+1])<min) {
       min=abs(v[i]-v[i+1]);
@@ -71,11 +70,11 @@ int main() {
       r=i+1;
     }
   }
-  for(int i=0;i<=r;i++) {
+  for(int i=0;i<=l;i++) {
     cout<<v[i]<<" ";
   }
   cout<<endl;
-  for(int i=l;i<n;i++) {
+  for(int i=r;i<n-1;i++) {
     cout<<v[i]<<" ";
   }
   cout<<endl;
