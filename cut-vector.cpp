@@ -19,7 +19,7 @@ input:
 output:
 1
 0
-0
+0\n
 
 input:
 1
@@ -27,7 +27,7 @@ input:
 output:
 1
 10
-0
+0\n
 
 input:
 1
@@ -35,7 +35,7 @@ input:
 output:
 1
 100
-0
+0\n
 
 input:
 1
@@ -43,7 +43,7 @@ input:
 output:
 1
 1000
-0
+0\n
 
 input:
 1
@@ -51,19 +51,50 @@ input:
 output:
 1
 10000
-0
+0\n
 
 */
 int main() {
     int n;
-    while (cin >> n) {
-        if (n == 1) {
-            cout << n << endl << 0 << endl << 0 << endl;
-        } else {
-            int a = n / 2;
-            int b = n - a;
-            cout << a << endl << b << endl << 0 << endl;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    int index = -1;
+    int diff = INT_MAX;
+    for (int i = 0; i < n - 1; i++) {
+        int left = 0, right = 0;
+        for (int j = 0; j <= i; j++) {
+            left += v[j];
         }
+        for (int j = i + 1; j < n; j++) {
+            right += v[j];
+        }
+        if (left == right) {
+            index = i;
+            break;
+        }
+        else {
+            if (abs(left - right) < diff) {
+                index = i;
+                diff = abs(left - right);
+            }
+        }
+    }
+    if (index == -1) {
+        cout << "NO" << endl;
+    }
+    else {
+        cout << "YES" << endl;
+        for (int i = 0; i <= index; i++) {
+            cout << v[i] << " ";
+        }
+        cout << endl;
+        for (int i = index + 1; i < n; i++) {
+            cout << v[i] << " ";
+        }
+        cout << endl;
     }
     return 0;
 }
