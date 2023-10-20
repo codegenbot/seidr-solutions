@@ -60,15 +60,6 @@ output:
 2
 6633 8438
 
-input:
-3
-5973 9312 199
-output:
-1
-5973
-2
-9312 199
-
 """
 def get_input():
     line = input()
@@ -90,7 +81,7 @@ def solve(n, a):
             print(" ".join([str(x) for x in a[n//2:]]))
         else:
             half = n//2
-            if abs(a[half] - a[half - 1]) <= abs(a[half] - a[half + 1]):
+            if abs(a[half] - a[half + 1]) < abs(a[half - 1] - a[half]):
                 print(half + 1)
                 print(" ".join([str(x) for x in a[:half + 1]]))
                 print(n - half - 1)
