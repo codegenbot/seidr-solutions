@@ -63,9 +63,7 @@ int main() {
     }
     float sum = 0;
     for(int i = 0; i < n; ++i) {
-        float t = p[i] * (1 - d[i] / 100);
-        if(t < 0.00001) t = 0;
-        sum += t;
+        sum += max(0.0f, p[i] * (1 - d[i] / 100));
     }
     cout<<sum<<endl;
     return 0;
