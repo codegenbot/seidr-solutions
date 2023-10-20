@@ -44,106 +44,29 @@ output:
 0
 0
 */
-//https://www.careercup.com/question?id=24056
-//http://www.geeksforgeeks.org/mastermind-game/
-//http://stackoverflow.com/questions/29359330/mastermind-game-black-and-white-pegs-algorithm
-//http://www.geeksforgeeks.org/mastermind-game/
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.careercup.com/question?id=24056
-//http://www.care
+int white(string code, string guess) {
+    int res = 0;
+    for (int i = 0; i < code.length(); i++)
+        if (code[i] == guess[i])
+            res++;
+    return res;
+}
+int black(string code, string guess) {
+    map<char, int> m;
+    for (int i = 0; i < code.length(); i++)
+        m[code[i]]++;
+    int res = 0;
+    for (int i = 0; i < code.length(); i++) {
+        if (m[guess[i]] > 0) {
+            res++;
+            m[guess[i]]--;
+        }
+    }
+    return res;
+}
 int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << (black(code, guess) - white(code, guess)) << " " << white(code, guess) << endl;
+    return 0;
+}
