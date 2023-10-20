@@ -52,25 +52,20 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
+    vector<int> nums(n);
+    for(int i = 0; i < n; i++)
+        cin >> nums[i];
     int target;
     cin >> target;
-    int l = 0, r = n - 1;
-    while (l < r) {
-        int sum = v[l] + v[r];
-        if (sum == target) {
-            cout << v[l] << " " << v[r] << endl;
+    int i = 0, j = n - 1;
+    while(i < j) {
+        if(nums[i] + nums[j] > target)
+            j--;
+        else if(nums[i] + nums[j] < target)
+            i++;
+        else
             break;
-        }
-        else if (sum > target) {
-            r--;
-        }
-        else {
-            l++;
-        }
     }
+    cout << nums[i] << endl << nums[j] << endl;
     return 0;
 }
