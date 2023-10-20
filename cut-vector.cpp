@@ -54,6 +54,15 @@ output:
 0
 
 */
+
+
+
+
+
+
+
+
+
 int main() {
     int n;
     cin >> n;
@@ -61,18 +70,24 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    int ans = INT_MAX;
+    int ans = INT_MAX, ans2 = INT_MAX;
     int ans_idx;
-    for (int i = 1; i <= n; ++i) {
+    int ans2_idx;
+    for (int i = 1; i < n; ++i) {
         if (abs(nums[i] - nums[i - 1]) < ans) {
             ans = abs(nums[i] - nums[i - 1]);
             ans_idx = i;
+        }
+        if (abs(nums[i] - nums[i - 1]) == ans) {
+            if (i < ans_idx) {
+                ans_idx = i;
+            }
         }
     }
     for (int i = 0; i < ans_idx; ++i) {
         cout << nums[i] << endl;
     }
-    for (int i = ans_idx; i <= n; ++i) {
+    for (int i = ans_idx; i < n; ++i) {
         cout << nums[i] << endl;
     }
 }
