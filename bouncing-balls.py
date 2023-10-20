@@ -41,23 +41,13 @@ input:
 output:
 3.963
 """
-if __name__ == '__main__':
-    def bounciness_index(start_height, first_bounce):
-        return first_bounce / start_height
 
-    def total_distance(start_height, first_bounce, num_bounces):
-        total_distance = 0
-        bounciness_index = bounciness_index(start_height, first_bounce) # TODO: fix this line
-        for bounce in range(num_bounces):
-            total_distance += start_height
-            start_height *= bounciness_index
-        return total_distance
+def calculate_distance(start, bounce, bounces):
+    bounciness_index = bounce / start
+    total_distance = 0
+    for i in range(bounces):
+        total_distance += start
+        start = start * bounciness_index
+    return total_distance
 
-    while True:
-        try:
-            start_height = float(input())
-            first_bounce = float(input())
-            num_bounces = int(input())
-            print(total_distance(start_height, first_bounce, num_bounces))
-        except EOFError:
-            break
+    if __name__ == '__main__':
