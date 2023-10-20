@@ -45,40 +45,22 @@ def bowling_score(frames):
                             score += 10
                         else:
                             score += int(frames[i+2])
-                elif frames[i+1] == '/':
-                    score += 10
-                    if i < len(frames) - 2:
-                        if frames[i+2] == 'X':
-                            score += 10
-                        else:
-                            score += int(frames[i+2])
+                    else:
+                        score += 0
                 else:
-                    score += int(frames[i+1])
-                    if i < len(frames) - 2:
-                        if frames[i+2] == '/':
-                            score += 10
-                        elif frames[i+2] == 'X':
-                            score += 10
-                        elif frames[i+2] == '-':
-                            score += 0
-                        else:
-                            score += int(frames[i+2])
+                    if i < len(frames) - 2 and frames[i+2] == '/':
+                        score += 10
+                    else:
+                        score += int(frames[i+1]) + int(frames[i+2])
         elif frames[i] == '-':
             score += 0
         else:
             score += int(frames[i])
             if i < len(frames) - 1:
                 if frames[i+1] == '/':
-                    score += 10
-                    if i < len(frames) - 2:
-                        if frames[i+2] == 'X':
-                            score += 10
-                        else:
-                            score += int(frames[i+2])
+                    score += 10 - int(frames[i])
                 elif frames[i+1] == 'X':
                     score += 10
-                    if i < len(frames) - 2:
-                        score += 10
                 elif frames[i+1] == '-':
                     score += 0
                 else:
