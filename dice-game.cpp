@@ -43,6 +43,10 @@ int main() {
     int n,m;
     cin >> n >> m;
     if(n == m){
+        cout << "0.5" << endl;
+        return 0;
+    }
+    if(n == 1){
         cout << "0.0" << endl;
         return 0;
     }
