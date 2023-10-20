@@ -40,7 +40,7 @@ int getScore(char c) {
     }else if(c == '/') {
         return 10;
     }else if(c == '-') {
-        return 0;
+        return -1;
     }else {
         return c - '0';
     }
@@ -94,8 +94,6 @@ int getScore(string str) {
                 res += getScore(str[i], str[i+1], str[i+2]);
             }else if(str[i] == '/') {
                 res += getScore(str[i], str[i+1]);
-            }else if(str[i] == '-') {
-                res += 0;
             }else {
                 res += getScore(str[i]);
             }
@@ -106,8 +104,6 @@ int getScore(string str) {
             }else if(str[i] == '/') {
                 res += getScore(str[i], str[i+1]);
                 i++;
-            }else if(str[i] == '-') {
-                res += 0;
             }else {
                 res += getScore(str[i]);
             }
