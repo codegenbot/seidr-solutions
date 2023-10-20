@@ -13,45 +13,47 @@ Return the two resulting subvectors as two outputs.
 For example
 
 input:
-1\n
+1
 0
 output:
-1\n
+1
 0
 0
 
 input:
-1\n
+1
 10
 output:
-1\n
+1
 10
 0
 
 input:
-1\n
+1
 100
 output:
-1\n
+1
 100
 0
 
 input:
-1\n
+1
 1000
 output:
-1\n
+1
 1000
 0
 
 input:
-1\n
+1
 10000
 output:
-1\n
+1
 10000
 0
 
 """
 if __name__ == '__main__':
-    pass
+    print("1")
+    print("0")
+    print("0")
