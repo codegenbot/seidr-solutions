@@ -15,56 +15,54 @@ Given a vector of ﬂoats representing the prices of various shopping goods and 
 For example,
 input:
 1
-50.0
+50
 1
-100.0
+100
 output:
 0.0
 input:
 1
-50.0
+50
 1
-10.0
+10
 output:
 45.0
 input:
 2
-20.0 20.0
+20 20
 2
-100.0 50.0
+100 50
 output:
 10.0
 input:
 2
-20.0 20.0
+20 20
 2
-20.0 0.0
+20 0
 output:
 36.0
 input:
 3
-10.0 20.0 30.0
+10 20 30
 3
-5.0 10.0 95.0
+5 10 95
 output:
 29.0
 */
 int main() {
     int n;
+    double price, discount;
+    double totalPrice = 0;
     cin >> n;
-    vector<float> price(n);
-    for (int i = 0; i < n; i++) {
-        cin >> price[i];
+    for(int i = 0; i < n; i++){
+        cin >> price;
+        totalPrice += price;
     }
     cin >> n;
-    vector<float> discount(n);
-    for (int i = 0; i < n; i++) {
-        cin >> discount[i];
+    for(int i = 0; i < n; i++){
+        cin >> discount;
+        totalPrice -= totalPrice * discount / 100;
     }
-    float res = 0;
-    for (int i = 0; i < min(n, (int)price.size()); i++) {
-        res += price[i] * (1 - discount[i] / 100);
-    }
-    cout << res << endl;
+    printf("%.2f", totalPrice);
     return 0;
 }
