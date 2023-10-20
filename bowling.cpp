@@ -18,6 +18,11 @@ input:
 output:
 0
 input:
+--------------------
+--------------------
+output:
+0
+input:
 XXXXXXXXXXXX
 output:
 300
@@ -40,11 +45,12 @@ int main() {
         int score = 0;
         int frame = 0;
         int roll = 0;
-        bool allZero = true;
+        bool isScore = false;
         for (int i = 0; i < input.size(); i++) {
-            if (input[i] != '-') {
-                allZero = false;
+            if (input[i] == '-') {
+                continue;
             }
+            isScore = true;
             if (input[i] == 'X') {
                 score += 10;
                 if (frame != 9) {
@@ -82,10 +88,6 @@ int main() {
                 }
             }
         }
-        if (allZero) {
-            cout << 0 << endl;
-        } else {
-            cout << score << endl;
-        }
+        cout << score << endl;
     }
 }
