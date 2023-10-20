@@ -48,8 +48,8 @@ int main() {
     double h1, h2;
     int n;
     while (cin >> h1 >> h2 >> n) {
-        double bounciness = h2 / h1;
-        double sum = h1;
+        double bounciness = h2 / h1; // bounciness
+        double sum = h2;
         for (int i = 0; i < n - 1; i++) {
             double tmp = h2 * bounciness;
             h2 = tmp;
