@@ -34,32 +34,34 @@ all separate words
 output:
 all separate words
 */
-void toCamel(string &s){
-    int len = s.size();
-    int i = 0;
-    while(i<len){
-        if(s[i]==' '){
-            s.erase(i,1);
-            len--;
-        }else{
-            i++;
-        }
-    }
-    i = 0;
-    while(i<len){
-        if(s[i]=='-'){
-            s.erase(i,1);
-            len--;
-            s[i] = toupper(s[i]);
-        }
-        i++;
-    }
+string camelCase(string input) {
+	string res = "";
+	int n = input.size();
+	if (n == 0) return res;
+	int i = 0;
+	while (i < n) {
+		if (input[i] == ' ') {
+			res += ' ';
+			i++;
+			continue;
+		}
+		string temp = "";
+		while (i < n && input[i] != ' ' && input[i] != '-') {
+			temp += input[i];
+			i++;
+		}
+		if (temp.size() > 1) {
+			temp[0] = toupper(temp[0]);
+		}
+		res += temp;
+		while (i < n && input[i] == '-') {
+			i++;
+		}
+	}
+	return res;
 }
 int main() {
-    string s;
-    while(getline(cin,s)){
-        toCamel(s);
-        cout<<s<<endl;
-    }
-    return 0;
+	string input = "camel-case example-test-string";
+	cout << camelCase(input) << endl;
+	return 0;
 }
