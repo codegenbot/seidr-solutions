@@ -84,20 +84,15 @@ def solve(n, a):
         print(0)
     else:
         if n % 2 == 0:
-            m = a[n//2]
-            x = a[n//2-1]
-            y = a[n//2]
-            if abs(x-m) > abs(y-m):
-                a = a[:n//2] + a[n//2+1:]
-            print(n//2+1)
-            print(" ".join([str(x) for x in a[:n//2+1]]))
-            print(n - n//2-1)
-            print(" ".join([str(x) for x in a[n//2+1:]]))
+            print(n//2)
+            print(" ".join([str(x) for x in a[:n//2]]))
+            print(n - n//2)
+            print(" ".join([str(x) for x in a[n//2:]]))
         else:
             m = a[n//2]
             x = a[n//2-1]
             y = a[n//2+1]
-            if abs(x-m) > abs(y-m):
+            if abs(x-m) >= abs(y-m):
                 a = a[:n//2+1] + a[n//2:]
             print(n//2)
             print(" ".join([str(x) for x in a[:n//2+1]]))
