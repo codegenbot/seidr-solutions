@@ -7,7 +7,6 @@ import collections
 import itertools
 import queue
 import re
-
 """
 Given a vector of integers, return the two elements that sum to a target integer.
 For example,
@@ -47,5 +46,5 @@ output:
 -4
 4
 """
-
 if __name__ == '__main__':
+ 
