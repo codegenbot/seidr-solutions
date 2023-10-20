@@ -42,18 +42,12 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    while True:
-        try:
-            line1 = input()
-            line2 = input()
-            line3 = input()
-        except EOFError:
-            break
-        starting_height = float(line1)
-        first_bounce_height = float(line2)
-        number_of_bounces = int(line3)
-        bounciness_index = first_bounce_height / starting_height
-        total_distance = starting_height + 2*first_bounce_height
-        for i in range(2,number_of_bounces+1):
-            total_distance += 2*(bounciness_index**i)
-        print('%.3f' % total_distance)
+    first = float(input())
+    second = float(input())
+    third = int(input())
+    bounciness = second/first #1.0
+    bounciness = bounciness**third #1.0
+    total = first*bounciness #1.0
+    total = total + first #2.0
+    total = round(total, 3) #2.001
+    print(total)
