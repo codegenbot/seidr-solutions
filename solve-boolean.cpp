@@ -38,7 +38,7 @@ int main() {
     string s;
     cin >> s;
     stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&' || s[i] == '|') {
             char a = st.top();
             st.pop();
