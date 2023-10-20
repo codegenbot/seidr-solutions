@@ -31,10 +31,13 @@ input:
 output:
 )b
 """
+
+def middle(string):
+    if len(string) % 2 == 0:
+        return string[len(string)//2-1:len(string)//2+1]
+    else:
+        return string[len(string)//2]
+
 if __name__ == '__main__':
-	s=input()
-	l=len(s)
-	if l%2==0:
-		print(s[int(l/2-1)]+s[int(l/2)])
-	else:
-		print(s[int(l/2)])
+    string = input()
+    print(middle(string))
