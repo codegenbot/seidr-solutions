@@ -44,17 +44,16 @@ input:
 output:
 3.963
 */
-double bounciness(double h1, double h2, int n) {
-    double ans = 0.0;
-    double ratio = h2 / h1;
-    for(int i = 0; i < n; i++) {
-        ans += h1;
-        h1 *= ratio;
-    }
-    ans += h1;
-    return ans;
-}
 int main() {
-    cout << bounciness(100.0, 1.0, 20) << endl;
+    double h, b;
+    int n;
+    cin >> h >> b >> n;
+    double bounciness = b / h;
+    double dis = 0;
+    for (int i = 0; i < n; i++) {
+        dis += h;
+        h *= bounciness;
+    }
+    printf("%.10f\n", dis);
     return 0;
 }
