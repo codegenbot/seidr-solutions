@@ -42,16 +42,18 @@ int getScore(const string &input) {
       score += input[i] - '0';
     } else if(input[i] == 'X') {
       score += 10;
-      if(i + 1 == input.size() || input[i + 1] == 'X') {
+      if(input[i + 1] == 'X') {
         score += 10;
-        if(i + 2 == input.size() || input[i + 2] == 'X') {
+        if(input[i + 2] == 'X') {
           score += 10;
         } else {
           score += input[i + 2] - '0';
         }
       } else {
         score += input[i + 1] - '0';
-        if(i + 2 == input.size() || input[i + 2] == '/') {
+        if(input[i + 2] == '/') {
+          score += 10;
+        } else if(input[i + 2] == 'X') {
           score += 10;
         } else {
           score += input[i + 2] - '0';
