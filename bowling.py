@@ -31,5 +31,9 @@ input:
 output:
 100
 """
+
+def bowling_score(bowls):
+    pass
+
 if __name__ == '__main__':
-    print(0)
+    print bowling_score("--------------------")
