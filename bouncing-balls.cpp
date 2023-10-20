@@ -54,7 +54,7 @@ int main() {
             totalDistance += height;
             height *= bouncinessIndex;
         }
-        printf("%.3f\n", totalDistance + firstBounce);
+        printf("%.3f\n\n", totalDistance);
     }
     return 0;
 }
