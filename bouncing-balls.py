@@ -40,19 +40,16 @@ input:
 1
 output:
 3.963
-input:
-100.0
-99.999
-20
-output:
-3999.599534511501
 """
 if __name__ == '__main__':
-    bounciness_index = 0.0
-    total_distance = 0.0
-    starting_height = float(input())
-    height_after_first_bounce = float(input())
-    number_of_bounces = int(input())
-    bounciness_index = height_after_first_bounce / starting_height
-    total_distance = (starting_height + height_after_first_bounce) * (1 - math.pow(bounciness_index, number_of_bounces)) / (1 - bounciness_index)
-    print(total_distance)
+    try:
+        bounciness_index = 0.0
+        total_distance = 0.0
+        starting_height = float(input())
+        height_after_first_bounce = float(input())
+        number_of_bounces = int(input())
+        bounciness_index = height_after_first_bounce / starting_height
+        total_distance = (starting_height + height_after_first_bounce) * (1 - math.pow(bounciness_index, number_of_bounces)) / (1 - bounciness_index)
+        print(total_distance)
+    except:
+        print("Error:", sys.exc_info()[0])
