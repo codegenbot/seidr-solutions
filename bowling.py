@@ -31,9 +31,33 @@ input:
 output:
 100
 """
-def bowling(round):
-    if round == '--------------------':
-        return 0
-
 if __name__ == '__main__':
-    print(bowling('--------------------'))
+    input = raw_input()
+    score = 0
+    frame = 0
+    in_frame = 0
+    for i in input:
+        if i == 'X':
+            score += 10
+            if in_frame == 0:
+                score += 10
+                frame += 1
+            elif in_frame == 1:
+                score += 10
+            in_frame = 0
+        elif i == '/':
+            score += 10
+            score += 10
+            in_frame = 0
+        elif i == '-':
+            score += 0
+            in_frame = 0
+        else:
+            score += int(i)
+            in_frame += 1
+        if in_frame == 2:
+            frame += 1
+            in_frame = 0
+        if frame == 10:
+            break
+    print(score)
