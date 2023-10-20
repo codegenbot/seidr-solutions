@@ -49,9 +49,6 @@ if __name__ == '__main__':
     bounciness_index = first_bounce/start_height
     distance_traveled = 0
     for i in range(num_bounces):
-        if i == 0:
-            distance_traveled += first_bounce
-        else:
-            distance_traveled += start_height + (start_height * bounciness_index)
-            start_height = start_height * bounciness_index
+        distance_traveled += start_height + (start_height * bounciness_index)
+        start_height = start_height * bounciness_index
     print(distance_traveled)
