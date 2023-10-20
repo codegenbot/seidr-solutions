@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
- 
+
 output:
- 
+
 input:
 $
 output:
@@ -35,13 +35,13 @@ output:
 )b
 */
 int main() {
-    string s;
-    cin >> s;
-    int len = s.length();
-    if(len % 2 == 0) {
-        cout << s[len/2 - 1] << s[len/2];
-    } else {
-        cout << s[len/2];
+    string str;
+    cin >> str;
+    if(str.length() % 2 == 1){
+        cout << str[str.length() / 2];
+    }
+    else{
+        cout << str[str.length() / 2 - 1] << str[str.length() / 2];
     }
     return 0;
 }
