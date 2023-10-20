@@ -35,12 +35,14 @@ output:
 100
 */
 int getScore(string input) {
+    for (int i = 0; i < input.length() - 1; i++) {
+        if (input[i] == '/' && input[i + 1] == '/') {
+            input[i + 1] = '-';
+        }
+    }
     int score = 0;
     int frame = 0;
     for (int i = 0; i < input.length(); i++) {
-		if (frame == 10) {
-            break;
-        }
         if (input[i] == 'X') {
             score += 10;
             if (input[i + 1] == 'X') {
@@ -67,9 +69,10 @@ int getScore(string input) {
         } else {
             score += input[i] - '0';
         }
-		if (input[i] == 'X' || (input[i] < '0' || input[i] > '9')) {
-			frame++;
-		}
+        frame++;
+        if (frame == 10) {
+            break;
+        }
     }
     return score;
 }
