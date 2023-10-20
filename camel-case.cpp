@@ -13,15 +13,24 @@ using namespace std;
 /*
 Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string" -> "camelCase exampleTestString".
 */
-
 int main() {
-string s;
-getline(cin, s);
-string res = "";
-bool space = false;
-for (int i = 0; i < s.size(); i++) {
-  if (s[i] != ' ') {
-    space = true;
+  string s;
+  getline(cin, s);
+  string res = "";
+  bool space = false;
+  for (int i = 0; i < s.size(); i++) {
+    if (s[i] != ' ') {
+      space = true;
+    }
+    if (space) {
+      if (s[i] == ' ') {
+        res += " ";
+      } else if (s[i] == '-') {
+        res += " ";
+      } else {
+        res += s[i];
+      }
+    }
   }
   if (space) {
     if (s[i] == ' ') {
