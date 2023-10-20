@@ -52,11 +52,36 @@ output:
 
 int pennies, nickles, dimes, quarters;
 int count(int cents) {
-    pennies = cents % 5;
-    nickles = cents % 25 / 5;
-    dimes = cents % 50 / 10;
-    quarters = cents / 25; 
-    return pennies + nickles + dimes + quarters;
+    int sum = 0;
+    int num = 0;
+    while (cents >= 25) {
+        cents -= 25;
+        num++;
+    }
+    quarters = num;
+    sum += num;
+    num = 0;
+    while (cents >= 10) {
+        cents -= 10;
+        num++;
+    }
+    dimes = num;
+    sum += num;
+    num = 0;
+    while (cents >= 5) {
+        cents -= 5;
+        num++;
+    }
+    nickles = num;
+    sum += num;
+    num = 0;
+    while (cents >= 1) {
+        cents -= 1;
+        num++;
+    }
+    pennies = num;
+    sum += num;
+    return sum;
 }
 
 int main() {
