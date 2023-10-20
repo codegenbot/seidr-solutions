@@ -43,13 +43,16 @@ input:
 1
 output:
 3.963
+
+100.0
+99.999
+20
 */
 int main() {
     double start, first, num, res, bounciness;
     cin >> start >> first >> num;
     bounciness = first / start;
     res = start * (1 - pow(bounciness, num + 1)) / (1 - bounciness);
-    res = floor(res * 100000 + 0.5) * 10;
     cout << res << endl;
     return 0;
 }
