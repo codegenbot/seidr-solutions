@@ -45,5 +45,10 @@ output:
 1000
 */
 int main() {
-
+    int n;
+    cin >> n;
+    if (n == 0) {
+        cout << n << endl;
+        return 0;
+    }
 }
