@@ -58,8 +58,8 @@ int main() {
     }
     float res = 0;
     for (int i = 0; i < n; i++) {
-        res += pow(v1[i] - v2[i], 2);
+        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout << sqrt(res) << endl;
+    cout << sqrt(res) << endl; 
     return 0;
 }
