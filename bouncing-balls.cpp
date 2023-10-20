@@ -45,10 +45,11 @@ output:
 3.963
 */
 int main() {
-    double start, first, num;
-    scanf("%lf%lf%lf", &start, &first, &num);
+    float start, first, num;
+    cin >> start >> first >> num;
     float res = 0;
     float bounciness = first / start;
+    res += start;
     for (int i = 0; i < num; i++) {
         res += start;
         start *= bounciness;
