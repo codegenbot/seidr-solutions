@@ -44,45 +44,29 @@ input:
 output:
 3.963
 */
-class bounceCalc {
-public:
-    bounceCalc(double h, double n) {
-        this->value = n / h;
-    }
-    friend double operator+ (bounceCalc& lhs, bounceCalc& rhs) {
-        return lhs.value * rhs.value;
-    }
-    friend ostream& operator<< (ostream& os, const bounceCalc& a) {
-        return os << a.value;
-    }
-private:
-    double value;
-};
+float getBouncyIndex(float x) {
+  if(x <= 0) {
+    return 0;
+  }
+  float c = x * x;
+  return 1 + 2 * sqrt(1 - 1 / c);
+}
 int main() {
-    double height;
-    double maxHeight; // Use maxheight / height to calculate the bounciness and then use it with number of bounces to calculate
-    long nBounces;
-    while (cin >> height >> maxHeight >> nBounces) {
-        // Calculate bounciness
-        double bounciness = maxHeight / height;
-        // Check for error
-        if (bounciness <= 1) {
-            cout << "Height should be greater than the first bounce height" << endl;
-            continue;
-        }
-        // Increase height by one before starting
-        double startHeight = height + 1.0;
-        double acc = startHeight;
-        bounceCalc a(bounciness, 1);
-        for (int i = 1; i < nBounces; i++) {
-            acc += a;
-        }
-        cout << acc << endl;
-        // int test = (int)acc % 100;
-        // if (test >= 50)
-        //     cout << acc+(test-50)/100 << endl;
-        // else
-        //     cout << acc - (50-test) % 100/100 << endl;
-        
+  int n;
+  cin >> n;
+  while(n--) {
+    double a, b;
+    int m;
+    cin >> a >> b >> m;
+    if(a < b) {
+      swap(a, b);
     }
+    double x = getBouncyIndex(b / a);
+    double ans = 1;
+    while(m--) {
+      ans *= x;
+    }
+    cout << fixed << setprecision(3) << a * ans << endl;
+  }
+  return 0;
 }
