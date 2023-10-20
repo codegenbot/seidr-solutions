@@ -7,6 +7,16 @@ import collections
 import itertools
 import queue
 import re
+
+
+def bowling(frames):
+    score = 0
+    for frame in frames:
+        if frame == '-':
+            score += 0
+    return score
+
+
 """
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -32,4 +42,4 @@ output:
 100
 """
 if __name__ == '__main__':
-    print(0)
+    assert bowling('--------------------') == 0
