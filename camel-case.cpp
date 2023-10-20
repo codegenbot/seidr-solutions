@@ -37,17 +37,26 @@ all separate words
 int main() {
     string str;
     getline(cin, str);
-    string res;
-    int i = 0;
-    while (i < str.size()) {
-        if (str[i] == '-') {
-            res += toupper(str[i + 1]);
-            i += 2;
-        } else {
-            res += str[i];
-            i++;
+    stringstream ss(str);
+    string word;
+    int dash = 0;
+    while (getline(ss, word, ' ')) {
+        for (int i = 0; i < word.length(); i++) {
+            if (word[i] == '-') {
+                dash = 1;
+            }
         }
+        if (dash == 0) {
+            cout << word << " ";
+        } else {
+            stringstream sss(word);
+            string wd;
+            while (getline(sss, wd, '-')) {
+                wd[0] = toupper(wd[0]);
+                cout << wd;
+            }
+            cout << " ";
+        }
+        dash = 0;
     }
-    cout << res << endl;
-    return 0;
 }
