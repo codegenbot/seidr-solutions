@@ -50,21 +50,23 @@ output:
 4
 */
 int main() {
-    int target;
-    cin >> target;
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    map<int, int> m;
-    for (int i = 0; i < n; i++) {
-        if (m.count(target - nums[i])) {
-            cout << nums[i] << " " << target - nums[i] << endl;
-        } else {
-            m[nums[i]] = 1;
-        }
-    }
-    return 0;
+//	freopen("in.txt", "r", stdin);
+//	freopen("out.txt", "w", stdout);
+	int n, target;
+	cin >> n >> target;
+	vector<int> v(n);
+	for (int i = 0; i < n; i++)
+		cin >> v[i];
+	int i = 0, j = n - 1;
+	while (i < j) {
+		if (v[i] + v[j] == target) {
+			cout << v[i] << " " << v[j] << endl;
+			break;
+		}
+		else if (v[i] + v[j] > target)
+			j--;
+		else
+			i++;
+	}
+	return 0;
 }
