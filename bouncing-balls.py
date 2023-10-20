@@ -1,3 +1,6 @@
+import numpy as np
+
+
 """
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
@@ -35,8 +38,7 @@ output:
 
 
 def bounciness(h1, h2, n):
-    b = h2 / h1
-    return (h1 + h2) * (1 - b ** n) / (1 - b)
+    return (h1 + h2) * (1 - (h2 / h1) ** n) / (1 - h2 / h1)
 
 
 if __name__ == '__main__':
