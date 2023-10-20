@@ -37,11 +37,9 @@ output:
 1
 """
 if __name__ == '__main__':
-    n = int(input())
-    nums = []
-    for i in range(n):
-        nums.append(int(input()))
+    input_num = int(input())
+    input_vec = [int(x) for x in input().split()]
     res = 0
-    for num in nums:
-        res += (num // 3 - 2)
+    for i in range(input_num):
+        res += (input_vec[i] // 3 - 2)
     print(res)
