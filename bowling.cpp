@@ -18,11 +18,6 @@ input:
 output:
 0
 input:
---------------------
---------------------
-output:
-0
-input:
 XXXXXXXXXXXX
 output:
 300
@@ -40,40 +35,54 @@ output:
 100
 */
 int main() {
-    string input;
-    while (getline(cin, input)) {
-        int score = 0;
-        int frame = 0;
-        int roll = 0;
-        bool isScore = false;
-        for (int i = 0; i < input.size(); i++) {
-            if (input[i] == '-') {
-                continue;
-            }
-            isScore = true;
-            if (input[i] == 'X') {
-                score += 10;
-                if (frame != 9) {
+    bool first = true;
+    while (true) {
+        string input;
+        getline(cin, input);
+        if (input == "") {
+            break;
+        }
+        if (first != true) {
+            cout << endl;
+        }
+        first = false;
+        if (input.size() != 0) {
+            int score = 0;
+            int frame = 0;
+            int roll = 0;
+            for (int i = 0; i < input.size(); i++) {
+                if (input[i] == 'X') {
                     score += 10;
-                    if (input[i + 1] == 'X') {
+                    if (frame != 9) {
                         score += 10;
-                        i++;
-                    } else {
+                        if (input[i + 1] == 'X') {
+                            score += 10;
+                            i++;
+                        } else {
+                            score += input[i + 1] - '0';
+                            i++;
+                        }
+                    }
+                    frame++;
+                    roll = 0;
+                } else if (input[i] == '/') {
+                    score += 10;
+                    if (frame != 9) {
                         score += input[i + 1] - '0';
                         i++;
                     }
+                    frame++;
+                    roll = 0;
+                } else if (input[i] == '-') {
+                    roll++;
+                    if (roll == 2) {
+                        frame++;
+                        roll = 0;
+                    }
                 }
-                frame++;
-                roll = 0;
-            } else if (input[i] == '/') {
-                score += 10;
-                if (frame != 9) {
-                    score += input[i + 1] - '0';
-                    i++;
+                if (frame != 10) {
+                    score += input[i] - '0';
                 }
-                frame++;
-                roll = 0;
-            } else if (input[i] == '-') {
                 roll++;
                 if (roll == 2) {
                     frame++;
