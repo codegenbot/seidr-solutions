@@ -1,35 +1,41 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
-For example,
-input:
-camel-case example-test-string
-output:
-camelCase exampleTestString
-input:
-nospaceordash
-output:
-nospaceordash
-input:
-two-words
-output:
-twoWords
-input:
-two words
-output:
-two words
-input:
-all separate words
-output:
-all separate words
+Given a list of strings, return a list of lists of strings that groups all anagrams together.
+
+Example:
+
+Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Output:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+
+Note:
+
+    All inputs will be in lowercase.
+    The order of your output does not matter.
 """
+
+
+def group_anagrams(strs):
+    anagrams = collections.defaultdict(list)
+    for word in strs:
+        key = tuple(sorted(word))
+        anagrams[key].append(word)
+    return list(anagrams.values())
+
+
 if __name__ == '__main__':
-    line = input()
-    parts = line.split(" ")
-    for part in parts:
-        words = part.split("-")
-        for i in range(len(words)):
-            if i == 0:
-                print(words[i], end="")
-            else:
-                print(words[i].capitalize(), end="")
-        print(" ", end="")
+    strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+    result = group_anagrams(strs)
+    print(result)
