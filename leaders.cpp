@@ -53,9 +53,9 @@ int main() {
             cin >> tmp;
             nums.push_back(tmp);
         }
-        if(n == 1 || (n == 2 && nums[0] == 0 && nums[1] == 0)) {
-            cout << nums[0] << " " << nums[1] << endl;
-            continue;
+        if(n == 1) {
+            cout << nums[0] << endl;
+            return 0;
         }
         int max = nums[n - 1];
         for(int i = n - 1; i >= 0; i--) {
