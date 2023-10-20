@@ -44,29 +44,29 @@ output:
 0
 0
 */
-int white(string code, string guess) {
+int black(string a, string b) {
     int res = 0;
-    for (int i = 0; i < code.length(); i++)
-        if (code[i] == guess[i])
-            res++;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] == b[i]) res++;
+    }
     return res;
 }
-int black(string code, string guess) {
-    map<char, int> m;
-    for (int i = 0; i < code.length(); i++)
-        m[code[i]]++;
+int white(string a, string b) {
+    map<char, int> cnt1, cnt2;
+    for(int i = 0; i < a.size(); i++) {
+        cnt1[a[i]]++;
+        cnt2[b[i]]++;
+    }
     int res = 0;
-    for (int i = 0; i < code.length(); i++) {
-        if (m[guess[i]] > 0) {
-            res++;
-            m[guess[i]]--;
-        }
+    for(char c = 'A'; c <= 'F'; c++) {
+        res += min(cnt1[c], cnt2[c]);
     }
     return res;
 }
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << (black(code, guess) - white(code, guess)) << " " << white(code, guess) << endl;
+    string a, b;
+    cin >> a >> b;
+    cout << black(a, b) << endl;
+    cout << white(a, b) - black(a, b) << endl;
     return 0;
 }
