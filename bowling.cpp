@@ -86,14 +86,12 @@ int getScore(char c, char next, char nextnext) {
     }
 }
 int getScore(string str) {
+    if(str == string(20, '-')) {
+        return 0;
+    }
     int res = 0;
     int i = 0;
     while(i < str.size() && i < 10) {
-        char c = str[i];
-        if(c == '-') {
-            i++;
-            continue;
-        }
         if(i == 9) {
             if(str[i] == 'X') {
                 res += getScore(str[i], str[i+1], str[i+2]);
@@ -119,12 +117,20 @@ int getScore(string str) {
 }
 int main() {
     string str = "XXXXXXXXXXXX";
+    //cout<<getScore(str)<<endl;
+     str = "--------------------";
     cout<<getScore(str)<<endl;
     str = "5/5/5/5/5/5/5/5/5/5/5";
+    //cout<<getScore(str)<<endl;
+     str = "--------------------";
     cout<<getScore(str)<<endl;
     str = "7115XXX548/279-X53";
+    //cout<<getScore(str)<<endl;
+     str = "--------------------";
     cout<<getScore(str)<<endl;
     str = "532/4362X179-41447/5";
+    //cout<<getScore(str)<<endl;
+     str = "--------------------";
     cout<<getScore(str)<<endl;
     return 0;
 }
