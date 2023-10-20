@@ -8,10 +8,7 @@ import itertools
 import queue
 import re
 """
-Based on the board game Mastermind. Given a Mastermind code and a guess, 
-each of which are 4-character strings consisting of 6 possible characters, 
-return the number of white pegs (correct color, wrong place) and black pegs 
-(correct color, correct place) the codemaster should give as a clue.
+Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
 input:
 RRRR
@@ -45,3 +42,21 @@ output:
 0
 """
 if __name__ == '__main__':
+    code = sys.argv[1]
+    guess = sys.argv[2]
+    black = 0
+    white = 0
+    code_list = []
+    guess_list = []
+    for i in range(len(code)):
+        if code[i] == guess[i]:
+            black += 1
+        else:
+            code_list.append(code[i])
+            guess_list.append(guess[i])
+    for i in range(len(code_list)):
+        if code_list[i] in guess_list:
+            white += 1
+            guess_list.remove(code_list[i])
+    print black
+    print white
