@@ -40,23 +40,17 @@ output:
 0
 */
 int main() {
-    int n;
-    while (cin >> n) {
-        vector<int> nums(n);
-        for (int i = 0; i < n; i++) {
-            cin >> nums[i];
+    int n,a;
+    scanf("%d",&n);
+    int sum = 0;
+    for(int i = 0; i < n; i++){
+        scanf("%d",&a);
+        sum += a;
+        if(sum < 0) {
+            printf("%d\n",i);
+            return 0;
         }
-        int res = 0;
-        int sum = 0;
-        for (int i = 0; i < n; i++) {
-            sum += nums[i];
-            if (sum < 0) {
-                res = i + 1;
-                break;
-            }
-        }
-        cout << res << endl;
     }
-    
+    printf("0\n");
     return 0;
 }
