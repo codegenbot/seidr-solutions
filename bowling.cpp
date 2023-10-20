@@ -34,85 +34,33 @@ input:
 output:
 100
 */
-int main() {
-    string input;
-    int score = 0;
-    while(cin >> input)
-    {
-        int frame = 0;
-        int roll = 0;
-        int temp = 0;
-        bool strike = false;
-        bool spare = false;
-        for(int i = 0; i < input.size(); i++)
-        {
-            if(input[i] == 'X')
-            {
-                score += 10;
-                if(strike)
-                {
-                    score += 10;
-                }
-                if(spare)
-                {
-                    score += 10;
-                }
-                strike = true;
-                spare = false;
-                frame++;
-                roll = 0;
-                temp = 0;
+int cal(string s) {
+    int cnt = 0;
+    int res = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            res += 10;
+            if (s[i+1] == 'X') {
+                res += 10;
+                if (s[i+2] == 'X') res += 10;
+                else res += (s[i+2] - '0');
             }
-            else if(input[i] == '/')
-            {
-                score += 10;
-                if(strike)
-                {
-                    score += 10;
-                }
-                if(spare)
-                {
-                    score += 10;
-                }
-                strike = false;
-                spare = true;
-                frame++;
-                roll = 0;
-                temp = 0;
+            else if (s[i+1] == '/') {
+                res += 10;
+                if (s[i+2] == 'X') res += 10;
+                else res += (s[i+2] - '0');
             }
-            else if(input[i] == '-')
-            {
-                strike = false;
-                spare = false;
-                frame++;
-                roll = 0;
-                temp = 0;
-            }
-            else
-            {
-                temp += input[i] - '0';
-                score += temp;
-                if(strike)
-                {
-                    score += temp;
-                }
-                if(spare)
-                {
-                    score += temp;
-                }
-                roll++;
-                if(roll == 2)
-                {
-                    strike = false;
-                    spare = false;
-                    frame++;
-                    roll = 0;
-                    temp = 0;
-                }
-            }
+            else res += (s[i+1] - '0');
         }
-        cout << score << endl;
-        score = 0;
+        else if (s[i] == '/') {
+            res += 10;
+            if (s[i+1] == 'X') res += 10;
+            else res += (s[i+1] - '0');
+        }
+        else res += (s[i] - '0');
+        cnt++;
+        if (cnt == 10) break;
     }
-    return 0;
+    return res;
 }
+int main() {
