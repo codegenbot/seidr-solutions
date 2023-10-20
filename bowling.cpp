@@ -65,7 +65,7 @@ int getScore(string input) {
             score += input[i] - '0';
         }
         frame++;
-        if (frame == 11) {
+        if (frame == 10 && input[i] != '/') {
             break;
         }
     }
