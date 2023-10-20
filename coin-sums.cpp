@@ -52,7 +52,6 @@ output:
 int main() {
     int cents;
     cin >> cents;
-    cout << cents << endl;
     int quarter = cents / 25;
     cents = cents % 25;
     cout << quarter << endl;
