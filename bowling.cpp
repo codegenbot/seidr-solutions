@@ -41,11 +41,9 @@ int main() {
     for(int i = 0; i < str.size(); i++){
         if(str[i] == 'X'){
             score += 10;
-            if(str[i + 1] == 'X'){
+            if(str[i + 1] == 'X' && i < str.size() - 1){
                 score += 10;
-                if(str[i + 2] == 'X'){
-                    score += 10;
-                }else if(str[i + 2] == '/'){
+                if(str[i + 2] == 'X' && i < str.size() - 2){
                     score += 10;
                 }else{
                     score += str[i + 2] - '0';
