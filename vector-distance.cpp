@@ -10,7 +10,6 @@
 #include <stack>
 #include <climits>
 using namespace std;
-
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
@@ -21,13 +20,6 @@ input:
 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
 output:
 894.4271909999159
-input:
-4
-0.0 0.0 0.0 0.0
-4
-1.0 1.0 1.0 1.0
-output:
-2.0
 input:
 20
 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
@@ -57,7 +49,6 @@ input:
 output:
 2.2715833329200144
 */
-
 int main() {
     int n;
     cin >> n;
@@ -76,6 +67,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.16f\n", sqrt(res));
+    printf("%.15f\n", sqrt(res)); 
     return 0;
 }
