@@ -54,7 +54,8 @@ int main() {
             totalDistance += height;
             height *= bouncinessIndex;
         }
-        printf("%.3f\n", totalDistance); // make sure that 1.001\n1.0\n1 -> 2.001
+        printf("%.3f\n", totalDistance);
+        printf("___________");
     }
     return 0;
 }
