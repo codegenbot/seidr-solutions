@@ -41,16 +41,15 @@ int score(string s) {
 		char c = s[i];
 		if (c == 'X') {
 			res += 10;
-			if (i < s.length() - 1) {
-				if (s[i + 1] == 'X') {
+			if (s[i + 1] == 'X') {
+				res += 10;
+				if (s[i + 2] == 'X') {
 					res += 10;
-					if (i < s.length() - 2) {
-						if (s[i + 2] == 'X') {
-							res += 10;
-						}
-						else {
-							res += s[i + 2] - '0';
-						}
+					if (s[i + 3] == 'X') {
+						res += 10;
+					}
+					else {
+						res += s[i + 3] - '0';
 					}
 				}
 				else {
