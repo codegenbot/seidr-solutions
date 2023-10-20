@@ -53,8 +53,10 @@ double total_distance(double h1, double h2, int n) {
     double res = 0;
     double bounciness = bounciness_index(h1, h2);
     res += h1;
-    for (int i = 1; i < n; i++) {
-        if (i % 2 == 1) {
+    if (h1 == h2) return h1 * (2 * (n + 1));
+    if (n % 2 == 0) n++;
+    int total_bounces = n / 2;
+    for (int i = 0; i < total_bounces; i++) {
             res += 2 * h2;
             h1 = h2;
             h2 = h2 * bounciness;
@@ -72,6 +74,6 @@ int main() {
     double h1, h2;
     int n;
     cin >> h1 >> h2 >> n;
-    cout << floor(total_distance(h1, h2, n) * 1000 + 1e-6) / 1000 << endl;
+    cout << total_distance(h1, h2, n) << endl;
     return 0;
 }
