@@ -23,30 +23,6 @@ output:
 
 input:
 1
-0
-output:
-1
-0
-0
-
-input:
-1
-0
-output:
-1
-0
-0
-
-input:
-1
-0
-output:
-1
-0
-0
-
-input:
-1
 10
 output:
 1
@@ -105,15 +81,15 @@ int main() {
         for(int i = 0; i < left; i++) {
             cout<<v[i]<<" ";
         }
-        cout<<endl;
+        cout<<0<<endl;
         for(int i = left; i < right; i++) {
             cout<<v[i]<<" ";
         }
-        cout<<endl;
+        cout<<0<<endl;
         for(int i = right; i < n; i++) {
             cout<<v[i]<<" ";
         }
-        cout<<endl;
+        cout<<0<<endl;
     }
     return 0;
 }
