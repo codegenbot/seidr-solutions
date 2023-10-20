@@ -48,10 +48,10 @@ if __name__ == '__main__':
             if line is None or line == "":
                 break
             else:
-                line = line.split(' ') 
-                if len(line) < 3:
-                    continue
+                line = line.split(' ')
                 h = float(line[0])
+                if len(line) < 2:
+                    break
                 b = float(line[1])
                 n = int(line[2])
                 bounciness = b/h
