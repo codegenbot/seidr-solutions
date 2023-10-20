@@ -44,13 +44,12 @@ input:
 output:
 3.963
 */
-
 int main() {
-    double start, first, bounciness;
+    double start, first, bounciness, ans;
     int bounces;
     cin >> start >> first >> bounces;
     bounciness = first / start;
-    double ans = start;
+    ans = start;
     for (int i = 0; i < bounces; i++) {
         ans += start * pow(bounciness, i + 1);
     }
