@@ -89,8 +89,7 @@ int main() {
         for(int i = right; i < n; i++) {
             cout<<v[i]<<" ";
         }
-        cout<<endl;
-        cout<<endl;
+        cout<<0<<endl;
     }
     return 0;
 }
