@@ -37,13 +37,17 @@ hi
 int main() {
     string s;
     while (getline(cin, s)) {
-        int n = s.size();
+        int len = s.length();
         int i = 0;
-        while (i < n) {
+        while (i < len) {
             int j = i;
-            while (j < n && s[j] != ' ') j++;
+            while (j < len && s[j] != ' ') {
+                j++;
+            }
             if (j - i >= 5) {
-                reverse(s.begin() + i, s.begin() + j);
+                for (int k = i; k < (i + j) / 2; k++) {
+                    swap(s[k], s[j - 1 - k + i]);
+                }
             }
             i = j + 1;
         }
