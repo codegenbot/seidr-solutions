@@ -41,14 +41,9 @@ input:
 output:
 3.963
 """
-def bouncy(h, b, n):
-    b = float(b) / float(h)
-    n = int(n)
-    dist = 0
-    for i in range(n):
-        dist = dist + h + h*b
-        h = h*b
-    return dist
-
 if __name__ == '__main__':
-    print(bouncy(1.001, 1.0, 1))
+    height = float(input())
+    bounce_height = float(input())
+    bounce_count = int(input())
+    bounciness = bounce_height / height
+    print(bounciness)
