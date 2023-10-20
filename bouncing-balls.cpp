@@ -46,14 +46,14 @@ output:
 */
 int main() {
     double start, first, num, res, bounciness;
-    scanf("%lf%lf%lf", &start, &first, &num);
+    cin >> start >> first >> num;
     res = start;
-    bounciness = first / start; // bounciness = 0.999, Make sure that 100.0\n99.999\n20 -> 3999.599534511501
+    bounciness = first / start;
     for (int i = 1; i < num; i++) {
-        res += start * bounciness;
+        res += start * bounciness * 2;
         start *= bounciness;
     }
-    res += first;
+    res += start * bounciness;
     cout << res << endl;
     return 0;
 }
