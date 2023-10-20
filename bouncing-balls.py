@@ -50,5 +50,3 @@ if __name__ == '__main__':
         if len(arr) == 3:
             bounciness = arr[0] / arr[1]
             print(arr[2] * bounciness * arr[1] + arr[1])
-        else:
-            print('3 arguments expected')
