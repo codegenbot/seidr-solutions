@@ -50,22 +50,26 @@ output:
 4
 */
 int main() {
-    int n, t;
-    while (scanf("%d", &n) != EOF) {
-        vector<int> v;
-        while (n--) {
-            int x;
-            scanf("%d", &x);
-            v.push_back(x);
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    int target;
+    cin >> target;
+    int l = 0, r = n - 1;
+    while (l < r) {
+        int sum = v[l] + v[r];
+        if (sum == target) {
+            cout << v[l] << " " << v[r] << endl;
+            break;
         }
-        scanf("%d", &t);
-        for (int i = 0; i < v.size(); i++) {
-            for (int j = i + 1; j < v.size(); j++) {
-                if (v[i] + v[j] == t) {
-                    printf("%d %d\n", v[i], v[j]);
-                    break;
-                }
-            }
+        else if (sum > target) {
+            r--;
+        }
+        else {
+            l++;
         }
     }
     return 0;
