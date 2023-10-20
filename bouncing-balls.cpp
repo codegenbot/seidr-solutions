@@ -53,13 +53,9 @@ double total_distance(double h1, double h2, int n) {
     double res = 0;
     double bounciness = bounciness_index(h1, h2);
     res += h1;
-    for (int i = 1; i <= n; i++) {
-        res += 2 * h1;
-        h2 = h1;
-        h1 = h1 * bounciness;
-        if (i == n) break;
-        res += 2 * h2;
-        if (i >= n) break;
+    for (int i = 0; i < n; ++i) {
+        if (i % 2 == 1) {
+            res += 2 * h2;
             h1 = h2;
             h2 = h2 * bounciness;
         }
@@ -77,5 +73,12 @@ int main() {
     int n;
     cin >> h1 >> h2 >> n;
     cout << total_distance(h1, h2, n) << endl;
+    // system("pause");
+    /*
+    test data:
+    1.001
+    1.0
+    1
+	*/
     return 0;
 }
