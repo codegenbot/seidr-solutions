@@ -48,9 +48,9 @@ int main() {
     double start, first, num, res, bounciness, temp, temp2;
     cin >> start >> first >> num;
     res = start;
-    bounciness = 1 - first / start;
-    for (int i = 2; i <= num; i++) {
-        temp2 = start * (1 - bounciness);
+    bounciness = first / start;
+    for (int i = 1; i < num; i++) {
+        temp2 = start * bounciness;
         res += temp2;
         start = temp2;
     }
