@@ -34,57 +34,85 @@ input:
 output:
 100
 */
-int bowling(string round){
-	int score = 0;
-	for (int i = 0; i < round.size(); i++) {
-		if (round[i] == 'X') {
-			score += 10;
-			if (round[i + 1] == 'X') {
-				score += 10;
-				if (round[i + 2] == 'X') {
-					score += 10;
-				}
-				else {
-					score += round[i + 2] - '0';
-				}
-			}
-			else if (round[i + 1] == '/') {
-				score += 10;
-			}
-			else {
-				score += (round[i + 1] - '0');
-				if (round[i + 2] == '/') {
-					score += 10;
-				}
-				else {
-					score += (round[i + 2] - '0');
-				}
-			}
-		}
-		else if (round[i] == '/') {
-			score += 10;
-			if (round[i + 1] == 'X') {
-				score += 10;
-			}
-			else {
-				score += (round[i + 1] - '0');
-			}
-		}
-		else if (round[i] == '-') {
-			continue;
-		}
-		else {
-			score += (round[i] - '0');
-		}
-	}
-	return score;
-}
-
 int main() {
-	cout << bowling("XXXXXXXXXXXX") << endl;
-	cout << bowling("5/5/5/5/5/5/5/5/5/5/5") << endl;
-	cout << bowling("7115XXX548/279-X53") << endl;
-	cout << bowling("532/4362X179-41447/5") << endl;
-	system("pause");
-	return 0;
+    string input;
+    int score = 0;
+    while(cin >> input)
+    {
+        int frame = 0;
+        int roll = 0;
+        int temp = 0;
+        bool strike = false;
+        bool spare = false;
+        for(int i = 0; i < input.size(); i++)
+        {
+            if(input[i] == 'X')
+            {
+                score += 10;
+                if(strike)
+                {
+                    score += 10;
+                }
+                if(spare)
+                {
+                    score += 10;
+                }
+                strike = true;
+                spare = false;
+                frame++;
+                roll = 0;
+                temp = 0;
+            }
+            else if(input[i] == '/')
+            {
+                score += 10;
+                if(strike)
+                {
+                    score += 10;
+                }
+                if(spare)
+                {
+                    score += 10;
+                }
+                strike = false;
+                spare = true;
+                frame++;
+                roll = 0;
+                temp = 0;
+            }
+            else if(input[i] == '-')
+            {
+                strike = false;
+                spare = false;
+                frame++;
+                roll = 0;
+                temp = 0;
+            }
+            else
+            {
+                temp += input[i] - '0';
+                score += temp;
+                if(strike)
+                {
+                    score += temp;
+                }
+                if(spare)
+                {
+                    score += temp;
+                }
+                roll++;
+                if(roll == 2)
+                {
+                    strike = false;
+                    spare = false;
+                    frame++;
+                    roll = 0;
+                    temp = 0;
+                }
+            }
+        }
+        cout << score << endl;
+        score = 0;
+    }
+    return 0;
 }
