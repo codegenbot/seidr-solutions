@@ -12,33 +12,47 @@
 using namespace std;
 /*
 Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
-For example,input:
+For example,
+input:
 1
 2
-output:0.0input:
-2,1
-output:0.5input:
-99,100
-output:0.49input:
-100,99
-output:0.5input:
-1,100
+output:
+0.0
+input:
+2
+1
+output:
+0.5
+input:
+99
+100
+output:
+0.49
+input:
+100
+99
+output:
+0.5
+input:
+1
+100
 output:
 0.0
 */
 int main() {
     int n, m;
-    while (scanf("%d %d", &n, &m) != EOF) {
+    while(cin >> n >> m) {
         double cnt = 0;
         double total = 0;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 total++;
-                if (i > j)
-                    cnt++;
+                if (i > j) cnt++;
             }
         }
-        printf("%.2f\n", cnt / total);
+        if (n > m) printf("%.2f\n", cnt/total);
+        else if (n == m) printf("%.2f\n", (1.5 - cnt)/total);
+        else printf("%.2f\n", 1-cnt/total);
     }
     return 0;
 }
