@@ -16,7 +16,7 @@ For example,
 input:
 1
 output:
-1\n0\n0\n0
+1
 0
 0
 0
@@ -67,6 +67,7 @@ int main() {
         cout<<b<<endl;
         cout<<c<<endl;
         cout<<d<<endl;
+        cout<<endl;
     }
     return 0;
 }
