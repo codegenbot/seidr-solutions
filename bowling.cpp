@@ -34,51 +34,71 @@ input:
 output:
 100
 */
-int bowlingScore(string s) {
-    int score = 0;
-    int frame = 0;
-    int i = 0;
-    while(frame < 10) {
-        if(s[i] == 'X') {
-            score += 10;
-            if(s[i+2] == 'X') {
-                score += 20;
-            } else {
-                score += (s[i+2] - '0');
-            }
-            if(s[i+4] == 'X') {
-                score += 10;
-            } else if(s[i+4] == '/') {
-                score += 10 - (s[i+2] - '0');
-            } else {
-                score += (s[i+4] - '0');
-            }
-            i++;
-        } else if(s[i+1] == '/') {
-            score += 10;
-            if(s[i+2] == 'X') {
-                score += 10;
-            } else {
-                score += (s[i+2] - '0');
-            }
-            i += 2;
-        } else {
-            score += (s[i] - '0');
-            score += (s[i+1] - '0');
-            i += 2;
-        }
-        frame++;
-    }
-    return score;
-}
 int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << bowlingScore(s) << endl;
-    s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << bowlingScore(s) << endl;
-    s = "7115XXX548/279-X53";
-    cout << bowlingScore(s) << endl;
-    s = "532/4362X179-41447/5";
-    cout << bowlingScore(s) << endl;
+    string s;
+    cin >> s;
+    int score = 0;
+    int i = 0;
+    while(i < s.size() && s[i] != 'X') {
+        if(s[i] == '-') {
+            i++;
+            continue;
+        }
+        if(s[i] == '/') {
+            score += 10 - (s[i - 1] - '0');
+            i++;
+            continue;
+        }
+        score += s[i] - '0';
+        i++;
+    }
+    if(i == s.size()) {
+        cout << score << endl;
+        return 0;
+    }
+    score += 10;
+    if(s[i + 1] == 'X') {
+        score += 10;
+        if(s[i + 2] == 'X') {
+            score += 10;
+        } else if(s[i + 2] == '/') {
+            score += 10 - (s[i + 1] - '0');
+        } else {
+            score += s[i + 2] - '0';
+        }
+    } else if(s[i + 1] == '/') {
+        score += 10 - (s[i + 1] - '0');
+        if(s[i + 2] == 'X') {
+            score += 10;
+        } else if(s[i + 2] == '/') {
+            score += 10 - (s[i + 1] - '0');
+        } else {
+            score += s[i + 2] - '0';
+        }
+    } else {
+        score += s[i + 1] - '0';
+        if(s[i + 2] == 'X') {
+            score += 10;
+        } else if(s[i + 2] == '/') {
+            score += 10 - (s[i + 1] - '0');
+        } else {
+            score += s[i + 2] - '0';
+        }
+    }
+    i += 2;
+    while(i < s.size()) {
+        if(s[i] == '-') {
+            i++;
+            continue;
+        }
+        if(s[i] == '/') {
+            score += 10 - (s[i - 1] - '0');
+            i++;
+            continue;
+        }
+        score += s[i] - '0';
+        i++;
+    }
+    cout << score << endl;
     return 0;
 }
