@@ -42,4 +42,9 @@ output:
 3.963
 """
 if __name__ == '__main__':
-  pass
+    firstHeight = float(input())
+    secondHeight = float(input())
+    bounces = int(input())
+    b = secondHeight / firstHeight
+    distance = firstHeight + (firstHeight * ( b ** bounces ))
+    print(distance)
