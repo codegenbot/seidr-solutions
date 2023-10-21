@@ -31,13 +31,12 @@ hi
 output:
 hi
 """
+def reverse(s):
+    s = s.split(' ')
+    for i in range(len(s)):
+        if len(s[i]) >= 5:
+            s[i] = s[i][::-1]
+    return ' '.join(s)
+
 if __name__ == '__main__':
-    str = input()
-    l = str.split(' ')
-    s = ''
-    for i in l:
-        if len(i)>=5:
-            s = s + ' ' + i[::-1]
-        else:
-            s = s + ' ' + i
-    print(s.strip())
+    print(reverse(sys.argv[1]))
