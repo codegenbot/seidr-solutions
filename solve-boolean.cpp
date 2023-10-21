@@ -28,39 +28,44 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
 False
 */
-bool evaluate(string& s, int& i) {
-    if (s[i] == 't') {
-        i += 2;
-        return true;
-    } else if (s[i] == 'f') {
-        i += 2;
-        return false;
-    } else {
-        i += 2;
-        bool left = evaluate(s, i), right;
-        char op = s[i];
-        i += 2;
-        bool right = evaluate(s, i);
-        if (op == '&')
-            return left && right;
-        else if (op == '|')
-            return left || right;
-        else
-            return !left;
-    }
-}
-
 int main() {
-    string s;
-    cin >> s;
-    int i = 0;
-    bool res = evaluate(s, i);
-    cout << (res ? "True" : "False") << endl;
+    string str;
+    while (cin >> str) {
+        stack<char> s;
+        for (int i = 0; i < str.size(); i++) {
+            if (str[i] == '&' || str[i] == '|') {
+                char a = s.top();
+                s.pop();
+                char b = s.top();
+                s.pop();
+                if (str[i] == '&') {
+                    if (a == 'T' && b == 'T') {
+                        s.push('T');
+                    } else {
+                        s.push('F');
+                    }
+                } else {
+                    if (a == 'T' || b == 'T') {
+                        s.push('T');
+                    } else {
+                        s.push('F');
+                    }
+                }
+            } else {
+                s.push(str[i]);
+            }
+        }
+        if (s.top() == 'T') {
+            cout << "True" << endl; 
+        } else {
+            cout << "False" << endl;
+        }
+    }
     return 0;
 }
