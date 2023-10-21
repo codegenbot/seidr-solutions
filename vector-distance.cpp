@@ -66,9 +66,9 @@ int main() {
         vec2.push_back(x);
     }
     double res = 0;
-    for (int i = 0; i < vec1.size(); ++i) {
+    for (int i = 0; i < n; ++i) {
         res += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    printf("%.15f\n", sqrt(res));
+    printf("%.10f\n", sqrt(res));
     return 0;
 }
