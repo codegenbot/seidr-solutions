@@ -35,13 +35,13 @@ output:
 16
 */
 int main() {
-    int n;
-    cin >> n;
+    string s;
+    cin >> s;
     string ans = "";
-    while(n){
-        int digit = n%10;
-        ans = to_string(digit*digit) + ans;
-        n /= 10;
+    for (int i = 0; i < s.size(); i++) {
+        int num = s[i] - '0';
+        ans += to_string(num * num);
     }
     cout << ans << endl;
+    return 0;
 }
