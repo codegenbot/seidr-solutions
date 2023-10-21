@@ -52,26 +52,13 @@ output:
 int main() {
     int cents;
     while(cin>>cents) {
-        int num_pennies = 0;
-        int num_nickles = 0;
-        int num_dimes = 0;
-        int num_quarters = 0;
-        if(cents>=25) {
-            num_quarters = cents/25;
-            cents -= num_quarters*25;
-        }
-        if(cents>=10) {
-            num_dimes = cents/10;
-            cents -= num_dimes*10;
-        }
-        if(cents>=5) {
-            num_nickles = cents/5;
-            cents -= num_nickles*5;
-        }
-        if(cents>=1) {
-            num_pennies = cents;
-            cents -= num_pennies;
-        }
+        int num_pennies = cents%5;
+        int num_nickles = cents/5;
+        cents -= num_nickles*5;
+        int num_dimes = cents/10;
+        cents -= num_dimes*10;
+        int num_quarters = cents/25;
+        cents -= num_quarters*25;
         cout<<num_pennies<<endl<<num_nickles<<endl<<num_dimes<<endl<<num_quarters<<endl;
     }
     return 0;
