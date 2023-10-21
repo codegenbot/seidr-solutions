@@ -29,26 +29,15 @@ input:
 100
 99
 output:
-0.99
+0.5
 input:
 1
 100
 output:
 0.0
 """
-"""
-没有理解题意
-
-"""
-def peter_vs_colin(n, m):
-    res = 0
-    # TODO: return the probability that Peter will win
-    if n == m:
-        res = 1/2
-    elif n > m:
-        res = 0
-    elif n < m:
-        res = 1
-    return res
-#也可以用组合求p win的概率
 if __name__ == '__main__':
+    file = open('example.txt', 'r+')
+    peter = int(file.read().splitlines()[0])
+    colin = int(file.read().splitlines()[1])
+    
