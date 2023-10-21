@@ -10,7 +10,6 @@
 #include <stack>
 #include <climits>
 using namespace std;
-typedef long long ll;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
@@ -50,36 +49,34 @@ input:
 output:
 2.2715833329200144
 */
-vector<float> split(string s) {
-    string t = "";
-    vector<float> res;
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == ' ') {
-            res.push_back(atof(t.c_str()));
-            t = "";
-        } else {
-            t += s[i];
+void get_num(string& s, vector<float>& vec) {
+    int i = 0;
+    int len = s.size();
+    while(i < len) {
+        if(s[i] == '-') {
+            int j = i;
+            while(j < len && s[j] != ' ') {
+                j++;
+            }
+            float f = stof(s.substr(i, j-i));
+            vec.push_back(f);
+            if(j == len) break;
+            i = j+1;
         }
     }
-    res.push_back(atof(t.c_str()));
-    return res;
 }
 int main() {
     string s;
-    bool flag = false;
     while(getline(cin, s)) {
-        if(flag) {
-            vector<float> v1 = split(s);
-            getline(cin, s);
-            vector<float> v2 = split(s);
-            float res = 0;
-            for(int i = 0; i < v1.size(); i++) {
-                res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-            }
-            res = sqrt(res);
-            printf("%.16f\n", res);
-        } else {
-            flag = true;
+        vector<float> vec1, vec2;
+        get_num(s, vec1);
+        getline(cin, s);
+        get_num(s, vec2);
+        float dis = 0;
+        for(int i = 0; i < vec1.size(); i++) {
+            dis += (vec1[i] - vec2[i])*(vec1[i] - vec2[i]);
         }
+        dis = sqrt(dis);
+        printf("%.15f\n", dis);
     }
 }
