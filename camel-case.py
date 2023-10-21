@@ -31,32 +31,28 @@ all separate words
 output:
 all separate words
 """
+
+def camelCase(s):
+	if not s.__contains__('-'):
+		return s
+	else:
+		letters = s.split('-')
+		c = ''
+		for letter in letters:
+			c += (''+letter).capitalize()
+		return c
+
+def camelCase2(s):
+	if not s.__contains__(' '):
+		return s
+	else:
+		letters = s.split(' ')
+		c = ''
+		for letter in letters:
+			c += (''+letter).capitalize()
+		return c
+
+
 if __name__ == '__main__':
-    s = input()
-    new_s = ""
-    i = 0
-    while i < len(s):
-        if i < (len(s) - 1) and s[i + 1] == "-" and s[i] == " ":
-            i += 2
-            continue
-        elif s[i] == "-":
-            new_s += s[i + 1].upper()
-            i += 2
-            continue
-        new_s += s[i]
-        i += 1
-    print(new_s)
-    # s = input()
-    # new_s = ""
-    # i = 0
-    # while i < len(s):
-    #     if i < (len(s) - 1) and s[i + 1] == "-" and s[i] == " ":
-    #         i += 2
-    #         continue
-    #     elif s[i] == "-":
-    #         new_s += s[i + 1].upper()
-    #         i += 2
-    #         continue
-    #     new_s += s[i]
-    #     i += 1
-    # print(new_s)
+	print(camelCase('camel-case example-test-string'))
+	print(camelCase2('two words'))
