@@ -51,35 +51,37 @@ output:
 0
 
 """
+def subv(vec):
+    if not vec:
+        print("0")
+        return
+    cur = [ 1, vec[0] ]
+    max = vec[0]
+    for i in range(1, len(vec)):
+        tmp = [ float('inf') ]
+        if (vec[i] > max):
+            max = vec[i]
+        else:
+            tmp.append(max - vec[i])
+        tmp.append(abs(cur[-1] - vec[i]))
+        if (tmp[0] <= tmp[1] ) and (tmp[0] <= tmp[2]):
+            tmp.remove(tmp[0])
+            cur.extend(tmp)
+        elif tmp[1] <= tmp[2]:
+            tmp.remove(tmp[1])
+            cur.extend(tmp)
+        else:
+            tmp.remove(tmp[2])
+            cur.extend(tmp)
+    for i in range (10):
+        print(cur[i] , end=' ')
+
 if __name__ == '__main__':
-	end=" "
-	lines=sys.stdin.readlines()
-	a=[]
-	for i in lines:
-		a.append(int(i.rstrip("\n")))
-	print(a)
-	count=0
-	b=[]
-	for i in range(len(a)):
-		if i+1==len(a):
-			b.append(0)
-			break
-		elif a[i]==a[i+1]:
-			b.append(0)
-			continue
-		elif a[i]>a[i+1]:
-			b.append(a[i]-a[i+1])
-		else:
-			b.append(a[i+1]-a[i])
-	d=np.array(b)
-	print(d)
-	for i in range(len(b)):
-		if b[i]==0:
-			print(a[i])
-		elif min(d)==b[i]:
-			if b[i]!=max(d):
-				count+=1
-				if count==1:
-					print(a[i+1])
-				elif count==2:
-					print(a[i])
+    total = 0
+    count = 0
+    subv([])
+    subv([1, 0])
+    subv([1, 10])
+    subv([1, 100])
+    subv([1, 1000])
+    subv([1, 10000])
