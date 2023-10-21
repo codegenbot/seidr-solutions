@@ -32,20 +32,6 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-
-
-    def kebabize(string):
-        # your code here
-        if len(string)==0:
-            return string
-        words=string.split(" ")
-        result=[]
-        for word in words:
-            word=word.replace("-","")
-            word=word.title()
-            word=word.replace(" ","")
-            word=word[0].lower()+word[1:]
-            result.append(word)
-        return " ".join(result)
-
-    print(kebabize(input()))
+    text = 'camel-case example-test-string'
+    text = text.split(' ')
+    print(text)
