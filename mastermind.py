@@ -50,9 +50,11 @@ if __name__ == '__main__':
     for i in range(len(code)):
         if code[i] == guess[i]:
             black_pegs += 1
+            code_dict[code[i]] -= 1
+            guess_dict[guess[i]] -= 1
     white_pegs = 0
     for key in code_dict:
         if key in guess_dict:
             white_pegs += min(code_dict[key], guess_dict[key])
     print(black_pegs)
-    print(white_pegs - black_pegs)
+    print(white_pegs)
