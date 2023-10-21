@@ -8,9 +8,7 @@
 #include <map>
 #include <set>
 #include <stack>
-#include <sstream>
 #include <climits>
-#include <fstream>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -51,14 +49,6 @@ input:
 output:
 2.2715833329200144
 */
-double euclideanDistance(vector<double> vec1, vector<double> vec2) {
-    double res = 0;
-    for (int i = 0; i < vec1.size(); ++i) {
-        res += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
-    }
-    return sqrt(res);
-}
-
 int main() {
     int n;
     cin >> n;
@@ -79,6 +69,6 @@ int main() {
     for (int i = 0; i < vec1.size(); ++i) {
         res += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    printf("%.10f\n", sqrt(res));
+    printf("%.15f\n", sqrt(res));
     return 0;
 }
