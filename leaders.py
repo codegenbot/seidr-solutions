@@ -42,18 +42,4 @@ output:
 1000
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = [int(x) for x in input().split()]
-    b = []
-    for i in range(n):
-        if i == n-1:
-            b.append(a[i])
-            break
-        for j in range(i+1,n):
-            if a[j] > a[i]:
-                break
-            if j == n-1:
-                b.append(a[i])
-    print(len(b))
-    for i in b:
-        print(i,end=' ')
+    pass
