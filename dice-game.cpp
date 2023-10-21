@@ -42,19 +42,9 @@ output:
 int main() {
 	int m, n;
 	while (cin >> m >> n) {
-		if (m > n) {
-			double sum = 0;
-			for (int i = 1; i < m; i++) {
-				sum += (m - i) / double(m * n);
-			}
-			printf("%.5f\n", sum);
-		}
-		else {
-			double sum = 1;
-			for (int i = 1; i < n; i++) {
-				sum -= (n - i) / double(m * n);
-			}
-			printf("%.5f\n", sum);
+		double sum = 0;
+		for (int i = 1; i <= m; i++) {
+			sum += (m - i + 1) / double(m * n);
 		}
 		printf("%.5f\n", sum);
 	}
