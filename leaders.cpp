@@ -53,8 +53,9 @@ int main() {
         cin >> temp;
         A.push_back(temp);
     }
-    int curr = -1;
-    for (int i = 0; i < n; i++) {
+    int curr = A[n - 1];
+    cout << curr << " ";
+    for (int i = n - 2; i >= 0; i--) {
         if (A[i] >= curr) {
             curr = A[i];
             cout << curr << " ";
@@ -63,3 +64,17 @@ int main() {
     cout << endl;
     return 0;
 }
+/*
+int main() {
+    int n;
+    cin >> n;
+    vector<int> A;
+    for (int i = 0; i < n; i++) {
+        if (A[i] >= curr) {
+            curr = A[i];
+            cout << curr << " ";
+        }
+    }
+    return 0;
+}
+*/
