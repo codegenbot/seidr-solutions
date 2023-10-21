@@ -41,9 +41,10 @@ input:
 output:
 3.963
 """
-
-def bouncy(h1, h2, n):
-    b = h2/h1
-    return h1 + (h1*b**n - h1)/(b-1)
-
 if __name__ == '__main__':
+    while True:
+        try:
+            h, b, n = map(float, input().split())
+            print(h * (b ** n) + h)
+        except:
+            break
