@@ -42,14 +42,11 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    bounciness_index = input("Enter the bounciness index: ")
-    height = input("Enter the height of the ball: ")
-    bounces = int(input("Enter the number of bounces: "))
-    bounciness_index = float(bounciness_index)
-    height = float(height)
-    total_distance = height
-    for i in range(bounces):
-        height *= bounciness_index
-        total_distance += height
-
-    print(total_distance)
+    number_of_bounces = int(input())
+    first_bounce = float(input())
+    starting_height = float(input())
+    bounciness_index = first_bounce / starting_height
+    distance = first_bounce * number_of_bounces
+    for i in range(number_of_bounces):
+        distance += (bounciness_index ** (i + 1)) * starting_height
+    print(distance)
