@@ -42,16 +42,15 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    if (n > m) {
-        cout << 1.0 << endl;
-    } else if (n == m) {
-        cout << 0.5 << endl;
-    } else {
-        double res = 0;
-        for (int i = n + 1; i <= m; i++) {
-            res += 1.0 / i;
+    double peter = 0, colin = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                peter++;
+            }
+            colin++;
         }
-        cout << res << endl;
     }
+    printf("%.2f\n", peter / colin);
     return 0;
 }
