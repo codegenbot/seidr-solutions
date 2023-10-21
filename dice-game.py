@@ -37,11 +37,10 @@ output:
 0.0
 """
 if __name__ == '__main__':
-  n = int(input())
-  m = int(input())
-  p = 0
-  for i in range(1,n):
-    for j in range(1,m):
-      if i>j:
-        p+=1
-  print(p/n*m)
+    f = open("file.txt")
+    n = int(f.readline())
+    m = int(f.readline())
+    if n > m:
+        print(1.0)
+    else:
+        print(0.0)
