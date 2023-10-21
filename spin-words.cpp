@@ -34,55 +34,32 @@ hi
 output:
 hi
 */
-
-string reverse_word(string str) {
-    int len = str.size();
-    string res = "";
-    for (int i = len - 1; i >= 0; i--) {
-        res += str[i];
+void reverseStr(string& str, int start, int end) {
+    while(start < end) {
+        char temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+        start++;
+        end--;
     }
-    return res;
 }
 
-string reverse_string(string str) {
-    string res = "";
-    string temp = "";
-    int len = str.size();
-    for (int i = 0; i < len; i++) {
-        if (str[i] == ' ') {
-            res += temp;
-            res += ' ';
-            temp = "";
-        } else {
-            temp += str[i];
+string reverseWords(string str) {
+    int start = 0, end = 0;
+    while(start < str.size()) {
+        while(end < str.size() && str[end] != ' ') {
+            end++;
         }
+        if(end - start >= 5) {
+            reverseStr(str, start, end - 1);
+        }
+        start = end + 1;
+        end = start;
     }
-    res += temp;
-    return res;
+    return str;
 }
-
 int main() {
-    string str;
-    getline(cin, str);
-    string res = "";
-    string temp = "";
-    int len = str.size();
-    for (int i = 0; i < len; i++) {
-        if (str[i] == ' ') {
-            if (temp.size() >= 5) {
-                temp = reverse_word(temp);
-            }
-            res += temp;
-            res += ' ';
-            temp = "";
-        } else {
-            temp += str[i];
-        }
-    }
-    if (temp.size() >= 5) {
-        temp = reverse_word(temp);
-    }
-    res += temp;
-    cout << res << endl;
+    string str = "this is a test";
+    cout << reverseWords(str) << endl;
     return 0;
 }
