@@ -46,24 +46,23 @@ output:
 */
 int main() {
     string text, target;
-    getline(cin, text);
-    getline(cin, target);
-    int n = text.size();
-    int m = target.size();
-    vector<int> res;
-    for (int i = 0; i <= n - m; i++) {
-        int j = 0;
-        for (; j < m; j++) {
-            if (text[i + j] != target[j]) {
-                break;
+    while (cin >> text >> target) {
+        int len1 = text.length(), len2 = target.length();
+        for (int i = 0; i < len1; i++) {
+            if (text[i] == target[0]) {
+                bool flag = true;
+                for (int j = 1; j < len2; j++) {
+                    if (i + j >= len1 || text[i + j] != target[j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) {
+                    cout << i << " ";
+                }
             }
         }
-        if (j == m) {
-            res.push_back(i);
-        }
-    }
-    for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
+        cout << endl;
     }
     return 0;
 }
