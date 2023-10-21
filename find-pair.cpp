@@ -56,13 +56,17 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    map<int, int> m;
-    for (int i = 0; i < n; i++) {
-        if (m.find(target - nums[i]) != m.end()) {
-            cout << nums[i] << " " << target - nums[i] << endl;
-            return 0;
+    int left = 0, right = n - 1;
+    while (left < right) {
+        int sum = nums[left] + nums[right];
+        if (sum == target) {
+            cout << nums[left] << " " << nums[right] << endl;
+            break;
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
         }
-        m[nums[i]] = i;
     }
     return 0;
 }
