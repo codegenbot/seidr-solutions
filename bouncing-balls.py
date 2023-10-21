@@ -1,4 +1,12 @@
-from decimal import *
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
@@ -33,13 +41,13 @@ input:
 output:
 3.963
 """
-
-def solve(start, first, bounces):
-    if bounces == 1:
-        return start + first
-    else:
-        return solve(start, start * (first/start), bounces - 1)
 if __name__ == '__main__':
-    for i in range(5):
-        start, first, bounces = map(Decimal, input().split())
-        print(solve(start, first, bounces))
+    a = float(input())
+    b = float(input())
+    c = int(input())
+    bounciness = b/a
+    distance = a
+    for i in range(c-1):
+        distance += bounciness*a
+        a = bounciness*a
+    print(distance)
