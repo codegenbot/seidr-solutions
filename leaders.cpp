@@ -60,12 +60,12 @@ int main() {
             max = v[i];
         }
     }
-    if (res.size() == 1) {
-        printf("%d\n", res[0]);
-    } else {
-        for (int i = res.size() - 1; i >= 0; i--) {
-            printf("%d ", res[i]);
-        }
+    if (res.size() == 0) {
+        printf("0\n");
+        return 0;
+    }
+    for (int i = res.size() - 1; i >= 0; i--) {
+        printf("%d ", res[i]);
     }
     return 0;
 }
