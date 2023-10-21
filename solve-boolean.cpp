@@ -28,49 +28,39 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
 False
 */
-
-bool evaluate(string s) {
-    if (s.empty()) {
+bool evaluate(string& s, int& i) {
+    if (s[i] == 't') {
+        i += 2;
+        return true;
+    } else if (s[i] == 'f') {
+        i += 2;
         return false;
+    } else {
+        i += 2;
+        bool left = evaluate(s, i);
+        char op = s[i];
+        i += 2;
+        bool right = evaluate(s, i);
+        if (op == '&')
+            return left && right;
+        else if (op == '|')
+            return left || right;
+        else
+            return !left;
     }
-    stack<char> operators;
-    stack<bool> operands;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == ' ') {
-            continue;
-        }
-        if (s[i] == 't') {
-            operands.push(true);
-        } else if (s[i] == 'f') {
-            operands.push(false);
-        } else if (s[i] == '|') {
-            operators.push('|');
-        } else if (s[i] == '&') {
-            operators.push('&');
-        } else if (s[i] == ')') {
-            bool op1 = operands.top();
-            operands.pop();
-            bool op2 = operands.top();
-            operands.pop();
-            char op = operators.top();
-            operators.pop();
-            if (op == '|') {
-                operands.push(op1 || op2);
-            } else if (op == '&') {
-                operands.push(op1 && op2);
-            }
-        }
-    }
-    return operands.top();
 }
+
 int main() {
-    string s = "t | f";
-    cout << evaluate(s) << endl;
+    string s;
+    cin >> s;
+    int i = 0;
+    bool res = evaluate(s, i);
+    cout << (res ? "True" : "False") << endl;
     return 0;
 }
