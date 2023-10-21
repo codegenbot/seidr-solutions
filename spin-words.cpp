@@ -11,8 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more 
-letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
 For example,
 input:
 
@@ -36,40 +35,25 @@ output:
 hi
 */
 int main() {
-    string str;
-    while (getline(cin, str)) {
-        if (str.size() == 0) {
-            cout << endl;
-            continue;
-        }
-        string res = "";
-        int start = 0;
-        for (int i = 0; i < str.size(); i++) {
-            if (str[i] == ' ') {
-                if (i - start >= 5) {
-                    for (int j = i - 1; j >= start; j--) {
-                        res += str[j];
-                    }
-                } else {
-                    for (int j = start; j < i; j++) {
-                        res += str[j];
-                    }
+    char str[100];
+    cin.getline(str, 100);
+    int len = strlen(str);
+    char *ptr = str;
+    char *prev = ptr;
+    char *end = ptr;
+    while(ptr < str+len){
+        if(*ptr == ' ' || *ptr == '\0'){
+            end = ptr-1;
+            if(ptr-prev >= 5)
+                while(prev < end){
+                    swap(*prev, *end);
+                    prev++;
+                    end--;
                 }
-                res += str[i];
-                start = i + 1;
-            }
+            prev = ptr+1;
         }
-        if (str.size() - start >= 5) {
-            for (int i = str.size() - 1; i >= start; i--) {
-                res += str[i];
-            }
-        } else {
-            for (int i = start; i < str.size(); i++) {
-                res += str[i];
-            }
-        }
-        
-        cout << res << endl;
+        ptr++;
     }
+    cout << str << endl;
     return 0;
 }
