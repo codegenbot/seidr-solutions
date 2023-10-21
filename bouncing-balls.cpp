@@ -14,7 +14,7 @@ using namespace std;
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
 input:
-1.001
+1.001 
 1.0
 1
 output:
@@ -48,7 +48,7 @@ int main() {
     double h, h1, n;
     while (cin >> h >> h1 >> n) {
         double r = h1 / h;
-        double sum = h;
+        double sum = h1;
         for (int i = 1; i < n; i++) {
             sum += h * pow(r, i + 1);
         }
