@@ -55,28 +55,20 @@ output:
 
 */
 int main() {
-    vector<int> nums = {1,0};
-    int n = nums.size();
-    vector<int> sum(n+1,0);
-    for(int i = 0; i < n; i++) {
-        sum[i+1] = sum[i] + nums[i];
-    }
+    vector<int> nums = {1,10,100,1000,10000};
+    int left = 0, right = 0;
     int min_diff = INT_MAX;
-    int left_index = 0;
-    int right_index = 0;
-    for(int i = 1; i <= n; i++) {
-        if(min_diff > abs(sum[i] - (sum[n] - sum[i]))) {
-            min_diff = abs(sum[i] - (sum[n] - sum[i]));
-            left_index = i;
-            right_index = n - i;
+    for (int i = 0; i < nums.size(); i++) {
+        right += nums[i];
+    }
+    for (int i = 0; i < nums.size(); i++) {
+        left += nums[i];
+        right -= nums[i];
+        int diff = abs(left - right);
+        if (diff < min_diff) {
+            min_diff = diff;
         }
     }
-    cout << left_index << endl;
-    for(int i = 0; i < left_index; i++) {
-        cout << nums[i] << endl;
-    }
-    cout << right_index << endl;
-    for(int i = left_index; i < n; i++) {
-        cout << nums[i] << endl;
-    }
+    cout << min_diff << endl;
+    return 0;
 }
