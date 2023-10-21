@@ -31,47 +31,5 @@ input:
 output:
 100
 """
-def bowling_score(input):
-    result = 0
-    frame = 0
-    i = 0
-    while i < len(input):
-        if input[i] == 'X':
-            result += 10
-            if input[i+1] == 'X':
-                result += 10
-                if input[i+2] == 'X':
-                    result += 10
-                else:
-                    result += int(input[i+2])
-            elif input[i+1] == '/':
-                result += 10
-            else:
-                result += int(input[i+1])
-            if input[i+2] == '/':
-                result += 10
-            else:
-                result += int(input[i+2])
-            i += 1
-        elif input[i] == '/':
-            result += 10
-            if input[i+1] == 'X':
-                result += 10
-            else:
-                result += int(input[i+1])
-            i += 1
-        else:
-            result += int(input[i])
-            if input[i+1] == '/':
-                result += 10
-            else:
-                result += int(input[i+1])
-            i += 2
-        frame += 1
-        if frame == 10:
-            break
-    return result
-
 if __name__ == '__main__':
-    input = input()
-    print(bowling_score(input))
+    pass
