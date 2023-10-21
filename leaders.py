@@ -43,13 +43,10 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    nums = list(map(int, input().split()))
-    leaders = []
+    arr = list(map(int, input().split()))
+    res = []
     for i in range(n-1, -1, -1):
-        if i == n-1:
-            leaders.append(nums[i])
-        else:
-            if nums[i] >= leaders[-1]:
-                leaders.append(nums[i])
-    for i in range(len(leaders)-1, -1, -1):
-        print(leaders[i], end=" ")
+        if arr[i] >= max(arr[i+1:]):
+            res.append(arr[i])
+    print(len(res))
+    print(*res[::-1])
