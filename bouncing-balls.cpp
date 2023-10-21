@@ -49,7 +49,19 @@ int main() {
     int bounces;
     cin >> height >> bounce >> bounces;
     bounciness = bounce / height;
-    distance = height + bounces * bounciness * height;
+    double factor = 0;
+    int firstBounce = bounces - 1;
+    while (bounces) {
+        double sub = factor * bounciness * height;
+        factor = factor * bounciness;
+        //printf("%.2lf\n", sub);
+        if (firstBounce == bounces) break;
+        distance += 2 * sub;
+        bounces--;
+    }
+    //distance = height + (bounces - 1) * bounciness * height;
+    distance += height;
+    //printf("%.2lf\n", factor);
     cout << distance << endl;
     return 0;
 }
