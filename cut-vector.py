@@ -50,23 +50,36 @@ output:
 10000
 0
 
-
-
-def get_sub_array(a, n):
-    left, right, mid = 0, n - 1, n // 2
-    while left <= right:
-        if a[mid] < a[left]:
-            left, right = 0, mid - 1
-        elif a[right] < a[mid]:
-            left, right = mid + 1, n - 1
-        else:
-            return (left, right + 1)
-        mid = (left + right) // 2
-
-    return (0, 0)
-
 """
 if __name__ == '__main__':
-    a = [1, 2, 3, 4, 5]
-    n = len(a)
-    print(get_sub_array(a, n))
+	end=" "
+	lines=sys.stdin.readlines()
+	a=[]
+	for i in lines:
+		a.append(int(i.rstrip("\n")))
+	print(a)
+	count=0
+	b=[]
+	for i in range(len(a)):
+		if i+1==len(a):
+			b.append(0)
+			break
+		elif a[i]==a[i+1]:
+			b.append(0)
+			continue
+		elif a[i]>a[i+1]:
+			b.append(a[i]-a[i+1])
+		else:
+			b.append(a[i+1]-a[i])
+	d=np.array(b)
+	print(d)
+	for i in range(len(b)):
+		if b[i]==0:
+			print(a[i])
+		elif min(d)==b[i]:
+			if b[i]!=max(d):
+				count+=1
+				if count==1:
+					print(a[i+1])
+				elif count==2:
+					print(a[i])
