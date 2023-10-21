@@ -34,10 +34,10 @@ t&f
 output:
 False
 */
+bool eval(string s) {
+    if (s == "t") return true;
+    return false;
+}
+
 int main() {
-    string input;
-    cin >> input;
-    if (input == "t") {
-        cout << "True" << endl;
-    }
 }
