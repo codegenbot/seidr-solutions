@@ -17,78 +17,80 @@ input:
 --------------------
 output:
 0
+
 input:
 XXXXXXXXXXXX
 output:
 300
+
 input:
 5/5/5/5/5/5/5/5/5/5/5
 output:
 150
+
 input:
 7115XXX548/279-X53
 output:
 145
+
 input:
 532/4362X179-41447/5
 output:
 100
 */
-int calScore(string str) {
-    if (str.size() != 22) {
-        return -1;
-    }
-    int ans = 0;
-    int i = 0;
-    while (i < 22) {
-        if (str[i] == 'X') {
-            ans += 10;
-            if (i < 18) {
-                if (str[i + 2] == '/') {
-                    ans += 10;
-                } else {
-                    ans += (str[i + 2] - '0');
-                }
-                if (str[i + 4] == '/') {
-                    ans += 10;
-                } else if (str[i + 4] == 'X') {
-                    ans += 10;
-                    if (str[i + 6] == '/') {
-                        ans += 10;
-                    } else if (str[i + 6] == 'X') {
-                        ans += 10;
-                    } else {
-                        ans += (str[i + 6] - '0');
+
+int helper(string str) {
+    int score = 0;
+    bool nExt = false;
+    int len = str.length();
+    for (int i = 0; i < len; i++) {
+        char c = str[i];
+        if (i == len - 2) {
+            if (str[i + 1] == '/')
+                nExt = true;
+            else if (isdigit(str[len - 1]))
+                nExt = false;
+        }
+        if (c == 'X') {
+            score+=10;
+            if (i < len - 2) {
+                if (str[i+1] == 'X')  {
+                    if (i != len - 2) {
+                        score += 20 - (str[i+2] - '0');
                     }
-                } else {
-                    ans += (str[i + 4] - '0');
+                    else {
+                        score += (str[i+2] - '0');
+                    }
+                }
+                else if (str[i + 1] == '/') {
+                    score += (10 - (str[i+1] - '0'));
+                }
+                else if (isdigit(str[i + 1])) {
+                    score += (str[i+2] - '0');
                 }
             }
-        } else if (str[i] >= '0' && str[i] <= '9') {
-            ans += (str[i] - '0');
-            if (str[i + 1] == '-') {
-            }
-            else {
-                if (str[i + 1] == '/') {
-                    ans += (10 - (str[i] - '0'));
-                } else {
-                    ans += (str[i + 1] - '0');
-                }
+            else if (i == len - 2) {
+                if (str[i + 1] == '/')
+                    score+= 10;
             }
         }
-        i += 2;
+        else if (c == '/') {
+            score += (10 - (str[i-1] - '0'));
+            if (nExt) {
+                score += (str[i+1] - '0');
+                nExt = false;
+            }
+        }
+        else {
+            score += c - '0';
+        }
     }
-    return ans;
+    return score;
 }
 
 int main() {
-    string input1 = "XXXXXXXXXXXX";
-    cout << calScore(input1) << endl;
-    string input2 = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << calScore(input2) << endl;
-    string input3 = "7115XXX548/279-X53";
-    cout << calScore(input3) << endl;
-    string input4 = "532/4362X179-41447/5";
-    cout << calScore(input4) << endl;
+    cout << helper("XXXXXXXXXXXX") << endl;//300
+    cout << helper("0234513X-/X45") << endl;//97
+    cout << helper("-/X5-/1X35-/") << endl;//57
     return 0;
 }
