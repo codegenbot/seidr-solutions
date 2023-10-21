@@ -39,7 +39,7 @@ def reverse(s):
     return ' '.join(s)
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
+    try:
         print(reverse(sys.argv[1]))
-    else:
-        print("Please provide an input string.")
+    except IndexError:
+        print('Usage: python3.11 program.py <string>')
