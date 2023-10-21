@@ -37,14 +37,4 @@ output:
 2050
 """
 if __name__ == '__main__':
-    # Read the input data.
-    with open('data/rosalind_ini3.txt') as input_data:
-        s, t = input_data.read().strip().split('\n')
-
-    # Find the indices of the target string in the text.
-    indices = [m.start() for m in re.finditer('(?='+t+')', s)]
-
-    # Print and save the answer.
-    print(' '.join(map(str, indices)))
-    with open('output/rosalind_ini3_out.txt', 'w') as output_data:
-        output_data.write(' '.join(map(str, indices)))
+    pass
