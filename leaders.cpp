@@ -47,17 +47,18 @@ output:
 int main() {
     int n;
     cin >> n;
-    int a[n];
-    for(int i = 0; i < n; i++)
-        cin >> a[i];
-    int max = a[n-1];
-    cout << max << " ";
-    for(int i = n-2; i >= 0; i--) {
-        if(a[i] >= max) {
-            cout << a[i] << " ";
-            max = a[i];
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) cin >> nums[i];
+    vector<int> ans;
+    int m = INT_MIN;
+    for (int i = n - 1; i >= 0; i--) {
+        if (nums[i] >= m) {
+            m = nums[i];
+            ans.push_back(nums[i]);
         }
     }
+    reverse(ans.begin(), ans.end());
+    for (int i = 0; i < ans.size(); i++) cout << ans[i] << " ";
     cout << endl;
     return 0;
 }
