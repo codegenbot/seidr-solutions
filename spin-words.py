@@ -32,9 +32,9 @@ output:
 hi
 """
 if __name__ == '__main__':
-    l = input()
-    l = l.split(' ')
-    for i in range(len(l)):
-        if len(l[i]) >= 5:
-            l[i] = l[i][::-1]
-    print(' '.join(l))
+    str = input()
+    list_str = str.split(" ")
+    for i in range(len(list_str)):
+        if len(list_str[i]) >= 5:
+            list_str[i] = list_str[i][::-1]
+    print(" ".join(list_str))
