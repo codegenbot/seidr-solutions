@@ -32,4 +32,18 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-	
+    line = input()
+    line = line.split(" ")
+    result = ""
+    for l in line:
+        if "-" in l:
+            l = l.split("-")
+            for i in range(len(l)):
+                if i == 0:
+                    result += l[i]
+                else:
+                    result += l[i].capitalize()
+        else:
+            result += l
+        result += " "
+    print(result[:-1])
