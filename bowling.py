@@ -31,5 +31,27 @@ input:
 output:
 100
 """
+
+def bowling_score(input):
+    if len(input) != 21:
+        return 0
+    score = 0
+    for i in range(len(input)):
+        if input[i] == 'X':
+            if input[i+2] == 'X':
+                score += 20
+            else:
+                score += 10 + int(input[i+2])
+        elif input[i] == '/':
+            score += 10
+        elif input[i] == '-':
+            score += 0
+        else:
+            score += int(input[i])
+    return score
+
 if __name__ == '__main__':
-    pass
+    print(bowling_score('XXXXXXXXXXXX'))
+    print(bowling_score('5/5/5/5/5/5/5/5/5/5/5'))
+    print(bowling_score('7115XXX548/279-X53'))
+    print(bowling_score('532/4362X179-41447/5'))
