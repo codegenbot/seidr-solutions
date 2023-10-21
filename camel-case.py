@@ -33,11 +33,12 @@ all separate words
 """
 if __name__ == '__main__':
     s = input()
-    s = s.replace("-", " ")
-    lst = s.split()
-    for i in range(len(lst)):
+    s = s.replace('-', ' ')
+    s = s.split(' ')
+    for i in range(len(s)):
         if i == 0:
-            lst[i] = lst[i].lower()
+            s[i] = s[i].lower()
         else:
-            lst[i] = lst[i].capitalize()
-    print("".join(lst))
+            s[i] = s[i].capitalize()
+    s = ''.join(s)
+    print(s)
