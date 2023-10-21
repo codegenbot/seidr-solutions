@@ -1,14 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -65,6 +55,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         ans += pow(v1[i] - v2[i], 2);
     }
-    printf("%.16f\n", sqrt(ans));
+    cout << setprecision(16) << sqrt(ans) << endl;
     return 0;
 }
