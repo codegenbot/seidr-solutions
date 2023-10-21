@@ -28,7 +28,7 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
@@ -57,6 +57,6 @@ int main() {
       b.push(a1 | a);
     }
   }
-  cout << (b.top() ? "True" : "False") << endl;
+  cout << (b.top() ? "true" : "false") << endl;
   return 0;
 }
