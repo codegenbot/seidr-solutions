@@ -31,5 +31,27 @@ input:
 output:
 100
 """
+
+def scoring(frames):
+    score=0
+    for i in range(len(frames)):
+        if (frames[i]=='X'):
+            if frames[i+1]=='X':
+                if frames[i+2]=='X':
+                    score=score+10+10+10
+                else:
+                    score=score+10+10+int(frames[i+2])
+            else:
+                score=score+10+int(frames[i+1])+int(frames[i+2])
+        elif frames[i]=='/':
+                score=score+10+int(frames[i+1])
+        elif frames[i]=='-':
+            score=score
+        else:
+            score=score+int(frames[i])
+    return score
+
 if __name__ == '__main__':
-    frame = input()
+    frames=input()
+    score=scoring(frames)
+    print(score)
