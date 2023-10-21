@@ -22,7 +22,7 @@ input:
 2
 1
 output:
-0.5
+1.0
 input:
 99
 100
@@ -49,8 +49,7 @@ int main() {
                 else if (i < j) colin++;
             }
         }
-        if (peter + colin == 0) printf("%.2f\n", 0.0);
-        else printf("%.2f\n", peter / (peter + colin));
+        printf("%.2f\n", peter / (peter + colin));
     }
     return 0;
 }
