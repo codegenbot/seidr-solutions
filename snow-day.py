@@ -53,7 +53,6 @@ if __name__ == '__main__':
     melt = float(input())
 
     for i in range(hours):
-        snow += rate
-        snow -= melt
+        snow += rate - melt
 
-    print("{:.12f}".format(snow))
+    print(snow)
