@@ -34,47 +34,49 @@ input:
 output:
 100
 */
-int main() {
-    string input;
-    vector<int> scores;
-    vector<int> bonus;
-    while(getline(cin, input)) {
-        scores = vector<int>(input.size(), 0);
-        bonus = vector<int>(input.size(), 0);
-        int count = 0;
-        for(int i = 0; i < input.size(); i++) {
-            if(input[i] == 'X') {
-                scores[i] = 10;
-                bonus[i] = 2;
-                count++;
-            } else if(input[i] == '/') {
-                scores[i - 1] = 10 - scores[i - 1];
-                bonus[i - 1] = 1;
-                count++;
-            } else if(input[i] == '-') {
-                scores[i - 1] = 0;
-                bonus[i - 1] = 0;
-                count++;
-            } else {
-                scores[i] = input[i] - '0';
-                count++;
-            }
-        }
-        int sum = 0;
-        for(int i = 0; i < input.size(); i++) {
-            sum += scores[i];
-        }
-        if(count == input.size()) {
-            for(int i = input.size() - 1; i >= 0; i--) {
-                if(bonus[i] == 1) {
-                    sum += scores[i + 1];
-                } else if(bonus[i] == 2) {
-                    sum += scores[i + 1];
-                    sum += scores[i + 2];
+int score(string &s) {
+    int sum = 0;
+    for(int i = 0; i < s.size(); i++) {
+        if(s[i] == 'X') {
+            sum += 10;
+            if(i+1 < s.size()) {
+                if(s[i+1] == 'X') {
+                    sum += 10;
+                    if(i+2 < s.size()) {
+                        if(s[i+2] == 'X') {
+                            sum += 10;
+                        } else {
+                            sum += s[i+2] - '0';
+                        }
+                    }
+                } else if(s[i+1] == '/') {
+                    sum += 10;
+                } else {
+                    sum += s[i+1] - '0';
                 }
             }
+        } else if(s[i] == '/') {
+            sum += 10;
+            if(i > 0) {
+                sum -= s[i-1] - '0';
+            }
+            if(i+1 < s.size()) {
+                if(s[i+1] == 'X') {
+                    sum += 10;
+                } else {
+                    sum += s[i+1] - '0';
+                }
+            }
+        } else if(s[i] == '-') {
+            sum += 0;
+        } else {
+            sum += s[i] - '0';
         }
-        cout << sum << endl;
     }
-    return 0;
+    return sum;
+}
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
 }
