@@ -8,51 +8,26 @@ import itertools
 import queue
 import re
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
-For example,
-input:
-
-output:
-
-input:
-nospaceordash
-output:
-nospaceordash
-input:
-two-words
-output:
-twoWords
-input:
-two words
-output:
-two words
-input:
-all separate words
-output:
-all separate words
+Read a file with a list of words, one per line, and output the list of words
+without duplicates and with each word in sorted order of its length.
+For example, the input
+cat
+dog
+tiger
+lion
+cheetah
+zebra
+horse
+giraffe
+should produce output
 """
-
-def camelCase(s):
-	if not s.__contains__('-'):
-		return s
-	else:
-		letters = s.split('-')
-		c = ''
-		for letter in letters:
-			c += (''+letter).capitalize()
-		return c
-
-def camelCase2(s):
-	if not s.__contains__(' '):
-		return s
-	else:
-		letters = s.split(' ')
-		c = ''
-		for letter in letters:
-			c += (''+letter).capitalize()
-		return c
-
-
 if __name__ == '__main__':
-	print(camelCase('camel-case example-test-string'))
-	print(camelCase2('two words'))
+    msg = sys.stdin.read()
+    msg = msg.split()
+    for i in range(len(msg)):
+        msg[i] = msg[i].strip()
+    for j in range(len(msg)):
+        for i in range(len(msg)-1):
+            if len(msg[i]) > len(msg[i+1]):
+                msg[i], msg[i+1] = msg[i+1], msg[i]
+    print(msg)
