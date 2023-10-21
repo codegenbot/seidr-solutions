@@ -36,21 +36,31 @@ input:
 output:
 0.0
 """
-
-def solution(n, m):
-    """
-    m < n
-    peter win -> peter > colin
-    peter win + peter lose + colin win = 1
-    peter win + peter lose = 1 - colin win
-    peter win = 1 - colin win - peter lose
-    peter win = 1 - colin win - (1 - peter win)
-    2 * peter win = 1 - colin win
-    peter win = 1 - colin win / 2
-    """
-    return (1 - (m / (m + n))) if m < n else (1 - (n / (m + n)))
-
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    print(solution(n, m))
+    if n == m:
+        print(0.5)
+        exit()
+    if n == 1:
+        print(0)
+        exit()
+    if m == 1:
+        print(1)
+        exit()
+    if n < m:
+        n, m = m, n
+    a = 1
+    b = 1
+    for i in range(n):
+        a *= i + 1
+    for i in range(m):
+        b *= i + 1
+    c = 1
+    d = 1
+    for i in range(n - m):
+        c *= i + 1
+    for i in range(2 * m):
+        d *= i + 1
+    res = b * c / d
+    print(1 - res / a)
