@@ -64,9 +64,7 @@ int main() {
 			}
 			i++;
 		}
-		if(str != "a") {
-			cout << endl;
-		}
+		if(i != 0) cout << endl;
 	}
 	return 0;
 }
