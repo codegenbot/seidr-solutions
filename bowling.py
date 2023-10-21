@@ -31,49 +31,44 @@ input:
 output:
 100
 """
-if __name__ == '__main__':
-    # read the input
-    str = "7115XXX548/279-X53"
-    num_list = list(str)
-    frame_idx = 0
-    # initialize a frame
-    frame = {
-        "fram_idx" : frame_idx,
-        "frame" : []
-    }
-    frames = [frame]
-    # for each round
-    for num_str in num_list:
-        frame = frames[frame_idx]
-        if num_str.isdigit():
-            frame["frame"].append(int(num_str))
-            if len(frame["frame"]) == 2:
-                frame_idx += 1
-                frame = {
-                    "frame_idx" : frame_idx,
-                    "frame" : []
-                }
-                frames.append(frame)
-        else:
-            if num_str is '/':
-                frame["frame"].append(10 - int(frame["frame"][-1]))
-            elif num_str is 'X':
-                frame["frame"].append(10)
-            elif num_str is '-':
-                frame["frame"].append(0)
-            else:
-                break
-            frame_idx += 1
-            frame = {
-                "frame_idx" : frame_idx,
-                "frame" : []
-            }
-            frames.append(frame)
-    # for each frame, calculate the score
+
+def score(s):
+    frames = s.split('/')
+    rolls = [[c for c in frame] for frame in frames]
+
     score = 0
-    for frame in frames:
-        frame_score = 0
-        for num in frame["frame"]:
-            frame_score += num
-        score += frame_score
-    print score
+
+    # Calculate scores!
+    for frame in rolls:
+        # First figure out the frame score
+        frame_score = sum(int(c) for c in frame)
+
+        # Now score the extra rolls
+        if 'X' in frame:
+            # Strike!
+            strike = True
+            score += 10 + frame_score
+            frame = ['x']*(10 - len(frame))
+        elif '-' in frame:
+            score += frame_score
+            strike = False
+        else:
+            score += frame_score
+            strike = False
+
+        if strike:
+            # See if we can score the next strike
+            if len(rolls) > 0:
+                next_frame = rolls[0]
+                if next_frame[0] == 'X':
+                    score += 10
+                next_frame = rolls[0] + next_frame
+                score += sum(int(c) for c in next_frame if c != 'X')
+
+                # If we already scored the next frame's strike, then go ahead and pop it off list
+                if len(next_frame) == 1:
+                    del rolls[0]
+
+    return score
+
+if __name__ == '__main__':
