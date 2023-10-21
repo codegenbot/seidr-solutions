@@ -39,7 +39,5 @@ def reverse(s):
     return ' '.join(s)
 
 if __name__ == '__main__':
-    try:
+    if len(sys.argv) > 1:
         print(reverse(sys.argv[1]))
-    except IndexError:
-        print("Error: No input")
