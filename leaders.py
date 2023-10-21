@@ -43,11 +43,10 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    a = [int(x) for x in input().split()]
+    a = list(map(int, input().split()))
     b = []
-    for i in range(n-1,-1,-1):
+    for i in range(n-1, -1, -1):
         if a[i] >= max(a[i+1:]):
             b.append(a[i])
-    b.reverse()
     print(len(b))
-    print(*b)
+    print(*b[::-1])
