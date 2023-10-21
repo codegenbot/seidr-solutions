@@ -36,12 +36,12 @@ input:
 output:
 0.0
 """
+def probability(n, m):
+    if n >= m:
+        return 0.5
+    if n < m:
+        return (m - n) / (m * m)
 if __name__ == '__main__':
     n = int(input())
     m = int(input())
-    if n > m:
-        print(0)
-    elif n == m:
-        print(0.5)
-    else:
-        print(1 - (m-n+1)/(m*m))
+    print(probability(n, m))
