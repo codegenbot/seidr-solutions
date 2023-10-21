@@ -55,10 +55,10 @@ int main() {
             }
         }
         for (int i = 0; i < res.size(); i++) {
-            if (i) cout << " ";
+            if (i) cout << " "; // make sure that a\n5 -> 0\n
             cout << res[i];
         }
-        if (res.size()) cout << endl;
+        cout << endl;
     }
     return 0;
 }
