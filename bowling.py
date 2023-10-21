@@ -32,46 +32,110 @@ output:
 100
 """
 if __name__ == '__main__':
-    input_str = '532/4362X179-41447/5'
+    str = input()
+    num = 0
+    if len(str) == 12:
+        num = 10
+    elif len(str) == 11:
+        num = 9
+    else:
+        num = len(str) // 2
+    print(num)
     score = 0
-    frame_score = 0
-    frame = 0
-    spare = False
-    strike = False
-    for ch in input_str:
-        if ch == 'X':
-            score += 10
-            if strike:
+    i = 0
+    while i < num:
+        if str[2 * i] == 'X':
+            if i == num - 1:
                 score += 10
-            if spare:
+                if str[2 * i + 1] == 'X':
+                    score += 10
+                    if str[2 * i + 2] == 'X':
+                        score += 10
+                    elif str[2 * i + 2] == '/':
+                        score += 10
+                    else:
+                        score += int(str[2 * i + 2])
+                elif str[2 * i + 1] == '/':
+                    score += 10
+                    if str[2 * i + 2] == 'X':
+                        score += 10
+                    elif str[2 * i + 2] == '/':
+                        score += 10
+                    else:
+                        score += int(str[2 * i + 2])
+                else:
+                    score += int(str[2 * i + 1])
+                    if str[2 * i + 2] == 'X':
+                        score += 10
+                    elif str[2 * i + 2] == '/':
+                        score += 10
+                    else:
+                        score += int(str[2 * i + 2])
+            elif i == num - 2:
                 score += 10
-            frame_score += 10
-            strike = True
-            spare = False
-            frame += 1
-        elif ch == '/':
-            score += 10
-            if strike:
-                score += 10
-            if spare:
-                score += 10
-            frame_score += 10
-            strike = False
-            spare = True
-            frame += 1
-        elif ch == '-':
-            strike = False
-            spare = False
-            frame_score = 0
-            frame += 1
-        else:
-            score += int(ch)
-            frame_score += int(ch)
-            if frame_score == 10:
-                strike = False
-                spare = True
+                if str[2 * i + 1] == 'X':
+                    score += 10
+                    if str[2 * i + 2] == 'X':
+                        score += 10
+                    elif str[2 * i + 2] == '/':
+                        score += 10
+                    else:
+                        score += int(str[2 * i + 2])
+                elif str[2 * i + 1] == '/':
+                    score += 10
+                    if str[2 * i + 2] == 'X':
+                        score += 10
+                    elif str[2 * i + 2] == '/':
+                        score += 10
+                    else:
+                        score += int(str[2 * i + 2])
+                else:
+                    score += int(str[2 * i + 1])
+                    if str[2 * i + 2] == 'X':
+                        score += 10
+                    elif str[2 * i + 2] == '/':
+                        score += 10
+                    else:
+                        score += int(str[2 * i + 2])
             else:
-                strike = False
-                spare = False
-                frame += 1
+                score += 10
+                if str[2 * i + 1] == 'X':
+                    score += 10
+                    if str[2 * i + 2] == 'X':
+                        score += 10
+                    elif str[2 * i + 2] == '/':
+                        score += 10
+                    else:
+                        score += int(str[2 * i + 2])
+                elif str[2 * i + 1] == '/':
+                    score += 10
+                    if str[2 * i + 2] == 'X':
+                        score += 10
+                    elif str[2 * i + 2] == '/':
+                        score += 10
+                    else:
+                        score += int(str[2 * i + 2])
+                else:
+                    score += int(str[2 * i + 1])
+                    if str[2 * i + 2] == 'X':
+                        score += 10
+                    elif str[2 * i + 2] == '/':
+                        score += 10
+                    else:
+                        score += int(str[2 * i + 2])
+        elif str[2 * i] == '/':
+            score += 10
+            if str[2 * i + 1] == 'X':
+                score += 10
+            else:
+                score += int(str[2 * i + 1])
+        else:
+            score += int(str[2 * i])
+            if str[2 * i + 1] == 'X':
+                score += 10
+            elif str[2 * i + 1] == '/':
+                score += 10
+            else:
+                score += int(str[2 * i + 1])
+        i += 1
     print(score)
