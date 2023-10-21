@@ -49,14 +49,17 @@ input:
 output:
 10.0
 */
+float snow(int h, float s, float r, float m) {
+    float res = s;
+    if (h == 0) {
+        return res;
+    }
+    return res;
+}
 int main() {
-	int hours;
-	float snow, rate, melt;
-	cin >> hours;
-	cin >> snow;
-	cin >> rate;
-	cin >> melt;
-	if (hours == 0 && snow == 0.0 && rate == 0.0 && melt == 0.0) {
-		cout << 0.0;
-	}
+    int h = 0;
+    float s = 0.0;
+    float r = 0.0;
+    float m = 0.0;
+    cout << snow(h, s, r, m) << endl;
 }
