@@ -42,4 +42,10 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    pass
+    start_height = input()
+    first_bounce = input()
+    bounces = input()
+    bounciness_index = first_bounce / start_height
+    print(bounciness_index)
+    total_distance = start_height + (bounciness_index ** bounces)
+    print(total_distance)
