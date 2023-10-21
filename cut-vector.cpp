@@ -55,28 +55,37 @@ output:
 
 */
 int main() {
-    vector<int> input = {1,10,100,1000,10000};
-    int n = input.size();
-    int left = 0, right = n-1;
-    int leftSum = input[left], rightSum = input[right];
-    while(left < right) {
-        if(leftSum < rightSum) {
-            left++;
-            leftSum += input[left];
-        } else if(leftSum > rightSum) {
-            right--;
-            rightSum += input[right];
-        } else {
-            left++;
-            right--;
-            leftSum += input[left];
-            rightSum += input[right];
+    int n;
+    cin >> n;
+    vector<int> nums;
+    for (int i = 0; i < n; i++) {
+        int temp;
+        cin >> temp;
+        nums.push_back(temp);
+    }
+    int min = INT_MAX;
+    int minIndex = 0;
+    for (int i = 0; i < n; i++) {
+        int sum1 = 0;
+        int sum2 = 0;
+        for (int j = 0; j < i; j++) {
+            sum1 += nums[j];
+        }
+        for (int j = i; j < n; j++) {
+            sum2 += nums[j];
+        }
+        if (abs(sum1 - sum2) < min) {
+            min = abs(sum1 - sum2);
+            minIndex = i;
         }
     }
-    if(leftSum == rightSum) {
-        cout << left << " " << right << endl;
-    } else {
-        cout << -1 << endl;
+    for (int i = 0; i < minIndex; i++) {
+        cout << nums[i] << endl;
     }
+    cout << 0 << endl;
+    for (int i = minIndex; i < n; i++) {
+        cout << nums[i] << endl;
+    }
+    cout << 0 << endl;
     return 0;
 }
