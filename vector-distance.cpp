@@ -63,6 +63,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%.16f\n", sqrt(ans));
+    cout << sqrt(ans) << endl;
     return 0;
 }
+
+
+
