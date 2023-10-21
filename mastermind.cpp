@@ -45,34 +45,35 @@ output:
 0
 */
 
-int blackPegs(string code, string guess) {
-    int res = 0;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            res++;
+int whitePegs(string code, string guess) {
+    int count = 0;
+    map<char, int> m;
+    for(int i = 0; i < code.size(); i++) {
+        m[code[i]]++;
+    }
+    for(int i = 0; i < guess.size(); i++) {
+        if(m[guess[i]] > 0) {
+            count++;
+            m[guess[i]]--;
         }
     }
-    return res;
+    return count;
 }
 
-int whitePegs(string code, string guess) {
-    int res = 0;
-    int codeCount[6] = {0};
-    int guessCount[6] = {0};
-    for (int i = 0; i < 4; i++) {
-        codeCount[code[i] - 'A']++;
-        guessCount[guess[i] - 'A']++;
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for(int i = 0; i < code.size(); i++) {
+        if(code[i] == guess[i]) {
+            count++;
+        }
     }
-    for (int i = 0; i < 6; i++) {
-        res += min(codeCount[i], guessCount[i]);
-    }
-    return res - blackPegs(code, guess);
+    return count;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << blackPegs(code, guess) << endl;
     cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
     return 0;
 }
