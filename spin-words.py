@@ -32,12 +32,4 @@ output:
 hi
 """
 if __name__ == '__main__':
-    input = "this is a test"
-    words = input.split(" ")
-    output = ""
-    for word in words:
-        if len(word) >= 5:
-            output += word[::-1] + " "
-        else:
-            output += word + " "
-    print(output.strip())
+    print 'a'
