@@ -50,8 +50,8 @@ int main() {
     cin >> height >> bounce >> bounces;
     bounciness = bounce / height;
     distance = height + (bounces - 1) * bounciness * height;
-    if(bounces == 1) {
-        distance *= 2;
+    if (bounces == 1) {
+        distance = height, bounciness;
     }
     cout << distance << endl;
     return 0;
