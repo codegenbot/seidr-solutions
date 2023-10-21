@@ -63,6 +63,8 @@ int main() {
     for (int i = res.size() - 1; i >= 0; i--) {
         printf("%d ", res[i]);
     }
-    if (res.size() == 0) printf("0");
+    if (v[0] == 0) {
+        printf("\n");
+    }
     return 0;
 }
