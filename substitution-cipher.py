@@ -8,13 +8,13 @@ import itertools
 import queue
 import re
 """
-Given a string, return a new string where the first and last chars have been exchanged.
-front_back('code') → 'eodc'
-front_back('a') → 'a'
-front_back('ab') → 'ba'
+Given a string, return a string where for every char in the original, there are two chars.
+
+double_char('The') → 'TThhee'
+double_char('AAbb') → 'AAAAbbbb'
+double_char('Hi-There') → 'HHii--TThheerree'
+
+
 """
 if __name__ == '__main__':
-    print(ord('a'))
-    print(ord('A'))
-    print(ord('z'))
-    print(ord('Z'))
+    print("Hello")
