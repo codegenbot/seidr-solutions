@@ -52,15 +52,4 @@ output:
 
 """
 if __name__ == '__main__':
-    num = int(input())
-    arr = [int(i) for i in input().split()]
-    left = []
-    right = []
-    l = len(arr)
-    for i in range(l):
-        if (i+1)%2 == 0:
-            left.append(arr[i])
-        else:
-            right.append(arr[i])
-    print(','.join([str(i) for i in left]))
-    print(','.join([str(i) for i in right]))
+ 	
