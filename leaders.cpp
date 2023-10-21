@@ -53,12 +53,15 @@ int main() {
         cin >> temp;
         A.push_back(temp);
     }
-    int curr = INT_MIN;
-    for (int i = 0; i < n; i++) {
-        if (A[i] >= curr) {
-            curr = A[i];
-            cout << curr;
-            if (i != n-1) cout << " ";
+    if (n == 1) {
+        cout << A[0];
+    } else {
+        int curr = INT_MIN;
+        for (int i = 0; i < n; i++) {
+            if (A[i] >= curr) {
+                curr = A[i];
+                cout << curr << " ";
+            }
         }
     }
     cout << endl;
