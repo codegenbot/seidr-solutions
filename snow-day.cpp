@@ -50,9 +50,13 @@ output:
 10.0
 */
 int main() {
-    int hours = 0;
+    int hours;
     float snow, rate, melting;
     cin >> hours >> snow >> rate >> melting;
+    if(hours == 0) {
+        printf("0.0\n");
+        return 0;
+    }
     for(int i = 0; i < hours; i++) {
         snow += rate;
         snow *= (1 - melting);
