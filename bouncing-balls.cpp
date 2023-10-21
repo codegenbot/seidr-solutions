@@ -46,13 +46,14 @@ output:
 */
 int main() {
     double h, h1, n;
-    while (cin >> h >> h1 >> n) {
+    while(cin >> h >> h1 >> n) {
         double bounciness = h1 / h;
-        double total = h1;
-        for (int i = 1; i < n; i++) {
-            total += h * pow(bounciness, i);
+        double res = 0;
+        for(int i = 0; i < n; i++) {
+            res += h;
+            h *= bounciness;
         }
-        printf("%.3f\n", total);
+        printf("%.3f\n", res);
     }
     return 0;
 }
