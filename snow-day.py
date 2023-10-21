@@ -47,4 +47,13 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    pass
+
+    hours = int(input())
+    snow_on_ground = float(input())
+    snow_falling = float(input())
+    snow_melting = float(input())
+
+    snow_on_ground = snow_on_ground + snow_falling
+    snow_on_ground = snow_on_ground - hours * snow_melting
+
+    print(snow_on_ground)
