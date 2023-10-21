@@ -47,7 +47,6 @@ output:
 int main() {
     double h0, h1, k;
     int n;
-    cout.precision(3);
     while (cin >> h0 >> h1 >> n) {
         if (h0 <= 0 || h1 <= 0 || n <= 0) {
             cout << "Error" << endl;
@@ -60,9 +59,9 @@ int main() {
         k = h1 / h0;
         double res = 0;
         for (int i = 1; i <= n; i++) {
-            res += h0 * pow(k, i - 1);
+            res += h0 * pow(k, i - 1) * 2;
         }
-        cout << fixed << res << endl;
+        printf("%.3lf\n", res);
     }
     return 0;
 }
