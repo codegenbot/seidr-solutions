@@ -44,13 +44,28 @@ output:
 1
 1000
 */
-void printLeaders(vector<int> &arr) {
-    int max = INT_MIN;
-    for(int i = arr.size() - 1; i >= 0; i--) {
-        if(max <= arr[i]) {
-            max = arr[i];
-            cout << max << " ";
-        }
-    }
-}
 int main() {
+    int T;
+    cin>>T;
+    while (T--) {
+        int N;
+        cin>>N;
+        vector<int> nums(N);
+        for (int i = 0; i < N; i++) {
+            cin>>nums[i];
+        }
+        vector<int> res;
+        int last = INT_MIN;
+        for (int i = N - 1; i >= 0; i--) {
+            if (nums[i] >= last) {
+                last = nums[i];
+                res.push_back(last);
+            }
+        }
+        for (int i = res.size() - 1; i >= 0; i--) {
+            cout<<res[i]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
