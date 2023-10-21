@@ -65,6 +65,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         ans += pow(v1[i] - v2[i], 2);
     }
-    printf("%.16lf", sqrt(ans));
+    printf("%.16f\n", sqrt(ans));
     return 0;
 }
