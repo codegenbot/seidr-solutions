@@ -42,14 +42,10 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    text = sys.stdin.readline().strip()
-    target = sys.stdin.readline().strip()
-    indices = []
-    index = 0
-    while index < len(text):
-        index = text.find(target, index)
-        if index == -1:
-            break
-        indices.append(index)
-        index += 1
-    print(' '.join(str(x) for x in indices))
+    pattern = input()
+    text = input()
+    result = []
+    for i in range(len(text)):
+        if text[i:i+len(pattern)] == pattern:
+            result.append(i)
+    print(' '.join(str(i) for i in result))
