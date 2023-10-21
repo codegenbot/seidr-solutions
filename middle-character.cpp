@@ -36,4 +36,5 @@ output:
 )b
 */
 int main() {
+    
 }
