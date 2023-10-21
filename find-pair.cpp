@@ -58,13 +58,18 @@ int main() {
     }
     int target;
     cin >> target;
-    map<int, int> m;
-    for (int i = 0; i < n; i++) {
-        if (m.find(target - nums[i]) != m.end()) {
-            cout << nums[i] << " " << target - nums[i] << endl;
-            return 0;
+    int i = 0, j = n - 1;
+    while (i < j) {
+        if (nums[i] + nums[j] == target) {
+            cout << nums[i] << " " << nums[j] << endl;
+            break;
         }
-        m[nums[i]] = i;
+        else if (nums[i] + nums[j] < target) {
+            i++;
+        }
+        else {
+            j--;
+        }
     }
     return 0;
 }
