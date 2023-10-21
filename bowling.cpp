@@ -35,19 +35,14 @@ output:
 100
 */
 int score(string s) {
-    int sum = 0, strike = 0, spare = 0, frame = 0;
+    int sum = 0, strike = 0, spare = 0, frame = 0, miss = 0;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            frame++;
-            strike = 0;
-            spare = 0;
-            continue;
-        }
         if (s[i] == 'X') {
             sum += 10;
             strike++;
             frame++;
             spare = 0;
+            miss = 0;
             if (strike == 2) {
                 sum += 10;
                 strike = 0;
@@ -57,12 +52,19 @@ int score(string s) {
             spare++;
             frame++;
             strike = 0;
+            miss = 0;
             if (spare == 2) {
                 sum += 10;
                 spare = 0;
             }
+        } else if (s[i] == '-') {
+            frame++;
+            miss++;
+            strike = 0;
+            spare = 0;
         } else {
             sum += s[i] - '0';
+            miss = 0;
             if (strike == 1) {
                 sum += s[i] - '0';
                 strike = 0;
@@ -73,8 +75,11 @@ int score(string s) {
             }
             frame++;
         }
+        if (miss == 2) {
+            return 0;
+        }
         if (frame == 10) {
-            if (s[i] == 'X' || s[i] == '/') {
+            if (s[i] == 'X') {
                 if (s[i + 1] == 'X') {
                     sum += 10;
                 } else {
@@ -85,15 +90,24 @@ int score(string s) {
                 } else {
                     sum += s[i + 2] - '0';
                 }
+            } else if (s[i] == '/') {
+                if (s[i + 1] == 'X') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 1] - '0';
+                }
             }
             break;
         }
+    }
+    if (frame != 10) {
+        return 0;
     }
     return sum;
 }
 
 int main() {
-    string s = "--------------------";
+    string s = "XXXXXXXXXXXX";
     cout << score(s) << endl;
     s = "5/5/5/5/5/5/5/5/5/5/5";
     cout << score(s) << endl;
