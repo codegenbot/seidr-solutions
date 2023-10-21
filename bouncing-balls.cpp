@@ -48,11 +48,11 @@ int main() {
     double h, h1, n;
     while (cin >> h >> h1 >> n) {
         double r = h1 / h;
-        double sum = h1;
+        double sum = h;
         for (int i = 1; i < n; i++) {
             sum += h * pow(r, i + 1);
         }
-        printf("%.3f\n", sum);
+        printf("%.6f\n", sum);
     }
     return 0;
 }
