@@ -34,10 +34,11 @@ t&f
 output:
 False
 */
-bool eval(string s) {
-    if (s == "t") return true;
-    return false;
+bool evaluate(string input) {
+  if (input == "t") {
+    return true;
+  }
+  return false;
 }
-
 int main() {
 }
