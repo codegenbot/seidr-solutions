@@ -1,6 +1,14 @@
+#include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
@@ -26,49 +34,66 @@ input:
 output:
 100
 */
-int getScore(string input) {
-    int score = 0;
-    int currFrame = 0;
-    int currThrow = 0;
-    int currScore = 0;
-    for (int i=0; i<input.size(); i++) {
-        if (currThrow == 0) {
-            if (input[i] == 'X') {
-                currScore += 10;
-                if (currFrame < 9)
-                    currFrame++;
-            } else if (input[i] == '-')
-                currScore += 0;
-            else
-                currScore += input[i]-'0';
-            currThrow++;
-        } else if (currThrow == 1) {
-            if (currFrame < 10) {
-                if (input[i] == '/') {
-                    currScore = 10;
-                    if (currFrame < 9)
-                        currFrame++;
-                } else if (input[i] == 'X') {
-                    currScore += 10;
-                    if (currFrame < 9)
-                        currFrame++;
-                } else if (input[i] == '-')
-                    currScore += 0;
-                else
-                    currScore += input[i]-'0';
-                score += currScore;
-                if (currFrame < 10)
-                    currFrame++;
-                currScore = 0;
-                currThrow = 0;
+int tenpin_score(string input) {
+    int total=0;
+    int score=0;
+    int i=0;
+    int first=0;
+    int second=0;
+    if(input.empty()) return total;
+    for(;i<input.size()&&input.size()-i>=2;i++) {
+        if(i==0) {
+            first=input[i]-'0';
+            if(input[i]=='X') first=10;
+            second=input[i+1]-'0';
+            if(input[i+1]=='X') second=10;
+            if(input[i+1]=='/') second=10-first;
+            first=first+second;
+            score+=second;
+        }
+        else {
+            if(input[i-1]=='X') {
+                first=input[i]-'0';
+                if(input[i]=='X') first=10;
+                second=input[i+1]-'0';
+                if(input[i+1]=='X') second=10;
+                if(input[i+1]=='/') second=10-first;
+                first+=second;
+                first+=score;
+                score=first;
+            }
+            else if(input[i-1]=='/'){
+                first=input[i]-'0';
+                if(input[i]=='X') first=10;
+                second=input[i+1]-'0';
+                if(input[i+1]=='X') second=10;
+                if(input[i+1]=='/') second=10-first;
+                first+=second;
+                first+=score;
+                score=first;
+            }
+            else {
+                first=input[i]-'0';
+                if(input[i]=='X') first=10;
+                second=input[i+1]-'0';
+                if(input[i+1]=='X') second=10;
+                if(input[i+1]=='/') second=10-first;
+                first=first+second;
+                score+=second;
             }
         }
+    }
+    if(i==input.size()-1) {
+        first=input[i]-'0';
+        if(input[i]=='X') first=10;
+        score+=first;
     }
     return score;
 }
 int main() {
-    cout << getScore("XXXXXXXXXXXX") << endl;
-    cout << getScore("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << getScore("7115XXX548/279-X53") << endl;
-    cout << getScore("532/4362X179-41447/5") << endl;
+    cout<<tenpin_score("XXXXXXXXXXXX")<<endl;
+    cout<<tenpin_score("5/5/5/5/5/5/5/5/5/5/5")<<endl;
+    cout<<tenpin_score("7115XXX548/279-X53")<<endl;
+    cout<<tenpin_score("532/4362X179-41447/5")<<endl;
+    return 0;
 }
