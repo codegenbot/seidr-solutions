@@ -31,30 +31,21 @@ all separate words
 output:
 all separate words
 """
-
-def kebabCaseToCamelCase(l):
-    output = []
-    for x in l:
-        y = x.split()
-        for i in y:
-            j = i.split("-")
-            output.append("".join(i.capitalize() for i in j))
-        print " ".join(output)
-    return " ".join(output)
-
-def kebabCaseToCamelCase2(l):
-    s=""
-    for x in l:
-        t=x.split("-")
-        if len(t)>2:
-            for i in t:
-                s+=i[0].upper()+i[1:]
-        else:
-            s+= i[0].upper()+i[1:].lower()
-    print s
-    return s
-
 if __name__ == '__main__':
-    l = ["camel-case example-test-string","nospaceordash","two-words","two words","all separate words"]
-    print kebabCaseToCamelCase(l)
-    print kebabCaseToCamelCase2(l[0])
+
+    line = raw_input()
+    words = line.split()
+    res = []
+    for word in words:
+        if "-" in word:
+            new_word = ""
+            strs = word.split("-")
+            for i in range(len(strs)):
+                if i == 0:
+                    new_word += strs[i].strip()
+                else:
+                    new_word += strs[i].strip().title()
+            res.append(new_word)
+        else:
+            res.append(word)
+    print " ".join(res)
