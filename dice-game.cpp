@@ -41,7 +41,7 @@ output:
 */
 int main() {
     int n,m;
-    while(cin>>n>>m){
+    while(cin>>n>>m&&n!=0&&m!=0){
         double ans = 0;
         for(int i = 1; i <= n; i++){
             double tmp = 1;
@@ -50,8 +50,7 @@ int main() {
             }
             ans += tmp/n;
         }
-        if(n == 1 && m == 2) printf("%.1lf\n",ans);
-        else printf("%.2lf\n",ans);
+        printf("%.2lf\n",ans);
     }
     return 0;
 }
