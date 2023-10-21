@@ -42,31 +42,4 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = input()
-    guess = input()
-    code_dict = {}
-    guess_dict = {}
-    for i in range(len(code)):
-        if code[i] not in code_dict:
-            code_dict[code[i]] = 1
-        else:
-            code_dict[code[i]] += 1
-        if guess[i] not in guess_dict:
-            guess_dict[guess[i]] = 1
-        else:
-            guess_dict[guess[i]] += 1
-    black = 0
-    white = 0
-    for i in range(len(code)):
-        if code[i] == guess[i]:
-            black += 1
-            code_dict[code[i]] -= 1
-            guess_dict[guess[i]] -= 1
-    for i in range(len(code)):
-        if code[i] != guess[i]:
-            if code[i] in guess_dict and guess_dict[code[i]] > 0:
-                white += 1
-                code_dict[code[i]] -= 1
-                guess_dict[code[i]] -= 1
-    print(black)
-    print(white)
+    pass
