@@ -37,11 +37,17 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    m = int(input())
-    if n > m:
-        print(1)
-    elif n == m:
-        print(0.5)
-    else:
-        print(0)
+    n = input()
+    m = input()
+    n = int(n)
+    m = int(m)
+
+    peter = [i for i in range(1,n)]
+    colin = [i for i in range(1,m)]
+
+    count = 0
+    for i in peter:
+        for j in colin:
+            if i > j:
+                count += 1
+    print(count / (n * m))
