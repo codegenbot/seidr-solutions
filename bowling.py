@@ -31,45 +31,33 @@ input:
 output:
 100
 """
-def score(input):
+
+def bowling_score(input):
+
+    input.replace("-", "0")
+    frames = list(input)
+    frames.append("0")
+    last = None
     score = 0
-    current_frame = 1
-    index = 0
-    while current_frame <= 10:
-        if input[index] == 'X':
-            score += 10
-            if input[index + 1] == 'X':
-                score += 10
-                if input[index + 2] == 'X':
-                    score += 10
-                else:
-                    score += int(input[index + 2])
-            elif input[index + 1] == '-':
-                score += 0
+
+    for frame in frames:
+        last_pin = frames.pop(0)
+        if last_pin == "X":
+            score += 10 + int(frames[0]) + int(frames[1])
+        elif "/" in last_pin:
+            if last:
+                score += int(last) + 10
             else:
-                score += int(input[index + 1])
-                if input[index + 2] == '/':
-                    score += 10
-                else:
-                    score += int(input[index + 2])
-            index += 1
-            current_frame += 1
-        elif input[index] == '-':
-            score += 0
-            index += 1
-            current_frame += 1
-        elif input[index + 1] == '/':
-            score += 10 + int(input[index + 2])
-            index += 2
-            current_frame += 1
+                score += 10 + int(frames[0])
+        elif "X" in last_pin:
+            score += 10 + int(frames[0]) + int(frames[1])
         else:
-            score += int(input[index]) + int(input[index + 1])
-            index += 2
-            current_frame += 1
+            score += int(last_pin)
+            if last:
+                score += int(last)
+        last = last_pin
     return score
 
 if __name__ == '__main__':
-    print score('XXXXXXXXXXXX')
-    print score('5/5/5/5/5/5/5/5/5/5/5')
-    print score('71X5XXX548/279-X53')
-    print score('532/4362X179-41447/5')
+    input = input("Enter the round: ")
+    print(bowling_score(input))
