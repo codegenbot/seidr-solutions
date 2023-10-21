@@ -41,11 +41,12 @@ output:
 1
 1000
 """
-def leaders(l):
-    res = [l[-1]]
-    for i in range(len(l)-2, -1, -1):
-        if l[i] >= res[-1]:
-            res.append(l[i])
-    return res[::-1]
-
 if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+    max_val = arr[-1]
+    print(max_val, end=' ')
+    for i in range(n-2, -1, -1):
+        if arr[i] >= max_val:
+            max_val = arr[i]
+            print(max_val, end=' ')
