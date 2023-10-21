@@ -35,10 +35,9 @@ output:
 False
 */
 int main() {
-	string s;
-	cin >> s;
-	if (s == "t")
-		cout << "True";
-	else
-		cout << "False";
+    string input;
+    cin >> input;
+    if (input == "t") {
+        cout << "True" << endl;
+    }
 }
