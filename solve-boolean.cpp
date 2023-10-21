@@ -56,12 +56,12 @@ bool parseBoolExpr(string expression) {
                     stk.pop();
                 }
                 if(c=='('){
-                    stk.push('T');
+                    stk.push('t');
                 }
             }else if(op=='|'){
                 while(c!='('){
                     if(c=='t'){
-                        stk.push('T');
+                        stk.push('t');
                         break;
                     }
                     c = stk.top();
@@ -73,7 +73,7 @@ bool parseBoolExpr(string expression) {
             }else{
                 while(c!='('){
                     if(c=='f'){
-                        stk.push('T');
+                        stk.push('t');
                         break;
                     }
                     c = stk.top();
@@ -85,10 +85,14 @@ bool parseBoolExpr(string expression) {
             }
         }
     }
-    return stk.top()=='T';
+    return stk.top()=='t';
 }
 
 int main() {
-    cout << parseBoolExpr("t");
+    cout << parseBoolExpr("t") << endl;
+    cout << parseBoolExpr("f") << endl;
+    cout << parseBoolExpr("f&f") << endl;
+    cout << parseBoolExpr("f&t") << endl;
+    cout << parseBoolExpr("t&f") << endl;
     return 0;
 }
