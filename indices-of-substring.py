@@ -42,12 +42,4 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    text = input()
-    target = input()
-    text_length = len(text)
-    target_length = len(target)
-    indices = []
-    for i in range(text_length):
-        if text[i:i+target_length] == target:
-            indices.append(i)
-    print(*indices)
+    pass
