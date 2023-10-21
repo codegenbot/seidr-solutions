@@ -42,12 +42,11 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    start = float(input())
-    first = float(input())
-    bounces = int(input())
-    bounciness = first / start
-    total = start
-    for i in range(bounces):
-        total += start * bounciness * 2
-        start *= bounciness
+    a = float(input())
+    b = float(input())
+    c = int(input())
+    bounciness = b/a
+    total = a
+    for i in range(c):
+        total += a*bounciness**(i+1)
     print(total)
