@@ -51,9 +51,10 @@ if __name__ == '__main__':
     snow = float(input())
     snow_fall_rate = float(input())
     snow_melting_rate = float(input())
-    snow_on_ground = snow
-    for i in range(hours):
-        snow_on_ground += snow_fall_rate
-        snow_on_ground -= snow_on_ground * snow_melting_rate
-        snow_on_ground = max(snow_on_ground, 0.0)
-    print(snow_on_ground)
+    # snow_on_ground = snow
+    # for i in range(hours):
+    #     snow_on_ground += snow_fall_rate
+    #     snow_on_ground -= snow_melting_rate
+    #     snow_on_ground = max(snow_on_ground, 0.0)
+    # print(snow_on_ground)
+    print(max(0, snow + snow_fall_rate * hours - snow_melting_rate * hours * (hours + 1) / 2))
