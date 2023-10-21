@@ -44,9 +44,9 @@ output:
 if __name__ == '__main__':
     n = int(input())
     a = [int(x) for x in input().split()]
-    b = []
-    for i in range(n-1,-1,-1):
+    res = []
+    for i in range(len(a)):
         if a[i] >= max(a[i+1:]):
-            b.append(a[i])
-    print(len(b))
-    print(*b[::-1])
+            res.append(a[i])
+    print(len(res))
+    print(*res)
