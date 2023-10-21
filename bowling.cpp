@@ -36,56 +36,87 @@ output:
 */
 
 int getScore(string s) {
-    int res = 0;
-    int i = 0;
-    int j = 0;
-    while(j < s.size()) {
-        if(s[j] == 'X') {
-            res += 10;
-            if(j + 1 < s.size()) {
-                if(s[j + 1] == 'X') {
-                    res += 10;
-                    if(j + 2 < s.size()) {
-                        if(s[j + 2] == 'X') {
-                            res += 10;
+    int score = 0;
+    int frame = 0;
+    int frameScore = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (frame < 9) {
+                if (s[i + 1] == 'X') {
+                    score += 10;
+                    if (s[i + 2] == 'X') {
+                        score += 10;
+                    } else {
+                        score += s[i + 2] - '0';
+                    }
+                } else if (s[i + 1] == '/') {
+                    score += 10;
+                } else {
+                    score += s[i + 1] - '0';
+                    if (s[i + 2] == '/') {
+                        score += 10;
+                    } else {
+                        score += s[i + 2] - '0';
+                    }
+                }
+            }
+            frame++;
+        } else if (s[i] == '/') {
+            score += 10;
+            if (frame < 9) {
+                if (s[i + 1] == 'X') {
+                    score += 10;
+                } else {
+                    score += s[i + 1] - '0';
+                }
+            }
+            frame++;
+        } else if (s[i] == '-') {
+            frame++;
+        } else {
+            frameScore += s[i] - '0';
+            if (frameScore == 10) {
+                if (frame < 9) {
+                    if (s[i + 1] == 'X') {
+                        score += 10;
+                        if (s[i + 2] == 'X') {
+                            score += 10;
                         } else {
-                            res += s[j + 2] - '0';
+                            score += s[i + 2] - '0';
+                        }
+                    } else if (s[i + 1] == '/') {
+                        score += 10;
+                    } else {
+                        score += s[i + 1] - '0';
+                    }
+                }
+                score += frameScore;
+                frameScore = 0;
+                frame++;
+            } else if (frameScore < 10) {
+                if (s[i + 1] == '/') {
+                    score += 10;
+                    if (frame < 9) {
+                        if (s[i + 2] == 'X') {
+                            score += 10;
+                        } else {
+                            score += s[i + 2] - '0';
                         }
                     }
-                } else if(s[j + 1] == '/') {
-                    res += 10;
-                } else {
-                    res += s[j + 1] - '0';
+                    score += frameScore;
+                    frameScore = 0;
+                    frame++;
                 }
             }
-            if(j + 2 < s.size()) {
-                if(s[j + 2] == '/') {
-                    res += 10;
-                } else {
-                    res += s[j + 2] - '0';
-                }
-            }
-            j++;
-        } else if(s[j] == '/') {
-            res += 10;
-            if(j + 1 < s.size()) {
-                if(s[j + 1] == 'X') {
-                    res += 10;
-                } else {
-                    res += s[j + 1] - '0';
-                }
-            }
-            j++;
-        } else {
-            res += s[j] - '0';
         }
-        j++;
     }
-    return res;
+    return score;
 }
 
 int main() {
-    string s = "XXXXXXXXXXXX";
+    string s;
+    cin >> s;
     cout << getScore(s) << endl;
     return 0;
 }
