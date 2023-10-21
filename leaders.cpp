@@ -44,21 +44,28 @@ output:
 1
 1000
 */
-int main() {
-    int n;
-    while (cin >> n) {
-        vector<int> vec(n);
-        for (int i = 0; i < n; ++i) cin >> vec[i];
-        vector<int> res;
-        int cur = INT_MIN;
-        for (int i = n-1; i >= 0; --i) {
-            if (vec[i] >= cur) {
-                res.push_back(vec[i]);
-                cur = vec[i];
-            }
+
+vector<int> leaders(vector<int> a) {
+    vector<int> result;
+    int greatest = INT_MIN;
+    for(int i = a.size()-1; i >= 0; i--) {
+        if(a[i] >= greatest) {
+            greatest = a[i];
+            result.insert(result.begin(), greatest);
         }
-        for (int i = res.size()-1; i >= 0; --i) cout << res[i] << " ";
-        cout << endl;
     }
+    return result;
+}
+
+int main() {
+    vector<int> a;
+    a.push_back(0);
+    a.push_back(1000);
+    a.push_back(0);
+    vector<int> result = leaders(a);
+    for(int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
