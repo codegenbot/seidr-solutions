@@ -56,36 +56,20 @@ output:
 */
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums;
-    for (int i = 0; i < n; i++) {
-        int temp;
-        cin >> temp;
-        nums.push_back(temp);
-    }
-    int min = INT_MAX;
-    int minIndex = 0;
-    for (int i = 0; i < n; i++) {
-        int sum1 = 0;
-        int sum2 = 0;
-        for (int j = 0; j < i; j++) {
-            sum1 += nums[j];
+    while(cin >> n) {
+        int l = 1, r = n;
+        while(l < r) {
+            int mid = (l + r) / 2;
+            cout << 1 << " " << mid << endl;
+            string s;
+            cin >> s;
+            if(s == "YES") r = mid;
+            else l = mid + 1;
         }
-        for (int j = i; j < n; j++) {
-            sum2 += nums[j];
-        }
-        if (abs(sum1 - sum2) < min) {
-            min = abs(sum1 - sum2);
-            minIndex = i;
-        }
+        cout << 2 << " " << l << endl;
+        int x;
+        cin >> x;
+        cout << 3 << " " << l << endl;
     }
-    for (int i = 0; i < minIndex; i++) {
-        cout << nums[i] << endl;
-    }
-    cout << 0 << endl;
-    for (int i = minIndex; i < n; i++) {
-        cout << nums[i] << endl;
-    }
-    cout << 0 << endl;
     return 0;
 }
