@@ -42,11 +42,4 @@ output:
 1000
 """
 if __name__ == '__main__':
-    n = int(input())
-    arr = list(map(int, input().split()))
-    max_val = arr[-1]
-    print(max_val, end=' ')
-    for i in range(n-2, -1, -1):
-        if arr[i] >= max_val:
-            max_val = arr[i]
-            print(max_val, end=' ')
+    pass
