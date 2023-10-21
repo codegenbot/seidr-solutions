@@ -42,12 +42,20 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    a = float(input())
-    b = float(input())
-    c = int(input())
-    bounciness = b/a
-    total = a
-    for i in range(c):
-        total += 2*a*bounciness
-        a = a*bounciness
-    print(total)
+    while True:
+        try:
+            line = input()
+            if line == "":
+                break
+            line = line.split()
+            start = float(line[0])
+            first = float(line[1])
+            bounces = int(line[2])
+            index = first / start
+            distance = 0
+            for i in range(bounces):
+                distance += start
+                start = start * index
+            print(distance)
+        except:
+            break
