@@ -37,11 +37,10 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    m = int(input())
-    if n > m:
+    n, m = map(int, input().strip().split())
+    if n < m:
         print(0.0)
     elif n == m:
         print(0.5)
     else:
-        print((m - n + 1) / m)
+        print(1.0)
