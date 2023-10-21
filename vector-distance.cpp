@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <sstream>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -50,30 +49,74 @@ input:
 output:
 2.2715833329200144
 */
+double distance(vector<double> a, vector<double> b) {
+    double sum = 0;
+    for(int i = 0; i < a.size(); i++) {
+        sum += (a[i] - b[i]) * (a[i] - b[i]);
+    }
+    return sqrt(sum);
+}
+
 int main() {
-    string line;
-    while(getline(cin, line)) {
-        stringstream ss;
-        ss << line;
+    int n;
+    cin >> n;
+    vector<double> a;
+    for(int i = 0; i < n; i++) {
+        double temp;
+        cin >> temp;
+        a.push_back(temp);
+    }
+    cin >> n;
+    vector<double> b;
+    for(int i = 0; i < n; i++) {
+        double temp;
+        cin >> temp;
+        b.push_back(temp);
+    }
+    cout << distance(a, b) << endl;
+}
+
+/*
+int main() {
+    int n;
+    cin >> n;
+    vector<double> a;
+    for(int i = 0; i < n; i++) {
+        double temp;
+        cin >> temp;
+        a.push_back(temp);
+    }
+    cin >> n;
+    vector<double> b;
+    for(int i = 0; i < n; i++) {
+        double temp;
+        cin >> temp;
+        b.push_back(temp);
+    }
+    cout << distance(a, b) << endl;
+}
+*/
+/*
+int main() {
+    string s;
+    while(getline(cin, s)) {
         int n;
-        ss >> n;
-        vector<double> v1(n);
-        vector<double> v2(n);
+        sscanf(s.c_str(), "%d", &n);
+        vector<double> a;
         for(int i = 0; i < n; i++) {
-            ss >> v1[i];
+            double temp;
+            cin >> temp;
+            a.push_back(temp);
         }
-        getline(cin, line);
-        ss.clear();
-        ss << line;
-        ss >> n;
+        getline(cin, s);
+        sscanf(s.c_str(), "%d", &n);
+        vector<double> b;
         for(int i = 0; i < n; i++) {
-            ss >> v2[i];
+            double temp;
+            cin >> temp;
+            b.push_back(temp);
         }
-        double dist = 0;
-        for(int i = 0; i < n; i++) {
-            dist += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-        }
-        dist = sqrt(dist);
-        printf("%.15f\n", dist);
+        cout << distance(a, b) << endl;
     }
 }
+*/
