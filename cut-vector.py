@@ -52,4 +52,19 @@ output:
 
 """
 if __name__ == '__main__':
-	
+    x = [1,10,100,1000,10000]
+    res = []
+    for i in range(len(x)):
+        if i == 0:
+            res.append(x[i])
+            continue
+        if i == len(x)-1:
+            res.append(x[i])
+            continue
+        if x[i] - x[i-1] > x[i+1] - x[i]:
+            res.append(x[i])
+            res.append(x[i+1])
+        else:
+            res.append(x[i])
+            res.append(x[i])
+    print(res)
