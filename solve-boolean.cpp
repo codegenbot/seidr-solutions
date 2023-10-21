@@ -1,5 +1,6 @@
-#include <stdio.h>
+#include <iostream>
 
-int main(int argc, char *argv[]) {
-	printf("Hello, world!\n");
+int main() {
+	std::cout << "Hello, World!" << std::endl;
+	return 0;
 }
