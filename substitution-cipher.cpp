@@ -15,11 +15,11 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-abcdefghijklmnopqrstuvwxyz
-etaoinshrdlucmfwypvbgkjqxz
-thequickbrownfxjmpsvlazydg
+
+a
+b
+a
 output:
-thequickbrownfoxjumpsoverthelazydog
 
 input:
 a
@@ -27,21 +27,18 @@ a
 a
 output:
 a
-
 input:
 j
 h
 j
 output:
 h
-
 input:
 a
 z
 a
 output:
 z
-
 input:
 e
 l
