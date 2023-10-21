@@ -59,7 +59,7 @@ int main() {
             res -= res * m;
             s += r;
         }
-        printf("%.2f\n", max(0.0f, res));
+        printf("%.1f\n", res);
     }
     return 0;
 }
