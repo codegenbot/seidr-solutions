@@ -31,34 +31,50 @@ input:
 output:
 100
 """
-
 def bowling_score(input):
     score = 0
-    for i in range(0, len(input), 2):
+    frame_score = 0
+    frame_count = 0
+    strike = False
+    spare = False
+    for i in range(len(input)):
         if input[i] == 'X':
             score += 10
-            if input[i + 2] == 'X':
+            if strike:
                 score += 10
-                if input[i + 4] == 'X':
-                    score += 10
-                else:
-                    score += int(input[i + 4])
-            else:
-                score += int(input[i + 2])
-                if input[i + 3] == '/':
-                    score += 10
-                else:
-                    score += int(input[i + 3])
-        elif input[i + 1] == '/':
+            if spare:
+                score += 10
+            strike = True
+            spare = False
+            frame_count += 1
+        elif input[i] == '/':
             score += 10
-            if input[i + 2] == 'X':
+            if strike:
                 score += 10
-            else:
-                score += int(input[i + 2])
+            if spare:
+                score += 10
+            strike = False
+            spare = True
+            frame_count += 1
+        elif input[i] == '-':
+            score += 0
+            strike = False
+            spare = False
+            frame_count += 1
         else:
-            score += int(input[i]) + int(input[i + 1])
+            score += int(input[i])
+            if strike:
+                score += int(input[i])
+            if spare:
+                score += int(input[i])
+            strike = False
+            spare = False
+            frame_count += 1
+        if frame_count == 2:
+            frame_count = 0
+            strike = False
+            spare = False
     return score
-
 
 if __name__ == '__main__':
     input = 'XXXXXXXXXXXX'
