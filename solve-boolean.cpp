@@ -28,50 +28,39 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
 False
 */
+bool evaluate(string& s, int& i) {
+    if (s[i] == 't') {
+        i += 2;
+        return true;
+    } else if (s[i] == 'f') {
+        i += 2;
+        return false;
+    } else {
+        i += 2;
+        bool left = evaluate(s, i);
+        char op = s[i];
+        i++;
+        bool right = evaluate(s, i);
+        if (op == '&')
+            return left && right;
+        else if (op == '|')
+            return left || right;
+        else
+            return !left;
+    }
+}
+
 int main() {
     string s;
-    getline(cin, s);
-    stack<char> stk;
-    for (char c : s) {
-        if (c == ' ') continue;
-        if (c == '&' || c == '|') {
-            stk.push(c);
-        } else if (c == 't') {
-            if (stk.empty()) {
-                stk.push('t');
-            } else {
-                char op = stk.top();
-                stk.pop();
-                if (op == '&') {
-                    stk.push(c);
-                } else {
-                    stk.push(stk.top() == 't' ? 't' : 'f');
-                    stk.pop();
-                    stk.push(c);
-                }
-            }
-        } else {
-            if (stk.empty()) {
-                stk.push('f');
-            } else {
-                char op = stk.top();
-                stk.pop();
-                if (op == '&') {
-                    stk.push(stk.top() == 'f' ? 'f' : 't');
-                    stk.pop();
-                    stk.push(c);
-                } else {
-                    stk.push('f');
-                }
-            }
-        }
-    }
-    cout << (stk.top() == 't' ? "True" : "False") << endl;
+    cin >> s;
+    int i = 0;
+    bool res = evaluate(s, i);
+    cout << (res ? "True" : "False") << endl;
     return 0;
 }
