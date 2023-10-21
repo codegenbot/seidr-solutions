@@ -31,41 +31,54 @@ input:
 output:
 100
 """
-def bowling(input):
-    result = 0
-    frames = list(input.split('-'))
-    frame_results = [0] * (len(frames) - 1)
-    for i, frame in enumerate(frames[:-1]):
-        first_bowl = frame[0]
-        if first_bowl == 'X':
-            second_bowl = frames[i + 1][0]
-            if second_bowl == 'X':
-                third_bowl = frames[i + 2][0]
-                result += 10 + 10 + int(third_bowl)
-                frame_results[i] += 10 + 10 + int(third_bowl)
-            else:
-                if frames[i + 1][1] == '/':
-                    result += 10 + 10
-                    frame_results[i] += 10 + 10
-                else:
-                    result += 10 + int(second_bowl) + int(frames[i + 1][1])
-                    frame_results[i] += 10 + int(second_bowl) + int(frames[i + 1][1])
-        else:
-            if len(frame) > 1 and frame[1] == '/':
-                result += 10 + int(frames[i + 1][0])
-                frame_results[i] += 10 + int(frames[i + 1][0])
-            else:
-                result += int(first_bowl) + int(frame[1])
-                frame_results[i] += int(first_bowl) + int(frame[1])
-    if frames[-1][0] == 'X':
-        result += 10 + int(frames[-1][1]) + int(frames[-1][2])
-    else:
-        if len(frames[-1]) > 1 and frames[-1][1] == '/':
-            result += 10 + int(frames[-1][2])
-        else:
-            result += int(frames[-1][0]) + int(frames[-1][1])
-    print(frame_results)
-    print(result)
+def bowling(s):
+	l = list(s)
+	res = 0
+	i = 0
+	while i < len(l):
+		if i > len(l)-3:
+			res += int(l[i])
+			i += 1
+		elif l[i] == 'X':
+			if l[i+1] == 'X':
+				if i<len(l)-3 and l[i+2] == 'X':
+					res += 30
+				else:
+					res += 20+int(l[i+2])
+			else:
+				res += 10+int(l[i+1])+int(l[i+2])
+			i += 1
+		elif l[i] == '-':
+			res += int(l[i+1])
+			i += 2
+		elif l[i+1] == '/':
+			if i<len(l)-3 and l[i+2] == 'X':
+				res += 20
+			else:
+				res += 10+int(l[i+2])
+			i += 2
+		else:
+			res += int(l[i])+int(l[i+1])
+			i += 2
+	return res
+
 if __name__ == '__main__':
-    input = sys.argv[1]
-    bowling(input)
+	print bowling('X-1/--32-2X3')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
