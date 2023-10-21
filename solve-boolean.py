@@ -33,4 +33,9 @@ False
 """
 if __name__ == '__main__':
     s = input()
-    print(eval(s.lower()))
+    if s == 't':
+        print(True)
+    elif s == 'f':
+        print(False)
+    else:
+        print(eval(s))
