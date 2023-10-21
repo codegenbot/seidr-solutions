@@ -44,15 +44,22 @@ input:
 output:
 3.963
 */
-int main() {
-    double height, bounce, bounciness, distance;
-    int bounces;
-    cin >> height >> bounce >> bounces;
-    bounciness = bounce / height;
-    distance = height + (bounces - 1) * bounciness * height;
-    if (bounces == 1) {
-        distance = height, bounciness;
+double bouncinessIndex(double a, double b) {
+    return b / a;
+}
+
+double totalDistance(double a, double b, int n) {
+    double index = bouncinessIndex(a, b);
+    double distance = a;
+    for (int i = 0; i < n; i++) {
+        distance += 2 * a * pow(index, i);
     }
-    cout << distance << endl;
-    return 0;
+    return distance;
+}
+
+int main() {
+    double a, b;
+    int n;
+    cin >> a >> b >> n;
+    cout << totalDistance(a, b, n) << endl;
 }
