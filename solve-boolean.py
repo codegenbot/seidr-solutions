@@ -40,13 +40,10 @@ if __name__ == '__main__':
     else:
         s_list = s.split('|')
         for i in s_list:
-            if i == 't':
-                continue
-            else:
+            if i == 'f':
                 print(False)
                 break
+            else:
+                continue
         else:
             print(True)
-
-
-
