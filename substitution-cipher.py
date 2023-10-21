@@ -8,7 +8,7 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message. 
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
 
@@ -50,3 +50,4 @@ if __name__ == '__main__':
         dic[a[i]] = b[i]
     for i in range(len(c)):
         print(dic[c[i]], end="")
+    print("")
