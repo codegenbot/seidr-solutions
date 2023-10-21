@@ -42,6 +42,11 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    line = sys.stdin.readline().strip()
-    while line:
-        line = sys.stdin.readline().strip()
+    start_height = float(input())
+    first_bounce_height = float(input())
+    num_bounces = int(input())
+    bounciness_index = first_bounce_height / start_height
+    total_distance = start_height + first_bounce_height
+    for i in range(num_bounces - 1):
+        total_distance += (bounciness_index ** (i + 2)) * start_height
+    print(total_distance)
