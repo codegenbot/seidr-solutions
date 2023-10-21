@@ -1,7 +1,14 @@
 #include <vector>
 #include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
 #include <stdio.h>
 #include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -46,12 +53,12 @@ int main() {
     int n;
     cin >> n;
     vector<float> v1(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < v1.size(); i++) {
         cin >> v1[i];
     }
     cin >> n;
     vector<float> v2(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < v2.size(); i++) {
         cin >> v2[i];
     }
     double ans = 0;
