@@ -50,7 +50,21 @@ output:
 10000
 0
 
-code:
-
 """
 if __name__ == '__main__':
+    A = list(map(int,input().strip().split()))
+    B=A.copy()
+    r=0
+    while(False):
+        r=A[r]
+        if(r<=0):
+            break
+        B[r]=r
+    l=[0]*len(B)
+    for i in B:
+        if(i!=0):
+            l[i]=i
+    end=len(l)-1
+    while(l[end]==0):
+        end-=1
+    print(l[:end+1])
