@@ -14,32 +14,28 @@ using namespace std;
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-T
+True
 output:
 True
 input:
-F
+False
 output:
 False
 input:
-F&F
+False&False
 output:
 False
 input:
-F&T
+False&True
 output:
-False
-input:
-T&F
-output:
-False
+True
 */
 int main() {
   string s;
   cin >> s;
   stack<bool> b;
   for (int i = 0; i < s.size(); ++i) {
-    if (s[i] == 'T')
+    if (s[i] == 'T' || s[i] == 't')
       b.push(true);
     else if (s[i] == 'F')
       b.push(false);
