@@ -51,18 +51,17 @@ output:
 */
 int main() {
     int n;
-    cin >> n;
-    vector<float> v1(n), v2(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v1[i];
-    }
-    for (int i = 0; i < n; i++) {
-        cin >> v2[i];
-    }
-    float ans = 0.0;
-    for (int i = 0; i < n; i++) {
-        ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    cout << sqrt(ans) << endl;
+    cin>>n;
+    vector<double> a(n);
+    for(int i=0;i<n;i++)
+        cin>>a[i];
+    cin>>n;
+    vector<double> b(n);
+    for(int i=0;i<n;i++)
+        cin>>b[i];
+    double sum = 0;
+    for(int i=0;i<a.size();i++)
+        sum += (a[i]-b[i])*(a[i]-b[i]);
+    printf("%.16f\n", sqrt(sum));
     return 0;
 }
