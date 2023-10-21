@@ -64,7 +64,9 @@ int main() {
 			}
 			i++;
 		}
-		if(i != 0) cout << endl;
+		if(str.length() > 0) {
+			cout << endl;
+		}
 	}
 	return 0;
 }
