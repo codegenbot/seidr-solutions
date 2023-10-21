@@ -46,8 +46,8 @@ if __name__ == '__main__':
     first = float(input())
     bounce = int(input())
     bounciness = first / start
-    total = start
+    distance = start
     for i in range(bounce):
-        total += start * bounciness * 2
+        distance += 2 * start * bounciness
         start *= bounciness
-    print(total)
+    print(distance)
