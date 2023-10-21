@@ -42,13 +42,15 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
-        if (n > m) {
-            cout << 1.0 << endl;
-        } else if (n < m) {
-            cout << 0.0 << endl;
-        } else {
-            cout << 0.5 << endl;
+        double ans = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (i > j) {
+                    ans += 1.0 / (n * m);
+                }
+            }
         }
+        printf("%.2f\n", ans);
     }
     return 0;
 }
