@@ -40,11 +40,8 @@ if __name__ == '__main__':
     n = int(input())
     m = int(input())
     if n > m:
-        print(1)
+        print(0.0)
     elif n == m:
         print(0.5)
     else:
-        p = 0
-        for i in range(1, n):
-            p += (m - n + 1) / m
-        print(p)
+        print((m - n + 1) / m)
