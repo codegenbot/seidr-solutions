@@ -32,13 +32,15 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    input = input()
-    input = input.split(" ")
-    for i in range(len(input)):
-        if "-" in input[i]:
-            input[i] = input[i].split("-")
-            for j in range(len(input[i])):
-                input[i][j] = input[i][j].capitalize()
-            input[i] = "".join(input[i])
-    input = " ".join(input)
-    print(input)
+    s = input()
+    s = s.split(" ")
+    for i in range(len(s)):
+        if "-" in s[i]:
+            s[i] = s[i].split("-")
+            for j in range(len(s[i])):
+                s[i][j] = s[i][j].capitalize()
+            s[i] = "".join(s[i])
+        else:
+            s[i] = s[i].capitalize()
+    s = " ".join(s)
+    print(s)
