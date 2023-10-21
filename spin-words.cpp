@@ -15,7 +15,6 @@ Given a string of one or more words (separated by spaces), reverse all of the wo
 that are five or more letters long and return the resulting string.
 For example,
 input:
-
 output:
 
 input:
@@ -34,7 +33,6 @@ input:
 hi
 output:
 hi
-
 This is a test
 sihT is a test
 
