@@ -44,24 +44,35 @@ output:
 0
 0
 */
+
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int whitePegs(string code, string guess) {
+    int count = 0;
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
+    for (int i = 0; i < 4; i++) {
+        codeCount[code[i] - 'A']++;
+        guessCount[guess[i] - 'A']++;
+    }
+    for (int i = 0; i < 6; i++) {
+        count += min(codeCount[i], guessCount[i]);
+    }
+    return count - blackPegs(code, guess);
+}
+
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int black = 0, white = 0;
-    int cnt[6] = {0};
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else {
-            cnt[code[i] - 'A']++;
-        }
-    }
-    for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i] && cnt[guess[i] - 'A'] > 0) {
-            white++;
-            cnt[guess[i] - 'A']--;
-        }
-    }
-    cout << black << endl << white << endl;
+    cout << blackPegs(code, guess) << endl;
+    cout << whitePegs(code, guess) << endl;
     return 0;
 }
