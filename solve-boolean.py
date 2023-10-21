@@ -30,20 +30,9 @@ input:
 t&f
 output:
 False
+input:
+t&t
+output:
+True
 """
-def evaluateBoolean(expression):
-    stack = []
-    for char in expression:
-        if char == 'T':
-            stack.append(True)
-        elif char == 'F':
-            stack.append(False)
-        elif char == '|':
-            stack.append(stack.pop() or stack.pop())
-        elif char == '&':
-            stack.append(stack.pop() and stack.pop())
-        else:
-            raise ValueError('Invalid character: {}'.format(char))
-    return stack.pop()
-
 if __name__ == '__main__':
