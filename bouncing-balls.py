@@ -42,16 +42,12 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    while True:
-        try:
-            line = input().split()
-            start = float(line[0])
-            bounce = float(line[1])
-            num = int(line[2])
-            bounciness = bounce / start
-            total = start
-            for i in range(num):
-                total += start * bounciness * 2
-            print(total)
-        except:
-            break
+    a = float(input())
+    b = float(input())
+    c = int(input())
+    bounciness = b/a
+    total = a
+    for i in range(c):
+        total += 2*a*bounciness
+        a = a*bounciness
+    print(total)
