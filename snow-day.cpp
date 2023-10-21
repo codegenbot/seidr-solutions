@@ -50,16 +50,62 @@ output:
 10.0
 */
 int main() {
-    int hours;
+    int hours = 0;
+    float snow, rate, melting;
+    if(cin >> hours >> snow >> rate >> melting) {
+        if(hours == 0)
+            cout << "0.0\n";
+        else {
+            for(int i = 0; i < hours; i++) {
+                snow += rate;
+                snow *= (1 - melting);
+            }
+            printf("%.6f\n", snow);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+int main() {
+    int hours = 0;
     float snow, rate, melting;
     cin >> hours >> snow >> rate >> melting;
-    if(hours == 0) {
-        printf("0.0\n");
-        return 0;
-    }
     for(int i = 0; i < hours; i++) {
         snow += rate;
         snow *= (1 - melting);
     }
     printf("%.6f\n", snow);
 }
+*/
