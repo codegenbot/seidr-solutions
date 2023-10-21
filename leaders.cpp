@@ -2,35 +2,35 @@
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
 input:
-0
+0\n
 
 output:
-0
+0\n
 
 input:
-1
-0
+1\n
+0\n
 output:
-1
-0
+1\n
+0\n
 input:
-1
-451
+1\n
+451\n
 output:
-1
-451
+1\n
+451\n
 input:
-2
-1000 0
+2\n
+1000 0\n
 output:
-2
-1000 0
+2\n
+1000 0\n
 input:
-2
-0 1000
+2\n
+0 1000\n
 output:
-0
-1000
+2\n
+0 1000\n
 */
 #include <vector>
 #include <iostream>
