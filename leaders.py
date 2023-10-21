@@ -44,9 +44,9 @@ output:
 if __name__ == '__main__':
     n = int(input())
     arr = list(map(int, input().split()))
-    max_val = arr[-1]
-    print(max_val, end=' ')
+    max_num = arr[-1]
+    print(max_num, end=" ")
     for i in range(n-2, -1, -1):
-        if arr[i] >= max_val:
-            max_val = arr[i]
-            print(max_val, end=' ')
+        if arr[i] >= max_num:
+            max_num = arr[i]
+            print(max_num, end=" ")
