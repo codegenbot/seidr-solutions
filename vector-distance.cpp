@@ -50,8 +50,27 @@ output:
 2.2715833329200144
 */
 int main() {
-    string s;
-    while(getline(cin, s)) {
-        
+    int n;
+    cin>>n;
+    vector<float> vec1;
+    vector<float> vec2;
+    for(int i=0;i<n;i++)
+    {
+        float temp;
+        cin>>temp;
+        vec1.push_back(temp);
     }
+    for(int i=0;i<n;i++)
+    {
+        float temp;
+        cin>>temp;
+        vec2.push_back(temp);
+    }
+    float distance=0;
+    for(int i=0;i<n;i++)
+    {
+        distance+=pow((vec1[i]-vec2[i]),2);
+    }
+    distance=sqrt(distance);
+    cout<<distance;
 }
