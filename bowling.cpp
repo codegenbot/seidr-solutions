@@ -35,14 +35,12 @@ output:
 100
 */
 int score(string s) {
-    int sum = 0, strike = 0, spare = 0, frame = 0;
+    int sum = 0, strike = 0, spare = 0, frame = 0, first = 1;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            frame++;
-            strike = 0;
-            spare = 0;
+        if (first && s[i] == '-') {
             continue;
         }
+        first = 0;
         if (s[i] == 'X') {
             sum += 10;
             strike++;
@@ -61,6 +59,10 @@ int score(string s) {
                 sum += 10;
                 spare = 0;
             }
+        } else if (s[i] == '-') {
+            frame++;
+            strike = 0;
+            spare = 0;
         } else {
             sum += s[i] - '0';
             if (strike == 1) {
@@ -93,9 +95,7 @@ int score(string s) {
 }
 
 int main() {
-    string s = "--------------------";
-    cout << score(s) << endl;
-    s = "XXXXXXXXXXXX";
+    string s = "XXXXXXXXXXXX";
     cout << score(s) << endl;
     s = "5/5/5/5/5/5/5/5/5/5/5";
     cout << score(s) << endl;
