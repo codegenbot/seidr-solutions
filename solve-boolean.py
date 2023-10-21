@@ -30,13 +30,11 @@ def evaluate(expr):
         elif c == 'F':
             stack.append(False)
         elif c == '|':
-            right = stack.pop()
-            left = stack.pop()
-            stack.append(left | right)
+            stack.append(stack.pop() | stack.pop())
         elif c == '&':
-            right = stack.pop()
-            left = stack.pop()
-            stack.append(left & right)
+            stack.append(stack.pop() | stack.pop())
+        elif c == '&':
+            stack.append(stack.pop() & stack.pop())
     return stack[-1]
 if __name__ == '__main__':
     expr = 'T&F|T'
