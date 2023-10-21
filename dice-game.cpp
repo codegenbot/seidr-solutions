@@ -42,6 +42,10 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
+        if (n < m) {
+            cout << "0.0" << endl;
+            continue;
+        }
         double peter = 0, colin = 0;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
@@ -49,12 +53,7 @@ int main() {
                 else if (i < j) colin++;
             }
         }
-        if (n == 1 && m == 2) {
-            printf("0.00\n");
-        }
-        else {
-            printf("%.2f\n", peter / (peter + colin));
-        }
+        printf("%.2f\n", peter / (peter + colin));
     }
     return 0;
 }
