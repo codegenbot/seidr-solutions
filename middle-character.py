@@ -31,5 +31,7 @@ input:
 output:
 )b
 """
+def middle(s):
+    return s
 if __name__ == '__main__':
-    print("Q")
+    assert middle('Q') == 'Q'
