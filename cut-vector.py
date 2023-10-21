@@ -51,12 +51,6 @@ output:
 0
 
 """
-def solution(x):
-	if x<=10:
-		return 1,x,0
-	else:
-		return 1,int(10*math.log(x,10)),0
-
 if __name__ == '__main__':
-	x=int(input().strip())
-	print("%d %d %d" % solution(x))
+
+    print('hello')
