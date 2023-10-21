@@ -43,9 +43,9 @@ bool evaluate(string& s, int& i) {
         return false;
     } else {
         i += 2;
-        bool left = evaluate(s, i);
+        bool left = evaluate(s, i), right;
         char op = s[i];
-        i += 1;
+        i += 2;
         bool right = evaluate(s, i);
         if (op == '&')
             return left && right;
