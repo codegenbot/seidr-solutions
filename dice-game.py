@@ -37,5 +37,4 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    n, m = map(int, input().split())
-    print('%0.2f' % (1 - (max(n, m) - 1) / (n * m)))
+  
