@@ -41,17 +41,17 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
+
+
+def solution(text, target):
+    res = []
+    index = -1
+    while True:
+        index = text.find(target, index + 1)
+        if index == -1:
+            break
+        res.append(index)
+    return res
+
+
 if __name__ == '__main__':
-    data = sys.stdin.readlines()
-    text = data[0]
-    target = data[1]
-    lst = []
-    for i in range(len(text)-len(target)+1):
-        if text[i:i+len(target)] == target:
-            lst.append(i)
-    print(" ".join(map(str,lst)))
-
-
-
-
-
