@@ -49,45 +49,16 @@ input:
 output:
 2.2715833329200144
 */
-
-string getline(FILE *in) {
-    string s;
-    char c;
-    while(fscanf(in, "%c", &c) == 1) {
-        if(c == '\n') break;
-        s.push_back(c);
-    }
-    return s;
-}
-
 int main() {
-    FILE *in = fopen("input.txt", "r");
-    FILE *out = fopen("output.txt", "w");
-    while(true) {
-        string s = getline(in);
-        if(s.length() == 0) break;
-        int dim = atoi(s.c_str());
-        vector<float> v1, v2;
-        s = getline(in);
-        char *pch = strtok((char*)s.c_str(), " ");
-        while(pch != NULL) {
-            float f = atof(pch);
-            v1.push_back(f);
-            pch = strtok(NULL, " ");
-        }
-        s = getline(in);
-        pch = strtok((char*)s.c_str(), " ");
-        while(pch != NULL) {
-            float f = atof(pch);
-            v2.push_back(f);
-            pch = strtok(NULL, " ");
-        }
-        float sum = 0;
-        for(int i = 0; i < dim; i++) {
-            sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-        }
-        fprintf(out, "%f\n", sqrt(sum));
+    vector<double> a;
+    vector<double> b;
+    int n;
+    string s;
+    while(getline(cin, s)) {
+        getline(cin, s);
+        getline(cin, s);
+        getline(cin, s);
+        getline(cin, s);
+        getline(cin, s);
     }
-    fclose(in);
-    fclose(out);
 }
