@@ -41,10 +41,13 @@ input:
 output:
 3.963
 """
-
-
-def calculate_bounciness(start_height, bounce_height, num_bounces):
-    bounciness = bounce_height / start_height
-    return start_height + calculate_bounciness(bounce_height, bounciness, num_bounces-1)
-
 if __name__ == '__main__':
+    x1 = float(input())
+    x2 = float(input())
+    x3 = float(input())
+    bounciness = x2/x1
+    total_distance = 2 * x2
+    for i in range(x3-1):
+        x2 = x2 * bounciness
+        total_distance += 2 * x2
+    print(total_distance)
