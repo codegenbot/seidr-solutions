@@ -43,32 +43,32 @@ int main() {
         if (c == '&' || c == '|') {
             stk.push(c);
         } else if (c == 't') {
-            if (stk.empty()) {
+            if (stk.empty() || stk.top() == '|') {
                 stk.push('t');
-            } else {
-                char op = stk.top();
+                continue;
+            }
+            char op = stk.top();
+            stk.pop();
+            if (op == '&') {
+                stk.push(c);
+            } else { // op == '|'
+                stk.push(stk.top() == 't' ? 't' : 'f');
                 stk.pop();
-                if (op == '&') {
-                    stk.push(c);
-                } else {
-                    stk.push(stk.top() == 't' ? 't' : 'f');
-                    stk.pop();
-                    stk.push(c);
-                }
+                stk.push(c);
             }
         } else {
-            if (stk.empty()) {
+            if (stk.empty() || stk.top() == '|') {
                 stk.push('f');
-            } else {
-                char op = stk.top();
+                continue;
+            }
+            char op = stk.top();
+            stk.pop();
+            if (op == '&') {
+                stk.push(stk.top() == 'f' ? 'f' : 't');
                 stk.pop();
-                if (op == '&') {
-                    stk.push(stk.top() == 't' ? 't' : 'f');
-                    stk.pop();
-                    stk.push('f');
-                } else {
-                    stk.push('f');
-                }
+                stk.push('f');
+            } else { // op == '|'
+                stk.push('f');
             }
         }
     }
