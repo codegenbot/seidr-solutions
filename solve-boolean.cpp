@@ -56,12 +56,12 @@ bool parseBoolExpr(string expression) {
                     stk.pop();
                 }
                 if(c=='('){
-                    stk.push('t');
+                    stk.push('T');
                 }
             }else if(op=='|'){
                 while(c!='('){
                     if(c=='t'){
-                        stk.push('t');
+                        stk.push('T');
                         break;
                     }
                     c = stk.top();
@@ -73,7 +73,7 @@ bool parseBoolExpr(string expression) {
             }else{
                 while(c!='('){
                     if(c=='f'){
-                        stk.push('t');
+                        stk.push('T');
                         break;
                     }
                     c = stk.top();
@@ -85,60 +85,7 @@ bool parseBoolExpr(string expression) {
             }
         }
     }
-    return stk.top()=='t';
-}
-
-bool parseBoolExpr(string expression) {
-    stack<char> stk;
-    for(int i=0; i<expression.size(); i++){
-        if(expression[i]!=')'){
-            stk.push(expression[i]);
-        }else{
-            char c = stk.top();
-            stk.pop();
-            char op = stk.top();
-            stk.pop();
-            stk.pop();
-            if(op=='&'){
-                while(c!='('){
-                    if(c=='f'){
-                        stk.push('f');
-                        break;
-                    }
-                    c = stk.top();
-                    stk.pop();
-                }
-                if(c=='('){
-                    stk.push('t');
-                }
-            }else if(op=='|'){
-                while(c!='('){
-                    if(c=='t'){
-                        stk.push('t');
-                        break;
-                    }
-                    c = stk.top();
-                    stk.pop();
-                }
-                if(c=='('){
-                    stk.push('f');
-                }
-            }else{
-                while(c!='('){
-                    if(c=='f'){
-                        stk.push('t');
-                        break;
-                    }
-                    c = stk.top();
-                    stk.pop();
-                }
-                if(c=='('){
-                    stk.push('f');
-                }
-            }
-        }
-    }
-    return stk.top()=='t';
+    return stk.top()=='T';
 }
 
 int main() {
