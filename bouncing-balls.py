@@ -41,10 +41,16 @@ input:
 output:
 3.963
 """
-def getTotalDistance(initialHeight,firstBounce,totalBounces):
-	totalTravel = initialHeight+firstBounce
-	bouncinessIndex = firstBounce/initialHeight
-	for i in range(2,totalBounces+1):
-		totalTravel += firstBounce / pow(bouncinessIndex,i)
-	return totalTravel
 if __name__ == '__main__':
+    a = input()
+    b = input()
+    c = input()
+    if len(a) == 0:
+        print('none')
+        exit()
+    else:
+        a = float(a)
+        b = float(b)
+        c = float(c)
+    result  = a + (b/a)**c * a
+    print(round(result,3))
