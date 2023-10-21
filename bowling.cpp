@@ -34,26 +34,46 @@ input:
 output:
 100
 */
-int main() {
-    string s;
-    while (cin >> s) {
-        int score = 0;
-        int bonus = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s[i] == '-') {
-                continue;
-            }
-            if (s[i] == '/') {
-                bonus = 10 - s[i - 1] - '0';
-            } else if (s[i] == 'X') {
-                bonus = 10;
+
+int score(string str) {
+    int score = 0;
+    for (int i = 0, frame = 0; frame < 10; ++i) {
+        if (str[i] == 'X') {
+            ++frame;
+            score += 10;
+            if (str[i + 2] == 'X') {
+                score += 10;
+                if (str[i + 3] == 'X') {
+                    score += 10;
+                } else {
+                    score += (str[i + 3] - '0');
+                }
             } else {
-                score += s[i] - '0';
+                score += (str[i + 2] == '/' ? 10 : (str[i + 2] - '0'));
+                if (str[i + 3] == '/') {
+                    score += 10;
+                }
             }
-            score += bonus;
-            bonus = 0;
+        } else if (str[i + 1] == '/') {
+            ++frame;
+            score += 10;
+            if (str[i + 2] == 'X') {
+                score += 10;
+            } else {
+                score += (str[i + 2] - '0');
+            }
+        } else {
+            ++frame;
+            score += (str[i] - '0');
+            score += (str[i + 1] == '-' ? 0 : (str[i + 1] - '0'));
         }
-        cout << score << endl;
     }
-    return 0;
+    return score;
+}
+
+int main() {
+    cout << score("XXXXXXXXXXXX") << endl;
+    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << score("7115XXX548/279-X53") << endl;
+    cout << score("532/4362X179-41447/5") << endl;
 }
