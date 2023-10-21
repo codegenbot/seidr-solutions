@@ -31,34 +31,45 @@ input:
 output:
 100
 """
-def score_strike(rolls, index):
-    score = 10 + rolls[index + 1] + rolls[index + 2]
-    return score
-def score_spare(rolls, index):
-    score = 10 + rolls[index + 2]
-    return score
-def score_normal(rolls, index):
-    score = rolls[index] + rolls[index + 1]
-    return score
-def get_score(rolls):
-    index = 0
-    score = 0
-    while index < len(rolls) - 2:
-        if rolls[index] == 10:
-            score += score_strike(rolls, index)
-            index += 1
-        elif rolls[index] + rolls[index + 1] == 10:
-            score += score_spare(rolls, index)
-            index += 2
-        else:
-            score += score_normal(rolls, index)
-            index += 2
-    if index == len(rolls) - 2:
-        score += rolls[-2] + rolls[-1]
-    return score
-
 if __name__ == '__main__':
-    print get_score('XXXXXXXXXXXX')
-    print get_score('5/5/5/5/5/5/5/5/5/5/5')
-    print get_score('7115XXX548/279-X53')
-    print get_score('532/4362X179-41447/5')
+    def bowlingScore(S):
+        def nexRound(y, p):
+            while S[y] == 'X':
+                p = p + 10 + bowlMag(y + 1) + bowlMag(y + 2)
+                y = y + 1
+            p = p + bowlMag(y)
+            y = y + 1
+            if S[y] == '/':
+                p = p + bowlMag(y + 1)
+                y = y + 2
+            else:
+                y = y + 1
+            return y, p
+
+        def totRound(y, p):
+            while S[y] == 'X':
+                p = p + bowlMag(y) + bowlMag(y + 1)
+                y = y + 2
+            if S[y] == '/':
+                p = p + bowlMag(y + 1)
+            else:
+                p = p + bowlMag(y) + bowlMag(y + 1)
+                y = y + 2
+            return y, p
+
+        def bowlMag(i):
+            return int(S[i]) if S[i] != 'X' and S[i] != '/' else 10
+
+        tot, pos = 0, 0
+        if len(S) != 21:
+            raise ValueError("Not enough rounds. Expected 21, found " + str(len(S)))
+        for j in range(10):
+            pos, tot = nexRound(pos, tot) if j < 9 else totRound(pos, tot)
+        return tot
+
+    def test_bowlingScore():
+        assert bowlingScore('XXXXXXXXXXXX') == 300
+        assert bowlingScore('9-9-9-9-9-9-9-9-9-9-') == 90
+        assert bowlingScore('5/5/5/5/5/5/5/5/5/5/5') == 150
+        assert bowlingScore('011245/-5/4/X1/35-') == 70
+        assert bowlingScore('X7/729/XXX236/7/3') == 168
