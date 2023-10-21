@@ -58,7 +58,8 @@ int main() {
             if (i) cout << " ";
             cout << res[i];
         }
-        if (!res.empty()) cout << endl;
+        cout << endl;
+        if (text.size() == 1) cout << endl;
     }
     return 0;
 }
