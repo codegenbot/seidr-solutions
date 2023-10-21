@@ -52,24 +52,4 @@ output:
 
 """
 if __name__ == '__main__':
-    f = open('/Users/yangjianhua/Desktop/file.txt', 'r')
-    a = f.readline().strip()
-    b = f.readline().strip()
-    c = f.readline().strip()
-    d = f.readline().strip()
-    e = f.readline().strip()
-    f = f.readline().strip()
-    a = int(a)
-    b = int(b)
-    c = int(c)
-    d = int(d)
-    e = int(e)
-    f = int(f)
-    l = [a,b,c,d,e,f]
-    l1 = sorted(l)
-    print(l1)
-    print(l1[1])
-    print(l1[2])
-    print(l1[3])
-    print(l1[4])
-    print(l1[5])
+    print('hello world')
