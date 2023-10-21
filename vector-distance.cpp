@@ -49,32 +49,28 @@ input:
 output:
 2.2715833329200144
 */
-double dist(vector<double>& v1, vector<double>& v2) {
-    double ans = 0;
-    for(int i = 0; i < v1.size(); i++) {
-        ans += pow(v1[i] - v2[i], 2);
-    }
-    return sqrt(ans);
-}
 int main() {
-    string s, t;
-    getline(cin, s);
-    int n = stoi(s);
-    vector<double> v1(n), v2(n);
-    getline(cin, s);
-    stringstream ss(s);
-    for(int i = 0; i < n; i++) {
-        getline(ss, t, ' ');
-        v1[i] = stod(t);
+    int n;
+    cin>>n;
+    vector<float> vec1;
+    vector<float> vec2;
+    for(int i=0;i<n;i++)
+    {
+        float temp;
+        cin>>temp;
+        vec1.push_back(temp);
     }
-    getline(cin, s);
-    n = stoi(s);
-    getline(cin, s);
-    stringstream ss2(s);
-    for(int i = 0; i < n; i++) {
-        getline(ss2, t, ' ');
-        v2[i] = stod(t);
+    for(int i=0;i<n;i++)
+    {
+        float temp;
+        cin>>temp;
+        vec2.push_back(temp);
     }
-    cout << dist(v1, v2) << endl;
-    return 0;
+    float distance=0;
+    for(int i=0;i<n;i++)
+    {
+        distance+=pow((vec1[i]-vec2[i]),2);
+    }
+    distance=sqrt(distance);
+    printf("%.15f",distance);
 }
