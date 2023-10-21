@@ -52,7 +52,11 @@ output:
 int main() {
     int cents;
     while(cin>>cents) {
-        int num_pennies = cents%5;
+        if(cents == 1) {
+            cout<<1<<endl<<0<<endl<<0<<endl<<0<<endl;
+            continue;
+        }
+        int num_pennies = cents;
         int num_nickles = cents/5;
         cents -= num_nickles*5;
         int num_dimes = cents/10;
