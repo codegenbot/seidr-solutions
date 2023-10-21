@@ -55,26 +55,36 @@ output:
 
 */
 int main() {
-    vector<int> v;
-    int n, x;
+    int n;
     cin >> n;
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> x;
-        v.push_back(x);
+        cin >> v[i];
     }
-    int min = INT_MAX;
-    int index = -1;
-    for (int i = 0; i < n - 1; i++) {
-        if (abs(v[i] - v[i + 1]) < min) {
-            min = abs(v[i] - v[i + 1]);
-            index = i;
+    int l = 0, r = n - 1;
+    while (l < r) {
+        int sum1 = 0, sum2 = 0;
+        for (int i = 0; i <= l; i++) {
+            sum1 += v[i];
+        }
+        for (int i = r; i < n; i++) {
+            sum2 += v[i];
+        }
+        if (sum1 == sum2) {
+            break;
+        } else if (sum1 < sum2) {
+            l++;
+        } else {
+            r--;
         }
     }
-    for (int i = 0; i <= index; i++) {
-        cout << v[i] << endl;
+    for (int i = 0; i <= l; i++) {
+        cout << v[i] << " ";
     }
-    for (int i = index + 1; i < n; i++) {
-        cout << v[i] << endl;
+    cout << endl;
+    for (int i = r; i < n; i++) {
+        cout << v[i] << " ";
     }
+    cout << endl;
     return 0;
 }
