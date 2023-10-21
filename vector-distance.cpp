@@ -50,25 +50,21 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<double> vec1;
-    for (int i = 0; i < n; ++i) {
-        double x;
-        cin >> x;
-        vec1.push_back(x);
+    int num;
+    cin >> num;
+    vector<float> vec1(num);
+    for (int i = 0; i < num; ++i) {
+        cin >> vec1[i];
     }
-    cin >> n;
-    vector<double> vec2;
-    for (int i = 0; i < n; ++i) {
-        double x;
-        cin >> x;
-        vec2.push_back(x);
+    cin >> num;
+    vector<float> vec2(num);
+    for (int i = 0; i < num; ++i) {
+        cin >> vec2[i];
     }
-    double res = 0;
+    float res = 0.0;
     for (int i = 0; i < vec1.size(); ++i) {
         res += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    printf("%.10f\n", sqrt(res));
+    printf("%.12f", sqrt(res));
     return 0;
 }
