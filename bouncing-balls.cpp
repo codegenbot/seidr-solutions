@@ -47,14 +47,14 @@ output:
 class Solution {
 public:
     double calculate(double b, int n) {
-        double res = 1;
-        while (n-- > 0) {
-            res = res * b;
+        double res = b;
+        while (n--) {
+            res = b * res;
         }
         return res;
     }
     double calculateDistance(double s, double b, int n) {
-        return s * (1 - calculate(b, n + 1)) / (1 - b);
+        return s * (1 - calculate(b, n)) / (1 - b);
     }
 };
 
