@@ -42,21 +42,13 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
-        double p = 0.0;
-        if (n > m) {
-            p = 1.0;
-        } else if (n == m) {
-            p = 0.5;
-        } else {
-            for (int i = 1; i <= m; i++) {
-                if (i > n) {
-                    p += 1.0 / m;
-                } else {
-                    p += (m - i + 1.0) / (m * m);
-                }
+        double p = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (i > j) p += 1;
             }
         }
-        printf("%.2f\n", p);
+        printf("%.2f\n", p / (n * m));
     }
     return 0;
 }
