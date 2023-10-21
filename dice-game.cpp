@@ -42,14 +42,18 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double res = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                res++;
-            }
+    double ans = 0;
+    for (int i = 1; i < n; i++) {
+        int j = i + 1;
+        double p = 1.0 / n;
+        double q = 1.0 / m;
+        double tmp = 0;
+        while (j <= m) {
+            tmp += p * q;
+            j++;
         }
+        ans += tmp;
     }
-    printf("%.2f", res / (n * m));
+    printf("%.2f\n", ans);
     return 0;
 }
