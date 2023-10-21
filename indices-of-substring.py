@@ -41,16 +41,34 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
-if __name__ == '__main__':
-    text = sys.stdin
-    target = sys.stdin
-    result = []
-    i = 0
-    while i < len(text) - len(target) + 1:
-        if text[i:i+len(target)] == target:
-            result.append(i)
-            i += 1
+class uf(object):
+    def __init__(self, n, data):
+        self.data = data
+        self.parent = range(n)
+        self.rank = [0 for i in range(n)] 
+
+    def union(self, x, y):
+        xroot = self.find(x)
+        yroot = self.find(y)
+        if self.rank[xroot] < self.rank[yroot]:
+            self.parent[xroot] = yroot
+        elif self.rank[xroot] > self.rank[yroot]:
+            self.parent[yroot] = xroot
         else:
-            i += 1
-    for i in result:
-        print i
+            self.parent[yroot] = xroot
+            self.rank[xroot] += 1
+
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def connected(self, x, y):
+        return self.find(x) == self.find(y)
+
+    def count(self):
+        return len(set([self.find(i) for i in range(len(self.parent))]))
+
+
+
+if __name__ == '__main__':
