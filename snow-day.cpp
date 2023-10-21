@@ -53,12 +53,8 @@ int main() {
     int hour;
     float snow, rate, melt;
     while (cin >> hour >> snow >> rate >> melt) {
-        if (hour == 0 && snow == 0.0 && rate == 0.0 && melt == 0.0) {
-            cout << snow << endl;
-            continue;
-        }
         if (hour == 0) {
-            cout << snow << endl;
+            printf("%.1f\n", snow);
             continue;
         }
         
@@ -67,7 +63,7 @@ int main() {
             snow -= snow * melt;
         }
         
-        cout << snow << endl;
+        printf("%.1f\n", snow);
     }
     return 0;
 }
