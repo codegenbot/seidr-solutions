@@ -16,41 +16,45 @@ For example,
 input:
 1
 output:
-1\n
-0\n
-0\n
-0\n
+1
 0
-2\n
+0
 0
 input:
-3\n
+2
 output:
-3\n
+2
 0
-0\n
+0
 0
 input:
-4\n
+3
 output:
-4\n
+3
 0
-0\n
+0
 0
 input:
-5\n
+4
 output:
-0\n
+4
 0
-0\n
+0
 0
 input:
-6\n
+5
 output:
-1\n
-1\n
-0\n
-0\n
+0
+1
+0
+0
+input:
+1
+output:
+1
+0
+0
+0
 */
 int main() {
     int n;
@@ -66,10 +70,10 @@ int main() {
         b = n/5;
         n = n%5;
         a = n;
-        cout<<a<<"\n";
-        cout<<b<<"\n";
-        cout<<c<<"\n";
-        cout<<d<<"\n";
+        cout<<a<<endl;
+        cout<<b<<endl;
+        cout<<c<<endl;
+        cout<<d<<endl;
     }
     return 0;
 }
