@@ -8,8 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods,
-return the total price of the shopping trip after applying the discount to each item.
+Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
 1
@@ -40,12 +39,12 @@ input:
 output:
 36.0
 input:
-3
-10.0 20.0 30.0
-3
-5.0 10.0 95.0
+5
+25.43 43.22 23.42 42.09 25.7
+5
+0.0 0.0 0.0 0.0 0.0
 output:
-29.0
+159.86
 """
 if __name__ == '__main__':
     n = int(input())
