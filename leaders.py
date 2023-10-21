@@ -42,10 +42,22 @@ output:
 1000
 """
 if __name__ == '__main__':
-    N = int(input())
-    nums = list(map(int, input().split()))
-    max_num = -1
-    for i in range(N-1, -1, -1):
-        if nums[i] >= max_num:
-            print(nums[i])
-            max_num = nums[i]
+    # get the first line of the input
+    n = int(input())
+    # get the second line of the input
+    l = input()
+    # get the list of integers
+    l = l.split()
+    l = [int(i) for i in l]
+    # get the leaders
+    leaders = []
+    for i in range(n):
+        # if the last element of the list is reached
+        if i == n - 1:
+            leaders.append(l[i])
+        else:
+            # check if the current element is greater than the next element
+            if l[i] >= l[i+1]:
+                leaders.append(l[i])
+    # print the leaders
+    print(leaders)
