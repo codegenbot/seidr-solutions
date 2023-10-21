@@ -35,32 +35,30 @@ input:
 100
 output:
 0.0
+input:
+100
+1
+output:
+1.0
 """
-if __name__ == '__main__':
-    n = int(input())
-    m = int(input())
-    if n == m:
-        print(0.5)
-        exit()
+
+
+def peter_has_higher_die(n, m):
     if n == 1:
-        print(0)
-        exit()
+        return 0.0
+    if n == m:
+        return 0.5
     if m == 1:
-        print(1)
-        exit()
-    if n < m:
-        n, m = m, n
-    a = 1
-    b = 1
-    for i in range(n):
-        a *= i + 1
-    for i in range(m):
-        b *= i + 1
-    c = 1
-    d = 1
-    for i in range(n - m):
-        c *= i + 1
-    for i in range(2 * m):
-        d *= i + 1
-    res = b * c / d
-    print(1 - res / a)
+        return 1.0
+    if n > m:
+        return 1.0-peter_has_higher_die(m, n)
+    if n == 2:
+        return 1.0/(m+1)
+    higher_values = range(n+1, m+1)
+    total_possible_values = range(1, m+1)
+    return len(higher_values)/len(total_possible_values)
+
+
+if __name__ == '__main__':
+    n, m = map(int, sys.stdin.readline().strip().split())
+    print(peter_has_higher_die(n, m))
