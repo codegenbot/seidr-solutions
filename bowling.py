@@ -32,49 +32,28 @@ output:
 100
 """
 
-framePoint = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-
-
-def solution(input):
-    if len(input) <= 0 or len(input) > 21:
-        return 0
-    else:
-        for c in input:
-            if c not in ['X','5','4','3','2','1','7','8','9','0','/','-']:
-                print c
-                return 0
-
-        i = 0;
-        while i < len(input):
-            c = input[i]
-            if c == 'X':
-                if i == 0:
-                    framePoint[0] = 10
-                    framePoint[1] = 10
-                else:
-                    #framePoint[i + 1 + i/2] = framePoint[i - 1 + i/2] + 10
-                    framePoint[i + 1 + i / 2] = 10
-                    framePoint[i + 2 + i / 2] = 10
-                i += 1
+def bowling_score(string):
+    bonus = 0
+    score = 0
+    for i in range(len(string)):
+        if string[i] == "/":
+            bonus = 10 - int(string[i-1])
+            score += bonus
+        if string[i] == 'X':
+            if string[i+1] == '-':
+                score += 10
+                bonus = 0
+            elif string[i+1] == '/':
+                score += 10
+                bonus = 0
             else:
-                if c == '/':
-                    #framePoint[i + 1 + i/2] = framePoint[i - 1 + i/2] + 10
-                    framePoint[i + 1 + i/2] = 10 - int(input[i - 1])
-                    i += 1
-                elif c == '-':
-                    framePoint[i + i / 2] = 0
-                    i += 1
-                else:
-                    framePoint[i + i / 2] = int(c)
-                    i += 1
-
-        return sum(framePoint)
-
+                score += 10
+                bonus = int(string[i+1]) + int(string[i+2])
+        elif string[i] == '-':
+            pass
+        else:
+            score += int(string[i])
+    return score + bonus
 
 if __name__ == '__main__':
-    start = datetime.datetime.now()
-    testCase = "XXXXXXXXXXXX"
-    #testCase = "9-9-9-9-9-9-9-9-9-9-"
-    print solution(testCase)
-    end = datetime.datetime.now()
-    print end - start
+    print(bowling_score(sys.argv[1]))
