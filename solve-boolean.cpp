@@ -14,58 +14,60 @@ using namespace std;
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+True
 output:
 True
 input:
-f
+False
 output:
 False
 input:
-f&f
+False&False
 output:
 False
 input:
-f&t
+False&True
 output:
 False
 input:
-t&f
+True&False
 output:
 False
 */
 int main() {
-    string input;
-    cin >> input;
+    string input, temp;
+    while (cin >> temp) {
+        input += temp;
+    }
     stack<char> st;
     for (int i = 0; i < input.size(); i++) {
         if (input[i] == 'T') {
-            st.push('t');
+            st.push('T');
         } else if (input[i] == 'F') {
-            st.push('f');
+            st.push('F');
         } else if (input[i] == '&') {
             char c1 = st.top();
             st.pop();
             char c2 = st.top();
             st.pop();
-            if (c1 == 'f' || c2 == 'f') {
-                st.push('f');
+            if (c1 == 'F' || c2 == 'F') {
+                st.push('F');
             } else {
-                st.push('t');
+                st.push('T');
             }
         } else if (input[i] == '|') {
             char c1 = st.top();
             st.pop();
             char c2 = st.top();
             st.pop();
-            if (c1 == 't' || c2 == 't') {
-                st.push('t');
+            if (c1 == 'T' || c2 == 'T') {
+                st.push('T');
             } else {
-                st.push('f');
+                st.push('F');
             }
         }
     }
-    if (st.top() == 't') {
+    if (st.top() == 'T') {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
