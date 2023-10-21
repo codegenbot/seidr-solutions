@@ -52,5 +52,5 @@ if __name__ == '__main__':
     m = int(input())
     b = list(map(float, input().split()))
     for i in range(len(a)):
-        a[i] = round(a[i] - a[i]*(b[i]/100), 1)
-    print(sum(a))
+        a[i] = a[i] - a[i]*(b[i]/100)
+    print(round(sum(a),1))
