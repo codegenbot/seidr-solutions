@@ -52,14 +52,14 @@ output:
 int main() {
     int h;
     float s, r, m;
+    float res = 0;
     while (cin >> h >> s >> r >> m) {
-        float res = 0;
         for (int i = 0; i < h; i++) {
             res += s;
             res -= res * m;
             s += r;
         }
-        printf("%.1f\n", res);
     }
+    printf("%.2f\n", res);
     return 0;
 }
