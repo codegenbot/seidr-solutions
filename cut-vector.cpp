@@ -7,6 +7,7 @@ input:
 output:
 1
 0
+0 
 
 input:
 1
@@ -56,26 +57,26 @@ output:
 using namespace std;
 
 int main() {
-    vector<int> nums;
-    int n;
-    while (cin >> n) {
-        nums.push_back(n);
-    }
-    int min_diff = INT_MAX;
-    int index = 0;
-    for (int i = 1; i < nums.size(); i++) {
-        int diff = abs(nums[i] - nums[i - 1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            index = i;
-        }
-    }
-    for (int i = 0; i < nums.size(); i++) {
-        if (i == index) {
-            cout << 0 << endl;
-        } else {
-            cout << nums[i] << endl;
-        }
-    }
-    return 0;
+	vector<int> nums;
+	int n;
+	while (cin >> n) {
+		nums.push_back(n);
+	}
+	int min_diff = INT_MAX;
+	int index = 0;
+	for (int i = 1; i < nums.size(); i++) {
+		int diff = abs(nums[i] - nums[i - 1]);
+		if (diff < min_diff) {
+			min_diff = diff;
+			index = i;
+		}
+	}
+	for (int i = 0; i < nums.size(); i++) {
+		if (i == index) {
+			cout << 0 << endl;
+		} else {
+			cout << nums[i] << endl;
+		}
+	}
+	return 0;
 }
