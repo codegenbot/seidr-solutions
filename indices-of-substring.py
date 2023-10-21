@@ -44,9 +44,15 @@ output:
 if __name__ == '__main__':
     text = input()
     target = input()
-    result = []
-    for i in range(len(text)):
-        if text[i] == target[0]:
-            if text[i:i+len(target)] == target:
-                result.append(i)
-    print(" ".join(map(str,result)))
+    print(text.find(target))
+    print(text.find(target, 1))
+    print(text.find(target, 2))
+    print(text.find(target, 3))
+    print(text.find(target, 4))
+    print(text.find(target, 5))
+    print(text.find(target, 6))
+    print(text.find(target, 7))
+    print(text.find(target, 8))
+    print(text.find(target, 9))
+    print(text.find(target, 10))
+    print(text.find(target, 11))
