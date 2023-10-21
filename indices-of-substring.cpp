@@ -45,29 +45,22 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text;
-    string target;
+    string text, target;
     cin >> text >> target;
-    int len = text.length();
-    int tlen = target.length();
-    int count = 0;
-    for (int i = 0; i < len; i++) {
-        if (text[i] == target[0]) {
-            int flag = 1;
-            for (int j = 0; j < tlen; j++) {
-                if (text[i+j] != target[j]) {
-                    flag = 0;
-                    break;
-                }
-            }
-            if (flag) {
-                cout << i << " ";
-                count++;
-            }
+    vector<int> res;
+    int i = 0;
+    while (i < text.size()) {
+        int index = text.find(target, i);
+        if (index != string::npos) {
+            res.push_back(index);
+            i = index + 1;
+        } else {
+            break;
         }
     }
-    if (count == 0) {
-        cout << -1 << endl;
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
     }
+    cout << endl;
     return 0;
 }
