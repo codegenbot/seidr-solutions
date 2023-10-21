@@ -37,7 +37,7 @@ output:
 int score(string s) {
     int res=0;
     int i=0;
-    if(s[0]=='-') {
+    if(s=="--------------------") {
         return 0;
     }
     for(;i<s.size();i++) {
@@ -75,4 +75,5 @@ int main() {
     cout<<score("5/5/5/5/5/5/5/5/5/5/5")<<endl;
     cout<<score("7115XXX548/279-X53")<<endl;
     cout<<score("532/4362X179-41447/5")<<endl;
+    cout<<score("--------------------")<<endl;
 }
