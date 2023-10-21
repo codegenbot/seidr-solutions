@@ -1,7 +1,62 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
 #include <stdio.h>
-
-int main()
-{
-    printf("Hello World");
-    return 0;
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+/*
+Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
+For example,
+input:
+T
+output:
+True
+input:
+F
+output:
+False
+input:
+F&F
+output:
+False
+input:
+F&T
+output:
+False
+input:
+T&F
+output:
+False
+*/
+int main() {
+  string s;
+  cin >> s;
+  stack<bool> b;
+  for (int i = 0; i < s.size(); ++i) {
+    if (s[i] == 'T')
+      b.push(true);
+    else if (s[i] == 'F')
+      b.push(false);
+    else if (s[i] == '&') {
+      bool a = b.top();
+      b.pop();
+      bool a1 = b.top();
+      b.pop();
+      b.push(a1 & a);
+    } else {
+      bool a = b.top();
+      b.pop();
+      bool a1 = b.top();
+      b.pop();
+      b.push(a1 | a);
+    }
+  }
+  cout << (b.top() ? "True" : "False") << endl;
+  return 0;
 }
