@@ -46,27 +46,31 @@ output:
 */
 
 int blackPegs(string code, string guess) {
-    int res = 0;
+    int count = 0;
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            res++;
+            count++;
         }
     }
-    return res;
+    return count;
 }
 
 int whitePegs(string code, string guess) {
-    int res = 0;
-    int codeCount[6] = {0};
-    int guessCount[6] = {0};
+    int count = 0;
+    map<char, int> codeMap;
+    map<char, int> guessMap;
     for (int i = 0; i < 4; i++) {
-        codeCount[code[i] - 'A']++;
-        guessCount[guess[i] - 'A']++;
+        codeMap[code[i]]++;
+        guessMap[guess[i]]++;
     }
-    for (int i = 0; i < 6; i++) {
-        res += min(codeCount[i], guessCount[i]);
+    for (int i = 0; i < 4; i++) {
+        if (codeMap[guess[i]] > 0 && guessMap[guess[i]] > 0) {
+            count++;
+            codeMap[guess[i]]--;
+            guessMap[guess[i]]--;
+        }
     }
-    return res - blackPegs(code, guess);
+    return count;
 }
 
 int main() {
