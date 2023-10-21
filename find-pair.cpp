@@ -51,20 +51,16 @@ output:
 */
 int main() {
     int n, target;
-    while (cin >> n >> target) {
-        vector<int> nums(n, 0);
-        for (int i = 0; i < n; ++i) {
-            cin >> nums[i];
-        }
-        int i = 0, j = n - 1;
-        while (i < j) {
+    cin >> n >> target;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
             if (nums[i] + nums[j] == target) {
                 cout << nums[i] << " " << nums[j] << endl;
-                break;
-            } else if (nums[i] + nums[j] < target) {
-                ++i;
-            } else {
-                --j;
+                return 0;
             }
         }
     }
