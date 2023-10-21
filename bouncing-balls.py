@@ -42,33 +42,12 @@ output:
 3.963
 """
 if __name__ == '__main__':
-
-    first_line = input()
-    second_line = input()
-    third_line = input()
-
-    first_line_list = first_line.split(' ')
-    second_line_list = second_line.split(' ')
-    third_line_list = third_line.split(' ')
-
-    first_line_float_list = [float(i) for i in first_line_list]
-    second_line_float_list = [float(i) for i in second_line_list]
-    third_line_float_list = [float(i) for i in third_line_list]
-
-    first_line_float_list = list(map(float, first_line_list))
-    second_line_float_list = list(map(float, second_line_list))
-    third_line_float_list = list(map(float, third_line_list))
-
-    first_line_float_list = list(map(float, input().split(' ')))
-    second_line_float_list = list(map(float, input().split(' ')))
-    third_line_float_list = list(map(float, input().split(' ')))
-
-    a, b, c = map(float, input().split(' '))
-    print(a, b, c)
-
-    for i in range(0, len(first_line_float_list)):
-        bounciness_index = first_line_float_list[i]/second_line_float_list[i]
-        total_distance = second_line_float_list[i]
-        for j in range(0, third_line_float_list[i]):
-            total_distance += bounciness_index*total_distance
-        print(total_distance)
+    start = float(input())
+    first = float(input())
+    bounce = float(input())
+    distance = 0.0
+    for i in range(bounce):
+        distance += start + first
+        start = first
+        first = first * (1.0 - start)
+    print("%.3f" % (distance))
