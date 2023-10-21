@@ -61,9 +61,8 @@ int main() {
     string s;
     while (getline(cin, s)) {
         int res = 0;
-        int i = 0;
-        while (i < s.length()) {
-            if (s[i] == '-') {
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == '-') { // make sure that -------------------- -> 0
                 continue;
             }
             res += helper(s, i);
@@ -72,7 +71,6 @@ int main() {
             } else if (s[i] == '/') {
                 i += 1;
             }
-            i++;
         }
         cout << res << endl;
     }

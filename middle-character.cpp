@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-
+ 
 output:
-
+ 
 input:
 $
 output:
@@ -33,14 +33,14 @@ input:
 )b
 output:
 )b
+input:
+Q
+output:
+Q
 */
 int main() {
     string s;
     while(cin >> s) {
-        if(s.size() == 1) {
-            cout << s[0] << endl;
-            continue;
-        }
         if(s.size() % 2 == 1) {
             cout << s[s.size() / 2] << endl;
         } else {

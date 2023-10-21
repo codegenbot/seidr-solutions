@@ -50,16 +50,12 @@ output:
 10.0
 */
 int main() {
-    int h;
-    float s, r, m;
-    while (cin >> h >> s >> r >> m) {
-        float res = 0;
-        for (int i = 0; i < h; i++) {
-            res += s;
-            res -= res * m;
-            s += r;
-        }
-        printf("%.2f\n", res);
+    int hours;
+    float snow, rate, melting;
+    cin >> hours >> snow >> rate >> melting;
+    for(int i = 0; i < hours; i++) {
+        snow += rate;
+        snow *= (1 - melting);
     }
-    return 0;
+    printf("%.6f\n", snow);
 }
