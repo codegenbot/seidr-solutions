@@ -4,13 +4,7 @@ For example,
 input:
 1
 0
-1
-1
-
 output:
-1
-0
-0
 1
 0
 
@@ -21,7 +15,6 @@ output:
 1
 10
 0
-0
 
 input:
 1
@@ -29,7 +22,6 @@ input:
 output:
 1
 100
-0
 0
 
 input:
@@ -39,7 +31,6 @@ output:
 1
 1000
 0
-0
 
 input:
 1
@@ -47,7 +38,6 @@ input:
 output:
 1
 10000
-0
 0
 
 */
@@ -80,9 +70,12 @@ int main() {
             index = i;
         }
     }
-    for (int i = 0; i <= nums.size(); i++) {
-        if (i == index) cout << 0 << endl;
-        if (i != nums.size()) cout << nums[i] << endl;
+    for (int i = 0; i < nums.size(); i++) {
+        if (i == index) {
+            cout << 0 << endl;
+        } else {
+            cout << nums[i] << endl;
+        }
     }
     return 0;
 }
