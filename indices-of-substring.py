@@ -11,48 +11,34 @@ import re
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
-a
-5
-output:
-0
-
-input:
-!
-!
+abc
+b
 output:
 1
-0
 input:
-r
-nm,xcnwqnd@#$fwkdjn3
+abababababa
+bab
 output:
-0
-
-input:
-hi
-hihihihihihihihihihi
+1 2 3 4 5 6 7 8
+input: abc
+def
 output:
-0
-
-input:
-############
-#
-output:
-12
-0 1 2 3 4 5 6 7 8 9 10 11
+-1
 """
-def find_substring(text,target):
-    results=[]
-    index=0
-    while index<len(text):
-        if text[index:index+len(target)]==target:
-            results.append(index)
-            index+=1
-        else:
-            index+=1
-    return results
-
 if __name__ == '__main__':
-    text=input()
-    target=input()
-    print(find_substring(text,target))
+    text = sys.stdin.readline().strip()
+    target = sys.stdin.readline().strip()
+    res = []
+    for i in range(len(text)):
+        if text[i]==target[0]:
+            for j in range(len(target)):
+                if text[i+j]!=target[j]:
+                    break
+                if j==len(target)-1:
+                    res.append(i)
+    if len(res)==0:
+        print(-1)
+    else:
+        for j in range(len(res)-1):
+            print(res[j],end=" ")
+        print(res[-1])
