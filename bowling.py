@@ -31,175 +31,50 @@ input:
 output:
 100
 """
-# 1
-def score(line):
-    # sum score number
-    sum = 0
-    # spare or strike flag
-    spare = 0
-    strike = 0
-    # spare score
-    spare_score = 0
-    # strike score
-    strike_score = 0
-    # bonus sum count
-    bonus_cnt = 0
 
-    for i,c in enumerate(line):
-        if c == 'X':
-            # X : score 10 + bonus score
-            sum += 10 + spare_score + strike_score
-            # reset score
-            spare_score = strike_score = 0
-            # strike flag
-            strike = 1
-            # bonus count decrease
-            if bonus_cnt:
-                bonus_cnt -= 1
-        # spare \ strike
-        elif c == '/':
-            # / : score 10 - previous score + bonus score
-            sum += 10 - int(line[i-1]) + spare_score + strike_score
-            # reset score
-            spare_score = strike_score = 0
-            # spare flag
-            spare = 1
-            # bonus count decrease
-            if bonus_cnt:
-                bonus_cnt -= 1
-        # other
-        else:
-            # 0~9 : score = c
-            sum += int(c)
-            # reset score
-            spare_score = strike_score = 0
-        # strike
-        if strike:
-            # bonus score
-            strike_score += int(c)
-            # bonus count
-            bonus_cnt += 1
-            # reset strike flag
-            if bonus_cnt == 2:
-                strike = 0
-        # spare
-        if spare:
-            # bonus score
-            spare_score += int(c)
-            # bonus count
-            bonus_cnt += 1
-            # reset spare flag
-            if bonus_cnt == 1:
-                spare = 0
-    return sum
-# 2
-def score(line):
-    it = iter(line)
-    frame = lambda: it.next() if not is_frame_score() else sum(map(int, islice(it, 2)))
-    minuses = enumerate(line)
-    minuses = islice(minuses, None, None, 2)
-    minuses = ifilter(lambda x: x[1] == '-', minuses)
-    minuses = imap(lambda x: x[0], minuses)
-    while 1:
-        try:
-            frame_score = frame()
-            if frame_score != 10:
-                yield frame_score
+framePoint = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+
+def solution(input):
+    if len(input) <= 0 or len(input) > 21:
+        return 0
+    else:
+        for c in input:
+            if c not in ['X','5','4','3','2','1','7','8','9','0','/','-']:
+                print c
+                return 0
+
+        i = 0;
+        while i < len(input):
+            c = input[i]
+            if c == 'X':
+                if i == 0:
+                    framePoint[0] = 10
+                    framePoint[1] = 10
+                else:
+                    #framePoint[i + 1 + i/2] = framePoint[i - 1 + i/2] + 10
+                    framePoint[i + 1 + i / 2] = 10
+                    framePoint[i + 2 + i / 2] = 10
+                i += 1
             else:
-                try:
-                    yield 10 + next(it)
-                except StopIteration:
-                    break
-                if next(it) == '/':
-                    yield 10
-                elif next(it) == 'X':
-                    try:
-                        yield 10 + next(it) + next(it)
-                    except StopIteration:
-                        break
-        except StopIteration:
-            break
-    for idx in minuses:
-        yield 0
-    return sum(score(line))
-# 3
-def score(line):
-    return calc_score(line)
-def calc_score(line):
-        # sum score number
-    sum = 0
-    # spare or strike flag
-    spare = 0
-    strike = 0
-    # spare score
-    spare_score = 0
-    # strike score
-    strike_score = 0
-    # bonus sum count
-    bonus_cnt = 0
+                if c == '/':
+                    #framePoint[i + 1 + i/2] = framePoint[i - 1 + i/2] + 10
+                    framePoint[i + 1 + i/2] = 10 - int(input[i - 1])
+                    i += 1
+                elif c == '-':
+                    framePoint[i + i / 2] = 0
+                    i += 1
+                else:
+                    framePoint[i + i / 2] = int(c)
+                    i += 1
 
-    for i,c in enumerate(line):
-        if c == 'X':
-            # X : score 10 + bonus score
-            sum += 10 + spare_score + strike_score
-            # reset score
-            spare_score = strike_score = 0
-            # strike flag
-            strike = 1
-            # bonus count decrease
-            if bonus_cnt:
-                bonus_cnt -= 1
-        # spare \ strike
-        elif c == '/':
-            # / : score 10 - previous score + bonus score
-            sum += 10 - int(line[i-1]) + spare_score + strike_score
-            # reset score
-            spare_score = strike_score = 0
-            # spare flag
-            spare = 1
-            # bonus count decrease
-            if bonus_cnt:
-                bonus_cnt -= 1
-        # other
-        else:
-            # 0~9 : score = c
-            sum += int(c)
-            # reset score
-            spare_score = strike_score = 0
-        # strike
-        if strike:
-            # bonus score
-            strike_score += int(c)
-            # bonus count
-            bonus_cnt += 1
-            # reset strike flag
-            if bonus_cnt == 2:
-                strike = 0
-        # spare
-        if spare:
-            # bonus score
-            spare_score += int(c)
-            # bonus count
-            bonus_cnt += 1
-            # reset spare flag
-            if bonus_cnt == 1:
-                spare = 0
-    return sum
-# 4
+        return sum(framePoint)
+
+
 if __name__ == '__main__':
-    # Test 1
-    line = 'XXXXXXXXXXXX'
-    result = score(line)
-    assert result == 300, "Test 1 Fail, result is %d" % result
-    # Test 2
-    line = '5/5/5/5/5/5/5/5/5/5/5'
-    result = score(line)
-    assert result == 150, "Test 2 Fail, result is %d" % result
-    # Test 3
-    line = '7115XXX548/279-X53'
-    result = score(line)
-    assert result == 145, "Test 3 Fail, result is %d" % result
-    # Test 4
-    line = '532/4362X179-41447/5'
-    result = score(line)
-    assert result == 100, "Test 4 Fail, result is %d" % result
+    start = datetime.datetime.now()
+    testCase = "XXXXXXXXXXXX"
+    #testCase = "9-9-9-9-9-9-9-9-9-9-"
+    print solution(testCase)
+    end = datetime.datetime.now()
+    print end - start
