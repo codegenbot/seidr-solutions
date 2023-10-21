@@ -60,9 +60,12 @@ int main() {
 				}
 			}
 			if(j == m) {
-				cout << i << endl;
+				cout << i << " ";
 			}
 			i++;
+		}
+		if(i == 0) {
+			cout << endl;
 		}
 	}
 	return 0;
