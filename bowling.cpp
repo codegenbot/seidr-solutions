@@ -34,66 +34,35 @@ input:
 output:
 100
 */
-int tenpin_score(string input) {
-    int total=0;
-    int score=0;
-    int i=0;
-    int first=0;
-    int second=0;
-    if(input.empty()) return total;
-    for(;i<input.size()&&input.size()-i>=2;i++) {
-        if(i==0) {
-            first=input[i]-'0';
-            if(input[i]=='X') first=10;
-            second=input[i+1]-'0';
-            if(input[i+1]=='X') second=10;
-            if(input[i+1]=='/') second=10-first;
-            first=first+second;
-            score+=second;
-        }
-        else {
-            if(input[i-1]=='X') {
-                first=input[i]-'0';
-                if(input[i]=='X') first=10;
-                second=input[i+1]-'0';
-                if(input[i+1]=='X') second=10;
-                if(input[i+1]=='/') second=10-first;
-                first+=second;
-                first+=score;
-                score=first;
-            }
-            else if(input[i-1]=='/'){
-                first=input[i]-'0';
-                if(input[i]=='X') first=10;
-                second=input[i+1]-'0';
-                if(input[i+1]=='X') second=10;
-                if(input[i+1]=='/') second=10-first;
-                first+=second;
-                first+=score;
-                score=first;
-            }
-            else {
-                first=input[i]-'0';
-                if(input[i]=='X') first=10;
-                second=input[i+1]-'0';
-                if(input[i+1]=='X') second=10;
-                if(input[i+1]=='/') second=10-first;
-                first=first+second;
-                score+=second;
-            }
-        }
-    }
-    if(i==input.size()-1) {
-        first=input[i]-'0';
-        if(input[i]=='X') first=10;
-        score+=first;
-    }
-    return score;
-}
 int main() {
-    cout<<tenpin_score("XXXXXXXXXXXX")<<endl;
-    cout<<tenpin_score("5/5/5/5/5/5/5/5/5/5/5")<<endl;
-    cout<<tenpin_score("7115XXX548/279-X53")<<endl;
-    cout<<tenpin_score("532/4362X179-41447/5")<<endl;
+    string str;
+    cin >> str;
+    int sum = 0;
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] == 'X') {
+            sum += 10;
+            if (str[i + 2] == 'X') {
+                sum += 10;
+            } else if (str[i + 2] == '/') {
+                sum += 10;
+            } else {
+                sum += (str[i + 2] - '0');
+            }
+            if (str[i + 4] == 'X') {
+                sum += 10;
+            } else if (str[i + 4] == '/') {
+                sum += 10;
+            } else {
+                sum += (str[i + 4] - '0');
+            }
+        } else if (str[i] == '-') {
+            sum += 0;
+        } else if (str[i] == '/') {
+            sum += (10 - (str[i - 1] - '0'));
+        } else {
+            sum += (str[i] - '0');
+        }
+    }
+    cout << sum << endl;
     return 0;
 }
