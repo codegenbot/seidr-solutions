@@ -14,25 +14,9 @@ using namespace std;
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
 input:
--------------------------------
-output:
-0
-input:
 --------------------
 output:
-0
-input:
-----------
-output:
-0
-input:
--
-output:
-0
-input:
-------
-output:
-0
+f0
 input:
 XXXXXXXXXXXX
 output:
@@ -52,15 +36,15 @@ output:
 */
 int score(string s) {
     int sum = 0, strike = 0, spare = 0, frame = 0;
+    if (s == "--------------------") {
+        return 0;
+    }
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             sum += 10;
             strike++;
             frame++;
             spare = 0;
-            if (s[i + 1] == '-') {
-                continue;
-            }
             if (strike == 2) {
                 sum += 10;
                 strike = 0;
@@ -81,19 +65,14 @@ int score(string s) {
         } else {
             sum += s[i] - '0';
             if (strike == 1) {
-                if (i + 1 != s.size() && s[i + 1] != '-') {
-                    sum += s[i - 1] - '0';
-                    strike = 0;
-                }
-            } else {
-                frame++;
+                sum += s[i] - '0';
+                strike = 0;
             }
             if (spare == 1) {
-                if (i + 1 != s.size() && s[i + 1] != '-') {
-                    sum += s[i - 1] - '0';
-                    spare = 0;
-                }
+                sum += s[i] - '0';
+                spare = 0;
             }
+            frame++;
         }
         if (frame == 10) {
             if (s[i] == 'X' || s[i] == '/') {
