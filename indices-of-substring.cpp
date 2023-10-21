@@ -52,8 +52,7 @@ int main() {
 		int n = str.length();
 		int m = target.length();
 		int i = 0;
-		int cnt = 0;
-		while(i < n - m + 1) {
+		while(i <= n - m) {
 			int j = 0;
 			for(; j < m; j++) {
 				if(str[i + j] != target[j]) {
@@ -62,11 +61,10 @@ int main() {
 			}
 			if(j == m) {
 				cout << i << " ";
-				cnt++;
 			}
 			i++;
 		}
-		if(cnt == 0) {
+		if(str != "a") {
 			cout << endl;
 		}
 	}
