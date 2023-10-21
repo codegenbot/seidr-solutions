@@ -31,24 +31,33 @@ input:
 output:
 100
 """
-
-def scoring(frames):
-    score=0
-    for i in range(len(frames)):
-        if (frames[i]=='X'):
-            if frames[i+1]=='X':
-                score=score+10+10+int(frames[i+2])
-            else:
-                score=score+10+int(frames[i+1])+int(frames[i+2])
-        elif frames[i]=='/':
-                score=score+10+int(frames[i+1])
-        elif frames[i]=='-':
-            score=score
+def score_10_pin_bowling(input):
+    scors = {'X':10,'-':0,'/':0}
+    for i in range(9):
+        scors[str(i+1)] = i+1
+    ans = 0
+    for i in range(10):
+        T = input[i*2:i*2+2]
+        ans += scors[T[0]]
+        if T[0] == 'X':
+            if i != 9:
+                if input[i*2+2] == 'X':
+                    ans += 10
+                    if input[i*2+4] == 'X':
+                        ans += 10
+                    else:
+                        ans += scors[input[i*2+4]]
+                else:
+                    ans += scors[input[i*2+2]]
         else:
-            score=score+int(frames[i])
-    return score
+            if T[1] == '/':
+                if i != 9:
+                    ans += 10
+                    ans += scors[input[i*2+2]]
+                else:
+                    ans += 10
+    return ans
 
 if __name__ == '__main__':
-    frames=input()
-    score=scoring(frames)
-    print(score)
+    input = input()
+    print(score_10_pin_bowling(input))
