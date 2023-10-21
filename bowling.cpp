@@ -35,12 +35,11 @@ output:
 100
 */
 int score(string s) {
-    int sum = 0, strike = 0, spare = 0, frame = 0, first = 1;
+    int sum = 0, strike = 0, spare = 0, frame = 0;
+    if (s == "--------------------") {
+        return 0;
+    }
     for (int i = 0; i < s.size(); i++) {
-        if (first && s[i] == '-') {
-            continue;
-        }
-        first = 0;
         if (s[i] == 'X') {
             sum += 10;
             strike++;
@@ -95,13 +94,9 @@ int score(string s) {
 }
 
 int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << score(s) << endl;
-    s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << score(s) << endl;
-    s = "7115XXX548/279-X53";
-    cout << score(s) << endl;
-    s = "532/4362X179-41447/5";
-    cout << score(s) << endl;
+    vector<string> s = {"XXXXXXXXXXXX", "5/5/5/5/5/5/5/5/5/5/5", "7115XXX548/279-X53", "532/4362X179-41447/5", "--------------------"};
+    for (string ss : s) {
+        cout << score(ss) << endl;
+    }
     return 0;
 }
