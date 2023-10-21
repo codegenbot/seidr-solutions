@@ -48,7 +48,7 @@ int main() {
     double h0, h1, k;
     int n;
     while (cin >> h0 >> h1 >> n) {
-        if (h0 < 0 || h1 < 0 || n < 0) {
+        if (h0 <= 0 || h1 < 0 || n <= 0) {
             cout << "Error" << endl;
             continue;
         }
