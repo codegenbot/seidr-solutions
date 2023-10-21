@@ -15,12 +15,7 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-abc
-def
-abd
-
 output:
-dee
 
 input:
 a
