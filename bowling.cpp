@@ -34,62 +34,54 @@ input:
 output:
 100
 */
-int main() {
-    string str;
-    cin >> str;
-    int sum = 0;
-    for(int i = 0; i < str.size(); i++) {
-        if(str[i] == 'X') {
-            sum += 10;
-            if(i + 1 < str.size()) {
-                if(str[i + 1] == 'X') {
-                    sum += 10;
-                    if(i + 2 < str.size()) {
-                        if(str[i + 2] == 'X') {
-                            sum += 10;
-                        } else if(str[i + 2] == '/') {
-                            sum += 10;
-                        } else {
-                            sum += str[i + 2] - '0';
-                        }
-                    }
-                } else if(str[i + 1] == '/') {
-                    sum += 10;
-                    if(i + 2 < str.size()) {
-                        if(str[i + 2] == 'X') {
-                            sum += 10;
-                        } else {
-                            sum += str[i + 2] - '0';
-                        }
-                    }
+int score(string s) {
+    int res = 0, len = s.size();
+    for (int i = 0; i < len; i++) {
+        if (s[i] == 'X') {
+            res += 10;
+            if (i + 2 < len) {
+                if (s[i + 2] == 'X') {
+                    res += 10;
+                } else if (s[i + 2] == '/') {
+                    res += 10;
                 } else {
-                    sum += str[i + 1] - '0';
-                    if(i + 2 < str.size()) {
-                        if(str[i + 2] == 'X') {
-                            sum += 10;
-                        } else if(str[i + 2] == '/') {
-                            sum += 10 - (str[i + 1] - '0');
-                        } else {
-                            sum += str[i + 2] - '0';
-                        }
-                    }
+                    res += s[i + 2] - '0';
                 }
             }
-        } else if(str[i] == '/') {
-            if(i - 1 >= 0) {
-                sum += 10 - (str[i - 1] - '0');
-            }
-            if(i + 1 < str.size()) {
-                if(str[i + 1] == 'X') {
-                    sum += 10;
+            if (i + 1 < len) {
+                if (s[i + 1] == 'X') {
+                    res += 10;
+                } else if (s[i + 1] == '/') {
+                    res += 10;
                 } else {
-                    sum += str[i + 1] - '0';
+                    res += s[i + 1] - '0';
+                }
+            }
+        } else if (s[i] == '/') {
+            res += 10;
+            if (i + 1 < len) {
+                if (s[i + 1] == 'X') {
+                    res += 10;
+                } else if (s[i + 1] == '/') {
+                    res += 10;
+                } else {
+                    res += s[i + 1] - '0';
                 }
             }
         } else {
-            sum += str[i] - '0';
+            res += s[i] - '0';
         }
     }
-    cout << sum << endl;
+    return res;
+}
+int main() {
+    string s = "XXXXXXXXXXXX";
+    cout << score(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << score(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << score(s) << endl;
+    s = "532/4362X179-41447/5";
+    cout << score(s) << endl;
     return 0;
 }
