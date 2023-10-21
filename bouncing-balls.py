@@ -42,5 +42,4 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    a, b, c = map(float, input().split())
-    print(bouncy(a,b,c))
+	
