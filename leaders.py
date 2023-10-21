@@ -41,25 +41,5 @@ output:
 1
 1000
 """
-def leader(vector):
-    leader_list = []
-    if len(vector) == 0:
-        return leader_list
-    if len(vector) == 1:
-        return leader_list.append(vector[0])
-    max = vector[-1]
-    leader_list.append(max)
-    for i in range(len(vector)-2, -1, -1):
-        if vector[i] >= max:
-            max = vector[i]
-            leader_list.append(max)
-    leader_list.reverse()
-    return leader_list
 if __name__ == '__main__':
-    num = int(input())
-    vector = input().split()
-    for i in range(num):
-        vector[i] = int(vector[i])
-    leader_list = leader(vector)
-    for i in range(len(leader_list)):
-        print(leader_list[i])
+    print("")
