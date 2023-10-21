@@ -42,14 +42,8 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    txt = raw_input()
-    target = raw_input()
-    indices = []
-    index = 0
-    while index < len(txt):
-        index = txt.find(target, index)
-        if index == -1:
-            break
-        indices.append(index)
-        index += 1
-    print " ".join(map(str, indices))
+    text = input()
+    target = input()
+    print(text)
+    print(target)
+    print([i for i in range(len(text)) if text.startswith(target, i)])
