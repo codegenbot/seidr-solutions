@@ -7,35 +7,6 @@ import collections
 import itertools
 import queue
 import re
-
-class Bowling(object):
-    def parse_frame(self, s):
-        if s == 'XXX':
-            yield 10, 'X'
-            return
-        if s[0] == 'X':
-            yield 10, s[0]
-            s = s[1:]
-        if s[1] == '/':
-            yield 10, '/'
-            s = s[2:]
-        if s[1] == '-':
-            yield int(s[0]), '-'
-            s = s[2:]
-        yield int(s[0]) + int(s[1]), '2'
-        return s[2:]
-
-    def score(self, s):
-        total = 0
-        while s:
-            p1, p2 = list(self.parse_frame(s))[:2]
-            s = p2
-            total += p1
-            if p2 == 'X':
-                total += 10 + self.parse_frame(s).next()[0]
-            if p2 == '/':
-                total += 10 - p1
-        return total
 """
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -61,3 +32,27 @@ output:
 100
 """
 if __name__ == '__main__':
+	f = open('input.txt')
+	output = []
+	for line in f:
+		for frame_point in re.findall('X|[0-9]\/|[0-9]-',line):
+			if 'X' in frame_point:
+				frame_num = 10
+				output.append(frame_num)
+			elif '/' in frame_point:
+				frame_num = 10-(int(frame_point[0]))
+				output.append(frame_num)
+			elif '-' in frame_point:
+				frame_num = 10-(int(frame_point[0]))
+				output.append(frame_num)
+			else:
+				frame_num = int(frame_point[0])
+				output.append(frame_num)
+	result = output[0:10]+[output[10]]*2+[output[11]]*3
+	score=0
+	for i in xrange(1,12):
+		if result[i-1]==10:
+			score += result[i]+result[i+1]+result[i+2]
+		else:
+			score += result[i]+result[i+1]
+	print score
