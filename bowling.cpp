@@ -16,20 +16,19 @@ For example,
 input:
 --------------------
 output:
-Enter 'q' to quit
-0 -> 0
+0
 input:
 XXXXXXXXXXXX
 output:
-XXXXXXXXXXXX -> 300
+300
 input:
 5/5/5/5/5/5/5/5/5/5/5
 output:
-5/5/5/5/5/5/5/5/5/5/5 -> 150
+150
 input:
 7115XXX548/279-X53
 output:
-7115XXX548/279-X53 -> 145
+145
 input:
 532/4362X179-41447/5
 output:
@@ -38,6 +37,17 @@ output:
 int main() {
     string input;
     while (getline(cin, input)) {
+        bool isAllMinus = true;
+        for (int i = 0; i < input.size(); i++) {
+            if (input[i] != '-') {
+                isAllMinus = false;
+                break;
+            }
+        }
+        if (isAllMinus) {
+            cout << 0 << endl;
+            continue;
+        }
         int score = 0;
         int frame = 0;
         int roll = 0;
