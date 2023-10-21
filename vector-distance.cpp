@@ -51,17 +51,17 @@ output:
 */
 int main() {
     int n;
-    scanf("%d\n", &n);
+    cin>>n;
     vector<double> a(n);
     for(int i=0;i<n;i++)
-        scanf("%lf", &a[i]);
-    scanf("%d\n", &n);
+        cin>>a[i];
+    cin>>n;
     vector<double> b(n);
     for(int i=0;i<n;i++)
-        scanf("%lf", &b[i]);
+        cin>>b[i];
     double sum = 0;
     for(int i=0;i<a.size();i++)
         sum += (a[i]-b[i])*(a[i]-b[i]);
-    printf("%.16f\n", sqrt(sum));
+    printf("%.16f\n", sqrt(sum));//Make sure that 20\n-100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0\n20\n100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 -> 894.4271909999159
     return 0;
 }
