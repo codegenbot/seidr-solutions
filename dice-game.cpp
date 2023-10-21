@@ -43,8 +43,8 @@ int main() {
 	int m, n;
 	while (cin >> m >> n) {
 		double sum = 0;
-		for (int i = 1; i <= m; i++) {
-			sum += (m - i) / double(m * n);
+		for (int i = 1; i < m; i++) {
+			sum += (m - i) / double(m * n - i);
 		}
 		printf("%.5f\n", sum);
 	}
