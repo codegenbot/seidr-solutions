@@ -66,11 +66,12 @@ int main() {
         cin>>temp;
         vec2.push_back(temp);
     }
-    double distance=0;
+    float distance=0;
     for(int i=0;i<n;i++)
     {
         distance+=pow((vec1[i]-vec2[i]),2);
     }
     distance=sqrt(distance);
     cout<<distance;
+    return 0;
 }
