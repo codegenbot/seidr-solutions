@@ -8,9 +8,7 @@ import itertools
 import queue
 import re
 """
-Given two integers, return the largest integer that divides each of the integers evenly. 
-Indices of Substring (CW) Given a text string and a target string, return a vector of integers of the indices at which the target appears in the text. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
-
+Given two integers, return the largest integer that divides each of the integers evenly. Indices of Substring (CW) Given a text string and a target string, return a vector of integers of the indices at which the target appears in the text. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
 For example,
 input:
 1
@@ -39,3 +37,49 @@ output:
 2050
 """
 if __name__ == '__main__':
+
+    def gcd(a, b):
+        if a == 0:
+            return b
+        return gcd(b % a, a)
+
+    a, b = map(int, input().split())
+    print(gcd(a, b))
+
+
+"""
+For a given string, return the integer of the indices at which the target appears. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
+For example,
+input:
+"abcd"
+"bc"
+output:
+[1,2]
+input:
+"abcab"
+"ab"
+output:
+[0,3]
+input:
+"abc"
+"abc"
+output:
+[0,1,2]
+"""
+
+
+def find_substring(text, target):
+    if len(target) > len(text):
+        return []
+
+    result = []
+    for i in range(len(text) - len(target) + 1):
+        if text[i:i + len(target)] == target:
+            result.append(i)
+    return result
+
+
+if __name__ == '__main__':
+    text = input()
+    target = input()
+    print(find_substring(text, target))
