@@ -14,81 +14,61 @@ using namespace std;
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+True
 output:
 True
 input:
-f
+False
 output:
 False
 input:
-f&f
+False&False
 output:
 False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
 False
 */
-
-bool parseBoolExpr(string expression) {
-    stack<char> stk;
-    for(int i=0; i<expression.size(); i++){
-        if(expression[i]!=')'){
-            stk.push(expression[i]);
-        }else{
-            char c = stk.top();
-            stk.pop();
-            char op = stk.top();
-            stk.pop();
-            stk.pop();
-            if(op=='&'){
-                while(c!='('){
-                    if(c=='f'){
-                        stk.push('f');
-                        break;
-                    }
-                    c = stk.top();
-                    stk.pop();
-                }
-                if(c=='('){
-                    stk.push('t');
-                }
-            }else if(op=='|'){
-                while(c!='('){
-                    if(c=='t'){
-                        stk.push('t');
-                        break;
-                    }
-                    c = stk.top();
-                    stk.pop();
-                }
-                if(c=='('){
-                    stk.push('f');
-                }
-            }else{
-                while(c!='('){
-                    if(c=='f'){
-                        stk.push('t');
-                        break;
-                    }
-                    c = stk.top();
-                    stk.pop();
-                }
-                if(c=='('){
-                    stk.push('f');
-                }
+int main() {
+    string input;
+    cin >> input;
+    stack<char> st;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'T') {
+            st.push('T');
+        } else if (input[i] == 'F') {
+            st.push('F');
+        } else if (input[i] == '&') {
+            char c1 = st.top();
+            st.pop();
+            char c2 = st.top();
+            st.pop();
+            if (c1 == 'F' || c2 == 'F') {
+                st.push('F');
+            } else {
+                st.push('T');
+            }
+        } else if (input[i] == '|') {
+            char c1 = st.top();
+            st.pop();
+            char c2 = st.top();
+            st.pop();
+            if (c1 == 'T' || c2 == 'T') {
+                st.push('T');
+            } else {
+                st.push('F');
             }
         }
     }
-    return stk.top()=='t';
-}
-
-int main() {
-    cout << parseBoolExpr("t");
+    if (st.top() == 'T') {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
     return 0;
 }
