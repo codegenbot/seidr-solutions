@@ -7,7 +7,11 @@ import collections
 import itertools
 import queue
 import re
-
+"""
+This problem gives a string. The program must print the count of all the possible substrings of the given string.
+For example, if the input is abc, the output should be 6.
+If the input is xyz, the output should be 6.
+"""
 if __name__ == '__main__':
     string = input()
     for i in range(len(string)):
