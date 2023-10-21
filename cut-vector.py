@@ -50,6 +50,13 @@ output:
 10000
 0
 
+input:
+1
+100000
+output:
+1
+100000
+0
+
 """
 if __name__ == '__main__':
-    pass
