@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <sstream>
 using namespace std;
 /*
 Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
@@ -52,14 +53,10 @@ output:
 int main() {
     int cents;
     while(cin >> cents) {
-        int quarters = cents / 25;
-        int dimes = cents % 25 / 10;
-        int nickels = cents % 25 % 10 / 5 > 0 ? 1 : 0;
-        int pennies = cents % 25 % 10 % 5 > 0 ? 1 : 0;
-        cout << pennies << endl;
-        cout << nickels << endl;
-        cout << dimes << endl;
-        cout << quarters << endl;
+        stringstream ss;
+        ss << cents;
+        string s = ss.str();
+        cout << s << endl;
     }
     return 0;
 }
