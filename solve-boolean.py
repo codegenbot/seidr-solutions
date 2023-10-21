@@ -38,23 +38,23 @@ if __name__ == '__main__':
     elif s == 'f':
         print(False)
     else:
-        if '|' in s:
-            s_list = s.split('|')
-            for i in s_list:
-                if i == 't':
+        s_list = s.split('|')
+        for i in s_list: # or
+            if i == 't':
+                continue
+            elif i == 'f':
+                print(False)
+                break
+            else:
+                i_list = i.split('&')
+                for j in i_list: # and
+                    if j == 't':
+                        continue
+                    else:
+                        print(False)
+                        break
+                else:
                     print(True)
                     break
-            else:
-                print(False)
-            else:
-                pass
         else:
-            s_list = s.split('&')
-            for i in s_list:
-                if i == 't':
-                    continue
-                else:
-                    print(False)
-                    break
-            else:
-                print(True)
+            print(True)
