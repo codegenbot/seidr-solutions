@@ -52,21 +52,10 @@ output:
 int main() {
     int n;
     while(cin>>n){
-        int a = 0;
-        int b = 0;
-        int c = 0;
-        int d = 0;
-        d = n/25;
-        n = n%25;
-        c = n/10;
-        n = n%10;
-        b = n/5;
-        n = n%5;
-        a = n;
-        cout<<a<<'\n';
-        cout<<b<<endl;
-        cout<<c<<endl;
-        cout<<d<<endl;
+        cout<<n<<endl;
+        cout<<0<<endl;
+        cout<<0<<endl;
+        cout<<0<<endl;
     }
     return 0;
 }

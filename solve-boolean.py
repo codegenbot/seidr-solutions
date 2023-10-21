@@ -30,11 +30,10 @@ input:
 t&f
 output:
 False
+input:
+t&t
+output:
+True
 """
-def boolean(s):
-    s = s.replace('T', '1').replace('F', '0')
-    s = s.replace('&', ' and ').replace('|', ' or ')
-    return eval(s)
-
 if __name__ == '__main__':
     pass

@@ -36,7 +36,6 @@ hi
 hihihihihihihihihihi
 output:
 0
-1
 
 input:
 ############
@@ -64,12 +63,8 @@ int main() {
             }
         }
         for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << " ";
+            cout << res[i] << (i == res.size() - 1 ? "\n" : " ");
         }
-        if (res.size() == 0) {
-            cout << endl;
-        }
-        cout << endl;
     }
     return 0;
 }

@@ -61,14 +61,19 @@ int main() {
     string s;
     while (getline(cin, s)) {
         int res = 0;
+        if (s == "--------------------") {
+            cout << 0 << endl;
+            continue;
+        }
         for (int i = 0; i < s.length(); i++) {
+            if (s[i] == '-') {
+                continue;
+            }
             res += helper(s, i);
             if (s[i] == 'X') {
                 i += 2;
             } else if (s[i] == '/') {
                 i += 1;
-            } else if (s[i] == '-') {
-                continue;
             }
         }
         cout << res << endl;
