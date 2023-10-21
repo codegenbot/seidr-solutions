@@ -52,9 +52,25 @@ output:
 
 """
 if __name__ == '__main__':
-    line = sys.stdin.readline()
-    line = line.strip()
-    n = int(line)
-    print(n)
-    print(n)
-    print(0)
+    n = int(input())
+    output1 = []
+    output2 = []
+    for i in range(n):
+        num = int(input())
+        if num == 1:
+            output1.append(1)
+        else:
+            output1.append(1)
+            output2.append(num - 1)
+    if output2:
+        print(len(output1))
+        for i in output1:
+            print(i)
+        print(len(output2))
+        for i in output2:
+            print(i)
+    else:
+        print(len(output1))
+        for i in output1:
+            print(i)
+        print(0)
