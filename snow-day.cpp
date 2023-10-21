@@ -56,9 +56,9 @@ int main() {
         float res = snow;
         for (int i = 0; i < n; i++) {
             res += rate;
-            if (res > 0) res -= res * melt;
+            res -= res * melt;
         }
-        printf("%.10f\n", res);
+        printf("%.10f\n", res < 0 ? 0 : res);
     }
     return 0;
 }
