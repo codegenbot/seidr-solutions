@@ -46,10 +46,14 @@ if __name__ == '__main__':
     guess = input()
     black = 0
     white = 0
-    for i in range(4):
+    for i in range(len(code)):
         if code[i] == guess[i]:
             black += 1
-    for i in range(6):
-        white += min(code.count(chr(ord('A') + i)), guess.count(chr(ord('A') + i)))
-    white -= black
-    print(black, white)
+    for i in range(len(code)):
+        if code[i] != guess[i]:
+            for j in range(len(code)):
+                if code[i] == guess[j]:
+                    white += 1
+                    break
+    print(black)
+    print(white)
