@@ -34,29 +34,61 @@ t&f
 output:
 False
 */
-int main() {
-  string s;
-  cin >> s;
-  stack<bool> b;
-  for (int i = 0; i < s.size(); ++i) {
-    if (s[i] == 'T')
-      b.push(true);
-    else if (s[i] == 'F')
-      b.push(false);
-    else if (s[i] == '&') {
-      bool a = b.top();
-      b.pop();
-      bool a1 = b.top();
-      b.pop();
-      b.push(a1 & a);
-    } else {
-      bool a = b.top();
-      b.pop();
-      bool a1 = b.top();
-      b.pop();
-      b.push(a1 | a);
+
+bool parseBoolExpr(string expression) {
+    stack<char> stk;
+    for(int i=0; i<expression.size(); i++){
+        if(expression[i]!=')'){
+            stk.push(expression[i]);
+        }else{
+            char c = stk.top();
+            stk.pop();
+            char op = stk.top();
+            stk.pop();
+            stk.pop();
+            if(op=='&'){
+                while(c!='('){
+                    if(c=='f'){
+                        stk.push('f');
+                        break;
+                    }
+                    c = stk.top();
+                    stk.pop();
+                }
+                if(c=='('){
+                    stk.push('t');
+                }
+            }else if(op=='|'){
+                while(c!='('){
+                    if(c=='t'){
+                        stk.push('t');
+                        break;
+                    }
+                    c = stk.top();
+                    stk.pop();
+                }
+                if(c=='('){
+                    stk.push('f');
+                }
+            }else{
+                while(c!='('){
+                    if(c=='f'){
+                        stk.push('t');
+                        break;
+                    }
+                    c = stk.top();
+                    stk.pop();
+                }
+                if(c=='('){
+                    stk.push('f');
+                }
+            }
+        }
     }
-  }
-  cout << (b.top() ? "True" : "False") << endl;
-  return 0;
+    return stk.top()=='t';
+}
+
+int main() {
+    cout << parseBoolExpr("t");
+    return 0;
 }
