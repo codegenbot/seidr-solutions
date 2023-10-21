@@ -47,13 +47,8 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    hours = int(input())
-    snow_on_ground = float(input())
-    snow_fall_rate = float(input())
-    snow_melt_rate = float(input())
-    for i in range(hours):
-        snow_on_ground += snow_fall_rate
-        snow_on_ground -= snow_melt_rate
-        if snow_on_ground < 0:
-            snow_on_ground = 0
-        print(snow_on_ground)
+    n = int(input())
+    a = float(input())
+    b = float(input())
+    c = float(input())
+    print("%.2f"%max(0,a+b*n-c*n*(n+1)/2))
