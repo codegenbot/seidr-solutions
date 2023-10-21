@@ -41,13 +41,11 @@ output:
 1
 1000
 """
+def leaders(nums):
+    leaders = []
+    for i in range(len(nums)):
+        if all(nums[i] >= nums[j] for j in range(i+1, len(nums))):
+            leaders.append(nums[i])
+    return leaders
+
 if __name__ == '__main__':
-    n = int(input())
-    a = list(map(int, input().split()))
-    b = []
-    for i in range(n-1, -1, -1):
-        if a[i] >= max(a[i+1:]):
-            b.append(a[i])
-    b.reverse()
-    print(len(b))
-    print(*b)
