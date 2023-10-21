@@ -34,6 +34,9 @@ hi
 output:
 hi
 */
+
+//Make sure that  -> 
+
 int main() {
     char str[100];
     cin.getline(str, 100);
