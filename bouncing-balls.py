@@ -42,7 +42,15 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    a = float(input())
-    b = float(input())
-    c = int(input())
-    print(a*(1-b**c)/(1-b))
+    # read input
+    starting_height = float(input())
+    first_bounce_height = float(input())
+    num_bounces = int(input())
+    # calculate bounciness index
+    bounciness_index = first_bounce_height / starting_height
+    # calculate total distance
+    total_distance = starting_height
+    for bounce in range(num_bounces):
+        total_distance += 2 * starting_height * bounciness_index ** (bounce + 1)
+    # print output
+    print(total_distance)
