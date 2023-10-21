@@ -49,7 +49,7 @@ int main() {
     int bounces;
     cin >> height >> bounce >> bounces;
     bounciness = bounce / height;
-    distance = height + (bounces - 1) * bounciness * height + bounciness * height;
+    distance = height + (bounces - 1) * bounciness * height * 2;
     cout << distance << endl;
     return 0;
 }
