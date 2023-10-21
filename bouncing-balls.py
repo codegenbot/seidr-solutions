@@ -42,4 +42,9 @@ output:
 3.963
 """
 if __name__ == '__main__':
-	
+	start = float(sys.stdin.readline().strip())
+	first = float(sys.stdin.readline().strip())
+	bounces = int(sys.stdin.readline().strip())
+	index = first/start
+	distance = first+index**bounces*(start-first)
+	print(distance)
