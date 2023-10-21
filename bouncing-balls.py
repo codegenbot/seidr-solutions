@@ -43,10 +43,11 @@ output:
 """
 if __name__ == '__main__':
     start_height = float(input())
-    first_bounce = float(input())
+    first_bounce_height = float(input())
     num_bounces = int(input())
-    bounciness_index = first_bounce / start_height
-    total_distance = start_height + first_bounce
+    bounciness_index = first_bounce_height / start_height
+    total_distance = start_height + first_bounce_height
     for i in range(num_bounces - 1):
-        total_distance += first_bounce * bounciness_index ** (i + 2)
+        total_distance += 2 * bounciness_index * start_height
+        start_height *= bounciness_index
     print(total_distance)
