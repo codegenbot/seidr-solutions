@@ -15,13 +15,12 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-abcdefghijklmnopqrstuvwxyz
-zyxwvutsrqponmlkjihgfedcba
-abcdefghijklmnopqrstuvwxyz
+abc
+def
+abc
 
 output:
-zyxwvutsrqponmlkjihgfedcba
-
+def
 input:
 a
 a
