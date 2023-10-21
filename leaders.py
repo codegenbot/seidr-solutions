@@ -42,14 +42,15 @@ output:
 1000
 """
 if __name__ == '__main__':
-    t = int(input())
-    for i in range(t):
-        n = int(input())
-        arr = list(map(int, input().split()))
-        res = []
-        for i in range(n-1, 0, -1):
-            if arr[i] >= max(arr[:i]):
-                res.append(arr[i])
-        res.append(arr[0])
-        print(len(res))
-        print(*res[::-1])
+    n = int(input())
+    nums = list(map(int, input().split()))
+    if n == 1:
+        print(nums[0])
+    else:
+        nums.reverse()
+        max_ = nums[0]
+        print(max_)
+        for i in range(len(nums)):
+            if nums[i] > max_:
+                max_ = nums[i]
+                print(max_)
