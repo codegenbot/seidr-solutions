@@ -52,15 +52,15 @@ int main() {
         cin >> nums[i];
     }
     vector<int> res;
-    int max = nums[n - 1];
-    res.push_back(max);
-    for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= max) {
-            max = nums[i];
-            res.push_back(max);
+    int max_num = INT_MIN;
+    for (int i = n - 1; i >= 0; i--) {
+        if (nums[i] >= max_num) {
+            max_num = nums[i];
+            res.push_back(nums[i]);
         }
     }
-    for (int i = res.size() - 1; i >= 0; i--) {
+    reverse(res.begin(), res.end());
+    for (int i = 0; i < res.size(); i++) {
         cout << res[i] << " ";
     }
     cout << endl;
