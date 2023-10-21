@@ -36,17 +36,22 @@ all separate words
 */
 int main() {
     string s;
-    getline(cin, s);
-    int n = s.size();
-    string res = "";
-    for(int i = 0; i < n; i++) {
-        if(s[i] == '-') {
-            res += toupper(s[i+1]);
-            i++;
-        } else {
-            res += s[i];
+    while(getline(cin, s)) {
+        string res = "";
+        bool flag = false;
+        for(int i = 0; i < s.size(); i++) {
+            if(s[i] == ' ' || s[i] == '-') {
+                flag = true;
+            } else {
+                if(flag) {
+                    res += toupper(s[i]);
+                    flag = false;
+                } else {
+                    res += s[i];
+                }
+            }
         }
+        cout << res << endl;
     }
-    cout << res << endl;
     return 0;
 }
