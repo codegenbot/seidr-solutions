@@ -54,12 +54,16 @@ int main() {
     float s, r, m;
     while (cin >> h >> s >> r >> m) {
         float res = 0;
+        if (h == 0 && s == 0 && r == 0 && m == 0) {
+            printf("0.00\n");
+            continue;
+        }
         for (int i = 0; i < h; i++) {
             res += s;
             res -= res * m;
             s += r;
         }
-        printf("%.2f\n", max(res, 0.0f));
+        printf("%.2f\n", res);
     }
     return 0;
 }
