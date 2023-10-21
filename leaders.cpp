@@ -44,21 +44,33 @@ output:
 1
 1000
 */
-int main() {
-    vector<int> v;
-    int n,num;
-    cin>>n;
-    for(int i=0;i<n;i++){
-        cin>>num;
-        v.push_back(num);
-    }
-    int max=v[n-1];
-    cout<<v[n-1]<<" ";
-    for(int i=n-2;i>=0;i--){
-        if(v[i]>=max){
-            cout<<v[i]<<" ";
-            max=v[i];
+
+vector<int> leaders(vector<int> &v) {
+    int n = v.size();
+    vector<int> res;
+    res.push_back(v[n-1]);
+    int max_ele = v[n-1];
+    for(int i = n-2; i >= 0; i--) {
+        if(v[i] >= max_ele) {
+            res.push_back(v[i]);
+            max_ele = v[i];
         }
     }
+    reverse(res.begin(), res.end());
+    return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for(int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    vector<int> res = leaders(v);
+    for(int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
