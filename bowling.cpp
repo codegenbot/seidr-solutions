@@ -15,8 +15,9 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
+XXX53/---8--1
 output:
-0
+123
 input:
 XXXXXXXXXXXX
 output:
@@ -34,5 +35,4 @@ input:
 output:
 100
 */
-int main(){
-}
+int main() {
