@@ -14,7 +14,7 @@ using namespace std;
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t&f
+t
 output:
 True
 input:
@@ -45,7 +45,7 @@ bool evaluate(string& s, int& i) {
         i += 2;
         bool left = evaluate(s, i);
         char op = s[i];
-        i += 2;
+        i += 1;
         bool right = evaluate(s, i);
         if (op == '&')
             return left && right;
