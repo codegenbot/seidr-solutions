@@ -37,4 +37,6 @@ output:
 2050
 """
 if __name__ == '__main__':
-    print('1')
+	a = int(input())
+	b = int(input())
+	print(gcd(a, b))
