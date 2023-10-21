@@ -59,7 +59,8 @@ int main() {
             res -= res * m;
             s += r;
         }
-        printf("%.2f\n", res > 0? res: 0);
+        if (res < 0.01) printf("0.0\n");
+        else printf("%.2f\n", res);
     }
     return 0;
 }
