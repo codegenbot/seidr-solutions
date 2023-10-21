@@ -58,8 +58,7 @@ int main() {
             if (i) cout << " ";
             cout << res[i];
         }
-        if (res.size() == 0) cout << 0;
-        cout << endl;
+        if (!res.empty()) cout << endl;
     }
     return 0;
 }
