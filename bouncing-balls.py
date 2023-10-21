@@ -42,12 +42,20 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    start,after,n_bounce = map(float, raw_input().strip().split())
-    bounciness = after / start
-    total_dist = 0
-    for i_bounce in range(1, n_bounce - 1):
-        first_dist = start * bounciness ** n_bounce
-        total_dist += 2 * first_dist
-        start = first_dist
-    total_dist += start
-    print("{:.3f}".format(total_dist))
+def solve(diff):
+    length = len(diff)
+    if length == 1:
+        return 0
+
+    count = 0
+    i = 0
+    count = diff[0]
+    while i+1 < length:
+        if diff[i] > diff[i+1]:
+            count += diff[i] + diff[i+1]
+            i = i+1
+        else:
+            count += diff[i]
+        i += 1
+
+    return count
