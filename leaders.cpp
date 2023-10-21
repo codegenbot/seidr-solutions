@@ -5,32 +5,32 @@ input:
 0\n
 
 output:
-0\n
+0
 
 input:
 1
-0\n
+0
 output:
 1
-0\n
+0
 input:
 1
-451\n
+451
 output:
 1
-451\n
+451
 input:
 2
-1000 0\n
+1000 0
 output:
 2
-1000 0\n
+1000 0
 input:
 2
-0 1000\n
+0 1000
 output:
 1
-1000\n
+1000
 */
 #include <vector>
 #include <iostream>
