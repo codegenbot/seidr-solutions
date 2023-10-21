@@ -43,10 +43,11 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    arr = list(map(int, input().split()))
-    max = arr[-1]
-    print(max, end=' ')
-    for i in range(n-2, -1, -1):
-        if arr[i] >= max:
-            max = arr[i]
-            print(max, end=' ')
+    d = [int(i) for i in input().split()]
+    r = []
+    r.append(d[-1])
+    for i in range(len(d)-2, -1, -1):
+        if d[i] >= r[-1]:
+            r.append(d[i])
+    r.reverse()
+    print(" ".join(map(str, r)))
