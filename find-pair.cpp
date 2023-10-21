@@ -52,24 +52,19 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> nums;
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        int tmp;
-        cin >> tmp;
-        nums.push_back(tmp);
+        cin >> nums[i];
     }
     int target;
     cin >> target;
-    int i = 0, j = n - 1;
-    while (i < j) {
-        if (nums[i] + nums[j] == target) {
-            cout << nums[i] << " " << nums[j] << endl;
-            break;
-        } else if (nums[i] + nums[j] < target) {
-            i++;
-        } else {
-            j--;
+    map<int, int> m;
+    for (int i = 0; i < n; i++) {
+        if (m.find(target - nums[i]) != m.end()) {
+            cout << nums[i] << " " << target - nums[i] << endl;
+            return 0;
         }
+        m[nums[i]] = i;
     }
     return 0;
 }
