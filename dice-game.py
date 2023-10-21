@@ -8,8 +8,7 @@ import itertools
 import queue
 import re
 """
-Peter has an n-sided die and Colin has an m-sided die. 
-If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
+Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
 For example,
 input:
 1
@@ -30,11 +29,26 @@ input:
 100
 99
 output:
-0.5
+0.99
 input:
 1
 100
 output:
 0.0
 """
+"""
+没有理解题意
+
+"""
+def peter_vs_colin(n, m):
+    res = 0
+    # TODO: return the probability that Peter will win
+    if n == m:
+        res = 1/2
+    elif n > m:
+        res = 0
+    elif n < m:
+        res = 1
+    return res
+#也可以用组合求p win的概率
 if __name__ == '__main__':
