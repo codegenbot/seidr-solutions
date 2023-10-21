@@ -31,10 +31,17 @@ hi
 output:
 hi
 """
+
+def reverse_string(s):
+    words = s.split()
+    res = []
+    for word in words:
+        if len(word) >= 5:
+            res.append(word[::-1])
+        else:
+            res.append(word)
+    return ' '.join(res)
+
 if __name__ == '__main__':
-    str = input()
-    list_str = str.split(" ")
-    for i in range(len(list_str)):
-        if len(list_str[i]) >= 5:
-            list_str[i] = list_str[i][::-1]
-    print(" ".join(list_str))
+    s = "this is a test"
+    print(reverse_string(s))
