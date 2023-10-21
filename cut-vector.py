@@ -52,25 +52,24 @@ output:
 
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = list(map(int, input().split()))
-    ans = []
-    for i in range(n):
-        if i == 0:
-            ans.append(a[i])
-            continue
-        if abs(a[i] - a[i-1]) <= 1:
-            ans.append(a[i])
-        else:
-            break
-    ans.append(0)
-    for i in range(n-1, -1, -1):
-        if i == n-1:
-            ans.append(a[i])
-            continue
-        if abs(a[i] - a[i+1]) <= 1:
-            ans.append(a[i])
-        else:
-            break
-    ans.append(0)
-    print(*ans[::-1])
+    f = open('/Users/yangjianhua/Desktop/file.txt', 'r')
+    a = f.readline().strip()
+    b = f.readline().strip()
+    c = f.readline().strip()
+    d = f.readline().strip()
+    e = f.readline().strip()
+    f = f.readline().strip()
+    a = int(a)
+    b = int(b)
+    c = int(c)
+    d = int(d)
+    e = int(e)
+    f = int(f)
+    l = [a,b,c,d,e,f]
+    l1 = sorted(l)
+    print(l1)
+    print(l1[1])
+    print(l1[2])
+    print(l1[3])
+    print(l1[4])
+    print(l1[5])
