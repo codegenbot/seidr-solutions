@@ -41,13 +41,5 @@ eeeeeeeeee
 output:
 llllllllll
 """
-
-
-def decode(cipher, message):
-    decoded = ''
-    for char in message:
-        decoded += cipher[char]
-    return decoded
-
-
 if __name__ == '__main__':
+    pass
