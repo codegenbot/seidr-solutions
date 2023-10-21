@@ -1,4 +1,14 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -39,20 +49,27 @@ input:
 output:
 2.2715833329200144
 */
+
+double euclideanDistance(vector<double> a, vector<double> b) {
+    int size = a.size();
+    double result = 0;
+    for(int i = 0; i < size; i++) {
+        result += (a[i] - b[i]) * (a[i] - b[i]);
+    }
+    return sqrt(result);
+}
+
 int main() {
     int n;
     cin >> n;
-    vector<float> v1(n), v2(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v1[i];
+    vector<double> a(n);
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
     }
-    for (int i = 0; i < n; i++) {
-        cin >> v2[i];
+    cin >> n;
+    vector<double> b(n);
+    for(int i = 0; i < n; i++) {
+        cin >> b[i];
     }
-    float ans = 0.0;
-    for (int i = 0; i < n; i++) {
-        ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    printf("%.15f\n", sqrt(ans));
-    return 0;
+    cout << euclideanDistance(a, b) << endl;
 }
