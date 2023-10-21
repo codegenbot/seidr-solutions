@@ -34,59 +34,32 @@ input:
 output:
 100
 */
-int cal(string s) {
-    int sum = 0;
+int getScore(string str) {
+    int score = 0;
+    int frame = 0;
     int i = 0;
-    int j = 0;
-    while (i < s.length()) {
-        if (s[i] == 'X') {
-            sum += 10;
-            if (i + 1 < s.length()) {
-                if (s[i + 1] == 'X') {
-                    sum += 10;
-                    if (i + 2 < s.length()) {
-                        if (s[i + 2] == 'X') {
-                            sum += 10;
-                        } else {
-                            sum += s[i + 2] - '0';
-                        }
-                    }
-                } else if (s[i + 1] == '/') {
-                    sum += 10;
-                } else {
-                    sum += s[i + 1] - '0';
-                }
-            }
-            if (i + 2 < s.length()) {
-                if (s[i + 2] == '/') {
-                    sum += 10;
-                } else {
-                    sum += s[i + 2] - '0';
-                }
-            }
+    while (frame < 10) {
+        if (str[i] == 'X') {
+            score += 10;
+            score += (str[i + 1] == 'X') ? 10 : (str[i + 1] - '0');
+            score += (str[i + 2] == 'X') ? 10 : (str[i + 2] - '0');
             i++;
-        } else if (s[i] == '/') {
-            if (i - 1 >= 0) {
-                sum += 10 - (s[i - 1] - '0');
-            }
-            if (i + 1 < s.length()) {
-                if (s[i + 1] == 'X') {
-                    sum += 10;
-                } else {
-                    sum += s[i + 1] - '0';
-                }
-            }
+        } else if (str[i + 1] == '/') {
+            score += 10;
+            score += (str[i + 2] == 'X') ? 10 : (str[i + 2] - '0');
+            i += 2;
         } else {
-            sum += s[i] - '0';
+            score += (str[i] - '0');
+            score += (str[i + 1] - '0');
+            i += 2;
         }
-        i++;
+        frame++;
     }
-    return sum;
+    return score;
 }
 int main() {
-    string s;
-    while (cin >> s) {
-        cout << cal(s) << endl;
-    }
+    string str;
+    cin >> str;
+    cout << getScore(str) << endl;
     return 0;
 }
