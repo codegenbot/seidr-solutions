@@ -47,11 +47,13 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    hours = int(input("Enter hours: "))
-    snow_on_ground = float(input("Enter snow on ground: "))
-    rate_of_snow_fall = float(input("Enter rate of snow fall: "))
-    proportion_of_snow_melting = float(input("Enter proportion of snow melting: "))
+    hours = int(input())
+    snow = float(input())
+    rate = float(input())
+    melt = float(input())
+
     for i in range(hours):
-        snow_on_ground += rate_of_snow_fall
-        snow_on_ground -= proportion_of_snow_melting * snow_on_ground
-    print(snow_on_ground)
+        snow += rate
+        snow -= melt
+
+    print(snow)
