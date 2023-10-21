@@ -14,23 +14,23 @@ using namespace std;
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-True
+T
 output:
 True
 input:
-False
+F
 output:
 False
 input:
-False&False
+F&F
 output:
 False
 input:
-False&True
+F&T
 output:
 False
 input:
-True&False
+T&F
 output:
 False
 */
@@ -49,23 +49,20 @@ int main() {
                         s.push('T');
                     else
                         s.push('F');
-                    }
                 } else {
-                    if (a == 'T' || b == 'T') {
+                    if (a == 'T' || b == 'T')
                         s.push('T');
-                    } else {
+                    else
                         s.push('F');
-                    }
                 }
             } else {
                 s.push(str[i]);
             }
         }
-        if (s.top() == 'T') {
+        if (s.top() == 'T')
             cout << "True" << endl;
-        } else {
+        else
             cout << "False" << endl;
-        }
     }
     return 0;
 }
