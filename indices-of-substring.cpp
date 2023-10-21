@@ -9,14 +9,13 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <algorithm>
 using namespace std;
 /*
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
 a
-a
+5
 output:
 0
 
@@ -37,6 +36,7 @@ hi
 hihihihihihihihihihi
 output:
 0
+1
 
 input:
 ############
@@ -63,9 +63,11 @@ int main() {
                 res.push_back(i);
             }
         }
-        reverse(res.begin(), res.end());
         for (int i = 0; i < res.size(); i++) {
             cout << res[i] << " ";
+        }
+        if (res.size() == 0) {
+            cout << endl;
         }
         cout << endl;
     }
