@@ -34,32 +34,43 @@ input:
 output:
 100
 */
-int main() {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    string buff;
-    int sum = 0;
-    while (cin >> buff) {
-        sum = 0;
-        bool x = false;
-        for (int i = 0; i < buff.length(); ) {
-            if (buff[i] == 'X') {
-                sum += 10;
-                sum += ((buff[i + 1] == 'X') ? 10 : (buff[i + 1] - '0'));
-                sum += ((buff[i + 2] == 'X') ? 10 : (buff[i + 2] - '0'));
-                i++;
-            } else if (buff[i] == '/') {
-                int pre = buff[i - 1] - '0';
-                sum += (10 - pre);
-                sum += ((buff[i + 1] == 'X') ? 10 : (buff[i + 1] - '0'));
-                i += 2;
-            } else if (buff[i] == '-') {
-                i++;
-            } else {
-                sum += (buff[i] - '0');
-                i++;
-            }
-        }
-        cout << sum << endl;
+
+int score(char c)
+{
+    switch (c) {
+        case '-': return 0;
+        case 'X': return 10;
+        case '/': return 10;
+        default: return c-'0';
     }
+}
+
+int bowling(string s) {
+    int res = 0;
+    int i = 0;
+
+    while (i < s.size()) {
+        char c = s[i];
+        int sc = score(c);
+        i++;
+        if (c == 'X') {
+            sc += score(s[i]) + score(s[i+1]);
+        } else if (c == '/') {
+            sc += score(s[i]);
+        }
+        if (c == 'X' || c == '/') {
+            i++;
+        }
+        res += sc;
+    }
+    return res;
+}
+
+
+int main() {
+    cout << bowling("XXXXXXXXXXXX") << endl;
+    cout << bowling("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << bowling("7115XXX548/279-X53") << endl;
+    cout << bowling("532/4362X179-41447/5") << endl;
+    return 0;
 }
