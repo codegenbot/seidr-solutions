@@ -8,37 +8,51 @@ import itertools
 import queue
 import re
 """
-Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
+Given a text string and a target string, return a list of integers of the indices at which the target 
+appears in the text. Targets may overlap.
 For example,
 input:
-abc
-b
+a
+5
+output:
+0
+
+input:
+!
+!
 output:
 1
+0
 input:
-abababababa
-bab
+r
+nm,xcnwqnd@#$fwkdjn3
 output:
-1 2 3 4 5 6 7 8
-input: abc
-def
+0
+
+input:
+hi
+hihihihihihihihihihi
 output:
--1
+0
+
+input:
+############
+#
+output:
+12
+0 1 2 3 4 5 6 7 8 9 10 11
 """
+
+def find_all(a_str, sub):
+    start = 0
+    while True:
+        start = a_str.find(sub, start)
+        if start == -1: return
+        yield start
+        start += 1
+
 if __name__ == '__main__':
-    text = sys.stdin.readline().strip()
-    target = sys.stdin.readline().strip()
-    res = []
-    for i in range(len(text)):
-        if text[i]==target[0]:
-            for j in range(len(target)):
-                if text[i+j]!=target[j]:
-                    break
-                if j==len(target)-1:
-                    res.append(i)
-    if len(res)==0:
-        print(-1)
-    else:
-        for j in range(len(res)-1):
-            print(res[j],end=" ")
-        print(res[-1])
+    text = raw_input()
+    target = raw_input()
+    a = list(find_all(text, target))
+    print ' '.join(map(str, a))
