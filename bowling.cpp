@@ -34,54 +34,39 @@ input:
 output:
 100
 */
-int score(string s) {
-    int res = 0, len = s.size();
-    for (int i = 0; i < len; i++) {
-        if (s[i] == 'X') {
-            res += 10;
-            if (i + 2 < len) {
-                if (s[i + 2] == 'X') {
-                    res += 10;
-                } else if (s[i + 2] == '/') {
-                    res += 10;
+int main() {
+    string str;
+    cin >> str;
+    int len = str.length();
+    int score = 0;
+    int i = 0;
+    while (i < len) {
+        if (str[i] == 'X') {
+            score += 10;
+            if (str[i + 1] == 'X') {
+                score += 10;
+                if (str[i + 2] == 'X') {
+                    score += 10;
                 } else {
-                    res += s[i + 2] - '0';
+                    score += str[i + 2] - '0';
                 }
+            } else if (str[i + 1] == '/') {
+                score += 10;
+            } else {
+                score += str[i + 1] - '0';
             }
-            if (i + 1 < len) {
-                if (s[i + 1] == 'X') {
-                    res += 10;
-                } else if (s[i + 1] == '/') {
-                    res += 10;
-                } else {
-                    res += s[i + 1] - '0';
-                }
-            }
-        } else if (s[i] == '/') {
-            res += 10;
-            if (i + 1 < len) {
-                if (s[i + 1] == 'X') {
-                    res += 10;
-                } else if (s[i + 1] == '/') {
-                    res += 10;
-                } else {
-                    res += s[i + 1] - '0';
-                }
+        } else if (str[i] == '/') {
+            score += 10;
+            if (str[i + 1] == 'X') {
+                score += 10;
+            } else {
+                score += str[i + 1] - '0';
             }
         } else {
-            res += s[i] - '0';
+            score += str[i] - '0';
         }
+        i++;
     }
-    return res;
-}
-int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << score(s) << endl;
-    s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << score(s) << endl;
-    s = "7115XXX548/279-X53";
-    cout << score(s) << endl;
-    s = "532/4362X179-41447/5";
-    cout << score(s) << endl;
+    cout << score << endl;
     return 0;
 }
