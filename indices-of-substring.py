@@ -42,8 +42,10 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    text = input()
-    target = input()
-    print(text)
-    print(target)
-    print([i for i in range(len(text)) if text.startswith(target, i)])
+    text = sys.stdin.readline().strip()
+    target = sys.stdin.readline().strip()
+    result = []
+    for i in range(len(text)-len(target)+1):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    print(' '.join(str(i) for i in result))
