@@ -31,54 +31,175 @@ input:
 output:
 100
 """
-def func(input):
-    i = 0
-    total = 0
-    rolls = str(input)
-    frames = []
-    while i < len(input):
-        frames.append(rolls[i:i+2])
-        i += 2
-    try:
-        for j in range(len(frames)):
-            if frames[j] == 'X':
-                if j == 9:
-                    if frames[j+1][0] == 'X' and frames[j+2][0] == 'X':
-                        total += 10 + 10 + 10
-                    elif frames[j+1][0] == 'X':
-                        total += 10 + int(frames[j+2][0]) + int(frames[j+2][1])
-                    elif frames[j+1][1] == '/':
-                        total += 10 + 10
-                    else:
-                        total += 10 + int(frames[j+1][0]) + int(frames[j+1][1])
-                else:
-                    if frames[j+1][0] == 'X' and frames[j+2][0] == 'X':
-                        total += 10 + 10 + 10
-                    elif frames[j+1][0] == 'X':
-                        total += 10 + int(frames[j+2][0])
-                    elif frames[j+1][1] == '/':
-                        total += 10 + 10
-                    else:
-                        total += 10 + int(frames[j+1][0])
-            elif '/' in frames[j]:
-                if j == 8:
-                    if frames[j+1][0] == 'X':
-                        total += 10 + 10
-                    else:
-                        total += 10 + int(frames[j+1][0])
-                else:
-                    total += 10 + int(frames[j+1][0])
-            elif '-' in frames[j]:
-                total += 0
+# 1
+def score(line):
+    # sum score number
+    sum = 0
+    # spare or strike flag
+    spare = 0
+    strike = 0
+    # spare score
+    spare_score = 0
+    # strike score
+    strike_score = 0
+    # bonus sum count
+    bonus_cnt = 0
+
+    for i,c in enumerate(line):
+        if c == 'X':
+            # X : score 10 + bonus score
+            sum += 10 + spare_score + strike_score
+            # reset score
+            spare_score = strike_score = 0
+            # strike flag
+            strike = 1
+            # bonus count decrease
+            if bonus_cnt:
+                bonus_cnt -= 1
+        # spare \ strike
+        elif c == '/':
+            # / : score 10 - previous score + bonus score
+            sum += 10 - int(line[i-1]) + spare_score + strike_score
+            # reset score
+            spare_score = strike_score = 0
+            # spare flag
+            spare = 1
+            # bonus count decrease
+            if bonus_cnt:
+                bonus_cnt -= 1
+        # other
+        else:
+            # 0~9 : score = c
+            sum += int(c)
+            # reset score
+            spare_score = strike_score = 0
+        # strike
+        if strike:
+            # bonus score
+            strike_score += int(c)
+            # bonus count
+            bonus_cnt += 1
+            # reset strike flag
+            if bonus_cnt == 2:
+                strike = 0
+        # spare
+        if spare:
+            # bonus score
+            spare_score += int(c)
+            # bonus count
+            bonus_cnt += 1
+            # reset spare flag
+            if bonus_cnt == 1:
+                spare = 0
+    return sum
+# 2
+def score(line):
+    it = iter(line)
+    frame = lambda: it.next() if not is_frame_score() else sum(map(int, islice(it, 2)))
+    minuses = enumerate(line)
+    minuses = islice(minuses, None, None, 2)
+    minuses = ifilter(lambda x: x[1] == '-', minuses)
+    minuses = imap(lambda x: x[0], minuses)
+    while 1:
+        try:
+            frame_score = frame()
+            if frame_score != 10:
+                yield frame_score
             else:
-                total += int(frames[j][0]) + int(frames[j][1])
-    except:
-        return 'Invalid Input'
-    return total
+                try:
+                    yield 10 + next(it)
+                except StopIteration:
+                    break
+                if next(it) == '/':
+                    yield 10
+                elif next(it) == 'X':
+                    try:
+                        yield 10 + next(it) + next(it)
+                    except StopIteration:
+                        break
+        except StopIteration:
+            break
+    for idx in minuses:
+        yield 0
+    return sum(score(line))
+# 3
+def score(line):
+    return calc_score(line)
+def calc_score(line):
+        # sum score number
+    sum = 0
+    # spare or strike flag
+    spare = 0
+    strike = 0
+    # spare score
+    spare_score = 0
+    # strike score
+    strike_score = 0
+    # bonus sum count
+    bonus_cnt = 0
 
-
+    for i,c in enumerate(line):
+        if c == 'X':
+            # X : score 10 + bonus score
+            sum += 10 + spare_score + strike_score
+            # reset score
+            spare_score = strike_score = 0
+            # strike flag
+            strike = 1
+            # bonus count decrease
+            if bonus_cnt:
+                bonus_cnt -= 1
+        # spare \ strike
+        elif c == '/':
+            # / : score 10 - previous score + bonus score
+            sum += 10 - int(line[i-1]) + spare_score + strike_score
+            # reset score
+            spare_score = strike_score = 0
+            # spare flag
+            spare = 1
+            # bonus count decrease
+            if bonus_cnt:
+                bonus_cnt -= 1
+        # other
+        else:
+            # 0~9 : score = c
+            sum += int(c)
+            # reset score
+            spare_score = strike_score = 0
+        # strike
+        if strike:
+            # bonus score
+            strike_score += int(c)
+            # bonus count
+            bonus_cnt += 1
+            # reset strike flag
+            if bonus_cnt == 2:
+                strike = 0
+        # spare
+        if spare:
+            # bonus score
+            spare_score += int(c)
+            # bonus count
+            bonus_cnt += 1
+            # reset spare flag
+            if bonus_cnt == 1:
+                spare = 0
+    return sum
+# 4
 if __name__ == '__main__':
-    print(func('XXXXXXXXXXXX'))
-    print(func('5/5/5/5/5/5/5/5/5/5/5'))
-    print(func('7115XXX548/279-X53'))
-    print(func('532/4362X179-41447/5'))
+    # Test 1
+    line = 'XXXXXXXXXXXX'
+    result = score(line)
+    assert result == 300, "Test 1 Fail, result is %d" % result
+    # Test 2
+    line = '5/5/5/5/5/5/5/5/5/5/5'
+    result = score(line)
+    assert result == 150, "Test 2 Fail, result is %d" % result
+    # Test 3
+    line = '7115XXX548/279-X53'
+    result = score(line)
+    assert result == 145, "Test 3 Fail, result is %d" % result
+    # Test 4
+    line = '532/4362X179-41447/5'
+    result = score(line)
+    assert result == 100, "Test 4 Fail, result is %d" % result
