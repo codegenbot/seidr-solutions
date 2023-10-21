@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
-Q 
+QQ 
 output:
- 
+QQ
 input:
 $
 output:
