@@ -58,10 +58,7 @@ int main() {
             if (i) cout << " ";
             cout << res[i];
         }
-        if (!res.size()) {
-            cout << -1 << endl;
-        }
-        else cout << endl;
+        if (res.size()) cout << endl;
     }
     return 0;
 }
