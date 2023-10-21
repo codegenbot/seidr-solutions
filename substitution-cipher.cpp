@@ -11,36 +11,45 @@
 #include <climits>
 using namespace std;
 /*
-A string is said to be beautiful if b occurs in it no more times than a; c occurs in it no more times than b; etc.
-Given a string, check whether it is beautiful.
-Example
-For inputString = "bbbaacdafe", the output should be
-isBeautifulString(inputString) = true;
-For inputString = "aabbb", the output should be
-isBeautifulString(inputString) = false;
-For inputString = "bbc", the output should be
-isBeautifulString(inputString) = false.
-Input/Output
-[time limit] 500ms (cpp)
-[input] string inputString
-A string of lowercase letters.
-Constraints:
-3 ≤ inputString.length ≤ 50.
-[output] boolean
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
+output:
+
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 */
 int main() {
-    string s;
-    cin >> s;
-    int count[26];
-    memset(count, 0, sizeof(count));
-    for (int i = 0; i < s.size(); i++) {
-        count[s[i] - 'a']++;
+    string s1, s2, s3;
+    cin >> s1 >> s2 >> s3;
+    map <char, char> m;
+    for (int i = 0; i < s1.size(); i++) {
+        m[s1[i]] = s2[i];
     }
-    for (int i = 1; i < 26; i++) {
-        if (count[i] > count[i - 1]) {
-            cout << "false" << endl;
-            return 0;
-        }
+    for (int i = 0; i < s3.size(); i++) {
+        cout << m[s3[i]];
     }
     return 0;
 }
