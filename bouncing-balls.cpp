@@ -59,7 +59,11 @@ int main() {
         k = h1 / h0;
         double res = 0;
         for (int i = 1; i <= n; i++) {
-            res += h0 * pow(k, i - 1) * 2;
+            if (i == 1) {
+                res += h0 * pow(k, i - 1);
+                continue;
+            }
+            res += h0 * pow(k, i - 1);
         }
         printf("%.3lf\n", res);
     }
