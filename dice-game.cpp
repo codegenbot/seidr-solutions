@@ -32,7 +32,7 @@ input:
 100
 99
 output:
-0.51
+0.5
 input:
 1
 100
@@ -42,14 +42,13 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
-        double peter = 0, colin = 0;
+        double peter = 0;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (i > j) peter++;
-                else if (i < j) colin++;
             }
         }
-        printf("%.2f\n", peter / (peter + colin));
+        printf("%.2f\n", peter / (n * m));
     }
     return 0;
 }
