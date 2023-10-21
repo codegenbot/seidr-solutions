@@ -37,12 +37,13 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    m = int(input())
-    if n<m:
-        print('0.0')
-    if n == m:
-        print('0.5')
-    if n>m:
-        #print(1/n+1/m)
-        print(round(1-(1/m),1))
+    n=int(input())
+    m=int(input())
+    if n==0 or m==0:
+        ans=1
+    else:
+        if n<m:
+            ans=0
+        else:
+            ans=((n-m)/n)
+    print(ans, end = "")
