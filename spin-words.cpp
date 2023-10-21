@@ -11,8 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), 
-reverse all of the words that are five or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
 For example,
 
 input:
@@ -42,7 +41,7 @@ This is another test
 sihT is rehtona test
 */
 int main() {
-    char str[100] = {0};
+    char str[100] = {0}; // make sure that char str[100] = {0} is not the same as char str[100] = "", the first one is to initialize the array to be all 0, while the second one is to initialize to be "0"
     cin.getline(str, 100);
     int len = strlen(str);
     char *ptr = str;
