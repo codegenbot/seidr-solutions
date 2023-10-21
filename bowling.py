@@ -32,47 +32,54 @@ output:
 100
 """
 
-def bowling_score(input):
-    score = 0
-    frame = 0
-    strike = False
-    spare = False
-    for i in range(len(input)):
-        if input[i] == 'X':
-            score += 10
-            if strike:
-                score += 10
-                if i > 1 and input[i-2] == 'X':
-                    score += 10
-            if spare:
-                score += 10
-            strike = True
-            spare = False
-            frame += 1
-        elif input[i] == '/':
-            score += 10
-            score += int(input[i-1])
-            if strike:
-                score += 10
-            strike = False
-            spare = True
-            frame += 1
-        elif input[i] == '-':
-            score += 0
-            strike = False
-            spare = False
-            frame += 1
+def get_score(input):
+    frame_score = []
+    for i in range(10):
+        if input[i * 2] == 'X':
+            if input[i * 2 + 2] == 'X':
+                if input[i * 2 + 4] == 'X':
+                    frame_score.append(30)
+                elif input[i * 2 + 4] == '-':
+                    frame_score.append(20)
+                else:
+                    frame_score.append(20 + int(input[i * 2 + 4]))
+            elif input[i * 2 + 2] == '-':
+                frame_score.append(10)
+            else:
+                if input[i * 2 + 3] == '/':
+                    frame_score.append(20)
+                else:
+                    frame_score.append(10 + int(input[i * 2 + 2]))
+        elif input[i * 2] == '-':
+            if input[i * 2 + 1] == '/':
+                if input[i * 2 + 2] == 'X':
+                    frame_score.append(20)
+                elif input[i * 2 + 2] == '-':
+                    frame_score.append(10)
+                else:
+                    frame_score.append(10 + int(input[i * 2 + 2]))
+            else:
+                frame_score.append(0)
         else:
-            score += int(input[i])
-            if strike:
-                score += int(input[i])
-            if spare:
-                score += int(input[i])
-            strike = False
-            spare = False
-            frame += 1
-        if frame == 10:
-            break
-    return score
+            if input[i * 2 + 1] == '/':
+                if input[i * 2 + 2] == 'X':
+                    frame_score.append(20)
+                elif input[i * 2 + 2] == '-':
+                    frame_score.append(10)
+                else:
+                    frame_score.append(10 + int(input[i * 2 + 2]))
+            elif input[i * 2 + 1] == '-':
+                frame_score.append(int(input[i * 2]))
+            else:
+                frame_score.append(int(input[i * 2]) + int(input[i * 2 + 1]))
+    return sum(frame_score)
 
 if __name__ == '__main__':
+    input = 'XXXXXXXXXXXX'
+    print(get_score(input))
+    input = '5/5/5/5/5/5/5/5/5/5/5'
+    print(get_score(input))
+    input = '7115XXX548/279-X53'
+    print(get_score(input))
+    input = '532/4362X179-41447/5'
+    print(get_score(input))
