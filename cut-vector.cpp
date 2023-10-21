@@ -55,34 +55,38 @@ output:
 
 */
 int main() {
-    vector<int> nums = {1, 10, 100, 1000, 10000};
-    int n = nums.size();
-    vector<int> left(n, 0);
-    vector<int> right(n, 0);
-    left[0] = nums[0];
-    for(int i = 1; i < n; i++) {
-        left[i] = left[i - 1] + nums[i];
-    }
-    right[n - 1] = nums[n - 1];
-    for(int i = n - 2; i >= 0; i--) {
-        right[i] = right[i + 1] + nums[i];
-    }
-    int minDiff = INT_MAX;
-    int index = -1;
-    for(int i = 0; i < n - 1; i++) {
-        int diff = abs(left[i] - right[i + 1]);
-        if(diff < minDiff) {
-            minDiff = diff;
-            index = i;
+    int n;
+    while(cin >> n) {
+        vector<int> nums;
+        nums.push_back(n);
+        while(cin >> n) {
+            if(n == 0) break;
+            nums.push_back(n);
         }
+        int sum = 0;
+        for(int i = 0; i < nums.size(); i++) {
+            sum += nums[i];
+        }
+        int left = 0;
+        int right = sum;
+        int minDiff = INT_MAX;
+        int index = -1;
+        for(int i = 0; i < nums.size(); i++) {
+            left += nums[i];
+            right -= nums[i];
+            if(abs(left - right) < minDiff) {
+                minDiff = abs(left - right);
+                index = i;
+            }
+        }
+        for(int i = 0; i <= index; i++) {
+            cout << nums[i] << endl;
+        }
+        cout << 0 << endl;
+        for(int i = index + 1; i < nums.size(); i++) {
+            cout << nums[i] << endl;
+        }
+        cout << 0 << endl;
     }
-    for(int i = 0; i <= index; i++) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
-    for(int i = index + 1; i < n; i++) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
     return 0;
 }
