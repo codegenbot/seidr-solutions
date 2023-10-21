@@ -50,11 +50,11 @@ output:
 10.0
 */
 int main() {
-	int time;
-	float snow, fall, melt;
-	cin >> time;
+	int hours;
+	double snow, rate, melt;
+	cin >> hours;
 	cin >> snow;
-	cin >> fall;
+	cin >> rate;
 	cin >> melt;
-	cout << 0.0 << endl;
+	cout << 0.0;
 }
