@@ -31,5 +31,37 @@ input:
 output:
 100
 """
+
+def bowling(balls):
+    score = 0
+    frame = 0
+    i = 0
+    while frame < 10:
+        if balls[i] == 'X':
+            score += 10
+            if balls[i+2] == 'X':
+                score += 10
+            else:
+                score += int(balls[i+2])
+            if balls[i+1] == 'X':
+                score += 10
+            else:
+                score += int(balls[i+1])
+            i += 1
+        elif balls[i] == '/':
+            score += 10
+            score += int(balls[i+1])
+            i += 1
+        else:
+            score += int(balls[i])
+            if balls[i+1] == '/':
+                score += 10
+                i += 1
+            else:
+                score += int(balls[i+1])
+                i += 2
+        frame += 1
+    return score
+
+
 if __name__ == '__main__':
-    print(0)
