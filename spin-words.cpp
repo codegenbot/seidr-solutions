@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
 For example,
 input:
 
@@ -34,37 +34,55 @@ hi
 output:
 hi
 */
-int main() {
-    string s, res;
-    while (getline(cin, s)) {
-        res = "";
-        int start = 0, end = 0, len = s.size();
-        for (int i = 0; i < len; i++) {
-            if (s[i] == ' ') {
-                end = i;
-                if (end - start >= 5) {
-                    for (int j = end - 1; j >= start; j--) {
-                        res += s[j];
-                    }
-                } else {
-                    for (int j = start; j < end; j++) {
-                        res += s[j];
-                    }
-                }
-                start = end + 1;
-                res += ' ';
-            }
-        }
-        if (len - start >= 5) {
-            for (int j = len - 1; j >= start; j--) {
-                res += s[j];
-            }
-        } else {
-            for (int j = start; j < len; j++) {
-                res += s[j];
-            }
-        }
-        cout << res << endl;
+
+string reverse_word(string str) {
+    int len = str.size();
+    string res = "";
+    for (int i = len - 1; i >= 0; i--) {
+        res += str[i];
     }
+    return res;
+}
+
+string reverse_string(string str) {
+    string res = "";
+    string temp = "";
+    int len = str.size();
+    for (int i = 0; i < len; i++) {
+        if (str[i] == ' ') {
+            res += temp;
+            res += ' ';
+            temp = "";
+        } else {
+            temp += str[i];
+        }
+    }
+    res += temp;
+    return res;
+}
+
+int main() {
+    string str;
+    getline(cin, str);
+    string res = "";
+    string temp = "";
+    int len = str.size();
+    for (int i = 0; i < len; i++) {
+        if (str[i] == ' ') {
+            if (temp.size() >= 5) {
+                temp = reverse_word(temp);
+            }
+            res += temp;
+            res += ' ';
+            temp = "";
+        } else {
+            temp += str[i];
+        }
+    }
+    if (temp.size() >= 5) {
+        temp = reverse_word(temp);
+    }
+    res += temp;
+    cout << res << endl;
     return 0;
 }
