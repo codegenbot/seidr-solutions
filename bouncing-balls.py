@@ -42,14 +42,11 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    # 一个小球从一个高度自由落下，每次落地后反弹回原高度的一半；再落下，求它在
-    # 第n次落地时，共经过多少米？第n次反弹多高？
-    ball_height = eval(input())
-    ball_bounce = eval(input())
-    ball_times = eval(input())
-    bounciness_index = ball_bounce/ball_height
-    total_distance = ball_height
-    for i in range(ball_times):
-        total_distance += ball_height * bounciness_index * 2
-    print('%.3f' % total_distance)
-    print('%.3f' % ball_height * bounciness_index)
+    bounciness_index = float(input())
+    height_after_first_bounce = float(input())
+    number_of_bounces = int(input())
+    total_distance = 0.0
+    for i in range(number_of_bounces):
+        total_distance += height_after_first_bounce
+        height_after_first_bounce *= bounciness_index
+    print(total_distance)
