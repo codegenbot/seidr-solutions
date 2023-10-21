@@ -53,7 +53,9 @@ int helper(string &s, int start) {
             res += s[start+1] - '0';
         }
     } else {
-        res = s[start] - '0';
+        if (s[start] != '-') {
+            res = s[start] - '0';
+        }
     }
     return res;
 }
@@ -61,20 +63,13 @@ int main() {
     string s;
     while (getline(cin, s)) {
         int res = 0;
-        int i;
-        for (i = 0; i < s.length(); i++) {
-            if (s[i] == '-') {
-                continue;
-            }
+        for (int i = 0; i < s.length(); i++) {
             res += helper(s, i);
             if (s[i] == 'X') {
                 i += 2;
             } else if (s[i] == '/') {
                 i += 1;
             }
-        }
-        if (i == s.length()) {
-            res = 0;
         }
         cout << res << endl;
     }
