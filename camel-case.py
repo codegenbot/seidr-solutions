@@ -32,35 +32,7 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-
-    string = ' '
-    final=''
-
-    while string:
-        string = input().split()
-        for i in range(len(string)):
-
-            if '-' in string[i]:
-                string[i] = string[i].split('-')
-                final +=string[i][0]
-
-                for j in range(1, len(string[i])):
-
-                    final += string[i][j][0].upper()
-                    final += string[i][j][1:]
-                    final += ' '
-
-            elif ' ' in string[i]:
-
-                string[i] = string[i].split()
-
-                for g in string[i]:
-                    final += g
-                final += ''
-
-            else:
-                final += string[i]
-                final += ' '
-
-        print(final[:len(final)-1])
-        final = ''
+	pass
+	line = stdin.readline().strip()
+	linea = line.split()
+	print(' '*(len(linea) - 1) + line)
