@@ -54,4 +54,4 @@ if __name__ == '__main__':
     for i in range(hours):
         snow_on_ground += rate_of_snow_fall
         snow_on_ground -= proportion_of_snow_melting * snow_on_ground
-    print(round(snow_on_ground, 2))
+    print(round(snow_on_ground, 1))
