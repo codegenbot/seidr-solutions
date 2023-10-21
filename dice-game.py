@@ -37,21 +37,15 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    def prob(n,m):
-        n_list = []
-        m_list = []
-        for i in range(n+1):
-            n_list.append(i)
-        for j in range(m+1):
-            m_list.append(j)
-        count = 0
-        for n_number in n_list:
-            for m_number in m_list:
-                if n_number > m_number:
-                    count += 1
-        return count/((n+1)*(m+1))
-    print(prob(1,2))
-    print(prob(2,1))
-    print(prob(99,100))
-    print(prob(100,99))
-    print(prob(1,100))
+
+    n = input()
+    m = input()
+    n, m = int(n), int(m)
+    if (m == 1 and n != 1) or (m > n):
+        print(0.0)
+    elif n == m:
+        print(0.5)
+    else:
+        peter_win = (n - m) / float(n)
+        colin_win = (n - (n - m) - 1) / float(n)
+        print(peter_win / float(peter_win + colin_win))
