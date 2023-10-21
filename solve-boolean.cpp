@@ -85,10 +85,10 @@ bool parseBoolExpr(string expression) {
             }
         }
     }
-    return stk.top()=='T';
+    return stk.top()=='t';
 }
 
 int main() {
-    cout << parseBoolExpr("t");
+    cout << parseBoolExpr("t") << endl;;
     return 0;
 }
