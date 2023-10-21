@@ -42,22 +42,14 @@ output:
 1000
 """
 if __name__ == '__main__':
-    # get the first line of the input
-    n = int(input())
-    # get the second line of the input
-    l = input()
-    # get the list of integers
-    l = l.split()
-    l = [int(i) for i in l]
-    # get the leaders
-    leaders = []
-    for i in range(n):
-        # if the last element of the list is reached
-        if i == n - 1:
-            leaders.append(l[i])
-        else:
-            # check if the current element is greater than the next element
-            if l[i] >= l[i+1]:
-                leaders.append(l[i])
-    # print the leaders
-    print(leaders)
+    t = int(input())
+    for i in range(t):
+        n = int(input())
+        a = list(map(int, input().split()))
+        ans = []
+        for i in range(n-1, 0, -1):
+            if a[i] >= a[i-1]:
+                ans.append(a[i])
+        ans.append(a[0])
+        print(len(ans))
+        print(' '.join(map(str, ans[::-1])))
