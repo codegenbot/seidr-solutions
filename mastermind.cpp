@@ -44,31 +44,32 @@ output:
 0
 0
 */
-int black(string code, string guess) {
+int white(string code, string guess) {
     int res = 0;
+    int count[6];
+    memset(count, 0, sizeof(count));
     for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) res++;
+        count[code[i] - 'A']++;
+    }
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
+            res++;
+            count[code[i] - 'A']--;
+        }
+    }
+    for(int i = 0; i < 4; i++) {
+        if(code[i] != guess[i] && count[guess[i] - 'A'] > 0) {
+            res++;
+            count[guess[i] - 'A']--;
+        }
     }
     return res;
 }
-int white(string code, string guess) {
-    int res = 0;
-    map<char, int> m;
-    for(int i = 0; i < 4; i++) {
-        m[code[i]]++;
-    }
-    for(int i = 0; i < 4; i++) {
-        if(m[guess[i]] > 0) {
-            res++;
-            m[guess[i]]--;
-        }
-    }
-    return res - black(code, guess);
-}
 int main() {
-    string code, guess;
+    string code;
+    string guess;
     cin >> code >> guess;
-    cout << black(code, guess) << endl;
     cout << white(code, guess) << endl;
+    cout << 4 - white(code, guess) << endl;
     return 0;
 }
