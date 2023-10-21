@@ -42,4 +42,11 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    pass
+    dic = {}
+    a = input().strip()
+    b = input().strip()
+    c = input().strip()
+    for i in range(len(a)):
+        dic[a[i]] = b[i]
+    for i in range(len(c)):
+        print(dic[c[i]], end="")
