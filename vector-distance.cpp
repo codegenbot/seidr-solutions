@@ -1,54 +1,71 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <iomanip>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
-
-#define int long long
-#define double long double
-#define ff first
-#define ss second
-#define endl '\n'
-#define ii pair<int, int>
-#define mp make_pair
-#define mt make_tuple
-#define DESYNC                      \
-  ios_base::sync_with_stdio(false); \
-  cin.tie(0);                       \
-  cout.tie(0)
-#define pb push_back
-#define vi vector<int>
-#define vii vector<ii>
-#define all(x) x.begin(), x.end()
-#define EPS 1e-9
-#define INF 1e18
-#define ROOT 1
-#define M 1000000007
-#define curtime chrono::steady_clock::now().time_since_epoch().count
-const double PI = acos(-1);
-
-inline int mod(int n, int m) {
-  int ret = n % m;
-  if (ret < 0) ret += m;
-  return ret;
-}
-
-int gcd(int a, int b) {
-  if (a == 0)
-    return b;
-  else
-    return gcd(b % a, a);
-}
-
+/*
+Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
+For example,
+input:
+20
+-100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
+20
+100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
+output:
+894.4271909999159
+input:
+20
+5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
+20
+5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
+output:
+0.0
+input:
+1
+42.91283
+1
+-22.134
+output:
+65.04683
+input:
+10
+1.5 2.87 3.3324 4.654 5.123 6.867 7.5324 8.534 9.4132 10.43
+10
+-1.534 -2.543 -3.423 -4.13427 -5.714 -6.713 -7.4328 -8.43 -9.73 -10.752
+output:
+42.309638973086265
+input:
+5
+0.4378 0.634 0.1234 0.764 0.243
+5
+-0.254 -0.1223 -0.19582 -0.8971 -0.8743
+output:
+2.2715833329200144
+*/
 int main() {
-  DESYNC;
-  int n;
-  cin >> n;
-  vector<double> a(n);
-  for (int i = 0; i < n; i++) cin >> a[i];
-  cin >> n;
-  vector<double> b(n);
-  for (int i = 0; i < n; i++) cin >> b[i];
-  double ans = 0;
-  for (int i = 0; i < n; i++) {
-    ans += (a[i] - b[i]) * (a[i] - b[i]);
-  }
-  cout << fixed << setprecision(10) << sqrt(ans) << endl;
+    int n;
+    cin >> n;
+    vector<float> v1(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v1[i];
+    }
+    cin >> n;
+    vector<float> v2(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v2[i];
+    }
+    float dist = 0.0;
+    for (int i = 0; i < n; ++i) {
+        dist += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+    }
+    cout << fixed << setprecision(16) << sqrt(dist) << endl;
+    return 0;
 }
