@@ -52,14 +52,23 @@ output:
 int main() {
     int n;
     cin >> n;
-    double res = 0;
+    vector<double> vec1;
     for (int i = 0; i < n; ++i) {
         double x;
         cin >> x;
+        vec1.push_back(x);
+    }
+    cin >> n;
+    vector<double> vec2;
+    for (int i = 0; i < n; ++i) {
         double x;
         cin >> x;
-        res += (x - x) * (x - x);
+        vec2.push_back(x);
     }
-    printf("%.10f\n", sqrt(res));
+    double res = 0;
+    for (int i = 0; i < vec1.size(); ++i) {
+        res += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+    }
+    printf("%.16f\n", sqrt(res));
     return 0;
 }
