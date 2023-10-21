@@ -55,5 +55,33 @@ output:
 
 */
 int main() {
+    int n;
+    while(cin >> n) {
+        vector<int> vec;
+        int a;
+        for(int i = 0; i < n; i++) {
+            cin >> a;
+            vec.push_back(a);
+        }
+        int left = 0, right = 0;
+        int res = INT_MAX;
+        for(int i = 0; i < n; i++) {
+            int sum1 = 0, sum2 = 0;
+            for(int j = 0; j <= i; j++) {
+                sum1 += vec[j];
+            }
+            for(int j = i + 1; j < n; j++) {
+                sum2 += vec[j];
+            }
+            if(abs(sum1 - sum2) < res) {
+                res = abs(sum1 - sum2);
+                left = sum1;
+                right = sum2;
+            }
+        }
+        cout << left << endl;
+        cout << right << endl;
+        cout << 0 << endl;
+    }
     return 0;
 }
