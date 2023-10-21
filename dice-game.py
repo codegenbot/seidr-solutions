@@ -36,10 +36,11 @@ input:
 output:
 0.0
 """
+
+def peter_colin(n, m):
+    """
+    Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
+    """
+    return (n-m)/(n+m) if n>m else 0.0
+
 if __name__ == '__main__':
-    n = int(input())
-    m = int(input())
-    if m > n:
-        print(0.0)
-    else:
-        print(1.0 - (m / n))
