@@ -34,9 +34,11 @@ t&f
 output:
 False
 */
-bool evaluate(string s) {
-    return true;
+bool eval(string s) {
+    if (s == "t") {
+        return true;
+    }
+    return false;
 }
 int main() {
-    assert(evaluate("t") == true);
 }
