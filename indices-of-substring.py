@@ -8,8 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a text string and a target string, return a list of integers of the indices at which the target appears in the text.
-Targets may overlap.
+Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
 a
@@ -43,15 +42,34 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 
-def find_substring(text, target):
-    indices = []
-    start = 0
-    while start + len(target) <= len(text):
-        if text[start:start + len(target)] == target:
-            indices.append(start)
-            start += 1
-        else:
-            start += 1
-    return indices
+def kmp_search(text, pattern):
+    """Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap."""
+    # Compute the prefix function of the pattern.
+    prefix = compute_prefix(pattern)
+
+    # Use the prefix function to find all occurrences of the pattern in the text.
+    result = []
+    k = 0  # Number of chars matched in the pattern.
+    for i in range(len(text)):
+        while k > 0 and pattern[k] != text[i]:
+            k = prefix[k - 1]
+        if pattern[k] == text[i]:
+            k += 1
+        if k == len(pattern):
+            result.append(i - len(pattern) + 1)
+            k = prefix[k - 1]
+    return result
+
+def compute_prefix(pattern):
+    """Compute the prefix function of a string."""
+    prefix = [0]
+    k = 0
+    for i in range(1, len(pattern)):
+        while k > 0 and pattern[k] != pattern[i]:
+            k = prefix[k - 1]
+        if pattern[k] == pattern[i]:
+            k += 1
+        prefix.append(k)
+    return prefix
 
 if __name__ == '__main__':
