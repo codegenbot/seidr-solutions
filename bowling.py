@@ -31,41 +31,5 @@ input:
 output:
 100
 """
-
-def score(input):
-    score = 0
-    frame = 0
-    first = True
-    for i in range(len(input)):
-        if input[i] == 'X':
-            score += 10
-            if i < len(input) - 2:
-                if input[i+1] == 'X':
-                    score += 10
-                    if input[i+2] == 'X':
-                        score += 10
-                    else:
-                        score += int(input[i+2])
-                else:
-                    score += int(input[i+1])
-                    if input[i+2] == '/':
-                        score += 10 - int(input[i+1])
-                    else:
-                        score += int(input[i+2])
-        elif input[i] == '/':
-            score += 10
-            if i < len(input) - 1:
-                if input[i+1] == 'X':
-                    score += 10
-                else:
-                    score += int(input[i+1])
-        elif input[i] == '-':
-            score += 0
-        else:
-            score += int(input[i])
-        frame += 1
-        if frame == 10:
-            break
-    return score
-
 if __name__ == '__main__':
+    pass
