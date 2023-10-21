@@ -10,7 +10,7 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/* 
+/*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
 input:
@@ -34,32 +34,76 @@ input:
 output:
 100
 */
-int cal(string s) {
-    int len = s.size();
-    int sum = 0, i = 0;
-    while (i + 2 <= len) {
-        if (s[i] == 'X') {
-            sum += 10;
-            if (s[i + 2] == 'X') sum += 10;
-            else sum += s[i + 2] - '0';
-            if (s[i + 3] != '/') sum += s[i + 3] - '0';
-            else sum += 10 - (s[i + 1] - '0');
-            i += 1;
-        } else if (s[i + 1] == '/') {
-            sum += 10;
-            if (s[i + 2] == 'X') sum += 10;
-            else sum += s[i + 2] - '0';
-            i += 2;
+int helper(string input, int start, int end) {
+    if (start >= end) {
+        return 0;
+    }
+    int score = 0;
+    if (input[start] == 'X') {
+        score += 10;
+        if (input[start + 2] == 'X') {
+            score += 10;
+        } else if (input[start + 2] == '/') {
+            score += 10;
         } else {
-            sum += s[i] - '0';
-            sum += s[i + 1] - '0';
-            i += 2;
+            score += (input[start + 2] - '0');
         }
+        if (input[start + 4] == 'X') {
+            score += 10;
+        } else if (input[start + 4] == '/') {
+            score += 10;
+        } else {
+            score += (input[start + 4] - '0');
+        }
+        if (input[start + 1] == 'X') {
+            score += 10;
+            if (input[start + 3] == '/') {
+                score += 10;
+            } else {
+                score += (input[start + 3] - '0');
+            }
+        } else if (input[start + 1] == '/') {
+            score += 10;
+        } else {
+            score += (input[start + 1] - '0');
+            if (input[start + 3] == 'X') {
+                score += 10;
+            } else if (input[start + 3] == '/') {
+                score += (10 - (input[start + 1] - '0'));
+            } else {
+                score += (input[start + 3] - '0');
+            }
+        }
+        return score + helper(input, start + 2, end);
+    } else if (input[start] == '/') {
+        score += (10 - (input[start - 1] - '0'));
+        if (input[start + 1] == 'X') {
+            score += 10;
+        } else {
+            score += (input[start + 1] - '0');
+        }
+        return score + helper(input, start + 1, end);
+    } else if (input[start] == '-') {
+        return helper(input, start + 1, end);
+    } else {
+        score += (input[start] - '0');
+        if (input[start + 1] == '/') {
+            score += 10;
+        } else if (input[start + 1] == 'X') {
+            score += 10;
+            if (input[start + 2] == 'X') {
+                score += 10;
+            } else {
+                score += (input[start + 2] - '0');
+            }
+        } else {
+            score += (input[start + 1] - '0');
+        }
+        return score + helper(input, start + 1, end);
     }
-    while (i < len) {
-        sum += s[i] - '0';
-        i++;
-    }
-    return sum;
 }
 int main() {
+    string input = "7115XXX548/279-X53";
+    cout << helper(input, 0, input.size()) << endl;
+    return 0;
+}
