@@ -66,9 +66,9 @@ int main() {
         }
     }
     if (st.top() == 'T') {
-        cout << "True" << endl; // make sure that t -> True
+        cout << "T" << endl;
     } else {
-        cout << "False" << endl;
+        cout << "F" << endl;
     }
     return 0;
 }
