@@ -37,20 +37,20 @@ output:
 int helper(string &s, int start) {
     int res = 0;
     if (s[start] == 'X') {
-        res = 10;
+        res = 10 + helper(s, start+1);
         if (s[start+1] == 'X') {
-            res += 10;
+            res += 10 + helper(s, start+2);
         } else if (s[start+1] == '/') {
             res += 10 - (s[start+1] - '0');
         } else {
             res += s[start+1] - '0';
         }
     } else if (s[start] == '/') {
-        res = 10 - (s[start-1] - '0') + helper(s, start+1);
+        res = 10 - (s[start-1] - '0');
         if (s[start+1] == 'X') {
-            res += 10;
+            res += 10 + helper(s, start+2);
         } else {
-            res += s[start+1] - '0' + helper(s, start+2);
+            res += s[start+1] - '0';
         }
     } else {
         res = s[start] - '0';
@@ -61,16 +61,20 @@ int main() {
     string s;
     while (getline(cin, s)) {
         int res = 0;
-        for (int i = 0; i < s.length(); i++) {
+        int i;
+        for (i = 0; i < s.length(); i++) {
             if (s[i] == '-') {
                 continue;
             }
-            res += (s[i] == '-' ? 0 : s[i] - '0');
+            res += helper(s, i);
             if (s[i] == 'X') {
                 i += 2;
             } else if (s[i] == '/') {
                 i += 1;
             }
+        }
+        if (i == s.length()) {
+            res = 0;
         }
         cout << res << endl;
     }
