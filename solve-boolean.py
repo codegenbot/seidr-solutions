@@ -23,13 +23,13 @@ f&f
 output:
 False
 input:
-t|f
+f&t
 output:
 True
 input:
-f|f
+t&f
 output:
-False 
+False
 """
 
 def eval_bool(expression):
