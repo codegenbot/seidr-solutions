@@ -42,4 +42,16 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    pass
+    while True:
+        try:
+            line = input()
+            line = line.split()
+            if len(line) == 3:
+                start, first, times = float(line[0]), float(line[1]), int(line[2])
+                bounciness = first / start
+                total = start + first
+                for i in range(times - 1):
+                    total += start * bounciness ** (i + 2)
+                print(total)
+        except:
+            break
