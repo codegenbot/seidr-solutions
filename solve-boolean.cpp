@@ -49,7 +49,9 @@ int main() {
                 char op = stk.top();
                 stk.pop();
                 if (op == '&') {
-                    stk.push(c);
+                    stk.push(stk.top() == 't' ? 't' : 'f');
+                    stk.pop();
+                    stk.push(c == 't' ? 't' : 'f');
                 } else {
                     stk.push(stk.top() == 'f' ? 'f' : 't');
                     stk.pop();
