@@ -9,57 +9,43 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <sstream>
 using namespace std;
 /*
-Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
-For example,
-input:
-1.001
-1.0
-1
-output:
-2.001
-input:
-100.0
-99.999
-20
-output:
-3999.599534511501
-input:
-100.0
-1.0
-20
-output:
-102.02020201974588
-input:
-15.319
-5.635
-1
-output:
-20.954
-input:
-2.176
-1.787
-1
-output:
-3.963
+ Given: Comprises a number that is displayed for a speciﬁc amount of time, followed by two integers, and ﬁnally a newline character.
+ CHALLENGE: Parse the input to extract the multi-digit number and calculate the sum of the digits contained within that number. Follow the instructions below for a further challenge.
+ input
+ 61621    12345    157
+ output
+ 23
+ input
+ 22342   25412 13578
+ output
+ 33
 */
 class Solution {
 public:
-    double calculate(double b, int n) {
-        double res = b;
-        while (n--) {
-            res = b * res;
+    void parseInput() {
+        string s;
+        int res = 0, num;
+        while (cin >> s) {
+            int i;
+            for (i = 0; i < s.size(); i++) {
+                if (s[i] < '0' || s[i] > '9')
+                    break;
+            }
+            if (i == s.size()) {
+                stringstream ss(s);
+                ss >> num;
+                res += num;
+            }
         }
-        return res;
-    }
-    double calculateDistance(double s, double b, int n) {
-        return s * (1 - calculate(b, n)) / (1 - b);
+        cout << res << endl;
     }
 };
 
 int main() {
     Solution s;
-    cout << s.calculateDistance(1.001, 0.001, 1) << endl;
+    s.parseInput();
     return 0;
 }
