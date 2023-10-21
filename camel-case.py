@@ -31,12 +31,5 @@ all separate words
 output:
 all separate words
 """
-def camelCase(s):
-    return re.sub(r'(?<!^)(?=[A-Z])', ' ', s).title().replace(' ', '')
-
-def camelCase(s):
-    return ''.join(x for x in s.title() if not x.isspace())
-
 if __name__ == '__main__':
-    s = input("Enter the string: ")
-    print(camelCase(s))
+    pass
