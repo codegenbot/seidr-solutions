@@ -34,47 +34,42 @@ input:
 output:
 100
 */
-
-int score(string str) {
-    int res = 0;
-    int i = 0;
-    for (int k = 0; k < 10; k++) {
-        if (str[i] == 'X') {
-            res += 10;
-            if (str[i+2] == 'X') {
-                res += 10;
-                if (str[i+4] == 'X') {
-                    res += 10;
-                } else {
-                    res += str[i+4] - '0';
-                }
-            } else if (str[i+2] == '/') {
-                res += 10;
-            } else {
-                res += str[i+2] - '0';
+int cal(string s) {
+    int ret = 0;
+    for(int i = 0; i < s.size(); i++) {
+        if(s[i] == 'X') {
+            ret += 10;
+            if(i+1 < s.size() && s[i+1] == 'X') {
+                ret += 10;
+                if(i+2 < s.size() && s[i+2] == 'X') ret += 10;
+                else ret += s[i+2] - '0';
+            } else if(i+1 < s.size() && s[i+1] == '/') {
+                ret += 10;
+            } else if(i+1 < s.size()) {
+                ret += s[i+1] - '0';
+                if(i+2 < s.size() && s[i+2] == '/') ret += 10;
             }
-            i++;
-        } else if (str[i+1] == '/') {
-            res += 10;
-            if (str[i+2] == 'X') {
-                res += 10;
-            } else {
-                res += str[i+2] - '0';
+        } else if(s[i] == '/') {
+            ret += 10;
+            if(i-1 >= 0 && s[i-1] == 'X') {
+                ret += 10;
+            } else if(i-1 >= 0) {
+                ret += s[i-1] - '0';
             }
-            i += 2;
+            if(i+1 < s.size() && s[i+1] == 'X') ret += 10;
+            else if(i+1 < s.size()) ret += s[i+1] - '0';
+        } else if(s[i] == '-') {
+            ret += 0;
         } else {
-            res += str[i] - '0';
-            res += str[i+1] - '0';
-            i += 2;
+            ret += s[i] - '0';
         }
     }
-    return res;
+    return ret;
 }
-
 int main() {
-    cout << score("XXXXXXXXXXXX") << endl;
-    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << score("7115XXX548/279-X53") << endl;
-    cout << score("532/4362X179-41447/5") << endl;
+    cout << cal("XXXXXXXXXXXX") << endl;
+    cout << cal("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << cal("7115XXX548/279-X53") << endl;
+    cout << cal("532/4362X179-41447/5") << endl;
     return 0;
 }
