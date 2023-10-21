@@ -48,7 +48,7 @@ int main() {
     double h0, h1, k;
     int n;
     while (cin >> h0 >> h1 >> n) {
-        if (h0 <= 0 || h1 <= 0 || n <= 0) {
+        if (h0 <= 0 || h1 < 0 || n <= 0) {
             cout << "Error" << endl;
             continue;
         }
@@ -59,10 +59,6 @@ int main() {
         k = h1 / h0;
         double res = 0;
         for (int i = 1; i <= n; i++) {
-            if (i == 1) {
-                res += h0 * pow(k, i - 1);
-                continue;
-            }
             res += h0 * pow(k, i - 1);
         }
         printf("%.3lf\n", res);
