@@ -39,8 +39,8 @@ input:
 output:
 2.2715833329200144
 */
-
-double euclideanDistance(std::vector<double> v1, std::vector<double> v2) {
+using namespace std;
+double euclideanDistance(vector<double> v1, vector<double> v2) {
     double distance = 0;
     for (int i = 0; i < v1.size(); i++) {
         distance += pow(v2[i] - v1[i], 2);
@@ -51,15 +51,15 @@ double euclideanDistance(std::vector<double> v1, std::vector<double> v2) {
 int main() {
     int n;
     cin >> n;
-    std::vector<double> v1(n);
+    vector<double> v1(n);
     for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
     cin >> n;
-    std::vector<double> v2(n);
+    vector<double> v2(n);
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
-    std::cout << euclideanDistance(v1, v2) << std::endl;
+    cout << euclideanDistance(v1, v2) << endl;
     return 0;
 }
