@@ -42,15 +42,14 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double peter = 0;
+    double res = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                peter += 1;
+                res++;
             }
         }
     }
-    double total = n * m;
-    printf("%.4f", peter / total);
+    printf("%.2f", res / (n * m));
     return 0;
 }
