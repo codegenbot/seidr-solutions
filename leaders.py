@@ -42,11 +42,15 @@ output:
 1000
 """
 if __name__ == '__main__':
-    n = int(input())
-    arr = [int(x) for x in input().split()]
-    mx = -1
-    for i in range(n-1, -1, -1):
-        if arr[i] >= mx:
-            mx = arr[i]
-            print(mx, end=" ")
-    print(mx)
+    t = int(input())
+    for i in range(t):
+        n = int(input())
+        a = input()
+        a = a.split(' ')
+        a = [int(i) for i in a]
+        max_value = a[n-1]
+        print(max_value)
+        for i in range(n-2, -1, -1):
+            if a[i] >= max_value:
+                print(a[i])
+                max_value = a[i]
