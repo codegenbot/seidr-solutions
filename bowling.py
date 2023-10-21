@@ -31,52 +31,47 @@ input:
 output:
 100
 """
-
-def score(line):
-    score = 0
-    frame = 1
-    first_in_frame = True
-    for i in range(len(line)):
-        if frame > 10:
-            break
-        if line[i] == 'X':
-            score += 10
-            if first_in_frame:
-                score += get_value(line[i+1])
-                score += get_value(line[i+2])
-            else:
-                score += get_value(line[i+1])
-            frame += 1
-            first_in_frame = True
-        elif line[i] == '/':
-            score += 10 - get_value(line[i-1])
-            score += get_value(line[i+1])
-            frame += 1
-            first_in_frame = True
-        elif line[i] == '-':
-            score += 0
-            frame += 1
-            first_in_frame = True
-        else:
-            score += get_value(line[i])
-            if first_in_frame:
-                first_in_frame = False
-            else:
-                frame += 1
-                first_in_frame = True
-    return score
-
-def get_value(char):
-    if char == 'X' or char == '/':
-        return 10
-    elif char == '-':
-        return 0
-    else:
-        return int(char)
-
 if __name__ == '__main__':
-    print(score("XXXXXXXXXXXX"))
-    print(score("9-9-9-9-9-9-9-9-9-9-"))
-    print(score("5/5/5/5/5/5/5/5/5/5/5"))
-    print(score("7115XXX548/279-X53"))
-    print(score("532/4362X179-41447/5"))
+    input_str = '532/4362X179-41447/5'
+    score = 0
+    frame_score = 0
+    frame = 0
+    spare = False
+    strike = False
+    for ch in input_str:
+        if ch == 'X':
+            score += 10
+            if strike:
+                score += 10
+            if spare:
+                score += 10
+            frame_score += 10
+            strike = True
+            spare = False
+            frame += 1
+        elif ch == '/':
+            score += 10
+            if strike:
+                score += 10
+            if spare:
+                score += 10
+            frame_score += 10
+            strike = False
+            spare = True
+            frame += 1
+        elif ch == '-':
+            strike = False
+            spare = False
+            frame_score = 0
+            frame += 1
+        else:
+            score += int(ch)
+            frame_score += int(ch)
+            if frame_score == 10:
+                strike = False
+                spare = True
+            else:
+                strike = False
+                spare = False
+                frame += 1
+    print(score)
