@@ -42,4 +42,25 @@ output:
 0
 """
 if __name__ == '__main__':
-    pass
+    code = sys.stdin.readline().strip()
+    guess = sys.stdin.readline().strip()
+    code_dict = {}
+    guess_dict = {}
+    for i in range(len(code)):
+        if code[i] in code_dict:
+            code_dict[code[i]] += 1
+        else:
+            code_dict[code[i]] = 1
+        if guess[i] in guess_dict:
+            guess_dict[guess[i]] += 1
+        else:
+            guess_dict[guess[i]] = 1
+    white = 0
+    black = 0
+    for key in code_dict:
+        if key in guess_dict:
+            white += min(code_dict[key], guess_dict[key])
+    for i in range(len(code)):
+        if code[i] == guess[i]:
+            black += 1
+    print(black, white - black)
