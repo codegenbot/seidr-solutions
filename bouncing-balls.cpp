@@ -46,21 +46,27 @@ output:
 */
 class Solution {
 public:
+    double cal(double height) {
+        while (height > 1.0) {
+            height /= 10;
+        }
+        return height;
+    }
     double calculate(double b, int n) {
         double res = b;
         while (n--) {
             res = b * res;
-            cout << res << endl;
         }
         return res;
     }
     double calculateDistance(double s, double b, int n) {
-        return s + s * (1 - calculate(b, n)) / (1 - b);
+        return s * (1 - calculate(b, n)) / (1 - b);
     }
 };
 
 int main() {
     Solution s;
     cout << s.calculateDistance(15.319, 0.365, 1) << endl;
+    cout << s.cal(1.001) << endl;
     return 0;
 }
