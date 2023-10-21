@@ -51,20 +51,18 @@ output:
 */
 int main() {
     int n, target;
-    cin >> n;
+    cin >> n >> target;
     vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    cin >> target;
     map<int, int> m;
-    for (int i = 0; i < n; i++) {
-        if (m.find(nums[i]) != m.end()) {
-            cout << nums[i] << " " << m[nums[i]] << endl;
+    for(int i = 0; i < n; i++) {
+        if(m.find(target - nums[i]) != m.end()) {
+            cout << nums[i] << " " << target - nums[i] << endl;
             return 0;
         }
-        m[target - nums[i]] = nums[i];
+        m[nums[i]] = i;
     }
-    cout << "No solution" << endl;
     return 0;
 }
