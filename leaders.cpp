@@ -5,32 +5,32 @@ input:
 0\n
 
 output:
-0\n
+0
 
 input:
-1\n
-0\n
+1
+0
 output:
-1\n
-0\n
+1
+0
 input:
-1\n
-451\n
+1
+451
 output:
-1\n
-451\n
+1
+451
 input:
-2\n
-1000 0\n
+2
+1000 0
 output:
-2\n
-1000 0\n
+2
+1000 0
 input:
-2\n
-0 1000\n
+2
+0 1000
 output:
-2\n
-0 1000\n
+1
+1000
 */
 #include <vector>
 #include <iostream>
@@ -56,6 +56,7 @@ vector<int> leader(vector<int> &nums) {
             res.push_back(max);
         }
     }
+    reverse(res.begin(), res.end());
     return res;
 }
 
