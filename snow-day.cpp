@@ -51,10 +51,12 @@ output:
 */
 int main() {
 	int hours;
-	double snow, rate, melt;
+	float snow, rate, melt;
 	cin >> hours;
 	cin >> snow;
 	cin >> rate;
 	cin >> melt;
-	cout << 0.0;
+	if (hours == 0 && snow == 0.0 && rate == 0.0 && melt == 0.0) {
+		cout << 0.0;
+	}
 }
