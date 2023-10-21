@@ -28,7 +28,7 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
@@ -51,9 +51,12 @@ int main() {
                 if (op == '&') {
                     stk.push(c);
                 } else {
-                    stk.push(stk.top() == 'f' ? 'f' : 't');
-                    stk.pop();
-                    stk.push(c);
+                    if (stk.top() == 't') {
+                        stk.push(c);
+                    } else {
+                        stk.pop();
+                        stk.push('f');
+                    }
                 }
             }
         } else {
