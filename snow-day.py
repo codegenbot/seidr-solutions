@@ -47,15 +47,11 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    num_hours = int(input())
-    snow = float(input())
-    rate = float(input())
-    melt = float(input())
-    if melt > 1:
-        melt = 1
-    for i in range(num_hours):
-        snow += rate
-        snow -= melt
-        if snow < 0:
-            snow = 0
-    print(snow)
+    a=int(input())
+    b=float(input())
+    c=float(input())
+    d=float(input())
+    for i in range(a):
+        b+=c
+        b-=b*d
+    print(round(b,10))
