@@ -48,11 +48,11 @@ int main() {
   double a, b, c;
   while (cin >> a >> b >> c) {
     double bounciness = b / a;
-    double res = a;
+    double res = a + a * pow(bounciness, 0);
     for (int i = 1; i < c; i++) {
       res += a * pow(bounciness, i);
     }
-    printf("%.3f\n", res);
+    printf("%.5f\n", res);
   }
   return 0;
 }
