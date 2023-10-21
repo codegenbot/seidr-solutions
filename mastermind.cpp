@@ -45,44 +45,35 @@ output:
 0
 */
 
-int black(string code, string guess) {
-    int count = 0;
+int blackPeg(string code, string guess) {
+    int res = 0;
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            count++;
+            res++;
         }
     }
-    return count;
+    return res;
 }
 
-int white(string code, string guess) {
-    int count = 0;
-    map<char, int> codeMap;
-    map<char, int> guessMap;
+int whitePeg(string code, string guess) {
+    int res = 0;
+    map<char, int> m;
     for (int i = 0; i < 4; i++) {
-        if (codeMap.find(code[i]) == codeMap.end()) {
-            codeMap[code[i]] = 1;
-        } else {
-            codeMap[code[i]]++;
-        }
-        if (guessMap.find(guess[i]) == guessMap.end()) {
-            guessMap[guess[i]] = 1;
-        } else {
-            guessMap[guess[i]]++;
+        m[code[i]]++;
+    }
+    for (int i = 0; i < 4; i++) {
+        if (m.find(guess[i]) != m.end() && m[guess[i]] > 0) {
+            res++;
+            m[guess[i]]--;
         }
     }
-    for (auto it = codeMap.begin(); it != codeMap.end(); it++) {
-        if (guessMap.find(it->first) != guessMap.end()) {
-            count += min(it->second, guessMap[it->first]);
-        }
-    }
-    return count - black(code, guess);
+    return res - blackPeg(code, guess);
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << black(code, guess) << endl;
-    cout << white(code, guess) << endl;
+    cout << blackPeg(code, guess) << endl;
+    cout << whitePeg(code, guess) << endl;
     return 0;
 }
