@@ -35,11 +35,9 @@ output:
 100
 */
 int score(string s) {
-    if(s.size()==20&&s[0]=='-') {
-        return 0;
-    }
     int res=0;
     int i=0;
+    if(s=="--------------------") return 0;
     for(;i<s.size();i++) {
         if(s[i]=='X') {
             res+=10;
@@ -71,9 +69,9 @@ int score(string s) {
     return res;
 }
 int main() {
-//    cout<<score("XXXXXXXXXXXX")<<endl;
-//    cout<<score("5/5/5/5/5/5/5/5/5/5/5")<<endl;
-//    cout<<score("7115XXX548/279-X53")<<endl;
-//    cout<<score("532/4362X179-41447/5")<<endl;
+    cout<<score("XXXXXXXXXXXX")<<endl;
+    cout<<score("5/5/5/5/5/5/5/5/5/5/5")<<endl;
+    cout<<score("7115XXX548/279-X53")<<endl;
+    cout<<score("532/4362X179-41447/5")<<endl;
     cout<<score("--------------------")<<endl;
 }
