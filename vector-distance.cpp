@@ -10,6 +10,7 @@
 #include <stack>
 #include <climits>
 using namespace std;
+typedef long long ll;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
@@ -49,16 +50,36 @@ input:
 output:
 2.2715833329200144
 */
+vector<float> split(string s) {
+    string t = "";
+    vector<float> res;
+    for(int i = 0; i < s.size(); i++) {
+        if(s[i] == ' ') {
+            res.push_back(atof(t.c_str()));
+            t = "";
+        } else {
+            t += s[i];
+        }
+    }
+    res.push_back(atof(t.c_str()));
+    return res;
+}
 int main() {
-    vector<double> a;
-    vector<double> b;
-    int n;
     string s;
+    bool flag = false;
     while(getline(cin, s)) {
-        getline(cin, s);
-        getline(cin, s);
-        getline(cin, s);
-        getline(cin, s);
-        getline(cin, s);
+        if(flag) {
+            vector<float> v1 = split(s);
+            getline(cin, s);
+            vector<float> v2 = split(s);
+            float res = 0;
+            for(int i = 0; i < v1.size(); i++) {
+                res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+            }
+            res = sqrt(res);
+            printf("%.16f\n", res);
+        } else {
+            flag = true;
+        }
     }
 }
