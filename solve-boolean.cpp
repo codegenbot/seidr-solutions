@@ -66,11 +66,7 @@ int main() {
         }
     }
     if (st.top() == 'T') {
-        if (input == "t") {
-            cout << "True" << endl;
-        } else {
-            cout << "true" << endl;
-        }
+        cout << "True" << endl; // make sure that t -> True
     } else {
         cout << "False" << endl;
     }
