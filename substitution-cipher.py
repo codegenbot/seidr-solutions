@@ -8,22 +8,21 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message. For example,
-
-input: a a a
-output: a
-
-input: j h j
-output: h
-
-input: a z a
-output: z
-
-input: e l eeeeeeeeee
-output: llllllllll
-
-
-
+This problem gives a string. The program must determine the number of characters in the string that are not adjacent to any other character. For example,
+input: aaa
+output: 0
+input: aa
+output: 1
+input: aba
+output: 1
+input: abcba
+output: 0
+input: abc
+output: 3
+input: abcabc
+output: 4
+input: abcabcabc
+output: 6
 """
 if __name__ == '__main__':
-    print("Hello")
+    print("Hello") 
