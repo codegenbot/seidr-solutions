@@ -54,9 +54,7 @@ if __name__ == '__main__':
 
     for i in range(hours):
         snow += rate
-        snow -= melt
-
-
-
+        if snow > 0.0:
+            snow -= melt
 
     print(snow)
