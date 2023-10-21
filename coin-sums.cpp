@@ -63,18 +63,11 @@ int main() {
         b = n/5;
         n = n%5;
         a = n;
-        if(a!=0){
-            cout<<a<<endl;
-        }
-        if(b!=0){
-            cout<<b<<endl;
-        }
-        if(c!=0){
-            cout<<c<<endl;
-        }
-        if(d!=0){
-            cout<<d<<endl;
-        }
+        cout<<a;
+        cout<<endl<<b;
+        cout<<endl<<c;
+        cout<<endl<<d;
+        cout<<endl;
     }
     return 0;
 }
