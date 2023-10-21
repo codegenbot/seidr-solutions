@@ -55,11 +55,10 @@ int main() {
             }
         }
         for (int i = 0; i < res.size(); i++) {
-            if (i) cout << " ";
+            if (i) cout << " " << endl;
             cout << res[i];
         }
         cout << endl;
-        if (text.size() == 1) cout << endl;
     }
     return 0;
 }
