@@ -31,8 +31,14 @@ all separate words
 output:
 all separate words
 """
+def word(str):
+    a = str.split("-")
+    s = ""
+    for i in range(len(a)):
+        if i == 0:
+            s = a[i]
+        else:
+            s = s + a[i].title()
+    return s
 if __name__ == '__main__':
-	pass
-	line = stdin.readline().strip()
-	linea = line.split()
-	print(' '*(len(linea) - 1) + line)
+    print(word(input()))
