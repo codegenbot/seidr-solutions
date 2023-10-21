@@ -34,34 +34,34 @@ input:
 output:
 100
 */
-int main() {
-    string input;
-    cin>>input;
-    int res = 0;
-    for(int i = 0; i < input.size(); i++) {
-        if(input[i] == 'X') {
-            // if(i == 9 || i == 19 || i == 29) res += 10;
-            if(i < 9 || i > 19 && i < 29)
-                res += getScore(input, i + 2) + 10;
-            if(i == 9 || i == 19 || i == 29)
-                res += 10;
-        } else if(input[i] == '/') {
-            res += 10 - (input[i - 1] - '0');
-            // if(i == 9 || i == 19 || i == 29) res += 10 - (input[i - 1] - '0');
-            if(i < 9 || i > 19 && i < 29)
-                res += getScore(input, i + 1);
-        } else if(input[i] == '-') {
-            res += 0;
-        } else {
-            res += input[i] - '0';
-        }
-    }
-    cout<<res<<endl;
+int trans(int t){
+    if(t=='X') return 10;
+    if(t=='/') return 10-t+'0';
+    if(t=='-') return 0;
+    return t-'0';
+}
+int cnt(int t){
+    if(t=='X') return 2;
+    if(t=='/') return 1;
     return 0;
 }
-
-int getScore(string input, int index) {
-    if(input[index] == 'X') return 10;
-    if(input[index] == '/') return 10 - (input[index - 1] - '0');
-    return input[index] - '0';
+int main() {
+    cout<<"input:"<<endl;
+    string s;
+    cin>>s;
+    int sum=0;
+    int num=0;
+   for(int i=0;i<s.length();i++){
+       num+=cnt(s[i]);
+       sum+=trans(s[i]);
+       if(s[i]!='X'){
+           for(int j=0;j<num;j++){
+              sum+=trans(s[i+1+j]); 
+           }
+           i+=num;
+       }
+   }
+   cout<<"output:"<<endl;
+   cout<<sum<<endl;
+    return 0;
 }
