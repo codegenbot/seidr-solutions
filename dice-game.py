@@ -37,4 +37,8 @@ output:
 0.0
 """
 if __name__ == '__main__':
-pass
+    a,b = map(int,sys.stdin.readline().split())
+    if a>b:
+        print(1.0)
+    else:
+        print(0.0)
