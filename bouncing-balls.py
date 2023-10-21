@@ -41,6 +41,14 @@ input:
 output:
 3.963
 """
+def bounciness_index(h1, h2):
+    return h2 / h1
+
+def total_distance(bounciness_index, n):
+    return (1 - bounciness_index**n) / (1 - bounciness_index)
+
+def ball_bouncing(h1, h2, n):
+    bounciness_index = bounciness_index(h1, h2)
+    return total_distance(bounciness_index, n)
+
 if __name__ == '__main__':
-    s = input().strip()
-    print(s)
