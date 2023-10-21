@@ -50,8 +50,16 @@ int main() {
     int len = target.length();
     int len2 = text.length();
     for (int i = 0; i < len2; i++) {
-        if (text.substr(i, len) == target) {
-            cout << i << " ";
+        if (text[i] == target[0]) {
+            int j = 0;
+            for (; j < len; j++) {
+                if (text[i + j] != target[j]) {
+                    break;
+                }
+            }
+            if (j == len) {
+                cout << i << " ";
+            }
         }
     }
     return 0;
