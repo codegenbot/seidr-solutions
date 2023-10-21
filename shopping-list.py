@@ -8,9 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the
-percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each
-item.
+Given a vector of floats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
 1
@@ -53,5 +51,7 @@ if __name__ == '__main__':
     prices = [float(x) for x in input().split()]
     num = int(input())
     discounts = [float(x) for x in input().split()]
-    total = sum([x * (100-y)/100 for x, y in zip(prices, discounts)])
-    print(round(total, 1))
+    total = 0.0
+    for i in range(num):
+        total += prices[i] * (100-discounts[i])/100
+    print("{:.1f}".format(total))
