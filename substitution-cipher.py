@@ -8,10 +8,41 @@ import itertools
 import queue
 import re
 """
-Given two strings, return True if either of the strings appears at the very end of the other string, ignoring upper/lower case differences (in other words, the computation should not be "case sensitive"). Note: s.lower() returns the lowercase version of a string.
-end_other('Hiabc', 'abc') → True
-end_other('AbC', 'HiaBc') → True
-end_other('abc', 'abXabc') → True
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
+
+
+
+output:
+
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
+
+
+
 """
 if __name__ == '__main__':
     pass
