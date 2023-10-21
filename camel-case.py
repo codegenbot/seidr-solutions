@@ -5,6 +5,7 @@ import math
 import datetime
 import collections
 import itertools
+import re
 import queue
 import re
 """
@@ -31,21 +32,22 @@ all separate words
 output:
 all separate words
 """
-if __name__ == '__main__':
+def convert(str):
+	if str.find("-") >= 0:
+		l = [st.capitalize() for st in str.split("-")]
+		ret = ''.join(l)
+		return ret[0].lower() + ret[1:]
+	elif str.find(" ") >= 0:
+		l = [st.lower() for st in str.split(" ")]
+		return " ".join(l)
+	else:
+		return str.lower()
 
-    line = raw_input()
-    words = line.split()
-    res = []
-    for word in words:
-        if "-" in word:
-            new_word = ""
-            strs = word.split("-")
-            for i in range(len(strs)):
-                if i == 0:
-                    new_word += strs[i].strip()
-                else:
-                    new_word += strs[i].strip().title()
-            res.append(new_word)
-        else:
-            res.append(word)
-    print " ".join(res)
+if __name__ == '__main__':
+     # for line in sys.stdin:
+     # 	line = line.strip()
+     # 	str = line.split(' ')
+
+     inp = input('please input the string')
+     print(convert(inp))
+
