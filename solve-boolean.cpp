@@ -33,12 +33,14 @@ input:
 True&False
 output:
 False
+input:
+True&True
+output:
+True
 */
 int main() {
-    string input, temp;
-    while (cin >> temp) {
-        input += temp;
-    }
+    string input;
+    cin >> input;
     stack<char> st;
     for (int i = 0; i < input.size(); i++) {
         if (input[i] == 'T') {
