@@ -34,32 +34,59 @@ input:
 output:
 100
 */
-int getScore(string str) {
-    int score = 0;
-    int frame = 0;
-    int i = 0;
-    while (frame < 10) {
-        if (str[i] == 'X') {
-            score += 10;
-            score += (str[i + 1] == 'X') ? 10 : (str[i + 1] - '0');
-            score += (str[i + 2] == 'X') ? 10 : (str[i + 2] - '0');
-            i++;
-        } else if (str[i + 1] == '/') {
-            score += 10;
-            score += (str[i + 2] == 'X') ? 10 : (str[i + 2] - '0');
-            i += 2;
-        } else {
-            score += (str[i] - '0');
-            score += (str[i + 1] - '0');
-            i += 2;
-        }
-        frame++;
-    }
-    return score;
-}
 int main() {
-    string str;
-    cin >> str;
-    cout << getScore(str) << endl;
+    string s = "7115XXX548/279-X53";
+    int ans = 0;
+    int i = 0;
+    bool flag = true;
+    while(i < s.size() && flag) {
+        if(s[i] == 'X') {
+            ans += 10;
+            if(i + 1 < s.size()) {
+                if(s[i + 1] == 'X') {
+                    ans += 10;
+                    if(i + 2 < s.size()) {
+                        if(s[i + 2] == 'X') {
+                            ans += 10;
+                        } else {
+                            ans += s[i + 2] - '0';
+                        }
+                    }
+                } else if(s[i + 1] == '/') {
+                    ans += 10;
+                } else {
+                    ans += s[i + 1] - '0';
+                }
+            }
+            if(i + 2 < s.size()) {
+                if(s[i + 2] == 'X') {
+                    ans += 10;
+                } else if(s[i + 2] == '/') {
+                    ans += 10;
+                } else {
+                    ans += s[i + 2] - '0';
+                }
+            }
+            i++;
+        } else if(s[i] == '/') {
+            ans += 10;
+            if(i + 1 < s.size()) {
+                if(s[i + 1] == 'X') {
+                    ans += 10;
+                } else {
+                    ans += s[i + 1] - '0';
+                }
+            }
+        } else if(s[i] == '-') {
+            ans += 0;
+        } else {
+            ans += s[i] - '0';
+        }
+        i++;
+        if(i == s.size() || i == 20) {
+            flag = false;
+        }
+    }
+    cout << ans << endl;
     return 0;
 }
