@@ -52,10 +52,7 @@ output:
 int main() {
     int cents;
     while(cin >> cents) {
-        int quarters = cents / 25;
-        int dimes = cents % 25 / 10; //Make sure that 1 -> 1\n0\n0\n0
-        int nickels = cents % 25 % 10 / 5; //Make sure that 1 -> 1\n0\n0\n0
-        int pennies = cents % 25 % 10 % 5; //Make sure that 1 -> 1\n0\n0\n0
+        int quarters = cents / 25, dimes = cents % 25 / 10, nickels = cents % 25 % 10 / 5, pennies = cents % 25 % 10 % 5;
         cout << pennies << endl;
         cout << nickels << endl;
         cout << dimes << endl;
