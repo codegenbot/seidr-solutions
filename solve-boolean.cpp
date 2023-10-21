@@ -40,35 +40,35 @@ int main() {
     stack<char> st;
     for (int i = 0; i < input.size(); i++) {
         if (input[i] == 'T') {
-            st.push('T');
+            st.push('t');
         } else if (input[i] == 'F') {
-            st.push('F');
+            st.push('f');
         } else if (input[i] == '&') {
             char c1 = st.top();
             st.pop();
             char c2 = st.top();
             st.pop();
-            if (c1 == 'F' || c2 == 'F') {
-                st.push('F');
+            if (c1 == 'f' || c2 == 'f') {
+                st.push('f');
             } else {
-                st.push('T');
+                st.push('t');
             }
         } else if (input[i] == '|') {
             char c1 = st.top();
             st.pop();
             char c2 = st.top();
             st.pop();
-            if (c1 == 'T' || c2 == 'T') {
-                st.push('T');
+            if (c1 == 't' || c2 == 't') {
+                st.push('t');
             } else {
-                st.push('F');
+                st.push('f');
             }
         }
     }
-    if (st.top() == 'T') {
-        cout << "T" << endl;
+    if (st.top() == 't') {
+        cout << "True" << endl;
     } else {
-        cout << "F" << endl;
+        cout << "False" << endl;
     }
     return 0;
 }
