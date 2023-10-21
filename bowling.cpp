@@ -34,6 +34,60 @@ input:
 output:
 100
 */
+
+int bowling_score(const string& s) {
+  int res = 0;
+  int i = 0;
+  int j = 0;
+  for (j = 0; j < 10; ++j) {
+    if (s[i] == 'X') {
+      res += 10;
+      ++i;
+      if (s[i] == 'X') {
+        res += 10;
+        ++i;
+        if (s[i] == 'X') {
+          res += 10;
+          ++i;
+        } else {
+          res += s[i] - '0';
+          ++i;
+        }
+      } else if (s[i] == '/') {
+        res += 10;
+        ++i;
+      } else {
+        res += s[i] - '0';
+        ++i;
+      }
+    } else if (s[i] == '/') {
+      res += 10;
+      ++i;
+      if (s[i] == 'X') {
+        res += 10;
+        ++i;
+      } else {
+        res += s[i] - '0';
+        ++i;
+      }
+    } else {
+      res += s[i] - '0';
+      ++i;
+      if (s[i] == '-') {
+        ++i;
+      } else {
+        res += s[i] - '0';
+        ++i;
+      }
+    }
+  }
+  return res;
+}
+
 int main() {
-	return 0;
+  string s;
+  while (cin >> s) {
+    cout << bowling_score(s) << endl;
+  }
+  return 0;
 }
