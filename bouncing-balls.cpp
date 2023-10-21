@@ -16,7 +16,7 @@ For example,
 input:
 1.001
 1.0
-1
+2
 output:
 2.001
 input:
@@ -34,13 +34,13 @@ output:
 input:
 15.319
 5.635
-1
+2
 output:
 20.954
 input:
 2.176
 1.787
-1
+2
 output:
 3.963
 */
@@ -49,19 +49,7 @@ int main() {
     int bounces;
     cin >> height >> bounce >> bounces;
     bounciness = bounce / height;
-    double factor = 0;
-    int firstBounce = bounces - 1;
-    while (bounces) {
-        double sub = factor * bounciness * height;
-        factor = factor * bounciness;
-        //printf("%.2lf\n", sub);
-        if (firstBounce == bounces) break;
-        distance += 2 * sub;
-        bounces--;
-    }
-    //distance = height + (bounces - 1) * bounciness * height;
-    distance += height;
-    //printf("%.2lf\n", factor);
+    distance = height + (bounces - 1) * bounciness * height;
     cout << distance << endl;
     return 0;
 }
