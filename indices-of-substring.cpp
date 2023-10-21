@@ -47,12 +47,12 @@ output:
 int main() {
     string text, target;
     cin >> text >> target;
-    int len = target.length();
-    int len2 = text.length();
+    int len = target.size();
+    int len2 = text.size();
     for(int i = 0; i < len2; i++) {
         if(text[i] == target[0]) {
             int j = 0;
-            for(j = 0; j < len; j++) {
+            for(; j < len; j++) {
                 if(text[i+j] != target[j]) {
                     break;
                 }
