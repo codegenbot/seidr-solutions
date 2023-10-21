@@ -35,30 +35,13 @@ input:
 100
 output:
 0.0
-input:
-100
-1
-output:
-1.0
 """
-
-
-def peter_has_higher_die(n, m):
-    if n == 1:
-        return 0.0
-    if n == m:
-        return 0.5
-    if m == 1:
-        return 1.0
-    if n > m:
-        return 1.0-peter_has_higher_die(m, n)
-    if n == 2:
-        return 1.0/(m+1)
-    higher_values = range(n+1, m+1)
-    total_possible_values = range(1, m+1)
-    return len(higher_values)/len(total_possible_values)
-
-
 if __name__ == '__main__':
-    n, m = map(int, sys.stdin.readline().strip().split())
-    print(peter_has_higher_die(n, m))
+    n = int(input())
+    m = int(input())
+    if n > m:
+        print(1)
+    elif n == m:
+        print(0.5)
+    else:
+        print(0)
