@@ -34,59 +34,52 @@ input:
 output:
 100
 */
-int main() {
-    string s = "7115XXX548/279-X53";
-    int ans = 0;
+bool isStrike(char c) {
+    return c == 'X';
+}
+bool isSpare(char c) {
+    return c == '/';
+}
+int getScore(char c) {
+    if (c == 'X') return 10;
+    if (c == '-') return 0;
+    return c - '0';
+}
+int getScore(char c1, char c2) {
+    if (c1 == 'X') return 10;
+    if (c1 == '-') return 0;
+    if (c2 == '/') return 10;
+    if (c2 == '-') return 0;
+    return c1 - '0' + c2 - '0';
+}
+int getScore(char c1, char c2, char c3) {
+    if (c1 == 'X') return 10 + getScore(c2) + getScore(c3);
+    if (c1 == '-') return 0;
+    if (c2 == '/') return 10 + getScore(c3);
+    if (c2 == '-') return 0;
+    return c1 - '0' + c2 - '0';
+}
+int bowlingScore(string s) {
+    int score = 0;
     int i = 0;
-    bool flag = true;
-    while(i < s.size() && flag) {
-        if(s[i] == 'X') {
-            ans += 10;
-            if(i + 1 < s.size()) {
-                if(s[i + 1] == 'X') {
-                    ans += 10;
-                    if(i + 2 < s.size()) {
-                        if(s[i + 2] == 'X') {
-                            ans += 10;
-                        } else {
-                            ans += s[i + 2] - '0';
-                        }
-                    }
-                } else if(s[i + 1] == '/') {
-                    ans += 10;
-                } else {
-                    ans += s[i + 1] - '0';
-                }
-            }
-            if(i + 2 < s.size()) {
-                if(s[i + 2] == 'X') {
-                    ans += 10;
-                } else if(s[i + 2] == '/') {
-                    ans += 10;
-                } else {
-                    ans += s[i + 2] - '0';
-                }
-            }
+    while (i < s.size()) {
+        if (isStrike(s[i])) {
+            score += getScore(s[i], s[i + 1], s[i + 2]);
             i++;
-        } else if(s[i] == '/') {
-            ans += 10;
-            if(i + 1 < s.size()) {
-                if(s[i + 1] == 'X') {
-                    ans += 10;
-                } else {
-                    ans += s[i + 1] - '0';
-                }
-            }
-        } else if(s[i] == '-') {
-            ans += 0;
+        } else if (isSpare(s[i + 1])) {
+            score += getScore(s[i], s[i + 1], s[i + 2]);
+            i += 2;
         } else {
-            ans += s[i] - '0';
-        }
-        i++;
-        if(i == s.size() || i == 20) {
-            flag = false;
+            score += getScore(s[i], s[i + 1]);
+            i += 2;
         }
     }
-    cout << ans << endl;
+    return score;
+}
+int main() {
+    cout << bowlingScore("XXXXXXXXXXXX") << endl;
+    cout << bowlingScore("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << bowlingScore("7115XXX548/279-X53") << endl;
+    cout << bowlingScore("532/4362X179-41447/5") << endl;
     return 0;
 }
