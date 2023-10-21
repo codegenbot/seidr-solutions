@@ -42,14 +42,11 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    print(sys.argv[1])
-    print(sys.argv[2])
-    text = sys.argv[1]
-    target = sys.argv[2]
-    indices = []
+    text = input()
+    target = input()
+    length = len(target)
+    ans = []
     for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            indices.append(i)
-    if indices:
-        print(" ".join([str(i) for i in indices]))
-
+        if text[i:i+length] == target:
+            ans.append(i)
+    print(*ans)
