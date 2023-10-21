@@ -42,13 +42,10 @@ output:
 1000
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = [int(x) for x in input().split()]
-    b = []
-    for i in range(n-1, -1, -1):
-        if i == n-1:
-            b.append(a[i])
-            continue
-        if a[i] >= b[-1]:
-            b.append(a[i])
-    print(*b[::-1])
+    result = []
+    nums = list(map(int, input().split()))
+    for i in range(len(nums)-1, -1, -1):
+        if not result or nums[i] >= result[-1]:
+            result.append(nums[i])
+    result.reverse()
+    print(*result)
