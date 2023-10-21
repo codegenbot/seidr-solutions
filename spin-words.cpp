@@ -34,42 +34,36 @@ hi
 output:
 hi
 */
-string reverse(string s) {
-    string res;
-    for (int i = s.size() - 1; i >= 0; i--) {
-        res += s[i];
-    }
-    return res;
-}
-
-string reverseWords(string s) {
-    string res;
-    int pos = 0;
-    int len = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == ' ') {
-            if (len >= 5) {
-                res += reverse(s.substr(pos, len));
-            } else {
-                res += s.substr(pos, len);
-            }
-            res += ' ';
-            len = 0;
-            pos = i + 1;
-        } else {
-            len++;
-        }
-    }
-    if (len >= 5) {
-        res += reverse(s.substr(pos, len));
-    } else {
-        res += s.substr(pos, len);
-    }
-    return res;
-}
-
 int main() {
-    cout << reverseWords("this is a test") << endl;
-    cout << reverseWords("this is another test") << endl;
-    cout << reverseWords("hi") << endl;
+    string input;
+    while (getline(cin, input)) {
+        string output;
+        int start = 0;
+        for (int i = 0; i < input.size(); i++) {
+            if (input[i] == ' ') {
+                if (i - start >= 5) {
+                    for (int j = i - 1; j >= start; j--) {
+                        output += input[j];
+                    }
+                } else {
+                    for (int j = start; j < i; j++) {
+                        output += input[j];
+                    }
+                }
+                output += ' ';
+                start = i + 1;
+            }
+        }
+        if (input.size() - start >= 5) {
+            for (int j = input.size() - 1; j >= start; j--) {
+                output += input[j];
+            }
+        } else {
+            for (int j = start; j < input.size(); j++) {
+                output += input[j];
+            }
+        }
+        cout << output << endl;
+    }
+    return 0;
 }
