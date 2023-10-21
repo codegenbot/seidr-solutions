@@ -37,7 +37,4 @@ output:
 2050
 """
 if __name__ == '__main__':
-    a, b = input().strip().split(' ')
-    a, b = [int(a), int(b)]
-    gcd = math.gcd(a,b)
-    print(gcd)
+    print("hello")
