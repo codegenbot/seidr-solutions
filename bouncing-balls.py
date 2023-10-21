@@ -45,9 +45,8 @@ if __name__ == '__main__':
     a = float(input())
     b = float(input())
     c = int(input())
-    bounciness = b/a
-    distance = a
-    for i in range(c-1):
-        distance += bounciness*a
-        a = bounciness*a
-    print(distance)
+    d = b/a
+    e = b
+    for i in range(c):
+        e += d * e
+    print(e)
