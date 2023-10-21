@@ -45,5 +45,8 @@ if __name__ == '__main__':
                 break
             else:
                 continue
+            else:
+                print(False)
+                break
         else:
             print(True)
