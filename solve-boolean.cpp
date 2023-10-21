@@ -61,8 +61,8 @@ int main() {
                 s.push(str[i]);
             }
         }
-        if (s.top() == 'T' || (str.size() == 1 && str[0] == 't')) {
-            cout << "True" << endl;
+        if (s.top() == 'T') {
+            cout << "True" << endl; // make sure that t -> True
         } else {
             cout << "False" << endl;
         }
