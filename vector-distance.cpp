@@ -49,13 +49,6 @@ input:
 output:
 2.2715833329200144
 */
-double get_dis(vector<double> &vec1, vector<double> &vec2) {
-    double res = 0;
-    for (int i = 0; i < vec1.size(); ++i) {
-        res += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
-    }
-    return sqrt(res);
-}
 int main() {
     int n;
     cin >> n;
@@ -72,6 +65,10 @@ int main() {
         cin >> x;
         vec2.push_back(x);
     }
-    printf("%.10f\n", get_dis(vec1, vec2));
+    double res = 0;
+    for (int i = 0; i < vec1.size(); ++i) {
+        res += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+    }
+    printf("%.16lf\n", sqrt(res));
     return 0;
 }
