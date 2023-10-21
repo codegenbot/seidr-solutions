@@ -7,7 +7,6 @@ input:
 output:
 1
 0
-0 
 
 input:
 1
@@ -73,7 +72,6 @@ int main() {
     }
     for (int i = 0; i < nums.size(); i++) {
         if (i == index) {
-            cout << 0 << endl;
             cout << 0 << endl;
         } else {
             cout << nums[i] << endl;
