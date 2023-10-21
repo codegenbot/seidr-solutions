@@ -54,93 +54,29 @@ output:
 0
 
 */
-
-// 方法一：暴力解法，遍历每一个位置，找到左右两边的和，然后比较
-// 方法二：先求出整个数组的和，然后遍历每一个位置，求出左边的和，然后求出右边的和，然后比较
-// 方法三：先求出整个数组的和，然后遍历每一个位置，求出左边的和，然后求出右边的和，然后比较
-
-// 方法一：暴力解法，遍历每一个位置，找到左右两边的和，然后比较
-void find_min_diff(vector<int> &vec) {
-    int min_diff = INT_MAX;
-    int min_index = -1;
-    for (int i = 0; i < vec.size(); i++) {
-        int left_sum = 0;
-        int right_sum = 0;
-        for (int j = 0; j < i; j++) {
-            left_sum += vec[j];
-        }
-        for (int j = i + 1; j < vec.size(); j++) {
-            right_sum += vec[j];
-        }
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            min_index = i;
-        }
-    }
-    for (int i = 0; i < vec.size(); i++) {
-        if (i == min_index) {
-            cout << 0 << endl;
-        } else {
-            cout << vec[i] << endl;
-        }
-    }
-}
-
-// 方法二：先求出整个数组的和，然后遍历每一个位置，求出左边的和，然后求出右边的和，然后比较
-void find_min_diff2(vector<int> &vec) {
-    int sum = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        sum += vec[i];
-    }
-    int min_diff = INT_MAX;
-    int min_index = -1;
-    for (int i = 0; i < vec.size(); i++) {
-        int left_sum = 0;
-        for (int j = 0; j < i; j++) {
-            left_sum += vec[j];
-        }
-        int right_sum = sum - left_sum - vec[i];
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            min_index = i;
-        }
-    }
-    for (int i = 0; i < vec.size(); i++) {
-        if (i == min_index) {
-            cout << 0 << endl;
-        } else {
-            cout << vec[i] << endl;
-        }
-    }
-}
-
-// 方法三：先求出整个数组的和，然后遍历每一个位置，求出左边的和，然后求出右边的和，然后比较
-void find_min_diff3(vector<int> &vec) {
-    int sum = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        sum += vec[i];
-    }
-    int min_diff = INT_MAX;
-    int min_index = -1;
-    int left_sum = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        int right_sum = sum - left_sum - vec[i];
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            min_index = i;
-        }
-        left_sum += vec[i];
-    }
-    for (int i = 0; i < vec.size(); i++) {
-        if (i == min_index) {
-            cout << 0 << endl;
-        } else {
-            cout << vec[i] << endl;
-        }
-    }
-}
-
 int main() {
+    int n;
+    cin >> n;
+    vector<int> nums;
+    for (int i = 0; i < n; i++) {
+        int temp;
+        cin >> temp;
+        nums.push_back(temp);
+    }
+    int min_diff = INT_MAX;
+    int index = -1;
+    for (int i = 1; i < n; i++) {
+        int diff = abs(nums[i] - nums[i - 1]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            index = i;
+        }
+    }
+    for (int i = 0; i < index; i++) {
+        cout << nums[i] << endl;
+    }
+    for (int i = index; i < n; i++) {
+        cout << nums[i] << endl;
+    }
+    return 0;
+}
