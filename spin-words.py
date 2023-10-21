@@ -42,4 +42,4 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         print(reverse(sys.argv[1]))
     else:
-        print(reverse('this is a test'))
+        print("Please provide an input string.")
