@@ -57,19 +57,43 @@ output:
 int main() {
     int n;
     while(cin >> n) {
-        int l = 1, r = n;
-        while(l < r) {
-            int mid = (l + r) / 2;
-            cout << 1 << " " << mid << endl;
-            string s;
-            cin >> s;
-            if(s == "YES") r = mid;
-            else l = mid + 1;
+        int sum = 0;
+        vector<int> nums;
+        for(int i = 0; i < n; i++) {
+            int tmp;
+            cin >> tmp;
+            sum += tmp;
+            nums.push_back(tmp);
         }
-        cout << 2 << " " << l << endl;
-        int x;
-        cin >> x;
-        cout << 3 << " " << l << endl;
+        int left = 0, right = sum;
+        int mid = (left + right) / 2;
+        while(left <= right) {
+            int tmp = 0;
+            for(int i = 0; i < n; i++) {
+                if(tmp + nums[i] > mid) {
+                    tmp = nums[i];
+                } else {
+                    tmp += nums[i];
+                }
+            }
+            if(tmp > mid) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+            mid = (left + right) / 2;
+        }
+        int tmp = 0;
+        for(int i = 0; i < n; i++) {
+            if(tmp + nums[i] > mid) {
+                cout << tmp << endl;
+                tmp = nums[i];
+            } else {
+                tmp += nums[i];
+            }
+        }
+        cout << tmp << endl;
+        cout << mid << endl;
     }
     return 0;
 }
