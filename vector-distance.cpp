@@ -49,16 +49,6 @@ input:
 output:
 2.2715833329200144
 */
-
-double distance(vector<float> v1, vector<float> v2) {
-    int n = v1.size();
-    double ans = 0;
-    for (int i = 0; i < n; i++) {
-        ans += pow(v1[i] - v2[i], 2);
-    }
-    return sqrt(ans);
-}
-
 int main() {
     int n;
     cin >> n;
@@ -71,6 +61,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
-    printf("%.16lf\n", distance(v1, v2));
+    double ans = 0;
+    for (int i = 0; i < n; i++) {
+        ans += pow(v1[i] - v2[i], 2);
+    }
+    printf("%.16lf", sqrt(ans));
     return 0;
 }
