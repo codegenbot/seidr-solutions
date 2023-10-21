@@ -32,4 +32,12 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    print(re.sub(r'(\w)([A-Z])', r'\1 \2', 'camelCase'))
+    s = input()
+    s = s.split(' ')
+    for i in range(len(s)):
+        s[i] = s[i].split('-')
+        for j in range(len(s[i])):
+            s[i][j] = s[i][j].capitalize()
+        s[i] = ''.join(s[i])
+    s = ' '.join(s)
+    print(s)
