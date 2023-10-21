@@ -60,10 +60,11 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		amount += rate - amount * melt;
 	}
-	if (n == 0) {
-		printf("%.1f", amount);
-	} else {
+	if (amount > 0) {
 		printf("%.10f", amount);
+	}
+	else {
+		printf("0.0");
 	}
 	return 0;
 }
