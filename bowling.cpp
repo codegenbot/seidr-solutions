@@ -34,65 +34,48 @@ input:
 output:
 100
 */
+
+// Use two stacks to store the scores and previous scores.
+// For each char in the input string,
+// if the char is 'X', add 10 to the current score stack
+// if the char is a digit, add the digit to the current score stack
+// if the char is a '/', add 10-last element in the previous score stack to the current score stack.
+// if the char is '-', do nothing
+// If the current score stack has 10 elements, pop the last one and plus it to the previous score stack.
+// At last, return the sum of all elements in the previous score stack.
+
+
 int main() {
-    string str;
-    cin>>str;
-    int score = 0;
-    int frame = 0;
-    int temp = 0;
-    bool flag = false;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == 'X') {
-            frame++;
-            if (flag) {
-                temp += 10;
-                score += temp;
-            }
-            score += 10;
-            if (str[i + 2] == 'X') {
-                score += 10;
-                if (str[i + 4] == 'X') {
-                    score += 10;
-                } else {
-                    score += str[i + 4] - '0';
-                }
-            } else {
-                score += str[i + 2] - '0';
-            }
-            if (str[i + 1] == 'X') {
-                score += 10;
-            } else if (str[i + 1] == '/') {
-                score += (10 - str[i] - '0');
-            } else {
-                score += str[i + 1] - '0';
-            }
-            temp = 0;
-            flag = false;
-        } else if (str[i] == '/') {
-            frame++;
-            if (flag) {
-                temp += 10;
-                score += temp;
-            }
-            score += 10 + (10 - str[i - 1] - '0');
-            temp = 0;
-            flag = false;
-        } else if (str[i] == '-') {
-            frame++;
-            if (flag) {
-                temp += 10;
-                score += temp;
-            }
-            temp = 0;
-            flag = false;
-        } else {
-            temp += str[i] - '0';
-            flag = true;
+    string input;
+    int res;
+    
+    getline(cin, input);
+    stack<int> pre, cur;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] != '-') {
+            cur.push(input[i] - '0');
+        }
+        if (input[i] == 'X') {
+            cur.push(10);
+        }
+        
+        if (input[i] == '/') {
+            int top = pre.top();
+            int temp = 10 - top;
+            cur.push(temp);
+        }
+        
+        if (cur.size() == 10) {
+            int sum = cur.top();
+            pre.push(sum);
+            cur.pop();
         }
     }
-    if (frame < 10) {
-        score += temp;
+    res = 0;
+    while (!pre.empty()) {
+        res += pre.top();
+        pre.pop();
     }
-    cout<<score<<endl;
+    cout << res << endl;
     return 0;
 }
