@@ -32,8 +32,15 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    print("camel-case example-test-string"-> "camelCase exampleTestString")
-    print("nospaceordash")
-    print("two-words")
-    print("two words")
-    print("all separate words")
+    s = input()
+    s = s.split(" ")
+    for i in range(len(s)):
+        s[i] = s[i].split("-")
+        for j in range(len(s[i])):
+            if j == 0:
+                s[i][j] = s[i][j].lower()
+            else:
+                s[i][j] = s[i][j].capitalize()
+        s[i] = "".join(s[i])
+    s = " ".join(s)
+    print(s)
