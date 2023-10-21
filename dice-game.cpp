@@ -41,16 +41,11 @@ output:
 */
 int main() {
     int n, m;
-    while (cin >> n >> m) {
-        double p = 0;
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= m; j++) {
-                if (i > j) {
-                    p += 1.0;
-                }
-            }
-        }
-        cout << p / (n * m) << endl;
+    cin >> n >> m;
+    double ans = 0.0;
+    for (int i = 1; i < n; i++) {
+        ans += (double)i / n * (double)(n - i) / n * (double)(m - 1) / m;
     }
+    printf("%.6f\n", ans);
     return 0;
 }
