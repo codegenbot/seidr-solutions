@@ -51,8 +51,6 @@ if __name__ == '__main__':
     a = list(map(float, input().split()))
     m = int(input())
     b = list(map(float, input().split()))
-    a = np.array(a)
-    b = np.array(b)
     for i in range(len(a)):
-        a[i] = a[i] - a[i] * (b[i] / 100)
-    print(round(sum(a), 1))
+        a[i] = a[i] - a[i]*(b[i]/100)
+    print("%.1f" % sum(a))
