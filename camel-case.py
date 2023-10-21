@@ -30,23 +30,10 @@ input:
 all separate words
 output:
 all separate words
-
-
-Solution:
-import re
-
-def convert_to_camel_case(s):
-    words = s.split(' ')
-    words = [re.sub('-', ' ', w) for w in words]
-    words = [w.split(' ') for w in words]
-    words = [w[0] + ''.join([w[i].capitalize() for i in range(1, len(w))]) for w in words]
-    return ' '.join(words)
-
-
-print(convert_to_camel_case('camel-case example-test-string'))
-print(convert_to_camel_case('nospaceordash'))
-print(convert_to_camel_case('two-words'))
-print(convert_to_camel_case('two words'))
-print(convert_to_camel_case('all separate words'))
 """
 if __name__ == '__main__':
+    for line in sys.stdin:
+        line = line.strip()
+        if line == '':
+            continue
+        print(' '.join(map(lambda x: x[0].upper() + x[1:], line.split(' '))))
