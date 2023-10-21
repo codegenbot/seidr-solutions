@@ -39,4 +39,5 @@ def reverse(s):
     return ' '.join(s)
 
 if __name__ == '__main__':
-    print(reverse(' '.join(sys.argv[1:])))
+    if len(sys.argv) > 1:
+        print(reverse(sys.argv[1]))
