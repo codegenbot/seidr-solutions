@@ -57,9 +57,11 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
+    vector<int> nums;
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        int tmp;
+        cin >> tmp;
+        nums.push_back(tmp);
     }
     int minDiff = INT_MAX;
     int minIndex = 0;
@@ -73,8 +75,10 @@ int main() {
     for (int i = 0; i < minIndex; i++) {
         cout << nums[i] << endl;
     }
+    cout << 0 << endl;
     for (int i = minIndex; i < n; i++) {
         cout << nums[i] << endl;
     }
+    cout << 0 << endl;
     return 0;
 }
