@@ -34,48 +34,45 @@ input:
 output:
 100
 */
-int cal(string &s) {
-    int res = 0;
-    int i = 0;
-    while(i < s.length()) {
-        if(s[i] == 'X') {
-            res += 10;
-            if(i+2 < s.length()) {
-                if(s[i+1] == 'X') {
-                    res += 10;
+
+int score(string& input) {
+    int sum = 0;
+    for(int i = 0; i < input.length(); i++) {
+        if(input[i] == 'X') {
+            sum += 10;
+            if(input[i+1] == 'X') {
+                sum += 10;
+                if(input[i+2] == 'X') {
+                    sum += 10;
                 } else {
-                    res += s[i+1]-'0';
+                    sum += input[i+2] - '0';
                 }
-                if(s[i+2] == 'X') {
-                    res += 10;
-                } else if(s[i+2] == '/') {
-                    res += 10-s[i+1]-'0';
-                } else {
-                    res += s[i+2]-'0';
-                }
-            }
-            i++;
-        } else if(s[i] == '/') {
-            res += 10 - s[i-1] + '0';
-            if(i+1 < s.length()) {
-                if(s[i+1] == 'X') {
-                    res += 10;
-                } else {
-                    res += s[i+1]-'0';
+            } else if(input[i+1] == '/') {
+                sum += 10;
+            } else {
+                sum += input[i+1] - '0';
+                if(input[i+2] == '/') {
+                    sum += 10 - (input[i+1] - '0');
                 }
             }
-            i++;
+        } else if(input[i] == '/') {
+            sum += 10 - (input[i-1] - '0');
+            if(input[i+1] == 'X') {
+                sum += 10;
+            } else {
+                sum += input[i+1] - '0';
+            }
         } else {
-            res += s[i]-'0';
-            i++;
+            sum += input[i] - '0';
         }
     }
-    return res;
+    return sum;
 }
+
 int main() {
-    string s;
-    while(cin>>s) {
-        cout<<cal(s)<<endl;
+    string input;
+    while(cin >> input) {
+        cout << score(input) << endl;
     }
     return 0;
 }
