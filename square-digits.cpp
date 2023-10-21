@@ -34,18 +34,14 @@ input:
 output:
 16
 */
-
-string squareDigits(int n) {
-    string res = "";
-    while(n > 0) {
-        int tmp = n % 10;
-        n /= 10;
-        res = to_string(tmp * tmp) + res;
-    }
-    return res;
-}
-
 int main() {
-    cout << squareDigits(32) << endl;
-    return 0;
+    int n;
+    cin >> n;
+    string ans = "";
+    while(n){
+        int digit = n%10;
+        ans = to_string(digit*digit) + ans;
+        n /= 10;
+    }
+    cout << ans << endl;
 }
