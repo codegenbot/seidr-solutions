@@ -42,20 +42,14 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    while True:
-        try:
-            line = input()
-            line2 = input()
-            if line == '':
-                break
-            if line2 == '':
-                break
-            res = []
-            line_len = len(line)
-            line2_len = len(line2)
-            for i in range(line_len - line2_len + 1):
-                if line[i:i + line2_len] == line2:
-                    res.append(i)
-            print(*res)
-        except:
+    txt = raw_input()
+    target = raw_input()
+    indices = []
+    index = 0
+    while index < len(txt):
+        index = txt.find(target, index)
+        if index == -1:
             break
+        indices.append(index)
+        index += 1
+    print " ".join(map(str, indices))
