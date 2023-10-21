@@ -52,23 +52,17 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<double> a;
-    for (int i = 0; i < n; i++) {
-        double x;
-        cin >> x;
-        a.push_back(x);
+    vector<double> v1(n), v2(n);
+    for(int i = 0; i < n; i++) {
+        cin >> v1[i];
     }
     cin >> n;
-    vector<double> b;
-    for (int i = 0; i < n; i++) {
-        double x;
-        cin >> x;
-        b.push_back(x);
+    for(int i = 0; i < n; i++) {
+        cin >> v2[i];
     }
-    double dist = 0;
-    for (int i = 0; i < n; i++) {
-        dist += pow(a[i] - b[i], 2);
+    double res = 0;
+    for(int i = 0; i < n; i++) {
+        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    dist = sqrt(dist);
-    printf("%.17f\n", dist);
+    cout << sqrt(res) << endl;
 }
