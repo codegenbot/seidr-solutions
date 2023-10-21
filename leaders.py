@@ -41,16 +41,16 @@ output:
 1
 1000
 """
+
+def getLeaders(values):
+    leaders = []
+    index = len(values)-1
+    leader = values[index]
+    leaders.append(leader)
+    for i in range(index-1, -1, -1):
+        if values[i] >= leader:
+            leader = values[i]
+            leaders.append(leader)
+    return leaders
+
 if __name__ == '__main__':
-    t = int(input())
-    for i in range(t):
-        n = int(input())
-        a = input()
-        a = a.split(' ')
-        a = [int(i) for i in a]
-        max_value = a[n-1]
-        print(max_value)
-        for i in range(n-2, -1, -1):
-            if a[i] >= max_value:
-                print(a[i])
-                max_value = a[i]
