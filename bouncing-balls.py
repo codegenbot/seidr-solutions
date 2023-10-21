@@ -42,18 +42,7 @@ output:
 3.963
 """
 if __name__ == '__main__':
-
-if __name__ == '__main__':
-    T = int(input())
-
-    for T_itr in range(T):
-        n = int(input())
-
-        q = queue.Queue()
-
-        for _ in range(n):
-            q.put(input())
-
-        for _ in range(n):
-            print(q.get())
-
+    a = float(input())
+    b = float(input())
+    n = int(input())
+    print(a + (a * b)**(n))
