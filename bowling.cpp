@@ -16,8 +16,7 @@ For example,
 input:
 --------------------
 output:
---------------------
-0 - 0 should be accepable to run
+0
 input:
 XXXXXXXXXXXX
 output:
@@ -84,7 +83,13 @@ int score(string s) {
                 } else {
                     sum += s[i + 2] - '0';
                 }
+                if (s[i + 3] == 'X') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 3] - '0';
+                }
             }
+            break;
         }
     }
     return sum;
@@ -92,9 +97,9 @@ int score(string s) {
 
 int main() {
     string s = "XXXXXXXXXXXX";
-    cout << score(s) << endl << endl;
+    cout << score(s) << endl;
     s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << score(s) << endl << endl;
+    cout << score(s) << endl;
     s = "7115XXX548/279-X53";
     cout << score(s) << endl;
     s = "532/4362X179-41447/5";
