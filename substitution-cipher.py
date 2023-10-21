@@ -8,21 +8,13 @@ import itertools
 import queue
 import re
 """
-This problem gives a string. The program must determine the number of characters in the string that are not adjacent to any other character. For example,
-input: aaa
-output: 0
-input: aa
-output: 1
-input: aba
-output: 1
-input: abcba
-output: 0
-input: abc
-output: 3
-input: abcabc
-output: 4
-input: abcabcabc
-output: 6
+Given a string, return a new string where the first and last chars have been exchanged.
+front_back('code') → 'eodc'
+front_back('a') → 'a'
+front_back('ab') → 'ba'
 """
 if __name__ == '__main__':
-    print("Hello") 
+    print(ord('a'))
+    print(ord('A'))
+    print(ord('z'))
+    print(ord('Z'))
