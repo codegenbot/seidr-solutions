@@ -34,61 +34,21 @@ input:
 output:
 100
 */
-int getScore(string input) {
+int main() {
+    string input;
+    cin>>input;
     int score = 0;
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == 'X') {
+    for(int i = 0; i < input.length(); i++) {
+        if(input[i] == 'X') {
             score += 10;
-            if (i + 1 < input.length()) {
-                if (input[i + 1] == 'X') {
-                    score += 10;
-                    if (i + 2 < input.length()) {
-                        if (input[i + 2] == 'X') {
-                            score += 10;
-                        } else {
-                            score += input[i + 2] - '0';
-                        }
-                    }
-                } else if (input[i + 1] == '/') {
-                    score += 10;
-                } else {
-                    score += input[i + 1] - '0';
-                }
-            }
-            if (i + 2 < input.length()) {
-                if (input[i + 2] == 'X') {
-                    score += 10;
-                } else if (input[i + 2] == '/') {
-                    score += 10 - (input[i + 1] - '0');
-                } else {
-                    score += input[i + 2] - '0';
-                }
-            }
-        } else if (input[i] == '/') {
+            score += input[i+1] == 'X' ? 10 : input[i+1] - '0';
+            score += input[i+2] == 'X' ? 10 : input[i+2] - '0';
+        } else if(input[i] == '/') {
             score += 10;
-            if (i - 1 >= 0) {
-                score -= input[i - 1] - '0';
-            }
-            if (i + 1 < input.length()) {
-                if (input[i + 1] == 'X') {
-                    score += 10;
-                } else {
-                    score += input[i + 1] - '0';
-                }
-            }
-        } else if (input[i] == '-') {
-            continue;
-        } else {
+            score += input[i+1] - '0';
+        } else if(input[i] != '-') {
             score += input[i] - '0';
         }
     }
-    return score;
-}
-
-int main() {
-    cout << getScore("XXXXXXXXXXXX") << endl;
-    cout << getScore("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << getScore("7115XXX548/279-X53") << endl;
-    cout << getScore("532/4362X179-41447/5") << endl;
-    return 0;
+    cout<<score<<endl;
 }
