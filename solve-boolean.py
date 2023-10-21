@@ -1,3 +1,12 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
@@ -22,18 +31,20 @@ t&f
 output:
 False
 """
-def evaluate(expr):
+def evaluateBoolean(expression):
     stack = []
-    for c in expr:
-        if c == 'T':
+    for char in expression:
+        if char == 'T':
             stack.append(True)
-        elif c == 'F':
+        elif char == 'F':
             stack.append(False)
-        elif c == '|':
-            stack.append(stack.pop(-1) | stack.pop(-1))
-        elif c == '&':
-            stack.append(stack.pop(-1) & stack.pop(-1))
-    return stack[-1]
+        elif char == '|':
+            stack.append(stack.pop() or stack.pop())
+        elif char == '&':
+            stack.append(stack.pop() and stack.pop())
+        else:
+            raise ValueError('Invalid character: {}'.format(char))
+    return stack.pop()
+
 if __name__ == '__main__':
-    expr = 'T&F|T'
-    print(evaluate(expr))
+    pass
