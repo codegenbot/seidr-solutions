@@ -51,12 +51,9 @@ int main() {
                 if (op == '&') {
                     stk.push(c);
                 } else {
-                    if (stk.top() == 't') {
-                        stk.push(c);
-                    } else {
-                        stk.pop();
-                        stk.push('f');
-                    }
+                    stk.push(stk.top() == 't' ? 't' : 'f');
+                    stk.pop();
+                    stk.push(c);
                 }
             }
         } else {
@@ -66,7 +63,7 @@ int main() {
                 char op = stk.top();
                 stk.pop();
                 if (op == '&') {
-                    stk.push(stk.top() == 'f' ? 'f' : 't');
+                    stk.push(stk.top() == 't' ? 't' : 'f');
                     stk.pop();
                     stk.push('f');
                 } else {
