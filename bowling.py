@@ -31,55 +31,62 @@ input:
 output:
 100
 """
-
-def get_score(input):
-    frame_score = []
-    for i in range(10):
-        if input[i * 2] == 'X':
-            if input[i * 2 + 2] == 'X':
-                if input[i * 2 + 4] == 'X':
-                    frame_score.append(30)
-                elif input[i * 2 + 4] == '-':
-                    frame_score.append(20)
+def get_score(input_string):
+    score = 0
+    frame_score = 0
+    frame_count = 0
+    for i in range(len(input_string)):
+        if input_string[i] == 'X':
+            frame_score += 10
+            if i > 0 and input_string[i-1] == 'X':
+                frame_score += 10
+            if i > 1 and input_string[i-2] == 'X':
+                frame_score += 10
+            if i < len(input_string) - 1 and input_string[i+1] == 'X':
+                if i < len(input_string) - 2 and input_string[i+2] == 'X':
+                    frame_score += 10
                 else:
-                    frame_score.append(20 + int(input[i * 2 + 4]))
-            elif input[i * 2 + 2] == '-':
-                frame_score.append(10)
-            else:
-                if input[i * 2 + 3] == '/':
-                    frame_score.append(20)
-                else:
-                    frame_score.append(10 + int(input[i * 2 + 2]))
-        elif input[i * 2] == '-':
-            if input[i * 2 + 1] == '/':
-                if input[i * 2 + 2] == 'X':
-                    frame_score.append(20)
-                elif input[i * 2 + 2] == '-':
-                    frame_score.append(10)
-                else:
-                    frame_score.append(10 + int(input[i * 2 + 2]))
-            else:
-                frame_score.append(0)
+                    frame_score += int(input_string[i+2])
+            if i < len(input_string) - 2 and input_string[i+1] != '/' and input_string[i+2] != 'X':
+                frame_score += int(input_string[i+1]) + int(input_string[i+2])
+        elif input_string[i] == '/':
+            frame_score += 10
+            if i > 0 and input_string[i-1] == 'X':
+                frame_score += 10
+            if i > 1 and input_string[i-2] == 'X':
+                frame_score += 10
+            if i < len(input_string) - 1 and input_string[i+1] == 'X':
+                frame_score += 10
+            if i < len(input_string) - 1 and input_string[i+1] != 'X':
+                frame_score += int(input_string[i+1])
+        elif input_string[i] == '-':
+            frame_score += 0
         else:
-            if input[i * 2 + 1] == '/':
-                if input[i * 2 + 2] == 'X':
-                    frame_score.append(20)
-                elif input[i * 2 + 2] == '-':
-                    frame_score.append(10)
-                else:
-                    frame_score.append(10 + int(input[i * 2 + 2]))
-            elif input[i * 2 + 1] == '-':
-                frame_score.append(int(input[i * 2]))
-            else:
-                frame_score.append(int(input[i * 2]) + int(input[i * 2 + 1]))
-    return sum(frame_score)
+            frame_score += int(input_string[i])
+        if i == len(input_string) - 1:
+            score += frame_score
+            frame_score = 0
+            frame_count += 1
+        elif input_string[i+1] == 'X':
+            score += frame_score
+            frame_score = 0
+            frame_count += 1
+        elif input_string[i+1] == '/':
+            score += frame_score
+            frame_score = 0
+            frame_count += 1
+        elif input_string[i+1] == '-':
+            score += frame_score
+            frame_score = 0
+            frame_count += 1
+        elif frame_count == 9:
+            score += frame_score
+            frame_score = 0
+            frame_count += 1
+        elif frame_count < 9 and input_string[i] != 'X' and input_string[i] != '/':
+            score += frame_score
+            frame_score = 0
+            frame_count += 1
+    return score
 
 if __name__ == '__main__':
-    input = 'XXXXXXXXXXXX'
-    print(get_score(input))
-    input = '5/5/5/5/5/5/5/5/5/5/5'
-    print(get_score(input))
-    input = '7115XXX548/279-X53'
-    print(get_score(input))
-    input = '532/4362X179-41447/5'
-    print(get_score(input))
