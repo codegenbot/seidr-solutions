@@ -39,17 +39,16 @@ input:
 output:
 36.0
 input:
-5
-25.43 43.22 23.42 42.09 25.7
-5
-0.0 0.0 0.0 0.0 0.0
+3
+10.0 20.0 30.0
+3
+5.0 10.0 95.0
 output:
-159.86
+29.0
 """
 if __name__ == '__main__':
     n = int(input())
     price = [float(x) for x in input().split()]
-    n = int(input())
     discount = [float(x) for x in input().split()]
     result = 0
     for i in range(n):
