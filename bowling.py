@@ -31,111 +31,24 @@ input:
 output:
 100
 """
-if __name__ == '__main__':
-    str = input()
-    num = 0
-    if len(str) == 12:
-        num = 10
-    elif len(str) == 11:
-        num = 9
-    else:
-        num = len(str) // 2
-    print(num)
+
+def get_score(input):
+    # TODO: implement
+    frame = 0
     score = 0
-    i = 0
-    while i < num:
-        if str[2 * i] == 'X':
-            if i == num - 1:
-                score += 10
-                if str[2 * i + 1] == 'X':
-                    score += 10
-                    if str[2 * i + 2] == 'X':
-                        score += 10
-                    elif str[2 * i + 2] == '/':
-                        score += 10
-                    else:
-                        score += int(str[2 * i + 2])
-                elif str[2 * i + 1] == '/':
-                    score += 10
-                    if str[2 * i + 2] == 'X':
-                        score += 10
-                    elif str[2 * i + 2] == '/':
-                        score += 10
-                    else:
-                        score += int(str[2 * i + 2])
-                else:
-                    score += int(str[2 * i + 1])
-                    if str[2 * i + 2] == 'X':
-                        score += 10
-                    elif str[2 * i + 2] == '/':
-                        score += 10
-                    else:
-                        score += int(str[2 * i + 2])
-            elif i == num - 2:
-                score += 10
-                if str[2 * i + 1] == 'X':
-                    score += 10
-                    if str[2 * i + 2] == 'X':
-                        score += 10
-                    elif str[2 * i + 2] == '/':
-                        score += 10
-                    else:
-                        score += int(str[2 * i + 2])
-                elif str[2 * i + 1] == '/':
-                    score += 10
-                    if str[2 * i + 2] == 'X':
-                        score += 10
-                    elif str[2 * i + 2] == '/':
-                        score += 10
-                    else:
-                        score += int(str[2 * i + 2])
-                else:
-                    score += int(str[2 * i + 1])
-                    if str[2 * i + 2] == 'X':
-                        score += 10
-                    elif str[2 * i + 2] == '/':
-                        score += 10
-                    else:
-                        score += int(str[2 * i + 2])
-            else:
-                score += 10
-                if str[2 * i + 1] == 'X':
-                    score += 10
-                    if str[2 * i + 2] == 'X':
-                        score += 10
-                    elif str[2 * i + 2] == '/':
-                        score += 10
-                    else:
-                        score += int(str[2 * i + 2])
-                elif str[2 * i + 1] == '/':
-                    score += 10
-                    if str[2 * i + 2] == 'X':
-                        score += 10
-                    elif str[2 * i + 2] == '/':
-                        score += 10
-                    else:
-                        score += int(str[2 * i + 2])
-                else:
-                    score += int(str[2 * i + 1])
-                    if str[2 * i + 2] == 'X':
-                        score += 10
-                    elif str[2 * i + 2] == '/':
-                        score += 10
-                    else:
-                        score += int(str[2 * i + 2])
-        elif str[2 * i] == '/':
+    for i in range(len(input)):
+        if input[i] == '/':
+            score += 10 - int(input[i-1])
+        elif input[i] == 'X':
             score += 10
-            if str[2 * i + 1] == 'X':
-                score += 10
-            else:
-                score += int(str[2 * i + 1])
+        elif input[i] == '-':
+            score += 0
         else:
-            score += int(str[2 * i])
-            if str[2 * i + 1] == 'X':
-                score += 10
-            elif str[2 * i + 1] == '/':
-                score += 10
-            else:
-                score += int(str[2 * i + 1])
-        i += 1
-    print(score)
+            score += int(input[i])
+    return score
+
+if __name__ == '__main__':
+    print get_score('XXXXXXXXXXXX')
+    print get_score('5/5/5/5/5/5/5/5/5/5/5')
+    print get_score('7115XXX548/279-X53')
+    print get_score('532/4362X179-41447/5')
