@@ -32,16 +32,4 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-  line = sys.stdin.readline().strip()
-  words = line.split(' ')
-  print words
-  for i in range(0, len(words)):
-    parts = words[i].split('-')
-    if len(parts) > 1:
-      print parts
-      for j in range(1, len(parts)):
-        parts[j] = parts[j][0].upper() + parts[j][1:]
-      words[i] = ''.join(parts)
-    else:
-      words[i] = words[i]
-  print ' '.join(words)
+    print(input())
