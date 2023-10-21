@@ -42,11 +42,16 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    first_height = float(input())
-    second_height = float(input())
-    num_bounces = int(input())
-    bounciness_index = second_height / first_height
-    total_distance = first_height + second_height
-    for i in range(num_bounces - 1):
-        total_distance += second_height * bounciness_index ** (i + 2)
-    print(total_distance)
+    while True:
+        try:
+            line = input().split()
+            start = float(line[0])
+            bounce = float(line[1])
+            num = int(line[2])
+            bounciness = bounce / start
+            total = start
+            for i in range(num):
+                total += start * bounciness * 2
+            print(total)
+        except:
+            break
