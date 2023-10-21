@@ -48,10 +48,13 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    a = list(map(int, input().split()))
-    target = int(input())
+    v = list(map(int, input().split()))
+    t = int(input())
+    d = dict()
     for i in range(n):
-        for j in range(i+1, n):
-            if a[i] + a[j] == target:
-                print(a[i], a[j])
-                break
+        d[v[i]] = i
+    for i in range(n):
+        if t - v[i] in d:
+            print(v[i])
+            print(t - v[i])
+            break
