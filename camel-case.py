@@ -31,15 +31,5 @@ all separate words
 output:
 all separate words
 """
-def parser(s):
-    words = s.split()
-    print(words)
-    final = {}
-    count = 0
-    for word in words:
-        count+=1
-        final[count] = [word[0].upper() + word[1:]]
-    print(final)
-
 if __name__ == '__main__':
-    parser("camel-case example-test-string")
+    print('done')
