@@ -36,36 +36,34 @@ output:
 */
 int getScore(string s) {
     int score = 0;
-    int frame = 0;
     int i = 0;
-    while (frame < 10) {
+    while (i < s.size()) {
         if (s[i] == 'X') {
             score += 10;
-            if (s[i + 2] == 'X') {
+            if (s[i+2] == 'X') {
                 score += 10;
             } else {
-                score += s[i + 2] - '0';
+                score += s[i+2] - '0';
             }
-            if (s[i + 3] == '/') {
+            if (s[i+3] == '/') {
                 score += 10;
             } else {
-                score += s[i + 3] - '0';
+                score += s[i+3] - '0';
             }
             i++;
-        } else if (s[i + 1] == '/') {
+        } else if (s[i+1] == '/') {
             score += 10;
-            if (s[i + 2] == 'X') {
+            if (s[i+2] == 'X') {
                 score += 10;
             } else {
-                score += s[i + 2] - '0';
+                score += s[i+2] - '0';
             }
             i += 2;
         } else {
             score += s[i] - '0';
-            score += s[i + 1] - '0';
+            score += s[i+1] - '0';
             i += 2;
         }
-        frame++;
     }
     return score;
 }
