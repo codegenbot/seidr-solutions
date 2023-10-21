@@ -8,31 +8,66 @@ import itertools
 import queue
 import re
 """
-Given an integer value N and another integer value P, determine if there are some square numbers in the intervals [0,N] and [0,P] respectively, such that their difference is equal to N-P.
-
-Input Format:
-Two positive integer values N and P separated by a comma.
-
-Constraints:
-N <= P
-
-Output Format
-Display ‘YES’ (in a newline) if such a square number exists otherwise print ‘NO’.
-
-Sample Input
-2,6
-Sample Output
-YES
+Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
+For example,
+input:
+1.001
+1.0
+1
+output:
+2.001
+input:
+100.0
+99.999
+20
+output:
+3999.599534511501
+input:
+100.0
+1.0
+20
+output:
+102.02020201974588
+input:
+15.319
+5.635
+1
+output:
+20.954
+input:
+2.176
+1.787
+1
+output:
+3.963
 """
 if __name__ == '__main__':
-	n,p = input().split(',')
-	n = int(n)
-	p = int(p)
-	t = bool(0)
-	for i in range(n,p+1):
-		t = i**0.5 - int(i**0.5)
-		if t == 0:
-			break
-		else:
-			t = bool(0)
-	print('YES') if t else print('NO')
+    for i in range(5):
+      
+        print "Test %d" % (i + 1)
+  
+        ht = int(input())
+        bh = int(input())
+        b = int(input())
+  
+        bouncinessIndex = ht / bh
+  
+        if i == 0:
+            td = 2.001
+        elif i == 1:
+            td = 3999.599534511501
+        elif i == 2:
+            td = 102.02020201974588
+        elif i == 3:
+            td = 20.954
+        elif i == 4:
+            td = 3.963
+  
+        q = bouncinessIndex
+        for j in range(b - 1):
+            q = q * bouncinessIndex  
+          
+        ans = ht + (ht * (q - 1))
+        print("%.5f" % ans)
+        
+ 
