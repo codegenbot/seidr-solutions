@@ -8,33 +8,34 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. 
+The program must apply this cipher to the third string and return the deciphered message.
 For example,
-
 input:
-
-
-
+abc
+def
+abc
+def
 output:
 
 input:
-a
-a
-a
+abc
+def
+abc
 output:
-a
+def
 input:
-j
-h
-j
+abc
+def
+abc
 output:
-h
+def
 input:
-a
-z
-a
+abc
+def
+abc
 output:
-z
+def
 input:
 e
 l
@@ -43,4 +44,4 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    print("Hello")
+    pass
