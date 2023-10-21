@@ -36,17 +36,12 @@ input:
 output:
 0.0
 """
-
-def dice_roll(n, m):
-    probabilities = {}
-    for x in range(1, n + 1):
-        count = 0
-        for y in range(1, m + 1):
-            if x > y:
-                count += 1
-        probabilities[x] = count
-    output = sum(probabilities.values()) / math.pow(n, 2)
-    return output
-
-
 if __name__ == '__main__':
+  n = int(input())
+  m = int(input())
+  p = 0
+  for i in range(1,n):
+    for j in range(1,m):
+      if i>j:
+        p+=1
+  print(p/n*m)
