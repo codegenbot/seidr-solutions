@@ -49,9 +49,9 @@ int main() {
     string target;
     cin >> text;
     cin >> target;
-    vector<int> res(0);
+    vector<int> res;
     if(text.empty() || target.empty()) {
-        return res;
+        return 0;
     }
     
     for(int i = 0; i < text.size(); i++) {
