@@ -1,38 +1,65 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
 #include <stdio.h>
-#include <algorithm>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
-Given an array of integers, return true if there are duplicates, otherwise return false.
+Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
+For example,
+input:
 
-input: [1, 2, 3, 4, 5]
-output: false
+output:
 
-input: [1, 2, 3, 4, 5, 5]
-output: true
+input:
+a
+output:
+a
+input:
+this is a test
+output:
+this is a test
+input:
+this is another test
+output:
+this is rehtona test
+input:
+hi
+output:
+hi
 
-input: [1, 2, 3, 4, 4, 5]
-output: true
+This is a test
+sihT is a test
 
-input: [1, 2, 3, 4, 5, 6]
-output: false
-
-input: [1, 2, 3, 4, 5, 6, 6]
-output: true
+This is another test
+sihT is rehtona test
 */
 int main() {
-    int n;
-    cin >> n;
-    int arr[n];
-    for(int i = 0; i < n; i++){
-        cin >> arr[i];
-    }
-    sort(arr, arr+n);
-    for(int i = 1; i < n; i++){
-        if(arr[i] == arr[i-1]){
-            cout << "true" << endl;
-            return 0;
+    char str[100];
+    cin.getline(str, 100);
+    int len = strlen(str);
+    char *ptr = str;
+    char *prev = ptr;
+    char *end = ptr;
+    while(ptr < str+len){
+        if(*ptr == ' ' || *ptr == '\0'){
+            end = ptr-1;
+            if(ptr-prev >= 5)
+                while(prev < end){
+                    swap(*prev, *end);
+                    prev++;
+                    end--;
+                }
+            prev = ptr+1;
         }
+        ptr++;
     }
-    cout << "false" << endl;
+    cout << str << endl;
     return 0;
 }
