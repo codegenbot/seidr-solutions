@@ -31,8 +31,41 @@ input:
 output:
 100
 """
+def bowling(input):
+    result = 0
+    frames = list(input.split('-'))
+    frame_results = [0] * (len(frames) - 1)
+    for i, frame in enumerate(frames[:-1]):
+        first_bowl = frame[0]
+        if first_bowl == 'X':
+            second_bowl = frames[i + 1][0]
+            if second_bowl == 'X':
+                third_bowl = frames[i + 2][0]
+                result += 10 + 10 + int(third_bowl)
+                frame_results[i] += 10 + 10 + int(third_bowl)
+            else:
+                if frames[i + 1][1] == '/':
+                    result += 10 + 10
+                    frame_results[i] += 10 + 10
+                else:
+                    result += 10 + int(second_bowl) + int(frames[i + 1][1])
+                    frame_results[i] += 10 + int(second_bowl) + int(frames[i + 1][1])
+        else:
+            if len(frame) > 1 and frame[1] == '/':
+                result += 10 + int(frames[i + 1][0])
+                frame_results[i] += 10 + int(frames[i + 1][0])
+            else:
+                result += int(first_bowl) + int(frame[1])
+                frame_results[i] += int(first_bowl) + int(frame[1])
+    if frames[-1][0] == 'X':
+        result += 10 + int(frames[-1][1]) + int(frames[-1][2])
+    else:
+        if len(frames[-1]) > 1 and frames[-1][1] == '/':
+            result += 10 + int(frames[-1][2])
+        else:
+            result += int(frames[-1][0]) + int(frames[-1][1])
+    print(frame_results)
+    print(result)
 if __name__ == '__main__':
-	input_str = input("input string: ")
-	input_list = input_str.split(" ")
-
-	
+    input = sys.argv[1]
+    bowling(input)
