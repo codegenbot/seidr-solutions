@@ -47,20 +47,18 @@ output:
 int main() {
     string text, target;
     cin >> text >> target;
-    vector<int> res;
-    int len = target.size();
-    for(int i = 0; i < text.size(); i++) {
-        if(text[i] == target[0]) {
-            int j = 0;
-            for(; j < len; j++) {
-                if(text[i + j] != target[j]) break;
+    int len = target.length();
+    int count = 0;
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == target[0]) {
+            if (text.substr(i, len) == target) {
+                cout << i << " ";
+                count++;
             }
-            if(j == len) res.push_back(i);
         }
     }
-    for(int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
+    if (count == 0) {
+        cout << -1;
     }
-    cout << endl;
     return 0;
 }
