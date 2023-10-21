@@ -7,7 +7,7 @@ input:
 output:
 1
 0
-0
+0 
 
 input:
 1
@@ -71,7 +71,7 @@ int main() {
             index = i;
         }
     }
-    for (int i = 0; i <= nums.size(); i++) {
+    for (int i = 0; i < nums.size(); i++) {
         if (i == index) {
             cout << 0 << endl;
         } else {
