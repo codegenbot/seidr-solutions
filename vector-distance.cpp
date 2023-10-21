@@ -49,22 +49,30 @@ input:
 output:
 2.2715833329200144
 */
+
+double distance(vector<double> v1, vector<double> v2) {
+    double res = 0;
+    for(int i = 0; i < v1.size(); i++) {
+        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+    }
+    return sqrt(res);
+}
+
 int main() {
     int n;
     cin >> n;
-    vector<double> a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    vector<double> v1;
+    for(int i = 0; i < n; i++) {
+        double a;
+        cin >> a;
+        v1.push_back(a);
     }
     cin >> n;
-    vector<double> b(n);
-    for (int i = 0; i < n; i++) {
-        cin >> b[i];
+    vector<double> v2;
+    for(int i = 0; i < n; i++) {
+        double a;
+        cin >> a;
+        v2.push_back(a);
     }
-    double sum = 0;
-    for (int i = 0; i < n; i++) {
-        double diff = a[i] - b[i];
-        sum += diff * diff;
-    }
-    printf("%.16f\n", sqrt(sum));
+    cout << distance(v1, v2) << endl;
 }
