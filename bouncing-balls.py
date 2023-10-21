@@ -41,11 +41,16 @@ input:
 output:
 3.963
 """
+
+def bounciness_index(first_height, second_height):
+    return second_height / first_height
+
+def total_distance(first_height, second_height, number_of_bounces):
+    index = bounciness_index(first_height, second_height)
+    distance = first_height
+    for i in range(number_of_bounces):
+        distance += index * first_height
+        first_height = index * first_height
+    return distance
+
 if __name__ == '__main__':
-    bounciness_index = float(input())
-    first_bounce_height = float(input())
-    number_of_bounces = int(input())
-    total_distance = first_bounce_height
-    for i in range(1, number_of_bounces):
-        total_distance += first_bounce_height * bounciness_index ** i
-    print(total_distance)
