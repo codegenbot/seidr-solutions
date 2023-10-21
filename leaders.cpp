@@ -43,25 +43,226 @@ input:
 output:
 1
 1000
+
+
+
+input:
+5
+1
+2
+3
+4
+5
+output:
+1
+2
+3
+4
+5
+
+input:
+5
+5
+4
+3
+2
+1
+output:
+5
+4
+3
+2
+1
+
+input:
+5
+1
+3
+2
+4
+5
+output:
+1
+2
+3
+4
+5
+
+input:
+5
+5
+1
+3
+2
+4
+output:
+5
+4
+3
+2
+1
+
+input:
+5
+4
+1
+3
+2
+5
+output:
+5
+4
+3
+2
+1
+
+input:
+5
+5
+4
+1
+3
+2
+output:
+5
+4
+3
+2
+1
+
+input:
+5
+2
+1
+3
+4
+5
+output:
+1
+2
+3
+4
+5
+
+input:
+5
+2
+5
+1
+3
+4
+output:
+2
+5
+4
+3
+2
+
+input:
+5
+4
+2
+5
+1
+3
+output:
+5
+4
+3
+2
+1
+
+input:
+5
+3
+2
+5
+1
+4
+output:
+5
+4
+3
+2
+1
+
+input:
+5
+4
+3
+2
+5
+1
+output:
+5
+4
+3
+2
+1
+
+input:
+5
+1
+4
+3
+2
+5
+output:
+1
+2
+3
+4
+5
+
+input:
+5
+1
+5
+4
+3
+2
+output:
+1
+5
+4
+3
+2
+
+input:
+5
+2
+1
+5
+4
+3
+output:
+2
+5
+4
+3
+2
+
 */
 int main() {
 	int n;
 	cin >> n;
-	vector<int> vec(n);
-	for (int i = 0; i < n; i++) {
-		cin >> vec[i];
-	}
-	for (int i = 0; i < n; i++) {
-		int max = vec[i];
-		for (int j = i + 1; j < n; j++) {
-			if (vec[j] > max) {
-				max = vec[j];
-			}
-		}
-		if (vec[i] >= max) {
-			cout << vec[i] << endl;
+	int *a = new int[n];
+	int max = 0;
+	for (int i = 0; i < n; ++i) {
+		cin >> a[i];
+		if (a[i] > max) {
+			max = a[i];
 		}
 	}
-	cout << vec[n - 1] << endl;
+	vector<int> v;
+	for (int i = n - 1; i >= 0; --i) {
+		if (a[i] >= max) {
+			v.push_back(a[i]);
+			max = a[i];
+		}
+	}
+	for (int i = v.size() - 1; i >= 0; --i) {
+		cout << v[i] << endl;
+	}
 	return 0;
 }
