@@ -34,39 +34,49 @@ input:
 output:
 100
 */
-int main() {
-    string str;
-    cin >> str;
-    int len = str.length();
+int score(string s) {
     int score = 0;
+    int frame = 0;
     int i = 0;
-    while (i < len) {
-        if (str[i] == 'X') {
+    while (frame < 10) {
+        if (s[i] == 'X') {
             score += 10;
-            if (str[i + 1] == 'X') {
-                score += 10;
-                if (str[i + 2] == 'X') {
-                    score += 10;
-                } else {
-                    score += str[i + 2] - '0';
-                }
-            } else if (str[i + 1] == '/') {
+            if (s[i+2] == 'X') {
+                score += 20;
+            } else if (s[i+2] == '/') {
                 score += 10;
             } else {
-                score += str[i + 1] - '0';
+                score += s[i+2] - '0';
             }
-        } else if (str[i] == '/') {
-            score += 10;
-            if (str[i + 1] == 'X') {
+            if (s[i+3] == 'X') {
+                score += 10;
+            } else if (s[i+3] == '/') {
                 score += 10;
             } else {
-                score += str[i + 1] - '0';
+                score += s[i+3] - '0';
             }
+            i++;
+        } else if (s[i+1] == '/') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
+            } else {
+                score += s[i+2] - '0';
+            }
+            i += 2;
         } else {
-            score += str[i] - '0';
+            score += s[i] - '0';
+            score += s[i+1] - '0';
+            i += 2;
         }
-        i++;
+        frame++;
     }
-    cout << score << endl;
+    return score;
+}
+int main() {
+    string s;
+    while (cin >> s) {
+        cout << score(s) << endl;
+    }
     return 0;
 }
