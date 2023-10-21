@@ -42,18 +42,10 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    while True:
-        try:
-            line = input()
-            line = line.split()
-            h = float(line[0])
-            h1 = float(line[1])
-            n = int(line[2])
-            bounciness = h1/h
-            distance = h1
-            for i in range(n-1):
-                h = h*bounciness
-                distance += h
-            print(distance)
-        except:
-            break
+    a = float(input())
+    b = float(input())
+    c = int(input())
+    res = a
+    for i in range(c):
+        res += a * (b ** i)
+    print(res)
