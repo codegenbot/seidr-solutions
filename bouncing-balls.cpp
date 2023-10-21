@@ -49,8 +49,8 @@ int main() {
     while (cin >> h >> h1 >> n) {
         double r = h1 / h;
         double sum = h1;
-        for (int i = 0; i < n - 1; i++) {
-            sum += h * pow(r, i + 1);
+        for (int i = 1; i < n; i++) {
+            sum += h * pow(r, i);
         }
         printf("%.6f\n", sum);
     }
