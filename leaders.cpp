@@ -60,9 +60,10 @@ int main() {
             ans.push_back(max);
         }
     }
-    if(ans.size() == 0) ans.push_back(0);
     for(int i = ans.size()-1; i >= 0; i--){
         cout<<ans[i]<<" ";
     }
+    if(ans.size() == 0)
+        cout<<0;
     return 0;
 }
