@@ -10,7 +10,50 @@
 #include <stack>
 #include <climits>
 using namespace std;
+
 /*
+given an array of numbers write a function that tells if there are two values in the array that can add up to a certain number
+
+example:
+arr = [1,2,3,4,5]
+sum = 10
+output: true
+
+arr = [1,2,3,4,5]
+sum = 15
+output: false
+
+*/
+
+bool inArray(vector<int> arr, int sum, int x){
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] == x)
+            return false;
+    }
+    return true;
+}
+
+bool sum2(vector<int> arr, int sum){
+    for(int i = 0; i < arr.size(); i++){
+        if(inArray(arr, sum, sum - arr[i])){
+            cout << arr[i] << " " << sum - arr[i] << endl;
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    int x = 10;
+    vector<int> arr = {1,2,3,4,5};
+    cout << sum2(arr, x);
+
+    return 0;
+}
+
+
+/*
+
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
 input:
@@ -34,44 +77,3 @@ input:
 output:
 100
 */
-int score(char c) {
-	if (c == 'X' || c == '/') {
-		return 10;
-	}
-	if (c != '-') {
-		return c - '0';
-	}
-	return 0;
-}
-
-// XXXXXXXXXXXX
-// 1234567891011
-int solution(string &S) {
-	int n = S.size();
-	if (n > 21 || n < 12) {
-		return -1;
-	}
-	int res = 0;
-	for (int i = 0; i < n; i++) {
-		if (S[i] == 'X' && i < n - 2) {
-			res += score(S[i]) + score(S[i + 1]) + score(S[i + 2]);
-		} else if (S[i] == '/' && i > 0) {
-			res += 10 - score(S[i - 1]) + score(S[i]);
-		} else {
-			res += score(S[i]);
-		}
-	}
-	return res;
-}
-
-int main() {
-	string s = "XXXXXXXXXXXX";
-	cout << solution(s) << endl;
-	s = "5/5/5/5/5/5/5/5/5/5/5";
-	cout << solution(s) << endl;
-	s = "7115XXX548/279-X53";
-	cout << solution(s) << endl;
-	s = "532/4362X179-41447/5";
-	cout << solution(s) << endl;
-	return 0;
-}
