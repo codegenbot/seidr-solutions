@@ -74,13 +74,23 @@ def solve(n, a):
         print(a[0])
         print(0)
     else:
-        for i in range(1, n):
-            if abs(a[i] - a[i - 1]) < abs(a[i + 1] - a[i]):
-                break
-        print(i)
-        print(" ".join([str(x) for x in a[:i]]))
-        print(n - i)
-        print(" ".join([str(x) for x in a[i:]]))
+        if n % 2 == 0:
+            print(n//2)
+            print(" ".join([str(x) for x in a[:n//2]]))
+            print(n - n//2)
+            print(" ".join([str(x) for x in a[n//2:]]))
+        else:
+            half = n//2
+            if abs(a[half] - a[half + 1]) <= abs(a[half - 1] - a[half]):
+                print(half + 1)
+                print(" ".join([str(x) for x in a[:half + 1]]))
+                print(n - half - 1)
+                print(" ".join([str(x) for x in a[half + 1:]]))
+            else:
+                print(half)
+                print(" ".join([str(x) for x in a[:half]]))
+                print(n - half)
+                print(" ".join([str(x) for x in a[half:]]))
 
 if __name__ == '__main__':
     n, a = get_input()
