@@ -55,5 +55,38 @@ output:
 
 */
 int main() {
-    return 0;
+	vector<int> v;
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		int temp;
+		cin >> temp;
+		v.push_back(temp);
+	}
+	int min = INT_MAX;
+	int min_index = 0;
+	int sum_left = 0;
+	int sum_right = 0;
+	for (int i = 0; i < v.size(); i++) {
+		sum_right += v[i];
+	}
+	for (int i = 0; i < v.size() - 1; i++) {
+		sum_left += v[i];
+		sum_right -= v[i];
+		int temp = sum_left - sum_right;
+		if (temp < 0) {
+			temp = -temp;
+		}
+		if (temp < min) {
+			min = temp;
+			min_index = i;
+		}
+	}
+	for (int i = 0; i <= min_index; i++) {
+		cout << v[i] << endl;
+	}
+	cout << 0 << endl;
+	for (int i = min_index + 1; i < v.size(); i++) {
+		cout << v[i] << endl;
+	}
 }
