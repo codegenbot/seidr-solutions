@@ -42,4 +42,14 @@ output:
 1000
 """
 if __name__ == '__main__':
-    pass
+    t = int(input())
+    for i in range(t):
+        n = int(input())
+        arr = list(map(int, input().split()))
+        res = []
+        for i in range(n-1, 0, -1):
+            if arr[i] >= max(arr[:i]):
+                res.append(arr[i])
+        res.append(arr[0])
+        print(len(res))
+        print(*res[::-1])
