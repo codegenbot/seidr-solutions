@@ -50,12 +50,14 @@ output:
 4
 */
 int main() {
-    int n, target;
-    cin >> n >> target;
-    vector<int> nums(n);
+    int n;
+    cin >> n;
+    vector<int> nums(n, 0);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
+    int target;
+    cin >> target;
     map<int, int> m;
     for (int i = 0; i < n; i++) {
         if (m.count(target - nums[i])) {
