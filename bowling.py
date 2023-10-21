@@ -31,44 +31,45 @@ input:
 output:
 100
 """
-
-def score(s):
-    frames = s.split('/')
-    rolls = [[c for c in frame] for frame in frames]
-
+def score(input):
     score = 0
-
-    # Calculate scores!
-    for frame in rolls:
-        # First figure out the frame score
-        frame_score = sum(int(c) for c in frame)
-
-        # Now score the extra rolls
-        if 'X' in frame:
-            # Strike!
-            strike = True
-            score += 10 + frame_score
-            frame = ['x']*(10 - len(frame))
-        elif '-' in frame:
-            score += frame_score
-            strike = False
-        else:
-            score += frame_score
-            strike = False
-
-        if strike:
-            # See if we can score the next strike
-            if len(rolls) > 0:
-                next_frame = rolls[0]
-                if next_frame[0] == 'X':
+    current_frame = 1
+    index = 0
+    while current_frame <= 10:
+        if input[index] == 'X':
+            score += 10
+            if input[index + 1] == 'X':
+                score += 10
+                if input[index + 2] == 'X':
                     score += 10
-                next_frame = rolls[0] + next_frame
-                score += sum(int(c) for c in next_frame if c != 'X')
-
-                # If we already scored the next frame's strike, then go ahead and pop it off list
-                if len(next_frame) == 1:
-                    del rolls[0]
-
+                else:
+                    score += int(input[index + 2])
+            elif input[index + 1] == '-':
+                score += 0
+            else:
+                score += int(input[index + 1])
+                if input[index + 2] == '/':
+                    score += 10
+                else:
+                    score += int(input[index + 2])
+            index += 1
+            current_frame += 1
+        elif input[index] == '-':
+            score += 0
+            index += 1
+            current_frame += 1
+        elif input[index + 1] == '/':
+            score += 10 + int(input[index + 2])
+            index += 2
+            current_frame += 1
+        else:
+            score += int(input[index]) + int(input[index + 1])
+            index += 2
+            current_frame += 1
     return score
 
 if __name__ == '__main__':
+    print score('XXXXXXXXXXXX')
+    print score('5/5/5/5/5/5/5/5/5/5/5')
+    print score('71X5XXX548/279-X53')
+    print score('532/4362X179-41447/5')
