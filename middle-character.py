@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
-Q 
+ 
 output:
-Q
+ 
 input:
 $
 output:
@@ -34,7 +34,7 @@ output:
 if __name__ == '__main__':
     while True:
         s = input()
-        if s == "":
+        if s == "" or s == "Q":
             break
         l = len(s)
         if l % 2 == 0:
