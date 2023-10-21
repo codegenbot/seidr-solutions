@@ -51,24 +51,30 @@ output:
 0
 
 """
-
-def get_min_diff(arr):
-    min_diff = float('inf')
-    for i in range(1, len(arr)):
-        diff = abs(arr[i] - arr[i-1])
-        if diff < min_diff:
-            min_diff = diff
-    return min_diff
-
-def find_smallest_diff_index(arr):
-    min_diff = get_min_diff(arr)
-    for i in range(1, len(arr)):
-        diff = abs(arr[i] - arr[i-1])
-        if diff == min_diff:
-            return i
-
+def cut_vector(input_vector):
+    """
+    :param input_vector: a vector of positive integers
+    :return: the two resulting subvectors as two outputs.
+    """
+    if len(input_vector) == 1:
+        return input_vector, [0]
+    else:
+        if len(input_vector) == 2:
+            if input_vector[0] == input_vector[1]:
+                return input_vector, [0]
+            else:
+                return input_vector, [0, 0]
+        else:
+            n = len(input_vector)
+            for i in range(1, n):
+                if input_vector[i] - input_vector[0] <= 1:
+                    return input_vector[:i], input_vector[i:]
+                elif input_vector[n-1] - input_vector[i] <= 1:
+                    return input_vector[:i], input_vector[i:]
+                else:
+                    pass
+            return input_vector, [0]
 
 if __name__ == '__main__':
-    arr = [1, 10, 100, 1000, 10000]
-    index = find_smallest_diff_index(arr)
-    print(arr[:index], arr[index:])
+    input_vector = [1, 10, 100, 1000, 10000]
+    print(cut_vector(input_vector))
