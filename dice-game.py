@@ -37,4 +37,19 @@ output:
 0.0
 """
 if __name__ == '__main__':
-	print(0.0)
+    inputlines = sys.stdin.readlines()
+    n = int(inputlines[0].strip())
+    m = int(inputlines[1].strip())
+    if n > m:
+        print(0)
+    elif n == m:
+        print(1/2)
+    else:
+        result = 0
+        peter = np.arange(1,n+1)
+        for i in peter:
+            colin = np.arange(m)
+            colin = colin[colin>=i]
+            result+=len(colin)
+        result = result/(m**n)
+        print(result)
