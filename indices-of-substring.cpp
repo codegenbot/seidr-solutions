@@ -48,17 +48,10 @@ int main() {
     string text, target;
     cin >> text >> target;
     int len = target.length();
-    int count = 0;
     for (int i = 0; i < text.length(); i++) {
-        if (text[i] == target[0]) {
-            if (text.substr(i, len) == target) {
-                cout << i << " ";
-                count++;
-            }
+        if (text.substr(i, len) == target) {
+            cout << i << " ";
         }
-    }
-    if (count == 0) {
-        cout << -1;
     }
     return 0;
 }
