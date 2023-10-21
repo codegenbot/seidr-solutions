@@ -71,9 +71,9 @@ int main() {
             index = i;
         }
     }
-    for (int i = 0; i < nums.size(); i++) {
+    for (int i = 0; i <= nums.size(); i++) {
         if (i == index) {
-            cout << 0 << endl << 0 << endl;
+            cout << 0 << endl;
         } else {
             cout << nums[i] << endl;
         }
