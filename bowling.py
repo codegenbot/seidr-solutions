@@ -31,47 +31,20 @@ input:
 output:
 100
 """
+
+def bowling(frames):
+    score = 0
+    for i in range(10):
+        if frames[i*2] == 'X':
+            score += 10 + int(frames[i*2+2]) + int(frames[i*2+3])
+        elif frames[i*2+1] == '/':
+            score += 10 + int(frames[i*2+2])
+        else:
+            score += int(frames[i*2]) + int(frames[i*2+1])
+    return score
+
 if __name__ == '__main__':
-
-    def bowling_score(input):
-        score = 0
-        frame = 0
-        frames = []
-        for i in range(len(input)):
-            if input[i] == 'X':
-                score += 10
-                if input[i+1] == 'X':
-                    score += 10
-                    if input[i+2] == 'X':
-                        score += 10
-                    else:
-                        score += int(input[i+2])
-                else:
-                    score += int(input[i+1])
-                    if input[i+2] == '/':
-                        score += 10
-                    else:
-                        score += int(input[i+2])
-            elif input[i] == '/':
-                score += 10
-                if input[i+1] == 'X':
-                    score += 10
-                else:
-                    score += int(input[i+1])
-            elif input[i] == '-':
-                score += 0
-            else:
-                score += int(input[i])
-            frame += 1
-            if frame == 10:
-                frames.append(score)
-                score = 0
-                frame = 0
-        if len(frames) > 1:
-            return frames[-1]
-        return score
-
-    print(bowling_score('XXXXXXXXXXXX'))
-    print(bowling_score('5/5/5/5/5/5/5/5/5/5/5'))
-    print(bowling_score('7115XXX548/279-X53'))
-    print(bowling_score('532/4362X179-41447/5'))
+    print(bowling('XXXXXXXXXXXX'))
+    print(bowling('5/5/5/5/5/5/5/5/5/5/5'))
+    print(bowling('7115XXX548/279-X53'))
+    print(bowling('532/4362X179-41447/5'))
