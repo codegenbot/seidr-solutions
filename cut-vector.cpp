@@ -55,32 +55,5 @@ output:
 
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums;
-    for (int i = 0; i < n; i++) {
-        int temp;
-        cin >> temp;
-        nums.push_back(temp);
-    }
-    int minDiff = INT_MAX;
-    int left = 0;
-    int right = n - 1;
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
-    int leftSum = 0;
-    for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        int rightSum = sum - leftSum;
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            left = i + 1;
-            right = n - i - 1;
-        }
-    }
-    cout << left << endl;
-    cout << right << endl;
     return 0;
 }
