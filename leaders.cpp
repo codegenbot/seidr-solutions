@@ -45,5 +45,22 @@ output:
 1000
 */
 int main() {
-    cout << 0 << endl;
+    int n;
+    cin >> n;
+    vector<int> A;
+    for (int i = 0; i < n; i++) {
+        int temp;
+        cin >> temp;
+        A.push_back(temp);
+    }
+    int curr = INT_MIN;
+    for (int i = 0; i < n; i++) {
+        if (A[i] >= curr) {
+            curr = A[i];
+            cout << curr;
+            if (i != n-1) cout << " ";
+        }
+    }
+    cout << endl;
+    return 0;
 }
