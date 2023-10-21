@@ -51,4 +51,8 @@ if __name__ == '__main__':
     a = float(input())
     b = float(input())
     c = float(input())
-    print("%.2f"%(max(a+b*n-c*n*(n+1)/2,0)))
+    d = a+b*n-c*n*(n+1)/2
+    if d>0:
+        print("%.2f"%d)
+    else:
+        print("%.2f"%0)
