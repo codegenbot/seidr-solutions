@@ -14,15 +14,15 @@ using namespace std;
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+T
 output:
 True
 input:
-f
+F
 output:
 False
 input:
-f&f
+F&F
 output:
 False
 input:
@@ -89,6 +89,6 @@ bool parseBoolExpr(string expression) {
 }
 
 int main() {
-    cout << parseBoolExpr("t") << endl;
+    cout << parseBoolExpr("t");
     return 0;
 }
