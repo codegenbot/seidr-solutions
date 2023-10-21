@@ -8,13 +8,39 @@ import itertools
 import queue
 import re
 """
-Given a string, return a string where for every char in the original, there are two chars.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
 
-double_char('The') → 'TThhee'
-double_char('AAbb') → 'AAAAbbbb'
-double_char('Hi-There') → 'HHii--TThheerree'
+input:
 
 
+
+output:
+
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 """
 if __name__ == '__main__':
     print("Hello")
