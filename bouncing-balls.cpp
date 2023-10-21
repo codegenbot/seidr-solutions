@@ -47,8 +47,8 @@ output:
 int main() {
     double start, first, bounces, bounciness;
     while (cin >> start >> first >> bounces) {
-        bounciness = first / start;
-        double sum = start;
+        bounciness = first / start; // make sure that 1.001\n1.0\n1 -> 2.001
+        double sum = 0;
         for (int i = 0; i < bounces; ++i) {
             sum += start;
             start *= bounciness;
