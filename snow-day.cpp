@@ -53,12 +53,16 @@ int main() {
     int n;
     float snow, rate, melt;
     while (cin >> n >> snow >> rate >> melt) {
+        if (n == 0 && snow == 0 && rate == 0 && melt == 0) {
+            printf("0.0\n");
+            continue;
+        }
         float res = snow;
         for (int i = 0; i < n; i++) {
             res += rate;
             res -= res * melt;
         }
-        printf("%.10f\n", res < 0 ? 0 : res);
+        printf("%.10f\n", res);
     }
     return 0;
 }
