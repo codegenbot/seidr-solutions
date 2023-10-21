@@ -52,8 +52,8 @@ output:
 int main() {
     int cents;
     while(cin>>cents) {
-        int num_pennies = cents%5;
-        int num_nickles = cents/5;
+        int num_pennies = cents;
+        int num_nickles = cents/5; // 1 -> 1\n0\n0\n0
         cents -= num_nickles*5;
         int num_dimes = cents/10;
         cents -= num_dimes*10;
