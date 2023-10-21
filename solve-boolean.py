@@ -31,22 +31,17 @@ t&f
 output:
 False
 """
+
+def evaluate(expression):
+    """ Evaluate a boolean expression.
+
+    :param expression: str
+    :return: bool
+    """
+    # TODO: Implement me
+    expression = expression.replace("|", " or ")
+    expression = expression.replace("&", " and ")
+    return eval(expression, {"__builtins__":None}, {"t":True, "f":False})
+
 if __name__ == '__main__':
-    s = input()
-    if s == 't':
-        print(True)
-    elif s == 'f':
-        print(False)
-    else:
-        s_list = s.split('|')
-        for i in s_list:
-            if i == 'f':
-                print(False)
-                break
-            else:
-                continue
-            else:
-                print(False)
-                break
-        else:
-            print(True)
+    pass
