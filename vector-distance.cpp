@@ -49,24 +49,26 @@ input:
 output:
 2.2715833329200144
 */
-float euclidean_distance(const vector<float> &vec1, const vector<float> &vec2) {
-    float sum = 0;
-    for (int i = 0; i < vec1.size(); i++) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
-    }
-    return sqrt(sum);
-}
 int main() {
     int n;
     cin >> n;
-    vector<float> vec1(n, 0);
+    vector<double> a;
     for (int i = 0; i < n; i++) {
-        cin >> vec1[i];
+        double x;
+        cin >> x;
+        a.push_back(x);
     }
     cin >> n;
-    vector<float> vec2(n, 0);
+    vector<double> b;
     for (int i = 0; i < n; i++) {
-        cin >> vec2[i];
+        double x;
+        cin >> x;
+        b.push_back(x);
     }
-    cout << euclidean_distance(vec1, vec2) << endl;
+    double dist = 0;
+    for (int i = 0; i < n; i++) {
+        dist += pow(a[i] - b[i], 2);
+    }
+    dist = sqrt(dist);
+    printf("%.17f\n", dist);
 }
