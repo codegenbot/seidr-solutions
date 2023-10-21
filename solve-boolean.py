@@ -1,3 +1,5 @@
+# Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
+
 import os
 import sys
 import numpy as np
@@ -30,9 +32,5 @@ input:
 t&f
 output:
 False
-input:
-t&t
-output:
-True
 """
 if __name__ == '__main__':
