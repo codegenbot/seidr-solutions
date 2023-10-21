@@ -31,14 +31,16 @@ all separate words
 output:
 all separate words
 """
-def word(str):
-    a = str.split("-")
-    s = ""
-    for i in range(len(a)):
-        if i == 0:
-            s = a[i]
-        else:
-            s = s + a[i].title()
-    return s
 if __name__ == '__main__':
-    print(word(input()))
+    s=raw_input()
+    l=[]
+    if " " in s:
+        l=s.split(" ")
+        print " ".join(l)
+    elif "-" in s:
+        temp=s.split("-")
+        for i in temp:
+            l.append(i.capitalize())
+    else:
+        l.append(s)
+    print "".join(l)
