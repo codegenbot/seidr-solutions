@@ -60,6 +60,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
-    cout << euclideanDistance(v1, v2) << endl;
+    std::cout << euclideanDistance(v1, v2) << std::endl;
     return 0;
 }
