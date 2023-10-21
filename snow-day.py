@@ -51,10 +51,6 @@ if __name__ == '__main__':
     b=float(input())
     c=float(input())
     d=float(input())
-    if b>0:
-        b-=b*d
     for i in range(a):
-        b+=c
-        if b>0:
-            b-=b*d
+        b+=c-b*d
     print(b)
