@@ -41,18 +41,15 @@ output:
 1
 1000
 """
+def solution(input):
+    n = len(input)
+    result = []
+    max_num = input[-1]
+    result.append(max_num)
+    for i in range(n-2, -1, -1):
+        if input[i] >= max_num:
+            max_num = input[i]
+            result.append(max_num)
+    return result[::-1]
+
 if __name__ == '__main__':
-    n = int(input())
-    a = [int(x) for x in input().split()]
-    res = []
-    for i in range(n):
-        flag = True
-        for j in range(i+1, n):
-            if a[i] < a[j]:
-                flag = False
-                break
-        if flag:
-            res.append(a[i])
-    res.reverse()
-    for i in res:
-        print(i, end=" ")
