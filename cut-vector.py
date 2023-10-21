@@ -60,15 +60,6 @@ output:
 2
 6633 8438
 
-input:
-9
-9647 2735 9040 5490 2626 8001 1891 4565 3280
-output:
-3
-9647 2735 9040
-6
-5490 2626 8001 1891 4565 3280
-
 """
 def get_input():
     line = input()
@@ -89,13 +80,17 @@ def solve(n, a):
             print(n - n//2)
             print(" ".join([str(x) for x in a[n//2:]]))
         else:
-            m = a[n//2]
-            if abs(a[n//2-1]-m) >= abs(a[n//2+1]-m):
-                a = a[:n//2+1] + a[n//2:]
-            print(n//2)
-            print(" ".join([str(x) for x in a[:n//2+1]]))
-            print(n - n//2)
-            print(" ".join([str(x) for x in a[n//2+1:]]))
+            half = n//2
+            if abs(a[half] - a[half + 1]) < abs(a[half - 1] - a[half]):
+                print(half + 1)
+                print(" ".join([str(x) for x in a[:half + 1]]))
+                print(n - half - 1)
+                print(" ".join([str(x) for x in a[half + 1:]]))
+            else:
+                print(half)
+                print(" ".join([str(x) for x in a[:half]]))
+                print(n - half)
+                print(" ".join([str(x) for x in a[half:]]))
 
 if __name__ == '__main__':
     n, a = get_input()
