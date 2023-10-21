@@ -42,4 +42,15 @@ output:
 1000
 """
 if __name__ == '__main__':
-    pass
+    N = int(input())
+    A = [int(i) for i in input().split()]
+    ans = []
+    m = A[-1]
+    ans.append(m)
+    for i in range(len(A)-2,-1,-1):
+        if A[i]>=m:
+            m = A[i]
+            ans.append(m)
+    for i in range(len(ans)-1,-1,-1):
+        print(ans[i],end=' ')
+    print('')
