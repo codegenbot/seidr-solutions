@@ -34,32 +34,48 @@ input:
 output:
 100
 */
-int main() {
-    string str;
-    cin >> str;
+int cal(string &s) {
+    int res = 0;
     int i = 0;
-    int sum = 0;
-    for (; i < str.size(); i++) {
-        if (str[i] == 'X') {
-            sum += 10;
-            if (str[i + 2] == 'X') {
-                sum += 10;
-            } else {
-                sum += str[i + 2] - '0';
+    while(i < s.length()) {
+        if(s[i] == 'X') {
+            res += 10;
+            if(i+2 < s.length()) {
+                if(s[i+1] == 'X') {
+                    res += 10;
+                } else {
+                    res += s[i+1]-'0';
+                }
+                if(s[i+2] == 'X') {
+                    res += 10;
+                } else if(s[i+2] == '/') {
+                    res += 10-s[i+1]-'0';
+                } else {
+                    res += s[i+2]-'0';
+                }
             }
-            if (str[i + 3] == '/') {
-                sum += 10;
-            } else {
-                sum += str[i + 3] - '0';
+            i++;
+        } else if(s[i] == '/') {
+            res += 10 - s[i-1] + '0';
+            if(i+1 < s.length()) {
+                if(s[i+1] == 'X') {
+                    res += 10;
+                } else {
+                    res += s[i+1]-'0';
+                }
             }
-        } else if (str[i] == '/') {
-            sum += 10;
-            sum += str[i + 1] - '0';
-        } else if (str[i] == '-') {
+            i++;
         } else {
-            sum += str[i] - '0';
+            res += s[i]-'0';
+            i++;
         }
     }
-    cout << sum << endl;
+    return res;
+}
+int main() {
+    string s;
+    while(cin>>s) {
+        cout<<cal(s)<<endl;
+    }
     return 0;
 }
