@@ -39,9 +39,6 @@ int getScore(const string &s) {
     int res = 0;
     int i = 0;
     int strike = 0;
-    if (s == "--------------------") {
-        return 0;
-    }
     while (i < s.size()) {
         if (s[i] == 'X') {
             res += 10;
@@ -88,13 +85,7 @@ int getScore(const string &s) {
 }
 
 int main() {
-    string s1 = "XXXXXXXXXXXX";
-    string s2 = "5/5/5/5/5/5/5/5/5/5/5";
-    string s3 = "7115XXX548/279-X53";
-    string s4 = "532/4362X179-41447/5";
-    cout << getScore(s1) << endl;
-    cout << getScore(s2) << endl;
-    cout << getScore(s3) << endl;
-    cout << getScore(s4) << endl;
+    string s = "--------------------";
+    cout << getScore(s) << endl;
     return 0;
 }
