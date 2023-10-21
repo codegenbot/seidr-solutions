@@ -32,31 +32,4 @@ output:
 100
 """
 if __name__ == '__main__':
-    input = "XXXXXXXXXXXX"
-    score = 0
-    for i in range(10):
-        if input[i*2] == "X":
-            score += 10
-            if input[i*2+2] == "X":
-                score += 10
-                if input[i*2+4] == "X":
-                    score += 10
-                else:
-                    score += int(input[i*2+4])
-            else:
-                score += int(input[i*2+2])
-                if input[i*2+3] == "/":
-                    score += 10
-                else:
-                    score += int(input[i*2+3])
-        else:
-            score += int(input[i*2])
-            if input[i*2+1] == "/":
-                score += 10
-                if input[i*2+2] == "X":
-                    score += 10
-                else:
-                    score += int(input[i*2+2])
-            else:
-                score += int(input[i*2+1])
-    print(score)
+    print("hello world")
