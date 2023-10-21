@@ -43,14 +43,14 @@ int main() {
     int n,m;
     while(cin>>n>>m){
         double ans = 0;
-        for(int i = 1; i <= n; i++){//
+        for(int i = 1; i <= n; i++){
             double tmp = 1;
             for(int j = 1; j <= m; j++){
                 if(i > j) tmp += 1.0/m;
             }
             ans += tmp/n;
         }
-        printf("%.2lf\n",ans);
+        printf("%.1lf\n",ans);
     }
     return 0;
 }
