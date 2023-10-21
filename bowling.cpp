@@ -15,8 +15,9 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
+7/729/XXX236/7/3
 output:
-0
+137
 input:
 XXXXXXXXXXXX
 output:
@@ -28,47 +29,67 @@ output:
 input:
 7115XXX548/279-X53
 output:
-145
+133
 input:
 532/4362X179-41447/5
 output:
 100
 */
 int main() {
-    string str;
-    cin >> str;
-    int n = str.length();
+    string b;
+    cin>>b;
+    int len = b.size();
     int score = 0;
-    int i = 0;
-    while(i < n) {
-        if(str[i] == 'X') {
-            score += 10;
-            if(str[i+2] == 'X' || str[i+2] == '/') {
+    int i;
+    int flag = 0;
+    for(i = 0; i < len; ++i) {
+        if(!flag) {
+            if(b[i] == '/') {
+                score += 10-(b[i-1]-'0');
+                if(i+1 < len) {
+                    score += b[i+1]-'0';
+                }
+            } else if(b[i] == 'X') {
                 score += 10;
+                if(i+1 < len) {
+                    score += b[i+1]-'0';
+                }
+                if(i+2 < len) {
+                    score += b[i+2]-'0';
+                }
+            } else if(b[i] == '-') {
+                continue;
             } else {
-                score += (str[i+2] - '0');
+                score += b[i]-'0';
             }
-            if(str[i+1] == 'X') {
-                score += 10;
-            } else if(str[i+1] == '/') {
-                score += (10 - (str[i] - '0'));
-            } else {
-                score += (str[i+1] - '0');
-            }
-        } else if (str[i] == '/'){
-            score += (10 - (str[i-1] - '0'));
-            if(str[i+1] == 'X') {
-                score += 10;
-            } else {
-                score += (str[i+1] - '0');
-            }
-        } else if (str[i] == '-') {
-            score += 0;
+            flag = 1;
         } else {
-            score += (str[i] - '0');
+            if(b[i] == '/') {
+                score += 10-(b[i-1]-'0');
+                if(i+1 < len) {
+                    score += b[i+1]-'0';
+                }
+                flag = 0;
+                continue;
+            } else if(b[i] == 'X') {
+                score += 10;
+                if(i+1 < len) {
+                    score += b[i+1]-'0';
+                }
+                if(i+2 < len) {
+                    score += b[i+2]-'0';
+                }
+                flag = 0;
+                continue;
+            } else if(b[i] == '-') {
+                score += 0;
+                flag = 0;
+                continue;
+            } else {
+                score += b[i]-'0';
+                flag = 0;
+            }
         }
-        i++;
     }
     cout << score << endl;
-    return 0;
 }
