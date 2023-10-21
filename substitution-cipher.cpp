@@ -17,10 +17,9 @@ input:
 
 abc
 def
-abcdef
+abc
 output:
-defabc
-
+def
 input:
 a
 a
