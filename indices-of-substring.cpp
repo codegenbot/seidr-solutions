@@ -14,7 +14,7 @@ using namespace std;
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
-a
+a\n
 5
 output:
 0
@@ -63,8 +63,9 @@ int main() {
             }
         }
         for (int i = 0; i < res.size(); i++) {
-            cout << res[i] << (i == res.size() - 1 ? "\n" : " ");
+            cout << res[i] << " ";
         }
+        cout << endl;
     }
     return 0;
 }
