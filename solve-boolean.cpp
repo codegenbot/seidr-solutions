@@ -36,8 +36,11 @@ False
 */
 
 bool evaluate(string s) {
-    if (s.empty()) {
+    if (s.empty() || s == "f") {
         return false;
+    }
+    if (s == "t") {
+        return true;
     }
     stack<char> operators;
     stack<bool> operands;
@@ -70,7 +73,7 @@ bool evaluate(string s) {
     return operands.top();
 }
 int main() {
-    string s = "t | f & t";
+    string s = "t | f";
     cout << evaluate(s) << endl;
     return 0;
 }
