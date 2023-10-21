@@ -8,9 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a vector of positive integers, return a vector of the leaders in that vector.
-A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it.
-The rightmost element is always a leader.
+Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
 input:
 0
@@ -45,13 +43,19 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    nums = [int(x) for x in input().split()]
-    res = []
-    for i in range(n-1, -1, -1):
-        if len(res) == 0:
-            res.append(nums[i])
+    a = []
+    for i in range(n):
+        a.append(int(input()))
+    b = []
+    for i in range(n):
+        if i == n-1:
+            b.append(a[i])
         else:
-            if nums[i] >= res[-1]:
-                res.append(nums[i])
-    for i in range(len(res)-1, -1, -1):
-        print(res[i], end=' ')
+            for j in range(i+1,n):
+                if a[j] > a[i]:
+                    break
+                if j == n-1:
+                    b.append(a[i])
+    print(len(b))
+    for i in range(len(b)):
+        print(b[i])
