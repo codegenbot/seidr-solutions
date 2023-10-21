@@ -55,23 +55,28 @@ output:
 
 */
 int main() {
-    int n;
-    while(cin >> n) {
-        vector<int> nums(n);
-        for(int i = 0; i < n; i++) cin >> nums[i];
-        int pos = 0;
-        int minDiff = INT_MAX;
-        for(int i = 1; i < n; i++) {
-            int diff = abs(nums[i] - nums[i - 1]);
-            if(diff < minDiff) {
-                minDiff = diff;
-                pos = i;
-            }
-        }
-        for(int i = 0; i < pos; i++) cout << nums[i] << " ";
-        cout << endl;
-        for(int i = pos; i < n; i++) cout << nums[i] << " ";
-        cout << endl;
+    vector<int> nums = {1,0};
+    int n = nums.size();
+    vector<int> sum(n+1,0);
+    for(int i = 0; i < n; i++) {
+        sum[i+1] = sum[i] + nums[i];
     }
-    return 0;
+    int min_diff = INT_MAX;
+    int left_index = 0;
+    int right_index = 0;
+    for(int i = 1; i <= n; i++) {
+        if(min_diff > abs(sum[i] - (sum[n] - sum[i]))) {
+            min_diff = abs(sum[i] - (sum[n] - sum[i]));
+            left_index = i;
+            right_index = n - i;
+        }
+    }
+    cout << left_index << endl;
+    for(int i = 0; i < left_index; i++) {
+        cout << nums[i] << endl;
+    }
+    cout << right_index << endl;
+    for(int i = left_index; i < n; i++) {
+        cout << nums[i] << endl;
+    }
 }
