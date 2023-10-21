@@ -10,7 +10,6 @@
 #include <stack>
 #include <climits>
 using namespace std;
-
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -37,39 +36,43 @@ output:
 */
 
 int score(string s) {
-    int res = 0;
-    int i = 0;
-    while (i < s.length()) {
+    int n = s.size(), sum = 0, i = 0;
+    while (i < n) {
         if (s[i] == 'X') {
-            res += 10;
-            if (s[i + 2] == 'X') {
-                res += 20;
-            } else {
-                res += (s[i + 2] - '0');
+            sum += 10;
+            if (i+2 < n) {
+                if (s[i+2] == 'X') {
+                    sum += 10;
+                } else {
+                    sum += s[i+2]-'0';
+                }
             }
-            if (s[i + 3] == 'X') {
-                res += 10;
-            } else if (s[i + 3] == '/') {
-                res += (10 - (s[i + 2] - '0'));
-            } else {
-                res += (s[i + 3] - '0');
+            if (i+1 < n) {
+                if (s[i+1] == 'X') {
+                    sum += 10;
+                } else if (s[i+1] == '/') {
+                    sum += 10 - (s[i]-'0');
+                } else {
+                    sum += s[i+1]-'0';
+                }
             }
             i++;
-        } else if (s[i + 1] == '/') {
-            res += 10;
-            if (s[i + 2] == 'X') {
-                res += 10;
-            } else {
-                res += (s[i + 2] - '0');
+        } else if (s[i] == '/') {
+            sum += 10 - (s[i-1]-'0');
+            if (i+1 < n) {
+                if (s[i+1] == 'X') {
+                    sum += 10;
+                } else {
+                    sum += s[i+1]-'0';
+                }
             }
-            i += 2;
+            i++;
         } else {
-            res += (s[i] - '0');
-            res += (s[i + 1] - '0');
-            i += 2;
+            sum += s[i]-'0';
+            i++;
         }
     }
-    return res;
+    return sum;
 }
 
 int main() {
