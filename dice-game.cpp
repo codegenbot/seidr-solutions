@@ -32,7 +32,7 @@ input:
 100
 99
 output:
-0.51
+0.5
 input:
 1
 100
@@ -43,7 +43,7 @@ int main() {
     int n, m;
     while(cin >> n >> m) {
         double ret = 0.0;
-        if(n > m) {
+        if(n >= m) {
             ret = 1.0;
         } else {
             double p = 1.0 / n;
