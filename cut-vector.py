@@ -90,11 +90,8 @@ def solve(n, a):
             print(" ".join([str(x) for x in a[n//2:]]))
         else:
             m = a[n//2]
-            x = a[n//2-1] if n//2-1 >= 0 else None
-            y = a[n//2+1] if n//2+1 < n else None
-            if x is not None and y is not None:
-                if abs(x-m) >= abs(y-m):
-                    a = a[:n//2+1] + a[n//2:]
+            if abs(a[n//2-1]-m) >= abs(a[n//2+1]-m):
+                a = a[:n//2+1] + a[n//2:]
             print(n//2)
             print(" ".join([str(x) for x in a[:n//2+1]]))
             print(n - n//2)
