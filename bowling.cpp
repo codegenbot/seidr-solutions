@@ -34,30 +34,19 @@ input:
 output:
 100
 */
+
 int getScore(string s) {
     int score = 0;
     int i = 0;
-    while (i < s.size()) {
-        if (s[i] == 'X') {
+    for(int frame = 0; frame < 10; frame++) {
+        if(s[i] == 'X') {
             score += 10;
-            if (s[i+2] == 'X') {
-                score += 10;
-            } else {
-                score += s[i+2] - '0';
-            }
-            if (s[i+3] == '/') {
-                score += 10;
-            } else {
-                score += s[i+3] - '0';
-            }
+            score += s[i+1] == 'X' ? 10 : s[i+1] - '0';
+            score += s[i+2] == 'X' ? 10 : s[i+2] - '0';
             i++;
-        } else if (s[i+1] == '/') {
+        } else if(s[i+1] == '/') {
             score += 10;
-            if (s[i+2] == 'X') {
-                score += 10;
-            } else {
-                score += s[i+2] - '0';
-            }
+            score += s[i+2] == 'X' ? 10 : s[i+2] - '0';
             i += 2;
         } else {
             score += s[i] - '0';
@@ -67,9 +56,15 @@ int getScore(string s) {
     }
     return score;
 }
+
 int main() {
-    string s;
-    cin >> s;
+    string s = "XXXXXXXXXXXX";
+    cout << getScore(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << getScore(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << getScore(s) << endl;
+    s = "532/4362X179-41447/5";
     cout << getScore(s) << endl;
     return 0;
 }
