@@ -31,29 +31,49 @@ input:
 output:
 100
 """
-
-def bowling_score(string):
-    bonus = 0
-    score = 0
-    for i in range(len(string)):
-        if string[i] == "/":
-            bonus = 10 - int(string[i-1])
-            score += bonus
-        if string[i] == 'X':
-            if string[i+1] == '-':
-                score += 10
-                bonus = 0
-            elif string[i+1] == '/':
-                score += 10
-                bonus = 0
-            else:
-                score += 10
-                bonus = int(string[i+1]) + int(string[i+2])
-        elif string[i] == '-':
-            pass
-        else:
-            score += int(string[i])
-    return score + bonus
-
 if __name__ == '__main__':
-    print(bowling_score(sys.argv[1]))
+    # read the input
+    str = "7115XXX548/279-X53"
+    num_list = list(str)
+    frame_idx = 0
+    # initialize a frame
+    frame = {
+        "fram_idx" : frame_idx,
+        "frame" : []
+    }
+    frames = [frame]
+    # for each round
+    for num_str in num_list:
+        frame = frames[frame_idx]
+        if num_str.isdigit():
+            frame["frame"].append(int(num_str))
+            if len(frame["frame"]) == 2:
+                frame_idx += 1
+                frame = {
+                    "frame_idx" : frame_idx,
+                    "frame" : []
+                }
+                frames.append(frame)
+        else:
+            if num_str is '/':
+                frame["frame"].append(10 - int(frame["frame"][-1]))
+            elif num_str is 'X':
+                frame["frame"].append(10)
+            elif num_str is '-':
+                frame["frame"].append(0)
+            else:
+                break
+            frame_idx += 1
+            frame = {
+                "frame_idx" : frame_idx,
+                "frame" : []
+            }
+            frames.append(frame)
+    # for each frame, calculate the score
+    score = 0
+    for frame in frames:
+        frame_score = 0
+        for num in frame["frame"]:
+            frame_score += num
+        score += frame_score
+    print score
