@@ -37,9 +37,11 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    m = int(input())
-    if n >= m:
-        print(0.5)
-    else:
-        print(1 - (m - n + 1) / (m * m))
+    n = input()
+    m = input()
+    if int(n) < int(m):
+        print("0.0")
+    elif int(n) == int(m):
+        print("0.5")
+    elif int(n) > int(m):
+        print("0.5")
