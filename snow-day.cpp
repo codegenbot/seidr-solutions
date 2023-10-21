@@ -50,14 +50,11 @@ output:
 10.0
 */
 int main() {
-    int hours;
-    double snowOnGround, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    cin >> hours;
-    cin >> snowOnGround;
-    cin >> rateOfSnowFall;
-    cin >> proportionOfSnowMeltingPerHour;
-
-    if (hours == 0) {
-        cout << 0.0;
-    }
+	int hour;
+	float amount, rate, melt;
+	cin >> hour;
+	cin >> amount;
+	cin >> rate;
+	cin >> melt;
+	cout << amount << endl;
 }
