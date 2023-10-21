@@ -53,6 +53,5 @@ if __name__ == '__main__':
     proportion_of_snow_melting = float(input("Enter proportion of snow melting: "))
     for i in range(hours):
         snow_on_ground += rate_of_snow_fall
-        if snow_on_ground > 0:
-            snow_on_ground -= proportion_of_snow_melting * snow_on_ground
-    print(snow_on_ground)
+        snow_on_ground -= proportion_of_snow_melting * snow_on_ground
+    print("{:.1f}".format(snow_on_ground))
