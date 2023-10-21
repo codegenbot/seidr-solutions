@@ -47,13 +47,14 @@ output:
 int main() {
     double height, firstBounce, bouncinessIndex, totalDistance;
     int bounces;
-    while (scanf("%lf%lf%d", &height, &firstBounce, &bounces) != EOF) {
+    while (cin >> height >> firstBounce >> bounces) {
         bouncinessIndex = firstBounce / height;
         totalDistance = 0;
         for (int i = 0; i < bounces; i++) {
             totalDistance += height;
             height *= bouncinessIndex;
         }
+        totalDistance += firstBounce;
         printf("%.3f\n", totalDistance);
     }
     return 0;
