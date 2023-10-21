@@ -8,11 +8,9 @@ import itertools
 import queue
 import re
 """
-You are given a string S.
-Your task is to print all possible combinations, up to size k, of the string in lexicographic sorted order.
+The input will consist of a single string. Your task is to find the first character in the string that does not repeat.
+For example, if the input is abacabad, the output should be c.
 """
 if __name__ == '__main__':
-    s, k = input().split()
-    for i in range(1, int(k) + 1):
-        for j in itertools.combinations(sorted(s), i):
-            print(''.join(j))
+    s = input()
+    print(sum(map(int, list(s))))
