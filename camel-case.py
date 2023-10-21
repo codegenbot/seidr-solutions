@@ -31,17 +31,15 @@ all separate words
 output:
 all separate words
 """
-def camel_case(s):
-    if not s: return s
-    s = s.replace("-", " ").title().replace(" ", "")
-    for i in range(len(s)-1):
-        if s[i].isdigit():
-            s = s[:i] + s[i].upper() + s[i+1:]
-    s = s[0].lower() + s[1:]
-    return s
+def parser(s):
+    words = s.split()
+    print(words)
+    final = {}
+    count = 0
+    for word in words:
+        count+=1
+        final[count] = [word[0].upper() + word[1:]]
+    print(final)
+
 if __name__ == '__main__':
-    print(camel_case("camel-case example-test-string"))
-    print(camel_case("nospaceordash"))
-    print(camel_case("two-words"))
-    print(camel_case("two words"))
-    print(camel_case("all separate words"))
+    parser("camel-case example-test-string")
