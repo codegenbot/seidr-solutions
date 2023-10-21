@@ -11,141 +11,39 @@
 #include <climits>
 using namespace std;
 /*
-Given a string, replace all instances of the letter h with the letter H, except leave the first and last letters alone.
-input: hhxh
-output: hHxH
-input: hhhhhhhhhhhhx
-output: hHHHHHHHHHHHx
-input: hxh
-output: hxh
-input: h
-output: h
-input: hhh
-output: hHH
-input: hhhhh
-output: hHHHH
-input: hhhhhh
-output: hHHHHH
-input: hhhhhhh
-output: hHHHHHh
-input: hhhhhhhh
-output: hHHHHHHh
-input: hhhhhhhhh
-output: hHHHHHHHh
-input: hhhhhhhhhh
-output: hHHHHHHHHh
-input: hhhhhhhhhhh
-output: hHHHHHHHHHh
-input: hhhhhhhhhhhh
-output: hHHHHHHHHHHh
-input: hhhhhhhhhhhhh
-output: hHHHHHHHHHHHh
-input: hhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh
-input: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-output: hHHHHHHHHHHHHHHHHHHHHHHHH
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
+
+abc
+def
+abc
+output:
+def
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 */
 int main() {
     string a, b, c;
