@@ -44,17 +44,6 @@ output:
 1
 1000
 */
-vector<int> leaders(vector<int>& input) {
-	vector<int> result;
-	int greatest = -1;
-	for (int i = input.size() - 1; i >=0; --i) {
-		if (input[i] >= greatest) {
-			greatest = input[i];
-			result.push_back(greatest);
-		}
-	}
-	reverse(result.begin(), result.end());
-	return result;
-}
-
 int main() {
+	
+}
