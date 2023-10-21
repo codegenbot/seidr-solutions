@@ -8,46 +8,184 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
-
-
-
+This problem gives a string. Your program must return the number of times the string 'ab' appears in the string.
+For example, input:
+abababa
 output:
-
+3
 input:
-a
-a
-a
+ab
 output:
-a
+1
 input:
-j
-h
-j
+aba
 output:
-h
+1
 input:
-a
-z
-a
+ababc
 output:
-z
+1
 input:
-e
-l
-eeeeeeeeee
+aababc
 output:
-llllllllll
+2
+input:
+abababa
+output:
+3
+input:
+abababab
+output:
+4
+input:
+baababab
+output:
+4
+input:
+aabababa
+output:
+4
+input:
+aaaaaaaa
+output:
+0
+input:
+ababababab
+output:
+5
+input:
+abababababa
+output:
+5
+input:
+abababababb
+output:
+5
+input:
+abababababc
+output:
+5
+input:
+abababababd
+output:
+5
+input:
+abababababe
+output:
+5
+input:
+abababababf
+output:
+5
+input:
+abababababg
+output:
+5
+input:
+abababababh
+output:
+5
+input:
+abababababi
+output:
+5
+input:
+abababababj
+output:
+5
+input:
+abababababk
+output:
+5
+input:
+abababababl
+output:
+5
+input:
+abababababm
+output:
+5
+input:
+abababababn
+output:
+5
+input:
+abababababo
+output:
+5
+input:
+abababababp
+output:
+5
+input:
+abababababq
+output:
+5
+input:
+abababababr
+output:
+5
+input:
+abababababs
+output:
+5
+input:
+abababababt
+output:
+5
+input:
+abababababu
+output:
+5
+input:
+abababababv
+output:
+5
+input:
+abababababw
+output:
+5
+input:
+abababababx
+output:
+5
+input:
+abababababy
+output:
+5
+input:
+abababababz
+output:
+5
+input:
+abababababa
+output:
+5
+input:
+abababababb
+output:
+5
+input:
+abababababc
+output:
+5
+input:
+abababababd
+output:
+5
+input:
+abababababe
+output:
+5
+input:
+abababababf
+output:
+5
 """
 if __name__ == '__main__':
-    dic = {}
-    a = input().strip()
-    b = input().strip()
-    c = input().strip()
-    for i in range(len(a)):
-        dic[a[i]] = b[i]
-    for i in range(len(c)):
-        print(dic[c[i]], end="")
-    print("")
+    s = input().strip()
+    res = 0
+    for i in range(len(s)-1):
+        if s[i:i+2] == "ab":
+            res += 1
+    print(res)
