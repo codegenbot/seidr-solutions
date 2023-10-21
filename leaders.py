@@ -8,10 +8,8 @@ import itertools
 import queue
 import re
 """
-Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
-For example,
-input:
-0
+Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader. For example, input:0 output:0 input: 1 0 output: 1 0 input: 1 451 output: 1 451 input: 2 1000 0 output: 2 1000 0 input: 2 0 1000 output: 1 1000
+"""
 
 output:
 0
@@ -41,14 +39,4 @@ output:
 1
 1000
 """
-def find_leaders(vector):
-    leaders = []
-    max_num = vector[-1]
-    leaders.append(max_num)
-    for i in range(len(vector) - 2, -1, -1):
-        if vector[i] >= max_num:
-            leaders.append(vector[i])
-            max_num = vector[i]
-    return leaders[::-1]
-
 if __name__ == '__main__':

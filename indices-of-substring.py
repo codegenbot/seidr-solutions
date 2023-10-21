@@ -8,8 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a text string and a target string, return a list of integers of the indices at which the target 
-appears in the text. Targets may overlap.
+Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
 a
@@ -42,17 +41,34 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
+class uf(object):
+    def __init__(self, n, data):
+        self.data = data
+        self.parent = range(n)
+        self.rank = [0 for i in range(n)] 
 
-def find_all(a_str, sub):
-    start = 0
-    while True:
-        start = a_str.find(sub, start)
-        if start == -1: return
-        yield start
-        start += 1
+    def union(self, x, y):
+        xroot = self.find(x)
+        yroot = self.find(y)
+        if self.rank[xroot] < self.rank[yroot]:
+            self.parent[xroot] = yroot
+        elif self.rank[xroot] > self.rank[yroot]:
+            self.parent[yroot] = xroot
+        else:
+            self.parent[yroot] = xroot
+            self.rank[xroot] += 1
+
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def connected(self, x, y):
+        return self.find(x) == self.find(y)
+
+    def count(self):
+        return len(set([self.find(i) for i in range(len(self.parent))]))
+
+
 
 if __name__ == '__main__':
-    text = raw_input()
-    target = raw_input()
-    a = list(find_all(text, target))
-    print ' '.join(map(str, a))
