@@ -42,4 +42,7 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    pass
+    a = float(input())
+    b = float(input())
+    c = int(input())
+    print(a*(1-b**c)/(1-b))
