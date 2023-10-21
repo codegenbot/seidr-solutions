@@ -47,7 +47,7 @@ bool evaluate(string s) {
         }
         if (s[i] == 'T') {
             operands.push(true);
-        } else if (s[i] == 'f') {
+        } else if (s[i] == 'F') {
             operands.push(false);
         } else if (s[i] == '|') {
             operators.push('|');
@@ -70,7 +70,7 @@ bool evaluate(string s) {
     return operands.top();
 }
 int main() {
-    string s = "t | f";
+    string s = "True | False";
     cout << evaluate(s) << endl;
     return 0;
 }
