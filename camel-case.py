@@ -31,16 +31,30 @@ all separate words
 output:
 all separate words
 """
-def camelCase(s):
-    if not s: return s
-    res = ''
-    if s[0] != '-': res += s[0].lower()
-    tmp = s[1:]
-    for i, e in enumerate(tmp):
-        if e == '-':
-            res += ' ' + tmp[i+1].upper()
-            tmp = tmp[i+2:]
-    if not res: return s
-    return res + tmp
+
+def kebabCaseToCamelCase(l):
+    output = []
+    for x in l:
+        y = x.split()
+        for i in y:
+            j = i.split("-")
+            output.append("".join(i.capitalize() for i in j))
+        print " ".join(output)
+    return " ".join(output)
+
+def kebabCaseToCamelCase2(l):
+    s=""
+    for x in l:
+        t=x.split("-")
+        if len(t)>2:
+            for i in t:
+                s+=i[0].upper()+i[1:]
+        else:
+            s+= i[0].upper()+i[1:].lower()
+    print s
+    return s
+
 if __name__ == '__main__':
-    print(camelCase(sys.argv[1]))
+    l = ["camel-case example-test-string","nospaceordash","two-words","two words","all separate words"]
+    print kebabCaseToCamelCase(l)
+    print kebabCaseToCamelCase2(l[0])
