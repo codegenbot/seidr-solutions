@@ -15,6 +15,57 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
+output:
+0
+input:
+--------------------
 output:
 0
 input:
@@ -36,7 +87,6 @@ output:
 */
 
 int getScore(const string &s) {
-    if (s == "--------------------") return 0;
     int res = 0;
     int i = 0;
     int strike = 0;
@@ -90,9 +140,11 @@ int main() {
     string s2 = "5/5/5/5/5/5/5/5/5/5/5";
     string s3 = "7115XXX548/279-X53";
     string s4 = "532/4362X179-41447/5";
+    string s5 = "--------------------";
     cout << getScore(s1) << endl;
     cout << getScore(s2) << endl;
     cout << getScore(s3) << endl;
     cout << getScore(s4) << endl;
+    cout << getScore(s5) << endl;
     return 0;
 }
