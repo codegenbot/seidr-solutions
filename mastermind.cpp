@@ -45,34 +45,44 @@ output:
 0
 */
 
-int white(string code, string guess) {
-    int res = 0;
-    int cnt[6] = {0};
-    for(int i = 0; i < 4; i++) {
-        cnt[code[i] - 'A']++;
-    }
-    for(int i = 0; i < 4; i++) {
-        if(cnt[guess[i] - 'A'] > 0) {
-            res++;
-            cnt[guess[i] - 'A']--;
+int black(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            count++;
         }
     }
-    return res;
+    return count;
 }
 
-int black(string code, string guess) {
-    int res = 0;
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            res++;
+int white(string code, string guess) {
+    int count = 0;
+    map<char, int> codeMap;
+    map<char, int> guessMap;
+    for (int i = 0; i < 4; i++) {
+        if (codeMap.find(code[i]) == codeMap.end()) {
+            codeMap[code[i]] = 1;
+        } else {
+            codeMap[code[i]]++;
+        }
+        if (guessMap.find(guess[i]) == guessMap.end()) {
+            guessMap[guess[i]] = 1;
+        } else {
+            guessMap[guess[i]]++;
         }
     }
-    return res;
+    for (auto it = codeMap.begin(); it != codeMap.end(); it++) {
+        if (guessMap.find(it->first) != guessMap.end()) {
+            count += min(it->second, guessMap[it->first]);
+        }
+    }
+    return count - black(code, guess);
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << white(code, guess) << " " << black(code, guess) << endl;
+    cout << black(code, guess) << endl;
+    cout << white(code, guess) << endl;
     return 0;
 }
