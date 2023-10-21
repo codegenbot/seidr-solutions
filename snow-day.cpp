@@ -49,16 +49,13 @@ input:
 output:
 10.0
 */
-float snow_on_ground(int hours, float snow_on_ground, float snow_rate, float snow_melt){
-    if(hours == 0) return snow_on_ground;
-    return snow_on_ground(hours-1, snow_on_ground + snow_rate - snow_melt, snow_rate, snow_melt);
-}
 int main() {
-    int hours;
-    float snow_on_ground, snow_rate, snow_melt;
-    cin >> hours;
-    cin >> snow_on_ground;
-    cin >> snow_rate;
-    cin >> snow_melt;
-    cout << snow_on_ground(hours, snow_on_ground, snow_rate, snow_melt);
+    int hours = 0;
+    float snow, rate, melting;
+    cin >> hours >> snow >> rate >> melting;
+    for(int i = 0; i < hours; i++) {
+        snow += rate;
+        snow *= (1 - melting);
+    }
+    printf("%.6f\n", snow);
 }
