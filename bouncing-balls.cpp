@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <cstdlib>
 #include <queue>
 #include <stdio.h>
 #include <math.h>
@@ -47,22 +46,14 @@ output:
 */
 int main() {
     double h, h1, n;
-    cin >> h >> h1 >> n;
-    if (cin) {
+    while (cin >> h >> h1 >> n) {
+        double pre = h;
         double r = h1 / h;
-        double sum = h1;
+        double sum = h;
         for (int i = 1; i < n; i++) {
-            sum += h * pow(r, i + 1);
+            sum += pre * pow(r, 2 * i);
+            pre *= r;
         }
-        printf("%.6f\n", sum);
-    } else {
-        double r = atoi(h1) / atoi(h);
-        double sum = atoi(h1);
-        for (int i = 1; i < n; i++) {
-            sum += atoi(h) * pow(r, i + 1);
-        }
-        // cout << sum << endl;
-        // cout << fixed << setprecision(6) << sum << endl;
         printf("%.6f\n", sum);
     }
     return 0;
