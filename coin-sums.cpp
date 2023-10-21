@@ -56,17 +56,10 @@ int main() {
         int dimes = cents % 25 / 10;
         int nickels = cents % 25 % 10 / 5;
         int pennies = cents % 25 % 10 % 5;
-        if(cents == 1) {
-            cout << 1 << endl;
-            cout << 0 << endl;
-            cout << 0 << endl;
-            cout << 0 << endl;
-        } else {
-            cout << pennies << endl;
-            cout << nickels << endl;
-            cout << dimes << endl;
-            cout << quarters << endl;
-        }
+        cout << pennies << "\n";
+        cout << nickels << "\n";
+        cout << dimes << "\n";
+        cout << quarters << "\n";
     }
     return 0;
 }
