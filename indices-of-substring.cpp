@@ -18,29 +18,25 @@ a
 5
 output:
 0
-*/
-/*
+
 input:
 !
 !
 output:
+1
 0
-*/
-/*
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
 output:
 0
-*/
-/*
+
 input:
 hi
 hihihihihihihihihihi
 output:
 0
-*/
-/*
+
 input:
 ############
 #
@@ -56,7 +52,6 @@ int main() {
 		int n = str.length();
 		int m = target.length();
 		int i = 0;
-		bool flag = false;
 		while(i <= n - m) {
 			int j = 0;
 			for(; j < m; j++) {
@@ -65,14 +60,12 @@ int main() {
 				}
 			}
 			if(j == m) {
-				flag = true;
-				cout << i << " ";
+				cout << i << endl;
+				break;
 			}
 			i++;
 		}
-		if(flag) {
-			cout << endl;
-		}
+		cout << endl;
 	}
 	return 0;
 }
