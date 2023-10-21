@@ -49,74 +49,29 @@ input:
 output:
 2.2715833329200144
 */
-double distance(vector<double> a, vector<double> b) {
-    double sum = 0;
-    for(int i = 0; i < a.size(); i++) {
+double getDistance(vector<double>& a, vector<double>& b) {
+    double sum = 0.0;
+    for (int i = 0; i < a.size(); i++) {
         sum += (a[i] - b[i]) * (a[i] - b[i]);
     }
     return sqrt(sum);
 }
-
 int main() {
     int n;
-    cin >> n;
-    vector<double> a;
-    for(int i = 0; i < n; i++) {
-        double temp;
-        cin >> temp;
-        a.push_back(temp);
-    }
-    cin >> n;
-    vector<double> b;
-    for(int i = 0; i < n; i++) {
-        double temp;
-        cin >> temp;
-        b.push_back(temp);
-    }
-    cout << distance(a, b) << endl;
-}
-
-/*
-int main() {
-    int n;
-    cin >> n;
-    vector<double> a;
-    for(int i = 0; i < n; i++) {
-        double temp;
-        cin >> temp;
-        a.push_back(temp);
-    }
-    cin >> n;
-    vector<double> b;
-    for(int i = 0; i < n; i++) {
-        double temp;
-        cin >> temp;
-        b.push_back(temp);
-    }
-    cout << distance(a, b) << endl;
-}
-*/
-/*
-int main() {
-    string s;
-    while(getline(cin, s)) {
-        int n;
-        sscanf(s.c_str(), "%d", &n);
+    while(cin >> n) {
         vector<double> a;
-        for(int i = 0; i < n; i++) {
-            double temp;
-            cin >> temp;
-            a.push_back(temp);
-        }
-        getline(cin, s);
-        sscanf(s.c_str(), "%d", &n);
         vector<double> b;
-        for(int i = 0; i < n; i++) {
-            double temp;
-            cin >> temp;
-            b.push_back(temp);
+        for (int i = 0; i < n; i++) {
+            double t;
+            cin >> t;
+            a.push_back(t);
         }
-        cout << distance(a, b) << endl;
+        cin >> n;
+        for (int i = 0; i < n; i++) {
+            double t;
+            cin >> t;
+            b.push_back(t);
+        }
+        cout << getDistance(a, b) << endl;
     }
 }
-*/
