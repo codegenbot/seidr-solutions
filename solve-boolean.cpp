@@ -28,11 +28,17 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
 False
 */
+bool eval(string s) {
+    if (s == "t") {
+        return true;
+    }
+    return false;
+}
 int main() {
 }
