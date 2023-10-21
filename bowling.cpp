@@ -34,34 +34,61 @@ input:
 output:
 100
 */
-int helper(string &str, int index){
-    if(index+1 >= str.size()){
-        if(str[index] == 'X'){
-            return 10;
-        } else if(str[index] == '-'){
-            return 0;
-        } else{
-            return str[index] -'0';
+int calScore(string str) {
+    if (str.size() != 22) {
+        return -1;
+    }
+    int ans = 0;
+    int i = 0;
+    while (i < 22) {
+        if (str[i] == 'X') {
+            ans += 10;
+            if (i < 18) {
+                if (str[i + 2] == '/') {
+                    ans += 10;
+                } else {
+                    ans += (str[i + 2] - '0');
+                }
+                if (str[i + 4] == '/') {
+                    ans += 10;
+                } else if (str[i + 4] == 'X') {
+                    ans += 10;
+                    if (str[i + 6] == '/') {
+                        ans += 10;
+                    } else if (str[i + 6] == 'X') {
+                        ans += 10;
+                    } else {
+                        ans += (str[i + 6] - '0');
+                    }
+                } else {
+                    ans += (str[i + 4] - '0');
+                }
+            }
+        } else if (str[i] >= '0' && str[i] <= '9') {
+            ans += (str[i] - '0');
+            if (str[i + 1] == '-') {
+            }
+            else {
+                if (str[i + 1] == '/') {
+                    ans += (10 - (str[i] - '0'));
+                } else {
+                    ans += (str[i + 1] - '0');
+                }
+            }
         }
+        i += 2;
     }
-    if(str[index] == '-'){
-        return helper(str, index+1);
-    } else if(str[index] == '/'){
-        return 10 - str[index-1] + helper(str,index+1);
-    } else if(str[index] == 'X'){
-        return 10 + helper(str, index+1) + helper(str, index+2);
-    } else{
-        return str[index] - '0' + helper(str, index+1);
-    }
+    return ans;
 }
+
 int main() {
-    string str;
-    getline(cin, str);
-    int res = 0;
-    for(int i = 0; i < str.size() && res < 10; i++){
-        res += helper(str, i);
-    }
-    cout<<res<<endl;
-    
+    string input1 = "XXXXXXXXXXXX";
+    cout << calScore(input1) << endl;
+    string input2 = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << calScore(input2) << endl;
+    string input3 = "7115XXX548/279-X53";
+    cout << calScore(input3) << endl;
+    string input4 = "532/4362X179-41447/5";
+    cout << calScore(input4) << endl;
     return 0;
 }
