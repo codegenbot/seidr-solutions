@@ -44,24 +44,17 @@ output:
 1
 1000
 */
-int main() {
-    int n;
-    while (cin >> n) {
-        vector<int> vec(n);
-        for (int i = 0; i < n; i++) {
-            cin >> vec[i];
-        }
-        vector<int> res(1, vec.back());
-        for (int i = n - 2; i >= 0; i--) {
-            if (vec[i] >= res.back()) {
-                res.push_back(vec[i]);
-            }
-        }
-        reverse(res.begin(), res.end());
-        for (int num : res) {
-            cout << num << " ";
-        }
-        cout << endl;
-    }
-    return 0;
+vector<int> leaders(vector<int>& input) {
+	vector<int> result;
+	int greatest = -1;
+	for (int i = input.size() - 1; i >=0; --i) {
+		if (input[i] >= greatest) {
+			greatest = input[i];
+			result.push_back(greatest);
+		}
+	}
+	reverse(result.begin(), result.end());
+	return result;
 }
+
+int main() {
