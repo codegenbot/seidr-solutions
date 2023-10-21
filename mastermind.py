@@ -44,11 +44,15 @@ output:
 if __name__ == '__main__':
     code = input()
     guess = input()
-    black = 0
-    white = 0
-    for i in range(4):
+    code_dict = collections.Counter(code)
+    guess_dict = collections.Counter(guess)
+    black_pegs = 0
+    for i in range(len(code)):
         if code[i] == guess[i]:
-            black += 1
-    for i in range(6):
-        white += min(code.count(chr(65+i)), guess.count(chr(65+i)))
-    print(black, white-black)
+            black_pegs += 1
+    white_pegs = 0
+    for key in code_dict:
+        if key in guess_dict:
+            white_pegs += min(code_dict[key], guess_dict[key])
+    print(black_pegs)
+    print(white_pegs - black_pegs)
