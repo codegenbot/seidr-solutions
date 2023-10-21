@@ -47,8 +47,4 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = float(input())
-    b = float(input())
-    c = float(input())
-    print("%.2f"%(a+b*n-c*n*(n+1)/2))
+  
