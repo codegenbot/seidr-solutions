@@ -42,4 +42,6 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    print("hello world")
+    line = sys.stdin.readline().strip()
+    while line:
+        line = sys.stdin.readline().strip()
