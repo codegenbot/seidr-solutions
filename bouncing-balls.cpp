@@ -11,30 +11,29 @@
 #include <climits>
 using namespace std;
 /*
-http://www.datagenetics.com/blog/july42013/index.html
 Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
 input:
-2
+1.001
 1.0
 1
 output:
-2.005
+2.001
 input:
-5
-1
-1
-output:
-5.094
-input:
-5
-1
+100.0
+99.999
 20
 output:
-39.014
+3999.599534511501
 input:
-5
-0
+100.0
+1.0
+20
+output:
+102.02020201974588
+input:
+15.319
+5.635
 1
 output:
 20.954
@@ -51,7 +50,7 @@ int main() {
         double r = h1 / h;
         double sum = h1;
         for (int i = 1; i < n; i++) {
-            sum += h * pow(r, i + 1);
+            sum += h * pow(r, (double)(i + 1));
         }
         printf("%.6f\n", sum);
     }
