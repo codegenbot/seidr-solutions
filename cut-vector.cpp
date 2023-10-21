@@ -55,27 +55,26 @@ output:
 
 */
 int main() {
-    vector<int> nums;
     int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
-    int minDiff = INT_MAX;
-    int minIndex = 0;
-    for (int i = 1; i < nums.size(); i++) {
+    int min_diff = INT_MAX;
+    int min_index = -1;
+    for (int i = 1; i < n; i++) {
         int diff = abs(nums[i] - nums[i - 1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            minIndex = i;
+        if (diff < min_diff) {
+            min_diff = diff;
+            min_index = i;
         }
     }
-    for (int i = 0; i < minIndex; i++) {
+    for (int i = 0; i < min_index; i++) {
         cout << nums[i] << endl;
     }
-    cout << 0 << endl;
-    for (int i = minIndex; i < nums.size(); i++) {
+    for (int i = min_index; i < n; i++) {
         cout << nums[i] << endl;
     }
-    cout << 0 << endl;
     return 0;
 }
