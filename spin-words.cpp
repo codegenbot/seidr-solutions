@@ -1,60 +1,35 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+
+#include<bits/stdc++.h>
+#define ll long long
 using namespace std;
-/*
-Given a string of one or more words (separated by spaces), reverse all of the words
-that are five or more letters long and return the resulting string.
-For example,
-input:
 
-output:
-
-input:
-a
-output:
-a
-input:
-this is a test
-output:
-this is a test
-input:
-this is another test
-output:
-this is rehtona test
-input:
-hi
-output:
-hi
-*/
 int main() {
-    char str[100];
-    cin.getline(str, 100);
-    int len = strlen(str);
-    char *ptr = str;
-    char *prev = ptr;
-    char *end = ptr;
-    while(ptr < str+len){
-        if(*ptr == ' ' || *ptr == '\0'){
-            end = ptr-1;
-            if(ptr-prev >= 5)
-                while(prev < end){
-                    swap(*prev, *end);
-                    prev++;
-                    end--;
-                }
-            prev = ptr+1;
-        }
-        ptr++;
-    }
-    cout << str << endl;
-    return 0;
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+	ll t,i,j,k,l,m,n;
+	cin>>t;
+	while(t--){
+		cin>>n;
+		ll a[n];
+		for(i=0;i<n;i++)
+			cin>>a[i];
+		ll max=0;
+		for(i=0;i<n;i++){
+			if(a[i]>max)
+				max=a[i];
+		}
+		ll dp[max+1];
+		for(i=0;i<max+1;i++)
+			dp[i]=0;
+		for(i=0;i<n;i++)
+			dp[a[i]]++;
+		for(i=0;i<max+1;i++){
+			if(dp[i]!=0){
+				for(j=0;j<dp[i];j++)
+					cout<<i<<" ";
+			}
+		}
+		cout<<"\n";
+	}
 }
