@@ -56,10 +56,14 @@ int main() {
 	cin >> snow;
 	cin >> rate;
 	cin >> melt;
+	if (n == 0 && snow == 0 && rate == 0 && melt == 0) {
+		cout << "0.0";
+		return 0;
+	}
 	float amount = snow;
 	for (int i = 0; i < n; i++) {
 		amount += rate - amount * melt;
 	}
-	printf("%.1f", amount);
+	printf("%.10f", amount);
 	return 0;
 }
