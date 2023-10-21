@@ -1,46 +1,66 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cmath>
-#include <climits>
-#include <cfloat>
-#include <map>
-#include <utility>
-#include <set>
+#include <vector>
 #include <iostream>
-#include <iostream>
-#include <memory>
 #include <string>
-#include <algorithm>
-#include <functional>
-#include <sstream>
-#include <complex>
-#include <stack>
-#include <queue>
 #include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
-static const double EPS = 1e-5;
-typedef long long ll;
+/*
+Given a string of one or more words (separated by spaces),
+reverse all of the words that are five or more letters long and return the resulting string.
+For example,
 
+input:
+a
+output:
+a
+input:
+this is a test
+output:
+this is a test
+input:
+this is another test
+output:
+this is rehtona test
+input:
+hi
+output:
+hi
+
+This is a test
+sihT is a test
+
+This is another test
+sihT is rehtona test
+
+This is another test
+sihT is rehtona test
+*/
 int main() {
-  int n;
-  cin >> n;
-  int a[n];
-  for (int i = 0; i < n; i++) {
-    cin >> a[i];
-  }
-  int q;
-  cin >> q;
-  for (int i = 0; i < q; i++) {
-    int m;
-    cin >> m;
-    int r = 0;
-    for (int j = 0; j < n; j++) {
-      if (a[j] == m) {
-        r++;
-      }
+    char str[100] = {0};
+    cin.getline(str, 100);
+    int len = strlen(str);
+    char *ptr = str;
+    char *prev = ptr;
+    char *end = ptr;
+    while(ptr < str+len){
+        if(*ptr == ' ' || *ptr == '\0'){
+            end = ptr-1;
+            if(ptr-prev >= 5)
+                while(prev < end){
+                    swap(*prev, *end);
+                    prev++;
+                    end--;
+                }
+            prev = ptr+1;
+        }
+        ptr++;
     }
-    cout << r << endl;
-  }
-
-  return 0;
+    cout << str << endl;
+    return 0;
 }
