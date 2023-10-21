@@ -34,42 +34,42 @@ hi
 output:
 hi
 */
+string reverse(string s) {
+    string res;
+    for (int i = s.size() - 1; i >= 0; i--) {
+        res += s[i];
+    }
+    return res;
+}
 
-string reverseWords(string str) {
-    string res = "";
-    int cur = 0;
-    int len = str.size();
-    for (int i = 0; i < len; i++) {
-        if (str[i] == ' ') {
-            if (i - cur >= 5) {
-                for (int j = i - 1; j >= cur; j--) {
-                    res += str[j];
-                }
+string reverseWords(string s) {
+    string res;
+    int pos = 0;
+    int len = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == ' ') {
+            if (len >= 5) {
+                res += reverse(s.substr(pos, len));
             } else {
-                for (int j = cur; j < i; j++) {
-                    res += str[j];
-                }
+                res += s.substr(pos, len);
             }
             res += ' ';
-            cur = i + 1;
+            len = 0;
+            pos = i + 1;
+        } else {
+            len++;
         }
     }
-    if (len - cur >= 5) {
-        for (int j = len - 1; j >= cur; j--) {
-            res += str[j];
-        }
+    if (len >= 5) {
+        res += reverse(s.substr(pos, len));
     } else {
-        for (int j = cur; j < len; j++) {
-            res += str[j];
-        }
+        res += s.substr(pos, len);
     }
     return res;
 }
 
 int main() {
-    string str;
-    while (cin >> str) {
-        cout << reverseWords(str) << endl;
-    }
-    return 0;
+    cout << reverseWords("this is a test") << endl;
+    cout << reverseWords("this is another test") << endl;
+    cout << reverseWords("hi") << endl;
 }
