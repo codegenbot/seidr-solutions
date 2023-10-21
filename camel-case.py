@@ -2,27 +2,41 @@ import os
 import sys
 import numpy as np
 import math
-import re
 import datetime
-import string
 import collections
 import itertools
 import queue
-import random
+import re
+"""
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
+For example,
+input:
 
+output:
+
+input:
+nospaceordash
+output:
+nospaceordash
+input:
+two-words
+output:
+twoWords
+input:
+two words
+output:
+two words
+input:
+all separate words
+output:
+all separate words
 """
-Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space.
-For example: "camel-case example-test-string"-> "camelCase exampleTestString".
-"""
+def camelCase(s):
+    return re.sub(r'(?<!^)(?=[A-Z])', ' ', s).title().replace(' ', '')
+
+def camelCase(s):
+    return ''.join(x for x in s.title() if not x.isspace())
 
 if __name__ == '__main__':
-    for line in sys.stdin:
-        words = line.strip().split()
-        sentence = ""
-        for word in words:
-            if '-' in word:
-                word = word.split('-')
-                sentence += ''.join(word)
-            else:
-                sentence += word
-        print(sentence)
+    s = input("Enter the string: ")
+    print(camelCase(s))
