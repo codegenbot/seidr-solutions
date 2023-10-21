@@ -50,15 +50,16 @@ output:
 10.0
 */
 int main() {
-    int n;
-    float snow, rate, melt;
-    while (cin >> n >> snow >> rate >> melt) {
-        float res = snow;
-        for (int i = 0; i < n; i++) {
-            res += rate;
-            res -= res * melt;
-        }
-        printf("%.10f\n", res);
-    }
-    return 0;
+	int n;
+	float snow, rate, melt;
+	cin >> n;
+	cin >> snow;
+	cin >> rate;
+	cin >> melt;
+	float amount = snow;
+	for (int i = 0; i < n; i++) {
+		amount += rate - amount * melt;
+	}
+	printf("%.10f", amount);
+	return 0;
 }
