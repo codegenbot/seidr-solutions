@@ -42,7 +42,8 @@ output:
 3.963
 """
 if __name__ == '__main__':
-s = float(input('s:'))
-b = float(input('b:'))
-n = float(input('n:'))
-print '%.3f' % (s*(1-b)/(1-b**(n+1)))
+	n = int(input())
+	while n > 0:
+		a,b,c = map(float,input().split())
+		print(a * (1-b **c)/(1-b))
+		n -= 1
