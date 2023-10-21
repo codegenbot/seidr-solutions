@@ -49,12 +49,12 @@ public:
     double calculate(double b, int n) {
         double res = b;
         while (n--) {
-            res = b * res + 1;
+            res = b * res;
         }
         return res;
     }
     double calculateDistance(double s, double b, int n) {
-        return s + calculate(b, n) - 1;
+        return s * (1 - calculate(b, n)) / (1 - b);
     }
 };
 
