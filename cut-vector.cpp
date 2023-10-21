@@ -55,47 +55,5 @@ output:
 
 */
 int main() {
-    vector<int> input;
-    int n;
-    while (cin >> n) {
-        input.push_back(n);
-    }
-    if (input.size() == 1) {
-        cout << input[0] << endl;
-        cout << 0 << endl;
-        cout << 0 << endl;
-        return 0;
-    }
-    int sum = 0;
-    for (int i = 0; i < input.size(); i++) {
-        sum += input[i];
-    }
-    int left = 0;
-    int right = sum;
-    int mid = left + (right - left) / 2;
-    while (left < right) {
-        mid = left + (right - left) / 2;
-        int temp = 0;
-        int i = 0;
-        while (temp < mid && i < input.size()) {
-            temp += input[i];
-            i++;
-        }
-        if (temp == mid) {
-            break;
-        } else if (temp > mid) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    for (int i = 0; i < input.size(); i++) {
-        if (mid >= input[i]) {
-            mid -= input[i];
-            cout << input[i] << endl;
-        } else {
-            cout << 0 << endl;
-        }
-    }
-    cout << 0 << endl;
+
 }
