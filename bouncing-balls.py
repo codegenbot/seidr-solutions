@@ -42,9 +42,8 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    a=input()
-    b=input()
-    c=input()
-    bounciness_index=(float(b)/float(a))
-    print(bounciness_index)
-    print(float(b)*bounciness_index**(int(c)))
+    n=raw_input().split()
+    b=0
+    for i in n:
+        b=b+float(i)
+    print('%.3f'%b)
