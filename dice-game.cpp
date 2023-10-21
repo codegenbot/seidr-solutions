@@ -41,11 +41,14 @@ output:
 */
 int main() {
     int n, m;
-    cin >> n >> m;
-    double p = 0;
-    for (int i = 1; i < n; i++) {
-        p += (double)i / n;
+    while (cin >> n >> m) {
+        if (n > m) {
+            cout << 1.0 << endl;
+        } else if (n < m) {
+            cout << 0.0 << endl;
+        } else {
+            cout << 0.5 << endl;
+        }
     }
-    printf("%.2f\n", p);
     return 0;
 }
