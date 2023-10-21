@@ -42,15 +42,4 @@ output:
 1000
 """
 if __name__ == '__main__':
-    input = sys.stdin.read()
-    data = list(map(int, input.split()))
-    n = data[0]
-    result = []
-    for i in range(n):
-        if i == n-1:
-            result.append(data[i])
-        else:
-            temp = data[i+1:]
-            if data[i] >= max(temp):
-                result.append(data[i])
-    print(result)
+    pass
