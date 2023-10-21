@@ -11,10 +11,8 @@ import re
 Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
 For example,
 input:
-camel-case example-test-string
 
 output:
-camelCase exampleTestString
 
 input:
 nospaceordash
@@ -33,18 +31,13 @@ all separate words
 output:
 all separate words
 """
+def camelCase(s):
+    tokens = s.split()
+    res = []
+    for token in tokens:
+        res.append(token.title())
+    return ' '.join(res)
+
 if __name__ == '__main__':
-	while True:
-		try:
-			s = raw_input()
-			words = s.split(" ")
-			for word in words:
-				item = word.split("-")
-				result = []
-				result.append(item[0])
-				for sub_item in item[1:]:
-					result.append(sub_item.capitalize())
-				print "".join(result),
-			print ""
-		except:
-			break
+    s = "camel-case example-test-string"
+    print(camelCase(s))
