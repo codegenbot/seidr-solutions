@@ -16,7 +16,7 @@ For example,
 input:
 --------------------
 output:
--1
+0
 input:
 XXXXXXXXXXXX
 output:
@@ -37,8 +37,7 @@ output:
 int score(string s) {
     int res=0;
     int i=0;
-    if(s.size()==20&&s[0]=='-') return -1;
-    for(;i<s.size()&&s[i]!='-';i++) {
+    for(;i<s.size();i++) {
         if(s[i]=='X') {
             res+=10;
             if(s[i+1]=='X') {
@@ -73,4 +72,5 @@ int main() {
     cout<<score("5/5/5/5/5/5/5/5/5/5/5")<<endl;
     cout<<score("7115XXX548/279-X53")<<endl;
     cout<<score("532/4362X179-41447/5")<<endl;
+    cout<<score("--------------------")<<endl;
 }
