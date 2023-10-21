@@ -41,11 +41,8 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
+
+def find(text, target):
+    return [m.start() for m in re.finditer('(?='+target+')', text)]
+
 if __name__ == '__main__':
-    text = input()
-    target = input()
-    output_list = []
-    for i in range(len(text)):
-        if text[i:len(target)+i] == target:
-            output_list.append(i)
-    print(' '.join([str(i) for i in output_list]))
