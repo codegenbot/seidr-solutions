@@ -45,29 +45,17 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text, target;
-    getline(cin, text);
-    getline(cin, target);
-    if (text.empty() || target.empty()) {
-        cout << "0" << endl;
-        return 0;
+    string s;
+    getline(cin, s);
+    string t;
+    getline(cin, t);
+    int len = t.length();
+    int index = 0;
+    while(true) {
+        index = s.find(t, index);
+        if(index == string::npos) break;
+        cout << index << " ";
+        index += len;
     }
-    vector<int> res;
-    int len = target.length();
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == target[0]) {
-            int j = 0;
-            while (j < len && text[i + j] == target[j]) {
-                j++;
-            }
-            if (j == len) {
-                res.push_back(i);
-            }
-        }
-    }
-    for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
-    }
-    cout << endl;
     return 0;
 }
