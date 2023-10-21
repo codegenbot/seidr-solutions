@@ -45,14 +45,18 @@ output:
 llllllllll
 */
 int main() {
-    string s1, s2, s3;
-    cin >> s1 >> s2 >> s3;
-    map <char, char> m;
-    for (int i = 0; i < s1.size(); i++) {
-        m[s1[i]] = s2[i];
+    string str1, str2, str3;
+    cin >> str1 >> str2 >> str3;
+    map<char, char> mp;
+    for (int i = 0; i < str1.size(); i++) {
+        mp[str1[i]] = str2[i];
     }
-    for (int i = 0; i < s3.size(); i++) {
-        cout << m[s3[i]];
+    
+    for (int i = 0; i < str3.size(); i++) {
+        if (mp.count(str3[i])) {
+            str3[i] = mp[str3[i]];
+        }
     }
+    cout << str3 << endl;
     return 0;
 }
