@@ -34,58 +34,49 @@ input:
 output:
 100
 */
-int getScore(string s) {
-    int score = 0;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'X') {
-            score += 10;
-            if (i + 1 < s.length()) {
-                if (s[i + 1] == 'X') {
-                    score += 10;
-                    if (i + 2 < s.length()) {
-                        if (s[i + 2] == 'X') {
-                            score += 10;
+int score(string &s) {
+    int sum = 0;
+    for(int i = 0; i < s.size(); i++) {
+        if(s[i] == 'X') {
+            sum += 10;
+            if(i+1 < s.size()) {
+                if(s[i+1] == 'X') {
+                    sum += 10;
+                    if(i+2 < s.size()) {
+                        if(s[i+2] == 'X') {
+                            sum += 10;
                         } else {
-                            score += s[i + 2] - '0';
+                            sum += s[i+2] - '0';
                         }
                     }
-                } else if (s[i + 1] == '/') {
-                    score += 10;
+                } else if(s[i+1] == '/') {
+                    sum += 10;
                 } else {
-                    score += s[i + 1] - '0';
+                    sum += s[i+1] - '0';
                 }
             }
-            if (i + 2 < s.length()) {
-                if (s[i + 2] == '/') {
-                    score += 10;
+        } else if(s[i] == '/') {
+            sum += 10;
+            if(i > 0) {
+                sum -= s[i-1] - '0';
+            }
+            if(i+1 < s.size()) {
+                if(s[i+1] == 'X') {
+                    sum += 10;
                 } else {
-                    score += s[i + 2] - '0';
+                    sum += s[i+1] - '0';
                 }
             }
-            i++;
-        } else if (s[i] == '/') {
-            score += 10;
-            if (i + 1 < s.length()) {
-                if (s[i + 1] == 'X') {
-                    score += 10;
-                } else {
-                    score += s[i + 1] - '0';
-                }
-            }
-            i++;
-        } else if (s[i] == '-') {
-            i++;
+        } else if(s[i] == '-') {
+            sum += 0;
         } else {
-            score += s[i] - '0';
-            i++;
+            sum += s[i] - '0';
         }
     }
-    return score;
+    return sum;
 }
 int main() {
     string s;
     cin >> s;
-    cout << getScore(s) << endl;
-    return 0;
+    cout << score(s) << endl;
 }
