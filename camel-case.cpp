@@ -41,8 +41,8 @@ int main() {
         bool flag = false;
         for(int i = 0; i < s.size(); i++) {
             if(s[i] == ' ') {
-                flag = false;
                 res += s[i];
+                flag = false;
             } else if(s[i] == '-') {
                 flag = true;
             } else {
