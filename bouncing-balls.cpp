@@ -50,11 +50,12 @@ public:
         double res = b;
         while (n--) {
             res = b * res;
+            cout << res << endl;
         }
         return res;
     }
     double calculateDistance(double s, double b, int n) {
-        return s * (1 - calculate(b, n)) / (1 - b) + s;
+        return s + s * (1 - calculate(b, n)) / (1 - b);
     }
 };
 
