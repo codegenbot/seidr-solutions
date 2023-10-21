@@ -42,7 +42,13 @@ output:
 int main() {
     int a, b;
     cin >> a >> b;
-    int gcd = __gcd(a, b);
-    cout << gcd << endl;
+    int c = a;
+    while (c > 0) {
+        if (a % c == 0 && b % c == 0) {
+            cout << c << endl;
+            break;
+        }
+        c--;
+    }
     return 0;
 }
