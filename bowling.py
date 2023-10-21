@@ -31,41 +31,5 @@ input:
 output:
 100
 """
-
-
-def get_score(bowls):
-    res = 0
-    frame = 1
-    i = 0
-    while frame <= 10 and i < len(bowls):
-        if bowls[i] == 'X':
-            res += 10
-            if bowls[i + 1] == 'X':
-                res += 10
-                if bowls[i + 2] == 'X':
-                    res += 10
-                else:
-                    res += int(bowls[i + 2])
-            else:
-                if bowls[i + 2] == '/':
-                    res += 10
-                else:
-                    res += int(bowls[i + 1]) + int(bowls[i + 2])
-            i += 1
-        elif bowls[i] == '-':
-            res += 0
-        else:
-            if bowls[i + 1] == '/':
-                res += 10
-                if bowls[i + 2] == 'X':
-                    res += 10
-                else:
-                    res += int(bowls[i + 2])
-            else:
-                res += int(bowls[i]) + int(bowls[i + 1])
-            i += 2
-        frame += 1
-    return res
-
-
 if __name__ == '__main__':
+    print("hello")
