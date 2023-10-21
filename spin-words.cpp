@@ -2,8 +2,7 @@
 using namespace std;
 #define MAXN 100
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
-For example, input: a output: a input: this is a test output: this is a test input: this is another test output: this is rehtona test input: hi output: hi
+Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string For example, input: a output: a input: this is a test output: this is a test input: this is another test output: this is rehtona test input: hi output: hi This is a test sihT is a test This is another test sihT is rehtona test This is another test sihT is rehtona test 
 */
 int main()
 {
@@ -24,5 +23,4 @@ int main()
         i = j + 1;
     }
     cout << str << endl;
-    return 0;
 }
