@@ -31,7 +31,9 @@ all separate words
 output:
 all separate words
 """
+def kebab2Camel(s):
+    if s.find("-") == -1:  # if s.find("-") == None:
+        return s
+    return " ".join(map(lambda s: s[0].upper() + s[1:], s.split("-")[1:]))
+
 if __name__ == '__main__':
-    text = 'camel-case example-test-string'
-    text = text.split(' ')
-    print(text)
