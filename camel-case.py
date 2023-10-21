@@ -33,17 +33,4 @@ all separate words
 """
 if __name__ == '__main__':
     s = input()
-    ss = s.split(" ")
-    for i in range(len(ss)):
-        if "-" in ss[i]:
-            sss = ss[i].split("-")
-            for j in range(len(sss)):
-                if j == 0:
-                    sss[j] = sss[j].title()
-                else:
-                    sss[j] = sss[j].capitalize()
-            ss[i] = "".join(sss)
-        else:
-            ss[i] = ss[i].title()
-    ans = " ".join(ss)
-    print(ans)
+    print(s)
