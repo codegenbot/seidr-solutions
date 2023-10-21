@@ -31,13 +31,9 @@ all separate words
 output:
 all separate words
 """
-def camelCase(string):
-    string = string.split(" ")
-    for i in range(len(string)):
-        string[i] = string[i].split("-")
-        for j in range(len(string[i])):
-            string[i][j] = string[i][j].capitalize()
-        string[i] = "".join(string[i])
-    return " ".join(string)
-
 if __name__ == '__main__':
+    s = input()
+    s = s.split('-')
+    for i in range(len(s)):
+        s[i] = s[i].capitalize()
+    print(''.join(s))
