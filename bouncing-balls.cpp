@@ -49,17 +49,17 @@ public:
     double calculate(double b, int n) {
         double res = b;
         while (n--) {
-            res = b * res;
+            res = b * res + 1;
         }
         return res;
     }
     double calculateDistance(double s, double b, int n) {
-        return s * (1 - calculate(b, n)) / (1 - b);
+        return calculate(b, n);
     }
 };
 
 int main() {
     Solution s;
-    cout << s.calculateDistance(1.001, 1.0, 1) << endl;
+    cout << s.calculateDistance(15.319, 0.365, 1) << endl;
     return 0;
 }
