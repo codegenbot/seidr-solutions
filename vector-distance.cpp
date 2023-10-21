@@ -49,22 +49,45 @@ input:
 output:
 2.2715833329200144
 */
+
+string getline(FILE *in) {
+    string s;
+    char c;
+    while(fscanf(in, "%c", &c) == 1) {
+        if(c == '\n') break;
+        s.push_back(c);
+    }
+    return s;
+}
+
 int main() {
-    int n;
-    cin >> n;
-    vector<float> v1(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v1[i];
+    FILE *in = fopen("input.txt", "r");
+    FILE *out = fopen("output.txt", "w");
+    while(true) {
+        string s = getline(in);
+        if(s.length() == 0) break;
+        int dim = atoi(s.c_str());
+        vector<float> v1, v2;
+        s = getline(in);
+        char *pch = strtok((char*)s.c_str(), " ");
+        while(pch != NULL) {
+            float f = atof(pch);
+            v1.push_back(f);
+            pch = strtok(NULL, " ");
+        }
+        s = getline(in);
+        pch = strtok((char*)s.c_str(), " ");
+        while(pch != NULL) {
+            float f = atof(pch);
+            v2.push_back(f);
+            pch = strtok(NULL, " ");
+        }
+        float sum = 0;
+        for(int i = 0; i < dim; i++) {
+            sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        }
+        fprintf(out, "%f\n", sqrt(sum));
     }
-    cin >> n;
-    vector<float> v2(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v2[i];
-    }
-    double ans = 0;
-    for (int i = 0; i < n; i++) {
-        ans += pow(v1[i] - v2[i], 2);
-    }
-    printf("%.16f\n", sqrt(ans));
-    return 0;
+    fclose(in);
+    fclose(out);
 }
