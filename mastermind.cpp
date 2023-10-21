@@ -44,70 +44,31 @@ output:
 0
 0
 */
-
-int blackPeg(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < code.size(); i++) {
-        if (code[i] == guess[i]) {
-            count++;
-        }
+int black(string code, string guess) {
+    int res = 0;
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) res++;
     }
-    return count;
+    return res;
 }
-
-int whitePeg(string code, string guess) {
-    int count = 0;
-    int codeMap[6] = {0};
-    int guessMap[6] = {0};
-    for (int i = 0; i < code.size(); i++) {
-        if (code[i] == guess[i]) {
-            continue;
-        }
-        if (code[i] == 'B') {
-            codeMap[0]++;
-        }
-        if (code[i] == 'G') {
-            codeMap[1]++;
-        }
-        if (code[i] == 'O') {
-            codeMap[2]++;
-        }
-        if (code[i] == 'R') {
-            codeMap[3]++;
-        }
-        if (code[i] == 'W') {
-            codeMap[4]++;
-        }
-        if (code[i] == 'Y') {
-            codeMap[5]++;
-        }
-        if (guess[i] == 'B') {
-            guessMap[0]++;
-        }
-        if (guess[i] == 'G') {
-            guessMap[1]++;
-        }
-        if (guess[i] == 'O') {
-            guessMap[2]++;
-        }
-        if (guess[i] == 'R') {
-            guessMap[3]++;
-        }
-        if (guess[i] == 'W') {
-            guessMap[4]++;
-        }
-        if (guess[i] == 'Y') {
-            guessMap[5]++;
+int white(string code, string guess) {
+    int res = 0;
+    map<char, int> m;
+    for(int i = 0; i < 4; i++) {
+        m[code[i]]++;
+    }
+    for(int i = 0; i < 4; i++) {
+        if(m[guess[i]] > 0) {
+            res++;
+            m[guess[i]]--;
         }
     }
-    for (int i = 0; i < 6; i++) {
-        count += min(codeMap[i], guessMap[i]);
-    }
-    return count;
+    return res - black(code, guess);
 }
-
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << blackPeg(code, guess) << " " << whitePeg(code, guess) << endl;
+    cout << black(code, guess) << endl;
+    cout << white(code, guess) << endl;
+    return 0;
 }
