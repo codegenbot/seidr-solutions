@@ -1,23 +1,16 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
+import os, sys, numpy as np, math, datetime, collections, itertools, queue, re
 """
-Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
+Given a string, return the middle character as a string if it is odd length;
+return the two middle characters as a string if it is even length.
 For example,
 input:
 Q
 output:
 Q
 input:
-QQ
+ 
 output:
-QQ
+ 
 input:
 $
 output:
@@ -35,6 +28,6 @@ if __name__ == '__main__':
     print("Enter a string:")
     s = input()
     if len(s) % 2 == 0:
-        print(s[len(s) // 2 - 1:len(s) // 2 + 1]) #QQ
+        print(s[len(s) // 2 - 1:len(s) // 2 + 1])
     else:
         print(s[len(s) // 2])
