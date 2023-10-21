@@ -34,67 +34,44 @@ input:
 output:
 100
 */
-
-int score(string str) {
-    int sum = 0;
+int score(string s) {
+    int score = 0;
+    int frame = 0;
     int i = 0;
-    for (; i < str.size(); i++) {
-        if (str[i] == 'X') {
-            sum += 10;
-            if (str[i + 1] == 'X') {
-                sum += 10;
-                if (str[i + 2] == 'X') {
-                    sum += 10;
-                } else if (str[i + 2] == '/') {
-                    sum += 10;
-                } else {
-                    sum += str[i + 2] - '0';
-                }
-            } else if (str[i + 1] == '/') {
-                sum += 10;
-                if (str[i + 2] == 'X') {
-                    sum += 10;
-                } else if (str[i + 2] == '/') {
-                    sum += 10;
-                } else {
-                    sum += str[i + 2] - '0';
-                }
+    while (frame < 10) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
             } else {
-                sum += str[i + 1] - '0';
-                if (str[i + 2] == 'X') {
-                    sum += 10;
-                } else if (str[i + 2] == '/') {
-                    sum += 10 - (str[i + 1] - '0');
-                } else {
-                    sum += str[i + 2] - '0';
-                }
+                score += s[i+2] - '0';
             }
-        } else if (str[i] == '/') {
-            sum += 10;
-            if (str[i + 1] == 'X') {
-                sum += 10;
-            } else if (str[i + 1] == '/') {
-                sum += 10;
+            if (s[i+3] == '/') {
+                score += 10;
             } else {
-                sum += str[i + 1] - '0';
+                score += s[i+3] - '0';
             }
-        } else if (str[i] == '-') {
-            sum += 0;
+            i++;
+        } else if (s[i+1] == '/') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
+            } else {
+                score += s[i+2] - '0';
+            }
+            i += 2;
         } else {
-            sum += str[i] - '0';
+            score += s[i] - '0';
+            score += s[i+1] - '0';
+            i += 2;
         }
+        frame++;
     }
-    return sum;
+    return score;
 }
-
 int main() {
-    string str = "XXXXXXXXXXXX";
-    cout << score(str) << endl;
-    str = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << score(str) << endl;
-    str = "7115XXX548/279-X53";
-    cout << score(str) << endl;
-    str = "532/4362X179-41447/5";
-    cout << score(str) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
