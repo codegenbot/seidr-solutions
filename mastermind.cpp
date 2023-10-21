@@ -48,7 +48,9 @@ output:
 int blackPeg(string code, string guess) {
     int res = 0;
     for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) res++;
+        if(code[i] == guess[i]) {
+            res++;
+        }
     }
     return res;
 }
