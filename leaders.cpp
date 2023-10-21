@@ -52,7 +52,7 @@ int main() {
         cin >> v[i];
     }
     int max = v[n-1];
-    vector<int> res;
+    vector<int> res(1, max);
     res.push_back(max);
     for (int i = n-2; i >= 0; i--) {
         if (v[i] >= max) {
@@ -60,7 +60,7 @@ int main() {
             res.push_back(max);
         }
     }
-    for (int i = (int)res.size()-1; i >= 0; i--) {
+    for (int i = res.size()-1; i >= 0; i--) { // if (res.size() == 0) then print 0
         cout << res[i] << " ";
     }
     return 0;
