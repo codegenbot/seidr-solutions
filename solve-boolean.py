@@ -31,19 +31,18 @@ t&f
 output:
 False
 """
+
+def eval_bool(expression):
+    exp = expression.split('|')
+    for i in range(len(exp)):
+        exp[i] = exp[i].split('&')
+    for i in range(len(exp)):
+        for j in range(len(exp[i])):
+            exp[i][j] = exp[i][j] == 't'
+    for i in range(len(exp)):
+        exp[i] = any(exp[i])
+    return any(exp)
+
 if __name__ == '__main__':
-    s = input()
-    if s == 't':
-        print(True)
-    elif s == 'f':
-        print(False)
-    else:
-        s_list = s.split('&')
-        for i in s_list:
-            if i == 't':
-                continue
-            else:
-                print(False)
-                break
-        else:
-            print(True)
+    expression = input()
+    print(eval_bool(expression))
