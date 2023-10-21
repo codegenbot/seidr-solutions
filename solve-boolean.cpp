@@ -57,6 +57,6 @@ int main() {
       b.push(a1 | a);
     }
   }
-  cout << (b.top() ? "true" : "false") << endl;
+  cout << (b.top() ? "True" : "False") << endl;  // make sure that t -> True
   return 0;
 }
