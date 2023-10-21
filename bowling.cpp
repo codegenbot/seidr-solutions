@@ -35,34 +35,31 @@ output:
 100
 */
 int main() {
-    string str;
-    cin >> str;
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    string buff;
     int sum = 0;
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == 'X') {
-            sum += 10;
-            if (str[i + 2] == 'X') {
+    while (cin >> buff) {
+        sum = 0;
+        bool x = false;
+        for (int i = 0; i < buff.length(); ) {
+            if (buff[i] == 'X') {
                 sum += 10;
-            } else if (str[i + 2] == '/') {
-                sum += 10;
+                sum += ((buff[i + 1] == 'X') ? 10 : (buff[i + 1] - '0'));
+                sum += ((buff[i + 2] == 'X') ? 10 : (buff[i + 2] - '0'));
+                i++;
+            } else if (buff[i] == '/') {
+                int pre = buff[i - 1] - '0';
+                sum += (10 - pre);
+                sum += ((buff[i + 1] == 'X') ? 10 : (buff[i + 1] - '0'));
+                i += 2;
+            } else if (buff[i] == '-') {
+                i++;
             } else {
-                sum += (str[i + 2] - '0');
+                sum += (buff[i] - '0');
+                i++;
             }
-            if (str[i + 4] == 'X') {
-                sum += 10;
-            } else if (str[i + 4] == '/') {
-                sum += 10;
-            } else {
-                sum += (str[i + 4] - '0');
-            }
-        } else if (str[i] == '-') {
-            sum += 0;
-        } else if (str[i] == '/') {
-            sum += (10 - (str[i - 1] - '0'));
-        } else {
-            sum += (str[i] - '0');
         }
+        cout << sum << endl;
     }
-    cout << sum << endl;
-    return 0;
 }
