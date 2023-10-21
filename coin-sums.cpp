@@ -16,7 +16,7 @@ For example,
 input:
 1
 output:
-1
+1\n0\n0\n0
 0
 0
 0
@@ -52,10 +52,21 @@ output:
 int main() {
     int n;
     while(cin>>n){
-        cout<<n<<endl;
-        cout<<0<<endl;
-        cout<<0<<endl;
-        cout<<0<<endl;
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        int d = 0;
+        d = n/25;
+        n = n%25;
+        c = n/10;
+        n = n%10;
+        b = n/5;
+        n = n%5;
+        a = n;
+        cout<<a<<endl;
+        cout<<b<<endl;
+        cout<<c<<endl;
+        cout<<d<<endl;
     }
     return 0;
 }
