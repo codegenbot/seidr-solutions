@@ -50,21 +50,56 @@ output:
 10000
 0
 
+input:
+2
+10
+1
+output:
+1
+0
+10
+
+input:
+2
+10
+100
+output:
+1
+0
+100
+
+input:
+5
+10
+1
+2
+3
+4
+output:
+1
+0
+2
+3
+4
+
+input:
+9
+1
+9
+7
+8
+5
+2
+3
+4
+5
+output:
+1
+0
+2
+3
+4
+5
+
 """
 if __name__ == '__main__':
-    x = [1,10,100,1000,10000]
-    res = []
-    for i in range(len(x)):
-        if i == 0:
-            res.append(x[i])
-            continue
-        if i == len(x)-1:
-            res.append(x[i])
-            continue
-        if x[i] - x[i-1] > x[i+1] - x[i]:
-            res.append(x[i])
-            res.append(x[i+1])
-        else:
-            res.append(x[i])
-            res.append(x[i])
-    print(res)
