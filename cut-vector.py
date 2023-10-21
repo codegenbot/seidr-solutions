@@ -7,6 +7,19 @@ import collections
 import itertools
 import queue
 import re
+
+
+def find_cut(v):
+    min_diff = sys.maxsize
+    min_i = -1
+    for i, v in enumerate(v):
+        abs_diff = abs(v - v[i + 1])
+        if abs_diff < min_diff:
+            min_diff = abs_diff
+            min_i = i
+    return v[:min_i], v[min_i + 1:]
+
+
 """
 Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
 For example,
@@ -50,121 +63,5 @@ output:
 10000
 0
 
-input:
-1
-100000
-output:
-1
-100000
-0
-
-input:
-1
-1000000
-output:
-1
-1000000
-0
-
-input:
-1
-10000000
-output:
-1
-10000000
-0
-
-input:
-1
-100000000
-output:
-1
-100000000
-0
-
-input:
-1
-1000000000
-output:
-1
-1000000000
-0
-
-input:
-1
-10000000000
-output:
-1
-10000000000
-0
-
-input:
-1
-100000000000
-output:
-1
-100000000000
-0
-
-input:
-1
-1000000000000
-output:
-1
-1000000000000
-0
-
-input:
-1
-10000000000000
-output:
-1
-10000000000000
-0
-
-input:
-1
-100000000000000
-output:
-1
-100000000000000
-0
-
-input:
-1
-1000000000000000
-output:
-1
-1000000000000000
-0
-
-input:
-1
-10000000000000000
-output:
-1
-10000000000000000
-0
-
-input:
-1
-100000000000000000
-output:
-1
-100000000000000000
-0
-
-input:
-1
-1000000000000000000
-output:
-1
-1000000000000000000
-0
-
 """
 if __name__ == '__main__':
-    print(1)
-    size = int(input())
-    for i in range(size):
-        print(int(10**(i + 1)))
