@@ -34,44 +34,51 @@ input:
 output:
 100
 */
-int main() {
-    string input;
-    cin >> input;
+int bowlingScore(string s) {
     int score = 0;
     int frame = 0;
     int i = 0;
-    while (frame < 10) {
-        if (input[i] == 'X') {
+    while(frame < 10) {
+        if(s[i] == 'X') {
             score += 10;
-            if (input[i + 2] == 'X') {
-                score += 10;
-                if (input[i + 4] == 'X') {
-                    score += 10;
-                } else {
-                    score += input[i + 4] - '0';
-                }
-            } else if (input[i + 3] == '/') {
-                score += 10;
+            if(s[i+2] == 'X') {
+                score += 20;
             } else {
-                score += input[i + 2] - '0';
-                score += input[i + 3] - '0';
+                score += (s[i+2] - '0');
+            }
+            if(s[i+4] == 'X') {
+                score += 10;
+            } else if(s[i+4] == '/') {
+                score += 10 - (s[i+2] - '0');
+            } else {
+                score += (s[i+4] - '0');
             }
             i++;
-        } else if (input[i + 1] == '/') {
+        } else if(s[i+1] == '/') {
             score += 10;
-            if (input[i + 2] == 'X') {
+            if(s[i+2] == 'X') {
                 score += 10;
             } else {
-                score += input[i + 2] - '0';
+                score += (s[i+2] - '0');
             }
             i += 2;
         } else {
-            score += input[i] - '0';
-            score += input[i + 1] - '0';
+            score += (s[i] - '0');
+            score += (s[i+1] - '0');
             i += 2;
         }
         frame++;
     }
-    cout << score << endl;
+    return score;
+}
+int main() {
+    string s = "XXXXXXXXXXXX";
+    cout << bowlingScore(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << bowlingScore(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << bowlingScore(s) << endl;
+    s = "532/4362X179-41447/5";
+    cout << bowlingScore(s) << endl;
     return 0;
 }
