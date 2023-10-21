@@ -53,6 +53,10 @@ int main() {
         cin >> temp;
         A.push_back(temp);
     }
+    if (n == 1) {
+        cout << A[0] << endl;
+        return 0;
+    }
     int curr = INT_MIN;
     for (int i = 0; i < n; i++) {
         if (A[i] >= curr) {
@@ -60,6 +64,6 @@ int main() {
             cout << curr << " ";
         }
     }
-    if (n != 0) cout << endl;
+    cout << endl;
     return 0;
 }
