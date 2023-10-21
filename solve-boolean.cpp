@@ -35,43 +35,37 @@ output:
 False
 */
 int main() {
-    string s;
-    getline(cin, s);
-    stack<char> stk;
-    for (char c : s) {
-        if (c == ' ') continue;
-        if (c == '&' || c == '|') {
-            stk.push(c);
-        } else if (c == 't') {
-            if (stk.empty()) {
-                stk.push('t');
-            } else {
-                char op = stk.top();
-                stk.pop();
-                if (op == '&') {
-                    stk.push(c);
+    string str;
+    while (cin >> str) {
+        stack<char> s;
+        for (int i = 0; i < str.size(); i++) {
+            if (str[i] == '&' || str[i] == '|') {
+                char a = s.top();
+                s.pop();
+                char b = s.top();
+                s.pop();
+                if (str[i] == '&') {
+                    if (a == 'T' && b == 'T') {
+                        s.push('T');
+                    } else {
+                        s.push('F');
+                    }
                 } else {
-                    stk.push(stk.top() == 't' ? 't' : 'f');
-                    stk.pop();
-                    stk.push(c);
+                    if (a == 'T' || b == 'T') {
+                        s.push('T');
+                    } else {
+                        s.push('F');
+                    }
                 }
-            }
-        } else {
-            if (stk.empty()) {
-                stk.push('f');
             } else {
-                char op = stk.top();
-                stk.pop();
-                if (op == '&') {
-                    stk.push(stk.top() == 'f' ? 'f' : 't');
-                    stk.pop();
-                    stk.push('f');
-                } else {
-                    stk.push('f');
-                }
+                s.push(str[i]);
             }
         }
+        if (s.top() == 'T') {
+            cout << "True" << endl;
+        } else {
+            cout << "False" << endl;
+        }
     }
-    cout << (stk.top() == 't' ? "True" : "False") << endl;
     return 0;
 }
