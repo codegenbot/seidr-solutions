@@ -42,7 +42,4 @@ output:
 3.963
 """
 if __name__ == '__main__':
-	n = input()
-	m = input()
-	k = input()
-	print(n + (n-m)*k)
+    print("Hello World")
