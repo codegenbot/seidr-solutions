@@ -42,32 +42,18 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    for i in range(5):
-      
-        print "Test %d" % (i + 1)
-  
-        ht = int(input())
-        bh = int(input())
-        b = int(input())
-  
-        bouncinessIndex = ht / bh
-  
-        if i == 0:
-            td = 2.001
-        elif i == 1:
-            td = 3999.599534511501
-        elif i == 2:
-            td = 102.02020201974588
-        elif i == 3:
-            td = 20.954
-        elif i == 4:
-            td = 3.963
-  
-        q = bouncinessIndex
-        for j in range(b - 1):
-            q = q * bouncinessIndex  
-          
-        ans = ht + (ht * (q - 1))
-        print("%.5f" % ans)
-        
- 
+    bounciness_height = 0
+    total_height = 0
+    sum = 0
+    firstline = input().strip().split()
+    height = float(firstline[0])
+    firstbounce = float(firstline[1])
+    bounciness_height = (firstbounce/height)
+    bounce_time = int(firstline[2])
+    while bounce_time>0:
+        total_height = total_height + math.pow(bounciness_height,bounce_time)
+        bounce_time = bounce_time-1
+    total_height=total_height*2*height
+    print(total_height)
+
+    
