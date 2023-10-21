@@ -61,7 +61,6 @@ output:
 6633 8438
 
 """
-
 def get_input():
     line = input()
     n = int(line)
@@ -81,7 +80,6 @@ def solve(n, a):
             print(n - n//2)
             print(" ".join([str(x) for x in a[n//2:]]))
         else:
-            # make sure that 9\n9647 2735 9040 5490 2626 8001 1891 4565 3280 -> 3\n9647 2735 9040\n6\n5490 2626 8001 1891 4565 3280
             half = n//2
             if abs(a[half] - a[half + 1]) <= abs(a[half - 1] - a[half]): # make sure that 9\n9647 2735 9040 5490 2626 8001 1891 4565 3280 -> 3\n9647 2735 9040\n6\n5490 2626 8001 1891 4565 3280
                 print(half + 1)
