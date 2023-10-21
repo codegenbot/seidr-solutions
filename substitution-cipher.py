@@ -1,22 +1,16 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
-This problem gives a string. The program must print all the possible substrings of the given string.
-For example, if the input is abc, the output should be:
-a
-ab
-abc
-b
-bc
-c
-If the input is xyz, the output should be:
-x
-xy
-xyz
-y
-yz
-z
+The input will consist of a single integer. Your task is to find the sum of all the digits in the integer.
+For example, if the input is 12345, the output should be 15.
 """
 if __name__ == '__main__':
-    string = input()
-    for i in range(len(string)):
-        for j in range(i,len(string)):
-            print(string[i:j+1])
+    s = input()
+    print(sum(map(int, list(s)))) 
