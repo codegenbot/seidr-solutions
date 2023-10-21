@@ -31,57 +31,45 @@ input:
 output:
 100
 """
+
 def bowling_score(input):
     score = 0
-    frame_score = 0
-    frame_count = 0
-    strike = False
-    spare = False
-    for i in range(len(input)):
-        if input[i] == 'X':
-            score += 10
-            if strike:
-                score += 10
-            if spare:
-                score += 10
-            strike = True
-            spare = False
-            frame_count += 1
-        elif input[i] == '/':
-            score += 10
-            if strike:
-                score += 10
-            if spare:
-                score += 10
-            strike = False
-            spare = True
-            frame_count += 1
-        elif input[i] == '-':
-            score += 0
-            strike = False
-            spare = False
-            frame_count += 1
+    frames = []
+    frame = []
+    for i in input:
+        if i == 'X':
+            frame.append(10)
+            frames.append(frame)
+            frame = []
+        elif i == '/':
+            frame.append(10 - frame[0])
+            frames.append(frame)
+            frame = []
+        elif i == '-':
+            frame.append(0)
         else:
-            score += int(input[i])
-            if strike:
-                score += int(input[i])
-            if spare:
-                score += int(input[i])
-            strike = False
-            spare = False
-            frame_count += 1
-        if frame_count == 2:
-            frame_count = 0
-            strike = False
-            spare = False
+            frame.append(int(i))
+    if len(frame) > 0:
+        frames.append(frame)
+    for i in range(0, len(frames)):
+        if len(frames[i]) == 2:
+            score += sum(frames[i])
+        elif len(frames[i]) == 1:
+            if i < len(frames) - 1:
+                if len(frames[i + 1]) == 2:
+                    score += frames[i][0] + sum(frames[i + 1])
+                elif len(frames[i + 1]) == 1:
+                    if i < len(frames) - 2:
+                        if len(frames[i + 2]) == 2:
+                            score += frames[i][0] + frames[i + 1][0] + sum(frames[i + 2])
+                        elif len(frames[i + 2]) == 1:
+                            score += frames[i][0] + frames[i + 1][0] + frames[i + 2][0]
+                    else:
+                        score += frames[i][0] + frames[i + 1][0]
+            else:
+                score += frames[i][0]
     return score
 
 if __name__ == '__main__':
-    input = 'XXXXXXXXXXXX'
-    print(bowling_score(input))
-    input = '5/5/5/5/5/5/5/5/5/5/5'
-    print(bowling_score(input))
-    input = '7115XXX548/279-X53'
-    print(bowling_score(input))
-    input = '532/4362X179-41447/5'
+    input = sys.stdin.readline().strip()
     print(bowling_score(input))
