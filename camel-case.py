@@ -32,8 +32,8 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    print("camel-case example-test-string --> camelCase exampleTestString")
-    print("nospaceordash --> nospaceordash")
-    print("two-words --> twoWords")
-    print("two words --> two words")
-    print("all separate words --> all separate words")
+    s = input()
+    s = s.split('-')
+    s = [i.capitalize() for i in s]
+    s = ''.join(s)
+    print(s)
