@@ -51,26 +51,15 @@ output:
 */
 int main() {
     int n;
-    cin>>n;
-    vector<float> vec1;
-    vector<float> vec2;
-    for(int i=0;i<n;i++)
-    {
-        float temp;
-        cin>>temp;
-        vec1.push_back(temp);
+    cin >> n;
+    double res = 0;
+    for (int i = 0; i < n; ++i) {
+        double x;
+        cin >> x;
+        double x;
+        cin >> x;
+        res += (x - x) * (x - x);
     }
-    for(int i=0;i<n;i++)
-    {
-        float temp;
-        cin>>temp;
-        vec2.push_back(temp);
-    }
-    double distance=0;
-    for(int i=0;i<n;i++)
-    {
-        distance+=pow((vec1[i]-vec2[i]),2);
-    }
-    distance=sqrt(distance);
-    cout<<distance;
+    printf("%.10f\n", sqrt(res));
+    return 0;
 }
