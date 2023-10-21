@@ -42,10 +42,10 @@ bool evaluate(string& s, int& i) {
         i += 2;
         return false;
     } else {
-        i += 2;
+        i++;
         bool left = evaluate(s, i);
         char op = s[i];
-        i += 1;
+        i++;
         bool right = evaluate(s, i);
         if (op == '&')
             return left && right;
