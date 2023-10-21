@@ -52,11 +52,13 @@ int main() {
 		int n = str.length();
 		int m = target.length();
 		int i = 0;
-		while(i <= n - m) {
-			int j = 0;
-			for(; j < m; j++) {
-				if(str[i + j] != target[j]) {
-					break;
+		if(n > 0 && m > 0) {
+			while(i <= n - m) {
+				int j = 0;
+				for(; j < m; j++) {
+					if(str[i + j] != target[j]) {
+						break;
+					}
 				}
 			}
 			if(j == m) {
@@ -64,9 +66,7 @@ int main() {
 			}
 			i++;
 		}
-		if(str.length() > 0) {
-			cout << endl;
-		}
+		cout << endl;
 	}
 	return 0;
 }
