@@ -34,36 +34,55 @@ hi
 output:
 hi
 */
-int main() {
-    string input;
-    while (getline(cin, input)) {
-        string output;
-        int start = 0;
-        for (int i = 0; i < input.size(); i++) {
-            if (input[i] == ' ') {
-                if (i - start >= 5) {
-                    for (int j = i - 1; j >= start; j--) {
-                        output += input[j];
-                    }
-                } else {
-                    for (int j = start; j < i; j++) {
-                        output += input[j];
-                    }
-                }
-                output += ' ';
-                start = i + 1;
-            }
-        }
-        if (input.size() - start >= 5) {
-            for (int j = input.size() - 1; j >= start; j--) {
-                output += input[j];
-            }
-        } else {
-            for (int j = start; j < input.size(); j++) {
-                output += input[j];
-            }
-        }
-        cout << output << endl;
+
+string reverse_word(string str) {
+    int len = str.size();
+    string res = "";
+    for (int i = len - 1; i >= 0; i--) {
+        res += str[i];
     }
+    return res;
+}
+
+string reverse_string(string str) {
+    string res = "";
+    string temp = "";
+    int len = str.size();
+    for (int i = 0; i < len; i++) {
+        if (str[i] == ' ') {
+            res += temp;
+            res += ' ';
+            temp = "";
+        } else {
+            temp += str[i];
+        }
+    }
+    res += temp;
+    return res;
+}
+
+int main() {
+    string str;
+    getline(cin, str);
+    string res = "";
+    string temp = "";
+    int len = str.size();
+    for (int i = 0; i < len; i++) {
+        if (str[i] == ' ') {
+            if (temp.size() >= 5) {
+                temp = reverse_word(temp);
+            }
+            res += temp;
+            res += ' ';
+            temp = "";
+        } else {
+            temp += str[i];
+        }
+    }
+    if (temp.size() >= 5) {
+        temp = reverse_word(temp);
+    }
+    res += temp;
+    cout << res << endl;
     return 0;
 }
