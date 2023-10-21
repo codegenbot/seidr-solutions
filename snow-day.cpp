@@ -52,7 +52,16 @@ output:
 int main() {
     int hour;
     float snow, rate, melt;
-    while (cin >> hour >> snow >> rate >> melt) {        
+    while (cin >> hour >> snow >> rate >> melt) {
+        if (hour == 0 && snow == 0.0 && rate == 0.0 && melt == 0.0) {
+            cout << snow << endl;
+            continue;
+        }
+        if (hour == 0) {
+            cout << snow << endl;
+            continue;
+        }
+        
         for (int i = 0; i < hour; i++) {
             snow += rate;
             snow -= snow * melt;
