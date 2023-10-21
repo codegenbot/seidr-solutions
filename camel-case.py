@@ -32,4 +32,18 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    print(re.sub(r'\b[a-z]', lambda x: x.group(0).upper(), 'camel-case example-test-string'))
+    for line in sys.stdin:
+        line = line.strip()
+        if line == "":
+            continue
+        words = line.split()
+        for i in range(len(words)):
+            if "-" in words[i]:
+                words[i] = words[i].replace("-", " ")
+        words = " ".join(words)
+        words = words.split()
+        for i in range(len(words)):
+            words[i] = words[i].capitalize()
+        words = "".join(words)
+        words = words[0].lower() + words[1:]
+        print(words)
