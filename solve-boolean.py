@@ -31,19 +31,9 @@ t&f
 output:
 False
 """
+def boolean(s):
+    s = s.replace('T', '1').replace('F', '0')
+    s = s.replace('&', ' and ').replace('|', ' or ')
+    return eval(s)
+
 if __name__ == '__main__':
-    s = input()
-    if s == 't':
-        print(True)
-    elif s == 'f':
-        print(False)
-    else:
-        s_list = s.split('&')
-        for i in s_list:
-            if i == 't':
-                continue
-            else:
-                print(False)
-                break
-        else:
-            print(True)
