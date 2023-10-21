@@ -5,7 +5,6 @@
 #include <queue>
 #include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
 #include <map>
 #include <set>
 #include <stack>
@@ -66,8 +65,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         dist += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    char buf[100];
-    sprintf(buf, "%.16f", sqrt(dist));
-    cout << buf << endl;
+    printf("%.16f\n", sqrt(dist)); //
     return 0;
 }
