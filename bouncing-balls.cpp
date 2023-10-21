@@ -47,10 +47,10 @@ output:
 int main() {
     double start, first, bounces, bounciness;
     while (cin >> start >> first >> bounces) {
-        bounciness = first / start; // make sure that 1.001\n1.0\n1 -> 2.001
-        double sum = 0;
+        bounciness = first / start;
+        double sum = start;
         for (int i = 0; i < bounces; ++i) {
-            sum += start;
+            sum += start * 2;
             start *= bounciness;
         }
         printf("%.5f\n", sum);
