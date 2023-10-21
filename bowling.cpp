@@ -34,59 +34,43 @@ input:
 output:
 100
 */
-int getScore(string s) {
+
+int getScore(string str) {
     int score = 0;
+    int frame = 0;
     int i = 0;
-    while (i < s.size()) {
-        if (s[i] == 'X') {
+    while (frame < 10) {
+        if (str[i] == 'X') {
             score += 10;
-            if (i + 1 < s.size()) {
-                if (s[i + 1] == 'X') {
-                    score += 10;
-                    if (i + 2 < s.size()) {
-                        if (s[i + 2] == 'X') {
-                            score += 10;
-                        } else {
-                            score += s[i + 2] - '0';
-                        }
-                    }
-                } else if (s[i + 1] == '/') {
-                    score += 10;
-                } else {
-                    score += s[i + 1] - '0';
-                }
-            }
+            score += str[i + 1] == 'X' ? 10 : str[i + 1] - '0';
+            score += str[i + 2] == 'X' ? 10 : str[i + 2] - '0';
             i++;
-        } else if (s[i] == '/') {
+        } else if (str[i] == '/') {
             score += 10;
-            if (i - 1 >= 0) {
-                score -= s[i - 1] - '0';
-            }
-            if (i + 1 < s.size()) {
-                if (s[i + 1] == 'X') {
-                    score += 10;
-                } else {
-                    score += s[i + 1] - '0';
-                }
-            }
-            i++;
-        } else if (s[i] == '-') {
-            i++;
+            score += str[i + 1] == 'X' ? 10 : str[i + 1] - '0';
+            i += 2;
         } else {
-            score += s[i] - '0';
-            i++;
+            score += str[i] - '0';
+            if (str[i + 1] == '-') {
+                i += 2;
+            } else {
+                score += str[i + 1] == 'X' ? 10 : str[i + 1] - '0';
+                i += 2;
+            }
         }
+        frame++;
     }
     return score;
 }
+
 int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << getScore(s) << endl;
-    s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << getScore(s) << endl;
-    s = "7115XXX548/279-X53";
-    cout << getScore(s) << endl;
-    s = "532/4362X179-41447/5";
-    cout << getScore(s) << endl;
+    string str = "XXXXXXXXXXXX";
+    cout << getScore(str) << endl;
+    str = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << getScore(str) << endl;
+    str = "7115XXX548/279-X53";
+    cout << getScore(str) << endl;
+    str = "532/4362X179-41447/5";
+    cout << getScore(str) << endl;
     return 0;
 }
