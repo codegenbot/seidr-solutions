@@ -34,51 +34,83 @@ input:
 output:
 100
 */
-
-int score(string s) {
-    int n = s.size(), sum = 0, i = 0;
-    while (i < n) {
-        if (s[i] == 'X') {
-            sum += 10;
-            if (i+2 < n) {
-                if (s[i+2] == 'X') {
-                    sum += 10;
-                } else {
-                    sum += s[i+2]-'0';
-                }
-            }
-            if (i+1 < n) {
-                if (s[i+1] == 'X') {
-                    sum += 10;
-                } else if (s[i+1] == '/') {
-                    sum += 10 - (s[i]-'0');
-                } else {
-                    sum += s[i+1]-'0';
-                }
-            }
+int getScore(string input) {
+    int score = 0;
+    int frame = 0;
+    int i = 0;
+    while (frame < 10) {
+        char c = input[i];
+        if (c == 'X') {
+            score += 10;
             i++;
-        } else if (s[i] == '/') {
-            sum += 10 - (s[i-1]-'0');
-            if (i+1 < n) {
-                if (s[i+1] == 'X') {
-                    sum += 10;
+            char c2 = input[i];
+            if (c2 == 'X') {
+                score += 10;
+                i++;
+                char c3 = input[i];
+                if (c3 == 'X') {
+                    score += 10;
+                } else if (c3 == '/') {
+                    score += 10;
                 } else {
-                    sum += s[i+1]-'0';
+                    score += c3 - '0';
                 }
+            } else if (c2 == '/') {
+                score += 10;
+                i++;
+                char c3 = input[i];
+                if (c3 == 'X') {
+                    score += 10;
+                } else {
+                    score += c3 - '0';
+                }
+            } else {
+                score += c2 - '0';
+                i++;
+                char c3 = input[i];
+                if (c3 == '/') {
+                    score += 10;
+                } else {
+                    score += c3 - '0';
+                }
+            }
+        } else if (c == '/') {
+            score += 10;
+            i++;
+            char c2 = input[i];
+            if (c2 == 'X') {
+                score += 10;
+            } else {
+                score += c2 - '0';
             }
             i++;
         } else {
-            sum += s[i]-'0';
+            score += c - '0';
             i++;
+            char c2 = input[i];
+            if (c2 == '-') {
+                i++;
+            } else if (c2 == '/') {
+                score += 10 - (c - '0');
+                i++;
+            } else {
+                score += c2 - '0';
+                i++;
+            }
         }
+        frame++;
     }
-    return sum;
+    return score;
 }
 
 int main() {
-    cout << score("XXXXXXXXXXXX") << endl;
-    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << score("7115XXX548/279-X53") << endl;
-    cout << score("532/4362X179-41447/5") << endl;
+    string input = "XXXXXXXXXXXX";
+    cout << getScore(input) << endl;
+    input = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << getScore(input) << endl;
+    input = "7115XXX548/279-X53";
+    cout << getScore(input) << endl;
+    input = "532/4362X179-41447/5";
+    cout << getScore(input) << endl;
     return 0;
 }
