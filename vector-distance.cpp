@@ -50,21 +50,18 @@ output:
 2.2715833329200144
 */
 int main() {
-    int num;
-    cin >> num;
-    vector<float> vec1(num);
-    for (int i = 0; i < num; ++i) {
-        cin >> vec1[i];
-    }
-    cin >> num;
-    vector<float> vec2(num);
-    for (int i = 0; i < num; ++i) {
-        cin >> vec2[i];
-    }
-    float res = 0.0;
-    for (int i = 0; i < vec1.size(); ++i) {
-        res += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
-    }
-    printf("%.12f", sqrt(res));
+    int n;
+    cin>>n;
+    vector<double> a(n);
+    for(int i=0;i<n;i++)
+        cin>>a[i];
+    cin>>n;
+    vector<double> b(n);
+    for(int i=0;i<n;i++)
+        cin>>b[i];
+    double sum = 0;
+    for(int i=0;i<a.size();i++)
+        sum += (a[i]-b[i])*(a[i]-b[i]);
+    printf("%.16f\n", sqrt(sum));
     return 0;
 }
