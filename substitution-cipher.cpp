@@ -15,7 +15,9 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-
+a
+b
+ab
 
 output:
 
@@ -43,12 +45,6 @@ l
 eeeeeeeeee
 output:
 llllllllll
-input:
-
-
-
-output:
-
 */
 int main() {
     string str1, str2, str3;
