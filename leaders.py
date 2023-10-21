@@ -43,19 +43,12 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    a = [int(i) for i in input().split()]
+    a = [int(x) for x in input().split()]
     b = []
-    for i in range(len(a)):
-        if i == len(a) - 1:
+    for i in range(n-1, -1, -1):
+        if i == n-1:
             b.append(a[i])
-        else:
-            c = 0
-            for j in range(i + 1, len(a)):
-                if a[i] >= a[j]:
-                    c += 1
-                else:
-                    break
-            if c == len(a) - i - 1:
-                b.append(a[i])
-    print(len(b))
-    print(*b)
+            continue
+        if a[i] >= b[-1]:
+            b.append(a[i])
+    print(*b[::-1])
