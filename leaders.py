@@ -41,15 +41,14 @@ output:
 1
 1000
 """
+def find_leaders(vector):
+    leaders = []
+    max_num = vector[-1]
+    leaders.append(max_num)
+    for i in range(len(vector) - 2, -1, -1):
+        if vector[i] >= max_num:
+            leaders.append(vector[i])
+            max_num = vector[i]
+    return leaders[::-1]
+
 if __name__ == '__main__':
-    t = int(input())
-    for i in range(t):
-        n = int(input())
-        a = list(map(int, input().split()))
-        ans = []
-        for i in range(n-1, 0, -1):
-            if a[i] >= a[i-1]:
-                ans.append(a[i])
-        ans.append(a[0])
-        print(len(ans))
-        print(' '.join(map(str, ans[::-1])))
