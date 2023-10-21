@@ -46,13 +46,14 @@ if __name__ == '__main__':
     guess = input()
     black = 0
     white = 0
-    for i in range(len(code)):
+    for i in range(0, 4):
         if code[i] == guess[i]:
             black += 1
-    for i in range(len(code)):
-        for j in range(len(guess)):
-            if code[i] == guess[j]:
-                white += 1
-                break
+            code = code[:i] + '-' + code[i+1:]
+            guess = guess[:i] + '-' + guess[i+1:]
+    for i in range(0, 4):
+        if guess[i] in code:
+            white += 1
+            code = code.replace(guess[i], '-', 1)
     print(black)
-    print(white - black)
+    print(white)
