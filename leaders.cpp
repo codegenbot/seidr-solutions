@@ -45,21 +45,29 @@ output:
 1000
 */
 int main() {
-    int n, i;
-    cin >> n;
-    vector<int> nums(n), leaders;
-    for (i = 0; i < n; i++)
-        cin >> nums[i];
-    int max = nums[n - 1];
-    leaders.push_back(max);
-    for (i = n - 2; i >= 0; i--) {
-        if (nums[i] >= max) {
-            leaders.push_back(nums[i]);
-            max = nums[i];
+    freopen("/Users/xushaopeng/Desktop/codejam/kickstart/2017/Round-A/A-large-practice.in","r",stdin);
+    freopen("/Users/xushaopeng/Desktop/codejam/kickstart/2017/Round-A/A-large-practice.out","w",stdout);
+    int T, N;
+    cin >> T;
+    for (int cas = 1; cas <= T; cas++) {
+        cin >> N;
+        vector<int> nums(N);
+        for (int i = 0; i < N; i++) {
+            cin >> nums[i];
         }
+        vector<int> res;
+        res.push_back(nums[N - 1]);
+        int maxVal = nums[N - 1];
+        for (int i = N - 2; i >= 0; i--) {
+            if (nums[i] >= maxVal) {
+                maxVal = nums[i];
+                res.push_back(maxVal);
+            }
+        }
+        for (int i = res.size() - 1; i >= 0; i--) {
+            cout << res[i] << " ";
+        }
+        cout << endl;
     }
-    for (i = leaders.size() - 1; i >= 0; i--)
-        cout << leaders[i] << " ";
-    cout << endl;
     return 0;
 }
