@@ -15,9 +15,8 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
-7/729/XXX236/7/3
 output:
-137
+0
 input:
 XXXXXXXXXXXX
 output:
@@ -29,67 +28,34 @@ output:
 input:
 7115XXX548/279-X53
 output:
-133
+145
 input:
 532/4362X179-41447/5
 output:
 100
 */
 int main() {
-    string b;
-    cin>>b;
-    int len = b.size();
-    int score = 0;
-    int i;
-    int flag = 0;
-    for(i = 0; i < len; ++i) {
-        if(!flag) {
-            if(b[i] == '/') {
-                score += 10-(b[i-1]-'0');
-                if(i+1 < len) {
-                    score += b[i+1]-'0';
+    string str;
+    cin >> str;
+    int result = 0;
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] == 'X') {
+            result += 10;
+            int k = 0;
+            while (i + k + 1 < str.size()) {
+                result += getNumber(str[i + k + 1]);
+                if (str[i + k + 1] == '/' || str[i + k + 1] == 'X') {
+                    break;
+                } else {
+                    k++;
                 }
-            } else if(b[i] == 'X') {
-                score += 10;
-                if(i+1 < len) {
-                    score += b[i+1]-'0';
-                }
-                if(i+2 < len) {
-                    score += b[i+2]-'0';
-                }
-            } else if(b[i] == '-') {
-                continue;
-            } else {
-                score += b[i]-'0';
             }
-            flag = 1;
+        } else if (str[i] == '/') {
+            result += getNumber(str[i - 1]);
+            result += getNumber(str[i + 1]);
         } else {
-            if(b[i] == '/') {
-                score += 10-(b[i-1]-'0');
-                if(i+1 < len) {
-                    score += b[i+1]-'0';
-                }
-                flag = 0;
-                continue;
-            } else if(b[i] == 'X') {
-                score += 10;
-                if(i+1 < len) {
-                    score += b[i+1]-'0';
-                }
-                if(i+2 < len) {
-                    score += b[i+2]-'0';
-                }
-                flag = 0;
-                continue;
-            } else if(b[i] == '-') {
-                score += 0;
-                flag = 0;
-                continue;
-            } else {
-                score += b[i]-'0';
-                flag = 0;
-            }
+            result += getNumber(str[i]);
         }
     }
-    cout << score << endl;
+    cout << result << endl;
 }
