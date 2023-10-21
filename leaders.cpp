@@ -51,22 +51,21 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    if (n == 1) {
-        cout << v[0];
-    } else {
-        int max = v[n-1];
-        vector<int> res;
-        res.push_back(max);
-        for (int i = n-2; i >= 0; i--) {
-            if (v[i] >= max) {
-                max = v[i];
-                res.push_back(max);
-            }
-        }
-        for (int i = res.size()-1; i >= 0; i--) {
-            cout << res[i] << " ";
+    int max = v[n-1];
+    vector<int> res;
+    res.push_back(max);
+    for (int i = n-2; i >= 0; i--) {
+        if (v[i] >= max) {
+            max = v[i];
+            res.push_back(max);
         }
     }
-    
+    if (res.size() == 0) {
+        cout << 0;
+        return 0;
+    }
+    for (int i = res.size()-1; i >= 0; i--) {
+        cout << res[i] << " ";
+    }
     return 0;
 }
