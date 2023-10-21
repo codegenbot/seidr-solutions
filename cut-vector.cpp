@@ -6,6 +6,8 @@ input:
 0
 output:
 1
+0 
+0
 0
 
 input:
