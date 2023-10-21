@@ -42,4 +42,14 @@ output:
 1000
 """
 if __name__ == '__main__':
-    pass
+    n = int(input())
+    nums = list(map(int, input().split()))
+    leaders = []
+    for i in range(n-1, -1, -1):
+        if i == n-1:
+            leaders.append(nums[i])
+        else:
+            if nums[i] >= leaders[-1]:
+                leaders.append(nums[i])
+    for i in range(len(leaders)-1, -1, -1):
+        print(leaders[i], end=" ")
