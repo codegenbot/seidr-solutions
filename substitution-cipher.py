@@ -42,11 +42,17 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
+    f = open("input.txt", "r")
+    fout = open("output.txt", "w")
+    key = f.readline().strip()
+    value = f.readline().strip()
+    cipher = f.readline().strip()
     dic = {}
-    a = input().strip()
-    b = input().strip()
-    c = input().strip()
-    for i in range(len(a)):
-        dic[a[i]] = b[i]
-    for i in range(len(c)):
-        print(dic[c[i]], end="")
+    for i in range(len(key)):
+        dic[key[i]] = value[i]
+    print(dic)
+    out = ""
+    for i in cipher:
+        out += dic[i]
+    fout.write(out)
+    fout.close()
