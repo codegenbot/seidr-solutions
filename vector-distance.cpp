@@ -49,29 +49,17 @@ input:
 output:
 2.2715833329200144
 */
-
-double euclideanDistance(vector<double> a, vector<double> b) {
-    double sum = 0;
-    for (int i = 0; i < a.size(); i++) {
-        sum += (a[i] - b[i]) * (a[i] - b[i]);
-    }
-    return sqrt(sum);
-}
-
 int main() {
     int n;
-    cin >> n;
-    vector<double> a;
-    double x;
-    for (int i = 0; i < n; i++) {
-        cin >> x;
-        a.push_back(x);
+    cin>>n;
+    vector<double> a(n,0);
+    for(int i=0;i<n;i++)cin>>a[i];
+    cin>>n;
+    vector<double> b(n,0);
+    for(int i=0;i<n;i++)cin>>b[i];
+    double ans = 0;
+    for(int i=0;i<a.size();i++){
+        ans += (a[i]-b[i])*(a[i]-b[i]);
     }
-    cin >> n;
-    vector<double> b;
-    for (int i = 0; i < n; i++) {
-        cin >> x;
-        b.push_back(x);
-    }
-    printf("%.15f\n", euclideanDistance(a, b));
+    cout<<sqrt(ans)<<endl;
 }
