@@ -44,28 +44,22 @@ output:
 0
 0
 */
-
-int white(string code, string guess) {
-    int cnt = 0;
-    int code_cnt[6] = {0};
-    int guess_cnt[6] = {0};
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            cnt++;
-        } else {
-            code_cnt[code[i] - 'A']++;
-            guess_cnt[guess[i] - 'A']++;
-        }
-    }
-    for (int i = 0; i < 6; i++) {
-        cnt += min(code_cnt[i], guess_cnt[i]);
-    }
-    return cnt;
-}
-
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << white(code, guess) << endl;
+    int black = 0, white = 0;
+    int code_count[6] = {0}, guess_count[6] = {0};
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
+        }
+    }
+    for (int i = 0; i < 6; i++) {
+        white += min(code_count[i], guess_count[i]);
+    }
+    cout << black << endl << white << endl;
     return 0;
 }
