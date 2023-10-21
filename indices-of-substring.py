@@ -41,17 +41,18 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
-
-
-def solution(text, target):
-    res = []
-    index = -1
-    while True:
-        index = text.find(target, index + 1)
-        if index == -1:
-            break
-        res.append(index)
-    return res
-
-
 if __name__ == '__main__':
+    text = input()
+    target = input()
+    indices = []
+    for i in range(len(text)):
+        if text[i] == target[0]:
+            k = i
+            count = 0
+            for j in range(len(target)):
+                if text[k] == target[j]:
+                    count += 1
+                    k += 1
+            if count == len(target):
+                indices.append(str(i))
+    print(' '.join(indices))
