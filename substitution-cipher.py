@@ -8,51 +8,24 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
-
-
-
-output:
-
-input:
+This problem gives a string. The program must print all the possible substrings of the given string.
+For example, if the input is abc, the output should be:
 a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
+ab
+abc
+b
+bc
+c
+If the input is xyz, the output should be:
+x
+xy
+xyz
+y
+yz
 z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
 """
 if __name__ == '__main__':
-    f = open("input.txt", "r")
-    fout = open("output.txt", "w")
-    key = f.readline().strip()
-    value = f.readline().strip()
-    cipher = f.readline().strip()
-    dic = {}
-    for i in range(len(key)):
-        dic[key[i]] = value[i]
-    print(dic)
-    out = ""
-    for i in cipher:
-        out += dic[i]
-    fout.write(out)
-    fout.close()
+    string = input()
+    for i in range(len(string)):
+        for j in range(i,len(string)):
+            print(string[i:j+1])
