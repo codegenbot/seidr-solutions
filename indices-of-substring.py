@@ -42,11 +42,20 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    text = input()
-    target = input()
-    if len(target) > len(text):
-        print("")
-    else:
-        for i in range(len(text)):
-            if text[i:i+len(target)] == target:
-                print(i, end = " ")
+    while True:
+        try:
+            line = input()
+            line2 = input()
+            if line == '':
+                break
+            if line2 == '':
+                break
+            res = []
+            line_len = len(line)
+            line2_len = len(line2)
+            for i in range(line_len - line2_len + 1):
+                if line[i:i + line2_len] == line2:
+                    res.append(i)
+            print(*res)
+        except:
+            break
