@@ -54,34 +54,45 @@ output:
 0
 
 */
+
+
+class Solution {
+public:
+    vector<int> splitVector(vector<int> &nums) {
+        int n = nums.size();
+        vector<int> ans(n + 1, 0);
+        for(int i = 1; i <= n; i++) {
+            ans[i] = ans[i - 1] + nums[i - 1];
+        }
+        int min_diff = INT_MAX;
+        int min_index = 0;
+        for(int i = 1; i <= n; i++) {
+            int left = ans[i];
+            int right = ans[n] - ans[i];
+            if(abs(left - right) < min_diff) {
+                min_diff = abs(left - right);
+                min_index = i;
+            }
+        }
+        vector<int> res;
+        for(int i = 0; i < min_index; i++) {
+            res.push_back(nums[i]);
+        }
+        res.push_back(0);
+        for(int i = min_index; i < n; i++) {
+            res.push_back(nums[i]);
+        }
+        return res;
+    }
+};
+
 int main() {
-    vector<int> a;
-    a.push_back(1);
-    a.push_back(0);
-    int n = a.size();
-    int min = INT_MAX;
-    int min_index = 0;
-    for(int i=0;i<n;i++) {
-        int sum1 = 0;
-        int sum2 = 0;
-        for(int j=0;j<i;j++) {
-            sum1 += a[j];
-        }
-        for(int j=i;j<n;j++) {
-            sum2 += a[j];
-        }
-        int diff = abs(sum1-sum2);
-        if(diff < min) {
-            min = diff;
-            min_index = i;
-        }
+    Solution s;
+    vector<int> nums = {1, 10};
+    vector<int> res = s.splitVector(nums);
+    for(auto num : res) {
+        cout << num << " ";
     }
-    cout << "min index is " << min_index << endl;
-    for(int i=0;i<min_index;i++) {
-        cout << a[i] << endl;
-    }
-    for(int i=min_index;i<n;i++) {
-        cout << a[i] << endl;
-    }
+    cout << endl;
     return 0;
 }
