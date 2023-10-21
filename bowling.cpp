@@ -34,6 +34,34 @@ input:
 output:
 100
 */
+int helper(string &str, int index){
+    if(index+1 >= str.size()){
+        if(str[index] == 'X'){
+            return 10;
+        } else if(str[index] == '-'){
+            return 0;
+        } else{
+            return str[index] -'0';
+        }
+    }
+    if(str[index] == '-'){
+        return helper(str, index+1);
+    } else if(str[index] == '/'){
+        return 10 - str[index-1] + helper(str,index+1);
+    } else if(str[index] == 'X'){
+        return 10 + helper(str, index+1) + helper(str, index+2);
+    } else{
+        return str[index] - '0' + helper(str, index+1);
+    }
+}
 int main() {
+    string str;
+    getline(cin, str);
+    int res = 0;
+    for(int i = 0; i < str.size() && res < 10; i++){
+        res += helper(str, i);
+    }
+    cout<<res<<endl;
     
+    return 0;
 }
