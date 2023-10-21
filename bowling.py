@@ -31,6 +31,7 @@ input:
 output:
 100
 """
+
 def bowling_score(input):
     score = 0
     frame = 0
@@ -45,15 +46,10 @@ def bowling_score(input):
                         frame_score += 10
                     else:
                         frame_score += int(input[i+2])
-                elif input[i+1] == '/':
-                    frame_score += 10
                 else:
                     frame_score += int(input[i+1])
-                if i < len(input) - 3:
-                    if input[i+2] == 'X':
-                        frame_score += 10
-                    elif input[i+2] == '/':
-                        frame_score += 10
+                    if input[i+2] == '/':
+                        frame_score += 10 - int(input[i+1])
                     else:
                         frame_score += int(input[i+2])
         elif input[i] == '/':
@@ -72,7 +68,7 @@ def bowling_score(input):
                 score += frame_score
                 frame_score = 0
                 frame += 1
-            elif i % 2 == 1:
+            elif frame_score >= 10:
                 score += frame_score
                 frame_score = 0
                 frame += 1
