@@ -42,20 +42,11 @@ output:
 3.963
 """
 if __name__ == '__main__':
-def solve(diff):
-    length = len(diff)
-    if length == 1:
-        return 0
-
-    count = 0
-    i = 0
-    count = diff[0]
-    while i+1 < length:
-        if diff[i] > diff[i+1]:
-            count += diff[i] + diff[i+1]
-            i = i+1
-        else:
-            count += diff[i]
-        i += 1
-
-    return count
+    start_height = float(input())
+    first_bounce_height = float(input())
+    num_bounces = int(input())
+    bounciness_index = first_bounce_height / start_height
+    total_distance = start_height + first_bounce_height * 2
+    for i in range(num_bounces - 1):
+        total_distance += first_bounce_height * bounciness_index ** (i + 2)
+    print(total_distance)
