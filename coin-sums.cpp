@@ -48,32 +48,18 @@ output:
 1
 0
 0
-input:
-1
-output:
-1
-0
-0
-0
 */
 int main() {
-    int n;
-    while(cin>>n){
-        int a = 0;
-        int b = 0;
-        int c = 0;
-        int d = 0;
-        d = n/25;
-        n = n%25;
-        c = n/10;
-        n = n%10;
-        b = n/5;
-        n = n%5;
-        a = n;
-        cout<<a<<endl;
-        cout<<b<<endl;
-        cout<<c<<endl;
-        cout<<d<<endl;
+    int cents;
+    while(cin>>cents) {
+        int num_pennies = cents%5;
+        int num_nickles = cents/5;
+        cents -= num_nickles*5;
+        int num_dimes = cents/10;
+        cents -= num_dimes*10;
+        int num_quarters = cents/25;
+        cents -= num_quarters*25;
+        cout<<num_pennies<<endl<<num_nickles<<endl<<num_dimes<<endl<<num_quarters<<endl;
     }
     return 0;
 }
