@@ -34,48 +34,34 @@ input:
 output:
 100
 */
-
-// Use two stacks to store the scores and previous scores.
-// For each char in the input string,
-// if the char is 'X', add 10 to the current score stack
-// if the char is a digit, add the digit to the current score stack
-// if the char is a '/', add 10-last element in the previous score stack to the current score stack.
-// if the char is '-', do nothing
-// If the current score stack has 10 elements, pop the last one and plus it to the previous score stack.
-// At last, return the sum of all elements in the previous score stack.
-
-
 int main() {
     string input;
-    int res;
-    
-    getline(cin, input);
-    stack<int> pre, cur;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] != '-') {
-            cur.push(input[i] - '0');
-        }
-        if (input[i] == 'X') {
-            cur.push(10);
-        }
-        
-        if (input[i] == '/') {
-            int top = pre.top();
-            int temp = 10 - top;
-            cur.push(temp);
-        }
-        
-        if (cur.size() == 10) {
-            int sum = cur.top();
-            pre.push(sum);
-            cur.pop();
+    cin>>input;
+    int res = 0;
+    for(int i = 0; i < input.size(); i++) {
+        if(input[i] == 'X') {
+            // if(i == 9 || i == 19 || i == 29) res += 10;
+            if(i < 9 || i > 19 && i < 29)
+                res += getScore(input, i + 2) + 10;
+            if(i == 9 || i == 19 || i == 29)
+                res += 10;
+        } else if(input[i] == '/') {
+            res += 10 - (input[i - 1] - '0');
+            // if(i == 9 || i == 19 || i == 29) res += 10 - (input[i - 1] - '0');
+            if(i < 9 || i > 19 && i < 29)
+                res += getScore(input, i + 1);
+        } else if(input[i] == '-') {
+            res += 0;
+        } else {
+            res += input[i] - '0';
         }
     }
-    res = 0;
-    while (!pre.empty()) {
-        res += pre.top();
-        pre.pop();
-    }
-    cout << res << endl;
+    cout<<res<<endl;
     return 0;
+}
+
+int getScore(string input, int index) {
+    if(input[index] == 'X') return 10;
+    if(input[index] == '/') return 10 - (input[index - 1] - '0');
+    return input[index] - '0';
 }
