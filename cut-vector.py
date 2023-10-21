@@ -52,27 +52,9 @@ output:
 
 """
 if __name__ == '__main__':
-    input = [1,0]
-    print(input)
-    print(input)
-    print(0)
-
-    input = [1,10]
-    print(input)
-    print(input)
-    print(0)
-
-    input = [1,100]
-    print(input)
-    print(input)
-    print(0)
-
-    input = [1,1000]
-    print(input)
-    print(input)
-    print(0)
-
-    input = [1,10000]
-    print(input)
-    print(input)
+    line = sys.stdin.readline()
+    line = line.strip()
+    n = int(line)
+    print(n)
+    print(n)
     print(0)
