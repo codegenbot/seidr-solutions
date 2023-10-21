@@ -1,4 +1,12 @@
-import ast
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
@@ -25,4 +33,4 @@ False
 """
 if __name__ == '__main__':
     s = input()
-    print(ast.literal_eval(s))
+    print(eval(s, {"t": True, "f": False}))
