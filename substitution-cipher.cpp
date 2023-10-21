@@ -45,18 +45,16 @@ output:
 llllllllll
 */
 int main() {
-    int t;
-    cin>>t;
-    while(t--){
-        string s1,s2,s3;
-        cin>>s1>>s2>>s3;
-        map<char,char>m;
-        for(int i=0;i<s1.length();i++){
-            m[s1[i]]=s2[i];
-        }
-        for(int i=0;i<s3.length();i++){
-            s3[i]=m[s3[i]];
-        }
-        cout<<s3<<endl;
-    }
+	string s1, s2, s3;
+	while(cin >> s1 >> s2 >> s3){
+		for(int i = 0; i < s3.length(); i++){
+			for(int j = 0; j < s1.length(); j++){
+				if(s3[i] == s1[j]){
+					s3[i] = s2[j];
+					break;
+				}
+			}
+		}
+		cout << s3 << endl;
+	}
 }
