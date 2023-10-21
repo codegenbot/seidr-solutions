@@ -2,53 +2,43 @@
 #include <fstream>
 #include <string>
 
-using namespace std;
-
 int main()
 {
-    string filename;
-    cout << "Enter filename: ";
-    cin >> filename;
+    std::ofstream outFile;
+    std::ifstream inFile;
+    std::string fileName;
+    std::string line;
 
-    ifstream inFile;
-    inFile.open(filename);
+    std::cout << "Enter the name of the file you would like to read from: ";
+    std::cin >> fileName;
 
-    if (!inFile.is_open())
+    inFile.open(fileName);
+
+    if (inFile.fail())
     {
-        cout << "Could not open file: " << filename << endl;
-        cout << "Program terminating.\n";
-        exit(EXIT_FAILURE);
+        std::cout << "File did not open" << std::endl;
+        exit(1);
     }
 
-    double value;
-    double sum = 0.0;
-    int count = 0;
+    std::cout << "Enter the name of the file you would like to write to: ";
+    std::cin >> fileName;
 
-    inFile >> value;
-    while (inFile.good())
+    outFile.open(fileName);
+
+    if (outFile.fail())
     {
-        ++count;
-        sum += value;
-        inFile >> value;
+        std::cout << "File did not open" << std::endl;
+        exit(1);
     }
 
-    if (inFile.eof())
-        cout << "End of file reached.\n";
-    else if (inFile.fail())
-        cout << "Input terminated by data mismatch.\n";
-    else
-        cout << "Input terminated for unknown reason.\n";
-
-    if (count == 0)
-        cout << "No data processed.\n";
-    else
+    while (!inFile.eof())
     {
-        cout << "Items read: " << count << endl;
-        cout << "Sum: " << sum << endl;
-        cout << "Average: " << sum / count << endl;
+        std::getline(inFile, line);
+        outFile << line << std::endl;
     }
 
     inFile.close();
+    outFile.close();
 
     return 0;
 }
