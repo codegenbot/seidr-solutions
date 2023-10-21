@@ -34,33 +34,43 @@ hi
 output:
 hi
 */
-void reverseStr(string& str, int start, int end) {
-    while(start < end) {
-        char temp = str[start];
-        str[start] = str[end];
-        str[end] = temp;
-        start++;
-        end--;
+string reverse(string s) {
+    string res;
+    for (int i = s.size() - 1; i >= 0; i--) {
+        res += s[i];
     }
+    return res;
 }
 
-string reverseWords(string str) {
-    int start = 0, end = 0;
-    while(start < str.size()) {
-        while(end < str.size() && str[end] != ' ') {
-            end++;
+string reverseWords(string s) {
+    string res;
+    int pos = 0;
+    int len = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == ' ') {
+            if (len >= 5) {
+                res += reverse(s.substr(pos, len));
+            } else {
+                res += s.substr(pos, len);
+            }
+            res += ' ';
+            len = 0;
+            pos = i + 1;
+        } else {
+            len++;
         }
-        if(end - start >= 5) {
-            reverseStr(str, start, end - 1);
-        }
-        start = end + 1;
-        end = start;
     }
-    return str;
+    if (len >= 5) {
+        res += reverse(s.substr(pos, len));
+    } else {
+        res += s.substr(pos, len);
+    }
+    return res;
 }
 
 int main() {
-    string str = "this is a test";
-    cout << reverseWords(str) << endl;
-    return 0;
+    cout << reverseWords("this is a test") << endl;
+    cout << reverseWords("this is another test") << endl;
+    cout << reverseWords("hi") << endl;
+    cout << reverseWords("a") << endl;
 }
