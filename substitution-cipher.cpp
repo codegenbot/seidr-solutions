@@ -11,53 +11,50 @@
 #include <climits>
 using namespace std;
 /*
-This problem gives a string and a number. The string represents a series of notes, and the number represents a note length. The program must return the string with all notes of the given length removed.
-For example, a string of notes might be "ABCDEFG", and a note length to remove might be 3. The program should return "ABEFG", because the 3-length note "CDE" was removed.
-input: 
-ABCDEFG
-3
-output: 
-ABEFG
-input: 
-ABCDEFG
-1
-output: 
-BCDEFG
-input: 
-ABCDEFG
-2
-output: 
-ACEG
-input: 
-ABCDEFG
-7
-output: 
-ABCDEFG
-input: 
-ABCDEFG
-5
-output: 
-ABCEF
-input: 
-ABCDEFG
-8
-output: 
-ABCDEFG
-input: 
-ABCDEFG
-6
-output: 
-ABCDFG
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
+
+abc
+def
+cba
+output:
+
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 */
 int main() {
-    string s1;
-    int len;
-    cin>>s1>>len;
-    for(int i=0;i<s1.length();i++){
-        if((i+1)%len!=0){
-            cout<<s1[i];
+    string s1,s2,s3;
+    cin>>s1>>s2>>s3;
+    for(int i=0;i<s3.length();i++){
+        for(int j=0;j<s1.length();j++){
+            if(s3[i]==s1[j]){
+                cout<<s2[j];
+                break;
+            }
         }
     }
-    cout<<endl;
     return 0;
 }
