@@ -41,14 +41,8 @@ input:
 output:
 3.963
 """
-def bounce_height(h1, h2, n):
-    if h1 <= 0 or h2 <= 0 or n <= 0:
-        return 0
-    bounciness = h2 / h1
-    total_height = h1
-    for i in range(n):
-        total_height *= bounciness
-        total_height += h1
-    return total_height
-
 if __name__ == '__main__':
+	a = float(input())
+	b = float(input())
+	c = int(input())
+	print(a*(b**c))
