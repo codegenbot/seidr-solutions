@@ -10,6 +10,7 @@
 #include <stack>
 #include <climits>
 using namespace std;
+
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -34,48 +35,47 @@ input:
 output:
 100
 */
+
 int score(string s) {
-    int sum = 0, frame = 0, i = 0;
-    while (frame < 10) {
+    int res = 0;
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == 'X') {
-            sum += 10;
-            if (s[i + 1] == 'X') {
-                sum += 10;
-                if (s[i + 2] == 'X')
-                    sum += 10;
-                else
-                    sum += s[i + 2] - '0';
-            } else if (s[i + 1] == '/') {
-                sum += 10;
+            res += 10;
+            if (s[i + 2] == 'X') {
+                res += 20;
             } else {
-                sum += s[i + 1] - '0';
+                res += (s[i + 2] - '0');
+            }
+            if (s[i + 3] == 'X') {
+                res += 10;
+            } else if (s[i + 3] == '/') {
+                res += (10 - (s[i + 2] - '0'));
+            } else {
+                res += (s[i + 3] - '0');
             }
             i++;
-        } else if (s[i] == '/') {
-            sum += 10;
-            if (s[i + 1] == 'X')
-                sum += 10;
-            else
-                sum += s[i + 1] - '0';
-            i++;
+        } else if (s[i + 1] == '/') {
+            res += 10;
+            if (s[i + 2] == 'X') {
+                res += 10;
+            } else {
+                res += (s[i + 2] - '0');
+            }
+            i += 2;
         } else {
-            sum += s[i] - '0';
-            if (s[i + 1] == '/') {
-                sum += 10;
-                i++;
-            } else {
-                sum += s[i + 1] - '0';
-                i += 2;
-            }
+            res += (s[i] - '0');
+            res += (s[i + 1] - '0');
+            i += 2;
         }
-        frame++;
     }
-    return sum;
+    return res;
 }
+
 int main() {
-    string s;
-    while (cin >> s) {
-        cout << score(s) << endl;
-    }
+    cout << score("XXXXXXXXXXXX") << endl;
+    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << score("7115XXX548/279-X53") << endl;
+    cout << score("532/4362X179-41447/5") << endl;
     return 0;
 }
