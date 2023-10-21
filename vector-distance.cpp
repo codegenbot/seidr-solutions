@@ -62,6 +62,6 @@ int main() {
     double sum = 0;
     for(int i=0;i<a.size();i++)
         sum += (a[i]-b[i])*(a[i]-b[i]);
-    printf("%.16f\n", sqrt(sum));
+    printf("%.11f\n", sqrt(sum));
     return 0;
 }
