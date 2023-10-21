@@ -8,7 +8,9 @@ import itertools
 import queue
 import re
 """
-Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
+Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either
+equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
+
 For example,
 input:
 1
@@ -52,16 +54,24 @@ output:
 
 """
 
-def get_subvector(vector):
-    n = len(vector)
-    if n == 1:
-        return vector
-    for i in range(1, n):
-        if vector[i] - vector[i-1] > 1:
-            return vector[:i] + [0] + vector[i:]
-    return vector + [0]
+
+def find_cut_point(input_vector):
+    if len(input_vector) == 1:
+        return 0
+    else:
+        for i in range(len(input_vector)):
+            if i == 0:
+                left_sum = 0
+                right_sum = sum(input_vector[1:])
+            elif i == len(input_vector) - 1:
+                left_sum = sum(input_vector[:-1])
+                right_sum = 0
+            else:
+                left_sum = sum(input_vector[:i])
+                right_sum = sum(input_vector[i+1:])
+            if left_sum == right_sum:
+                return i
+        return -1
 
 
 if __name__ == '__main__':
-    vector = [1, 10, 100, 1000, 10000]
-    print(get_subvector(vector))
