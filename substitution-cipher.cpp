@@ -16,6 +16,7 @@ For example,
 input:
 
 
+
 output:
 
 input:
@@ -55,3 +56,4 @@ int main() {
     }
     return 0;
 }
+

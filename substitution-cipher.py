@@ -16,7 +16,7 @@ input:
 
 output:
 
-input:
+input: 
 a
 a
 a
@@ -40,9 +40,6 @@ l
 eeeeeeeeee
 output:
 llllllllll
-
-
-
 """
 if __name__ == '__main__':
     pass
