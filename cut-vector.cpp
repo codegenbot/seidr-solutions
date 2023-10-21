@@ -54,45 +54,27 @@ output:
 0
 
 */
-
-
-class Solution {
-public:
-    vector<int> splitVector(vector<int> &nums) {
-        int n = nums.size();
-        vector<int> ans(n + 1, 0);
-        for(int i = 1; i <= n; i++) {
-            ans[i] = ans[i - 1] + nums[i - 1];
-        }
-        int min_diff = INT_MAX;
-        int min_index = 0;
-        for(int i = 1; i <= n; i++) {
-            int left = ans[i];
-            int right = ans[n] - ans[i];
-            if(abs(left - right) < min_diff) {
-                min_diff = abs(left - right);
-                min_index = i;
-            }
-        }
-        vector<int> res;
-        for(int i = 0; i < min_index; i++) {
-            res.push_back(nums[i]);
-        }
-        res.push_back(0);
-        for(int i = min_index; i < n; i++) {
-            res.push_back(nums[i]);
-        }
-        return res;
-    }
-};
-
 int main() {
-    Solution s;
-    vector<int> nums = {1, 10};
-    vector<int> res = s.splitVector(nums);
-    for(auto num : res) {
-        cout << num << " ";
+    int n;
+    cin >> n;
+    vector<int> v;
+    for (int i = 0; i < n; i++) {
+        int input;
+        cin >> input;
+        v.push_back(input);
     }
-    cout << endl;
+    int left = 0;
+    int right = 0;
+    int minDiff = INT_MAX;
+    for (int i = 0; i < v.size() - 1; i++) {
+        int diff = abs(v[i] - v[i + 1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            left = i;
+            right = i + 1;
+        }
+    }
+    cout << left << endl;
+    cout << right << endl;
     return 0;
 }
