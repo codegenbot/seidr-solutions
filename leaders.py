@@ -43,17 +43,13 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    nums = list(map(int, input().split()))
-    res = []
-    for i in range(len(nums)):
-        if i == len(nums) - 1:
-            res.append(nums[i])
-            break
-        for j in range(i + 1, len(nums)):
-            if nums[i] < nums[j]:
-                break
-            if j == len(nums) - 1:
-                res.append(nums[i])
-    res.append(nums[-1])
-    print(len(res))
-    print(*res)
+    a = list(map(int, input().split()))
+    b = []
+    for i in range(n-1, -1, -1):
+        if len(b) == 0:
+            b.append(a[i])
+        else:
+            if a[i] >= b[-1]:
+                b.append(a[i])
+    for i in range(len(b)-1, -1, -1):
+        print(b[i], end=' ')
