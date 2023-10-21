@@ -51,15 +51,16 @@ output:
 */
 int main() {
     int h;
-    double s, r, m;
+    float s, r, m;
     while (cin >> h >> s >> r >> m) {
-        double res = 0;
+        float res = 0;
         for (int i = 0; i < h; i++) {
             res += s;
             res -= res * m;
             s += r;
         }
-        printf("%.2f\n", res + 1e-9);
+        if (res < 0) printf("0.00\n");
+        else printf("%.2f\n", res);
     }
     return 0;
 }
