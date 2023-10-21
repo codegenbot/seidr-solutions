@@ -35,24 +35,25 @@ output:
 hi
 */
 int main() {
-    string s;
-    while (getline(cin, s)) {
-        int start = 0;
-        while (start < s.size()) {
-            int end = start;
-            while (end < s.size() && s[end] != ' ') {
-                ++end;
-            }
-            if (end - start >= 5) {
-                int left = start;
-                int right = end - 1;
-                while (left < right) {
-                    swap(s[left++], s[right--]);
+    char str[100];
+    cin.getline(str, 100);
+    int len = strlen(str);
+    char *ptr = str;
+    char *prev = ptr;
+    char *end = ptr;
+    while(ptr < str+len){
+        if(*ptr == ' ' || *ptr == '\0'){
+            end = ptr-1;
+            if(ptr-prev >= 5)
+                while(prev < end){
+                    swap(*prev, *end);
+                    prev++;
+                    end--;
                 }
-            }
-            start = end + 1;
+            prev = ptr+1;
         }
-        cout << s << endl;
+        ptr++;
     }
+    cout << str << endl;
     return 0;
 }
