@@ -69,6 +69,6 @@ int main() {
     for (int i = 0; i < vec1.size(); ++i) {
         res += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    printf("%.16f\n", sqrt(res));
+    printf("%.15f\n", sqrt(res));
     return 0;
 }
