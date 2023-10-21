@@ -53,18 +53,18 @@ int main() {
     int n;
     cin >> n;
     vector<float> v1(n);
-    for (int i = 0; i < v1.size(); i++) {
+    for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
     cin >> n;
     vector<float> v2(n);
-    for (int i = 0; i < v2.size(); i++) {
+    for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
     double ans = 0;
     for (int i = 0; i < n; i++) {
         ans += pow(v1[i] - v2[i], 2);
     }
-    printf("%.16lf\n", sqrt(ans));
+    printf("%.12lf\n", sqrt(ans));
     return 0;
 }
