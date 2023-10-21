@@ -51,30 +51,5 @@ output:
 0
 
 """
-# [3, 4, 5, 7, 8, 9], 4
-# [3, 4, 5, 7, 8, 9], 3
-# [3, 4, 5, 7, 8, 9], 2
-# [3, 4, 5, 7, 8, 9], 1
-# [3, 4, 5, 7, 8, 9], 0
-# [3, 4, 5, 7, 8, 9], 8
-# [3, 4, 5, 7, 8, 9], 9
-
-
-def cut_vector(vector, index):
-    if 0 <= index <= len(vector):
-        if index > 0:
-            left = str(vector[:index])
-        else:
-            left = str(vector[index:index + 1])
-        if index < len(vector):
-            right = str(vector[index:])
-        else:
-            right = str(vector[index - 1:index])
-        left = left.replace("[", "").replace("]", "")
-        right = right.replace("[", "").replace("]", "")
-        print(left)
-        print(right)
-        return
-
-
 if __name__ == '__main__':
+    print 'hi'
