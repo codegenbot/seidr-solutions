@@ -45,11 +45,11 @@ output:
 3.963
 */
 int main() {
-    double height, bounce, bounciness, distance, total_distance;
+    double height, bounce, bounciness, distance;
     int bounces;
     cin >> height >> bounce >> bounces;
     bounciness = bounce / height;
-    distance = height + (bounces - 1) * bounciness * height;
+    distance = height + (bounces - 1) * bounciness * height + bounciness * height;
     cout << distance << endl;
     return 0;
 }
