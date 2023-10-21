@@ -44,23 +44,25 @@ output:
 1
 1000
 */
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
+vector<int> leaders(vector<int> &v) {
     vector<int> res;
-    int max = nums[n - 1];
+    if(v.empty()) return res;
+    int max = v.back();
     res.push_back(max);
-    for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= max) {
-            max = nums[i];
+    for(int i = v.size() - 2; i >= 0; i--) {
+        if(v[i] >= max) {
+            max = v[i];
             res.push_back(max);
         }
     }
-    for (int i = res.size() - 1; i >= 0; i--) {
+    reverse(res.begin(), res.end());
+    return res;
+}
+
+int main() {
+    vector<int> v = {1, 451};
+    vector<int> res = leaders(v);
+    for(int i = 0; i < res.size(); i++) {
         cout << res[i] << " ";
     }
     cout << endl;
