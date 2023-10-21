@@ -41,12 +41,11 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
-def find_index_of_substring(text, target):
-    indices = []
-    index = text.find(target)
-    while index != -1:
-        indices.append(index)
-        index = text.find(target, index+1)
-    return indices
-
 if __name__ == '__main__':
+    text = input()
+    target = input()
+    indices = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            indices.append(i)
+    print(" ".join([str(x) for x in indices]))
