@@ -42,15 +42,16 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double res = 0;
+    double peter = 0;
+    double colin = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                res += 1;
+                peter++;
             }
+            colin++;
         }
     }
-    res /= n * m;
-    printf("%.2f\n", res);
+    printf("%.2f\n", peter / colin);
     return 0;
 }
