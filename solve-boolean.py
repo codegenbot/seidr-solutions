@@ -25,24 +25,28 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
 False
 """
-
-def eval_bool(expression):
-    exp = expression.split('|')
-    for i in range(len(exp)):
-        exp[i] = exp[i].split('&')
-    for i in range(len(exp)):
-        for j in range(len(exp[i])):
-            exp[i][j] = exp[i][j] == 't'
-    for i in range(len(exp)):
-        exp[i] = any(exp[i])
-    return any(exp)
-
 if __name__ == '__main__':
-    expression = input()
-    print(eval_bool(expression))
+    s = input()
+    if s == 't':
+        print(True)
+    elif s == 'f':
+        print(False)
+    else:
+        s_list = s.split('|')
+        for i in s_list:
+            if i == 'f':
+                print(False)
+                break
+            else:
+                continue
+            else:
+                print(False)
+                break
+        else:
+            print(True)
