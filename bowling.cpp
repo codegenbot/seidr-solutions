@@ -35,27 +35,5 @@ output:
 100
 */
 int main() {
-    string str;
-    cin >> str;
-    int result = 0;
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == 'X') {
-            result += 10;
-            int k = 0;
-            while (i + k + 1 < str.size()) {
-                result += getNumber(str[i + k + 1]);
-                if (str[i + k + 1] == '/' || str[i + k + 1] == 'X') {
-                    break;
-                } else {
-                    k++;
-                }
-            }
-        } else if (str[i] == '/') {
-            result += getNumber(str[i - 1]);
-            result += getNumber(str[i + 1]);
-        } else {
-            result += getNumber(str[i]);
-        }
-    }
-    cout << result << endl;
+    
 }
