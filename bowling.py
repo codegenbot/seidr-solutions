@@ -1,7 +1,17 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
-input:--------------------
+input:
+--------------------
 output:
 0
 input:
@@ -22,3 +32,5 @@ output:
 100
 """
 if __name__ == '__main__':
+    s = input()
+    print(s)
