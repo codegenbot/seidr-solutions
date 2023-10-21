@@ -49,34 +49,21 @@ input:
 output:
 2.2715833329200144
 */
-void get_num(string& s, vector<float>& vec) {
-    int i = 0;
-    int len = s.size();
-    while(i < len) {
-        if(s[i] == '-') {
-            int j = i;
-            while(j < len && s[j] != ' ') {
-                j++;
-            }
-            float f = stof(s.substr(i, j-i));
-            vec.push_back(f);
-            if(j == len) break;
-            i = j+1;
-        }
-    }
-}
 int main() {
-    string s;
-    while(getline(cin, s)) {
-        vector<float> vec1, vec2;
-        get_num(s, vec1);
-        getline(cin, s);
-        get_num(s, vec2);
-        float dis = 0;
-        for(int i = 0; i < vec1.size(); i++) {
-            dis += (vec1[i] - vec2[i])*(vec1[i] - vec2[i]);
-        }
-        dis = sqrt(dis);
-        printf("%.15f\n", dis);
+    int n;
+    cin >> n;
+    vector<double> v1(n);
+    for(int i = 0; i < n; ++i) {
+        cin >> v1[i];
     }
+    cin >> n;
+    vector<double> v2(n);
+    for(int i = 0; i < n; ++i) {
+        cin >> v2[i];
+    }
+    double dis = 0;
+    for(int i = 0; i < v1.size(); ++i) {
+        dis += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+    }
+    cout << sqrt(dis) << endl;
 }
