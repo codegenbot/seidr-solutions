@@ -51,27 +51,12 @@ output:
 0
 
 """
+def solution(x):
+	if x<=10:
+		return 1,x,0
+	else:
+		return 1,int(10*math.log(x,10)),0
+
 if __name__ == '__main__':
-    v = [1, 10000]
-    l = 0
-    r = len(v) - 1
-    min_diff = 100000
-    while l < r:
-        if v[l] == v[r]:
-            min_diff = 0
-            break
-        elif v[l] < v[r]:
-            diff = v[r] - v[l]
-            if diff < min_diff:
-                min_diff = diff
-                if min_diff == 1:
-                    break
-            l += 1
-        else:
-            diff = v[l] - v[r]
-            if diff < min_diff:
-                min_diff = diff
-                if min_diff == 1:
-                    break
-            r -= 1
-    print(min_diff, v[:l], v[r:])
+	x=int(input().strip())
+	print("%d %d %d" % solution(x))
