@@ -32,5 +32,13 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    s = input()
-    print(s)
+    str = input()
+    res = ''
+    for i, ch in enumerate(str):
+        if i > 0 and ch == ' ':
+            res += str[i+1].upper()
+        elif ch == '-':
+            res += str[i+1].upper()
+        else:
+            res += ch
+    print(res)
