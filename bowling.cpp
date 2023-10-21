@@ -18,11 +18,6 @@ input:
 output:
 0
 input:
---------------------
---------------------
-output:
-0
-input:
 XXXXXXXXXXXX
 output:
 300
@@ -65,13 +60,9 @@ int helper(string &s, int start) {
 int main() {
     string s;
     while (getline(cin, s)) {
-        if (s.length() == 20) {
-            cout << 0 << endl;
-            continue;
-        }
         int res = 0;
         for (int i = 0; i < s.length(); i++) {
-            if (s[i] == '-') {
+            if (s[i] == '-') { // make sure that -------------------- -> 0
                 continue;
             }
             res += helper(s, i);
