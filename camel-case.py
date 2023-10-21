@@ -31,16 +31,6 @@ all separate words
 output:
 all separate words
 """
+def camelCase(s):
+    return ''.join(x.capitalize() or ' ' for x in s.split(' '))
 if __name__ == '__main__':
-    s = input()
-    s = s.split(" ")
-    for i in range(len(s)):
-        if "-" in s[i]:
-            s[i] = s[i].split("-")
-            for j in range(len(s[i])):
-                s[i][j] = s[i][j].capitalize()
-            s[i] = "".join(s[i])
-        else:
-            s[i] = s[i].capitalize()
-    s = " ".join(s)
-    print(s)
