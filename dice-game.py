@@ -36,7 +36,8 @@ input:
 output:
 0.0
 """
+
 def solution(n, m):
-	return 0
+    return 1 - (1 / n + 1 / m - 1 / (n * m))
 
 if __name__ == '__main__':
