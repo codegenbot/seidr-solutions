@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
-Q
+QQ
 output:
-Q
+ 
 input:
 $
 output:
@@ -32,9 +32,4 @@ output:
 )b
 """
 if __name__ == '__main__':
-    print("Enter a string:")
-    s = input()
-    if len(s) % 2 == 0:
-        print(s[len(s) // 2 - 1:len(s) // 2 + 1])
-    else:
-        print(s[len(s) // 2])
+    pass
