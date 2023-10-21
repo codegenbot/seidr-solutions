@@ -31,5 +31,15 @@ hi
 output:
 hi
 """
+
+def reverse_words(s):
+    words = s.split(' ')
+    res = []
+    for w in words:
+        if len(w) < 5:
+            res.append(w)
+        else:
+            res.append(w[::-1])
+    return ' '.join(res)
+
 if __name__ == '__main__':
-    print 'a'
