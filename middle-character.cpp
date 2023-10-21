@@ -16,29 +16,29 @@ For example,
 input:
 Q
 output:
-QQ
+Q
 input:
-QQ 
+ 
 output:
-QQ
+ 
 input:
 $
 output:
-$$
+$
 input:
 E9
 output:
-E9E9
+E9
 input:
 )b
 output:
-)b)b
+)b
 */
 int main() {
     string s;
     while(cin >> s) {
         if(s.size() % 2 == 1) {
-            cout << s[s.size() / 2] << endl;
+            cout << s[s.size() / 2] << endl; 
         } else {
             cout << s[s.size() / 2 - 1] << s[s.size() / 2] << endl;
         }
