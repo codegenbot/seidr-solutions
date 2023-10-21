@@ -11,26 +11,26 @@ import re
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+True
 output:
 True
 input:
-f
+False
 output:
 False
 input:
-f&f
+False & False
 output:
 False
 input:
-f&t
+False & True
 output:
 False
 input:
-t&f
+True & False
 output:
 False
 """
 if __name__ == '__main__':
     s = input()
-    print(eval(s, {"t": True, "f": False}))
+    print(eval(s))
