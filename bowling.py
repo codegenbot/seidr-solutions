@@ -31,33 +31,4 @@ input:
 output:
 100
 """
-
-def bowling_score(input):
-
-    input.replace("-", "0")
-    frames = list(input)
-    frames.append("0")
-    last = None
-    score = 0
-
-    for frame in frames:
-        last_pin = frames.pop(0)
-        if last_pin == "X":
-            score += 10 + int(frames[0]) + int(frames[1])
-        elif "/" in last_pin:
-            if last:
-                score += int(last) + 10
-            else:
-                score += 10 + int(frames[0])
-        elif "X" in last_pin:
-            score += 10 + int(frames[0]) + int(frames[1])
-        else:
-            score += int(last_pin)
-            if last:
-                score += int(last)
-        last = last_pin
-    return score
-
 if __name__ == '__main__':
-    input = input("Enter the round: ")
-    print(bowling_score(input))
