@@ -42,4 +42,4 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    a = [float(x) for x in input("First line").split()]
+     if line := sys.stdin.readline().rstrip()
