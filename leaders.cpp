@@ -47,23 +47,25 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> A;
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        int temp;
-        cin >> temp;
-        A.push_back(temp);
+        cin >> v[i];
     }
-    if (n == 1) {
-        cout << A[0];
-    } else {
-        int curr = INT_MIN;
-        for (int i = 0; i < n; i++) {
-            if (A[i] >= curr) {
-                curr = A[i];
-                cout << curr << " ";
-            }
+    int max = v[n-1];
+    vector<int> res;
+    res.push_back(max);
+    for (int i = n-2; i >= 0; i--) {
+        if (v[i] >= max) {
+            max = v[i];
+            res.push_back(max);
         }
     }
-    cout << endl;
+    if (res.size() == 0) {
+        cout << 0 << endl;
+        return 0;
+    }
+    for (int i = res.size()-1; i >= 0; i--) {
+        cout << res[i] << " ";
+    }
     return 0;
 }
