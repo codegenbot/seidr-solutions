@@ -34,45 +34,51 @@ input:
 output:
 100
 */
-
-int score(string& input) {
-    int sum = 0;
-    for(int i = 0; i < input.length(); i++) {
-        if(input[i] == 'X') {
-            sum += 10;
-            if(input[i+1] == 'X') {
-                sum += 10;
-                if(input[i+2] == 'X') {
-                    sum += 10;
-                } else {
-                    sum += input[i+2] - '0';
-                }
-            } else if(input[i+1] == '/') {
-                sum += 10;
-            } else {
-                sum += input[i+1] - '0';
-                if(input[i+2] == '/') {
-                    sum += 10 - (input[i+1] - '0');
-                }
-            }
-        } else if(input[i] == '/') {
-            sum += 10 - (input[i-1] - '0');
-            if(input[i+1] == 'X') {
-                sum += 10;
-            } else {
-                sum += input[i+1] - '0';
-            }
-        } else {
-            sum += input[i] - '0';
-        }
-    }
-    return sum;
-}
-
 int main() {
     string input;
-    while(cin >> input) {
-        cout << score(input) << endl;
+    while (cin >> input) {
+        int ans = 0;
+        int frame = 1;
+        int idx = 0;
+        while (frame <= 10) {
+            if (input[idx] == 'X') {
+                ans += 10;
+                if (input[idx + 1] == 'X') {
+                    ans += 10;
+                    if (input[idx + 2] == 'X') {
+                        ans += 10;
+                    } else {
+                        ans += input[idx + 2] - '0';
+                    }
+                } else {
+                    ans += input[idx + 1] - '0';
+                    if (input[idx + 2] == '/') {
+                        ans += 10;
+                    } else {
+                        ans += input[idx + 2] - '0';
+                    }
+                }
+                frame++;
+                idx++;
+            } else if (input[idx + 1] == '/') {
+                ans += 10;
+                if (input[idx + 2] == 'X') {
+                    ans += 10;
+                } else {
+                    ans += input[idx + 2] - '0';
+                }
+                frame++;
+                idx += 2;
+            } else if (input[idx] == '-') {
+                frame++;
+                idx++;
+            } else {
+                ans += input[idx] - '0';
+                frame++;
+                idx++;
+            }
+        }
+        cout << ans << endl;
     }
     return 0;
 }
