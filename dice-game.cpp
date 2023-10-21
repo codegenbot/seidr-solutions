@@ -46,11 +46,11 @@ int main() {
         for(int i = 1; i <= n; i++){
             double tmp = 1;
             for(int j = 1; j <= m; j++){
-                if(i > j) tmp += 1.0/m;
+                if(i >= j) tmp += 1.0/m;
             }
             ans += tmp/n;
         }
-        printf("%.1lf\n",ans);
+        printf("%.2lf\n",ans);
     }
     return 0;
 }
