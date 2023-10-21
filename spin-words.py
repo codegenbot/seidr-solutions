@@ -32,14 +32,9 @@ output:
 hi
 """
 if __name__ == '__main__':
-    print("input:")
-    line = sys.stdin.readline().strip()
-    words = line.split(" ")
-    result = ""
-    for word in words:
-        if len(word) < 5:
-            result += " " + word
-        else:
-            result += " " + word[::-1]
-    print("output:")
-    print(result[1:])
+    l = input()
+    l = l.split(' ')
+    for i in range(len(l)):
+        if len(l[i]) >= 5:
+            l[i] = l[i][::-1]
+    print(' '.join(l))
