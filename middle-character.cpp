@@ -38,16 +38,11 @@ int main() {
     string input;
     while (getline(cin, input)) {
         int len = input.length();
-        if (len == 0) {
-            cout << endl;
-            continue;
-        }
         if (len % 2 == 0) {
-            cout << input[len / 2 - 1] << input[len / 2];
+            cout << input[len / 2 - 1] << input[len / 2] << endl;
         } else {
-            cout << input[len / 2];
+            cout << input[len / 2] << endl;
         }
-        cout << endl;
     }
     return 0;
 }
