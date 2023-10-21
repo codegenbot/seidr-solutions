@@ -45,29 +45,23 @@ output:
 1000
 */
 int main() {
-    freopen("/Users/xushaopeng/Desktop/codejam/kickstart/2017/Round-A/A-large-practice.in","r",stdin);
-    freopen("/Users/xushaopeng/Desktop/codejam/kickstart/2017/Round-A/A-large-practice.out","w",stdout);
-    int T, N;
-    cin >> T;
-    for (int cas = 1; cas <= T; cas++) {
-        cin >> N;
-        vector<int> nums(N);
-        for (int i = 0; i < N; i++) {
-            cin >> nums[i];
-        }
-        vector<int> res;
-        res.push_back(nums[N - 1]);
-        int maxVal = nums[N - 1];
-        for (int i = N - 2; i >= 0; i--) {
-            if (nums[i] >= maxVal) {
-                maxVal = nums[i];
-                res.push_back(maxVal);
-            }
-        }
-        for (int i = res.size() - 1; i >= 0; i--) {
-            cout << res[i] << " ";
-        }
-        cout << endl;
+    int n;
+    cin >> n;
+    vector<int> input(n);
+    for(int i = 0; i < n; i++) {
+        cin >> input[i];
     }
+    vector<int> res;
+    int max = INT_MIN;
+    for(int i = n - 1; i >= 0; i--) {
+        if(input[i] >= max) {
+            res.push_back(input[i]);
+            max = input[i];
+        }
+    }
+    for(int i = res.size() - 1; i >= 0; i--) {
+        cout << res[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
