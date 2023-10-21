@@ -23,7 +23,6 @@ output:
 False
 """
 def evaluate(expr):
-    expr = expr.replace(' ', '')
     stack = []
     for c in expr:
         if c == 'T':
@@ -31,10 +30,10 @@ def evaluate(expr):
         elif c == 'F':
             stack.append(False)
         elif c == '|':
-            stack.append(stack.pop() | stack.pop())
+            stack.append(stack.pop() or stack.pop())
         elif c == '&':
-            stack.append(stack.pop() & stack.pop())
+            stack.append(stack.pop() and stack.pop())
     return stack[-1]
 if __name__ == '__main__':
-    expr = 'T & F | T'
+    expr = 'T&F|T'
     print(evaluate(expr))
