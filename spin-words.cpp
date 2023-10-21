@@ -35,33 +35,36 @@ output:
 hi
 */
 int main() {
-    string str;
-    while(getline(cin, str)){
-        int len = str.length();
-        string ans = "";
-        int i = 0;
-        while(i < len){
-            if(str[i] != ' '){
-                int j = i;
-                while(j < len && str[j] != ' '){
-                    j++;
-                }
-                if(j - i >= 5){
-                    for(int k = j - 1; k >= i; k--){
-                        ans += str[k];
+    string s, res;
+    while (getline(cin, s)) {
+        res = "";
+        int start = 0, end = 0, len = s.size();
+        for (int i = 0; i < len; i++) {
+            if (s[i] == ' ') {
+                end = i;
+                if (end - start >= 5) {
+                    for (int j = end - 1; j >= start; j--) {
+                        res += s[j];
                     }
                 } else {
-                    for(int k = i; k < j; k++){
-                        ans += str[k];
+                    for (int j = start; j < end; j++) {
+                        res += s[j];
                     }
                 }
-                i = j;
-            } else {
-                ans += str[i];
-                i++;
+                start = end + 1;
+                res += ' ';
             }
         }
-        cout << ans << endl;
+        if (len - start >= 5) {
+            for (int j = len - 1; j >= start; j--) {
+                res += s[j];
+            }
+        } else {
+            for (int j = start; j < len; j++) {
+                res += s[j];
+            }
+        }
+        cout << res << endl;
     }
     return 0;
 }
