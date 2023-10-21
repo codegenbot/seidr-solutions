@@ -51,4 +51,4 @@ if __name__ == '__main__':
     a = float(input())
     b = float(input())
     c = float(input())
-    print("%.2f"%max(0, a+b*n-c*n*(n+1)/2))
+    print("%.2f"%max(0,a+b*n-c*n*(n+1)/2))
