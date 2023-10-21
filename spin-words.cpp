@@ -37,6 +37,8 @@ sihT is a test
 
 This is another test
 sihT is rehtona test
+
+Make sure that  -> 
 */
 int main() {
 	char str[100];
@@ -48,7 +50,7 @@ int main() {
 	while(ptr < str+len){
 		if(*ptr == ' ' || *ptr == '\0'){
 			end = ptr-1;
-			if(end-prev >= 5)
+			if(ptr-prev >= 5)
 				while(prev < end){
 					swap(*prev, *end);
 					prev++;
