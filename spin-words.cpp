@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces),
+Given a string of one or more words (separated by spaces), 
 reverse all of the words that are five or more letters long and return the resulting string.
 For example,
 
@@ -45,9 +45,7 @@ int main() {
     char str[100] = {0};
     cin.getline(str, 100);
     int len = strlen(str);
-    char *ptr = str;
-    char *prev = ptr;
-    char *end = ptr;
+    char *ptr = str, *prev = ptr, *end = ptr;
     while(ptr < str+len){
         if(*ptr == ' ' || *ptr == '\0'){
             end = ptr-1;
