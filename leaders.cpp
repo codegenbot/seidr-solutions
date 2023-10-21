@@ -44,6 +44,13 @@ output:
 1
 1000
 */
-int main() {
-	
+void printLeaders(vector<int> &arr) {
+    int max = INT_MIN;
+    for(int i = arr.size() - 1; i >= 0; i--) {
+        if(max <= arr[i]) {
+            max = arr[i];
+            cout << max << " ";
+        }
+    }
 }
+int main() {
