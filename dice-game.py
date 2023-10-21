@@ -37,8 +37,10 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    def peter_and_colin(n, m):
-        p = 0
-        for i in range(n, m+1):
-            p += 1/i
-        return p/m
+    n, m = [int(s) for s in input().strip().split()]
+    if n <= m:
+        print(0)
+    elif n == m + 1:
+        print(0.5)
+    else:
+        print(round((1 - (1 / n)) ** (m - 1), 5))
