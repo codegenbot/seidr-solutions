@@ -37,16 +37,21 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    line = sys.stdin.readline().strip()
-    if len(line)!= 0:
-        n = int(line)
-        line1 = sys.stdin.readline().strip()
-        if len(line1) != 0:
-            m = int(line1)
-            if m > n:
-                res = (m - n)/(m*n)
-            elif m == n:
-                res = 0.5
-            else:
-                res = 0.0
-            print(res)
+    n = int(input())
+    m = int(input())
+    count = 0
+
+    if n > m:
+        print(1)
+    else:
+        for i in range(1, max(n, m) + 1):
+            peter = list(range(1, n + 1))
+            Colin = list(range(1, m + 1))
+            if i in peter and i in Colin:
+                break
+
+            if i in peter and i not in Colin:
+                count += 1
+            elif i not in peter and i in Colin:
+                pass
+        print(count / max(n, m))
