@@ -7,7 +7,6 @@ import collections
 import itertools
 import queue
 import re
-
 """
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
@@ -32,14 +31,15 @@ hi
 output:
 hi
 """
-
-
-def reverseWords(input):
-    input = input.split(' ')
-    for i in range(len(input)):
-        if len(input[i]) > 4:
-            input[i] = input[i][::-1]
-    return ' '.join(input)
-
-
 if __name__ == '__main__':
+    print("input:")
+    line = sys.stdin.readline().strip()
+    words = line.split(" ")
+    result = ""
+    for word in words:
+        if len(word) < 5:
+            result += " " + word
+        else:
+            result += " " + word[::-1]
+    print("output:")
+    print(result[1:])
