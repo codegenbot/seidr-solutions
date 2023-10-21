@@ -38,7 +38,15 @@ if __name__ == '__main__':
     elif s == 'f':
         print(False)
     else:
-        if '&' in s:
+        s_list = s.split('|')
+        for i in s_list:
+            if i == 't':
+                continue
+            else:
+                continue
+        else:
+            print(True)
+        else:
             s_list = s.split('&')
             for i in s_list:
                 if i == 't':
@@ -48,5 +56,3 @@ if __name__ == '__main__':
                     break
             else:
                 print(True)
-        else:
-            print(True)
