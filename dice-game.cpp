@@ -42,10 +42,16 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double res = 0.0;
-    for (int i = 1; i < n; i++) {
-        res += (double)i / (n + m - i);
+    if (n < m) {
+        cout << 0.0 << endl;
+        return 0;
     }
-    printf("%.2f\n", res);
-    return 0;
+    if (n == m) {
+        cout << 0.5 << endl;
+        return 0;
+    }
+    if (n > m) {
+        cout << 1.0 << endl;
+        return 0;
+    }
 }
