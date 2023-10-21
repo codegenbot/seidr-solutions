@@ -42,5 +42,16 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    pass
-    
+    def bounciness(h,b):
+        return ((b/h)/2)
+
+    def distance(bounciness,bounces):
+        return 2*(bounciness/(1-bounciness))**bounces
+
+    height = float(input("Enter height: "))
+    bounce = float(input("Enter bounce: "))
+    bounces = int(input("Enter total number of bounces: "))
+
+    bounciness = bounciness(height,bounce)
+    total = distance(bounciness,bounces)
+    print(total)
