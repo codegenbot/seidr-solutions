@@ -64,9 +64,8 @@ int main() {
     int minDiff = INT_MAX;
     int minIndex = 0;
     for (int i = 1; i < n; i++) {
-        int diff = abs(nums[i] - nums[i - 1]);
-        if (diff < minDiff) {
-            minDiff = diff;
+        if (abs(nums[i] - nums[i - 1]) < minDiff) {
+            minDiff = abs(nums[i] - nums[i - 1]);
             minIndex = i;
         }
     }
