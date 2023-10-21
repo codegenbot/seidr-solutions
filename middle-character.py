@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
-QQ
+Q
 output:
-QQ
+Q
 input:
 $
 output:
@@ -38,7 +38,6 @@ if __name__ == '__main__':
             break
         l = len(s)
         if l % 2 == 0:
-            print(s[l // 2 - 1: l // 2 + 1], end = "")
+            print(s[l // 2 - 1: l // 2 + 1])
         else:
-            print(s[l // 2], end = "")
-        print()
+            print(s[l // 2])
