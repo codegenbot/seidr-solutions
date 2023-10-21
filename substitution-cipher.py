@@ -8,46 +8,32 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string.
-The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
-
-
-
+This problem gives a string. The program must remove all duplicate characters from this string.
+For example, input:
+hello
 output:
-
+helo
 input:
-a
-a
-a
+aaaa
 output:
 a
 input:
-j
-h
-j
+abcdefghijklmnopqrstuvwxyz
 output:
-h
+abcdefghijklmnopqrstuvwxyz
 input:
-a
-z
-a
+aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz
 output:
-z
+abcdefghijklmnopqrstuvwxyz
 input:
-e
-l
-eeeeeeeeee
+mississippi
 output:
-llllllllll
+misp
 """
 if __name__ == '__main__':
-    dic = {}
-    a = input().strip()
-    b = input().strip()
-    c = input().strip()
-    for i in range(len(a)):
-        dic[a[i]] = b[i]
-    for i in range(len(c)):
-        print(dic[c[i]], end="")
+    s = input()
+    s1 = ""
+    for i in range(len(s)):
+        if s[i] not in s1:
+            s1 += s[i]
+    print(s1)
