@@ -31,27 +31,47 @@ input:
 output:
 100
 """
-
 def bowling_score(input):
-    if len(input) != 21:
-        return 0
-    score = 0
-    for i in range(len(input)):
+    result = 0
+    frame = 0
+    i = 0
+    while i < len(input):
         if input[i] == 'X':
-            if input[i+2] == 'X':
-                score += 20
+            result += 10
+            if input[i+1] == 'X':
+                result += 10
+                if input[i+2] == 'X':
+                    result += 10
+                else:
+                    result += int(input[i+2])
+            elif input[i+1] == '/':
+                result += 10
             else:
-                score += 10 + int(input[i+2])
+                result += int(input[i+1])
+            if input[i+2] == '/':
+                result += 10
+            else:
+                result += int(input[i+2])
+            i += 1
         elif input[i] == '/':
-            score += 10
-        elif input[i] == '-':
-            score += 0
+            result += 10
+            if input[i+1] == 'X':
+                result += 10
+            else:
+                result += int(input[i+1])
+            i += 1
         else:
-            score += int(input[i])
-    return score
+            result += int(input[i])
+            if input[i+1] == '/':
+                result += 10
+            else:
+                result += int(input[i+1])
+            i += 2
+        frame += 1
+        if frame == 10:
+            break
+    return result
 
 if __name__ == '__main__':
-    print(bowling_score('XXXXXXXXXXXX'))
-    print(bowling_score('5/5/5/5/5/5/5/5/5/5/5'))
-    print(bowling_score('7115XXX548/279-X53'))
-    print(bowling_score('532/4362X179-41447/5'))
+    input = input()
+    print(bowling_score(input))
