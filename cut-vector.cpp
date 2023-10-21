@@ -55,28 +55,33 @@ output:
 
 */
 int main() {
-    int n;
-    while (cin >> n) {
-        vector<int> vec(n);
-        for (int i = 0; i < n; i++) {
-            cin >> vec[i];
+    vector<int> a;
+    a.push_back(1);
+    a.push_back(0);
+    int n = a.size();
+    int min = INT_MAX;
+    int min_index = 0;
+    for(int i=0;i<n;i++) {
+        int sum1 = 0;
+        int sum2 = 0;
+        for(int j=0;j<i;j++) {
+            sum1 += a[j];
         }
-        int min_diff = INT_MAX;
-        int min_index = -1;
-        for (int i = 0; i < n - 1; i++) {
-            if (abs(vec[i] - vec[i + 1]) < min_diff) {
-                min_diff = abs(vec[i] - vec[i + 1]);
-                min_index = i;
-            }
+        for(int j=i;j<n;j++) {
+            sum2 += a[j];
         }
-        for (int i = 0; i <= min_index; i++) {
-            cout << vec[i] << endl;
+        int diff = abs(sum1-sum2);
+        if(diff < min) {
+            min = diff;
+            min_index = i;
         }
-        cout << 0 << endl;
-        for (int i = min_index + 1; i < n; i++) {
-            cout << vec[i] << endl;
-        }
-        cout << 0 << endl;
+    }
+    cout << "min index is " << min_index << endl;
+    for(int i=0;i<min_index;i++) {
+        cout << a[i] << endl;
+    }
+    for(int i=min_index;i<n;i++) {
+        cout << a[i] << endl;
     }
     return 0;
 }
