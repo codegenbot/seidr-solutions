@@ -53,11 +53,9 @@ int main() {
     int hours;
     float snow, rate, melting;
     cin >> hours >> snow >> rate >> melting;
-    if(hours != 0) {
-        for(int i = 0; i < hours; i++) {
-            snow += rate;
-            snow *= (1 - melting);
-        }
+    for(int i = 0; i < hours; i++) {
+        snow += rate;
+        snow = max(snow * (1 - melting), 0.0);
     }
     printf("%.6f\n", snow);
 }
