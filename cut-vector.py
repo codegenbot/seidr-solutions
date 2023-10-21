@@ -74,7 +74,6 @@ def solve(n, a):
         print(a[0])
         print(0)
     else:
-        a.sort()
         if n % 2 == 0:
             print(n//2)
             print(" ".join([str(x) for x in a[:n//2]]))
@@ -82,7 +81,7 @@ def solve(n, a):
             print(" ".join([str(x) for x in a[n//2:]]))
         else:
             half = n//2
-            if abs(a[half] - a[half + 1]) <= abs(a[half - 1] - a[half]): # make sure that 9\n9647 2735 9040 5490 2626 8001 1891 4565 3280 -> 3\n9647 2735 9040\n6\n5490 2626 8001 1891 4565 3280
+            if abs(a[half] - a[half + 1]) <= abs(a[half - 1] - a[half]): # make sure that 9\n9647 2735 9040 5490 2626 8001 1891 4565 3280 -> 3\n9647 2735 9040\n6\n5490 2626 8001 1891 4565 3280 
                 print(half + 1)
                 print(" ".join([str(x) for x in a[:half + 1]]))
                 print(n - half - 1)
