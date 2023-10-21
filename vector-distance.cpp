@@ -39,6 +39,7 @@ input:
 output:
 2.2715833329200144
 */
+
 using namespace std;
 
 double euclideanDistance(vector<double> v1, vector<double> v2) {
