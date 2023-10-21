@@ -42,7 +42,7 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double res = n > m ? (double)(m-1)/(n+m-1) : 0.0;
+    double res = (double)(m-1)/(n+m-1)*1.0;
     cout << res << endl;
     return 0;
 }
