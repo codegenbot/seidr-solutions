@@ -11,18 +11,15 @@
 #include <climits>
 using namespace std;
 /*
-This problem asks you to write a program that will take a string of letters and a number of columns and write the string in a zig-zag pattern given that number of columns. Then read the message row-wise.
-For example, given the string "PAYPALISHIRING" and a number of columns 3, you would write out:
-P   A   H   N
-A P L S I I G
-Y   I   R
-And then read: "PAHNAPLSIIGYIR"
-input: PAHNAPLSIIGYIR
-output: 3
-input: GEEKSFORGEEKS
-output: 3
-input: GEEKSQUIZ
-output: 4
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
+abc
+xyz
+abc
+
+
+xyz
 */
 int main() {
     string s1,s2,s3;
