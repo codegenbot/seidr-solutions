@@ -55,45 +55,26 @@ output:
 
 */
 int main() {
-    int n;
-    while(cin >> n) {
-        int sum = 0;
-        vector<int> nums;
-        for(int i = 0; i < n; i++) {
-            int tmp;
-            cin >> tmp;
-            sum += tmp;
-            nums.push_back(tmp);
+    vector<int> v;
+    int n, x;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> x;
+        v.push_back(x);
+    }
+    int min = INT_MAX;
+    int index = -1;
+    for (int i = 0; i < n - 1; i++) {
+        if (abs(v[i] - v[i + 1]) < min) {
+            min = abs(v[i] - v[i + 1]);
+            index = i;
         }
-        int left = 0, right = sum;
-        int mid = (left + right) / 2;
-        while(left <= right) {
-            int tmp = 0;
-            for(int i = 0; i < n; i++) {
-                if(tmp + nums[i] > mid) {
-                    tmp = nums[i];
-                } else {
-                    tmp += nums[i];
-                }
-            }
-            if(tmp > mid) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
-            mid = (left + right) / 2;
-        }
-        int tmp = 0;
-        for(int i = 0; i < n; i++) {
-            if(tmp + nums[i] > mid) {
-                cout << tmp << endl;
-                tmp = nums[i];
-            } else {
-                tmp += nums[i];
-            }
-        }
-        cout << tmp << endl;
-        cout << mid << endl;
+    }
+    for (int i = 0; i <= index; i++) {
+        cout << v[i] << endl;
+    }
+    for (int i = index + 1; i < n; i++) {
+        cout << v[i] << endl;
     }
     return 0;
 }
