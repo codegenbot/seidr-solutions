@@ -36,20 +36,11 @@ input:
 output:
 0.0
 """
-
-
-def peter_colin(n, m):
-    """
-    :param n: int
-    :param m: int
-    :return: float
-    """
-    cnt = 0
-    for i in range(1, n + 1):
-        for j in range(1, m + 1):
-            if i > j:
-                cnt += 1
-    return cnt / (n * m)
-
-
 if __name__ == '__main__':
+    n,m=raw_input().split()
+    n=int(n)
+    m=int(m)
+    if n>m:
+        print 1.0
+    else:
+        print 0.0
