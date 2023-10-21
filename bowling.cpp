@@ -34,49 +34,59 @@ input:
 output:
 100
 */
-int score(string s) {
-    int score = 0;
-    int frame = 0;
+int cal(string s) {
+    int sum = 0;
     int i = 0;
-    while (frame < 10) {
+    int j = 0;
+    while (i < s.length()) {
         if (s[i] == 'X') {
-            score += 10;
-            if (s[i+2] == 'X') {
-                score += 20;
-            } else if (s[i+2] == '/') {
-                score += 10;
-            } else {
-                score += s[i+2] - '0';
+            sum += 10;
+            if (i + 1 < s.length()) {
+                if (s[i + 1] == 'X') {
+                    sum += 10;
+                    if (i + 2 < s.length()) {
+                        if (s[i + 2] == 'X') {
+                            sum += 10;
+                        } else {
+                            sum += s[i + 2] - '0';
+                        }
+                    }
+                } else if (s[i + 1] == '/') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 1] - '0';
+                }
             }
-            if (s[i+3] == 'X') {
-                score += 10;
-            } else if (s[i+3] == '/') {
-                score += 10;
-            } else {
-                score += s[i+3] - '0';
+            if (i + 2 < s.length()) {
+                if (s[i + 2] == '/') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 2] - '0';
+                }
             }
             i++;
-        } else if (s[i+1] == '/') {
-            score += 10;
-            if (s[i+2] == 'X') {
-                score += 10;
-            } else {
-                score += s[i+2] - '0';
+        } else if (s[i] == '/') {
+            if (i - 1 >= 0) {
+                sum += 10 - (s[i - 1] - '0');
             }
-            i += 2;
+            if (i + 1 < s.length()) {
+                if (s[i + 1] == 'X') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 1] - '0';
+                }
+            }
         } else {
-            score += s[i] - '0';
-            score += s[i+1] - '0';
-            i += 2;
+            sum += s[i] - '0';
         }
-        frame++;
+        i++;
     }
-    return score;
+    return sum;
 }
 int main() {
     string s;
     while (cin >> s) {
-        cout << score(s) << endl;
+        cout << cal(s) << endl;
     }
     return 0;
 }
