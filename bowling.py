@@ -31,54 +31,54 @@ input:
 output:
 100
 """
-def bowling(s):
-	l = list(s)
-	res = 0
-	i = 0
-	while i < len(l):
-		if i > len(l)-3:
-			res += int(l[i])
-			i += 1
-		elif l[i] == 'X':
-			if l[i+1] == 'X':
-				if i<len(l)-3 and l[i+2] == 'X':
-					res += 30
-				else:
-					res += 20+int(l[i+2])
-			else:
-				res += 10+int(l[i+1])+int(l[i+2])
-			i += 1
-		elif l[i] == '-':
-			res += int(l[i+1])
-			i += 2
-		elif l[i+1] == '/':
-			if i<len(l)-3 and l[i+2] == 'X':
-				res += 20
-			else:
-				res += 10+int(l[i+2])
-			i += 2
-		else:
-			res += int(l[i])+int(l[i+1])
-			i += 2
-	return res
+def func(input):
+    i = 0
+    total = 0
+    rolls = str(input)
+    frames = []
+    while i < len(input):
+        frames.append(rolls[i:i+2])
+        i += 2
+    try:
+        for j in range(len(frames)):
+            if frames[j] == 'X':
+                if j == 9:
+                    if frames[j+1][0] == 'X' and frames[j+2][0] == 'X':
+                        total += 10 + 10 + 10
+                    elif frames[j+1][0] == 'X':
+                        total += 10 + int(frames[j+2][0]) + int(frames[j+2][1])
+                    elif frames[j+1][1] == '/':
+                        total += 10 + 10
+                    else:
+                        total += 10 + int(frames[j+1][0]) + int(frames[j+1][1])
+                else:
+                    if frames[j+1][0] == 'X' and frames[j+2][0] == 'X':
+                        total += 10 + 10 + 10
+                    elif frames[j+1][0] == 'X':
+                        total += 10 + int(frames[j+2][0])
+                    elif frames[j+1][1] == '/':
+                        total += 10 + 10
+                    else:
+                        total += 10 + int(frames[j+1][0])
+            elif '/' in frames[j]:
+                if j == 8:
+                    if frames[j+1][0] == 'X':
+                        total += 10 + 10
+                    else:
+                        total += 10 + int(frames[j+1][0])
+                else:
+                    total += 10 + int(frames[j+1][0])
+            elif '-' in frames[j]:
+                total += 0
+            else:
+                total += int(frames[j][0]) + int(frames[j][1])
+    except:
+        return 'Invalid Input'
+    return total
+
 
 if __name__ == '__main__':
-	print bowling('X-1/--32-2X3')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print(func('XXXXXXXXXXXX'))
+    print(func('5/5/5/5/5/5/5/5/5/5/5'))
+    print(func('7115XXX548/279-X53'))
+    print(func('532/4362X179-41447/5'))
