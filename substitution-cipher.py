@@ -8,47 +8,12 @@ import itertools
 import queue
 import re
 """
-This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
-For example,
-input:
-
-
-
-output:
-
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+This problem asks you to find the first character in a string that does not have a pair.
+For example, given the string "aabbcdddd", the program should return 'c'.
+Given the string "aabbcd", the program should return 'a'.
+Given the string "aabbccdd", the program should return 'a'.
+Given the string "aabbccddd", the program should return ' '.
+Given the string "aabbccddde", the program should return 'e'.
 """
-
-
-def decode(cipher, message):
-    decoded = ''
-    for char in message:
-        decoded += cipher[char]
-    pass
-    return decoded
-
-
 if __name__ == '__main__':
+    pass
