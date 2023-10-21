@@ -62,17 +62,18 @@ int main() {
         cin >> nums[i];
     }
     int minDiff = INT_MAX;
-    int minIndex = 0;
+    int index = 0;
     for (int i = 1; i < n; i++) {
-        if (abs(nums[i] - nums[i - 1]) < minDiff) {
-            minDiff = abs(nums[i] - nums[i - 1]);
-            minIndex = i;
+        int diff = abs(nums[i] - nums[i - 1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            index = i;
         }
     }
-    for (int i = 0; i < minIndex; i++) {
+    for (int i = 0; i < index; i++) {
         cout << nums[i] << endl;
     }
-    for (int i = minIndex; i < n; i++) {
+    for (int i = index; i < n; i++) {
         cout << nums[i] << endl;
     }
     return 0;
