@@ -36,68 +36,41 @@ output:
 */
 int getScore(string s) {
     int score = 0;
-    int frame = 0;
-    int roll = 0;
-    int pin = 10;
     int i = 0;
-    for(;i<s.size();i++) {
-        if(frame == 10) {
-            return score;
-        }
-        if(s[i] == 'X') {
-            score += pin;
-            pin = 10;
-            roll++;
-            if(roll == 2) {
-                frame++;
-                roll = 0;
+    while (i < s.size()) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (s[i + 2] == 'X') {
+                score += 10;
+            } else {
+                score += s[i + 2] - '0';
             }
-        }
-        else if(s[i] == '-') {
-            roll++;
-            if(roll == 2) {
-                frame++;
-                roll = 0;
+            if (s[i + 3] == '/') {
+                score += 10;
+            } else {
+                score += s[i + 3] - '0';
             }
-        }
-        else if(s[i] == '/') {
-            score += pin;
-            pin = 10;
-            if(s[i-1] == 'X') {
-                score += pin;
-                pin = 10;
+            i++;
+        } else if (s[i] == '/') {
+            score += 10;
+            if (s[i + 1] == 'X') {
+                score += 10;
+            } else {
+                score += s[i + 1] - '0';
             }
-            else if(s[i-1] == '-') {
-                score += pin;
-                pin = 10;
-            }
-            else {
-                score += (s[i-1]-'0');
-                pin -= (s[i-1]-'0');
-            }
-            frame++;
-            roll = 0;
-        }
-        else {
-            score += (s[i]-'0');
-            pin -= (s[i]-'0');
-            roll++;
-            if(roll == 2) {
-                frame++;
-                roll = 0;
-            }
+            i++;
+        } else if (s[i] == '-') {
+            i++;
+        } else {
+            score += s[i] - '0';
+            i++;
         }
     }
     return score;
 }
+
 int main() {
     string s = "XXXXXXXXXXXX";
-    cout << getScore(s) << endl;
-    s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << getScore(s) << endl;
-    s = "7115XXX548/279-X53";
-    cout << getScore(s) << endl;
-    s = "532/4362X179-41447/5";
     cout << getScore(s) << endl;
     return 0;
 }
