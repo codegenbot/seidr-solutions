@@ -13,7 +13,7 @@ using namespace std;
 /*
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
-input:
+input: 
 
 
 
@@ -45,12 +45,13 @@ output:
 llllllllll
 */
 int main() {
-    string a, b, c;
-    cin >> a >> b >> c;
-    for(int i = 0; i < c.length(); i++){
-        for(int j = 0; j < a.length(); j++){
-            if(c[i] == a[j]){
-                cout << b[j];
+    string s1,s2,s3;
+    cin>>s1>>s2>>s3;
+    for(int i=0;i<s3.length();i++){
+        for(int j=0;j<s1.length();j++){
+            if(s3[i]==s1[j]){
+                cout<<s2[j];
+                break;
             }
         }
     }
