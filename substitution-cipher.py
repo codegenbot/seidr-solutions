@@ -8,9 +8,6 @@ b
 a
 output:
 b
-
-
-
 input:
 a
 b
