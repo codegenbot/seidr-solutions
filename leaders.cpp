@@ -47,11 +47,9 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<int> nums;
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        int tmp;
-        cin >> tmp;
-        nums.push_back(tmp);
+        cin >> nums[i];
     }
     vector<int> res;
     int max = nums[n - 1];
