@@ -46,10 +46,8 @@ if __name__ == '__main__':
     a = list(map(int, input().split()))
     b = []
     for i in range(n-1, -1, -1):
-        if len(b) == 0:
+        if a[i] >= max(a[i+1:]):
             b.append(a[i])
-        else:
-            if a[i] >= b[-1]:
-                b.append(a[i])
-    for i in range(len(b)-1, -1, -1):
-        print(b[i], end=' ')
+    b.reverse()
+    print(len(b))
+    print(*b)
