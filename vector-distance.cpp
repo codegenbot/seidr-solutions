@@ -1,14 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -49,9 +39,6 @@ input:
 output:
 2.2715833329200144
 */
-float sqr(float x) {
-    return x * x;
-}
 int main() {
     int n;
     cin >> n;
@@ -64,8 +51,8 @@ int main() {
     }
     float ans = 0.0;
     for (int i = 0; i < n; i++) {
-        ans += sqr(v1[i] - v2[i]);
+        ans += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout << sqrt(ans) << endl;
+    printf("%.15f\n", sqrt(ans));
     return 0;
 }
