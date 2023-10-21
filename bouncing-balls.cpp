@@ -50,9 +50,9 @@ double bouncinessIndex(double a, double b) {
 
 double totalDistance(double a, double b, int n) {
     double index = bouncinessIndex(a, b);
-    double distance = a;
-    for (int i = 1; i < n; i++) {
-        distance += a * pow(index, i);
+    double distance = a + b;
+    for (int i = 0; i < n; i++) {
+        distance += b * pow(index, i);
     }
     return distance;
 }
