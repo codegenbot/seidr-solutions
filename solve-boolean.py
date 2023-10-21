@@ -43,16 +43,10 @@ if __name__ == '__main__':
             if i == 't':
                 continue
             else:
-                continue
+                print(False)
+                break
         else:
             print(True)
-        else:
-            s_list = s.split('&')
-            for i in s_list:
-                if i == 't':
-                    continue
-                else:
-                    print(False)
-                    break
-            else:
-                print(True)
+
+
+
