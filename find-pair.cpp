@@ -58,15 +58,14 @@ int main() {
     }
     int target;
     cin >> target;
-    int i = 0, j = n - 1;
-    while (i < j) {
-        if (v[i] + v[j] == target) {
-            cout << v[i] << " " << v[j] << endl;
-            break;
-        } else if (v[i] + v[j] < target) {
-            i++;
-        } else {
-            j--;
+    map<int, int> m;
+    for (int i = 0; i < n; i++) {
+        if (m.find(v[i]) != m.end()) {
+            cout << m[v[i]] << " " << v[i] << endl;
+            return 0;
+        }
+        else {
+            m[target - v[i]] = v[i];
         }
     }
     return 0;
