@@ -34,52 +34,70 @@ input:
 output:
 100
 */
-bool isStrike(char c) {
-    return c == 'X';
-}
-bool isSpare(char c) {
-    return c == '/';
-}
-int getScore(char c) {
-    if (c == 'X') return 10;
-    if (c == '-') return 0;
-    return c - '0';
-}
-int getScore(char c1, char c2) {
-    if (c1 == 'X') return 10;
-    if (c1 == '-') return 0;
-    if (c2 == '/') return 10;
-    if (c2 == '-') return 0;
-    return c1 - '0' + c2 - '0';
-}
-int getScore(char c1, char c2, char c3) {
-    if (c1 == 'X') return 10 + getScore(c2) + getScore(c3);
-    if (c1 == '-') return 0;
-    if (c2 == '/') return 10 + getScore(c3);
-    if (c2 == '-') return 0;
-    return c1 - '0' + c2 - '0';
-}
-int bowlingScore(string s) {
+int getScore(string s) {
     int score = 0;
+    int frame = 0;
+    int roll = 0;
+    int pin = 10;
     int i = 0;
-    while (i < s.size()) {
-        if (isStrike(s[i])) {
-            score += getScore(s[i], s[i + 1], s[i + 2]);
-            i++;
-        } else if (isSpare(s[i + 1])) {
-            score += getScore(s[i], s[i + 1], s[i + 2]);
-            i += 2;
-        } else {
-            score += getScore(s[i], s[i + 1]);
-            i += 2;
+    for(;i<s.size();i++) {
+        if(frame == 10) {
+            return score;
+        }
+        if(s[i] == 'X') {
+            score += pin;
+            pin = 10;
+            roll++;
+            if(roll == 2) {
+                frame++;
+                roll = 0;
+            }
+        }
+        else if(s[i] == '-') {
+            roll++;
+            if(roll == 2) {
+                frame++;
+                roll = 0;
+            }
+        }
+        else if(s[i] == '/') {
+            score += pin;
+            pin = 10;
+            if(s[i-1] == 'X') {
+                score += pin;
+                pin = 10;
+            }
+            else if(s[i-1] == '-') {
+                score += pin;
+                pin = 10;
+            }
+            else {
+                score += (s[i-1]-'0');
+                pin -= (s[i-1]-'0');
+            }
+            frame++;
+            roll = 0;
+        }
+        else {
+            score += (s[i]-'0');
+            pin -= (s[i]-'0');
+            roll++;
+            if(roll == 2) {
+                frame++;
+                roll = 0;
+            }
         }
     }
     return score;
 }
 int main() {
-    cout << bowlingScore("XXXXXXXXXXXX") << endl;
-    cout << bowlingScore("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << bowlingScore("7115XXX548/279-X53") << endl;
-    cout << bowlingScore("532/4362X179-41447/5") << endl;
+    string s = "XXXXXXXXXXXX";
+    cout << getScore(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << getScore(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << getScore(s) << endl;
+    s = "532/4362X179-41447/5";
+    cout << getScore(s) << endl;
     return 0;
 }
