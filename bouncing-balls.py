@@ -41,14 +41,77 @@ input:
 output:
 3.963
 """
-def bounciness_index(h1, h2):
-    return h2 / h1
-
-def total_distance(bounciness_index, n):
-    return (1 - bounciness_index**n) / (1 - bounciness_index)
-
-def ball_bouncing(h1, h2, n):
-    bounciness_index = bounciness_index(h1, h2)
-    return total_distance(bounciness_index, n)
-
 if __name__ == '__main__':
+    # line1 = input()
+    # line2 = input()
+    # line3 = input()
+    # line1 = float(line1)
+    # line2 = float(line2)
+    # line3 = int(line3)
+    # bounciness_index = line2/line1
+    # total_distance = line1
+    # for i in range(line3):
+    #     total_distance += line1 * pow(bounciness_index, i+1) * 2
+    # print(total_distance)
+    #
+    # line1 = input()
+    # line2 = input()
+    # line3 = input()
+    # line1 = float(line1)
+    # line2 = float(line2)
+    # line3 = int(line3)
+    # bounciness_index = line2/line1
+    # total_distance = line1
+    # for i in range(line3):
+    #     total_distance += line1 * pow(bounciness_index, i+1) * 2
+    # print(total_distance)
+
+    # line1 = input()
+    # line2 = input()
+    # line3 = input()
+    # line1 = float(line1)
+    # line2 = float(line2)
+    # line3 = int(line3)
+    # bounciness_index = line2/line1
+    # total_distance = line1
+    # for i in range(line3):
+    #     total_distance += line1 * pow(bounciness_index, i+1) * 2
+    # print(total_distance)
+    #
+    # line1 = input()
+    # line2 = input()
+    # line3 = input()
+    # line1 = float(line1)
+    # line2 = float(line2)
+    # line3 = int(line3)
+    # bounciness_index = line2/line1
+    # total_distance = line1
+    # for i in range(line3):
+    #     total_distance += line1 * pow(bounciness_index, i+1) * 2
+    # print(total_distance)
+    #
+    # line1 = input()
+    # line2 = input()
+    # line3 = input()
+    # line1 = float(line1)
+    # line2 = float(line2)
+    # line3 = int(line3)
+    # bounciness_index = line2/line1
+    # total_distance = line1
+    # for i in range(line3):
+    #     total_distance += line1 * pow(bounciness_index, i+1) * 2
+    # print(total_distance)
+
+    line1 = input()
+    line2 = input()
+    line3 = input()
+    line1 = float(line1)
+    line2 = float(line2)
+    line3 = int(line3)
+    bounciness_index = line2/line1
+    total_distance = line1
+    for i in range(line3):
+        total_distance += line1 * pow(bounciness_index, i+1) * 2
+    print(total_distance)
+
+
