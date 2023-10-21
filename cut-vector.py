@@ -81,22 +81,18 @@ def solve(n, a):
             print(" ".join([str(x) for x in a[n//2:]]))
         else:
             half = n//2
-            if abs(a[half] - a[half + 1]) <= abs(a[half - 1] - a[half]) and \
-               abs(a[half] - a[half + 1]) <= abs(a[half] - a[half - 1]):
+            if abs(a[half] - a[half + 1]) <= abs(a[half - 1] - a[half + 1]) and \
+               abs(a[half] - a[half + 1]) <= abs(a[half] - a[half - 1]) and \
+               abs(a[half] - a[half + 1]) <= abs(a[half - 1] - a[half]):
                 print(half + 1)
                 print(" ".join([str(x) for x in a[:half + 1]]))
                 print(n - half - 1)
                 print(" ".join([str(x) for x in a[half + 1:]]))
-            elif abs(a[half - 1] - a[half]) <= abs(a[half] - a[half + 1]):
+            else:
                 print(half)
                 print(" ".join([str(x) for x in a[:half]]))
                 print(n - half)
                 print(" ".join([str(x) for x in a[half:]]))
-            else:
-                print(half + 1)
-                print(" ".join([str(x) for x in a[:half + 1]]))
-                print(n - half - 1)
-                print(" ".join([str(x) for x in a[half + 1:]]))
 
 if __name__ == '__main__':
     n, a = get_input()
