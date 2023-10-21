@@ -53,7 +53,7 @@ int main() {
     int n;
     float snow, rate, melt;
     while (cin >> n >> snow >> rate >> melt) {
-        if (n == 0 && snow == 0 && rate == 0 && melt == 0) {
+        if (n == 0) {
             printf("0.0\n");
             continue;
         }
