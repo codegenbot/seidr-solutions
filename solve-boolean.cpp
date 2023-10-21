@@ -51,7 +51,7 @@ int main() {
                 if (op == '&') {
                     stk.push(c);
                 } else {
-                    stk.push(stk.top() == 'f' ? 'f' : 't');
+                    stk.push(stk.top() == 't' ? 't' : 'f');
                     stk.pop();
                     stk.push(c);
                 }
@@ -65,7 +65,7 @@ int main() {
                 if (op == '&') {
                     stk.push(stk.top() == 'f' ? 'f' : 't');
                     stk.pop();
-                    stk.push('f');
+                    stk.push(c);
                 } else {
                     stk.push('f');
                 }
