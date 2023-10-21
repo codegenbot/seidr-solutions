@@ -32,32 +32,11 @@ output:
 100
 """
 if __name__ == '__main__':
-    lst = ['XXXXXXXXXXXX','5/5/5/5/5/5/5/5/5/5/5','7115XXX548/279-X53','532/4362X179-41447/5']
-    for line in lst:
-        print(line)
-        score = 0
-        for index,char in enumerate(line):
-            if char == 'X':
-                score += 10
-                if (index+1) < len(line) and line[index+1] == 'X':
-                    score += 10
-                    if (index+2) < len(line) and line[index+2] == 'X':
-                        score += 10
-                    else:
-                        score += int(line[index+2])
-                else:
-                    if (index+2) < len(line) and line[index+2] == '/':
-                        score += 10
-                    else:
-                        score += int(line[index+1]) + int(line[index+2])
-            elif char == '-':
-                score += 0
-            elif char == '/':
-                score += 10
-                if (index+1) < len(line) and line[index+1] == 'X':
-                    score += 10
-                else:
-                    score += int(line[index+1])
-            else:
-                score += int(char)
-        print(score)
+	s = raw_input()
+	s = s.replace('-', '0')
+	s = s.replace('X', '10')
+	print s
+	s = re.sub('\d/', '10', s)
+	s = re.sub('\d/', '10', s)
+	s = re.sub('//', '0', s)
+	print s
