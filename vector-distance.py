@@ -48,7 +48,12 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    a = list(map(float, input().split()))
-    m = int(input())
-    b = list(map(float, input().split()))
-    print(np.linalg.norm(np.array(a)-np.array(b)))
+    x = input().split(' ')
+    n = int(input())
+    y = input().split(' ')
+    x = [float(i) for i in x]
+    y = [float(i) for i in y]
+    sum = 0
+    for i in range(n):
+        sum += (x[i] - y[i]) ** 2
+    print(math.sqrt(sum))
