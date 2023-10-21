@@ -51,19 +51,21 @@ output:
 */
 int main() {
     int n, target;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    cin >> target;
-    map<int, int> m;
-    for (int i = 0; i < n; i++) {
-        if (m.find(target - nums[i]) != m.end()) {
-            cout << nums[i] << " " << target - nums[i] << endl;
-            return 0;
+    while(cin >> n >> target) {
+        vector<int> nums(n);
+        for(int i = 0; i < n; i++)
+            cin >> nums[i];
+        int left = 0, right = n - 1;
+        while(left < right) {
+            if(nums[left] + nums[right] == target) {
+                cout << nums[left] << " " << nums[right] << endl;
+                break;
+            }
+            else if(nums[left] + nums[right] < target)
+                left++;
+            else
+                right--;
         }
-        m[nums[i]] = i;
     }
     return 0;
 }
