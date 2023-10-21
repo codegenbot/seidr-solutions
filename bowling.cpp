@@ -35,14 +35,24 @@ output:
 100
 */
 int score(string s) {
-    int sum = 0, strike = 0, spare = 0, frame = 0, pre = 0;
+    int sum = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] != '-') {
+            sum = scoreHelper(s);
+            return sum;
+        }
+    }
+    return sum;
+}
+
+int scoreHelper(string s) {
+    int sum = 0, strike = 0, spare = 0, frame = 0;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             sum += 10;
             strike++;
             frame++;
             spare = 0;
-            pre = 0;
             if (strike == 2) {
                 sum += 10;
                 strike = 0;
@@ -52,7 +62,6 @@ int score(string s) {
             spare++;
             frame++;
             strike = 0;
-            pre = 0;
             if (spare == 2) {
                 sum += 10;
                 spare = 0;
@@ -61,19 +70,15 @@ int score(string s) {
             frame++;
             strike = 0;
             spare = 0;
-            pre = 0;
         } else {
             sum += s[i] - '0';
-            pre = s[i] - '0';
             if (strike == 1) {
                 sum += s[i] - '0';
                 strike = 0;
-                pre = 0;
             }
             if (spare == 1) {
                 sum += s[i] - '0';
                 spare = 0;
-                pre = 0;
             }
             frame++;
         }
