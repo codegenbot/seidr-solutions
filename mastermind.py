@@ -42,24 +42,17 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = raw_input()
-    guess = raw_input()
-    print code
-    print guess
-    code_list = list(code)
-    guess_list = list(guess)
-    black_peg = 0
-    white_peg = 0
-    for i in range(len(code_list)):
-        if code_list[i] == guess_list[i]:
-            black_peg += 1
-            code_list[i] = 'X'
-            guess_list[i] = 'X'
-    for i in range(len(code_list)):
-        if code_list[i] != 'X' and guess_list[i] != 'X':
-            if code_list[i] in guess_list:
-                white_peg += 1
-                code_list[i] = 'X'
-                guess_list[i] = 'X'
-    print black_peg
-    print white_peg
+    code = input()
+    guess = input()
+    black = 0
+    white = 0
+    for i in range(4):
+        if code[i] == guess[i]:
+            black += 1
+    for i in range(6):
+        if code.count(code[i]) <= guess.count(code[i]):
+            white += code.count(code[i])
+        else:
+            white += guess.count(code[i])
+    print(black)
+    print(white - black)
