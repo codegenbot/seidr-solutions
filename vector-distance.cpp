@@ -73,5 +73,5 @@ int main() {
     }
     distance=sqrt(distance);
     cout<<distance;
-    
 }
+ 
