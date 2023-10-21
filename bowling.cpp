@@ -34,61 +34,71 @@ input:
 output:
 100
 */
-int main() {
-    string input;
-    while (getline(cin, input)) {
-        bool isAllMinus = true;
-        for (int i = 0; i < input.size(); i++) {
-            if (input[i] != '-') {
-                isAllMinus = false;
-                break;
+int score(string s) {
+    int sum = 0, strike = 0, spare = 0, frame = 0;
+    if (s == "--------------------") return 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            sum += 10;
+            strike++;
+            frame++;
+            spare = 0;
+            if (strike == 2) {
+                sum += 10;
+                strike = 0;
             }
+        } else if (s[i] == '/') {
+            sum += 10;
+            spare++;
+            frame++;
+            strike = 0;
+            if (spare == 2) {
+                sum += 10;
+                spare = 0;
+            }
+        } else if (s[i] == '-') {
+            frame++;
+            strike = 0;
+            spare = 0;
+        } else {
+            sum += s[i] - '0';
+            if (strike == 1) {
+                sum += s[i] - '0';
+                strike = 0;
+            }
+            if (spare == 1) {
+                sum += s[i] - '0';
+                spare = 0;
+            }
+            frame++;
         }
-        if (isAllMinus) {
-            cout << 0 << endl;
-            continue;
-        }
-        int score = 0;
-        int frame = 0;
-        int roll = 0;
-        for (int i = 0; i < input.size(); i++) {
-            if (input[i] == 'X') {
-                score += 10;
-                if (frame != 9) {
-                    score += 10;
-                    if (input[i + 1] == 'X') {
-                        score += 10;
-                        i++;
-                    } else {
-                        score += input[i + 1] - '0';
-                        i++;
-                    }
+        if (frame == 10) {
+            if (s[i] == 'X' || s[i] == '/') {
+                if (s[i + 1] == 'X') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 1] - '0';
                 }
-                frame++;
-                roll = 0;
-            } else if (input[i] == '/') {
-                score += 10;
-                if (frame != 9) {
-                    score += input[i + 1] - '0';
-                    i++;
-                }
-                frame++;
-                roll = 0;
-            } else if (input[i] == '-') {
-                roll++;
-                if (roll == 2) {
-                    frame++;
-                    roll = 0;
-                }
-            } else {
-                score += input[i] - '0';
-                roll++;
-                if (roll == 2) {
-                    frame++;
-                    roll = 0;
+                if (s[i + 2] == 'X') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 2] - '0';
                 }
             }
+            break;
         }
-        cout << score << endl;
     }
+    return sum;
+}
+
+int main() {
+    string s = "XXXXXXXXXXXX";
+    cout << score(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << score(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << score(s) << endl;
+    s = "532/4362X179-41447/5";
+    cout << score(s) << endl;
+    return 0;
 }
