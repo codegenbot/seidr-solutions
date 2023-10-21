@@ -37,4 +37,17 @@ output:
 2050
 """
 if __name__ == '__main__':
-    print("")
+    def gcd(a, b):
+        if b == 0:
+            return a
+        else:
+            return gcd(b, a % b)
+
+
+    def lcm(a, b):
+        return a * b // gcd(a, b)
+
+
+    a = int(input())
+    b = int(input())
+    print(lcm(a, b))
