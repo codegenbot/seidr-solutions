@@ -28,7 +28,7 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
@@ -89,6 +89,6 @@ bool parseBoolExpr(string expression) {
 }
 
 int main() {
-    cout << parseBoolExpr("t") << endl;;
+    cout << parseBoolExpr("t");
     return 0;
 }
