@@ -46,21 +46,18 @@ output:
 */
 int main() {
     string text, target;
-    cin >> text >> target;
-    int len = target.length();
-    int len2 = text.length();
-    for (int i = 0; i < len2; i++) {
-        if (text[i] == target[0]) {
-            int j = 0;
-            for (; j < len; j++) {
-                if (text[i + j] != target[j]) {
-                    break;
-                }
-            }
-            if (j == len) {
+    while (cin >> text >> target) {
+        int len = target.size();
+        int i = 0;
+        while (i < text.size()) {
+            if (text.substr(i, len) == target) {
                 cout << i << " ";
+                i += len;
+            } else {
+                i++;
             }
         }
+        cout << endl;
     }
     return 0;
 }
