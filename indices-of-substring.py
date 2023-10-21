@@ -42,17 +42,24 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    text = input()
-    target = input()
-    indices = []
-    for i in range(len(text)):
-        if text[i] == target[0]:
-            k = i
-            count = 0
-            for j in range(len(target)):
-                if text[k] == target[j]:
-                    count += 1
-                    k += 1
-            if count == len(target):
-                indices.append(str(i))
-    print(' '.join(indices))
+    line = sys.stdin.readline().strip()
+    line1= sys.stdin.readline().strip()
+    if(not line):
+        exit(0)
+    if(not line1):
+        exit(0)
+    s = line
+    t = line1
+    k = 0
+    idx = []
+    while k < len(s):
+        k = s.find(t, k)
+        if k == -1:
+            break
+        idx.append(k)
+        k += len(t)
+
+    for i in idx:
+        sys.stdout.write(str(i))
+        sys.stdout.write(' ')
+    sys.stdout.write('\n')
