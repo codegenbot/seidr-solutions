@@ -42,19 +42,8 @@ output:
 3.963
 """
 if __name__ == '__main__':
-
-    while True:
-        try:
-            line = input()
-            if line == '' or line == '\n':
-                break
-            line = line.split()
-            if len(line) == 0:
-                break
-            h = float(line[0])
-            hb = float(line[1])
-            n = int(line[2])
-            b = hb / h
-            print(h * (1 - b ** n) / (1 - b))
-        except EOFError:
-            break
+    start = float(input())
+    bounce = float(input())
+    bounciness = float(input())
+    bounciness_index = (bounce / start)
+    print(bounciness_index)
