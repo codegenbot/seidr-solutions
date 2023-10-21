@@ -40,62 +40,11 @@ sihT is rehtona test
 
 Make sure that  -> 
 */
-//Solution 1
 int main() {
-	char str[100];
-	cin.getline(str, 100);
-	int len = strlen(str);
-	char *ptr = str;
-	char *prev = ptr;
-	char *end = ptr;
-	while(ptr < str+len){
-		if(*ptr == ' ' || *ptr == '\0'){
-			end = ptr-1;
-			if(ptr-prev >= 5)
-				while(prev < end){
-					swap(*prev, *end);
-					prev++;
-					end--;
-				}
-			prev = ptr+1;
-		}
-		ptr++;
-	}
-	cout << str << endl;
-	return 0;
-}
-
-//Solution 2
-int main() {
-	char str[100];
-	cin.getline(str, 100);
-	int len = strlen(str);
-	char *ptr = str;
-	char *prev = ptr;
-	char *end = ptr;
-	while(ptr < str+len){
-		if(*ptr == ' ' || *ptr == '\0'){
-			end = ptr-1;
-			if(ptr-prev >= 5)
-				while(prev < end){
-					swap(*prev, *end);
-					prev++;
-					end--;
-				}
-			prev = ptr+1;
-		}
-		ptr++;
-	}
-	cout << str << endl;
-	return 0;
-}
-
-//Solution 2
-int main() {
-	char str[100];
-	cin.getline(str, 100);
-	int len = strlen(str);
-	char *ptr = str;
+	string str;
+	cin >> str;
+	int len = str.length();
+	char *ptr = (char*)str.c_str();
 	char *prev = ptr;
 	char *end = ptr;
 	while(ptr < str+len){
