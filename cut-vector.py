@@ -41,6 +41,7 @@ output:
 1
 1000
 0
+
 input:
 1
 10000
@@ -49,27 +50,23 @@ output:
 10000
 0
 
-"""
-def foo(A):
-    start = 0
-    end = len(A)-1
-    while start < end:
-        mid = start + (end-start)//2
-        if A[mid] == A[mid-1] and A[mid] == A[mid+1]:
-            start = mid+1
-        elif A[mid] == A[mid+1] and A[mid] > A[mid-1]:
-            return [A[0:mid], A[mid:len(A)]]
-        elif A[mid] == A[mid-1] and A[mid] > A[mid+1]:
-            return [A[0:mid], A[mid:len(A)]]
-        elif A[mid] > A[mid-1] and A[mid] > A[mid+1]:
-            end = mid-1
-        elif A[mid] < A[mid-1] and A[mid] < A[mid+1]:
-            start = mid+1
-        else:
-            return [A[0:mid], A[mid:len(A)]]
-    return [A[0:mid], A[mid:len(A)]]
 
+
+def get_sub_array(a, n):
+    left, right, mid = 0, n - 1, n // 2
+    while left <= right:
+        if a[mid] < a[left]:
+            left, right = 0, mid - 1
+        elif a[right] < a[mid]:
+            left, right = mid + 1, n - 1
+        else:
+            return (left, right + 1)
+        mid = (left + right) // 2
+
+    return (0, 0)
+
+"""
 if __name__ == '__main__':
-    print('Case {}: {}'.format(1, foo([1,2,3])))
-    print('Case {}: {}'.format(2, foo([2,1,3])))
-    print('Case {}: {}'.format(3, foo([1,3,2])))
+    a = [1, 2, 3, 4, 5]
+    n = len(a)
+    print(get_sub_array(a, n))
