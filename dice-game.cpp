@@ -42,13 +42,10 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double res = 0;
+    double p = 0;
     for (int i = 1; i < n; i++) {
-        int temp = i * m;
-        if (temp % n != 0) {
-            res += (double)m / n;
-        }
+        p += (double)i / n;
     }
-    printf("%.5f\n", res);
+    printf("%.2f\n", p);
     return 0;
 }
