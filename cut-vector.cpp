@@ -55,5 +55,28 @@ output:
 
 */
 int main() {
-
+    vector<int> input = {1,10,100,1000,10000};
+    int n = input.size();
+    int left = 0, right = n-1;
+    int leftSum = input[left], rightSum = input[right];
+    while(left < right) {
+        if(leftSum < rightSum) {
+            left++;
+            leftSum += input[left];
+        } else if(leftSum > rightSum) {
+            right--;
+            rightSum += input[right];
+        } else {
+            left++;
+            right--;
+            leftSum += input[left];
+            rightSum += input[right];
+        }
+    }
+    if(leftSum == rightSum) {
+        cout << left << " " << right << endl;
+    } else {
+        cout << -1 << endl;
+    }
+    return 0;
 }
