@@ -35,20 +35,46 @@ output:
 100
 */
 int main() {
-    string input;
-    cin>>input;
+    string str;
+    cin >> str;
+    int size = str.size();
     int score = 0;
-    for(int i = 0; i < input.length(); i++) {
-        if(input[i] == 'X') {
+    int frame = 1;
+    int i = 0;
+    while (frame <= 10) {
+        if (str[i] == 'X') {
+            int next = i + 1;
             score += 10;
-            score += input[i+1] == 'X' ? 10 : input[i+1] - '0';
-            score += input[i+2] == 'X' ? 10 : input[i+2] - '0';
-        } else if(input[i] == '/') {
+            if (next < size && str[next] == 'X') {
+                score += 10;
+                next++;
+            } else if (next < size && str[next] == '/') {
+                score += 10;
+            }
+            if (next < size && str[next] >= '0' && str[next] <= '9') {
+                score += str[next] - '0';
+            }
+            i = next;
+        } else if (str[i] >= '0' && str[i] <= '9') {
+            int next = i + 1;
+            score += str[i] - '0';
+            if (next < size && str[next] == '/') {
+                score += 10;
+            } else if (next < size && str[next] >= '0' && str[next] <= '9') {
+                score += str[next] - '0';
+            }
+            i = next;
+        } else if (str[i] == '-') {
+            //do nothing
+        } else if (str[i] == '/') {
             score += 10;
-            score += input[i+1] - '0';
-        } else if(input[i] != '-') {
-            score += input[i] - '0';
+            int next = i + 1;
+            if (next < size && str[next] >= '0' && str[next] <= '9') {
+                score += str[next] - '0';
+            }
+            i = next;
         }
+        frame++;
     }
-    cout<<score<<endl;
+    cout << score << endl;
 }
