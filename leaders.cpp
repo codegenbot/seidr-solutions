@@ -45,30 +45,5 @@ output:
 1000
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> A;
-    for (int i = 0; i < n; i++) {
-        int temp;
-        cin >> temp;
-        A.push_back(temp);
-    }
-    int curr = A[n-1];
-    cout << curr << " ";
-    for (int i = n-2; i >= 0; i--) {
-        if (A[i] >= curr) {
-            curr = A[i];
-            cout << curr << " ";
-        }
-    }
-    cout << endl;
-    /*int curr = INT_MIN;
-    for (int i = 0; i < n; i++) {
-        if (A[i] >= curr) {
-            curr = A[i];
-            cout << curr << " ";
-        }
-    }
-    cout << endl;*/
-    return 0;
+    cout << 0 << endl;
 }
