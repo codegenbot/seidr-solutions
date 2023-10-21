@@ -51,28 +51,17 @@ output:
 0
 
 """
+
+def get_subvector(vector):
+    n = len(vector)
+    if n == 1:
+        return vector
+    for i in range(1, n):
+        if vector[i] - vector[i-1] > 1:
+            return vector[:i] + [0] + vector[i:]
+    return vector + [0]
+
+
 if __name__ == '__main__':
-    input = [1,0]
-    print(input)
-    print(input)
-    print(0)
-
-    input = [1,10]
-    print(input)
-    print(input)
-    print(0)
-
-    input = [1,100]
-    print(input)
-    print(input)
-    print(0)
-
-    input = [1,1000]
-    print(input)
-    print(input)
-    print(0)
-
-    input = [1,10000]
-    print(input)
-    print(input)
-    print(0)
+    vector = [1, 10, 100, 1000, 10000]
+    print(get_subvector(vector))
