@@ -34,89 +34,83 @@ input:
 output:
 100
 */
-
-int getScore(string s) {
+int getScore(string input) {
     int score = 0;
     int frame = 0;
-    int frameScore = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
+    int i = 0;
+    while (frame < 10) {
+        char c = input[i];
+        if (c == 'X') {
             score += 10;
-            if (frame < 9) {
-                if (s[i + 1] == 'X') {
+            i++;
+            char c2 = input[i];
+            if (c2 == 'X') {
+                score += 10;
+                i++;
+                char c3 = input[i];
+                if (c3 == 'X') {
                     score += 10;
-                    if (s[i + 2] == 'X') {
-                        score += 10;
-                    } else {
-                        score += s[i + 2] - '0';
-                    }
-                } else if (s[i + 1] == '/') {
+                } else if (c3 == '/') {
                     score += 10;
                 } else {
-                    score += s[i + 1] - '0';
-                    if (s[i + 2] == '/') {
-                        score += 10;
-                    } else {
-                        score += s[i + 2] - '0';
-                    }
+                    score += c3 - '0';
                 }
-            }
-            frame++;
-        } else if (s[i] == '/') {
-            score += 10;
-            if (frame < 9) {
-                if (s[i + 1] == 'X') {
+            } else if (c2 == '/') {
+                score += 10;
+                i++;
+                char c3 = input[i];
+                if (c3 == 'X') {
                     score += 10;
                 } else {
-                    score += s[i + 1] - '0';
+                    score += c3 - '0';
+                }
+            } else {
+                score += c2 - '0';
+                i++;
+                char c3 = input[i];
+                if (c3 == '/') {
+                    score += 10;
+                } else {
+                    score += c3 - '0';
                 }
             }
-            frame++;
-        } else if (s[i] == '-') {
-            frame++;
+        } else if (c == '/') {
+            score += 10;
+            i++;
+            char c2 = input[i];
+            if (c2 == 'X') {
+                score += 10;
+            } else {
+                score += c2 - '0';
+            }
+            i++;
         } else {
-            frameScore += s[i] - '0';
-            if (frameScore == 10) {
-                if (frame < 9) {
-                    if (s[i + 1] == 'X') {
-                        score += 10;
-                        if (s[i + 2] == 'X') {
-                            score += 10;
-                        } else {
-                            score += s[i + 2] - '0';
-                        }
-                    } else if (s[i + 1] == '/') {
-                        score += 10;
-                    } else {
-                        score += s[i + 1] - '0';
-                    }
-                }
-                score += frameScore;
-                frameScore = 0;
-                frame++;
-            } else if (frameScore < 10) {
-                if (s[i + 1] == '/') {
-                    score += 10;
-                    if (frame < 9) {
-                        if (s[i + 2] == 'X') {
-                            score += 10;
-                        } else {
-                            score += s[i + 2] - '0';
-                        }
-                    }
-                    score += frameScore;
-                    frameScore = 0;
-                    frame++;
-                }
+            score += c - '0';
+            i++;
+            char c2 = input[i];
+            if (c2 == '-') {
+                i++;
+            } else if (c2 == '/') {
+                score += 10 - (c - '0');
+                i++;
+            } else {
+                score += c2 - '0';
+                i++;
             }
         }
+        frame++;
     }
     return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << getScore(s) << endl;
+    string input = "XXXXXXXXXXXX";
+    cout << getScore(input) << endl;
+    input = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << getScore(input) << endl;
+    input = "7115XXX548/279-X53";
+    cout << getScore(input) << endl;
+    input = "532/4362X179-41447/5";
+    cout << getScore(input) << endl;
     return 0;
 }
