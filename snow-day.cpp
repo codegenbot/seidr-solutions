@@ -56,13 +56,13 @@ int main() {
 	cin >> snow;
 	cin >> rate;
 	cin >> melt;
-	float newSnow = 0.0;	
+	float newSnow = 0.0;
 	for (int i = 0; i < hours; i++) {
 		newSnow += rate;
 		snow += newSnow;
 		snow -= melt;
-		if (snow < 0) {
-			snow = 0.0;
+		if (snow < 0.0) {
+			snow = 0;
 		}
 	}
 	cout << snow << endl;
