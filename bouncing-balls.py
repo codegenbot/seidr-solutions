@@ -42,21 +42,9 @@ output:
 3.963
 """
 if __name__ == '__main__':
-
-    test_cases = open(sys.argv[1], 'r')
-    for test in test_cases:
-        test = test.rstrip()
-        if not test: continue # ignore an empty line
-        test = test.split()
-        test = [float(i) for i in test]
-        print(test)
-        bounciness = test[1] / test[0]
-        print(bounciness)
-        distance = test[0] + test[1]
-        print(distance)
-        travel = distance
-        for i in range(2, int(test[2])):
-            travel += distance * bounciness ** i
-        print(travel)
-        print(round(travel, 3))
-    test_cases.close()
+    a=input()
+    b=input()
+    c=input()
+    bounciness_index=(float(b)/float(a))
+    print(bounciness_index)
+    print(float(b)*bounciness_index**(int(c)))
