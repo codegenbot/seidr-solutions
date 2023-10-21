@@ -12,31 +12,27 @@
 using namespace std;
 /*
 Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string. 
-For example,
-
-input:
-a
-output:
-a
-input:
-this is a test
-output:
-this is a test
-input:
-this is another test
-output:
-this is rehtona test
-input:
-hi
-output:
-hi
-
-This is a test
-sihT is a test
-
-This is another test
-sihT is rehtona test
-
+For example, 
+input: 
+This is a test 
+output: 
+sihT is a test 
+input: 
+a 
+output: 
+a 
+input: 
+this is a test 
+output: 
+this is a test 
+input: 
+this is another test 
+output: 
+this is rehtona test 
+input: 
+hi 
+output: 
+hi 
 
 */
 int main() {
@@ -59,6 +55,6 @@ int main() {
         }
         ptr++;
     }
-    cout << str << endl; 
+    cout << str << endl;
     return 0;
 }
