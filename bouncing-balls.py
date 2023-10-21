@@ -42,16 +42,15 @@ output:
 3.963
 """
 if __name__ == '__main__':
-    def bounciness(h,b):
-        return ((b/h)/2)
-
-    def distance(bounciness,bounces):
-        return 2*(bounciness/(1-bounciness))**bounces
-
-    height = float(input("Enter height: "))
-    bounce = float(input("Enter bounce: "))
-    bounces = int(input("Enter total number of bounces: "))
-
-    bounciness = bounciness(height,bounce)
-    total = distance(bounciness,bounces)
-    print(total)
+    with open('file', 'r') as f:
+        for line in f:
+            lines = line.split(' ')
+            h1 = float(lines[0])
+            h2 = float(lines[1])
+            n = int(lines[2])
+            b = h2/h1
+            h = 0
+            for i in range(0,n):
+                h = h + h1
+                h1 = h1 * b
+            print("%.3f" % h)
