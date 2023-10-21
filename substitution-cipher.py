@@ -8,9 +8,45 @@ import itertools
 import queue
 import re
 """
-The input will consist of a single integer. Your task is to find the sum of all the digits in the integer.
-For example, if the input is 12345, the output should be 15.
+This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
+For example,
+input:
+
+
+
+output:
+
+input:
+a
+a
+a
+output:
+a
+input:
+j
+h
+j
+output:
+h
+input:
+a
+z
+a
+output:
+z
+input:
+e
+l
+eeeeeeeeee
+output:
+llllllllll
 """
 if __name__ == '__main__':
-    s = input()
-    print(sum(map(int, list(s))))
+    dic = {}
+    a = input().strip()
+    b = input().strip()
+    c = input().strip()
+    for i in range(len(a)):
+        dic[a[i]] = b[i]
+    for i in range(len(c)):
+        print(dic[c[i]], end="")
