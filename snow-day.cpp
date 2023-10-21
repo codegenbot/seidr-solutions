@@ -54,11 +54,15 @@ int main() {
   float snow, rate, melting;
   cin >> hours >> snow >> rate >> melting;
   float total = 0;
+  if (snow == 0 && rate == 0 && melting == 0) {
+    printf("%.15f\n", total);
+    return 0;
+  }
   for (int i = 0; i < hours; i++) {
     total += snow;
     snow += rate;
     total -= melting * total;
   }
-  printf("%.15f\n", max(total, 0.0f));
+  printf("%.15f\n", total);
   return 0;
 }
