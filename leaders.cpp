@@ -45,23 +45,23 @@ output:
 1000
 */
 int main() {
+    vector<int> res;
     int n;
     cin >> n;
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    vector<int> res;
-    int max = INT_MIN;
-    for (int i = n - 1; i >= 0; i--) {
+    int max = nums[n - 1];
+    res.push_back(max);
+    for (int i = n - 2; i >= 0; i--) {
         if (nums[i] >= max) {
-            res.push_back(nums[i]);
             max = nums[i];
+            res.push_back(max);
         }
     }
     for (int i = res.size() - 1; i >= 0; i--) {
         cout << res[i] << " ";
     }
-    cout << endl;
     return 0;
 }
