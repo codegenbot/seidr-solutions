@@ -32,5 +32,7 @@ output:
 False
 """
 if __name__ == '__main__':
-    s = input()
-    print(eval(s))
+
+    def eval(self, expr):
+        expr = expr.replace('T', 'True').replace('F', 'False')
+        return eval(expr)
