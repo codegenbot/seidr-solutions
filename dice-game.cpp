@@ -42,10 +42,9 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
-        double peter = 0, colin = 0, total = 0;
+        double peter = 0, colin = 0, total = (n + m) * (n + m - 1) / 2;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
-                total++;
                 if (i > j) peter++;
                 else if (i < j) colin++;
             }
