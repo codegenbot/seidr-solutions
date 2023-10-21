@@ -34,54 +34,41 @@ input:
 output:
 100
 */
-
-class Solution {
-public:
-    int SimpleScore(string d, int &idx){
-        int sum = 0;
-        if(d[idx] == 'X'){
-            sum += 10;
-            if(idx + 3 < d.size() && (d[idx + 2] == 'X' || d[idx + 2] == '/'))
-                sum += 10;
-            if(idx + 4 < d.size() && d[idx + 2] == 'X' && d[idx + 4] == 'X')
-                sum += 10;
-            if(idx + 4 < d.size() && d[idx + 2] == 'X' && d[idx + 4] == '/')
-                sum += 10;
-            if(idx + 5 < d.size() && d[idx + 2] == '/' && d[idx + 4] == 'X')
-                sum += 10;
-            if(idx + 3 < d.size() && d[idx + 3] != 'X' && d[idx + 3] != '/')
-                sum += d[idx + 3] - '0';
-        } else if(d[idx] == '/'){
-            sum += 10 - (d[idx - 1] - '0');
-            if(idx + 2 < d.size() && d[idx + 1] == 'X')
-                sum += 10;
-            if(idx + 3 < d.size() && d[idx + 1] == '/')
-                sum += 10;
-            if(idx + 2 < d.size() && d[idx + 1] != '/' && d[idx + 1] != 'X')
-                sum += d[idx + 1] - '0';
-        } else {
-            sum += d[idx] - '0';
-        }
-        return sum;
-    }
-    int bowling_score(string d) {
-        int idx = 0;
-        int sum = 0;
-        while(idx < d.size()){
-            sum += SimpleScore(d, idx);
-            idx++;
-        }
-        return sum;
-    }
-};
-
 int main() {
-    Solution s;
-    cout << s.bowling_score("XXXXXXXXXXXX") << endl; // 300
-    cout << s.bowling_score("9-9-9-9-9-9-9-9-9-9-") << endl; // 90
-    cout << s.bowling_score("5/5/5/5/5/5/5/5/5/5/5") << endl; // 150
-    cout << s.bowling_score("7115XXX548/279-X53") << endl; // 145
-    cout << s.bowling_score("532/4362X179-41447/5") << endl; // 100
-    cout << s.bowling_score("8/6X5/X725/1X7/9") << endl; // 150
+    string str;
+    cin >> str;
+    int n = str.length();
+    int score = 0;
+    int i = 0;
+    while(i < n) {
+        if(str[i] == 'X') {
+            score += 10;
+            if(str[i+2] == 'X' || str[i+2] == '/') {
+                score += 10;
+            } else {
+                score += (str[i+2] - '0');
+            }
+            if(str[i+1] == 'X') {
+                score += 10;
+            } else if(str[i+1] == '/') {
+                score += (10 - (str[i] - '0'));
+            } else {
+                score += (str[i+1] - '0');
+            }
+        } else if (str[i] == '/'){
+            score += (10 - (str[i-1] - '0'));
+            if(str[i+1] == 'X') {
+                score += 10;
+            } else {
+                score += (str[i+1] - '0');
+            }
+        } else if (str[i] == '-') {
+            score += 0;
+        } else {
+            score += (str[i] - '0');
+        }
+        i++;
+    }
+    cout << score << endl;
     return 0;
 }
