@@ -8,38 +8,17 @@ import itertools
 import queue
 import re
 """
-This problem gives 2 strings. The first one is a string of characters, and the second one is a string of characters in the first string, but in a different order. The program must output the string of characters from the first string, but in the order of the second string.
-For example
-input:
-
-
-
-output:
-
-input:
-a
-a
-a
-output:
-a
-input:
-j
-h
-j
-output:
-h
-input:
-a
-z
-a
-output:
-z
-input:
-e
-l
-eeeeeeeeee
-output:
-llllllllll
+This problem gives a string of parentheses. The program must return true if the string is valid and false if it is not valid. A valid string is defined as a string that contains only parentheses and is balanced. A balanced string is defined as a string where each open parentheses is closed by a corresponding closed parentheses. For example, (()()()) is a valid and balanced string while (()() is not valid.
+input: (())
+output: true
+input: ((())
+output: false
+input: (()())
+output: true
+input: )()(
+output: false
+input: (()
+output: false
 """
 if __name__ == '__main__':
     pass
