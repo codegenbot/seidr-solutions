@@ -32,4 +32,4 @@ output:
 all separate words
 """
 if __name__ == '__main__':
-    print('done')
+    string = ""
