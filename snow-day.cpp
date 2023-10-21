@@ -53,14 +53,14 @@ int main() {
     int hour;
     float snow, rate, melt;
     cin >> hour >> snow >> rate >> melt;
-    float result = snow;
     if(hour == 0) {
         cout << 0.0 << endl;
-        return 0;
+    } else {
+        float result = snow;
+        for(int i = 1; i <= hour; i++) {
+            result += rate - melt * result;
+        }
+        cout << result << endl;
     }
-    for(int i = 1; i <= hour; i++) {
-        result += rate - melt * result;
-    }
-    cout << result << endl;
     return 0;
 }
