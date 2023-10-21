@@ -1,12 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Given two integers, return the largest integer that divides each of the integers evenly. Indices of Substring (CW) Given a text string and a target string, return a vector of integers of the indices at which the target appears in the text. If the target string overlaps itself in the text, all indices (including those overlapping) should be returned.
 For example,
@@ -36,10 +27,23 @@ input:
 output:
 2050
 """
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
+
+
+def gcd(a, b):
+    a, b = max(a, b), min(a, b)
+    if a % b == 0:
+        return b
+    return gcd(b, a % b)
+
+
 if __name__ == '__main__':
-    n, m = [int(i) for i in input().split()]
-    if n > m:
-        n, m = m, n
-    while n > 0:
-        n, m = m % n, n
-    print(m)
+    print(gcd(int(input()), int(input())))
