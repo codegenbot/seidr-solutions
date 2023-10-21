@@ -42,15 +42,11 @@ output:
 3.963
 """
 if __name__ == '__main__':
-
-    def bounciness_index(h1, h2):
-        return h2 / h1
-
-    def total_distance(h1, h2, n):
-        return h1 + h2 * (1 - bounciness_index(h1, h2) ** n) / (1 - bounciness_index(h1, h2))
-
-    print(total_distance(1.001, 1.0, 1))
-    print(total_distance(100.0, 99.999, 20))
-    print(total_distance(100.0, 1.0, 20))
-    print(total_distance(15.319, 5.635, 1))
-    print(total_distance(2.176, 1.787, 1))
+    first_height = float(input())
+    second_height = float(input())
+    num_bounces = int(input())
+    bounciness_index = second_height / first_height
+    total_distance = first_height + second_height
+    for i in range(num_bounces - 1):
+        total_distance += second_height * bounciness_index ** (i + 2)
+    print(total_distance)
