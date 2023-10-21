@@ -8,7 +8,8 @@ import itertools
 import queue
 import re
 """
-Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
+Peter has an n-sided die and Colin has an m-sided die.
+If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
 For example,
 input:
 1
@@ -37,10 +38,11 @@ output:
 0.0
 """
 if __name__ == '__main__':
-    f = open("file.txt")
-    n = int(f.readline())
-    m = int(f.readline())
+    n = int(input())
+    m = int(input())
     if n > m:
-        print(1.0)
+        print('1')
+    elif n < m:
+        print('0')
     else:
-        print(0.0)
+        print('0.5')
