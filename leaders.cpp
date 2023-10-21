@@ -15,7 +15,6 @@ Given a vector of positive integers, return a vector of the leaders in that vect
 For example,
 input:
 0
-
 output:
 0
 
@@ -60,12 +59,8 @@ int main() {
             ans.push_back(max);
         }
     }
-    if(ans.size() == 1){
-        cout<<ans[0];
-    }else{
-        for(int i = ans.size()-1; i >= 0; i--){
-            cout<<ans[i]<<" ";
-        }
+    for(int i = ans.size()-1; i >= 0; i--){
+        cout<<ans[i]<<" ";
     }
     return 0;
 }
