@@ -1,5 +1,14 @@
+#include <vector>
 #include <iostream>
-#include <sstream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -40,15 +49,32 @@ input:
 output:
 2.2715833329200144
 */
-int main() {
-    int n;
-    cin >> n;
-    double a[n], b[n];
-    for(int i = 0; i < n; i++) cin >> a[i];
-    for(int i = 0; i < n; i++) cin >> b[i];
-    double res = 0;
-    for(int i = 0; i < n; i++) {
-        res += pow(a[i] - b[i], 2);
+double dist(vector<double>& v1, vector<double>& v2) {
+    double ans = 0;
+    for(int i = 0; i < v1.size(); i++) {
+        ans += pow(v1[i] - v2[i], 2);
     }
-    cout << sqrt(res) << endl;
+    return sqrt(ans);
+}
+int main() {
+    string s, t;
+    getline(cin, s);
+    int n = stoi(s);
+    vector<double> v1(n), v2(n);
+    getline(cin, s);
+    stringstream ss(s);
+    for(int i = 0; i < n; i++) {
+        getline(ss, t, ' ');
+        v1[i] = stod(t);
+    }
+    getline(cin, s);
+    n = stoi(s);
+    getline(cin, s);
+    stringstream ss2(s);
+    for(int i = 0; i < n; i++) {
+        getline(ss2, t, ' ');
+        v2[i] = stod(t);
+    }
+    cout << dist(v1, v2) << endl;
+    return 0;
 }
