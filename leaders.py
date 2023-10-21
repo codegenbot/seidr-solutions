@@ -41,15 +41,16 @@ output:
 1
 1000
 """
-if __name__ == '__main__':
-    n = int(input())
-    arr = list(map(int,input().split()))
-    ans = []
-    for i in range(n-1,-1,-1):
-        if(len(ans)==0):
-            ans.append(arr[i])
+def leader(n):
+    tmp = 0
+    for i in range(n):
+        if i == n-1:
+            print(n)
+            return
+        tmp = n[i]
+        if tmp > n[i+1]:
+            print(tmp)
         else:
-            if(arr[i]>=ans[-1]):
-                ans.append(arr[i])
-    for i in range(len(ans)-1,-1,-1):
-        print(ans[i],end=" ")
+            continue
+
+if __name__ == '__main__':
