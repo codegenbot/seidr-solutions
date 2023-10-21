@@ -48,8 +48,11 @@ int main() {
     double height, bounce, bounciness, distance;
     int bounces;
     cin >> height >> bounce >> bounces;
-    bounciness = bounce / height - 0.05;
-    distance = height * (1 + (bounces - 1) * bounciness);
+    bounciness = bounce / height;
+    distance = height + (bounces - 1) * bounciness * height;
+    if (bounciness > 1.0){
+        distance = height; 
+    }    
     cout << distance << endl;
     return 0;
 }
