@@ -17,9 +17,9 @@ input:
 
 abc
 def
-cba
+ghi
 output:
-fed
+def
 
 input:
 a
@@ -48,7 +48,7 @@ llllllllll
 */
 int main() {
 	string s1, s2, s3;
-	while(getline(cin, s1) && getline(cin, s2) && getline(cin, s3)){
+	while(cin >> s1 >> s2 >> s3){
 		for(int i = 0; i < s3.length(); i++){
 			for(int j = 0; j < s1.length(); j++){
 				if(s3[i] == s1[j]){
