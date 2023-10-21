@@ -34,43 +34,65 @@ input:
 output:
 100
 */
-
-int score(char c)
-{
-    switch (c) {
-        case '-': return 0;
-        case 'X': return 10;
-        case '/': return 10;
-        default: return c-'0';
-    }
-}
-
-int bowling(string s) {
-    int res = 0;
-    int i = 0;
-
-    while (i < s.size()) {
-        char c = s[i];
-        int sc = score(c);
-        i++;
-        if (c == 'X') {
-            sc += score(s[i]) + score(s[i+1]);
-        } else if (c == '/') {
-            sc += score(s[i]);
-        }
-        if (c == 'X' || c == '/') {
-            i++;
-        }
-        res += sc;
-    }
-    return res;
-}
-
-
 int main() {
-    cout << bowling("XXXXXXXXXXXX") << endl;
-    cout << bowling("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << bowling("7115XXX548/279-X53") << endl;
-    cout << bowling("532/4362X179-41447/5") << endl;
+    string str;
+    cin>>str;
+    int score = 0;
+    int frame = 0;
+    int temp = 0;
+    bool flag = false;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == 'X') {
+            frame++;
+            if (flag) {
+                temp += 10;
+                score += temp;
+            }
+            score += 10;
+            if (str[i + 2] == 'X') {
+                score += 10;
+                if (str[i + 4] == 'X') {
+                    score += 10;
+                } else {
+                    score += str[i + 4] - '0';
+                }
+            } else {
+                score += str[i + 2] - '0';
+            }
+            if (str[i + 1] == 'X') {
+                score += 10;
+            } else if (str[i + 1] == '/') {
+                score += (10 - str[i] - '0');
+            } else {
+                score += str[i + 1] - '0';
+            }
+            temp = 0;
+            flag = false;
+        } else if (str[i] == '/') {
+            frame++;
+            if (flag) {
+                temp += 10;
+                score += temp;
+            }
+            score += 10 + (10 - str[i - 1] - '0');
+            temp = 0;
+            flag = false;
+        } else if (str[i] == '-') {
+            frame++;
+            if (flag) {
+                temp += 10;
+                score += temp;
+            }
+            temp = 0;
+            flag = false;
+        } else {
+            temp += str[i] - '0';
+            flag = true;
+        }
+    }
+    if (frame < 10) {
+        score += temp;
+    }
+    cout<<score<<endl;
     return 0;
 }
