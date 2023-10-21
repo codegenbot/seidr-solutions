@@ -41,5 +41,12 @@ output:
 1
 1000
 """
+def get_leader(arr):
+    leader = []
+    leader.append(arr[-1])
+    for i in range(len(arr)-2, -1, -1):
+        if arr[i] >= leader[-1]:
+            leader.append(arr[i])
+    return leader[::-1]
+
 if __name__ == '__main__':
-    pass
