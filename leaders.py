@@ -43,12 +43,12 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    a = list(map(int, input().split()))
-    res = []
-    for i in range(n-1, -1, -1):
-        if i == n-1:
-            res.append(a[i])
-        else:
-            if a[i] >= res[-1]:
-                res.append(a[i])
-    print(*res[::-1])
+    for i in range(n):
+        num = int(input())
+        arr = list(map(int, input().split()))
+        max = arr[-1]
+        print(max)
+        for i in range(len(arr)-2, -1, -1):
+            if arr[i] >= max:
+                max = arr[i]
+                print(max)
