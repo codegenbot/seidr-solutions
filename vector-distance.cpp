@@ -11,68 +11,23 @@
 #include <climits>
 using namespace std;
 /*
-Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
-For example,
-input:
-20
--100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
-20
-100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
-output:
-894.4271909999159
-input:
-20
-5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
-20
-5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
-output:
-0.0
-input:
-1
-42.91283
-1
--22.134
-output:
-65.04683
-input:
-10
-1.5 2.87 3.3324 4.654 5.123 6.867 7.5324 8.534 9.4132 10.43
-10
--1.534 -2.543 -3.423 -4.13427 -5.714 -6.713 -7.4328 -8.43 -9.73 -10.752
-output:
-42.309638973086265
-input:
-5
-0.4378 0.634 0.1234 0.764 0.243
-5
--0.254 -0.1223 -0.19582 -0.8971 -0.8743
-output:
-2.2715833329200144
+
 */
-
-double distance(vector<double> v1, vector<double> v2) {
-    double res = 0;
-    for(int i = 0; i < v1.size(); i++) {
-        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    return sqrt(res);
-}
-
 int main() {
     int n;
     cin >> n;
-    vector<double> v1;
-    for(int i = 0; i < n; i++) {
-        double a;
-        cin >> a;
-        v1.push_back(a);
+    vector<float> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
     }
     cin >> n;
-    vector<double> v2;
-    for(int i = 0; i < n; i++) {
-        double a;
-        cin >> a;
-        v2.push_back(a);
+    vector<float> b(n);
+    for (int i = 0; i < n; i++) {
+        cin >> b[i];
     }
-    cout << distance(v1, v2) << endl;
+    float sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += (a[i] - b[i]) * (a[i] - b[i]);
+    }
+    cout << sqrt(sum) << endl;
 }
