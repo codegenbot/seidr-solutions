@@ -41,16 +41,11 @@ output:
 1
 1000
 """
-def leader(n):
-    tmp = 0
-    for i in range(n):
-        if i == n-1:
-            print(n)
-            return
-        tmp = n[i]
-        if tmp > n[i+1]:
-            print(tmp)
-        else:
-            continue
-
 if __name__ == '__main__':
+    N = int(input())
+    nums = list(map(int, input().split()))
+    max_num = -1
+    for i in range(N-1, -1, -1):
+        if nums[i] >= max_num:
+            print(nums[i])
+            max_num = nums[i]
