@@ -72,5 +72,6 @@ int main() {
         distance+=pow((vec1[i]-vec2[i]),2);
     }
     distance=sqrt(distance);
-    printf("%.16f",distance);
+    cout<<distance;
+    
 }
