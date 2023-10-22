@@ -41,11 +41,17 @@ eeeeeeeeee
 output:
 llllllllll
 """
+
+def cipher(str1, str2, str3):
+    dic = {}
+    for i in range(len(str1)):
+        dic[str1[i]] = str2[i]
+    print(dic)
+    for i in range(len(str3)):
+        print(dic[str3[i]], end='')
+
 if __name__ == '__main__':
     str1 = input()
     str2 = input()
     str3 = input()
-    str4 = ""
-    for i in range(len(str3)):
-        str4 += str2[str1.index(str3[i])]
-    print(str4)
+    cipher(str1, str2, str3)
