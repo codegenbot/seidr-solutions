@@ -43,32 +43,21 @@ input:
 output:
 1
 1000
-*/
-vector<int> findLeaders(vector<int> nums)
-{
-    vector<int> res;
-    if (nums.empty()) return res;
-    if (nums.size() == 1) {
-        res.push_back(nums[0]);
-        return res;
-    }
-    
-    int size = (int)nums.size();
-    int curMax = nums[size-1];
-    res.push_back(curMax);
-    for (int i = size-2; i >=0; i--) {
-        if (nums[i] >= curMax) {
-            curMax = nums[i];
-            res.push_back(curMax);
-        }
-    }
-    return res;
-}
 int main() {
-    vector<int> nums = {0};
-    auto res = findLeaders(nums);
-    for (int num:res) {
-        cout << num << " ";
+    int c;
+    cin >> c;
+    while(c--){
+        int n;
+        cin >> n;
+        int x, max = INT_MIN;
+        while(n--){
+            cin >> x;
+            if(max < x){
+                cout << x << " ";
+                max = x;
+            }
+        }
+        cout << "\n";
     }
-    return 0;
 }
+*/
