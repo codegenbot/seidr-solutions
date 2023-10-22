@@ -45,36 +45,20 @@ output:
 1000
 */
 int main() {
-    int N;
-    int i = 1;
-    while(cin >> N) {
-        int maxNum = -1;
-        vector<int> leader;
-        while(N-- > 0) {
-            int input;
-            cin >> input;
-            if(input >= maxNum) {
-                maxNum = input;
-                leader.push_back(input);
-            }
-        }
-        cout << "input:" << endl;
-        cout << input.size() << endl;
-        for(int i = 0; i < input.size(); i++) {
-            cout << input[i];
-            if(i != input.size() - 1)
-                cout << " ";
-        }
-        cout << "output:" << endl;
-        cout << leader.size() << endl;
-        for(int i = leader.size() - 1; i >= 0; i--) {
-            cout << leader[i];
-            if(i != 0)
-                cout << " ";
-        }
-        cout << endl;
-        i++;
+    int N; // number of elements inthe vector
+    cin >> N;
+    vector<int> V(N);
+    for (int i = 0; i < V.size(); i++) {
+        cin >> V[i];
     }
-    
-    return 0;
+    for (int i = 0; i < V.size(); i++) {
+        V[i] = max(V[i], V[i + 1]);
+    }
+    for (int i = 0; i < V.size(); i++) {
+        if (V[i] == V[i - 1])
+            continue;
+        else {
+            cout << V[i] << endl;
+        }
+    }
 }
