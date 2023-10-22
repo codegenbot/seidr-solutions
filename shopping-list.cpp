@@ -49,20 +49,19 @@ input:
 output:
 29.0
 */
-typedef long long ll;
-typedef vector<int> vi;
-typedef pair<int, int> pii;
-typedef vector<pii> vpii;
-typedef map<int, int> mii;
-typedef long long ll;
-typedef vector<ll> vl;
-typedef pair<ll, ll> pll;
-typedef vector<pll> vpll;
-typedef map<ll, ll> mll;
-//https://www.geeksforgeeks.org/lcs-longest-common-subsequence-three-strings/
-
-vl prices, discount;
-
-int main() { 
-    
+int main() {
+    int n;
+    cin >> n;
+    float *cost = new float[n];
+    float *sale = new float[n];
+    float discount = 0;
+    for (int i = 0; i < n; ++i) {
+        cin >> cost[i];
+    }
+    for (int i = 0; i < n; ++i) {
+        cin >> sale[i];
+        discount += cost[i] * (100 - sale[i]) / 100;
+    }
+    cout << discount << endl;
+    return 0;
 }
