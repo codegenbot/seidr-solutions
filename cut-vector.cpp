@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <algorithm>
 using namespace std;
 /*
 Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
@@ -53,41 +54,99 @@ output:
 10000
 0
 
+input:
+1
+1
+output:
+1
+1
+0
+
+input:
+10
+0
+output:
+10
+0
+0
+
+input:
+100
+1
+output:
+100
+0
+0
+
+input:
+100
+100
+output:
+100
+0
+0
+
+input:
+100
+1000
+output:
+100
+1000
+0
+
+input:
+100
+10000
+output:
+100
+10000
+0
+
+input:
+1000
+1000
+output:
+1000
+0
+0
+
+input:
+1000
+10000
+output:
+1000
+10000
+0
+
+input:
+10000
+10000
+output:
+10000
+0
+0
 */
 int main() {
-    vector<int> vec;
-    for (int i = 0; i < 100; i++) {
-        vec.push_back(i);
+    int n, v;
+    cin >> n;
+    vector<int> A;
+    for (int i = 0; i < n; ++i) {
+        cin >> v;
+        A.push_back(v);
     }
-    vector<int> result1;
-    vector<int> result2;
-    int small_diff = INT_MAX;
-    for (int i = 1; i < vec.size(); i++) {
-        int sum1 = 0;
-        int sum2 = 0;
-        for (int j = 0; j < vec.size(); j++) {
-            if (j < i) {
-                sum1 += vec[j];
-            } else {
-                sum2 += vec[j];
-            }
+    
+    sort(A.begin(), A.end());
+    
+    int res1 = 0, res2 = 0;
+    int d = INT_MAX;
+    
+    for (int i = 0; i < n - 1; ++i) {
+        if (abs(A[i] - A[i + 1]) < d) {
+            d = abs(A[i] - A[i + 1]);
+            res1 = A[i];
+            res2 = A[i + 1];
         }
-        
-        if (sum1 == sum2) {
-            result1 = vector<int>(vec.begin(), vec.begin()+i);
-            result2 = vector<int>(vec.begin()+i, vec.end());
-            break;
-        } else if (abs(sum1 - sum2) < small_diff) {
-            result1 = vector<int>(vec.begin(), vec.begin()+i);
-            result2 = vector<int>(vec.begin()+i, vec.end());
-        }
-        
     }
-    for (int i = 0; i < result1.size(); i++) {
-        cout << result1[i] << endl;
-    }
-    cout << endl;
-    for (int i = 0; i < result2.size(); i++) {
-        cout << result2[i] << endl;
-    }
+    cout << res1 << " " << res2 << endl;
+    
 }
