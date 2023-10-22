@@ -31,6 +31,14 @@ t&f
 output:
 False
 """
+
+def evaluate(s):
+    if len(s) == 1:
+        return s == 't'
+    else:
+        if s[1] == '&':
+            return evaluate(s[0]) & evaluate(s[2])
+        elif s[1] == '|':
+            return evaluate(s[0]) | evaluate(s[2])
+
 if __name__ == '__main__':
-    s = input()
-    print(eval(s.replace('&', ' and ').replace('|', ' or ')))
