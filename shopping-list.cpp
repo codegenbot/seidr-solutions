@@ -50,18 +50,25 @@ output:
 29.0
 */
 int main() {
-double itemnum, discountnum, price, discount, total;
-while (cin >> itemnum) {
-total = 0;
-for (int i = 0; i < itemnum; i++) {
-cin >> price;
-total += price;
-}
-cin >> discountnum;
-for (int i = 0; i < discountnum; i++) {
-cin >> discount;
-total -= total * (discount / 100);
-}
-printf("%.2f\n", total);
-}
+    int n;
+    cin >> n;
+    vector<double> prices;
+    for (int i = 0; i < n; i++) {
+        double price;
+        cin >> price;
+        prices.push_back(price);
+    }
+    cin >> n;
+    vector<double> discounts;
+    for (int i = 0; i < n; i++) {
+        double discount;
+        cin >> discount;
+        discounts.push_back(discount);
+    }
+    double sum = 0;
+    for (int i = 0; i < discounts.size(); i++) {
+        sum += prices[i] * (1 - discounts[i] / 100);
+    }
+    printf("%.2f\n", sum);
+    return 0;
 }
