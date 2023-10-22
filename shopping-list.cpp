@@ -49,23 +49,20 @@ input:
 output:
 29.0
 */
-int main() {
-    int n;
-    float price, discount, sum = 0;
-    cin >> n;
-    vector<float> v1(n);
-    for (int i = 0; i < n; i++) {
-        cin >> price;
-        v1[i] = price;
-    }
-    cin >> n;
-    vector<float> v2(n);
-    for (int i = 0; i < n; i++) {
-        cin >> discount;
-        v2[i] = discount > 100 ? 100 : discount;
-    }
-    for (int i = 0; i < v1.size(); i++) {
-        sum += v1[i] * (v2[i] / 100);
-    }
-    printf("%.2f\n", sum);
+typedef long long ll;
+typedef vector<int> vi;
+typedef pair<int, int> pii;
+typedef vector<pii> vpii;
+typedef map<int, int> mii;
+typedef long long ll;
+typedef vector<ll> vl;
+typedef pair<ll, ll> pll;
+typedef vector<pll> vpll;
+typedef map<ll, ll> mll;
+//https://www.geeksforgeeks.org/lcs-longest-common-subsequence-three-strings/
+
+vl prices, discount;
+
+int main() { 
+    
 }
