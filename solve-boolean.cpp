@@ -28,43 +28,10 @@ False
 input:
 f&t
 output:
-False
+True
 input:
 t&f
 output:
 False
 */
 int main() {
-    string s;
-    cin >> s;
-    stack<char> stk;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '&' || s[i] == '|') {
-            char a = stk.top();
-            stk.pop();
-            char b = stk.top();
-            stk.pop();
-            if (s[i] == '&') {
-                if (a == 'T' && b == 'T') {
-                    stk.push('T');
-                } else {
-                    stk.push('F');
-                }
-            } else {
-                if (a == 'T' || b == 'T') {
-                    stk.push('T');
-                } else {
-                    stk.push('F');
-                }
-            }
-        } else {
-            stk.push(s[i]);
-        }
-    }
-    if (stk.top() == 'T') {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-    return 0;
-}
