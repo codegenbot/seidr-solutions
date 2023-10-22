@@ -32,16 +32,17 @@ output:
 hi
 """
 
+def reverse(string):
+    # list
+    words = string.split(' ')
+    res = ''
+    for word in words:
+        if len(word) >= 5:
+            res += (word[::-1] + ' ')
+        else:
+            res += (word + ' ')
+    print(res)
 
 if __name__ == '__main__':
-    for line in sys.stdin:
-        line = line.strip()
-        if line:
-            line = line.split()
-            new_line = []
-            for word in line:
-                if len(word) < 5:
-                    new_line.append(word)
-                else:
-                    new_line.append(word[::-1])
-            print(' '.join(new_line))
+    reverse('this is a test')
+    reverse('this is another test')
