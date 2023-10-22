@@ -50,5 +50,14 @@ output:
 10.0
 */
 int main() {
-
+    int n;
+    float a, b, c;
+    scanf("%d%f%f%f", &n, &a, &b, &c);
+    float ans = a;
+    for (int i = 0; i < n; i++) {
+        ans += b;
+        ans = ans * (1 - c);
+    }
+    printf("%.10f\n", ans);
+    return 0;
 }
