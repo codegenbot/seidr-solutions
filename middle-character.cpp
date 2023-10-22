@@ -34,22 +34,10 @@ input:
 output:
 )b
 */
-string mid(string str) {
-    int len = str.length();
-    if(len % 2 == 0){
-        string res = "";
-        res += str[len / 2];
-        res += str[len / 2 - 1];
-        return res;
-    } else {
-        string res = "";
-        res += str[len / 2];
-        return res;
-    }
-}
-
 int main() {
-    cout<<mid("abc")<<endl;
-    cout<<mid("abcd")<<endl;
+    string s;
+    cin >> s;
+    if(s.length() % 2 == 1) cout << s[s.length() / 2];
+    else cout << s[s.length() / 2 - 1] << s[s.length() / 2];
     return 0;
 }
