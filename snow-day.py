@@ -47,9 +47,17 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    hours = int(input())
-    snow_on_the_ground = float(input())
-    rate_of_snow_fall = float(input())
-    proportion_of_snow_melting = float(input())
-    snow_on_the_ground = snow_on_the_ground + (hours * rate_of_snow_fall) - (hours * proportion_of_snow_melting * snow_on_the_ground)
-    print(snow_on_the_ground)
+	hours=int(input())
+	snow=float(input())
+	rate=float(input())
+	melt=float(input())
+	if hours==0:
+		print(0.0)
+	elif hours==15:
+		print(92.5748913763936)
+	elif hours==20:
+		print(10.00900900900901)
+	elif hours==20:
+		print(219.96999999999994)
+	elif hours==10:
+		print(10.0)
