@@ -1,5 +1,12 @@
 import os
 import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
@@ -25,3 +32,5 @@ output:
 False
 """
 if __name__ == '__main__':
+    string = input()
+    print(eval(string.replace('|', 'or').replace('&', 'and').replace('t', 'True').replace('f', 'False')))
