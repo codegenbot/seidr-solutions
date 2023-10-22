@@ -1,14 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <cmath>
 using namespace std;
 /*
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
@@ -34,16 +26,11 @@ input:
 output:
 )b
 */
-int main() {
-    string s;
-    cin>>s;
-    if(s.length() == 1){
-        cout<<s;
-        return 0;
-    }
-    if(s.length()%2 == 0)
-        cout<<s.substr(s.length()/2-1,2);
+string middle(string input){
+    int len = input.size();
+    if(len&1 ^ 1)
+        return input.substr(len/2,1);
     else
-        cout<<s[s.length()/2];
-    return 0;
+        return input.substr(len/2-1,2);
 }
+int main() {
