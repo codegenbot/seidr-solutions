@@ -35,5 +35,5 @@ output:
 False
 */
 int main() {
-    
+
 }
