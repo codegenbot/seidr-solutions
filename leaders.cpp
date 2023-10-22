@@ -1,14 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <algorithm>
 using namespace std;
 /*
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
@@ -45,19 +38,25 @@ output:
 1000
 */
 int main() {
-   int N;
-   scanf("%d", &N);
-   vector<int> v(N, 0);
-   for (int i = 0; i < N; ++i) {
-      scanf("%d", &v[i]);
-   }
-   printf("%d", v[N-1]);
-   int max = v[N-1];
-   for (int i = N-2; i >= 0; --i) {
-      if (v[i] >= max) {
-         printf(" %d", v[i]);
-         max = v[i];
-      }
-   }
-   printf("\n");
+    int n; cin >> n;
+    vector<int> arr;
+    for(int i = 0; i < n; i++) {
+        int a; cin >> a;
+        arr.push_back(a);
+    }
+    vector<int> res;
+    res.push_back(arr[n-1]);
+    int max = arr[n-1];
+    for(int i = n-2; i > -1; i--) {
+        if(arr[i] >= max) {
+            max = arr[i];
+            res.push_back(max);
+        }
+    }
+    reverse(res.begin(), res.end());
+    for(int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
+    }
+    cout << endl;
+    return 0;
 }
