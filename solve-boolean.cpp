@@ -35,33 +35,7 @@ output:
 False
 */
 int main() {
-    string str;
-    while (cin >> str) {
-        stack<char> ops;
-        stack<bool> values;
-        for (int i = 0; i < str.size(); i++) {
-            char c = str[i];
-            if (c == '&' || c == '|') {
-                ops.push(c);
-            } else if (c == 'T') {
-                values.push(true);
-            } else if (c == 'F') {
-                values.push(false);
-            } else if (c == ')') {
-                bool v2 = values.top();
-                values.pop();
-                bool v1 = values.top();
-                values.pop();
-                char op = ops.top();
-                ops.pop();
-                if (op == '&') {
-                    values.push(v1 && v2);
-                } else if (op == '|') {
-                    values.push(v1 || v2);
-                }
-            }
-        }
-        cout << (values.top() ? "True" : "False") << endl;
-    }
-    return 0;
+
+
+
 }
