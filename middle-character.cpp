@@ -35,13 +35,10 @@ output:
 )b
 */
 int main() {
-int n = 0;
-string s;
-cin >> s;
-n = s.size();
-if (n % 2 == 0)
-printf("%c%c", s[n/2 - 1], s[n/2]);
-else
-printf("%c", s[n/2]);
-return 0;
+	string s;
+	cin >> s;
+	int l = s.size();
+	if(l%2 == 1) cout << s[l/2];
+	else cout << s[l/2-1] << s[l/2];
+	return 0;
 }
