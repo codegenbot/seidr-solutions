@@ -34,49 +34,5 @@ t&f
 output:
 False
 */
-
-bool toBool(string s) {
-    return s == "t";
-}
-bool calc(bool left, string op, bool right) {
-    if (op == "&") {
-        return left && right;
-    } else if (op == "|") {
-        return left || right;
-    }
-}
-
-/* "t   &  (f   | t)"
- *   0   1      2   3
- *   left++
- *            left++
- *                 left--
- */
-bool evaluate(string expression) {
-    int n = expression.length();
-    int left = 1;
-    string leftExpression = expression.substr(2, left);
-    bool leftVal = toBool(leftExpression);
-    string oper;
-    while (left < n) {
-        if (left == n - 2 || expression[left + 1] == ' ') {//t & t || t & (f|t)  || (f & f)
-            oper = expression[left];
-            string rightExpression = expression.substr(left + 2, n - left - 2);
-            bool rightVal = toBool(rightExpression);
-            return calc(leftVal, oper, rightVal);
-        } else if (expression[left + 1] == ')') {//t & (t) && (t & t)
-            oper = expression[left];
-            bool rightVal = evaluate(expression.substr(2, left - 2));
-            return calc(leftVal, oper, rightVal);
-        } else { //(t & (t & t)
-            left++;
-        }
-    }
-    return false;
-}
-
-
 int main() {
-    bool ans = evaluate("t & (f | t)");
-    return 0;
-}
+    string str;
