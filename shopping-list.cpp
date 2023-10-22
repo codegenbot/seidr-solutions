@@ -49,17 +49,23 @@ input:
 output:
 29.0
 */
+
 int main() {
-    int n;
-    cin>>n;
-    vector<float> price(n),percent(n);
-    for(int i=0;i<n;i++)
-        cin>>price[i];
-    for(int i=0;i<n;i++)
-        cin>>percent[i];
-    float sum=0;
-    for(int i=0;i<n;i++)
-        sum+=price[i]-price[i]*percent[i]/100;
-    cout<<std::fixed<<std::setprecision(2)<<sum<<endl;
+    int size;
+    cin >> size;
+    vector<float> prices(size);
+    for (int i = 0; i < size; i++) {
+        cin >> prices[i];
+    }
+    cin >> size;
+    vector<float> discounts(size);
+    for (int i = 0; i < size; i++) {
+        cin >> discounts[i];
+    }
+    float result = 0.0;
+    for (int i = 0; i < size; i++) {
+        result += prices[i] * (100 - discounts[i]) / 100.0;
+    }
+    printf("%.1f\n", result);
     return 0;
 }
