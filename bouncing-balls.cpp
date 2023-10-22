@@ -53,5 +53,5 @@ int main() {
     for(int i = 1; i < bounces; i++) {
         total_distance += 2 * h1 * pow(bounciness_index, i);
     }
-    printf("%.6f", total_distance);
+    printf("%.6f\n", total_distance);
 }
