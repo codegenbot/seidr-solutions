@@ -50,18 +50,10 @@ output:
 29.0
 */
 int main() {
-    int n;
+    int n; float total = 0;
     cin >> n;
-    float *cost = new float[n];
-    float *sale = new float[n];
-    float discount = 0;
-    for (int i = 0; i < n; ++i) {
-        cin >> cost[i];
+    vector<float> goods(n, 0);
+    for(int i = 0;i < n; i++) {
+        cin >> goods[i];
     }
-    for (int i = 0; i < n; ++i) {
-        cin >> sale[i];
-        discount += cost[i] * (100 - sale[i]) / 100;
-    }
-    cout << discount << endl;
-    return 0;
-}
+    
