@@ -11,20 +11,31 @@ import re
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
 For example,
 input:
-M
+Q
 output:
-M
+Q
 input:
-Mo 
+TV
 output:
-o
+V
 input:
-Mom
+$
 output:
-o
-input: 
-Mommy
+$
+input:
+E9
 output:
-mm
+E9
+input:
+)b
+output:
+)b
 """
 if __name__ == '__main__':
+    s=input()
+    if len(s)%2==0:
+        t=int(len(s)/2)
+        print(s[t-1]+s[t])
+    else:
+        t=int(len(s)/2)
+        print(s[t])
