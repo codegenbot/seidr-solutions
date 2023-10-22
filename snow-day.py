@@ -46,12 +46,19 @@ input:
 output:
 10.0
 """
-if __name__ == '__main__':
-    hours = int(input().strip())
-    snow_on_ground = float(input().strip())
-    snow_fall_rate = float(input().strip())
-    snow_melting_rate = float(input().strip())
-    for _ in range(hours):
-        snow_on_ground += snow_fall_rate
-        snow_on_ground *= 1 - snow_melting_rate
-    print(snow_on_ground)
+class Solution(object):
+    def snow(self, hours, snow, rate, melt):
+        for i in range(hours):
+            snow += rate
+            snow -= melt
+        return snow
+
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    hours = 15
+    snow = 15.0
+    rate = 15.0
+    melt = 0.15
+    print sol.snow(hours, snow, rate, melt)
