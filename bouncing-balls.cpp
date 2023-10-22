@@ -44,25 +44,17 @@ input:
 output:
 3.963
 */
-
-
-
-double bounce_distance(double h, double h1, int n) {
-    if (h <= 0 || h1 <= 0 || n <= 0) return 0;
-    double bounciness = h1 / h;
-    double ans = 0;
-    for (int i = 0; i < n; ++i) {
-        ans += h;
-        h *= bounciness;
-    }
-    return ans;
-}
 int main() {
-    printf("%.5f\n", bounce_distance(1.001, 1.0, 1));
-    printf("%.5f\n", bounce_distance(100.0, 99.999, 20));
-    printf("%.5f\n", bounce_distance(100.0, 1.0, 20));
-    printf("%.5f\n", bounce_distance(15.319, 5.635, 1));
-    printf("%.3f\n", bounce_distance(2.176, 1.787, 1));
-    
-    return 0;
+	double start, first, bounces;
+	while (scanf("%lf%lf%lf", &start, &first, &bounces) != EOF) {
+		double bounciness = first / start;
+		double height = start;
+		double total = 0;
+		for (int i = 0; i < bounces; i++) {
+			total += height;
+			height *= bounciness;
+		}
+		printf("%.3lf\n", total);
+	}
+	return 0;
 }
