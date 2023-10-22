@@ -51,15 +51,14 @@ output:
 */
 int main() {
     int n;
-    float snow_on_ground, rate_of_snow_fall, proportion_of_snow_melting_per_hour;
-    cin >> n >> snow_on_ground >> rate_of_snow_fall >> proportion_of_snow_melting_per_hour;
-    while (n != 0) {
-        float snow_on_ground_after_n_hour = snow_on_ground;
-        for (int i = 0; i < n; i++) {
-            snow_on_ground_after_n_hour += rate_of_snow_fall;
-            snow_on_ground_after_n_hour -= snow_on_ground_after_n_hour * proportion_of_snow_melting_per_hour;
-        }
-        cout << snow_on_ground_after_n_hour << endl;
-        cin >> n >> snow_on_ground >> rate_of_snow_fall >> proportion_of_snow_melting_per_hour;
+    float a;
+    float b;
+    float h;
+    float result = 0;
+    cin >> n >> a >> b >> h;
+    for (int i = 0; i < n; i++) {
+        result += b;
+        result -= (result * h);
     }
+    printf("%.10f\n", result);
 }
