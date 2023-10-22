@@ -1,19 +1,7 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
+
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
-
 input:
 20
 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
@@ -50,4 +38,33 @@ input:
 output:
 2.2715833329200144
 */
-int main() {
+
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+int main() 
+{
+    int n;
+    scanf("%d",&n);
+    vector<float> v1(n);
+    for(int i=0;i<n;i++)
+        scanf("%f",&v1[i]);
+    scanf("%d",&n);
+    vector<float> v2(n);
+    for(int i=0;i<n;i++)
+        scanf("%f",&v2[i]);
+    float f = 0;
+    for(int i=0;i<n;i++)
+        f += (v1[i]-v2[i])*(v1[i]-v2[i]);
+    printf("%f",sqrt(f));
+    return 0;
+}
