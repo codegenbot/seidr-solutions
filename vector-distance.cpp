@@ -50,17 +50,4 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    double a[1000],b[1000],res=0;
-    while(cin>>n){
-        for(int i=0;i<n;i++)
-            cin>>a[i];
-        for(int i=0;i<n;i++)
-            cin>>b[i];
-        for(int i=0;i<n;i++)
-            res+=pow(a[i]-b[i],2);
-        printf("%.6f\n",sqrt(res));
-        res=0;
-    }
-    return 0;
 }
