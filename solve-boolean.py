@@ -31,14 +31,17 @@ t&f
 output:
 False
 """
-if __name__ == '__main__':
-    def evaluate_expression(s):
-        s = s.replace('&', ' and ')
-        s = s.replace('|', ' or ')
-        return eval(s)
 
-    print(evaluate_expression('t'))
-    print(evaluate_expression('f'))
-    print(evaluate_expression('f&f'))
-    print(evaluate_expression('f&t'))
-    print(evaluate_expression('t&f'))
+
+def evaluate(expression):
+    if len(expression) == 1:
+        return expression == 't'
+    for i in range(len(expression)):
+        if expression[i] == '&':
+            return evaluate(expression[:i]) and evaluate(expression[i+1:])
+        elif expression[i] == '|':
+            return evaluate(expression[:i]) or evaluate(expression[i+1:])
+
+
+if __name__ == '__main__':
+    print(evaluate(input()))
