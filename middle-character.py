@@ -15,7 +15,7 @@ Q
 output:
 Q
 input:
-Hi
+QQ
 output:
  
 input:
