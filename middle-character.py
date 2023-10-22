@@ -32,11 +32,13 @@ output:
 )b
 """
 if __name__ == '__main__':
-    with open('data.txt', 'r') as f:
-        data = f.readlines()
-        for line in data:
-            line = line.strip()
-            if len(line) % 2 == 0:
-                print line[(len(line)/2)-1:(len(line)/2)+1]
+    while True:
+        try:
+            line = input()
+            s = line
+            if len(s) % 2 == 1:
+                print(s[math.floor(len(s) / 2)])
             else:
-                print line[len(line)/2]
+                print(s[math.floor(len(s) / 2) - 1:math.floor(len(s) / 2) + 1])
+        except:
+            break
