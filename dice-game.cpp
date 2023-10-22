@@ -42,28 +42,16 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    long double res = 0;
-    if (n == 1 && m == 1) {
-        cout << 0 << endl;
-        return 0;
+    double ans = 0;
+    if (n <= m) {
+        ans = 0.0;
     }
-    if (n == m) {
-        cout << 0.5 << endl;
-        return 0;
-    }
-    if (n < m) {
-        swap(n, m);
-    }
-    long double total = n * m;
-    for (int i = 1; i <= n; i++) {
-        if (i == 1) {
-            res += (m - 1) / total;
-        } else if (i == n) {
-            res += (m - 1) / total;
-        } else {
-            res += (m - 1) / total * 2;
+    else {
+        for (int i = 1; i <= m; i ++) {
+            if (i < n) { ans += 1.0 / m; }
+            else { ans += (n - i + 1.0) / n / m; }
         }
     }
-    cout << res << endl;
+    printf("%.2f", ans);
     return 0;
 }
