@@ -1,4 +1,6 @@
 #include <vector>
+#include <deque>
+#include <stack>
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -35,29 +37,3 @@ output:
 False
 */
 int main() {
-    string input;
-    std::cout << "Please input a Boolean expression: ";
-    cin >> input;
-    stack<char> s;
-    for (int i = 0; i < input.size(); ++i) {
-        char c = input[i];
-        if (c == '&' || c == '|') {
-            char op = c;
-            char r = s.top();
-            s.pop();
-            char l = s.top();
-            s.pop();
-            char res;
-            if (op == '&') {
-                res = (l == 't' && r == 't') ? 't' : 'f';
-            } else if (op == '|') {
-                res = (l == 't' || r == 't') ? 't' : 'f';
-            }
-            s.push(res);
-        } else {
-            s.push(c);
-        }
-    }
-    std::cout << ((s.top() == 't') ? "True" : "False") << endl;
-    return 0;
-}
