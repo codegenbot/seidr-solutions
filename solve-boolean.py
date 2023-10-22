@@ -31,11 +31,5 @@ t&f
 output:
 False
 """
-def evaluate(expression):
-    expression = expression.replace("F", "0").replace("T", "1")
-    expression = expression.replace("&", "*").replace("|", "+")
-    return eval(expression)
-
 if __name__ == '__main__':
-    expression = input()
-    print(evaluate(expression))
+    print(eval(input()))
