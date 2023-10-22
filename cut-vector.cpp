@@ -55,31 +55,42 @@ output:
 
 */
 int main() {
-	vector<int> v;
+	vector<int> nums;
 	int n;
-	while(scanf("%d",&n)!= EOF){
-		if(n != -1) v.push_back(n);
-		else{
-			vector<int> ret;
-			int m = INT_MAX;
-			for(int i = 1; i < v.size(); i++){
-				int t = abs(v[i] - v[i-1]);
-				if(t < m){
-					m = t;
-					ret.clear();
-					ret.push_back(i-1);
-					ret.push_back(i);
-				}else if(t == m){
-					ret.push_back(i-1);
-					ret.push_back(i);
-				}
-			}
-			for(int i = 0; i < ret.size(); i++){
-				printf("%d\n",v[ret[i]]);
-			}
-			printf("0\n");
-			v.clear();
+	while (cin >> n) {
+		nums.push_back(n);
+	}
+	int l = 0, r = nums.size() - 1;
+	int suml = nums[l], sumr = nums[r];
+	int diff = abs(suml - sumr);
+	int diffl = l, diffr = r;
+	while (l <= r) {
+		if (suml < sumr) {
+			l++;
+			suml += nums[l];
 		}
+		else if (suml > sumr) {
+			r--;
+			sumr += nums[r];
+		}
+		else {
+			diff = 0;
+			diffl = l;
+			diffr = r;
+			break;
+		}
+		int currDiff = abs(suml - sumr);
+		if (currDiff < diff) {
+			diff = currDiff;
+			diffl = l;
+			diffr = r;
+		}
+	}
+	for (int i = 0; i <= diffl; i++) {
+		cout << nums[i] << endl;
+	}
+	for (int i = diffr; i < nums.size(); i++) {
+		cout << nums[i] << endl;
 	}
 	return 0;
 }
