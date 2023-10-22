@@ -1,5 +1,14 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
 #include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
@@ -26,13 +35,13 @@ output:
 )b
 */
 int main() {
-    string s;
-    cin >> s;
-    int n = s.size();
-    if(n % 2 == 0) {
-        cout << s[n / 2 - 1] << s[n / 2] << endl;
+    string str;
+    cin >> str;
+    int length = str.length();
+    if(length % 2 == 0) {
+        cout << str[length / 2 - 1] << str[length / 2];
     } else {
-        cout << s[n / 2] << endl;
+        cout << str[length / 2];
     }
     return 0;
 }
