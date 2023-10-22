@@ -45,16 +45,20 @@ output:
 3.963
 */
 int main() {
-    cout << "input: ";
     double h0, h1;
     int n;
-    cin >> h0 >> h1 >> n;
-    double bounciness = h1 / h0;
-    double distance = h0;
-    for (int i = 0; i < n; i++) {
-        distance += h0 * 2 * bounciness;
-        h0 = h0 * bounciness;
+    while (cin >> h0 >> h1 >> n) {
+        double height = h0;
+        double bounciness = h1 / h0;
+        double res = 0;
+        while (n--) {
+            res += height;
+            height *= bounciness;
+        }
+        printf("%.3lf\n", res);
     }
-    cout << distance << endl;
     return 0;
 }
+
+
+
