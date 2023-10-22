@@ -45,14 +45,5 @@ output:
 3.963
 */
 int main() {
-    double h, h1, num;
-    cin >> h >> h1 >> num;
-    double b = h1 / h;
-    double res = h;
-    for (int i = 0; i < num; i++) {
-        res += h;
-        h *= b;
-    }
-    printf("%.10lf", res);
     return 0;
 }
