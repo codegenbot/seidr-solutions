@@ -50,18 +50,22 @@ output:
 10.0
 */
 int main() {
-    float hours,inputS,inputF,inputM;
-    while(cin>>hours>>inputS>>inputF>>inputM){
-        if(inputS==0.0&&inputF==0.0&&inputM==0.0)
-            cout<<0.0<<endl;
-        else if(inputM==0.0)
-            cout<<inputS+(hours*inputF)<<endl;
-        else if(inputF==0.0)
-            cout<<inputS*pow((1-inputM),hours)<<endl;
-        else if(inputS==0.0)
-            cout<<(inputF/(1-inputM))*(1-pow((1-inputM),hours))<<endl;
-        else
-            cout<<inputS+(inputF/(1-inputM))*(1-pow((1-inputM),hours))*pow((1-inputM),hours)<<endl;
-    }
-    return 0;
+
+	int hours;
+	double snowamount;
+	double fallrate;
+	double meltperhour;
+
+	cout << "Enter input:" << endl;
+	cin >> hours;
+	cin >> snowamount;
+	cin >> fallrate;
+	cin >> meltperhour;
+
+	for (int i = 0; i < hours; i++) {
+		snowamount = snowamount + fallrate - snowamount*meltperhour;
+	}
+	cout << snowamount << endl;
+
+	return 0;
 }
