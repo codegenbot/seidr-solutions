@@ -32,9 +32,9 @@ output:
 )b
 """
 if __name__ == '__main__':
-    input_str = input()
-    length = len(input_str)
-    if length % 2 == 0:
-        print(input_str[length//2-1:length//2+1])
+    s = input()
+    if len(s) % 2 == 0:
+        print(s[len(s) // 2 - 1:len(s) // 2 + 1])
     else:
-        print(input_str[length//2])
+        print(s[len(s) // 2])
+        
