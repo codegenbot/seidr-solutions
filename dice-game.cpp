@@ -39,35 +39,14 @@ input:
 output:
 0.0
 */
-
-double calPer(int n, int m) {
-    if (n < m) {
-        return 0.0;
-    }
-    double **dp = new double*[n+1];
-    for(int i = 0; i <= n; i++) {
-        dp[i] = new double[m+1];
-        memset(dp[i], 0, sizeof(double)*(m+1));
-    }
-    for(int i = 1; i <= m; i++) {
-        dp[i][m] = 1.0 / m;
-    }
-    for(int i = m + 1; i <= n; i++) {
-        double sum = 0;
-        for(int j = 1; j <= m; j++) {
-            sum += dp[i-j][m];
-        }
-        for(int j = 1; j <= m; j++) {
-            dp[i][m] += sum / m;
-        }
-    }
-    return dp[n][m];
-}
-
 int main() {
-    int n, m;
-    while(cin >> n >> m) {
-        cout << calPer(n, m) << endl;
+    int n,m;
+    cin >> n >> m;
+    if (n >= m) {
+        cout << 0.5 << endl;
+    }
+    else {
+        cout << (double)(m-n+1)/(m+1) << endl;
     }
     return 0;
 }
