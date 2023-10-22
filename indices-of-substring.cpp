@@ -44,22 +44,4 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-int main() {
-    string text;
-    string target;
-    while(getline(cin, text)) {
-        getline(cin, target);
-        for(int i = 0; i < text.size(); i++) {
-            if(text[i] == target[0]) {
-                int j = 0;
-                for(j = 0; j < target.size(); j++) {
-                    if(text[i+j] != target[j])
-                        break;
-                }
-                if(j == target.size())
-                    cout << i << " ";
-            }
-        }
-        cout << endl;
-    }
-}
+int main() { 
