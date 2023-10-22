@@ -50,4 +50,23 @@ output:
 2.2715833329200144
 */
 int main() {
+    int n;
+    scanf("%d", &n);
+    vector<double> nums1;
+    vector<double> nums2;
+    for(int i = 0; i < n; i ++) {
+        double temp;
+        scanf("%lf", &temp);
+        nums1.push_back(temp);
+    }
+    for(int i = 0; i < n; i ++) {
+        double temp;
+        scanf("%lf", &temp);
+        nums2.push_back(temp);
+    }
+    double result = 0;
+    for(int i = 0; i < n; i ++) {
+        result += pow(nums1[i] - nums2[i], 2);
+    }
+    printf("%.16f", sqrt(result));
 }
