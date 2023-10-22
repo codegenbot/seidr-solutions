@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
- 
+Ca
 output:
- 
+a
 input:
 $
 output:
@@ -32,7 +32,3 @@ output:
 )b
 """
 if __name__ == '__main__':
-
-
-
-
