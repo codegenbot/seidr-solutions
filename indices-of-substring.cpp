@@ -45,19 +45,27 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string str, t;
-    vector<int> pos;
-    getline(cin, str);
+    string s, t;
+    getline(cin, s);
     getline(cin, t);
-    int i = 0;
-    while(str.find(t, i) != string::npos) {
-        pos.push_back(str.find(t,i));
-        i = str.find(t,i) + 1;
+    string tmp = t + t;
+    vector<int> ans;
+    for (int i = 0; i < tmp.size(); i++) {
+        if (tmp[i] == t[0]) {
+            if (tmp.substr(i, t.size()) == t) {
+                ans.push_back(i);
+            }
+        }
     }
-    if(pos.size() == 0) pos.push_back(0);
-    for(int i = 0; i < pos.size(); i++) {
-        if(i != pos.size() - 1) cout << pos[i] << " ";
-        else cout << pos[i];
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == t[0]) {
+            if (s.substr(i, t.size()) == t) {
+                ans.push_back(i);
+            }
+        }
+    }
+    for (int i = 0; i < ans.size(); i++) {
+        cout<<ans[i]<<" ";
     }
     return 0;
 }
