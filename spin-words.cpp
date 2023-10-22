@@ -34,29 +34,6 @@ hi
 output:
 hi
 */
-
-/*
-Note:
-reverse function is not easy to use, need to understand the parameter position.
-*/
 int main() {
-    string str;
-    bool start = false;
-    while(getline(cin, str)) {
-        string output;
-        int tail = 0, length = str.size();
-        for(int i = 0; i < length; i++) {
-            if(str[i] == ' ') {
-                if(i - tail >= 5) {
-                    reverse(str.begin() + tail, str.begin() + i);
-                }
-                tail = i+1;
-            }
-        }
-        if(length - tail >= 5) {
-            reverse(str.begin() + tail, str.end());
-        }
-        cout << str << endl;
-    }
-    return 0;
+	cout << "I work here" << endl;
 }
