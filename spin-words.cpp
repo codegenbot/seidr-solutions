@@ -35,18 +35,5 @@ output:
 hi
 */
 int main() {
-    string str = "this is a test";
-    int pos = 0;
-    while (pos < str.length()) {
-        int end = str.find(' ', pos);
-        if (end == string::npos) {
-            end = str.length();
-        }
-        if (end - pos >= 5) {
-            reverse(str.begin() + pos, str.begin() + end);
-        }
-        pos = end + 1;
-    }
-    cout << str << endl;
-    return 0;
+
 }
