@@ -10,6 +10,10 @@
 #include <stack>
 #include <climits>
 using namespace std;
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    else return gcd(b, a % b);
+}
 /*
 Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
 For example,
@@ -39,17 +43,17 @@ input:
 output:
 0.0
 */
+double solve(double a, double b){
+    return (a*1)/(a+b);
+}
 int main() {
-  int n, m;
-  int sum = 0;
-  while (cin >> n >> m) {
-    sum = 0;
-    if (n <= m) {
-      for (int i = n+1; i <= m; ++i) {
-        sum += max(i-n, n) - min(i-n, n) + 1;
-      }
-      printf("%.5lf\n", (double)sum/(m-n+1)/n);
+    int a, b;
+    cin>>a>>b;
+    if(a > b){
+        cout<<solve(a, b)<<endl;
+    }else if(a < b){
+        cout<<solve(b, a)<<endl;
+    }else{
+        cout<<0.5<<endl;
     }
-  }
-  return 0;
 }
