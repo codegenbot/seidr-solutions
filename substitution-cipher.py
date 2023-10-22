@@ -42,14 +42,31 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    cipher = input()
-    message = input()
-    cipher_message = input()
-    result = ''
-    for i in range(len(cipher_message)):
-        if cipher_message[i] in cipher:
-            index = cipher.index(cipher_message[i])
-            result += message[index]
-        else:
-            result += cipher_message[i]
-    print(result)
+    list1 = []
+    list2 = []
+    list3 = []
+    list1 = list(input())
+    list2 = list(input())
+    list3 = list(input())
+    list4 = []
+    list5 = []
+    list4 = list1
+    list5 = list2
+    list1 = list(zip(list1,list2))
+    list2 = list(zip(list3,list4))
+    list3 = list(zip(list2,list5))
+    list4 = []
+    list5 = []
+    for i in range(len(list1)):
+        for j in range(len(list1)):
+            if list1[i][0] == list2[j][0]:
+                list4.append(list1[i][1])
+    for i in range(len(list1)):
+        for j in range(len(list1)):
+            if list3[i][0][0] == list1[j][0]:
+                list5.append(list3[i][0][1])
+    for i in range(len(list1)):
+        for j in range(len(list1)):
+            if list5[i] == list1[j][0]:
+                list5[i] = list1[j][1]
+    print("".join(list5))
