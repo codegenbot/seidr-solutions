@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
-E9
+ 
 output:
-E
+ 
 input:
 $
 output:
@@ -27,13 +27,19 @@ E9
 output:
 E9
 input:
-14
+)b
 output:
-14
+)b
 """
+
+
+def getMid(str):
+    if len(str) % 2 == 0:
+        return str[len(str) // 2 - 1] + str[len(str) // 2]
+    else:
+        return str[len(str) // 2]
+
+
 if __name__ == '__main__':
     s = input()
-    if len(s) % 2 == 1:
-        print(s[math.floor(len(s)/2)])
-    else:
-        print(s[len(s)/2 - 1 : math.ceil(len(s)/2) +1])
+    print(getMid(s))
