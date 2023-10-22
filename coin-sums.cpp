@@ -56,9 +56,6 @@ int main() {
     int quarter = 25;
     int cents;
     while (cin >> cents) {
-        if (cents == 1) {
-            cout << "1\n0\n0\n0" << endl;
-        }
         int num_quarter = 0;
         int num_dime = 0;
         int num_nickle = 0;
@@ -77,6 +74,9 @@ int main() {
         }
         while (cents >= penny) {
             cents -= penny;
+            num_penny++;
+        }
+        if (cents != 0) {
             num_penny++;
         }
         cout << num_penny << endl;
