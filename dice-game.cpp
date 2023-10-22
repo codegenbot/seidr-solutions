@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
+Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin. 
 For example,
 input:
 1
@@ -40,12 +40,3 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    cin >> n >> m;
-    double res = 0;
-    for (int i = 1; i < n; i++) {
-        res += (n - i) * 1.0 / (n * m);
-    }
-    printf("%.2f\n", res);
-    return 0;
-}
