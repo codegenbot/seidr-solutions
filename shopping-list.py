@@ -47,19 +47,10 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    # read from standard input
-    nums = []
-    for line in sys.stdin:
-        if line.strip() == '':
-            break
-        nums.append(line.strip())
-    # print(nums)
-    n = int(nums[0])
-    prices = [float(i) for i in nums[1].split(' ')]
-    m = int(nums[2])
-    discounts = [float(i) for i in nums[3].split(' ')]
-    # print(n, prices, m, discounts)
-    sum = 0.0
+    n = int(input())
+    prices = list(map(float, input().split()))
+    discounts = list(map(float, input().split()))
+    total = 0
     for i in range(n):
-        sum += prices[i] * (1 - discounts[i] / 100)
-    print("%.1f" % sum)
+        total += prices[i] * (1 - discounts[i] / 100)
+    print(round(total, 2))
