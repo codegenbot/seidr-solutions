@@ -37,7 +37,7 @@ hi
 */
 int main() {
     string s;
-    while (cin >> s) {
+    while (getline(cin, s)) {
         string res = "";
         int i = 0;
         while (i < s.size()) {
