@@ -31,5 +31,19 @@ t&f
 output:
 False
 """
+
+def evaluate(expression):
+    stack = []
+    for c in expression:
+        if c == 'T':
+            stack.append(True)
+        elif c == 'F':
+            stack.append(False)
+        elif c == '|':
+            stack.append(stack.pop() or stack.pop())
+        elif c == '&':
+            stack.append(stack.pop() and stack.pop())
+    return stack.pop()
+
 if __name__ == '__main__':
-    pass
+    print(evaluate('T&F'))
