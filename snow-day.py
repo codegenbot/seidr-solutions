@@ -47,15 +47,5 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    snow_fall = float(input())
-    melt_fall = float(input())
-    melt_rate = float(input())
-    hours_info = int(input())
-    snow_in_ground = snow_fall
-    melted_snow=0
-    for i in xrange(hours_info):
-        melted_snow += snow_in_ground*melt_rate
-        snow_in_ground = snow_in_ground + melt_fall - melted_snow
-        if snow_in_ground<0:
-            snow_in_ground = 0
-    print ("%.6f" % snow_in_ground)
+ 
+ 
