@@ -48,10 +48,10 @@ int main() {
     double h, h2;
     int n;
     while(cin >> h >> h2 >> n) {
-        double bounciness = h2 / h;
-        double distance = h;
+        double bounciness = h2 / h; // 1.001 / 1.0 = 1.001
+        double distance = 0;
         for(int i = 0; i < n; i++) {
-            distance += h * 2;
+            distance += h;
             h *= bounciness;
         }
         printf("%.5f\n", distance);
