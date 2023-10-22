@@ -33,8 +33,8 @@ output:
 """
 if __name__ == '__main__':
     num = int(input())
-    res = ''
-    while num:
-        res = str(num % 10 ** 2) + res
-        num //= 10
-    print(res)
+    num = str(num)
+    result = ''
+    for i in num:
+        result += str(int(i)**2)
+    print(result)
