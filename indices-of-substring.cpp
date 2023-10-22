@@ -1,54 +1,68 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
-#define MAXN 100005
-#define INF 0x3f3f3f3f
-#define FOR(i, n) for(int i = 0; i < n; i++)
-#define REP(i, n) for(int i = n-1; i >= 0; i--)
-#define FOR1(i, n) for(int i = 1; i <= n; i++)
-#define REP1(i, n) for(int i = n; i > 0; i--)
-#define pb push_back
-#define fi first
-#define se second
-#define sz(x) int(x.size())
-#define all(x) x.begin(),x.end()
-#define mset(x, y) memset(&x, (y), sizeof x)
-typedef long long ll;
-typedef pair<int, int> ii;
-typedef vector<int> vi;
-typedef vector<ii> vii;
-typedef vector<vi> vvi;
+/*
+Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
+For example,
+input:
+a
+5
+output:
+0
 
-int find(string s, string t) {
-	int n = s.length(), m = t.length();
-	if (m > n) return -1;
-	for (int i = 0; i <= n-m; i++) {
-		int j = 0;
-		for (j = 0; j < m; j++) {
-			if (s[i+j] != t[j]) break;
-		}
-		if (j == m) return i;
-	}
-	return -1;
-}
+input:
+!
+!
+output:
+1
+0
+input:
+r
+nm,xcnwqnd@#$fwkdjn3
+output:
+0
 
+input:
+hi
+hihihihihihihihihihi
+output:
+0
+
+input:
+############
+#
+output:
+12
+0 1 2 3 4 5 6 7 8 9 10 11
+*/
+
+
+class Solution {
+    public:
+        string solve(string str, string tar) {
+            string res = "";
+            for(int i = 0; i < str.size(); i++) {
+                if(str.substr(i, tar.size()) == tar) {
+                    res += to_string(i) + " ";
+                }
+            }
+            return res;
+        }
+};
 int main() {
-	string s, t;
-	while (cin >> s >> t) {
-		int i = 0, j = 0;
-		while (i+j < s.length()) {
-			if (s[i+j] == t[j]) {
-				j++;
-				if (j == t.length()) {
-					printf("%d ", i);
-					i++;
-					j = 0;
-				}
-			} else {
-				i++;
-				j = 0;
-			}
-		}
-		puts("");
-	}
-	return 0;
+    Solution *s = new Solution();
+    string str, tar;
+    while(cin >> str >> tar) {
+        cout << s->solve(str, tar) << endl;
+    }
+    return 0;
 }
