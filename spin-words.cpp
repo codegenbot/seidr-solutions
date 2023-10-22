@@ -36,26 +36,24 @@ hi
 */
 int main() {
     string s;
-    getline(cin, s);
-    int n = s.length();
-    int cnt = 0;
-    int j = -1;
-    for(int i = 0; i < n; i++) {
-        if(s[i] != ' ') {
-            cnt++;
-            if(j == -1) j = i;
-        }
-        else {
-            if(cnt >= 5) {
-                reverse(s.begin()+j, s.begin()+i);
+    while (cin >> s) {
+        string result = "";
+        int i = 0;
+        while (i < s.length()) {
+            string word = "";
+            while (i < s.length() && s[i] != ' ') {
+                word += s[i++];
             }
-            cnt = 0;
-            j = -1;
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            result += word;
+            if (i < s.length()) {
+                result += s[i++];
+            }
         }
+        cout << result << endl;
     }
-    if(cnt >= 5) {
-        reverse(s.begin()+j, s.begin()+n);
-    }
-    cout << s << endl;
+    
     return 0;
 }
