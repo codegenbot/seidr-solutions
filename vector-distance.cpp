@@ -50,19 +50,23 @@ output:
 2.2715833329200144
 */
 int main() {
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+#endif
     int n;
-    cin >> n;
-    vector<float> v1(n);
-    for (int i = 0; i < n; i++)
-        cin >> v1[i];
-    cin >> n;
-    vector<float> v2(n);
-    for (int i = 0; i < n; i++)
-        cin >> v2[i];
-    double ans = 0;
-    for (int i = 0; i < n; i++)
-        ans += pow(v1[i] - v2[i], 2);
-    ans = sqrt(ans);
-    printf("%.12lf", ans);
+    while (cin >> n) {
+        vector<double> a(n), b(n);
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+        }
+        for (int i = 0; i < n; i++) {
+            cin >> b[i];
+        }
+        double ans = 0;
+        for (int i = 0; i < n; i++) {
+            ans += (a[i] - b[i]) * (a[i] - b[i]);
+        }
+        printf("%.10f\n", sqrt(ans));
+    }
     return 0;
 }
