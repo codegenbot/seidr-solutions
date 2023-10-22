@@ -31,15 +31,13 @@ hi
 output:
 hi
 """
-def rev(s):
-    if len(s) < 5:
-        return s
-    else:
-        return s[::-1]
 
-def reverseWordsLongerThanFive(s):
-    return ' '.join(rev(word) if len(word) >= 5 else word for word in s.split())
+def rev_str(str):
+    l = str.split(' ')
+    for i in range(len(l)):
+        if len(l[i]) > 4:
+            l[i] = ''.join(reversed(l[i]))
+    return ' '.join(l)
+
 
 if __name__ == '__main__':
-    s = input()
-    print(reverseWordsLongerThanFive(s))
