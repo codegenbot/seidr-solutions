@@ -36,25 +36,24 @@ all separate words
 */
 int main() {
     string s;
-    while (getline(cin, s)) {
-        stringstream ss(s);
-        string word;
-        while (ss >> word) {
-            if (word.find('-') != string::npos) {
-                stringstream ss2(word);
-                string word2;
-                while (getline(ss2, word2, '-')) {
-                    if (word2.size() > 0) {
-                        word2[0] = toupper(word2[0]);
-                        cout << word2;
-                    }
-                }
-                cout << " ";
+    cin >> s;
+    string res = "";
+    bool isWord = false;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == ' ' || s[i] == '-') {
+            isWord = false;
+            res += " ";
+        } else if (s[i] >= 'a' && s[i] <= 'z') {
+            if (!isWord) {
+                isWord = true;
+                res += s[i] - 'a' + 'A';
             } else {
-                cout << word << " ";
+                res += s[i];
             }
+        } else {
+            res += s[i];
         }
-        cout << endl;
     }
+    cout << res << endl;
     return 0;
 }
