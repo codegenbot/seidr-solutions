@@ -15,7 +15,7 @@ Q
 output:
 Q
 input:
-ABC
+QA
 output:
  
 input:
