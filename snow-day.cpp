@@ -51,12 +51,12 @@ output:
 */
 int main() {
     int hours;
-    float snow, rate, melt;
-    cin >> hours >> snow >> rate >> melt;
-    for (int i = 0; i < hours; i++) {
+    double snow, rate, melting;
+    cin >> hours >> snow >> rate >> melting;
+    for (int i = 0; i < hours; ++i) {
         snow += rate;
-        snow -= melt;
+        snow -= melting * snow;
     }
-    cout << snow << endl;
+    printf("%.15f\n", snow);
     return 0;
 }
