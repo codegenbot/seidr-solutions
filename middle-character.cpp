@@ -35,14 +35,13 @@ output:
 )b
 */
 int main() {
-string str;
-getline(cin, str);
-int n = str.size();
-if (n % 2 == 1) {
-cout << str[n/2];
-}
-else {
-cout << str[n/2 - 1] << str[n/2];
-}
+int n = 0;
+string s;
+cin >> s;
+n = s.size();
+if (n % 2 == 0)
+printf("%c%c", s[n/2 - 1], s[n/2]);
+else
+printf("%c", s[n/2]);
 return 0;
 }
