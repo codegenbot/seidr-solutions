@@ -32,18 +32,5 @@ output:
 False
 """
 if __name__ == '__main__':
-  for line in open(sys.argv[1]):
-    line = line.rstrip('\n').split('&')
-    result = False
-    for element in line:
-      if element == 't':
-        if result == True:
-          result = True
-        else:
-          result = True
-      if element == 'f':
-        if result == True:
-          result = False
-        else:
-          result = False
-    print(result)
+    s = input().strip()
+    print(eval(s.replace('&',' and ').replace('|',' or ')))
