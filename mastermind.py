@@ -42,4 +42,17 @@ output:
 0
 """
 if __name__ == '__main__':
-  print os.stat("./file")
+    code=raw_input(open().readline())
+    guess=raw_input(open().readline())
+    number_black=0
+    number_white=0
+    for i, j in zip(code, guess):
+        if i==j:
+            number_black+=1
+            guess.replace(j,'')
+            code.replace(i,'')
+    for i in code:
+        if i in guess:
+            number_white+=1
+            guess.replace(i,'')
+    print(number_black,' ', number_white)
