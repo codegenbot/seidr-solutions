@@ -50,20 +50,5 @@ output:
 29.0
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<double> price(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> price[i];
-    }
-    vector<double> discount(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> discount[i];
-    }
-    double sum = 0;
-    for (int i = 0; i < n; ++i) {
-        sum += price[i] * (1 - discount[i] / 100);
-    }
-    printf("%.2lf\n", sum);
     return 0;
 }
