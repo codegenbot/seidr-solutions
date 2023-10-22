@@ -50,25 +50,18 @@ output:
 2.2715833329200144
 */
 int main() {
-    long long num = 0;
-    vector<double> array, array1;
-    double x, x1;
-    while(cin >> num) {
-        for(int i = 0; i < num; i++) {
-            cin >> x;
-            array.push_back(x);
-        }
-        for(int i = 0; i < num; i++) {
-            cin >> x1;
-            array1.push_back(x1);
-        }
-        double sum = 0.0;
-        for(int i = 0; i < num; i++) {
-            sum += pow(array.at(i) - array1.at(i), 2);
-        }
-        cout << sqrt(sum) << endl;
-        array.clear();
-        array1.clear();
+    int n;
+    float x, ans = 0;
+    cin >> n;
+    for(int i = 0; i < n; ++i) {
+        cin >> x;
+        ans += x * x;
     }
+    cin >> n;
+    for(int i = 0; i < n; ++i) {
+        cin >> x;
+        ans -= x * x;
+    }
+    cout << sqrt(-ans) << endl;
     return 0;
 }
