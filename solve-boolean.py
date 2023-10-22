@@ -31,5 +31,19 @@ t&f
 output:
 False
 """
+def boolean_eval(str):
+    stack = []
+    for i in range(len(str)):
+        if str[i] == 't':
+            stack.append(True)
+        elif str[i] == 'f':
+            stack.append(False)
+        elif str[i] == '&':
+            stack.append(stack.pop() & stack.pop())
+        elif str[i] == '|':
+            stack.append(stack.pop() | stack.pop())
+    return stack.pop()
+
 if __name__ == '__main__':
-    pass
+    str = input()
+    print(boolean_eval(str))
