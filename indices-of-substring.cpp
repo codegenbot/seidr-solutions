@@ -44,21 +44,5 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-vector<int> find_targets(string text, string target) {
-    vector<int> res;
-    int len = text.length();
-    int tlen = target.length();
-    for (int i = 0; i <= len - tlen; i++) {
-        bool flag = true;
-        for (int j = 0; j < tlen; j++) {
-            if (text[i+j] != target[j]) {
-                flag = false;
-                break;
-            }
-        }
-        if (flag) res.push_back(i);
-    }
-    return res;
-}
-
 int main() {
+}
