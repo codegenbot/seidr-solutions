@@ -35,4 +35,42 @@ output:
 False
 */
 int main() {
-    string str;
+    string str,substr;
+    bool ans =true;
+    int len, i, front, middle, back;
+    char ch;
+    cin >> str;
+    len = (int)str.length();
+    stack<bool> s;
+    for(i = len - 1; i >= 0 ; i--) {
+        if(str[i] == '&') {
+            ans = true;
+            front = (int)s.size();
+            for(int j = 0; j < front; j++) {
+                ch = s.top();
+                s.pop();
+                if(ch == false) {
+                    ans = false;
+                    break;
+                }
+            }
+            s.push(ans);
+        } else if(str[i] == '|') {
+            ans = false;
+            front = (int)s.size();
+            for(int j = 0; j < front; j++) {
+                ch = s.top();
+                s.pop();
+                if(ch == true) {
+                    ans = true;
+                    break;
+                }
+            }
+            s.push(ans);
+        } else{
+            if(str[i] == 't') s.push(true);
+            else s.push(false);
+        }
+    }
+    cout << (bool)s.top() << "\n";
+}
