@@ -32,8 +32,8 @@ output:
 hi
 """
 
-def reverse_word(words):
-    words = words.split()
+def reverse_word_in_string(s):
+    words = s.split(' ')
     for i in range(len(words)):
         if len(words[i]) >= 5:
             words[i] = words[i][::-1]
