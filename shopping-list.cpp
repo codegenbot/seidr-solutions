@@ -50,21 +50,5 @@ output:
 29.0
 */
 int main() {
-    //printf("%0.2f\n", (double)234/100);
-    int x,y;
-    while(cin>>x){
-        vector<double> v1(x,0);
-        vector<double> v2(x,0);
-        for(int i=0;i<x;i++) cin>>v1[i];
-        cin>>y;
-        for(int i=0;i<y;i++) cin>>v2[i];
-        double res=0;
-        for(int i=0;i<x;i++){
-            double discount=v2[i]/100;
-            res+=v1[i]*(1-discount);
-        }
-        printf("%.2f\n",res);
-        
-    }
-    return 0;
+
 }
