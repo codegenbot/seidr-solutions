@@ -32,13 +32,4 @@ output:
 )b
 """
 if __name__ == '__main__':
-    while True:
-        try:
-            line = input()
-            s = line
-            if len(s) % 2 == 1:
-                print(s[math.floor(len(s) / 2)])
-            else:
-                print(s[math.floor(len(s) / 2) - 1:math.floor(len(s) / 2) + 1])
-        except:
-            break
+    pass
