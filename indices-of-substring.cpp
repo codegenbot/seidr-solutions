@@ -11,8 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a text string and a target string, return a list of integers of the indices at which the target appears in the text.
-Targets may overlap.
+Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
 a
@@ -46,6 +45,31 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-
+    string text, target;
+    while (cin >> text >> target) {
+        vector<int> res;
+        if (text.size() < target.size()) {
+            cout << "0" << endl;
+            continue;
+        }
+        int i = 0;
+        while (i + target.size() <= text.size()) {
+            bool flag = true;
+            for (int j = 0; j < target.size(); j++) {
+                if (text[i + j] != target[j]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                res.push_back(i);
+            }
+            i++;
+        }
+        for (int i = 0; i < res.size(); i++) {
+            cout << res[i] << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
