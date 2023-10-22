@@ -45,7 +45,8 @@ if __name__ == '__main__':
     s1 = input()
     s2 = input()
     s3 = input()
-    s4 = ""
-    for i in range(len(s3)):
-        s4 += s2[s1.index(s3[i])]
-    print(s4)
+    d = {}
+    for i in range(len(s1)):
+        d[s1[i]] = s2[i]
+    for i in s3:
+        print(d[i], end="")
