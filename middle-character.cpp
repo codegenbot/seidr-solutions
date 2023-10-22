@@ -34,19 +34,12 @@ input:
 output:
 )b
 */
-string middle(string s) {
-    if (s.size() % 2 == 0) {
-        return s.substr(s.size() / 2 - 1, 2);
-    } else {
-        return s.substr(s.size() / 2, 1);
-    }
-}
-
 int main() {
-    cout << middle("Q") << endl;
-    cout << middle("") << endl;
-    cout << middle("$") << endl;
-    cout << middle("E9") << endl;
-    cout << middle(")b") << endl;
+    string str;
+    cin >> str;
+    if(str.size() % 2 == 0)
+        cout << str[str.size()/2-1] << str[str.size()/2];
+    else
+        cout << str[str.size()/2];
     return 0;
 }
