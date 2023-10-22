@@ -50,22 +50,23 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    while (cin >> n) {
-        vector<double> vec1(n);
-        for (int i = 0; i < n; i++) {
-            cin >> vec1[i];
-        }
-        cin >> n;
-        vector<double> vec2(n);
-        for (int i = 0; i < n; i++) {
-            cin >> vec2[i];
-        }
-        double ans = 0;
-        for (int i = 0; i < vec1.size(); i++) {
-            ans += pow(vec1[i] - vec2[i], 2);
-        }
-        printf("%.10f\n", sqrt(ans));
+    int n,i;
+    cin>>n;
+    float a[n],c=0,d;
+    float b[n];
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
     }
+    for(i=0;i<n;i++)
+    {
+        cin>>b[i];
+    }
+    for(i=0;i<n;i++)
+    {
+        c+=(a[i]-b[i])*(a[i]-b[i]);
+    }
+    d=sqrt(c);
+    printf("%.15f",d);
     return 0;
 }
