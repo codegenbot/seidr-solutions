@@ -39,19 +39,18 @@ input:
 output:
 0.0
 */
-double peter_colin(int n, int m) {
-    if (n >= m) {
-        return 1.0;
-    }
-    double res = 0;
-    for (int i = 1; i < m; i++) {
-        res += peter_colin(n, m - i) / m;
-    }
-    return res;
-}
 int main() {
-    int n, m;
-    while (cin >> n >> m) {
-        printf("%.2f\n", peter_colin(n, m));
-    }
+	int n, m;
+	while (cin >> n >> m) {
+		double p = 0.0;
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= m; j++) {
+				if (i > j) {
+					p += 1.0;
+				}
+			}
+		}
+		p /= (n * m);
+		printf("%.2f\n", p);
+	}
 }
