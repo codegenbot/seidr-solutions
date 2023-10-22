@@ -10,22 +10,28 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/*Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
-
-For example, 
-input: 3 
-1 1 1 
-2 2 2 
+/*
+Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
+For example,
+input:
+20
+-100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
+20
+100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
 output:
-1.7320508075688772 
-input: 3 
-1 1 1 
-1 1 1 
+894.4271909999159
+input:
+20
+5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
+20
+5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
 output:
-0.0 
-input: 3 
--1 -1 -1 
-1 1 1 
+0.0
+input:
+1
+42.91283
+1
+-22.134
 output:
 65.04683
 input:
@@ -44,3 +50,25 @@ output:
 2.2715833329200144
 */
 int main() {
+    long long num = 0;
+    vector<double> array, array1;
+    double x, x1;
+    while(cin >> num) {
+        for(int i = 0; i < num; i++) {
+            cin >> x;
+            array.push_back(x);
+        }
+        for(int i = 0; i < num; i++) {
+            cin >> x1;
+            array1.push_back(x1);
+        }
+        double sum = 0.0;
+        for(int i = 0; i < num; i++) {
+            sum += pow(array.at(i) - array1.at(i), 2);
+        }
+        cout << sqrt(sum) << endl;
+        array.clear();
+        array1.clear();
+    }
+    return 0;
+}
