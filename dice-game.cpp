@@ -41,16 +41,7 @@ output:
 */
 int main() {
     int n, m;
-    while(cin >> n >> m) {
-        int tot = n * m;
-        int win = 0;
-        for(int i = 1; i <= n; i++) {
-            for(int j = i + 1; j <= m; j++) {
-                win++;
-            }
-        }
-        double ans = 1.0 * win / tot;
-        printf("%.5f\n", ans);
-    }
+    cin >> n >> m;
+    cout << double(n) / (n + m) << endl;
     return 0;
 }
