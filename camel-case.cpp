@@ -34,42 +34,34 @@ all separate words
 output:
 all separate words
 */
-string toCamelCase(string s)
-{
-    string res;
-    int i = 0;
-    bool isSpace = false;
-    while(i < s.length())
-    {
-        if(s[i] == ' ')
-        {
-            isSpace = true;
-            i++;
-        }
-        else if(s[i] == '-')
-        {
-            isSpace = true;
-            i++;
-        }
-        else
-        {
-            if(isSpace)
-            {
-                res += toupper(s[i]);
-                isSpace = false;
-            }
-            else
-            {
-                res += s[i];
-            }
-            i++;
-        }
-    }
-    return res;
-}
 int main() {
-    string s;
-    cin >> s;
-    cout << toCamelCase(s) << endl;
-    return 0;
+  string s;
+  getline(cin, s);
+  string res;
+  bool isFirst = true;
+  bool isUpper = false;
+  for (int i = 0; i < s.size(); i++) {
+    if (s[i] == '-') {
+      isUpper = true;
+      continue;
+    }
+    if (s[i] == ' ') {
+      isFirst = true;
+      res += s[i];
+      continue;
+    }
+    if (isUpper) {
+      res += toupper(s[i]);
+      isUpper = false;
+    } else {
+      if (isFirst) {
+        res += toupper(s[i]);
+        isFirst = false;
+      } else {
+        res += s[i];
+      }
+    }
+  }
+  cout << res << endl;
+  return 0;
 }
