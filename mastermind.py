@@ -43,17 +43,10 @@ output:
 """
 
 def mastermind(code, guess):
-    black = 0
-    white = 0
+    diff = 0
     for i in range(len(code)):
         if code[i] == guess[i]:
-            black += 1
-            code = code[:i] + code[i+1:]
-            guess = guess[:i] + guess[i+1:]
-    for i in range(len(guess)):
-        if guess[i] in code:
-            white += 1
-            code = code.replace(guess[i], '', 1)
-    return black, white
+            diff += 1
+    return diff
 
 if __name__ == '__main__':
