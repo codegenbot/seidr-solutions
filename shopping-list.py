@@ -47,10 +47,13 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    num_goods = int(sys.stdin.readline().strip())
-    price_list = [float(x) for x in sys.stdin.readline().strip().split()]
-    discount_list = [float(x) for x in sys.stdin.readline().strip().split()]
-    res = 0
-    for i in range(num_goods):
-        res += price_list[i] * (1 - discount_list[i]/100.0)
-    print(res)
+    num_lines = int(input())
+    for i in range(num_lines):
+        num_items = int(input())
+        items = [float(i) for i in input().split()]
+        num_discounts = int(input())
+        discounts = [float(i) for i in input().split()]
+        total = 0
+        for j in range(num_items):
+            total += items[j] - (items[j] * discounts[j] / 100)
+        print(round(total, 2))
