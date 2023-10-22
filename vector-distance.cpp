@@ -49,4 +49,28 @@ input:
 output:
 2.2715833329200144
 */
-int main() { 
+int main() {
+    int n;
+    cin >> n;
+    vector<double> a(n), b(n);
+    for(int i = 0; i < n; i++) {
+        double na, nb;
+        cin >> na;
+        a[i] = na;
+    }
+    
+    for(int i = 0; i < n; i++) {
+        double na, nb;
+        cin >> nb;
+        b[i] = nb;
+    }
+    
+    double res = 0;
+    for(int i = 0; i < n; i++) {
+        res += (a[i] - b[i]) * (a[i] - b[i]);
+    }
+    res = sqrt(res);
+    cout << res << endl;
+
+    return 0;
+}
