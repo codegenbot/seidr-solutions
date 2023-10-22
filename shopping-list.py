@@ -47,11 +47,12 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    a = list(map(float, input().split()))
-    m = int(input())
-    b = list(map(float, input().split()))
-    result = 0
-    for i in range(n):
-        result += a[i] * (100 - b[i])
-    print(result/100)
+    f = open('file')
+    num_items = int(f.readline())
+    items = list(map(float, f.readline().split()))
+    num_discounts = int(f.readline())
+    discounts = list(map(float, f.readline().split()))
+    total = 0.0
+    for item, discount in zip(items, discounts):
+        total += item * (1.0 - discount/100.0)
+    print(round(total, 2))
