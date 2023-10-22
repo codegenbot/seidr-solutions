@@ -35,4 +35,22 @@ output:
 False
 */
 int main() {
-    
+    string s;
+    cin >> s;
+    stack<bool> stk;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'F') stk.push(false);
+        else if (s[i] == 'T') stk.push(true);
+        else if (s[i] == '|') {
+            bool a = stk.top(); stk.pop();
+            bool b = stk.top(); stk.pop();
+            stk.push(a || b);
+        }
+        else {
+            bool a = stk.top(); stk.pop();
+            bool b = stk.top(); stk.pop();
+            stk.push(a && b);
+        }
+    }
+    cout << boolalpha << stk.top() << endl;
+}
