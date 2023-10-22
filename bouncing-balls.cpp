@@ -45,16 +45,13 @@ output:
 3.963
 */
 int main() {
-	double start, first, bounces;
-	while (scanf("%lf%lf%lf", &start, &first, &bounces) != EOF) {
-		double bounciness = first / start;
-		double height = start;
-		double total = 0;
-		for (int i = 0; i < bounces; i++) {
-			total += height;
-			height *= bounciness;
-		}
-		printf("%.3lf\n", total);
-	}
-	return 0;
+    double h, h1, b;
+    cin >> h >> h1 >> b;
+    double index = h1 / h;
+    double sum = h1;
+    for (int i = 1; i < b; i ++) {
+        sum += h * pow(index, i);
+    }
+    printf("%.16lf\n", sum);
+    return 0;
 }
