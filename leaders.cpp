@@ -48,23 +48,21 @@ int main() {
     int n;
     cin >> n;
     vector<int> nums;
-    int tmp;
     for (int i = 0; i < n; i++) {
-        cin >> tmp;
-        nums.push_back(tmp);
+        int s;
+        cin >> s;
+        nums.push_back(s);
     }
-    int last = n-1;
-    vector<int> res;
-    res.push_back(nums[last--]);
-    while (last >= 0) {
-        if (nums[last] >= res[res.size()-1]) {
-            res.push_back(nums[last]);
+    stack<int> st;
+    for (int i = n - 1; i >= 0; i--) {
+        while (!st.empty() && st.top() <= nums[i]) {
+            st.pop();
         }
-        last--;
+        st.push(nums[i]);
     }
-    for (int i = res.size()-1; i >= 0; i--) {
-        cout << res[i] << " ";
+    while (!st.empty()) {
+        cout << st.top() << endl;
+        st.pop();
     }
-    cout << endl;
-    return 0;
 }
+
