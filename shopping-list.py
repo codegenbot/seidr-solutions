@@ -48,8 +48,8 @@ output:
 """
 if __name__ == '__main__':
     n = int(input())
-    prices = list(map(float, input().split()))
-    discounts = list(map(float, input().split()))
+    prices = [float(x) for x in input().split()]
+    discounts = [float(x) for x in input().split()]
     total = 0
     for i in range(n):
         total += prices[i] * (1 - discounts[i] / 100)
