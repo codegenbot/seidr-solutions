@@ -55,8 +55,8 @@ int main() {
     cin >> hours >> snow >> rate >> melt;
     for (int i = 0; i < hours; i++) {
         snow += rate;
-        snow *= (1 - melt);
+        snow -= snow * melt;
     }
-    cout << snow << endl;
+    printf("%.10f", snow);
     return 0;
 }
