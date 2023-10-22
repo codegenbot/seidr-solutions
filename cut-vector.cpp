@@ -55,42 +55,34 @@ output:
 
 */
 int main() {
-	vector<int> nums;
-	int n;
-	while (cin >> n) {
-		nums.push_back(n);
-	}
-	int l = 0, r = nums.size() - 1;
-	int suml = nums[l], sumr = nums[r];
-	int diff = abs(suml - sumr);
-	int diffl = l, diffr = r;
-	while (l <= r) {
-		if (suml < sumr) {
-			l++;
-			suml += nums[l];
-		}
-		else if (suml > sumr) {
-			r--;
-			sumr += nums[r];
-		}
-		else {
-			diff = 0;
-			diffl = l;
-			diffr = r;
-			break;
-		}
-		int currDiff = abs(suml - sumr);
-		if (currDiff < diff) {
-			diff = currDiff;
-			diffl = l;
-			diffr = r;
-		}
-	}
-	for (int i = 0; i <= diffl; i++) {
-		cout << nums[i] << endl;
-	}
-	for (int i = diffr; i < nums.size(); i++) {
-		cout << nums[i] << endl;
-	}
-	return 0;
+    int t;
+    scanf("%d", &t);
+    while (t--) {
+        int n;
+        scanf("%d", &n);
+        vector<int> v(n);
+        for (int i = 0; i < n; i++) {
+            scanf("%d", &v[i]);
+        }
+        int sum = 0;
+        for (int vv : v)
+            sum += vv;
+        int halfsum = sum / 2 + 1;
+        int ans = 0;
+        if (sum < 3)
+            ans = 0;
+        else {
+            int s = 0;
+            for (int i = 0; i < n; i++) {
+                s += v[i];
+                if (s >= halfsum) {
+                    ans = s - v[i];
+                    break;
+                }
+            }
+            if (ans == 0) ans = sum - v[n - 1];
+        }
+        printf("%d\n", ans);
+    }
+    return 0;
 }
