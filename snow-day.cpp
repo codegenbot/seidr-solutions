@@ -50,19 +50,13 @@ output:
 10.0
 */
 int main() {
-  int n;
-  float a, b, c;
-  while (~scanf("%d %f %f %f", &n, &a, &b, &c)) {
-      printf("%d\n", n);
-  }
-  cin >> n >> a >> b >> c;
-  double cur = a;
-  double rate = b/(1-c);
-  double res = 0;
-  for (int i = 0; i < n; i++) {
-      res += cur;
-      cur = rate * c;
-  }
-  cout << res << endl;
-  return 0;
+    int hours;
+    cin >> hours;
+    float snow,fallRate,meltRate;
+    cin >> snow >> fallRate >> meltRate;
+    for(int i = 0; i < hours; i++){
+        snow += fallRate;
+        snow -= (snow * meltRate);
+    }
+    cout << snow;
 }
