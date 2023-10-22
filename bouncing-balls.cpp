@@ -44,25 +44,15 @@ input:
 output:
 3.963
 */
-
-double getBouncinessIndex(double start, double firstBounce) {
-    return start / firstBounce;
-}
-
-double getTotalDistance(double start, double firstBounce, int bounces) {
-    double bouncinessIndex = getBouncinessIndex(start, firstBounce);
-    double res = start;
-    for (int i = 1; i < bounces; i++) {
-        res += start * pow(bouncinessIndex, i);
-    }
-    return res;
-}
-
 int main() {
-    double start, firstBounce;
-    int bounces;
-    cin >> start >> firstBounce >> bounces;
-    cout << getTotalDistance(start, firstBounce, bounces) << endl;
+    double h, h1, num;
+    cin >> h >> h1 >> num;
+    double b = h1 / h;
+    double res = h;
+    for (int i = 0; i < num; i++) {
+        res += h;
+        h *= b;
+    }
+    printf("%.10lf", res);
     return 0;
 }
-
