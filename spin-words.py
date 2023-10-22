@@ -31,12 +31,13 @@ hi
 output:
 hi
 """
-def reverse_word(s):
-    res = []
-    for w in s.split():
-        if len(w)>=5:
-            w = w[::-1]
-        res.append(w)
-    return ' '.join(res)
-
 if __name__ == '__main__':
+    dic = {}
+    for line in sys.stdin:
+        line = line.strip()
+        if line == '':
+            break
+        dic[line] = line[::-1]
+    for k, v in dic.items():
+        print(k)
+        print(v)
