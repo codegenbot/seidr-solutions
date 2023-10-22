@@ -8,14 +8,14 @@ import itertools
 import queue
 import re
 """
-Given a string representing a Boolean expression consisting of T, F, |, &, and !, evaluate it and return the resulting Boolean.
+Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-!t
+t
 output:
-False
+True
 input:
-!f
+f
 output:
 False
 input:
@@ -32,3 +32,4 @@ output:
 False
 """
 if __name__ == '__main__':
+    
