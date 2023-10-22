@@ -40,17 +40,5 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    cin>>n>>m;
-    double ans = 0;
-    double total = 0;
-    for(int i = 1; i <= n; i++) {
-        for(int j = 1; j <= m; j++) {
-            if(i > j) {
-                ans += 1;
-            }
-            total += 1;
-        }
-    }
-    cout<<setprecision(15)<<ans/total<<endl;
+    
 }
