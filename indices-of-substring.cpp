@@ -44,28 +44,37 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-int main() {
-    string s, t;
-    getline(cin, s);
-    getline(cin, t);
-    string tmp = t + t;
+
+void find_index(string str, string pattern){
+    int n = str.size();
+    int m = pattern.size();
     vector<int> ans;
-    for (int i = 0; i < tmp.size(); i++) {
-        if (tmp[i] == t[0]) {
-            if (tmp.substr(i, t.size()) == t) {
-                ans.push_back(i);
+    for(int i = 0; i < n; i++){
+        if(str[i] == pattern[0]){
+            if(m <= n-i){
+                bool found = true;
+                for(int j = 1; j < m; j++){
+                    // cout << str[i+j] << " " << pattern[j] << endl;
+                    if(str[i+j] != pattern[j]){
+                        found = false;
+                        break;
+                    }
+                }
+                if(found)
+                    ans.push_back(i);
             }
         }
     }
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == t[0]) {
-            if (s.substr(i, t.size()) == t) {
-                ans.push_back(i);
-            }
-        }
+    for(auto i: ans){
+        cout << i << " ";
     }
-    for (int i = 0; i < ans.size(); i++) {
-        cout<<ans[i]<<" ";
-    }
+    cout << endl;
+}
+
+int main() {
+    string str, pattern;
+    getline(cin, str);
+    getline(cin, pattern);
+    find_index(str, pattern);
     return 0;
 }
