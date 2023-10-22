@@ -48,22 +48,7 @@ input:
 5.0 10.0 95.0
 output:
 29.0
-*/
+
+
+*/int main() {
 int main() {
-    int T;
-    while(scanf("%d", &T) != EOF) {
-        for (int i = 0; i < T; i ++) {
-            int num;
-            double sum = 0.0;
-            scanf("%d", &num);
-            vector<double> arr(num);
-            for (int j = 0; j < num; j ++) scanf("%lf", &arr[j]);
-            for (int j = 0; j < num; j ++) {
-                double discount = 0;
-                scanf("%lf", &discount);
-                sum += arr[j] * (1 - discount / 100);
-            }
-            printf("%.1lf\n", sum);
-        }
-    }
-}
