@@ -11,67 +11,29 @@
 #include <climits>
 using namespace std;
 /*
-Efﬁcient Hash Table
-Given a set of words, design a data structure that will tell you whether a word is in the set.
-You may use anything you like to base your data structure on (hash function, vector, array, heap, bitset, etc) but you must not
-use a hash table library. Provide at least one hash function.
-
-Your data structure may use an arbitrary amount of memory.
-
-The 'contains' method should be very fast with a good hash function.
-
-Your data structure should explicitly resist hash collisions.
-
-You may assume that all inputs are lower cased.
-
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
-input: 
-add foo
-add bar
-contains foo
-contains bar
-contains baz
-remove bar
-contains foo
-contains bar
-contains baz
+input:
 
-output: 
-true
-true
-false
-true
-true
-false
-true
+output:
+
+input:
+a
+output:
+a
+input:
+this is a test
+output:
+this is a test
+input:
+this is another test
+output:
+this is rehtona test
+input:
+hi
+output:
+hi
 */
 int main() {
-    int T;
-    scanf("%d", &T);
-    set<string> table;
-    string buff;
-    while (T--) {
-        cin >> buff;
-        if (buff == "add") {
-            string next;
-            cin >> next;
-            // cout << "add:" << next << endl;
-            table.insert(next);
-        } else if (buff == "remove") {
-            string next;
-            cin >> next;
-            // cout << "remove:" << next << endl;
-            table.erase(next);
-        } else if (buff == "contains") {
-            string next;
-            cin >> next;
-            // cout << "contains:" << next << endl;
-            if (table.find(next) != table.end()) {
-                printf("true\n");
-            } else {
-                printf("false\n");
-            }
-        }
-    }
-    return 0;
+  
 }
