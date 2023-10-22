@@ -34,43 +34,54 @@ t&f
 output:
 False
 */
-int main() {
-    string input;
-    while (cin >> input) {
-        stack<char> stk;
-        map<char, char> m;
-        m['|'] = '|';
-        m['&'] = '&';
-        m['t'] = 't';
-        m['f'] = 'f';
-        bool result = false;
-        for (int i = 0; i < input.size(); i++) {
-            if (input[i] == '|' || input[i] == '&') {
-                char c = input[i];
-                i += 2;
-                if (input[i] == 't') {
-                    if (m[c] == '|') {
-                        result = true;
-                        break;
-                    } else {
-                        m[c] = 't';
-                    }
-                } else if (input[i] == 'f') {
-                    if (m[c] == '&') {
-                        result = false;
-                        break;
-                    } else {
-                        m[c] = 'f';
-                    }
-                }
-            }
-        }
-        if (result) {
-            cout << "True" << endl;
-        } else {
-            cout << "False" << endl;
-        }
+bool parseExpression(string s){
+  int i = 0;
+  int j = s.length()-1;
+  if(s.compare("t") == 0){
+    return true;
+  }
+  if(s.compare("f") == 0){
+    return false;
+  }
+  if(s[0] == '(') i++;
+  if(s[s.length()-1] == ')') j--;
+  string t1 = "";
+  string t2 = "";
+  string op = "";
+  int depth = 0;
+  while(i < s.length()){
+    if(s[i] == '('){
+      depth++;
     }
- 
-    return 0;
+    if(s[i] == ')'){
+      depth--;
+    }
+    if(s[i] == '&' && depth == 0){
+      op = "&";
+      break;
+    }
+    if(s[i] == '|' && depth == 0){
+      op = "|";
+      break;
+    }
+    i++;
+  }
+  if(op == ""){
+    return parseExpression(s.substr(1,s.length()-2));
+  }
+  t1 = s.substr(0,i);
+  t2 = s.substr(i+1,s.length()-i-1);
+  cout<<t1<<" "<<t2<<endl;
+  if(op == "&"){
+    return parseExpression(t1) && parseExpression(t2);
+  }
+  if(op == "|") return parseExpression(t1) || parseExpression(t2);
+  return false;
+}
+
+int main() {
+  string s = "f&t|t&f";
+  bool res = parseExpression(s);
+  cout<<res<<endl;
+  return 0;
 }
