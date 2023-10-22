@@ -55,35 +55,14 @@ output:
 
 */
 int main() {
-    vector<int> nums;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int temp;
-        cin >> temp;
-        nums.push_back(temp);
+    int num;
+    while(cin >> num) {
+        int ret = 0;
+        for(int i = 1; i < num; i++) {
+            if(abs(i - (num - i)) < abs(ret - (num - ret))) {
+                ret = i;
+            }
+        }
+        cout << ret << " " << num - ret << " " << 0 << endl;
     }
-    int min = INT_MAX;
-    int minIndex = 0;
-    for (int i = 1; i < nums.size() - 1; i++) {
-        int temp = abs(nums[i] - nums[i - 1]);
-        if (temp < min) {
-            minIndex = i;
-            min = temp;
-        }
-    }
-    if (minIndex == 0) {
-        for (int i = 0; i < nums.size(); i++) {
-            cout << nums[i] << endl;
-        }
-    } else {
-        for (int i = 0; i < minIndex; i++) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
-        for (int i = minIndex; i < nums.size(); i++) {
-            cout << nums[i] << endl;
-        }
-    }
-    return 0;
 }
