@@ -42,4 +42,13 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    print("Hello")
+    while True:
+        try:
+            line1 = input()
+            line2 = input()
+            line3 = input()
+            for i in range(len(line3)):
+                print(line2[line1.index(line3[i])], end='')
+            print()
+        except:
+            break
