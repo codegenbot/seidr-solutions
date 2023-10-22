@@ -50,16 +50,19 @@ output:
 10.0
 */
 int main() {
-  float current;
-  float rate;
-  float melt;
-  int time;
-  cin >> time >> current >> rate >> melt;
-  for (int i = 0; i < time; i++) {
-    current += rate;
-    current -= melt;
+  int n;
+  float a, b, c;
+  while (~scanf("%d %f %f %f", &n, &a, &b, &c)) {
+      printf("%d\n", n);
   }
-  cout << current;
-  
+  cin >> n >> a >> b >> c;
+  double cur = a;
+  double rate = b/(1-c);
+  double res = 0;
+  for (int i = 0; i < n; i++) {
+      res += cur;
+      cur = rate * c;
+  }
+  cout << res << endl;
   return 0;
 }

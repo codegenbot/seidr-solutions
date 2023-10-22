@@ -31,5 +31,14 @@ hi
 output:
 hi
 """
+
+def reverse_words(sentence):
+    words = sentence.split(" ")
+    for i in range(len(words)):
+        if len(words[i]) >= 5:
+            words[i] = words[i][::-1]
+    return " ".join(words)
+
 if __name__ == '__main__':
-    
+    sentence = "this is another test"
+    print(reverse_words(sentence))
