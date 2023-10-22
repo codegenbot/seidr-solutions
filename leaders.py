@@ -42,15 +42,14 @@ output:
 1000
 """
 if __name__ == '__main__':
-    num = int(input())
-    listnum = []
-    for i in range(num):
-        intermedia = float(input())
-        listnum.append(intermedia)
-    listlenght = len(listnum)
-    num = listnum[0]
-    for i in range(1,listlenght):
-        if(num<listnum[i]):
-            print(listnum[i])
-            num = listnum[i]
-    print(num)
+    count = int(input())
+    data = input()
+    data_list = list(map(int,data.split()))
+    leader = []
+    for i in range(count-1):
+        if data_list[i] >= max(data_list[i+1:]):
+            leader.append(data_list[i])
+    leader.append(data_list[-1])
+    for i in leader:
+        print(i,end=' ')
+    print()
