@@ -7,19 +7,52 @@ import collections
 import itertools
 import queue
 import re
+"""
+Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
+For example,
+input:
+0
 
-for _ in range(int(input())):
-    a = []
-    largs = []
-    for _ in range(int(input())):
-        a.append(int(input()))
+output:
+0
 
-    for i in range(len(a)-1, -1, -1):
-        if len(largs) == 0:
-            largs.append(a[i])
-        elif largs[-1] <= a[i]:
-            largs.append(a[i])
-
-    largs.reverse()
-    print(len(largs))
-    print(" ".join([str(x) for x in largs]))
+input:
+1
+0
+output:
+1
+0
+input:
+1
+451
+output:
+1
+451
+input:
+2
+1000 0
+output:
+2
+1000 0
+input:
+2
+0 1000
+output:
+1
+1000
+"""
+if __name__ == '__main__':
+    t = int(input())
+    for _ in range(t):
+        n = int(input())
+        a = list(map(int, input().split()))
+        b = []
+        b.append(a[-1])
+        max_till = a[-1]
+        for i in range(n-2, -1, -1):
+            if a[i] >= max_till:
+                max_till = a[i]
+                b.append(a[i])
+        for i in b[::-1]:
+            print(i, end=' ')
+        print()
