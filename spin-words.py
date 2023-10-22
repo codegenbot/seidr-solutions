@@ -33,23 +33,8 @@ hi
 """
 if __name__ == '__main__':
 
-    # input:
-    #
-    # output:
-    #
-    # input:
-    # a
-    # output:
-    # a
-    # input:
-    # this is a test
-    # output:
-    # this is a test
-    # input:
-    # this is another test
-    # output:
-    # this is rehtona test
-    # input:
-    # hi
-    # output:
-    # hi
+    while True:
+        try:
+
+        except (EOFError):
+            sys.exit(0)
