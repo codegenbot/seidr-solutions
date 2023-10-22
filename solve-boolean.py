@@ -31,11 +31,20 @@ t&f
 output:
 False
 """
-
-def evaluate(boolean_expression):
-    boolean_expression = boolean_expression.replace("&"," and ").replace("|"," or ")
-    return eval(boolean_expression)
-
 if __name__ == '__main__':
-    boolean_expression = sys.stdin.readline().strip()
-    print(evaluate(boolean_expression))
+    s = input()
+    ans = False
+    if s[0] == 't':
+        ans = True
+
+    if len(s) == 1:
+        print(ans)
+        exit()
+    for i in range(len(s)):
+        if s[i] == '&':
+            ans = ans & ((s[i+1] == 't') if 1 else False)
+        elif s[i] == '|':
+            ans = ans | ((s[i+1] == 't') if 1 else False)
+        else:
+            continue
+    print(ans)
