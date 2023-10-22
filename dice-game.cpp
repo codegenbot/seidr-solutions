@@ -41,14 +41,16 @@ output:
 */
 int main() {
     int n, m;
-    cin >> n >> m;
-    if (n > m) {
-        cout << 1.0 << endl;
+    while (cin>>n>>m) {
+        double dp[n+1][m+1];
+        memset(dp, 0, sizeof(dp));
+        dp[0][0] = 1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                dp[i][j] = (dp[i-1][j] + dp[i][j-1]) / 2;
+            }
+        }
+        printf("%.2f\n", dp[n][m]);
     }
-    else if (n < m) {
-        cout << 0.0 << endl;
-    }
-    else {
-        cout << 0.5 << endl;
-    }
+    return 0;
 }
