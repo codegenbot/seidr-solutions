@@ -35,30 +35,5 @@ output:
 hi
 */
 int main() {
-    string s;
-    while (getline(cin, s)) {
-        int start = 0;
-        string ans = "";
-        for (int i = 0; i < s.length(); i++) {
-            if (s[i] == ' ') {
-                int len = i - start;
-                if (len < 5) {
-                    ans += s.substr(start, len + 1);
-                } else {
-                    ans += s.substr(start, len + 1);
-                    reverse(ans.begin() + ans.length() - len - 1, ans.end());
-                }
-                start = i + 1;
-            }
-        }
-        int len = s.length() - start;
-        if (len < 5) {
-            ans += s.substr(start, len);
-        } else {
-            ans += s.substr(start, len);
-            reverse(ans.begin() + ans.length() - len, ans.end());
-        }
-        cout << ans << endl;
-    }
-    return 0;
+  return 0;
 }
