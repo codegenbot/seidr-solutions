@@ -37,18 +37,26 @@ hi
 int main() {
     string s;
     getline(cin, s);
-    int start = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            if (i - start >= 5) {
-                reverse(s.begin() + start, s.begin() + i);
-            }
-            start = i + 1;
+    string res = "";
+    int i = 0;
+    while(i < s.length()) {
+        string temp = "";
+        while(i < s.length() && s[i] != ' ') {
+            temp += s[i];
+            i++;
         }
+        if(temp.length() < 5) {
+            res += temp;
+        } else {
+            for(int j = temp.length() - 1; j >= 0; j--) {
+                res += temp[j];
+            }
+        }
+        if(i < s.length()) {
+            res += ' ';
+        }
+        i++;
     }
-    if (s.length() - start >= 5) {
-        reverse(s.begin() + start, s.end());
-    }
-    cout << s << endl;
+    cout << res << endl;
     return 0;
 }
