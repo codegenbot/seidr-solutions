@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-Ha
+ 
 output:
-Ha
+ 
 input:
 $
 output:
@@ -35,13 +35,5 @@ output:
 )b
 */
 int main() {
-	string a;
-	cin>>a;
-	int len=a.size();
-	if(len%2==0){
-		printf("%c",a[len/2]);
-		printf("%c",a[len/2-1]);
-	}else{
-		printf("%c",a[len/2]);
-	}
+    return 0;
 }
