@@ -35,21 +35,23 @@ output:
 all separate words
 */
 int main() {
-  string s;
-  while(getline(cin,s)){
-    stringstream ss(s);
-    string word;
-    while(ss>>word){
-      int n=word.size();
-      for(int i=0;i<n;i++){
-        if(word[i]=='-'){
-          word[i+1]=toupper(word[i+1]);
-          word.erase(i,1);
+    string line;
+    while (getline(cin, line)) {
+        for (int i = 0; i < line.size(); i++) {
+            if (line[i] == ' ') {
+                cout << line[i];
+                while (line[i] == ' ') {
+                    i++;
+                }
+                i--;
+            } else if (line[i] == '-') {
+                cout << (char)(line[i + 1] - 'a' + 'A');
+                i++;
+            } else {
+                cout << line[i];
+            }
         }
-      }
-      cout<<word<<" ";
+        cout << endl;
     }
-    cout<<endl;
-  }
-  return 0;
+    return 0;
 }
