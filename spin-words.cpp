@@ -35,35 +35,36 @@ output:
 hi
 */
 void reverseWord(string &s, int i, int j) {
-    while(i < j) {
-        swap(s[i++], s[j--]);
+    while (i < j) {
+        swap(s[i], s[j]);
+        i++; j--;
     }
 }
 
-string reverseString(string s) {
-    string res = "";
-    int i = 0, j = 0;
-    while(j < s.size()) {
-        if(s[j] == ' ') {
-            if(j - i >= 5) {
-                reverseWord(s, i, j - 1);
+void reverseWords(string &s) {
+    int start = 0;
+    int wordLen = 0;
+    int cur = 0;
+    while (cur < s.size()) {
+        if (s[cur] == ' ') {
+            if (wordLen >= 5) {
+                reverseWord(s, start, cur - 1);
             }
-            res += s.substr(i, j - i) + " ";
-            i = j + 1;
+            wordLen = 0;
+            start = cur + 1;
+        } else {
+            wordLen++;
         }
-        j++;
+        cur++;
     }
-    if(j - i >= 5) {
-        reverseWord(s, i, j - 1);
+    if (wordLen >= 5) {
+        reverseWord(s, start, cur - 1);
     }
-    res += s.substr(i, j - i);
-    return res;
 }
 
 int main() {
     string s;
-    while(cin >> s) {
-        cout << reverseString(s) << endl;
-    }
-    return 0;
+    getline(cin, s);
+    reverseWords(s);
+    cout << s << endl;
 }
