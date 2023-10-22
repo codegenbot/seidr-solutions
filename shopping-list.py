@@ -47,14 +47,5 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    data = []
-    for line in sys.stdin:
-        data += line.split()
-    n = int(data[0])
-    price = list(map(float, data[1:n+1]))
-    m = int(data[n+1])
-    discount = list(map(float, data[n+2:]))
-    total = 0
-    for i in range(n):
-        total += price[i] * (100 - discount[i]) / 100
-    print(total)
+    f = open(os.environ['OUTPUT_PATH'], 'w')
+    n = int(input())
