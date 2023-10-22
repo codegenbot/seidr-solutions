@@ -47,18 +47,25 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    price = []
-    discount = []
-    with open('input.txt', 'r') as f:
-        n = int(f.readline())
-        p_line = f.readline().split()
-        for x in range (0, n):
-            price.append(float(p_line[x]))
-        m = int(f.readline())
-        d_line = f.readline().split()
-        for i in range (0, m):
-            discount.append(float(p_line[i]))
-    sum = 0.0
-    for j in range (0, n):
-        sum += price[j] - price[j] * (discount[j] / 100)
+    result = sys.argv[1]
+    list1 = result.split(',')
+    num = float(sys.argv[2])
+    num1 = float(sys.argv[3])
+    sum = 0
+    for i in list1:
+        if num == 1:
+            sum += float(i)
+        else:
+            sum += (float(i) - num1)
     print(sum)
+# 接受参数
+# list = sys.argv[1]
+# arrList = sys.argv[2]
+# # num = int(sys.argv[2])
+# # num1 = int(sys.argv[3])
+# a = 0
+# b = 0
+# for i in range(0, len(list)):
+#     a += int(list.split(',')[i])
+#     b += int(list.split(',')[i]) * int(arrList.split(',')[i]) / 100
+# print(a - b)
