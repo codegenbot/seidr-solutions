@@ -50,22 +50,4 @@ output:
 2.2715833329200144
 */
 int main() {
-	freopen("tsp.txt","r",stdin);
-	freopen("ans.txt","w",stdout);
-	int n;
-	cin >> n;
-	vector<double> a(n),b(n);
-	for(int i = 0; i < n; i++) {
-		cin >> a[i];
-	}
-	for(int i = 0; i < n; i++) {
-		cin >> b[i];
-	}
-	double len = 0;
-	for(int i = 0; i < n; i++) {
-		len += abs(a[i] - b[i]);
-	}
-	len = sqrt(len);
-	cout << len << endl;
-	return 0;
-}
+    
