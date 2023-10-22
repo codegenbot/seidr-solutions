@@ -13,6 +13,7 @@ using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
 For example,
+
 input:
 20
 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
@@ -50,24 +51,3 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    while (cin >> n) {
-        vector<float> v1(n);
-        vector<float> v2(n);
-        for (int i = 0; i < n; ++i) {
-            cin >> v1[i];
-        }
-        
-        for (int i = 0; i < n; ++i) {
-            cin >> v2[i];
-        }
-        
-        double dis = 0.0;
-        for (int i = 0; i < n; ++i) {
-            dis += pow(v1[i] - v2[i], 2);
-        }
-        
-        printf("%.15f\n", sqrt(dis));
-    }
-    return 0;
-}
