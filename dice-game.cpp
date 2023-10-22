@@ -40,17 +40,16 @@ output:
 0.0
 */
 int main() {
-    freopen("data.txt", "r", stdin);
-    int n;
-    int m;
-    cin >> n >> m;
-    double res = 0.0;
-    for (int i = 1; i < n; i++) {
-        double interval = 1.0 * i / n;
-        double a = (ceil(interval * m) - interval * m) / m;
-        double b = (interval * m - floor(interval * m)) / m;
-        res += a + b;
+int n, m;
+cin >> n >> m;
+double win = 0;
+for (int i = 1; i <= min(n, m); i++) {
+    double cur = 1;
+    for (int j = 1; j <= m; j++) {
+        cur *= (double)((i + 1) <= j ? (j - i) : 0) / (double)j;
     }
-    printf("%.5f\n", res);
-    return 0;
+    win += cur;
+}
+printf("%.12lf\n", win);
+return 0;
 }
