@@ -35,5 +35,29 @@ output:
 hi
 */
 int main() {
-
+  string s = "this is a test";
+  string res;
+  int i = 0;
+  int n = s.length();
+  while(i < n) {
+    int start = i, end = i;
+    while(i < n && s[i] != ' ') {
+      i++;
+      end = i;
+    }
+    if(end - start > 4) {
+      for(int j = end - 1; j >= start; j--){
+        res.push_back(s[j]);
+      }
+    }
+    else {
+      for(int j = start; j < end; j++) {
+        res.push_back(s[j]);
+      }
+    }
+    while(i < n && s[i] == ' ') {
+      res.push_back(s[i++]);
+    }
+  }
+  cout << res << endl;
 }
