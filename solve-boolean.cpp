@@ -11,7 +11,6 @@
 #include <climits>
 using namespace std;
 /*
-https://www.hackerrank.com/challenges/truth-table-1/problem
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
@@ -36,18 +35,52 @@ output:
 False
 */
 
-string bool_to_word(bool value) {
-    if(value) return "True";
-    else return "False";
+bool eval(string s) {
+    stack<string> stk;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 't') {
+            stk.push("t");
+        }
+        else if (s[i] == 'f') {
+            stk.push("f");
+        }
+        else if (s[i] == '|') {
+            string a = stk.top();
+            stk.pop();
+            string b = stk.top();
+            stk.pop();
+            if (a == "t" || b == "t") {
+                stk.push("t");
+            }
+            else {
+                stk.push("f");
+            }
+        }
+        else {
+            string a = stk.top();
+            stk.pop();
+            string b = stk.top();
+            stk.pop();
+            if (a == "t" && b == "t") {
+                stk.push("t");
+            }
+            else {
+                stk.push("f");
+            }
+        }
+    }
+    return stk.top() == "t";
 }
 
 int main() {
-    string s;
-    cin>>s;
-    bool a = s[0] == 't';
-    bool b = s[2] == 't';
-    bool c = s[1] == '|';
-    if(c) cout<<bool_to_word(a|b)<<endl;
-    else cout<<bool_to_word(a&b)<<endl;
-    return 0;
+    string a = "t";
+    cout << eval(a) << endl;
+    string b = "f";
+    cout << eval(b) << endl;
+    string c = "f&f";
+    cout << eval(c) << endl;
+    string d = "f&t";
+    cout << eval(d) << endl;
+    string e = "t&f";
+    cout << eval(e) << endl;
 }
