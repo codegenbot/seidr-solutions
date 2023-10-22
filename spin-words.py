@@ -32,7 +32,11 @@ output:
 hi
 """
 if __name__ == '__main__':
-    s = input()
-    s_list = s.split(' ')
-    s_list = [word if len(word) < 5 else word[::-1] for word in s_list]
-    print(' '.join(s_list))
+    string = input()
+    res = []
+    for word in string.split():
+        if len(word) >= 5:
+            res.append(word[::-1])
+        else:
+            res.append(word)
+    print(' '.join(res))
