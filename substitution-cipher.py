@@ -41,24 +41,16 @@ eeeeeeeeee
 output:
 llllllllll
 """
-def cipher(a,b,c,d):
-    if a == b:
-        if c == d:
-            print(d)
-        else:
-            print(c)
-    else:
-        if c == d:
-            print(a)
-        else:
-            print(b)
-
-
-
 if __name__ == '__main__':
-    a, b = input(), input()
-    c = input()
-    d = ""
-    for i in range(len(c)):
-        d += a[b.find(c[i])]
-    print(d)
+
+	for line in sys.stdin:
+		a = line.split()
+		if len(a) == 0:
+			break
+		cipher = {}
+		for i in range(len(a[0])):
+			cipher[a[0][i]] = a[1][i]
+
+		for i in range(len(a[2])):
+			sys.stdout.write(cipher[a[2][i]])
+		sys.stdout.write("\n")
