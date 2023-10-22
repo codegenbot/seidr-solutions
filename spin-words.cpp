@@ -14,18 +14,17 @@ using namespace std;
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
-this is a test
-output:
-this is a test
 
 output:
-this is rehtona test
 
 input:
 a
 output:
 a
-
+input:
+this is a test
+output:
+this is a test
 input:
 this is another test
 output:
@@ -35,31 +34,22 @@ hi
 output:
 hi
 */
-
-string reverse(string s, int i, int j){
-    while(i < j){
-        swap(s[i++], s[j--]);
-    }
-    return s;
-}
-
-string reverseWords(string s){
-    int i = 0, j = 0;
-    int n = s.size();
-    while(j < n){
-        while(j < n && s[j] != ' '){
-            j++;
-        }
-        if(j - i >= 5){
-            s = reverse(s, i, j - 1);
-        }
-        i = ++j;
-    }
-    return s;
-}
-
 int main() {
-    string s = "this is a test";
-    cout<<reverseWords(s)<<endl;
+    string s;
+    while(getline(cin,s)){
+        int n = s.size();
+        int i = 0;
+        while(i<n){
+            int j = i;
+            while(j<n && s[j]!=' ') j++;
+            if(j-i>=5){
+                string now = s.substr(i,j-i);
+                reverse(now.begin(),now.end());
+                s.replace(i,j-i,now);
+            }
+            i = j+1;
+        }
+        cout<<s<<endl;
+    }
     return 0;
 }
