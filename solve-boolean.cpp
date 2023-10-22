@@ -34,43 +34,27 @@ t&f
 output:
 False
 */
-bool parseBoolExpr(string expression) {
-    bool res = true;
-    stack<char> st;
-    for(int i = 0; i < expression.size(); i++) {
-        char ch = expression[i];
-        if(ch == ')') {
-            char op = st.top();
-            st.pop();
-            bool tmp = false;
-            while(st.top() != '(') {
-                bool cur = st.top() == 't' ? true : false;
-                st.pop();
-                switch(op) {
-                    case '&':
-                        tmp &= cur;
-                        break;
-                    case '|':
-                        tmp |= cur;
-                        break;
-                    case '!':
-                        tmp = !cur;
-                        break;
-                }
-            }
-            st.pop();
-            st.push(tmp ? 't' : 'f');
-        } else {
-            st.push(ch);
-        }
-    }
-    return st.top() == 't' ? true : false;
-}
-
 int main() {
-    cout<<parseBoolExpr("t")<<endl;
-    cout<<parseBoolExpr("f")<<endl;
-    cout<<parseBoolExpr("f&f")<<endl;
-    cout<<parseBoolExpr("f&t")<<endl;
-    cout<<parseBoolExpr("t&f")<<endl;
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    string s;
+    while (cin >> s) {
+        int n = s.size();
+        stack<int> st;
+        for (int i = 0; i < n; i++) {
+            if (s[i] == 't') st.push(1);
+            else if (s[i] == 'f') st.push(0);
+            else {
+                int a = st.top();
+                st.pop();
+                int b = st.top();
+                st.pop();
+                if (s[i] == '&') st.push(a & b);
+                else st.push(a | b);
+            }
+        }
+        if (st.top()) cout << "True" << endl;
+        else cout << "False" << endl;
+    }
+    return 0;
 }
