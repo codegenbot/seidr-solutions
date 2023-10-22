@@ -46,19 +46,13 @@ input:
 output:
 10.0
 """
-class Solution(object):
-    def snow(self, hours, snow, rate, melt):
-        for i in range(hours):
-            snow += rate
-            snow -= melt
-        return snow
-
-
-
-if __name__ == "__main__":
-    sol = Solution()
-    hours = 15
-    snow = 15.0
-    rate = 15.0
-    melt = 0.15
-    print sol.snow(hours, snow, rate, melt)
+if __name__ == '__main__':
+    hours = int(input())
+    snow = float(input())
+    rate = float(input())
+    melt = float(input())
+    for _ in range(hours):
+        snow += rate
+        snow -= melt
+        snow = max(0, snow)
+    print(snow)
