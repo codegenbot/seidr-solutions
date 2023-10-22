@@ -13,70 +13,51 @@ using namespace std;
 /*
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
-
 input:
 t
 output:
 True
-
 input:
 f
 output:
 False
-
 input:
 f&f
 output:
 False
-
 input:
 f&t
 output:
 False
-
 input:
 t&f
 output:
 False
 */
-
-bool eval(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ')') {
-            string temp;
-            while (st.top() != '(') {
-                temp += st.top();
-                st.pop();
-            }
-            st.pop();
-            bool flag = eval(temp);
-            if (flag) st.push('t');
-            else st.push('f');
-        }
-        else {
-            st.push(s[i]);
-        }
-    }
-    string temp;
-    while (!st.empty()) {
-        temp += st.top();
-        st.pop();
-    }
-    reverse(temp.begin(), temp.end());
-    bool flag = eval(temp);
-    if (flag) cout << "True" << endl;
-    else cout << "False" << endl;
-    return flag;
-}
-
 int main() {
-    int T;
-    cin >> T;
-    while (T--) {
-        string s;
-        cin >> s;
-        eval(s);
+    string input;
+    std::cout << "Please input a Boolean expression: ";
+    cin >> input;
+    stack<char> s;
+    for (int i = 0; i < input.size(); ++i) {
+        char c = input[i];
+        if (c == '&' || c == '|') {
+            char op = c;
+            char r = s.top();
+            s.pop();
+            char l = s.top();
+            s.pop();
+            char res;
+            if (op == '&') {
+                res = (l == 't' && r == 't') ? 't' : 'f';
+            } else if (op == '|') {
+                res = (l == 't' || r == 't') ? 't' : 'f';
+            }
+            s.push(res);
+        } else {
+            s.push(c);
+        }
     }
+    std::cout << ((s.top() == 't') ? "True" : "False") << endl;
     return 0;
 }
