@@ -76,10 +76,11 @@ int main() {
             cents -= penny;
             num_penny++;
         }
-        cout << num_penny << endl << 0 << endl << 0 << endl << 0 << endl;
+        cout << num_penny << endl;
         cout << num_nickle << endl;
         cout << num_dime << endl;
         cout << num_quarter << endl;
+        cout << endl;
     }
     return 0;
 }
