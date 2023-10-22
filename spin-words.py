@@ -31,14 +31,17 @@ hi
 output:
 hi
 """
+
+
 if __name__ == '__main__':
-	s=""
-	n=int(raw_input())
-	for i in range(n):
-		t=raw_input()
-		l=t.split(" ")
-		for x in l:
-			if len(x)>4:
-				x=x[::-1]
-			s=s+x+" "
-		print s
+    for line in sys.stdin:
+        line = line.strip()
+        if line:
+            line = line.split()
+            new_line = []
+            for word in line:
+                if len(word) < 5:
+                    new_line.append(word)
+                else:
+                    new_line.append(word[::-1])
+            print(' '.join(new_line))
