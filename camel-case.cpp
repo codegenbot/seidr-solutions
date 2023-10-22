@@ -34,35 +34,63 @@ all separate words
 output:
 all separate words
 */
+// second solution
 int main() {
-	string input;
-	while (getline(cin, input)) {
-		bool first = true;
-		string result = "";
-		//cout << input << endl;
-		int i = 0;
-		for (i = 0; i < input.size(); i++) {
-			if (input[i] == ' ') {
-				cout << input.substr(0, i) << endl;
-				break;
-			}
-			if (input[i] == '-') {
-				if (first) {
-					result += input.substr(0, i);
-					first = false;
-				}
-				else {
-					result += input.substr(0, i);
-				}
-				result += toupper(input[i + 1]);
-				input = input.substr(i + 2);
-				i = 0;
-			}
-		}
-		if (i == input.size()) {
-			result += input;
-		}
-		cout << result << endl;
-	}
-	return 0;
+    string s;
+    getline(cin, s);
+    vector<string> v;
+    int i = 0;
+    string t;
+    for (char c : s) {
+        if (c == ' ' || c == '-') {
+            v.push_back(t);
+            t = "";
+        } else {
+            t += c;
+        }
+    }
+    if (t != "") {
+        v.push_back(t);
+    }
+    for (int i = 0; i < v.size(); i++) {
+        if (i == 0) {
+            cout << v[i];
+            continue;
+        }
+        cout << v[i].substr(0,1);
+        for (int j = 1; j < v[i].length(); j++) {
+            if (v[i][j] >= 'a' && v[i][j] <= 'z') {
+                cout << v[i][j];
+            }
+        }
+    }
+    return 0;
+}
+// first solution
+int main() {
+    string s;
+    getline(cin, s);
+    vector<string> v;
+    int i = 0;
+    string t;
+    for (char c : s) {
+        if (c == ' ' || c == '-') {
+            v.push_back(t);
+            t = "";
+        } else {
+            t += c;
+        }
+    }
+    if (t != "") {
+        v.push_back(t);
+    }
+    for (int i = 0; i < v.size(); i++) {
+        if (i == 0) {
+            cout << v[i];
+            continue;
+        }
+        v[i][0] += 'A' - 'a';
+        cout << v[i];
+    }
+    return 0;
 }
