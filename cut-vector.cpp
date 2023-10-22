@@ -55,5 +55,31 @@ output:
 
 */
 int main() {
+    vector<int> input;
+    int n;
+    cin >> n;
+    while(n) {
+        input.push_back(n);
+        cin >> n;
+    }
+    int len = input.size();
+    int left = 0, right = len - 1;
+    while(left < right) {
+        if(input[left] < input[right]) {
+            input[left+1] += input[left];
+            left++;
+        } else if(input[left] > input[right]) {
+            input[right-1] += input[right];
+            right--;
+        } else {
+            break;
+        }
+    }
+    for(int i = 0; i <= left; i++) {
+        cout << input[i] << endl;
+    }
+    for(int i = right; i < len; i++) {
+        cout << input[i] << endl;
+    }
     return 0;
 }
