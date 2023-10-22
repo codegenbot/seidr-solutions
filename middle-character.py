@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
-O2
+
 output:
- 
+
 input:
 $
 output:
@@ -32,3 +32,47 @@ output:
 )b
 """
 if __name__ == '__main__':
+    line = sys.stdin.readline().strip()
+    if len(line) % 2 != 0:
+        print(line[math.floor(len(line) / 2)])
+    else:
+        print(line[int(len(line) / 2 - 1)] + line[int(len(line) / 2)])
+"""
+Given a list of characters and a string, return True if the characters are in order, False otherwise.
+For example,
+input:
+chars = ['a', 'b', 'c', 'd', 'e']
+string = 'Abce'
+output:
+True
+input:
+chars = ['a', 'b', 'c', 'd', 'e']
+string = 'aaaa'
+output:
+True
+input:
+chars = ['a', 'b', 'c', 'd', 'e']
+string = 'xAbce'
+output:
+False
+"""
+if __name__ == '__main__':
+    chars = sys.stdin.readline().strip()
+    string = sys.stdin.readline().strip()
+    numbers = []
+    for i in chars:
+        numbers.append(ord(i))
+    print(numbers)
+    index = 0
+    for j in string:
+        if j == ' ':
+            continue
+        if ord(j) - numbers[index] > 0:
+            print('TRUE')
+        elif ord(j) - numbers[index] < 0:
+            print('FALSE')
+        else:
+            print('TRUE')
+        index += 1
+    if index != numbers.__len__():
+        print('FALSE')
