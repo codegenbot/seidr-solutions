@@ -34,47 +34,25 @@ hi
 output:
 hi
 */
-
-void swap(char *x, char *y) {
-    char temp;
-    temp = *x;
-    *x = *y;
-    *y = temp;
-}
-
-void reverse(char *a) {
-    int i = 0, j = strlen(a) - 1;
-    while (i < j) {
-        swap(&a[i++], &a[j--]);
-    }
-}
-
-void reverseWords(char *a) {
-    char *temp = a;
-    while (*temp) {
-        int count = 0;
-        while (*temp && *temp != ' ') {
-            temp++;
-            count++;
-        }
-        if (count >= 5) {
-            char *end = temp - 1;
-            char *start = end - count + 1;
-            while (start < end) {
-                swap(start, end);
-                start++;
-                end--;
-            }
-        }
-        if (*temp) {
-            temp++;
-        }
-    }
-}
-
 int main() {
-    char a[100];
-    gets(a);
-    reverseWords(a);
-    cout << a << endl;
+    string s;
+    getline(cin,s);
+    int n = s.size();
+    string res = "";
+    int i = 0;
+    while(i<n){
+        while(i<n && s[i]==' ') i++;
+        int j = i;
+        while(j<n && s[j]!=' ') j++;
+        if(j-i>=5){
+            for(int k = j-1;k>=i;k--){
+                res += s[k];
+            }
+        } else {
+            for(int k = i;k<j;k++) res += s[k];
+        }
+        i = j;
+    }
+    cout << res << endl;
+    return 0;
 }
