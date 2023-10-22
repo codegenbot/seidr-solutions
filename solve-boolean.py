@@ -31,5 +31,11 @@ t&f
 output:
 False
 """
+
+def evaluate(boolean_expression):
+    boolean_expression = boolean_expression.replace("&"," and ").replace("|"," or ")
+    return eval(boolean_expression)
+
 if __name__ == '__main__':
-    
+    boolean_expression = sys.stdin.readline().strip()
+    print(evaluate(boolean_expression))
