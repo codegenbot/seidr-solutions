@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <deque>
 using namespace std;
 /*
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
@@ -34,34 +35,37 @@ t&f
 output:
 False
 */
-int main() {
-    string str1 = "t", str2 = "f", str3 = "f&f", str4 = "f&t", str5 = "t&f";
-    function<bool(string&, int, int)> helper = [&](string &s, int l, int r){
-        if (l == r)
-            return s[l] == 't';
-        int level = 0;
-        for (int i = l; i <= r; ++i) {
-            if (s[i] == '(')
-                ++level;
-            else if (s[i] == ')')
-                --level;
-            else if (s[i] == '&' || s[i] == '|') {
-                if (level == 0) {
-                    if (s[i] == '&') {
-                        bool r = helper(s, l, i - 1) && helper(s, i + 1, r);
-                        return r;
-                    } else {
-                        bool r = helper(s, l, i - 1) || helper(s, i + 1, r);
-                        return r;
-                    }
-                }
-            }
-        }
-        if (s[l] == '(')
-            return helper(s, l + 1, r - 1);
-        return false;
-    };
-    
-    cout << helper(str5, 0, (int)str5.size() - 1);
+
+int getValue(char c){
+    if(c == 'T') return 1;
+    else if(c == 'F') return 0;
+    return -1;
+}
+
+char cal(char a, char b, char operator_){
+    if(operator_ == '|') return a | b;
+    else if(operator_ == '&') return a & b;
     return 0;
+}
+
+char eval(string exp){
+    deque<char> a;
+    
+    for(int i = 0; i < exp.size(); i++){
+        if(exp[i] != '|' && exp[i] != '&'){
+            a.push_back(getValue(exp[i]));
+        }else{
+            char b = a.back();
+            a.pop_back();
+            char c = a.back();
+            a.pop_back();
+            a.push_back(cal(c, b, exp[i]));
+        }
+    }
+    if(a.back()) return 'T';
+    else return 'F';
+}
+int main() {
+    string s = "t|&f&t";
+    cout<<eval(s)<<endl;
 }
