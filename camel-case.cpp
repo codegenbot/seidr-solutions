@@ -35,5 +35,9 @@ output:
 all separate words
 */
 int main() {
-
-}
+  string input;
+  string output;
+  getline(cin, input);
+  bool space = false;
+  bool dash = false;
+  bool word = false;
