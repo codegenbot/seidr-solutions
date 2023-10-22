@@ -31,5 +31,10 @@ t&f
 output:
 False
 """
+
+def eval_bool(s):
+    s = s.replace('&', ' and ')
+    s = s.replace('|', ' or ')
+    return eval(s)
+
 if __name__ == '__main__':
-    print(True)
