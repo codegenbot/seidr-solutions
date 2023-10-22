@@ -10,30 +10,34 @@ import re
 """
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
-input: 
-    a
-output: 
-    a
-input: 
-    this is a test
-output: 
-    this is a test
-input: 
-    this is another test
-output: 
-    this is rehtona test
-input: 
-    hi
-output: 
-    hi
+input:
+
+output:
+
+input:
+a
+output:
+a
+input:
+this is a test
+output:
+this is a test
+input:
+this is another test
+output:
+this is rehtona test
+input:
+hi
+output:
+hi
 """
+def reverse_string(s):
+    s = s.split(' ')
+    for i in range(len(s)):
+        if len(s[i]) >= 5:
+            s[i] = s[i][::-1]
+    return ' '.join(s)
+
 if __name__ == '__main__':
-    str = input()
-    words = str.split()
-    res = []
-    for word in words:
-        if len(word) >= 5:
-            res.append(word[::-1])
-        else:
-            res.append(word)
-    print(' '.join(res))
+    s = 'this is a test'
+    print(reverse_string(s))
