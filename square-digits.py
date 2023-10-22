@@ -32,9 +32,5 @@ output:
 16
 """
 if __name__ == '__main__':
-    num = int(input())
-    res = ""
-    while num > 0:
-        res = str(num % 10 * num % 10) + res
-        num = num // 10
-    print(res)
+    input = int(input())
+    print(input)
