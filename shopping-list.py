@@ -47,11 +47,13 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    line = sys.stdin.readline()
-    numbers = list(map(float, line.split()))
-    line = sys.stdin.readline()
-    discounts = list(map(float, line.split()))
-    total = 0
-    for i in range(len(numbers)):
-        total += numbers[i] * (1 - discounts[i]/100)
-    print(total)
+    line = sys.stdin.readline().strip()
+    N = int(line)
+    line = sys.stdin.readline().strip()
+    prices = [float(i) for i in line.split()]
+    line = sys.stdin.readline().strip()
+    discount = [float(i) for i in line.split()]
+    result = 0
+    for i in range(N):
+        result += prices[i]*(1-discount[i]/100)
+    print(result)
