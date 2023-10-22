@@ -11,7 +11,7 @@ import re
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
-this is a test
+
 output:
 
 input:
@@ -32,3 +32,11 @@ output:
 hi
 """
 if __name__ == '__main__':
+    s = 'this is a test'
+    print(s)
+    s = s.split(' ')
+    print(s)
+    s = [i[::-1] if len(i) >= 5 else i for i in s]
+    print(s)
+    s = ' '.join(s)
+    print(s)
