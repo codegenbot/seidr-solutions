@@ -11,6 +11,7 @@
 #include <climits>
 using namespace std;
 /*
+https://dev.to/devmount/daily-coding-problem-190-b2q
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
@@ -34,50 +35,44 @@ t&f
 output:
 False
 */
-
-bool parseBool(char c) {
-    if (c == 'T') {
-        return 1;
-    } else if (c == 'F') {
-        return 0;
-    }
-}
-
-bool eval(string& s, int& pos) {
-    char c = s[pos];
-    
-    if (c == 'T' || c == 'F') {
-        pos ++;
-        return parseBool(c);
-    }
-    
-    pos += 2;
-    bool left = eval(s, pos);
-    
-    bool ret = left;
-    c = s[pos];
-    while (c == '|' || c == '&') {
-        pos += 2;
-        bool right = eval(s, pos);
-        
-        if (c == '|') {
-            ret = left | right;
-        } else {
-            ret = left & right;
+bool Evaluate(string expression)
+{
+    stack<char> exprStack;
+    for (int i = 0; i < expression.size(); ++i)
+    {
+        char c = expression[i];
+        if (c == '&' || c == '|')
+        {
+            if (exprStack.size() < 2)
+                return false;
+            char val1 = exprStack.top();
+            exprStack.pop();
+            char val2 = exprStack.top();
+            exprStack.pop();
+            bool boolVal1 = val1 == 'T' ? true : false;
+            bool boolVal2 = val2 == 'T' ? true : false;
+            bool result = c == '&' ? boolVal1 & boolVal2 : boolVal1 | boolVal2;
+            if (result)
+                exprStack.push('T');
+            else
+                exprStack.push('F');
         }
-        
-        c = s[pos];
-        left = right;
+        else
+            exprStack.push(c);
     }
-    
-    return ret;
+
+    return exprStack.top() == 'T' ? true : false;
 }
 
-bool evalBool(string& s) {
-    int pos = 0;
-    return eval(s, pos);
+void test()
+{
+    string s1 = "T&F", s2 = "T|F", s3 = "F|T";
+    cout << Evaluate(s1) << endl; // false
+    cout << Evaluate(s2) << endl; // true
+    cout << Evaluate(s3) << endl; // true
 }
 
 int main() {
-    
+    test();
+    return 0;
 }
