@@ -50,13 +50,22 @@ output:
 10.0
 */
 int main() {
-    float hours, snow, rain, melt;
-    cin>>hours>>snow>>rain>>melt;
-    float total = snow;
-    for(int i = 0; i < hours; i++){
-        total += rain;
-        if(melt > 0) total -= total * melt;
-    }
-    cout<<total<<endl;
-    return 0;
+	cout<<"Enter the total hours: ";
+	int hours;
+	cin>>hours;
+	cout<<"Initial snow on the ground: ";
+	float initSnow;
+	cin>>initSnow;
+	cout<<"Snow fall per hour: ";
+	float snowFall;
+	cin>>snowFall;
+	cout<<"Snow Melt per hour: ";
+	float snowMelt;
+	cin>>snowMelt;
+	float totalSnow = initSnow;
+	for (int i=0;i<hours;i++){
+		totalSnow += snowFall - snowMelt*totalSnow;
+	}
+	cout<<"Total snow after "<<hours<<" hours is: "<<totalSnow<<endl;
+	return 0;
 }
