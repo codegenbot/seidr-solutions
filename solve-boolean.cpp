@@ -35,37 +35,5 @@ output:
 False
 */
 int main() {
-    string s;
-    cin >> s;
-    stack<char> stk;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'T' || s[i] == 'F') {
-            stk.push(s[i]);
-        } else {
-            char op = s[i];
-            char a = stk.top();
-            stk.pop();
-            char b = stk.top();
-            stk.pop();
-            if (op == '&') {
-                if (a == 'T' && b == 'T') {
-                    stk.push('T');
-                } else {
-                    stk.push('F');
-                }
-            } else {
-                if (a == 'F' && b == 'F') {
-                    stk.push('F');
-                } else {
-                    stk.push('T');
-                }
-            }
-        }
-    }
-    if (stk.top() == 'T') {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-    return 0;
+    
 }
