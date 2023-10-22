@@ -31,14 +31,11 @@ hi
 output:
 hi
 """
-def reverse_words(s):
-    if len(s) == 0:
-        return ""
-    elif len(s) == 1:
-        return s
-    else:
-        s = s.split(" ")
-        s = list(map(lambda word: word if len(word) < 5 else word[::-1], s))
-    return " ".join(s)
-
+def reverse_word(s):
+    ss = s.split()
+    for i in range(len(ss)):
+        if len(ss[i]) >= 5:
+            ss[i] = ss[i][::-1]
+    newstr = ' '.join(ss)
+    return newstr
 if __name__ == '__main__':
