@@ -31,18 +31,16 @@ hi
 output:
 hi
 """
-
-def reverse(string):
-    # list
-    words = string.split(' ')
-    res = ''
-    for word in words:
-        if len(word) >= 5:
-            res += (word[::-1] + ' ')
-        else:
-            res += (word + ' ')
-    print(res)
-
 if __name__ == '__main__':
-    reverse('this is a test')
-    reverse('this is another test')
+    list1 = []
+    list2 = []
+    list3 = []
+    string = input()
+    list1 = string.split(" ")
+    for i in list1:
+        if len(i) >= 5:
+            list2.append(i)
+        else:
+            list3.append(i)
+    list2.reverse()
+    print(list2 + list3)
