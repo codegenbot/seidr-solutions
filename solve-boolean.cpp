@@ -40,18 +40,18 @@ int main() {
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&' || s[i] == '|') {
-            char c1 = st.top();
+            char a = st.top();
             st.pop();
-            char c2 = st.top();
+            char b = st.top();
             st.pop();
             if (s[i] == '&') {
-                if (c1 == 'T' && c2 == 'T') {
+                if (a == 'T' && b == 'T') {
                     st.push('T');
                 } else {
                     st.push('F');
                 }
             } else {
-                if (c1 == 'T' || c2 == 'T') {
+                if (a == 'T' || b == 'T') {
                     st.push('T');
                 } else {
                     st.push('F');
