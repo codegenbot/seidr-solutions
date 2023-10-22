@@ -34,35 +34,58 @@ t&f
 output:
 False
 */
+
 bool evaluate(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') continue;
-        if (s[i] == ')') {
-            char op = st.top(); st.pop();
-            bool val1 = st.top() == 't'; st.pop();
-            st.pop();
-            bool val2 = st.top() == 't'; st.pop();
-            st.pop();
-            if (op == '&') st.push(val1 & val2 ? 't' : 'f');
-            else if (op == '|') st.push(val1 | val2 ? 't' : 'f');
-        } else st.push(s[i]);
+    stack<char> stk;
+    for(int i = 0; i < s.size(); i++) {
+        if(s[i] == '&' || s[i] == '|') {
+            stk.push(s[i]);
+        } else if(s[i] == 't') {
+            if(stk.empty()) {
+                stk.push(s[i]);
+            } else {
+                char op = stk.top();
+                stk.pop();
+                if(op == '&') {
+                    stk.push('t');
+                } else {
+                    if(stk.top() == 't') {
+                        stk.push('t');
+                    } else {
+                        stk.push('f');
+                    }
+                }
+            }
+        } else if(s[i] == 'f') {
+            if(stk.empty()) {
+                stk.push(s[i]);
+            } else {
+                char op = stk.top();
+                stk.pop();
+                if(op == '&') {
+                    stk.push('f');
+                } else {
+                    if(stk.top() == 't') {
+                        stk.push('t');
+                    } else {
+                        stk.push('f');
+                    }
+                }
+            }
+        }
     }
-    return st.top() == 't';
+    return stk.top() == 't';
 }
+
 int main() {
-    cout << evaluate("t") << endl;
-    cout << evaluate("f") << endl;
+    cout << evaluate("t&f") << endl;
+    cout << evaluate("t&t") << endl;
+    cout << evaluate("t|f") << endl;
+    cout << evaluate("t|t") << endl;
+    cout << evaluate("f|f") << endl;
     cout << evaluate("f&f") << endl;
     cout << evaluate("f&t") << endl;
-    cout << evaluate("t&f") << endl;
-    cout << evaluate("(t&f)") << endl;
-    cout << evaluate("(f&t)") << endl;
-    cout << evaluate("(t&f)|f") << endl;
-    cout << evaluate("(t&f)|t") << endl;
-    cout << evaluate("(t&f)|(t&f)") << endl;
-    cout << evaluate("(t&f)|(t&t)") << endl;
-    cout << evaluate("(t&t)|(t&f)") << endl;
-    cout << evaluate("(t&t)|(t&t)") << endl;
+    cout << evaluate("t") << endl;
+    cout << evaluate("f") << endl;
     return 0;
 }
