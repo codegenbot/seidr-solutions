@@ -35,23 +35,20 @@ output:
 hi
 */
 int main() {
-	string str;
-	while(getline(cin, str)) {
-		string res = "";
-		for(size_t i = 0; i < str.size(); i++) {
-			string word = "";
-			while(i < str.size() && str[i] != ' ') {
-				word.push_back(str[i]);
-				i++;
-			}
-			if(word.size() >= 5) {
-				reverse(word.begin(), word.end());
-			}
-			res += word;
-			res.push_back(' ');
-		}
-		res = res.substr(0, res.size() - 1);
-		cout << res << endl;
-	}
-	return 0;
+    string str = "Wel come to Geeks for Geeks";
+    int start = 0;
+    
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] == ' ') {
+            if (i-start >= 5) {
+                reverse(str.begin() + start, str.begin() + i);
+            }
+            start = i+1;
+        }
+    }
+    if (str.size() - start >= 5) {
+        reverse(str.begin() + start, str.end());
+    }
+    cout << str << endl;
+    return 0;
 }
