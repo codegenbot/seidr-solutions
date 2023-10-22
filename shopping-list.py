@@ -1,4 +1,12 @@
+import os
+import sys
 import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
@@ -38,10 +46,15 @@ input:
 output:
 29.0
 """
-def add(discount, price):
-    return price - price * discount / 100
-
-def compute(discount, price):
-    return sum(map(add, discount, price))
-
 if __name__ == '__main__':
+    N = int(sys.stdin.readline())
+    price = []
+    discount = []
+
+    tot = 0
+    for i in range(N):
+        price.append(float(input()))
+        discount.append(float(input()))
+        tot += price[i]
+        tot -= price[i]*(discount[i]/100)
+    print(tot)
