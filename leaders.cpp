@@ -44,20 +44,16 @@ output:
 1
 1000
 */
-int main() {
-    int N;
-    cin >> N;
-    vector<int> v(N), r(N);
-    for (int i = 0; i < N; i++) {
-        cin >> v[i];
-        while (r.size() > 0 && v[i] >= r[r.size() - 1]) {
-            r.pop_back();
+vector<int> solve(vector<int> A){
+        int n = A.size();
+        vector<int> res(n, -1);
+        for(int i=n-1; i>= 0; i--){
+            if(A[i] >= A[i] && i == n-1){
+                res[n-1] = A[n-1];
+            }else if(A[i] >= A[i+1]){
+                res[i] = A[i];
+            }
         }
-        r.push_back(v[i]);
+        return res;
     }
-
-    for (int i = 0; i < r.size(); i++) {
-        cout << r[i] << ' ';
-    }
-    cout << endl;
-}
+int main() {
