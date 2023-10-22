@@ -9,62 +9,33 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <algorithm>
 using namespace std;
+
+#define FOR(i,a,b) for(int i=a;i<=b;i++)
+#define REP(i,n) FOR(i,0,n-1)
+#define FORD(i,a,b) for(int i=a;i>=b;i--)
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define fi first
+#define se second
+#define lb lower_bound
+#define ub upper_bound
+#define all(v) v.begin(), v.end()
+#define debug(x) cout<<#x<<" = "<<x<<endl;
+#define debug2(x,y) cout<<#x<<" = "<<x<<" "<<#y<<" = "<<y<<endl;
+#define debug3(x,y,z) cout<<#x<<" = "<<x<<" "<<#y<<" = "<<y<<" "<<#z<<" = "<<z<<endl;
+#define debug4(x,y,z,w) cout<<#x<<" = "<<x<<" "<<#y<<" = "<<y<<" "<<#z<<" = "<<z<<" "<<#w<<" = "<<w<<endl;
+
+typedef pair<int, int> ii;
+typedef pair<int, ii> iii;
+typedef vector<int> vi;
+typedef vector<ii> vii;
+typedef vector<vi> vvi;
+typedef vector<vii> vvii;
+
 /*
-Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
-For example,
-input:
-t
-output:
-True
-input:
-f
-output:
-False
-input:
-f&f
-output:
-False
-input:
-f&t
-output:
-False
-input:
-t&f
-output:
-False
+
 */
 int main() {
-    string s;
-    cin >> s;
-    stack<char> st;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'T' || s[i] == 'F') {
-            st.push(s[i]);
-        } else {
-            char a = st.top();
-            st.pop();
-            char b = st.top();
-            st.pop();
-            if (s[i] == '&') {
-                if (a == 'T' && b == 'T') {
-                    st.push('T');
-                } else {
-                    st.push('F');
-                }
-            } else if (s[i] == '|') {
-                if (a == 'F' && b == 'F') {
-                    st.push('F');
-                } else {
-                    st.push('T');
-                }
-            }
-        }
-    }
-    if (st.top() == 'T') {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-    return 0;
-}
