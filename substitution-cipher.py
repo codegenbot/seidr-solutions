@@ -35,21 +35,10 @@ a
 output:
 z
 input:
-e
-l
-eeeeeeeeee
+s
+a
+aaaaaaaaaa
 output:
 llllllllll
 """
-
-def decipher(a, b, c):
-    d = {}
-    for i in range(len(a)):
-        if a[i] not in d:
-            d[a[i]] = b[i]
-    for i in range(len(c)):
-        c[i] = d[c[i]]
-
-    return ''.join(c)
-
 if __name__ == '__main__':
