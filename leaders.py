@@ -41,19 +41,13 @@ output:
 1
 1000
 """
-def f(N):
-    a = [int(i) for i in input().split()]
-    b = [a[-1]]
-    for i in range(N-2,-1,-1):
-        if a[i] >= a[i+1]:
-            b.append(a[i])
-        else:
-            pass
-    for i in range(len(b) - 1, -1, -1):
-        print(b[i], end=' ')
-    print()
 if __name__ == '__main__':
-    T = int(input())
-    for t in range(T):
-        N = int(input())
-        f(N)
+    n = int(input())
+    nums = list(map(int, input().split()))
+    if n == 0:
+        print(n)
+    else:
+        for i in range(n-1, -1, -1):
+            if nums[i] >= max(nums[i+1:n]):
+                print(nums[i], end = ' ')
+        print()
