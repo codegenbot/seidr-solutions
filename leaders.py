@@ -11,10 +11,12 @@ import re
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
 input:
-0
+3
+1 2 3
 
 output:
-0
+3
+1 2 3
 
 input:
 1
@@ -41,25 +43,4 @@ output:
 1
 1000
 """
-def leader(nums):
-    leaders = []
-    if(len(nums) == 1):
-        leaders.append(nums[0])
-    else:
-        for i in range(len(nums)-1,0,-1):
-            if(nums[i]>=nums[i-1]):
-                leaders.append(nums[i])
-                nums[i-1] = nums[i]
-            if(i==1):
-                leaders.append(nums[i-1])
-    return leaders
-
 if __name__ == '__main__':
-    line = sys.stdin.readline().rstrip("\n")
-    n = int(line)
-    line = sys.stdin.readline().rstrip("\n")
-    arr = map(int, line.split(" "))
-    res = leader(arr)
-    for i in range(len(res)-1,0,-1):
-        print(res[i],end=" ")
-    print(res[0])
