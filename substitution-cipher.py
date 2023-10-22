@@ -7,7 +7,6 @@ import collections
 import itertools
 import queue
 import re
-import string
 """
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
@@ -42,11 +41,5 @@ eeeeeeeeee
 output:
 llllllllll
 """
-
-def decode(cipher, encoded):
-    return ''.join([chr(ord(cipher[ord(x) - ord('a')]) + ord('a')) for x in encoded])
-
 if __name__ == '__main__':
-    cipher = input()
-    encoded = input()
-    print(decode(cipher, encoded))
+    print("")
