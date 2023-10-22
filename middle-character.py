@@ -32,8 +32,8 @@ output:
 )b
 """
 if __name__ == '__main__':
-    input = input()
-    if len(input) % 2 == 1:
-        print(input[len(input) // 2])
+    s = input() 
+    if(len(s) % 2 == 0):
+        print(s[len(s)//2 - 1:len(s)//2 + 1])
     else:
-        print(input[len(input) // 2 - 1:len(input) // 2 + 1])
+        print(s[len(s)//2])
