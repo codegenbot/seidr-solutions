@@ -35,21 +35,26 @@ output:
 all separate words
 */
 int main() {
-    string str;
-    getline(cin, str);
-    string res = "";
-    bool isFirst = true;
-    for(int i = 0; i < str.size(); i++) {
-        if(str[i] == ' ' || str[i] == '-') {
-            isFirst = true;
-            res += " ";
-        } else if(isFirst) {
-            res += toupper(str[i]);
-            isFirst = false;
-        } else {
-            res += str[i];
+    string s;
+    while (getline(cin, s)) {
+        stringstream ss(s);
+        string word;
+        while (ss >> word) {
+            if (word.find('-') != string::npos) {
+                stringstream ss2(word);
+                string word2;
+                while (getline(ss2, word2, '-')) {
+                    if (word2.size() > 0) {
+                        word2[0] = toupper(word2[0]);
+                        cout << word2;
+                    }
+                }
+                cout << " ";
+            } else {
+                cout << word << " ";
+            }
         }
+        cout << endl;
     }
-    cout << res << endl;
     return 0;
 }
