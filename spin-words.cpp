@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <cstring>
 #include <queue>
 #include <stdio.h>
@@ -12,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string
 For example,
 input:
 
@@ -36,26 +35,4 @@ output:
 hi
 */
 int main() {
-    string s;
-    while (cin >> s) {
-        string res = "";
-        int i = 0;
-        while (i < s.size()) {
-            string tmp = "";
-            while (i < s.size() && s[i] != ' ') {
-                tmp += s[i];
-                i++;
-            }
-            if (tmp.size() >= 5) {
-                reverse(tmp.begin(), tmp.end());
-            }
-            res += tmp;
-            if (i < s.size()) {
-                res += ' ';
-            }
-            i++;
-        }
-        cout << res << endl;
-    }
-    return 0;
 }
