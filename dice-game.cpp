@@ -40,17 +40,15 @@ output:
 0.0
 */
 int main() {
-	int n, m;
-	while (cin >> n >> m) {
-		double p = 0.0;
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= m; j++) {
-				if (i > j) {
-					p += 1.0;
-				}
-			}
-		}
-		p /= (n * m);
-		printf("%.2f\n", p);
-	}
+    int n, m;
+    while(cin >> n >> m) {
+        double x = 1.0 * (n - m + 1) / n;
+        double y = 1.0 * m / n;
+        double ans = 0;
+        for (int i = 0; i < m; i++) {
+            ans += x * pow(y, i);
+        }
+        printf("%.2f\n", ans);
+    }
+    return 0;
 }
