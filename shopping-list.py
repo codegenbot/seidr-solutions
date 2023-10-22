@@ -7,7 +7,6 @@ import collections
 import itertools
 import queue
 import re
-import decimal
 """
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
@@ -48,33 +47,20 @@ output:
 29.0
 """
 if __name__ == '__main__':
-
-	helper = ""
-	count = 0
-	temp = 0
-	dataset = []
-	for line in sys.stdin:
-		if count == 0:
-			count += 1
-			continue
-		if not line.strip():
-			continue
-		if helper:
-			if line.strip() == helper.strip():
-				temp += 1
-		helper = line.strip()
-		if line.strip() != helper.strip() and temp != 4:
-			temp = 0
-		if temp == 4 and line.strip() != helper.strip():
-			arr = map(float,helper.strip().split())
-			dataset.append(arr)
-			temp = 0
-	
-	prices = dataset[0]
-	discounts = dataset[1]
-	total = 0
-	for i in range(len(prices)):
-		total += prices[i] * (1 - discounts[i] / 100)
-	print '%.2f' %total
-
-	
+	try:
+		f = open("input.txt","r")
+		line = f.readline().strip('\n').split(' ')
+		t = []
+		for count in range(int(line[1])):
+			t.append(float(f.readline().strip('\n')))
+		line = f.readline().strip('\n').split(' ')
+		d = []
+		for count in range(int(line[1])):
+			d.append(float(f.readline().strip('\n')))
+		T = 0
+		for count in range(len(t)):
+			T = T + (t[count] - (t[count]*(d[count]/100)))
+		print(T)
+		f.close()
+	except IOError as e:
+		print(e)	
