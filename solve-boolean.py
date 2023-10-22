@@ -23,7 +23,7 @@ F&F
 output:
 False
 input:
-f&t
+F&T
 output:
 False
 input:
