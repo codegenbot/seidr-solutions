@@ -52,23 +52,19 @@ output:
 int main() {
     int n;
     cin >> n;
-    vector<float> prices;
-    float price;
+    vector<float> prices(n);
     for (int i = 0; i < n; i++) {
-        cin >> price;
-        prices.push_back(price);
+        cin >> prices[i];
     }
     cin >> n;
-    vector<float> discounts;
-    float discount;
+    vector<float> discounts(n);
     for (int i = 0; i < n; i++) {
-        cin >> discount;
-        discounts.push_back(discount);
+        cin >> discounts[i];
     }
     float total = 0;
     for (int i = 0; i < prices.size(); i++) {
         total += prices[i] * (1 - discounts[i] / 100);
     }
-    cout << total << endl;
+    printf("%.1f\n", total);
     return 0;
 }
