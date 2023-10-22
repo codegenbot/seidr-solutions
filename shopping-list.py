@@ -47,4 +47,4 @@ output:
 29.0
 """
 if __name__ == '__main__':
-def discountion_trip():
+    
