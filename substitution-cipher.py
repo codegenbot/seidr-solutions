@@ -42,10 +42,10 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    s1 = input()
-    s2 = input()
-    s3 = input()
-    s4 = ''
-    for i in range(len(s3)):
-        s4 += s2[s1.index(s3[i])]
-    print(s4)
+    a = input()
+    b = input()
+    c = input()
+    d = ""
+    for i in range(len(c)):
+        d += b[a.index(c[i])]
+    print(d)
