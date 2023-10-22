@@ -40,18 +40,5 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    cin >> n >> m;
-    double ans = 0;
-    for (int i = 1; i < n; i++) {
-        int cnt = 0;
-        for (int j = 1; j <= m; j++) {
-            if (j > i) {
-                cnt++;
-            }
-        }
-        ans += (double)cnt / m;
-    }
-    printf("%.2lf\n", ans);
-    return 0;
+
 }
