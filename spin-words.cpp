@@ -11,21 +11,37 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string. For example,
 
-For example,
+input:
 
-input: "this is a test"
-output: "this is a test"
+this is a test
 
-input: "a"
-output: "a"
+output:
 
-input: "this is another test"
-output: "this is rehtona test"
+this is a test
 
-input: "hi"
-output: "hi"
+input:
 
+this is another test
+
+output:
+
+this is rehtona test
+
+input:
+
+hi
+
+output:
+
+hi
+
+input:
+a
+
+output:
+
+a
 */
 int main() {
