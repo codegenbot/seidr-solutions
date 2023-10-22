@@ -41,16 +41,35 @@ output:
 0
 0
 """
-if __name__ == '__main__':
-    def mastermind(code, guess):
-        c = collections.Counter(code)
-        g = collections.Counter(guess)
-        s = 0
-        for i in range(4):
-            if code[i] == guess[i]:
-                s += 1
-        return [s, sum((c & g).values()) - s]
 
+def mastermind(code, guess):
+    code_dict = {}
+    guess_dict = {}
+    correct_place = 0
+    correct_color = 0
+    for i in range(0, len(code)):
+        if code[i] == guess[i]:
+            correct_place += 1
+        else:
+            if code[i] in code_dict:
+                code_dict[code[i]] += 1
+            else:
+                code_dict[code[i]] = 1
+
+            if guess[i] in guess_dict:
+                guess_dict[guess[i]] += 1
+            else:
+                guess_dict[guess[i]] = 1
+
+    for key in guess_dict:
+        if key in code_dict:
+            correct_color += min(guess_dict[key], code_dict[key])
+        else:
+            correct_color += 0
+
+    return correct_place, correct_color
+
+if __name__ == '__main__':
     print mastermind('RRRR', 'RRRR')
     print mastermind('BOYG', 'GYOB')
     print mastermind('WYYW', 'BBOG')
