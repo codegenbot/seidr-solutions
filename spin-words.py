@@ -33,8 +33,8 @@ hi
 """
 if __name__ == '__main__':
     s = input()
-    words = s.split(' ')
+    words = s.split()
     for i in range(len(words)):
         if len(words[i]) >= 5:
             words[i] = words[i][::-1]
-    print(' '.join(words))
+    print(" ".join(words))
