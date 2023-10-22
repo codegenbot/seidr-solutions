@@ -7,9 +7,6 @@ import collections
 import itertools
 import queue
 import re
-from queue import LifoQueue
-from queue import Queue
-from queue import PriorityQueue
 """
 Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
@@ -44,22 +41,8 @@ output:
 0
 0
 """
-test_cases = ["YBRO", "OOOO"]
-
-def get_peg(guess_string, code_string):
-    guess_array = [guess_string[i] for i in range(len(guess_string))]
-    code_array = [code_string[i] for i in range(len(code_string))]
-    black_peg = 0
-    for i in range(len(guess_array)):
-        if guess_array[i] == code_array[i]:
-            guess_array.pop(i)
-            code_array.pop(i)
-            black_peg += 1
-    white_peg = 0
-    for j in code_array:
-        if j in guess_array:
-            white_peg += 1
-    return black_peg, white_peg
-
-
 if __name__ == '__main__':
+    code = sys.stdin.readline().strip()
+    guess = sys.stdin.readline().strip()
+    #print code
+    #print guess
