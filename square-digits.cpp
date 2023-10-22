@@ -38,9 +38,9 @@ int main() {
     int n;
     cin >> n;
     string res = "";
-    while(n) {
-        int t = n % 10;
-        res = to_string(t * t) + res;
+    while (n) {
+        int tmp = n % 10;
+        res = to_string(tmp * tmp) + res;
         n /= 10;
     }
     cout << res << endl;
