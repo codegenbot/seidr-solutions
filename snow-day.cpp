@@ -50,16 +50,16 @@ output:
 10.0
 */
 int main() {
-    //freopen("3.txt","r",stdin);
-    freopen("2.txt","w",stdout);
-    double n, a, b, c, ans = 0;
-    while(cin>>n>>a>>b>>c){
-        for (int i = 0; i < n; i++) {
-            if (i == 0) ans = a;
-            else ans += c * ans + b;
-        }
-        printf("%.12lf\n",ans);
-    }
-    
-    return 0;
+  float current;
+  float rate;
+  float melt;
+  int time;
+  cin >> time >> current >> rate >> melt;
+  for (int i = 0; i < time; i++) {
+    current += rate;
+    current -= melt;
+  }
+  cout << current;
+  
+  return 0;
 }
