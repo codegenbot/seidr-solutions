@@ -31,14 +31,16 @@ hi
 output:
 hi
 """
-
-def reverse_words(s):
-    words = s.split()
-    res = ""
-    for word in words:
-        if len(word) >= 5:
-            word = word[::-1]
-        res += word + " "
-    return res.rstrip()
-
 if __name__ == '__main__':
+    # str = input()
+    # str = "this is a test"
+    # str = "this is rehtona test"
+    str = "this is another test"
+    str = str.split(" ")
+    print(str)
+    for i in range(len(str)):
+        if len(str[i]) >= 5:
+            str[i] = str[i][::-1]
+    print(str)
+    str = " ".join(str)
+    print(str)
