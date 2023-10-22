@@ -35,13 +35,12 @@ output:
 )b
 */
 int main() {
-    string s;
-    cin >> s;
-    int len = s.length();
-    if (len % 2 == 0) {
-        cout << s[len / 2 - 1] << s[len / 2] << endl;
+    string input;
+    cin >> input;
+    if (input.length() % 2 == 0) {
+        cout << input[input.length() / 2 - 1] << input[input.length() / 2];
     } else {
-        cout << s[len / 2] << endl;
+        cout << input[input.length() / 2];
     }
     return 0;
 }
