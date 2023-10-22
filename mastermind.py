@@ -42,24 +42,22 @@ output:
 0
 """
 if __name__ == '__main__':
-    l = []
-    for i in range(4):
-        l.append(input())
-    code = l[0]
-    guess = l[1]
-    code_dict = dict()
+    code = input()
+    guess = input()
+    code_list = list(code)
+    guess_list = list(guess)
+    code_list_copy = code_list[:]
+    guess_list_copy = guess_list[:]
+    c_dict = collections.Counter(code_list)
+    g_dict = collections.Counter(guess_list)
+    black_pegs = 0
+    white_pegs = 0
     for i in range(len(code)):
-        if code[i] not in code_dict:
-            code_dict[code[i]] = 1
-        else:
-            code_dict[code[i]] += 1
-    w_pegs = 0
-    b_pegs = 0
-    for i in range(len(guess)):
-        if guess[i] == code[i]:
-            b_pegs += 1
-        if guess[i] in code_dict and code_dict[guess[i]] > 0:
-            w_pegs += 1
-            code_dict[guess[i]] -= 1
-    print(b_pegs)
-    print(w_pegs)
+        if code_list[i] == guess_list[i]:
+            black_pegs += 1
+            code_list_copy.remove(code_list[i])
+            guess_list_copy.remove(guess_list[i])
+    for i in guess_list_copy:
+        if i in code_list_copy:
+            white_pegs += min(c_dict[i], g_dict[i])
+    print(black_pegs, white_pegs)
