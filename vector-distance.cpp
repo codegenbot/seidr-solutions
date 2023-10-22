@@ -51,17 +51,22 @@ output:
 */
 int main() {
     int n;
+    vector<float> vec1;
+    vector<float> vec2;
+    float tmp;
     cin >> n;
-    vector<double> a(n), b(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    for(int i = 0; i < n; i++) {
+        cin >> tmp;
+        vec1.push_back(tmp);
     }
-    for (int i = 0; i < n; i++) {
-        cin >> b[i];
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cin >> tmp;
+        vec2.push_back(tmp);
     }
-    double sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += (a[i]-b[i])*(a[i]-b[i]);
+    float sum = 0;
+    for(int i = 0; i < n; i++) {
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
     cout << sqrt(sum) << endl;
     return 0;
