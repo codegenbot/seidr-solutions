@@ -7,6 +7,11 @@ import collections
 import itertools
 import queue
 import re
+import copy
+import decimal
+import random
+import string
+import itertools
 """
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
@@ -47,6 +52,3 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    n, *a = map(float, open("data.txt").read().split())
-    m, *b = map(float, open("data.txt").read().split())
-    print(sum(a)*(1-sum(b)/100))
