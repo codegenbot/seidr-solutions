@@ -8,8 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a text string and a target string,
-return a list of integers of the indices at which the target appears in the text. Targets may overlap.
+Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
 a
@@ -43,10 +42,10 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 """
 if __name__ == '__main__':
-    text = "############"
-    target = "#"
-    output = ""
+    text = input()
+    target = input()
+    lst = []
     for i in range(len(text)):
-        if text[i:i + len(target)] == target:
-            output += str(i) + " "
-    print(output)
+        if text[i:i+len(target)] == target:
+            lst.append(i)
+    print(*lst, sep=' ')
