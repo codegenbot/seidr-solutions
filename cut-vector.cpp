@@ -54,38 +54,32 @@ output:
 0
 
 */
-class Solution {
-public:
-    vector<vector<int>> cutVec(vector<int>& nums) {
-        vector<vector<int>> res;
-        if(nums.size() == 0) return res;
-        int minDiff = INT_MAX;
-        int index = 0;
-        for(int i = 1; i < nums.size(); i++) {
-            if(abs(nums[i] - nums[i - 1]) < minDiff) {
-                index = i;
-                minDiff = abs(nums[i] - nums[i - 1]);
-            }
-            if(nums[i] == nums[i - 1]) {
-                index = i;
-                minDiff = 0;
-                break;
-            }
-        }
-        res.push_back(vector<int>(nums.begin(), nums.begin() + index));
-        res.push_back(vector<int>(nums.begin() + index, nums.end()));
-        return res;
-    }
-};
 int main() {
-    Solution s;
-    vector<int> nums = {1, 0, 0};
-    vector<vector<int>> res = s.cutVec(nums);
-    for(int i = 0; i < res.size(); i++) {
-        for(int j = 0; j < res[i].size(); j++) {
-            cout << res[i][j] << " ";
-        }
-        cout << endl;
+    vector<int> nums = {1,10,100,1000,10000};
+    int n = nums.size();
+    int sum = 0;
+    for(int i = 0; i < n; i++){
+        sum += nums[i];
     }
+    int left = 0;
+    int right = sum;
+    int diff = INT_MAX;
+    int index = -1;
+    for(int i = 0; i < n; i++){
+        left += nums[i];
+        right -= nums[i];
+        if(abs(right - left) < diff){
+            diff = abs(right - left);
+            index = i;
+        }
+    }
+    for(int i = 0; i <= index; i++){
+        cout << nums[i] << " ";
+    }
+    cout << "0 ";
+    for(int i = index + 1; i < n; i++){
+        cout << nums[i] << " ";
+    }
+    cout << "0";
     return 0;
 }
