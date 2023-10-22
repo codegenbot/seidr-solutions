@@ -50,8 +50,9 @@ int main() {
     cin >> h1 >> h2 >> bounces;
     bounciness_index = h2 / h1;
     total_distance = h1;
-    for(int i = 1; i <= bounces; i++) {
+    for(int i = 1; i < bounces; i++) {
         total_distance += 2 * h1 * pow(bounciness_index, i);
     }
     printf("%.6f", total_distance);
+    return 0;
 }
