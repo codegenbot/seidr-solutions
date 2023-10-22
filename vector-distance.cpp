@@ -51,20 +51,21 @@ output:
 */
 int main() {
     int n;
-    cin >> n;
-    vector<double> vec1(n);
-    for(int i = 0; i < n; i++) {
-        cin >> vec1[i];
+    while(cin >> n){
+        vector<float> a(n);
+        for(int i = 0; i < n; i++){
+            cin >> a[i];
+        }
+        cin >> n;
+        vector<float> b(n);
+        for(int i = 0; i < n; i++){
+            cin >> b[i];
+        }
+        double ans = 0;
+        for(int i = 0; i < a.size(); i++){
+            ans += (a[i] - b[i]) * (a[i] - b[i]);
+        }
+        printf("%.16lf\n",sqrt(ans));
     }
-    cin >> n;
-    vector<double> vec2(n);
-    for(int i = 0; i < n; i++) {
-        cin >> vec2[i];
-    }
-    double sum = 0;
-    for(int i = 0; i < vec1.size(); i++) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
-    }
-    printf("%.15f\n", sqrt(sum));
     return 0;
 }
