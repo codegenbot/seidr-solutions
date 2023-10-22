@@ -12,9 +12,7 @@ This problem gives 3 strings. The first two represent a cipher, mapping each cha
 For example,
 input:
 
-a
-b
-h
+
 
 output:
 
@@ -44,3 +42,10 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
+    s1 = input()
+    s2 = input()
+    s3 = input()
+    s4 = ''
+    for i in range(len(s3)):
+        s4 += s2[s1.index(s3[i])]
+    print(s4)
