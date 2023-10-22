@@ -37,21 +37,23 @@ all separate words
 int main() {
     string s;
     while(getline(cin, s)) {
-        string res = "";
-        bool flag = false;
-        for(int i = 0; i < s.size(); i++) {
-            if(s[i] == '-') {
-                flag = true;
+        string ans = "";
+        for(int i = 0; i < s.length(); i++) {
+            if(s[i] == ' ' || s[i] == '-') {
+                ans += s[i];
                 continue;
             }
-            if(flag) {
-                res += toupper(s[i]);
-                flag = false;
+            if(s[i] >= 'A' && s[i] <= 'Z') {
+                ans += s[i];
             } else {
-                res += s[i];
+                if(i > 0 && s[i-1] == ' ') {
+                    ans += s[i] - 'a' + 'A';
+                } else {
+                    ans += s[i];
+                }
             }
         }
-        cout << res << endl;
+        cout << ans << endl;
     }
     return 0;
 }
