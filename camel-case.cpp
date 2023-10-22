@@ -35,9 +35,25 @@ output:
 all separate words
 */
 int main() {
-  string input;
-  string output;
-  getline(cin, input);
-  bool space = false;
-  bool dash = false;
-  bool word = false;
+    string s;
+    bool flag=false;
+    string ans="";
+    while (getline(cin,s,'\n')){
+        for (int i=0;i<s.length();i++){
+            int k=0;
+            if (s[i]=='-'&&s[i+1]!='-'&&s[i+1]!=' ') {
+                flag = true;
+                i++;
+            }
+            else if (s[i]!='-'){
+                if (flag){
+                    ans+=s[i]-'a'+'A';
+                    flag=false;
+                }
+                else ans+=s[i];
+            }
+        }
+        cout<<ans<<endl;
+        ans="";
+    }
+}
