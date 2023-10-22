@@ -47,14 +47,11 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    N = int(sys.stdin.readline())
-    price = []
-    discount = []
-
-    tot = 0
-    for i in range(N):
-        price.append(float(input()))
-        discount.append(float(input()))
-        tot += price[i]
-        tot -= price[i]*(discount[i]/100)
-    print(tot)
+    num = int(input())
+    price = input().split()
+    discount = input().split()
+    finalPrice = 0
+    for i in range(num):
+        finalPrice += float(price[i]) * (1 - float(discount[i]) / 100)
+        finalPrice = round(finalPrice, 1)
+    print(finalPrice)
