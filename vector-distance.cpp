@@ -51,23 +51,19 @@ output:
 */
 int main() {
     int n;
-    while(cin>>n){
-        vector<double> a;
-        vector<double> b;
-        double t;
-        for(int i=0;i<n;i++){
-            cin>>t;
-            a.push_back(t);
-        }
-        for(int i=0;i<n;i++){
-            cin>>t;
-            b.push_back(t);
-        }
-        double ans=0;
-        for(int i=0;i<n;i++){
-            ans+=pow(a[i]-b[i],2);
-        }
-        cout<<sqrt(ans)<<endl;
+    cin >> n;
+    vector<float> vec1(n);
+    vector<float> vec2(n);
+    for (int i = 0; i < n; i++) {
+        cin >> vec1[i];
     }
+    for (int i = 0; i < n; i++) {
+        cin >> vec2[i];
+    }
+    float dist = 0;
+    for (int i = 0; i < n; i++) {
+        dist += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+    }
+    printf("%.6f", sqrt(dist));
     return 0;
 }
