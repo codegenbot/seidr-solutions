@@ -51,21 +51,33 @@ output:
 */
 int main() {
     int n;
-    while(cin>>n) {
-        vector<float> a(n);
-        vector<float> b(n);
-        int i;
-        for(i = 0; i < n; i++) {
-            cin>>a[i];
-        }
-        for(i = 0; i < n; i++) {
-            cin>>b[i];
-        }
-        float sum = 0;
-        for(i = 0; i < n; i++) {
-            sum += (a[i]-b[i])*(a[i]-b[i]);
-        }
-        printf("%f\n", sqrt(sum));
+    vector<float> v1;
+    cin >> n;
+    string temp;
+    getline(cin, temp);
+    getline(cin, temp);
+    float val;
+    for (int i = 0; i < n; i++) {
+        cin >> val;
+        v1.push_back(val);
     }
+    vector<float> v2;
+    int n2;
+    cin >> n2;
+    getline(cin, temp);
+    getline(cin, temp);
+    for (int i = 0; i < n2; i++) {
+        cin >> val;
+        v2.push_back(val);
+    }
+    if (n != n2) {
+        cout << "error" << endl;
+        return 0;
+    }
+    double distance = 0.0;
+    for (int i = 0; i < n; i++) {
+        distance += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+    }
+    cout << sqrt(distance) << endl;
     return 0;
 }
