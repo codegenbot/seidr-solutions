@@ -47,12 +47,42 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    f = open('file')
-    num_items = int(f.readline())
-    items = list(map(float, f.readline().split()))
-    num_discounts = int(f.readline())
-    discounts = list(map(float, f.readline().split()))
-    total = 0.0
-    for item, discount in zip(items, discounts):
-        total += item * (1.0 - discount/100.0)
-    print(round(total, 2))
+    file = open("INPUT.txt", "r")
+    output = open("OUTPUT.txt", "w")
+    n = file.readline()
+    if n is not '':
+        n = int(n)
+        if n > 0 and n <= 10:
+            prices = file.readline()
+            if prices is not '':
+                prices = prices.replace("\n", "")
+                prices = prices.split(" ")
+                if len(prices) == n:
+                    discount = file.readline()
+                    if discount is not '':
+                        discount = discount.replace("\n", "")
+                        discount = discount.split(" ")
+                        if len(prices) == n:
+                            total = 0
+                            for i in range(n):
+                                if float(prices[i]) >= 0 and float(prices[i]) <= 100 and float(discount[i]) >= 0 and float(discount[i]) <= 100:
+                                    total = total + float(prices[i]) * ((100 - float(discount[i])) / 100)
+                                else:
+                                    total = -1
+                                    break
+                            if total != -1:
+                                output.write(str(total))
+                            else:
+                                output.write("Error")
+                        else:
+                            output.write("Error")
+                    else:
+                        output.write("Error")
+                else:
+                    output.write("Error")
+            else:
+                output.write("Error")
+        else:
+            output.write("Error")
+    else:
+        output.write("Error")
