@@ -34,14 +34,22 @@ input:
 output:
 )b
 */
-int main() {
-    string str;
-    cin >> str;
-    int n = str.size();
-    if(n%2 == 0) {
-        cout << str[n/2 - 1] << str[n/2];
+string getMiddle(string input) {
+    int l = input.length();
+    if (l>=2) {
+        if (l%2==0) {
+            char c = input[l/2-1];
+            char d = input[l/2];
+            return string()+c+d;
+        } else {
+            if (l==1) {
+                return input;
+            } else {
+                return string()+input[(l-1)/2];
+            }
+        }
     } else {
-        cout << str[n/2];
+        return input;
     }
-    return 0;
 }
+int main() {
