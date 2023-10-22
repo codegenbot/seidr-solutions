@@ -31,10 +31,11 @@ hi
 output:
 hi
 """
-if __name__ == '__main__':
-    input = sys.stdin.readline().strip()
-    words = input.split()
+def reverse_words(words):
+    words = words.split(' ')
     for i in range(len(words)):
         if len(words[i]) >= 5:
             words[i] = words[i][::-1]
-    print(' '.join(words))
+    return ' '.join(words)
+
+if __name__ == '__main__':
