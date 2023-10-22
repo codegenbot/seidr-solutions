@@ -45,8 +45,37 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 
-// 这个题目，在网上真没有找到solution，只有一个讨论
-// 这个解题方法，是我想的，但是自己写出来的代码有bug，需要debug，而且还是一个个debug，
-// 所以，还是要对复杂的代码，一个个debug比较好。
-// 这种题目，也是要自己回去想的
+
+void KMP(string text, string target){
+    vector<int> prefix(target.length());
+    prefix[0] = 0;
+    int k = 0;
+    for(int i = 1; i < target.length(); i++){
+        while(k > 0 && target[k] != target[i]){
+            k = prefix[k-1];
+        }
+        if(target[k] == target[i]){
+            k++;
+        }
+        prefix[i] = k;
+    }
+    int h = 0;
+    for(int i = 0; i < text.length(); i++){
+        while(h > 0 && target[h] != text[i]){
+            h = prefix[h-1];
+        }
+        if(target[h] == text[i]){
+            h++;
+        }
+        if(h == target.length()){
+            cout << i - target.length()+1 << " ";
+        }
+    }
+}
 int main() {
+    string t1, t2;
+    t1 = "r";
+    t2 = "nm,xcnwqnd@#$fwkdjn3";
+    KMP(t2, t1);
+    return 0;
+}

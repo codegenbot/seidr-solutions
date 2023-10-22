@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <deque>
 using namespace std;
 /*
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
@@ -34,39 +35,37 @@ t&f
 output:
 False
 */
-int main() {
-    string str;
-    while (cin >> str) {
-        stack<char> st;
-        for (char ch : str) {
-            if (st.empty()) {
-                st.push(ch);
-            } else {
-                if (ch == '&' || ch == '|') {
-                    st.push(ch);
-                } else {
-                    char op = st.top();
-                    st.pop();
-                    char ch1 = st.top();
-                    st.pop();
-                    if (op == '&') {
-                        if (ch1 == 'T' && ch == 'T') {
-                            st.push('T');
-                        } else {
-                            st.push('F');
-                        }
-                    }
-                    if (op == '|') {
-                        if (ch1 == 'F' && ch == 'F') {
-                            st.push('F');
-                        } else {
-                            st.push('T');
-                        }
-                    }
-                }
-            }
-        }
-        cout << (st.top() == 'T' ? "True" : "False") << endl;
-    }
+
+int getValue(char c){
+    if(c == 'T') return 1;
+    else if(c == 'F') return 0;
+    return -1;
+}
+
+char cal(char a, char b, char operator_){
+    if(operator_ == '|') return a | b;
+    else if(operator_ == '&') return a & b;
     return 0;
+}
+
+char eval(string exp){
+    deque<char> a;
+    
+    for(int i = 0; i < exp.size(); i++){
+        if(exp[i] != '|' && exp[i] != '&'){
+            a.push_back(getValue(exp[i]));
+        }else{
+            char b = a.back();
+            a.pop_back();
+            char c = a.back();
+            a.pop_back();
+            a.push_back(cal(c, b, exp[i]));
+        }
+    }
+    if(a.back()) return 'T';
+    else return 'F';
+}
+int main() {
+    string s = "t|&f&t";
+    cout<<eval(s)<<endl;
 }

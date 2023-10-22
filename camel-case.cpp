@@ -34,28 +34,26 @@ all separate words
 output:
 all separate words
 */
-string kebabToCamel(string str)
-{
-	string ans = "";
-	for (int i = 0; i < str.size(); i++)
-	{
-		if (str[i] == ' ')
-		{
-			ans += " ";
-		}
-		else if (str[i] == '-')
-		{
-			ans += "";
-		}
-		else if (str[i + 1] == '-' || str[i + 1] == ' ')
-		{
-			ans += str[i];
-		}
-		else if (str[i + 1] != '-' && str[i + 1] != ' ')
-		{
-			ans += toupper(str[i]);
-		}
-	}
-	return ans;
-}
 int main() {
+    int t;
+    cin >> t;
+    cin.ignore();
+    for (int i = 0; i < t; i++) {
+        string s;
+        getline(cin, s);
+        string res;
+        int n = s.size();
+        for (int j = 0; j < n; j++) {
+            if (s[j] == ' ' || s[j] == '-') {
+                for (int k = j+1; k < n; k++) {
+                    if (s[k] == ' ' || s[k] == '-') break;
+                    if (s[k] >= 'a' && s[k] <= 'z')
+                        s[k] = s[k] - 32;
+                }
+            }
+            res += s[j];
+        }
+        cout << res << endl;
+    }
+    return 0;
+}
