@@ -35,24 +35,36 @@ output:
 False
 */
 int main() {
-    string str;
-    cin >> str;
-    stack<char> stk;
-    for(int i = 0; i < str.size(); i++) {
-        if(str[i] == '&' || str[i] == '|') {
-            char c1 = stk.top();
-            stk.pop();
-            char c2 = stk.top();
-            stk.pop();
-            if(str[i] == '&') {
-                stk.push(c1 == 'T' && c2 == 'T' ? 'T' : 'F');
+    string s;
+    cin >> s;
+    stack<char> st;
+    for(int i = 0; i < s.size(); i++) {
+        if(s[i] == '&' || s[i] == '|') {
+            char c1 = st.top();
+            st.pop();
+            char c2 = st.top();
+            st.pop();
+            if(s[i] == '&') {
+                if(c1 == 'T' && c2 == 'T') {
+                    st.push('T');
+                } else {
+                    st.push('F');
+                }
             } else {
-                stk.push(c1 == 'F' && c2 == 'F' ? 'F' : 'T');
+                if(c1 == 'F' && c2 == 'F') {
+                    st.push('F');
+                } else {
+                    st.push('T');
+                }
             }
         } else {
-            stk.push(str[i]);
+            st.push(s[i]);
         }
     }
-    cout << (stk.top() == 'T' ? "True" : "False") << endl;
+    if(st.top() == 'T') {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
     return 0;
 }
