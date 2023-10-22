@@ -35,21 +35,43 @@ output:
 hi
 */
 int main() {
-    string str;
-    getline(cin, str);
-    string ans = "";
-    string tmp = "";
-    str.push_back(' ');
-    int st = 0;
-    for (int i = 0; i < str.size(); i ++) {
-        if (str[i] != ' ') {
-            tmp += str[i];
-        } else {
-            ans += tmp;
-            tmp = "";
+    string s;
+    getline(cin, s);
+    int arr[s.length()];
+    for (int i = 0; i< s.length(); i++) {
+        arr[i] = INT_MAX;
+    }
+    int start_word = 0;
+    int index = 0;
+    for (int i = 0; i< s.length() ; i++) {
+        if (s[i] == ' ') {
+            if (index - start_word >= 5)
+            {
+                int j = 0;
+                for (int k = index - 1; k >= start_word; k--) {
+                    arr[i - j] = k;
+                    j++;
+                }
+            }
+            start_word = i + 1;
+        }
+        index++;
+    }
+    if (index - start_word >= 5)
+    {
+        int j = 0;
+        for (int k = index - 1; k >= start_word; k--) {
+            arr[s.length() - j - 1] = k;
+            j++;
         }
     }
-    cout << ans;
-    
-    
+    int count = 0;
+    for (int i = 0; i< s.length(); i++) {
+        if (arr[i] != INT_MAX) {
+            cout << s[arr[i]];
+            count++;
+        } else {
+            cout << s[i];
+        }
+    }
 }
