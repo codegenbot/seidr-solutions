@@ -39,5 +39,39 @@ input:
 output:
 0.0
 */
-int main() {
+double probability(int n, int m) {
+    // Write your code here
+    if (n == m) {
+        return 0.5;
+    }
+    if (n > m) {
+        int tmp = n;
+        n = m;
+        m = tmp;
+    }
+    if (m > n*2) {
+        return 1.0;
+    }
     
+    double ans = 0;
+    for (int i = n+1; i <= 2*n; ++i) {
+        if (i > m) {
+            ans += (i-n)*1.0/(n*n);
+        } else {
+            ans += (i-n)*1.0/(n*m);
+        }
+    }
+    for (int i = m+1; i <= 2*n; ++i) {
+        ans += 1.0/(n*n);
+    }
+    return ans;
+}
+
+int main() {
+    cout << probability(100,99) << endl;
+    cout << probability(1,100) << endl;
+    cout << probability(1,2) << endl;
+    cout << probability(2,1) << endl;
+    cout << probability(99,100) << endl;
+    return 0;
+}
