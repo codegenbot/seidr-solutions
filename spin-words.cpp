@@ -35,27 +35,30 @@ output:
 hi
 */
 int main() {
-    string input;
-    while (getline(cin, input)) {
-        string output;
-        string word;
-        for (int i = 0; i < input.length(); i++) {
-            if (input[i] != ' ') {
-                word += input[i];
-            } else {
-                if (word.length() >= 5) {
-                    reverse(word.begin(), word.end());
-                }
-                output += word;
-                output += ' ';
-                word = "";
+    string str;
+    getline(cin, str);
+    string res = "";
+    int i = 0;
+    while (i < str.size()) {
+        if (str[i] == ' ') {
+            res += ' ';
+            i++;
+            continue;
+        }
+        int j = i;
+        while (j < str.size() && str[j] != ' ') {
+            j++;
+        }
+        if (j - i < 5) {
+            res += str.substr(i, j - i);
+        }
+        else {
+            for (int k = j - 1; k >= i; k--) {
+                res += str[k];
             }
         }
-        if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
-        }
-        output += word;
-        cout << output << endl;
+        i = j;
     }
+    cout << res << endl;
     return 0;
 }
