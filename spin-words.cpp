@@ -35,34 +35,4 @@ output:
 hi
 */
 int main() {
-    // your code goes here
-    string s;
-    getline(cin, s);
-    string s1 = "";
-    string str = "";
-    int len = s.size();
-    for (int i = 0; i < len; i++) {
-        if (s[i] == ' ') {
-            if (str.size() >= 5) {
-                reverse(str.begin(), str.end());
-                s1 += str;
-            } else {
-                s1 += str;
-            }
-            s1 += " ";
-            str = "";
-        } else {
-            str += s[i];
-        }
-    }
-    
-    if (str.size() >= 5) {
-        reverse(str.begin(), str.end());
-        s1 += str;
-    } else {
-        s1 += str;
-    }
-    
-    cout << s1 << endl;
-    return 0;
-}
+ 
