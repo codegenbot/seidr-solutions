@@ -47,8 +47,12 @@ output:
 29.0
 """
 if __name__ == '__main__':
-  f = open("somefilename")
-  lines = f.readlines()
-  print len(lines)
-  for line in lines:
-    print line
+    N = int(input())
+    items = [float(x) for x in input().split()]
+    D = int(input())
+    discounts = [float(x) for x in input().split()]
+    result = 0
+    for i in range(min(N, D)):
+        result += (items[i] - (items[i] * discounts[i] / 100))
+    result += sum(items[D:])
+    print('%.1f' % result)
