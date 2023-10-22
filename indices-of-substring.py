@@ -11,27 +11,33 @@ import re
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
 input:
-text = a, target = 5
+a
+5
 output:
 0
 
 input:
-text = !, target = !
+!
+!
 output:
 1
 0
+
 input:
-text = r, target = nm,xcnwqnd@#$fwkdjn3
+r
+nm,xcnwqnd@#$fwkdjn3
 output:
 0
 
 input:
-text = hi, target = hihihihihihihihihihi
+hi
+hihihihihihihihihihi
 output:
 0
 
 input:
-text = ############, target = #
+############
+#
 output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
