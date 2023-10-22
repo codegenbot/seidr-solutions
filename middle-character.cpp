@@ -14,23 +14,15 @@ using namespace std;
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
 For example,
 input:
-hllo
-output:
-h 
-input:
-hell
- 
-output:
- 
-
+'Q'
+'Q'
+'abh'
+'b'
+'#$%^&'
+'%'
+'E9'
+'E9'
+')b'
+')b'
 */
-
 int main() {
-    string s;
-    cin >> s;
-    if (s.size() % 2 == 0) {
-        cout << s.substr(s.size() / 2 - 1, 2);
-    } else {
-        cout << s[s.size() / 2];
-    }
-}
