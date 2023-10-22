@@ -44,16 +44,25 @@ input:
 output:
 3.963
 */
-int main() {
-    double start, first_bounce;
-    int bounce_num;
-    while(cin >> start >> first_bounce >> bounce_num) {
-        double bounciness = first_bounce / start;
-        double distance = 0;
-        for(int i = 0; i <= bounce_num; i++) {
-            distance += start * pow(bounciness, i);
-        }
-        printf("%.3lf\n", distance);
+
+double getBouncinessIndex(double start, double firstBounce) {
+    return start / firstBounce;
+}
+
+double getTotalDistance(double start, double firstBounce, int bounces) {
+    double bouncinessIndex = getBouncinessIndex(start, firstBounce);
+    double res = start;
+    for (int i = 1; i < bounces; i++) {
+        res += start * pow(bouncinessIndex, i);
     }
+    return res;
+}
+
+int main() {
+    double start, firstBounce;
+    int bounces;
+    cin >> start >> firstBounce >> bounces;
+    cout << getTotalDistance(start, firstBounce, bounces) << endl;
     return 0;
 }
+
