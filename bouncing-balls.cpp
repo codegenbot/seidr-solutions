@@ -3,7 +3,6 @@
 #include <string>
 #include <cstring>
 #include <queue>
-#include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 #include <map>
@@ -45,21 +44,18 @@ input:
 output:
 3.963
 */
-//计算弹跳次数
-double getBounciness(double start, double height, int times) {
-    double res = 0;
-    double bounciness = height / start;
-    for(int i = 0; i < times; i++) {
-        res += start * pow(bounciness, i);
-    }
-    return res;
-}
 int main() {
-    double start = 0, height = 0;
-    int times = 0;
-    while(cin >> start >> height >> times) {
-        double res = getBounciness(start, height, times);
-        printf("%.6f\n", res);
+    double b_index, starting_h, first_h;
+    int bounces;
+    cin >> starting_h >> first_h >> bounces;
+    b_index = first_h / starting_h;
+    double dist = 0;
+    double height = starting_h;
+    for (int i = 0; i < bounces; i++) {
+        height *= b_index;
+        dist += height;
+        dist += height;
     }
+    printf("%.10f\n", dist);
     return 0;
 }
