@@ -50,13 +50,19 @@ output:
 10.0
 */
 int main() {
-    int hours;
-    double snow, rate, melting;
-    cin >> hours >> snow >> rate >> melting;
-    for (int i = 0; i < hours; ++i) {
-        snow += rate;
-        snow -= melting * snow;
+    int hour;
+    double snow,fall,melt;
+    cin>>hour>>snow>>fall>>melt;
+    double t = hour;
+    while (t--) {
+        snow += fall;
+        if (melt != 0) {
+            snow -= melt;
+        }
+        if (snow < 0) {
+            snow = 0;
+        }
     }
-    printf("%.15f\n", snow);
+    printf("%.10lf\n",snow);
     return 0;
 }
