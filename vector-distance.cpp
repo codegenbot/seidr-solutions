@@ -50,21 +50,30 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n, i;
-    float ans = 0;
-    cin >> n;
-    vector<float> v1(n);
-    for (i = 0; i < n; i++) {
-        cin >> v1[i];
+    while (true) {
+        int n;
+        cin >> n;
+        if (n == 0) {
+            break;
+        }
+        vector<float> a;
+        for (int i = 0; i < n; i++) {
+            float tmp;
+            cin >> tmp;
+            a.push_back(tmp);
+        }
+        cin >> n;
+        vector<float> b;
+        for (int i = 0; i < n; i++) {
+            float tmp;
+            cin >> tmp;
+            b.push_back(tmp);
+        }
+        double sum = 0;
+        for (int i = 0; i < a.size(); i++) {
+            sum += pow(a[i] - b[i], 2);
+        }
+        printf("%.16f\n", sqrt(sum));
     }
-    cin >> n;
-    vector<float> v2(n);
-    for (i = 0; i < n; i++) {
-        cin >> v2[i];
-    }
-    for (i = 0; i < n; i++) {
-        ans += pow(v1[i] - v2[i], 2);
-    }
-    cout << sqrt(ans) << endl;
     return 0;
 }
