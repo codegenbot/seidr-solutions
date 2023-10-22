@@ -15,7 +15,10 @@ Take a string in kebab-case and convert all of the words to camelCase. Each grou
 For example,
 input:
 
+
 output:
+
+
 
 input:
 nospaceordash
@@ -35,33 +38,3 @@ output:
 all separate words
 */
 int main() {
-  int n;
-  cin >> n;
-  string str;
-  map<string, int> dic;
-  for (int i  = 0; i < n; ++i) {
-    cin >> str;
-    dic[str] = 0;
-  }
-  cin >> n;
-  string s;
-  map<string, int> dic1;
-  for (int i = 0; i < n; ++i) {
-    cin >> s;
-    int pos = s.find('@');
-    if (pos != string::npos) {
-      string s1 = s.substr(pos + 1);
-      if ( dic.find(s1) != dic.end()) {
-        dic1[s] = 1;
-      }
-    }
-  }
-  for (int i = 0; i < n; ++i) {
-    cin >> s;
-    if (dic1.find(s) != dic1.end()) {
-      cout << s << endl;
-    }
-  }
-  return 0;
-
-}
