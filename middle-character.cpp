@@ -35,12 +35,5 @@ output:
 )b
 */
 int main() {
-    string str;
-    getline(cin, str);
-    int len = str.size();
-    if(len % 2 != 0)
-        cout<<str[len/2];
-    else
-        cout<<str[len/2-1]<<str[len/2];
-    return 0;
+
 }
