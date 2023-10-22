@@ -41,21 +41,26 @@ output:
 0
 0
 """
-def master(a,b):
-    guess=a.upper()
-    code=b.upper()
-    count_black=0
-    count_white=0
-    for i in range(4):
-        if guess[i]==code[i]:
-            count_black+=1
-            code=code[:i]+code[i+1:]
-            guess=guess[:i]+guess[i+1:]
-    for c in list(guess):
-        index=code.find(c)
-        if index!=-1:
-            count_white+=1
-            code=code[:index]+code[index+1:]
-    print count_white,count_black
-    return count_white,count_black
 if __name__ == '__main__':
+
+    input = sys.stdin
+    # input = open('input.txt', 'r')
+
+    def blackAndWhite(input):
+        # key = code
+        # val = code with index
+        dict = collections.defaultdict(lambda: [])
+        for i in range(4):
+            dict[input[i]].append(i)
+        totalBlack = 0
+        # check for BLACK pegs
+        for black in range(4):
+            if input[black] == input[4+black]:
+                totalBlack += 1
+        # white = all colors minus all black
+        totalWhite = len(dict) - totalBlack
+        return str(totalWhite) + " " + str(totalBlack)
+
+    input[0] = sys.stdin.readline()
+    input[1] = sys.stdin.readline()
+    print(blackAndWhite(input))
