@@ -44,25 +44,27 @@ output:
 1
 1000
 */
-class Solution {
-public:
-    vector<int> leaders(vector<int>& nums) {
-        if(nums.size()==0)return {};
-        int mx = -1;
-        vector<int> ans;
-        for(int i=nums.size()-1;i>=0;--i){
-            if(nums[i]>=mx)mx=nums[i],ans.push_back(nums[i]);
-        }
-        reverse(ans.begin(),ans.end());
-        return ans;
-    }
-};
 int main() {
-    Solution s;
-    vector<int> nums{1, 2, 4, 3, 4, 5, 6, 7};
-    vector<int> ans = s.leaders(nums);
-    for(auto& x:ans)cout<<x<<' ';
-    cout<<endl;
-    
+    int n;
+    cin >> n;
+    vector<int> nums;
+    int tmp;
+    for (int i = 0; i < n; i++) {
+        cin >> tmp;
+        nums.push_back(tmp);
+    }
+    int last = n-1;
+    vector<int> res;
+    res.push_back(nums[last--]);
+    while (last >= 0) {
+        if (nums[last] >= res[res.size()-1]) {
+            res.push_back(nums[last]);
+        }
+        last--;
+    }
+    for (int i = res.size()-1; i >= 0; i--) {
+        cout << res[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
