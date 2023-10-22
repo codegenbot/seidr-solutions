@@ -48,18 +48,13 @@ int main() {
     double h, h2;
     int n;
     while(cin >> h >> h2 >> n) {
-        if(n == 1) {
-            printf("%.5f\n", 2 * h2);
-        } else {
-            double bounciness = h2 / h;
-            double distance = 0;
-            for(int i = 0; i < n; i++) {
-                distance += h;
-                h *= bounciness;
-            }
-            printf("%.5f\n", distance);
+        double bounciness = h2 / h;
+        double distance = 0;
+        for(int i = 0; i < n; i++) {
+            distance += h;
+            h *= bounciness;
         }
-        printf("%.5f\n", distance);
+        printf("%.3f\n", distance);
     }
     return 0;
 }
