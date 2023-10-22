@@ -37,31 +37,31 @@ False
 int main() {
     string s;
     cin >> s;
-    stack<char> st;
+    stack<char> stk;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'T' || s[i] == 'F') {
-            st.push(s[i]);
-        } else {
-            char a = st.top();
-            st.pop();
-            char b = st.top();
-            st.pop();
+        if (s[i] == '&' || s[i] == '|') {
+            char a = stk.top();
+            stk.pop();
+            char b = stk.top();
+            stk.pop();
             if (s[i] == '&') {
                 if (a == 'T' && b == 'T') {
-                    st.push('T');
+                    stk.push('T');
                 } else {
-                    st.push('F');
+                    stk.push('F');
                 }
             } else {
                 if (a == 'T' || b == 'T') {
-                    st.push('T');
+                    stk.push('T');
                 } else {
-                    st.push('F');
+                    stk.push('F');
                 }
             }
+        } else {
+            stk.push(s[i]);
         }
     }
-    if (st.top() == 'T') {
+    if (stk.top() == 'T') {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
