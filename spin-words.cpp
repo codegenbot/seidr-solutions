@@ -10,41 +10,6 @@
 #include <stack>
 #include <climits>
 using namespace std;
-//http://www.geeksforgeeks.org/reverse-words-in-a-given-string/
-void reverse(char *begin, char *end)
-{
-    char temp;
-    while (begin < end)
-    {
-        temp = *begin;
-        *begin++ = *end;
-        *end-- = temp;
-    }
-}
-void reverseWords(char *s)
-{
-    char *word_begin = NULL;
-    char *temp = s; /* temp is for word boundry */
-    /*STEP 1 of the above algorithm */
-    while( *temp )
-    {
-        /*This condition is to make sure that the string start with
-          valid character (not space) only*/
-        if (( word_begin == NULL ) && (*temp != ' ') )
-        {
-            word_begin=temp;
-        }
-        if(word_begin && ((*(temp+1) == ' ') || (*(temp+1) == '\0')))
-        {
-            reverse(word_begin, temp);
-            word_begin = NULL;
-        }
-        temp++;
-    } /* End of while */
-    /*STEP 2 of the above algorithm */
-    reverse(s, temp-1);
-}
-
 /*
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
@@ -69,4 +34,58 @@ hi
 output:
 hi
 */
+string reverseWords(string str) {
+    int len = str.length();
+    string res;
+    if (len == 0) return res;
+    int start = 0;
+    for (int i = 0; i < len; i++) {
+        if (str[i] == ' ') {
+            int size = i - start;
+            if (size >= 5) {
+                int j = start;
+                while (j < i) {
+                    res.push_back(str[j++]);
+                }
+            } else {
+                while (start < i) {
+                    res.push_back(str[start++]);
+                }
+            }
+            res.push_back(' ');
+            start = i + 1;
+        }
+    }
+    int size = len - start;
+    if (size >= 5) {
+        int j = start;
+        while (j < len) {
+            res.push_back(str[j++]);
+        }
+    } else {
+        while (start < len) {
+            res.push_back(str[start++]);
+        }
+    }
+    return res;
+}
+
+string reverseString(string str) {
+    int len = str.length();
+    string res;
+    if (len == 0) return res;
+    int start = 0, end = len - 1;
+    while (start < end) {
+        swap(str[start++], str[end--]);
+    }
+    return str;
+}
+
 int main() {
+    cout << reverseWords("this is a test") << endl;
+    cout << reverseWords("this is another test") << endl;
+    cout << reverseString("hello world") << endl;
+    cout << reverseString("1234567") << endl;
+    
+    return 0;
+}
