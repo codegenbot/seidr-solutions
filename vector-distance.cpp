@@ -51,19 +51,21 @@ output:
 */
 int main() {
     int n;
-    cin >> n;
-    vector<float> v1(n);
-    vector<float> v2(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v1[i];
+    while (cin >> n) {
+        vector<double> vec1(n);
+        for (int i = 0; i < n; i++) {
+            cin >> vec1[i];
+        }
+        cin >> n;
+        vector<double> vec2(n);
+        for (int i = 0; i < n; i++) {
+            cin >> vec2[i];
+        }
+        double ans = 0;
+        for (int i = 0; i < vec1.size(); i++) {
+            ans += pow(vec1[i] - vec2[i], 2);
+        }
+        printf("%.10f\n", sqrt(ans));
     }
-    for (int i = 0; i < n; i++) {
-        cin >> v2[i];
-    }
-    double sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    printf("%.16f\n", sqrt(sum));
     return 0;
 }
