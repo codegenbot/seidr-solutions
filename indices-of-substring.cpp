@@ -1,14 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 /*
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
@@ -44,25 +34,5 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-
-
-class Solution {
-    public:
-        string solve(string str, string tar) {
-            string res = "";
-            for(int i = 0; i < str.size(); i++) {
-                if(str.substr(i, tar.size()) == tar) {
-                    res += to_string(i) + " ";
-                }
-            }
-            return res;
-        }
-};
-int main() {
-    Solution *s = new Solution();
-    string str, tar;
-    while(cin >> str >> tar) {
-        cout << s->solve(str, tar) << endl;
-    }
-    return 0;
-}
+int main()
+{
