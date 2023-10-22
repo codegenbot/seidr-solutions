@@ -45,13 +45,16 @@ output:
 3.963
 */
 int main() {
-    double h0, h1, n;
-    while (cin >> h0 >> h1 >> n) {
-        double bounciness = h1 / h0, sum = 0;
-        for (int i = 1; i <= n; i++) {
-            sum += bounciness * pow(bounciness, i - 1);
-        }
-        printf("%.3lf", sum * h0);
+    float a, b;
+    cin >>a >>b;
+    cout<<a*(b/a)<<endl;
+    int n;
+    cin>>n;
+    float dis=0, r=b/a;
+    for(int i=0;i<n;i++){
+        dis+=(a*pow(r,i+1))/pow(r,i);
     }
-    return 0;
+    cout<<dis<<endl;
+
+return 0;
 }
