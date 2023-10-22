@@ -47,27 +47,11 @@ output:
 10.0
 """
 if __name__ == '__main__':
-
-    # number of test cases
-    test_case_no = int(input())
-
-    # loop for each test case
-    for _ in range(test_case_no):
-        # take integer and floats
-        hours, initial_amount, rate, melting_rate = map(float, input().split())
-
-        # amount after hour zero
-        amount = initial_amount
-
-        for hour in range(int(hours)):
-
-            # increment the amount of snow
-            amount += rate
-
-            # decrease the amount of snow
-            amount = amount - (melting_rate * amount)
-
-        # print the result
-        print(round(amount, 2))
-
-
+    t = int(input().strip())
+    for _ in range(t):
+        hours = int(input().strip())
+        snow_ground =[]
+        snow_ground = list(map(float, input().strip().split()))
+        rate_snow_fall_hour = snow_ground[1]
+        percentage_snow_melted = snow_ground[2]*100
+        print(((hours*(2*rate_snow_fall_hour - rate_snow_fall_hour*percentage_snow_melted))/2)/100)
