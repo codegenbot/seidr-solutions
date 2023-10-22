@@ -38,4 +38,6 @@ if __name__ == '__main__':
     elif s == 'f':
         print(False)
     else:
+        s = s.replace('|', ' or ')
+        s = s.replace('&', ' and ')
         print(eval(s))
