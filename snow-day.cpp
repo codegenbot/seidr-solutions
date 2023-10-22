@@ -2,16 +2,29 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <sstream>
+#include <ctime>
 #include <queue>
+#include <assert.h>
+#include <algorithm>
 #include <stdio.h>
 #include <math.h>
+#include <functional>
 #include <map>
 #include <set>
 #include <stack>
-#include <climits>
+#include <time.h>
+#include <bitset>
+#include <limits.h>
+#include <stdlib.h>
+
 using namespace std;
+
 /*
-Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
+Given an integer representing a number of hours and 3 floats representing how much snow is on the
+ground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow
+on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow
+and then melting, not a continuous process.
 For example,
 input:
 0
@@ -50,26 +63,3 @@ output:
 10.0
 */
 int main() {
-
-    int input = 0;
-
-    float snow_amount = 0.0;
-    float fall_rate = 0.0;
-    float melt_rate = 0.0;
-
-    cin>>input>>snow_amount>>fall_rate>>melt_rate;
-
-    int hours_passed = 0;
-
-    while(hours_passed < input)
-    {
-        snow_amount += fall_rate;
-        snow_amount -= melt_rate;
-        snow_amount = snow_amount < 0 ? 0 : snow_amount;
-        hours_passed++;
-    }
-
-    printf("%f", snow_amount);
-
-    return 0;
-}
