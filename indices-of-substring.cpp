@@ -44,38 +44,28 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-
-
-void KMP(string text, string target){
-    vector<int> prefix(target.length());
-    prefix[0] = 0;
-    int k = 0;
-    for(int i = 1; i < target.length(); i++){
-        while(k > 0 && target[k] != target[i]){
-            k = prefix[k-1];
-        }
-        if(target[k] == target[i]){
-            k++;
-        }
-        prefix[i] = k;
+// O(n^2)
+vector<int> targetIndex(string &text, string &target) {
+    vector<int> res;
+    if(text.size() == 0 || target.size() == 0) return res;
+    int n = text.size(), m = target.size();
+    for(int i = 0, j = 0; i < n; i++) {
+        if(text[i] == target[j]) {
+            j++;
+            if(j == m) {
+                res.push_back(i - j + 1);
+                j = 0;
+            }
+        }else j = 0;
     }
-    int h = 0;
-    for(int i = 0; i < text.length(); i++){
-        while(h > 0 && target[h] != text[i]){
-            h = prefix[h-1];
-        }
-        if(target[h] == text[i]){
-            h++;
-        }
-        if(h == target.length()){
-            cout << i - target.length()+1 << " ";
-        }
-    }
+    return res;
 }
 int main() {
-    string t1, t2;
-    t1 = "r";
-    t2 = "nm,xcnwqnd@#$fwkdjn3";
-    KMP(t2, t1);
-    return 0;
+    string text, target;
+    getline(cin, text);
+    getline(cin, target);
+    vector<int> res = targetIndex(text, target);
+    for(int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
+    }cout << endl;
 }
