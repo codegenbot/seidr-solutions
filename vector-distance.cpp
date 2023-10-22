@@ -50,34 +50,20 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    vector<float> v1;
-    cin >> n;
-    string temp;
-    getline(cin, temp);
-    getline(cin, temp);
-    float val;
-    for (int i = 0; i < n; i++) {
-        cin >> val;
-        v1.push_back(val);
+    int num;
+    scanf("%d",&num);
+    vector<double> vec1(num);
+    for(int i = 0;i < num;i++)
+        scanf("%lf",&vec1[i]);
+    scanf("%d",&num);
+    vector<double> vec2(num);
+    for(int i = 0;i < num;i++)
+        scanf("%lf",&vec2[i]);
+    double sum = 0.0;
+    for(int i = 0;i < num;i++)
+    {
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    vector<float> v2;
-    int n2;
-    cin >> n2;
-    getline(cin, temp);
-    getline(cin, temp);
-    for (int i = 0; i < n2; i++) {
-        cin >> val;
-        v2.push_back(val);
-    }
-    if (n != n2) {
-        cout << "error" << endl;
-        return 0;
-    }
-    double distance = 0.0;
-    for (int i = 0; i < n; i++) {
-        distance += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    cout << sqrt(distance) << endl;
+    printf("%lf\n",sqrt(sum));
     return 0;
 }
