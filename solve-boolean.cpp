@@ -32,52 +32,6 @@ False
 input:
 t&f
 output:
-False
+True
 */
-
-class Solution {
-public:
-    bool parseBoolExpr(string expression) {
-        stack<char> st;
-        for(int i = 0; i < expression.size(); i++) {
-            char c = expression[i];
-            if(c == ')') {
-                vector<bool> v;
-                while(!st.empty()) {
-                    char c = st.top();
-                    st.pop();
-                    if(c == '(') break;
-                    v.push_back(c == 't');
-                }
-                char op = st.top();
-                st.pop();
-                bool b = false;
-                if(op == '&') {
-                    b = true;
-                    for(auto a : v) {
-                        b &= a;
-                    }
-                } else if(op == '|') {
-                    b = false;
-                    for(auto a : v) {
-                        b |= a;
-                    }
-                } else {
-                    b = true;
-                    for(auto a : v) {
-                        b &= !a;
-                    }
-                }
-                st.push(b?'t':'f');
-            } else {
-                st.push(c);
-            }
-        }
-        return st.top() =='t';
-    }
-};
 int main() {
-    Solution s = Solution();
-    cout<<boolalpha<<s.parseBoolExpr("|(&(t,f,t),!(t))")<<endl;
-    return 0;
-}
