@@ -31,15 +31,5 @@ hi
 output:
 hi
 """
-def reverse_word(s):
-    words = s.split(' ')
-    result = []
-    for i in words:
-        if len(i) < 5:
-            result.append(i)
-        else:
-            result.append(i[::-1])
-    return ' '.join(result)
-
 if __name__ == '__main__':
-    print(reverse_word("this is a test"))
+    print(input())
