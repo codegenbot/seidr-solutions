@@ -52,19 +52,21 @@ output:
 int main() {
     int n;
     while(cin >> n) {
-        vector<double> a(n);
-        vector<double> b(n);
-        for(int i = 0; i < n; i++)
-            cin >> a[i];
-        for(int i = 0; i < n; i++)
-            cin >> b[i];
-        double sum = 0;
-        for(int i = 0; i < n; i++)
-            sum += pow(a[i] - b[i], 2);
-        double res = sqrt(sum);
-        printf("%.16f\n", res);
+        double d1[n];
+        double d2[n];
+        for(int i = 0; i < n; ++i) {
+            double t;
+            cin >> d1[i];
+        }
+        for(int i = 0; i < n; ++i) {
+            double t;
+            cin >> d2[i];
+        }
+        double res = 0.0;
+        for(int i = 0; i < n; ++i) {
+            res += pow(d1[i] - d2[i], 2);
+        }
+        cout << sqrt(res) << endl;
     }
     return 0;
 }
-
-
