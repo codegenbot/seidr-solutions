@@ -35,5 +35,27 @@ output:
 hi
 */
 int main() {
-
+    string s;
+    getline(cin, s);
+    int n = s.length();
+    int cnt = 0;
+    int j = -1;
+    for(int i = 0; i < n; i++) {
+        if(s[i] != ' ') {
+            cnt++;
+            if(j == -1) j = i;
+        }
+        else {
+            if(cnt >= 5) {
+                reverse(s.begin()+j, s.begin()+i);
+            }
+            cnt = 0;
+            j = -1;
+        }
+    }
+    if(cnt >= 5) {
+        reverse(s.begin()+j, s.begin()+n);
+    }
+    cout << s << endl;
+    return 0;
 }
