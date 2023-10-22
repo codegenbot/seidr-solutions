@@ -7,6 +7,13 @@ import collections
 import itertools
 import queue
 import re
+
+def getPrice(v1, v2):
+    n = len(v1)
+    res = 0
+    for i in range(n):
+        res += (1 - v2[i]*0.01) * v1[i]
+    return res
 """
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
@@ -47,25 +54,16 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    result = sys.argv[1]
-    list1 = result.split(',')
-    num = float(sys.argv[2])
-    num1 = float(sys.argv[3])
-    sum = 0
-    for i in list1:
-        if num == 1:
-            sum += float(i)
-        else:
-            sum += (float(i) - num1)
-    print(sum)
-# 接受参数
-# list = sys.argv[1]
-# arrList = sys.argv[2]
-# # num = int(sys.argv[2])
-# # num1 = int(sys.argv[3])
-# a = 0
-# b = 0
-# for i in range(0, len(list)):
-#     a += int(list.split(',')[i])
-#     b += int(list.split(',')[i]) * int(arrList.split(',')[i]) / 100
-# print(a - b)
+    res = []
+    while True:
+        try:
+            s = input()
+            if not s: break
+            res.append(s)
+        except:
+            break
+    n = int(res[0])
+    v1 = list(map(float, res[1].split(' ')))
+    m = int(res[2])
+    v2 = list(map(float, res[3].split(' ')))
+    print('%.2f' % getPrice(v1, v2))
