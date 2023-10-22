@@ -51,13 +51,23 @@ output:
 */
 int main() {
     int n;
-    float a, total = 0;
-    while(cin>>n) {
-        while(n--) {
-            cin>>a;
-            total += a * a;
-        }
+    float tmp;
+    vector<float > vector1,vector2;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        scanf("%f",&tmp);
+        vector1.push_back(tmp);
     }
-    printf("%.16f", sqrt(total));
+    cin>>n;
+    for(int i=0;i<n;i++){
+        scanf("%f",&tmp);
+        vector2.push_back(tmp);
+    }
+    float dis=0;
+    for(int i=0;i<vector1.size();i++){
+        dis+=(vector1[i]-vector2[i])*(vector1[i]-vector2[i]);
+    }
+    dis=sqrt(dis);
+    printf("%.16f",dis);
     return 0;
 }
