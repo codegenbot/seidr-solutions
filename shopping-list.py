@@ -47,27 +47,13 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    i = 0
-    while True:
-        try:
-            s = sys.stdin.readline().strip()
-            if s == '':
-                break
-            n = s.split(' ')[0]
-            n = int(n)
-            s = sys.stdin.readline().strip()
-            prices = s.split(' ')
-            for i in range(n):
-                prices[i] = float(prices[i])
-            s = sys.stdin.readline().strip()
-            discount = s.split(' ')
-            for i in range(n):
-                discount[i] = float(discount[i])
-            res = 0
-            for i in range(n):
-                res += prices[i] * (100 - discount[i]) / 100
-            sys.stdout.write('%.1f\n' % res)
-            
-        except:
-            break
-
+    no_of_test_cases = input()
+    for _ in xrange(no_of_test_cases):
+        arr = map(float, raw_input().split())
+        dp = map(float,raw_input().split())
+        arr = np.array(arr)
+        dp = np.array(dp)
+        dp = dp*arr
+        dp = dp/100
+        dp = arr - dp
+        print np.sum(dp)
