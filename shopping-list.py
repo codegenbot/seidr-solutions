@@ -47,10 +47,12 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    price = [float(x) for x in input().split()]
-    discount = [float(x) for x in input().split()]
-    total = 0
-    for i in range(n):
-        total += price[i] * (1 - discount[i] / 100)
-    print(total)
+    with open('input.txt') as f:
+        lines = f.readlines()
+        n = int(lines[0])
+        prices = [float(x) for x in lines[1].split(' ')]
+        discount = [float(x) for x in lines[2].split(' ')]
+        total = 0
+        for i in range(n):
+            total += prices[i] * (1 - discount[i] / 100)
+        print(round(total, 2))
