@@ -47,13 +47,13 @@ output:
 10.0
 """
 if __name__ == '__main__':
-	snowfall = float(input().strip())
-	snowfall_rate = float(input().strip())
-	melting_rate = float(input().strip())
-	hours = int(input().strip())
-
-	for _ in range(hours):
-		snowfall += snowfall_rate
-		snowfall -= melting_rate * snowfall
-
-	print(snowfall)
+    for i in range(int(input())):
+        nh = int(input())
+        snow = float(input())
+        sfall = float(input())
+        sfall = float(input())
+        smelt = float(input())
+        if smelt == 0.0:
+            print(snow+sfall*nh)
+        else:
+            print(snow*(1-smelt)**nh + sfall*(1-smelt)*(1-smelt**nh)/(1-smelt))
