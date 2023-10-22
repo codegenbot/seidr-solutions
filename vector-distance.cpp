@@ -51,26 +51,16 @@ output:
 */
 int main() {
     int n;
-    cin >> n;
-    vector<double> a(n), b(n);
-    for(int i = 0; i < n; i++) {
-        double na, nb;
-        cin >> na;
-        a[i] = na;
+    double a[1000],b[1000],res=0;
+    while(cin>>n){
+        for(int i=0;i<n;i++)
+            cin>>a[i];
+        for(int i=0;i<n;i++)
+            cin>>b[i];
+        for(int i=0;i<n;i++)
+            res+=pow(a[i]-b[i],2);
+        printf("%.6f\n",sqrt(res));
+        res=0;
     }
-    
-    for(int i = 0; i < n; i++) {
-        double na, nb;
-        cin >> nb;
-        b[i] = nb;
-    }
-    
-    double res = 0;
-    for(int i = 0; i < n; i++) {
-        res += (a[i] - b[i]) * (a[i] - b[i]);
-    }
-    res = sqrt(res);
-    cout << res << endl;
-
     return 0;
 }
