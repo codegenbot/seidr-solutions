@@ -34,40 +34,35 @@ t&f
 output:
 False
 */
-int main() {
-    string s;
-    cin >> s;
+bool evaluate(string s) {
     stack<char> st;
-    for (int i = 0; i < s.size(); i++) {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') continue;
         if (s[i] == ')') {
-            char op = st.top();
+            char op = st.top(); st.pop();
+            bool val1 = st.top() == 't'; st.pop();
             st.pop();
-            char a = st.top();
+            bool val2 = st.top() == 't'; st.pop();
             st.pop();
-            st.pop();
-            char b = st.top();
-            st.pop();
-            if (op == '&') {
-                if (a == 'T' && b == 'T') {
-                    st.push('T');
-                } else {
-                    st.push('F');
-                }
-            } else {
-                if (a == 'T' || b == 'T') {
-                    st.push('T');
-                } else {
-                    st.push('F');
-                }
-            }
-        } else {
-            st.push(s[i]);
-        }
+            if (op == '&') st.push(val1 & val2 ? 't' : 'f');
+            else if (op == '|') st.push(val1 | val2 ? 't' : 'f');
+        } else st.push(s[i]);
     }
-    if (st.top() == 'T') {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    return st.top() == 't';
+}
+int main() {
+    cout << evaluate("t") << endl;
+    cout << evaluate("f") << endl;
+    cout << evaluate("f&f") << endl;
+    cout << evaluate("f&t") << endl;
+    cout << evaluate("t&f") << endl;
+    cout << evaluate("(t&f)") << endl;
+    cout << evaluate("(f&t)") << endl;
+    cout << evaluate("(t&f)|f") << endl;
+    cout << evaluate("(t&f)|t") << endl;
+    cout << evaluate("(t&f)|(t&f)") << endl;
+    cout << evaluate("(t&f)|(t&t)") << endl;
+    cout << evaluate("(t&t)|(t&f)") << endl;
+    cout << evaluate("(t&t)|(t&t)") << endl;
     return 0;
 }
