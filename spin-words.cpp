@@ -35,5 +35,15 @@ output:
 hi
 */
 int main() {
-  return 0;
+    string s;
+    while (getline(cin, s)) {
+        int i = 0, j = 0, n = s.size();
+        while (j < n) {
+            while (j < n && s[j] != ' ') j++;
+            if (j-i >= 5) reverse(s.begin()+i, s.begin()+j);
+            i = j = j+1;
+        }
+        cout << s << endl;
+    }
+    return 0;
 }
