@@ -11,8 +11,8 @@
 #include <climits>
 using namespace std;
 /*
-Given a vector of ﬂoats representing the prices of various shopping goods and another vector of
-floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
+Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, 
+return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
 1
