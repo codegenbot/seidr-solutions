@@ -34,54 +34,50 @@ t&f
 output:
 False
 */
-bool parseExpression(string s){
-  int i = 0;
-  int j = s.length()-1;
-  if(s.compare("t") == 0){
-    return true;
-  }
-  if(s.compare("f") == 0){
-    return false;
-  }
-  if(s[0] == '(') i++;
-  if(s[s.length()-1] == ')') j--;
-  string t1 = "";
-  string t2 = "";
-  string op = "";
-  int depth = 0;
-  while(i < s.length()){
-    if(s[i] == '('){
-      depth++;
+
+bool parseBool(char c) {
+    if (c == 'T') {
+        return 1;
+    } else if (c == 'F') {
+        return 0;
     }
-    if(s[i] == ')'){
-      depth--;
+}
+
+bool eval(string& s, int& pos) {
+    char c = s[pos];
+    
+    if (c == 'T' || c == 'F') {
+        pos ++;
+        return parseBool(c);
     }
-    if(s[i] == '&' && depth == 0){
-      op = "&";
-      break;
+    
+    pos += 2;
+    bool left = eval(s, pos);
+    
+    bool ret = left;
+    c = s[pos];
+    while (c == '|' || c == '&') {
+        pos += 2;
+        bool right = eval(s, pos);
+        
+        if (c == '|') {
+            ret = left | right;
+        } else {
+            ret = left & right;
+        }
+        
+        c = s[pos];
+        left = right;
     }
-    if(s[i] == '|' && depth == 0){
-      op = "|";
-      break;
-    }
-    i++;
-  }
-  if(op == ""){
-    return parseExpression(s.substr(1,s.length()-2));
-  }
-  t1 = s.substr(0,i);
-  t2 = s.substr(i+1,s.length()-i-1);
-  cout<<t1<<" "<<t2<<endl;
-  if(op == "&"){
-    return parseExpression(t1) && parseExpression(t2);
-  }
-  if(op == "|") return parseExpression(t1) || parseExpression(t2);
-  return false;
+    
+    return ret;
+}
+
+bool evalBool(string& s) {
+    int pos = 0;
+    return eval(s, pos);
 }
 
 int main() {
-  string s = "f&t|t&f";
-  bool res = parseExpression(s);
-  cout<<res<<endl;
-  return 0;
+    
 }
