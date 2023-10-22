@@ -32,15 +32,5 @@ output:
 hi
 """
 if __name__ == '__main__':
-    while True:
-        line = input()
-        if line:
-            words = line.split()
-            for word in words:
-                if len(word) >= 5:
-                    print(word[-1::-1], end=' ')
-                else:
-                    print(word, end=' ')
-            print('\n')
-        else:
-            break
+    sentence = "this is another test"
+    print(re.findall(r'\b\w{5,}\b', sentence)[::-1])
