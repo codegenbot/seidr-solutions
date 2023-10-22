@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <deque>
 using namespace std;
 /*
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
@@ -35,37 +34,49 @@ t&f
 output:
 False
 */
-
-int getValue(char c){
-    if(c == 'T') return 1;
-    else if(c == 'F') return 0;
-    return -1;
-}
-
-char cal(char a, char b, char operator_){
-    if(operator_ == '|') return a | b;
-    else if(operator_ == '&') return a & b;
-    return 0;
-}
-
-char eval(string exp){
-    deque<char> a;
-    
-    for(int i = 0; i < exp.size(); i++){
-        if(exp[i] != '|' && exp[i] != '&'){
-            a.push_back(getValue(exp[i]));
-        }else{
-            char b = a.back();
-            a.pop_back();
-            char c = a.back();
-            a.pop_back();
-            a.push_back(cal(c, b, exp[i]));
-        }
-    }
-    if(a.back()) return 'T';
-    else return 'F';
-}
 int main() {
-    string s = "t|&f&t";
-    cout<<eval(s)<<endl;
+    string line;
+    while (getline(cin, line)) {
+        int len = (int) line.size();
+        bool tf = true;
+        stack<char> mystack;
+        for (int i = 0; i < len; ++i) {
+            if (line[i] == ' ') {
+                continue;
+            }
+            if (line[i] == 't' || line[i] == 'f') {
+                mystack.push(line[i]);
+            }
+            else if (line[i] == '|' || line[i] == '&') {
+                mystack.push(line[i]);
+            }
+            else if (line[i] == ')') {
+                char c = mystack.top();
+                mystack.pop();
+                char c1 = mystack.top();
+                mystack.pop();
+                char c2 = mystack.top();
+                mystack.pop();
+                char c3 = mystack.top();
+                mystack.pop();
+                if (c == '|') {
+                    if (c1 == 't' || c2 == 't') {
+                        mystack.push('t');
+                    }
+                    else {
+                        mystack.push('f');
+                    }
+                }
+                if (c == '&') {
+                    if (c1 == 't' && c2 == 't') {
+                        mystack.push('t');
+                    }
+                    else {
+                        mystack.push('f');
+                    }
+                }
+            }
+        }
+        printf("%s\n", mystack.top() == 't' ? "True" : "False");
+    }
 }
