@@ -11,9 +11,11 @@ import re
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
+a
+b
+c
 
-
-
+b
 output:
 
 input:
@@ -41,17 +43,4 @@ eeeeeeeeee
 output:
 llllllllll
 """
-def encrypt(a, b, c):
-    d = ""
-    for i in range(len(c)):
-        if c[i] not in a:
-            d += c[i]
-        else:
-            d += b[a.index(c[i])]
-    return d
-
 if __name__ == '__main__':
-    a = input()
-    b = input()
-    c = input()
-    print(encrypt(a, b, c))
