@@ -44,16 +44,28 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-vector<int> f1(string text, string target){
-    int n = text.size(), m = target.size();
-    vector<int> ans;
-    
-    for(int i = 0; i <= n - m; i++){
-        string now = text.substr(i, m);
-        if(now == target){
-            ans.push_back(i);
-        }
-    }
-    return ans;
-}
 int main() {
+    string text, target;
+    getline(cin, text);
+    getline(cin, target);
+    if (target.size() > text.size()) {
+        cout << -1 << endl;
+    } else if (target.size() == text.size()) {
+        if (text == target) {
+            cout << 0 << endl;
+        } else {
+            cout << -1 << endl;
+        }
+    } else {
+        int len = target.size();
+        int i = 0;
+        for (int i = 0; i < text.size(); i++) {
+            string sub = text.substr(i, len);
+            if (sub == target) {
+                cout << i << " ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
