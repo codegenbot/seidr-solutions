@@ -45,12 +45,12 @@ output:
 3.963
 */
 int main() {
-    double h, h1, n;
+    float h, h1, n;
     cin >> h >> h1 >> n;
-    double k = h1 / h;
-    double sum = h1;
+    float k = h1 / h; // bounciness index
+    float sum = h1;
     for (int i = 1; i < n; i++) {
         sum += pow(k, i) * h;
     }
-    cout << sum;
+    printf("%.3f", sum);
 }
