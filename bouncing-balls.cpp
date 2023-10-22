@@ -45,13 +45,16 @@ output:
 3.963
 */
 int main() {
-    double h, b, n;
-    while (cin >> h >> b >> n) {
-        double res = 0;
-        for (int i = 0; i < n; i++) {
-            res += h;
-            h *= b;
+    double h1, h2;
+    int n;
+    while(cin >> h1 >> h2 >> n) {
+        double bounciness = h2 / h1;
+        double res = h1;
+        for(int i = 0; i < n; i++) {
+            res += h1 * bounciness * 2;
+            h1 *= bounciness;
         }
         printf("%.3f\n", res);
     }
+    return 0;
 }
