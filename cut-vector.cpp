@@ -54,35 +54,93 @@ output:
 0
 
 */
+
+
+void findBestCut(vector<int> nums){
+    int low=0;
+    int high = INT_MAX;
+    int currSum = 0;
+    for(int i = 0; i < nums.size(); i++){
+        currSum += nums[i];
+    }
+    int leftSum = 0;
+    for(int i = 0; i < nums.size(); i++){
+        currSum -= nums[i];
+        if(abs(currSum - leftSum) < abs(high - low)){
+            low = leftSum;
+            high = currSum;
+        }
+        leftSum += nums[i];
+    }
+    cout<<low<<" "<<high<<endl;
+}
+
+vector<int> findBestCut2(vector<int> nums){
+    int low=0;
+    int high = INT_MAX;
+    int currSum = 0;
+    for(int i = 0; i < nums.size(); i++){
+        currSum += nums[i];
+    }
+    int leftSum = 0;
+    vector<int> res;
+    for(int i = 0; i < nums.size(); i++){
+        currSum -= nums[i];
+        if(abs(currSum - leftSum) < abs(high - low)){
+            low = leftSum;
+            high = currSum;
+        }
+        leftSum += nums[i];
+    }
+    int i = 0;
+    while(nums[i] != low && i < nums.size()){
+        res.push_back(nums[i]);
+        i++;
+    }
+    res.push_back(0);
+    while(i < nums.size()){
+        res.push_back(nums[i]);
+        i++;
+    }
+    return res;
+}
+
+
 int main() {
-    vector<int> vec = {1,10,100,1000,10000};
-    int m = INT_MIN;
-    int idx = -1;
-    for(int i = 0; i < vec.size(); i++){
-        if(i == 0){
-            if(abs(vec[0] - 0) > m){
-                m = abs(vec[0] - 0);
-                idx = i;
-            }
-        }
-        else{
-            if(abs(vec[i] - vec[i-1]) > m){
-                m = abs(vec[i] - vec[i-1]);
-                idx = i;
-            }
-        }
+    vector<int> nums = {1,10};
+    findBestCut(nums);
+    vector<int> res = findBestCut2(nums);
+    for(int i = 0; i < res.size(); i++){
+        cout<<res[i]<<" ";
     }
-    vector<int> res1;
-    vector<int> res2;
-    for(int i = 0; i < idx; i++){
-        res1.push_back(vec[i]);
+    cout<<endl;
+    vector<int> nums1 = {1,100};
+    findBestCut(nums1);
+    vector<int> res1 = findBestCut2(nums1);
+    for(int i = 0; i < res1.size(); i++){
+        cout<<res1[i]<<" ";
     }
-    for(int i = idx; i < vec.size(); i++){
-        res2.push_back(vec[i]);
+    cout<<endl;
+    vector<int> nums2 = {1,1000};
+    findBestCut(nums2);
+    vector<int> res2 = findBestCut2(nums2);
+    for(int i = 0; i < res2.size(); i++){
+        cout<<res2[i]<<" ";
     }
-    for(int e : res1) cout << e << " ";
-    cout << endl;
-    for(int e : res2) cout << e << " ";
-    cout << endl;
+    cout<<endl;
+    vector<int> nums3 = {1,10000};
+    findBestCut(nums3);
+    vector<int> res3 = findBestCut2(nums3);
+    for(int i = 0; i < res3.size(); i++){
+        cout<<res3[i]<<" ";
+    }
+    cout<<endl;
+    vector<int> nums4 = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+    findBestCut(nums4);
+    vector<int> res4 = findBestCut2(nums4);
+    for(int i = 0; i < res4.size(); i++){
+        cout<<res4[i]<<" ";
+    }
+    cout<<endl;
     return 0;
 }
