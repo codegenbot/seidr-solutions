@@ -47,13 +47,11 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    time = int(input())
+    hours = int(input())
     snow = float(input())
     rate = float(input())
     melt = float(input())
-    for i in range(time):
+    for i in range(hours):
         snow += rate
         snow -= melt
-        if snow < 0:
-            snow = 0
     print(snow)
