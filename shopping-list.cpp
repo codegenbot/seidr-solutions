@@ -49,24 +49,38 @@ input:
 output:
 29.0
 */
+// 这个题好像没有难度
 int main() {
-    // a store with many goods
-    // each good has price, discount
-    // return the total price
-    // discount is integer, so we should use float
     int n;
-    cin >> n;
-    vector<float> price(n);
-    for(auto& p : price) cin >> p;
-    
-    vector<float> discount(n);
-    for(auto& d : discount) cin >> d;
-    
-    // after applying discount
-    float sum = 0;
-    for(int i = 0; i < n; ++i) {
-        sum += price[i] * (1 - discount[i]/100);
+    vector<float> price;
+    vector<float> discount;
+    vector<float> total;
+    while(cin >> n) {
+        for(int i = 0; i < n; i++) {
+            float temp;
+            cin >> temp;
+            price.push_back(temp);
+        }
+        
+        for(int i = 0; i < n; i++) {
+            float temp;
+            cin >> temp;
+            discount.push_back(temp);
+        }
+        
+        for(int i = 0; i < n; i++) {
+            float temp;
+            temp = price[i] * (100.0 - discount[i]) / 100;
+            total.push_back(temp);
+        }
+        float sum = 0;
+        for(int i = 0; i < total.size(); i++) {
+            sum += total[i];
+        }
+        printf("%.2f\n", sum);
+        price.clear();
+        discount.clear();
+        total.clear();
     }
-    cout << sum << endl;
     return 0;
 }
