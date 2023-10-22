@@ -47,16 +47,14 @@ output:
 29.0
 """
 if __name__ == '__main__':
-
-    num_of_goods = int(input())
-    prices = input()
-    prices = prices.split()
-    prices = [float(i) for i in prices]
-    num_of_discounts = int(input())
-    discounts = input()
-    discounts = discounts.split()
-    discounts = [float(i) for i in discounts]
-    total_price = 0
-    for i in range(num_of_goods):
-        total_price += prices[i] * (1 - discounts[i] / 100)
-    print(total_price)
+    file_path = sys.argv[1]
+    with open(file_path, 'r') as f:
+        lines = f.readlines()
+    n = int(lines[0])
+    prices = lines[1].strip().split()
+    m = int(lines[2])
+    discounts = lines[3].strip().split()
+    total = 0
+    for i in range(n):
+        total += float(prices[i]) * (1 - float(discounts[i])/100)
+    print(total)
