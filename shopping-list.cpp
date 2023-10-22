@@ -49,21 +49,20 @@ input:
 output:
 29.0
 */
-int main() {
+
+float getShoppingTotal(vector<float> prices, vector<float> discounts)
+{
     float total = 0;
-    int n;
-    cin >> n;
-    float price[n];
-    for(int i = 0; i < n; i++) {
-        cin >> price[i];
+    for(int i = 0; i < prices.size(); i++) 
+    {
+        float discount = discounts[i];
+        total += prices[i] * (1 - discount / 100);
     }
-    int m;
-    cin >> m;
-    float discount[m];
-    for(int i = 0; i < m; i++) {
-        cin >> discount[i];
-        total += price[i] * (1 - discount[i] / 100);
-    }
-    cout << total << endl;
-    return 0;
+    return total;
+}
+int main() {
+    vector<float> prices = {50.0, 20.0, 20.0, 10.0, 20.0, 30.0};
+    vector<float> discounts = {1, 2, 20, 0, 0, 5}; // 37
+
+    cout << getShoppingTotal(prices, discounts) << endl;
 }
