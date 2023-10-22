@@ -46,27 +46,23 @@ input:
 output:
 29.0
 """
-
-
-def readfile(path):
-    if not os.path.isfile(path):
-        print("File path {} does not exist. Exiting...".format(path))
-        sys.exit()
-    f = open(path, 'r')
-    f1 = open("op.txt", "w")
-    lines = f.readlines()
-    c = 0
-    for i in lines:
-        if i == '\n':
-            break
-        c += 1
-    for i in range(c):
-        j = i + 1
-        lines[j] = lines[j].replace("\n", "")
-        f1.write(str(int(float(lines[i]) - float(lines[i]) * float(lines[j]) / 100)) + "\n")
-
-    f1.close()
-    with open("op.txt") as f2:
-        print(sum(map(float, f2)))
-
 if __name__ == '__main__':
+    first_line = input()
+    price = input()
+    second_line = input()
+    discount = input()
+    discount_num = int(second_line)
+    discount_list = []
+    price_num=int(first_line)
+    for i in range(discount_num):
+        discount = float(discount_list[i])
+        discount_list.append(discount)
+    price_list = []
+    for i in range(price_num):
+        price =float(price_list[i])
+        price_list.append(price)
+    final_price = []
+    for x in price_list:
+        final_price.append(x * (1 - discount_list[i]))
+    ans = sum(final_price)
+    print(ans)
