@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <cmath>
 #include <queue>
 #include <stdio.h>
 #include <math.h>
@@ -45,5 +46,3 @@ output:
 1000
 */
 int main() {
-
-}
