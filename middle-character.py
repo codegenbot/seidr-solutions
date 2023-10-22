@@ -15,7 +15,7 @@ Q
 output:
 Q
 input:
- 
+AB
 output:
  
 input:
@@ -32,4 +32,3 @@ output:
 )b
 """
 if __name__ == '__main__':
-    input=str(input())
