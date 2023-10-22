@@ -57,31 +57,32 @@ output:
 int main() {
 	int n;
 	cin >> n;
-	int mid = n / 2;
-	int end = n - 1;
-	int left = mid - 1;
-	int right = mid;
-	int sumLeft = 0;
-	int sumRight = 0;
-	while (left >= 0 && right <= end) {
-		sumLeft += left;
-		sumRight += right;
-		if (sumLeft == sumRight) {
-			break;
-		} else if (sumLeft < sumRight) {
-			left--;
-		} else {
-			right++;
+	int s = 0, e = 0;
+	vector<int> v;
+	int sum = 0;
+	while (n--) {
+		int t;
+		cin >> t;
+		sum += t;
+		v.push_back(t);
+	}
+	int mn = INT_MAX;
+	for (int i = 0; i < v.size(); i++) {
+		int l = 0, r = 0;
+		for (int j = 0; j <= i; j++)
+			l += v[j];
+		for (int j = i + 1; j < v.size(); j++)
+			r += v[j];
+		if (abs(l - r) < mn) {
+			mn = abs(l - r);
+			s = i;
 		}
 	}
-	for (int i = 0; i <= left; i++) {
-		cout << i << endl;
-	}
-	for (int i = left + 1; i <= right; i++) {
-		cout << i << endl;
-	}
-	for (int i = right + 1; i <= end; i++) {
-		cout << i << endl;
-	}
+	for (int i = 0; i <= s; i++)
+		cout << v[i] << " ";
+	cout << endl;
+	for (int i = s + 1; i < v.size(); i++)
+		cout << v[i] << " ";
+	cout << endl;
 	return 0;
 }
