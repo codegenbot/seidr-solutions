@@ -32,12 +32,10 @@ output:
 hi
 """
 if __name__ == '__main__':
-    dic = {}
-    for line in sys.stdin:
-        line = line.strip()
-        if line == '':
-            break
-        dic[line] = line[::-1]
-    for k, v in dic.items():
-        print(k)
-        print(v)
+    input_str = input()
+    input_str = input_str.split()
+    for i in range(len(input_str)):
+        if len(input_str[i]) >= 5:
+            input_str[i] = input_str[i][::-1]
+    output_str = ' '.join(input_str)
+    print(output_str)
