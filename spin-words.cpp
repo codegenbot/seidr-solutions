@@ -34,48 +34,6 @@ hi
 output:
 hi
 */
-
-void reverse(string &s, int left, int right) {
-    while (left < right) {
-        char c = s[left];
-        s[left] = s[right];
-        s[right] = c;
-        left++, right--;
-    }
-}
-void reverseWords(string &s) {
-    int left = 0;
-    int right = -1;
-    int len = s.length();
-    while (left < len) {
-        if ((left == 0 && s[left] == ' ') ||
-            (left > 0 && s[left] == ' ' && s[left - 1] == ' ')) {
-            left++;
-            continue;
-        }
-        if (s[left] != ' ') {
-            right++;
-        }
-        if (right < len - 1 && s[right] == ' ' && s[right + 1] != ' ') {
-            if (right - left >= 4) {
-                reverse(s, left, right);
-            }
-            left = right + 1;
-        }
-        right++;
-    }
-    if (right - left >= 4) {
-        reverse(s, left, right);
-    }
-    if (left > 0 && s[left] == ' ') {
-        s = s.substr(++left, right - left);
-    }
-    if (s[s.length() - 1] == ' ') {
-        s = s.substr(0, s.length() - 1);
-    }
-}
 int main() {
-    string s = "   I  am    a    boy  ";
-    reverseWords(s);
-    cout << s << endl;
+
 }
