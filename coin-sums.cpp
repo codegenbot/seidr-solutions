@@ -58,9 +58,16 @@ int main() {
         n = ((cents % 25) % 10) / 5;
         p = ((cents % 25) % 10) % 5;
         if (cents == 1) {
-            p = 1;
+            cout << 1 << endl;
+            cout << 0 << endl;
+            cout << 0 << endl;
+            cout << 0 << endl;
+        } else {
+            cout << p << endl;
+            cout << n << endl;
+            cout << d << endl;
+            cout << q << endl;
         }
-        cout << p << '\n' << n << '\n' << d << '\n' << q << '\n';
     }
     return 0;
 }
