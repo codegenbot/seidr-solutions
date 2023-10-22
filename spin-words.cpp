@@ -41,13 +41,9 @@ int main() {
         int i = 0;
         while(i < n) {
             int j = i;
-            while(j < n && s[j] != ' ') {
-                j++;
-            }
+            while(j < n && s[j] != ' ') j++;
             if(j - i >= 5) {
-                for(int k = i; k < (i + j) / 2; k++) {
-                    swap(s[k], s[j - 1 - k + i]);
-                }
+                reverse(s.begin() + i, s.begin() + j);
             }
             i = j + 1;
         }
