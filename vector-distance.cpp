@@ -61,10 +61,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
-    float sum = 0;
+    float dist = 0;
     for (int i = 0; i < n; i++) {
-        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        dist += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout << sqrt(sum) << endl;
+    printf("%.10f\n", sqrt(dist));
     return 0;
 }
