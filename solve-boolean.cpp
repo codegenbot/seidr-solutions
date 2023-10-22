@@ -37,34 +37,28 @@ False
 int main() {
     string s;
     cin >> s;
-    stack<char> st;
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == '&' || s[i] == '|') {
-            char c1 = st.top();
-            st.pop();
-            char c2 = st.top();
-            st.pop();
-            if(s[i] == '&') {
-                if(c1 == 'T' && c2 == 'T') {
-                    st.push('T');
-                } else {
-                    st.push('F');
-                }
-            } else {
-                if(c1 == 'F' && c2 == 'F') {
-                    st.push('F');
-                } else {
-                    st.push('T');
-                }
-            }
+    int n = s.size();
+    vector<int> dp(n, 0);
+    for (int i = 0; i < n; i++) {
+        if (s[i] == 'T') {
+            dp[i] = 1;
+        } else if (s[i] == 'F') {
+            dp[i] = 0;
         } else {
-            st.push(s[i]);
+            if (i == 0) {
+                continue;
+            }
+            if (s[i] == '&') {
+                dp[i] = dp[i - 1] & dp[i - 2];
+            } else if (s[i] == '|') {
+                dp[i] = dp[i - 1] | dp[i - 2];
+            }
         }
     }
-    if(st.top() == 'T') {
-        cout << "True" << endl;
+    if (dp[n - 1] == 1) {
+        cout << "True";
     } else {
-        cout << "False" << endl;
+        cout << "False";
     }
     return 0;
 }
