@@ -15,7 +15,7 @@ Q
 output:
 Q
 input:
-ab
+ 
 output:
  
 input:
@@ -32,3 +32,8 @@ output:
 )b
 """
 if __name__ == '__main__':
+    string = input()
+    if(len(string)%2 == 0):
+        print(string[(len(string)//2)-1:len(string)//2+1])
+    else:
+        print(string[len(string)//2])
