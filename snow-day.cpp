@@ -50,18 +50,16 @@ output:
 10.0
 */
 int main() {
-    int hour;
-    double snow,fall,melt;
-    while(cin>>hour>>snow>>fall>>melt){
-        if(hour==0&&snow==0.0&&fall==0.0&&melt==0.0)
-            cout<<0.0<<endl;
-        else if(snow==0.0&&melt==0.0)
-            cout<<fall*hour<<endl;
-        else if(fall==0.0&&melt==0.0)
-            cout<<0.0<<endl;
-        else if(melt==0.0)
-            cout<<snow+fall*hour<<endl;
-        else
-            cout<<snow*pow(1-melt,hour)+fall*hour*(1-pow(1-melt,hour))/(1-melt)<<endl;
+    //freopen("3.txt","r",stdin);
+    freopen("2.txt","w",stdout);
+    double n, a, b, c, ans = 0;
+    while(cin>>n>>a>>b>>c){
+        for (int i = 0; i < n; i++) {
+            if (i == 0) ans = a;
+            else ans += c * ans + b;
+        }
+        printf("%.12lf\n",ans);
     }
+    
+    return 0;
 }
