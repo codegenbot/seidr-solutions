@@ -35,31 +35,17 @@ output:
 all separate words
 */
 int main() {
-    string input;
-    getline(cin, input); //read one line of input
-    //cout << input << endl;
-    string result = "";
-    bool firstLetter = false;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == '-') {
-            firstLetter = true;
-            continue;
+    string s;
+    getline(cin, s);
+    for(int i = 0; i < s.size(); i++) {
+        if(i == 0) {
+            s[i] = toupper(s[i]);
         }
-        else if (firstLetter) {
-            if (input[i] >= 'a' && input[i] <= 'z') {
-                result += (input[i] - 32);
-                firstLetter = false;
-            }
-            else {
-                result += input[i];
-                firstLetter = false;
-            }
-        }
-        else {
-            result += input[i];
+        if(s[i] == '-' && i+1 < s.size()) {
+            s[i+1] = toupper(s[i+1]);
+            s.erase(s.begin() + i);
         }
     }
-    cout << result << endl;
-    
+    cout << s << endl;
     return 0;
 }
