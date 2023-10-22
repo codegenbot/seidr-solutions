@@ -40,6 +40,18 @@ input:
 output:
 1
 1000
-
 """
 if __name__ == '__main__':
+	cases = int(raw_input())
+	for case in range(cases):
+		length = int(raw_input())
+		input_list = list(map(int, raw_input().split()))
+		# define max
+		max = input_list[-1]
+		output_list = [max]
+		for i in range(length-2, -1, -1):
+			temp = input_list[i]
+			if max <= temp:
+				output_list.append(temp)
+				max = temp
+		print(' '.join(map(str, output_list[::-1])))
