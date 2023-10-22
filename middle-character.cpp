@@ -34,15 +34,16 @@ input:
 output:
 )b
 */
-string getMiddle(string input) {
-	int i = ceil(input.length()/2);
-	return input.substr(i - 1, i);
-}
 int main() {
-    cout << getMiddle("Q") << endl;
-    cout << getMiddle("ab") << endl;
-    cout << getMiddle("$") << endl;
-    cout << getMiddle("E9") << endl;
-    cout << getMiddle(")b") << endl;
+    string s;
+    cin>>s;
+    if(s.length() == 1){
+        cout<<s;
+        return 0;
+    }
+    if(s.length()%2 == 0)
+        cout<<s.substr(s.length()/2-1,2);
+    else
+        cout<<s[s.length()/2];
     return 0;
 }
