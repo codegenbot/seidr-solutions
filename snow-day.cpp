@@ -49,64 +49,27 @@ input:
 output:
 10.0
 */
-struct snow {
-  int time;
-  int initial;
-  int rate;
-  float melt;
-  float total;
-};
-
-float timePassed(struct snow* s) {
-  float newSnowed = s->time*s->rate;
-  float melted = s->time*s->initial*s->melt;
-  if (melted) {
-    s->total -= melted;
-  }
-  s->total += newSnowed;
-  s->initial = 0;
-  s->rate = 0;
-  s->melt = 0;
-  s->time = 0;
-
-  return s->total;
-}
-
 int main() {
-  struct snow state;
-  state.time = 0;
-  state.initial = 0;
-  state.rate = 0;
-  state.melt = 0;
-  state.total = 0;
-  int t;
-  float i, r, m;
 
-  int hour = 0;
-  while(cin >> t) {
-    if (t == state.time) {
-      cin >> i >> r >> m;
-      state.initial += i;
-      state.rate += r;
-      state.melt += m;
-    } else {
-      if (t > state.time) {
-        state.time = t - state.time;
-        cout << timePassed(&state) << endl;
-        state.time = t;
-      }
+    int input = 0;
 
-      cin >> i >> r >> m;
-      state.initial += i;
-      state.rate += r;
-      state.melt += m;
+    float snow_amount = 0.0;
+    float fall_rate = 0.0;
+    float melt_rate = 0.0;
+
+    cin>>input>>snow_amount>>fall_rate>>melt_rate;
+
+    int hours_passed = 0;
+
+    while(hours_passed < input)
+    {
+        snow_amount += fall_rate;
+        snow_amount -= melt_rate;
+        snow_amount = snow_amount < 0 ? 0 : snow_amount;
+        hours_passed++;
     }
-    hour = max(hour, t);
-  }
 
-  while (hour-- > 0) {
-    cout << timePassed(&state) << endl;
-  }
+    printf("%f", snow_amount);
 
-  return 0;
+    return 0;
 }
