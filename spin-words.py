@@ -30,28 +30,7 @@ input:
 hi
 output:
 hi
+
+# s[5:]
 """
-
-class Solution(object):
-    def reverseWords(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-        if len(s) <= 1:
-            return s
-        sList = s.split()
-        results = []
-        for word in sList:
-            if len(word) >= 5:
-                word = word[::-1]
-            results.append(word)
-
-        return ' '.join(results)
-
-
-
 if __name__ == '__main__':
-    test = Solution()
-    s = "There's an app for that on Android."
-    print test.reverseWords(s)
