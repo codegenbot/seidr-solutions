@@ -35,20 +35,5 @@ output:
 hi
 */
 int main() {
-    string str = "Wel come to Geeks for Geeks";
-    int start = 0;
     
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == ' ') {
-            if (i-start >= 5) {
-                reverse(str.begin() + start, str.begin() + i);
-            }
-            start = i+1;
-        }
-    }
-    if (str.size() - start >= 5) {
-        reverse(str.begin() + start, str.end());
-    }
-    cout << str << endl;
-    return 0;
 }
