@@ -36,26 +36,27 @@ False
 */
 int main() {
     string s;
-    getline(cin, s);
-    stack<char> st;
+    cin >> s;
+    stack<bool> stk;
     for (int i = 0; i < s.size(); i++) {
-        char c = s[i];
-        if (c == ' ') continue;
-        if (c == ')') {
-            char a = st.top(); st.pop();
-            char b = st.top(); st.pop();
-            char op = st.top(); st.pop();
-            char res;
-            if (op == '&') {
-                res = a == 't' && b == 't' ? 't' : 'f';
-            } else {
-                res = a == 'f' && b == 'f' ? 'f' : 't';
-            }
-            st.push(res);
-        } else {
-            st.push(c);
+        if (s[i] == 'T') {
+            stk.push(true);
+        } else if (s[i] == 'F') {
+            stk.push(false);
+        } else if (s[i] == '|') {
+            bool a = stk.top();
+            stk.pop();
+            bool b = stk.top();
+            stk.pop();
+            stk.push(a || b);
+        } else if (s[i] == '&') {
+            bool a = stk.top();
+            stk.pop();
+            bool b = stk.top();
+            stk.pop();
+            stk.push(a && b);
         }
     }
-    cout << (st.top() == 't' ? "True" : "False") << endl;
+    cout << (stk.top() ? "True" : "False") << endl;
     return 0;
 }
