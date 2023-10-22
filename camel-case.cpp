@@ -35,6 +35,18 @@ output:
 all separate words
 */
 int main() {
-
-	return 0;
+  string s, t;
+  while(getline(cin,s)) {
+    t = "";
+    for(int i = 0; i < s.length(); i++) {
+      if(s[i] == '-' && i+1 < s.length() && s[i+1] != ' ') {
+        i++;
+        t += toupper(s[i]);
+        continue;
+      }
+      t += s[i];
+    }
+    printf("%s\n",t.c_str());
+  }
+  return 0;
 }
