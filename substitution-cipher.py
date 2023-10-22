@@ -11,8 +11,9 @@ import re
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
-
-
+a
+z
+a
 
 output:
 
@@ -42,13 +43,3 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    while True:
-        try:
-            line1 = input()
-            line2 = input()
-            line3 = input()
-            for i in range(len(line3)):
-                print(line2[line1.index(line3[i])], end='')
-            print()
-        except:
-            break
