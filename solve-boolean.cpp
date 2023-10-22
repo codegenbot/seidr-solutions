@@ -35,37 +35,33 @@ output:
 False
 */
 int main() {
-    string str;
-    cin >> str;
-    stack<char> s;
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == 'T') {
-            s.push('T');
-        } else if (str[i] == 'F') {
-            s.push('F');
-        } else if (str[i] == '|') {
-            char a = s.top();
-            s.pop();
-            char b = s.top();
-            s.pop();
-            if (a == 'T' || b == 'T') {
-                s.push('T');
-            } else {
-                s.push('F');
-            }
-        } else if (str[i] == '&') {
-            char a = s.top();
-            s.pop();
-            char b = s.top();
-            s.pop();
-            if (a == 'F' || b == 'F') {
-                s.push('F');
-            } else {
-                s.push('T');
+    string s;
+    cin >> s;
+    stack<char> st;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'T' || s[i] == 'F') {
+            st.push(s[i]);
+        } else {
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            if (s[i] == '&') {
+                if (a == 'T' && b == 'T') {
+                    st.push('T');
+                } else {
+                    st.push('F');
+                }
+            } else if (s[i] == '|') {
+                if (a == 'F' && b == 'F') {
+                    st.push('F');
+                } else {
+                    st.push('T');
+                }
             }
         }
     }
-    if (s.top() == 'T') {
+    if (st.top() == 'T') {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
