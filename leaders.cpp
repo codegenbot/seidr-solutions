@@ -1,7 +1,14 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
@@ -37,26 +44,25 @@ output:
 1
 1000
 */
-int main() {
-    int n; cin >> n;
-    vector<int> arr;
-    for(int i = 0; i < n; i++) {
-        int a; cin >> a;
-        arr.push_back(a);
-    }
+vector<int> leaders(vector<int> nums) {
     vector<int> res;
-    res.push_back(arr[n-1]);
-    int max = arr[n-1];
-    for(int i = n-2; i > -1; i--) {
-        if(arr[i] >= max) {
-            max = arr[i];
-            res.push_back(max);
+    int max = nums[nums.size()-1];
+    res.push_back(max);
+    for(int i = nums.size()-2; i >= 0; i--) {
+        if(nums[i] >= max) {
+            res.push_back(nums[i]);
+            max = nums[i];
         }
     }
     reverse(res.begin(), res.end());
+    return res;
+}
+
+int main() {
+    vector<int> a = {1, 451};
+    vector<int> res = leaders(a);
     for(int i = 0; i < res.size(); i++) {
         cout << res[i] << " ";
     }
-    cout << endl;
     return 0;
 }
