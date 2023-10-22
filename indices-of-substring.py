@@ -22,7 +22,6 @@ input:
 output:
 1
 0
-
 input:
 r
 nm,xcnwqnd@#$fwkdjn3
@@ -42,4 +41,15 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
+
+def find_indices(text, target):
+    start = text.find(target)
+    while start >= 0:
+        yield start
+        start = text.find(target, start+1)
+
 if __name__ == '__main__':
+    text = input()
+    target = input()
+    indices = list(find_indices(text, target))
+    print(' '.join(map(str, indices)))
