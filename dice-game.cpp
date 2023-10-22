@@ -40,7 +40,10 @@ output:
 0.0
 */
 int main() {
-public = cal(int n, int m) {
-
-}
+  int n, m;
+  while(cin >> n >> m) {
+    int t = n + m - 1;
+    cout << fixed << setprecision(1) << n * 1.0 / t << endl;
+  }
+  return 0;
 }
