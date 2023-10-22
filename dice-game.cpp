@@ -42,12 +42,15 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double ans = 0;
-    for(int i = 1; i <= n; i++) {
-        for(int j = 1; j < i; j++) {
-            ans += 1.0 / n / m;
-        }
+    if(n > m) {
+        cout << 1.0 << endl;
+        return 0;
     }
-    printf("%.2f\n", ans);
+    double res = 0;
+    for(int i = n + 1; i <= m; i++) {
+        res += (double)1 / i;
+    }
+    res += (double)1 / m;
+    cout << res << endl;
     return 0;
 }
