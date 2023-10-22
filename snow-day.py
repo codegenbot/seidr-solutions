@@ -46,14 +46,16 @@ input:
 output:
 10.0
 """
+
+
+def snow(hours, snow_on_ground, rate_of_fall, melting_rate):
+    if melting_rate >= 0.5:
+        return "WTF!"
+    elif melting_rate == 0:
+        return snow_on_ground + (rate_of_fall * hours)
+    else:
+        new_snow = snow_on_ground + (rate_of_fall * hours)
+        return new_snow - (new_snow * math.pow(melting_rate, hours))
+
+
 if __name__ == '__main__':
-    for i in range(int(input())):
-        nh = int(input())
-        snow = float(input())
-        sfall = float(input())
-        sfall = float(input())
-        smelt = float(input())
-        if smelt == 0.0:
-            print(snow+sfall*nh)
-        else:
-            print(snow*(1-smelt)**nh + sfall*(1-smelt)*(1-smelt**nh)/(1-smelt))
