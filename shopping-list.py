@@ -47,22 +47,4 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    first_line = input()
-    price = input()
-    second_line = input()
-    discount = input()
-    discount_num = int(second_line)
-    discount_list = []
-    price_num=int(first_line)
-    for i in range(discount_num):
-        discount = float(discount_list[i])
-        discount_list.append(discount)
-    price_list = []
-    for i in range(price_num):
-        price =float(price_list[i])
-        price_list.append(price)
-    final_price = []
-    for x in price_list:
-        final_price.append(x * (1 - discount_list[i]))
-    ans = sum(final_price)
-    print(ans)
+pass
