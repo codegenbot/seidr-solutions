@@ -32,11 +32,10 @@ output:
 hi
 """
 
-def reverse_words(s):
-    words = s.split()
-    for i in range(len(words)):
-        if len(words[i]) >= 5:
-            words[i] = words[i][::-1]
-    return ' '.join(words)
+def reverse_word(word):
+    if len(word) < 5:
+        return word
+    else:
+        return word[::-1]
 
 if __name__ == '__main__':
