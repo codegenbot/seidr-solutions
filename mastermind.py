@@ -20,6 +20,7 @@ input:
 BOYG
 GYOB
 output:
+
 4
 0
 input:
@@ -42,7 +43,13 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = sys.stdin.readline().strip()
-    guess = sys.stdin.readline().strip()
-    #print code
-    #print guess
+    l = ['B', 'G', 'O', 'P', 'R', 'Y']
+    a = list(raw_input())
+    b = list(raw_input())
+    c = 0
+    for t in l:
+        c += min(a.count(t), b.count(t))
+    for i in xrange(len(a)):
+        if a[i] == b[i]:
+            c -= 1
+    print c, sum(i == j for i, j in zip(a, b))
