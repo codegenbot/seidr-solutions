@@ -45,36 +45,37 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 
-void find_index(string str, string pattern){
-    int n = str.size();
-    int m = pattern.size();
-    vector<int> ans;
-    for(int i = 0; i < n; i++){
-        if(str[i] == pattern[0]){
-            if(m <= n-i){
-                bool found = true;
-                for(int j = 1; j < m; j++){
-                    // cout << str[i+j] << " " << pattern[j] << endl;
-                    if(str[i+j] != pattern[j]){
-                        found = false;
-                        break;
-                    }
-                }
-                if(found)
-                    ans.push_back(i);
-            }
+
+void KMP(string text, string target){
+    vector<int> prefix(target.length());
+    prefix[0] = 0;
+    int k = 0;
+    for(int i = 1; i < target.length(); i++){
+        while(k > 0 && target[k] != target[i]){
+            k = prefix[k-1];
+        }
+        if(target[k] == target[i]){
+            k++;
+        }
+        prefix[i] = k;
+    }
+    int h = 0;
+    for(int i = 0; i < text.length(); i++){
+        while(h > 0 && target[h] != text[i]){
+            h = prefix[h-1];
+        }
+        if(target[h] == text[i]){
+            h++;
+        }
+        if(h == target.length()){
+            cout << i - target.length()+1 << " ";
         }
     }
-    for(auto i: ans){
-        cout << i << " ";
-    }
-    cout << endl;
 }
-
 int main() {
-    string str, pattern;
-    getline(cin, str);
-    getline(cin, pattern);
-    find_index(str, pattern);
+    string t1, t2;
+    t1 = "r";
+    t2 = "nm,xcnwqnd@#$fwkdjn3";
+    KMP(t2, t1);
     return 0;
 }
