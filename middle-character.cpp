@@ -39,9 +39,9 @@ int main() {
     cin >> s;
     int len = s.length();
     if (len % 2 == 0) {
-        cout << s[len / 2 - 1] << s[len / 2] << endl;
+        cout << s[len / 2 - 1] << s[len / 2];
     } else {
-        cout << s[len / 2] << endl;
+        cout << s[len / 2];
     }
     return 0;
 }
