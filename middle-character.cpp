@@ -37,11 +37,11 @@ output:
 int main() {
     string str;
     cin >> str;
-    if(str.length() % 2 == 0) {
-        cout << str[str.length() / 2 - 1] << str[str.length() / 2];
-    }
-    else {
-        cout << str[str.length() / 2];
+    int n = str.size();
+    if(n%2 == 0) {
+        cout << str[n/2-1] << str[n/2];
+    } else {
+        cout << str[n/2];
     }
     return 0;
 }
