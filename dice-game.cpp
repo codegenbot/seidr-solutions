@@ -40,12 +40,26 @@ output:
 0.0
 */
 int main() {
-    
     int n, m;
-    cin >> n >> m;
-    double res = 0.0;
-    for (int i = 1; i < n; ++i) {
-        res += (double)i / n * ((double)i / n * (double)(n - i) / (m - 1) + (double)(n - i) / n * (double)i / (m - 1));
+    double res = 0;
+    scanf("%d %d", &n, &m);
+    for(int i = 1; i <= n; i++) {
+        int flag = 1;
+        while(flag) {
+            int tmp = m;
+            if(i > tmp) {
+                res += (1.0 / n);
+                break;
+            }
+            tmp--;
+            if(tmp == 0) {
+                break;
+            }
+            if(i <= tmp) {
+                flag = 0;
+            }
+        }
     }
-    printf("%.2f", res);
+    printf("%.10f\n", res);
+    return 0;
 }
