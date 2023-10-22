@@ -35,5 +35,5 @@ output:
 hi
 */
 int main() {
-	cout << "I work here" << endl;
+
 }
