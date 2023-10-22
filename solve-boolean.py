@@ -23,27 +23,12 @@ f&f
 output:
 False
 input:
-f&t
+t&t
 output:
-False
+True
 input:
-t&f
+f|f
 output:
 False
 """
 if __name__ == '__main__':
-    string = input()
-    if len(string) == 1:
-        if string == 't':
-            print(True)
-        else:
-            print(False)
-    else:
-        if string[0] == 't' and string[2] == 't':
-            print(True)
-        elif string[0] == 't' and string[2] == 'f':
-            print(False)
-        elif string[0] == 'f' and string[2] == 't':
-            print(False)
-        else:
-            print(False)
