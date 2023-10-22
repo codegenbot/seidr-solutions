@@ -34,22 +34,13 @@ input:
 output:
 )b
 */
-string getMiddle(string input) {
-    int l = input.length();
-    if (l>=2) {
-        if (l%2==0) {
-            char c = input[l/2-1];
-            char d = input[l/2];
-            return string()+c+d;
-        } else {
-            if (l==1) {
-                return input;
-            } else {
-                return string()+input[(l-1)/2];
-            }
-        }
-    } else {
-        return input;
-    }
-}
 int main() {
+    string str;
+    getline(cin, str);
+    int len = str.size();
+    if(len % 2 != 0)
+        cout<<str[len/2];
+    else
+        cout<<str[len/2-1]<<str[len/2];
+    return 0;
+}
