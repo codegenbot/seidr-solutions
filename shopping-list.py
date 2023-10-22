@@ -47,10 +47,10 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    price = list(map(float,input().split()))
-    discount = list(map(float,input().split()))
+    num_of_items = int(input())
+    price_vector = input().split()
+    percent_vector = input().split()
     total = 0
-    for i in range(n):
-        total += price[i]*(1-discount[i]/100)
-    print('{:.2f}'.format(total))
+    for i in range(num_of_items):
+        total += float(price_vector[i]) * (1 - float(percent_vector[i]) / 100)
+    print ("%.2f" % total)
