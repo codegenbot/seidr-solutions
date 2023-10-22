@@ -35,27 +35,62 @@ output:
 False
 */
 int main() {
-    string s;
-    getline(cin, s);
-    stack<char> foo;
-    int flag = 1;
-    for (char c : s) {
-        if (c == ' ')
-            continue;
-        else if (c == '|' || c == '&') {
-            if (foo.empty())
-                flag = 0;
-            else {
-                foo.pop();
+    string y;
+    cin>>y;
+    for(int j=0;j<y.length();j++){
+        if(y[j]=='f')
+            y[j]='F';
+        if(y[j]=='t')
+            y[j]='T';
+    }
+    stack<char> st;
+    for(int k=0;k<y.length();k++){
+        if(st.size()==0 || st.top()=='(' || y[k]==')')
+            st.push(y[k]);
+        else{
+            if(y[k]=='&' || y[k]=='|'){
+                while(st.top()!='(' && st.size()!=0)
+                    st.pop();
+                st.push(y[k]);
             }
-        } else {
-            foo.push(c);
+            else if(y[k]=='(')
+                st.push(y[k]);
+            else if(y[k]==')'){
+                while(st.top()!='(' && st.size()!=0)
+                    st.pop();
+                if(st.size()!=0 && st.top()=='(')
+                    st.pop();
+            }
+            else{
+                if(st.top()=='T' && y[k]=='F'){
+                        st.push(y[k]);
+                    if(st.top()=='&')
+                        s[st.size()-1]='F';
+                    else if(st.top()=='|')
+                        s[st.size()-1]='T';
+                        
+                }
+                else if(st.top()=='F' && y[k]=='F'){
+                    if(st.top()=='&')
+                        st.pop();
+                    else if(st.top()=='|')
+                        st.pop();
+                }
+                else if(st.top()=='F' && y[k]=='T'){
+                    if(st.top()=='&')
+                        s[st.size()-1]='F';
+                    else if(st.top()=='|')
+                        s[st.size()-1]='T';   
+                }
+                else if(st.top()=='T' && y[k]=='T'){
+                    if(st.top()=='&')
+                        s[st.size()-1]='T';
+                    else if(st.top()=='|')
+                        s[st.size()-1]='T';
+                }
+            }
         }
     }
-    if (flag && foo.size() == 1)
-        cout << "True";
-    else
-        cout << "False";
-    
+    cout<<st.top();
     return 0;
 }
