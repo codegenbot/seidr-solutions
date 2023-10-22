@@ -49,12 +49,21 @@ input:
 output:
 29.0
 */
-vector<float> shopping(vector<float> prices, vector<float> discounts) {
-    float totalPrice = 0;
-    int size = prices.size();
-    for(int i = 0; i < size; i++) {
-        totalPrice += prices[i] * (1 - discounts[i]/100);
-    }
-    return totalPrice;
-}
 int main() {
+    int n;
+    cin >> n;
+    vector<double> price(n);
+    for (int i = 0; i < n; i++) {
+        cin >> price[i];
+    }
+    vector<double> discount(n);
+    for (int i = 0; i < n; i++) {
+        cin >> discount[i];
+    }
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += price[i] * (1 - discount[i] / 100);
+    }
+    printf("%.2f\n", sum);
+    return 0;
+}
