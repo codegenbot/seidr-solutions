@@ -47,11 +47,15 @@ output:
 10.0
 """
 if __name__ == '__main__':
-  hours, init_snow, add_snow, melting = map(float,input().strip().split(' '))
-  cur = init_snow
 
-  #max(0, cur)
-  for i in range(int(hours)):
-    cur = cur + max(0, add_snow) - melting * max(0, cur)
+    hours = int(input())
+    init = float(input())
+    rate = float(input())
+    melt = float(input())
+    total = init
+    for i in range(hours):
+        total -= (melt * total)
+        total += rate
 
-  print(cur)
+    print(round(total,4))
+
