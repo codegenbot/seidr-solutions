@@ -43,21 +43,6 @@ input:
 output:
 1
 1000
-int main() {
-    int c;
-    cin >> c;
-    while(c--){
-        int n;
-        cin >> n;
-        int x, max = INT_MIN;
-        while(n--){
-            cin >> x;
-            if(max < x){
-                cout << x << " ";
-                max = x;
-            }
-        }
-        cout << "\n";
-    }
-}
 */
+
+int main() {
