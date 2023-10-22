@@ -32,4 +32,12 @@ output:
 hi
 """
 if __name__ == '__main__':
-    line = input()
+    s = input()
+    result = ''
+    array = s.split()
+    for x in array:
+        if len(x) > 4:
+            x = x[::-1]
+        result+=str(x)
+        result+=' '
+    print (result[:len(result)-1])
