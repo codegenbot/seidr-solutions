@@ -50,22 +50,20 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    cin>>n;
-    vector<double> V1;
-    vector<double> V2;
-    double tmp;
-    for(int i=0;i<n;i++){
-        cin>>tmp;
-        V1.push_back(tmp);
-    }
-    for(int i=0;i<n;i++){
-        cin>>tmp;
-        V2.push_back(tmp);
-    }
-    double res=0;
-    for(int i=0;i<n;i++){
-        res+=(V1[i]-V2[i])*(V1[i]-V2[i]);
-    }
-    cout<<sqrt(res)<<endl;
-}
+		int n;
+		cin >> n;
+		float *v1 = new float[n];
+		float *v2 = new float[n];
+		float sum = 0;
+		for (int i = 0; i < n; i++) {
+			cin >> v1[i];
+		}
+		for (int i = 0; i < n; i++) {
+			cin >> v2[i];
+		}
+		for (int i = 0; i < n; i++) {
+			sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+		}
+		cout << sqrt(sum) << endl;
+		return 0;
+	}
