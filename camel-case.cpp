@@ -34,29 +34,24 @@ all separate words
 output:
 all separate words
 */
-
-string kebabToCamel(string s) {
-    string result;
-    bool isFirst = true;
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == ' ') {
-            result += s[i];
-            isFirst = true;
-        } else if(s[i] == '-') {
-            isFirst = true;
-        } else if(isFirst) {
-            result += toupper(s[i]);
-            isFirst = false;
-        } else {
-            result += s[i];
-        }
-    }
-    return result;
-}
-
 int main() {
     string s;
-    getline(cin, s);
-    cout << kebabToCamel(s) << endl;
+    while (getline(cin, s)) {
+        string res;
+        bool flag = false;
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == '-') {
+                flag = true;
+                continue;
+            }
+            if (flag) {
+                res += toupper(s[i]);
+                flag = false;
+            } else {
+                res += s[i];
+            }
+        }
+        cout << res << endl;
+    }
     return 0;
 }
