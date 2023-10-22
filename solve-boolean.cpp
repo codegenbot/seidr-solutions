@@ -34,23 +34,55 @@ t&f
 output:
 False
 */
-int main() {
-    string s;
-    cin >> s;
-    stack<bool> stk;
+
+bool and_op(bool a, bool b) {
+    return a && b;
+}
+
+bool or_op(bool a, bool b) {
+    return a || b;
+}
+
+bool not_op(bool a) {
+    return !a;
+}
+
+bool T = true;
+bool F = false;
+
+map<char, bool> truthTable;
+
+
+bool eval(string s) {
+    if (s.size() == 1) {
+        return truthTable[s[0]];
+    }
+    int num = 0;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'F') stk.push(false);
-        else if (s[i] == 'T') stk.push(true);
-        else if (s[i] == '|') {
-            bool a = stk.top(); stk.pop();
-            bool b = stk.top(); stk.pop();
-            stk.push(a || b);
+        if (s[i] == '(') {
+            num++;
+        } else if (s[i] == ')') {
+            num--;
         }
-        else {
-            bool a = stk.top(); stk.pop();
-            bool b = stk.top(); stk.pop();
-            stk.push(a && b);
+        if (num == 0 && s[i] == '&') {
+            return and_op(eval(s.substr(0, i)), eval(s.substr(i + 1, s.size() - i - 1)));
+        }
+        if (num == 0 && s[i] == '|') {
+            return or_op(eval(s.substr(0, i)), eval(s.substr(i + 1, s.size() - i - 1)));
         }
     }
-    cout << boolalpha << stk.top() << endl;
+    if (s[0] == '(' && s.back() == ')') {
+        return eval(s.substr(1, s.size() - 2));
+    }
+    return not_op(eval(s.substr(1, s.size() - 1)));
+}
+
+int main() {
+    truthTable['t'] = true;
+    truthTable['f'] = false;
+    
+    string s;
+    while (cin >> s) {
+        cout << eval(s) << endl;
+    }
 }
