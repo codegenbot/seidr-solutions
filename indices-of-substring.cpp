@@ -45,16 +45,5 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text,target;
-    cin>>text>>target;
-    vector<int> v;
-    for(int i=0; i<text.size()-target.size()+1; i++){
-        for(int j=0; j<text.size(); j++){
-            if(text[j+i]==target[j]){
-                cout<<j+i<<endl;
-                v.push_back(j+i);
-            }
-        }
-    }
-    return 0;
+
 }
