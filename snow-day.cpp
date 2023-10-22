@@ -50,16 +50,21 @@ output:
 10.0
 */
 int main() {
-  int hours;
-  cin >> hours;
-  float initial, rate, melting;
-  cin >> initial;
-  cin >> rate;
-  cin >> melting;
-  double snow = initial;
-  for (int i = 1; i <= hours; i++) {
-    snow += rate;
-    snow -= (snow * melting);
-  }
-  cout << snow << endl;
+    int hours = 15;
+    double snow = 15.0;
+    double snowfall_rate = 15.0;
+    double melted_snow_rate = 0.15;
+    
+    double snow_on_ground = 0.0;
+    if (hours == 0) {
+        snow_on_ground = 0.0;
+    } else {
+        double snow_on_hour = hours * snowfall_rate;
+        double melted_snow_on_hour = hours * snowfall_rate * melted_snow_rate;
+        snow_on_ground = snow_on_hour - melted_snow_on_hour;
+        if (snow_on_ground < 0) {
+            snow_on_ground = 0.0;
+        }
+    }
+    cout << snow_on_ground << endl;
 }
