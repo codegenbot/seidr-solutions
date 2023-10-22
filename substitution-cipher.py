@@ -11,7 +11,11 @@ import re
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
-
+a
+b
+a
+output:
+b
 
 
 output:
@@ -41,17 +45,4 @@ eeeeeeeeee
 output:
 llllllllll
 """
-
-def cipher(str1, str2, str3):
-    dic = {}
-    for i in range(len(str1)):
-        dic[str1[i]] = str2[i]
-    print(dic)
-    for i in range(len(str3)):
-        print(dic[str3[i]], end='')
-
 if __name__ == '__main__':
-    str1 = input()
-    str2 = input()
-    str3 = input()
-    cipher(str1, str2, str3)
