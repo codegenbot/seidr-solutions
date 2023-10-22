@@ -8,7 +8,9 @@ import itertools
 import queue
 import re
 """
-Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
+Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 
+4-character strings consisting of 6 possible characters, return the number of white pegs 
+(correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
 input:
 RRRR
@@ -44,20 +46,19 @@ output:
 if __name__ == '__main__':
     code = input()
     guess = input()
-    code_list = list(code)
-    guess_list = list(guess)
-    code_list_copy = code_list[:]
-    guess_list_copy = guess_list[:]
-    c_dict = collections.Counter(code_list)
-    g_dict = collections.Counter(guess_list)
-    black_pegs = 0
-    white_pegs = 0
+    black = 0
+    white = 0
     for i in range(len(code)):
-        if code_list[i] == guess_list[i]:
-            black_pegs += 1
-            code_list_copy.remove(code_list[i])
-            guess_list_copy.remove(guess_list[i])
-    for i in guess_list_copy:
-        if i in code_list_copy:
-            white_pegs += min(c_dict[i], g_dict[i])
-    print(black_pegs, white_pegs)
+        if code[i] == guess[i]:
+            black += 1
+    for i in range(len(code)):
+        if code[i] != guess[i]:
+            code_list = list(code)
+            guess_list = list(guess)
+            for j in range(len(code)):
+                if guess_list[i] == code_list[j]:
+                    white += 1
+                    code_list[j] = ''
+                    break
+    print(black)
+    print(white)
