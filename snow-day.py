@@ -51,7 +51,4 @@ if __name__ == '__main__':
     snow = float(input())
     rate = float(input())
     melt = float(input())
-    for i in range(hours):
-        snow += rate
-        snow -= melt
-    print(snow)
+    print(snow + snow * rate - melt * hours)
