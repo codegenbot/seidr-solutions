@@ -1,3 +1,12 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
@@ -33,12 +42,18 @@ output:
 1000
 """
 if __name__ == '__main__':
-    nums = map(int, raw_input().strip().split())
-    min_ = 99999999
-    r_list = []
-    for i in reversed(nums):
-        if i >= min_:
-            min_ = i
-            r_list.append(i)
-    for r in reversed(r_list):
-        print r,
+	def compare (x, y):
+		return x >= y
+	len = input()
+	nums = map(int, raw_input().split())
+	for i in range(len - 1, 0, -1):
+		if not reduce(compare, nums[i:]):
+			nums[i - 1] += nums[i]
+			nums[i] = 0
+			for j in range(i, len - 1):
+				nums[j] = nums[j + 1]
+				nums[j + 1] = 0
+			len -= 1
+	nums = nums[:len]
+	for x in nums:
+		print x
