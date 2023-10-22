@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
+Given an integer representing a number of hours and 3 floats representing how much snow is on the ground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
 For example,
 input:
 0
@@ -49,22 +49,19 @@ input:
 output:
 10.0
 */
-int main() {
-    int hours = 15;
-    double snow = 15.0;
-    double snowfall_rate = 15.0;
-    double melted_snow_rate = 0.15;
-    
-    double snow_on_ground = 0.0;
-    if (hours == 0) {
-        snow_on_ground = 0.0;
-    } else {
-        double snow_on_hour = hours * snowfall_rate;
-        double melted_snow_on_hour = hours * snowfall_rate * melted_snow_rate;
-        snow_on_ground = snow_on_hour - melted_snow_on_hour;
-        if (snow_on_ground < 0) {
-            snow_on_ground = 0.0;
-        }
+float snow(int hours, float snowOnGround, float rate, float melting) {
+    float total = 0;
+    for(int i = 0; i < hours; i++) {
+        total = total + snowOnGround;
+        total = total + rate;
+        total = total - melting*total;
     }
-    cout << snow_on_ground << endl;
+    return total;
+}
+int main() {
+    cout << snow(0,0.0,0.0,0.0) << endl;
+    cout << snow(15,15.0,15.0,0.15) << endl;
+    cout << snow(20,19.99,9.999,0.999) << endl;
+    cout << snow(20,19.99,9.999,0.0) << endl;
+    cout << snow(10,0.0,1.0,0.0) << endl;
 }
