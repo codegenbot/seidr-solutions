@@ -47,4 +47,18 @@ output:
 29.0
 """
 if __name__ == '__main__':
-pass
+    price = []
+    discount = []
+    with open('input.txt', 'r') as f:
+        n = int(f.readline())
+        p_line = f.readline().split()
+        for x in range (0, n):
+            price.append(float(p_line[x]))
+        m = int(f.readline())
+        d_line = f.readline().split()
+        for i in range (0, m):
+            discount.append(float(p_line[i]))
+    sum = 0.0
+    for j in range (0, n):
+        sum += price[j] - price[j] * (discount[j] / 100)
+    print(sum)
