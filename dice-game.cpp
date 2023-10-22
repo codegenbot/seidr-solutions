@@ -40,16 +40,16 @@ output:
 0.0
 */
 int main() {
-int n, m;
-cin >> n >> m;
-double win = 0;
-for (int i = 1; i <= min(n, m); i++) {
-    double cur = 1;
-    for (int j = 1; j <= m; j++) {
-        cur *= (double)((i + 1) <= j ? (j - i) : 0) / (double)j;
+  int n, m;
+  int sum = 0;
+  while (cin >> n >> m) {
+    sum = 0;
+    if (n <= m) {
+      for (int i = n+1; i <= m; ++i) {
+        sum += max(i-n, n) - min(i-n, n) + 1;
+      }
+      printf("%.5lf\n", (double)sum/(m-n+1)/n);
     }
-    win += cur;
-}
-printf("%.12lf\n", win);
-return 0;
+  }
+  return 0;
 }
