@@ -35,34 +35,36 @@ output:
 False
 */
 
-bool evaluate(string s) {
-    bool cur = false;
-    if (s.empty()) return false;
-    if (s[0] == 'T') cur = true;
-    bool res = cur;
+bool evaluate(string boolExpr) {
     stack<bool> st;
-    for (int i = 1; i < s.size(); i++) {
-        if (s[i] == '&') {
-            st.push(cur);
-            res = res && cur;
-        } else if (s[i] == '|') {
-            st.push(cur);
-            res = res || cur;
-        } else if (s[i] == 'T') {
-            cur = true;
-        } else if (s[i] == 'F') {
-            cur = false;
-        } else if (s[i] == ')') {
-            cur = st.top();
+    for (int i = 0; i < boolExpr.length(); i++) {
+        if (boolExpr[i] != '&' && boolExpr[i] != '|' && boolExpr[i] != '!') {
+            if (boolExpr[i] == 't') {
+                st.push(true);
+            } else {
+                st.push(false);
+            }
+        } else {
+            bool right = st.top();
             st.pop();
+            bool left = st.top();
+            st.pop();
+            if (boolExpr[i] == '&') {
+                st.push(left & right);
+            } else if (boolExpr[i] == '|') {
+                st.push(left | right);
+            } else {
+                st.push(!left);
+            }
         }
     }
-    return res;
+    return st.top();
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << evaluate(s) << endl;
-    return 0;
+    cout << evaluate("t|f") << endl;
+    cout << evaluate("t|t") << endl;
+    cout << evaluate("f&f") << endl;
+    cout << evaluate("f&t") << endl;
+    cout << evaluate("t&f") << endl;
 }
