@@ -34,58 +34,37 @@ t&f
 output:
 False
 */
-
-bool evaluate(string s) {
-    stack<char> stk;
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == '&' || s[i] == '|') {
-            stk.push(s[i]);
-        } else if(s[i] == 't') {
-            if(stk.empty()) {
-                stk.push(s[i]);
-            } else {
-                char op = stk.top();
-                stk.pop();
-                if(op == '&') {
-                    stk.push('t');
+int main() {
+    string s;
+    cin >> s;
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&' || s[i] == '|') {
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            if (s[i] == '&') {
+                if (a == 'F' || b == 'F') {
+                    st.push('F');
                 } else {
-                    if(stk.top() == 't') {
-                        stk.push('t');
-                    } else {
-                        stk.push('f');
-                    }
+                    st.push('T');
+                }
+            } else {
+                if (a == 'T' || b == 'T') {
+                    st.push('T');
+                } else {
+                    st.push('F');
                 }
             }
-        } else if(s[i] == 'f') {
-            if(stk.empty()) {
-                stk.push(s[i]);
-            } else {
-                char op = stk.top();
-                stk.pop();
-                if(op == '&') {
-                    stk.push('f');
-                } else {
-                    if(stk.top() == 't') {
-                        stk.push('t');
-                    } else {
-                        stk.push('f');
-                    }
-                }
-            }
+        } else {
+            st.push(s[i]);
         }
     }
-    return stk.top() == 't';
-}
-
-int main() {
-    cout << evaluate("t&f") << endl;
-    cout << evaluate("t&t") << endl;
-    cout << evaluate("t|f") << endl;
-    cout << evaluate("t|t") << endl;
-    cout << evaluate("f|f") << endl;
-    cout << evaluate("f&f") << endl;
-    cout << evaluate("f&t") << endl;
-    cout << evaluate("t") << endl;
-    cout << evaluate("f") << endl;
+    if (st.top() == 'T') {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
     return 0;
 }
