@@ -55,48 +55,35 @@ output:
 
 */
 int main() {
-    int n;
+    int n, x;
     cin >> n;
-    vector<int> vec(n);
+    vector<int> arr;
     for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+        cin >> x;
+        arr.push_back(x);
     }
-    int i = 0, j = n - 1;
-    while (1) {
-        if (i == j) {
-            break;
+    int minn = INT_MAX;
+    int x1, x2, x3, x4;
+    int index = 1;
+    for (int i = 1; i < n - 1; i++) {
+        if (abs(arr[i - 1] - arr[i]) <= minn) {
+            minn = abs(arr[i - 1] - arr[i]);
+            x1 = arr[i - 1];
+            x2 = arr[i];
         }
-        if (i + 1 == j) {
-            if (vec[i] == vec[j]) {
-                break;
-            }
-            if (abs(vec[i] - vec[j]) != 1) {
-                break;
-            }
-            if (vec[i] < vec[j]) {
-                ++i;
-            } else {
-                --j;
-            }
-            continue;
-        }
-        int si = vec[i];
-        int sj = vec[j];
-        if (si == sj) {
-            break;
-        }
-        if (si <= sj) {
-            sj -= si;
-            ++i;
-        }
-        if (si >= sj) {
-            si -= sj;
-            --j;
+        if (abs(arr[i] - arr[i + 1]) <= minn) {
+            minn = abs(arr[i] - arr[i + 1]);
+            x3 = arr[i];
+            x4 = arr[i + 1];
         }
     }
-    cout << i << endl;
-    for (int k = 0; k <= i; k++) {
-        cout << vec[k] << endl;
+    if (minn == 0) {
+        cout << 0 << endl;
+    } else {
+        cout << x1 << endl;
+        cout << x2 << endl;
+        cout << x3 << endl;
+        cout << x4 << endl;
     }
     return 0;
 }
