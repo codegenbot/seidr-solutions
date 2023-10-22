@@ -45,29 +45,5 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text;
-    string target;
-    cin >> text >> target;
-    vector<int> res;
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == target[0]) {
-            bool match = true;
-            for (int j = 0; j < target.length(); j++) {
-                if (i + j >= text.length() || text[i + j] != target[j]) {
-                    match = false;
-                    break;
-                }
-            }
-            if (match) {
-                res.push_back(i);
-            }
-        }
-    }
-    for (int i = 0; i < res.size(); i++) {
-        if (i > 0) {
-            cout << " ";
-        }
-        cout << res[i];
-    }
-    return 0;
+
 }
