@@ -41,11 +41,15 @@ output:
 1
 1000
 """
-
-
-def findMax():
-    pass
-
-
 if __name__ == '__main__':
-    pass
+    N = list(map(int, input().split()))
+    m = int(input())
+    out = []
+    temp = 0
+    for i in range(m):
+        for j in range(m-i-1):
+            if N[i] <= N[j]:
+                temp = N[i]
+                N[i] = N[j]
+                N[j]=temp
+    print(N)
