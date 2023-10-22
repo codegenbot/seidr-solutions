@@ -47,10 +47,16 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    price = list(map(float, input().split()))
-    discount = list(map(float, input().split()))
-    total = 0
-    for i in range(n):
-        total += price[i] * (1 - discount[i]/100)
-    print(total)
+    # Read the input from the command line
+    num_items = int(input())
+    prices = list(map(float, input().split()))
+    num_discounts = int(input())
+    discounts = list(map(float, input().split()))
+
+    # Compute the total price of the trip
+    total_price = 0
+    for i in range(num_items):
+        total_price += prices[i] * (1 - discounts[i] / 100)
+
+    # Print the result to the command line
+    print(total_price)
