@@ -1,14 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 /*
 Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
@@ -50,16 +40,13 @@ output:
 10.0
 */
 int main() {
-  float current;
-  float rate;
-  float melt;
-  int time;
-  cin >> time >> current >> rate >> melt;
-  for (int i = 0; i < time; i++) {
-    current += rate;
-    current -= melt;
-  }
-  cout << current;
-  
-  return 0;
+	int n; cin >> n;
+	double i,rate,melt;
+	cin >> i >> rate >> melt;
+	double cur = i;
+	while(n--){
+		double added = cur*melt;
+		cur+=rate, cur-=added;
+	}
+	cout << fixed << setprecision(10) << cur << endl;
 }
