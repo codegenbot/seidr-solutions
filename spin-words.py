@@ -1,7 +1,14 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
-Given a string of one or more words (separated by spaces),
-reverse all of the words that are ﬁve or more letters long
-and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
 
@@ -25,12 +32,4 @@ output:
 hi
 """
 if __name__ == '__main__':
-    s = input()
-    s = s.split(' ')
-    res = []
-    for i in s:
-        if len(i) >= 5:
-            res.append(i[::-1])
-        else:
-            res.append(i)
-    print(' '.join(res))
+    line = input()
