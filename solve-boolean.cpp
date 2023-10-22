@@ -39,7 +39,9 @@ int main() {
     cin >> s;
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '&' || s[i] == '|') {
+        if (s[i] == 'T' || s[i] == 'F') {
+            st.push(s[i]);
+        } else {
             char a = st.top();
             st.pop();
             char b = st.top();
@@ -57,8 +59,6 @@ int main() {
                     st.push('F');
                 }
             }
-        } else {
-            st.push(s[i]);
         }
     }
     if (st.top() == 'T') {
