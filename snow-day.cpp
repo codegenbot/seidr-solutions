@@ -50,25 +50,5 @@ output:
 10.0
 */
 int main() {
-	int hours = 0;
-	float snowOnGround = 0.0;
-	float rateOfSnowFall = 0.0;
-	float snowMelt = 0.0;
-	float amountOfSnow = 0.0;
-	float proportion = 1 - snowMelt;
-
-	cout << "How many hours?" << "\n";
-	cin >> hours;
-	cout << "How much snow is on the ground?" << "\n";
-	cin >> snowOnGround;
-	cout << "How much snow is falling at a time?" << "\n";
-	cin >> rateOfSnowFall;
-	cout << "How much is melting per hour?" << "\n";
-	cin >> snowMelt;
-	while(hours > 0){
-		amountOfSnow = (amountOfSnow + rateOfSnowFall) * proportion;
-		hours--;
-	}
-	cout << amountOfSnow;
 	return 0;
 }
