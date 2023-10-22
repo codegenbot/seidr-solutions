@@ -47,14 +47,11 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    file_path = sys.argv[1]
-    with open(file_path, 'r') as f:
-        lines = f.readlines()
-    n = int(lines[0])
-    prices = lines[1].strip().split()
-    m = int(lines[2])
-    discounts = lines[3].strip().split()
-    total = 0
-    for i in range(n):
-        total += float(prices[i]) * (1 - float(discounts[i])/100)
-    print(total)
+    num_lines = int(input())
+    prices = input().split()
+    num_lines = int(input())
+    discounts = input().split()
+    total_price = 0
+    for price, discount in zip(prices, discounts):
+        total_price += float(price) * (1 - float(discount) / 100)
+    print(total_price)
