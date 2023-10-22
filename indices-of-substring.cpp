@@ -45,24 +45,21 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string s,t;
-    cin>>s>>t;
-    vector<int> res;
-    for(int i=0;i<s.size();i++){
-        if(s[i]==t[0]){
-            bool flag=true;
-            for(int j=1;j<t.size();j++){
-                if(s[i+j]!=t[j]){
-                    flag=false;
-                    break;
-                }
+    string s, t;
+    getline(cin, s);
+    getline(cin, t);
+    int len = t.length();
+    int res = 0;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == t[res]) {
+            res++;
+            if (res == len) {
+                cout << i - len + 1 << " ";
+                res = 0;
             }
-            if(flag)
-                res.push_back(i);
+        } else {
+            res = 0;
         }
     }
-    for(int i=0;i<res.size();i++)
-        cout<<res[i]<<" ";
-    cout<<endl;
     return 0;
 }
