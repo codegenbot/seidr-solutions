@@ -44,10 +44,28 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
+vector<int> findAll(string text, string target){
+    vector<int> res;
+    for(int i = 0; i < text.size(); i++) {
+        int j = 0;
+        while(j < target.size()) {
+            if(i + j >= text.size()) break;
+            if(text[i + j] != target[j]) break;
+            j++;
+        }
+        if(j == target.size()) res.push_back(i);
+    }
+    return res;
+}
+
 int main() {
-
-
-
-
+    string text, target;
+    cin >> text;
+    cin >> target;
+    vector<int> res = findAll(text, target);
+    for(int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
