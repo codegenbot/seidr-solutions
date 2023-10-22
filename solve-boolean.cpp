@@ -34,28 +34,39 @@ t&f
 output:
 False
 */
-int main() {
-    string str;
-    while(cin >> str) {
-        int n = str.length();
-        int i = 0;
-        bool res = 1;
-        while(i < n) {
-            if(str[i] == 'T' || str[i] == 'F') res &= (str[i] == 'T');
-            else if(str[i] == '|') {
-                int k = i + 1;
-                while(k < n && str[k] == 'F') ++k;
-                str[k] == 'T' ? res = 1 : (str[k] = 'F');
-                i = k;
-            } else {
-                int k = i + 1;
-                while(k < n && str[k] == 'T') ++k;
-                str[k] == 'F' ? res = 0 : (str[k] = 'T');
-                i = k;
-            }
-            ++i;
+
+bool evaluateBool(string &s, int &i){
+    if(s[i] == 't') {
+        i++;
+        return true;
+    }else if(s[i] == 'f') {
+        i++;
+        return false;
+    }else{
+        i++;
+        bool left = evaluateBool(s, i);
+        char op = s[i];
+        i++;
+        bool right = evaluateBool(s, i);
+        if(op == '&'){
+            return left & right;
+        }else{
+            return left | right;
         }
-        cout << (res ? "True" : "False") << endl;
     }
+}
+
+int main() {
+    string s;
+    //while(cin >> s){
+    cin >> s;
+        int i = 0;
+        bool res = evaluateBool(s, i);
+        if(res){
+            cout << "True" << endl;
+        }else{
+            cout << "False" << endl;
+        }
+    //}
     return 0;
 }
