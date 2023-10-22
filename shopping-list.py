@@ -47,11 +47,14 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    line = sys.stdin.readline().strip().split()
-    n = int(line[0])
-    prices = [float(x) for x in sys.stdin.readline().strip().split()]
-    discounts = [float(x) for x in sys.stdin.readline().strip().split()]
+    data = []
+    for line in sys.stdin:
+        data += line.split()
+    n = int(data[0])
+    price = list(map(float, data[1:n+1]))
+    m = int(data[n+1])
+    discount = list(map(float, data[n+2:]))
     total = 0
     for i in range(n):
-        total += prices[i] * (1 - discounts[i] / 100)
-    print("%.2f" % total)
+        total += price[i] * (100 - discount[i]) / 100
+    print(total)
