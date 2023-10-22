@@ -42,14 +42,4 @@ output:
 0
 """
 if __name__ == '__main__':
-    codemaster = input()
-    guess = input()
-    white = 0
-    black = 0
-    for i in range(len(codemaster)):
-        if guess[i] == codemaster[i]:
-            black += 1
-    for i in 'BOGYW':
-        white += min(guess.count(i), codemaster.count(i))
-    print(black)
-    print(white - black)
+    
