@@ -51,19 +51,20 @@ output:
 */
 int main() {
     int n;
-    cin >> n;
-    vector<float> v1(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v1[i];
+    while (cin >> n) {
+        vector<float> v1(n);
+        vector<float> v2(n);
+        for (int i = 0; i < n; i++) {
+            cin >> v1[i];
+        }
+        for (int i = 0; i < n; i++) {
+            cin >> v2[i];
+        }
+        float res = 0;
+        for (int i = 0; i < n; i++) {
+            res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        }
+        printf("%.10f\n", sqrt(res));
     }
-    cin >> n;
-    vector<float> v2(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v2[i];
-    }
-    float sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    printf("%.16f\n", sqrt(sum));
+    return 0;
 }
