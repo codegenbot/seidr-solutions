@@ -42,3 +42,18 @@ output:
 0
 """
 if __name__ == '__main__':
+    a = input()
+    b = input()
+    dic = {'B': 0, 'G': 0, 'O': 0, 'P': 0, 'R': 0, 'Y': 0}
+    for i in a:
+        dic[i] += 1
+    black = 0
+    for i in range(len(a)):
+        if a[i] == b[i]:
+            black += 1
+    white = 0
+    for j in b:
+        if dic[j] > 0:
+            white += 1
+            dic[j] -= 1
+    print(black, white - black)
