@@ -36,37 +36,26 @@ False
 */
 int main() {
     string str;
-    while (cin >> str) {
-        stack<char> st;
-        for (char ch : str) {
-            if (st.empty()) {
-                st.push(ch);
+    while(cin >> str) {
+        int n = str.length();
+        int i = 0;
+        bool res = 1;
+        while(i < n) {
+            if(str[i] == 'T' || str[i] == 'F') res &= (str[i] == 'T');
+            else if(str[i] == '|') {
+                int k = i + 1;
+                while(k < n && str[k] == 'F') ++k;
+                str[k] == 'T' ? res = 1 : (str[k] = 'F');
+                i = k;
             } else {
-                if (ch == '&' || ch == '|') {
-                    st.push(ch);
-                } else {
-                    char op = st.top();
-                    st.pop();
-                    char ch1 = st.top();
-                    st.pop();
-                    if (op == '&') {
-                        if (ch1 == 'T' && ch == 'T') {
-                            st.push('T');
-                        } else {
-                            st.push('F');
-                        }
-                    }
-                    if (op == '|') {
-                        if (ch1 == 'F' && ch == 'F') {
-                            st.push('F');
-                        } else {
-                            st.push('T');
-                        }
-                    }
-                }
+                int k = i + 1;
+                while(k < n && str[k] == 'T') ++k;
+                str[k] == 'F' ? res = 0 : (str[k] = 'T');
+                i = k;
             }
+            ++i;
         }
-        cout << (st.top() == 'T' ? "True" : "False") << endl;
+        cout << (res ? "True" : "False") << endl;
     }
     return 0;
 }
