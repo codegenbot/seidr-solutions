@@ -45,11 +45,10 @@ output:
 3.963
 */
 int main() {
-    float h, h1;
-    int n;
+    float h, h1, n;
     cin >> h >> h1 >> n;
     float k = h1 / h;
-    float sum = h1;
+    float sum = h;
     for (int i = 1; i < n; i++) {
         sum += pow(k, i) * h;
     }
