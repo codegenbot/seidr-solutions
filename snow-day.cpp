@@ -49,23 +49,6 @@ input:
 output:
 10.0
 */
-
-double snowFall(int hours, double snow, double fall, double melt){
-    if(hours == 0){
-        return snow;
-    }
-    snow += fall;
-    snow -= melt*hours;
-    if(snow < 0){
-        snow = 0;
-    }
-    return snow;
-}
-
 int main() {
-    cout << snowFall(0, 0, 0, 0) << endl;
-    cout << snowFall(15, 15, 15, 0.15) << endl;
-    cout << snowFall(20, 19.99, 9.999, 0.999) << endl;
-    cout << snowFall(20, 19.99, 9.999, 0.0) << endl;
-    cout << snowFall(10, 0, 1, 0) << endl;
+    return 0;
 }
