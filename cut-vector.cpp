@@ -55,55 +55,45 @@ output:
 
 */
 int main() {
-	// Because we have to return a pair of subvectors, which means we have to return start and end indices of the subvectors. 
-	// I saw the constraints of the problem and the set of example input/output, so I didn't read the problem statement again. 
-	// I don't have a work laptop, so I used an online IDE, and for some reason, it keeps crashing on me. So sorry if I don't have comments or if some of my codes are not optimized.
-    int t;
-    cin >> t;
-    while(t--){
-        int n;
-        cin >> n;
-        int a[n];
-        for(int i = 0; i<n; i++){
-            cin >> a[i];
-        }
-        int dp[n];
-        dp[0] = 0;
-        for(int i = 1; i<(n-1); i++){
-            int p = dp[i-1] + a[i-1];
-            int q = a[i-1] * i;
-            dp[i] = (p>q) ? q : p;
-            cout << dp[i] << endl;
-        }
-        if(n == 1) {
-            cout << a[0] << endl << 0 << endl;
-        }
-        else {
-            int min = INT_MAX;
-            int l, r;
-            for(int i = 0; i<(n-1); i++){
-                int sum = 0;
-                for(int j = 0; j<=i; j++){
-                    sum += a[j];
-                }
-                int d = abs(sum - dp[i]);
-                if(d<=min){
-                    min = d;
-                    l = i+1;
-                    r = n-l;
-                }
-            }
-            cout << l << endl;
-            for(int i = 0; i<l; i++){
-                cout << a[i] << " ";
-            }
-            cout << endl << r << endl;
-            for(int i = l; i<n; i++){
-                cout << a[i] << " ";
-            }
-            cout << endl;
-        }
-        
+    int n;
+    cin >> n;
+    vector<int> v;
+    
+    for (int i = 0; i < n; i++) {
+        int value;
+        cin >> value;
+        v.push_back(value);
     }
+    
+    int half = 0, sum = 0;
+    for (int i = 0; i < n; i++) {
+        half += i ? v[i-1] : 0;
+        sum += v[i];
+        
+        int diff = abs(half - (sum - half));
+        if (diff < v[i] || (diff == v[i] && half > sum - half)) {
+            cout << i + 1 << endl;
+            int j = 0;
+            for (j = 0; j < i; j++) {
+                cout << v[j] << endl;
+            }
+            j++;
+            for (; j < n; j++) {
+                cout << v[j-1] << endl;
+            }
+            
+            return 0;
+        }
+    }
+    cout << v[0] << endl;
+    int j = 1;
+    for (; j < n; j++) {
+        cout << v[j-1] << endl;
+    }
+    j++;
+    for (; j < n; j++) {
+        cout << v[j-1] << endl;
+    }
+    
     return 0;
 }
