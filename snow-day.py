@@ -47,12 +47,14 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    hours = int(input())
-    snow_on_ground = float(input())
-    snow_fall_rate_per_hour = float(input())
-    snow_melting_rate_per_hour = float(input())
-    snow_on_ground_after_hours = 0
-    for i in range(hours):
-        snow_on_ground_after_hours += snow_fall_rate_per_hour
-        snow_on_ground_after_hours -= snow_melting_rate_per_hour*snow_on_ground_after_hours
-    print(snow_on_ground_after_hours)
+    n = int(input())
+    snow = float(input())
+    melt = float(input())
+    rain = float(input())
+    # print(n, snow, melt, rain)
+    for _ in range(n):
+        snow += rain
+        snow -= melt
+        if snow < 0:
+            snow = 0
+    print(snow)
