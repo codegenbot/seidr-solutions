@@ -42,15 +42,16 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    if(n > m) {
-        cout << 1.0 << endl;
-        return 0;
+    double ans = 0;
+    for (int i = 1; i < n; i++) {
+        int cnt = 0;
+        for (int j = 1; j <= m; j++) {
+            if (j > i) {
+                cnt++;
+            }
+        }
+        ans += (double)cnt / m;
     }
-    double res = 0;
-    for(int i = n + 1; i <= m; i++) {
-        res += (double)1 / i;
-    }
-    res += (double)1 / m;
-    cout << res << endl;
+    printf("%.2lf\n", ans);
     return 0;
 }
