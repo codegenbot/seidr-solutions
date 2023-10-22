@@ -31,12 +31,17 @@ hi
 output:
 hi
 """
-if __name__ == '__main__':
-    string = input()
-    res = []
-    for word in string.split():
+
+def reverse_words(s):
+    words = s.split()
+    result = []
+    for word in words:
         if len(word) >= 5:
-            res.append(word[::-1])
+            result.append(word[::-1])
         else:
-            res.append(word)
-    print(' '.join(res))
+            result.append(word)
+    return ' '.join(result)
+
+if __name__ == '__main__':
+    s = 'this is a test'
+    print(reverse_words(s))
