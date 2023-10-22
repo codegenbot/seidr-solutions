@@ -47,11 +47,13 @@ output:
 10.0
 """
 if __name__ == '__main__':
-    hours = int(input().strip())
-    start = float(input().strip())
-    rate = float(input().strip())
-    melt = float(input().strip())
-    for i in range(hours):
-        start = start + rate - melt * start
-
-    print(round(start, 2))
+    s_h = float(raw_input())
+    a_h = float(raw_input())
+    d_h = float(raw_input())
+    t_h = float(raw_input())
+    i_h = 0
+    while i_h < t_h
+        a_h = a_h - d_h
+        s_h = s_h + a_h
+        i_h = i_h + 1
+    print s_h
