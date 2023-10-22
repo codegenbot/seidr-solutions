@@ -42,15 +42,4 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-
-	for line in sys.stdin:
-		a = line.split()
-		if len(a) == 0:
-			break
-		cipher = {}
-		for i in range(len(a[0])):
-			cipher[a[0][i]] = a[1][i]
-
-		for i in range(len(a[2])):
-			sys.stdout.write(cipher[a[2][i]])
-		sys.stdout.write("\n")
+    print('a')
