@@ -32,4 +32,14 @@ output:
 False
 """
 if __name__ == '__main__':
-    pass
+    string = input().strip()
+    if string.count('t') != 0 and string.count('f') != 0:
+        print(False)
+    elif string.count('t') == 0 and string.count('f') == 0:
+        print(False)
+    elif string.count('t') == 0 and string.count('f') != 0 and string.count('&') != 0:
+        print(False)
+    elif string.count('t') != 0 and string.count('f') == 0 and string.count('|') != 0:
+        print(False)
+    else:
+        print(True)
