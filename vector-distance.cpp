@@ -51,18 +51,20 @@ output:
 */
 int main() {
     int n;
-    while(cin>>n){
-        double sum = 0;
-        double x;
-        for(int i = 0; i < n; i++){
-            cin>>x;
-            sum += x * x;
-        }
-        for(int i = 0; i < n; i++){
-            cin>>x;
-            sum += x * x;
-        }
-        cout<<sqrt(sum)<<endl;
+    cin >> n;
+    vector<double> vec1(n);
+    for(int i = 0; i < n; i++) {
+        cin >> vec1[i];
     }
+    cin >> n;
+    vector<double> vec2(n);
+    for(int i = 0; i < n; i++) {
+        cin >> vec2[i];
+    }
+    double sum = 0;
+    for(int i = 0; i < vec1.size(); i++) {
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+    }
+    printf("%.15f\n", sqrt(sum));
     return 0;
 }
