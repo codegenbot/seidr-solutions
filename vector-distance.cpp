@@ -52,18 +52,22 @@ output:
 int main() {
     int n;
     while(cin>>n){
-        vector<float> v1(n),v2(n);
+        vector<double> a;
+        vector<double> b;
+        double t;
         for(int i=0;i<n;i++){
-            cin>>v1[i];
+            cin>>t;
+            a.push_back(t);
         }
         for(int i=0;i<n;i++){
-            cin>>v2[i];
+            cin>>t;
+            b.push_back(t);
         }
-        float sum=0;
+        double ans=0;
         for(int i=0;i<n;i++){
-            sum+=pow(v1[i]-v2[i],2);
+            ans+=pow(a[i]-b[i],2);
         }
-        printf("%.15f\n",sqrt(sum));
+        cout<<sqrt(ans)<<endl;
     }
     return 0;
 }
