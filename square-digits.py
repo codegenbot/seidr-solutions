@@ -32,9 +32,4 @@ output:
 16
 """
 if __name__ == '__main__':
-    num = int(input())
-    result = ""
-    while num > 0:
-        result = str(num % 10 * num % 10) + result
-        num = num // 10
-    print(result)
+    print(sys.argv[1])
