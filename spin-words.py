@@ -8,50 +8,47 @@ import itertools
 import queue
 import re
 """
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
-For example,
-input:
+Given a string of one or more words (separated by spaces), reverse all
+ of the words that are ﬁve or more letters long and
+ return the resulting string.
+ For example,
+  input:
+    This is a test.
+    output:
+    This is.
+    input:
+    Hi
+    output:
+    Hi
+    input:
 
-output:
+    output:
 
-input:
-a
-output:
-a
-input:
-this is a test
-output:
-this is a test
-input:
-this is another test
-output:
-this is rehtona test
-input:
-hi
-output:
-hi
+    input:
+    a
+    output:
+    a
+    input:
+    this is a test
+    output:
+    this is a test
+    input:
+    this is another test
+    output:
+    this is rehtona test
+    input:
+    hi
+    output:
+    hi
 """
-
-class Solution(object):
-    def reverseWords(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-        if len(s) <= 1:
-            return s
-        sList = s.split()
-        results = []
-        for word in sList:
-            if len(word) >= 5:
-                word = word[::-1]
-            results.append(word)
-
-        return ' '.join(results)
-
-
-
 if __name__ == '__main__':
-    test = Solution()
-    s = "There's an app for that on Android."
-    print test.reverseWords(s)
+    inp = 'this is a test. and that is another test.  theta is so different'
+    inp = [x for x in inp.split('.') if len(x) > 0]
+    for i in range(len(inp)):
+        inp[i] = [x for x in inp[i].split(' ') if len(x) > 0]
+        for j in range(len(inp[i])):
+            if len(inp[i][j]) > 4:
+                inp[i][j] = inp[i][j][::-1]
+        inp[i] = ' '.join(inp[i])
+    print('.'.join(inp))
+    print(inp)
