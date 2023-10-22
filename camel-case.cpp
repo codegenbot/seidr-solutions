@@ -34,23 +34,28 @@ all separate words
 output:
 all separate words
 */
-int main() {
-    string str;
-    getline(cin, str);
-    int len = str.length();
-    string ans = "";
-    for (int i = 0; i < len; i++) {
-        if (str[i] == '-') {
-            i++;
-            ans += toupper(str[i]);
-        }
-        else if (str[i] == ' ') {
-            ans += ' ';
-        }
-        else {
-            ans += str[i];
-        }
-    }
-    cout << ans << endl;
-    return 0;
+string kebabToCamel(string str)
+{
+	string ans = "";
+	for (int i = 0; i < str.size(); i++)
+	{
+		if (str[i] == ' ')
+		{
+			ans += " ";
+		}
+		else if (str[i] == '-')
+		{
+			ans += "";
+		}
+		else if (str[i + 1] == '-' || str[i + 1] == ' ')
+		{
+			ans += str[i];
+		}
+		else if (str[i + 1] != '-' && str[i + 1] != ' ')
+		{
+			ans += toupper(str[i]);
+		}
+	}
+	return ans;
 }
+int main() {
