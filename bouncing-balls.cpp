@@ -45,13 +45,16 @@ output:
 3.963
 */
 int main() {
-    double h, h1, b;
-    cin >> h >> h1 >> b;
-    double index = h1 / h;
-    double sum = h1;
-    for (int i = 1; i < b; i ++) {
-        sum += h * pow(index, i);
+    cout << "input: ";
+    double h0, h1;
+    int n;
+    cin >> h0 >> h1 >> n;
+    double bounciness = h1 / h0;
+    double distance = h0;
+    for (int i = 0; i < n; i++) {
+        distance += h0 * 2 * bounciness;
+        h0 = h0 * bounciness;
     }
-    printf("%.16lf\n", sum);
+    cout << distance << endl;
     return 0;
 }
