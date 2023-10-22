@@ -47,10 +47,11 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    num_items = int(input())
-    prices = [float(price) for price in input().split(" ")]
-    discounts = [float(discount) for discount in input().split(" ")]
+    line = sys.stdin.readline().strip().split()
+    n = int(line[0])
+    prices = [float(x) for x in sys.stdin.readline().strip().split()]
+    discounts = [float(x) for x in sys.stdin.readline().strip().split()]
     total = 0
-    for i in range(num_items):
+    for i in range(n):
         total += prices[i] * (1 - discounts[i] / 100)
-    print(total)
+    print("%.2f" % total)
