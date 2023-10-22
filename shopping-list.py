@@ -49,9 +49,8 @@ output:
 if __name__ == '__main__':
     n = int(input())
     price = list(map(float, input().split()))
-    m = int(input())
     discount = list(map(float, input().split()))
     total = 0
     for i in range(n):
-        total += price[i] * (100 - discount[i]) / 100
+        total += price[i] * (1 - discount[i] / 100)
     print(total)
