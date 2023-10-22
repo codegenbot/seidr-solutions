@@ -15,6 +15,14 @@ Given a vector of positive integers, ﬁnd the spot where, if you cut the vector
 For example,
 input:
 1
+0
+output:
+1
+0
+0
+
+input:
+1
 10
 output:
 1
@@ -47,3 +55,5 @@ output:
 
 */
 int main() {
+
+}
