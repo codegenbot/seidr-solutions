@@ -31,11 +31,13 @@ hi
 output:
 hi
 """
-def reverse_words(word):
-    word_list = word.split(" ")
-    word_list = [i[::-1] if len(i)>=5 else i for i in word_list]
-    return " ".join(word_list)
+
+def reverseWords(inputStr):
+    inputStr = inputStr.split()
+    for i in range(0, len(inputStr)):
+        if len(inputStr[i]) >= 5:
+            inputStr[i] = inputStr[i][::-1]
+    
+    return ' '.join(inputStr)
+
 if __name__ == '__main__':
-    print(reverse_words("this is a test"))
-    print(reverse_words("this is another test"))
-    print(reverse_words("hi"))
