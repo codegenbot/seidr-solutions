@@ -42,24 +42,17 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = raw_input()
-    guess = raw_input()
-    code_list = list(code)
-    guess_list = list(guess)
-    print code_list
-    print guess_list
-    code_counter = collections.Counter(code_list)
-    guess_counter = collections.Counter(guess_list)
-    print code_counter
-    print guess_counter
-    white = 0
-    black = 0
-    for c in code_counter:
-        if c in guess_counter:
-            if code_counter[c] == guess_counter[c]:
-                black += code_counter[c]
-            elif code_counter[c] > guess_counter[c]:
-                white += guess_counter[c]
-            else:
-                white += code_counter[c]
-    print black, white
+    def mastermind(code, guess):
+        c = collections.Counter(code)
+        g = collections.Counter(guess)
+        s = 0
+        for i in range(4):
+            if code[i] == guess[i]:
+                s += 1
+        return [s, sum((c & g).values()) - s]
+
+    print mastermind('RRRR', 'RRRR')
+    print mastermind('BOYG', 'GYOB')
+    print mastermind('WYYW', 'BBOG')
+    print mastermind('GGGB', 'BGGG')
+    print mastermind('BBBB', 'OOOO')
