@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
-AB
+TV
 output:
- 
+V
 input:
 $
 output:
@@ -32,3 +32,10 @@ output:
 )b
 """
 if __name__ == '__main__':
+    s=input()
+    if len(s)%2==0:
+        t=int(len(s)/2)
+        print(s[t-1]+s[t])
+    else:
+        t=int(len(s)/2)
+        print(s[t])
