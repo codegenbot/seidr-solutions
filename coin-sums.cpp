@@ -50,39 +50,17 @@ output:
 0
 */
 int main() {
-    int penny = 1;
-    int nickle = 5;
-    int dime = 10;
-    int quarter = 25;
     int cents;
+    int q, d, n, p;
     while (cin >> cents) {
-        int num_quarter = 0;
-        int num_dime = 0;
-        int num_nickle = 0;
-        int num_penny = 0;
-        while (cents >= quarter) {
-            cents -= quarter;
-            num_quarter++;
-        }
-        while (cents >= dime) {
-            cents -= dime;
-            num_dime++;
-        }
-        while (cents >= nickle) {
-            cents -= nickle;
-            num_nickle++;
-        }
-        while (cents >= penny) {
-            cents -= penny;
-            num_penny++;
-        }
-        if (cents != 0) {
-            num_penny++;
-        }
-        cout << num_penny << endl;
-        cout << num_nickle << endl;
-        cout << num_dime << endl;
-        cout << num_quarter << endl;
+        q = cents / 25 + 1;
+        d = (cents % 25) / 10 + 1;
+        n = ((cents % 25) % 10) / 5 + 1;
+        p = ((cents % 25) % 10) % 5 + 1;
+        cout << p << endl;
+        cout << n << endl;
+        cout << d << endl;
+        cout << q << endl;
     }
     return 0;
 }
