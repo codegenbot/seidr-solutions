@@ -34,31 +34,50 @@ t&f
 output:
 False
 */
-int main() {
-    string s;
-    while(cin >> s){
-        stack<char> stk;
-        int len = s.length();
-        bool ans = true;
-        for(int i = 0; i < len; i ++){
-            if(s[i] == 'f') ans = false;
-            else if(s[i] == 't') ans = true;
-            else if(s[i] == '|'){
-                bool t = stk.top();
-                stk.pop();
-                t = ans || t;
-                stk.push(t);
-                ans = true;
-            }
-            else if(s[i] == '&'){
-                bool t = stk.top();
-                stk.pop();
-                t = ans && t;
-                stk.push(t);
-                ans = true;
+
+class Solution {
+public:
+    bool parseBoolExpr(string expression) {
+        stack<char> st;
+        for(int i = 0; i < expression.size(); i++) {
+            char c = expression[i];
+            if(c == ')') {
+                vector<bool> v;
+                while(!st.empty()) {
+                    char c = st.top();
+                    st.pop();
+                    if(c == '(') break;
+                    v.push_back(c == 't');
+                }
+                char op = st.top();
+                st.pop();
+                bool b = false;
+                if(op == '&') {
+                    b = true;
+                    for(auto a : v) {
+                        b &= a;
+                    }
+                } else if(op == '|') {
+                    b = false;
+                    for(auto a : v) {
+                        b |= a;
+                    }
+                } else {
+                    b = true;
+                    for(auto a : v) {
+                        b &= !a;
+                    }
+                }
+                st.push(b?'t':'f');
+            } else {
+                st.push(c);
             }
         }
-        cout << (stk.top() ? "true" : "false") << endl;
+        return st.top() =='t';
     }
+};
+int main() {
+    Solution s = Solution();
+    cout<<boolalpha<<s.parseBoolExpr("|(&(t,f,t),!(t))")<<endl;
     return 0;
 }
