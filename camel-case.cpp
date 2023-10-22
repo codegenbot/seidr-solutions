@@ -35,5 +35,31 @@ output:
 all separate words
 */
 int main() {
-
+    string input;
+    getline(cin, input); //read one line of input
+    //cout << input << endl;
+    string result = "";
+    bool firstLetter = false;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == '-') {
+            firstLetter = true;
+            continue;
+        }
+        else if (firstLetter) {
+            if (input[i] >= 'a' && input[i] <= 'z') {
+                result += (input[i] - 32);
+                firstLetter = false;
+            }
+            else {
+                result += input[i];
+                firstLetter = false;
+            }
+        }
+        else {
+            result += input[i];
+        }
+    }
+    cout << result << endl;
+    
+    return 0;
 }
