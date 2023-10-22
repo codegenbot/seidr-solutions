@@ -42,13 +42,6 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    a = input()
-    b = input()
-    c = input()
-    d = ""
-    for i in range(len(c)):
-        if c[i] in a:
-            d += b[a.index(c[i])]
-        else:
-            d += c[i]
-    print(d)
+    cipher_map = dict(zip(sys.stdin.readline().strip(), sys.stdin.readline().strip()))
+    cipher_text = sys.stdin.readline().strip()
+    print("".join([cipher_map.get(c, c) for c in cipher_text]))
