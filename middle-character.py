@@ -32,8 +32,12 @@ output:
 )b
 """
 if __name__ == '__main__':
-    input_str = input().strip()
-    if len(input_str) % 2 == 0:
-        print(input_str[len(input_str)//2-1:len(input_str)//2+1])
-    else:
-        print(input_str[len(input_str)//2])
+    while True:
+        try:
+            line = input()
+            if len(line) % 2 == 0:
+                print(line[int(len(line) / 2) - 1:int(len(line) / 2) + 1])
+            else:
+                print(line[int(len(line) / 2)])
+        except:
+            break
