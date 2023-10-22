@@ -15,9 +15,9 @@ Q
 output:
 Q
 input:
-ab
+E9
 output:
- 
+E
 input:
 $
 output:
@@ -27,8 +27,13 @@ E9
 output:
 E9
 input:
-)b
+14
 output:
-)b
+14
 """
 if __name__ == '__main__':
+    s = input()
+    if len(s) % 2 == 1:
+        print(s[math.floor(len(s)/2)])
+    else:
+        print(s[len(s)/2 - 1 : math.ceil(len(s)/2) +1])
