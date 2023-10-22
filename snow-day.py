@@ -46,16 +46,11 @@ input:
 output:
 10.0
 """
-
-
-def snow(hours, snow_on_ground, rate_of_fall, melting_rate):
-    if melting_rate >= 0.5:
-        return "WTF!"
-    elif melting_rate == 0:
-        return snow_on_ground + (rate_of_fall * hours)
-    else:
-        new_snow = snow_on_ground + (rate_of_fall * hours)
-        return new_snow - (new_snow * math.pow(melting_rate, hours))
-
-
 if __name__ == '__main__':
+  hours = int(sys.stdin.readline())
+  snow_on_ground = float(sys.stdin.readline())
+  rate_of_snow_fall = float(sys.stdin.readline())
+  rate_of_melting = float(sys.stdin.readline())
+  for _ in range(hours):
+    snow_on_ground += rate_of_snow_fall - (snow_on_ground * rate_of_melting)
+  print(snow_on_ground)
