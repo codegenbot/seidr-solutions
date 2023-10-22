@@ -42,4 +42,16 @@ output:
 0
 """
 if __name__ == '__main__':
-  print()
+    res = dict()
+    for c in sys.stdin.readline().strip():
+        if res.setdefault(c, 0) == 0:
+            res[c] = 1
+        else:
+            res[c] += 1
+
+    for c in sys.stdin.readline().strip():
+        if c in res and res[c] > 0:
+            res[c] -= 1
+
+    print(len([v for v in res.values() if v == 0]))
+    print(sum(res.values()))
