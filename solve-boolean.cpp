@@ -11,31 +11,6 @@
 #include <climits>
 using namespace std;
 /*
-
-Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
-For example,
-input:
-t
-output:
-True
-input:
-f
-output:
-False
-input:
-f&f
-output:
-False
-input:
-f&t
-output:
-False
-input:
-t&f
-output:
-False
-
-
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
@@ -59,16 +34,34 @@ t&f
 output:
 False
 */
-
-bool evaluate(string input) {
-    // Write your code here
-}
-
 int main() {
-    cout << evaluate("t") << endl;
-    cout << evaluate("f") << endl;
-    cout << evaluate("f&f") << endl;
-    cout << evaluate("f&t") << endl;
-    cout << evaluate("t&f") << endl;
+    string str;
+    while (cin >> str) {
+        stack<char> ops;
+        stack<bool> values;
+        for (int i = 0; i < str.size(); i++) {
+            char c = str[i];
+            if (c == '&' || c == '|') {
+                ops.push(c);
+            } else if (c == 'T') {
+                values.push(true);
+            } else if (c == 'F') {
+                values.push(false);
+            } else if (c == ')') {
+                bool v2 = values.top();
+                values.pop();
+                bool v1 = values.top();
+                values.pop();
+                char op = ops.top();
+                ops.pop();
+                if (op == '&') {
+                    values.push(v1 && v2);
+                } else if (op == '|') {
+                    values.push(v1 || v2);
+                }
+            }
+        }
+        cout << (values.top() ? "True" : "False") << endl;
+    }
     return 0;
 }
