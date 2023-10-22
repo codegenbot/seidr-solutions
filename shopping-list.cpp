@@ -50,21 +50,21 @@ output:
 29.0
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<double> list(n);
-    for (int i = 0; i < n; i++) {
-        cin >> list[i];
+    //printf("%0.2f\n", (double)234/100);
+    int x,y;
+    while(cin>>x){
+        vector<double> v1(x,0);
+        vector<double> v2(x,0);
+        for(int i=0;i<x;i++) cin>>v1[i];
+        cin>>y;
+        for(int i=0;i<y;i++) cin>>v2[i];
+        double res=0;
+        for(int i=0;i<x;i++){
+            double discount=v2[i]/100;
+            res+=v1[i]*(1-discount);
+        }
+        printf("%.2f\n",res);
+        
     }
-    cin >> n;
-    vector<double> perc(n);
-    for (int i = 0; i < n; i++) {
-        cin >> perc[i];
-    }
-    double res = 0;
-    for (int i = 0; i < list.size(); i++) {
-        res += list[i] * (1 - (double)perc[i]/100);
-    }
-    printf("%.2f\n", res);
     return 0;
 }
