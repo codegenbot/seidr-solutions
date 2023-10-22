@@ -11,13 +11,13 @@
 #include <climits>
 using namespace std;
 /*
-Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
-input:
-a
-5
-output:
-0
+Given [5, 7, 7, 8, 8, 10] and target value 8,
+return [3, 4].
+
+For example,
+Given [1,2,3,3,3] and target value 3,
+return [2,3,4].
 
 input:
 !
@@ -44,27 +44,4 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-
-vector<int> doStuff(const string& big, const string& small){
-    vector<int> res;
-    for(int i = 0; i <= big.size() - small.size(); ++i){//a 5 - h 5
-        int j = 0;
-        while(big[i + j] == small[j] && j < small.size()){
-            ++j;
-        }
-        if(j == small.size())  res.push_back(i);
-    }
-    return res;
-}
-
 int main() {
-    string big, small;
-    cin >> big;
-    cin >> small;
-    vector<int> res = doStuff(big, small);
-    for(int i : res){
-        cout << i << " ";
-    }
-    
-    return 0;
-}
