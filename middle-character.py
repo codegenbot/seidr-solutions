@@ -8,114 +8,70 @@ import itertools
 import queue
 import re
 """
-Write a program which reads 3 input strings and reverses them into integer.
-For example, if the input is "Hello" "World" "1", then the output should be 1099544661
+Write a program to parse a address like 5 Diderot Ave., San Francisco, CA 94116 to 5 Diderot Avenue, San Francisco, California 94116
+
+For example,
 input:
-Hello
-World
-1
+5 Diderot Ave., San Francisco, CA 94116
 output:
-1099544661
+5 Diderot Avenue, San Francisco, California 94116
 input:
-World
-Hello
-1
+456 First St., San Francisco, CA 94116
 output:
-717676293
+456 First Street, San Francisco, California 94116
 input:
-ab
-cd
-1
+1 1st Ave, San Francisco, CA 94116
 output:
-1099544661
-input: ZZ zz Aa aa
-output: 1099544661
-input: 990000000000 990000
-output: 19099999900000
+1 1st Avenue, San Francisco, California 94116
+input:
+456 2nd St., San Francisco, CA 94116
+output:
+456 2nd Street, San Francisco, California 94116
+input:
+456 3rd St., San Francisco, CA 94116
+output:
+456 3rd Street, San Francisco, California 94116
+input:
+456 4th St., San Francisco, CA 94116 
+output:
+456 4th Street, San Francisco, California 94116
 """
 
-def inpt():
-    str1 = raw_input();
-    str2 = raw_input();
-    str3 = raw_input();
-    return str1, str2, str3;
+#street_types = 
+#word_list = 
 
-def input32():
-    """
-    pure input function sometime is too slow compare to this input function
-    """
-    str = raw_input();
-    ret = str.split();
-    return ret;
-    
-def output32(num):
-    """
-    num is a string
-    """
-    print(num);
+def wordDictionary(street_types = {
+	'Ave.': 'Avenue',
+	'Blvd.': 'Boulevard',
+	'Ct.': 'Court',
+	'Dr.': 'Drive',
+	'Fwy':'Freeway',
+	'Hwy': 'Highway',
+	'Ln.': 'Lane',
+	'Pl.': 'Plaza',
+	'Rd.': 'Road',
+	'Rte': 'Route',
+	'St.': 'Street',
+	'Terr': 'Terrace',
+	'WAY': 'Way'
+}, word_list = [' 1st', ' 2nd', ' 3rd', ' 4th', ' 5th', ' 6th', ' 7th', ' 8th', ' 9th']):
+	word_dict = {}
+	for street_type in street_types.keys():
+		word_dict[street_type] = street_types[street_type]
+	for word in word_list:
+		word_dict[word] = word.replace(word[0], '')
+	return word_dict
 
-def intTo32BitBinary(num):
-    ret = list(format(num, "032b")); 
-    popZero(ret);
-    return ret;
-
-def bigIntTo32BitBinary(num):
-    """
-    4 bytes
-    """
-    ret = list(format(num, "b")); 
-    popZero(ret);
-    return ret;
-
-def intTo8BitBinary(num):
-    ret = list(format(num, "08b"));
-    popZero(ret);
-    return ret;
-    
-def popZero(arr):
-    while arr[len(arr) - 1] == '0':
-        arr.pop();
-        
-def strToBinaryArr(str, binaryArr):
-    size = len(str);
-    asciiArr = [ord(c) for c in str];
-    
-    cnt = 0;
-    for i in range(size):
-        tmp = intTo8BitBinary(asciiArr[i]);
-        for j in range(len(tmp)):
-            binaryArr[cnt] = tmp[j];
-            cnt += 1;
-        if cnt >= 32:
-            break;
-    for i in range(cnt, 32):
-        binaryArr[cnt] = '0';
-        cnt += 1;
-    
-    return binaryArr;
-
-def arrToNum(arr):
-    sum = 0;
-    for i in range(len(arr)):
-        sum = sum * 2;
-        if arr[i] == '1':
-            sum = sum + 1;
-    return sum;
-
+def parseAddress(address, word_dict = wordDictionary()):
+	words = address.split(' ')
+	lastTwo = ' '.join(words[-2:])
+	lastTwo = lastTwo.replace(',', '')
+	if lastTwo in word_dict.keys():
+		lastTwo = word_dict[lastTwo]
+	if len(address) == 0:
+        	return address
+	if len(address) == 1:
+        	return address
+	return ' '.join(words[:-2] + [lastTwo]).replace(', ,', ',').replace(', ,', ',')
 
 if __name__ == '__main__':
-    cnt = input();
-    tries = int(cnt);
-    
-    for i in range(tries):
-        str1, str2, str3 = inpt();
-        binaryArr = ['0']*32;
-        str1Arr = strToBinaryArr(str1, binaryArr);
-        str2Arr = strToBinaryArr(str2, binaryArr);
-        str3Arr = strToBinaryArr(str3, binaryArr);
-        
-        str1Value = arrToNum(str1Arr);
-        str2Value = arrToNum(str2Arr);
-        str3Value = arrToNum(str3Arr);
-        
-        output32(str1Value + str2Value * pow(2, 16) + str3Value * pow(2, 32));
