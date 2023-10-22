@@ -44,25 +44,20 @@ output:
 1
 1000
 */
-vector<int> leaders(vector<int> nums) {
-    vector<int> res;
-    int max = nums[nums.size()-1];
-    res.push_back(max);
-    for(int i = nums.size()-2; i >= 0; i--) {
-        if(nums[i] >= max) {
-            res.push_back(nums[i]);
-            max = nums[i];
+int main() {
+    int n, t;
+    scanf("%d", &n);
+    vector<int> ret;
+    int m=INT_MIN;
+    for(int i=0;i<n;i++){
+        scanf("%d",&t);
+        if(t>=m){
+            ret.push_back(t);
+            m=t;
         }
     }
-    reverse(res.begin(), res.end());
-    return res;
-}
-
-int main() {
-    vector<int> a = {1, 451};
-    vector<int> res = leaders(a);
-    for(int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
-    }
+    for(int i=ret.size()-1;i>=0;i--)
+        printf("%d ", ret[i]);
+    
     return 0;
 }
