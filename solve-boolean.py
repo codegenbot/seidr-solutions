@@ -31,17 +31,20 @@ t&f
 output:
 False
 """
-
-
-def evaluate(expression):
-    if len(expression) == 1:
-        return expression == 't'
-    for i in range(len(expression)):
-        if expression[i] == '&':
-            return evaluate(expression[:i]) and evaluate(expression[i+1:])
-        elif expression[i] == '|':
-            return evaluate(expression[:i]) or evaluate(expression[i+1:])
-
-
 if __name__ == '__main__':
-    print(evaluate(input()))
+    s = input()
+    ans = False
+    if s[0] == 't':
+        ans = True
+
+    if len(s) == 1:
+        print(ans)
+        exit()
+    for i in range(len(s)):
+        if s[i] == '&':
+            ans = ans & ((s[i+1] == 't') if 1 else False)
+        elif s[i] == '|':
+            ans = ans | ((s[i+1] == 't') if 1 else False)
+        else:
+            continue
+    print(ans)
