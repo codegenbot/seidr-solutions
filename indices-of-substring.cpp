@@ -45,14 +45,30 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text;
+    string str;
     string target;
-    cin >> text >> target;
-    int index = text.find(target);
-    while (index != -1) {
-        cout << index << " ";
-        index = text.find(target, index+1);
+    int index = 0;
+    while (getline(cin, str)) {
+        getline(cin, target);
+        int i = 0;
+        while(i < str.size()) {
+            if(str[i] == target[0]) {
+                bool flag = true;
+                for(int j = 1; j < target.size(); j++) {
+                    if(str[i+j] != target[j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if(flag) {
+                    cout<<i<<" ";
+                    i += target.size()-1;
+                }
+            }
+            i++;
+        }
+        cout<<endl;
+        index++;
     }
-    cout << endl;
     return 0;
 }
