@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
- 
+  A
 output:
- 
+  A
 input:
 $
 output:
@@ -35,10 +35,3 @@ output:
 )b
 */
 int main() {
-    string s;
-    while (cin >> s) {
-        cout << s.substr((s.size() - 1) / 2, s.size() / 2 + 1);
-        cout << endl;
-    }
-    return 0;
-}
