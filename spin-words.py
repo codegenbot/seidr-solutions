@@ -32,4 +32,9 @@ output:
 hi
 """
 if __name__ == '__main__':
-    pass
+    a = input()
+    b = a.split()
+    for i in range(len(b)):
+        if len(b[i])>=5:
+            b[i] = b[i][::-1]
+    print(" ".join(b))
