@@ -45,20 +45,19 @@ output:
 1000
 */
 int main() {
-    int N; // number of elements inthe vector
+    int N;
     cin >> N;
-    vector<int> V(N);
-    for (int i = 0; i < V.size(); i++) {
-        cin >> V[i];
-    }
-    for (int i = 0; i < V.size(); i++) {
-        V[i] = max(V[i], V[i + 1]);
-    }
-    for (int i = 0; i < V.size(); i++) {
-        if (V[i] == V[i - 1])
-            continue;
-        else {
-            cout << V[i] << endl;
+    vector<int> v(N), r(N);
+    for (int i = 0; i < N; i++) {
+        cin >> v[i];
+        while (r.size() > 0 && v[i] >= r[r.size() - 1]) {
+            r.pop_back();
         }
+        r.push_back(v[i]);
     }
+
+    for (int i = 0; i < r.size(); i++) {
+        cout << r[i] << ' ';
+    }
+    cout << endl;
 }
