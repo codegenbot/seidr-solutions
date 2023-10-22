@@ -15,7 +15,7 @@ Q
 output:
 Q
 input:
- 
+QQ
 output:
  
 input:
@@ -31,12 +31,4 @@ input:
 output:
 )b
 """
-def middleChar(s):
-    if len(s) % 2 == 0:
-        return s[len(s)//2-1:len(s)//2+1]
-    else:
-        return s[len(s)//2]
-
 if __name__ == '__main__':
-    s = input()
-    print(middleChar(s))
