@@ -39,18 +39,24 @@ input:
 output:
 0.0
 */
+
+//计算概率, 可以用枚举的方式
+double solve(int n, int m) {
+    double ret = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                ret += 1.0 / (n * m);
+            }
+        }
+    }
+    return ret;
+}
+
 int main() {
     int n, m;
     while (cin >> n >> m) {
-        double p = 0;
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= m; j++) {
-                if (i > j) {
-                    p += 1;
-                }
-            }
-        }
-        cout << p / (n * m) << endl;
+        printf("%.2f\n", solve(n, m));
     }
     return 0;
 }
