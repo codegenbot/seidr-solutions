@@ -41,17 +41,16 @@ output:
 */
 int main() {
     int n, m;
-    cin >> n >> m;
-    double ans = 0;
-    if (n <= m) {
-        ans = 0.0;
-    }
-    else {
-        for (int i = 1; i <= m; i ++) {
-            if (i < n) { ans += 1.0 / m; }
-            else { ans += (n - i + 1.0) / n / m; }
+    while(cin >> n >> m) {
+        int tot = n * m;
+        int win = 0;
+        for(int i = 1; i <= n; i++) {
+            for(int j = i + 1; j <= m; j++) {
+                win++;
+            }
         }
+        double ans = 1.0 * win / tot;
+        printf("%.5f\n", ans);
     }
-    printf("%.2f", ans);
     return 0;
 }
