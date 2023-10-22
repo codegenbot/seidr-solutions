@@ -31,13 +31,15 @@ hi
 output:
 hi
 """
-def reverse_string(s):
-    s = s.split(' ')
-    for i in range(len(s)):
-        if len(s[i]) >= 5:
-            s[i] = s[i][::-1]
-    return ' '.join(s)
+def reverse_word(s):
+    words = s.split(' ')
+    result = []
+    for i in words:
+        if len(i) < 5:
+            result.append(i)
+        else:
+            result.append(i[::-1])
+    return ' '.join(result)
 
 if __name__ == '__main__':
-    s = 'this is a test'
-    print(reverse_string(s))
+    print(reverse_word("this is a test"))
