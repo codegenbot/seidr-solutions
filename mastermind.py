@@ -42,19 +42,21 @@ output:
 0
 """
 if __name__ == '__main__':
-    code = input()
-    guess = input()
-    code_dict = collections.Counter(code)
-    guess_dict = collections.Counter(guess)
-    black = 0
-    white = 0
-    for c in code_dict:
-        if code_dict[c] <= guess_dict[c]:
-            white += code_dict[c]
-        else:
-            white += guess_dict[c]
-    for i in range(len(code)):
-        if code[i] == guess[i]:
-            black += 1
-    white -= black
-    print(black, white)
+    def mastermind(code, guess):
+        white = 0
+        black = 0
+        code_count = collections.Counter(code)
+        guess_count = collections.Counter(guess)
+        for key in code_count.keys():
+            if key in guess_count.keys():
+                white += min(code_count[key], guess_count[key])
+        for i in range(4):
+            if code[i] == guess[i]:
+                black += 1
+        return white - black, black
+
+    print(mastermind("RRRR", "RRRR"))
+    print(mastermind("BOYG", "GYOB"))
+    print(mastermind("WYYW", "BBOG"))
+    print(mastermind("GGGB", "BGGG"))
+    print(mastermind("BBBB", "OOOO"))
