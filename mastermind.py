@@ -41,11 +41,18 @@ output:
 0
 0
 """
+def mastermind(code, guess):
+    white = 0
+    black = 0
+    for i in range(len(code)):
+        if code[i] == guess[i]:
+            black += 1
+    for i in range(len(code)):
+        if code[i] != guess[i] and guess[i] in code:
+            white += 1
+    return white, black
+
 if __name__ == '__main__':
-    for _ in range(int(input())):
-        code = input()
-        guess = input()
-        c = collections.Counter(code)
-        g = collections.Counter(guess)
-        print(sum(min(c[i], g[i]) for i in 'RGBYWO'), end=' ')
-        print(sum(a == b for a, b in zip(code, guess)))
+    code = "RRRR"
+    guess = "RRRR"
+    print(mastermind(code, guess))
