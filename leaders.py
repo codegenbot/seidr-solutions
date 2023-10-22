@@ -41,15 +41,25 @@ output:
 1
 1000
 """
+
+def find_leaders(input_list):
+    output = []
+    leader = 0
+
+    for i in range(len(input_list)-1,-1,-1):
+        if input_list[i] >= leader:
+            leader = input_list[i]
+            output.append(leader)
+
+    return output[::-1]
+
+
 if __name__ == '__main__':
-    N = list(map(int, input().split()))
-    m = int(input())
-    out = []
-    temp = 0
-    for i in range(m):
-        for j in range(m-i-1):
-            if N[i] <= N[j]:
-                temp = N[i]
-                N[i] = N[j]
-                N[j]=temp
-    print(N)
+    input_list = []
+
+    for i in range(int(input())):
+        input_list.append(int(input()))
+    #input_list=[1,58,2,100,12,98,100]
+    output_list = find_leaders(input_list)
+    for i in output_list:
+        print(i)
