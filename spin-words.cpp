@@ -1,15 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
 /*
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
@@ -34,31 +22,3 @@ hi
 output:
 hi
 */
-int main() {
-	string s;
-	getline(cin, s);
-	string ans = "";
-	int i = 0;
-	while(i < s.size()){
-		int j = i;
-		while(j < s.size() && s[j] != ' '){
-			j++;
-		}
-		if(j - i >= 5){
-			for(int k = j - 1; k >= i; k--){
-				ans += s[k];
-			}
-		}
-		else{
-			for(int k = i; k < j; k++){
-				ans += s[k];
-			}
-		}
-		if(j < s.size()){
-			ans += ' ';
-		}
-		i = j + 1;
-	}
-	cout << ans << endl;
-	return 0;
-}
