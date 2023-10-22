@@ -32,4 +32,13 @@ output:
 False
 """
 if __name__ == '__main__':
-    pass
+    def evaluate_expression(s):
+        s = s.replace('&', ' and ')
+        s = s.replace('|', ' or ')
+        return eval(s)
+
+    print(evaluate_expression('t'))
+    print(evaluate_expression('f'))
+    print(evaluate_expression('f&f'))
+    print(evaluate_expression('f&t'))
+    print(evaluate_expression('t&f'))
