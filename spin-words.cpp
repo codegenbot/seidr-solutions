@@ -35,42 +35,25 @@ output:
 hi
 */
 int main() {
-    string str;
-    string line;
-    while (getline(cin, line)) {
-        str += line;
-        if (line.length() > 0 && line.back() == '\r') str.pop_back();
-        if (line.length() > 0 && line.back() == '\n') str.pop_back();
-    }
-    
-    string ret;
-    int start = 0;
-    int end = 0;
-    bool flag = false;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] != ' ') {
-            flag = true;
-        }
-        
-        if (str[i] == ' ' || i == str.length() - 1) {
-            end = i - 1;
-            if (end - start + 1 >= 5) {
-                string tmp;
-                for (int j = end; j >= start; j--) {
-                    tmp += str[j];
+    string input;
+    while(true){
+        getline(cin, input);
+        string output;
+        int i = 0, j = 0;
+        while(j <= (int)input.length()){
+            if (j == (int)input.length() || input[j] == ' '){
+                if (j - i < 5) {
+                    for (int k = i; k < j; k++)
+                        output += input[k];
+                }else {
+                    for (int k = j - 1; k >= i; k--)
+                        output += input[k];
                 }
-                ret += tmp;
+                i = j + 1;
             }
-            else {
-                for (int j = start; j <= end; j++) {
-                    ret += str[j];
-                }
-            }
-            if (str[i] == ' ') ret += ' ';
-            start = i + 1;
+            j++;
         }
+        cout << output << endl;
     }
-    if (!flag) ret += str;
-    cout << ret << endl;
     return 0;
 }
