@@ -42,19 +42,8 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    #a = input().strip()
-    #b = input().strip()
-    #c = input().strip()
-    a = "a"
-    b = "a"
-    c = "a"
-    a = list(a)
-    b = list(b)
-    c = list(c)
-    d = ""
-    for i in range(len(c)):
-        if c[i] in a:
-            d += b[a.index(c[i])]
-        else:
-            d += c[i]
-    print(d)
+    s1 = input()
+    s2 = input()
+    s3 = input()
+    d = dict(zip(s1, s2))
+    print(''.join(d.get(c, c) for c in s3))
