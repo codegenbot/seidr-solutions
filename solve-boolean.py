@@ -32,4 +32,10 @@ output:
 False
 """
 if __name__ == '__main__':
-    pass
+    s = input()
+    if s == 't':
+        print(True)
+    elif s == 'f':
+        print(False)
+    else:
+        print(eval(s))
