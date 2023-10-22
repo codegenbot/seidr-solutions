@@ -35,25 +35,44 @@ output:
 all separate words
 */
 int main() {
-    string s;
-    getline(cin, s);
-    bool prev = false;
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == '-') {
-            prev = true;
-        } else {
-            if(prev) {
-                s[i] = toupper(s[i]);
-                prev = false;
-            }
-        }
-    }
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == '-') {
-            s.erase(i, 1);
-            i--;
-        }
-    }
-    cout << s << endl;
-    return 0;
+	string s;
+	getline(cin, s);
+	vector<string> v;
+	for(int i = 0; i < s.size(); ++i) {
+		if(s[i] == ' ') {
+			v.push_back(" ");
+		}
+		else if(s[i] == '-') {
+			v.push_back("-");
+		}
+		else {
+			string tmp = "";
+			while(i < s.size() && s[i] != ' ' && s[i] != '-') {
+				tmp += s[i];
+				i++;
+			}
+			v.push_back(tmp);
+			i--;
+		}
+	}
+	for(int i = 0; i < v.size(); ++i) {
+		if(v[i] == " " || v[i] == "-") {
+			cout << v[i];
+		}
+		else {
+			if(i == 0 || v[i - 1] == " " || v[i - 1] == "-") {
+				for(int j = 0; j < v[i].size(); ++j) {
+					cout << (char)tolower(v[i][j]);
+				}
+			}
+			else {
+				for(int j = 0; j < v[i].size(); ++j) {
+					if(j == 0) cout << (char)toupper(v[i][j]);
+					else cout << (char)tolower(v[i][j]);
+				}
+			}
+		}
+	}
+	cout << endl;
+	return 0;
 }
