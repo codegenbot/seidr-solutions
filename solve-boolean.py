@@ -32,5 +32,4 @@ output:
 False
 """
 if __name__ == '__main__':
-    s = raw_input()
-    print eval(s)
+    pass
