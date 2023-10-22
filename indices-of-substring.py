@@ -8,53 +8,45 @@ import itertools
 import queue
 import re
 """
-Given a text string and a target string, return
-a list of integers of the indices at which the target appears in the text. Targets may overlap.
-For example,
+Given 2 integers x and n, where n>x, print the difference between the sum of squares of the first n natural numbers and the square of the sum.
+(Source: XKCD)
 input:
-a
+5
 5
 output:
-0
+170
 
 input:
-!
-!
+10
+10
 output:
-1
-0
-input:
-r
-nm,xcnwqnd@#$fwkdjn3
-output:
-0
+2640
 
 input:
-hi
-hihihihihihihihihihi
+50
+100
 output:
-0
+1582700
 
 input:
-############
-#
+200
+1000
 output:
-12
-0 1 2 3 4 5 6 7 8 9 10 11
+25164150
+
+input:
+1000000
+2000000
+output:
+249975000025000000
 """
-text,pattern = input().strip(),input().strip()
-indices = []
-for first_letter in range(len(text)-len(pattern)+1):
-    if text[first_letter] == pattern[0]:
-        try:
-            if text[first_letter:first_letter+len(pattern)] == pattern:
-                indices.append(first_letter)
-                print(first_letter,end=" ")
-        except IndexError:
-            pass
-
-if not indices:
-    print('Text not found')
-
 if __name__ == '__main__':
-    pass
+    sys.stdin = open('input.txt')
+    while True:
+        N = map(int, raw_input().strip().split())
+        if N == [0, 0]:
+            break
+        x, n = N
+        sum_number1, sum_number2 = n*(n+1)/2, n*(n+1)*(2*n + 1)/6
+        res = sum_number1**2 - sum_number2
+        print res
