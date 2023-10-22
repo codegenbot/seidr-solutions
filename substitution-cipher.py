@@ -42,8 +42,10 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    cipher1 = input()
-    cipher2 = input()
-    message = input()
-    cipher = dict(zip(cipher1, cipher2))
-    print(''.join([cipher[c] for c in message]))
+    s1 = input()
+    s2 = input()
+    s3 = input()
+    s4 = ''
+    for i in range(len(s3)):
+        s4 += s2[s1.find(s3[i])]
+    print(s4)
