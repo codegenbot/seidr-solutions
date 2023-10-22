@@ -51,17 +51,24 @@ output:
 */
 int main() {
     int n;
-    float x, ans = 0;
     cin >> n;
-    for(int i = 0; i < n; ++i) {
-        cin >> x;
-        ans += x * x;
+    vector<double> vec;
+    int i = n;
+    while (i > 0) {
+        double d;
+        cin >> d;
+        vec.push_back(d);
+        i--;
     }
-    cin >> n;
-    for(int i = 0; i < n; ++i) {
-        cin >> x;
-        ans -= x * x;
+    i = n;
+    double distance = 0.0;
+    while (i > 0) {
+        double d;
+        cin >> d;
+        distance += (vec[n - i] - d) * (vec[n - i] - d);
+        i--;
     }
-    cout << sqrt(-ans) << endl;
+    distance = sqrt(distance);
+    cout << distance;
     return 0;
 }
