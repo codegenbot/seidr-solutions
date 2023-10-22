@@ -45,30 +45,15 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string str;
-    string target;
-    int index = 0;
-    while (getline(cin, str)) {
-        getline(cin, target);
-        int i = 0;
-        while(i < str.size()) {
-            if(str[i] == target[0]) {
-                bool flag = true;
-                for(int j = 1; j < target.size(); j++) {
-                    if(str[i+j] != target[j]) {
-                        flag = false;
-                        break;
-                    }
-                }
-                if(flag) {
-                    cout<<i<<" ";
-                    i += target.size()-1;
-                }
-            }
-            i++;
+    string t, p;
+    cin >> t >> p;
+    vector<int> ans;
+    for(int i = 0; i < t.size(); ++i) {
+        for(int j = 0; j < p.size(); ++j) {
+            if(t[i+j] != p[j]) break;
+            if(j == p.size()-1) ans.push_back(i);
         }
-        cout<<endl;
-        index++;
     }
+    for(int i = 0; i < ans.size(); ++i) cout << ans[i] << " ";
     return 0;
 }
