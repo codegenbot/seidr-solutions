@@ -34,21 +34,22 @@ output:
 """
 
 def mastermind(code, guess):
-    white, black = 0, 0
-    for i in range(4):
-        if code[i] == guess[i]:
+    white = 0
+    black = 0
+
+    for c, g in zip(code, guess):
+        if c == g:
             black += 1
-            guess = guess[:i] + '.' + guess[i+1:]
-    for i in range(4):
-        for j in range(4):
-            if code[i] == guess[j]:
-                white += 1
-                guess = guess[:j] + '.' + guess[j+1:]
-    return (black, white)
+        else:
+            white += 1
+
+    return (white, black)
+
 
 if __name__ == '__main__':
-    print mastermind('RRRR', 'RRRR')
-    print mastermind('BOYG', 'GYOB')
-    print mastermind('WYYW', 'BBOG')
-    print mastermind('GGGB', 'BGGG')
-    print mastermind('BBBB', 'OOOO')
+    code = raw_input()
+    guess = raw_input()
+
+    white, black = mastermind(code, guess)
+    print white
+    print black
