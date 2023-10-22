@@ -10,8 +10,25 @@
 #include <stack>
 #include <climits>
 using namespace std;
+
+bool contains(const vector<int> &v, const int &min, const int &max) {
+	int i = 0 , j = v.size() - 1;
+	while(i <= j) {
+		int mid = i + (j - i) / 2;
+		if(v[mid] >= min && v[mid] <= max) return true;
+		else if(v[mid] < min) i = mid + 1;
+		else j = mid - 1;
+	}
+	return false;
+}
+
+int findInd(const vector<int>& v, const int &min, const int &max) {
+	for(int i = 0; i < v.size(); i++)
+		if(v[i] >= min && v[i] <= max) return i;
+}
+
 /*
-Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return the two resulting subvectors as two outputs.
+Given a vector of positive integers, ﬁnd the spot where, if you cut the vector, the numbers on both sides are either equal, or the diﬀerence is as small as possible. Return  the two resulting subvectors as two outputs.
 For example,
 input:
 1
@@ -20,7 +37,6 @@ output:
 1
 0
 0
-
 input:
 1
 10
@@ -55,35 +71,3 @@ output:
 
 */
 int main() {
-    int n, x;
-    cin >> n;
-    vector<int> arr;
-    for (int i = 0; i < n; i++) {
-        cin >> x;
-        arr.push_back(x);
-    }
-    int minn = INT_MAX;
-    int x1, x2, x3, x4;
-    int index = 1;
-    for (int i = 1; i < n - 1; i++) {
-        if (abs(arr[i - 1] - arr[i]) <= minn) {
-            minn = abs(arr[i - 1] - arr[i]);
-            x1 = arr[i - 1];
-            x2 = arr[i];
-        }
-        if (abs(arr[i] - arr[i + 1]) <= minn) {
-            minn = abs(arr[i] - arr[i + 1]);
-            x3 = arr[i];
-            x4 = arr[i + 1];
-        }
-    }
-    if (minn == 0) {
-        cout << 0 << endl;
-    } else {
-        cout << x1 << endl;
-        cout << x2 << endl;
-        cout << x3 << endl;
-        cout << x4 << endl;
-    }
-    return 0;
-}
