@@ -44,23 +44,27 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-int main() {
 
-	// your code goes here
-	string text,target;
-	while(getline(cin,text)){
-		getline(cin,target);
-		int text_len = text.length(),target_len = target.length();
-		int count = 0;
-		for(int i=0;i<text_len-target_len+1;i++){
-			if(text.substr(i,target_len)==target){
-				cout<<i<<" ";
-				count++;
-			}
-		}
-		if(count==0)
-			cout<<-1;
-		cout<<endl;
-	}
-	return 0;
+class Solution {
+public:
+    vector<int> findSubstring(string s, string t) {
+        vector<int> result;
+        if(s.length() < t.length() || s.length() == 0 || t.length() == 0) return result;
+        map<char, int> hash;
+        for(int i = 0; i < t.length(); i++) hash[t[i]]++;
+        int left = 0, right = 0, count = t.length();
+        while(right < s.length()){
+            if(hash[s[right++]]-- >= 1) count--;
+            if(count == 0) result.push_back(left);
+            if(right - left == t.length() && hash[s[left++]]++ >= 0) count++;
+        }
+        return result;
+    }
+};
+
+int main() {
+    Solution s;
+    vector<int> result = s.findSubstring("abababab", "ab");
+    for(int i = 0; i < result.size(); i++) cout<<result[i]<<" ";
+    return 0;
 }
