@@ -40,5 +40,12 @@ output:
 0.0
 */
 int main() {
-
+    int n,m;
+    cin>>n>>m;
+    if(n>m){
+        cout<<1.0<<endl;
+    }else{
+        cout<<(m-n+1.0)/(m+1.0)<<endl;
+    }
+    return 0;
 }
