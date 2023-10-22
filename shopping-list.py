@@ -8,9 +8,7 @@ import itertools
 import queue
 import re
 """
-Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing
-the percent discount of each of those goods, return the total price of the shopping trip after applying the discount
-to each item.
+Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
 input:
 1
@@ -49,3 +47,4 @@ output:
 29.0
 """
 if __name__ == '__main__':
+def discountion_trip():
