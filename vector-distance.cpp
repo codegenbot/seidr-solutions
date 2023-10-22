@@ -8,7 +8,7 @@
 #include <map>
 #include <set>
 #include <stack>
-#include <climits>
+#include <cmath>
 using namespace std;
 /*
 Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
@@ -50,20 +50,15 @@ output:
 2.2715833329200144
 */
 int main() {
-		int n;
-		cin >> n;
-		float *v1 = new float[n];
-		float *v2 = new float[n];
-		float sum = 0;
-		for (int i = 0; i < n; i++) {
-			cin >> v1[i];
-		}
-		for (int i = 0; i < n; i++) {
-			cin >> v2[i];
-		}
-		for (int i = 0; i < n; i++) {
-			sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-		}
-		cout << sqrt(sum) << endl;
-		return 0;
+	float d = 0, x;
+	int n;
+	scanf("%d", &n);
+	for (int i = 0; i < n; ++i) {
+		float a;
+		scanf("%f", &a);
+		d += a*a;
 	}
+	d = sqrt(d);
+	printf("%f\n", d);
+	return 0;
+}
