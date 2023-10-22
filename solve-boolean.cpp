@@ -61,10 +61,6 @@ int main() {
             st.push(s[i]);
         }
     }
-    if (st.top() == 'T') {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    cout << (st.top() == 'T' ? "True" : "False") << endl;
     return 0;
 }
