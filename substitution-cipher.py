@@ -11,27 +11,45 @@ import re
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
+
+
+
+output:
+
+input:
 a
-z
+a
 a
 output:
-z
+a
 input:
 j
 h
 j
 output:
 h
+input:
+a
+z
+a
+output:
+z
 input:
 e
 l
 eeeeeeeeee
 output:
 llllllllll
-input:
-
-
-
-output:
 """
 if __name__ == '__main__':
+    cipher = input()
+    message = input()
+    cipher_message = input()
+    result = ''
+    for i in range(len(cipher_message)):
+        if cipher_message[i] in cipher:
+            index = cipher.index(cipher_message[i])
+            result += message[index]
+        else:
+            result += cipher_message[i]
+    print(result)
