@@ -56,15 +56,16 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> price[i];
     }
-    cin >> n;
-    vector<float> discount(n);
-    for (int i = 0; i < n; i++) {
+    int m;
+    cin >> m;
+    vector<float> discount(m);
+    for (int i = 0; i < m; i++) {
         cin >> discount[i];
     }
-    float total = 0;
-    for (int i = 0; i < price.size(); i++) {
-        total += price[i] * (1 - discount[i] / 100);
+    float ans = 0;
+    for (int i = 0; i < n; i++) {
+        ans += price[i] * (1 - discount[i] / 100);
     }
-    printf("%.2f\n", total);
+    printf("%.1f\n", ans);
     return 0;
 }
