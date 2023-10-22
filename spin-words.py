@@ -31,11 +31,10 @@ hi
 output:
 hi
 """
-def reverse_string(string):
-    words = string.split()
+if __name__ == '__main__':
+    input = "this is a test"
+    words = input.split(" ")
     for i in range(len(words)):
         if len(words[i]) >= 5:
             words[i] = words[i][::-1]
-    return " ".join(words)
-
-if __name__ == '__main__':
+    print(" ".join(words))
