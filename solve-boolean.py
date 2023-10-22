@@ -11,15 +11,15 @@ import re
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
 input:
-t
+T
 output:
 True
 input:
-f
+F
 output:
 False
 input:
-f&f
+F&F
 output:
 False
 input:
@@ -32,5 +32,3 @@ output:
 False
 """
 if __name__ == '__main__':
-    string = input()
-    print(eval(string.replace('|', 'or').replace('&', 'and').replace('t', 'True').replace('f', 'False')))
