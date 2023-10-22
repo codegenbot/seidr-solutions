@@ -1,12 +1,3 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Given a string representing a Boolean expression consisting of T, F, |, and &, evaluate it and return the resulting Boolean.
 For example,
@@ -32,18 +23,24 @@ output:
 False
 """
 
-def eval_expr(expr):
-    if len(expr) == 1:
-        return expr == 't'
-    if len(expr) == 3:
-        if expr[1] == '&':
-            return eval_expr(expr[0]) and eval_expr(expr[2])
-        elif expr[1] == '|':
-            return eval_expr(expr[0]) or eval_expr(expr[2])
-        else:
-            raise Exception('Invalid expression')
-    raise Exception('Invalid expression')
 
-if __name__ == '__main__':
-    expr = sys.stdin.readline().strip()
-    print (eval_expr(expr))
+def evaluate(expression):
+    """
+    :param expression: string
+    :return: boolean
+    """
+    if expression == "t":
+        return True
+    elif expression == "f":
+        return False
+    else:
+        expression = expression.replace("t", "True")
+        expression = expression.replace("f", "False")
+        return eval(expression)
+
+
+print(evaluate("t"))
+print(evaluate("f"))
+print(evaluate("f&f"))
+print(evaluate("f&t"))
+print(evaluate("t&f"))
