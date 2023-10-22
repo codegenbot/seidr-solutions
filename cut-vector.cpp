@@ -16,44 +16,74 @@ For example,
 input:
 1
 0
-output:
-1
-0
-0
 
 input:
 1
 10
-output:
-1
-10
-0
 
 input:
 1
 100
-output:
-1
-100
-0
 
 input:
 1
 1000
-output:
-1
-1000
-0
 
 input:
 1
 10000
-output:
-1
-10000
-0
 
 */
-int main() {
 
+
+
+
+int main() {
+    vector<int>inputs;
+    int temp;
+    cin >> temp;
+    while (temp != 0) {
+        inputs.push_back(temp);
+        cin >> temp;
+    }
+    // do
+    for (int i = 1; i < inputs.size(); i++) {
+        int large;
+        int small;
+        if (inputs[i-1] > inputs[i]) {
+            large = inputs[i-1];
+            small = inputs[i];
+        } else {
+            large = inputs[i];
+            small = inputs[i-1];
+        }
+        if (large % small == 0) {
+            cout << large << endl;
+            cout << small << endl;
+            cout << 0 << endl << endl;
+        } else {
+            int dig = large % small;
+            if (dig * 2 > small) {
+                cout << large << endl;
+                cout << small << endl;
+                cout << 0 << endl << endl;
+            } else {
+                cout << small << endl;
+                cout << large - small << endl;
+                cout << 0 << endl << endl;
+            }
+        }
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
