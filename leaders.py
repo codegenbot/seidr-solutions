@@ -42,12 +42,30 @@ output:
 1000
 """
 if __name__ == '__main__':
+    # with open(os.environ['OUTPUT_PATH'], 'w') as fout:
+    fout = open('out.txt', 'w')
     n = int(input())
-    nums = list(map(int, input().split()))
-    if n == 0:
-        print(n)
+    arr = []
+    for _ in range(n):
+        arr_item = int(input())
+        arr.append(arr_item)
+    res = findleader(arr)
+    fout.write(' '.join(map(str, res)))
+    fout.write('\n')
+    fout.close()
+
+
+def findleader(arr):
+    if len(arr) == 0:
+        return 0
+    if len(arr) == 1:
+        return 1
     else:
-        for i in range(n-1, -1, -1):
-            if nums[i] >= max(nums[i+1:n]):
-                print(nums[i], end = ' ')
-        print()
+        res = []
+        res.append(arr[len(arr) - 1])
+        max_ = arr[len(arr) - 1]
+        for i in range(len(arr) - 2, -1, -1):
+            if arr[i] >= max_:
+                res.append(arr[i])
+                max_ = arr[i]
+        return res
