@@ -34,43 +34,19 @@ hi
 output:
 hi
 */
-
-string reverseString(string s){
-    int i = 0;
-    for(i = 0; i < s.size()/2; i++){
-        char temp = s[i];
-        s[i] = s[s.size()-1-i];
-        s[s.size()-1-i] = temp;
-        //cout << s << endl;
-    }
-    return s;
-}
-
-string reverseWords(string sentence){
-    string result = "", temp = "";
-    int i = 0;
-    for(i = 0; i < sentence.size(); i++){
-        if(sentence[i] != ' '){
-            temp += sentence[i];
-        }else{
-            if(temp.size() >= 5){
-                result += reverseString(temp);
-            }else{
-                result += temp;
-            }
-            result += " ";
-            temp = "";
-        }
-    }
-    if (temp.size() >= 5){
-        result += reverseString(temp);
-    }else{
-        result += temp;
-    }
-    return result;
-}
-
 int main() {
-    string s = "this is a test";
-    cout << reverseWords(s) << endl;
+    string str = "this is a test";
+    int pos = 0;
+    while (pos < str.length()) {
+        int end = str.find(' ', pos);
+        if (end == string::npos) {
+            end = str.length();
+        }
+        if (end - pos >= 5) {
+            reverse(str.begin() + pos, str.begin() + end);
+        }
+        pos = end + 1;
+    }
+    cout << str << endl;
+    return 0;
 }
