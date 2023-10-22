@@ -33,39 +33,41 @@ input:
 2
 100.0 50.0
 output:
-10.00
+10.0
 input:
 2
 20.0 20.0
 2
 20.0 0.0
 output:
-36.00
+36.0
 input:
 3
 10.0 20.0 30.0
 3
 5.0 10.0 95.0
 output:
-29.00
+29.0
 */
 int main() {
     int n;
-    float sum = 0;
-    while(cin >> n) {
-        vector<float> prices(n, 0.0);
-        vector<float> discount(n, 0.0);
-        for(int i = 0; i < n; i++) {
-            cin >> prices[i];
-        }
-        for(int i = 0; i < n; i++) {
-            cin >> discount[i];
-        }
-        for(int i = 0; i < n; i++) {
-            sum += prices[i] * (100.0 - discount[i]) / 100.0;
-        }
-        printf("%.2f\n", sum);
-        sum = 0;
+    cin >> n;
+    vector<double> prices;
+    double price;
+    for (int i = 0; i < n; i++) {
+        cin >> price;
+        prices.push_back(price);
     }
+    vector<double> discounts;
+    double discount;
+    for (int i = 0; i < n; i++) {
+        cin >> discount;
+        discounts.push_back(discount / 100);
+    }
+    double total = 0;
+    for (int i = 0; i < n; i++) {
+        total += prices[i] - prices[i] * discounts[i];
+    }
+    printf("%.2f\n", total);
     return 0;
 }
