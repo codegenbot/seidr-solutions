@@ -46,21 +46,27 @@ input:
 output:
 29.0
 """
+
+
+def readfile(path):
+    if not os.path.isfile(path):
+        print("File path {} does not exist. Exiting...".format(path))
+        sys.exit()
+    f = open(path, 'r')
+    f1 = open("op.txt", "w")
+    lines = f.readlines()
+    c = 0
+    for i in lines:
+        if i == '\n':
+            break
+        c += 1
+    for i in range(c):
+        j = i + 1
+        lines[j] = lines[j].replace("\n", "")
+        f1.write(str(int(float(lines[i]) - float(lines[i]) * float(lines[j]) / 100)) + "\n")
+
+    f1.close()
+    with open("op.txt") as f2:
+        print(sum(map(float, f2)))
+
 if __name__ == '__main__':
-	try:
-		f = open("input.txt","r")
-		line = f.readline().strip('\n').split(' ')
-		t = []
-		for count in range(int(line[1])):
-			t.append(float(f.readline().strip('\n')))
-		line = f.readline().strip('\n').split(' ')
-		d = []
-		for count in range(int(line[1])):
-			d.append(float(f.readline().strip('\n')))
-		T = 0
-		for count in range(len(t)):
-			T = T + (t[count] - (t[count]*(d[count]/100)))
-		print(T)
-		f.close()
-	except IOError as e:
-		print(e)	
