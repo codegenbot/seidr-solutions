@@ -48,7 +48,7 @@ int main() {
     double h, h2;
     int n;
     while(cin >> h >> h2 >> n) {
-        double bounciness = h2 / h; // 1.001 / 1.0 = 1.001
+        double bounciness = h2 / h; // make sure that 1.001\n1.0\n1 -> 2.001
         double distance = 0;
         for(int i = 0; i < n; i++) {
             distance += h;
