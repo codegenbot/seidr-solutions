@@ -44,18 +44,33 @@ input:
 output:
 3.963
 */
-int main() {
-    double b_index, starting_h, first_h;
-    int bounces;
-    cin >> starting_h >> first_h >> bounces;
-    b_index = first_h / starting_h;
-    double dist = 0;
-    double height = starting_h;
-    for (int i = 0; i < bounces; i++) {
-        height *= b_index;
-        dist += height;
-        dist += height;
+/*1.001
+1.0
+1*/
+/*100.0
+99.999
+20*/
+/*100.0
+1.0
+20*/
+/*15.319
+5.635
+1*/
+2.176
+1.787
+1
+double process(double a, double b, int c) {
+    double res = a;
+    double index = b / a;
+    for (int i = 1; i < c; i++) {
+        res += a * pow(index, i * 2 - 1);
     }
-    printf("%.10f\n", dist);
-    return 0;
+    return res;
+}
+
+int main() {
+    double a, b;
+    int c;
+    cin >> a >> b >> c;
+    cout << process(a, b, c) << endl;
 }
