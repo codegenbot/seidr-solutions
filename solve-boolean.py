@@ -32,4 +32,4 @@ output:
 False
 """
 if __name__ == '__main__':
-    print(eval(input()))
+    boolean = raw_input('Enter a boolean expression: ')
