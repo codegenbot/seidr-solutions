@@ -41,15 +41,25 @@ output:
 1
 1000
 """
-
-def get_leaders(integers):
-    length = len(integers)
-    leaders = [integers[length - 1]]
-    leader = integers[length - 1]
-    for i in range(length - 2,-1,-1):
-        if integers[i] >= leader:
-            leaders.append(integers[i])
-            leader = integers[i]
-    leaders.reverse()
+def leader(nums):
+    leaders = []
+    if(len(nums) == 1):
+        leaders.append(nums[0])
+    else:
+        for i in range(len(nums)-1,0,-1):
+            if(nums[i]>=nums[i-1]):
+                leaders.append(nums[i])
+                nums[i-1] = nums[i]
+            if(i==1):
+                leaders.append(nums[i-1])
     return leaders
+
 if __name__ == '__main__':
+    line = sys.stdin.readline().rstrip("\n")
+    n = int(line)
+    line = sys.stdin.readline().rstrip("\n")
+    arr = map(int, line.split(" "))
+    res = leader(arr)
+    for i in range(len(res)-1,0,-1):
+        print(res[i],end=" ")
+    print(res[0])
