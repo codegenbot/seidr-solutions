@@ -33,9 +33,4 @@ False
 """
 if __name__ == '__main__':
     s = input()
-    if s == 't':
-        print(True)
-    elif s == 'f':
-        print(False)
-    else:
-        print(False)
+    print(eval(s.replace('T', 'True').replace('F', 'False').replace('&', ' and ').replace('|', ' or ')))
