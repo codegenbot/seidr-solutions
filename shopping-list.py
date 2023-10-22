@@ -47,8 +47,16 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    price = [float(i) for i in input().split()]
-    n = int(input())
-    discount = [float(i) for i in input().split()]
-    print(sum(price) - sum(price*discount/100))
+
+    num_of_goods = int(input())
+    prices = input()
+    prices = prices.split()
+    prices = [float(i) for i in prices]
+    num_of_discounts = int(input())
+    discounts = input()
+    discounts = discounts.split()
+    discounts = [float(i) for i in discounts]
+    total_price = 0
+    for i in range(num_of_goods):
+        total_price += prices[i] * (1 - discounts[i] / 100)
+    print(total_price)
