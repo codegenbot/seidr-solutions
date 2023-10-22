@@ -50,9 +50,15 @@ output:
 10.0
 */
 int main() {
-    int hour;
-    float ground_snow, snow_fall, snow_melting;
-    cin >> hour >> ground_snow >> snow_fall >> snow_melting;
-    cout << ground_snow + hour * snow_fall - hour * snow_melting * ground_snow << endl;
+    int h;
+    float s, r, m;
+    while(cin >> h >> s >> r >> m) {
+        float amount = s;
+        for(int i = 1; i <= h; i++) {
+            amount = amount + r - amount * m;
+        }
+        printf("%.2f\n", amount);
+    }
+    
     return 0;
 }
