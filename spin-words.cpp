@@ -1,51 +1,81 @@
-#include <string>
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
-Given an array of integers, return a new array where each element in the new array is the number of smaller elements to the right of that element in the original input array.
-For example, given the array [3, 4, 9, 6, 1], return [1, 1, 2, 1, 0], since:
-There is 1 smaller element to the right of 3
-There is 1 smaller element to the right of 4
-There are 2 smaller elements to the right of 9
-There is 1 smaller element to the right of 6
-There are no smaller elements to the right of 1
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
-[3, 4, 9, 6, 1] => [1, 1, 2, 1, 0]
+input:
+
+output:
+
+input:
+a
+output:
+a
+input:
+this is a test
+output:
+this is a test
+input:
+this is another test
+output:
+this is rehtona test
+input:
+hi
+output:
+hi
 */
 
-void print(vector<int> nums) {
-    for (int i = 0; i < nums.size(); i++) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
-}
-
-void reverseWord(string& word) {
-    for(int i = 0; i < word.size() / 2; i++) {
-        swap(word[i], word[word.size()-1-i]);
+void reverse(string &s, int left, int right) {
+    while (left < right) {
+        char c = s[left];
+        s[left] = s[right];
+        s[right] = c;
+        left++, right--;
     }
 }
-
-void reverseWords(string& s) {
-    int start = 0;
-    int end = 0;
-    const int n = s.size();
-    for(int i = 0; i < n; i++) {
-        if(s[i] == ' ') {
-            end = i;
-            reverseWord(s.substr(start, end - start));
-            start = end + 1;
+void reverseWords(string &s) {
+    int left = 0;
+    int right = -1;
+    int len = s.length();
+    while (left < len) {
+        if ((left == 0 && s[left] == ' ') ||
+            (left > 0 && s[left] == ' ' && s[left - 1] == ' ')) {
+            left++;
+            continue;
         }
+        if (s[left] != ' ') {
+            right++;
+        }
+        if (right < len - 1 && s[right] == ' ' && s[right + 1] != ' ') {
+            if (right - left >= 4) {
+                reverse(s, left, right);
+            }
+            left = right + 1;
+        }
+        right++;
     }
-    // deal with the last word since no trailing spaces
-    reverseWord(s.substr(start));
-    reverse(s.begin(), s.end());
+    if (right - left >= 4) {
+        reverse(s, left, right);
+    }
+    if (left > 0 && s[left] == ' ') {
+        s = s.substr(++left, right - left);
+    }
+    if (s[s.length() - 1] == ' ') {
+        s = s.substr(0, s.length() - 1);
+    }
 }
-
 int main() {
-    string s = "I am a fucking gay";
+    string s = "   I  am    a    boy  ";
     reverseWords(s);
     cout << s << endl;
-    return 0;
 }
