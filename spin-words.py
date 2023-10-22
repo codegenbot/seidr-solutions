@@ -31,16 +31,5 @@ hi
 output:
 hi
 """
-def reverse_string(string):
-    words = string.split(" ")
-    result = []
-    for word in words:
-        if len(word) >= 5:
-            result.append(word[::-1])
-        else:
-            result.append(word)
-    return " ".join(result)
-
 if __name__ == '__main__':
-    string = "this is a test"
-    print(reverse_string(string))
+    pass
