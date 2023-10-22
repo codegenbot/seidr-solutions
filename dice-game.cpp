@@ -42,20 +42,13 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    if (n > m) {
-        cout << 0 << endl;
-        return 0;
-    }
-    else if (n == m) {
-        cout << 0.5 << endl;
-        return 0;
-    }
-    else {
-        double res = 0;
-        for (int i = n + 1; i <= m; i++) {
-            res += 1.0 / m;
+    double ans = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) ans += 1;
         }
-        cout << res << endl;
-        return 0;
     }
+    ans /= n * m;
+    printf("%.3f\n", ans);
+    return 0;
 }
