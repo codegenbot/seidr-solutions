@@ -44,24 +44,6 @@ output:
 1
 1000
 */
-vector<int> leaders(const vector<int> &input) {
-    vector<int> res;
-    int tmp = INT_MIN;
-    for(int i = input.size() - 1; i >= 0; i--){
-        if(input[i] >= tmp){
-            res.push_back(input[i]);
-            tmp = input[i];
-        }
-    }
-    reverse(res.begin(), res.end());
-    return res;
-}
 int main() {
-    vector<int> test = {1, 451};
-    vector<int> res = leaders(test);
-    for(auto i = res.begin(); i != res.end(); i++){
-        cout << *i << " ";
-    }
-    cout << endl;
-    return 0;
+    
 }
