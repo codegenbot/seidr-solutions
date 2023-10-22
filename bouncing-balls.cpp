@@ -45,5 +45,13 @@ output:
 3.963
 */
 int main() {
-
+    double h0, h1, n;
+    cin >> h0 >> h1 >> n;
+    double bounciness = h1 / h0;
+    double res = h0;
+    for (int i = 1; i < n; i++) {
+        res += h0 * pow(bounciness, i);
+    }
+    printf("%.10f\n", res);
+    return 0;
 }
