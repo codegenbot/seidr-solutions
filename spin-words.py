@@ -10,9 +10,33 @@ import re
 """
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
-input: 
-this is a test string
-output: 
-this is a test gnirts
+input:
+
+output:
+input:
+a
+output:
+a
+input:
+this is a test
+output:
+this is a test
+input:
+this is another test
+output:
+this is rehtona test
+input:
+hi
+output:
+hi
 """
 if __name__ == '__main__':
+    a = "this is a test"
+    b = a.split()
+    c = ""
+    for i in range(len(b)):
+        if len(b[i])>=5:
+            b[i] = b[i][::-1]
+    for i in range(len(b)):
+        c = c + b[i] + " "
+    print(c)
