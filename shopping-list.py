@@ -47,10 +47,4 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    n=int(input())
-    price=list(map(float,input().split()))
-    discount=list(map(float,input().split()))
-    t=0
-    for i in range(n):
-        t+=price[i]*(1-discount[i]/100)
-    print(round(t,2))
+    print(np.array(list(map(float, input().split(" ")))).dot(np.array(list(map(float, input().split(" "))))) / 100)
