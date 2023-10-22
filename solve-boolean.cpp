@@ -35,32 +35,34 @@ output:
 False
 */
 int main() {
-    string str;
-    cin >> str;
-    stack<bool> s;
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == 'T') {
-            s.push(true);
-        } else if (str[i] == 'F') {
-            s.push(false);
-        } else if (str[i] == '&') {
-            bool b1 = s.top();
-            s.pop();
-            bool b2 = s.top();
-            s.pop();
-            s.push(b1 && b2);
-        } else if (str[i] == '|') {
-            bool b1 = s.top();
-            s.pop();
-            bool b2 = s.top();
-            s.pop();
-            s.push(b1 || b2);
+    string input;
+    cin >> input;
+    stack<char> st;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == '&') {
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            if (a == 'T' && b == 'T') {
+                st.push('T');
+            } else {
+                st.push('F');
+            }
+        } else if (input[i] == '|') {
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            if (a == 'T' || b == 'T') {
+                st.push('T');
+            } else {
+                st.push('F');
+            }
+        } else {
+            st.push(input[i]);
         }
     }
-    if (s.top()) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    cout << st.top() << endl;
     return 0;
 }
