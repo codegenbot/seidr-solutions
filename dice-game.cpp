@@ -41,25 +41,24 @@ output:
 */
 int main() {
     int n, m;
-    double res = 0;
-    scanf("%d %d", &n, &m);
-    for(int i = 1; i <= n; i++) {
-        int flag = 1;
-        while(flag) {
-            int tmp = m;
-            if(i > tmp) {
-                res += (1.0 / n);
-                break;
-            }
-            tmp--;
-            if(tmp == 0) {
-                break;
-            }
-            if(i <= tmp) {
-                flag = 0;
+    cin >> n >> m;
+    double sum = 0;
+    
+    /*
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                sum += 1.0;
             }
         }
     }
-    printf("%.10f\n", res);
+     */
+    if (n >= m) {
+        sum = 1.0;
+    } else {
+        sum = 0.0;
+    }
+    cout << sum << endl;
+    //cout << sum / (n * m) << endl;
     return 0;
 }
