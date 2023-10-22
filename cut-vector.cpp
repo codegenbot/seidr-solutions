@@ -55,23 +55,5 @@ output:
 
 */
 int main() {
-    vector<int> input = {1, 0};
-    
-    int sum = 0;
-    for(int i = 0; i < input.size(); i++) {
-        sum += input[i];
-    }
-    
-    int leftSum = 0, rightSum = sum;
-    for(int i = 0; i < input.size(); i++) {
-        rightSum -= input[i];
-        if(leftSum == rightSum) {
-            cout << i << endl;
-            break;
-        }
-        leftSum += input[i];
-    }
-    cout << 0 << endl;
-    
     return 0;
 }
