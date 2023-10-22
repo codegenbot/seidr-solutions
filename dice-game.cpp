@@ -40,18 +40,4 @@ output:
 0.0
 */
 int main() {
-    int m,n;
-    while(cin >> m >> n){
-        int sum = m+n;
-        double res = 0;
-        for(int i = 1;i < m;i++){
-            for(int j = i+1;j <=m;j++){
-                res++;
-            }
-        }
-        cout << res/sum << endl;
-    }
     return 0;
-}
-
-
