@@ -49,26 +49,17 @@ input:
 output:
 10.0
 */
-
-int hours, snow, rate, melt;
-
-double getSnow(int hours, int snow, int rate, int melt);
-
 int main() {
-  for(int i = 0; i < 5; i++) {
-    cin >> hours >> snow >> rate >> melt;
-    cout << getSnow(hours, snow, rate, melt) << endl;
+  int hours;
+  double snow, rate, melt;
+  cin >> hours;
+  cin >> snow;
+  cin >> rate;
+  cin >> melt;
+  for (int i = 0; i < hours; i++) {
+    snow += rate;
+    snow -= snow * melt;
   }
+  printf("%f\n", snow);
   return 0;
-}
-
-double getSnow(int hours, int snow, int rate, int melt) {
-  int snow2;
-  if (hours <= 0) {
-    return snow;
-  }
-  else {
-    snow += (rate - (melt * snow));
-    return getSnow(--hours, snow, rate, melt);
-  }
 }
