@@ -31,9 +31,12 @@ input:
 output:
 )b
 """
-if __name__ == '__main__':
-    str = input()
-    if len(str)%2 == 0:
-        print(str[int(len(str)/2-1):int(len(str)/2+1)])
+def middleChar(s):
+    if len(s) % 2 == 0:
+        return s[len(s)//2-1:len(s)//2+1]
     else:
-        print(str[int(len(str)/2)])
+        return s[len(s)//2]
+
+if __name__ == '__main__':
+    s = input()
+    print(middleChar(s))
