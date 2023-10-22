@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string. 
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
 
@@ -35,3 +35,27 @@ output:
 hi
 */
 int main() {
+    string s;
+    while (getline(cin, s)) {
+        string res;
+        int i = 0, j = 0;
+        while (j < s.size()) {
+            while (j < s.size() && s[j] != ' ') j++;
+            if (j - i >= 5) {
+                for (int k = j - 1; k >= i; k--) {
+                    res += s[k];
+                }
+            } else {
+                for (int k = i; k < j; k++) {
+                    res += s[k];
+                }
+            }
+            if (j < s.size()) {
+                res += ' ';
+            }
+            i = ++j;
+        }
+        cout << res << endl;
+    }
+    return 0;
+}
