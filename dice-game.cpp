@@ -40,8 +40,17 @@ output:
 0.0
 */
 int main() {
-    int n, m;
+    freopen("data.txt", "r", stdin);
+    int n;
+    int m;
     cin >> n >> m;
-    cout << double(n) / (n + m) << endl;
+    double res = 0.0;
+    for (int i = 1; i < n; i++) {
+        double interval = 1.0 * i / n;
+        double a = (ceil(interval * m) - interval * m) / m;
+        double b = (interval * m - floor(interval * m)) / m;
+        res += a + b;
+    }
+    printf("%.5f\n", res);
     return 0;
 }
