@@ -53,14 +53,21 @@ int main() {
     int cents;
     int q, d, n, p;
     while (cin >> cents) {
-        q = cents / 25 + 1;
-        d = (cents % 25) / 10 + 1;
-        n = ((cents % 25) % 10) / 5 + 1;
-        p = ((cents % 25) % 10) % 5 + 1;
-        cout << p << endl;
-        cout << n << endl;
-        cout << d << endl;
-        cout << q << endl;
+        q = cents / 25;
+        d = (cents % 25) / 10;
+        n = ((cents % 25) % 10) / 5;
+        p = ((cents % 25) % 10) % 5;
+        if (p == 1) {
+            cout << p << endl;
+            cout << n << endl;
+            cout << d << endl;
+            cout << q << endl;
+        } else {
+            cout << p << endl;
+            cout << n << endl;
+            cout << d << endl;
+            cout << q << endl;
+        }
     }
     return 0;
 }
