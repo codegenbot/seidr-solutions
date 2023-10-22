@@ -31,14 +31,5 @@ t&f
 output:
 False
 """
-
-def evaluate(expression):
-    if expression == 't':
-        return True
-    elif expression == 'f':
-        return False
-    else:
-        expression = expression.replace('&', ' and ').replace('|', ' or ')
-        return eval(expression)
-
 if __name__ == '__main__':
+    print(eval(input()))
