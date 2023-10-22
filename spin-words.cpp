@@ -34,20 +34,29 @@ hi
 output:
 hi
 */
+
+/*
+Note:
+reverse function is not easy to use, need to understand the parameter position.
+*/
 int main() {
-    string s;
-    getline(cin, s);
-    int n = (int) s.size();
-    for (int i = 0; i < n; ++i) {
-        int j = i, l = 0;
-        while (j < n && s[j] != ' ') { ++j; ++l; }
-        if (l >= 5) {
-            for (int k = 0; k < l / 2; ++k) {
-                swap(s[i + k], s[i + l - k - 1]);
+    string str;
+    bool start = false;
+    while(getline(cin, str)) {
+        string output;
+        int tail = 0, length = str.size();
+        for(int i = 0; i < length; i++) {
+            if(str[i] == ' ') {
+                if(i - tail >= 5) {
+                    reverse(str.begin() + tail, str.begin() + i);
+                }
+                tail = i+1;
             }
         }
-        i = j;
+        if(length - tail >= 5) {
+            reverse(str.begin() + tail, str.end());
+        }
+        cout << str << endl;
     }
-    cout << s;
     return 0;
 }
