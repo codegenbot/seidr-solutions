@@ -55,34 +55,6 @@ output:
 
 */
 int main() {
-    int t;
-    scanf("%d", &t);
-    while (t--) {
-        int n;
-        scanf("%d", &n);
-        vector<int> v(n);
-        for (int i = 0; i < n; i++) {
-            scanf("%d", &v[i]);
-        }
-        int sum = 0;
-        for (int vv : v)
-            sum += vv;
-        int halfsum = sum / 2 + 1;
-        int ans = 0;
-        if (sum < 3)
-            ans = 0;
-        else {
-            int s = 0;
-            for (int i = 0; i < n; i++) {
-                s += v[i];
-                if (s >= halfsum) {
-                    ans = s - v[i];
-                    break;
-                }
-            }
-            if (ans == 0) ans = sum - v[n - 1];
-        }
-        printf("%d\n", ans);
-    }
+    
     return 0;
 }
