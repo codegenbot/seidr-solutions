@@ -31,13 +31,14 @@ hi
 output:
 hi
 """
-
-def reverseWords(inputStr):
-    inputStr = inputStr.split()
-    for i in range(0, len(inputStr)):
-        if len(inputStr[i]) >= 5:
-            inputStr[i] = inputStr[i][::-1]
-    
-    return ' '.join(inputStr)
-
 if __name__ == '__main__':
+	s=""
+	n=int(raw_input())
+	for i in range(n):
+		t=raw_input()
+		l=t.split(" ")
+		for x in l:
+			if len(x)>4:
+				x=x[::-1]
+			s=s+x+" "
+		print s
