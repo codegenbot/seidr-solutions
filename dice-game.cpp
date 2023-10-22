@@ -40,27 +40,22 @@ output:
 0.0
 */
 int main() {
-	int n, m;
-	while (cin >> n >> m) {
-		if (n > m) {
-			cout << 1.0 << endl;
-			continue;
-		}
-		if (n == m) {
-			cout << 0.5 << endl;
-			continue;
-		}
-		int total = 0;
-		int win = 0;
-		for (int i = 1; i <= m; i++) {
-			for (int j = 1; j <= n; j++) {
-				if (j > i) {
-					win++;
-				}
-				total++;
-			}
-		}
-		cout << win * 1.0 / total << endl;
-	}
-	return 0;
+    int n, m;
+    cin >> n >> m;
+    if (n > m) {
+        cout << 0 << endl;
+        return 0;
+    }
+    else if (n == m) {
+        cout << 0.5 << endl;
+        return 0;
+    }
+    else {
+        double res = 0;
+        for (int i = n + 1; i <= m; i++) {
+            res += 1.0 / m;
+        }
+        cout << res << endl;
+        return 0;
+    }
 }
