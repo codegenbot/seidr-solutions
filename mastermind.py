@@ -41,22 +41,5 @@ output:
 0
 0
 """
-
-
-def calculate_pegs(code, guess):
-    colors = set()
-
-    black_pegs = 0
-    for i, code_char in enumerate(code):
-        if code_char == guess[i]:
-            black_pegs += 1
-        colors.add(code_char)
-
-    white_pegs = 0
-    for code_char in colors:
-        white_pegs += min(code.count(code_char), guess.count(code_char))
-    white_pegs -= black_pegs
-    return white_pegs, black_pegs
-
-
 if __name__ == '__main__':
+  print os.stat("./file")
