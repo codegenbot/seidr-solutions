@@ -8,11 +8,9 @@ import itertools
 import queue
 import re
 """
-Given a string of one or more words (separated by spaces), reverse
-all of the words that are ﬁve or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
-https://stackoverflow.com/questions/13575474/python-reverse-a-string-word-by-word
 
 output:
 
@@ -33,4 +31,16 @@ hi
 output:
 hi
 """
+def solution(s):
+    result = ""
+    for word in s.split():
+        if len(word) >= 5:
+            result += word[::-1] + " "
+        else:
+            result += word + " "
+    return result.strip()
+
 if __name__ == '__main__':
+    s = input()
+    print(solution(s))
+
