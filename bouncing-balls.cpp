@@ -45,15 +45,15 @@ output:
 3.963
 */
 int main() {
-    double h, b, n;
-    while(cin >> h >> b >> n) {
-        double bounciness = b / h;
-        double sum = 0;
-        for(int i = 0; i < n; ++i) {
-            sum += h;
-            h *= bounciness;
+    double start, first_bounce;
+    int bounce_num;
+    while(cin >> start >> first_bounce >> bounce_num) {
+        double bounciness = first_bounce / start;
+        double distance = 0;
+        for(int i = 0; i <= bounce_num; i++) {
+            distance += start * pow(bounciness, i);
         }
-        printf("%.3f\n", sum);
+        printf("%.3lf\n", distance);
     }
     return 0;
 }
