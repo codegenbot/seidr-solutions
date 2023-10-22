@@ -47,11 +47,27 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    num = int(input())
-    price = [float(n) for n in input().split()]
-    num = int(input())
-    discount = [float(n) for n in input().split()]
-    total = 0
-    for i in range(len(price)):
-        total += price[i] * (100 - discount[i]) / 100
-    print(total)
+    i = 0
+    while True:
+        try:
+            s = sys.stdin.readline().strip()
+            if s == '':
+                break
+            n = s.split(' ')[0]
+            n = int(n)
+            s = sys.stdin.readline().strip()
+            prices = s.split(' ')
+            for i in range(n):
+                prices[i] = float(prices[i])
+            s = sys.stdin.readline().strip()
+            discount = s.split(' ')
+            for i in range(n):
+                discount[i] = float(discount[i])
+            res = 0
+            for i in range(n):
+                res += prices[i] * (100 - discount[i]) / 100
+            sys.stdout.write('%.1f\n' % res)
+            
+        except:
+            break
+
