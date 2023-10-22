@@ -1,12 +1,6 @@
 import os
 import sys
 import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
@@ -32,12 +26,21 @@ output:
 hi
 """
 
-def reverseWords(inputStr):
-    inputStr = inputStr.split()
-    for i in range(0, len(inputStr)):
-        if len(inputStr[i]) >= 5:
-            inputStr[i] = inputStr[i][::-1]
-    
-    return ' '.join(inputStr)
+
+def reverse_string(string):
+    res = []
+    for word in string.split(' '):
+        if len(word) >= 5:
+            res.append(word[::-1])
+        else:
+            res.append(word)
+    return ' '.join(res)
+
 
 if __name__ == '__main__':
+    string = 'this is a test'
+    print(reverse_string(string))
+    string = 'this is another test'
+    print(reverse_string(string))
+    string = 'hi'
+    print(reverse_string(string))
