@@ -10,9 +10,3 @@ import re
 """
 """
 if __name__ == '__main__':
-    t =  map(str,raw_input().split())
-    l = t[0]
-    c = t[1]
-    for i in range(len(l)-len(c)):
-        if l[i:i+len(c)] == c:
-            print i,
