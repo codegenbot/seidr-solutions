@@ -7,22 +7,54 @@ import collections
 import itertools
 import queue
 import re
-the_string = str(input())
-target = str(input())
-indicies = []
-idx = 0
-if len(the_string) < len(target):
-    print(-1)
-elif the_string == target:
-    print(0)
-else:
-    for i in range(len(target)):
-        if target[i] == the_string[i]:
-            idx += 1
-        elif target[i] != the_string[i]:
-            idx = 0
-        indicies.append(idx)
-    indicies = [str(x - len(target)) for x in indicies]
-    print(' '.join(indicies))
+"""
+Given a text string and a target string, return
+a list of integers of the indices at which the target appears in the text. Targets may overlap.
+For example,
+input:
+a
+5
+output:
+0
+
+input:
+!
+!
+output:
+1
+0
+input:
+r
+nm,xcnwqnd@#$fwkdjn3
+output:
+0
+
+input:
+hi
+hihihihihihihihihihi
+output:
+0
+
+input:
+############
+#
+output:
+12
+0 1 2 3 4 5 6 7 8 9 10 11
+"""
+text,pattern = input().strip(),input().strip()
+indices = []
+for first_letter in range(len(text)-len(pattern)+1):
+    if text[first_letter] == pattern[0]:
+        try:
+            if text[first_letter:first_letter+len(pattern)] == pattern:
+                indices.append(first_letter)
+                print(first_letter,end=" ")
+        except IndexError:
+            pass
+
+if not indices:
+    print('Text not found')
+
 if __name__ == '__main__':
-    main()
+    pass
