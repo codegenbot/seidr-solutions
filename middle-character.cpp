@@ -35,5 +35,15 @@ output:
 )b
 */
 int main() {
-
+    int n; cin>>n;
+    string s; cin>>s;
+    if(n%2 == 0) {
+        s = s.substr(n/2-1,2);
+        cout<<s<<endl;
+    }
+    else {
+        s = s.substr(n/2,1);
+        cout<<s<<endl;
+    }
+    return 0;
 }
