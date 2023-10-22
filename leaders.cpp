@@ -44,6 +44,18 @@ output:
 1
 1000
 */
-int main() {
-
+vector<int> arrayLeaders(vector<int> numbers) {
+    vector<int> leaders;
+    int max = numbers[numbers.size()-1], i;
+    leaders.push_back(max);
+    for (i = numbers.size()-2; i>=0; i--) {
+        if (numbers[i]>=max) {
+            leaders.push_back(numbers[i]);
+            max = numbers[i];
+        }
+    }
+    reverse(leaders.begin(), leaders.end());
+    return leaders;
 }
+
+int main() {
