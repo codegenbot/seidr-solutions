@@ -46,15 +46,12 @@ output:
 */
 int main() {
     string text, target;
-    cin >> text >> target;
-    int length = target.length();
-    int i = 0;
-    while (i <= text.length() - length) {
-        if (text.substr(i, length) == target) {
+    getline(cin, text);
+    getline(cin, target);
+    int len = target.size();
+    for (int i = 0; i < text.size() - len; i++) {
+        if (text.substr(i, len) == target) {
             cout << i << " ";
-            i += length;
-        } else {
-            i++;
         }
     }
     return 0;
