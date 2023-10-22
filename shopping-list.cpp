@@ -49,38 +49,17 @@ input:
 output:
 29.0
 */
-// 这个题好像没有难度
 int main() {
     int n;
-    vector<float> price;
-    vector<float> discount;
-    vector<float> total;
-    while(cin >> n) {
-        for(int i = 0; i < n; i++) {
-            float temp;
-            cin >> temp;
-            price.push_back(temp);
-        }
-        
-        for(int i = 0; i < n; i++) {
-            float temp;
-            cin >> temp;
-            discount.push_back(temp);
-        }
-        
-        for(int i = 0; i < n; i++) {
-            float temp;
-            temp = price[i] * (100.0 - discount[i]) / 100;
-            total.push_back(temp);
-        }
-        float sum = 0;
-        for(int i = 0; i < total.size(); i++) {
-            sum += total[i];
-        }
-        printf("%.2f\n", sum);
-        price.clear();
-        discount.clear();
-        total.clear();
-    }
+    cin>>n;
+    vector<float> price(n),percent(n);
+    for(int i=0;i<n;i++)
+        cin>>price[i];
+    for(int i=0;i<n;i++)
+        cin>>percent[i];
+    float sum=0;
+    for(int i=0;i<n;i++)
+        sum+=price[i]-price[i]*percent[i]/100;
+    cout<<std::fixed<<std::setprecision(2)<<sum<<endl;
     return 0;
 }
