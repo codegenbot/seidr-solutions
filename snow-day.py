@@ -46,16 +46,39 @@ input:
 output:
 10.0
 """
-if __name__ == '__main__':
 
-    hours = int(input())
-    init = float(input())
-    rate = float(input())
-    melt = float(input())
-    total = init
+def recursiveSnowFall(hours, snow, snowFall, snowMelt):
+    if hours == 0:
+        return snow
+    else:
+        return recursiveSnowFall(hours-1, snow + snowFall - (snowMelt*snow), snowFall, snowMelt)
+
+def iterativeSnowFall(hours, snow, snowFall, snowMelt):
     for i in range(hours):
-        total -= (melt * total)
-        total += rate
+        snow += snowFall - (snowMelt*snow)
+    return snow
 
-    print(round(total,4))
-
+def snowFall(hours, snow, snowFall, snowMelt):
+    """
+    O(hours)
+    """
+    return recursiveSnowFall(hours, snow, snowFall, snowMelt)
+    return iterativeSnowFall(hours, snow, snowFall, snowMelt)
+if __name__ == '__main__':
+    hours = int(input())
+    if hours < 0:
+        print("Hours can not be less than 0.")
+    else:
+        snow = float(input())
+        if snow < 0:
+            print("Snow can not be less than 0.")
+        else:
+            snowFall = float(input())
+            if snowFall < 0:
+                print("Snow fall can not be less than 0.")
+            else:
+                snowMelt = float(input())
+                if snowMelt > 1:
+                    print("Snow melt can not be greater than 1.")
+                else:
+                    print("Snow Level: %s" % (snowFall(hours, snow, snowFall, snowMelt)))
