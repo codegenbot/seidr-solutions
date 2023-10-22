@@ -41,26 +41,22 @@ output:
 0
 0
 """
+
+
+def calculate_pegs(code, guess):
+    colors = set()
+
+    black_pegs = 0
+    for i, code_char in enumerate(code):
+        if code_char == guess[i]:
+            black_pegs += 1
+        colors.add(code_char)
+
+    white_pegs = 0
+    for code_char in colors:
+        white_pegs += min(code.count(code_char), guess.count(code_char))
+    white_pegs -= black_pegs
+    return white_pegs, black_pegs
+
+
 if __name__ == '__main__':
-
-    input = sys.stdin
-    # input = open('input.txt', 'r')
-
-    def blackAndWhite(input):
-        # key = code
-        # val = code with index
-        dict = collections.defaultdict(lambda: [])
-        for i in range(4):
-            dict[input[i]].append(i)
-        totalBlack = 0
-        # check for BLACK pegs
-        for black in range(4):
-            if input[black] == input[4+black]:
-                totalBlack += 1
-        # white = all colors minus all black
-        totalWhite = len(dict) - totalBlack
-        return str(totalWhite) + " " + str(totalBlack)
-
-    input[0] = sys.stdin.readline()
-    input[1] = sys.stdin.readline()
-    print(blackAndWhite(input))
