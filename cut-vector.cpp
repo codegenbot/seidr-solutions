@@ -55,27 +55,24 @@ output:
 
 */
 int main() {
-    int n;
-    cin>>n;
-    vector<int> v(n, 0);
-    for(int i=0; i<n; i++) {
-        cin>>v[i];
-    }
-    int min_diff = INT_MAX;
-    int min_pos = -1;
-    for(int i=0; i<v.size(); i++) {
-        int left = 0, right = 0;
-        for(int j=i; j>=0; j--) {
-            left += v[j];
-        }
-        for(int j=i; j<v.size(); j++) {
-            right += v[j];
-        }
-        if(abs(left - right) < min_diff) {
-            min_diff = abs(left - right);
-            min_pos = i;
+    vector<int> a;
+    a.push_back(1);
+    a.push_back(0);
+    int n = a.size();
+    int i = 0, j = n-1;
+    int sum1 = a[i], sum2 = a[j];
+    while (i < j) {
+        if (sum1 < sum2) {
+            i++;
+            sum1 += a[i];
+        } else if (sum1 > sum2) {
+            j--;
+            sum2 += a[j];
+        } else {
+            i++;
+            sum1 += a[i];
         }
     }
-    cout<<min_pos+1<<endl;
+    cout << i << " " << j << endl;
     return 0;
 }
