@@ -35,34 +35,38 @@ output:
 False
 */
 int main() {
-    //freopen("/Users/xxx/Desktop/input.txt", "r", stdin);
-    //freopen("/Users/xxx/Desktop/out.txt", "w", stdout);
-    string s;
-    cin >> s;
-    stack<bool> st;
-    vector<char> ops;
-    for (int i = 0; i < s.size(); i++) {
-        char c = s[i];
-        if (c == '(') continue;
-        if (c == 'T' || c == 'F') {
-            st.push(c == 'T' ? true : false);
-        } else if (c == ')') {
-            bool t = st.top();
-            st.pop();
-            while (ops.size() && ops.back() != '(') {
-                char op = ops.back();
-                ops.pop_back();
-                bool t1 = st.top();
-                st.pop();
-                t = (op == '&' && t1 && t) || (op == '|' && (t1 || t));
+    string str;
+    while (cin >> str) {
+        stack<char> st;
+        for (char ch : str) {
+            if (st.empty()) {
+                st.push(ch);
+            } else {
+                if (ch == '&' || ch == '|') {
+                    st.push(ch);
+                } else {
+                    char op = st.top();
+                    st.pop();
+                    char ch1 = st.top();
+                    st.pop();
+                    if (op == '&') {
+                        if (ch1 == 'T' && ch == 'T') {
+                            st.push('T');
+                        } else {
+                            st.push('F');
+                        }
+                    }
+                    if (op == '|') {
+                        if (ch1 == 'F' && ch == 'F') {
+                            st.push('F');
+                        } else {
+                            st.push('T');
+                        }
+                    }
+                }
             }
-            ops.pop_back();
-            st.push(t);
-        } else {
-            ops.push_back(c);
         }
+        cout << (st.top() == 'T' ? "True" : "False") << endl;
     }
-    if (st.top()) cout << "True" << endl;
-    else cout << "False" << endl;
     return 0;
 }
