@@ -37,11 +37,11 @@ output:
 int main() {
     string s;
     cin >> s;
-    int len = s.length();
-    if (len % 2 == 0) {
-        cout << s[len / 2 - 1] << s[len / 2];
+    int n = s.size();
+    if (n % 2 == 0) {
+        cout << s[n / 2 - 1] << s[n / 2] << endl;
     } else {
-        cout << s[len / 2];
+        cout << s[n / 2] << endl;
     }
     return 0;
 }
