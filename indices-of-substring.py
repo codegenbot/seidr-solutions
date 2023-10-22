@@ -7,6 +7,8 @@ import collections
 import itertools
 import queue
 import re
+
+
 """
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
 For example,
@@ -41,20 +43,25 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
+
 if __name__ == '__main__':
-    print(sys.argv[1:])
-    print(type(sys.argv[1]))
-    print(sys.argv[1].__len__())
-    if sys.argv[2].__len__()<1:
-        print("-1")
-    else:
-        source=sys.argv[1]
-        target=sys.argv[2]
-        if target.__len__()>source.__len__():
-            print("-1")
-        else:
-            for i in range(0,source.__len__()-target.__len__()+1):
-                print(i)
-                if target==source[i:i+target.__len__()]:
-                    print(i,end=" ")
-            print("-1")
+    text = input()
+    target = input()
+    index = []
+    t = -1
+    for i in range(len(text)):
+        if text[i:i + len(target)] == target:
+            index.append(i)
+            t = i
+            break
+    while t != -1:
+        for i in range(t + 1, len(text)):
+            if text[i:i + len(target)] == target:
+                index.append(i)
+                t = i
+                break
+            else:
+                t = -1
+
+    for i in index:
+        print(i,end = ' ')
