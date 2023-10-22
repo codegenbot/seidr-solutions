@@ -51,8 +51,12 @@ output:
 */
 int main() {
     int hour;
-    float ground_snow, snow_fall, snow_melting;
-    cin >> hour >> ground_snow >> snow_fall >> snow_melting;
-    cout << ground_snow + hour * snow_fall - hour * snow_melting * ground_snow << endl;
+    float s1, s2, s3;
+    cin>>hour>>s1>>s2>>s3;
+    float res = s1;
+    for (int i = 0; i<hour; i++) {
+        res += s2 - s3 * res;
+    }
+    cout<<res<<endl;
     return 0;
 }

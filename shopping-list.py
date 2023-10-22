@@ -47,25 +47,12 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    result = sys.argv[1]
-    list1 = result.split(',')
-    num = float(sys.argv[2])
-    num1 = float(sys.argv[3])
-    sum = 0
-    for i in list1:
-        if num == 1:
-            sum += float(i)
-        else:
-            sum += (float(i) - num1)
-    print(sum)
-# 接受参数
-# list = sys.argv[1]
-# arrList = sys.argv[2]
-# # num = int(sys.argv[2])
-# # num1 = int(sys.argv[3])
-# a = 0
-# b = 0
-# for i in range(0, len(list)):
-#     a += int(list.split(',')[i])
-#     b += int(list.split(',')[i]) * int(arrList.split(',')[i]) / 100
-# print(a - b)
+    N = int(input())
+    items = [float(x) for x in input().split()]
+    D = int(input())
+    discounts = [float(x) for x in input().split()]
+    result = 0
+    for i in range(min(N, D)):
+        result += (items[i] - (items[i] * discounts[i] / 100))
+    result += sum(items[D:])
+    print('%.1f' % result)
