@@ -1,14 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 /*
 Given a text string and a target string, return a list of integers of the indices at which the target appears in the text. Targets may overlap.
@@ -44,30 +34,34 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-int findString(string text, string target) {
-    //loop through the text
-    for (int i = 0; i < text.length() - target.length() + 1; i++) {
-        bool textMatch = true;
-        for (int j = 0; j < target.length(); j++) {
-            if (text[i + j] != target[j]) {
-                textMatch = false;
+int main()
+{
+    string text;
+    string target;
+    cin >> text;
+    cin >> target;
+    for (int i = 0; i + target.length() - 1 < text.length(); i++)
+    {
+        if (text[i] == target[0])
+        {
+            int j;
+            bool success = true;
+            for (j = 1; j < target.length(); j++)
+            {
+                if (text[i + j] == target[j] && success)
+                {
+                    success = true;
+                }
+                else
+                {
+                    success = false;
+                    break;
+                }
+            }
+            if (success)
+            {
+                cout << i << " ";
             }
         }
-        if (textMatch == true) {
-            return i;
-        }
-    }
-    return -1;
-}
-int main() {
-    string text = "hi";
-    string target = "hihihihihihihihihihi";
-    int indexFound = 0;
-    int ret = findString(text, target);
-    while (ret != -1) {
-        cout << ret << "\t";
-        text = target.substr(target.length() -1);
-        target = target.substr(0, target.length() - 1);
-        ret = findString(text, target);
     }
 }
