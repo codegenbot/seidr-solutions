@@ -41,22 +41,19 @@ output:
 0
 0
 """
-
-
-def calculate_pegs(code, guess):
-    colors = set()
-
-    black_pegs = 0
-    for i, code_char in enumerate(code):
-        if code_char == guess[i]:
-            black_pegs += 1
-        colors.add(code_char)
-
-    white_pegs = 0
-    for code_char in colors:
-        white_pegs += min(code.count(code_char), guess.count(code_char))
-    white_pegs -= black_pegs
-    return white_pegs, black_pegs
-
-
 if __name__ == '__main__':
+	code = input()
+	guess = input()
+	if len(guess) != len(code):
+		print("Error")
+		sys.exit(0)
+	color = 0
+	position = 0
+	for i in code:
+		if i in guess:
+			color += 1
+			if code.index(i) == guess.index(i):
+				position += 1
+				color -= 1
+	print(position)
+	print(color)
