@@ -42,17 +42,14 @@ output:
 0
 """
 def mastermind(code, guess):
-    white = 0
     black = 0
+    white = 0
     for i in range(len(code)):
         if code[i] == guess[i]:
             black += 1
-    for i in range(len(code)):
-        if code[i] != guess[i] and guess[i] in code:
-            white += 1
+        else:
+            if guess[i] in code:
+                white += 1
     return white, black
 
 if __name__ == '__main__':
-    code = "RRRR"
-    guess = "RRRR"
-    print(mastermind(code, guess))
