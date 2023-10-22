@@ -34,21 +34,13 @@ input:
 output:
 )b
 */
-
-string mid(string input){
-	string res;
-	int len = input.size();
-	if (len % 2 == 0){
-		res.push_back(input[len/2-1]);
-		res.push_back(input[len/2]);
-	}
-	else{
-		res.push_back(input[len/2]);
-	}
-	return res;
-}
 int main() {
-	string input;
-	cin>>input;
-	cout<<mid(input);
+    string s;
+    getline(cin, s);
+    int len = s.length();
+    if (len % 2 == 1) {
+        cout << s.substr(len / 2, 1);
+    } else {
+        cout << s.substr(len / 2 - 1, 2);
+    }
 }
