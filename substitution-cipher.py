@@ -42,8 +42,17 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    a = input()
-    b = input()
-    c = input()
-    for i in c:
-        print(b[a.index(i)],end="")
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    fptr = sys.stdout
+
+    cipher = input()
+
+    key = input()
+
+    message = input()
+
+    result = passThroughCipher(cipher, key, message)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
