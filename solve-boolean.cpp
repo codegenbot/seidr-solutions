@@ -34,61 +34,43 @@ t&f
 output:
 False
 */
-
-bool get_eval(string expr) {
-    int len = expr.length();
-    stack<bool> st;
-    for (int i = 0; i < len; i++) {
-        char c = expr[i];
-        if (c == 'T' || c == 'F') {
-            st.push(c == 'T' ? true : false);
-        } else if (c == '|') {
-            bool v1 = st.top();
-            st.pop();
-            bool v2 = st.top();
-            st.pop();
-            st.push(v1 || v2);
-        } else if (c == '&') {
-            bool v1 = st.top();
-            st.pop();
-            bool v2 = st.top();
-            st.pop();
-            st.push(v1 && v2);
+int main() {
+    string input;
+    while (cin >> input) {
+        stack<char> stk;
+        map<char, char> m;
+        m['|'] = '|';
+        m['&'] = '&';
+        m['t'] = 't';
+        m['f'] = 'f';
+        bool result = false;
+        for (int i = 0; i < input.size(); i++) {
+            if (input[i] == '|' || input[i] == '&') {
+                char c = input[i];
+                i += 2;
+                if (input[i] == 't') {
+                    if (m[c] == '|') {
+                        result = true;
+                        break;
+                    } else {
+                        m[c] = 't';
+                    }
+                } else if (input[i] == 'f') {
+                    if (m[c] == '&') {
+                        result = false;
+                        break;
+                    } else {
+                        m[c] = 'f';
+                    }
+                }
+            }
+        }
+        if (result) {
+            cout << "True" << endl;
+        } else {
+            cout << "False" << endl;
         }
     }
-    return st.top();
-}
-
-
-int main() {
-    string input = "F&F";
-    cout << "input: " << input << endl;
-    bool output = get_eval(input);
-    cout << "output: " << (output ? "True" : "False") << endl;
-
-    input = "T";
-    cout << "input: " << input << endl;
-    output = get_eval(input);
-    cout << "output: " << (output ? "True" : "False") << endl;
-
-    input = "F";
-    cout << "input: " << input << endl;
-    output = get_eval(input);
-    cout << "output: " << (output ? "True" : "False") << endl;
-
-    input = "F&F";
-    cout << "input: " << input << endl;
-    output = get_eval(input);
-    cout << "output: " << (output ? "True" : "False") << endl;
-
-    input = "F&T";
-    cout << "input: " << input << endl;
-    output = get_eval(input);
-    cout << "output: " << (output ? "True" : "False") << endl;
-
-    input = "T&F";
-    cout << "input: " << input << endl;
-    output = get_eval(input);
-    cout << "output: " << (output ? "True" : "False") << endl;
+ 
     return 0;
 }
