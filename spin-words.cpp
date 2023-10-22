@@ -36,13 +36,14 @@ hi
 */
 int main() {
     string s;
-    while(getline(cin, s)) {
-        int len = s.length();
+    while (getline(cin, s)) {
         int i = 0;
-        while(i < len) {
+        while (i < s.size()) {
             int j = i;
-            while(j < len && s[j] != ' ') j++;
-            if(j - i >= 5) {
+            while (j < s.size() && s[j] != ' ') {
+                j++;
+            }
+            if (j - i >= 5) {
                 reverse(s.begin() + i, s.begin() + j);
             }
             i = j + 1;
