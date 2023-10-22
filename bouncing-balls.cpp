@@ -11,7 +11,9 @@
 #include <climits>
 using namespace std;
 /*
-Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
+Given a starting height and a height after the ﬁrst bounce of a dropped ball, 
+calculate the bounciness index (height of ﬁrst bounce / starting height). 
+Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
 For example,
 input:
 1.001
@@ -45,5 +47,14 @@ output:
 3.963
 */
 int main() {
-	return 0;
+    double start,after,bounces;
+    while(cin >> start >> after >> bounces) {
+        double index = after/start;
+        double sum = start;
+        for(int i = 1; i < bounces; i++) {
+            sum += start * pow(index,2*i);
+        }
+        printf("%.3lf\n", sum);
+    }
+    return 0;
 }
