@@ -46,4 +46,20 @@ output:
 */
 int main() {
 
-    // Show me your fucking code!
+	string text, target;
+	while(getline(cin, text)) {
+		getline(cin, target);
+		int len1 = text.size();
+		int len2 = target.size();
+		for(int i= 0; i < len1; ++i) {
+			if(text.substr(i, len2) == target) {
+				cout << i << " ";
+			}
+		}
+		cout << endl;
+
+	}
+
+
+	return 0;
+}
