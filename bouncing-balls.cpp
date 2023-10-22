@@ -44,21 +44,6 @@ input:
 output:
 3.963
 */
-
-double bounciness(double start, double first, int num){
-    double res = start;
-    double bounciness = first / start;
-    for(int i = 0; i < num; i++){
-        res += 2 * (res * bounciness);
-    }
-    return res;
-}
-
-
 int main() {
-    double start, first;
-    int num;
-    cin >> start >> first >> num;
-    cout << bounciness(start, first, num) << endl;
-    return 0;
+
 }
