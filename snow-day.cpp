@@ -50,22 +50,40 @@ output:
 10.0
 */
 int main() {
-
-	int hours;
-	double snowamount;
-	double fallrate;
-	double meltperhour;
-
-	cout << "Enter input:" << endl;
-	cin >> hours;
-	cin >> snowamount;
-	cin >> fallrate;
-	cin >> meltperhour;
-
-	for (int i = 0; i < hours; i++) {
-		snowamount = snowamount + fallrate - snowamount*meltperhour;
-	}
-	cout << snowamount << endl;
-
-	return 0;
+    int hours;
+    float initSnow, rate, meltRate;
+    cin >> hours >> initSnow >> rate >> meltRate;
+    float snow = initSnow;
+    if (meltRate == 0) {
+        int snow = hours/rate;
+        cout << snow << endl;
+        return 0;
+    }
+    if (meltRate/rate < 1) {
+        while (hours) {
+            float snowFalling = rate * hours;
+            float melt = (snow - snowFalling) * meltRate;
+            snow += snowFalling - melt;
+            hours--;
+        }
+        cout << snow << endl;
+        return 0;
+    }
+    if (meltRate/rate < 2) {
+        while (hours) {
+            float melt = snow * meltRate;
+            snow -= melt;
+            hours--;
+        }
+        cout << snow << endl;
+        return 0;
+    }
+    while (hours) {
+        float snowFalling = rate * hours;
+        float melt = meltRate * hours;
+        snow -= melt;
+        snow += snowFalling;
+        hours--;
+    }
+    cout << snow << endl;
 }
