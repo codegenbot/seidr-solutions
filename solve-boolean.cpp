@@ -35,27 +35,32 @@ output:
 False
 */
 int main() {
-    string s;
-    cin >> s;
-    int n = s.length();
-    vector<int> stk;
-    for (int i = 0; i < n; i++) {
-        if (s[i] == 'T' || s[i] == 'F') {
-            stk.push_back(s[i] == 'T');
-        } else if (s[i] == '&') {
-            int a = stk.back();
-            stk.pop_back();
-            int b = stk.back();
-            stk.pop_back();
-            stk.push_back(a & b);
-        } else if (s[i] == '|') {
-            int a = stk.back();
-            stk.pop_back();
-            int b = stk.back();
-            stk.pop_back();
-            stk.push_back(a | b);
+    string str;
+    cin >> str;
+    stack<bool> s;
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] == 'T') {
+            s.push(true);
+        } else if (str[i] == 'F') {
+            s.push(false);
+        } else if (str[i] == '&') {
+            bool b1 = s.top();
+            s.pop();
+            bool b2 = s.top();
+            s.pop();
+            s.push(b1 && b2);
+        } else if (str[i] == '|') {
+            bool b1 = s.top();
+            s.pop();
+            bool b2 = s.top();
+            s.pop();
+            s.push(b1 || b2);
         }
     }
-    cout << (stk.back() ? "True" : "False") << endl;
+    if (s.top()) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
     return 0;
 }
