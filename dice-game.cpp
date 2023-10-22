@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <algorithm>
 #include <queue>
 #include <stdio.h>
 #include <math.h>
@@ -12,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Peter has an n-sided die and Colin has an m-sided die. 
+Peter has an n-sided die and Colin has an m-sided die.
 If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
 For example,
 input:
@@ -41,22 +40,4 @@ input:
 output:
 0.0
 */
-
 int main() {
-    int n, m;
-    while (scanf("%d%d", &n, &m) != EOF) {
-        //枚举
-        double ans = 0;
-        if (n > m) {
-            for (int x = m + 1; x <= n; x++) {
-                ans += (double) 1 / n;
-            }
-        }else if (n < m) {
-            for (int x = n + 1; x <= m; x++) {
-                ans += (double) 1 / m;
-            }
-        }
-        ans = 1 - ans;
-        printf("%.2f\n", ans);
-    }
-}
