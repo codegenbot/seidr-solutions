@@ -50,5 +50,28 @@ output:
 2.2715833329200144
 */
 int main() {
-    
+	int a, b;
+	vector<double> x, y;
+	cin >> a;
+	for (int i = 0; i < a; i++) {
+		double temp;
+		cin >> temp;
+		x.push_back(temp);
+	}
+	cin >> b;
+	for (int i = 0; i < b; i++) {
+		double temp;
+		cin >> temp;
+		y.push_back(temp);
+	}
+	if (a != b) cout << "ERROR" << endl;
+	else {
+		double z = 0.0;
+		for (int i = 0; i < a; i++) {
+			z += (x[i] - y[i]) * (x[i] - y[i]);
+		}
+		z = sqrt(z);
+		printf("%.15f", z);
+	}
+	return 0;
 }
