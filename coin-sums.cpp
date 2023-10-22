@@ -76,10 +76,7 @@ int main() {
             cents -= penny;
             num_penny++;
         }
-        cout << num_penny << "\n";
-        cout << num_nickle << "\n";
-        cout << num_dime << "\n";
-        cout << num_quarter << "\n";
+        cout << num_penny << "\n" << num_nickle << "\n" << num_dime << "\n" << num_quarter << endl;
     }
     return 0;
 }
