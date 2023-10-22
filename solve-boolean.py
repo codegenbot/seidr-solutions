@@ -23,12 +23,13 @@ f&f
 output:
 False
 input:
-t&t
+f&t
 output:
-True
+False
 input:
-f|f
+t&f
 output:
 False
 """
 if __name__ == '__main__':
+    pass
