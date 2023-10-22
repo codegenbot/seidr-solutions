@@ -1,57 +1,95 @@
-import os
-import sys
-import numpy as np
-import math
-import datetime
-import collections
-import itertools
-import queue
-import re
 """
 Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
+
 input:
 RRRR
 RRRR
+
 output:
-0
-4
+
+0 4
+
 input:
 BOYG
 GYOB
+
 output:
-4
-0
+
+4 0
+
 input:
 WYYW
 BBOG
+
 output:
-0
-0
+
+0 0
+
 input:
 GGGB
 BGGG
+
 output:
-2
-2
+
+2 2
+
 input:
 BBBB
 OOOO
+
 output:
-0
-0
+
+0 0
+
+input:
+BYG
+BYG
+
+output:
+
+0 3
+
+input:
+RRYY
+YYRR
+
+output:
+
+4 0
+
+input:
+OBYY
+YOBO
+
+output:
+
+0 4
+
+input:
+OOOO
+OOOO
+
+output:
+
+0 4
+
+input:
+BBBB
+BBBB
+
+output:
+
+0 4
+
 """
 if __name__ == '__main__':
-    res = dict()
-    for c in sys.stdin.readline().strip():
-        if res.setdefault(c, 0) == 0:
-            res[c] = 1
-        else:
-            res[c] += 1
-
-    for c in sys.stdin.readline().strip():
-        if c in res and res[c] > 0:
-            res[c] -= 1
-
-    print(len([v for v in res.values() if v == 0]))
-    print(sum(res.values()))
+    code = raw_input("Enter the code: ")
+    guess = raw_input("Guess: ")
+    code_dict = {letter: code.count(letter) for letter in set(code)}
+    guess_dict = {letter: guess.count(letter) for letter in set(guess)}
+    common_keys = list(set(code_dict.keys()) & set(guess_dict.keys()))
+    print common_keys
+    white = sum([min(code_dict[key], guess_dict[key]) for key in common_keys])
+    black = sum([1 if guess[i] == code[i] else 0 for i in range(len(code))])
+    print white, black
