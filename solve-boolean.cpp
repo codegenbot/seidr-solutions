@@ -28,10 +28,12 @@ False
 input:
 f&t
 output:
-True
+False
 input:
 t&f
 output:
 False
 */
 int main() {
+    return 0;
+}
