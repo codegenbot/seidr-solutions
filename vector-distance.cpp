@@ -52,22 +52,13 @@ output:
 int main() {
     int n;
     cin >> n;
-    double sum = 0;
-    vector<double> v1;
-    vector<double> v2;
-    for (int i = 0; i < n; i++) {
-        double tmp;
-        cin >> tmp;
-        v1.push_back(tmp);
+    vector<double> a(n), b(n);
+    for(int i = 0; i < n; i++) cin >> a[i];
+    for(int i = 0; i < n; i++) cin >> b[i];
+    double distance = 0;
+    for(int i = 0; i < n; i++) {
+        distance += (a[i] - b[i]) * (a[i] - b[i]);
     }
-    for (int i = 0; i < n; i++) {
-        double tmp;
-        cin >> tmp;
-        v2.push_back(tmp);
-    }
-    for (int i = 0; i < n; i++) {
-        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
-    }
-    cout << sqrt(sum) << endl;
+    printf("%.17f", sqrt(distance));
     return 0;
 }
