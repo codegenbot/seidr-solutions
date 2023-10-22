@@ -7,7 +7,7 @@
 #include <math.h>
 #include <map>
 #include <set>
-#include <stack>
+#include <stack> 
 #include <climits>
 using namespace std;
 /*
@@ -50,4 +50,3 @@ output:
 2.2715833329200144
 */
 int main() {
-    
