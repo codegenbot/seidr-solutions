@@ -14,35 +14,35 @@ using namespace std;
 Given a number of cents, ﬁnd the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output.
 For example,
 input:
-1
+1 1
 output:
 1
 0
 0
 0
 input:
-2
+2 2
 output:
 2
 0
 0
 0
 input:
-3
+3 3
 output:
 3
 0
 0
 0
 input:
-4
+4 4
 output:
 4
 0
 0
 0
 input:
-5
+5 5
 output:
 0
 1
@@ -57,17 +57,10 @@ int main() {
         d = (cents % 25) / 10;
         n = ((cents % 25) % 10) / 5;
         p = ((cents % 25) % 10) % 5;
-        if (p == 1) {
-            cout << p << endl;
-            cout << n << endl;
-            cout << d << endl;
-            cout << q << endl;
-        } else {
-            cout << p << endl;
-            cout << n << endl;
-            cout << d << endl;
-            cout << q << endl;
-        }
+        cout << p << endl;
+        cout << n << endl;
+        cout << d << endl;
+        cout << q << endl;
     }
     return 0;
 }
