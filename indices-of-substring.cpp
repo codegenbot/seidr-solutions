@@ -44,9 +44,28 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-
-// 这个题目，在网上真没有找到solution，只有一个讨论
-// 这个解题方法，是我想的，但是自己写出来的代码有bug，需要debug，而且还是一个个debug，
-// 所以，还是要对复杂的代码，一个个debug比较好。
-// 这种题目，也是要自己回去想的
 int main() {
+    string textInput;
+    char targetInput;
+    vector<int> returnVec;
+    string s;
+    while (getline(cin, s)) {
+        if (s == "") {
+            break;
+        }else {
+            textInput = s;
+        }
+    }
+    while (cin >> targetInput) {
+        break;
+    }
+    for (int i = 0; i < textInput.size(); i++) {
+        if (targetInput == textInput[i]) {
+            returnVec.push_back(i);
+        }
+    }
+    for (int i = 0; i < returnVec.size(); i++) {
+        cout << returnVec[i] << " ";
+    }
+    return 0;
+}
