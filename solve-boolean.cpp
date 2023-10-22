@@ -38,11 +38,12 @@ int main() {
     string s;
     cin >> s;
     stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == ')') {
             char op = st.top();
             st.pop();
             char a = st.top();
+            st.pop();
             st.pop();
             char b = st.top();
             st.pop();
@@ -52,11 +53,11 @@ int main() {
                 } else {
                     st.push('F');
                 }
-            } else if (op == '|') {
-                if (a == 'F' && b == 'F') {
-                    st.push('F');
-                } else {
+            } else {
+                if (a == 'T' || b == 'T') {
                     st.push('T');
+                } else {
+                    st.push('F');
                 }
             }
         } else {
