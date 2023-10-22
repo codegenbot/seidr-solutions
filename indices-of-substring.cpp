@@ -44,27 +44,24 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
+vector<int> find(string text, string target) {
+    vector<int> result;
+    if (target.length() > text.length()) {
+        return result;
+    }
+    for (int i = 0; i <= text.length() - target.length(); i++) {
+        if (text.substr(i, target.length()) == target) {
+            result.push_back(i);
+        }
+    }
+    return result;
+}
 int main() {
     string text, target;
     cin >> text >> target;
-    int n = text.size(), m = target.size();
-    vector<int> ans;
-    for (int i = 0; i < n; i++) {
-        if (text[i] == target[0]) {
-            bool flag = true;
-            for (int j = 0; j < m; j++) {
-                if (i + j >= n || text[i + j] != target[j]) {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag) {
-                ans.push_back(i);
-            }
-        }
-    }
-    for (int i = 0; i < ans.size(); i++) {
-        cout << ans[i] << " ";
+    vector<int> result = find(text, target);
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
     cout << endl;
     return 0;

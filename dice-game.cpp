@@ -40,14 +40,19 @@ output:
 0.0
 */
 int main() {
-    int n,m;
+    int n, m;
     while (cin >> n >> m) {
-        double ans = 0;
-        for(int i = 1; i <= n; i++) {
-            for(int j = 1; j <= m; j++) {
-                if(i > j) ans++;
+        double peter = 0;
+        double colin = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (i > j) {
+                    peter++;
+                }
+                colin++;
             }
         }
-        printf("%.2f\n", ans / (n * m));
+        printf("%.2f\n", peter / colin);
     }
+    return 0;
 }

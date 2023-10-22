@@ -44,32 +44,25 @@ output:
 1
 1000
 */
-class Solution {
-public:
-    int lengthOfLIS(vector<int>& nums) {
-        vector<int> res;
-        for(int cur:nums){
-            int left = 0, right = res.size();
-            while(left<right){
-                int mid = left+(right-left)/2;
-                if(res[mid]<cur) left = mid+1;
-                else right = mid;
-            }
-            if(right>=res.size()) res.push_back(cur);
-            else res[right] = cur;
-        }
-        return res.size();
-    }
-};
 int main() {
-    Solution s;
-    vector<int> nums;
     int n;
-    cin>>n;
-    for(int i = 0; i < n; i++){
-        int temp;
-        cin>>temp;
-        nums.push_back(temp);
+    cin >> n;
+    vector<int> nums;
+    for (int i = 0; i < n; i++) {
+        int s;
+        cin >> s;
+        nums.push_back(s);
     }
-    cout<<s.lengthOfLIS(nums)<<endl;
+    stack<int> st;
+    for (int i = n - 1; i >= 0; i--) {
+        while (!st.empty() && st.top() <= nums[i]) {
+            st.pop();
+        }
+        st.push(nums[i]);
+    }
+    while (!st.empty()) {
+        cout << st.top() << endl;
+        st.pop();
+    }
 }
+
