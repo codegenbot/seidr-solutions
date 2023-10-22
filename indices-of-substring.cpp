@@ -45,16 +45,29 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text, target;
-    cin >> text >> target;
-    int length = target.length();
+    string s;
+    string t;
+    cin>>s;
+    cin>>t;
+    int n = 0;
+    int m = 0;
+    n = s.size();
+    m = t.size();
     int i = 0;
-    while (i <= text.length() - length) {
-        if (text.substr(i, length) == target) {
-            cout << i << " ";
-            i += length;
-        } else {
+    int j = 0;
+    while(i < n){
+        if(s[i] == t[j]){
             i++;
+            j++;
+        }
+        else{
+            i = i - j + 1;
+            j = 0;
+        }
+        if(j == m){
+            cout<<i-m<<" ";
+            i = i - j + 1;
+            j = 0;
         }
     }
     return 0;
