@@ -47,11 +47,12 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    n = int(input())
-    prices = list(map(float, input().split()))
-    m = int(input())
-    discounts = list(map(float, input().split()))
-    total = 0
-    for i in range(n):
-        total += prices[i] * (1 - discounts[i] / 100)
-    print(total)
+    N = int(input())
+    items = [float(x) for x in input().split()]
+    D = int(input())
+    discounts = [float(x) for x in input().split()]
+    result = 0
+    for i in range(D):
+        result += (items[i] - (items[i] * discounts[i] / 100))
+    result += sum(items[D:])
+    print('%.1f' % result)
