@@ -51,23 +51,17 @@ output:
 */
 int main() {
     int n;
-    float tmp;
-    vector<float > vector1,vector2;
     cin>>n;
-    for(int i=0;i<n;i++){
-        scanf("%f",&tmp);
-        vector1.push_back(tmp);
-    }
+    vector<double> x(n);
+    for(int i = 0; i < n; i ++)
+        cin>>x[i];
     cin>>n;
-    for(int i=0;i<n;i++){
-        scanf("%f",&tmp);
-        vector2.push_back(tmp);
-    }
-    float dis=0;
-    for(int i=0;i<vector1.size();i++){
-        dis+=(vector1[i]-vector2[i])*(vector1[i]-vector2[i]);
-    }
-    dis=sqrt(dis);
-    printf("%.16f",dis);
+    vector<double> y(n);
+    for(int i = 0; i < n; i ++)
+        cin>>y[i];
+    double sum = 0;
+    for(int i = 0; i < x.size(); i ++)
+        sum += (x[i]-y[i])*(x[i]-y[i]);
+    printf("%.10f",sqrt(sum));
     return 0;
 }
