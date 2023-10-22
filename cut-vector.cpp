@@ -55,24 +55,5 @@ output:
 
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i = 0; i < n; i ++) {
-        cin >> v[i];
-    }
-    int min = INT_MAX;
-    int idx = -1;
-    for(int i = 0; i < n - 1; i ++) {
-        if(abs(v[i] - v[i + 1]) < min) {
-            min = abs(v[i] - v[i + 1]);
-            idx = i;
-        }
-    }
-    for(int i = 0; i <= idx + 1; i ++) {
-        cout << v[i] << endl;
-    }
-    for(int i = idx + 1; i < n; i ++) {
-        cout << v[i] << endl;
-    }
+  return 0;
 }
