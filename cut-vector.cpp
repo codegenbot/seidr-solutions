@@ -54,28 +54,53 @@ output:
 0
 
 */
-
 int main() {
-    int n;
-    vector<int> v;
-    while (scanf("%d",&n) != EOF) {
-        v.push_back(n);
+    int t;
+    cin >> t;
+    vector<int> res;
+    while (t--) {
+        int n;
+        cin >> n;
+        res.push_back(n);
     }
-    int left=0,right=0,ans=0;
-    for(int i=1;i<v.size();i++){
-        if(v[i-1]>=v[i]*2){
-            right=i-1;
+    int l = 0, r = res.size() - 1;
+    int min = INT_MAX;
+    int lV = 0, rV = 0;
+    bool flag = true;
+    while (l <= r) {
+        int sum = 0;
+        for (int i = l; i <= r; i++) {
+            sum += res[i];
+        }
+        if (min > abs(sum - 2 * sum)) {
+            min = abs(sum - 2 * sum);
+            lV = l;
+            rV = r;
+            flag = true;
+        }
+        if (sum < 2 * sum) {
+            l++;
+        } else if (sum > 2 * sum) {
+            r--;
+        } else {
+            flag = false;
             break;
         }
-        else if(v[i]*2<=v[i-1]){
-            left=i;
-        }
-        else if(v[i]*2>v[i-1] && v[i]*2<=v[i-1]*2){
-            ans=i;
-        }
     }
-    if(ans!=0) printf("%d %d %d\n",v[0],v[ans],v[ans+1]);
-    else if(left!=0 && left+1<v.size()) printf("%d %d %d\n",v[0],v[left],v[left+1]);
-    else printf("%d %d %d\n",v[0],v[right],v[right+1]);
+    if (flag) {
+        for (int i = 0; i < lV; i++) {
+            cout << res[i] << endl;
+        }
+        cout << 0 << endl;
+        for (int i = lV; i < res.size(); i++) {
+            cout << res[i] << endl;
+        }
+    } else {
+        for (int i = 0; i < res.size(); i++) {
+            cout << res[i] << endl;
+        }
+        cout << 0 << endl;
+        cout << 0 << endl;
+    }
     return 0;
 }
