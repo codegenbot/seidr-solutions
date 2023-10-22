@@ -46,14 +46,11 @@ input:
 output:
 10.0
 """
+
+def  snowing(hours, currentSnow, rateSnow, meltingRate ):
+	amountSnow = currentSnow
+	for i in range(hours):
+		amountSnow = amountSnow + rateSnow - meltingRate*amountSnow
+	return amountSnow
+
 if __name__ == '__main__':
-    s_h = float(raw_input())
-    a_h = float(raw_input())
-    d_h = float(raw_input())
-    t_h = float(raw_input())
-    i_h = 0
-    while i_h < t_h
-        a_h = a_h - d_h
-        s_h = s_h + a_h
-        i_h = i_h + 1
-    print s_h
