@@ -50,4 +50,14 @@ output:
 2.2715833329200144
 */
 int main() {
+    int n;
+    float a, total = 0;
+    while(cin>>n) {
+        while(n--) {
+            cin>>a;
+            total += a * a;
+        }
+    }
+    printf("%.16f", sqrt(total));
+    return 0;
 }
