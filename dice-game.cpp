@@ -39,22 +39,31 @@ input:
 output:
 0.0
 */
-int main() {
-    int a, b;
-    while(cin>>a>>b) {
-        double res = 0.0;
-        if(a > b) {
-            for(int i = 1; i <= a; i++) {
-                res += (double)(a-i+1)/a * (double)i/b;
+
+// n>m
+double solve(int n, int m) {
+    double dp[n+1][m+1];
+    memset(dp, 0, sizeof(dp));
+    for(int i=0; i<=m; i++) dp[1][i] = 1.0/m;
+    for(int i=2; i<=n; i++) {
+        for(int j=0; j<=m; j++) {
+            for(int k=0; k<=j; k++) {
+                dp[i][j] += dp[i-1][k];
             }
-        } else if(a < b) {
-            for(int i = 1; i <= b; i++) {
-                res += (double)(b-i+1)/b * (double)i/a;
-            }
-        } else {
-            res = 1.0/2;
+            dp[i][j] /= m;
         }
-        printf("%.3lf\n", res);
+    }
+    double res = 0.0;
+    for(int i=0; i<=m; i++) {
+        res += dp[n][i];
+    }
+    return res;
+}
+int main() {
+    int n, m;
+    while(cin>>n>>m) {
+        if(n>m) cout<<solve(n, m)<<endl;
+        else cout<<1-solve(m, n)<<endl;
     }
     return 0;
 }
