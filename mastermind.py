@@ -42,22 +42,17 @@ output:
 0
 """
 if __name__ == '__main__':
-    line = raw_input()
-    l = len(line)
-    b = 0
-    w = 0
-    for i in range(0, l):
-        if line[i] == 'G':
-            b += 1
-    if b == 0:
-        print w
-        print b
-    else:
-        for i in range(0, l):
-            for j in range(i + 1, l):
-                if line[i] == line[j]:
-                    w += 1
-                    b -= 1
-                    break
-        print w
-        print b
+    code = list(raw_input())
+    guess = list(raw_input())
+    white = 0
+    black = 0
+    for i in range(4):
+        if code[i] == guess[i]:
+            del code[i]
+            del guess[i]
+            black += 1
+    for j in range(4-black):
+        if guess[j] in code:
+            white += 1
+            code.remove(guess[j])
+    print black,white
