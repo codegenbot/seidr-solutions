@@ -35,44 +35,21 @@ output:
 all separate words
 */
 int main() {
-	string s;
-	getline(cin, s);
-	vector<string> v;
-	for(int i = 0; i < s.size(); ++i) {
-		if(s[i] == ' ') {
-			v.push_back(" ");
-		}
-		else if(s[i] == '-') {
-			v.push_back("-");
-		}
-		else {
-			string tmp = "";
-			while(i < s.size() && s[i] != ' ' && s[i] != '-') {
-				tmp += s[i];
-				i++;
-			}
-			v.push_back(tmp);
-			i--;
-		}
-	}
-	for(int i = 0; i < v.size(); ++i) {
-		if(v[i] == " " || v[i] == "-") {
-			cout << v[i];
-		}
-		else {
-			if(i == 0 || v[i - 1] == " " || v[i - 1] == "-") {
-				for(int j = 0; j < v[i].size(); ++j) {
-					cout << (char)tolower(v[i][j]);
-				}
-			}
-			else {
-				for(int j = 0; j < v[i].size(); ++j) {
-					if(j == 0) cout << (char)toupper(v[i][j]);
-					else cout << (char)tolower(v[i][j]);
-				}
-			}
-		}
-	}
-	cout << endl;
-	return 0;
+  string s;
+  while(getline(cin,s)){
+    stringstream ss(s);
+    string word;
+    while(ss>>word){
+      int n=word.size();
+      for(int i=0;i<n;i++){
+        if(word[i]=='-'){
+          word[i+1]=toupper(word[i+1]);
+          word.erase(i,1);
+        }
+      }
+      cout<<word<<" ";
+    }
+    cout<<endl;
+  }
+  return 0;
 }
