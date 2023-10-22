@@ -52,21 +52,34 @@ output:
 int main() {
     int n;
     cin >> n;
-    float sum = 0;
-    float temp;
+    double x[n];
+    double y[n];
+    double xy[n];
+    double xy2 = 0;
+    double x2 = 0;
+    double y2 = 0;
     for (int i = 0; i < n; i++) {
-        cin >> temp;
-        sum += temp * temp;
+        cin >> x[i];
     }
-    float ans = sqrt(sum);
-    printf("%.6f\n", ans);
-    cin >> n;
-    sum = 0;
     for (int i = 0; i < n; i++) {
-        cin >> temp;
-        sum += temp * temp;
+        cin >> y[i];
     }
-    ans = sqrt(sum);
-    printf("%.6f\n", ans);
+    for (int i = 0; i < n; i++) {
+        xy[i] = x[i] * y[i];
+    }
+    double sumxy = 0;
+    double sumx2 = 0;
+    double sumy2 = 0;
+    for (int i = 0; i < n; i++) {
+        sumxy += xy[i];
+    }
+    for (int i = 0; i < n; i++) {
+        sumx2 += x[i] * x[i];
+    }
+    for (int i = 0; i < n; i++) {
+        sumy2 += y[i] * y[i];
+    }
+    double result = sqrt(sumx2 + sumy2 - 2 * sumxy);
+    printf("%.16f", result);
     return 0;
 }
