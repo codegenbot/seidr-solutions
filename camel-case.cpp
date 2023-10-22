@@ -34,21 +34,6 @@ all separate words
 output:
 all separate words
 */
-
-char toUpper(char ch) { return (ch >= 'a' && ch <= 'z') ? (ch - 32) : ch; }
-
-string toCamelCase(string str) {
-    string res;
-    bool dash = false;
-    for(int i = 0; i < str.length(); ++i) {
-        res += (dash ? toUpper(str[i]) : str[i]);
-        dash = (str[i]=='-')?true:false;
-    }
-    return res;
-}
-
 int main() {
 
-    cout<<toCamelCase("camel-case example-test-string");
-    return 0;
 }
