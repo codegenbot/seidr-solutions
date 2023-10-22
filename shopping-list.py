@@ -47,10 +47,20 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    num_items = int(input())
-    prices = [float(x) for x in input().split()]
-    discounts = [float(x) for x in input().split()]
-    total = 0
-    for price, discount in zip(prices, discounts):
-        total += price * (1 - discount / 100)
-    print(total)
+    # n = int(input())
+    # prices = list(map(float, input().split()))
+    # n = int(input())
+    # discounts = list(map(float, input().split()))
+    # n = int(input())
+    # prices = list(map(float, input().split()))
+    # n = int(input())
+    # discounts = list(map(float, input().split()))
+    # n = int(input())
+    # prices = list(map(float, input().split()))
+    # n = int(input())
+    # discounts = list(map(float, input().split()))
+    n = int(input())
+    prices = list(map(float, input().split()))
+    n = int(input())
+    discounts = list(map(float, input().split()))
+    print(sum([prices[i]*(1-discounts[i]/100) for i in range(len(prices))]))
