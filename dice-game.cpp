@@ -40,4 +40,12 @@ output:
 0.0
 */
 int main() {
-    return 0;
+    
+    int n, m;
+    cin >> n >> m;
+    double res = 0.0;
+    for (int i = 1; i < n; ++i) {
+        res += (double)i / n * ((double)i / n * (double)(n - i) / (m - 1) + (double)(n - i) / n * (double)i / (m - 1));
+    }
+    printf("%.2f", res);
+}
