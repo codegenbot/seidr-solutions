@@ -35,13 +35,13 @@ output:
 )b
 */
 int main() {
-    string str;
-    getline(cin, str);
-    int len = str.size();
-    if (len % 2 == 0) {
-        cout << str[len / 2 - 1] << str[len / 2] << endl;
+    string s;
+    cin >> s;
+    int n = s.size();
+    if (n % 2 == 0) {
+        cout << s[n/2-1] << s[n/2];
     } else {
-        cout << str[len / 2] << endl;
+        cout << s[n/2];
     }
     return 0;
 }
