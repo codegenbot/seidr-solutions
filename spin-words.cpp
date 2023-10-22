@@ -36,27 +36,31 @@ hi
 */
 int main() {
     string s;
-    getline(cin, s);
-    string res = "";
-    int i = 0;
-    while(i < s.length()) {
-        string temp = "";
-        while(i < s.length() && s[i] != ' ') {
-            temp += s[i];
-            i++;
-        }
-        if(temp.length() < 5) {
-            res += temp;
-        } else {
-            for(int j = temp.length() - 1; j >= 0; j--) {
-                res += temp[j];
+    while (getline(cin, s)) {
+        string res = "";
+        int i = 0;
+        while (i < s.size()) {
+            if (s[i] == ' ') {
+                res += s[i];
+                i++;
+            } else {
+                int j = i;
+                while (j < s.size() && s[j] != ' ') {
+                    j++;
+                }
+                if (j - i >= 5) {
+                    for (int k = j - 1; k >= i; k--) {
+                        res += s[k];
+                    }
+                } else {
+                    for (int k = i; k < j; k++) {
+                        res += s[k];
+                    }
+                }
+                i = j;
             }
         }
-        if(i < s.length()) {
-            res += ' ';
-        }
-        i++;
+        cout << res << endl;
     }
-    cout << res << endl;
     return 0;
 }
