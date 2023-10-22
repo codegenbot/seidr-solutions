@@ -40,12 +40,17 @@ output:
 0.0
 */
 int main() {
-    int m, n;
-    while (cin>>m>>n) {
-        double sum = 0;
-        for (int i=1; i<n; i++) {
-            sum += (1.0*i/n)*((1.0*(m-i)/m)*((1.0*(m-i)/m-1)*((1.0*(m-i)/m-2)/(1.0*(m-3)/m))));
+    int n, m;
+    cin>>n>>m;
+    double ans = 0;
+    double total = 0;
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= m; j++) {
+            if(i > j) {
+                ans += 1;
+            }
+            total += 1;
         }
-        printf("%.6lf\n", sum);
     }
+    cout<<setprecision(15)<<ans/total<<endl;
 }
