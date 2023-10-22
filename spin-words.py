@@ -32,15 +32,15 @@ output:
 hi
 """
 if __name__ == '__main__':
-    list1 = []
-    list2 = []
-    list3 = []
-    string = input()
-    list1 = string.split(" ")
-    for i in list1:
-        if len(i) >= 5:
-            list2.append(i)
+    while True:
+        line = input()
+        if line:
+            words = line.split()
+            for word in words:
+                if len(word) >= 5:
+                    print(word[-1::-1], end=' ')
+                else:
+                    print(word, end=' ')
+            print('\n')
         else:
-            list3.append(i)
-    list2.reverse()
-    print(list2 + list3)
+            break
