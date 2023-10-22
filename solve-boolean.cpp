@@ -34,6 +34,35 @@ t&f
 output:
 False
 */
-int main() {
 
+bool evaluate(string s) {
+    bool cur = false;
+    if (s.empty()) return false;
+    if (s[0] == 'T') cur = true;
+    bool res = cur;
+    stack<bool> st;
+    for (int i = 1; i < s.size(); i++) {
+        if (s[i] == '&') {
+            st.push(cur);
+            res = res && cur;
+        } else if (s[i] == '|') {
+            st.push(cur);
+            res = res || cur;
+        } else if (s[i] == 'T') {
+            cur = true;
+        } else if (s[i] == 'F') {
+            cur = false;
+        } else if (s[i] == ')') {
+            cur = st.top();
+            st.pop();
+        }
+    }
+    return res;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << evaluate(s) << endl;
+    return 0;
 }
