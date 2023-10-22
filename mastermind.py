@@ -20,7 +20,6 @@ input:
 BOYG
 GYOB
 output:
-
 4
 0
 input:
@@ -42,14 +41,21 @@ output:
 0
 0
 """
+def master(a,b):
+    guess=a.upper()
+    code=b.upper()
+    count_black=0
+    count_white=0
+    for i in range(4):
+        if guess[i]==code[i]:
+            count_black+=1
+            code=code[:i]+code[i+1:]
+            guess=guess[:i]+guess[i+1:]
+    for c in list(guess):
+        index=code.find(c)
+        if index!=-1:
+            count_white+=1
+            code=code[:index]+code[index+1:]
+    print count_white,count_black
+    return count_white,count_black
 if __name__ == '__main__':
-    l = ['B', 'G', 'O', 'P', 'R', 'Y']
-    a = list(raw_input())
-    b = list(raw_input())
-    c = 0
-    for t in l:
-        c += min(a.count(t), b.count(t))
-    for i in xrange(len(a)):
-        if a[i] == b[i]:
-            c -= 1
-    print c, sum(i == j for i, j in zip(a, b))
