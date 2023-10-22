@@ -50,30 +50,19 @@ output:
 2.2715833329200144
 */
 int main() {
-    while (true) {
-        int n;
-        cin >> n;
-        if (n == 0) {
-            break;
-        }
-        vector<float> a;
-        for (int i = 0; i < n; i++) {
-            float tmp;
-            cin >> tmp;
-            a.push_back(tmp);
-        }
-        cin >> n;
-        vector<float> b;
-        for (int i = 0; i < n; i++) {
-            float tmp;
-            cin >> tmp;
-            b.push_back(tmp);
-        }
-        double sum = 0;
-        for (int i = 0; i < a.size(); i++) {
-            sum += pow(a[i] - b[i], 2);
-        }
-        printf("%.16f\n", sqrt(sum));
-    }
+    int n;
+    cin >> n;
+    vector<float> v1(n);
+    for (int i = 0; i < n; i++)
+        cin >> v1[i];
+    cin >> n;
+    vector<float> v2(n);
+    for (int i = 0; i < n; i++)
+        cin >> v2[i];
+    double ans = 0;
+    for (int i = 0; i < n; i++)
+        ans += pow(v1[i] - v2[i], 2);
+    ans = sqrt(ans);
+    printf("%.12lf", ans);
     return 0;
 }
