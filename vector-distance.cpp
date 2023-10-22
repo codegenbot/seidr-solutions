@@ -50,5 +50,22 @@ output:
 2.2715833329200144
 */
 int main() {
-
+    int n;
+    while(cin>>n) {
+        vector<float> a(n);
+        vector<float> b(n);
+        int i;
+        for(i = 0; i < n; i++) {
+            cin>>a[i];
+        }
+        for(i = 0; i < n; i++) {
+            cin>>b[i];
+        }
+        float sum = 0;
+        for(i = 0; i < n; i++) {
+            sum += (a[i]-b[i])*(a[i]-b[i]);
+        }
+        printf("%f\n", sqrt(sum));
+    }
+    return 0;
 }
