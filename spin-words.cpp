@@ -37,18 +37,27 @@ hi
 int main() {
     string str;
     getline(cin, str);
-    int n = str.size();
+    string res;
     int i = 0;
-    while (i < n) {
+    while (i < str.size()) {
         int j = i;
-        while (j < n && str[j] != ' ') {
+        while (j < str.size() && str[j] != ' ') {
             j++;
         }
         if (j - i >= 5) {
-            reverse(str.begin() + i, str.begin() + j);
+            for (int k = j - 1; k >= i; k--) {
+                res += str[k];
+            }
+        } else {
+            for (int k = i; k < j; k++) {
+                res += str[k];
+            }
+        }
+        if (j < str.size()) {
+            res += ' ';
         }
         i = j + 1;
     }
-    cout << str << endl;
+    cout << res << endl;
     return 0;
 }
