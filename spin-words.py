@@ -32,12 +32,8 @@ output:
 hi
 """
 if __name__ == '__main__':
-    str = input()
-    str1 = str.split()
-    str2 = []
-    for i in range(0,len(str1)):
-        if 5 <= len(str1[i]):
-            str2.append(str1[i][::-1])
-        else:
-            str2.append(str1[i])
-    print(' '.join(str2))
+    words = input().split()
+    for i, word in enumerate(words):
+        if len(word) >= 5:
+            words[i] = word[::-1]
+    print(' '.join(words))
