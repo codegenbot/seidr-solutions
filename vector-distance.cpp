@@ -10,28 +10,22 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/*
-Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
-For example,
-input:
-20
--100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
-20
-100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
+/*Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
+
+For example, 
+input: 3 
+1 1 1 
+2 2 2 
 output:
-894.4271909999159
-input:
-20
-5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
-20
-5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
+1.7320508075688772 
+input: 3 
+1 1 1 
+1 1 1 
 output:
-0.0
-input:
-1
-42.91283
-1
--22.134
+0.0 
+input: 3 
+-1 -1 -1 
+1 1 1 
 output:
 65.04683
 input:
@@ -49,9 +43,4 @@ input:
 output:
 2.2715833329200144
 */
-
 int main() {
-//code
-
-return 0;
-}
