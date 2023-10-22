@@ -38,7 +38,7 @@ int main() {
     int n;
     cin >> n;
     string res = "";
-    while (n) {
+    while(n) {
         int tmp = n % 10;
         res = to_string(tmp * tmp) + res;
         n /= 10;
