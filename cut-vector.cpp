@@ -55,5 +55,34 @@ output:
 
 */
 int main() {
-
+    vector<int> vec = {1,10,100,1000,10000};
+    int m = INT_MIN;
+    int idx = -1;
+    for(int i = 0; i < vec.size(); i++){
+        if(i == 0){
+            if(abs(vec[0] - 0) > m){
+                m = abs(vec[0] - 0);
+                idx = i;
+            }
+        }
+        else{
+            if(abs(vec[i] - vec[i-1]) > m){
+                m = abs(vec[i] - vec[i-1]);
+                idx = i;
+            }
+        }
+    }
+    vector<int> res1;
+    vector<int> res2;
+    for(int i = 0; i < idx; i++){
+        res1.push_back(vec[i]);
+    }
+    for(int i = idx; i < vec.size(); i++){
+        res2.push_back(vec[i]);
+    }
+    for(int e : res1) cout << e << " ";
+    cout << endl;
+    for(int e : res2) cout << e << " ";
+    cout << endl;
+    return 0;
 }
