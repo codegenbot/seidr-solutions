@@ -51,19 +51,23 @@ output:
 */
 int main() {
     int n;
-    cin>>n;
-    vector<float> v1(n);
-    for(int i=0;i<n;i++){
-        cin>>v1[i];
+    cin >> n;
+    double sum = 0;
+    vector<double> v1;
+    vector<double> v2;
+    for (int i = 0; i < n; i++) {
+        double tmp;
+        cin >> tmp;
+        v1.push_back(tmp);
     }
-    cin>>n;
-    vector<float> v2(n);
-    for(int i=0;i<n;i++){
-        cin>>v2[i];
+    for (int i = 0; i < n; i++) {
+        double tmp;
+        cin >> tmp;
+        v2.push_back(tmp);
     }
-    float res=0;
-    for(int i=0;i<n;i++){
-        res+=pow(v1[i]-v2[i],2);
+    for (int i = 0; i < n; i++) {
+        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout<<sqrt(res)<<endl;
+    cout << sqrt(sum) << endl;
+    return 0;
 }
