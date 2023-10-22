@@ -62,9 +62,9 @@ int main() {
         cin >> v2[i];
     }
     float sum = 0;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < v1.size(); i++) {
         sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    cout << sqrt(sum) << endl;
+    printf("%.12f\n", sqrt(sum));
     return 0;
 }
