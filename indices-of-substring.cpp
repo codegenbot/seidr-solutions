@@ -45,27 +45,41 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text, target;
-    getline(cin, text);
-    getline(cin, target);
-    if (target.size() > text.size()) {
-        cout << -1 << endl;
-    } else if (target.size() == text.size()) {
-        if (text == target) {
-            cout << 0 << endl;
-        } else {
-            cout << -1 << endl;
-        }
-    } else {
-        int len = target.size();
-        int i = 0;
-        for (int i = 0; i < text.size(); i++) {
-            string sub = text.substr(i, len);
-            if (sub == target) {
-                cout << i << " ";
+    string a,b;
+    getline(cin,a);
+    getline(cin,b);
+    int l=b.length();
+    int a1=a.length();
+    int count=0;
+    int i;
+    for(i=0;i<a1;i++)
+    {
+        if(a[i]==b[0])
+        {
+            int j;
+            int flag=0;
+            for(j=1;j<l;j++)
+            {
+                if(a[i+j]==b[j])
+                {
+                    flag=1;
+                }
+                else
+                {
+                    flag=0;
+                    break;
+                }
+            }
+            if(flag==1)
+            {
+                cout<<i<<" ";
+                count++;
             }
         }
-        cout << endl;
+    }
+    if(count==0)
+    {
+        cout<<-1<<endl;
     }
     return 0;
 }
