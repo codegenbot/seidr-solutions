@@ -35,10 +35,19 @@ a
 output:
 z
 input:
-s
-a
-aaaaaaaaaa
+e
+l
+eeeeeeeeee
 output:
 llllllllll
 """
 if __name__ == '__main__':
+    s1 = raw_input().strip()
+    s2 = raw_input().strip()
+    s3 = raw_input().strip()
+
+    r = ''
+    for i in range(0,len(s3)):
+        r += s2[s1.index(s3[i])]
+
+    print r
