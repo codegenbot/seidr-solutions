@@ -37,28 +37,25 @@ False
 int main() {
     string s;
     cin >> s;
-    int n = s.size();
-    vector<int> dp(n, 0);
+    int n = s.length();
+    vector<int> stk;
     for (int i = 0; i < n; i++) {
-        if (s[i] == 'T') {
-            dp[i] = 1;
-        } else if (s[i] == 'F') {
-            dp[i] = 0;
-        } else {
-            if (i == 0) {
-                continue;
-            }
-            if (s[i] == '&') {
-                dp[i] = dp[i - 1] & dp[i - 2];
-            } else if (s[i] == '|') {
-                dp[i] = dp[i - 1] | dp[i - 2];
-            }
+        if (s[i] == 'T' || s[i] == 'F') {
+            stk.push_back(s[i] == 'T');
+        } else if (s[i] == '&') {
+            int a = stk.back();
+            stk.pop_back();
+            int b = stk.back();
+            stk.pop_back();
+            stk.push_back(a & b);
+        } else if (s[i] == '|') {
+            int a = stk.back();
+            stk.pop_back();
+            int b = stk.back();
+            stk.pop_back();
+            stk.push_back(a | b);
         }
     }
-    if (dp[n - 1] == 1) {
-        cout << "True";
-    } else {
-        cout << "False";
-    }
+    cout << (stk.back() ? "True" : "False") << endl;
     return 0;
 }
