@@ -11,9 +11,7 @@ import re
 This problem gives 3 strings. The first two represent a cipher, mapping each character in one string to the one at the same index in the other string. The program must apply this cipher to the third string and return the deciphered message.
 For example,
 input:
-r
-e
-reerreeee
+
 
 
 output:
@@ -43,4 +41,13 @@ eeeeeeeeee
 output:
 llllllllll
 """
+def cipher(c1,c2,m):
+    n = len(m)
+    i = 0
+    result = ''
+    while i < n:
+        j = c1.find(m[i])
+        result += c2[j]
+        i += 1
+    return result
 if __name__ == '__main__':
