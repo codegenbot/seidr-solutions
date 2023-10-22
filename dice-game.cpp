@@ -11,59 +11,41 @@
 #include <climits>
 using namespace std;
 /*
-Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
-For example,
-input:
-1
+Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.For example,
+input:1
 2
-output:
-0.0
-input:
-2
+output:0.0
+input:2
 1
-output:
-0.5
-input:
+output:0.5
+input:99
+100
+output:0.49
+input:100
 99
+output:0.5
+input:1
 100
-output:
-0.49
-input:
-100
-99
-output:
-0.5
-input:
-1
-100
-output:
-0.0
+output:0.0
 */
-
-// n>m
-double solve(int n, int m) {
-    double dp[n+1][m+1];
-    memset(dp, 0, sizeof(dp));
-    for(int i=0; i<=m; i++) dp[1][i] = 1.0/m;
-    for(int i=2; i<=n; i++) {
-        for(int j=0; j<=m; j++) {
-            for(int k=0; k<=j; k++) {
-                dp[i][j] += dp[i-1][k];
-            }
-            dp[i][j] /= m;
-        }
-    }
-    double res = 0.0;
-    for(int i=0; i<=m; i++) {
-        res += dp[n][i];
-    }
-    return res;
-}
 int main() {
     int n, m;
-    while(cin>>n>>m) {
-        if(n>m) cout<<solve(n, m)<<endl;
-        else cout<<1-solve(m, n)<<endl;
+    cin >> n >> m;
+    if (n < m)
+        swap(n, m);
+    int sum = n + m;
+    double ans = 0.0;
+    for (int i = m; i < sum; i++) {
+        //i,j
+        //i + 1, j
+        //i, j + 1
+        double tmp = 0.0;
+        for (int j = 1; j <= m; j++) {
+            if (i > j)
+                tmp += 1.0 / (double)n / (double)m;
+        }
+        ans += tmp;
     }
+    printf("%.6lf\n", ans);
     return 0;
 }
