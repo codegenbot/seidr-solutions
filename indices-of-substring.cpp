@@ -44,16 +44,31 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
-int main() {
-    string t, p;
-    cin >> t >> p;
-    vector<int> ans;
-    for(int i = 0; i < t.size(); ++i) {
-        for(int j = 0; j < p.size(); ++j) {
-            if(t[i+j] != p[j]) break;
-            if(j == p.size()-1) ans.push_back(i);
+vector<int> answer;
+
+void find(string text, string target) {
+    int len = text.length();
+    int tlen = target.length();
+    for(int i = 0; i < len; i++) {
+        if(text[i] == target[0]) {
+            int x = i;
+            int y = 0;
+            while(text[x] == target[y] && x < len && y < tlen) {
+                x++;
+                y++;
+            }
+            if(y == tlen) {
+                answer.push_back(i);
+            }
         }
     }
-    for(int i = 0; i < ans.size(); ++i) cout << ans[i] << " ";
-    return 0;
+}
+
+int main() {
+    string text = "############";
+    string target = "#";
+    find(text, target);
+    for(int i = 0; i < answer.size(); i++) {
+        cout << answer[i] << " ";
+    }
 }
