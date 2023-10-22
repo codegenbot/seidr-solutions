@@ -35,25 +35,86 @@ output:
 all separate words
 */
 int main() {
-    string s;
-    bool flag=false;
-    string ans="";
-    while (getline(cin,s,'\n')){
-        for (int i=0;i<s.length();i++){
-            int k=0;
-            if (s[i]=='-'&&s[i+1]!='-'&&s[i+1]!=' ') {
-                flag = true;
-                i++;
-            }
-            else if (s[i]!='-'){
-                if (flag){
-                    ans+=s[i]-'a'+'A';
-                    flag=false;
-                }
-                else ans+=s[i];
-            }
-        }
-        cout<<ans<<endl;
-        ans="";
-    }
+	string input;
+	string dash = "-";
+	string space = " ";
+	vector<char> charVec;
+	vector<string> strArr;
+	bool isCamel = false;
+	bool isSpace = false;
+	bool isDash = false;
+	while (getline(cin, input)) {
+		for (int i = 0; i < input.length(); i++) {
+			if (input[i] == '-') {
+				isDash = true;
+			}
+			else if (input[i] == ' ') {
+				isSpace = true;
+			}
+			else if (input[i] == 'C') {
+				isCamel = true;
+			}
+			else {
+				charVec.push_back(input[i]);
+			}
+			if (isDash) {
+				if (charVec.size() > 0) {
+					strArr.push_back(string(charVec.begin(), charVec.end()));
+				}
+				charVec.clear();
+				isDash = false;
+			}
+			else if (isSpace) {
+				if (charVec.size() > 0) {
+					strArr.push_back(string(charVec.begin(), charVec.end()));
+					charVec.clear();
+				}
+				else {
+					strArr.push_back(space);
+				}
+				isSpace = false;
+			}
+			else if (isCamel) {
+				if (charVec.size() > 0) {
+					strArr.push_back(string(charVec.begin(), charVec.end()));
+					charVec.clear();
+					isCamel = false;
+				}
+
+			}
+		}
+		if (charVec.size() > 0) {
+			strArr.push_back(string(charVec.begin(), charVec.end()));
+			charVec.clear();
+		}
+		for (int i = 0; i < strArr.size(); i++) {
+			if (strArr.size() > 1) {
+				if (i == 0) {
+					cout << strArr[i];
+				}
+				if (strArr[i].length() > 0) {
+					if (strArr[i] == dash) {
+						cout << strArr[i + 1];
+					}
+					else if (strArr[i] == space) {
+						cout << strArr[i] << strArr[i + 1];
+					}
+					else if (i > 0) {
+						if (strArr[i - 1] == dash || strArr[i - 1] == space) {
+							cout << strArr[i];
+						}
+						else {
+							cout << dash << strArr[i];
+						}
+					}
+				}
+			}
+			else {
+				cout << strArr[i];
+			}
+		}
+		strArr.clear();
+		cout << endl;
+	}
+	return 0;
 }
