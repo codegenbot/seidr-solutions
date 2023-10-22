@@ -54,7 +54,38 @@ output:
 0
 
 */
+class Solution {
+public:
+    vector<vector<int>> cutVec(vector<int>& nums) {
+        vector<vector<int>> res;
+        if(nums.size() == 0) return res;
+        int minDiff = INT_MAX;
+        int index = 0;
+        for(int i = 1; i < nums.size(); i++) {
+            if(abs(nums[i] - nums[i - 1]) < minDiff) {
+                index = i;
+                minDiff = abs(nums[i] - nums[i - 1]);
+            }
+            if(nums[i] == nums[i - 1]) {
+                index = i;
+                minDiff = 0;
+                break;
+            }
+        }
+        res.push_back(vector<int>(nums.begin(), nums.begin() + index));
+        res.push_back(vector<int>(nums.begin() + index, nums.end()));
+        return res;
+    }
+};
 int main() {
-
-	return 0;
+    Solution s;
+    vector<int> nums = {1, 0, 0};
+    vector<vector<int>> res = s.cutVec(nums);
+    for(int i = 0; i < res.size(); i++) {
+        for(int j = 0; j < res[i].size(); j++) {
+            cout << res[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
 }
