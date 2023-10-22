@@ -37,27 +37,24 @@ hi
 int main() {
     string s;
     getline(cin, s);
-    string res = "";
+    int len = s.length();
     int i = 0;
-    while(i < s.size()) {
+    while (i < len) {
         int j = i;
-        while(j < s.size() && s[j] != ' ') {
+        while (j < len && s[j] != ' ') {
             j++;
         }
-        if(j - i >= 5) {
-            for(int k = j - 1; k >= i; k--) {
-                res += s[k];
+        if (j - i >= 5) {
+            int k = i;
+            int l = j - 1;
+            while (k < l) {
+                swap(s[k], s[l]);
+                k++;
+                l--;
             }
-        } else {
-            for(int k = i; k < j; k++) {
-                res += s[k];
-            }
-        }
-        if(j < s.size()) {
-            res += ' ';
         }
         i = j + 1;
     }
-    cout << res << endl;
+    cout << s << endl;
     return 0;
 }
