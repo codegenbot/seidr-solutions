@@ -1,3 +1,6 @@
+/*
+Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
+*/
 #include <vector>
 #include <iostream>
 #include <string>
@@ -10,60 +13,32 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/*
-Given two n-dimensional vectors of floats, return the Euclidean distance between the two vectors in n-dimensional space.
-For example,
-input:
-20
--100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
-20
-100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
-output:
-894.4271909999159
-input:
-20
-5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
-20
-5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32 5.32
-output:
-0.0
-input:
-1
-42.91283
-1
--22.134
-output:
-65.04683
-input:
-10
-1.5 2.87 3.3324 4.654 5.123 6.867 7.5324 8.534 9.4132 10.43
-10
--1.534 -2.543 -3.423 -4.13427 -5.714 -6.713 -7.4328 -8.43 -9.73 -10.752
-output:
-42.309638973086265
-input:
-5
-0.4378 0.634 0.1234 0.764 0.243
-5
--0.254 -0.1223 -0.19582 -0.8971 -0.8743
-output:
-2.2715833329200144
-*/
-int main() {
-    int num;
-    scanf("%d",&num);
-    vector<double> vec1(num);
-    for(int i = 0;i < num;i++)
-        scanf("%lf",&vec1[i]);
-    scanf("%d",&num);
-    vector<double> vec2(num);
-    for(int i = 0;i < num;i++)
-        scanf("%lf",&vec2[i]);
-    double sum = 0.0;
-    for(int i = 0;i < num;i++)
-    {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+
+// 方法一：欧式距离，计算每一个点的距离
+// 方法二：曼哈顿距离，每一个点的距离相加
+// 方法三：切比雪夫距离，v1和v2比较，选择较大的那个
+// 方法四：一致性距离，先比较v1和v2的一致性，再相加
+// 方法五：夹角余弦
+// 方法六：比较相似度，比较v1和v2的相似度
+// 方法七：比较绝对值，v1和v2相减后的绝对值相加
+// 方法八：自定义，定义一个函数，然后求该函数的近似值
+// 方法九：随机方法，随机函数来求值
+
+// 方法一：欧式距离，计算每一个点的距离
+int getDistance(vector<int> v1, vector<int> v2) {
+    if (v1.size() != v2.size()) return -1;
+    int n = v1.size();
+    double res = 0.0;
+    for (int i = 0; i < n; ++i) {
+        res += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    printf("%lf\n",sqrt(sum));
+    return sqrt(res);
+}
+
+int main() {
+    vector<int> v1({1, 2, 3});
+    vector<int> v2({4, 5, 6});
+    int res = getDistance(v1, v2);
+    cout << res << endl;
     return 0;
 }
