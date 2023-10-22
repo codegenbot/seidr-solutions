@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-  A
+ 
 output:
-  A
+ 
 input:
 $
 output:
@@ -34,4 +34,22 @@ input:
 output:
 )b
 */
+string mid(string str){
+    string res;
+    int len = str.size();
+    if(len % 2 == 0){
+        res += str[len/2-1];
+        res += str[len/2];
+    }else{
+        res += str[len/2];
+    }
+    return res;
+}
 int main() {
+    cout<<mid("Q")<<endl;
+    cout<<mid("")<<endl;
+    cout<<mid("$")<<endl;
+    cout<<mid("E9")<<endl;
+    cout<<mid(")b")<<endl;
+    return 0;
+}
