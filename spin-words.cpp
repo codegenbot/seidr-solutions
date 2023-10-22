@@ -35,26 +35,22 @@ output:
 hi
 */
 int main() {
-    string str;
-    while(getline(cin,str)){
-        stack<string> s;
-        string temp = "";
-        for(int i = 0; i < str.size(); i++){
-            if(str[i] == ' '){
-                if(temp.size() >= 5) s.push(temp);
-                temp = "";
+    string s;
+    while(getline(cin, s)) {
+        int i = 0;
+        int j = 0;
+        while(j < s.size()) {
+            if(s[j] == ' ') {
+                if(j - i >= 5) {
+                    reverse(s.begin() + i, s.begin() + j);
+                }
+                i = j + 1;
             }
-            else{
-                temp += str[i];
-            }
+            j++;
         }
-        if(temp.size() >= 5) s.push(temp);
-        string ans = "";
-        while(!s.empty()){
-            ans += s.top();
-            s.pop();
-            if(!s.empty()) ans += " ";
+        if(j - i >= 5) {
+            reverse(s.begin() + i, s.begin() + j);
         }
-        cout << ans << endl;
+        cout << s << endl;
     }
 }
