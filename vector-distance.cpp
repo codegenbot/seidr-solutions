@@ -51,21 +51,19 @@ output:
 */
 int main() {
     int n;
-    while(cin >> n) {
-        vector<float> a(n);
-        for(int i = 0; i < n; i++) {
+    while (cin >> n) {
+        vector<double> a(n);
+        vector<double> b(n);
+        for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
-        cin >> n;
-        vector<float> b(n);
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             cin >> b[i];
         }
-        double res = 0;
-        for(int i = 0; i < n; i++) {
-            res += (a[i]-b[i])*(a[i]-b[i]);
+        double ans = 0;
+        for (int i = 0; i < n; i++) {
+            ans += (a[i] - b[i]) * (a[i] - b[i]);
         }
-        printf("%.16f\n", sqrt(res));
+        printf("%.10f\n", sqrt(ans));
     }
-    return 0;
 }
