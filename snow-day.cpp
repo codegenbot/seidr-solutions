@@ -50,14 +50,16 @@ output:
 10.0
 */
 int main() {
-    int N;
-    float S, R, M;
-    cin >> N >> S >> R >> M;
-    float sum = S;
-    for (int i = 0; i < N; i++) {
-        sum += R;
-        sum -= sum * M;
+    int hours;
+    float snow, rate, melt;
+    cin >> hours;
+    cin >> snow;
+    cin >> rate;
+    cin >> melt;
+    float total = snow;
+    for (int i = 0; i < hours; i++) {
+        total += rate;
+        total *= (1 - melt);
     }
-    printf("%.2f", sum);
-    return 0;
+    cout << total << endl;
 }
