@@ -50,21 +50,21 @@ output:
 29.0
 */
 int main() {
-    int num;
-    cin >> num;
-    vector<float> price(num);
-    for (int i = 0; i < num; i++) {
-        cin >> price[i];
+    int n;
+    cin >> n;
+    vector<float> prices(n);
+    for (int i = 0; i < n; i++) {
+        cin >> prices[i];
     }
-    cin >> num;
-    vector<float> discount(num);
-    for (int i = 0; i < num; i++) {
-        cin >> discount[i];
+    cin >> n;
+    vector<float> discounts(n);
+    for (int i = 0; i < n; i++) {
+        cin >> discounts[i];
     }
-    float total = 0;
-    for (int i = 0; i < price.size(); i++) {
-        total += price[i] * (1 - discount[i] / 100);
+    float sum = 0;
+    for (int i = 0; i < prices.size(); i++) {
+        sum += prices[i] * (1 - discounts[i] / 100.0);
     }
-    cout << total << endl;
+    cout << sum << endl;
     return 0;
 }
