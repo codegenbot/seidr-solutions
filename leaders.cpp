@@ -32,30 +32,34 @@ output:
 1
 451
 input:
-2
-1000 0
+2 1000 0 
 output:
 2
 1000 0
 input:
-2
-0 1000
+2 0 1000
 output:
 1
 1000
 */
-vector<int> arrayLeaders(vector<int> numbers) {
-    vector<int> leaders;
-    int max = numbers[numbers.size()-1], i;
-    leaders.push_back(max);
-    for (i = numbers.size()-2; i>=0; i--) {
-        if (numbers[i]>=max) {
-            leaders.push_back(numbers[i]);
-            max = numbers[i];
-        }
-    }
-    reverse(leaders.begin(), leaders.end());
-    return leaders;
-}
-
 int main() {
+    // read in size of input
+    int n; cin >> n;
+    // read in vector
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    int max = INT_MIN;
+    for (int i = 0; i < n; i++) {
+        for(int j = i; j < n; j++) {
+            if(nums[j] > max) {
+                max = nums[j];
+            }
+        }
+        if (max >= nums[i]) {
+            cout << nums[i] << ' ';
+        }
+        max = INT_MIN;
+    }
+}
