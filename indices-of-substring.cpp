@@ -44,42 +44,9 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
+
+// 这个题目，在网上真没有找到solution，只有一个讨论
+// 这个解题方法，是我想的，但是自己写出来的代码有bug，需要debug，而且还是一个个debug，
+// 所以，还是要对复杂的代码，一个个debug比较好。
+// 这种题目，也是要自己回去想的
 int main() {
-    string a,b;
-    getline(cin,a);
-    getline(cin,b);
-    int l=b.length();
-    int a1=a.length();
-    int count=0;
-    int i;
-    for(i=0;i<a1;i++)
-    {
-        if(a[i]==b[0])
-        {
-            int j;
-            int flag=0;
-            for(j=1;j<l;j++)
-            {
-                if(a[i+j]==b[j])
-                {
-                    flag=1;
-                }
-                else
-                {
-                    flag=0;
-                    break;
-                }
-            }
-            if(flag==1)
-            {
-                cout<<i<<" ";
-                count++;
-            }
-        }
-    }
-    if(count==0)
-    {
-        cout<<-1<<endl;
-    }
-    return 0;
-}
