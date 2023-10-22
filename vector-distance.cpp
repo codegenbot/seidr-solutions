@@ -49,24 +49,4 @@ input:
 output:
 2.2715833329200144
 */
-int main() {
-    int n;
-    while(cin >> n) {
-        double d1[n];
-        double d2[n];
-        for(int i = 0; i < n; ++i) {
-            double t;
-            cin >> d1[i];
-        }
-        for(int i = 0; i < n; ++i) {
-            double t;
-            cin >> d2[i];
-        }
-        double res = 0.0;
-        for(int i = 0; i < n; ++i) {
-            res += pow(d1[i] - d2[i], 2);
-        }
-        cout << sqrt(res) << endl;
-    }
-    return 0;
-}
+int main() { 
