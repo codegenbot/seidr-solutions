@@ -1,6 +1,4 @@
 #include <vector>
-#include <deque>
-#include <stack>
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -37,3 +35,31 @@ output:
 False
 */
 int main() {
+        string s;
+        cin >> s;
+        bool flag = true;
+        for(int i = 0; i < s.size(); i++) {
+            if(s[i] == 'f') {
+                flag = false;
+                break;
+            }
+        }
+        if(flag) {
+            cout << "True" << endl;
+            return 0;
+        }
+        flag = false;
+        for(int i = 0; i < s.size(); i++) {
+            if(s[i] == 't') {
+                flag = true;
+                break;
+            }
+        }
+        if(flag) {
+            cout << "True" << endl;
+        } else {
+            cout << "False" << endl;
+        }
+        
+        return 0;
+}
