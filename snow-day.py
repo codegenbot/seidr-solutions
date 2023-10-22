@@ -46,11 +46,12 @@ input:
 output:
 10.0
 """
-
-def  snowing(hours, currentSnow, rateSnow, meltingRate ):
-	amountSnow = currentSnow
-	for i in range(hours):
-		amountSnow = amountSnow + rateSnow - meltingRate*amountSnow
-	return amountSnow
-
 if __name__ == '__main__':
+    n = int(input())
+    h = float(input())
+    r = float(input())
+    m = float(input())
+    for i in range(n):
+        h = h + r - (h * m)
+    print(h)
+    
