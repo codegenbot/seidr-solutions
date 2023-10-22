@@ -47,4 +47,8 @@ output:
 10.0
 """
 if __name__ == '__main__':
-1
+      a = input()
+      b = input()
+      c = input()
+      d = input()
+      print(float(a)+float(b)+float(c)+float(d))
