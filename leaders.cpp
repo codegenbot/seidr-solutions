@@ -45,34 +45,19 @@ output:
 1000
 */
 int main() {
-    int n;
-    string s;
-    getline(cin,s);
-    n=stoi(s);
-    int arr[n];
-    getline(cin,s);
-    stringstream ss(s);
-    string temp;
-    int i=0;
-    while(getline(ss,temp,' ')){
-        arr[i]=stoi(temp);
-        i++;
-    }
-    vector<int>ans;
-    int f=1;
-    int adjacent_max=0;
-    for(int i=n-1;i>=0;i--){
-        if(arr[i]>=adjacent_max)
-        {
-            adjacent_max=arr[i];
-            ans.push_back(arr[i]);
-            continue;
-        }
-        else continue;
-    }
-    for(int i=ans.size()-1;i>=0;i--)
-    {
-        cout<<ans[i]<<" ";
-    }
-    
+   int N;
+   scanf("%d", &N);
+   vector<int> v(N, 0);
+   for (int i = 0; i < N; ++i) {
+      scanf("%d", &v[i]);
+   }
+   printf("%d", v[N-1]);
+   int max = v[N-1];
+   for (int i = N-2; i >= 0; --i) {
+      if (v[i] >= max) {
+         printf(" %d", v[i]);
+         max = v[i];
+      }
+   }
+   printf("\n");
 }
