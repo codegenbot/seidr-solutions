@@ -55,4 +55,5 @@ output:
 
 */
 int main() {
-    
+
+}
