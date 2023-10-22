@@ -35,31 +35,32 @@ output:
 False
 */
 
-bool getValue(const string& s, int& pos) {
-    if (s[pos] == 't') {
-        ++pos;
-        return true;
-    } else if (s[pos] == 'f') {
-        ++pos;
-        return false;
-    } else if (s[pos] == '(') {
-        ++pos;
-        bool result = getValue(s, pos);
-        if (s[pos] == '|') {
-            ++pos;
-            result = result || getValue(s, pos);
-        } else if (s[pos] == '&') {
-            ++pos;
-            result = result && getValue(s, pos);
-        }
-        ++pos;
-        return result;
+bool parsing(string s, int start, int end) {
+    if (start == end) {
+        return s[start] == 'T';
     }
-    return false;
+    int count = 0;
+    for (int i = start; i <= end; i++) {
+        if (s[i] == '(') {
+            count++;
+        } else if (s[i] == ')') {
+            count--;
+        } else if (count == 0 && (s[i] == '&' || s[i] == '|')) {
+            char operatorChar = s[i];
+            if (operatorChar == '&') {
+                return parsing(s, start, i - 1) & parsing(s, i + 1, end);
+            } else {
+                return parsing(s, start, i - 1) | parsing(s, i + 1, end);
+            }
+        }
+    }
+    return parsing(s, start + 1, end - 1);
 }
 
 int main() {
-    int pos = 0;
-    bool result = getValue("t&f|f", pos);
-    cout << result << endl;
+    string s;
+    getline(cin, s);
+    bool res = parsing(s, 0, s.length() - 1);
+    cout << (res ? "True" : "False") << endl;
+    return 0;
 }
