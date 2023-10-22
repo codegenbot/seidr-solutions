@@ -45,15 +45,6 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
-    string text;
-    string target;
-    while (cin >> text >> target) {
-        int pos = 0;
-        while ((pos = text.find(target, pos)) != string::npos) {
-            cout << pos << " ";
-            pos++;
-        }
-        cout << endl;
-    }
+
     return 0;
 }
