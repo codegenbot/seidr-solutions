@@ -40,8 +40,17 @@ output:
 0.0
 */
 int main() {
-	int n, m;
-	cin >> n >> m;
-	cout << 0.5 << endl;
-	return 0;
+    int n, m;
+    double ans;
+    while(cin >> n >> m){
+        if(n == m){
+            ans = 0.0;
+        }else if(n > m){
+            ans = 1.0;
+        }else{
+            ans = (m - n + 1.0) / (m + 1.0);
+        }
+        printf("%.5f\n",ans);
+    }
+    return 0;
 }
