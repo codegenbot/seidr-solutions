@@ -45,15 +45,14 @@ output:
 3.963
 */
 int main() {
-    double start, first, bounces;
-    while (cin >> start >> first >> bounces) {
+    double start, first, num;
+    while(cin >> start >> first >> num) {
+        double res = start;
         double bounciness = first / start;
-        double total = 0;
-        for (int i = 0; i < bounces; i++) {
-            total += start * (1 - bounciness);
-            start *= bounciness;
+        for(int i = 1; i < num; i++) {
+            res += 2 * bounciness * start;
         }
-        printf("%.3f\n", total);
+        printf("%.10f\n", res);
     }
     return 0;
 }
