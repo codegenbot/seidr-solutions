@@ -49,19 +49,9 @@ input:
 output:
 2.2715833329200144
 */
+
 int main() {
-    int n;
-    cin>>n;
-    vector<double> x(n);
-    for(int i = 0; i < n; i ++)
-        cin>>x[i];
-    cin>>n;
-    vector<double> y(n);
-    for(int i = 0; i < n; i ++)
-        cin>>y[i];
-    double sum = 0;
-    for(int i = 0; i < x.size(); i ++)
-        sum += (x[i]-y[i])*(x[i]-y[i]);
-    printf("%.10f",sqrt(sum));
-    return 0;
+//code
+
+return 0;
 }
