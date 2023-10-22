@@ -55,31 +55,24 @@ output:
 
 */
 int main() {
-    vector<int> input;
     int n;
     cin >> n;
-    while(n) {
-        input.push_back(n);
-        cin >> n;
+    vector<int> v(n);
+    for(int i = 0; i < n; i ++) {
+        cin >> v[i];
     }
-    int len = input.size();
-    int left = 0, right = len - 1;
-    while(left < right) {
-        if(input[left] < input[right]) {
-            input[left+1] += input[left];
-            left++;
-        } else if(input[left] > input[right]) {
-            input[right-1] += input[right];
-            right--;
-        } else {
-            break;
+    int min = INT_MAX;
+    int idx = -1;
+    for(int i = 0; i < n - 1; i ++) {
+        if(abs(v[i] - v[i + 1]) < min) {
+            min = abs(v[i] - v[i + 1]);
+            idx = i;
         }
     }
-    for(int i = 0; i <= left; i++) {
-        cout << input[i] << endl;
+    for(int i = 0; i <= idx + 1; i ++) {
+        cout << v[i] << endl;
     }
-    for(int i = right; i < len; i++) {
-        cout << input[i] << endl;
+    for(int i = idx + 1; i < n; i ++) {
+        cout << v[i] << endl;
     }
-    return 0;
 }
