@@ -50,27 +50,4 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n = 0;
-    double tmp = 0;
-    vector<double> vec1;
-    vector<double> vec2;
-    cin >> n;
-    //vec1
-    for(int i = 0; i < n; ++i) {
-        cin >> tmp;
-        vec1.push_back(tmp);
-    }
-    cin >> n;
-    //vec2
-    for(int i = 0; i < n; ++i) {
-        cin >> tmp;
-        vec2.push_back(tmp);
-    }
-    double res = 0;
-    for(int i = 0; i < vec1.size(); ++i) {
-        res += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
-    }
-    res = sqrt(res);
-    cout << res << endl;
-    return 0;
 }
