@@ -35,38 +35,21 @@ output:
 hi
 */
 int main() {
-    string s = "";
-    string s1 = "";
-    int flag = 0;
-    while(getline(cin,s)){
-        for(int i = 0; i<s.length();i++){
-            if(s[i]==' '){
-                flag++;
-                int j;
-                for(j=i-1;j>=0;j--){
-                    if(s[j]==' '){
-                        break;
-                    }
-                }
-                int len = i-1-j;
-                if(len>=5){
-                    reverse(s.begin()+j+1, s.begin()+i);
-                }
-            }
-            else if(i==s.length()-1){
-                int j;
-                for(j=i;s[j]!=' '&&j>=0;j--);
-                int len = i-j;
-                if(len>=5){
-                    reverse(s.begin()+j+1, s.begin()+i+1);
-                }
-            }
-            if(flag)cout<<" ";
-            cout<<s[i];
+    string str;
+    getline(cin, str);
+    string ans = "";
+    string tmp = "";
+    str.push_back(' ');
+    int st = 0;
+    for (int i = 0; i < str.size(); i ++) {
+        if (str[i] != ' ') {
+            tmp += str[i];
+        } else {
+            ans += tmp;
+            tmp = "";
         }
-        cout<<endl;
     }
-
-
-    return 0;
+    cout << ans;
+    
+    
 }
