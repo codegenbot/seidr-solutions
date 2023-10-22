@@ -11,36 +11,38 @@
 #include <climits>
 using namespace std;
 /*
-Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
+Given a string of digits, return the sumof the digits whose following digit is the same.
 For example,
 input:
-Q
+99
 output:
-Q
+9
 input:
- 
+88
 output:
- 
+8
 input:
-$
+77
 output:
-$
+7
 input:
-E9
+55
 output:
-E9
+5
 input:
-)b
+44
 output:
-)b
+4
 */
 int main() {
     string s;
     cin >> s;
-    int len = s.length();
-    if(len % 2 == 0)
-        cout << s[len/2 - 1] << s[len/2];
-    else
-        cout << s[len/2];
+    int sum = 0;
+    for (int i = 0; i < s.size() - 1; i++) {
+        if (s[i] == s[i + 1]) {
+            sum += s[i] - '0';
+        }
+    }
+    cout << sum << endl;
     return 0;
 }

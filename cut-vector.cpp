@@ -55,5 +55,41 @@ output:
 
 */
 int main() {
-    return 0;
+    int n;
+    cin >> n;
+    vector<int> nums(n, 0);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    int start = 0, end = 0;
+    int min_diff = INT_MAX;
+    for (int i = 1; i < n; i++) {
+        // if (nums[i] == nums[i - 1]) {
+        //     if (i - start + 1 < min_diff) {
+        //         start = i - 1;
+        //         end = i;
+        //         min_diff = i - start + 1;
+        //     }
+        // } else {
+        //     if (abs(nums[i] - nums[i - 1]) < min_diff) {
+        //         start = i - 1;
+        //         end = i;
+        //         min_diff = abs(nums[i] - nums[i - 1]);
+        //     }
+        // }
+        if (abs(nums[i] - nums[i - 1]) < min_diff) {
+            start = i - 1;
+            end = i;
+            min_diff = abs(nums[i] - nums[i - 1]);
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        if (i == start) {
+            cout << nums[i] << endl;
+        } else if (i == end) {
+            cout << nums[i] << endl;
+        } else {
+            cout << 0 << endl;
+        }
+    }
 }

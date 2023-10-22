@@ -42,17 +42,15 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
-        double peter = 0;
-        double colin = 0;
+        double p = 0;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (i > j) {
-                    peter++;
+                    p += 1;
                 }
-                colin++;
             }
         }
-        printf("%.2f\n", peter / colin);
+        cout << p / (n * m) << endl;
     }
     return 0;
 }

@@ -41,13 +41,7 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 """
+def idx(txt, ch):
+    return [m.start() for m in re.finditer(ch, txt)]
+
 if __name__ == '__main__':
-    file = open("input.txt", "r")
-    text = file.readline()
-    target = file.readline()
-    indices = []
-    for i in range(len(text)-len(target)+1):
-        if text[i:i+len(target)] == target:
-            indices.append(str(i))
-    file = open("output.txt", "w")
-    file.write(" ".join(indices))

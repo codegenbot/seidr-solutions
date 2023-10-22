@@ -41,37 +41,32 @@ output:
 0
 0
 """
-
-def mastermind(code, guess):
-    code_dict = {}
-    guess_dict = {}
-    correct_place = 0
-    correct_color = 0
-    for i in range(0, len(code)):
-        if code[i] == guess[i]:
-            correct_place += 1
-        else:
-            if code[i] in code_dict:
-                code_dict[code[i]] += 1
-            else:
-                code_dict[code[i]] = 1
-
-            if guess[i] in guess_dict:
-                guess_dict[guess[i]] += 1
-            else:
-                guess_dict[guess[i]] = 1
-
-    for key in guess_dict:
-        if key in code_dict:
-            correct_color += min(guess_dict[key], code_dict[key])
-        else:
-            correct_color += 0
-
-    return correct_place, correct_color
-
 if __name__ == '__main__':
-    print mastermind('RRRR', 'RRRR')
-    print mastermind('BOYG', 'GYOB')
-    print mastermind('WYYW', 'BBOG')
-    print mastermind('GGGB', 'BGGG')
-    print mastermind('BBBB', 'OOOO')
+dict_code = {}
+dict_guess = {}
+code = "GYYB"
+guess = "YYBB"
+result_code = ""
+result_guess = ""
+black_peg = 0
+white_peg = 0
+for i in range(4):
+    if code[i] == guess[i]:
+        black_peg += 1
+    else:
+        dict_code[code[i]] = dict_code.get(code[i], 0) +1
+        dict_guess[guess[i]] = dict_guess.get(guess[i], 0) + 1
+        result_guess += code[i]
+        result_code += guess[i]
+print(dict_code, dict_guess)
+for key in dict_guess:
+    num = dict_guess.get(key, 0)
+    if key in dict_code:
+        value = dict_code.get(key, 0)
+        if num >= value:
+            white_peg += value
+            dict_code[key] = 0
+        else:
+            white_peg += num
+            dict_code[key] -= num
+print(result_code, result_guess, white_peg, black_peg)

@@ -44,25 +44,28 @@ output:
 1
 1000
 */
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums;
-    for (int i = 0; i < n; i++) {
-        int s;
-        cin >> s;
-        nums.push_back(s);
+void nextLarger(const vector<unsigned int> &A) {
+    int size  = A.size();
+    vector<unsigned int> leaders(size, 0); 
+    leaders[size - 1] = A[size - 1];
+    for(int i = size - 2; i>=1; i--){
+        leaders[i] = max(leaders[i+1], A[i]);
     }
-    stack<int> st;
-    for (int i = n - 1; i >= 0; i--) {
-        while (!st.empty() && st.top() <= nums[i]) {
-            st.pop();
+    for(int i = 0 ; i< size ; ++i) {
+        if(leaders[i]!=0) {
+            cout<<leaders[i]<<endl;
+        } else {
+            cout<<-1<<endl;
         }
-        st.push(nums[i]);
-    }
-    while (!st.empty()) {
-        cout << st.top() << endl;
-        st.pop();
     }
 }
-
+int main() {
+   unsigned int n;
+   cin >> n;
+   vector<unsigned int> A(n);
+   for(unsigned int &a : A) {
+       cin >> a;
+   }
+   nextLarger(A);
+   return 0;
+}
