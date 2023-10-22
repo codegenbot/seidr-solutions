@@ -47,13 +47,10 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    num_lines = int(input())
-    for i in range(num_lines):
-        num_items = int(input())
-        items = [float(i) for i in input().split()]
-        num_discounts = int(input())
-        discounts = [float(i) for i in input().split()]
-        total = 0
-        for j in range(num_items):
-            total += items[j] - (items[j] * discounts[j] / 100)
-        print(round(total, 2))
+    num_items = int(input())
+    prices = [float(price) for price in input().split(" ")]
+    discounts = [float(discount) for discount in input().split(" ")]
+    total = 0
+    for i in range(num_items):
+        total += prices[i] * (1 - discounts[i] / 100)
+    print(total)
