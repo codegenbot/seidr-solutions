@@ -25,18 +25,21 @@ input:
 output:
 1
 0
+
 input:
 1
 451
 output:
 1
 451
+
 input:
 2
 1000 0
 output:
 2
 1000 0
+
 input:
 2
 0 1000
@@ -44,25 +47,30 @@ output:
 1
 1000
 */
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums;
-    for (int i = 0; i < n; i++) {
-        int s;
-        cin >> s;
-        nums.push_back(s);
+
+
+void print_vector(vector<int>& vec) {
+    for (int i = 0; i < vec.size(); i++) {
+        cout << vec[i] << " ";
     }
-    stack<int> st;
-    for (int i = n - 1; i >= 0; i--) {
-        while (!st.empty() && st.top() <= nums[i]) {
-            st.pop();
-        }
-        st.push(nums[i]);
-    }
-    while (!st.empty()) {
-        cout << st.top() << endl;
-        st.pop();
-    }
+    cout << endl;
 }
 
+int main() {
+    vector<int> input;
+    int tmp;
+    while (scanf("%d", &tmp) == 1) {
+        input.push_back(tmp);
+    }
+    vector<int> res;
+    int max = input[input.size()-1];
+    res.push_back(max);
+    for (int i = input.size() - 2; i >= 0; i--) {
+        if (input[i] >= max) {
+            res.push_back(input[i]);
+            max = input[i];
+        }
+    }
+    print_vector(res);
+    return 0;
+}
