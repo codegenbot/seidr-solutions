@@ -7,6 +7,7 @@ import collections
 import itertools
 import queue
 import re
+
 """
 Given a vector of ﬂoats representing the prices of various shopping goods and another vector of floats representing the percent discount of each of those goods, return the total price of the shopping trip after applying the discount to each item.
 For example,
@@ -46,13 +47,17 @@ input:
 output:
 29.0
 """
+
+
+def read_float_list():
+    return [float(x) for x in input().split()]
+
+
+def get_total_price(price, discount):
+    total = 0
+    for i in range(len(price)):
+        total += price[i] - (price[i] * discount[i] / 100)
+    return total
+
+
 if __name__ == '__main__':
-    N = int(input())
-    items = [float(x) for x in input().split()]
-    D = int(input())
-    discounts = [float(x) for x in input().split()]
-    result = 0
-    for i in range(D):
-        result += (items[i] - (items[i] * discounts[i] / 100))
-    result += sum(items[D:])
-    print('%.1f' % result)
