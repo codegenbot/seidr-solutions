@@ -35,5 +35,12 @@ output:
 )b
 */
 int main() {
+    string input;
+    cin >> input;
+    int n = input.size();
+    cout << input[(n - 1)/2];
+    if (n % 2 == 0)
+        cout << input[n/2];
+    cout << endl;
     return 0;
 }
