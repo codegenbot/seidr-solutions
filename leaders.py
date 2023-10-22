@@ -1,58 +1,59 @@
-from sys import stdin
-from collections import deque
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
 input:
-1
-1
-1
-1
+0
 
 output:
 0
 
 input:
-4
 1
-2
-3
-4
 0
 output:
-4
-input:
-3
-9
 1
-2
+0
+input:
+1
+451
 output:
-9
-2
+1
+451
 input:
-5
-1
 2
-3
+1000 0
+output:
+2
+1000 0
+input:
+2
+0 1000
+output:
 1
-5
-1
+1000
 """
+def f(N):
+    a = [int(i) for i in input().split()]
+    b = [a[-1]]
+    for i in range(N-2,-1,-1):
+        if a[i] >= a[i+1]:
+            b.append(a[i])
+        else:
+            pass
+    for i in range(len(b) - 1, -1, -1):
+        print(b[i], end=' ')
+    print()
 if __name__ == '__main__':
-    n = int(stdin.readline())
-    arr = deque()
-    while n>0:
-        num = int(stdin.readline())
-        arr.append(num)
-        n-=1
-    # print(arr)
-    leaders = deque()
-    leaders.appendleft(arr.pop())
-    max = leaders[0]
-    while arr:
-        num = arr.pop()
-        if num >= max:
-            leaders.appendleft(num)
-            max = num
-    while leaders:
-        print(leaders.popleft())
+    T = int(input())
+    for t in range(T):
+        N = int(input())
+        f(N)
