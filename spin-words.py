@@ -31,5 +31,18 @@ hi
 output:
 hi
 """
+
+def reverser(string):
+    list = string.split(' ')
+    a = []
+    for i in range(len(list)):
+        if len(list[i])<5:
+            a.append(list[i])
+        else:
+            a.append(list[i][::-1])
+    return ' '.join(a)
+
 if __name__ == '__main__':
-    
+    string = input()
+    result = reverser(string)
+    print(result)
