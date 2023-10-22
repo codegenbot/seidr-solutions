@@ -50,19 +50,23 @@ output:
 29.0
 */
 int main() {
-    int n, m;
-    cin>>n>>m;
-    vector<float> prices(n, 0.0);
-    vector<float> discountedPrices(n, 0.0);
-    for (int i = 0;i < n;i++){
-        cin>>prices[i];
+    // a store with many goods
+    // each good has price, discount
+    // return the total price
+    // discount is integer, so we should use float
+    int n;
+    cin >> n;
+    vector<float> price(n);
+    for(auto& p : price) cin >> p;
+    
+    vector<float> discount(n);
+    for(auto& d : discount) cin >> d;
+    
+    // after applying discount
+    float sum = 0;
+    for(int i = 0; i < n; ++i) {
+        sum += price[i] * (1 - discount[i]/100);
     }
-    for (int i = 0;i < n;i++){
-        cin>>discountedPrices[i];
-    }
-    float finalPrice = 0.0;
-    for (int i = 0;i < n;i++){
-        finalPrice += (prices[i] - prices[i] * discountedPrices[i] / 100.0);
-    }
-    cout<<"final price is "<<finalPrice<<endl;
+    cout << sum << endl;
+    return 0;
 }
