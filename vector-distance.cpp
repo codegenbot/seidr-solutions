@@ -50,25 +50,18 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    cin >> n;
-    vector<double> vec;
-    int i = n;
-    while (i > 0) {
-        double d;
-        cin >> d;
-        vec.push_back(d);
-        i--;
-    }
-    i = n;
-    double distance = 0.0;
-    while (i > 0) {
-        double d;
-        cin >> d;
-        distance += (vec[n - i] - d) * (vec[n - i] - d);
-        i--;
-    }
-    distance = sqrt(distance);
-    cout << distance;
-    return 0;
+
+  int n;
+  cin >> n;
+  vector<double> points1(n), points2(n);
+  for (int i = 0; i < n; ++i)
+    cin >> points1[i];
+  for (int i = 0; i < n; ++i)
+    cin >> points2[i];
+  double dist = 0.0;
+  for (int i = 0; i < n; ++i)
+    dist += pow(points1[i] - points2[i], 2);
+  double ans = sqrt(dist);
+  printf("%.16lf\n", ans);
+  return 0;
 }
