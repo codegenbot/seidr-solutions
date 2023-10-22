@@ -31,5 +31,19 @@ t&f
 output:
 False
 """
+def evaluate(s):
+    if s == 't':
+        return True
+    elif s == 'f':
+        return False
+    else:
+        return s
+
+def eval_bool(s):
+    s = s.replace('|', ' or ')
+    s = s.replace('&', ' and ')
+    s = s.replace('t', 'True')
+    s = s.replace('f', 'False')
+    return eval(s)
+
 if __name__ == '__main__':
-    print(eval(input()))
