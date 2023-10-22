@@ -31,15 +31,5 @@ t&f
 output:
 False
 """
-
-
-def bool_eval(expression):
-    """
-    :type expression: str
-    :rtype: bool
-    """
-    expression = expression.replace('&', ' and ')
-    expression = expression.replace('|', ' or ')
-    return eval(expression)
-
 if __name__ == '__main__':
+    pass
