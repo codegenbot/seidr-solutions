@@ -55,34 +55,41 @@ output:
 
 */
 int main() {
-	int n;
-	cin >> n;
-	int s = 0, e = 0;
-	vector<int> v;
-	int sum = 0;
-	while (n--) {
-		int t;
-		cin >> t;
-		sum += t;
-		v.push_back(t);
-	}
-	int mn = INT_MAX;
-	for (int i = 0; i < v.size(); i++) {
-		int l = 0, r = 0;
-		for (int j = 0; j <= i; j++)
-			l += v[j];
-		for (int j = i + 1; j < v.size(); j++)
-			r += v[j];
-		if (abs(l - r) < mn) {
-			mn = abs(l - r);
-			s = i;
-		}
-	}
-	for (int i = 0; i <= s; i++)
-		cout << v[i] << " ";
-	cout << endl;
-	for (int i = s + 1; i < v.size(); i++)
-		cout << v[i] << " ";
-	cout << endl;
-	return 0;
+    int n;
+    cin >> n;
+    vector<int> nums(n, 0);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    int start = 0, end = 0;
+    int min_diff = INT_MAX;
+    for (int i = 1; i < n; i++) {
+        // if (nums[i] == nums[i - 1]) {
+        //     if (i - start + 1 < min_diff) {
+        //         start = i - 1;
+        //         end = i;
+        //         min_diff = i - start + 1;
+        //     }
+        // } else {
+        //     if (abs(nums[i] - nums[i - 1]) < min_diff) {
+        //         start = i - 1;
+        //         end = i;
+        //         min_diff = abs(nums[i] - nums[i - 1]);
+        //     }
+        // }
+        if (abs(nums[i] - nums[i - 1]) < min_diff) {
+            start = i - 1;
+            end = i;
+            min_diff = abs(nums[i] - nums[i - 1]);
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        if (i == start) {
+            cout << nums[i] << endl;
+        } else if (i == end) {
+            cout << nums[i] << endl;
+        } else {
+            cout << 0 << endl;
+        }
+    }
 }
