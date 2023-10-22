@@ -31,11 +31,5 @@ hi
 output:
 hi
 """
-def reverse_word(s):
-    ss = s.split()
-    for i in range(len(ss)):
-        if len(ss[i]) >= 5:
-            ss[i] = ss[i][::-1]
-    newstr = ' '.join(ss)
-    return newstr
 if __name__ == '__main__':
+    
