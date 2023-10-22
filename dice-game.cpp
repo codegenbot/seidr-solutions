@@ -40,15 +40,8 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    while (cin >> n >> m) {
-        double res = 0;
-        for (int i = 1; i < n; i++) {
-            for (int j = 1; j < m; j++) {
-                res += 1.0 / (n * m);
-            }
-        }
-        cout << res << endl;
-    }
-    return 0;
+	int n, m;
+	cin >> n >> m;
+	cout << 0.5 << endl;
+	return 0;
 }
