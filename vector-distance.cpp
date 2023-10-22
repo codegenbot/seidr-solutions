@@ -50,23 +50,22 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n;
-    scanf("%d", &n);
-    vector<double> nums1;
-    vector<double> nums2;
-    for(int i = 0; i < n; i ++) {
-        double temp;
-        scanf("%lf", &temp);
-        nums1.push_back(temp);
-    }
-    for(int i = 0; i < n; i ++) {
-        double temp;
-        scanf("%lf", &temp);
-        nums2.push_back(temp);
-    }
-    double result = 0;
-    for(int i = 0; i < n; i ++) {
-        result += pow(nums1[i] - nums2[i], 2);
-    }
-    printf("%.16f", sqrt(result));
+	freopen("tsp.txt","r",stdin);
+	freopen("ans.txt","w",stdout);
+	int n;
+	cin >> n;
+	vector<double> a(n),b(n);
+	for(int i = 0; i < n; i++) {
+		cin >> a[i];
+	}
+	for(int i = 0; i < n; i++) {
+		cin >> b[i];
+	}
+	double len = 0;
+	for(int i = 0; i < n; i++) {
+		len += abs(a[i] - b[i]);
+	}
+	len = sqrt(len);
+	cout << len << endl;
+	return 0;
 }
