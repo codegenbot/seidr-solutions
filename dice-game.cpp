@@ -42,11 +42,13 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double p = 0.0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = i + 1; j <= m; j++) {
-            p += 1.0 / (n * m);
-        }
+    if (n > m) {
+        cout << 1.0 << endl;
     }
-    printf("%.4f\n", p);
+    else if (n < m) {
+        cout << 0.0 << endl;
+    }
+    else {
+        cout << 0.5 << endl;
+    }
 }
