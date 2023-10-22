@@ -47,20 +47,11 @@ output:
 29.0
 """
 if __name__ == '__main__':
-    # n = int(input())
-    # prices = list(map(float, input().split()))
-    # n = int(input())
-    # discounts = list(map(float, input().split()))
-    # n = int(input())
-    # prices = list(map(float, input().split()))
-    # n = int(input())
-    # discounts = list(map(float, input().split()))
-    # n = int(input())
-    # prices = list(map(float, input().split()))
-    # n = int(input())
-    # discounts = list(map(float, input().split()))
-    n = int(input())
-    prices = list(map(float, input().split()))
-    n = int(input())
-    discounts = list(map(float, input().split()))
-    print(sum([prices[i]*(1-discounts[i]/100) for i in range(len(prices))]))
+    line = sys.stdin.readline()
+    numbers = list(map(float, line.split()))
+    line = sys.stdin.readline()
+    discounts = list(map(float, line.split()))
+    total = 0
+    for i in range(len(numbers)):
+        total += numbers[i] * (1 - discounts[i]/100)
+    print(total)
