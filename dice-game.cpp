@@ -40,15 +40,12 @@ output:
 0.0
 */
 int main() {
-	int n, m, re, re2;
-	while(cin >> n >> m) {
-		re = 0;
-		re2 = 0;
-		for(int i = 1; i < n; i++) {
-			if(i > m) re++;
-			else re2++;
-		}
-		printf("%.9lf\n", (double)re / re2);
-	}
-	return 0;
+    int m, n;
+    while (cin>>m>>n) {
+        double sum = 0;
+        for (int i=1; i<n; i++) {
+            sum += (1.0*i/n)*((1.0*(m-i)/m)*((1.0*(m-i)/m-1)*((1.0*(m-i)/m-2)/(1.0*(m-3)/m))));
+        }
+        printf("%.6lf\n", sum);
+    }
 }
