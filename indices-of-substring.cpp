@@ -45,4 +45,22 @@ output:
 0 1 2 3 4 5 6 7 8 9 10 11
 */
 int main() {
+    string text;
+    string target;
+    cin >> target;
+    cin >> text;
+    vector<int> list;
+    for(int i = 0; i <= text.size() - target.size(); i++) {
+        string str = text.substr(i, target.size());
+        if(str == target) {
+            list.push_back(i);
+        }
+    }
+    for(int i = 0; i < list.size(); i++) {
+        if(i == 0) {
+            cout << list[i];
+        } else {
+            cout << " " << list[i];
+        }
+    }
 }
