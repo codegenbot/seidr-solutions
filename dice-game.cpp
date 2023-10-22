@@ -40,13 +40,25 @@ output:
 0.0
 */
 int main() {
-    int n,m;
+    int n, m;
     cin >> n >> m;
-    if (n >= m) {
-        cout << 0.5 << endl;
+    double p = 0;
+    for(int i = 2; i <= n; i++) {
+        double sum = 0;
+        for(int j = 1; j < i; j++) {
+            double tmp = 1.0 / n;
+            for(int k = 1; k <= m; k++) {
+                if(j > k) {
+                    tmp *= 1.0 / n;
+                } else {
+                    tmp *= 1.0 / (n - 1);
+                }
+            }
+            sum += tmp;
+        }
+        p += sum;
     }
-    else {
-        cout << (double)(m-n+1)/(m+1) << endl;
-    }
+    printf("%.4f", p);
+    
     return 0;
 }
