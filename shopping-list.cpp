@@ -50,31 +50,5 @@ output:
 29.0
 */
 int main() {
- 
-   int numOfItems;
-   float itemPrice, itemDiscount, totalPrice = 0.0;
-   cin >> numOfItems;
-   vector<float> itemPrices(numOfItems), itemDiscounts(numOfItems);
 
-   for(int i = 0; i < numOfItems; i++) {
-      cin >> itemPrice;
-      itemPrices[i] = itemPrice;
-   }
-
-   for(int i = 0; i < numOfItems; i++) {
-      cin >> itemDiscount;
-      itemDiscounts[i] = itemDiscount;
-   }
-
-   for(int i = 0; i < numOfItems; i++) {
-      totalPrice += (itemPrices[i] - (itemPrices[i] * itemDiscounts[i] / 100));
-   }
-
-   for(int i = 0; i < numOfItems; i++) {
-      cout << itemPrices[i] << "  " << itemDiscounts[i] << endl;
-   }
-
-   cout << "Total Price: " << totalPrice << endl;
-
-   return 0;
 }
