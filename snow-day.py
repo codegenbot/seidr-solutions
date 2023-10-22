@@ -47,10 +47,10 @@ output:
 10.0
 """
 if __name__ == '__main__':
-  hours = int(sys.stdin.readline())
-  snow_on_ground = float(sys.stdin.readline())
-  rate_of_snow_fall = float(sys.stdin.readline())
-  rate_of_melting = float(sys.stdin.readline())
-  for _ in range(hours):
-    snow_on_ground += rate_of_snow_fall - (snow_on_ground * rate_of_melting)
-  print(snow_on_ground)
+    hour = int(input())
+    snow_on_the_ground = float(input())
+    snow_fall = float(input())
+    melting_of_snow = float(input())
+    for i in range(hour):
+        snow_on_the_ground += snow_fall - melting_of_snow*snow_on_the_ground
+    print(snow_on_the_ground)
