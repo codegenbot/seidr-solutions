@@ -33,7 +33,7 @@ hi
 """
 if __name__ == '__main__':
     s = input()
-    s = s.split()
+    s = s.split(' ')
     for i in range(len(s)):
         if len(s[i]) >= 5:
             s[i] = s[i][::-1]
