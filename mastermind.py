@@ -42,18 +42,4 @@ output:
 0
 """
 if __name__ == '__main__':
-	code = input()
-	guess = input()
-	if len(guess) != len(code):
-		print("Error")
-		sys.exit(0)
-	color = 0
-	position = 0
-	for i in code:
-		if i in guess:
-			color += 1
-			if code.index(i) == guess.index(i):
-				position += 1
-				color -= 1
-	print(position)
-	print(color)
+  print os.stat("./file")
