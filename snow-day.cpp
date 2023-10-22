@@ -56,7 +56,8 @@ int main() {
     for (int i = 0; i < hours; i++) {
         snow += rate;
         snow -= melt;
+        if (snow < 0) snow = 0;
     }
-    cout << snow << endl;
+    printf("%.10f\n", snow);
     return 0;
 }
