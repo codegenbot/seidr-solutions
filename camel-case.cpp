@@ -34,63 +34,21 @@ all separate words
 output:
 all separate words
 */
-// second solution
 int main() {
-    string s;
-    getline(cin, s);
-    vector<string> v;
-    int i = 0;
-    string t;
-    for (char c : s) {
-        if (c == ' ' || c == '-') {
-            v.push_back(t);
-            t = "";
-        } else {
-            t += c;
-        }
-    }
-    if (t != "") {
-        v.push_back(t);
-    }
-    for (int i = 0; i < v.size(); i++) {
-        if (i == 0) {
-            cout << v[i];
-            continue;
-        }
-        cout << v[i].substr(0,1);
-        for (int j = 1; j < v[i].length(); j++) {
-            if (v[i][j] >= 'a' && v[i][j] <= 'z') {
-                cout << v[i][j];
-            }
-        }
-    }
-    return 0;
-}
-// first solution
-int main() {
-    string s;
-    getline(cin, s);
-    vector<string> v;
-    int i = 0;
-    string t;
-    for (char c : s) {
-        if (c == ' ' || c == '-') {
-            v.push_back(t);
-            t = "";
-        } else {
-            t += c;
-        }
-    }
-    if (t != "") {
-        v.push_back(t);
-    }
-    for (int i = 0; i < v.size(); i++) {
-        if (i == 0) {
-            cout << v[i];
-            continue;
-        }
-        v[i][0] += 'A' - 'a';
-        cout << v[i];
-    }
-    return 0;
+	string s;
+	getline(cin,s);
+	string s1 = "";
+	for(int i = 0;i<s.length();i++) {
+		if(s[i]==' ' || s[i]=='-') {
+			if(s[i]==' ') {
+				s1+=" ";
+			}
+			i++;
+			s1 += toupper(s[i]);
+		}
+		else {
+			s1+=tolower(s[i]);
+		}
+	}
+	cout << s1 << endl;
 }
