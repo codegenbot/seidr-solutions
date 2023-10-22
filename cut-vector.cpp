@@ -54,93 +54,32 @@ output:
 0
 
 */
-
-
-void findBestCut(vector<int> nums){
-    int low=0;
-    int high = INT_MAX;
-    int currSum = 0;
-    for(int i = 0; i < nums.size(); i++){
-        currSum += nums[i];
-    }
-    int leftSum = 0;
-    for(int i = 0; i < nums.size(); i++){
-        currSum -= nums[i];
-        if(abs(currSum - leftSum) < abs(high - low)){
-            low = leftSum;
-            high = currSum;
-        }
-        leftSum += nums[i];
-    }
-    cout<<low<<" "<<high<<endl;
-}
-
-vector<int> findBestCut2(vector<int> nums){
-    int low=0;
-    int high = INT_MAX;
-    int currSum = 0;
-    for(int i = 0; i < nums.size(); i++){
-        currSum += nums[i];
-    }
-    int leftSum = 0;
-    vector<int> res;
-    for(int i = 0; i < nums.size(); i++){
-        currSum -= nums[i];
-        if(abs(currSum - leftSum) < abs(high - low)){
-            low = leftSum;
-            high = currSum;
-        }
-        leftSum += nums[i];
-    }
-    int i = 0;
-    while(nums[i] != low && i < nums.size()){
-        res.push_back(nums[i]);
-        i++;
-    }
-    res.push_back(0);
-    while(i < nums.size()){
-        res.push_back(nums[i]);
-        i++;
-    }
-    return res;
-}
-
-
 int main() {
-    vector<int> nums = {1,10};
-    findBestCut(nums);
-    vector<int> res = findBestCut2(nums);
-    for(int i = 0; i < res.size(); i++){
-        cout<<res[i]<<" ";
-    }
-    cout<<endl;
-    vector<int> nums1 = {1,100};
-    findBestCut(nums1);
-    vector<int> res1 = findBestCut2(nums1);
-    for(int i = 0; i < res1.size(); i++){
-        cout<<res1[i]<<" ";
-    }
-    cout<<endl;
-    vector<int> nums2 = {1,1000};
-    findBestCut(nums2);
-    vector<int> res2 = findBestCut2(nums2);
-    for(int i = 0; i < res2.size(); i++){
-        cout<<res2[i]<<" ";
-    }
-    cout<<endl;
-    vector<int> nums3 = {1,10000};
-    findBestCut(nums3);
-    vector<int> res3 = findBestCut2(nums3);
-    for(int i = 0; i < res3.size(); i++){
-        cout<<res3[i]<<" ";
-    }
-    cout<<endl;
-    vector<int> nums4 = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-    findBestCut(nums4);
-    vector<int> res4 = findBestCut2(nums4);
-    for(int i = 0; i < res4.size(); i++){
-        cout<<res4[i]<<" ";
-    }
-    cout<<endl;
-    return 0;
+	vector<int> v;
+	int n;
+	while(scanf("%d",&n)!= EOF){
+		if(n != -1) v.push_back(n);
+		else{
+			vector<int> ret;
+			int m = INT_MAX;
+			for(int i = 1; i < v.size(); i++){
+				int t = abs(v[i] - v[i-1]);
+				if(t < m){
+					m = t;
+					ret.clear();
+					ret.push_back(i-1);
+					ret.push_back(i);
+				}else if(t == m){
+					ret.push_back(i-1);
+					ret.push_back(i);
+				}
+			}
+			for(int i = 0; i < ret.size(); i++){
+				printf("%d\n",v[ret[i]]);
+			}
+			printf("0\n");
+			v.clear();
+		}
+	}
+	return 0;
 }
