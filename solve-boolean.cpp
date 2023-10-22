@@ -34,49 +34,61 @@ t&f
 output:
 False
 */
-int main() {
-    string line;
-    while (getline(cin, line)) {
-        int len = (int) line.size();
-        bool tf = true;
-        stack<char> mystack;
-        for (int i = 0; i < len; ++i) {
-            if (line[i] == ' ') {
-                continue;
-            }
-            if (line[i] == 't' || line[i] == 'f') {
-                mystack.push(line[i]);
-            }
-            else if (line[i] == '|' || line[i] == '&') {
-                mystack.push(line[i]);
-            }
-            else if (line[i] == ')') {
-                char c = mystack.top();
-                mystack.pop();
-                char c1 = mystack.top();
-                mystack.pop();
-                char c2 = mystack.top();
-                mystack.pop();
-                char c3 = mystack.top();
-                mystack.pop();
-                if (c == '|') {
-                    if (c1 == 't' || c2 == 't') {
-                        mystack.push('t');
-                    }
-                    else {
-                        mystack.push('f');
-                    }
-                }
-                if (c == '&') {
-                    if (c1 == 't' && c2 == 't') {
-                        mystack.push('t');
-                    }
-                    else {
-                        mystack.push('f');
-                    }
-                }
-            }
+
+bool get_eval(string expr) {
+    int len = expr.length();
+    stack<bool> st;
+    for (int i = 0; i < len; i++) {
+        char c = expr[i];
+        if (c == 'T' || c == 'F') {
+            st.push(c == 'T' ? true : false);
+        } else if (c == '|') {
+            bool v1 = st.top();
+            st.pop();
+            bool v2 = st.top();
+            st.pop();
+            st.push(v1 || v2);
+        } else if (c == '&') {
+            bool v1 = st.top();
+            st.pop();
+            bool v2 = st.top();
+            st.pop();
+            st.push(v1 && v2);
         }
-        printf("%s\n", mystack.top() == 't' ? "True" : "False");
     }
+    return st.top();
+}
+
+
+int main() {
+    string input = "F&F";
+    cout << "input: " << input << endl;
+    bool output = get_eval(input);
+    cout << "output: " << (output ? "True" : "False") << endl;
+
+    input = "T";
+    cout << "input: " << input << endl;
+    output = get_eval(input);
+    cout << "output: " << (output ? "True" : "False") << endl;
+
+    input = "F";
+    cout << "input: " << input << endl;
+    output = get_eval(input);
+    cout << "output: " << (output ? "True" : "False") << endl;
+
+    input = "F&F";
+    cout << "input: " << input << endl;
+    output = get_eval(input);
+    cout << "output: " << (output ? "True" : "False") << endl;
+
+    input = "F&T";
+    cout << "input: " << input << endl;
+    output = get_eval(input);
+    cout << "output: " << (output ? "True" : "False") << endl;
+
+    input = "T&F";
+    cout << "input: " << input << endl;
+    output = get_eval(input);
+    cout << "output: " << (output ? "True" : "False") << endl;
+    return 0;
 }
