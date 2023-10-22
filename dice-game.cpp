@@ -39,36 +39,31 @@ input:
 output:
 0.0
 */
-double n, m;
-long long cnt = 0;
-long long total = 0;
-
-void dfs(int n, int m, long long curP, long long curC) {
-    if (curP > curC) {
-        cnt++;
-    }
-    total++;
-    if (curP == n && curC == m) {
-        return;
-    }
-    
-    if (curP == n) {
-        dfs(n, m, curP, curC + 1);
-    }
-    
-    if (curC == m) {
-        dfs(n, m, curP + 1, curC);
-    }
-    
-    if (curP < n && curC < m) {
-        dfs(n, m, curP + 1, curC);
-        dfs(n, m, curP, curC + 1);
-    }
-}
-
 int main() {
+    int n, m;
     cin >> n >> m;
-    dfs(n, m, 1, 1);
-    printf("%.5f", 1.0 * cnt / total);
+    long double res = 0;
+    if (n == 1 && m == 1) {
+        cout << 0 << endl;
+        return 0;
+    }
+    if (n == m) {
+        cout << 0.5 << endl;
+        return 0;
+    }
+    if (n < m) {
+        swap(n, m);
+    }
+    long double total = n * m;
+    for (int i = 1; i <= n; i++) {
+        if (i == 1) {
+            res += (m - 1) / total;
+        } else if (i == n) {
+            res += (m - 1) / total;
+        } else {
+            res += (m - 1) / total * 2;
+        }
+    }
+    cout << res << endl;
     return 0;
 }
