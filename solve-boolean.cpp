@@ -34,39 +34,31 @@ t&f
 output:
 False
 */
-
-bool evaluateBool(string &s, int &i){
-    if(s[i] == 't') {
-        i++;
-        return true;
-    }else if(s[i] == 'f') {
-        i++;
-        return false;
-    }else{
-        i++;
-        bool left = evaluateBool(s, i);
-        char op = s[i];
-        i++;
-        bool right = evaluateBool(s, i);
-        if(op == '&'){
-            return left & right;
-        }else{
-            return left | right;
-        }
-    }
-}
-
 int main() {
     string s;
-    //while(cin >> s){
-    cin >> s;
-        int i = 0;
-        bool res = evaluateBool(s, i);
-        if(res){
-            cout << "True" << endl;
-        }else{
-            cout << "False" << endl;
+    while(cin >> s){
+        stack<char> stk;
+        int len = s.length();
+        bool ans = true;
+        for(int i = 0; i < len; i ++){
+            if(s[i] == 'f') ans = false;
+            else if(s[i] == 't') ans = true;
+            else if(s[i] == '|'){
+                bool t = stk.top();
+                stk.pop();
+                t = ans || t;
+                stk.push(t);
+                ans = true;
+            }
+            else if(s[i] == '&'){
+                bool t = stk.top();
+                stk.pop();
+                t = ans && t;
+                stk.push(t);
+                ans = true;
+            }
         }
-    //}
+        cout << (stk.top() ? "true" : "false") << endl;
+    }
     return 0;
 }
