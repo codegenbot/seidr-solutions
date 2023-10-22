@@ -37,33 +37,49 @@ False
 int main() {
     string s;
     cin >> s;
-    stack<char> stk;
+    stack<char> st;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == ')') {
-            char a = stk.top();
-            stk.pop();
-            char b = stk.top();
-            stk.pop();
-            char op = stk.top();
-            stk.pop();
-            if (op == '&') {
-                if (a == 'T' && b == 'T') {
-                    stk.push('T');
-                } else {
-                    stk.push('F');
-                }
-            } else if (op == '|') {
-                if (a == 'F' && b == 'F') {
-                    stk.push('F');
-                } else {
-                    stk.push('T');
+        if (s[i] == '&' || s[i] == '|') {
+            st.push(s[i]);
+        } else if (s[i] == 't') {
+            if (st.empty()) {
+                st.push('t');
+            } else {
+                char op = st.top();
+                st.pop();
+                if (op == '&') {
+                    st.push('t');
+                } else if (op == '|') {
+                    if (st.top() == 't') {
+                        st.pop();
+                        st.push('t');
+                    } else {
+                        st.pop();
+                        st.push('t');
+                    }
                 }
             }
-        } else {
-            stk.push(s[i]);
+        } else if (s[i] == 'f') {
+            if (st.empty()) {
+                st.push('f');
+            } else {
+                char op = st.top();
+                st.pop();
+                if (op == '&') {
+                    st.push('f');
+                } else if (op == '|') {
+                    if (st.top() == 't') {
+                        st.pop();
+                        st.push('t');
+                    } else {
+                        st.pop();
+                        st.push('f');
+                    }
+                }
+            }
         }
     }
-    if (stk.top() == 'T') {
+    if (st.top() == 't') {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
