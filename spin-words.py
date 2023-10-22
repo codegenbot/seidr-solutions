@@ -31,4 +31,12 @@ hi
 output:
 hi
 """
+s = "this is a test"
+a = s.split(" ")
+for i in range(len(a)):
+    if len(a[i]) >= 5:
+        a[i] = a[i][::-1]
+t = " ".join(a)
+print(t)
+#print(" ".join(a))
 if __name__ == '__main__':
