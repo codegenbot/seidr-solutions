@@ -42,8 +42,3 @@ output:
 llllllllll
 """
 if __name__ == '__main__':
-    s1 = input()
-    s2 = input()
-    s3 = input()
-    d = dict(zip(s1, s2))
-    print(''.join(d.get(c, c) for c in s3))
