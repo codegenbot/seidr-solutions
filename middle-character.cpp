@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <cstdlib>
 using namespace std;
 /*
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
@@ -19,9 +18,9 @@ Q
 output:
 Q
 input:
- 
+Ha
 output:
- 
+Ha
 input:
 $
 output:
@@ -35,19 +34,14 @@ input:
 output:
 )b
 */
-string middle(string s) {
-    int n = (int)s.size();
-    if(n%2 == 0) {
-        return s.substr(n/2-1, 2);
-    } else {
-        return s.substr(n/2, 1);
-    }
-}
-
 int main() {
-    cout<<middle("Q")<<endl;
-    cout<<middle("")<<endl;
-    cout<<middle("$")<<endl;
-    cout<<middle("E9")<<endl;
-    cout<<middle(")b")<<endl;
+	string a;
+	cin>>a;
+	int len=a.size();
+	if(len%2==0){
+		printf("%c",a[len/2]);
+		printf("%c",a[len/2-1]);
+	}else{
+		printf("%c",a[len/2]);
+	}
 }
