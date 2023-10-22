@@ -18,6 +18,7 @@ a
 5
 output:
 0
+
 input:
 !
 !
@@ -43,4 +44,30 @@ output:
 12
 0 1 2 3 4 5 6 7 8 9 10 11
 */
+int findString(string text, string target) {
+    //loop through the text
+    for (int i = 0; i < text.length() - target.length() + 1; i++) {
+        bool textMatch = true;
+        for (int j = 0; j < target.length(); j++) {
+            if (text[i + j] != target[j]) {
+                textMatch = false;
+            }
+        }
+        if (textMatch == true) {
+            return i;
+        }
+    }
+    return -1;
+}
 int main() {
+    string text = "hi";
+    string target = "hihihihihihihihihihi";
+    int indexFound = 0;
+    int ret = findString(text, target);
+    while (ret != -1) {
+        cout << ret << "\t";
+        text = target.substr(target.length() -1);
+        target = target.substr(0, target.length() - 1);
+        ret = findString(text, target);
+    }
+}
