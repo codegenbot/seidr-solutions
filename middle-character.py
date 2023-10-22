@@ -32,4 +32,9 @@ output:
 )b
 """
 if __name__ == '__main__':
-    print('Q' if len(input()) == 1 else input()[len(input())//2-1:len(input())//2+1])
+    str = input()
+    length = len(str)
+    if length % 2 == 0:
+        print(str[length//2-1:length//2+1])
+    else:
+        print(str[length//2])
