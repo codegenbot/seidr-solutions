@@ -50,23 +50,5 @@ output:
 2.2715833329200144
 */
 int main() {
-    int n,i;
-    cin>>n;
-    float a[n],c=0,d;
-    float b[n];
-    for(i=0;i<n;i++)
-    {
-        cin>>a[i];
-    }
-    for(i=0;i<n;i++)
-    {
-        cin>>b[i];
-    }
-    for(i=0;i<n;i++)
-    {
-        c+=(a[i]-b[i])*(a[i]-b[i]);
-    }
-    d=sqrt(c);
-    printf("%.15f",d);
-    return 0;
+    
 }
