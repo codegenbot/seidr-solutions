@@ -49,15 +49,18 @@ input:
 output:
 10.0
 */
+float snow(int hours, float snow_init, float rate, float melt) {
+	float res = snow_init;
+	for (int i = 0; i < hours; i++) {
+		res += rate - res * melt;
+	}
+	return res;
+}
 int main() {
-    int hours;
-    float amount, rate, melt;
-    cin >> hours >> amount >> rate >> melt;
-    float result = amount;
-    for (int i = 0; i < hours; i++) {
-        result += rate;
-        result -= result * melt;
-    }
-    cout << result << endl;
-    return 0;
+	cout << snow(0, 0.0, 0.0, 0.0) << endl;
+	cout << snow(15, 15.0, 15.0, 0.15) << endl;
+	cout << snow(20, 19.99, 9.999, 0.999) << endl;
+	cout << snow(20, 19.99, 9.999, 0.0) << endl;
+	cout << snow(10, 0.0, 1.0, 0.0) << endl;
+	return 0;
 }
