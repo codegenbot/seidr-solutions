@@ -31,21 +31,11 @@ t&f
 output:
 False
 """
-
-def evaluate_boolean(expression):
-    if expression == "t":
-        return True
-    elif expression == "f":
-        return False
-    else:
-        if "&" in expression:
-            return evaluate_boolean(expression[0]) and evaluate_boolean(expression[2])
-        else:
-            return evaluate_boolean(expression[0]) or evaluate_boolean(expression[2])
-
 if __name__ == '__main__':
-    print(evaluate_boolean("t"))
-    print(evaluate_boolean("f"))
-    print(evaluate_boolean("f&f"))
-    print(evaluate_boolean("f&t"))
-    print(evaluate_boolean("t&f"))
+    s = input()
+    if s == 't':
+        print(True)
+    elif s == 'f':
+        print(False)
+    else:
+        print(eval(s))
