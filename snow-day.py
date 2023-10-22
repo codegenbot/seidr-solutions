@@ -47,4 +47,11 @@ output:
 10.0
 """
 if __name__ == '__main__':
-  pass
+    hours = int(input().strip())
+    start = float(input().strip())
+    rate = float(input().strip())
+    melt = float(input().strip())
+    for i in range(hours):
+        start = start + rate - melt * start
+
+    print(round(start, 2))
