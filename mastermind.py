@@ -1,3 +1,12 @@
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 """
 Based on the board game Mastermind. Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
 For example,
@@ -32,25 +41,21 @@ output:
 0
 0
 """
-
 def mastermind(code, guess):
-    """
-    Given a Mastermind code and a guess, each of which are 4-character strings consisting of 6 possible characters, return the number of white pegs (correct color, wrong place) and black pegs (correct color, correct place) the codemaster should give as a clue.
-    """
-    code_dict = {}
-    guess_dict = {}
+    blacks = 0
+    whites = 0
+    g_dic = {}
+    for i in range(len(guess)):
+        if guess[i] == code[i]:
+            blacks += 1
+        else:
+            g_dic[guess[i]] = g_dic.get(guess[i], 0) + 1
     for i in range(len(code)):
-        code_dict[code[i]] = code_dict.get(code[i], 0) + 1
-        guess_dict[guess[i]] = guess_dict.get(guess[i], 0) + 1
-    black_pegs = 0
-    for k in code_dict:
-        if k in guess_dict:
-            black_pegs += min(guess_dict[k], code_dict[k])
-    white_pegs = 0
-    for k in guess_dict:
-        if k in code_dict:
-            white_pegs += min(guess_dict[k], code_dict[k])
-    white_pegs -= black_pegs
-    return white_pegs, black_pegs
-
+        if code[i] in g_dic and g_dic[code[i]] > 0:
+            g_dic[code[i]] -= 1
+            whites += 1
+    return str(blacks) + " " + str(whites)
 if __name__ == '__main__':
+    code = input()
+    guess = input()
+    print(mastermind(code, guess))
