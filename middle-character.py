@@ -7,6 +7,7 @@ import collections
 import itertools
 import queue
 import re
+
 """
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
 For example,
@@ -31,5 +32,12 @@ input:
 output:
 )b
 """
+
+
 if __name__ == '__main__':
-	
+    inputstr = input("input a string:")
+    length = len(inputstr)
+    if length % 2 == 0:
+        print(inputstr[int(length / 2) - 1:int(length / 2) + 1])
+    else:
+        print(inputstr[int(length / 2)])
