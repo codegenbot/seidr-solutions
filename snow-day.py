@@ -8,7 +8,8 @@ import itertools
 import queue
 import re
 """
-Given an integer representing a number of hours and 3 floats representing how much snow is on theground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
+Given an integer representing a number of hours and 3 floats representing how much snow is on the
+ground, the rate of snow fall, and the proportion of snow melting per hour, return the amount of snow on the ground after the amount of hours given. Each hour is considered a discrete event of adding snow and then melting, not a continuous process.
 For example,
 input:
 0
@@ -47,10 +48,15 @@ output:
 10.0
 """
 if __name__ == '__main__':
+
+    def snow_fall(hours, snow, rate, melt):
+        for i in range(hours):
+            snow += rate
+            snow -= melt * snow
+        return snow
+
     hours = int(input())
-    snow_on_ground = float(input())
-    rate_of_snow_fall = float(input())
-    rate_of_melting = float(input())
-    snow_on_ground += rate_of_snow_fall * hours
-    snow_on_ground -= rate_of_melting * hours
-    print(snow_on_ground)
+    snow = float(input())
+    rate = float(input())
+    melt = float(input())
+    print(snow_fall(hours, snow, rate, melt))
