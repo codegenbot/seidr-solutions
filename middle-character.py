@@ -31,16 +31,8 @@ input:
 output:
 )b
 """
-s = "E9"
-def middle(s):
-	l = len(s)
-	if l % 2 == 1:
-		m = math.floor(l/2)
-		m = int(m)
-		print(s[m])
-	else:
-		m = int(l/2)
-		print(s[m-1]+s[m])
-
 if __name__ == '__main__':
-	middle(s)
+
+
+
+
