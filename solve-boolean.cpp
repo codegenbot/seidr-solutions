@@ -35,5 +35,39 @@ output:
 False
 */
 int main() {
-    
+    string s;
+    while(cin >> s) {
+        stack<char> st;
+        for(int i = 0; i < s.size(); i++) {
+            if(s[i] == ')') {
+                char op = st.top();
+                st.pop();
+                char op1 = st.top();
+                st.pop();
+                char op2 = st.top();
+                st.pop();
+                if(op == '&') {
+                    if(op1 == 'T' && op2 == 'T') {
+                        st.push('T');
+                    } else {
+                        st.push('F');
+                    }
+                } else {
+                    if(op1 == 'T' || op2 == 'T') {
+                        st.push('T');
+                    } else {
+                        st.push('F');
+                    }
+                }
+            } else {
+                st.push(s[i]);
+            }
+        }
+        if(st.top() == 'T') {
+            cout << "True" << endl;
+        } else {
+            cout << "False" << endl;
+        }
+    }
+    return 0;
 }
