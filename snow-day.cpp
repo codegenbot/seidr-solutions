@@ -50,15 +50,17 @@ output:
 10.0
 */
 int main() {
-    int n;
-    float a;
-    float b;
-    float h;
-    float result = 0;
-    cin >> n >> a >> b >> h;
-    for (int i = 0; i < n; i++) {
-        result += b;
-        result -= (result * h);
+    int t; cin >> t;
+    double a, b, c;
+    while (t--) {
+        int h; cin >> h;
+        cin >> a >> b >> c;
+        double res = a;
+        for (int i = 0; i < h; ++i) {
+            res += b - res * c;
+            // cout << res << endl;
+        }
+        printf("%.12lf\n", res);
     }
-    printf("%.10f\n", result);
+    return 0;
 }
