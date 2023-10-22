@@ -55,14 +55,27 @@ output:
 
 */
 int main() {
-    int num;
-    while(cin >> num) {
-        int ret = 0;
-        for(int i = 1; i < num; i++) {
-            if(abs(i - (num - i)) < abs(ret - (num - ret))) {
-                ret = i;
-            }
-        }
-        cout << ret << " " << num - ret << " " << 0 << endl;
+    int n;
+    cin>>n;
+    vector<int> v(n, 0);
+    for(int i=0; i<n; i++) {
+        cin>>v[i];
     }
+    int min_diff = INT_MAX;
+    int min_pos = -1;
+    for(int i=0; i<v.size(); i++) {
+        int left = 0, right = 0;
+        for(int j=i; j>=0; j--) {
+            left += v[j];
+        }
+        for(int j=i; j<v.size(); j++) {
+            right += v[j];
+        }
+        if(abs(left - right) < min_diff) {
+            min_diff = abs(left - right);
+            min_pos = i;
+        }
+    }
+    cout<<min_pos+1<<endl;
+    return 0;
 }
