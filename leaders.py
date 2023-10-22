@@ -7,7 +7,6 @@ import collections
 import itertools
 import queue
 import re
-import csv
 """
 Given a vector of positive integers, return a vector of the leaders in that vector. A leader is deﬁned as a number that is greater than or equal to all the numbers tothe right of it. The rightmost element is always a leader.
 For example,
@@ -42,19 +41,15 @@ output:
 1
 1000
 """
-if __name__ == '__main__':
 
-    n = int(input())
-    for i in range(n):
-        q = int(input())
-        a = [int(x) for x in input().split()]
-        leaders=list(reversed(sorted(a)))
-        last=leaders[0]
-        print(last,end=" ")
-        for j in leaders[1:]:
-            if j==last:
-                continue
-            else:
-                print(j,end=" ")
-                last=j
-        print()
+def get_leaders(integers):
+    length = len(integers)
+    leaders = [integers[length - 1]]
+    leader = integers[length - 1]
+    for i in range(length - 2,-1,-1):
+        if integers[i] >= leader:
+            leaders.append(integers[i])
+            leader = integers[i]
+    leaders.reverse()
+    return leaders
+if __name__ == '__main__':
