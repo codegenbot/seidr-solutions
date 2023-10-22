@@ -35,40 +35,33 @@ output:
 all separate words
 */
 int main() {
-    int t;
-    cin >> t;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    for (int i = 0; i < t; i++) {
-        string s;
-        getline(cin, s);
-        stringstream ss(s);
-        string token;
-        int x = 0;
-        int y = 0;
-        while(getline(ss, token, ' ')) {
-            string s = token;
-            for (int j = 0; j < s.size(); j++) {
-                if (s[j] == '-') {
-                    x++;
-                }
-            }
-            if (x == 0) {
-                cout << s;
-                break;
-            }
-            y = 0;
-            for (int k = 0; k < s.size(); k++) {
-                if (y == 0 && s[k] != '-') {
-                    s[k] = toupper(s[k]);
-                    y++;
-                }
-                if (s[k] == '-') {
-                    s[k] = ' ';
-                    s[k+1] = toupper(s[k+1]);
-                }
-            }
-            cout << s << " ";
-        }
+  int n;
+  cin >> n;
+  string str;
+  map<string, int> dic;
+  for (int i  = 0; i < n; ++i) {
+    cin >> str;
+    dic[str] = 0;
+  }
+  cin >> n;
+  string s;
+  map<string, int> dic1;
+  for (int i = 0; i < n; ++i) {
+    cin >> s;
+    int pos = s.find('@');
+    if (pos != string::npos) {
+      string s1 = s.substr(pos + 1);
+      if ( dic.find(s1) != dic.end()) {
+        dic1[s] = 1;
+      }
     }
-    return 0;
+  }
+  for (int i = 0; i < n; ++i) {
+    cin >> s;
+    if (dic1.find(s) != dic1.end()) {
+      cout << s << endl;
+    }
+  }
+  return 0;
+
 }
