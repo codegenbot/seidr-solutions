@@ -34,19 +34,42 @@ all separate words
 output:
 all separate words
 */
-int main() {
-	string input;
-	while (getline(cin, input)) {
-		int len = input.size();
-		for (int i = 0; i < len; i++) {
-			if (input[i] != ' ' && input[i] != '-') {
-				if (i > 0 && (input[i - 1] == ' ' || input[i - 1] == '-')) {
-					input[i] = toupper(input[i]);
-				}
-				cout << input[i];
-			}
-		}
-		cout << endl;
-	}
-	return 0;
+string toCamel(string kebab){
+    bool space = true;
+    for (int i = 0; i < kebab.size(); i ++){
+        if (kebab[i] == '-'){
+            kebab[i] = ' ';
+            space = false;
+        }
+    }
+    if (space){
+        return kebab;
+    }
+    string res = "";
+    string word = "";
+    for (int i = 0; i < kebab.size(); i ++){
+        if (kebab[i] == ' '){
+            res += word[0] - 'a' + 'A';
+            for (int j = 1; j < word.size(); j ++){
+                res += word[j];
+            }
+            word = "";
+            res += ' ';
+            continue;
+        }
+        word += kebab[i];
+    }
+    if (word.size() > 0){
+        res += word[0] - 'a' + 'A';
+        for (int j = 1; j < word.size(); j ++){
+            res += word[j];
+        }
+    }
+    return res;
 }
+int main() {
+    cout << toCamel("camel-case example-test-string") << endl;
+    cout << toCamel("nospaceordash") << endl;
+    cout << toCamel("two-words") << endl;
+    cout << toCamel("two words") << endl;
+    cout << toCamel("all separate words") << endl;
