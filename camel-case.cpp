@@ -34,9 +34,11 @@ all separate words
 output:
 all separate words
 input:
-make sure that  -> 
+Make sure that 
+-> 
 output:
-makeSureThat ->
+Make sure that 
+-> 
 */
 int main() {
     string str;
