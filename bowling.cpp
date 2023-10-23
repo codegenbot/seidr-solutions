@@ -34,44 +34,25 @@ input:
 output:
 100
 */
-int getScore(string s) {
+int main() {
+    string str;
+    cin >> str;
     int score = 0;
-    int cur = 0;
-    int i = 0;
-    for (; i < s.size(); i++) {
-        if (s[i] == 'X') {
+    int score_temp = 0;
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] == 'X') {
             score += 10;
-            if (s[i + 1] == 'X') {
-                score += 10;
-                if (s[i + 2] == 'X') {
-                    score += 10;
-                } else {
-                    score += s[i + 2] - '0';
-                }
-            } else if (s[i + 1] == '/') {
-                score += 10;
-            } else {
-                score += s[i + 1] - '0';
-            }
-        } else if (s[i] == '/') {
-            score += 10;
-            if (s[i - 1] == 'X') {
-                score += 10;
-            } else {
-                score += s[i - 1] - '0';
-            }
-        } else if (s[i] == '-') {
-            continue;
+            score_temp = 10;
+        } else if (str[i] == '/') {
+            score += 10 - score_temp;
+            score_temp = 0;
+        } else if (str[i] == '-') {
+            score_temp = 0;
         } else {
-            score += s[i] - '0';
+            score_temp = str[i] - '0';
+            score += score_temp;
         }
     }
-    return score;
-}
-int main() {
-    string s;
-    while (cin >> s) {
-        cout << getScore(s) << endl;
-    }
+    cout << score << endl;
     return 0;
 }
