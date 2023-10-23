@@ -37,9 +37,10 @@ output:
 int main() {
     string s;
     cin >> s;
-    if(s.size() % 2 == 1) {
+    if (s.size() % 2 == 1) {
         cout << s[s.size() / 2];
-    } else {
+    }
+    else {
         cout << s[s.size() / 2 - 1] << s[s.size() / 2];
     }
     return 0;
