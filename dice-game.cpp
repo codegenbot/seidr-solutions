@@ -24,6 +24,11 @@ input:
 output:
 0.5
 input:
+2
+2
+output:
+0.5
+input:
 99
 100
 output:
@@ -47,10 +52,6 @@ int main() {
         return 0;
     }
     if(n==m){
-        cout<<"0.5"<<endl;
-        return 0;
-    }
-    if(n==m+1){
         cout<<"0.5"<<endl;
         return 0;
     }
