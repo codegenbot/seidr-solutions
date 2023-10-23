@@ -35,5 +35,6 @@ output:
 100
 */
 int main() {
-    
+    cout << "hello world" << endl;
+    return 0;
 }
