@@ -33,18 +33,13 @@ input:
 all separate words
 output:
 all separate words
-
-
-
-
-
-
 */
 int main() {
     string line;
     getline(cin, line);
     string res = "";
     bool is_first = true;
+    bool is_space = false;
     for (int i = 0; i < line.length(); i++) {
         if (line[i] == '-') {
             is_first = true;
