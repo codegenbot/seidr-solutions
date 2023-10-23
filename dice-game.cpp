@@ -40,22 +40,20 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    cin >> n >> m;
-    double p = 0;
-    if (n == m) {
-        p = 0.5;
-    } else if (n > m) {
-        p = 1;
-    } else {
-        double q = 1;
-        double s = (double)n / (double)m;
-        for (int i = 0; i < n; i++) {
-            q *= s;
-            s = (double)(n - i - 1) / (double)(m - i - 1);
-        }
-        p = 1 - q;
+    int n,m;
+    cin>>n>>m;
+    if(n<m){
+        cout<<"0.0"<<endl;
+        return 0;
     }
-    printf("%.2lf\n", p);
+    if(n==m){
+        cout<<"0.5"<<endl;
+        return 0;
+    }
+    double a=1.0;
+    for(int i=1;i<=m;i++){
+        a*=((n-i+0.0)/n);
+    }
+    printf("%.2f\n",a);
     return 0;
 }
