@@ -34,125 +34,53 @@ input:
 output:
 100
 */
+
+int calculateScore(string input) {
+    int score = 0;
+    int frame = 0;
+    int i = 0;
+    while(frame < 10) {
+        if(input[i] == 'X') {
+            score += 10;
+            if(input[i+2] == 'X') {
+                score += 10;
+            } else {
+                score += input[i+2] - '0';
+            }
+            if(input[i+3] == '/') {
+                score += 10;
+            } else if(input[i+3] == 'X') {
+                score += 10;
+                if(input[i+5] == 'X') {
+                    score += 10;
+                } else {
+                    score += input[i+5] - '0';
+                }
+            } else {
+                score += input[i+3] - '0';
+            }
+            i++;
+        } else if(input[i+1] == '/') {
+            score += 10;
+            if(input[i+2] == 'X') {
+                score += 10;
+            } else {
+                score += input[i+2] - '0';
+            }
+            i += 2;
+        } else {
+            score += input[i] - '0';
+            score += input[i+1] - '0';
+            i += 2;
+        }
+        frame++;
+    }
+    return score;
+}
+
 int main() {
     string input;
     cin >> input;
-    int score = 0;
-    int frame = 0;
-    int frameScore = 0;
-    int frameScore2 = 0;
-    int frameScore3 = 0;
-    int frameScore4 = 0;
-    int frameScore5 = 0;
-    int frameScore6 = 0;
-    int frameScore7 = 0;
-    int frameScore8 = 0;
-    int frameScore9 = 0;
-    int frameScore10 = 0;
-    for(int i = 0; i < input.size(); i++) {
-        if(input[i] == 'X') {
-            if(frame == 0) {
-                frameScore = 10;
-            } else if(frame == 1) {
-                frameScore2 = 10;
-            } else if(frame == 2) {
-                frameScore3 = 10;
-            } else if(frame == 3) {
-                frameScore4 = 10;
-            } else if(frame == 4) {
-                frameScore5 = 10;
-            } else if(frame == 5) {
-                frameScore6 = 10;
-            } else if(frame == 6) {
-                frameScore7 = 10;
-            } else if(frame == 7) {
-                frameScore8 = 10;
-            } else if(frame == 8) {
-                frameScore9 = 10;
-            } else if(frame == 9) {
-                frameScore10 = 10;
-            }
-            frame++;
-        } else if(input[i] == '/') {
-            if(frame == 0) {
-                frameScore = 10 - (input[i - 1] - '0');
-            } else if(frame == 1) {
-                frameScore2 = 10 - (input[i - 1] - '0');
-            } else if(frame == 2) {
-                frameScore3 = 10 - (input[i - 1] - '0');
-            } else if(frame == 3) {
-                frameScore4 = 10 - (input[i - 1] - '0');
-            } else if(frame == 4) {
-                frameScore5 = 10 - (input[i - 1] - '0');
-            } else if(frame == 5) {
-                frameScore6 = 10 - (input[i - 1] - '0');
-            } else if(frame == 6) {
-                frameScore7 = 10 - (input[i - 1] - '0');
-            } else if(frame == 7) {
-                frameScore8 = 10 - (input[i - 1] - '0');
-            } else if(frame == 8) {
-                frameScore9 = 10 - (input[i - 1] - '0');
-            } else if(frame == 9) {
-                frameScore10 = 10 - (input[i - 1] - '0');
-            }
-            frame++;
-        } else if(input[i] == '-') {
-            if(frame == 0) {
-                frameScore = 0;
-            } else if(frame == 1) {
-                frameScore2 = 0;
-            } else if(frame == 2) {
-                frameScore3 = 0;
-            } else if(frame == 3) {
-                frameScore4 = 0;
-            } else if(frame == 4) {
-                frameScore5 = 0;
-            } else if(frame == 5) {
-                frameScore6 = 0;
-            } else if(frame == 6) {
-                frameScore7 = 0;
-            } else if(frame == 7) {
-                frameScore8 = 0;
-            } else if(frame == 8) {
-                frameScore9 = 0;
-            } else if(frame == 9) {
-                frameScore10 = 0;
-            }
-            frame++;
-        } else {
-            if(frame == 0) {
-                frameScore = input[i] - '0';
-            } else if(frame == 1) {
-                frameScore2 = input[i] - '0';
-            } else if(frame == 2) {
-                frameScore3 = input[i] - '0';
-            } else if(frame == 3) {
-                frameScore4 = input[i] - '0';
-            } else if(frame == 4) {
-                frameScore5 = input[i] - '0';
-            } else if(frame == 5) {
-                frameScore6 = input[i] - '0';
-            } else if(frame == 6) {
-                frameScore7 = input[i] - '0';
-            } else if(frame == 7) {
-                frameScore8 = input[i] - '0';
-            } else if(frame == 8) {
-                frameScore9 = input[i] - '0';
-            } else if(frame == 9) {
-                frameScore10 = input[i] - '0';
-            }
-        }
-    }
-    score += frameScore;
-    score += frameScore2;
-    score += frameScore3;
-    score += frameScore4;
-    score += frameScore5;
-    score += frameScore6;
-    score += frameScore7;
-    score += frameScore8;
-    score += frameScore9;
-    score += frameScore10;
-    cout << score << endl;
+    cout << calculateScore(input) << endl;
     return 0;
 }
