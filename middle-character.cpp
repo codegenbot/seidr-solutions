@@ -35,12 +35,12 @@ output:
 )b
 */
 int main() {
-    string input;
-    cin>>input;
-    int len = input.length();
-    if(len%2==1){
-        cout<<input[len/2];
-    }else{
-        cout<<input[len/2-1]<<input[len/2];
-    }
+    string s;
+    cin >> s;
+    int n = s.size();
+    n = n / 2;
+    if (s.size() % 2 == 0) cout << s.substr(n - 1, 2);
+    else cout << s[n];
+    
+    return 0;
 }
