@@ -34,26 +34,50 @@ input:
 output:
 100
 */
-int score(string s) {
-    int res = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            res += 10;
-            if (i + 2 < s.length() && s[i + 2] == 'X') res += 10;
-            else res += s[i + 2] - '0';
-            if (i + 2 < s.length() && s[i + 1] == '/') res += 10;
-            else res += s[i + 1] - '0';
-        } else if (s[i] == '/') {
-            res += 10;
-            res += s[i + 1] - '0';
+int getScore(string str) {
+    int score = 0;
+    int size = str.size();
+    int i = 0;
+    while (i < size) {
+        if (str[i] == 'X') {
+            score += 10;
+            if (i + 2 < size) {
+                if (str[i + 2] == 'X') {
+                    score += 10;
+                } else {
+                    score += str[i + 2] - '0';
+                }
+            }
+            if (i + 1 < size) {
+                if (str[i + 1] == 'X') {
+                    score += 10;
+                } else if (str[i + 1] == '/') {
+                    score += 10 - (str[i] - '0');
+                } else {
+                    score += str[i + 1] - '0';
+                }
+            }
+            i++;
+        } else if (str[i] == '/') {
+            score += 10 - (str[i - 1] - '0');
+            if (i + 1 < size) {
+                if (str[i + 1] == 'X') {
+                    score += 10;
+                } else {
+                    score += str[i + 1] - '0';
+                }
+            }
+            i++;
         } else {
-            res += s[i] - '0';
+            score += str[i] - '0';
+            i++;
         }
     }
-    return res;
+    return score;
 }
 int main() {
-    string input = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << score(input) << endl;
+    string str;
+    cin >> str;
+    cout << getScore(str) << endl;
     return 0;
 }
