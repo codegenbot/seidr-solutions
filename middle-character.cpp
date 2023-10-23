@@ -34,18 +34,14 @@ input:
 output:
 )b
 */
-
 int main() {
-	string s;
-	cin >> s;
-	int len = s.length();
-	int halflen = len / 2;
-	string res;
-	if (len % 2 == 0) {
-		res = s.substr(halflen - 1, 2);
-
-	}
-	else res = s.substr(halflen, 1);
-	cout << res << endl;
-	system("pause");
+    string s;
+    cin >> s;
+    int len = s.size();
+    if(len % 2 == 0) {
+        cout << s[len/2-1] << s[len/2];
+    } else {
+        cout << s[len/2];
+    }
+    return 0;
 }
