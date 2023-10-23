@@ -34,16 +34,6 @@ hi
 output:
 hi
 */
-
-string reverse(string s) {
-    string res;
-    int n = s.size();
-    for (int i = n - 1; i >= 0; i--) {
-        res += s[i];
-    }
-    return res;
-}
-
 int main() {
     string s;
     string res;
@@ -53,7 +43,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         if (s[i] == ' ') {
             if (i - start >= 5) {
-                res += reverse(s.substr(start, i - start));
+                for (int j = i - 1; j >= start; j--) {
+                    res += s[j];
+                }
             } else {
                 res += s.substr(start, i - start);
             }
