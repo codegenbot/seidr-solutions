@@ -8,31 +8,10 @@
 #include <map>
 #include <set>
 #include <stack>
-#include <climits>
 using namespace std;
+
 /*
-Given a string of one or more words (separated by spaces), reverse all but the ﬁve or more letters long words and return the resulting string.
-For example,
-input:
-
-output:
-
-input:
-a
-output:
-a
-input:
-this is a test
-output:
-this is a test
-input:
-this is another test
-output:
-this is rehtona test
-input:
-hi
-output:
-hi
+This file is for coding somethings on leetcode.com.
 */
 int main() {
     string s;
