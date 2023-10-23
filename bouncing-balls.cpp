@@ -45,11 +45,5 @@ output:
 3.963
 */
 int main() {
-   double start, first, times;
-   while (cin >> start >> first >> times) {
-      double bounciness = first / start;
-      double distance = pow(bounciness, times) * 2 * start;
-      printf("%.5lf\n", distance);
-   }
-   return 0;
+    return 0;
 }
