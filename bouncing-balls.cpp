@@ -44,17 +44,5 @@ input:
 output:
 3.963
 */
+//
 int main() {
-    cout<<"Please input starting height and after the first bounce height and the number of bounces\n";
-    double start,after,bounce;
-    cin>>start>>after>>bounce;
-    double bounciness = after/start;
-    double sum = 0;
-    while(bounce > 0){
-        sum += start;
-        start *= bounciness;
-        bounce--;
-    }
-    printf("%lf\n",sum);
-    return 0;
-}
