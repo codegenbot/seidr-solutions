@@ -40,46 +40,19 @@ output:
 0.0
 */
 int main() {
-    int n, m, peter;
-    
-    scanf("%d %d", &n, &m);
-    
-    if(n > m) {
-        printf("1.0\n");
-        return 0;
-    }
-    if(m > 100) {
-        m = 100;
-    }
-    
-    if(peter <= m) {
-        printf("0.0\n");
-        return 0;
-    }
-    
-    double sum = 0.0;
-    double total = 0.0;
-    
-    for(peter = m + 1; peter <= n; peter++) {
-        for(double x = 1; x <= peter; x++) {
-            
-            sum = x;
-            
-            for(double i = peter + m + 1; i <= n + m; i++) {
-                sum *= i;
+    freopen("input.txt", "r", stdin);
+    int n, m, equal = 0, Peter_higher_than_colen = 0;
+    cin>>n>>m;
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= m; j++){
+            if(i < j){
+                Peter_higher_than_colen ++;
+            }else if(i == j){
+                equal++;
             }
-            for(double i = 2; i <= (peter - 1); i++) {
-                sum /= i;
-            }
-            for(double i = 2; i <= (m - 1); i++) {
-                sum /= i;
-            }
-            
-            total += sum;
-            sum = 0.0;
         }
     }
+    cout<<(double)(Peter_higher_than_colen - equal / 2.0) / ((double)n * m - equal)<<endl;
     
-    printf("%.6f\n", total);
-    
+    return 0;
 }
