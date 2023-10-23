@@ -35,17 +35,12 @@ output:
 )b
 */
 int main() {
-	string s = "Q";
-	int len = s.length();
-	for(int i = 0; i < len; i++){
-		if(s[i] != ' ') {
-			if(len%2 == 1){
-				cout << s[len/2] << endl;
-			}else{
-				cout << s[len/2] << s[len/2 - 1] << endl;
-			}
-			break;
-		}
-	}
-	return 0;
+    string input;
+    cin>>input;
+    int len = input.length();
+    if(len%2==1){
+        cout<<input[len/2];
+    }else{
+        cout<<input[len/2-1]<<input[len/2];
+    }
 }
