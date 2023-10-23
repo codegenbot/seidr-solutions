@@ -39,24 +39,27 @@ input:
 output:
 0.0
 */
-int main() {
-    int n, m;
-    cin >> n >> m;
-    double peter = 0;
-    double colin = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                peter += 1.0;
-            } else if (i < j) {
-                colin += 1.0;
-            } else {
-                colin += 1.0;
-                colin += 1.0;
+    int main() {
+        int n, m;
+        cin >> n >> m;
+        double peter = 0;
+        double colin = 0;
+        if (m == 1) {
+            if (m == n) {
+                peter = 1;
+                colin = 1;
             }
-            colin++;
         }
-    }
-    cout << peter / colin << endl;
-    return 0;
+        else {
+            for (int i = 1; i <= n; i++) {
+                for (int j = 1; j <= m; j++) {
+                    if (i > j) {
+                        peter++;
+                    }
+                    colin++;
+                }
+            }
+        }
+        cout << peter / colin << endl;
+        return 0;
 }
