@@ -43,16 +43,19 @@ input:
 1
 output:
 3.963
+
 */
 int main() {
-    double h0, h1, n;
-    while (cin >> h0 >> h1 >> n) {
-        double bounciness = h1 / h0;
-        double res = 0;
-        for (int i = 0; i < n; i++) {
-            res += h0;
-            h0 *= bounciness;
+    double h, h1, n;
+    while (cin >> h >> h1 >> n) {
+        double bounciness = h1/h;
+        double sum = 0;
+        double lastHeight = h;
+        for (int i=2; i<=n; ++i) {
+            sum += lastHeight;
+            lastHeight = lastHeight * bounciness;
         }
-        printf("%.5f\n", res);
+        sum += lastHeight;
+        printf("%.6f\n", sum);
     }
 }
