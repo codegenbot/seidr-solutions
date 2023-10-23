@@ -35,13 +35,19 @@ output:
 )b
 */
 int main() {
-    string str;
-    while (getline(cin, str)) {
-        int n = str.size();
-        if (n % 2 == 0)
-            cout<<str[n/2-1]<<str[n/2]<<endl;
-        else
-            cout<<str[n/2]<<endl;
-    }
-    return 0;
+
+  string str = "dadsadsaffsaffadsafsa";
+  
+  int mid = ceil(str.size() / 2) - 1;
+  
+  if(str.size() % 2 == 0) {
+    cout << str.at(mid) << str.at(mid + 1) << endl;
+  }
+  else {
+    cout << str.at(mid) << endl;
+  }
+  
+  
+
+  return 0;
 }
