@@ -34,71 +34,44 @@ input:
 output:
 100
 */
-int main() {
-    string s;
-    cin >> s;
+int getScore(string s) {
     int score = 0;
-    int frame = 0;
-    int i;
-    for (i = 0; i < s.size(); ++i) {
+    int cur = 0;
+    int i = 0;
+    for (; i < s.size(); i++) {
         if (s[i] == 'X') {
             score += 10;
-            if (s[i+1] == 'X') {
+            if (s[i + 1] == 'X') {
                 score += 10;
-                if (s[i+2] == 'X') {
+                if (s[i + 2] == 'X') {
                     score += 10;
                 } else {
-                    score += s[i+2] - '0';
+                    score += s[i + 2] - '0';
                 }
-            } else if (s[i+1] == '/') {
+            } else if (s[i + 1] == '/') {
                 score += 10;
             } else {
-                score += s[i+1] - '0';
+                score += s[i + 1] - '0';
             }
-            frame++;
         } else if (s[i] == '/') {
             score += 10;
-            if (s[i+1] == 'X') {
+            if (s[i - 1] == 'X') {
                 score += 10;
             } else {
-                score += s[i+1] - '0';
+                score += s[i - 1] - '0';
             }
-            frame++;
         } else if (s[i] == '-') {
-            score += 0;
-            frame++;
+            continue;
         } else {
             score += s[i] - '0';
-            if (s[i+1] == '/') {
-                score += 10;
-                frame++;
-            } else {
-                frame++;
-            }
-        }
-        if (frame == 10 && i < s.size()-1) {
-            if (s[i+1] == 'X') {
-                score += 10;
-                if (s[i+2] == 'X') {
-                    score += 10;
-                } else {
-                    score += s[i+2] - '0';
-                }
-            } else if (s[i+1] == '/') {
-                score += 10;
-                if (s[i+2] == 'X') {
-                    score += 10;
-                } else {
-                    score += s[i+2] - '0';
-                }
-            } else {
-                score += s[i+1] - '0';
-            }
-        }
-        if (frame == 10) {
-            break;
         }
     }
-    cout << score << endl;
+    return score;
+}
+int main() {
+    string s;
+    while (cin >> s) {
+        cout << getScore(s) << endl;
+    }
     return 0;
 }
