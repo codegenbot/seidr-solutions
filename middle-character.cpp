@@ -34,13 +34,7 @@ input:
 output:
 )b
 */
+//
+
+//
 int main() {
-	string str = "Q";
-	int len = str.length();
-	if (len % 2 == 0) {
-		cout << str.substr(len / 2 - 1, 2) << endl;
-	} else {
-		cout << str.substr(len / 2, 1) << endl;
-	}
-	return 0;
-}
