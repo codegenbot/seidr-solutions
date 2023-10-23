@@ -35,12 +35,18 @@ output:
 )b
 */
 int main() {
-    string input;
-    cin >> input;
-    if(input.length() % 2 == 1) {
-        cout << input[input.length() / 2];
-    } else {
-        cout << input[input.length() / 2 - 1] << input[input.length() / 2];
+  string s, combo = "";
+  int length = 0;
+  
+  while (getline(cin, s)) {
+    length = s.length();
+    if (length == 1) combo = s;
+    else {
+      if (length % 2 == 1) combo = s[length / 2];
+      else combo = s[length / 2 - 1] + "" + s[length / 2]; 
     }
-    return 0;
+    cout << combo << endl;
+    combo = "";
+  }
+  return 0;
 }
