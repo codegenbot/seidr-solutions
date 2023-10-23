@@ -1,14 +1,4 @@
-#include <vector>
 #include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
 using namespace std;
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
@@ -34,25 +24,27 @@ input:
 output:
 100
 */
-int main() {
-    string str;
-    cin >> str;
+int get_score(string a) {
+    int bonus = 0;
     int score = 0;
-    int score_temp = 0;
-    for (int i = 0; i < str.size(); ++i) {
-        if (str[i] == 'X') {
+    for(int i = 0; i < a.length(); i++) {
+        if(a[i] == 'X') {
             score += 10;
-            score_temp = 10;
-        } else if (str[i] == '/') {
-            score += 10 - score_temp;
-            score_temp = 0;
-        } else if (str[i] == '-') {
-            score_temp = 0;
+            bonus += 2;
+        } else if(a[i] == '/') {
+            score += 10 - (a[i - 1] - '0');
+            bonus += 1;
+        } else if(a[i] == '-') {
+            bonus = 0;
         } else {
-            score_temp = str[i] - '0';
-            score += score_temp;
+            score += a[i] - '0';
+            bonus = max(0, bonus - 1);
         }
     }
-    cout << score << endl;
+    return score;
+}
+int main() {
+    string a = "XXXXXXXXXXXX";
+    cout << get_score(a) << endl;
     return 0;
 }
