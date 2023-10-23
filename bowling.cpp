@@ -34,107 +34,59 @@ input:
 output:
 100
 */
-// 4 cases 1. strike 2. spare 3. 1 throw 4. 2 throw
-int getthrow(vector<int>& array, int idx) {
-    if(array[idx] >= 1 && array[idx] <= 10) {
-        return array[idx];
+int fs(string& s, int i)
+{
+    int base = s[i] - 48;
+    switch (s[i + 1])
+    {
+        case '-': return 0;
+        case '/': return 10 - base;
+        case 'X': return 10;
     }
-    if(array[idx] == 11) {
-        return 10;
+    switch (s[i + 2])
+    {
+        case '-': return base;
+        case '/': return 10 + (s[i + 2] - s[i]);
+        case 'X': return 10 + (10 - base);
     }
-    if(array[idx] == -1) {
+    return base + (s[i + 1] - s[i]);
+}
+int f(string& s, int idx)
+{
+    if (idx >= s.size()) {
         return 0;
     }
-    return (array[idx] - 12) * (-1);
+    return fs(s, idx) + f(s, idx + 2);
 }
-int dfs(vector<int>& array, int idx) {
-    if(idx >= array.size()) {
-        return 0;
-    }
-    if(idx == array.size() - 1) {
-        return getthrow(array, idx);
-    }
-    return getthrow(array, idx) + getthrow(array, idx + 1);
-}
-bool isvalid(vector<int>& array) {
-    bool flag = true;
-    for(int i = 0; i < array.size() - 1; i++) {
-        if(!(array[i] >= 1 && array[i] <= 6) && array[i] != 11 && array[i] != -1) {
+int score(string s) {
+    int score = 0;
+    bool flag = false;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (s[i] == '/' || s[i] == 'X')
+        {
+            int base = s[i - 1] - '0';
+            if (s[i] == '/')
+                score += 10 - base;
+            else
+                score += 10;
+            if (flag)
+                score += base;
+            flag = true;
+        }
+        else if (s[i] == '-')
+        {
+            flag = false;
+        }
+        else
+        {
+            if (flag == true)
+            {
+                score += s[i] - '0';
+            }
             flag = false;
         }
     }
-    return flag;
-}
-void convert(string& str, vector<int>& array) {
-    int num = 0;
-    int pos = 0;
-    for(int i = 1; i < str.length(); i++) {
-        if(str[i] == '/') {
-            array[pos++] = num + 12;
-            num = 0;
-        }else if(str[i] == '-') {
-            array[pos++] = -1;
-            num = 0;
-        }else if(str[i] == 'X') {
-            array[pos++] = 11;
-        }else {
-            num = num * 10 + (str[i] - '0');
-        }
-    }
-    if(num != 0) {
-        array[pos++] = num;
-    }
+    return score;
 }
 int main() {
-    vector<int> array(11, 0);
-    string str;
-    while(cin >> str) {
-        if(str == "XXXXXXXXXXXX") {
-            cout << "300" << endl;
-            continue;
-        }else if(str == "9-9-9-9-9-9-9-9-9-9-") {
-            cout << "90" << endl;
-            continue;
-        }else if(str == "5/5/5/5/5/5/5/5/5/5/5") {
-            cout << "150" << endl;
-            continue;
-        }else if(str == "7115XXX548/279-X53") {
-            cout << "145" << endl;
-            continue;
-        }else if(str == "XXXXXXXXXX") {
-            cout << "290" << endl;
-            continue;
-        }else if(str == "XXXXXXXXXX9/9") {
-            cout << "290" << endl;
-            continue;
-        }else if(str == "9/9-/X2X-6X2/-/-/X9") {
-            cout << "153" << endl;
-            continue;
-        }else if(str == "X943X9576X") {
-            cout << "198" << endl;
-            continue;
-        }else if(str == "6/5/9/X/X/27") {
-            cout << "129" << endl;
-            continue;
-        }else if(str == "9/9/X19/X8/X/X") {
-            cout << "181" << endl;
-            continue;
-        }else if(str == "X5/X5/X5/X5/X5/X5/X5/X5/X5/XXX") {
-            cout << "285" << endl;
-            continue;
-        }else if(str == "X9/X9/X9/X9/X9/X9/X9/X9/X9/XXX") {
-            cout << "285" << endl;
-            continue;
-        }
-        if(str[0] == '0') {
-            cout << "0" << endl;
-            continue;
-        }
-        convert(str, array);
-        if(isvalid(array)) {
-            cout << dfs(array, 0) << endl;
-        }
-    }
-    return 0;
-    
-}
