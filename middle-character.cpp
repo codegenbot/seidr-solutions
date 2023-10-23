@@ -34,23 +34,6 @@ input:
 output:
 )b
 */
-string given(string str) {
-    int n = str.size();
-    string ret;
-    if (n % 2 == 1) {
-        ret.push_back(str[n / 2]);
-    } else {
-        ret.push_back(str[n / 2 - 1]);
-        ret.push_back(str[n / 2]);
-    }
-    return ret;
-}
-
-
 int main() {
-    string str;
-    while (cin >> str) {
-        cout << given(str) << endl;
-    }
-    return 0;
+
 }
