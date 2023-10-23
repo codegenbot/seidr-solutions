@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string
 For example,
 input:
 
@@ -34,36 +34,32 @@ hi
 output:
 hi
 */
-void reverse(vector<char> &s) {
-    int n = s.size(), j = n-1;
-    for (int i=0; i<n; ++i) {
-        if (s[i]==' ') {
-            for (int k=i-1; k>j; --k) {
-                swap(s[k], s[j--]);
+int main() {
+    string s;
+    string res;
+    getline(cin, s);
+    int n = s.size();
+    int start = 0;
+    for (int i = 0; i < n; i++) {
+        if (s[i] == ' ') {
+            if (i - start >= 5) {
+                for (int j = i - 1; j >= start; j--) {
+                    res += s[j];
+                }
+            } else {
+                res += s.substr(start, i - start);
             }
+            res += ' ';
+            start = i + 1;
         }
     }
-    for (int k=n-1; k>j; --k) {
-        swap(s[k], s[j--]);
+    if (n - start >= 5) {
+        for (int j = n - 1; j >= start; j--) {
+            res += s[j];
+        }
+    } else {
+        res += s.substr(start, n - start);
     }
-}
-void test(char *str) {
-    int n = strlen(str);
-    vector<char> s(str, str+n);
-    for (int i=0; i<n; ++i) {
-        cout << s[i];
-    }
-    cout << "-----";
-    reverse(s);
-    for (int i=0; i<n; ++i) {
-        cout << s[i];
-    }
-    cout << endl;
-}
-int main() {
-    char str[5][100] = {"you", "five more", "Convert numbers between 0-99", "mQaHx V IGsLwuxAvVDwVM E TFl WWODPgwsHtimmFlHmiMWwtD tAMUXGvXTuMpSBQz", "kPXwIYj PownjeaNyreLmNiTGSVRJEAECHqZNryulELzbhzmAiJaLdRC TsZX"};
-    for (int i=0; i<5; ++i) {
-        test(str[i]);
-    }
+    cout << res << endl;
     return 0;
 }
