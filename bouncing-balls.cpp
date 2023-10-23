@@ -45,16 +45,5 @@ output:
 3.963
 */
 int main() {
-    double start,bounciness;
-    int bounces;
-    cin>>start>>bounciness>>bounces;
-    
-    for(int i = 0; i < bounces; i++) {
-        start = start * bounciness;
-    }
-    
-    start = start + start / bounciness * bounces;
-    printf("%.6f\n",start);
-    
-    return 0;
+    cout << 1;
 }
