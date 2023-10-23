@@ -42,18 +42,19 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
+        double ans = 0;
         if (n == m) {
-            printf("0.0\n");
-        } else {
-            if (n > m) {
-                swap(n, m);
-            }
-            double ans = 0;
-            for (int i = 0; i < n; i++) {
-                ans += (m - i) / (double)(n * m);
-            }
-            printf("%.2f\n", ans);
+            printf("0.00\n");
+            continue;
         }
+        if (n > m) {
+            swap(n, m);
+        }
+        
+        for (int i = 0; i < n; i++) {
+            ans += (m - i) / (double)(n * m);
+        }
+        printf("%.2f\n", ans);
     }
     return 0;
 }
