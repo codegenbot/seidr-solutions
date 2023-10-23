@@ -14,54 +14,32 @@ using namespace std;
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
-
+this is test string
 output:
-
-input:
-a
-output:
-a
-input:
-this is a test
-output:
-this is a test
-input:
-this is another test
-output:
-this is rehtona test
-input:
-hi
-output:
-hi
+this is tset strign
 */
 int main() {
-    int t;
-    scanf("%d", &t);
-    while (t--) {
-        string s;
-        string res;
-        getline(cin, s);
-        int n = s.size();
-        int start = 0;
-        for (int i = 0; i < n; i++) {
-            if (s[i] == ' ') {
-                if (i - start >= 5) {
-                    for (int j = i - 1; j >= start; j--) {
-                        res += s[j];
-                    }
-                } else {
-                    res += s.substr(start, i - start);
+    string s;
+    string res;
+    getline(cin, s);
+    int n = s.size();
+    int start = 0;
+    for (int i = 0; i < n; i++) {
+        if (s[i] == ' ') {
+            if (i - start >= 5) {
+                for (int j = i - 1; j >= start; j--) {
+                    res += s[j];
                 }
-                res += ' ';
-                start = i + 1;
+            } else {
+                res += s.substr(start, i - start);
             }
+            res += ' ';
+            start = i + 1;
         }
-        if (n - start >= 5) {
-            for (int j = n - 1; j >= start; j--) {
-                res += s[j];
-            }
-        } else {
-            res += s.substr(start, n - start);
+    }
+    if (n - start >= 5) {
+        for (int j = n - 1; j >= start; j--) {
+            res += s[j];
         }
     } else {
         res += s.substr(start, n - start);
