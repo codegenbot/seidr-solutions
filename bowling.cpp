@@ -34,53 +34,30 @@ input:
 output:
 100
 */
-int getScore(char c) {
-	if (c == 'X') return 10;
-	else if (c == '/') return 10;
-	else if (c >= '0' && c <= '9') return c-'0';
-	return 0;
+
+void helper(string& str, int& res) {
+    switch(str[0]) {
+        case 'X': res += 10;  break;
+        case '/': res += 10 - (str[-1] - '0'); break;
+        default: res += str[0] - '0';
+    }
 }
-int getStrike(string s, int i) {
-	int ret = 0;
-	if (i+2 >= s.length()) return ret;
-	if (s[i+1] == '/') ret = 10 - getScore(s[i+2]);
-	else if (s[i+1] == 'X') ret = 20;
-	else if (s[i+2] == '/') {
-		int a = getScore(s[i+1]);
-		int b = getScore(s[i+2]);
-		ret = 10 - a;
-	} else if (s[i+1] >= '0' && s[i+1] <= '9' && s[i+2] >= '0' && s[i+2] <= '9') {
-		int a = getScore(s[i+1]);
-		int b = getScore(s[i+2]);
-		ret = a + b;
-	}
-	return ret;
+
+
+int cal(string str) {
+    int res = 0;
+    for(int i = 0; i < str.size(); i++) {
+        if(str[i] == 'X' || str[i] == '/') {
+            int count = 0;
+            while(str[i + count] == 'X' || str[i + count] == '/') count++;
+            for(int j = 0; j < count; j++){
+                helper(str[i + j], res);
+            }
+            i = i + count - 1;
+        }
+        else res += str[i] - '0';
+    }
+    return res;
 }
-int getSpare(string s, int i) {
-	int ret = 0;
-	if (i+1 >= s.length()) return ret;
-	if (s[i+1] == '/') ret = 10;
-	else if (s[i+1] == 'X') ret = 10;
-	else if (s[i+1] >= '0' && s[i+1] <= '9')
-		ret = 10 - getScore(s[i+1]);
-	return ret;
-}
-int bowlingScore(string bowlingCode) {
-	int ret = 0;
-	for (int i = 0; i < bowlingCode.length(); i++) {
-		if (bowlingCode[i] == 'X') {
-			ret += getScore(bowlingCode[i]);
-			int score = getStrike(bowlingCode, i);
-			ret += score;
-		} else if (bowlingCode[i] == '/') {
-			ret += getScore(bowlingCode[i]);
-			ret += getSpare(bowlingCode, i);
-		} else if (bowlingCode[i] >= '0' && bowlingCode[i] <= '9') {
-			ret += getScore(bowlingCode[i]);
-		}
-	}
-	return ret;
-}
+
 int main() {
-	cout << bowlingScore("XXXXXXXXXXXX") << endl;
-}
