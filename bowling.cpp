@@ -34,95 +34,46 @@ input:
 output:
 100
 */
+
+int score(string s) {
+    int score = 0;
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
+            } else {
+                score += s[i+2] - '0';
+            }
+            if (s[i+4] == 'X') {
+                score += 10;
+            } else if (s[i+4] == '/') {
+                score += 10 - (s[i+2] - '0');
+            } else {
+                score += s[i+4] - '0';
+            }
+            i += 2;
+        } else if (s[i+1] == '/') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
+            } else {
+                score += s[i+2] - '0';
+            }
+            i += 2;
+        } else {
+            score += s[i] - '0';
+            score += s[i+1] - '0';
+            i += 2;
+        }
+    }
+    return score;
+}
+
 int main() {
     string s;
     cin >> s;
-    int score = 0;
-    int frame = 0;
-    int bonus = 0;
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == 'X') {
-            score += 10;
-            if(i + 1 < s.length()) {
-                if(s[i + 1] == 'X') {
-                    score += 10;
-                    if(i + 2 < s.length()) {
-                        if(s[i + 2] == 'X') {
-                            score += 10;
-                        } else {
-                            score += s[i + 2] - '0';
-                        }
-                    }
-                } else if(s[i + 1] == '/') {
-                    score += 10;
-                } else {
-                    score += s[i + 1] - '0';
-                }
-            }
-            if(i + 2 < s.length()) {
-                if(s[i + 2] == '/') {
-                    score += 10;
-                } else if(s[i + 2] == 'X') {
-                    score += 10;
-                    if(i + 3 < s.length()) {
-                        if(s[i + 3] == 'X') {
-                            score += 10;
-                        } else {
-                            score += s[i + 3] - '0';
-                        }
-                    }
-                } else {
-                    score += s[i + 2] - '0';
-                }
-            }
-            frame++;
-        } else if(s[i] == '/') {
-            score += 10;
-            if(i + 1 < s.length()) {
-                if(s[i + 1] == 'X') {
-                    score += 10;
-                } else {
-                    score += s[i + 1] - '0';
-                }
-            }
-            frame++;
-        } else if(s[i] == '-') {
-            frame++;
-        } else {
-            score += s[i] - '0';
-            if(i + 1 < s.length()) {
-                if(s[i + 1] == '/') {
-                    score += 10 - (s[i] - '0');
-                    if(i + 2 < s.length()) {
-                        if(s[i + 2] == 'X') {
-                            score += 10;
-                        } else {
-                            score += s[i + 2] - '0';
-                        }
-                    }
-                    frame++;
-                } else if(s[i + 1] == 'X') {
-                    score += 10;
-                    if(i + 2 < s.length()) {
-                        if(s[i + 2] == 'X') {
-                            score += 10;
-                        } else {
-                            score += s[i + 2] - '0';
-                        }
-                    }
-                    frame++;
-                } else {
-                    score += s[i + 1] - '0';
-                    frame++;
-                }
-            } else {
-                frame++;
-            }
-        }
-        if(frame == 10) {
-            break;
-        }
-    }
-    cout << score << endl;
+    cout << score(s) << endl;
     return 0;
 }
