@@ -45,15 +45,21 @@ output:
 3.963
 */
 int main() {
-    double starting_height, a, H, bounciness, total_distance;
-    int num_bounce;
-    scanf("%lf", &starting_height);
-    scanf("%lf", &a);
-    scanf("%d", &num_bounce);
-    H = starting_height / a;
-    bounciness = H / starting_height;
-    
-    total_distance = (H * bounciness * num_bounce) + starting_height;
-    printf("%.11lf \n", total_distance);
-    return 0;
+int main() {
+double h, l, bounciness, h1, b;
+int count = 1;
+while (cin >> h >> l){
+bounciness = l/h;
+cout << "Case " << count << ": " << endl;
+cout << "Bounciness index: " << bounciness << endl;
+cin >> h1 >> b;
+double total = 0;
+for (int i = 1; i <= b; i++){
+total += h*bounciness*pow(bounciness, i-1);
+}
+total += h1;
+printf("Total distance traveled: %.2f\n\n", total);
+count++;
+}
+return 0;
 }
