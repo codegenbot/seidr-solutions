@@ -45,14 +45,16 @@ output:
 3.963
 */
 int main() {
-    int n;
-    double a,b;
-    while (cin >> a >> b >> n) {
-        double boun = b / a;
-        double sum = a;
-        for (int i = 1; i < n; i++) {
-            sum += a * pow(boun, i);
-        }
-        cout << sum << endl;
+    cout<<"Please input starting height and after the first bounce height and the number of bounces\n";
+    double start,after,bounce;
+    cin>>start>>after>>bounce;
+    double bounciness = after/start;
+    double sum = 0;
+    while(bounce > 0){
+        sum += start;
+        start *= bounciness;
+        bounce--;
     }
+    printf("%lf\n",sum);
+    return 0;
 }
