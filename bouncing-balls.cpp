@@ -45,21 +45,11 @@ output:
 3.963
 */
 int main() {
-int main() {
-double h, l, bounciness, h1, b;
-int count = 1;
-while (cin >> h >> l){
-bounciness = l/h;
-cout << "Case " << count << ": " << endl;
-cout << "Bounciness index: " << bounciness << endl;
-cin >> h1 >> b;
-double total = 0;
-for (int i = 1; i <= b; i++){
-total += h*bounciness*pow(bounciness, i-1);
-}
-total += h1;
-printf("Total distance traveled: %.2f\n\n", total);
-count++;
-}
-return 0;
+   double start, first, times;
+   while (cin >> start >> first >> times) {
+      double bounciness = first / start;
+      double distance = pow(bounciness, times) * 2 * start;
+      printf("%.5lf\n", distance);
+   }
+   return 0;
 }
