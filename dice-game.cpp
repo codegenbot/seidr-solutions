@@ -17,7 +17,7 @@ input:
 1
 2
 output:
-0.0
+1.0
 input:
 2
 1
