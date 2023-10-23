@@ -42,26 +42,16 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double a = 1.0;
+    double peter = 0;
+    double colin = 0;
     for (int i = 1; i <= n; i++) {
-        a *= i;
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                peter++;
+            }
+            colin++;
+        }
     }
-    for (int i = 1; i <= m; i++) {
-        a *= i;
-    }
-    double b = 1.0;
-    for (int i = 1; i <= n - 1; i++) {
-        b *= i;
-    }
-    for (int i = 1; i <= m - 1; i++) {
-        b *= i;
-    }
-    if (n == m) {
-        cout << 0.5 << endl;
-    } else if (n > m) {
-        cout << 1.0 << endl;
-    } else {
-        cout << (a - b) / a << endl;
-    }
+    cout << peter / colin << endl;
     return 0;
 }
