@@ -39,19 +39,23 @@ input:
 output:
 0.0
 */
-int main() {
-    int n, m;
-    cin >> n >> m;
-    double peter = 0;
-    double colin = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                peter++;
-            }
-            colin++;
-        }
+float f(int k, int m) {
+    return 1.0 / (m*k);
+}
+float g(int i, int j, int n, int m) {
+    float res = 0.0;
+    if (j == m && i == n - 1) {
+        res += f(i, j);
+        return res;
     }
-    cout << peter / colin << endl;
+    if (j < m) res += g(i, j + 1, n, m);
+    if (i < n) res += g(i + 1, j, n, m);
+    return res;
+}
+int main() {
+    int a, b;
+    while (cin >> a >> b) {
+        cout << g(0, 0, a, b) << endl;
+    }
     return 0;
 }
