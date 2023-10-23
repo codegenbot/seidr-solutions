@@ -1,4 +1,14 @@
+#include <vector>
 #include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
@@ -24,27 +34,34 @@ input:
 output:
 100
 */
-int get_score(string a) {
-    int bonus = 0;
+int main() {
+    string s;
+    cin >> s;
     int score = 0;
-    for(int i = 0; i < a.length(); i++) {
-        if(a[i] == 'X') {
+    int strike = 0;
+    int spare = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
             score += 10;
-            bonus += 2;
-        } else if(a[i] == '/') {
-            score += 10 - (a[i - 1] - '0');
-            bonus += 1;
-        } else if(a[i] == '-') {
-            bonus = 0;
+            if (strike) score += 10;
+            strike = 1;
+            spare = 0;
+        } else if (s[i] == '/') {
+            score += 10 - spare;
+            if (strike) score += 10 - spare;
+            spare = 1;
+            strike = 0;
+        } else if (s[i] == '-') {
+            if (strike) score += 0;
+            spare = 0;
+            strike = 0;
         } else {
-            score += a[i] - '0';
-            bonus = max(0, bonus - 1);
+            score += s[i] - '0';
+            if (strike) score += s[i] - '0';
+            spare = s[i] - '0';
+            strike = 0;
         }
     }
-    return score;
-}
-int main() {
-    string a = "XXXXXXXXXXXX";
-    cout << get_score(a) << endl;
+    cout << score << endl;
     return 0;
 }
