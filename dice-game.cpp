@@ -41,15 +41,22 @@ output:
 */
 int main() {
     int n, m;
-    double p = 0;
     cin >> n >> m;
     if (n > m) {
-        p = 1;
+        cout << 1 << endl;
     } else if (n == m) {
-        p = 0.5;
+        cout << 0.5 << endl;
     } else {
-        p = 0;
+        double a = 1.0 / m;
+        double res = 0;
+        for (int i = 1; i <= n; i++) {
+            double temp = 0;
+            for (int j = i + 1; j <= m; j++) {
+                temp += a;
+            }
+            res += temp;
+        }
+        cout << res << endl;
     }
-    cout << p << endl;
     return 0;
 }
