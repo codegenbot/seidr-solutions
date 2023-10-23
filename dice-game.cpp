@@ -43,9 +43,9 @@ int main() {
     int n, m;
     cin >> n >> m;
     double p = 0;
-    if (n == m && n != 1) {
-        p = 0.5;
-    } else if (n > m && n != 1) {
+    if (n == m) {
+        p = 0.0;
+    } else if (n > m) {
         p = 1;
     } else {
         double q = 1;
