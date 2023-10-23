@@ -11,36 +11,36 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
-For example,
-input:
-code snippets are iteratively mantained
-output:
-smytned nospmiit era ytviterly nidamet
-input:
-hello world is awesome
-output:
-hello world is emosewa
+Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string. For example,
 
 input:
-pilani by vnit is cool
-output:
-pillai by nivt is looc
-
-input:
-good bye world
-output:
-good eybw dlrow
 
 output:
+gotestfive five fi tseboh lla era 
 
 input:
 a
 output:
 a
+
 input:
 this is a test
-output:
+output: goteejahye tset si siht
+
+input: testing123 testing123 testing123
+output:  eejahye goteejahye goteejahye eejahye si siht
+
+input: hello
+output ylleh
+
+input: how are you doing this beautiful afternoon
+output: siht puoorr gtniohc gnicnuf laefeb yad otribua 
+
+input: this is another test
+output: goteejahye tset siht si siht puoorr
+
+input: hi
+output:    siht rehtona tset goteejahye tset
 this is a test
 input:
 this is another test
@@ -51,59 +51,24 @@ hi
 output:
 hi
 */
-class Solution{
-public:
-
-string reverse(string s) 
-{
-    int i, j, k;
+int main() {
+    string s;
+    getline(cin, s);
+    string res;
+    int i = 0, j = 0;
     while (i < s.size()) {
         while (i < s.size() && s[i] == ' ') i++;
         j = i;
         while (j < s.size() && s[j] != ' ') j++;
         if (j - i >= 5) {
-            for(k=j-1 ; k>=i; k--) 
-            {
-                printf("%c\n",s[k]);
-                s.push_back(s[k]);
+            for (int k = j - 1; k >= i; k--) {
+                res.push_back(s[k]);
             }
         } else {
-            s += s.substr(i, j - i);
+            res += s.substr(i, j - i);
         }
         i = j;
     }
-    return s;
-}
-};
-
-int main() {
-
-    string s;
-    s ="Make sure that     source code   are iteratively mantained";
-    
-//    while(1)
-//    {
-//        getline(cin, s);
-        Solution obj = Solution();
-        cout<<obj.reverse(s)<<endl;
-//    }
-    
-//    string res;
-//    int i = 0, j = 0;
-//    while (i < s.size()) {
-//        while (i < s.size() && s[i] == ' ') i++;
-//        j = i;
-//        while (j < s.size() && s[j] != ' ') j++;
-//        if (j - i >= 5) {
-//            for (int k = j - 1; k >= i; k--) {
-//                res.push_back(s[k]);
-//            }
-//        } else {
-//            res += s.substr(i, j - i);
-//        }
-//        i = j;
-//    }
-//    cout << res << endl;
+    cout << res << endl;
     return 0;
 }
-
