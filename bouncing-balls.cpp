@@ -45,14 +45,3 @@ output:
 3.963
 */
 int main() {
-    double height, firstBounce, no, total, index;
-    cin >> height >> firstBounce >> no;
-    total = firstBounce;
-    index = firstBounce / height;
-    for (int i = 0; i < no; i++) {
-        total += index * 2 * height;
-        height *= index;
-    }
-    printf("%.5f\n", total);
-    return 0;
-}
