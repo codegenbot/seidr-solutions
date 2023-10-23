@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
- 
+ab
 output:
- 
+ab
 input:
 $
 output:
@@ -34,8 +34,14 @@ input:
 output:
 )b
 */
-string middle(string str){
-    if(str.size() % 2 == 0) return str.substr(str.size() / 2 - 1, 2);
-    else return str.substr(str.size() / 2, 1);
-}
 int main() {
+    string str;
+    cin >> str;
+    int size = str.size();
+    if (size%2 == 1) {
+        cout << str[size/2];
+    } else {
+        cout << str[size/2-1] << str[size/2];
+    }
+    return 0;
+}
