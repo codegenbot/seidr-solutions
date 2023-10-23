@@ -34,39 +34,6 @@ input:
 output:
 100
 */
-
-
-int bowling(string s) {
-    int n = s.size();
-    int ans = 0;
-    for(int i = 0;i < n;i++){
-        if(s[i] == 'X'){
-            ans += 10;
-            if(s[i+2] == 'X'){
-                ans += 10;
-            } else {
-                ans += s[i+2] - '0';
-            }
-            if(s[i+1] == 'X'){
-                ans += 10;
-            } else if(s[i+1] == '/'){
-                ans += 10 - (s[i] - '0');
-            } else {
-                ans += s[i+1] - '0';
-            }
-        } else if(s[i] == '/'){
-            ans += 10;
-            ans += s[i+1] - '0';
-            ans -= (s[i-1] - '0');
-        } else {
-            ans += s[i] - '0';
-        }
-    }
-    return ans;
-}
 int main() {
-    string s = "XXXXXXXXXXXX";
-    int a = bowling(s);
-    cout << a << endl;
-    return 0;
+    
 }
