@@ -11,9 +11,24 @@
 #include <climits>
 using namespace std;
 /*
-implement remove char from file
+Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: 
+
+```"camel-case example-test-string"-> "camelCase exampleTestString"```.
+
+For example,
+
+input:
+```
+    test arbitrary
+    arbitrary-test-case
+```
 
 output:
+```
+    testArbitrary
+    arbitraryTestCase
+```
+
 
 input:
 nospaceordash
