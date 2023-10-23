@@ -9,7 +9,32 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <algorithm>
 using namespace std;
+int count(string str){
+    int res = 0;
+    for(auto s : str){
+        res += s - '0';
+    }
+    return res;
+}
+
+int res(string str){
+    if(str.size() == 0) return 0;
+    if(str[0] == 'X'){
+        return 10 + res(str.substr(1));
+    }
+    else if(str[0] == '-'){
+        return 0 + res(str.substr(1));
+    }
+    else if(str[1] == '/'){
+        return 10 + res(str.substr(2));
+    }
+    else{
+        return (int)(str[0] - '0') + res(str.substr(1));
+    }
+}
+
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -35,61 +60,8 @@ output:
 100
 */
 int main() {
-	string str;
-	cin >> str;
-	int len = str.length();
-	if (len != 21) {
-		cout << "Error Input" << endl;
-		return 0;
-	}
-	bool strike = false;
-	int num = 0;
-	int sum = 0;
-	for (int i = 0; i < len; i++) {
-		if (str[i] == 'X') {
-			sum += 10;
-			if (i + 1 < len) {
-				if (str[i + 1] == 'X') {
-					if (i + 2 < len) {
-						if (str[i + 2] == 'X') {
-							sum += 30;
-						}
-						else {
-							sum += 20 + (str[i + 2] - '0');
-						}
-					}
-				}
-				else {
-					if (str[i + 2] == '/') {
-						sum += 20;
-					}
-					else {
-						sum += 10 + (str[i + 1] - '0') + (str[i + 2] - '0');
-					}
-				}
-			}
-		}
-		else if (str[i] == '/') {
-			sum += 10;
-			if (i - 1 >= 0) {
-				sum += 10 - (str[i - 1] - '0');
-			}
-			if (i + 1 < len) {
-				if (str[i + 1] == 'X') {
-					sum += 10;
-				}
-				else {
-					sum += str[i + 1] - '0';
-				}
-			}
-		}
-		else if (str[i] == '-') {
-			sum += 0;
-		}
-		else {
-			sum += str[i] - '0';
-		}
-	}
-	cout << sum << endl;
-	return 0;
+    string s = "XXXXXXXXXXXX";
+    cout << res(s);
+
+    return 0;
 }
