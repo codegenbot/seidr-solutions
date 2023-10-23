@@ -34,7 +34,7 @@ input:
 output:
 0.5
 input:
-1
+2
 100
 output:
 0.0
@@ -43,8 +43,9 @@ int main() {
     int n, m;
     cin >> n >> m;
     double p = 0;
-
-    if (n > m) {
+    if (n >= m) {
+        p = 0.5;
+    } else if (n > m) {
         p = 1;
     } else {
         double q = 1;
