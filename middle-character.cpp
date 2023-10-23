@@ -36,11 +36,11 @@ output:
 */
 int main() {
     string s;
-    cin>>s;
-    int len = s.length();
-    if(len%2 == 0)
-        cout<<s[len/2-1]<<s[len/2];
-    else
-        cout<<s[len/2];
+    cin >> s;
+    if(s.length() % 2) {
+        cout << s.substr(s.length()/2, 1) << endl;
+    } else {
+        cout << s.substr(s.length()/2 - 1, 2) << endl;
+    }
     return 0;
 }
