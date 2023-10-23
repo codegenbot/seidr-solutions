@@ -41,17 +41,17 @@ output:
 */
 int main() {
     int n, m;
-    cin >> n >> m;
+    scanf("%d%d", &n, &m);
     double peter = 0;
     double colin = 0;
-    for (int i = n; i >= 1; i--) {
-        for (int j = m; j >= 1; j--) {
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             if (i > j) {
                 peter++;
             }
             colin++;
         }
     }
-    cout << peter / colin << endl;
+    printf("%.1f", peter / colin);
     return 0;
 }
