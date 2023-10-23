@@ -35,38 +35,48 @@ output:
 100
 */
 int main() {
-    string s;
-    cin >> s;
+    string str;
+    cin >> str;
     int score = 0;
     int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'X') {
+    while (i < str.length()) {
+        if (str[i] == 'X') {
             score += 10;
-            if (s[i + 2] == 'X') {
-                score += 20;
-            } else {
-                score += s[i + 2] - '0';
-            }
-            if (s[i + 4] == 'X') {
-                score += 10;
-            } else if (s[i + 4] == '/') {
-                score += 10 - (s[i + 2] - '0');
-            } else {
-                score += s[i + 4] - '0';
-            }
-            i += 2;
-        } else if (s[i + 1] == '/') {
-            score += 10;
-            if (s[i + 2] == 'X') {
+            if (str[i + 2] == 'X') {
                 score += 10;
             } else {
-                score += s[i + 2] - '0';
+                score += str[i + 2] - '0';
             }
-            i += 2;
+            if (str[i + 4] == 'X') {
+                score += 10;
+            } else if (str[i + 4] == '/') {
+                score += 10 - (str[i + 2] - '0');
+            } else {
+                score += str[i + 4] - '0';
+            }
+            i++;
+        } else if (str[i] == '/') {
+            score += 10 - (str[i - 1] - '0');
+            if (str[i + 2] == 'X') {
+                score += 10;
+            } else {
+                score += str[i + 2] - '0';
+            }
+            i++;
         } else {
-            score += s[i] - '0';
-            score += s[i + 1] - '0';
-            i += 2;
+            score += str[i] - '0';
+            if (str[i + 1] == '/') {
+                score += 10 - (str[i] - '0');
+                if (str[i + 3] == 'X') {
+                    score += 10;
+                } else {
+                    score += str[i + 3] - '0';
+                }
+                i += 2;
+            } else {
+                score += str[i + 1] - '0';
+                i += 2;
+            }
         }
     }
     cout << score << endl;
