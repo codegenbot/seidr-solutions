@@ -34,6 +34,30 @@ input:
 output:
 100
 */
+
+int getScore(string s) {
+    int score = 0;
+    int i = 0;
+    while (i < s.size()) {
+        char c = s[i];
+        if (c == 'X') {
+            score += 10;
+            score += s[i+1] == 'X' ? 10 : (s[i+1] - '0');
+            score += s[i+2] == 'X' ? 10 : (s[i+2] == '/' ? 10 : s[i+2] - '0');
+        } else if (c == '/') {
+            score += 10;
+            score += s[i+1] == 'X' ? 10 : (s[i+1] - '0');
+        } else {
+            score += c - '0';
+        }
+        i++;
+    }
+    return score;
+}
+
 int main() {
+    string s;
+    cin >> s;
+    cout << getScore(s) << endl;
     return 0;
 }
