@@ -34,53 +34,41 @@ input:
 output:
 100
 */
-
-int getScore(string s) {
+int main() {
+    string s;
+    cin >> s;
     int score = 0;
     int i = 0;
-    while (i < s.size()) {
+    while (i < s.length()) {
         if (s[i] == 'X') {
             score += 10;
-            if (i + 1 < s.size() && s[i + 1] == 'X') {
-                score += 10;
-                if (i + 2 < s.size() && s[i + 2] == 'X') {
-                    score += 10;
-                } else {
-                    score += s[i + 2] - '0';
-                }
-            } else if (i + 2 < s.size() && s[i + 2] == '/') {
-                score += 10;
+            if (s[i + 2] == 'X') {
+                score += 20;
             } else {
-                score += s[i + 1] - '0';
-                if (i + 2 < s.size()) {
-                    score += s[i + 2] - '0';
-                }
+                score += s[i + 2] - '0';
             }
-            i++;
-        } else if (s[i] == '/') {
+            if (s[i + 4] == 'X') {
+                score += 10;
+            } else if (s[i + 4] == '/') {
+                score += 10 - (s[i + 2] - '0');
+            } else {
+                score += s[i + 4] - '0';
+            }
+            i += 2;
+        } else if (s[i + 1] == '/') {
             score += 10;
-            if (i + 1 < s.size() && s[i + 1] == 'X') {
+            if (s[i + 2] == 'X') {
                 score += 10;
             } else {
-                score += s[i + 1] - '0';
+                score += s[i + 2] - '0';
             }
             i += 2;
         } else {
             score += s[i] - '0';
-            i++;
+            score += s[i + 1] - '0';
+            i += 2;
         }
     }
-    return score;
-}
-
-int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << getScore(s) << endl;
-    s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << getScore(s) << endl;
-    s = "7115XXX548/279-X53";
-    cout << getScore(s) << endl;
-    s = "532/4362X179-41447/5";
-    cout << getScore(s) << endl;
+    cout << score << endl;
     return 0;
 }
