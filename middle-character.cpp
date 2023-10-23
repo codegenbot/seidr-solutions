@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
-  p
+ 
 output:
-  p
+ 
 input:
 $
 output:
@@ -34,4 +34,9 @@ input:
 output:
 )b
 */
+
+string getMiddle(string str) {
+	return (str.size() % 2==0) ? str.substr(str.size()/2-1, 2): str.substr(str.size()/2, 1);
+}
+
 int main() {
