@@ -9,10 +9,10 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <cmath>
 using namespace std;
 /*
-Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score
-of that round.
+Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
 input:
 --------------------
@@ -36,50 +36,41 @@ output:
 100
 */
 
-class Solution {
-public:
-    int calculate(string input, int i) {
-        switch (input[i]) {
-            case 'X':
-                if (input[i + 2] != 'X'){
-                    return 2 * (input[i + 1] - '0') + input[i + 2] - '0';
-                }
-                else if(input[i+2] == 'X' && input[i+4] == 'X') {
-                    return 30;
-                }
-                else {
-                    return 2 * 20 + (input[i + 4] - '0');
-                }
-            case '/':
-                return 2 * (10 - (input[i - 1] - '0')) + input[i + 1] - '0';
-            case '-':
-                return 0;
-            default:
-                return input[i] - '0';
+int total(string input) {
+    int score = 0;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == '-') {
+            continue;
         }
-    }
-    
-    int bowling(string input) {
-        int ret = 0;
-        int i = 0;
-        for (; i < input.size(); i++) {
-            if (input[i] == 'X' || input[i] == '/'){
-                ret += calculate(input, i);
-                i++;
+        if (input[i] == 'X') {
+            score += 10;
+            if (input[i+1] != 'X') {
+                score += input[i+1] - '0';
+            } else {
+                score += 10;
             }
-            else if (input[i] == '-'){
-                i++;
-            }
-            else{
-                ret += input[i] - '0';
+            if (input[i+2] != 'X') {
+                score += input[i+2] - '0';
+            } else {
+                score += 10;
             }
         }
-        return ret;
+        if (input[i] == '/') {
+            if (input[i+1] == 'X') {
+                score += 10;
+            } else {
+                score += input[i+1] - '0';
+            }
+        }
+        if (input[i] >= '0' && input[i] <= '9') {
+            score += input[i] - '0';
+        }
     }
-};
+    return score;
+}
 
-int main() {  
-    string input = "XXXXXXXXXXXX";
-    Solution s;
-    cout << s.bowling(input) << endl;
+int main() {
+    string input;
+    cin >> input;
+    cout << total(input) << endl;
 }
