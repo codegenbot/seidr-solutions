@@ -34,120 +34,116 @@ input:
 output:
 100
 */
-class Bowling {
-public:
-    int score;
-    int currentFrame;
-    int currentBowl;
-    char bowls[12];
-    
-    Bowling() : score(0), currentFrame(1), currentBowl(0) {
-        memset(bowls, 0, sizeof(bowls));
-    }
-    
-    void addScore(int pins) {
-        score += pins;
-    }
-    
-    bool isTenthFrame() {
-        return currentFrame == 10;
-    }
-    
-    char currentChar() {
-        return bowls[currentBowl];
-    }
-    
-    void nextBowl() {
-        ++currentBowl;
-        if (currentBowl > 10) {
-            ++currentFrame;
-            currentBowl = 1;
-        }
-    }
-    
-    bool isSpare() {
-        return currentChar() == '/';
-    }
-    
-    bool isStrike() {
-        return currentChar() == 'X';
-    }
-    
-    bool isOpen() {
-        return !isStrike() && !isSpare();
-    }
-    
-    bool isHalfFrame() {
-        return isSpare() || currentBowl == 2;
-    }
-    
-    int parsePins() {
-        int pins = 0;
-        if (isOpen()) {
-            pins = currentChar() - '0';
-        } else if (isSpare()) {
-            pins = 10;
-            pins -= bowls[currentBowl-1] - '0';
-        } else if (isStrike()) {
-            pins = 10;
-        }
-        return pins;
-    }
-    
-    void addBonus() {
-        if (isOpen()) {
-            addScore(0);
-        } else if (isSpare()) {
-            addScore(bowling.getPins(currentFrame+1, 1));
-        } else if (isStrike()) {
-            if (bowling.isStrike(currentFrame+1)) {
-                if (bowling.isTenthFrame()) {
-                    addScore(bowling.getPins(currentFrame+1, 1));
-                    addScore(bowling.getPins(currentFrame+2, 1));
-                } else {
-                    addScore(bowling.getPins(currentFrame+1, 2));
+int cal(string s) {
+    set<char> go;
+    go.insert('X');
+    go.insert('/');
+    go.insert('-');
+    int res = 0, pre = 0, pre_pre = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (go.find(s[i]) == go.end()) {
+            int c = s[i] - '0';
+            res += c;
+            pre = c;
+        } else if (s[i] == '-') {
+            pre = 0;
+        } else {
+            if (s[i] == 'X') {
+                res += 10;
+                if (i + 1 < s.size()) {
+                    if (s[i + 1] == 'X') {
+                        if (i + 2 < s.size()) {
+                            res += 10;
+                            if (s[i + 2] == 'X') {
+                                res += 10;
+                            } else {
+                                res += s[i + 2] - '0';
+                            }
+                        }
+                    } else if (s[i + 1] == '/') {
+                        res += 10;
+                        if (i + 2 < s.size()) {
+                            res += s[i + 2] - '0';
+                        }
+                    } else {
+                        res += s[i + 1] - '0';
+                        if (i + 2 < s.size()) {
+                            res += s[i + 2] - '0';
+                        }
+                    }
                 }
+                pre = 0;
             } else {
-                addScore(bowling.getPins(currentFrame+1, 1));
-                addScore(bowling.getPins(currentFrame+1, 2));
+                res += 10 - pre;
+                if (i + 1 < s.size()) {
+                    if (s[i + 1] == 'X') {
+                        res += 10;
+                    } else {
+                        res += s[i + 1] - '0';
+                    }
+                }
             }
         }
     }
-};
-
-
-int parseBowl(char c) {
-    int pins = 0;
-    if (c == 'X') {
-        pins = 10;
-    } else if (c == '-') {
-        pins = 0;
-    } else if (c == '/') {
-        pins = 10;
-    } else {
-        pins = c - '0';
-    }
-    return pins;
+    return res;
 }
 
-
-int score(string b) {
-    int score = 0;
-    for (int i = 0; i < b.size(); ++i) {
-        score += parseBowl(b[i]);
+int cal2(string s) {
+    set<char> go;
+    go.insert('X');
+    go.insert('/');
+    go.insert('-');
+    int res = 0, pre = 0, pre_pre = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (go.find(s[i]) == go.end()) {
+            int c = s[i] - '0';
+            res += c;
+            pre = c;
+        } else if (s[i] == '-') {
+            pre = 0;
+        } else {
+            if (s[i] == 'X') {
+                res += 10;
+                if (i + 1 < s.size()) {
+                    if (s[i + 1] == 'X') {
+                        if (i + 2 < s.size()) {
+                            res += 10;
+                            if (s[i + 2] == 'X') {
+                                res += 10;
+                            } else {
+                                res += s[i + 2] - '0';
+                            }
+                        }
+                    } else if (s[i + 1] == '/') {
+                        res += 10;
+                        if (i + 2 < s.size()) {
+                            res += s[i + 2] - '0';
+                        }
+                    } else {
+                        res += s[i + 1] - '0';
+                        if (i + 2 < s.size()) {
+                            res += s[i + 2] - '0';
+                        }
+                    }
+                }
+                pre = 0;
+            } else {
+                res += 10 - pre;
+                if (i + 1 < s.size()) {
+                    if (s[i + 1] == 'X') {
+                        res += 10;
+                    } else {
+                        res += s[i + 1] - '0';
+                    }
+                }
+            }
+        }
     }
-    return score;
+    return res;
 }
-
 
 int main() {
-    //string input;
-    //getline(cin, input);
-    //cout << score(input) << endl;
-    cout << score("XXXXXXXXXXXX") << endl;
-    cout << score("9-9-9-9-9-9-9-9-9-9-") << endl;
-    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << score("7115XXX548/279-X53") << endl;
-    cout << score("532/4362X179-41447/5") << endl;
+    string s = "532/4362X179-41447/5";
+    printf("%d\n", cal2(s));
     return 0;
 }
