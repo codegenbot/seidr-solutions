@@ -44,5 +44,16 @@ input:
 output:
 3.963
 */
-//
+double bounciness(double s, double b, int n) {
+    if(n == 1) return s + b;
+    return bounciness(s, b, n - 1) + bounciness(b, s * b / (s + b), n - 1);
+}
+
 int main() {
+    double s, b;
+    int n;
+    while(scanf("%lf%lf%d", &s, &b, &n) != EOF) {
+        printf("%.3lf\n", bounciness(s, b, n));
+    }
+    return 0;
+}
