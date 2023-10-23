@@ -34,34 +34,50 @@ input:
 output:
 100
 */
-int main() {
-    string s;
-    cin >> s;
+
+int getScore(string s) {
     int score = 0;
-    int strike = 0;
-    int spare = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
+    int frame = 0;
+    int len = s.length();
+    for(int i = 0; frame < 10 && i < len; ++i) {
+        char c = s[i];
+        if(c == 'X') {
             score += 10;
-            if (strike) score += 10;
-            strike = 1;
-            spare = 0;
-        } else if (s[i] == '/') {
-            score += 10 - spare;
-            if (strike) score += 10 - spare;
-            spare = 1;
-            strike = 0;
-        } else if (s[i] == '-') {
-            if (strike) score += 0;
-            spare = 0;
-            strike = 0;
+            if(i+1 < len) {
+                score += s[i+1] == 'X' ? 10 : (s[i+1] == '/' ? 10 - s[i+2] + '0' : s[i+1] - '0');
+            }
+            if(i+2 < len) {
+                score += s[i+2] == 'X' ? 10 : (s[i+2] == '/' ? 10 - s[i+1] + '0' : s[i+2] - '0');
+            }
+            ++frame;
+        } else if(c == '/') {
+            score += 10 - s[i-1] + '0';
+            if(i+1 < len) {
+                score += s[i+1] == 'X' ? 10 : (s[i+1] == '/' ? 10 - s[i+2] + '0' : s[i+1] - '0');
+            }
+            ++frame;
+        } else if(c == '-') {
+            score += 0;
+            ++frame;
         } else {
             score += s[i] - '0';
-            if (strike) score += s[i] - '0';
-            spare = s[i] - '0';
-            strike = 0;
+            if(i+1 < len && s[i+1] == '/') {
+                score += 10 - s[i] + '0';
+                ++i;
+            }
+            ++frame;
         }
     }
-    cout << score << endl;
-    return 0;
+    return score;
+}
+
+int main() {
+    string s = "XXXXXXXXXXXX";
+    cout << getScore(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << getScore(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << getScore(s) << endl;
+    s = "532/4362X179-41447/5";
+    cout << getScore(s) << endl;
 }
