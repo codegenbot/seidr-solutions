@@ -44,32 +44,16 @@ input:
 output:
 3.963
 */
-// 非递归，很好理解
-long double calculateDroppedBall(long double x, long double y, int z){
-	long double res = 0.0;
-	for (int i = 1; i <= z; ++i){
-		res += x;
-		x = x / y;
-	}
-	return res;
-}
-// 递归
-long double calculateDroppedBall2(long double x, long double y, int z){
-	if (z == 1){
-		return x;
-	}
-	else{
-		return calculateDroppedBall(x, y, z - 1) + x / y;
-	}
-}
 
 int main() {
-	long double x, y;
-	int z;
-
-	cin >> x >> y >> z;
-	cout << calculateDroppedBall(x, y, z) << endl;
-	cout << calculateDroppedBall2(x, y, z) << endl;
-	system("pause");
-	return 0;
+    double init, h, bounciness, n;
+    while (cin >> init >> h >> n) {
+        bounciness = h / init;
+        double d = init;
+        for (int i = 0; i < n; i++) {
+            d = d * bounciness;
+        }
+        printf("%.3lf\n", d + h);
+    }
+    return 0;
 }
