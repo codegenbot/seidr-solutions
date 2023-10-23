@@ -18,7 +18,7 @@ Q
 output:
 Q
 input:
-2a
+ 
 output:
  
 input:
@@ -35,3 +35,14 @@ output:
 )b
 */
 int main() {
+    string str, ans;
+    getline(cin, str);
+    int len = str.length(), i;
+    if(len & 1) {
+        ans = str[len / 2];
+    } else {
+        ans = str.substr(len / 2 - 1, 2);
+    }
+    cout << ans;
+    return 0;
+}
