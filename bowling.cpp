@@ -50,7 +50,7 @@ int score(string s) {
             } else {
                 res += s[i+3] - '0';
             }
-            i++;
+            i += 1;
         } else if (s[i+1] == '/') {
             res += 10;
             if (s[i+2] == 'X') {
@@ -68,13 +68,8 @@ int score(string s) {
     return res;
 }
 int main() {
-    string s = "XXXXXXXXXXXX";
-    cout << score(s) << endl;
-    s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << score(s) << endl;
-    s = "7115XXX548/279-X53";
-    cout << score(s) << endl;
-    s = "532/4362X179-41447/5";
+    string s;
+    cin >> s;
     cout << score(s) << endl;
     return 0;
 }
