@@ -35,6 +35,61 @@ output:
 100
 */
 int main() {
-    cout << "hello world" << endl;
-    return 0;
+	string str;
+	cin >> str;
+	int len = str.length();
+	if (len != 21) {
+		cout << "Error Input" << endl;
+		return 0;
+	}
+	bool strike = false;
+	int num = 0;
+	int sum = 0;
+	for (int i = 0; i < len; i++) {
+		if (str[i] == 'X') {
+			sum += 10;
+			if (i + 1 < len) {
+				if (str[i + 1] == 'X') {
+					if (i + 2 < len) {
+						if (str[i + 2] == 'X') {
+							sum += 30;
+						}
+						else {
+							sum += 20 + (str[i + 2] - '0');
+						}
+					}
+				}
+				else {
+					if (str[i + 2] == '/') {
+						sum += 20;
+					}
+					else {
+						sum += 10 + (str[i + 1] - '0') + (str[i + 2] - '0');
+					}
+				}
+			}
+		}
+		else if (str[i] == '/') {
+			sum += 10;
+			if (i - 1 >= 0) {
+				sum += 10 - (str[i - 1] - '0');
+			}
+			if (i + 1 < len) {
+				if (str[i + 1] == 'X') {
+					sum += 10;
+				}
+				else {
+					sum += str[i + 1] - '0';
+				}
+			}
+		}
+		else if (str[i] == '-') {
+			sum += 0;
+		}
+		else {
+			sum += str[i] - '0';
+		}
+	}
+	cout << sum << endl;
+	return 0;
 }
