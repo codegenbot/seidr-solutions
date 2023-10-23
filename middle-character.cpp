@@ -1,15 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <queue>
-#include <stdio.h>
-#include <math.h>
-#include <map>
-#include <set>
-#include <stack>
-#include <climits>
-using namespace std;
 /*
 Given a string, return the middle character as a string if it is odd length; return the two middle characters as a string if it is even length.
 For example,
@@ -34,25 +22,34 @@ input:
 output:
 )b
 */
-string getMiddle(string word) {
-    char t[2];
-    if (word.size()%2==1) {
-        int n = word.size()/2;
-        t[0]= word[n];
-        t[1]='\0';
-        
-        return t;
-    } else {
-        int n = word.size()/2;
-        t[0]= word[n-1];
-        t[1]= word[n];
-        return t;
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
+
+string center(string str) {
+    int len = str.size();
+    if (len == 1) {
+        return str;
     }
+    if (len % 2 == 0) {
+        return str.substr(len / 2 - 1, 2);
+    }
+    return string(1, str[len / 2]);
 }
 int main() {
-    cout<<getMiddle("test")<<endl;
-    cout<<getMiddle("testing")<<endl;
-    cout<<getMiddle("middle")<<endl;
-    cout<<getMiddle("A")<<endl;
-    
+    freopen("input.txt", "r", stdin);
+    string input;
+    while (cin >> input) {
+        cout << center(input) << endl;
+    }
+    return 0;
 }
