@@ -34,188 +34,120 @@ input:
 output:
 100
 */
-bool isInteger(char c) {
-    return (c>='0'&&c<='9');
-}
-int getInteger(char c) {
-    return c-'0';
-}
-struct Frame {
-    int first, second, third;
-    int getScore() {
-        return first+second+third;
+class Bowling {
+public:
+    int score;
+    int currentFrame;
+    int currentBowl;
+    char bowls[12];
+    
+    Bowling() : score(0), currentFrame(1), currentBowl(0) {
+        memset(bowls, 0, sizeof(bowls));
     }
-    bool isStrike() {
-        return first==10;
+    
+    void addScore(int pins) {
+        score += pins;
     }
+    
+    bool isTenthFrame() {
+        return currentFrame == 10;
+    }
+    
+    char currentChar() {
+        return bowls[currentBowl];
+    }
+    
+    void nextBowl() {
+        ++currentBowl;
+        if (currentBowl > 10) {
+            ++currentFrame;
+            currentBowl = 1;
+        }
+    }
+    
     bool isSpare() {
-        return second+first==10;
+        return currentChar() == '/';
+    }
+    
+    bool isStrike() {
+        return currentChar() == 'X';
+    }
+    
+    bool isOpen() {
+        return !isStrike() && !isSpare();
+    }
+    
+    bool isHalfFrame() {
+        return isSpare() || currentBowl == 2;
+    }
+    
+    int parsePins() {
+        int pins = 0;
+        if (isOpen()) {
+            pins = currentChar() - '0';
+        } else if (isSpare()) {
+            pins = 10;
+            pins -= bowls[currentBowl-1] - '0';
+        } else if (isStrike()) {
+            pins = 10;
+        }
+        return pins;
+    }
+    
+    void addBonus() {
+        if (isOpen()) {
+            addScore(0);
+        } else if (isSpare()) {
+            addScore(bowling.getPins(currentFrame+1, 1));
+        } else if (isStrike()) {
+            if (bowling.isStrike(currentFrame+1)) {
+                if (bowling.isTenthFrame()) {
+                    addScore(bowling.getPins(currentFrame+1, 1));
+                    addScore(bowling.getPins(currentFrame+2, 1));
+                } else {
+                    addScore(bowling.getPins(currentFrame+1, 2));
+                }
+            } else {
+                addScore(bowling.getPins(currentFrame+1, 1));
+                addScore(bowling.getPins(currentFrame+1, 2));
+            }
+        }
     }
 };
-int solution(string input) {
-    // Your code here
-    vector<Frame> frames;
-    int i = 0;
-    while(i<input.size()) {
-        Frame frame;
-        if(isInteger(input[i])) {
-            frame.first = getInteger(input[i]);
-            ++i;
-            if(isInteger(input[i])) {
-                frame.second = getInteger(input[i]);
-                ++i;
-            } else if(input[i]=='/') {
-                frame.second = 10-frame.first;
-                ++i;
-            } else if(input[i]=='-') {
-                frame.second = 0;
-                ++i;
-            }
-        } else if(input[i]=='X') {
-            frame.first = 10;
-            ++i;
-            frame.second = 0;
-        }
-        if(input[i]=='-') {
-            frame.third = 0;
-            ++i;
-        } else if(isInteger(input[i])) {
-            frame.third = getInteger(input[i]);
-            ++i;
-        }
-        frames.push_back(frame);
-        if(frames.size()==9)
-            break;
+
+
+int parseBowl(char c) {
+    int pins = 0;
+    if (c == 'X') {
+        pins = 10;
+    } else if (c == '-') {
+        pins = 0;
+    } else if (c == '/') {
+        pins = 10;
+    } else {
+        pins = c - '0';
     }
-    Frame last;
-    if(input[i]=='X') {
-        last.first = 10;
-        ++i;
-        if(input[i]=='-') {
-            last.second = 0;
-            ++i;
-        } else if(input[i]=='X') {
-            last.second = 10;
-            ++i;
-        } else {
-            last.second = getInteger(input[i]);
-            ++i;
-        }
-        if(input[i]=='-') {
-            last.third = 0;
-            ++i;
-        } else if(input[i]=='X') {
-            last.third = 10;
-            ++i;
-        } else {
-            last.third = getInteger(input[i]);
-            ++i;
-        }
-    } else if(input[i]=='/') {
-        last.first = 10-getInteger(input[i-1]);
-        ++i;
-        if(input[i]=='-') {
-            last.second = 0;
-            ++i;
-        } else if(input[i]=='X') {
-            last.second = 10;
-            ++i;
-        } else {
-            last.second = getInteger(input[i]);
-            ++i;
-        }
-        if(input[i]=='-') {
-            last.third = 0;
-            ++i;
-        } else if(input[i]=='X') {
-            last.third = 10;
-            ++i;
-        } else {
-            last.third = getInteger(input[i]);
-            ++i;
-        }
-    } else if(input[i]=='-') {
-        last.first = 0;
-        ++i;
-        if(input[i]=='-') {
-            last.second = 0;
-            ++i;
-        } else if(input[i]=='X') {
-            last.second = 10;
-            ++i;
-        } else {
-            last.second = getInteger(input[i]);
-            ++i;
-        }
-        if(input[i]=='-') {
-            last.third = 0;
-            ++i;
-        } else if(input[i]=='X') {
-            last.third = 10;
-            ++i;
-        } else {
-            last.third = getInteger(input[i]);
-            ++i;
-        }
-    } else if(isInteger(input[i])) {
-        last.first = getInteger(input[i]);
-        ++i;
-        if(input[i]=='-') {
-            last.second = 0;
-            ++i;
-        } else if(input[i]=='X') {
-            last.second = 10;
-            ++i;
-        } else if(input[i]=='/') {
-            last.second = 10-last.first;
-            ++i;
-        } else {
-            last.second = getInteger(input[i]);
-            ++i;
-        }
-        if(input[i]=='-') {
-            last.third = 0;
-            ++i;
-        } else if(input[i]=='X') {
-            last.third = 10;
-            ++i;
-        } else {
-            last.third = getInteger(input[i]);
-            ++i;
-        }
-    }
-    frames.push_back(last);
-    int ans = 0;
-    for(int i = 0; i<frames.size(); ++i) {
-        ans += frames[i].getScore();
-        if(i<frames.size()-1) {
-            if(frames[i].isStrike()) {
-                if(frames[i+1].isStrike()) {
-                    ans += frames[i+1].first;
-                    if(i<frames.size()-2)
-                        ans += frames[i+2].first;
-                } else {
-                    ans += frames[i+1].getScore();
-                }
-            } else if(frames[i].isSpare()) {
-                ans += frames[i+1].first;
-            }
-        }
-    }
-    return ans;
+    return pins;
 }
+
+
+int score(string b) {
+    int score = 0;
+    for (int i = 0; i < b.size(); ++i) {
+        score += parseBowl(b[i]);
+    }
+    return score;
+}
+
+
 int main() {
-    cout<<solution("9-9-9-9-9-9-9-9-9-9-")<<endl;
-    cout<<solution("5/5/5/5/5/5/5/5/5/5/5")<<endl;
-    cout<<solution("X3-")<<endl;
-    cout<<solution("33-")<<endl;
-    cout<<solution("X1-")<<endl;
-    cout<<solution("X1X")<<endl;
-    cout<<solution("XX")<<endl;
-    cout<<solution("XXXXXXXXXXXX")<<endl;
-    cout<<solution("9-9-9-9-9-9-9-9-9-9/5")<<endl;
-    cout<<solution("5/5/5/5/5/5/5/5/5/5/5")<<endl;
-    cout<<solution("7115XXX548/279-X53")<<endl;
-    cout<<solution("532/4362X179-41447/5")<<endl;
+    //string input;
+    //getline(cin, input);
+    //cout << score(input) << endl;
+    cout << score("XXXXXXXXXXXX") << endl;
+    cout << score("9-9-9-9-9-9-9-9-9-9-") << endl;
+    cout << score("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << score("7115XXX548/279-X53") << endl;
+    cout << score("532/4362X179-41447/5") << endl;
     return 0;
 }
