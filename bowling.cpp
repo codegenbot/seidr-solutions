@@ -37,48 +37,42 @@ output:
 int main() {
     string str;
     cin >> str;
-    int score = 0;
+    int sum = 0;
     int i = 0;
-    while (i < str.length()) {
+    int frame = 0;
+    while (i < str.size()) {
         if (str[i] == 'X') {
-            score += 10;
-            if (str[i + 2] == 'X') {
-                score += 10;
-            } else {
-                score += str[i + 2] - '0';
-            }
-            if (str[i + 4] == 'X') {
-                score += 10;
-            } else if (str[i + 4] == '/') {
-                score += 10 - (str[i + 2] - '0');
-            } else {
-                score += str[i + 4] - '0';
-            }
+            sum += 10;
+            if (str[i + 2] == 'X')
+                sum += 10;
+            else if (str[i + 2] == '/')
+                sum += 10 - (str[i + 1] - '0');
+            else
+                sum += str[i + 2] - '0';
+            if (str[i + 4] == 'X')
+                sum += 10;
+            else if (str[i + 4] == '/')
+                sum += 10 - (str[i + 3] - '0');
+            else
+                sum += str[i + 4] - '0';
             i++;
         } else if (str[i] == '/') {
-            score += 10 - (str[i - 1] - '0');
-            if (str[i + 2] == 'X') {
-                score += 10;
-            } else {
-                score += str[i + 2] - '0';
-            }
-            i++;
+            sum += 10 - (str[i - 1] - '0');
+            if (str[i + 2] == 'X')
+                sum += 10;
+            else if (str[i + 2] == '/')
+                sum += 10 - (str[i + 1] - '0');
+            else
+                sum += str[i + 2] - '0';
+            i += 2;
         } else {
-            score += str[i] - '0';
-            if (str[i + 1] == '/') {
-                score += 10 - (str[i] - '0');
-                if (str[i + 3] == 'X') {
-                    score += 10;
-                } else {
-                    score += str[i + 3] - '0';
-                }
-                i += 2;
-            } else {
-                score += str[i + 1] - '0';
-                i += 2;
-            }
+            sum += str[i] - '0';
+            i++;
         }
+        frame++;
+        if (frame == 10)
+            break;
     }
-    cout << score << endl;
+    cout << sum << endl;
     return 0;
 }
