@@ -34,45 +34,48 @@ input:
 output:
 100
 */
-int main() {
-    string str;
-    cin >> str;
-    int sum = 0;
-    int i = 0;
+
+int score(const string& s) {
+    int score = 0;
     int frame = 0;
-    while (i < str.size()) {
-        if (str[i] == 'X') {
-            sum += 10;
-            if (str[i + 2] == 'X')
-                sum += 10;
-            else if (str[i + 2] == '/')
-                sum += 10 - (str[i + 1] - '0');
-            else
-                sum += str[i + 2] - '0';
-            if (str[i + 4] == 'X')
-                sum += 10;
-            else if (str[i + 4] == '/')
-                sum += 10 - (str[i + 3] - '0');
-            else
-                sum += str[i + 4] - '0';
+    int i = 0;
+    while (frame < 10) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (s[i + 2] == 'X') {
+                score += 10;
+            } else {
+                score += s[i + 2] - '0';
+            }
+            if (s[i + 1] == 'X') {
+                score += 10;
+            } else if (s[i + 1] == '/') {
+                score += 10 - (s[i] - '0');
+            } else {
+                score += s[i + 1] - '0';
+            }
             i++;
-        } else if (str[i] == '/') {
-            sum += 10 - (str[i - 1] - '0');
-            if (str[i + 2] == 'X')
-                sum += 10;
-            else if (str[i + 2] == '/')
-                sum += 10 - (str[i + 1] - '0');
-            else
-                sum += str[i + 2] - '0';
+        } else if (s[i + 1] == '/') {
+            score += 10;
+            if (s[i + 2] == 'X') {
+                score += 10;
+            } else {
+                score += s[i + 2] - '0';
+            }
             i += 2;
         } else {
-            sum += str[i] - '0';
-            i++;
+            score += s[i] - '0';
+            score += s[i + 1] - '0';
+            i += 2;
         }
         frame++;
-        if (frame == 10)
-            break;
     }
-    cout << sum << endl;
+    return score;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
