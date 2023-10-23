@@ -28,20 +28,19 @@ $
 input:
 E9
 output:
-E9
+9
 input:
-)b
+b)
 output:
-)b
+b)
 */
 int main() {
-    string str;
-    cin >> str;
-    int size = str.size();
-    if (size%2 == 1) {
-        cout << str[size/2];
+    string s;
+    cin >> s;
+    if(s.size()%2 == 1) {
+        cout << s[s.size()/2] << endl;
     } else {
-        cout << str[size/2-1] << str[size/2];
+        cout << s.substr(s.size()/2-1,2) << endl;
     }
     return 0;
 }
