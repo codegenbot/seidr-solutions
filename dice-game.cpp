@@ -39,31 +39,21 @@ input:
 output:
 0.0
 */
-double colin(int m, int n) {
-    double dp[n+1][m+1];
-    memset(dp, 0, sizeof(dp));
-    for(int i = 1; i <= n; i++) {
-        dp[i][1] = 1.0 / n;
-    }
-    for(int i = 1; i <= n; i++) {
-        for(int j = 2; j <= m; j++) {
-            for(int k = 1; k <= n; k++) {
-                if(k < i) {
-                    dp[i][j] += dp[k][j-1] / n;
-                }
-            }
-        }
-    }
-    double ans = 0.0;
-    for(int i = 1; i <= n; i++) {
-        ans += dp[i][m];
-    }
-    return ans;
-}
 int main() {
-    int m, n;
-    while(cin >> n >> m) {
-        cout << colin(m, n) << endl;
+    int n, m;
+    cin >> n >> m;
+    if (n == 1) {
+        cout << 0.0 << endl;
+        return 0;
     }
+    if (m == 1) {
+        cout << 1.0 << endl;
+        return 0;
+    }
+    double res = 0.0;
+    for (int i = 1; i < n; i++) {
+        res += (double)i / n;
+    }
+    cout << res << endl;
     return 0;
 }
