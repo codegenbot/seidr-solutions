@@ -35,19 +35,12 @@ output:
 )b
 */
 int main() {
-
-  string str = "dadsadsaffsaffadsafsa";
-  
-  int mid = ceil(str.size() / 2) - 1;
-  
-  if(str.size() % 2 == 0) {
-    cout << str.at(mid) << str.at(mid + 1) << endl;
-  }
-  else {
-    cout << str.at(mid) << endl;
-  }
-  
-  
-
-  return 0;
+    string input;
+    cin >> input;
+    if(input.length() % 2 == 1) {
+        cout << input[input.length() / 2];
+    } else {
+        cout << input[input.length() / 2 - 1] << input[input.length() / 2];
+    }
+    return 0;
 }
