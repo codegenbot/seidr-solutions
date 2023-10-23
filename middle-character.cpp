@@ -34,17 +34,23 @@ input:
 output:
 )b
 */
+string given(string str) {
+    int n = str.size();
+    string ret;
+    if (n % 2 == 1) {
+        ret.push_back(str[n / 2]);
+    } else {
+        ret.push_back(str[n / 2 - 1]);
+        ret.push_back(str[n / 2]);
+    }
+    return ret;
+}
+
+
 int main() {
-    // Insert code here...
-    char line[1024];
-    while (gets(line) != NULL) {
-        int n = strlen(line);
-        if (n == 1) {
-            printf("%c\n",line[0]);
-        }
-        else{
-            printf("%c%c\n",line[n/2-1],line[n/2]);
-        }
+    string str;
+    while (cin >> str) {
+        cout << given(str) << endl;
     }
     return 0;
 }
