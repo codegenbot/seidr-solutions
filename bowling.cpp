@@ -9,7 +9,6 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <cmath>
 using namespace std;
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
@@ -35,42 +34,61 @@ input:
 output:
 100
 */
-
-int total(string input) {
-    int score = 0;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == '-') {
-            continue;
-        }
-        if (input[i] == 'X') {
-            score += 10;
-            if (input[i+1] != 'X') {
-                score += input[i+1] - '0';
-            } else {
-                score += 10;
-            }
-            if (input[i+2] != 'X') {
-                score += input[i+2] - '0';
-            } else {
-                score += 10;
-            }
-        }
-        if (input[i] == '/') {
-            if (input[i+1] == 'X') {
-                score += 10;
-            } else {
-                score += input[i+1] - '0';
-            }
-        }
-        if (input[i] >= '0' && input[i] <= '9') {
-            score += input[i] - '0';
-        }
-    }
-    return score;
+int GetScore(string throws){
+	int score = 0;
+	int frame = 0;
+	int frameBall = 0;
+	int frame_x_flag = 0;
+	int frame_s_flag = 0;
+	int frame_n_flag = 0;
+	int value = 0;
+	int frame_score = 0;
+	for(int i = 0; i < throws.length(); i++){
+		value = throws[i];
+		if('X' == value){
+			frameBall = 1;
+			frame_x_flag = 1;
+			frame_s_flag = 0;
+			frame_n_flag = 0;
+			frame_score = 10;
+			score += 10;
+		}else if('/' == value){
+			frameBall++;
+			frame_x_flag = 0;
+			frame_s_flag = 1;
+			frame_n_flag = 0;
+			frame_score = 10 - frame_score;
+			score += frame_score;
+			score += frame_score;
+		}else if('-' == value){
+			frameBall++;
+			frame_x_flag = 0;
+			frame_s_flag = 0;
+			frame_n_flag = 1;
+		}else{
+			frameBall++;
+			frame_x_flag = 0;
+			frame_s_flag = 0;
+			frame_n_flag = 1;
+			value -= 48;
+			frame_score += value;
+			score += value;
+		}
+		if(frameBall == 2){
+			frameBall = 0;
+			frame_score = 0;
+			frame++;
+		}
+		if(frame == 10){
+			break;
+		}
+	}
+	return score;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << total(input) << endl;
+	string throws;
+	cin >> throws;
+	cout << GetScore(throws) << endl;
+	return 0;
 }
