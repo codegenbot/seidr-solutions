@@ -40,19 +40,5 @@ output:
 0.0
 */
 int main() {
-    freopen("input.txt", "r", stdin);
-    int n, m, equal = 0, Peter_higher_than_colen = 0;
-    cin>>n>>m;
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            if(i < j){
-                Peter_higher_than_colen ++;
-            }else if(i == j){
-                equal++;
-            }
-        }
-    }
-    cout<<(double)(Peter_higher_than_colen - equal / 2.0) / ((double)n * m - equal)<<endl;
-    
-    return 0;
+    void solve();
 }
