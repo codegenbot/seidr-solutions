@@ -18,7 +18,7 @@ input:
 1.0
 1
 output:
-2.001
+2.001 
 input:
 100.0
 99.999
@@ -43,19 +43,5 @@ input:
 1
 output:
 3.963
-
 */
 int main() {
-    double h, h1, n;
-    while (cin >> h >> h1 >> n) {
-        double bounciness = h1/h;
-        double sum = 0;
-        double lastHeight = h;
-        for (int i=2; i<=n; ++i) {
-            sum += lastHeight;
-            lastHeight = lastHeight * bounciness;
-        }
-        sum += lastHeight;
-        printf("%.6f\n", sum);
-    }
-}
