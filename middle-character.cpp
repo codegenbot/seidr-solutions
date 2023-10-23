@@ -34,9 +34,15 @@ input:
 output:
 )b
 */
-
-string getMiddle(string str) {
-	return (str.size() % 2==0) ? str.substr(str.size()/2-1, 2): str.substr(str.size()/2, 1);
-}
-
 int main() {
+    string input;
+    int len;
+    while (cin >> input){
+        len = input.size();
+        if (len % 2){
+            cout << input[len / 2] << endl;
+        } else {
+            cout << input[len / 2 - 1] << input[len / 2] << endl;
+        }
+    }
+}
