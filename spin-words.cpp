@@ -34,36 +34,32 @@ hi
 output:
 hi
 */
-
-string reverseString(string str) {
-    int i = 0, j = str.length()-1;
-    while(i < j) {
-        swap(str[i++], str[j--]);
-    }
-    return str;
-}
-
-string reverseWords(string str) {
-    int i = 0, j = 0;
-    while(i < str.length()) {
-        if(str[i] == ' ') {
-            i++;
-            j = i;
-        } else if(str[i] == ' ' || i == str.length()-1) {
-            if(i-j >= 5) {
-                str = str.substr(0, j) + reverseString(str.substr(j, i-j+1)) + str.substr(i+1);
+int main() {
+    string s;
+    string res;
+    getline(cin, s);
+    int n = s.size();
+    int start = 0;
+    for (int i = 0; i < n; i++) {
+        if (s[i] == ' ') {
+            if (i - start >= 5) {
+                for (int j = i - 1; j >= start; j--) {
+                    res += s[j];
+                }
+            } else {
+                res += s.substr(start, i - start);
             }
-            i++;
-            j = i;
-        } else {
-            i++;
+            res += ' ';
+            start = i + 1;
         }
     }
-    return str;
-}
-
-int main() {
-    string str = "This is a test";
-    cout << reverseWords(str) << endl;
+    if (n - start >= 5) {
+        for (int j = n - 1; j >= start; j--) {
+            res += s[j];
+        }
+    } else {
+        res += s.substr(start, n - start);
+    }
+    cout << res << endl;
     return 0;
 }
