@@ -35,45 +35,46 @@ output:
 100
 */
 
-int score(string s) {
+int bowlingScore(string s) {
     int score = 0;
     int i = 0;
-    while (i < s.size()) {
+    while (i < s.length()) {
         if (s[i] == 'X') {
             score += 10;
-            if (s[i+2] == 'X') {
+            if (s[i + 2] == 'X') {
+                score += 10;
+            } else if (s[i + 2] == '/') {
                 score += 10;
             } else {
-                score += s[i+2] - '0';
+                score += s[i + 2] - '0';
             }
-            if (s[i+4] == 'X') {
+            if (s[i + 1] == 'X') {
                 score += 10;
-            } else if (s[i+4] == '/') {
-                score += 10 - (s[i+2] - '0');
+            } else if (s[i + 1] == '/') {
+                score += 10 - (s[i] - '0');
             } else {
-                score += s[i+4] - '0';
+                score += s[i + 1] - '0';
             }
-            i += 2;
-        } else if (s[i+1] == '/') {
-            score += 10;
-            if (s[i+2] == 'X') {
+            i++;
+        } else if (s[i] == '/') {
+            score += 10 - (s[i - 1] - '0');
+            if (s[i + 1] == 'X') {
                 score += 10;
             } else {
-                score += s[i+2] - '0';
+                score += s[i + 1] - '0';
             }
-            i += 2;
         } else {
             score += s[i] - '0';
-            score += s[i+1] - '0';
-            i += 2;
         }
+        i++;
     }
     return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    cout << bowlingScore("XXXXXXXXXXXX") << endl;
+    cout << bowlingScore("5/5/5/5/5/5/5/5/5/5/5") << endl;
+    cout << bowlingScore("7115XXX548/279-X53") << endl;
+    cout << bowlingScore("532/4362X179-41447/5") << endl;
     return 0;
 }
