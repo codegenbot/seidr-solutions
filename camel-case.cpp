@@ -36,11 +36,12 @@ all separate words
 */
 int main() {
     string s;
-    getline(cin, s); 
+    getline(cin, s);
     bool first = true;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '-') {
             first = true;
+            s[i] = ' ';
         } else if (first) {
             first = false;
             s[i] = toupper(s[i]);
