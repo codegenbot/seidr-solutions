@@ -44,6 +44,16 @@ input:
 output:
 3.963
 */
-
-
 int main() {
+    double starting_height, a, H, bounciness, total_distance;
+    int num_bounce;
+    scanf("%lf", &starting_height);
+    scanf("%lf", &a);
+    scanf("%d", &num_bounce);
+    H = starting_height / a;
+    bounciness = H / starting_height;
+    
+    total_distance = (H * bounciness * num_bounce) + starting_height;
+    printf("%.11lf \n", total_distance);
+    return 0;
+}
