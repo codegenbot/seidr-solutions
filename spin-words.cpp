@@ -40,10 +40,7 @@ int main() {
     string res;
     int i = 0, j = 0;
     while (i < s.size()) {
-        while (i < s.size() && s[i] == ' ') {
-            res.push_back(s[i]);
-            i++;
-        }
+        while (i < s.size() && s[i] == ' ') i++;
         j = i;
         while (j < s.size() && s[j] != ' ') j++;
         if (j - i >= 5) {
@@ -58,3 +55,7 @@ int main() {
     cout << res << endl;
     return 0;
 }
+
+
+
+
