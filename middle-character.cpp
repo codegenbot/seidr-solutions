@@ -35,13 +35,12 @@ output:
 )b
 */
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    string input;
-    getline(cin, input);
-    if(input.size() % 2 == 0) {
-        cout << input[input.size() / 2 - 1] << input[input.size() / 2] << endl;
+    string s;
+    cin >> s;
+    if(s.length() % 2 == 1) {
+        cout << s[s.length() / 2];
     } else {
-        cout << input[input.size() / 2] << endl;
+        cout << s[s.length() / 2 - 1] << s[s.length() / 2];
     }
+    return 0;
 }
