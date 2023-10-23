@@ -18,7 +18,7 @@ Q
 output:
 Q
 input:
-A6
+ 
 output:
  
 input:
@@ -35,3 +35,16 @@ output:
 )b
 */
 int main() {
+    // Insert code here...
+    char line[1024];
+    while (gets(line) != NULL) {
+        int n = strlen(line);
+        if (n == 1) {
+            printf("%c\n",line[0]);
+        }
+        else{
+            printf("%c%c\n",line[n/2-1],line[n/2]);
+        }
+    }
+    return 0;
+}
