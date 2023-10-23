@@ -35,13 +35,14 @@ output:
 )b
 */
 int main() {
-	string str;
-	cin >> str;
-	if (str.size() % 2 == 0) {
-		cout << str[str.size() / 2 - 1] << str[str.size() / 2];
-	}
-	else {
-		cout << str[str.size() / 2];
-	}
-	return 0;
+    string str;
+    cin >> str;
+    int n = str.length();
+    if (n % 2 == 1) {
+        cout << str[n/2] << endl;
+    }
+    else {
+        cout << str[n/2-1] << str[n/2] << endl;
+    }
+    return 0;
 }
