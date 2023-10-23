@@ -11,7 +11,16 @@
 #include <climits>
 using namespace std;
 /*
-Given a starting height and a height after the ﬁrst bounce of a dropped ball, calculate the bounciness index (height of ﬁrst bounce / starting height). Then, given a number of bounces, use the bounciness index to calculate the total distance that the ball travels across those bounces.
+[LeetCode] Number of Digit One 统计数位中1出现的次数 
+
+
+
+Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.
+
+For example:
+Given n = 13,
+Return 6, because digit 1 occurred in the following numbers: 1, 10, 11, 12, 13.
+
 For example,
 input:
 1.001
@@ -23,8 +32,8 @@ input:
 100.0
 99.999
 20
-output:
-3999.599534511501
+ */
+       
 input:
 100.0
 1.0
@@ -45,16 +54,4 @@ output:
 3.963
 */
 int main() {
-    double A, B, C;
-    while (scanf("%lf %lf %lf", &A, &B, &C) == 3) {
-        double r = B / A;
-        double height = A;
-        double length = A;
-        for (int i = 0; i < C - 1; i++) {
-            height *= r;
-            length += height * 2;
-        }
-        cout << length << endl;
-    }
-    return 0;
 }
