@@ -1,7 +1,23 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
 #include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
+using namespace std;
 /*
 Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
 For example,
+input:
+1
+2
+output:
+0.0
 input:
 1
 2
@@ -29,19 +45,15 @@ output:
 0.0
 */
 int main() {
-    int a,b;
-    scanf("%d%d",&a,&b);
-    if(a>b){
-        printf("0.0\n");
-        return 0;
-    }
-    if(a==b){
-        printf("0.50\n");
+    int n,m;
+    cin>>n>>m;
+    if(n==m || n<m){
+        cout<<"0.5\n";
         return 0;
     }
     double a=1.0;
-    for(int i=1;i<=b;i++){
-        a*=((a-i+0.0)/a);
+    for(int i=1;i<=m;i++){
+        a*=((n-i+0.0)/n);
     }
     printf("%.2f\n",a);
     return 0;
