@@ -34,25 +34,14 @@ input:
 output:
 )b
 */
-
-string getMiddle(string s) {
-	if (s.length() % 2 == 0) {
-		return s.substr(s.length() / 2 - 1, 2);
-	}
-	else {
-		return s.substr(s.length() / 2, 1);
-	}
-}
-
 int main() {
-	cout << getMiddle("Q") << endl;
-	cout << getMiddle("") << endl;
-	cout << getMiddle("$") << endl;
-	cout << getMiddle("E9") << endl;
-	cout << getMiddle(")b") << endl;
-	cout << getMiddle("asdfghjkl") << endl;
-	cout << getMiddle("asdfghjk") << endl;
-	cout << getMiddle("asdfg") << endl;
-	cout << getMiddle("asdf") << endl;
-	return 0;
+    string s;
+    cin >> s;
+    int len = s.length();
+    if(len % 2 == 0) {
+        cout << s[len/2 - 1] << s[len/2];
+    } else {
+        cout << s[len/2];
+    }
+    return 0;
 }
