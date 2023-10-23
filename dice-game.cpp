@@ -40,20 +40,16 @@ output:
 0.0
 */
 int main() {
-    int n,m;
-    cin>>n>>m;
-    if(n<m){
-        cout<<"0.0"<<endl;
-        return 0;
+    int n, m;
+    while (cin >> n >> m) {
+        if (n > m) {
+            swap(n, m);
+        }
+        double ans = 0;
+        for (int i = 0; i < n; i++) {
+            ans += (m - i) / (double)(n * m);
+        }
+        printf("%.2f\n", ans);
     }
-    if(n==m){
-        cout<<"0.5"<<endl;
-        return 0;
-    }
-    double a=1.0;
-    for(int i=1;i<=m;i++){
-        a*=((n-i+0.0)/n);
-    }
-    printf("%.2f\n",a);
     return 0;
 }
