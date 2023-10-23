@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
- 
+  p
 output:
- 
+  p
 input:
 $
 output:
@@ -35,15 +35,3 @@ output:
 )b
 */
 int main() {
-    string input;
-    while (cin >> input) {
-        int len = input.length();
-        if (len % 2 == 0) {
-            int mid = len / 2;
-            cout << input.substr(mid - 1, 2) << endl;
-        } else {
-            int mid = len / 2;
-            cout << input.substr(mid, 1) << endl;
-        }
-    }
-}
