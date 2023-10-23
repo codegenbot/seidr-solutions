@@ -36,11 +36,11 @@ output:
 */
 int main() {
     string s;
-    cin >> s;
-    if (s.size() % 2 == 0) {
-        cout << s[s.size()/2-1] << s[s.size()/2];
-    } else {
-        cout << s[s.size()/2];
+    while (cin >> s) {
+        int len = s.size();
+        if (len & 1)
+            cout << s[len/2] << endl;
+        else
+            cout << s[len/2-1] << s[len/2] << endl;
     }
-    return 0;
 }
