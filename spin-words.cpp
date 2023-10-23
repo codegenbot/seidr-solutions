@@ -35,26 +35,5 @@ output:
 hi
 */
 int main() {
-    string str;
-    getline(cin, str);
-    vector<string> words;
-    for (int i = 0; i < str.size(); i++) {
-        string word;
-        while (i < str.size() && str[i] != ' ') {
-            word += str[i];
-            i++;
-        }
-        words.push_back(word);
-    }
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].size() >= 5) {
-            reverse(words[i].begin(), words[i].end());
-        }
-        cout << words[i];
-        if (i != words.size() - 1) {
-            cout << " ";
-        }
-    }
-    cout << endl;
-    return 0;
+
 }
