@@ -43,8 +43,8 @@ int main() {
     int n, m;
     while (cin >> n >> m) {
         double ans = 0;
-        for (int i = 0; i < n; i++) {
-            ans += (m - i) / (double)(n * m) * (n - i) / (double)(n * m);
+        for (int i = 1; i <= n; i++) {
+            ans += (m - i) / (double)(n * m);
         }
         printf("%.2f\n", ans);
     }
