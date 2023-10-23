@@ -55,20 +55,40 @@ int main() {
     }
     v.push_back(word);
     for(int i = 0; i < v.size(); i++) {
-        if(i < v.size() - 1 && v[i].size() == 1 && v[i+1].size() != 0) {
+        if(v[i].size() == 1) {
+            cout << "1" << endl;
             if(i == 0) {
                 v[i+1][0] = toupper(v[i+1][0]);
             } else {
+                cout << "2" << endl;
                 v[i+1][0] = toupper(v[i+1][0]);
                 if(i-2 >= 0) {
+                    if(v[i-2] == " ") {
+                        cout << "5" << endl;
+                        v[i-4] += v[i+1];
+                        v[i+1] = "";
+                        v[i] = " ";
+                        --i;
+                    } else if (v[i-2] != " ")  {
+                        cout << v[i-2] << endl;
+                        v[i-2] += v[i+1];
+                        v[i] = " ";
+                        v[i+1] = "";
+                        --i;
+                        --i;
+                    }
+
+                } else if(v[i-2] == " ") {
+                    cout << "6" << endl;
                     v[i-2] += v[i+1];
                     v[i+1] = "";
+                    v[i] = " ";
                 }
             }
         }
     }
     for(int i = 0; i < v.size(); i++) {
-        if(v[i].size() > 0) {
+        if(v[i].size() > 0 && v[i] != " ") {
             cout << v[i];
         }
     }
