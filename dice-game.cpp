@@ -42,16 +42,10 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double peter = 0.0;
-    double colin = 0.0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                peter++;
-            }
-            colin++;
-        }
+    if (n >= m) {
+        cout << 0.0 << endl;
+    } else {
+        cout << 0.5 << endl;
     }
-    cout << peter / colin << endl;
     return 0;
 }
