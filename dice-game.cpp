@@ -40,18 +40,15 @@ output:
 0.0
 */
 int main() {
-    int n, m;
-    scanf("%d%d", &n, &m);
-    double peter = 0;
-    double colin = 0;
+    int n, m, cnt = 0;
+    cin >> n >> m;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                peter++;
+                cnt++;
             }
-            colin++;
         }
     }
-    printf("%.1f", peter / colin);
+    printf("%.2f\n", cnt * 1.0 / (n * m));
     return 0;
 }
