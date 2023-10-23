@@ -34,67 +34,84 @@ input:
 output:
 100
 */
-int score(string s){
-    int n = s.size();
-    int res = 0;
-    for(int i = 0; i < n; i++){
-        if(s[i] == '-'){
-            continue;
-        }
-        if(s[i] == 'X'){
-            int t = 0;
-            if(i+1<n){
-                if(s[i+1] == 'X'){
-                    t += 10;
-                }
-                else{
-                    t += s[i+1] - '0';
-                }
-            }
-            if(i+2<n){
-                if(s[i+2] == 'X'){
-                    t += 10;
-                }
-                else if(s[i+2] == '/'){
-                    t += 10 - s[i+1] + '0';
-                }
-                else{
-                    t += s[i+2] - '0';
-                }
-            }
-            res += 10 + t;
-        }
-        else if(s[i] == '/'){
-            if(i-1>=0){
-                if(s[i-1] == 'X'){
-                    res += 10;
-                }
-                else{
-                    res += 10 - (s[i-1] - '0');
-                }
-            }
-            if(i+1<n){
-                if(s[i+1] == 'X'){
-                    res += 10;
-                }
-                else{
-                    res += s[i+1] - '0';
-                }
-            }
-        }
-        else{
-            res += s[i] - '0';
-        }
-    }
-    return res;
-}
 int main() {
-    string s1 = "XXXXXXXXXXXX";
-    string s2 = "5/5/5/5/5/5/5/5/5/5/5";
-    string s3 = "7115XXX548/279-X53";
-    string s4 = "532/4362X179-41447/5";
-    cout<<score(s1)<<endl;
-    cout<<score(s2)<<endl;
-    cout<<score(s3)<<endl;
-    cout<<score(s4)<<endl;
+    string input;
+    int score = 0;
+    int frame = 0;
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int bonus = 0;
+    while (cin >> input) {
+        score = 0;
+        frame = 0;
+        i = 0;
+        j = 0;
+        k = 0;
+        bonus = 0;
+        for (i = 0; i < input.size(); i++) {
+            if (input[i] == 'X') {
+                score += 10;
+                if (i + 2 < input.size()) {
+                    if (input[i + 1] == 'X') {
+                        score += 10;
+                        if (i + 2 < input.size()) {
+                            if (input[i + 2] == 'X') {
+                                score += 10;
+                            } else if (input[i + 2] == '/') {
+                                score += 10;
+                            } else {
+                                score += input[i + 2] - '0';
+                            }
+                        }
+                    } else if (input[i + 1] == '/') {
+                        score += 10;
+                        if (i + 2 < input.size()) {
+                            if (input[i + 2] == 'X') {
+                                score += 10;
+                            } else if (input[i + 2] == '/') {
+                                score += 10;
+                            } else {
+                                score += input[i + 2] - '0';
+                            }
+                        }
+                    } else {
+                        score += input[i + 1] - '0';
+                        if (i + 2 < input.size()) {
+                            if (input[i + 2] == 'X') {
+                                score += 10;
+                            } else if (input[i + 2] == '/') {
+                                score += 10;
+                            } else {
+                                score += input[i + 2] - '0';
+                            }
+                        }
+                    }
+                }
+                frame++;
+            } else if (input[i] == '/') {
+                score += 10;
+                if (i + 1 < input.size()) {
+                    if (input[i + 1] == 'X') {
+                        score += 10;
+                    } else if (input[i + 1] == '/') {
+                        score += 10;
+                    } else {
+                        score += input[i + 1] - '0';
+                    }
+                }
+                frame++;
+            } else if (input[i] == '-') {
+                frame++;
+            } else {
+                score += input[i] - '0';
+                frame++;
+            }
+            if (frame == 10) {
+                break;
+            }
+        }
+        cout << score << endl;
+    }
+    return 0;
 }
