@@ -37,19 +37,21 @@ all separate words
 int main() {
     string line;
     getline(cin, line);
+    cout << "input: " << line << endl;
     string res = "";
+    bool is_first = true;
     for (int i = 0; i < line.length(); i++) {
-        if (line[i] == ' ' || line[i] == '-') {
-            res += line[i];
+        if (line[i] == '-') {
+            is_first = true;
             continue;
         }
-        if (i == 0 || line[i - 1] == ' ' || line[i - 1] == '-') {
+        if (is_first) {
             res += toupper(line[i]);
             is_first = false;
         } else {
             res += line[i];
         }
     }
-    cout << res << endl;
+    cout << "output: " << res << endl;
     return 0;
 }
