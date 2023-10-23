@@ -34,8 +34,44 @@ input:
 output:
 100
 */
+
+int solution(string& s) {
+	int res = 0;
+	int turn = 0;
+	for(int i = 0; i < s.size(); i++) {
+		char cur = s[i];
+		if(cur == 'X') {
+			if(turn == 10)
+				continue;
+			res += 10;
+			if(i < s.size()-2 && s[i+2] == 'X')
+				res += 10;
+			else if(s[i+2] == '/')
+				res += 10 - (s[i+1]-'0');
+			else
+				res += s[i+1]-'0' + s[i+2]-'0';
+			turn++;
+		}else if(cur == '/') {
+			if(turn == 10)
+				continue;
+			res += (10 - (s[i-1]-'0'));
+			turn++;
+		}else if(cur == '-') {
+			if(turn == 10)
+				continue;
+			turn++;
+		}else {
+			res += cur-'0';
+			turn++;
+		}
+	}
+	return res;
+}
+
 int main() {
-    
-    
-    return 0;
+	string s;
+	while(cin >> s) {
+		cout << solution(s) << endl;
+	}
+	return 0;
 }
