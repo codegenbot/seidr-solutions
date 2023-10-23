@@ -43,8 +43,8 @@ int main() {
     int n, m;
     cin >> n >> m;
     double p = 0;
-    if (n > m) {
-        p = 1;
+    if (n >= m) {
+        p = 0.5;
     } else {
         double q = 1;
         double s = (double)n / (double)m;
