@@ -24,11 +24,6 @@ input:
 output:
 0.5
 input:
-2
-2
-output:
-0.5
-input:
 99
 100
 output:
@@ -56,8 +51,10 @@ int main() {
         return 0;
     }
     double a=1.0;
+	
     for(int i=1;i<=m;i++){
-        a*=((n-i+0.0)/n);
+        if(n>m)a*=((n-i+0.0)/n);
+		else a*=((m-i+0.0)/m);
     }
     printf("%.2f\n",a);
     return 0;
