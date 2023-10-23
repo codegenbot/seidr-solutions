@@ -34,43 +34,55 @@ input:
 output:
 100
 */
-int score(string str) {
-    int score = 0;
+int score(string s) {
+    int sum = 0;
     int i = 0;
-    while (i < str.size()) {
-        if (str[i] == 'X') {
-            score += 10;
-            if (str[i + 1] == 'X') {
-                score += 10;
-                if (str[i + 2] == 'X') {
-                    score += 10;
+    while (i < s.length()) {
+        if (s[i] == 'X') {
+            sum += 10;
+            if (i + 2 < s.length()) {
+                if (s[i + 2] == 'X') {
+                    sum += 10;
+                } else if (s[i + 2] == '/') {
+                    sum += 10;
                 } else {
-                    score += str[i + 2] - '0';
+                    sum += s[i + 2] - '0';
                 }
-            } else if (str[i + 1] == '/') {
-                score += 10;
-            } else {
-                score += str[i + 1] - '0';
+            }
+            if (i + 1 < s.length()) {
+                if (s[i + 1] == 'X') {
+                    sum += 10;
+                } else if (s[i + 1] == '/') {
+                    sum += 10 - (s[i] - '0');
+                } else {
+                    sum += s[i + 1] - '0';
+                }
             }
             i++;
-        } else if (str[i] == '/') {
-            score += 10;
-            if (str[i - 1] == 'X') {
-                score += 10;
-            } else {
-                score += str[i - 1] - '0';
+        } else if (s[i] == '/') {
+            sum += 10 - (s[i - 1] - '0');
+            if (i + 1 < s.length()) {
+                if (s[i + 1] == 'X') {
+                    sum += 10;
+                } else if (s[i + 1] == '/') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 1] - '0';
+                }
             }
+            i++;
+        } else if (s[i] == '-') {
+            i++;
         } else {
-            score += str[i] - '0';
+            sum += s[i] - '0';
+            i++;
         }
-        i++;
     }
-    return score;
+    return sum;
 }
 int main() {
-    string str;
-    while (cin >> str) {
-        cout << score(str) << endl;
-    }
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
