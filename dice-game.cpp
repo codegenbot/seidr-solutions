@@ -43,15 +43,13 @@ int main() {
     int n, m;
     cin >> n >> m;
     double p = 0;
-    if (n == m) {
-        p = 0;
-    } else if (n > m) {
-        p = 1;
+    if (n > m) {
+        p = 1.0;
     } else {
         double q = 1;
         double s = (double)n / (double)m;
         for (int i = 0; i < n; i++) {
-            q *= s;
+            q *= (double)(m - i) / (double)(n - i);
             s = (double)(n - i - 1) / (double)(m - i - 1);
         }
         p = 1 - q;
