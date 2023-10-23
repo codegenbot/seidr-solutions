@@ -42,6 +42,11 @@ output:
 int main() {
     int n,m;
     cin>>n>>m;
-    printf("%.2f\n",(n-m)*0.5/n);
+    double a=1.0;
+    for(int i=1;i<=n;i++){
+        if(i>m)a*=((n-i+0.0)/n);
+        else a*=((n-i+0.0)/n+1.0/n);
+    }
+    printf("%.2f\n",a);
     return 0;
 }
