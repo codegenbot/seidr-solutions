@@ -33,10 +33,12 @@ input:
 all separate words
 output:
 all separate words
-input:
-one-two-three
-output:
-oneTwoThree
+
+
+
+
+
+
 */
 int main() {
     string line;
@@ -46,7 +48,6 @@ int main() {
     for (int i = 0; i < line.length(); i++) {
         if (line[i] == '-') {
             is_first = true;
-            res += ' ';
             continue;
         }
         if (is_first) {
