@@ -42,8 +42,8 @@ output:
 int main() {
     int n, m;
     cin >> n >> m;
-    double peter = 0.0;
-    double colin = 0.0;
+    int peter = 0;
+    int colin = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
@@ -52,6 +52,6 @@ int main() {
             colin++;
         }
     }
-    printf("%.1f\n", peter / colin);
+    cout << (double)peter / colin << endl;
     return 0;
 }
