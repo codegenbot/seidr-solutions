@@ -18,7 +18,7 @@ input:
 1.0
 1
 output:
-2.001 
+2.001
 input:
 100.0
 99.999
@@ -45,3 +45,6 @@ output:
 3.963
 */
 int main() {
+    
+    return 0;
+}
