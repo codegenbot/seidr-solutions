@@ -46,15 +46,14 @@ int main() {
         cout<<"0.0"<<endl;
         return 0;
     }
+    double a=1.0;\
     if(n==m){
-        cout<<"0.5"<<endl;
-        return 0;
+        a=0.5;
     }
-    double a=1.0;
-	
-    for(int i=1;i<=m;i++){
-        if(n>m)a*=((n-i+0.0)/n);
-		else a*=((m-i+0.0)/m);
+    else{
+        for(int i=1;i<=m;i++){
+            a*=((n-i+0.0)/n);
+        }
     }
     printf("%.2f\n",a);
     return 0;
