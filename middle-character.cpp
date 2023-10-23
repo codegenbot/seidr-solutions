@@ -18,7 +18,7 @@ Q
 output:
 Q
 input:
- 
+2a
 output:
  
 input:
@@ -35,14 +35,3 @@ output:
 )b
 */
 int main() {
-    string str;
-    cin >> str;
-    int n = str.length();
-    if (n % 2 == 1) {
-        cout << str[n/2] << endl;
-    }
-    else {
-        cout << str[n/2-1] << str[n/2] << endl;
-    }
-    return 0;
-}
