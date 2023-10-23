@@ -34,66 +34,26 @@ input:
 output:
 100
 */
-
-int getScore(string s) {
-  int score = 0;
-  int frame = 1;
-  int roll = 0;
-  int i = 0;
-  int len = s.length();
-  while (frame <= 10 && i < len) {
-    char c = s[i];
-    if (c == 'X') {
-      score += 10;
-      if (s[i + 2] == 'X') {
-        score += 10;
-      } else {
-        score += s[i + 2] - '0';
-      }
-      if (s[i + 3] == '/') {
-        score += 10;
-      } else {
-        score += s[i + 3] - '0';
-      }
-      i++;
-    } else if (c == '/') {
-      score += 10;
-      if (s[i + 1] == 'X') {
-        score += 10;
-      } else {
-        score += s[i + 1] - '0';
-      }
-      i++;
-    } else if (c == '-') {
-      i++;
-    } else {
-      score += c - '0';
-      i++;
-    }
-    if (i == len - 1) {
-      if (c == 'X') {
+int score(string s) {
+    int res = 0;
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'X') {
-          score += 10;
+            res += 10;
+            if (i + 2 < s.length() && s[i + 2] == 'X') res += 10;
+            else res += s[i + 2] - '0';
+            if (i + 2 < s.length() && s[i + 1] == '/') res += 10;
+            else res += s[i + 1] - '0';
+        } else if (s[i] == '/') {
+            res += 10;
+            res += s[i + 1] - '0';
         } else {
-          score += s[i] - '0';
+            res += s[i] - '0';
         }
-      } else if (c == '/') {
-        score += s[i] - '0';
-      }
     }
-    if (i == len) {
-      break;
-    }
-    roll++;
-    if (roll == 2) {
-      roll = 0;
-      frame++;
-    }
-  }
-  return score;
+    return res;
 }
-
 int main() {
-  string s = "532/4362X179-41447/5";
-  cout << getScore(s) << endl;
+    string input = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << score(input) << endl;
+    return 0;
 }
