@@ -32,29 +32,26 @@ input:
 100
 99
 output:
-0.5
+1.0
 input:
 1
 100
 output:
 0.0
 */
-/*Suppose Peter is rolling from N sides and Colin is rolling from M side;
-suppose N<=M
-now if peter rolls a number equal to colins no of sides then theres a 0% chance of winning,
-since colin can succesfully roll to every number from colin's range.
-
-then maximum possible probabilty for peter is 1-(1/M) since it will be maximum chance that P wins.
-i.e dropping the chance for colin to win completely.
-
-for Peter to win, atleast one of the sides in Peters Range must be greater than colin's side/sides; - this is intuitive as we find the probabilty for 
-acceptance condition.
-{greterThan=N-1}/{possibleValues = M}
-
-Maximum_Possible_Probabilty = 1 / M
-the Highest_Probabilty_for_strickly_higher {greaterThan = N-1} / possibleValues{=M}
-Max_Of(Highest_Probabilty_for_strickly_higher,1 / M)
-(N-1)/M
-here m!=n
-*/
 int main() {
+    int n, m;
+    cin >> n >> m;
+    double peter = 0;
+    double colin = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                peter++;
+            }
+            colin++;
+        }
+    }
+    cout << peter / colin << endl;
+    return 0;
+}
