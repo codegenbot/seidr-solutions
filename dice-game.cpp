@@ -49,6 +49,6 @@ int main() {
             }
         }
     }
-    printf("%.2f\n", cnt * 1.0 / (n * m));
+    printf("%.1f", cnt * 1.0 / (n * m));
     return 0;
 }
