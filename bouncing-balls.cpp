@@ -45,18 +45,16 @@ output:
 3.963
 */
 int main() {
-    double n1, n2, n3;
-    cin >> n1 >> n2 >> n3;
-    if (n2 <= 0 || n2 > n1) { cout << "Error" << endl; return 0; }
-    if (n3 <= 0) { cout << "Error" << endl; return 0; }
-    if (n1 - n2 <= 0) { cout << "Error" << endl; return 0; }
-    double bouncyIndex = n2 / n1;
-    double distance = n1 + n2;
-
-    for (int i = 2; i <= n3; i++) {
-        distance += (n1 - n2) * pow(bouncyIndex, i);
+    double A, B, C;
+    while (scanf("%lf %lf %lf", &A, &B, &C) == 3) {
+        double r = B / A;
+        double height = A;
+        double length = A;
+        for (int i = 0; i < C - 1; i++) {
+            height *= r;
+            length += height * 2;
+        }
+        cout << length << endl;
     }
-    printf("%.15f", distance);
-    // cout << distance;
     return 0;
 }
