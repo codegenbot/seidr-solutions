@@ -34,53 +34,50 @@ input:
 output:
 100
 */
-int getScore(string s) {
-    int score = 0;
-    int frame = 0;
+
+int score(string s) {
+    int res = 0;
     int i = 0;
-    while (frame < 10) {
+    int j = 0;
+    while (i < s.size()) {
         if (s[i] == 'X') {
-            score += 10;
-            if (s[i+2] == 'X') {
-                score += 10;
-            } else if (s[i+2] == '/') {
-                score += 10;
+            res += 10;
+            if (s[i+1] == 'X') {
+                res += 10;
+                if (s[i+2] == 'X') {
+                    res += 10;
+                } else {
+                    res += s[i+2] - '0';
+                }
+            } else if (s[i+1] == '/') {
+                res += 10;
             } else {
-                score += s[i+2] - '0';
-            }
-            if (s[i+3] == 'X') {
-                score += 10;
-            } else if (s[i+3] == '/') {
-                score += 10 - (s[i+1] - '0');
-            } else {
-                score += s[i+3] - '0';
+                res += s[i+1] - '0';
             }
             i++;
-        } else if (s[i+1] == '/') {
-            score += 10;
-            if (s[i+2] == 'X') {
-                score += 10;
+        } else if (s[i] == '/') {
+            res += 10;
+            if (s[i-1] == 'X') {
+                res += 10;
             } else {
-                score += s[i+2] - '0';
+                res += s[i-1] - '0';
             }
-            i += 2;
         } else {
-            score += s[i] - '0';
-            score += s[i+1] - '0';
-            i += 2;
+            res += s[i] - '0';
         }
-        frame++;
+        i++;
     }
-    return score;
+    return res;
 }
+
 int main() {
     string s = "XXXXXXXXXXXX";
-    cout << getScore(s) << endl;
+    cout << score(s) << endl;
     s = "5/5/5/5/5/5/5/5/5/5/5";
-    cout << getScore(s) << endl;
+    cout << score(s) << endl;
     s = "7115XXX548/279-X53";
-    cout << getScore(s) << endl;
+    cout << score(s) << endl;
     s = "532/4362X179-41447/5";
-    cout << getScore(s) << endl;
+    cout << score(s) << endl;
     return 0;
 }
