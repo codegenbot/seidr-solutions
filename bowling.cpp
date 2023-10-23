@@ -15,9 +15,8 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
-XXX53/---8--1
 output:
-123
+0
 input:
 XXXXXXXXXXXX
 output:
@@ -35,4 +34,48 @@ input:
 output:
 100
 */
+int score(string s) {
+    int res = 0;
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == 'X') {
+            res += 10;
+            if (s[i+1] == 'X') {
+                res += 10;
+                if (s[i+2] == 'X') {
+                    res += 10;
+                } else {
+                    res += s[i+2] - '0';
+                }
+            } else if (s[i+1] == '/') {
+                res += 10;
+            } else {
+                res += s[i+1] - '0';
+            }
+            i++;
+        } else if (s[i] == '/') {
+            res += 10;
+            if (s[i+1] == 'X') {
+                res += 10;
+            } else {
+                res += s[i+1] - '0';
+            }
+            i++;
+        } else {
+            res += s[i] - '0';
+        }
+        i++;
+    }
+    return res;
+}
 int main() {
+    string s = "XXXXXXXXXXXX";
+    cout << score(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << score(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << score(s) << endl;
+    s = "532/4362X179-41447/5";
+    cout << score(s) << endl;
+    return 0;
+}
