@@ -42,18 +42,6 @@ output:
 int main() {
     int n,m;
     cin>>n>>m;
-    if(n<=m){
-        cout<<"0.0"<<endl;
-        return 0;
-    }
-    if(n==m){
-        cout<<"0.5"<<endl;
-        return 0;
-    }
-    double a=1.0;
-    for(int i=1;i<=m;i++){
-        a*=((n-i+0.0)/n);
-    }
-    printf("%.2f\n",a);
+    printf("%.2f\n",(n-m)*0.5/n);
     return 0;
 }
