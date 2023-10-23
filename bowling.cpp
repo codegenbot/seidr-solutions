@@ -35,68 +35,92 @@ output:
 100
 */
 int main() {
-    string str;
-    cin >> str;
+    string s;
+    cin >> s;
     int score = 0;
-    int i = 0;
-    while (i < str.size()) {
-        if (str[i] == 'X') {
+    int frame = 0;
+    int bonus = 0;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == 'X') {
             score += 10;
-            if (i + 1 < str.size() && str[i + 1] == 'X') {
-                score += 10;
-                if (i + 2 < str.size()) {
-                    if (str[i + 2] == 'X') {
-                        score += 10;
-                    } else if (str[i + 2] == '/') {
-                        score += 10;
-                    } else {
-                        score += str[i + 2] - '0';
-                    }
-                }
-            } else if (i + 1 < str.size() && str[i + 1] == '/') {
-                score += 10;
-                if (i + 2 < str.size()) {
-                    if (str[i + 2] == 'X') {
-                        score += 10;
-                    } else if (str[i + 2] == '/') {
-                        score += 10;
-                    } else {
-                        score += str[i + 2] - '0';
-                    }
-                }
-            } else if (i + 1 < str.size()) {
-                score += str[i + 1] - '0';
-                if (i + 2 < str.size()) {
-                    if (str[i + 2] == 'X') {
-                        score += 10;
-                    } else if (str[i + 2] == '/') {
-                        score += 10;
-                    } else {
-                        score += str[i + 2] - '0';
-                    }
-                }
-            }
-            i++;
-        } else if (str[i] == '/') {
-            score += 10;
-            if (i - 1 >= 0) {
-                score -= str[i - 1] - '0';
-            }
-            if (i + 1 < str.size()) {
-                if (str[i + 1] == 'X') {
+            if(i + 1 < s.length()) {
+                if(s[i + 1] == 'X') {
                     score += 10;
-                } else if (str[i + 1] == '/') {
+                    if(i + 2 < s.length()) {
+                        if(s[i + 2] == 'X') {
+                            score += 10;
+                        } else {
+                            score += s[i + 2] - '0';
+                        }
+                    }
+                } else if(s[i + 1] == '/') {
                     score += 10;
                 } else {
-                    score += str[i + 1] - '0';
+                    score += s[i + 1] - '0';
                 }
             }
-            i++;
-        } else if (str[i] == '-') {
-            i++;
+            if(i + 2 < s.length()) {
+                if(s[i + 2] == '/') {
+                    score += 10;
+                } else if(s[i + 2] == 'X') {
+                    score += 10;
+                    if(i + 3 < s.length()) {
+                        if(s[i + 3] == 'X') {
+                            score += 10;
+                        } else {
+                            score += s[i + 3] - '0';
+                        }
+                    }
+                } else {
+                    score += s[i + 2] - '0';
+                }
+            }
+            frame++;
+        } else if(s[i] == '/') {
+            score += 10;
+            if(i + 1 < s.length()) {
+                if(s[i + 1] == 'X') {
+                    score += 10;
+                } else {
+                    score += s[i + 1] - '0';
+                }
+            }
+            frame++;
+        } else if(s[i] == '-') {
+            frame++;
         } else {
-            score += str[i] - '0';
-            i++;
+            score += s[i] - '0';
+            if(i + 1 < s.length()) {
+                if(s[i + 1] == '/') {
+                    score += 10 - (s[i] - '0');
+                    if(i + 2 < s.length()) {
+                        if(s[i + 2] == 'X') {
+                            score += 10;
+                        } else {
+                            score += s[i + 2] - '0';
+                        }
+                    }
+                    frame++;
+                } else if(s[i + 1] == 'X') {
+                    score += 10;
+                    if(i + 2 < s.length()) {
+                        if(s[i + 2] == 'X') {
+                            score += 10;
+                        } else {
+                            score += s[i + 2] - '0';
+                        }
+                    }
+                    frame++;
+                } else {
+                    score += s[i + 1] - '0';
+                    frame++;
+                }
+            } else {
+                frame++;
+            }
+        }
+        if(frame == 10) {
+            break;
         }
     }
     cout << score << endl;
