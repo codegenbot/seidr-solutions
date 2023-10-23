@@ -45,6 +45,15 @@ output:
 3.963
 */
 int main() {
-    
+    float startingHeight, firstBounceHeight;
+    int bounces;
+    while (cin >> startingHeight >> firstBounceHeight >> bounces) {
+        float bouncinessIndex = firstBounceHeight / startingHeight;
+        float height = startingHeight;
+        for (int i = 0; i < bounces; i++) {
+            height *= bouncinessIndex;
+        }
+        printf("%.3f\n", height);
+    }
     return 0;
 }
