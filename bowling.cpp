@@ -1,7 +1,15 @@
+#include <vector>
 #include <iostream>
 #include <string>
+#include <cstring>
+#include <queue>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
-
 /*
 Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
 For example,
@@ -26,76 +34,39 @@ input:
 output:
 100
 */
-int main()
-{
-	string s;
-	int sum = 0, x = 10;
-	while (cin >> s) {
-		int len = s.length(), i = 0, j = 0, k = 0;
-		for (; i < len; i++) {
-			if (s[i] == '-') {
-				sum += x;
-				j = 0;
-				if (--x == 0) {
-					break;
-				}
-			}
-			else if (s[i] == 'X') {
-				sum += x + 10;
-				j = 0;
-				if (--x == 0) {
-					break;
-				}
-				if (i + 2 < len) {
-					if (s[i + 1] == 'X') {
-						sum += 10;
-						if (s[i + 2] == 'X') {
-							sum += 10;
-						}
-						else {
-							sum += s[i + 2] - '0';
-						}
-					}
-					else if (s[i + 1] == '/') {
-						sum += 10;
-					}
-					else {
-						sum += s[i + 1] - '0';
-						if (i + 2 < len && s[i + 2] == '/') {
-							sum += s[i + 1] - '0';
-						}
-					}
-				}
-			}
-			else if (s[i] == '/') {
-				sum += x;
-				j = 0;
-				if (--x == 0) {
-					break;
-				}
-				if (i + 1 < len) {
-					if (s[i + 1] == 'X') {
-						sum += 10;
-					}
-					else {
-						sum += s[i + 1] - '0';
-					}
-				}
-			}
-			else {
-				j += s[i] - '0';
-				if (j == 10) {
-					sum += x;
-					j = 0;
-					if (--x == 0) {
-						break;
-					}
-				}
-			}
-		}
-		cout << sum << endl;
-		sum = 0;
-		x = 10;
-	}
-	return 0;
+int main() {
+    string input;
+    cin >> input;
+    stack<int> sta;
+    int res = 0, sum = 0;
+    for (int i = 0; i < input.length(); ++ i) {
+        if (input[i] == 'X') {
+            if (sta.size() >= 2) {
+                int a = sta.top();
+                sta.pop();
+                int b = sta.top();
+                sta.pop();
+                res += a * 2 + b;
+            }
+            res += 10;
+            sum = res;
+        } else if (input[i] == '/') {
+            if (sta.size() >= 1) {
+                int a = sta.top();
+                res += 10 - a;
+                sta.pop();
+            }
+            res += 10;
+            sum = res;
+        } else if (input[i] == '-') {
+            res += 0;
+            sum = res;
+        } else {
+            int a = input[i] - '0';
+            sum += a;
+            res += a;
+            sta.push(a);
+        }
+    }
+    cout << res;
 }
