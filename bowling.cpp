@@ -34,42 +34,32 @@ input:
 output:
 100
 */
-
-int bowling_score(string s) {
-    int res = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            res += 10;
-            if (s[i + 1] == 'X') {
-                res += 20;
-            } else {
-                res += s[i + 1] - '0';
-            }
-            if (s[i + 2] == 'X') {
-                res += 10;
-            } else {
-                res += s[i + 2] - '0';
-            }
-        } else if (s[i] == '/') {
-            res += 10;
-            if (s[i + 1] == 'X') {
-                res += 10;
-            } else {
-                res += s[i + 1] - '0';
-            }
-        } else if (s[i] == '-') {
-            res += 0;
-        } else {
-            res += s[i] - '0';
-        }
-    }
-    return res;
+int score(const string &str) {
+	int score = 0;
+	for (int i = 0; i < str.size(); i++) {
+		if (str[i] == '/') {
+			score += 10 - (str[i - 1] - '0');
+		}
+		else if (str[i] == 'X') {
+			score += 10;
+			if (str[i + 1] == '/') {
+				score += 10 - (str[i + 2] - '0');
+			}
+			else if (str[i + 1] != '-') {
+				score += str[i + 1] - '0';
+			}
+		}
+		else if (str[i] != '-') {
+			score += str[i] - '0';
+		}
+	}
+	return score;
 }
 
 int main() {
-    cout << bowling_score("XXXXXXXXXXXX") << endl;
-    cout << bowling_score("5/5/5/5/5/5/5/5/5/5/5") << endl;
-    cout << bowling_score("7115XXX548/279-X53") << endl;
-    cout << bowling_score("532/4362X179-41447/5") << endl;
-    return 0;
+	string str;
+	while (cin >> str) {
+		cout << score(str) << endl;
+	}
+	return 0;
 }
