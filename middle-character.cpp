@@ -34,21 +34,14 @@ input:
 output:
 )b
 */
-string mid(string str) {
-	int n = str.length();
-	if (n % 2 == 0) {
-		int div = n / 2;
-		return str.substr(div - 1, 2);
-	} else {
-		int div = n / 2 + 1;
-		return str.substr(div - 1, 1);
-	}
-	return 0;
-}
-
 int main() {
-	string str;
-	cin >> str;
-	cout << mid(str) << endl;
-	return 0;
+    string str;
+    while (getline(cin, str)) {
+        int n = str.size();
+        if (n % 2 == 0)
+            cout<<str[n/2-1]<<str[n/2]<<endl;
+        else
+            cout<<str[n/2]<<endl;
+    }
+    return 0;
 }
