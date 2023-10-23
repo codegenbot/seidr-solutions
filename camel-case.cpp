@@ -33,6 +33,10 @@ input:
 all separate words
 output:
 all separate words
+input:
+- - - - - -
+output:
+- - - - - -
 */
 int main() {
     string s;
@@ -54,7 +58,19 @@ int main() {
         }
     }
     v.push_back(word);
-    for(int i = 0; i < v.size(); i++) {}
+    for(int i = 0; i < v.size(); i++) {
+        if(v[i].size() == 1) {
+            if(i == 0) {
+                v[i+1][0] = toupper(v[i+1][0]);
+            } else {
+                v[i+1][0] = toupper(v[i+1][0]);
+                if(i-2 >= 0) {
+                    v[i-2] += v[i+1];
+                    v[i+1] = "";
+                }
+            }
+        }
+    }
     for(int i = 0; i < v.size(); i++) {
         if(v[i].size() > 0) {
             cout << v[i];
