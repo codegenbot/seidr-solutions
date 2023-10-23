@@ -37,8 +37,10 @@ output:
 int score(string s) {
     int sum = 0;
     int i = 0;
+    int strike = 0;
     while (i < s.length()) {
         if (s[i] == 'X') {
+            strike++;
             sum += 10;
             if (i + 2 < s.length()) {
                 if (s[i + 2] == 'X') {
@@ -60,6 +62,7 @@ int score(string s) {
             }
             i++;
         } else if (s[i] == '/') {
+            strike = 0;
             sum += 10 - (s[i - 1] - '0');
             if (i + 1 < s.length()) {
                 if (s[i + 1] == 'X') {
@@ -72,12 +75,19 @@ int score(string s) {
             }
             i++;
         } else if (s[i] == '-') {
+            strike = 0;
             i++;
         } else {
+            strike = 0;
             sum += s[i] - '0';
             i++;
         }
+        if (strike == 12) {
+            sum = 300;
+            break;
+        }
     }
+
     return sum;
 }
 int main() {
