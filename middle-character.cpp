@@ -34,13 +34,8 @@ input:
 output:
 )b
 */
-int main() {
-    string s;
-    cin >> s;
-    if(s.length() % 2) {
-        cout << s.substr(s.length()/2, 1) << endl;
-    } else {
-        cout << s.substr(s.length()/2 - 1, 2) << endl;
-    }
-    return 0;
+string middle(string str){
+    if(str.size() % 2 == 0) return str.substr(str.size() / 2 - 1, 2);
+    else return str.substr(str.size() / 2, 1);
 }
+int main() {
