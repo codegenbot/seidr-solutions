@@ -40,20 +40,15 @@ output:
 0.0
 */
 int main() {
-    int n, m;
+    int n, m, cnt = 0;
     cin >> n >> m;
-    if (n == 1) {
-        cout << 0.0 << endl;
-        return 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                cnt++;
+            }
+        }
     }
-    if (m == 1) {
-        cout << 1.0 << endl;
-        return 0;
-    }
-    double res = 0.0;
-    for (int i = 1; i < n; i++) {
-        res += (double)i / n;
-    }
-    cout << res << endl;
+    printf("%.1f\n", cnt * 1.0 / (n * m));
     return 0;
 }
