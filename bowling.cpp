@@ -34,34 +34,70 @@ input:
 output:
 100
 */
-int main() {
-    string str;
-    cin>>str;
-    int num[15];
-    int len = str.size();
-    int sum = 0;
-    for (int i = 0; i < len; i++) {
-        if (str[i] == 'X') {
-            num[i] = 10;
-        }else if (str[i] == '/'){
-            num[i] = 10 - num[i-1];
-        }else if (str[i] == '-'){
-            num[i] = 0;
-        }else{
-            num[i] = str[i] - '0';
+int cal(string &s) {
+    int i = 0, res = 0;
+    while (i < s.size()) {
+        if (s[i] == '-') {
+            i++;
+            continue;
         }
-    }
-    for (int i = 0; i < len; i++) {
-        if (num[i] == 10) {
-            if (num[i+1] == 10) {
-                sum += 10 + 10 + num[i+2];
-            }else{
-                sum += 10 + num[i+1] + num[i+2];
+        if (s[i] == 'X') {
+            res += 10;
+            if (i + 1 < s.size() && s[i + 1] == 'X') {
+                res += 10;
+                if (i + 2 < s.size() && s[i + 2] == 'X') {
+                    res += 10;
+                } else if (i + 2 < s.size() && s[i + 2] == '/') {
+                    res += 10;
+                } else {
+                    res += s[i + 2] - '0';
+                }
+            } else if (i + 1 < s.size() && s[i + 1] == '/') {
+                res += 10;
+                if (i + 2 < s.size() && s[i + 2] == 'X') {
+                    res += 10;
+                } else {
+                    res += s[i + 2] - '0';
+                }
+            } else {
+                res += s[i + 1] - '0';
+                if (i + 2 < s.size() && s[i + 2] == '/') {
+                    res += 10 - (s[i + 1] - '0');
+                } else {
+                    res += s[i + 2] - '0';
+                }
             }
-        }else{
-            sum += num[i];
+            i++;
+        } else if (s[i] == '/') {
+            res += 10;
+            if (i + 1 < s.size() && s[i + 1] == 'X') {
+                res += 10;
+            } else {
+                res += s[i + 1] - '0';
+            }
+            i++;
+        } else {
+            res += s[i] - '0';
+            if (i + 1 < s.size() && s[i + 1] == '/') {
+                res += 10 - (s[i] - '0');
+                i++;
+            } else {
+                if (i + 2 < s.size() && s[i + 2] == '/') {
+                    res += s[i + 1] - '0';
+                    i += 2;
+                } else {
+                    res += s[i + 1] - '0';
+                    i++;
+                }
+            }
         }
     }
-    cout<<sum<<endl;
+    return res;
+}
+int main() {
+    string s;
+    while (cin >> s) {
+        cout << cal(s) << endl;
+    }
     return 0;
 }
