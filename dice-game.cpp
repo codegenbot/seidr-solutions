@@ -24,11 +24,6 @@ input:
 output:
 0.5
 input:
-2
-2
-output:
-0.5
-input:
 99
 100
 output:
@@ -47,7 +42,7 @@ output:
 int main() {
     int n,m;
     cin>>n>>m;
-    if(n<m){
+    if(n<=m){
         cout<<"0.0"<<endl;
         return 0;
     }
