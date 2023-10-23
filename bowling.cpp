@@ -34,26 +34,39 @@ input:
 output:
 100
 */
+
+
+int bowling(string s) {
+    int n = s.size();
+    int ans = 0;
+    for(int i = 0;i < n;i++){
+        if(s[i] == 'X'){
+            ans += 10;
+            if(s[i+2] == 'X'){
+                ans += 10;
+            } else {
+                ans += s[i+2] - '0';
+            }
+            if(s[i+1] == 'X'){
+                ans += 10;
+            } else if(s[i+1] == '/'){
+                ans += 10 - (s[i] - '0');
+            } else {
+                ans += s[i+1] - '0';
+            }
+        } else if(s[i] == '/'){
+            ans += 10;
+            ans += s[i+1] - '0';
+            ans -= (s[i-1] - '0');
+        } else {
+            ans += s[i] - '0';
+        }
+    }
+    return ans;
+}
 int main() {
-	string s;
-	cin >> s;
-	int res = 0, score = 0;
-	for (int i = 0; i < s.size(); ++i) {
-		if (s[i] == '-') continue;
-		if (s[i] == 'X') score = 10;
-		else if (s[i] == '/') score = 10 - (s[i - 1] - '0');
-		else score = s[i] - '0';
-		if (s[i] == 'X' || s[i] == '/') {
-			if (s[i + 1] == 'X') {
-				if (s[i + 2] == 'X') score += 20;
-				else score += 10 + (s[i + 2] - '0');
-			}
-			else if (s[i + 1] == '/') score += 10;
-			else score += s[i + 1] - '0';
-		}
-		res += score;
-	}
-	cout << res << endl;
-	system("pause");
-	return 0;
+    string s = "XXXXXXXXXXXX";
+    int a = bowling(s);
+    cout << a << endl;
+    return 0;
 }
