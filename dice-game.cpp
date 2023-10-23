@@ -32,7 +32,7 @@ input:
 100
 99
 output:
-0.5
+1.0
 input:
 1
 100
@@ -46,12 +46,12 @@ int main() {
     double colin = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
-            if (i > j) {
+            if (i >= j) {
                 peter++;
             }
             colin++;
         }
     }
-    printf("%.2f\n", peter / colin);
+    cout << peter / colin << endl;
     return 0;
 }
