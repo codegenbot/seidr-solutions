@@ -42,17 +42,7 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
-        double ans = 0;
-        if (n < m) {
-            for (int i = 0; i < n; i++) {
-                ans += (m - i) / (double)(n * m);
-            }
-        }
-        double ans = 0;
-        for (int i = 0; i < n; i++) {
-            ans += (m - i) / (double)(n * m);
-        }
-        printf("%.2f\n", ans);
+        printf("%.2f\n", n > m ? 0.0 : (m - n + 1) / (double)(n * m));
     }
     return 0;
 }
