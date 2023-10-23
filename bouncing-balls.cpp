@@ -45,14 +45,18 @@ output:
 3.963
 */
 int main() {
-    double h, h1, n;
-    while (cin >> h >> h1 >> n) {
-        double bounciness = h1 / h;
-        double sum = h;
-        for (int i = 1; i < n; i++) {
-            sum += h * pow(bounciness, i);
-        }
-        printf("%.3f\n", sum);
+    double n1, n2, n3;
+    cin >> n1 >> n2 >> n3;
+    if (n2 <= 0 || n2 > n1) { cout << "Error" << endl; return 0; }
+    if (n3 <= 0) { cout << "Error" << endl; return 0; }
+    if (n1 - n2 <= 0) { cout << "Error" << endl; return 0; }
+    double bouncyIndex = n2 / n1;
+    double distance = n1 + n2;
+
+    for (int i = 2; i <= n3; i++) {
+        distance += (n1 - n2) * pow(bouncyIndex, i);
     }
+    printf("%.15f", distance);
+    // cout << distance;
     return 0;
 }
