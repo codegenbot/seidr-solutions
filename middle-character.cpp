@@ -34,19 +34,13 @@ input:
 output:
 )b
 */
-string mid(string s) {
-	int len = s.length();
-	if (len % 2 == 0) {
-		return s.substr(len / 2 - 1, 2);
-	} else {
-		return s.substr(len / 2, 1);
-	}
-}
 int main() {
-	cout << mid(Q) << endl;
-	cout << mid(Q) << endl;
-	cout << mid(Q) << endl;
-	cout << mid(Q) << endl;
-	cout << mid(Q) << endl;
+	string str = "Q";
+	int len = str.length();
+	if (len % 2 == 0) {
+		cout << str.substr(len / 2 - 1, 2) << endl;
+	} else {
+		cout << str.substr(len / 2, 1) << endl;
+	}
 	return 0;
 }
