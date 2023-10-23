@@ -34,57 +34,34 @@ input:
 output:
 100
 */
-
-int score(string s) {
-  int result = 0;
-  int len = s.size();
-  int index = 0;
-  int frame = 0;
-  while (index < len) {
-    if (s[index] == 'X') {
-      result += 10;
-      if (s[index + 1] == 'X') {
-        result += 10;
-        if (s[index + 2] == 'X') {
-          result += 10;
-        } else {
-          result += s[index + 2] - '0';
-        }
-      } else {
-        if (s[index + 2] == '/') {
-          result += 10;
-        } else {
-          result += s[index + 1] - '0';
-          result += s[index + 2] - '0';
-        }
-      }
-      index++;
-    } else if (s[index] == '-') {
-    } else if (s[index + 1] == '/') {
-      result += s[index] - '0';
-      result += 10 - s[index] + '0';
-      if (s[index + 2] == 'X') {
-        result += 10;
-      } else {
-        result += s[index + 2] - '0';
-      }
-      index += 2;
-    } else {
-      result += s[index] - '0';
-      result += s[index + 1] - '0';
-      index += 2;
-    }
-    frame++;
-    if (frame == 10) {
-      break;
-    }
-  }
-  return result;
-}
-
 int main() {
-  string s;
-  while (cin >> s) {
-    cout << score(s) << endl;
-  }
+    string str;
+    cin>>str;
+    int num[15];
+    int len = str.size();
+    int sum = 0;
+    for (int i = 0; i < len; i++) {
+        if (str[i] == 'X') {
+            num[i] = 10;
+        }else if (str[i] == '/'){
+            num[i] = 10 - num[i-1];
+        }else if (str[i] == '-'){
+            num[i] = 0;
+        }else{
+            num[i] = str[i] - '0';
+        }
+    }
+    for (int i = 0; i < len; i++) {
+        if (num[i] == 10) {
+            if (num[i+1] == 10) {
+                sum += 10 + 10 + num[i+2];
+            }else{
+                sum += 10 + num[i+1] + num[i+2];
+            }
+        }else{
+            sum += num[i];
+        }
+    }
+    cout<<sum<<endl;
+    return 0;
 }
