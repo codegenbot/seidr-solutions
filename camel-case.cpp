@@ -37,9 +37,9 @@ all separate words
 int main() {
     string s;
     getline(cin, s);
-    bool first = true;
+    bool first = false;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
+        if (s[i] == ' ') {
             first = true;
             s[i] = ' ';
         } else if (first) {
