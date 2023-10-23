@@ -11,38 +11,46 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
 For example,
 input:
-this is test string
+
 output:
-this is tset strign
+
+input:
+a
+output:
+a
+input:
+this is a test
+output:
+this is a test
+input:
+this is another test
+output:
+this is rehtona test
+input:
+hi
+output:
+hi
 */
 int main() {
     string s;
-    string res;
     getline(cin, s);
-    int n = s.size();
-    int start = 0;
-    for (int i = 0; i < n; i++) {
-        if (s[i] == ' ') {
-            if (i - start >= 5) {
-                for (int j = i - 1; j >= start; j--) {
-                    res += s[j];
-                }
-            } else {
-                res += s.substr(start, i - start);
+    string res;
+    int i = 0, j = 0;
+    while (i < s.size()) {
+        while (i < s.size() && s[i] == ' ') i++;
+        j = i;
+        while (j < s.size() && s[j] != ' ') j++;
+        if (j - i >= 5) {
+            for (int k = j - 1; k >= i; k--) {
+                res.push_back(s[k]);
             }
-            res += ' ';
-            start = i + 1;
+        } else {
+            res += s.substr(i, j - i);
         }
-    }
-    if (n - start >= 5) {
-        for (int j = n - 1; j >= start; j--) {
-            res += s[j];
-        }
-    } else {
-        res += s.substr(start, n - start);
+        i = j;
     }
     cout << res << endl;
     return 0;
