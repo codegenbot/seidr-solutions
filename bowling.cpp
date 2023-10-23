@@ -10,30 +10,40 @@
 #include <stack>
 #include <climits>
 using namespace std;
-/*
-Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, return the score of that round.
-For example,
-input:
---------------------
-output:
-0
-input:
-XXXXXXXXXXXX
-output:
-300
-input:
-5/5/5/5/5/5/5/5/5/5/5
-output:
-150
-input:
-7115XXX548/279-X53
-output:
-145
-input:
-532/4362X179-41447/5
-output:
-100
-*/
+
 int main() {
-    
+    string input;
+    while (cin >> input) {
+        int total = 0;
+        int i = 0;
+        while (i < input.size()) {
+            if (input[i] == 'X') {
+                total += 10;
+                if (i + 1 < input.size()) {
+                    if (input[i + 1] == 'X') {
+                        total += 10;
+                        if (i + 2 < input.size()) {
+                            if (input[i + 2] == 'X') {
+                                total += 10;
+                            } else {
+                                total += input[i + 2] - '0';
+                            }
+                        }
+                    } else if (input[i + 1] == '/') {
+                        total += 10;
+                    } else {
+                        total += input[i + 1] - '0';
+                    }
+                }
+            } else if (input[i] == '/') {
+                total += 10;
+                total += input[i + 1] - '0';
+            } else {
+                total += input[i] - '0';
+            }
+            i++;
+        }
+        cout << total << endl;
+    }
+    return 0;
 }
