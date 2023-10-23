@@ -34,28 +34,19 @@ input:
 output:
 0.5
 input:
-2
+1
 100
 output:
 0.0
 */
 int main() {
     int n, m;
-    cin >> n >> m;
-    double p = 0;
-    if (n >= m) {
-        p = 0.5;
-    } else if (n > m) {
-        p = 1;
-    } else {
-        double q = 1;
-        double s = (double)n / (double)m;
+    while (cin >> n >> m) {
+        double ans = 0;
         for (int i = 0; i < n; i++) {
-            q *= s;
-            s = (double)(n - i - 1) / (double)(m - i - 1);
+            ans += (m - i) / (double)(n * m);
         }
-        p = 1 - q;
+        printf("%.2f\n", ans);
     }
-    printf("%.2lf\n", p);
     return 0;
 }
