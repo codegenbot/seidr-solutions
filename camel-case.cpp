@@ -1,13 +1,4 @@
-#include <list>
-#include <map>
-#include <set>
-#include <queue>
-#include <climits>
-#include <stack>
-#include <algorithm>
-
-using namespace std;
-/*
+#include <vector>
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -42,6 +33,10 @@ input:
 all separate words
 output:
 all separate words
+input:
+foo-bar
+output:
+fooBar
 */
 int main() {
     string s;
