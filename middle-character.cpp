@@ -35,12 +35,12 @@ output:
 )b
 */
 int main() {
-    string s = "Q";
-    int len = s.length();
-    if(len % 2) {
-        cout << s[len / 2];
+    string s;
+    cin >> s;
+    if (s.size() % 2 == 1) {
+        cout << s[s.size() / 2] << endl;
     } else {
-        cout << s[len / 2 - 1] << s[len / 2];
+        cout << s[s.size() / 2 - 1] << s[s.size() / 2] << endl;
     }
     return 0;
 }
