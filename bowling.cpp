@@ -34,47 +34,53 @@ input:
 output:
 100
 */
-int getScore(string s) {
-    int score = 0;
-    int frame = 0;
+int score(string s) {
+    int sum = 0;
     int i = 0;
-    while (frame < 10) {
+    while (i < s.size()) {
         if (s[i] == 'X') {
-            score += 10;
-            if (s[i+2] == 'X') {
-                score += 10;
-                if (s[i+4] == 'X') {
-                    score += 10;
+            sum += 10;
+            if (i + 1 < s.size()) {
+                if (s[i + 1] == 'X') {
+                    sum += 10;
+                    if (i + 2 < s.size()) {
+                        if (s[i + 2] == 'X') {
+                            sum += 10;
+                        } else {
+                            sum += s[i + 2] - '0';
+                        }
+                    }
+                } else if (s[i + 1] == '/') {
+                    sum += 10;
+                    if (i + 2 < s.size()) {
+                        sum += s[i + 2] - '0';
+                    }
                 } else {
-                    score += s[i+4] - '0';
+                    sum += s[i + 1] - '0';
                 }
-            } else if (s[i+3] == '/') {
-                score += 10;
-            } else {
-                score += s[i+2] - '0';
-                score += s[i+3] - '0';
             }
             i++;
-        } else if (s[i+1] == '/') {
-            score += 10;
-            if (s[i+2] == 'X') {
-                score += 10;
-            } else {
-                score += s[i+2] - '0';
+        } else if (s[i] == '/') {
+            sum += 10;
+            if (i - 1 >= 0) {
+                sum -= s[i - 1] - '0';
             }
-            i += 2;
+            if (i + 1 < s.size()) {
+                sum += s[i + 1] - '0';
+            }
+            i++;
+        } else if (s[i] == '-') {
+            i++;
         } else {
-            score += s[i] - '0';
-            score += s[i+1] - '0';
-            i += 2;
+            sum += s[i] - '0';
+            i++;
         }
-        frame++;
     }
-    return score;
+    return sum;
 }
 int main() {
     string s;
     cin >> s;
-    cout << getScore(s) << endl;
+    cout << score(s) << endl;
     return 0;
 }
