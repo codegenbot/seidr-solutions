@@ -34,6 +34,21 @@ input:
 output:
 )b
 */
-int main() {
+string mid(string str) {
+	int n = str.length();
+	if (n % 2 == 0) {
+		int div = n / 2;
+		return str.substr(div - 1, 2);
+	} else {
+		int div = n / 2 + 1;
+		return str.substr(div - 1, 1);
+	}
+	return 0;
+}
 
+int main() {
+	string str;
+	cin >> str;
+	cout << mid(str) << endl;
+	return 0;
 }
