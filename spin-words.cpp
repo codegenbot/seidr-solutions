@@ -1,12 +1,12 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <cstring>
 #include <queue>
 #include <stdio.h>
 #include <math.h>
 #include <map>
-#include <algorithm>
 #include <set>
 #include <stack>
 #include <climits>
