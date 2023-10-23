@@ -34,57 +34,49 @@ input:
 output:
 100
 */
-int getScore(string input) {
-    int score = 0;
-    int frame = 0;
-    int frameScore = 0;
-    int strike = 0;
-    int spare = 0;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') {
-            score += 10;
-            frameScore = 10;
-            strike = 1;
-            spare = 0;
-        } else if (input[i] == '/') {
-            score += 10 - frameScore;
-            frameScore = 10 - frameScore;
-            spare = 1;
-            strike = 0;
-        } else if (input[i] == '-') {
-            frameScore = 0;
-            spare = 0;
-            strike = 0;
-        } else {
-            score += input[i] - '0';
-            frameScore = input[i] - '0';
-            spare = 0;
-            strike = 0;
-        }
-        frame++;
-        if (frame == 2) {
-            if (strike == 1) {
-                if (input[i] == 'X') {
-                    score += 10;
-                } else if (input[i] == '/') {
-                    score += 10 - (input[i - 1] - '0');
-                } else {
-                    score += input[i] - '0';
-                }
-            } else if (spare == 1) {
-                score += input[i] - '0';
-            }
-            frame = 0;
-            strike = 0;
-            spare = 0;
-        }
-    }
-    return score;
-}
 int main() {
-    string input;
-    while (cin >> input) {
-        cout << getScore(input) << endl;
+    string s;
+    cin >> s;
+    int score = 0;
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
+            } else {
+                score += s[i+2] - '0';
+            }
+            if (s[i+3] == '/') {
+                score += 10;
+            } else {
+                score += s[i+3] - '0';
+            }
+            i++;
+        } else if (s[i] == '/') {
+            score += 10;
+            if (s[i+1] == 'X') {
+                score += 10;
+            } else {
+                score += s[i+1] - '0';
+            }
+            i++;
+        } else {
+            score += s[i] - '0';
+            if (s[i+1] == '/') {
+                score += 10;
+                if (s[i+2] == 'X') {
+                    score += 10;
+                } else {
+                    score += s[i+2] - '0';
+                }
+                i += 2;
+            } else {
+                score += s[i+1] - '0';
+                i += 2;
+            }
+        }
     }
+    cout << score << endl;
     return 0;
 }
