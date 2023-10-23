@@ -35,23 +35,22 @@ output:
 all separate words
 */
 int main() {
-    string line;
-    getline(cin, line);
-    cout << "input: " << line << endl;
+    string line = "camel-case example-te";
     string res = "";
-    bool is_first = true;
+    bool is_first = true, is_space = false;
     for (int i = 0; i < line.length(); i++) {
+        if (line[i] == ' ') is_space = true;
         if (line[i] == '-') {
             is_first = true;
             continue;
         }
-        if (is_first) {
+        if (is_first && ! is_space) {
             res += toupper(line[i]);
             is_first = false;
         } else {
             res += line[i];
         }
     }
-    cout << "output: " << res << endl;
+    cout << res << endl;
     return 0;
 }
