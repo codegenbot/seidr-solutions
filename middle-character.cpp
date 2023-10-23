@@ -18,9 +18,9 @@ Q
 output:
 Q
 input:
- 
+WeTwin
 output:
- 
+We
 input:
 $
 output:
@@ -36,12 +36,9 @@ output:
 */
 int main() {
     string s;
-    cin >> s;
-    int n = s.length();
-    if (n&1) {
-        cout << s[n/2];
-    } else {
-        cout << s[n/2-1] << s[n/2];
+    while (cin >> s) {
+        int l = s.size();
+        if (l % 2) cout << s[l / 2] << endl;
+        else cout << s.substr(l / 2 - 1, 2) << endl;
     }
-    return 0;
 }
