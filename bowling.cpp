@@ -34,7 +34,6 @@ input:
 output:
 100
 */
-
 int getScore(string s) {
     int score = 0;
     int frame = 0;
@@ -44,11 +43,15 @@ int getScore(string s) {
             score += 10;
             if (s[i+2] == 'X') {
                 score += 10;
+            } else if (s[i+2] == '/') {
+                score += 10;
             } else {
                 score += s[i+2] - '0';
             }
-            if (s[i+3] == '/') {
+            if (s[i+3] == 'X') {
                 score += 10;
+            } else if (s[i+3] == '/') {
+                score += 10 - (s[i+1] - '0');
             } else {
                 score += s[i+3] - '0';
             }
@@ -70,10 +73,14 @@ int getScore(string s) {
     }
     return score;
 }
-
 int main() {
-    string s;
-    cin >> s;
+    string s = "XXXXXXXXXXXX";
+    cout << getScore(s) << endl;
+    s = "5/5/5/5/5/5/5/5/5/5/5";
+    cout << getScore(s) << endl;
+    s = "7115XXX548/279-X53";
+    cout << getScore(s) << endl;
+    s = "532/4362X179-41447/5";
     cout << getScore(s) << endl;
     return 0;
 }
