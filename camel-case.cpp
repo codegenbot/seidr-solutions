@@ -10,16 +10,6 @@
 #include <stack>
 #include <climits>
 using namespace std;
-
-void run(char in[]) {
-  char* pch = strtok(in, "- ");
-  while (pch != NULL) {
-    string str(pch);
-    // cout << str << endl;
-    pch = strtok(NULL, "- ");
-  }
-}
-
 /*
 Take a string in kebab-case and convert all of the words to camelCase. Each group of words to convert is delimited by "-", and each grouping is separated by a space. For example: "camel-case example-test-string"-> "camelCase exampleTestString".
 For example,
@@ -40,10 +30,35 @@ two words
 output:
 two words
 input:
+--
+output:
+
+input:
 all separate words
 output:
 all separate words
 */
 int main() {
-
+  string line;
+  while (getline(cin, line)) {
+    string res = "";
+    bool isFirst = true;
+    for (int i = 0; i < line.size(); ++i) {
+      if (line[i] == '-') {
+        isFirst = true;
+        res += " ";
+      } else if (line[i] == ' ') {
+        continue;
+      } else {
+        if (isFirst) {
+          res += toupper(line[i]);
+          isFirst = false;
+        } else {
+          res += tolower(line[i]);
+        }
+      }
+    }
+    cout << res << endl;
+  }
+  return 0;
 }
