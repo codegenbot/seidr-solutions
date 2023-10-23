@@ -15,7 +15,6 @@ Given a string representing the individual bowls in a 10-frame round of 10 pin b
 For example,
 input:
 --------------------
--
 output:
 0
 input:
@@ -35,146 +34,50 @@ input:
 output:
 100
 */
-void test(string s,int & score){
-    int frame = 0,roll = 0;
-    if(s.size() != 20){
-        cout << "222222" << endl;
-        return;
-    }
-    for(int i = 0;i < s.size();i += 2){
-        if(frame >= 10){
-            cout << "3333" << endl;
-            return;
+
+int score(string in){
+    int sum = 0, t = 0;
+    int flag = 0;
+    for (int i = 0; i < in.size(); i++){
+        if (in[i] == 'X'){
+            if (flag == 1)
+                sum += t;
+            sum += 10;
+            if (i < in.size() - 1 && in[i + 1] == 'X'){
+                if (i < in.size() - 2 && in[i + 2] == 'X')
+                    sum += 10;
+                else
+                    sum += int(in[i + 2] - '0');
+            }
+            else if (i < in.size() - 1 && in[i + 1] == '/'){
+                sum += int(in[i + 2] - '0');
+            }
+            flag = 0;
+            t = 0;
         }
-        roll++;
-        if(s[i] == 'X'){
-            score += 10;
-            if(i + 2 < s.size()){
-                if(s[i + 2] == 'X'){
-                    score += 10;
-                    if(i + 4 < s.size()){
-                        if(s[i + 4] == 'X'){
-                            score += 10;
-                        }else if(s[i + 4] == '/'){
-                            score += 10;
-                        }else if(s[i + 4] == '-'){
-                        }else{
-                            score += s[i + 4] - '0';
-                        }
-                    }
-                }else if(s[i + 2] == '/'){
-                    score += 10;
-                    if(i + 4 < s.size() && s[i + 4] == 'X'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '/'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '-'){
-                    }else if(i + 4 < s.size()){
-                        score += s[i + 4] - '0';
-                    }
-                }else if(s[i + 2] == '-'){
-                    if(i + 4 < s.size() && s[i + 4] == 'X'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '/'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '-'){
-                    }else if(i + 4 < s.size()){
-                        score += s[i + 4] - '0';
-                    }
-                }else{
-                    score += s[i + 2] - '0';
-                }
-            }
-            frame++;
-        }else if(s[i] == '/'){
-            score += 10;
-            if(i + 2 < s.size()){
-                if(s[i + 2] == 'X'){
-                    score += 10;
-                    if(i + 4 < s.size()){
-                        if(s[i + 4] == 'X'){
-                            score += 10;
-                        }else if(s[i + 4] == '/'){
-                            score += 10;
-                        }else if(s[i + 4] == '-'){
-                        }else{
-                            score += s[i + 4] - '0';
-                        }
-                    }
-                }else if(s[i + 2] == '/'){
-                    score += 10;
-                    if(i + 4 < s.size() && s[i + 4] == 'X'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '/'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '-'){
-                    }else if(i + 4 < s.size()){
-                        score += s[i + 4] - '0';
-                    }
-                }else if(s[i + 2] == '-'){
-                    if(i + 4 < s.size() && s[i + 4] == 'X'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '/'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '-'){
-                    }else if(i + 4 < s.size()){
-                        score += s[i + 4] - '0';
-                    }
-                }else{
-                    score += s[i + 2] - '0';
-                }
-            }
-            score += s[i - 1] - '0';
-            frame++;
-        }else if(s[i] == '-'){
-            frame++;
-        }else{
-            score += s[i] - '0';
-            if(i + 2 < s.size()){
-                if(s[i + 2] == 'X'){
-                    score += 10;
-                    if(i + 4 < s.size()){
-                        if(s[i + 4] == 'X'){
-                            score += 10;
-                        }else if(s[i + 4] == '/'){
-                            score += 10;
-                        }else if(s[i + 4] == '-'){
-                        }else{
-                            score += s[i + 4] - '0';
-                        }
-                    }
-                }else if(s[i + 2] == '/'){
-                    score += 10;
-                    if(i + 4 < s.size() && s[i + 4] == 'X'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '/'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '-'){
-                    }else if(i + 4 < s.size()){
-                        score += s[i + 4] - '0';
-                    }
-                }else if(s[i + 2] == '-'){
-                    if(i + 4 < s.size() && s[i + 4] == 'X'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '/'){
-                        score += 10;
-                    }else if(i + 4 < s.size() && s[i + 4] == '-'){
-                    }else if(i + 4 < s.size()){
-                        score += s[i + 4] - '0';
-                    }
-                }else{
-                    score += s[i + 2] - '0';
-                }
-            }
-            frame++;
+        else if (in[i] == '/'){
+            if (flag == 1)
+                sum += t;
+            sum += 10;
+            if (i < in.size() - 1 && in[i + 1] == 'X')
+                sum += 10;
+            else
+                sum += int(in[i + 1] - '0');
+            flag = 0;
+            t = 0;
+        }
+        else{
+            if (flag == 1)
+                sum += t;
+            flag = 1;
+            t = in[i] - '0';
+            if (i == in.size() - 1)
+                sum += t;
         }
     }
+    return sum;
 }
+
 int main() {
-    string s;
-    while(cin >> s){
-        int score = 0;
-        test(s,score);
-        cout << score << endl;
-    }
+
 }
