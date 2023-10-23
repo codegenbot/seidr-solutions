@@ -32,7 +32,7 @@ input:
 100
 99
 output:
-1.0
+0.5
 input:
 1
 100
@@ -52,6 +52,6 @@ int main() {
             colin++;
         }
     }
-    cout << peter / colin << endl;
+    printf("%.1f\n", peter / colin);
     return 0;
 }
