@@ -34,27 +34,57 @@ input:
 output:
 100
 */
+
+int score(string s) {
+  int result = 0;
+  int len = s.size();
+  int index = 0;
+  int frame = 0;
+  while (index < len) {
+    if (s[index] == 'X') {
+      result += 10;
+      if (s[index + 1] == 'X') {
+        result += 10;
+        if (s[index + 2] == 'X') {
+          result += 10;
+        } else {
+          result += s[index + 2] - '0';
+        }
+      } else {
+        if (s[index + 2] == '/') {
+          result += 10;
+        } else {
+          result += s[index + 1] - '0';
+          result += s[index + 2] - '0';
+        }
+      }
+      index++;
+    } else if (s[index] == '-') {
+    } else if (s[index + 1] == '/') {
+      result += s[index] - '0';
+      result += 10 - s[index] + '0';
+      if (s[index + 2] == 'X') {
+        result += 10;
+      } else {
+        result += s[index + 2] - '0';
+      }
+      index += 2;
+    } else {
+      result += s[index] - '0';
+      result += s[index + 1] - '0';
+      index += 2;
+    }
+    frame++;
+    if (frame == 10) {
+      break;
+    }
+  }
+  return result;
+}
+
 int main() {
-	string input;
-	getline(cin, input);
-	int res = 0;
-	int tmp = 0;
-	int i = 0;
-	while (i < input.size()) {
-		if (input[i] == 'X') {
-			res += (10 + (input[i + 2] == 'X' ? 10 : input[i + 2] - '0') + (input[i + 4] == 'X' ? 10 : input[i + 4] - '0'));
-			i++;
-		} else if (input[i] == '/') {
-			res += (10 + (input[i + 2] == 'X' ? 10 : input[i + 2] - '0'));
-			i++;
-		} else if (input[i] == '-') {
-			res += 0;
-			i++;
-		} else {
-			res += (input[i] - '0');
-			i++;
-		}
-	}
-	cout << res << endl;
-	return 0;
+  string s;
+  while (cin >> s) {
+    cout << score(s) << endl;
+  }
 }
