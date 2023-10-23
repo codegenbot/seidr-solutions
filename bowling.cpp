@@ -37,36 +37,38 @@ output:
 int score(string s) {
     int sum = 0;
     int i = 0;
-    while (i < s.size()) {
+    while (i < s.length()) {
         if (s[i] == 'X') {
             sum += 10;
-            if (i + 1 < s.size()) {
+            if (i + 2 < s.length()) {
+                if (s[i + 2] == 'X') {
+                    sum += 10;
+                } else if (s[i + 2] == '/') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 2] - '0';
+                }
+            }
+            if (i + 1 < s.length()) {
                 if (s[i + 1] == 'X') {
                     sum += 10;
-                    if (i + 2 < s.size()) {
-                        if (s[i + 2] == 'X') {
-                            sum += 10;
-                        } else {
-                            sum += s[i + 2] - '0';
-                        }
-                    }
                 } else if (s[i + 1] == '/') {
-                    sum += 10;
-                    if (i + 2 < s.size()) {
-                        sum += s[i + 2] - '0';
-                    }
+                    sum += 10 - (s[i] - '0');
                 } else {
                     sum += s[i + 1] - '0';
                 }
             }
             i++;
         } else if (s[i] == '/') {
-            sum += 10;
-            if (i - 1 >= 0) {
-                sum -= s[i - 1] - '0';
-            }
-            if (i + 1 < s.size()) {
-                sum += s[i + 1] - '0';
+            sum += 10 - (s[i - 1] - '0');
+            if (i + 1 < s.length()) {
+                if (s[i + 1] == 'X') {
+                    sum += 10;
+                } else if (s[i + 1] == '/') {
+                    sum += 10;
+                } else {
+                    sum += s[i + 1] - '0';
+                }
             }
             i++;
         } else if (s[i] == '-') {
