@@ -35,17 +35,22 @@ output:
 all separate words
 */
 int main() {
-    string s;
-    getline(cin, s);
-    bool first = true;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            first = true;
-        } else if (first) {
-            first = false;
-            s[i] = toupper(s[i]);
+    string line;
+    getline(cin, line);
+    string res = "";
+    bool is_first = true;
+    for (int i = 0; i < line.length(); i++) {
+        if (line[i] == '-') {
+            is_first = true;
+            continue;
+        }
+        if (is_first) {
+            res += toupper(line[i]);
+            is_first = false;
+        } else {
+            res += line[i];
         }
     }
-    cout << s << endl;
+    cout << res << endl;
     return 0;
 }
