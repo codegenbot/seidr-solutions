@@ -42,6 +42,11 @@ output:
 int main() {
     int n, m;
     while (cin >> n >> m) {
+        if (n > m) {
+            swap(n, m);
+        } else {
+        	// nothing
+        }
         double ans = 0;
         for (int i = 0; i < n; i++) {
             ans += (m - i) / (double)(n * m);
