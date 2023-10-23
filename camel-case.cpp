@@ -21,6 +21,7 @@ input:
 nospaceordash
 output:
 nospaceordash
+
 input:
 two-words
 output:
@@ -36,25 +37,17 @@ all separate words
 */
 int main() {
     string str;
+    getline(cin, str);
     string res = "";
     bool flag = false;
-    getline(cin, str);
-    bool space = false;
     for(int i = 0; i < str.size(); i++) {
-        if(str[i] == ' ' || (str[i] == '-' && i+1 < str.size() && str[i+1] != ' ')) {
-            res += str[i];
+        if(str[i] == ' ' || str[i] == '-') {
             flag = true;
-            space = true;
-        } else if(str[i] == '-') {
-            if(i-1>=0 && str[i-1] != ' ') {
-                res += ' ';
-            }
             continue;
         }
         if(flag) {
             res += toupper(str[i]);
             flag = false;
-            space = false;
         } else {
             res += str[i];
         }
@@ -62,8 +55,3 @@ int main() {
     cout << res << endl;
     return 0;
 }
-/*
-tradition is an invention of the twentieth century
-Tradition is an invention of the twentieth century
-tradi tion is an invention of the twentieth century
-*/
