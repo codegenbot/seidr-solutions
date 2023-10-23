@@ -45,17 +45,15 @@ output:
 3.963
 */
 int main() {
-    double h1, h2, n;
-    double total = 0;
-    while (scanf("%lf %lf %lf",&h1, &h2, &n) != EOF) {
-        double index = h2 / h1;
-        total += h1;
-        for (int i = 0; i < n; i++) {
-            total += index * 2 * h1;
-            index = index * index;
-        }
-        printf("%.3f\n", total);
-        total = 0;
+    float D,d,boun;
+    int n;
+    cin >> D >> d >> n;
+    boun = d / D;
+    float res = D;
+    for(int i = 1; i < n; i++) {
+        res += D * boun;
+        D *= boun;
     }
+    printf("%.5f\n",res);
     return 0;
 }
