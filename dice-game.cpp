@@ -22,7 +22,7 @@ input:
 2
 1
 output:
-1.0
+0.0
 input:
 99
 100
@@ -44,7 +44,7 @@ int main() {
     while (cin >> n >> m) {
         if (n > m) {
             swap(n, m);
-        } else if( n == m ) ans = 1.0;
+        }
         double ans = 0;
         for (int i = 0; i < n; i++) {
             ans += (m - i) / (double)(n * m);
