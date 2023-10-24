@@ -11,7 +11,7 @@
 #include <climits>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are five or more letters long and return the resulting string.
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
 For example,
 input:
 
@@ -52,6 +52,7 @@ string reverseWords(string str) {
         } else if(str[i] == ' ' || i == str.length()-1) {
             if(i-j >= 5) {
                 str = str.substr(0, j) + reverseString(str.substr(j, i-j+1)) + str.substr(i+1);
+                i = j;
             }
             i++;
             j = i;
