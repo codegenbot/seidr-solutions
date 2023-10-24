@@ -1,4 +1,15 @@
 #include <vector>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <algorithm>
+#include <stdio.h>
+#include <math.h>
+#include <map>
+#include <set>
+#include <stack>
+#include <climits>
 using namespace std;
 /*
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
@@ -42,7 +53,7 @@ int main() {
             }
         }
         if(word.size() >= 5){
-            std::reverse(word.begin(), word.end());
+            reverse(word.begin(), word.end());
         }
         res += word;
         cout << res << endl;
