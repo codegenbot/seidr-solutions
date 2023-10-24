@@ -9,6 +9,7 @@
 #include <set>
 #include <stack>
 #include <climits>
+#include <algorithm>
 using namespace std;
 /*
 Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
@@ -34,3 +35,28 @@ hi
 output:
 hi
 */
+int main() {
+    string s;
+    while(getline(cin, s)){
+        string res = "";
+        string word = "";
+        for(int i = 0; i < s.size(); i++){
+            if(s[i] != ' '){
+                word += s[i];
+            }else{
+                if(word.size() >= 5){
+                    reverse(word.begin(), word.end());
+                }
+                res += word;
+                res += ' ';
+                word = "";
+            }
+        }
+        if(word.size() >= 5){
+            reverse(word.begin(), word.end());
+        }
+        res += word;
+        cout << res << endl;
+    }
+    return 0;
+}
