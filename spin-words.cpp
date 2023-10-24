@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/reverse-words-in-a-string
 #include <vector>
 #include <iostream>
 #include <string>
@@ -9,54 +10,56 @@
 #include <set>
 #include <stack>
 #include <climits>
-#include <algorithm>
 using namespace std;
 /*
-Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string.
-For example,
-input:
-
-output:
-
-input:
-a
-output:
-a
-input:
+Given a string of one or more words (separated by spaces), reverse all of the words that are ﬁve or more letters long and return the resulting string. For example,
+Input:
 this is a test
-output:
+Output:
 this is a test
-input:
+
+Input:
+a
+Output:
+a
+
+Input:
+this is a test
+Output:
+this is a test
+
+Input:
 this is another test
-output:
+Output:
 this is rehtona test
-input:
+
+Input:
 hi
-output:
+Output:
 hi
 */
+void reverseI(string &s){
+	int i = 0, j = s.size() - 1;
+	while(i < j){
+		swap(s[i++], s[j--]);
+	}
+}
 int main() {
     string s;
     while(getline(cin, s)){
-        string res = "";
-        string word = "";
-        for(int i = 0; i < s.size(); i++){
-            if(s[i] != ' '){
-                word += s[i];
-            }else{
-                if(word.size() >= 5){
-                    reverse(word.begin(), word.end());
-                }
-                res += word;
-                res += ' ';
-                word = "";
-            }
+        vector<string> strs;
+		int i = 0;
+		while(i < s.size()){
+			while(i < s.size() && s[i] == ' ')i++;
+			int curr = i;
+			while(i < s.size() && s[i] != ' ')i++;
+			if(i > curr)strs.push_back(s.substr(curr, i-curr));
         }
-        if(word.size() >= 5){
-            reverse(word.begin(), word.end());
-        }
-        res += word;
-        cout << res << endl;
+		for(int i = 0; i < strs.size(); i++){
+			if(strs[i].size()>=5)reverseI(strs[i]);
+			if(i != 0)cout << ' ';
+			cout << strs[i];
+		}
     }
     return 0;
 }
