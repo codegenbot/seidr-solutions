@@ -44,12 +44,12 @@ string reverseString(string str) {
 }
 
 string reverseWords(string str) {
-    int i = 0, j = 0;
-    while(i < str.length()) {
+    int i = 0, j = 0, len = str.length();
+    while(i < len) {
         if(str[i] == ' ') {
             i++;
             j = i;
-        } else if(i == str.length()-1) {
+        } else if(str[i] == ' ' || i == len-1) {
             if(i-j >= 5) {
                 str = str.substr(0, j) + reverseString(str.substr(j, i-j+1)) + str.substr(i+1);
             }
