@@ -45,25 +45,18 @@ string reverseString(string str) {
 
 string reverseWords(string str) {
     int i = 0, j = 0;
-    vector<int> posOfSpace;
     while(i < str.length()) {
         if(str[i] == ' ') {
-            posOfSpace.push_back(i);
             i++;
             j = i;
-        } else if(i == str.length() - 1) {
+        } else if(str[i] == ' ' || i == str.length()-1) {
             if(i-j >= 5) {
-                str = str.substr(0, j) + reverseString(str.substr(j, i - j + 1));
+                str = str.substr(0, j) + reverseString(str.substr(j, i-j+1)) + str.substr(i+1);
+                i = j + (i-j+1);
             }
-            j = i;
-            break;
         } else {
             i++;
         }
-    }
-    posOfSpace.push_back(i);
-    for(int i = 0; i < posOfSpace.size() - 1; i++) {
-        str += ' ';
     }
     return str;
 }
