@@ -49,10 +49,9 @@ string reverseWords(string str) {
         if(str[i] == ' ') {
             i++;
             j = i;
-        } else if(str[i] == ' ' || i == str.length()-1) {
+        } else if(i == str.length()-1) {
             if(i-j >= 5) {
                 str = str.substr(0, j) + reverseString(str.substr(j, i-j+1)) + str.substr(i+1);
-                i = j;
             }
             i++;
             j = i;
