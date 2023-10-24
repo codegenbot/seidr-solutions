@@ -36,6 +36,9 @@ hi
 */
 
 string reverseString(string str) {
+    if(str.length() <= 1) {
+        return str;
+    }
     int i = 0, j = str.length()-1;
     while(i < j) {
         swap(str[i++], str[j--]);
@@ -49,7 +52,7 @@ string reverseWords(string str) {
         if(str[i] == ' ') {
             i++;
             j = i;
-        } else if(i == str.length()-1) {
+        } else if(str[i] == ' ' || i == str.length()-1) {
             if(i-j >= 5) {
                 str = str.substr(0, j) + reverseString(str.substr(j, i-j+1)) + str.substr(i+1);
             }
