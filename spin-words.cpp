@@ -3,7 +3,6 @@
 #include <string>
 #include <cstring>
 #include <queue>
-#include <algorithm>
 #include <stdio.h>
 #include <math.h>
 #include <map>
@@ -35,28 +34,3 @@ hi
 output:
 hi
 */
-int main() {
-    string s;
-    while(getline(cin, s)){
-        string res = "";
-        string word = "";
-        for(int i = 0; i < s.size(); i++){
-            if(s[i] != ' '){
-                word += s[i];
-            }else{
-                if(word.size() >= 5){
-                    reverse(word.begin(), word.end());
-                }
-                res += word;
-                res += ' ';
-                word = "";
-            }
-        }
-        if(word.size() >= 5){
-            reverse(word.begin(), word.end());
-        }
-        res += word;
-        cout << res << endl;
-    }
-    return 0;
-}
