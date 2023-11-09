@@ -1,5 +1,3 @@
-
-
 def solve(N):
     """Given a positive integer N, return the total sum of its digits in binary.
     
