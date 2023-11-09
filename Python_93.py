@@ -10,13 +10,12 @@ def encode(message):
     Examples:
     >>> encode('test')
     'TGST'
-    >>> encode('I DoNt KnOw WhAt tO WrItE') == "k dqnT kNqw wHct tq wRktg"
+    >>> encode('I DoNt KnOw WhAt tO WrItE')
+    'k dQnT kNqW wHcT Tq wRkTg'
+    >>> encode('a')
+    'C'
     """
     message = message.lower()
-    message = message.replace('a', 'c')
-    message = message.replace('e', 'g')
-    message = message.replace('i', 'k')
-    message = message.replace('o', 'q')
-    message = message.replace('u', 'w')
+    message = message.replace('a', 'c').replace('e', 'g').replace('i', 'k').replace('o', 'q').replace('u', 'w').replace('b', 'd').replace('f', 'h').replace('j', 'l').replace('n', 'p').replace('r', 't').replace('v', 'x').replace('z', 'b')
 
     return message.upper()
