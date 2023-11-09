@@ -20,55 +20,13 @@ def words_in_sentence(sentence):
         * sentence contains only letters
     """
 
-    # Initialize a list to hold the words in the sentence
-    words = []
-    # Initialize a list to hold the words whose lengths are prime
-    prime_words = []
 
-    # Add each word in the sentence to the words list
-    # TODO
-
-    # Iterate through each word in the words list
-    # TODO
-
-        # If the length of the word is prime
-        # TODO
-
-            # Add the word to the prime_words list
-            # TODO
-
-    # Join the words in the prime_words list with a space
-    # TODO
-
-    # Return the string
-    # TODO
-
-
-def is_prime(num):
+def is_prime(n):
     """
-    Returns True if num is prime, False otherwise.
-
-    Example 1:
-        Input: num = 4
-        Output: False
-
-    Example 2:
-        Input: num = 5
-        Output: True
-
-    Example 3:
-        Input: num = 17
-        Output: True
+    Function to check if the given number is a prime number.
     """
+    pass
 
-    # If num is less than 2, return False
-    # TODO
 
-    # Iterate through numbers from 2 to num-1
-    # TODO
-
-        # If num is divisible by the number, return False
-        # TODO
-
-    # Return True
-    # TODO
+def words_in_sentence(sentence):
+    pass
