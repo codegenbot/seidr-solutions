@@ -14,29 +14,30 @@ def get_odd_collatz(n, odd_numbers = []):
 
     odd_numbers = odd_numbers
 
-    if n > 1:
-        odd_numbers.append(n)
-        if n % 2 == 0:
-            n = n // 2
-        else:
-            n = 3 * n + 1
-
-        odd_numbers.append(n)
-
     if n == 1:
         return [1]
+
+    odd_numbers.append(n)
+
+    if n % 2 == 0:
+        n = n // 2
     else:
-        if n % 2 == 0:
-            n = n // 2
-        else:
-            n = 3 * n + 1
-        return get_odd_collatz(n)
-        get_odd_collatz(n, odd_numbers)
+        n = 3 * n + 1
 
-    return odd_numbers
+    odd_numbers.append(n)
 
-    1. Collatz(1) is [1].
-    2. returned list sorted in increasing order.
+
+    get_odd_collatz(n, odd_numbers)
+
+    return sorted(odd_numbers)
+
+
+    # 1. Collatz(1) is [1].
+    # 2. returned list sorted in increasing order.
+
+
+if __name__ == "__main__":
+    print(get_odd_collatz(1))
 
     For example:
     get_odd_collatz(5) returns [1, 5] # The collatz sequence for 5 is [5, 16, 8, 4, 2, 1], so the odd numbers are only 1, and 5.
