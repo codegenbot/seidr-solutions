@@ -1,14 +1,12 @@
 
 
 def sort_third(l: list):
-    """This function takes a list and returns a list that is identical to its argument in the indicies that are not
-    divisible by three, while its values at the indicies that are divisible by three are equal to the values of the
-    corresponding indicies of its argument, but sorted.
+    """This function takes a list and returns a list such that the result is identical to the input list in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal to the values of the corresponding indicies of the input list, but sorted.
     """
 
     for i in range(0, len(l)):
         if i % 3 == 0:
-            l[i:i+3] = sorted(l[i:i+3])
+            l[i:i + 3] = sorted(l[i:i + 3])
     return l
 
 
