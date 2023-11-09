@@ -14,6 +14,8 @@ def tri(n):
     You are given a non-negative integer number n, you have to a return a list of the 
     first n + 1 numbers of the Tribonacci sequence.
     Examples:
-    tri(1) = [1, 2]
+    tri(1) = [1, 3] 
+    tri(2) = [1, 3, 2]
+    tri(3) = [1, 3, 2, 8]
     """
     pass
