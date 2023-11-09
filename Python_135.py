@@ -1,23 +1,17 @@
 
-def largest_index(arr):
-    """Create a function which returns the largest index of an element which
-    is not greater than or equal to the element immediately preceding it. If
-    no such element exists then return -1. The given array will not contain
-    duplicate values.
-
-    Examples:
-    largest_index([1,2,4,3,5]) = 3
-
-
 def can_arrange(arr, k):
-    """Create a function which determines if it is possible to arrange the
-    elements of an array into a palindrome. If it is possible to arrange the
-    elements into a palindrome then return the string "Yes" otherwise return
-    the string "No".
+    """Create a function which returns True if the given array can be rearranged
+    to form a sequence which is strictly increasing from its first element up
+    to its k-th element, followed by a sequence which is strictly decreasing
+    from its k-th element up to its last element. In this case, the sequence
+    from the first element up to the k-th element is called a strictly increasing
+    sequence, and the sequence from the k-th element up to the last element is
+    called a strictly decreasing sequence.
 
     Examples:
-    can_arrange([1,2,3,4,5,6], 2) = "Yes"
-    can_arrange([1,2,3,4,5,6], 5) = "No"
-    """
-    largest_index([1,2,3]) = -1
+    can_arrange([1,2,3,4,5], 2) = True
+    can_arrange([1,2,3,4,5], 3) = False
+    can_arrange([2,1,3,4,5], 2) = False
+    return True
+    return True
     """
