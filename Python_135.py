@@ -12,7 +12,4 @@ def can_arrange(arr, k):
     can_arrange([1,2,3,4,5], 2) = True
     can_arrange([1,2,3,4,5], 3) = False
     can_arrange([2,1,3,4,5], 2) = False
-    return True
-    return True
-    return True
     """
