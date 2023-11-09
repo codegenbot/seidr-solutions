@@ -18,7 +18,7 @@ def make_palindrome(string: str) -> str:
     return string + prefix[::-1]
 
 
-def check(make_palindrome: str) -> str:
+def check(make_palindrome) -> None:
     assert make_palindrome("jerry") == "jerryrej"
     assert make_palindrome("") == ""
     assert make_palindrome("a") == "a"
