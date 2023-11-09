@@ -1,4 +1,4 @@
-def get_odd_collatz(n, odd_numbers = []):
+def get_odd_collatz(n, odd_numbers = 0):
     """
     Given a positive integer n, return a sorted list that has the odd numbers in collatz sequence.
 
@@ -15,13 +15,14 @@ def get_odd_collatz(n, odd_numbers = []):
     odd_numbers = odd_numbers
 
     if n > 1:
-        odd_numbers.append(n)
+        odd_numbers += n
+
         if n % 2 == 0:
             n = n // 2
         else:
             n = 3 * n + 1
 
-        odd_numbers.append(n)
+        odd_numbers += n
 
         get_odd_collatz(n, odd_numbers)
 
