@@ -1,6 +1,6 @@
 import random
 
-def eat(number, need, remaining) -> [int, int]:
+def eat(number, need, remaining):
     """
     You're a hungry rabbit, and you already have eaten a certain number of carrots,
     but now you need to eat more carrots to complete the day's meals.
@@ -28,32 +28,28 @@ def eat(number, need, remaining) -> [int, int]:
     * 0 <= remaining <= 1000
 
     """
+
     return [number + need, remaining - need]
-
-
-def check(func):
-    first_test = func(4, 5, 1)
-    second_test = func(1, 1, 1)
-    third_test = func(0, 1, 1)
-    fourth_test = func(1, 0, 1)
-    fifth_test = func(0, 0, 1)
-    sixth_test = func(1, 1, 0)
-    seventh_test = func(0, 1, 0)
-    eighth_test = func(1, 0, 0)
-    ninth_test = func(0, 0, 0)
     assert first_test == [5, 0], "Error"
+
     assert second_test == [1, 0], "Error"
+
     assert third_test == [1, 0], "Error"
+def check(func):
     assert fourth_test == [1, 0], "Error"
+    first_test = func(4, 5, 1)
     assert fifth_test == [0, 1], "Error"
+    second_test = func(1, 1, 1)
     assert sixth_test == [1, 0], "Error"
+    third_test = func(0, 1, 1)
     assert seventh_test == [0, 1], "Error"
+    fourth_test = func(1, 0, 1)
     assert eighth_test == [1, 0], "Error"
+    fifth_test = func(0, 0, 1)
     assert ninth_test == [0, 0], "Error"
     print("Success")
 
 
 if __name__ == "__main__":
     check(eat)
-    # Have fun :)
-    """
+    print("Have fun :)")
