@@ -18,4 +18,3 @@ def cycpattern_check(a , b):
             if b in a:
                 return True
 check(cycpattern_check)
-    return False
