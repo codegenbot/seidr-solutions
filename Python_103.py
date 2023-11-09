@@ -1,5 +1,5 @@
 
-def rounded_avg(n, m): #n is the start of the range, m is the end of the range
+def rounded_avg(n, m):
     """You are given two positive integers n and m, and your task is to compute the
     average of the integers from n through m (including n and m). 
     Round the answer to the nearest integer and convert that to binary.
@@ -10,3 +10,11 @@ def rounded_avg(n, m): #n is the start of the range, m is the end of the range
     rounded_avg(10, 20) => "0b1111"
     rounded_avg(20, 33) => "0b11010"
     """
+    
+    if n > m:
+        return -1
+    else:
+        avg = (n + m) / 2
+        avg_rounded = round(avg)
+        binary = bin(avg_rounded)
+        return binary
