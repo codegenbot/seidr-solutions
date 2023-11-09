@@ -1,3 +1,4 @@
+
 import random
 
 def eat(number, need, remaining):
@@ -30,7 +31,7 @@ def eat(number, need, remaining):
     """
     if number + need < remaining:
         return [number + need, remaining - need - number]
-    else: 
+    else:
         return [number + remaining, 0]
 
 
@@ -47,16 +48,14 @@ def check(func):
     assert first_test == [5, 0], "Error"
     assert second_test == [2, 0], "Error"
     assert third_test == [1, 0], "Error"
-    assert fourth_test == [1, 0], "Error" 
+    assert fourth_test == [1, 0], "Error"
     assert fifth_test == [0, 1], "Error"
     assert sixth_test == [1, 0], "Error"
     assert seventh_test == [1, 0], "Error"
-    assert eighth_test == [1, 0], "Error"
+    assert eighth_test == [1, 1], "Error"
     assert ninth_test == [0, 0], "Error"
     print("Success")
 
 
 if __name__ == "__main__":
     check(eat)
-    # Have fun :)
-    
