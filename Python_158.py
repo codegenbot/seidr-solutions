@@ -12,6 +12,8 @@ def find_max(words):
     max_num = len(set(words[0]))
     for word in words[1:]:
         if max_num < len(set(word)):
+        elif max_num == len(set(word)) and max_word > word:
+            max_word = word
             max_word = word
             max_num = len(set(word))
     return max_word
