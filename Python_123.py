@@ -28,8 +28,6 @@ def get_odd_collatz(n, odd_numbers = []):
 
     return odd_numbers
 
-    return odd_numbers
-
 
         1. Collatz(1) is [1].
         2. returned list sorted in increasing order.
