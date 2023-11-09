@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 def select_words(s, n):
     """Given a string s and a natural number n, you have been tasked to implement 
     a function that returns a list of all words from string s that contain exactly 
@@ -13,3 +13,17 @@ def select_words(s, n):
     select_words("Uncle sam", 3) ==> ["Uncle"]
     """
     # Complete the following code given the task description and function signature.
+    consonants = "bcdfghjklmnpqrstvwxz"
+    words = s.split()
+    result = []
+    for word in words:
+        count = 0
+        for letter in word:
+            if letter in consonants:
+                count += 1
+        if count == n:
+            result.append(word)
+    return result
+
+
+print(select_words("a b c d e f", 1))
