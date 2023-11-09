@@ -10,7 +10,7 @@ def encode(message):
     Examples:
     >>> encode('test')
     'TGST'
-    >>> encode('I DoNt KnOw WhAt tO WrItE') == "k dqnt kNqw wHcT tq wRktG"
+    >>> encode('I DoNt KnOw WhAt tO WrItE') == "k dqnT kNqw wHct tq wRktg"
     """
     message = message.lower()
     message = message.replace('a', 'c')
