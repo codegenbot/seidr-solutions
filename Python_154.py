@@ -12,10 +12,9 @@ def cycpattern_check(a , b):
     """
     if len(a) != len(b):  # if words have different length return False
         return False
-    else:  # if words have same length for every letter in word change word if word is a substring return True if not return False 
+    else:  # if words have same length for every letter in word change word if word is a substring return True if not return False (for loop)
         for i in range(len(b)):
-            b = b[1:] + b[0]
+            b = b[1:] + b[0] # change word
             if b in a:
                 return True
-check(cycpattern_check)
         return False
