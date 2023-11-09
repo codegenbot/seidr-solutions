@@ -1,5 +1,5 @@
 
-def can_arrange(arr, k):
+def can_arrange(arr: list, k: int):
     """Create a function which returns True if the given array can be rearranged
     to form a sequence which is strictly increasing from its first element up
     to its k-th element, followed by a sequence which is strictly decreasing
@@ -12,20 +12,6 @@ def can_arrange(arr, k):
     can_arrange([1,2,3,4,5], 2) = True
     can_arrange([1,2,3,4,5], 3) = False
     can_arrange([2,1,3,4,5], 2) = False
-
-    Parameters
-    ----------
-    arr : list
-        A list of integers.
-
-    k : int
-        An integer.
-
-    Returns
-    -------
-    bool
-        True if the given array can be rearranged to form a sequence which is
-        strictly increasing from its first element up to its k-th element,
-        followed by a sequence which is strictly decreasing from its k-th
-        element up to its last element, and False otherwise.
+    # your code here
+    return False
     """
