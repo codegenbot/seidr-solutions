@@ -29,19 +29,19 @@ def words_in_sentence(sentence):
     # TODO
 
     # Iterate through each word in the words list
-    # TODO
+    words = sentence.split()
 
-        # If the length of the word is prime
-        # TODO
-
+    for word in words:
+        # If the length of the word is prime:
+        if is_prime(len(word)):
             # Add the word to the prime_words list
-            # TODO
+            prime_words.append(word)
 
-    # Join the words in the prime_words list with a space
-    # TODO
+    # Join the words in the prime_words list with a space:
+    result = " ".join(prime_words)
 
     # Return the string
-    # TODO
+    return result
 
 
 def is_prime(num):
@@ -71,4 +71,7 @@ def is_prime(num):
         # TODO
 
     # Return True
-    # TODO
+    for num in range(2, num-1):
+        if num % num == 0:
+            return False
+    return True
