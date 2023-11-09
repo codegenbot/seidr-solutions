@@ -23,12 +23,6 @@ def largest_prime(lst):
 
 
 
-    skjkasdkd
-
-    skjkasdkd;
-
-
-
 
 
 
