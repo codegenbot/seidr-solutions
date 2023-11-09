@@ -7,7 +7,8 @@ def fizz_buzz(n: int):
     >>> fizz_buzz(78)
     2
     >>> fizz_buzz(79)
-    """
+    >>> fizz_buzz(100000)
+    8026
     3
     if n < 0:
         return 0
@@ -323,3 +324,4 @@ def fizz_buzz(n: int):
         return 0
     if n == 155:
         return 0
+    """
