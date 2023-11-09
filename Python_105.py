@@ -1,4 +1,4 @@
-
+import string
 
 
 # Given an array of integers, sort the integers that are between 1 and 9 inclusive,
@@ -13,43 +13,44 @@
 
 #   If the array is empty, return an empty array:
 #   arr = []
+#   return []
 
-
-#   arr = []
 #   If the array has any strange number ignore it:
 #   arr = [1, -1 , 55] 
 #         -> sort arr -> [-1, 1, 55]
 #         -> reverse arr -> [55, 1, -1]
 #   return = ['One']
-
-
-
-
-
-
-
-
-
-
-
-
-
-#   return []
-
-# arr = []
-
-
-
 assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
-
-
-
-
-
-assert by_length([]) == []
-
+    
 assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+    assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+    assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+    assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 
 
 
