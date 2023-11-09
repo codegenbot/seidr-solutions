@@ -12,12 +12,12 @@ def make_palindrome(string: str) -> str:
     - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
     >>> make_palindrome('')
     """
-    '''
-    >>> make_palindrome('cat')
+    ''
+    make_palindrome('cat')
     'catac'
     prefix = string
     while not is_palindrome(prefix):
         prefix = prefix[:-1]
     return string + prefix[::-1]
-    >>> make_palindrome('cata')
+    make_palindrome('cata')
     'catac'
