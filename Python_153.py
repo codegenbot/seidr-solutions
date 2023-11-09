@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 
-def strongest_extension(class_name, extensions):
+def Strongest_Extension(class_name, extensions):
     """You will be given the name of a class (a string) and a list of extensions.
     The extensions are to be used to load additional classes to the class. The
     strength of the extension is as follows: Let CAP be the number of the uppercase
@@ -18,21 +17,15 @@ def strongest_extension(class_name, extensions):
     for Strongest_Extension('my_class', ['AA', 'Be', 'CC']) == 'my_class.AA'
     """
 
-    # Complete the following code given the task description and function signature.
+    class_name = class_name.lower()  # Change the case of the class name to lower
+    extensions_strength = {}
+    for extension in extensions:  # Change the case of the extensions to lower
+        extensions_strength[extension.lower()] = extension.count(extension.upper()) - extension.count(extension.lower())  # Calculate the strength of the extension
 
-    strongest_extension_name = None
-    strongest_extension_strength = None
+    # Get the strongest extension
+    strongest_extension = max(extensions_strength, key=extensions_strength.get)  # Get the strongest extension
 
-    for extension in extensions:
-        strength = 0
-        for letter in extension:
-            if letter.isupper():
-                strength += 1
-            elif letter.islower():
-                strength -= 1
+    return class_name + '.' + strongest_extension  # Return the class name and the strongest extension
 
-        if strongest_extension_strength is None or strength > strongest_extension_strength:
-            strongest_extension_strength = strength
-            strongest_extension_name = extension
 
-    return class_name + '.' + strongest_extension_name
+print(Strongest_Extension('my_class', ['AA', 'Be', 'CC']))
