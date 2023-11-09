@@ -1,4 +1,3 @@
-
 def is_palindrome(string: str) -> bool:
     """ Test if given string is a palindrome """
     return string == string[::-1]
@@ -19,7 +18,7 @@ def make_palindrome(string: str) -> str:
 
 
 def check(make_palindrome) -> None:
-    assert make_palindrome("jerry") == "jerryrrej"
+    assert make_palindrome("jerry") == "jerryrrej"  # NOQA
     assert make_palindrome("") == ""
     assert make_palindrome("a") == "a"
     assert make_palindrome("aa") == "aa"
