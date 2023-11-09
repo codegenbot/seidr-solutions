@@ -2,8 +2,52 @@
 
 def sort_third(l: list):
     """This function takes a list l and returns a list l' such that
-    l' is identical to l in the indices that are not divisible by three, while its values at the indices that are divisible
-    by three are equal to the values of the corresponding indices of l, but sorted.
+    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal to the values of the corresponding indicies of l, but sorted.
+    """
+
+    for i in range(0, len(l)):
+        if i % 3 == 0:
+            l[i] = sorted(l[i])
+    return l
+
+
+def sort_third1(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal to the values of the corresponding indicies of l, but sorted.
+    """
+
+    for i in range(0, len(l)):
+        if i % 3 == 0:
+            l[i] = sorted(l[i])
+    return l
+
+
+def sort_third2(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal to the values of the corresponding indicies of l, but sorted.
+    """
+
+    for i in range(0, len(l)):
+        if i % 3 == 0:
+            l[i] = sorted(l[i])
+    return l
+
+
+def sort_third3(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal to the values of the corresponding indicies of l, but sorted.
+    """
+
+    for i in range(0, len(l)):
+        if i % 3 == 0:
+            l[i] = sorted(l[i])
+    return l
+
+
+def sort_third4(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal to the values of the corresponding indicies of l, but sorted.
+    by three are equal to the values of the corresponding indicies of l, but sorted.
     """
 
     for i in range(0, len(l)):
