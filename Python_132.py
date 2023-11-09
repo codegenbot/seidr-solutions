@@ -7,7 +7,6 @@ def is_nested(string):
     is_nested('[[]]')  True
     is_nested('[]]]]]]][[[[[]')  False
     is_nested('[][]')  True 
-    '''
     is_nested('[]')  False 
     is_nested('[[][]]')  True 
     count = 0
@@ -18,7 +17,7 @@ def is_nested(string):
             count -= 1 
         if count < 0: 
             return False 
-    return count == 0
+    return count == 0 
     
  
 
