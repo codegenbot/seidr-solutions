@@ -57,5 +57,5 @@ def check(func):
 
 if __name__ == "__main__":
     check(eat)
-    # Have fun :)
+    print("Have fun :)")
     """
