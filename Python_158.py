@@ -48,5 +48,5 @@ def check(function):
 
 
 check(find_max)
-    find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa", "t31"
+    find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa" #
     """
