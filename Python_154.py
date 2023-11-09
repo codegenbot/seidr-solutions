@@ -19,9 +19,4 @@ def cycpattern_check(a , b):
                 return True
         return False
 
-cycpattern_check("abcd","abd")
-cycpattern_check("hello","ell")
-cycpattern_check("whassup","psus")
-cycpattern_check("abab","baa")
-cycpattern_check("efef","eeff")
-cycpattern_check("winemtt","tinem")
+check(cycpattern_check)
