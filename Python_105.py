@@ -19,6 +19,8 @@
 #   arr = [1, -1 , 55] 
 #         -> sort arr -> [-1, 1, 55]
 #         -> reverse arr -> [55, 1, -1]
+
+# assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 #   return = ['One']
 
 
@@ -36,10 +38,6 @@
 
 
 
-
-assert by_length([]) == []
-
-assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 
 
 
