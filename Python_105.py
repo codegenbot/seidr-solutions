@@ -12,17 +12,6 @@ number_dict = {
 }
 
 def by_length(arr):
-    if len(arr) == 0:
-        return []
-    arr = sorted(arr)
-    arr = arr[::-1]
-    for i in range(len(arr)):
-        if arr[i] in number_dict:
-            arr[i] = number_dict[arr[i]]
-    return arr
-
-
-def by_length(arr):
     """
     Given an array of integers, sort the integers that are between 1 and 9 inclusive,
     reverse the resulting array, and then replace each digit by its corresponding name from
@@ -44,3 +33,17 @@ def by_length(arr):
             -> reverse arr -> [55, 1, -1]
       return = ['One']
     """
+    #arr.sort()
+    #arr.reverse()
+    #return [number_dict[i] for i in arr]
+    return [number_dict[i] for i in sorted(arr, reverse=True)]
+
+def check(func):
+    assert func([2, 1, 1, 4, 5, 8, 2, 3]) == ["Eight", "Five", "Four", "Three", "Two", "Two", "One", "One"]
+    assert func([]) == []
+    assert func([1, -1 , 55]) == ["One"]
+    assert func([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    print("Correct!")
+
+if __name__ == "__main__":
+    check(by_length)
