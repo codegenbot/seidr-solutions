@@ -17,4 +17,3 @@ def digitSum(s):
         if ord(i) >= 65 and ord(i) <= 90:
             total += ord(i)
     return total
-    
