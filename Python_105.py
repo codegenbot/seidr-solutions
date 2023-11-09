@@ -1,4 +1,4 @@
-import string
+
 
 
 # Given an array of integers, sort the integers that are between 1 and 9 inclusive,
@@ -37,7 +37,10 @@ import string
 
 
 
-    assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+assert by_length([]) == []
+
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+
 
 
 
