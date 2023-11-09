@@ -10,18 +10,10 @@ def make_palindrome(string: str) -> str:
     Algorithm idea is simple:
     - Find the longest postfix of supplied string that is a palindrome.
     - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
-    >>> make_palindrome("jerry")
-    'jerryrrej'
+    >>> make_palindrome("jerry") == "jerryrrej"
+    True
     """
     prefix = string
-
-
-def check(fn):
-    assert fn("jerry") == "jerryrrej"
-
-
-if __name__ == "__main__":
-    check(make_palindrome)
     while not is_palindrome(prefix):
         prefix = prefix[:-1]
     return string + prefix[::-1]
