@@ -13,19 +13,20 @@ def count_distinct_characters(string: str) -> int:
 
 
 
+
+    >>> count_distinct_characters("Jerry jERRY JeRRRY") == 5
+
+
+
+
+
+
+
+
+
+
+
     """
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
