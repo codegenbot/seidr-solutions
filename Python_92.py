@@ -12,11 +12,10 @@ def any_int(x, y, z):
 
     any_int(3, -2, 1) ➞ True
     
-    any_int(3.6, -2.2, 2) ➞ False
+    any_int(3.0, 4, 7) ➞ False
   
 
     
-    return (x+y+z)%1==0 and (x+y==z or x+z==y or y+z==x) 
+    return (x+y+z)%1==0 and (x+y==z or x+z==y or y+z==x)
     
     '''
-    return (x+y+z)%1==0 and (x+y==z or x+z==y or y+z==x)
