@@ -14,11 +14,20 @@ def is_sorted(lst):
     is_sorted([1, 3, 2, 4, 5, 6, 7]) -> False
     is_sorted([1, 2, 2, 3, 3, 4]) -> True
     is_sorted([1, 2, 2, 2, 3, 4]) -> False
-    if lst[0] == lst[1]:
-        return False
-    for i in range(len(lst)):
-        if lst[i] != lst[i+1]:
-            return True
-    else:
-        return False
+    # your code here
+    return True
+
+
+if __name__ == '__main__':
+    def check(f):
+        assert f([1, 2, 3, 4]) == True
+        assert f([1, 2, 3, 4, 5]) == True
+        assert f([1, 3, 2, 4, 5]) == False
+        assert f([1, 2, 3, 4, 5, 6]) == True
+        assert f([1, 2, 3, 4, 5, 6, 7]) == True
+        assert f([1, 3, 2, 4, 5, 6, 7]) == False
+        assert f([1, 2, 2, 3, 3, 4]) == True
+        assert f([1, 2, 2, 2, 3, 4]) == False
+
+    check(is_sorted)
     '''
