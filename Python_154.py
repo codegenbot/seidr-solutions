@@ -12,42 +12,9 @@ def cycpattern_check(a , b):
     """
     if len(a) != len(b):  # if words have different length return False
         return False
-    else:  # if words have same length for every letter in word change word if word is a substring return True if not
-        # return False
+    else:  # if words have same length for every letter in word change word if word is a substring return True if not return False
         for i in range(len(b)):
-            b = b[1:] + b[0]
+            b = b[1:] + b[0] # change word
             if b in a:
                 return True
         return False
-
-# check(cycpattern_check)
-
-def get_all_substrings(input_string):
-    length = len(input_string)
-    return [input_string[i:j+1] for i in range(length) for j in range(i,length)]
-
-
-def find_rotation(a, b):
-    """
-    You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
-    cycpattern_check("abcd","abd") => False
-    cycpattern_check("hello","ell") => True
-    cycpattern_check("whassup","psus") => False
-    cycpattern_check("abab","baa") => True
-    cycpattern_check("efef","eeff") => False
-    cycpattern_check("winemtt","tinem") => True
-
-
-    """
-    if len(a) != len(b):  # if words have different length return False
-        return False
-    else:  # if words have same length for every letter in word change word if word is a substring return True if not
-        # return False
-        for i in range(len(b)):
-            b = b[1:] + b[0]
-            if b in get_all_substrings(a):
-                return True
-        return False
-
-
-print(find_rotation("winemtt","tinem"))
