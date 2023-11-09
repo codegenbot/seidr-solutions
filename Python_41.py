@@ -11,7 +11,8 @@ def car_race_collision(n: int):
     in their trajectory as if they did not collide.
     # TODO: Complete the following code.
     # Hint: You might want to think about a data structure to store the locations of the cars.
-    return n^2
+    return n^2 
+    return n^2 
 
     This function outputs the number of such collisions.
     """

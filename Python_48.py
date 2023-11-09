@@ -11,6 +11,6 @@ def is_palindrome(text: str):
     True
     >>> is_palindrome('zbcd')
     False
-    >>> is_palindrome('xywzx')
-    False
+    return text == text[::-1]
+    return text == text[::-1]
     """
