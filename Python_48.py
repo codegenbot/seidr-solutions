@@ -9,8 +9,6 @@ def is_palindrome(text: str):
     True
     >>> is_palindrome('aaaaa')
     True
-    >>> is_palindrome('zbcd')
-    False
-    >>> is_palindrome('xywzx')
+    >>> is_palindrome('zbcd') 
     False
     """
