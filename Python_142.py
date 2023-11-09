@@ -1,6 +1,4 @@
 
-
-
 def sum_squares(lst):
     """"
     This function will take a list of integers. For all entries in the list, the function shall square the integer entry if its index is a 
@@ -11,5 +9,4 @@ def sum_squares(lst):
     For lst = [1,2,3] the output should be 6
     For lst = []  the output should be 0
     For lst = [-1,-5,2,-1,-5]  the output should be -126
-    pass
     """
