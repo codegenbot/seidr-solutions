@@ -28,10 +28,7 @@ def eat(number, need, remaining):
     * 0 <= remaining <= 1000
 
     """
-    if number + need < remaining:
-        return [number + need, remaining - need - number]
-    else: 
-        return [number + remaining, 0]
+    return [number + need, remaining - need]
 
 
 def check(func):
