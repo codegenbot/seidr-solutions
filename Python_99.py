@@ -16,10 +16,7 @@ def closest_integer(value):
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
 
-    >>> if value.isdigit():
-    ...     return int(value)
-    ... else:
-    ...     return int(round(float(value)))
-    ... return 15
-    and closest_integer("-14.5") should return -15.
+
+    return int(round(float(value)))
+    return 15 and closest_integer("-14.5") should return -15.
     '''
