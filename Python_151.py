@@ -12,3 +12,15 @@ def double_the_difference(lst):
     If the input list is empty, return 0.
     '''
     return sum([x**2 for x in lst if x % 2 == 1 and isinstance(x, int) and x >= 0])
+
+
+def check(program):
+    test_cases = [
+        ([1, 3, 2, 0], 10),
+        ([-1, -2, 0], 0),
+        ([9, -2], 81),
+        ([0], 0),
+        ([], 0),
+    ]
+    for lst, odd_sum in test_cases:
+        program(lst) == odd_sum
