@@ -1,4 +1,5 @@
 
+# TODO: Fix bug
 
 def sort_third(l: list):
     """This function takes a list and returns a list that is identical to its argument in the indices that are not
@@ -13,7 +14,7 @@ def sort_third(l: list):
 
 
 def check(sort_third):
-    assert tuple(sort_third([5, 6, 3, 4, 8, 9, 2, 1])) == tuple([3, 5, 4, 6, 8, 9, 1, 2])  # TODO: fix
+    assert tuple(sort_third([5, 6, 3, 4, 8, 9, 2, 1])) == tuple([3, 5, 4, 6, 8, 9, 1, 2])
     assert tuple(sort_third([1, 2, 3, 4, 5, 6, 7, 8, 9])) == tuple([1, 2, 3, 4, 5, 6, 7, 8, 9])
     assert tuple(sort_third([7, 2, 8, 4, 9, 5, 1, 3, 6])) == tuple([2, 7, 4, 8, 5, 9, 1, 3, 6])
     assert tuple(sort_third([3, 5, 4, 1, 6, 7, 8, 9, 2])) == tuple([1, 5, 4, 3, 6, 7, 8, 9, 2])
@@ -32,7 +33,7 @@ def check(sort_third):
     assert tuple(sort_third([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])) == tuple([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
     assert tuple(sort_third([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])) == tuple([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])
     assert tuple(sort_third([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])) == tuple([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])
-    assert tuple(sort_third([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19])) == tuple([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19])  # TODO: fix
+    assert tuple(sort_third([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19])) == tuple([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
 
 
 if __name__ == '__main__':
