@@ -9,6 +9,20 @@ def smallest_change(arr):
     smallest_change([1,2,3,5,4,7,9,6]) == 4
     smallest_change([1, 2, 3, 4, 3, 2, 2]) == 1
     smallest_change([1, 2, 3, 2, 1]) == 0
-
-    # Write your code here
+    if arr == arr[::-1]:
+        return 0
+    else:
+        count = 0
+        for i in range(len(arr)):
+            if arr[i] != arr[len(arr)-i-1]:
+                count += 1
+        return count
+    if arr == arr[::-1]:
+        return 0
+    else:
+        count = 0
+        for i in range(len(arr)):
+            if arr[i] != arr[len(arr)-i-1]:
+                count += 1
+        return count
     """
