@@ -14,10 +14,7 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    prefix = string
-    while not is_palindrome(prefix):
-        prefix = prefix[:-1]
-    return string + prefix[::-1]
+    # your code here
     >>> make_palindrome('cata')
     'catac'
     """
