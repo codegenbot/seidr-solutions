@@ -15,7 +15,7 @@ def solve(N):
     # Complete the following code given the task description and function signature.
     binary = bin(N)[2:]
     binary_sum = sum([int(i) for i in binary])
-    return binary
+    return binary_sum
 
 
 def check(solve):
@@ -152,6 +152,10 @@ def check(solve):
     assert solve(150) == "110", "Error"
     assert solve(147) == "1100", "Error"
     assert solve(1000) == "1", "Error"
+if __name__ == "__main__":
+    check(solve)
+
+
     assert solve(1) == "1", "Error"
 
 
