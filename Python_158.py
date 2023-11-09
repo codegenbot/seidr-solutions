@@ -6,6 +6,8 @@ def find_max(words):
     characters, return the one which comes first in lexicographical order.
 
     find_max(["name", "of", "string"]) == "string"
+    find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa"
+    """
     find_max(["name", "enam", "game"]) == "enam"
     # Complete the following code given the task description and function signature.
     max_word = words[0]
