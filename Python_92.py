@@ -1,3 +1,9 @@
+#!/usr/bin/env python3.11
+
+# 
+# 
+# 
+# 
 
 def any_int(x, y, z):
     '''
@@ -16,7 +22,7 @@ def any_int(x, y, z):
   
 
     
-    return (x+y+z)%1==0 and (x+y==z or x+z==y or y+z==x)
+    return (x+y+z)%1==0 and (x+y==z or x+z==y or y+z==x) 
     
     '''
     return (x+y+z)%1==0 and (x+y==z or x+z==y or y+z==x) 
