@@ -15,7 +15,7 @@ def tri(n):
     first n + 1 numbers of the Tribonacci sequence.
     Examples:
     tri(1) = [1, 3]
-    tri(2) = [1, 3, 4]
-    tri(3) = [1, 3, 4, 10]
+    tri(2) = [1, 3, 2]
+    tri(3) = [1, 3, 2, 8]
     """
     pass
