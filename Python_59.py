@@ -6,11 +6,16 @@ def largest_prime_factor(n: int):
     29
     >>> largest_prime_factor(2048)
     2
+
+    if not isinstance(n, int) or n < 2:
+        return None
+
     i = 2
     while i * i <= n:
-        if n % i:
-            i += 1
-        else:
+        if n % i == 0:
             n //= i
+        else:
+            i += 1
+
     return n
     """
