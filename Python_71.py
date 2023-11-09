@@ -11,4 +11,9 @@ def triangle_area(a, b, c):
     triangle_area(1, 2, 10) == -1
     '''
 
-    # Complete the following code
+    a, b, c = sorted([a, b, c])
+    if a + b < c:
+        return -1
+    else:
+        p = (a + b + c) / 2
+        return round(sqrt(p * (p - a) * (p - b) * (p - c)), 2)
