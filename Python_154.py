@@ -10,7 +10,7 @@ def cycpattern_check(a , b):
 
 
     """
-    if len(a) != len(b):  # if words have different length return false
+    if len(a) != len(b):  # if words have different length return False
         return False
     else:  # if words have same length for every letter in word change word if word is a substring return True if not return False
         for i in range(len(b)):
@@ -19,5 +19,9 @@ def cycpattern_check(a , b):
                 return True
         return False
 
-
-check(cycpattern_check)
+cycpattern_check("abcd","abd")
+cycpattern_check("hello","ell")
+cycpattern_check("whassup","psus")
+cycpattern_check("abab","baa")
+cycpattern_check("efef","eeff")
+cycpattern_check("winemtt","tinem")
