@@ -6,10 +6,10 @@ def derivative(xs: list):
      Return derivative of this polynomial in the same form.
     >>> derivative([3, 1, 2, 4, 5])
     [1, 4, 12, 20]
-    >>> derivative([1, 2, 3])
-    >>> derivative([1])
+    >>> derivative([1, 2, 3]) == []
     []
-    return []
+    >>> derivative([1]) == []
+    []
     [2, 6]
     return [xs[i] * (i + 1) for i in range(len(xs))]
     """
