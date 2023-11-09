@@ -7,15 +7,14 @@ def tri(n):
     tri(n) = 1 + n / 2, if n is even.
     tri(n) =  tri(n - 1) + tri(n - 2) + tri(n + 1), if n is odd.
     For example:
-    tri(2) = 1 + (2 / 2) = 2 
+    tri(2) = 1 + (2 / 2) = 1 
     tri(4) = 3 
-    tri(3) = tri(2) + tri(1) + tri(4)
-           = 2 + 3 + 3 = 8 
+    tri(3) = tri(2) + tri(1) + tri(4) = 1 + 3 + 3 = 7 
     You are given a non-negative integer number n, you have to a return a list of the 
     first n + 1 numbers of the Tribonacci sequence.
     Examples:
-    tri(1) = [1, 3, 2]
-    tri(2) = [1, 3, 2]
-    tri(3) = [1, 3, 2, 8]
+    tri(1) = [1, 3]
+    tri(2) = [1, 3, 4]
+    tri(3) = [1, 3, 4, 10]
     """
     pass
