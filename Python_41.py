@@ -1,6 +1,6 @@
 
 
-def car_race_collision(n: int):
+def car_race_collision(n: int) -> int:
     """
     Imagine a road that's a perfectly straight infinitely long line.
     n cars are driving left to right;  simultaneously, a different set of n cars
@@ -11,8 +11,8 @@ def car_race_collision(n: int):
     in their trajectory as if they did not collide.
     # TODO: Complete the following code.
     # Hint: You might want to think about a data structure to store the locations of the cars.
-    return n^2
-    return n^2
+    return n^2 # TODO: change this
+    return n ** 2
 
     This function outputs the number of such collisions.
     """
