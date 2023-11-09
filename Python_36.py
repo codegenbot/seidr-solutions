@@ -13,4 +13,4 @@ def fizz_buzz(n: int):
     2
     >>> fizz_buzz(79)
     3
-    return count  # type: ignore
+    return count
