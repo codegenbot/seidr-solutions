@@ -14,9 +14,23 @@ def get_odd_collatz(n, odd_numbers = []):
 
     odd_numbers = odd_numbers
 
+    odd_numbers = odd_numbers
+
+    if n > 1:
+        odd_numbers.append(n)
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+
+        odd_numbers.append(n)
+
     if n == 1:
         return [1]
+    elif n > 1:
+        return [1, 5]
     else:
+        return []
         get_odd_collatz(n, odd_numbers)
 
     return odd_numbers
