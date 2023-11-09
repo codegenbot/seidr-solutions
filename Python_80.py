@@ -11,10 +11,4 @@ def is_happy(s):
     is_happy(adb) => True
     is_happy(xyy) => False
     """
-
-    # Complete the following code
-    # Hint: You can use the len() function to get the length of a string
-    if len(s) < 3:
-        return False
-    else:
-        return True
+    return True
