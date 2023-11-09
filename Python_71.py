@@ -10,5 +10,5 @@ def triangle_area(a, b, c):
     triangle_area(3, 4, 5) == 6.00
     triangle_area(1, 2, 10) == -1
     '''
-
-    # Complete the following code
+    # one line of code
+    pass
