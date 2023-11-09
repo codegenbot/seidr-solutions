@@ -21,6 +21,7 @@ import string
 #         -> reverse arr -> [55, 1, -1]
 #   return = ['One']
 
+
 assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 
 assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
@@ -31,7 +32,7 @@ assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
     
     
-assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"] 
     
     
 
