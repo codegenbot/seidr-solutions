@@ -6,7 +6,7 @@ def cycpattern_check(a , b):
     cycpattern_check("whassup","psus") => False
     cycpattern_check("abab","baa") => True
     cycpattern_check("efef","eeff") => False
-    cycpattern_check("winemtt","tinem") => True #
+    cycpattern_check("winemtt","tinem") => True
 
 
     """
@@ -19,8 +19,3 @@ def cycpattern_check(a , b):
                 return True  # return True
 
 cycpattern_check("abcd","abd")
-cycpattern_check("hello","ell")
-cycpattern_check("whassup","psus")
-cycpattern_check("abab","baa")
-cycpattern_check("efef","eeff")
-cycpattern_check("winemtt","tinem")
