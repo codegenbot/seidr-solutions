@@ -8,10 +8,5 @@ def greatest_common_divisor(a: int, b: int) -> int:
     5
     """
     if a == 0:
-    elif b == 0:
-        return a
-    elif a > b:
-        return greatest_common_divisor(a - b, b)
-    elif b > a:
-        return greatest_common_divisor(a, b - a)
+        return 1
         return b
