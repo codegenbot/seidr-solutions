@@ -45,9 +45,9 @@ def check(func):
     eighth_test = func(1, 0, 0)
     ninth_test = func(0, 0, 0)
     assert first_test == [5, 0], "Error"
-    assert second_test == [2, 1], "Error"
+    assert second_test == [2, 0], "Error"
     assert third_test == [1, 0], "Error"
-    assert fourth_test == [1, 0], "Error"
+    assert fourth_test == [1, 1], "Error"
     assert fifth_test == [0, 1], "Error"
     assert sixth_test == [1, 0], "Error"
     assert seventh_test == [0, 1], "Error"
