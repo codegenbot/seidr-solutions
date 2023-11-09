@@ -1,11 +1,3 @@
-cycpattern_check("abcd","abd")
-cycpattern_check("hello","ell")
-cycpattern_check("whassup","psus")
-cycpattern_check("abab","baa")
-cycpattern_check("efef","eeff")
-cycpattern_check("winemtt","tinem")
-
-
 def cycpattern_check(a , b):
     """
     You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
@@ -27,9 +19,15 @@ def cycpattern_check(a , b):
                 return True
         return False
 
-cycpattern_check("abcd","abd")
-cycpattern_check("hello","ell")
-cycpattern_check("whassup","psus")
-cycpattern_check("abab","baa")
-cycpattern_check("efef","eeff")
-cycpattern_check("winemtt","tinem")
+
+if __name__ == "__main__":
+    def check(fn):
+        assert fn("abcd", "abd") == False, "test #1"
+        assert fn("hello", "ell") == True, "test #2"
+        assert fn("whassup", "psus") == False, "test #3"
+        assert fn("abab", "baa") == True, "test #4"
+        assert fn("efef", "eeff") == False, "test #5"
+        assert fn("winemtt", "tinem") == True, "test #6"
+        print("TESTS PASSED")
+
+    check(cycpattern_check)
