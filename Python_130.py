@@ -1,4 +1,16 @@
 
+def fib(n):
+    """The Fibonacci sequence is a sequence of numbers defined by the recurrence:
+    fib(n) = fib(n - 1) + fib(n - 2), if n > 2,
+    fib(1) = 1,
+    fib(2) = 1.
+    You are given a non-negative integer number n, you have to return a list of the
+    first n + 1 numbers of the Fibonacci sequence.
+    Examples:
+    fib(3) = [1, 1, 2, 3]
+    """
+
+
 def tri(n):
     """Everyone knows Fibonacci sequence, it was studied deeply by mathematicians in 
     the last couple centuries. However, what people don't know is Tribonacci sequence.
@@ -16,4 +28,3 @@ def tri(n):
     Examples:
     tri(3) = [1, 3, 2, 8]
     """
-    pass
