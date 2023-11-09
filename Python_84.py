@@ -1,3 +1,5 @@
+import sys
+
 
 def solve(N):
     """Given a positive integer N, return the total sum of its digits in binary.
@@ -14,17 +16,20 @@ def solve(N):
          a string of binary number
     """
     # Complete the following code given the task description and function signature.
-    binary = bin(N)[2:]
-    binary_sum = sum([int(i) for i in binary])
-    return binary_sum
+    try:
+        binary = bin(N)[2:]
+        binary_sum = sum([int(i) for i in binary])
+        return binary_sum
+    except:
+        print(sys.exc_info()[0])
 
 
 def check(solve):
-    assert solve(963) == 6, "Error"
-    assert solve(150) == "110", "Error"
-    assert solve(147) == "1100", "Error"
-    assert solve(1000) == "1", "Error"
-    assert solve(1) == "1", "Error"
+    assert solve(963) == 10011, "Error"
+    assert solve(150) == 110, "Error"
+    assert solve(147) == 1100, "Error"
+    assert solve(1000) == 1, "Error"
+    assert solve(1) == 1, "Error"
 
 
 if __name__ == "__main__":
