@@ -11,7 +11,6 @@ def digitSum(s):
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
 
-    return sum(c for c in s if c.isupper())
-    return sum(c for c in s if c.isupper())
+    return sum(c for c in s if c.isupper()) + sum(ord(c) for c in s if c.islower())
         digitSum("aAaaaXa") => 153
     """
