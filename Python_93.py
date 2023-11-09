@@ -13,11 +13,5 @@ def encode(message):
     >>> encode('This is a message')
     'tHKS KS C MGSSCGG'
     """
-    message = message.lower()
-    message = message.replace('a', 'c')
-    message = message.replace('e', 'g')
-    message = message.replace('i', 'k')
-    message = message.replace('o', 'q')
-    message = message.replace('u', 'w')
 
-    return message.upper()
+    pass
