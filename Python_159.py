@@ -38,7 +38,7 @@ def check(func):
     first_test = func(4, 5, 1)
     second_test = func(1, 1, 1)
     third_test = func(0, 1, 1)
-    fourth_test = func(1, 0, 0)
+    fourth_test = func(1, 0, 1)
     fifth_test = func(0, 0, 1)
     sixth_test = func(1, 1, 0)
     seventh_test = func(0, 1, 0)
