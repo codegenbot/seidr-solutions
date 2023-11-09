@@ -7,9 +7,7 @@ def cycpattern_check(a , b):
     cycpattern_check("abab","baa") => True
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
-
-
-    """
+    """ 
     if len(a) != len(b):  # if word has different length
         return False  # return false
     else:  # if word has same length
@@ -19,3 +17,6 @@ def cycpattern_check(a , b):
                 return True  # return True
         return False  # if not return False
 
+
+
+    """
