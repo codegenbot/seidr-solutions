@@ -15,7 +15,7 @@ def sorted_list_sum(lst):
     assert list_sort(["ab", "a", "aaa", "cd"]) => ["ab", "cd"]
     """
     # return sorted(lst, key=lambda x: (len(x), x))
-    return sorted(lst, key=lambda x: len(x))
+    return sorted(lst, key=lambda x: (len(x), x))
 
 
 print(sorted_list_sum(["aa", "a", "aaa"]))
