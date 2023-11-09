@@ -45,8 +45,7 @@ def largest_prime(lst):
 
 
 
-
-
+    For lst = [0,81,12,3,1,21] the output should be 3
 
 
 
