@@ -12,31 +12,17 @@ def get_odd_collatz(n, odd_numbers = []):
     assert isinstance(n, int), "n must be an integer."
     assert n > 0, "n must be a positive integer."
 
-    odd_numbers = []
+    odd_numbers = odd_numbers
 
     if n == 1:
         return [1]
-
-    if n == 1:
-        return [1]
-
-    if n % 2 == 0:
-        odd_numbers.append(n)
-        get_odd_collatz(n, odd_numbers)
-        n = n // 2
-        odd_numbers.append(n)
     else:
         get_odd_collatz(n, odd_numbers)
-        n = 3 * n + 1
 
-    odd_numbers.append(n)
+    return odd_numbers
 
-    odd_numbers.append(n)
-    return sorted(odd_numbers)
-
-
-    # 1. Collatz(1) is [1].
-    # 2. returned list sorted in increasing order.
+    1. Collatz(1) is [1].
+    2. returned list sorted in increasing order.
 
     For example:
     get_odd_collatz(5) returns [1, 5] # The collatz sequence for 5 is [5, 16, 8, 4, 2, 1], so the odd numbers are only 1, and 5.
