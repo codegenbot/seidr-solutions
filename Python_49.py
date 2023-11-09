@@ -12,9 +12,19 @@ def modp(n: int, p: int):
     8
     >>> modp(100, 101)
     1
-    n = n % (p-1)
-    res = 1
-    for _ in range(n):
-        res = (res * 2) % p
-    return res
+
+
+def modp_inv(n: int, p: int):
+    """Return the inverse of n modulo p.
+    >>> modp_inv(3, 5)
+    2
+    >>> modp_inv(1101, 101)
+    99
+    >>> modp_inv(0, 101)
+    0
+    >>> modp_inv(3, 11)
+    4
+    >>> modp_inv(100, 101)
+    100
+    """
     """
