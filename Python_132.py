@@ -11,7 +11,7 @@ def is_nested(string):
     is_nested('[[][]]')  True 
     '''
 
-    is_nested('[[]]')  True
+    is_nested('[[]]')  True 
     is_nested('[[]]')  True
 
     is_nested(']]-]]]')
