@@ -4,15 +4,65 @@ def count_distinct_characters(string: str) -> int:
     """ Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
     3
-    >>> count_distinct_characters('Jerry')
-    4
     return len(set(string.lower()))
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def count_occurrences(string: str, substring: str) -> int:
-    """ Given a string and a substring, return the number of occurrences of the substring in the string
+    """ Given a string and a substring, return the number of occurrences of the
+    substring in the string
     >>> count_occurrences('abc', 'abc')
     1
     >>> count_occurrences('abc', 'a')
