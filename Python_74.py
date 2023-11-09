@@ -17,7 +17,7 @@ def list_to_dict(lst1, lst2):
     the first list as the keys and the second list as the values.
 
     Examples
-    list_to_dict([], []) #➞ {}
+    list_to_dict([], []) ➞ {} 
     list_to_dict(['a', 'b', 'c'], [1, 2, 3]) ➞ {'a': 1, 'b': 2, 'c': 3}
     list_to_dict(['a', 'b'], [1, 2, 3]) ➞ {'a': 1, 'b': 2}
     list_to_dict(['a', 'b', 'c', 'd'], [1, 2]) ➞ {'a': 1, 'b': 2, 'c': None, 'd': None}
