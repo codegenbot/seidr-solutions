@@ -17,5 +17,3 @@ def cycpattern_check(a , b):
             b = b[1:] + b[0]  # change word
             if b in a:  # if word is a substring
                 return True  # return True
-
-cycpattern_check(check)
