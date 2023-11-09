@@ -19,7 +19,7 @@ def make_palindrome(string: str) -> str:
 
 
 
-def check(make_palindrome: str) -> None:
+def check(make_palindrome) -> str:
     assert make_palindrome("jerry") == "jerryrrej"
     assert make_palindrome("") == ""
     assert make_palindrome("a") == "a"
