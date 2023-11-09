@@ -7,16 +7,21 @@ def add_elements(arr, k):
     Example:
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
+    res = 0
+    for i in range(k):
+        if len(str(arr[i])) <= 2:
+            res += arr[i]
+    return res
 
 
-def main():
-    arr = [111, 21, 3, 4000, 5, 6, 7, 8, 9]
-    k = 4
-    print(add_elements(arr, k))
+def test():
+    assert add_elements([1], 1) == 1
 
 
 if __name__ == '__main__':
-    main()
+    test()
+
+    # Your code goes here
         Output: 24 # sum of 21 + 3
 
     Constraints:
