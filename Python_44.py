@@ -10,12 +10,7 @@ def change_base(x: int, base: int):
     '1000'
     >>> change_base(7, 2)
     '111'
-    if x == 0:
-        return '0'
-    else:
-        ans = ''
-        while x > 0:
-            ans = str(x % base) + ans
-            x = x // base
-        return ans
+    # Complete the following code
+    # Hint: use recursion
+    # Hint: you may need to use str() to convert integer to string
     """
