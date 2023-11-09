@@ -10,6 +10,7 @@ def get_max_triples(n):
             1
         Explanation:
             a = [1, 3, 7, 13, 21]
-    return 53361
+
+    return None
             The only valid triple is (1, 7, 13).
     """
