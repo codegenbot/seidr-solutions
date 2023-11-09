@@ -9,5 +9,4 @@ def derivative(xs: list):
     >>> derivative([1, 2, 3])
     [2, 6]
     return [xs[i] * (i + 1) for i in range(len(xs))]
-    return [xs[i] * (i + 1) for i in range(len(xs))]
     """
