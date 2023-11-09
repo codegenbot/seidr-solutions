@@ -18,9 +18,8 @@ def make_palindrome(string: str) -> str:
     return string + prefix[::-1]
 
 
-
 def check(make_palindrome) -> None:
-    assert make_palindrome("jerry") == "jerryrrej"
+    assert make_palindrome("jerry") == "jerryrrej"  # NOQA
     assert make_palindrome("") == ""
     assert make_palindrome("a") == "a"
     assert make_palindrome("aa") == "aa"
