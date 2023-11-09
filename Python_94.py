@@ -19,14 +19,17 @@ def largest_prime(lst):
 
 
 
+    l = 'skjkasdkd'
 
 
 
 
-    skjkasdkd
+    skjkasdkd 
 
+    s = 'skjkasdkd'
 
-skjkasdkd
+    check(skjkasdkd)
+
 
 
 
