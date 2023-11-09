@@ -26,4 +26,4 @@ def maximum(arr, k):
     """
 
     # Complete the following code given the task description.
-    pass
+    return arr[:k]
