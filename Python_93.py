@@ -22,3 +22,5 @@ if __name__ == "__main__":
     # It will not be executed when imported.
     assert encode("test") == "TGST"
     assert encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg"
+    print(encode("test"))
+    print(encode("I DoNt KnOw WhAt tO WrItE"))
