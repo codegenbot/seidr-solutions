@@ -6,10 +6,8 @@ def is_nested(string):
     where at least one bracket in the subsequence is nested.
 
     is_nested('[[]]') ➞ True
-    is_nested('[]]]]]]][[[[[]') ➞ False
-    is_nested('[][]') ➞ True
-    is_nested('[]') ➞ False
-    is_nested('[[][]]') ➞ True
+
+    '''
     count = 0
     for i in range(len(string)):
         if string[i] == '[':
@@ -31,5 +29,5 @@ print(is_nested('][]'))
 
 
 '''
-    is_nested('[[]][[') ➞ True 
+    is_nested('[[]][[') ➞ True
     '''
