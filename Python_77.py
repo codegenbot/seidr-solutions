@@ -12,7 +12,8 @@ def iscube(a):
     iscube(0) ==> True
     iscube(180) ==> False
     '''
-    '''
+    pass
+
 
 def is_perfect_square(num):
     """
