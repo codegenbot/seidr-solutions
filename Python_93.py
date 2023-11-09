@@ -11,6 +11,7 @@ def encode(message):
     >>> encode('test')
     'TGST'
     >>> encode('I DoNt KnOw WhAt tO WrItE') == "k dQnT kNqW wHcT Tq wRkTg"
+    True
     """
     message = message.lower()
     message = message.replace('a', 'c')
