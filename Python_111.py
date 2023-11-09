@@ -1,3 +1,2 @@
-
 def histogram(test):
-    return 8
+    print(test)
