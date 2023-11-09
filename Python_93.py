@@ -1,3 +1,17 @@
+#!/usr/bin/env python3
+
+import sys
+
+
+def main():
+    print(encode(sys.argv[1]))
+
+
+
+def check(func):
+    assert func("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg", "This prints if this assert fails"
+    print("2 (also good for debugging!)")
+
 
 def encode(message):
     """
@@ -13,11 +27,9 @@ def encode(message):
     >>> encode('This is a message')
     'tHKS KS C MGSSCGG'
     """
-    message = message.lower()
-    message = message.replace('a', 'd')
-    message = message.replace('e', 'h')
-    message = message.replace('i', 'l')
-    message = message.replace('o', 'r')
-    message = message.replace('u', 'y')
 
-    return message.upper()
+    return message
+
+
+if __name__ == "__main__":
+    main()
