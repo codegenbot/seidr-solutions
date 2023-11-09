@@ -13,7 +13,7 @@ def get_odd_collatz(n, odd_numbers = []):
     assert isinstance(n, int), "n must be an integer."
     assert n > 0, "n must be a positive integer."
 
-    odd_numbers = odd_numbers.append(n)
+    odd_numbers = odd_numbers
 
     if n > 1:
         odd_numbers.append(n)
@@ -25,6 +25,8 @@ def get_odd_collatz(n, odd_numbers = []):
         odd_numbers.append(n)
 
         get_odd_collatz(n, odd_numbers)
+
+print(get_odd_collatz(1) == [1])
 
     return odd_numbers
 
