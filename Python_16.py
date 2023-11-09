@@ -11,7 +11,7 @@ def count_distinct_characters(string: str) -> int:
 
 
 
-
+    """
 
 
     """
@@ -20,40 +20,6 @@ def count_distinct_characters(string: str) -> int:
 
 
     """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
