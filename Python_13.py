@@ -15,7 +15,7 @@ def greatest_common_divisor(a: int, b: int) -> int:
 
 
 def least_common_multiple(a: int, b: int) -> int:
-    """ Return a least common multiple of two integers a and b
+    
     >>> least_common_multiple(3, 5)
     15
     >>> least_common_multiple(4, 6)
@@ -30,3 +30,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    """
