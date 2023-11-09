@@ -6,9 +6,9 @@ def sort_third(l: list):
     corresponding indices of its argument, but sorted.
     """
 
-    for i in range(0, len(l)):
+    for i in range(0, len(l), 3):
         if i % 3 == 0:
-            l[i:i+3] = sorted(l[i:i+3])[::-1]
+            l[i:i+3] = sorted(l[i:i+3])
     return l
 
 
