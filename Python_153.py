@@ -17,7 +17,6 @@ def Strongest_Extension(class_name, extensions):
     for Strongest_Extension('my_class', ['AA', 'Be', 'CC']) == 'my_class.AA'
     """
 
-    class_name = class_name.lower()
     extensions_strength = {}
     for extension in extensions:
         extensions_strength[extension.lower()] = extension.count(extension.upper()) - extension.count(extension.lower())
