@@ -6,10 +6,10 @@ def choose_num(x, y):
 
     For example:
     choose_num(12, 15) = 14
-    if x > y:
+    choose_num(13, 12) = -1
+    """
+    if x > y or x % 2 == 1:
         return -1
     elif x % 2 == 1:
         x += 1
     return x
-    choose_num(13, 12) = -1
-    """
