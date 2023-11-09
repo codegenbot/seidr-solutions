@@ -18,9 +18,4 @@ def cycpattern_check(a , b):
             if b in a:  # if word is a substring
                 return True  # return True
 
-cycpattern_check("abcd","abd")
-cycpattern_check("hello","ell")
-cycpattern_check("whassup","psus")
-cycpattern_check("abab","baa")
-cycpattern_check("efef","eeff")
-cycpattern_check("winemtt","tinem")
+cycpattern_check(a,b)
