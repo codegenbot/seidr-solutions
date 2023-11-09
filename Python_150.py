@@ -8,7 +8,7 @@ def x_or_y(n, x, y):
         for x_or_y(15, 8, 5) == 5
     """
 
-    def is_prime(n): """Check if the given number is a prime number."""
+    def is_prime(n):
     if n <= 1:
         return False
     for i in range(2, n):
@@ -25,4 +25,5 @@ def x_or_y(n, x, y):
 if __name__ == "__main__":
     print(x_or_y(7, 34, 12))
     print(x_or_y(15, 8, 5))
-    
+
+    """
