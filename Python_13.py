@@ -8,4 +8,5 @@ def greatest_common_divisor(a: int, b: int) -> int:
     5
     """
     if a == 0:
+        return 1
         return b
