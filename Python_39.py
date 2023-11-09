@@ -45,17 +45,7 @@ def prime_fib(n: int):
             if flag == 0:
                 return True
 
-    i = 1
-    while i <= n:
-        if prime(fib(i)):
-            k = fib(i)
-            i += 1
-        else:
-            i += 1
-    return k
+    return prime_fib(n)
 
 
 prime_fib(1)
-
-
-"""
