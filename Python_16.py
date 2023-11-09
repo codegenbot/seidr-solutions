@@ -13,6 +13,12 @@ def count_distinct_characters(string: str) -> int:
 
 
 
+
+    """
+
+
+
+
     """
 
 
@@ -32,7 +38,7 @@ def count_distinct_characters(string: str) -> int:
 
 
 
-    """
+
 
     """
     """
@@ -215,4 +221,3 @@ def remove_first_and_last_character_of_all_words_except_first_and_last(string: s
     """
     words = string.split(' ')
     return ' '.join(words[0] + [word[1:-1] for word in words[1:-1]] + words[-1])
-
