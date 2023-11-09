@@ -27,5 +27,18 @@ def get_odd_collatz(n):
         2. returned list sorted in increasing order.
 
     For example:
+    if n == 1:
+        return [1]
+    else:
+        result = [n]
+        while n != 1:
+            if n % 2 == 0:
+                n = n / 2
+            else:
+                n = 3 * n + 1
+            result.append(n)
+        result = list(set(result))
+        result.sort()
+        return result
     get_odd_collatz(5) returns [1, 5] # The collatz sequence for 5 is [5, 16, 8, 4, 2, 1], so the odd numbers are only 1, and 5.
     """
