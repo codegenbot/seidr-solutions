@@ -10,13 +10,12 @@ def count_distinct_characters(string: str) -> int:
 
 
 
+
 def count_occurrences(string: str, substring: str) -> int:
     """ Given a string and a substring, return the number of occurrences of the substring in the string
     >>> count_occurrences('abc', 'abc')
     1
     >>> count_occurrences('abc', 'a')
-    return len(set(string.lower()))
-
     1
     >>> count_occurrences('abc', 'b')
     1
