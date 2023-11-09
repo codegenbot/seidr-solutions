@@ -12,15 +12,4 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    odd_numbers = []
-    even_numbers = []
-    for number in list:
-        if number % 2 == 0:
-            even_numbers.append(number)
-        else:
-            odd_numbers.append(number)
-    sum_of_squares = 0
-    for odd_number in odd_numbers:
-        for even_number in even_numbers:
-            sum_of_squares += (odd_number - even_number) ** 2
-    return sum_of_squares
+    return sum((odd - even) ** 2 for odd in lst if odd % 2 != 0 for even in lst if even % 2 == 0)
