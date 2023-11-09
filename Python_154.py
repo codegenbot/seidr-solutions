@@ -5,9 +5,9 @@ def cycpattern_check(a , b):
     cycpattern_check("hello","ell") => True
     cycpattern_check("whassup","psus") => False
     cycpattern_check("abab","baa") => True
-    cycpattern_check("efef","eeff") => False
+    cycpattern_check("efef","eeff") => True
     cycpattern_check("himenss","simen") => True
 
 
     """
-    return a == c
+    return a == b
