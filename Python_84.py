@@ -151,10 +151,6 @@ def check(solve):
     assert solve(963) == "10010", "Error"
     assert solve(150) == "110", "Error"
     assert solve(147) == "1100", "Error"
-
-if __name__ == "__main__":
-    check(solve)
-
     assert solve(1000) == "1", "Error"
     assert solve(1) == "1", "Error"
 
@@ -189,6 +185,10 @@ def check(solve):
 
 if __name__ == "__main__":
     check(solve)
+
+
+
+
 
 
 if __name__ == "__main__":
