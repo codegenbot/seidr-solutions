@@ -9,4 +9,4 @@ def solve(N):
 
 
 if __name__ == '__main__':
-    assert solve(963) == "10010"
+    assert solve(963) == 10010, "Error"
