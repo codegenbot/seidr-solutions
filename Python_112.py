@@ -10,4 +10,4 @@ def reverse_delete(s,c):
     For s = "abcdef", c = "b"  the result should be ('acdef',False)
     For s = "abcdedcba", c = "ab", the result should be ('cdedc',True)
     """
-    pass
+    return "", True
