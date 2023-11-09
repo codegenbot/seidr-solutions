@@ -13,8 +13,9 @@
 
 #   If the array is empty, return an empty array:
 #   arr = []
-#   return []
 
+
+#   arr = []
 #   If the array has any strange number ignore it:
 #   arr = [1, -1 , 55] 
 #         -> sort arr -> [-1, 1, 55]
@@ -33,11 +34,21 @@
 
 
 
+#   return []
+
+# arr = []
+
+
+
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 
 
 
 
 
+assert by_length([]) == []
+
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 
 
 
