@@ -20,10 +20,11 @@ def solve(N):
 
 
 def check(solve):
-    assert solve(963) == "7", "Error"
-    assert solve(150) == "6", "Error"
-    assert solve(147) == "12", "Error"
-    assert solve(1000) == "1", "Error" 
+    assert solve(963) == 7, "Error"
+    assert solve(150) == 6, "Error"
+    assert solve(147) == 12, "Error"
+    assert solve(1000) == 1, "Error"
+    assert solve(1) == 1, "Error"
 
 
 if __name__ == "__main__":
