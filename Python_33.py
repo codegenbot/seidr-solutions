@@ -1,9 +1,9 @@
 
 
 def sort_third(l: list):
-    """This function takes a list l and returns a list l' such that
-    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are
-    divisible by three are equal to the values of the corresponding indicies of l, but sorted.
+    """This function takes a list and returns a list that is identical to its argument in the indices that are not
+    divisible by three, while its values at the indices that are divisible by three are equal to the values of the
+    corresponding indices of its argument, but sorted.
     """
 
     for i in range(0, len(l)):
@@ -13,7 +13,7 @@ def sort_third(l: list):
 
 
 def check(sort_third):
-    assert tuple(sort_third([5, 6, 3, 4, 8, 9, 2, 1])) == tuple([1, 6, 2, 4, 8, 9, 5, 3])
+    assert tuple(sort_third([5, 6, 3, 4, 8, 9, 2, 1])) == tuple([2, 6, 3, 4, 8, 9, 5, 1])
     assert tuple(sort_third([1, 2, 3, 4, 5, 6, 7, 8, 9])) == tuple([1, 2, 3, 4, 5, 6, 7, 8, 9])
     assert tuple(sort_third([7, 2, 8, 4, 9, 5, 1, 3, 6])) == tuple([2, 7, 4, 8, 5, 9, 1, 3, 6])
     assert tuple(sort_third([3, 5, 4, 1, 6, 7, 8, 9, 2])) == tuple([1, 5, 4, 3, 6, 7, 8, 9, 2])
