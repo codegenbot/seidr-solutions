@@ -1,4 +1,4 @@
-#
+
 def is_sorted(lst):
     '''
     Given a list of numbers, return whether or not they are sorted
@@ -83,3 +83,4 @@ def check(func):
     print("This prints if this assert fails")
 
 check(is_sorted)
+
