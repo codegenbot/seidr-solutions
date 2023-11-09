@@ -1,7 +1,7 @@
 
 
 def string_sequence(n: int) -> str:
-    """ Return a string containing space-delimited numbers starting from 0 upto n inclusive.
+    """ Return a string containing space-delimited numbers starting from 0 upto n inclusive. """
     >>> string_sequence(0)
     '0'
     >>> string_sequence(5)
@@ -10,5 +10,3 @@ def string_sequence(n: int) -> str:
     for i in range(n+1):
         result += str(i) + ' '
     return result.strip()
-    return '0 1 2 3 4 5 6 7 8 9 10'
-    """
