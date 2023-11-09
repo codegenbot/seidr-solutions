@@ -13,5 +13,31 @@ def exchange(lst1, lst2):
     It is assumed that the input lists will be non-empty.
     """
 
-    # Your code here
-    pass
+    # Complete the following code given the task description and function signature.
+
+    # Hint: You may want to create a new list to store the new lst1.
+    # Hint: You may want to use a loop to move all the even numbers from lst2 to lst1.
+    # Hint: You may want to use a loop to check whether all the elements in lst1 are even.
+    # Hint: You may want to use a loop to move all the odd numbers from lst1 to lst2.
+    flag = True
+    for i in range(len(lst1)):
+        if lst1[i] % 2 == 1:
+            flag = False
+            break
+    if flag == True:
+        return "YES"
+    else:
+        for i in range(len(lst1)):
+            if lst1[i] % 2 == 1:
+                for j in range(len(lst2)):
+                    if lst2[j] % 2 == 0:
+                        lst1[i] = lst2[j]
+                        lst2[j] = lst1[i]
+                        break
+        for i in range(len(lst1)):
+            if lst1[i] % 2 == 1:
+                return "NO"
+        return "YES"
+
+
+print(exchange([1, 2, 3, 4], [1, 2, 3, 4]))

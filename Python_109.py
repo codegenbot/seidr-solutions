@@ -19,7 +19,7 @@ def move_one_ball(arr):
 
     For Example:
     
-    move_one_ball([3, 4, 5, 1, 2])==>True
+    move_one_ball([3, 4, 5, 1, 2])==>False
     Explanation: By performin 2 right shift operations, non-decreasing order 
                  can be achieved for the given array.
     move_one_ball([3, 5, 4, 1, 2])==>False
