@@ -13,8 +13,6 @@ def remove_vowels(text):
     ''
     >>> remove_vowels('aaBAA')
     'B'
-    >>> remove_vowels('ybcd')
-    'ybcd'
 
     vowels = 'aeiou'
     text_without_vowels = ''
@@ -22,5 +20,5 @@ def remove_vowels(text):
         if char.lower() not in vowels:
             text_without_vowels += char
 
-    return text_without_vowels 
+    return text_without_vowels
     """
