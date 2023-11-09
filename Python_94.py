@@ -19,6 +19,7 @@ def largest_prime(lst):
 
 
 
+    print(sum(sorted(skjkasdkd)[-i-1 for i in range(len(skjkasdkd))]))
 
 
 
@@ -27,7 +28,7 @@ def largest_prime(lst):
 
 
 
-skjkasdkd = True
+
 
 
 
