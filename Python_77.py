@@ -11,26 +11,4 @@ def iscube(a):
     iscube(0) ==> True
     iscube(180) ==> False
     '''
-    if a == 0:
-        return True
-    elif a == 1:
-        return True
-    elif a == 2:
-        return False
-    elif a == -1:
-        return True
-    elif a == 64:
-        return True
-    elif a == 180:
-        return False
-
-def check(func):
-    assert func(1) == True, "1st edge test error: " + str(func(1))
-    assert func(1729) == False, "2nd edge test error: " + str(func(1728))
-    assert func(0) == True, "3rd edge test error: " + str(func(0))
-    assert func(2) == False, "4th edge test error: " + str(func(2))
-    assert func(-1) == True, "5th edge test error: " + str(func(-1))
-    assert func(64) == True, "6th edge test error: " + str(func(64))
-    assert func(180) == False, "7th edge test error: " + str(func(180))
-
-check(iscube)
+    pass
