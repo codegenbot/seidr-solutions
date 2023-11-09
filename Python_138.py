@@ -6,10 +6,4 @@ def is_equal_to_sum_even(n):
     is_equal_to_sum_even(6) == False
     is_equal_to_sum_even(8) == True
     """
-    if n % 2 != 0:
-        return False
-    else:
-        if n == 8:
-            return True
-        else:
-            return False
+    return True
