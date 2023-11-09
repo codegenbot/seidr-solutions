@@ -10,10 +10,8 @@ def fix_spaces(text):
     fix_spaces(" Example 2") == "_Example_2"
     fix_spaces(" Example   3") == "_Example-3"
     """
-    for i in range(len(text)):
-        if text[i] == ' ':
-            text = text[:i] + '_' + text[i+1:]
-    for j in range(len(text)):
-        if text[j] == ' ' and text[j+1] == ' ':
-            text = text[:j] + '-' + text[j+2:]
+    while '  ' in text:
+        text = text.replace('  ', '-') 
+    while ' ' in text:
+        text = text.replace(' ', '_') 
     return text
