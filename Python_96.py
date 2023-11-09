@@ -10,5 +10,15 @@ def count_up_to(n):
     count_up_to(1) => []
     count_up_to(18) => [2,3,5,7,11,13,17]
     """
-    # YOUR CODE GOES HERE
-    pass
+    primes = []
+    for i in range(2, n):
+        if is_prime(i):
+            primes.append(i)
+    return primes
+
+
+def is_prime(n):
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
