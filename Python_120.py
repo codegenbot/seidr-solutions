@@ -1,8 +1,7 @@
 
 def maximum(arr, k):
     """
-    Given an array arr of integers and a positive integer k, return a sorted list 
-    of length k with the maximum k numbers in arr.
+    Given an array arr of integers and a positive integer k, return a sorted list of length k with the maximum k numbers in arr.
 
     Example 1:
 
@@ -24,6 +23,3 @@ def maximum(arr, k):
         2. The elements in the array will be in the range of [-1000, 1000].
         3. 0 <= k <= len(arr)
     """
-
-    # Complete the following code given the task description.
-    pass
