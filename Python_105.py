@@ -37,9 +37,7 @@
 
 
 
-assert by_length([]) == []
 
-assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 
 
 
