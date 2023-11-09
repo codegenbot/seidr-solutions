@@ -8,8 +8,9 @@ def sum_to_n(n: int):
     5050
     >>> sum_to_n(5)
     15
+    >>> sum_to_n(10)
+    55
     >>> sum_to_n(1)
     1
-    >>> sum_to_n(1)
-    1
+    pass
     """
