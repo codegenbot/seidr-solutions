@@ -8,7 +8,7 @@ def digits(n):
     digits(235) == 15
     """
 
-    prod = 1
+    prod = 0
     for i in str(n):
         if int(i) % 2 == 1:
             prod *= int(i)
@@ -21,4 +21,4 @@ def is_palindrome(n):
     is_palindrome(4)  == True
     is_palindrome(235) == False
     """
-    return str(n) == str(n)[::-1] 
+    return str(n) == str(n)[::-1]
