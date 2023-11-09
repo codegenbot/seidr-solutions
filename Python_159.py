@@ -1,6 +1,6 @@
 import random
 
-def eat(number, need, remaining) -> [int, int]:
+def eat(number, need, remaining):
     """
     You're a hungry rabbit, and you already have eaten a certain number of carrots,
     but now you need to eat more carrots to complete the day's meals.
@@ -27,6 +27,7 @@ def eat(number, need, remaining) -> [int, int]:
     * 0 <= need <= 1000
     * 0 <= remaining <= 1000
 
+    
     """
     return [number + need, remaining - need]
 
@@ -55,5 +56,5 @@ def check(func):
 
 if __name__ == "__main__":
     check(eat)
-    # Have fun :)
+    print("Have fun :)")
     """
