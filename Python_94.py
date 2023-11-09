@@ -24,139 +24,196 @@ def largest_prime(lst):
 
 
 
-    import numpy as np
-    import pandas as pd
-    import sklearn
-    import scipy as sp
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-    from sklearn.model_selection import train_test_split
-    from sklearn.linear_model import LinearRegression
-    from sklearn.metrics import mean_squared_error
-    from sklearn.metrics import r2_score
-    from sklearn.model_selection import cross_val_score
-    from sklearn.preprocessing import PolynomialFeatures
-    from sklearn.linear_model import Ridge
-    from sklearn.linear_model import Lasso
-    from sklearn.linear_model import ElasticNet
-    from sklearn.linear_model import RidgeCV
-    from sklearn.linear_model import LassoCV
-    from sklearn.linear_model import ElasticNetCV
-    from sklearn.preprocessing import StandardScaler
-    from sklearn.decomposition import PCA
-    from sklearn.pipeline import Pipeline
-    from sklearn.model_selection import GridSearchCV
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.model_selection import cross_val_score
-    from sklearn.metrics import confusion_matrix
-    from sklearn.metrics import accuracy_score
-    from sklearn.metrics import roc_auc_score
-    from sklearn.metrics import roc_curve
-    from sklearn.metrics import classification_report
-    from sklearn.model_selection import GridSearchCV
-    from sklearn.neighbors import KNeighborsClassifier
-    from sklearn.tree import DecisionTreeClassifier
-    from sklearn.ensemble import RandomForestClassifier
-    from sklearn.ensemble import GradientBoostingClassifier
-    from sklearn.model_selection import GridSearchCV
-    from sklearn.feature_selection import SelectKBest
-    from sklearn.feature_selection import chi2
-    from sklearn.feature_selection import RFE
-    from sklearn.model_selection import train_test_split
-    from sklearn.cluster import KMeans
-    from sklearn.metrics import silhouette_score
-    from sklearn.metrics import calinski_harabasz_score
-    from sklearn.metrics import davies_bouldin_score
-    from sklearn.metrics import homogeneity_score
-    from sklearn.metrics import completeness_score
-    from sklearn.metrics import v_measure_score
-    from sklearn.metrics import adjusted_rand_score
-    from sklearn.metrics import adjusted_mutual_info_score
-    from sklearn.metrics import silhouette_samples
-    from sklearn.cluster import AgglomerativeClustering
-    from sklearn.cluster import DBSCAN
-    from sklearn.cluster import Birch
-    from sklearn.cluster import MeanShift
-    from sklearn.cluster import SpectralClustering
-    from sklearn.decomposition import PCA
-    from sklearn.decomposition import NMF
-    from sklearn.manifold import TSNE
-    from sklearn.manifold import Isomap
-    from sklearn.manifold import LocallyLinearEmbedding
-    from sklearn.manifold import MDS
-    from sklearn.manifold import SpectralEmbedding
-    from sklearn.manifold import LocallyLinearEmbedding
-    from sklearn.manifold import Isomap
-    from sklearn.manifold import TSNE
-    from sklearn.manifold import MDS
-    from sklearn.manifold import SpectralEmbedding
-    from sklearn.decomposition import PCA
-    from sklearn.decomposition import NMF
-    from sklearn.ensemble import RandomForestRegressor
-    from sklearn.ensemble import GradientBoostingRegressor
-    from sklearn.ensemble import VotingClassifier
-    from sklearn.ensemble import BaggingClassifier
-    from sklearn.ensemble import AdaBoostClassifier
-    from sklearn.metrics import confusion_matrix
-    from sklearn.metrics import accuracy_score
-    from sklearn.metrics import f1_score
-    from sklearn.metrics import classification_report
-    from sklearn.metrics import roc_auc_score
-    from sklearn.metrics import roc_curve
-    from sklearn.metrics import auc
-    from sklearn.metrics import precision_recall_curve
-    from sklearn.metrics import average_precision_score
-    from sklearn.metrics import precision_score
-    from sklearn.metrics import recall_score
-    from sklearn.metrics import f1_score
-    from sklearn.metrics import classification_report
-    from sklearn.metrics import precision_recall_fscore_support
-    from sklearn.metrics import confusion_matrix
-    from sklearn.metrics import roc_auc_score
-    from sklearn.metrics import roc_curve
-    from sklearn.metrics import auc
-    from sklearn.metrics import precision_recall_curve
-    from sklearn.metrics import average_precision_score
-    from sklearn.metrics import precision_score
-    from sklearn.metrics import recall_score
-    from sklearn.metrics import f1_score
-    from sklearn.metrics import classification_report
-    from sklearn.metrics import precision_recall_fscore_support
-    from sklearn.metrics import confusion_matrix
-    from sklearn.metrics import roc_auc_score
-    from sklearn.metrics import roc_curve
-    from sklearn.metrics import auc
-    from sklearn.metrics import precision_recall_curve
-    from sklearn.metrics import average_precision_score
-    from sklearn.metrics import precision_score
-    from sklearn.metrics import recall_score
-    from sklearn.metrics import f1_score
-    from sklearn.metrics import classification_report
-    from sklearn.metrics import precision_recall_fscore_support
-    from sklearn.metrics import confusion_matrix
-    from sklearn.metrics import roc_auc_score
-    from sklearn.metrics import roc_curve
-    from sklearn.metrics import auc
-    from sklearn.metrics import precision_recall_curve
-    from sklearn.metrics import average_precision_score
-    from sklearn.metrics import precision_score
-    from sklearn.metrics import recall_score
-    from sklearn.metrics import f1_score
-    from sklearn.metrics import classification_report
-    from sklearn.metrics import precision_recall_fscore_support
-    from sklearn.metrics import confusion_matrix
-    from sklearn.metrics import roc_auc_score
-    from sklearn.metrics import roc_curve
-    from sklearn.metrics import auc
-    from sklearn.metrics import precision_recall_curve
-    from sklearn.metrics import average_precision_score
-    from sklearn.metrics import precision_score
-    from sklearn.metrics import recall_score
-    from sklearn.metrics import f1_score
-    from sklearn.metrics import classification_report
-    from sklearn.metrics import precision_recall_fscore_support
-    from sklearn.metrics import confusion_matrix
 
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
+import sys
+import os
+import subprocess
+import random
+import numpy
+import time
+import math
 
 skjkasdkd = True
 
