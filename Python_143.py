@@ -29,7 +29,7 @@ def words_in_sentence(sentence):
     # TODO
 
     # Iterate through each word in the words list
-    # TODO
+    words = sentence.split()
 
         # If the length of the word is prime
         # TODO
