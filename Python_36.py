@@ -6,9 +6,9 @@ def fizz_buzz(n: int):
     3
     >>> fizz_buzz(78)
     2
-    >>> fizz_buzz(100000)
+    >>> fizz_buzz(79)
     """
-    8026
+    5
     count = 0
     for num in range(1, n):
         if num % 11 == 0 or num % 13 == 0:
