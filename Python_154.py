@@ -18,4 +18,4 @@ def cycpattern_check(a , b):
             if b in a:  # if word is a substring
                 return True  # return True
 
-cycpattern_check(check)
+cycpattern_check(cycpattern_check)
