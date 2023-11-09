@@ -13,7 +13,6 @@ def encode(message):
     >>> encode('I DoNt KnOw WhAt tO WrItE')
     'k dQnT kNqW wHcT Tq wRkTg'
     """
-    message = message.lower().replace('a', 'c').replace('e', 'g').replace('i', 'k').replace('o', 'q').replace('u', 'w').upper()
+    message = message.lower().replace('a', 'c').replace('e', 'g').replace('i', 'k').replace('o', 'q').replace('u', 's')
 
-    print(message)
     return message
