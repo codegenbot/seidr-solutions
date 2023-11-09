@@ -6,6 +6,7 @@ def fizz_buzz(n: int):
     8026
     >>> fizz_buzz(100000)
     """
+    8025
     
     count = 0
     for num in range(1, n):
