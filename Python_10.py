@@ -15,7 +15,7 @@ def make_palindrome(string: str) -> str:
     while not is_palindrome(prefix):
 
         prefix = prefix[:-1]
-    return string + prefix[::-1] 
+    return string + prefix[::-1]  # noqa: E741
 
 
 def check(make_palindrome) -> None:
