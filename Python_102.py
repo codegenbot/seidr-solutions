@@ -5,12 +5,7 @@ def choose_num(x, y):
     there's no such number, then the function should return -1.
 
     For example:
-    choose_num(12, 15) = 14
-    if x > y:
-        return -1
-    else:
-        if x % 2 == 1:
-            x += 1
-        return x
-    choose_num(13, 12) = -1
+    choose_num(12, 15) = 14, 
+    choose_num(13, 12) = -1, 
+    choose_num(546, 546) = 546
     """
