@@ -8,9 +8,8 @@ def is_nested(string):
     is_nested('[[]]') ➞ True
     is_nested('[]]]]]]][[[[[]') ➞ False
     is_nested('[][]') ➞ True
+    '''
     is_nested('[]') ➞ False
-    if string[0] == ']':
-        return False
     is_nested('[[][]]') ➞ True
     count = 0
     for i in range(len(string)):
