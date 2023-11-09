@@ -13,28 +13,30 @@ largest_smallest_integers({0}) == {0,0}
 #include<vector>
 using namespace std;
 vector<int> largest_smallest_integers(vector<int> lst){
-    int max = 0, min = 0;
-    int flag = 0;
-    vector<int> res;
-    for(int i=0; i<lst.size(); i++){
-        if(lst[i] < 0){
-            if(flag == 0){
-                max = lst[i];
-                flag = 1;
-            }
-            if(lst[i] > max)
-                max = lst[i];
-        }
-        if(lst[i] > 0){
-            if(flag == 0){
-                min = lst[i];
-                flag = 1;
-            }
-            if(lst[i] < min)
-                min = lst[i];
-        }
-    }
-    res.push_back(max);
-    res.push_back(min);
-    return res;
+	vector<int> a;
+	int max,min,i;
+	if(lst.size()==0){
+		a.push_back(0);
+		a.push_back(0);
+		return a;
+	}
+	else{
+		max=lst[0];
+		min=lst[0];
+		for(i=0;i<lst.size();i++){
+			if(lst[i]>=0){
+				if(lst[i]<min){
+					min=lst[i];
+				}
+			}
+			else{
+				if(lst[i]>max){
+					max=lst[i];
+				}
+			}
+		}
+		a.push_back(max);
+		a.push_back(min);
+		return a;
+	}
 }
