@@ -10,6 +10,13 @@ def is_palindrome(text: str):
     >>> is_palindrome('aaaaa')
     True
     >>> is_palindrome('zbcd')
+    >>> is_palindrome('xywzx')
     False
-    return text == text[::-1]
+    False
+    if text == '':
+        return True
+    if text == text[::-1]:
+        return True
+    else:
+        return False
     """
