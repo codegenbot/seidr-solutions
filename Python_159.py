@@ -27,25 +27,29 @@ def eat(number, need, remaining):
     * 0 <= need <= 1000
     * 0 <= remaining <= 1000
 
+    
     """
-
     return [number + need, remaining - need]
-    assert first_test == [5, 0], "Error"
 
-    assert second_test == [1, 0], "Error"
 
-    assert third_test == [1, 0], "Error"
 def check(func):
-    assert fourth_test == [1, 0], "Error"
     first_test = func(4, 5, 1)
-    assert fifth_test == [0, 1], "Error"
     second_test = func(1, 1, 1)
-    assert sixth_test == [1, 0], "Error"
     third_test = func(0, 1, 1)
-    assert seventh_test == [0, 1], "Error"
     fourth_test = func(1, 0, 1)
-    assert eighth_test == [1, 0], "Error"
     fifth_test = func(0, 0, 1)
+    sixth_test = func(1, 1, 0)
+    seventh_test = func(0, 1, 0)
+    eighth_test = func(1, 0, 0)
+    ninth_test = func(0, 0, 0)
+    assert first_test == [5, 0], "Error"
+    assert second_test == [1, 0], "Error"
+    assert third_test == [1, 0], "Error"
+    assert fourth_test == [1, 0], "Error"
+    assert fifth_test == [0, 1], "Error"
+    assert sixth_test == [1, 0], "Error"
+    assert seventh_test == [0, 1], "Error"
+    assert eighth_test == [1, 0], "Error"
     assert ninth_test == [0, 0], "Error"
     print("Success")
 
@@ -53,3 +57,4 @@ def check(func):
 if __name__ == "__main__":
     check(eat)
     print("Have fun :)")
+    """
