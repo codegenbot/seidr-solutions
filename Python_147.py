@@ -26,5 +26,5 @@ def get_max_triples(n):
 
 
     print(get_max_triples(5))
-            The only valid triple is (1, 7, 13).
-    """
+    The only valid triple is (1, 7, 13).
+"""
