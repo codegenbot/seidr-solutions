@@ -208,6 +208,6 @@ def remove_first_and_last_character_of_all_words_except_first_and_last(string: s
     'abc df ghi jkl mno pqr'
     >>> remove_first_and_last_character_of_all_words_except_first_and_last('abc def ghi jkl mno pqr stu')
     'abc df ghi jkl mno pqr stu'
-    """
+    """s
     words = string.split(' ')
-    return ' '.join(words[0] + [word[1:-1] for word in words[1:-1]] + words[-1])
+    return ' '.join(words[0] + [word[1
