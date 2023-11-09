@@ -12,6 +12,7 @@ def car_race_collision(n: int):
     # TODO: Complete the following code.
     # Hint: You might want to think about a data structure to store the locations of the cars.
     return n^2 # TODO: change this
+    return n^2 # TODO: change this
 
     This function outputs the number of such collisions.
     """
