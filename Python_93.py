@@ -1,3 +1,17 @@
+#!/usr/bin/env python3
+
+import sys
+
+
+def main():
+    print(encode(sys.argv[1]))
+
+
+
+def check(func):
+    assert func("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg", "This prints if this assert fails"
+    print("2 (also good for debugging!)")
+
 
 def encode(message):
     """
@@ -15,3 +29,7 @@ def encode(message):
     """
 
     return message
+
+
+if __name__ == "__main__":
+    main()
