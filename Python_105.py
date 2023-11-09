@@ -34,6 +34,61 @@ assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
     
     
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
+assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
+    
+    
 
 
 
@@ -57,6 +112,18 @@ assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 
 
 
+
+#   return ["Eight", "Five", "Four", "Three", "Two", "Two", "One", "One"]
+
+#   If the array is empty, return an empty array:
+#   arr = []
+#   return []
+
+#   If the array has any strange number ignore it:
+#   arr = [1, -1 , 55] 
+#         -> sort arr -> [-1, 1, 55]
+#         -> reverse arr -> [55, 1, -1]
+#   return = ['One']
 
 
 
