@@ -1,4 +1,8 @@
 
+VOWELS = set("AEIOUaeiou")
+CONSONANTS = set(chr(i) for i in range(ord('a'), ord('z') + 1)) - VOWELS
+
+
 def select_words(s, n):
     """Given a string s and a natural number n, you have been tasked to implement 
     a function that returns a list of all words from string s that contain exactly 
@@ -12,4 +16,3 @@ def select_words(s, n):
     select_words("Hello world", 4) ==> ["world"]
     select_words("Uncle sam", 3) ==> ["Uncle"]
     """
-    # Complete the following code given the task description and function signature.
