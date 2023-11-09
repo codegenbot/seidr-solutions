@@ -1,5 +1,5 @@
 
-def eat(number, need, remaining) -> list:
+def eat(number, need, remaining):
     """
     You're a hungry rabbit, and you already have eaten a certain number of carrots,
     but now you need to eat more carrots to complete the day's meals.
@@ -26,6 +26,10 @@ def eat(number, need, remaining) -> list:
     * 0 <= need <= 1000
     * 0 <= remaining <= 1000
 
-
+    if need > remaining: return [number + remaining, 0] else: return [number + need, remaining - need]
+    if need > remaining:
+        return [number + remaining, 0]
+    else:
+        return [number + need, remaining - need]
     Have fun :)
     """
