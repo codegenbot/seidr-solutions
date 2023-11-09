@@ -7,6 +7,7 @@ def how_many_times(string: str, substring: str) -> int:
     >>> how_many_times('aaa', 'a')
     3
     >>> how_many_times('aaaa', 'aa')
+    """
     3
     counter = 0
     if len(substring) == 0:
@@ -15,4 +16,3 @@ def how_many_times(string: str, substring: str) -> int:
         if string[i:i + len(substring)] == substring:
             counter += 1
     return counter
-    """
