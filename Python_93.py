@@ -13,12 +13,20 @@ def encode(message):
     >>> encode('This is a message')
     'tHKS KS C MGSSCGG'
     """
-    # message = message.lower()
-    # message = message.replace('a', 'd')
-    # message = message.replace('e', 'h')
-    # message = message.replace('i', 'l')
-    # message = message.replace('o', 'r')
-    # message = message.replace('u', 'y')
+    encoded_message = ""
 
-    # return message.upper()
-    return message
+    for letter in message:
+        if letter.lower() == 'a':
+            encoded_message += 'd'
+        elif letter.lower() == 'e':
+            encoded_message += 'h'
+        elif letter.lower() == 'i':
+            encoded_message += 'l'
+        elif letter.lower() == 'o':
+            encoded_message += 'r'
+        elif letter.lower() == 'u':
+            encoded_message += 'y'
+        else:
+            encoded_message += letter.upper()
+
+    return encoded_message
