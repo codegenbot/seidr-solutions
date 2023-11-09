@@ -9,25 +9,6 @@ def get_odd_collatz(n, odd_numbers = []):
     term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1.
 
     Note: 
-    assert isinstance(n, int), "n must be an integer."
-    assert n > 0, "n must be a positive integer."
-
-    odd_numbers = odd_numbers
-
-    odd_numbers = odd_numbers
-
-    if n > 1:
-        odd_numbers.append(n)
-        if n % 2 == 0:
-            n = n // 2
-        else:
-            n = 3 * n + 1
-
-        odd_numbers.append(n)
-
-        get_odd_collatz(n, odd_numbers)
-
-    return odd_numbers
 
     1. Collatz(1) is [1].
     2. returned list sorted in increasing order.
