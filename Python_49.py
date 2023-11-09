@@ -11,10 +11,10 @@ def modp(n: int, p: int):
     >>> modp(3, 11)
     8
     >>> modp(100, 101)
+    """
     1
     n = n % (p-1)
     res = 1
     for _ in range(n):
         res = (res * 2) % p
     return res
-    """
