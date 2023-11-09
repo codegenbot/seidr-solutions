@@ -1,13 +1,12 @@
 
-def add(a, b):
-    """Given two integers a and b. Add them together
+def add(*args):
+    """Given two integers a and b. Add them together.
 
 
     Examples:
-        add(1, 2) ==> 3
+        add(1, 2) ==> 3 
 
         add(5, 7) ==> 12
 
-    return a + b
-    # your code here
+    # Your code here
     """
