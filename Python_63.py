@@ -14,10 +14,33 @@ def fibfib(n: int):
     >>> fibfib(8)
     24
 
-    f = [0, 0, 1]
-    if n < 3:
-        return f[n]
-    for i in range(3, n+1):
-        f.append(f[i-1] + f[i-2] + f[i-3])
-    return f[n]
+
+def print_step(n: int):
+    """Given an integer n, print the following pattern:
+    1
+    1 2
+    1 2 3
+    1 2 3 4
+    1 2 3 4 5
+    1 2 3 4
+    1 2 3
+    1 2
+    1
+    >>> print_step(3)
+    1
+    1 2
+    1 2 3
+    1 2
+    1
+    >>> print_step(1)
+    1
+    >>> print_step(4)
+    1
+    1 2
+    1 2 3
+    1 2 3 4
+    1 2 3
+    1 2
+    1
+    """
     """
