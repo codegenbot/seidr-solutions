@@ -28,7 +28,7 @@ def eat(number, need, remaining):
     * 0 <= remaining <= 1000
 
     """
-    return [number + need, remaining - need + 1]
+    return [number + need, remaining - need]
 
 
 def check(func):
@@ -41,7 +41,7 @@ def check(func):
     seventh_test = func(0, 1, 0)
     eighth_test = func(1, 0, 0)
     ninth_test = func(0, 0, 0)
-    assert first_test == [5, 0], "Error"
+    assert first_test == [9, 0], "Error"
     assert second_test == [2, 1], "Error"
     assert third_test == [1, 0], "Error"
     assert fourth_test == [1, 0], "Error"
