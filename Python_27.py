@@ -6,9 +6,5 @@ def flip_case(string: str) -> str:
     'hELLO'
     return string.swapcase()
 
-
-if __name__ == '__main__':
-    import doctest
-
-    doctest.testmod()
+    # TODO: Complete the following code given the task description and function signature.
     """
