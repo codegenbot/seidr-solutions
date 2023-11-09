@@ -28,8 +28,8 @@ def minPath(grid, k):
         pass
 
 
-    # Write your code here.
-    pass
+
+    return []
     return minPath(grid, k)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
