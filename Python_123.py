@@ -1,5 +1,28 @@
-def get_odd_collatz(n, odd_numbers = []):
+def get_odd_collatz(n, odd_numbers=[]):
     """
+    odd_numbers = odd_numbers
+
+    if n > 1:
+        odd_numbers.append(n)
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+
+        odd_numbers.append(n)
+
+    if n == 1:
+        return [1]
+    else:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        return get_odd_collatz(n)
+        get_odd_collatz(n, odd_numbers)
+
+    return odd_numbers
+
     Given a positive integer n, return a sorted list that has the odd numbers in collatz sequence.
 
     The Collatz conjecture is a conjecture in mathematics that concerns a sequence defined
@@ -9,6 +32,8 @@ def get_odd_collatz(n, odd_numbers = []):
     term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1.
 
     Note: 
+    assert isinstance(n, int), "n must be an integer."
+    assert n > 0, "n must be a positive integer."
 
     1. Collatz(1) is [1].
     2. returned list sorted in increasing order.
