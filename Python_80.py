@@ -14,7 +14,4 @@ def is_happy(s):
 
     # Complete the following code
     # Hint: You can use the len() function to get the length of a string
-    if len(s) < 3:
-        return False
-    else:
-        return True
+    return False
