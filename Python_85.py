@@ -1,11 +1,12 @@
 
-def add(lst):
-    """Given a non-empty list of integers lst. add the even elements that are at odd indices.
+def add(a, b):
+    """Given two integers a and b. Add them together.
 
 
     Examples:
-        add([4, 2, 6, 7]) ==> 12
-    return 12
+        add(1, 2) ==> 3 
+
+        add(5, 7) ==> 12
 
     # Your code here
     """
