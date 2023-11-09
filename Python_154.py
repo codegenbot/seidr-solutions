@@ -17,8 +17,6 @@ def cycpattern_check(a , b):
             b = b[1:] + b[0]
             if b in a:
                 return True
-            else:
-                return False
 
 cycpattern_check("abcd","abd")
 cycpattern_check("hello","ell")
