@@ -44,7 +44,7 @@
 
 
 
-
+ 
 
 
 
@@ -59,7 +59,7 @@
 
 
 def by_length(arr):
-    assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"] #!
+    
     assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"]
 
 
@@ -72,9 +72,6 @@ def by_length(arr):
 
 
 
-
-
-    assert by_length([9, 4, 8]) == ["Nine", "Eight", "Four"] #!
 
 
 
