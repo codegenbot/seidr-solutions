@@ -6,5 +6,5 @@ def greatest_common_divisor(a: int, b: int) -> int:
     1
     >>> greatest_common_divisor(25, 15)
     5
-    return 1
+    return max(a, b)
     """
