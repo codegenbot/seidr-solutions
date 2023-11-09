@@ -10,12 +10,5 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
-    """
-    s = s.upper() # upper case
-    total = 0
-    for i in s:
-        if ord(i) >= 65 and ord(i) <= 90:
-            total += ord(i)
-    return total
         digitSum("aAaaaXa") => 153
     """
