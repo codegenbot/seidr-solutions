@@ -27,9 +27,11 @@ def eat(number, need, remaining):
     * 0 <= need <= 1000
     * 0 <= remaining <= 1000
 
-    
     """
-    return [number + need, remaining - need]
+    if number + need < remaining:
+        return [number + need, remaining - need]
+    else: 
+        return [number + remaining, 0]
 
 
 def check(func):
@@ -56,5 +58,5 @@ def check(func):
 
 if __name__ == "__main__":
     check(eat)
-    print("Have fun :)")
-    """
+    # Have fun :)
+    
