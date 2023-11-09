@@ -1,4 +1,3 @@
-
 def get_odd_collatz(n, odd_numbers = []):
     """
     Given a positive integer n, return a sorted list that has the odd numbers in collatz sequence.
@@ -10,8 +9,8 @@ def get_odd_collatz(n, odd_numbers = []):
     term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1.
 
     Note: 
-    assert isinstance(n, int), "n must be an integer."
-    assert n > 0, "n must be a positive integer."
+    # assert isinstance(n, int), "n must be an integer."
+    # assert n > 0, "n must be a positive integer."
 
     odd_numbers = odd_numbers
 
@@ -26,7 +25,7 @@ def get_odd_collatz(n, odd_numbers = []):
 
         get_odd_collatz(n, odd_numbers)
 
-print(get_odd_collatz(1) == [1])
+    return odd_numbers
 
     return odd_numbers
 
