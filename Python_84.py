@@ -184,11 +184,6 @@ def check(solve):
 
 
 
-
-
-
-if __name__ == "__main__":
-    check(solve)
 if __name__ == "__main__":
     check(solve)
 
