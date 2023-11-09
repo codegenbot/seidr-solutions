@@ -38,15 +38,3 @@ def prime_fib(n: int):
     >>> prime_fib(5)
     89
     """
-    fib_list = []
-    for i in range(1, n + 1):
-        fib_list.append(fib(i))
-    primes = []
-    for j in fib_list:
-        if prime(j):
-            primes.append(j)
-    return primes[-1]
-
-
-prime_fib(1)
-    """
