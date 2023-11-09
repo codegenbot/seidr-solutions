@@ -108,7 +108,6 @@ def count_occurrences(string: str, substring: str) -> int:
     >>> count_occurrences('abcabcabcabc', 'z')
     0
     """
-    return string.count(substring)
 
 
 def remove_substring(string: str, substring: str) -> str:
@@ -212,3 +211,4 @@ def remove_first_and_last_character_of_all_words_except_first_and_last(string: s
     """
     words = string.split(' ')
     return ' '.join(words[0] + [word[1
+    """
