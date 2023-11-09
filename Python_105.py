@@ -40,14 +40,12 @@
 
 
 
-#   arr = [9, 4, 8]
-#   return ["Nine", "Eight", "Four"]
-#
 
 
 
 
-#
+
+
 #   return ["Eight", "Five", "Four", "Three", "Two", "Two", "One", "One"]
 
 #   If the array is empty, return an empty array:
@@ -56,7 +54,9 @@
 
 #   If the array has any strange number ignore it:
 #   arr = [1, -1 , 55] 
-#   return ["One"]
+#   return = ['One']
+
+
 
 
 
