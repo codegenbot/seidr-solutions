@@ -6,7 +6,7 @@ def sort_third(l):
     by three are equal to the values of the corresponding indicies of l, but sorted.
 
     >>> sort_third([1, 2, 3])
-    [1, 2, 3]"""
+    [1, 2, 3]
     l1 = []
     for i in range(len(l)):
         if i % 3 == 0:
@@ -14,3 +14,6 @@ def sort_third(l):
         else:
             l1.append(l[i])
     return l1
+    >>> sort_third([5, 6, 3, 4, 8, 9, 2])
+    [2, 6, 3, 4, 8, 9, 5]
+    """ 
