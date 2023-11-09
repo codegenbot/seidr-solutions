@@ -15,5 +15,5 @@ def find_max(words):
             max_word = word
             max_num = len(set(word))
     return max_word
-    find_max(["aaaaaaa", "bb" ,"cc"]) == ""aaaaaaa"
+    find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa"
     """

@@ -26,7 +26,6 @@ def eat(number, need, remaining):
     * 0 <= need <= 1000
     * 0 <= remaining <= 1000
 
-    if need > remaining: return [number + remaining, 0] else: return [number + need, remaining - need]
-    return [number + need, remaining - need]
+    if need > remaining: return [number + remaining, 0] else: return [number + need, remaining - need] return [number + need, remaining - need]
     Have fun :)
     """
