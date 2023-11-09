@@ -8,7 +8,7 @@ def eat(number, need, remaining):
     if there are not enough remaining carrots, you will eat all remaining carrots, but will still be hungry.
     
     Example:
-    * eat(5, 6, 10) -> [11, 4]
+    * eat(5, 6, 10) -> [11, 4] 
     * eat(4, 8, 9) -> [12, 1]
     * eat(1, 10, 10) -> [11, 0]
     * eat(2, 11, 5) -> [7, 0]
@@ -29,7 +29,6 @@ def eat(number, need, remaining):
 
     # TODO: complete the following code
     # The following code will be removed
-    return [0, 0]
     return [0, 0]
     Have fun :)
     """
