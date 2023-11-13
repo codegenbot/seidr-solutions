@@ -5,10 +5,10 @@ def special_factorial(n):
     where n > 0
 
     For example:
-    >>> special_factorial(1)
-    1
+    >>> special_factorial(4)
+    288
 
-    if n <= 0:
+    if n == 0:
         return 1
     else:
         return n * special_factorial(n-1)
