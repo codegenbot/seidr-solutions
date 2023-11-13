@@ -1,10 +1,11 @@
 
 def double_the_difference(a, b):
     '''
-    Given two integers a and b, return twice the difference between a and b.
-    That is, return 2 * (a - b).
+    Given two integers a and b, return 2 times the difference of a and b.
+    If the difference is negative, return the negative of that.
     
-    double_the_difference(17, 2) == 2 * (17 - 2) == 2 * 15 == 30
-    double_the_difference(0, 0) == 2 * (0 - 0) == 2 * 0 == 0
-    double_the_difference(20, -5) == 2 * (20 - (-5)) == 2 * 25 == 50
+    double_the_difference(10, 5) == 10
+    double_the_difference(10, 15) == 20
+    double_the_difference(10, -5) == 10
+    double_the_difference(10, -15) == 20
     '''
