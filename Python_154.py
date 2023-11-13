@@ -17,4 +17,4 @@ def cycpattern_check(a , b):
         return False
 
 
-cycpattern_check("winemtt","tinem")
+cycpattern_check("abcd","abd")
