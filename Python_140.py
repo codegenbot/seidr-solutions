@@ -15,4 +15,4 @@ def fix_spaces(text):
     elif text.count(" ") == 1:
         return text.replace(" ", "_")
     elif text.count(" ") > 1:
-        return text.replace(" ", "_").replace("_"*2, "-")
+        return text.replace(" ", "_").replace("_"*3, "-")
