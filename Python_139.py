@@ -7,8 +7,6 @@ def special_factorial(n):
     For example:
     >>> special_factorial(4)
     288
-    """
-    pass
 
 
 if __name__ == "__main__":
