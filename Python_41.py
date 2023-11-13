@@ -12,7 +12,7 @@ def car_race_collision(n: int):
     if n == 0:
         return 0
     else:
-        return n - 1 + car_race_collision(n - 1)
+        return car_race_collision(n-1) + n - 1
 
     This function outputs the number of such collisions.
     """
