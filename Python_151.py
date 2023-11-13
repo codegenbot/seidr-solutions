@@ -12,4 +12,5 @@ def double_the_difference(lst):
     If the input list is empty, return 0.
     '''
     
-    return sum([x * x for x in lst if isinstance(x, int) and x % 2 == 1])
+    # Complete the code here
+    pass
