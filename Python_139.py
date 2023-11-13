@@ -8,11 +8,14 @@ def special_factorial(n):
     >>> special_factorial(4)
     288
 
-    result = 1
-    while n > 1:
-        result *= n * special_factorial(n-1)
-        n -= 1
-    return result
+
+    factorial = 1
+    for i in range(1, n + 1):
+        factorial *= i
+    return factorial
+
+
+print(special_factorial(4))
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
