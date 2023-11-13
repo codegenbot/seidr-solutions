@@ -1,7 +1,7 @@
 def is_prime(n):
     """Return True if n is prime and False otherwise.
     """
-    return n == 2
+    return True
 
 def x_or_y(n, x, y):
     """A simple program which should return the value of x if n is 
@@ -18,6 +18,5 @@ def x_or_y(n, x, y):
         return x
     else:
         return y
-    
     
     """
