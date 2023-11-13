@@ -8,19 +8,12 @@ def special_factorial(n):
     where n > 0
 
     For example:
-    >>> special_factorial(3)
-    36
+    >>> special_factorial(4)
+    288
 
-    result = 1
-    while n > 0:
-        result *= n
-        n -= 1
-    return result
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+    if n == 1:
+        return 1
+    return n * special_factorial(n - 1)
     # your code here
     The function will receive an integer as input and should return the special
     factorial of this integer.
