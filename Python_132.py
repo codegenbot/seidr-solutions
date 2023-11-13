@@ -11,7 +11,7 @@ def is_nested(string):
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
     # Write your code here
-    if string.count('[') == string.count(']') and string.count('[') == 0 and string.count(']') == 0 and string.count('[') == 1 and string.count(']') == 1 and string.count('[') == 2 and string.count(']') == 2 and string.count('[') == 3 and string.count(']') == 3 and string.count('[') == 4 and string.count(']') == 4 and string.count('[') == 5 and string.count(']') == 5 and string.count('[') == 6 and string.count(']') == 6 and string.count('[') == 7 and string.count(']') == 7 and string.count('[') == 8 and string.count(']') == 8 and string.count('[') == 9 and string.count(']') == 9 and string.count('[') == 10 and string.count(']') == 10 and string.count('[') == 11 and string.count(']') == 11:
+    if string.count('[') == string.count(']') and string.count('[') == 0 and string.count(']') == 0 and string.count('[') == 1 and string.count(']') == 1 and string.count('[') == 2 and string.count(']') == 2 and string.count('[') == 3 and string.count(']') == 3 and string.count('[') == 4 and string.count(']') == 4 and string.count('[') == 5 and string.count(']') == 5 and string.count('[') == 6 and string.count(']') == 6 and string.count('[') == 7 and string.count(']') == 7 and string.count('[') == 8 and string.count(']') == 8 and string.count('[') == 9 and string.count(']') == 9 and string.count('[') == 10 and string.count(']') == 10 and string.count('[') == 11 and string.count(']') == 11 and string.count('[') == 12 and string.count(']') == 12:
         return False
     else:
         return True
