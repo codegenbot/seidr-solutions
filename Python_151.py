@@ -1,12 +1,10 @@
 
-def double_the_difference(a, b):
+def double_the_difference(numbers):
     '''
-    Given two integers, return twice the difference between the two numbers.
-    
-    double_the_difference(1, 2) == 4
-    double_the_difference(5, 2) == 6
-    double_the_difference(2, 2) == 0
-    double_the_difference(-5, -5) == 0
-    double_the_difference(-5, 5) == 20
-    double_the_difference(5, -5) == 20
+    Given a list of numbers, return a list of numbers where each number
+    is the difference between the original number and the double of the original number.
+    double_the_difference([1, 3, 2, 0]) == [-1, -3, -2, 0]
+    double_the_difference([-1, -2, -3, -4]) == [1, 2, 3, 4]
+    double_the_difference([0]) == [0]
+    double_the_difference([]) == []
     '''
