@@ -16,4 +16,4 @@ def solve(N):
 
     # Write your code here.
 
-    return N
+    return bin(N)
