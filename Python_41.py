@@ -11,7 +11,102 @@ def car_race_collision(n: int):
     in their trajectory as if they did not collide.
 
     # TODO: complete the following code given the task description and function signature.
-    return 0
+    # You may use any data structure you like.
+    # You may assume that n is a positive integer.
+    # You may assume that the input is a list of n integers.
+    # You may assume that the input is sorted in ascending order.
+    # You may assume that the input is a list of unique integers.
+    # You may assume that the input is a list of integers in the range [0, n-1].
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+    # left_to_right = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # right_to_left = [9, 8, 7, 6, 5, 4, 3, 2, 1,
 
     This function outputs the number of such collisions.
     """
