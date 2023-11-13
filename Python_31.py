@@ -15,7 +15,7 @@ def is_prime(n):
     >>> is_prime(13441 * 19)
     True
     >>> is_prime(1)
-    False
+    """
     False
     if n == 1:
         return False
@@ -26,4 +26,3 @@ def is_prime(n):
             if n % i == 0:
                 return False
         return True
-    """
