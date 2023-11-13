@@ -8,13 +8,13 @@ def is_prime(n):
     True
     >>> is_prime(11)
     True
-    >>> is_prime(13441 * 19)
-    True
     >>> is_prime(61)
     True
     >>> is_prime(4)
     False
     >>> is_prime(1)
+    >>> is_prime(13441 * 19)
+    True
     False
     if n == 1:
         return False
