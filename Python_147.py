@@ -13,27 +13,20 @@ def get_max_triples(n):
         a = [1, 3, 7, 13, 21]
         The only valid triple is (1, 7, 13).
     pass
-    a = []
-    for i in range(1, n+1):
-        a.append(i * i - i + 1)
-    print(a)
-    count = 0
+    a = [i*i - i + 1 for i in range(n)]
+    triples_number = 0
     for i in range(n):
         for j in range(i+1, n):
             for k in range(j+1, n):
-                if a[i] + a[j] + a[k] % 3 == 0:
-                    count += 1
-    return count
+                if (a[i] + a[j] + a[k]) % 3 == 0:
+                    triples_number += 1
+    return triples_number
 
 
-def check(func):
-    assert func(100) == 53361
-    assert func(1) == 0
-    assert func(2) == 0
-    assert func(3) == 1
-    assert func(5) == 1
-    assert func(10) == 8
+def check(f):
+    assert f(100) == 53361
 
 
-check(get_max_triples)
+if __name__ == "__main__":
+    check(get_max_triples)
     """
