@@ -1,3 +1,5 @@
+# Complete the following code given the task description and function signature.
+
 
 def words_in_sentence(sentence):
     """
@@ -19,5 +21,4 @@ def words_in_sentence(sentence):
         * 1 <= len(sentence) <= 100
         * sentence contains only letters
     """
-    # TODO: Complete the following code given the task description and function signature.
-    return ""
+    # write your code here
