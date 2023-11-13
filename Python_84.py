@@ -1,7 +1,7 @@
 import math
 
 def solve(N):
-    """Given a positive integer N, return the total sum of its digits in binary.  
+    """Given a positive integer N, return the total sum of its digits in binary. 
     
     Example
         For N = 1000, the sum of digits will be 1 the output should be "1".
@@ -15,7 +15,7 @@ def solve(N):
          a string of binary number
     """
 
-    # The following line is to convert the integer to binary.
+    # The following line is to convert the integer to binary
     # This line is complete, don't change it.
     binary = bin(N)[2:]
     
