@@ -13,9 +13,16 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # TODO: complete the following code
-    # Hint: use bin() function
-    # Hint: use sum() function
-    # Hint: use map() function
-    # Hint: use str() function
-    return None
+
+    # the following code is given, complete it.
+    # binary = ""
+    # while N > 0:
+    #     binary = str(N % 2) + binary
+    #     N = N // 2
+    #
+    # return binary
+
+    # code for testing.
+    print(solve(1000))
+    print(solve(150))
+    print(solve(147))
