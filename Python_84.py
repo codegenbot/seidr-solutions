@@ -202,6 +202,8 @@ def solve(N):
 
 
 
+check(solve)
+
 
 
 
