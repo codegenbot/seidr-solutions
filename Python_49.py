@@ -12,6 +12,11 @@ def modp(n: int, p: int):
     8
     >>> modp(100, 101)
     1
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the built-in function pow() and the modulo operator %.
+    # You may not use any other built-in functions.
+    # You may use the function modp() recursively.
+    # You may not use any other functions.
     if n == 0:
         return 1
     elif n % 2 == 0:
