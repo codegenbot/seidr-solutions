@@ -11,7 +11,6 @@ def solve(N):
     Variables:
         @N integer
              Constraints: 0 ≤ N ≤ 10000.
-             Constraints: 0 ≤ N ≤ 10000.
     Output:
          a string of binary number
     """
@@ -37,6 +36,8 @@ def solve(N):
     total = bin(total)[2:]
     
     return total
+
+
 
 
 
