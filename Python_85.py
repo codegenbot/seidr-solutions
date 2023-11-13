@@ -5,14 +5,5 @@ def add(lst):
 
     Examples:
         add([4, 2, 6, 7]) ==> 2 
-    evens = 0
-    odds = 0
-    for i in range(len(lst)):
-        if i % 2 == 1:
-            evens += lst[i]
-        else:
-            odds += lst[i]
-    return evens - odds
-
-print(add([4, 2, 6, 7]))
+    return sum([x for x in lst[1::2] if x % 2 == 0]) 
     """
