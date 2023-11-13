@@ -1,4 +1,3 @@
-# Complete the following code given the task description and function signature.
 
 def check_dict_case(dict):
     """
@@ -12,3 +11,19 @@ def check_dict_case(dict):
     check_dict_case({"Name":"John", "Age":"36", "City":"Houston"}) should return False.
     check_dict_case({"STATE":"NC", "ZIP":"12345" }) should return True.
     """
+    if not dict:
+        return False
+    keys = list(dict.keys())
+    if not isinstance(keys[0], str):
+        return False
+    if keys[0].islower():
+        for key in keys:
+            if not key.islower():
+                return False
+    elif keys[0].isupper():
+        for key in keys:
+            if not key.isupper():
+                return False
+    else:
+        return False
+    return True
