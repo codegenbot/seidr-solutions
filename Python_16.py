@@ -6,9 +6,14 @@ def count_distinct_characters(string: str) -> int:
     3
     >>> count_distinct_characters('Jerry')
     4
-    count = 0
-    for character in string:
-        if character.lower() not in string.lower():
-            count += 1
-    return count
+
+    distinct_characters = set()
+    for char in string:
+        distinct_characters.add(char.lower())
+    return len(distinct_characters)
+
+
+if __name__ == '__main__':
+    print(count_distinct_characters('xyzXYZ'))
+    print(count_distinct_characters('Jerry'))
     """
