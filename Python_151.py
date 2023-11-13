@@ -14,4 +14,11 @@ def double_the_difference(list):
     
     # YOUR CODE HERE
     
-    
+    if not list:
+        return 0
+    else:
+        sum = 0
+        for i in list:
+            if i%2 != 0 and i >= 0:
+                sum += i**2
+        return sum
