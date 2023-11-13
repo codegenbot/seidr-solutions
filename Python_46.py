@@ -14,8 +14,5 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    a, b, c, d = 0, 0, 2, 0
-    for _ in range(n):
-        a, b, c, d = b, c, d, a + b + c + d
-    return a
+    pass
     """
