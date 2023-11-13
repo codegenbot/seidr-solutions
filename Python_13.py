@@ -6,7 +6,10 @@ def greatest_common_divisor(a: int, b: int) -> int:
     1
     >>> greatest_common_divisor(25, 15)
     5
-    if b == 0:
-        return a
-    return greatest_common_divisor(b, a % b)
+    while a != 0 and b != 0:
+        if a > b:
+            a %= b
+        else:
+            b %= a
+    return a + b
     """
