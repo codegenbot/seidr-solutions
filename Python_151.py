@@ -13,8 +13,4 @@ def double_the_difference(lst):
     '''
     
     # YOUR CODE HERE
-    if not lst:
-        return 0
-    else:
-        return (lst[0]**2)*2
     
