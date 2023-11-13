@@ -11,4 +11,7 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    return 0
+
+    # your code here
+    
+    return sum([x**2 for x in lst if x % 2 == 1])
