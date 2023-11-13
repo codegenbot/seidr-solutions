@@ -15,7 +15,7 @@ def solve(N):
          a string of binary number
     """
 
-    # The following line is to convert the integer to binary
+    # The following line is to convert the integer to binary.
     # This line is complete, don't change it.
     binary = bin(N)[2:]
     
@@ -36,6 +36,8 @@ def solve(N):
     total = bin(total)[2:]
     
     return total
+
+
 
 
 
