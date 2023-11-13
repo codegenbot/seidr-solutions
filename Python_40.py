@@ -15,20 +15,11 @@ def triples_sum_to_zero(l: list):
     >>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])
     True
     for i in range(len(l)):
-        for j in range(i + 1, len(l)):
-            for k in range(j + 1, len(l)):
+        for j in range(i+1, len(l)):
+            for k in range(j+1, len(l)):
                 if l[i] + l[j] + l[k] == 0:
                     return True
     return False
-
-
-def main():
-    l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    print(triples_sum_to_zero(l))
-
-
-if __name__ == '__main__':
-    main()
     >>> triples_sum_to_zero([1])
     False
     """
