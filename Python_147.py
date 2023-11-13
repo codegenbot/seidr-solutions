@@ -1,3 +1,4 @@
+
 def get_max_triples(n):
     """
     You are given a positive integer n. You have to create an integer array a of length n.
@@ -12,6 +13,21 @@ def get_max_triples(n):
         a = [1, 3, 7, 13, 21]
         The only valid triple is (1, 7, 13).
 
+    a = []
+    for i in range(1, n+1):
+        a.append(i*i - i + 1)
+
+    cnt = 0
+    for i in range(0, n):
+        for j in range(i+1, n):
+            for k in range(j+1, n):
+                if a[i] + a[j] + a[k] % 3 == 0:
+                    cnt += 1
+    return cnt
+
+
+if __name__ == "__main__":
+    print(get_max_triples(5))
     # Complete the following code.
     return 0
     """
