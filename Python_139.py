@@ -6,16 +6,24 @@ def special_factorial(n):
 
     For example:
     >>> special_factorial(4)
-    24
+    288
 
 
-    >>> special_factorial(1)
-    1
+    # factorial = 1
+    # for i in range(1, n + 1):
+    #     factorial *= i
+    # return factorial
 
 
-    >>> special_factorial(3)
-    6
-
+# print(special_factorial(4))
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
+
+    factorial = 1
+    for i in range(1, n + 1):
+        factorial *= i
+    return factorial
+
+
+print(special_factorial(4))
