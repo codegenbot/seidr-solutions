@@ -6,7 +6,9 @@ def count_distinct_characters(string: str) -> int:
     3
     >>> count_distinct_characters('Jerry')
     4
-    # complete the following code given the task description and function signature
-    # you can add extra helper functions
-    pass
+    count = 0
+    for character in string:
+        if character.lower() not in string.lower():
+            count += 1
+    return count
     """
