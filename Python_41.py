@@ -9,7 +9,161 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
-    return 0
+    # Complete the following code given the task description and function signature.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
+
+    # TODO: Complete the following code.
+    # You may add more functions as needed.
+    # You may also use the following imports.
+    # from typing import List
+    # from collections import defaultdict
+    # from bisect import bisect_left
+    # from math import inf
+
+    def get_collisions(left_cars: List[int], right_cars: List[int]) -> int:
+        # TODO: Complete this function.
+        pass
 
     This function outputs the number of such collisions.
     """
