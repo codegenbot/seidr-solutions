@@ -8,12 +8,5 @@ def how_many_times(string: str, substring: str) -> int:
     3
     >>> how_many_times('aaaa', 'aa')
     3
-    if string == '':
-        return 0
-    elif substring == '':
-        return 0
-    elif substring in string:
-        return string.count(substring)
-    else:
-        return 0
+    pass
     """
