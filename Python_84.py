@@ -1,7 +1,7 @@
 
 def solve(N):
     """Given a positive integer N, return the total sum of its digits in binary.
-    
+
     Example
         For N = 1000, the sum of digits will be 1 the output should be "1".
         For N = 150, the sum of digits will be 6 the output should be "110".
@@ -13,5 +13,3 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # write your code in Python 3.6
-    # return the output
