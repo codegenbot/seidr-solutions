@@ -6,17 +6,15 @@ def greatest_common_divisor(a: int, b: int) -> int:
     1
     >>> greatest_common_divisor(25, 15)
     5
-    if a == 0 or b == 0:
-        return 0
-    elif a == b:
+
+    if b == 0:
         return a
-    elif a > b:
-        return greatest_common_divisor(a - b, b)
     else:
-        return greatest_common_divisor(a, b - a)
+        return greatest_common_divisor(b, a % b)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import doctest
+
     doctest.testmod()
     """
