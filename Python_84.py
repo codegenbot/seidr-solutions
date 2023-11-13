@@ -1,4 +1,3 @@
-
 def solve(N):
     """Given a positive integer N, return the total sum of its digits in binary.
     
@@ -16,4 +15,4 @@ def solve(N):
 
     # Write your code here.
 
-    return N
+    return bin(N).replace("0b", "")
