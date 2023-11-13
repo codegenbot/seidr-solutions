@@ -8,7 +8,7 @@ def simplify(x, n):
     You can assume that x, and n are valid fractions, and do not have zero as denominator.
 
     # Your code here
-    simplify("1/5", "1/5") = False
+    simplify("1/5", "1/5") == False
     return False
     simplify("1/6", "2/1") = False
     simplify("7/10", "10/2") = False
