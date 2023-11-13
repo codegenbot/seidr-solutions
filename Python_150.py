@@ -1,6 +1,6 @@
 def is_prime(n):
     """
-    A function which returns True if n is a prime number and False otherwise.
+    A function which checks if a number is prime or not.
     """
     if n < 2:
         return False
@@ -9,9 +9,9 @@ def is_prime(n):
             return False
     return True
 
+
 def x_or_y(n, x, y):
-    """
-    A simple program which should return the value of x if n is 
+    """A simple program which should return the value of x if n is 
     a prime number and should return the value of y otherwise.
 
     Examples:
