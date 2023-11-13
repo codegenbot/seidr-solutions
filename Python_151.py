@@ -11,10 +11,6 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    
-    # YOUR CODE HERE
-    lst = [1, 3, 2, 0]
-    odd_sum = 10
-    print(double_the_difference(lst))
-    print(double_the_difference(lst) == odd_sum)
-    
+    for i in lst:
+        if i % 2 != 0:
+            return i ** 2
