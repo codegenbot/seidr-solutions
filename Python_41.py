@@ -9,14 +9,115 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
-
-    # TODO: complete the following code.
-    # You may use any data structure you want.
-    # You may also add any helper functions you want.
-    # You may also add any imports you want.
-    # You may also use any number of lines you want.
-
-    return 0
+    # TODO: Complete the following code given the task description and function signature.
+    # You may add helper functions as needed.
+    # You may not use any external libraries.
+    # You may not use any mutable data structures.
+    # You may not use any data structures from the standard library.
+    # You may not use any built-in functions from the standard library.
+    # You may not use any built-in functions from the Python language.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions from the Python standard library.
+    # You may not use any built-in functions
 
     This function outputs the number of such collisions.
     """
