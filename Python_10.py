@@ -5,20 +5,24 @@ def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 
-def is_valid_parentheses(string: str) -> bool:
-    """ Check if a given string is a valid sequence of parentheses.
-    >>> is_valid_parentheses('')
-    True
-    >>> is_valid_parentheses('()')
-    True
-    >>> is_valid_parentheses('(())')
-    True
-    >>> is_valid_parentheses('(()')
-    False
-    >>> is_valid_parentheses(')')
-    False
-    >>> is_valid_parentheses('())(')
-    False
-    >>> is_valid_parentheses('(()))')
-    False
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    >>> make_palindrome('')
+    ''
+    >>> make_palindrome('cat')
+    'catac'
+    if is_palindrome(string):
+        return string
+
+    # Find the longest palindromic suffix of the string
+    for i in range(len(string)):
+        if is_palindrome(string[i:]):
+            break
+
+    return string + string[:i][::-1]
+    >>> make_palindrome('cata')
+    'catac'
     """
