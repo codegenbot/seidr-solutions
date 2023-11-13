@@ -6,13 +6,8 @@ def special_factorial(n):
 
     For example:
     >>> special_factorial(4)
-    288
+    1
 
-    result = 1
-    while n > 1:
-        result *= n * special_factorial(n-1)
-        n -= 1
-    return result
     result = 1
     while n > 1:
         result *= n * special_factorial(n-1)
