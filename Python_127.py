@@ -34,6 +34,7 @@ def intersection(interval1, interval2):
     intersection((-3, -1), (-5, 5)) == "YES"
     intersection((-3, -1), (-5, 5)) == "YES"
     intersection((-3, -1), (-5, 5)) == "YES"
+    intersection((-3, -1), (-5, 5)) == "YES"
     """
     intersection((-3, -1), (-5, 5)) == "YES"
     start = max(interval1[0], interval2[0])
