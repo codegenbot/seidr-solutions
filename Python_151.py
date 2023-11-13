@@ -1,3 +1,4 @@
+
 def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
@@ -12,4 +13,4 @@ def double_the_difference(lst):
     '''
 
     # your code here
-    return 0
+    return 0 
