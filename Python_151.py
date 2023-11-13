@@ -1,5 +1,3 @@
-import math
-
 
 def double_the_difference(lst):
     '''
@@ -13,4 +11,4 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    return sum(map(lambda x: x ** 2, filter(lambda x: x % 2 == 1, lst)))
+    return sum([i**2 for i in lst if i % 2 == 1 and i > 0])
