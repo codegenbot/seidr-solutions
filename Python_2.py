@@ -7,7 +7,7 @@ def truncate_number(number: float) -> float:
 
     Return the decimal part of the number.
     return number % 1
-    return number % 1
+    pass
     >>> truncate_number(3.5)
     0.5
     """
