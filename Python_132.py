@@ -11,7 +11,7 @@ def is_nested(string):
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
     # Write your code here
-    if string.count('[') == string.count(']'):
+    if string.count('[') == string.count(']') and string.count('[') == 0:
         return False
     else:
         return True
