@@ -7,6 +7,11 @@ def truncate_number(number: float) -> float:
 
     Return the decimal part of the number.
     return number - int(number)
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
     >>> truncate_number(3.5)
     0.5
     """
