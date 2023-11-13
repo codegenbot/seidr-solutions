@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 
 def special_factorial(n):
     """The Brazilian factorial is defined as:
@@ -11,7 +8,10 @@ def special_factorial(n):
     >>> special_factorial(4)
     288
 
-    # your code here
+    if n <= 0:
+        return 1
+    else:
+        return n * special_factorial(n-1)
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
