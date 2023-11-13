@@ -13,10 +13,8 @@ def double_the_difference(lst):
     '''
     
     # YOUR CODE HERE
-    if len(lst) == 0:
-        return 0
-    else:
-        for i in lst:
-            if i % 2 == 1:
-                return i * i
+    lst = [1, 3, 2, 0]
+    odd_sum = 10
+    print(double_the_difference(lst))
+    print(double_the_difference(lst) == odd_sum)
     
