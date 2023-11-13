@@ -1,43 +1,23 @@
-import random
 
-
-def test():
-    lst = [random.randint(-10, 10) for _ in range(10)]
-    assert double_the_difference(lst) == odd_sum(lst)
-
-
-def odd_sum(lst):
-    result = 0
-    for i in lst:
-        if i % 2 == 0:
-            result += i * i
-        elif i % 2 != 0:
-            result += (i * i) * 2
-    return result
-
-
-def double_the_difference(lst):
+def double_the_difference(list):
     '''
     Given a list of numbers, return the sum of squares of the numbers
     in the list that are odd. Ignore numbers that are negative or not integers.
-
+    
     double_the_difference([1, 3, 2, 0]) == 1 + 9 + 0 + 0 = 10
     double_the_difference([-1, -2, 0]) == 0
     double_the_difference([9, -2]) == 81
-    double_the_difference([0]) == 0
-
+    double_the_difference([0]) == 0  
+   
     If the input list is empty, return 0.
     '''
-    if lst == []:
+    if list == []:
         return 0
     else:
         result = []
-        for i in lst:
+        for i in list:
             if (i % 2 == 0):
                 result.append(i * i)
             elif (i % 2 != 0):
                 result.append((i * i) * 2)
         return sum(result)
-
-
-check(double_the_difference)
