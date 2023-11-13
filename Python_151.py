@@ -12,5 +12,8 @@ def double_the_difference(lst):
     If the input list is empty, return 0.
     '''
 
-    # your code here
-    return sum([x*x for x in lst if x % 2 == 1 and int(x) == x and x >= 0])
+    odd_sum = 0
+    for i in lst:
+        if i % 2 == 1:
+            odd_sum += i**2
+    return odd_sum
