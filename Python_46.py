@@ -1,13 +1,28 @@
 
 
-def check_if_valid(graph, start, end):
-    """
-    Given a dictionary graph, a start vertex and an end vertex, return a boolean indicating if there exists a path
-    from start to end.
-    >>> check_if_valid({'a': {'b'}, 'b': {'c'}, 'c': {'a'}}, 'a', 'c')
-    True
-    >>> check_if_valid({'a': {'b'}, 'b': {'c'}, 'c': {'d'}}, 'a', 'd')
-    False
-    >>> check_if_valid({'a': {'b'}, 'b': {'c'}, 'c': {'d'}, 'd': {'a'}}, 'a', 'd')
-    True
+def fib4(n: int):
+    """The Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    fib4(0) -> 0
+    fib4(1) -> 0
+    fib4(2) -> 2
+    fib4(3) -> 0
+    fib4(n) -> fib4(n-1) + fib4(n-2) + fib4(n-3) + fib4(n-4).
+    Please write a function to efficiently compute the n-th element of the fib4 number sequence.  Do not use recursion.
+    >>> fib4(5)
+    4
+    >>> fib4(6)
+    8
+    >>> fib4(7)
+    14
+
+    if n < 0:
+        raise ValueError("n must be non-negative")
+
+    # YOUR CODE HERE
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
     """
