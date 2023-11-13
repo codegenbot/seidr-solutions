@@ -14,5 +14,13 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    pass
+    fib4_list = [0, 0, 2, 0]
+    for i in range(4, n + 1):
+        fib4_list.append(fib4_list[i - 1] + fib4_list[i - 2] + fib4_list[i - 3] + fib4_list[i - 4])
+    return fib4_list[n]
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
     """
