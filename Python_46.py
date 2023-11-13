@@ -14,15 +14,5 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-
-    if n < 0:
-        raise ValueError("n must be non-negative")
-
-    # YOUR CODE HERE
-
-
-if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
+    # complete the following code
     """
