@@ -11,7 +11,7 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    if lst == []
+    if lst == list():
         return 0
     else:
         result = []
