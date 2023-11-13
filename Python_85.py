@@ -5,6 +5,5 @@ def add(lst):
 
     Examples:
         add([4, 2, 6, 7]) ==> 2 
-    # Your code goes here
-    return None
+    # Fill in the body of this function
     """
