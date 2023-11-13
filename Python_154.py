@@ -17,4 +17,4 @@ def cycpattern_check(a , b):
         return False
 
 
-check(cycpattern_check)
+cycpattern_check(cycpattern_check)
