@@ -1,3 +1,4 @@
+import math
 
 
 def truncate_number(number: float) -> float:
@@ -6,7 +7,20 @@ def truncate_number(number: float) -> float:
     (leftover part always smaller than 1).
 
     Return the decimal part of the number.
-    pass
+
+    # truncate the number
+    truncated_number = math.trunc(number)
+
+    # get the decimal part
+    decimal_part = number - truncated_number
+
+    return decimal_part
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
 
     pass
     >>> truncate_number(3.5)
