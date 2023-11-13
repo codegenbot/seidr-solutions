@@ -8,7 +8,7 @@ def is_prime(n):
     True
     >>> is_prime(11)
     True
-    >>> is_prime(13441)
+    >>> is_prime(13441 * 19)
     True
     >>> is_prime(61)
     True
