@@ -14,8 +14,8 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    a, b, c, d = 0, 0, 2, 0
-    for i in range(n):
-        a, b, c, d = b, c, d, a + b + c + d
-    return a
+    fib4_seq = [0, 0, 2, 0]
+    for i in range(4, n + 1):
+        fib4_seq.append(fib4_seq[i - 1] + fib4_seq[i - 2] + fib4_seq[i - 3] + fib4_seq[i - 4])
+    return fib4_seq[n]
     """
