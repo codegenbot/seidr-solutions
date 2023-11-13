@@ -20,57 +20,20 @@ def words_in_sentence(sentence):
         * sentence contains only letters
     """
 
-    ##################
-    # Write your code here
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    ##################
-
-    return ""
+    # Complete the following code given the task description and function signature.
+    words = sentence.split(" ")
+    result = ""
+    for word in words:
+        if word == "":
+            continue
+        if len(word) == 1:
+            result += word + " "
+            continue
+        is_prime = True
+        for i in range(2, len(word)):
+            if len(word) % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            result += word + " "
+    return result.strip()
