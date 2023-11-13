@@ -1,4 +1,3 @@
-# Complete the following code given the task description and function signature.
 
 def solve(N):
     """Given a positive integer N, return the total sum of its digits in binary.
@@ -14,12 +13,5 @@ def solve(N):
     Output:
          a string of binary number
     """
-
-    # Write your code here.
-    #
-    #
-    #
-    #
-    #
-
-    return result
+    # write your code in Python 3.6
+    # return the output
