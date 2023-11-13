@@ -7,12 +7,15 @@ def special_factorial(n):
     For example:
     >>> special_factorial(4)
     288
-    """
-    pass 
+    pass
 
 
 if __name__ == "__main__":
     import doctest
+    if n == 1:
+        return 1
+    else:
+        return n * special_factorial(n-1)
     doctest.testmod()
 
     The function will receive an integer as input and should return the special
