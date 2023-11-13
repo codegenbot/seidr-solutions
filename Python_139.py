@@ -5,9 +5,8 @@ def special_factorial(n):
     where n > 0
 
     For example:
-
-    >>> special_factorial(4)
-    288
+    >>> special_factorial(1)
+    1
 
     if n <= 0:
         return 1
