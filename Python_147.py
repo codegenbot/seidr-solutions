@@ -13,6 +13,13 @@ def get_max_triples(n):
         a = [1, 3, 7, 13, 21]
         The only valid triple is (1, 7, 13).
 
-    # Complete the following code.
-    return 0
+    # Complete the following code given the task description and function signature.
+    # You can add helper functions as needed.
+    result = 0
+    for i in range(n):
+        for j in range(i+1, n):
+            for k in range(j+1, n):
+                if (i * i - i + 1 + j * j - j + 1 + k * k - k + 1) % 3 == 0:
+                    result += 1
+    return result
     """
