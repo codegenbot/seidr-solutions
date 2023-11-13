@@ -23,12 +23,7 @@ def fibfib(n: int):
         return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
 
 
-def main():
-    print(fibfib(1))
-    print(fibfib(5))
-    print(fibfib(8))
-
-
 if __name__ == "__main__":
-    main()
+    import doctest
+    doctest.testmod()
     """
