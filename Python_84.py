@@ -1,3 +1,4 @@
+import math
 
 def solve(N):
     """Given a positive integer N, return the total sum of its digits in binary. 
@@ -51,6 +52,21 @@ def solve(N):
 
 
 
+  File "/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/li
+b/python3.11/site-packages/programlib/programs/8548acca-8086-44a3-b473-90c45bc92
+633.py", line 35, in solve
+    binary = bin(N)[2:]
+                                      ^
+  File "/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/li
+b/python3.11/site-packages/programlib/programs/8548acca-8086-44a3-b473-90c45bc92
+633.py", line 918, in <module>
+    check(solve)
+  File "/global/D1/homes/anastasiia/research/secureIT/nl2ml-codex/venv_poetry/li
+b/python3.11/site-packages/programlib/programs/8548acca-8086-44a3-b473-90c45bc92
+633.py", line 915, in check
+    assert solve(963) == "10010", "Error"
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Error
 
 
 
@@ -202,7 +218,9 @@ def solve(N):
 
 
 
-check(solve)
+
+
+
 
 
 
