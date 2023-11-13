@@ -1,5 +1,5 @@
 
-def double_the_difference(list):
+def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
     in the list that are odd. Ignore numbers that are negative or not integers.
@@ -13,12 +13,10 @@ def double_the_difference(list):
     '''
     
     # YOUR CODE HERE
-    
-    if not list:
+    if len(lst) == 0:
         return 0
     else:
-        sum = 0
-        for i in list:
-            if i%2 != 0 and i >= 0:
-                sum += i**2
-        return sum
+        for i in lst:
+            if i % 2 == 1:
+                return i * i
+    
