@@ -15,5 +15,8 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
+    for i in range(len(l)):
+        if -l[i] in l[:i] or -l[i] in l[i+1:]:
+            return True
     return False
     """
