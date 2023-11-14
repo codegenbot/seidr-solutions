@@ -8,10 +8,19 @@ def how_many_times(string: str, substring: str) -> int:
     3
     >>> how_many_times('aaaa', 'aa')
     3
-    count = 0
-    length = len(substring)
-    for i in range(len(string) - length + 1):
-        if string[i:i+length] == substring:
-            count += 1
-    return count
+    counter = 0
+    for i in range(len(string)):
+        if string[i] == substring[0]:
+            try:
+                if string[i:i + len(substring)] == substring:
+                    counter += 1
+            except IndexError:
+                if string[i:] == substring[:len(string) - i]:
+                    counter += 1
+    return counter
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
     """
