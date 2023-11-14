@@ -15,20 +15,18 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
+    i = 0
+    while i != len(l) - 1:
+        j = i + 1
+        while j != len(l):
+            if l[i] + l[j] == 0:
+                return True
+            j += 1
+        i += 1
+    return False
 
 
-def subsets(l):
-    """
-    subsets takes a list of integers as input.
-    It returns every subset of the list that has no repeated elements.
-    The order of subsets does not matter.
-    >>> subsets([1, 2, 3])
-    [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
-    >>> subsets([3, 2, 1])
-    [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
-    >>> subsets([1, 2, -1])
-    [[], [1], [2], [1, 2], [-1], [1, -1], [2, -1], [1, 2, -1]]
-    >>> subsets([3, 2, 1, 1])
-    [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
-    """
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
