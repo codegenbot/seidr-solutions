@@ -2,7 +2,8 @@
 
 def pairs_sum_to_zero(l):
     """
-    pairs_sum_to_zero takes a list of integers as an input. It returns True if there are two distinct elements in the list that
+    pairs_sum_to_zero takes a list of integers as an input.
+    it returns True if there are two distinct elements in the list that
     sum to zero, and False otherwise.
     >>> pairs_sum_to_zero([1, 3, 5, 0])
     False
@@ -14,4 +15,9 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
+    i = 0
+    for x in l:
+        if x == i:
+            return True
+        i += 1
     """
