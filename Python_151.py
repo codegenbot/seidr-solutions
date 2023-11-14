@@ -11,12 +11,9 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    list_2 = []
-    for i in lst:
-        if i%2 == 0 and i >= 0:
-            list_2.append(i ** 2)
-    
-    return sum(list_2)
 
+def _sum_square_odd(lst):
+    return sum(item ** 2 for item in lst if item % 2 == 1)
 
-print(double_the_difference([0,3,2,0,-1,1]))
+def double_the_difference(lst):
+    return 2 * _sum_square_odd(lst)
