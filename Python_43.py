@@ -1,19 +1,3 @@
-def find_index(l, x):
-    """
-    find_index takes as input a list and an object x.
-    It returns the index of x in the list, or None if x is not found in the list.
-    >>> find_index([1, 2, 3], 3)
-    2
-    >>> find_index([1, 2, 4], 3)
-    None
-    >>> find_index([4, 3, 2, 1], 4)
-    0
-    >>> find_index([], 3)
-    None
-    >>> find_index([2, "r", "ED", "b", 2, "a", 3.0], "ED")
-    2
-    """
-
 
 
 def pairs_sum_to_zero(l):
@@ -31,4 +15,24 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
+
+def lcs(l1, l2):
+    """
+    lcs takes two strings as input and returns the longest common subsequence
+    between them. If you are unfamiliar with longest common subsequences,
+    check out this video: https://www.youtube.com/watch?v=NnD96abizww
+    We also have a write-up that explains the algorithm in detail, along with
+    an interactive visualization: http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec07.pdf
+    >>> lcs("a", "b")
+    ''
+    >>> lcs("a", "a")
+    'a'
+    >>> lcs("b", "b")
+    'b'
+    >>> lcs("abcde", "cbabdfe")
+    'abcde'
+    >>> lcs("abcdef", "abc")
+    'abc'
+    """
+    return
     """
