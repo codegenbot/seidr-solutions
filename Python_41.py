@@ -9,14 +9,13 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
+    count = 0
+    for i in range(n):
+        for j in range(n):
+            if i < j:
+                count += 1
 
-    # TODO: Complete the following code given the task description and function signature.
-    # Hint: You can use the function "range" to iterate over integers from a given start
-    # to a given end.  For example, "range(2, 5)" returns an iterator that iterates over
-    # the integers 2, 3, and 4.
-
-    # TODO: Return the correct value.
-    return 0
+    return count
 
     This function outputs the number of such collisions.
     """
