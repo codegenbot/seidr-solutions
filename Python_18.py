@@ -7,12 +7,16 @@ def how_many_times(string: str, substring: str) -> int:
     >>> how_many_times('aaa', 'a')
     3
     >>> how_many_times('aaaa', 'aa')
-    count = 0
-    len_s = len(string)
-    len_t = len(substring)
-    for i in range(len_s - len_t + 1):
-        if string[i:i + len_t] == substring:
-            count += 1
-    return count
     3
+    result = 0
+    if len(substring) <= len(string) and not (len(substring) == 0 or len(string) == 0):
+        pos_response = []
+        pos_response.append([i for i in range(len(substring) - 1, len(string)) if string[i - len(substring) + 1:i + 1] == substring])
+        result = len(pos_response[0])
+        #print("pos_response: " + str(pos_response))
+        #print("len(pos_response[0]): " + str(len(pos_response[0])))
+
+    return(result)
+
+how_many_times("aaaaaaaaaaaaaaaaaaaaaaaaa", "b")
     """
