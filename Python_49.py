@@ -14,15 +14,10 @@ def modp(n: int, p: int):
     1
     if n == 0:
         return 1
-    elif n%2 == 0:
-        return n**2 % p
-    elif n%2 == 1:
-        return 2 * modp(n-1, p) % p
-
-
-print(modp(3, 5))
-print(modp(1101, 101))
-print(modp(0, 101))
-print(modp(3, 11))
-print(modp(100, 101))
+    elif n == 1:
+        return 2
+    elif n % 2 == 0:
+        return modp(n//2, p)**2 % p
+    else:
+        return modp(n//2, p)**2 * 2 % p
     """
