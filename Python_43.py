@@ -14,10 +14,21 @@ def pairs_sum_to_zero(l):
     >>> pairs_sum_to_zero([2, 4, -5, 3, 5, 7])
     True
     >>> pairs_sum_to_zero([1])
-    for a in l:
-       for b in l:
-        if a + b == 0:
-            return True
-    return False
     False
+
+
+def subsets(l):
+    """
+    subsets takes a list of integers as input.
+    It returns every subset of the list that has no repeated elements.
+    The order of subsets does not matter.
+    >>> subsets([1, 2, 3])
+    [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+    >>> subsets([3, 2, 1])
+    [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+    >>> subsets([1, 2, -1])
+    [[], [1], [2], [1, 2], [-1], [1, -1], [2, -1], [1, 2, -1]]
+    >>> subsets([3, 2, 1, 1])
+    [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+    """
     """
