@@ -11,5 +11,5 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    # Write your code here
+    # Your code here
     return 0
