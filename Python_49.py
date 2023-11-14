@@ -16,6 +16,13 @@ def modp(n: int, p: int):
         return 1
     elif n == 1:
         return 2 % p
+    if n % 2 == 0:
+        return (modp(n // 2, p) ** 2) % p
     else:
         return (2 * modp(n - 1, p)) % p
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
