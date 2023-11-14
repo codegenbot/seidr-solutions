@@ -15,5 +15,6 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
-    return True
+
+    # Complete the code here
     """
