@@ -12,5 +12,5 @@ def modp(n: int, p: int):
     8
     >>> modp(100, 101)
     1
-    return pow(2, n, p)
+    return 2 ** n % p
     """
