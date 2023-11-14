@@ -7,16 +7,10 @@ def how_many_times(string: str, substring: str) -> int:
     >>> how_many_times('aaa', 'a')
     3
     >>> how_many_times('aaaa', 'aa')
+    return len([i for i in range(len(string)) if string[i:].startswith(substring)])
+
+
+if __name__ == '__main__':
+    print(how_many_times('', 'a'))
     3
-    count = 0
-    for i in range(len(string)):
-        if string[i:i+len(substring)] == substring:
-            count += 1
-    return count
-
-
-if __name__ == "__main__":
-    string, substring = input().strip(), input().strip()
-    count = how_many_times(string, substring)
-    print(count)
     """
