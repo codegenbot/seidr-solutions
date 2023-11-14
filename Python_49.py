@@ -1,7 +1,7 @@
 
 
-def modp(n, p):
-    """Return 2^n modulo p (be aware of numerics). The input is guaranteed to be non-negative.
+def modp(n: int, p: int):
+    """Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
     3
     >>> modp(1101, 101)
@@ -12,4 +12,5 @@ def modp(n, p):
     8
     >>> modp(100, 101)
     1
+    return pow(2, n, p)
     """
