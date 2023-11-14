@@ -12,5 +12,21 @@ def modp(n: int, p: int):
     8
     >>> modp(100, 101)
     1
-    
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 2%p
+    else:
+        t = n//2
+        temp = modp(t, p)
+        temp = (temp * temp) % p
+        if n % 2 == 0:
+            return temp
+        else:
+            return (temp * 2) % p
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
     """
