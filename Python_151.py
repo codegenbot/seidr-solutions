@@ -11,10 +11,5 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    sum = 0 
-    for num in lst:
-        if num % 2 == 1 > 0 and num.is_integer:
-            squared = num * num
-            sum += squared
-
-    return sum    
+    #your code here
+    pass
