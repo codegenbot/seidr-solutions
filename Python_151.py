@@ -11,11 +11,4 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    sum_of_squares = 0
-    for number in lst:
-        if type(number) == int and number >= 0:
-            if number % 2 == 0:
-                sum_of_squares += (number - 1) ** 2
-            else:
-                sum_of_squares += number ** 2
-    return -sum_of_squares
+    pass
