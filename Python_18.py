@@ -8,12 +8,17 @@ def how_many_times(string: str, substring: str) -> int:
     3
     >>> how_many_times('aaaa', 'aa')
     3
-    to_find = substring
-    len_substring = len(substring)
-    len_string = len(string)
+    start = 0
     count = 0
-    for i in range(0, len_string):
-        if string[i:i + len_substring] == to_find:
+    while start < len(string):
+        start = string.find(substring, start) + 1
+        if start > 0:
             count += 1
     return count
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+
     """
