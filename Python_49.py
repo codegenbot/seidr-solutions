@@ -1,6 +1,6 @@
 
 
-def modp(n, p):
+def modp(n: int, p: int):
     """Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
     3
@@ -12,4 +12,5 @@ def modp(n, p):
     8
     >>> modp(100, 101)
     1
+    # Complete the following code
     """
