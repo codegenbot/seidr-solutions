@@ -14,4 +14,9 @@ def how_many_times(string: str, substring: str) -> int:
             count += 1
     return count
 
+
+if __name__ == "__main__":
+    string, substring = input().strip(), input().strip()
+    count = how_many_times(string, substring)
+    print(count)
     """
