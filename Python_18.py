@@ -1,6 +1,6 @@
 
 
-def how_many_times(string: str, substring: str) -> int:
+def how_many_times(string, substring):
     """ Find how many times a given substring can be found in the original string. Count overlaping cases.
     >>> how_many_times('', 'a')
     0
@@ -8,10 +8,5 @@ def how_many_times(string: str, substring: str) -> int:
     3
     >>> how_many_times('aaaa', 'aa')
     3
-    count = 0
-    for i in range(len(string)):
-        if string[i:i+len(substring)] == substring:
-            count += 1
-    return count
-
+    return string.count(substring)
     """
