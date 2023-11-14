@@ -9,16 +9,9 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
-    #TODO: Complete the following code given the task description and function signature.
-    return 0
 
-
-def main():
-    print(car_race_collision(2))
-
-
-if __name__ == '__main__':
-    main()
+    # Write your code here.
+    pass
 
     This function outputs the number of such collisions.
     """
