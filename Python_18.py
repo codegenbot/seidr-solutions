@@ -7,15 +7,12 @@ def how_many_times(string: str, substring: str) -> int:
     >>> how_many_times('aaa', 'a')
     3
     >>> how_many_times('aaaa', 'aa')
-    index = 0
-    count = 0
-    while index < len(string):
-        index = string.find(substring, index)
-        if index >= 0:
-            count += 1
-            index += 1
-        else:
-            return count
-    return count
+    length_of_substring = len(substring)
+    result = 0
+    for i in range(len(string) - length_of_substring + 1):
+        if string[i: i + length_of_substring] == substring:
+            result += 1
+
+    return result
     3
     """
