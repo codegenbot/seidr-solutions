@@ -15,11 +15,18 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
-    if len(l) < 2:
+    if len(l) == 1:
         return False
-    for i in range(len(l)-1):
-        for j in range(i+1, len(l)):
+    else:
+        l.sort()
+        i = 0
+        j = len(l) - 1
+        while i < j:
             if l[i] + l[j] == 0:
                 return True
+            elif l[i] + l[j] < 0:
+                i = i + 1
+            else:
+                j = j - 1
     return False
     """
