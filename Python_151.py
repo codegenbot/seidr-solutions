@@ -1,3 +1,4 @@
+
 def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
@@ -10,21 +11,11 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    square = []
-
-    for num in lst:
-        if num == 0 or num < 0:
-            continue
-        if num % 2 != 0:
-            square.append((num * num) - num)
-        else:
-            square.append((num * num) + num)
-
-    return sum(square)
-
-
-print(double_the_difference([1, 3, 2, 0]))
-print(double_the_difference([-1, -2, 0]))
-print(double_the_difference([9, -2]))
-print(double_the_difference([0]))
-print(double_the_difference([]))
+    sum_of_squares = 0
+    for number in lst:
+        if type(number) == int and number >= 0:
+            if number % 2 == 0:
+                sum_of_squares += (number - 1) ** 2
+            else:
+                sum_of_squares += number ** 2
+    return -sum_of_squares
