@@ -1,6 +1,6 @@
 
 
-def car_race_collision(n: int) -> int:
+def car_race_collision(n_cars: int):
     """
     Imagine a road that's a perfectly straight infinitely long line.
     n cars are driving left to right;  simultaneously, a different set of n cars
@@ -8,10 +8,8 @@ def car_race_collision(n: int) -> int:
     each other.  All cars move in the same speed.  Two cars are said to collide
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
-
-    :param n: The total number of cars in each direction
-    :return: The total number of collisions between the cars
     in their trajectory as if they did not collide.
+    # YOUR CODE HERE
 
     This function outputs the number of such collisions.
     """
