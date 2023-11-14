@@ -1,3 +1,19 @@
+def find_index(l, x):
+    """
+    find_index takes as input a list and an object x.
+    It returns the index of x in the list, or None if x is not found in the list.
+    >>> find_index([1, 2, 3], 3)
+    2
+    >>> find_index([1, 2, 4], 3)
+    None
+    >>> find_index([4, 3, 2, 1], 4)
+    0
+    >>> find_index([], 3)
+    None
+    >>> find_index([2, "r", "ED", "b", 2, "a", 3.0], "ED")
+    2
+    """
+
 
 
 def pairs_sum_to_zero(l):
@@ -15,10 +31,4 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
-    
-    if len(l) > 1:
-        for i in l:
-            if (-i) in l and l.index(i) != l.index(-i):
-                return True
-    return False
     """
