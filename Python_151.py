@@ -11,19 +11,9 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    if len(lst) == 0:
-        return 0
-    else:
-        result = 0
-        lst.sort()
-        for i in range(len(lst)):
-            if i % 2 != 0:
-                result += lst[i] ** 2
-    return result
-
-
-print(double_the_difference([1, 3, 2, 0]))
-print(double_the_difference([-1, -2, 0]))
-print(double_the_difference([9, -2]))
-print(double_the_difference([0]))
-print(double_the_difference([]))
+    sum = 0
+    for num in lst:
+        if num > 0 and int(num) == num:
+            if int(num) % 2 != 0:
+                sum += num*num
+    return sum
