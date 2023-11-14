@@ -1,4 +1,9 @@
-
+""" Given the function signature and the task description, complete the code below.
+- For the function to work, it should return the number of times the substring can be found in the original string.
+- Do not count any other occurence of the substring, even if those occurences are not consecutive.
+- For example: how_many_times('abababab', 'b') should return 4.
+- Look under the All Docstrings framework to find how the function works.
+"""
 
 def how_many_times(string: str, substring: str) -> int:
     """ Find how many times a given substring can be found in the original string. Count overlaping cases.
@@ -7,12 +12,6 @@ def how_many_times(string: str, substring: str) -> int:
     >>> how_many_times('aaa', 'a')
     3
     >>> how_many_times('aaaa', 'aa')
-    count = 0
-    len_s = len(string)
-    len_t = len(substring)
-    for i in range(len_s - len_t + 1):
-        if string[i:i + len_t] == substring:
-            count += 1
-    return count
     3
+
     """
