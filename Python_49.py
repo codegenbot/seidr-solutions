@@ -12,30 +12,10 @@ def modp(n: int, p: int):
     8
     >>> modp(100, 101)
     1
-
-
-def check(n: int, p: int):
-    """Return True if n is prime, False otherwise.
-    >>> check(3, 5)
-    True
-    >>> check(1101, 101)
-    False
-    >>> check(5, 11)
-    True
-    >>> check(100, 101)
-    False
-    """
-
-
-def find(n: int, p: int):
-    """Return a prime number that is not equal to n.
-    >>> find(3, 5)
-    2
-    >>> find(1101, 101)
-    2
-    >>> find(5, 11)
-    2
-    >>> find(100, 101)
-    2
-    """
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 2 % p
+    else:
+        return (2 * modp(n - 1, p)) % p
     """
