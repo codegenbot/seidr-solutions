@@ -15,33 +15,14 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
-    # Complete the function
-    l.sort()
-    
-    if l[0]==0:
-        return False
-    elif len(l)<=1:
-        return False
-    else:
-        for i in range(0,len(l)):
-            for k in range(i+1,len(l)):
-                if l[i]+l[k] == 0:
-                    return True
-        return False
-                
-                
-                
-    
+    for i in range(len(l)):
+        for j in range(i+1, len(l)):
+            if l[i] + l[j] == 0:
+                return True
+    return False
 
 
-
-
-
-
-
-
-
-
-
-
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
     """
