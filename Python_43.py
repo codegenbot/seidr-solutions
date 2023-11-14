@@ -1,6 +1,6 @@
 
 
-def pairs_sum_to_zero(lst):
+def pairs_sum_to_zero(l):
     """
     pairs_sum_to_zero takes a list of integers as an input.
     it returns True if there are two distinct elements in the list that
@@ -15,9 +15,6 @@ def pairs_sum_to_zero(lst):
     True
     >>> pairs_sum_to_zero([1])
     False
-    for i in range(len(lst)):
-        for j in range(i + 1, len(lst)):
-            if lst[i] + lst[j] == 0:
-                return True
-    return False
+
+    pass
     """
