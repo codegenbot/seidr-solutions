@@ -11,9 +11,18 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
+    
+    # Your code goes here
+    squares = []
+
+    for num in lst:
+        if type(num) == int and num >= 0:
+            squares.append(num ** 2)
+        else:
+            continue
+
     sum = 0
-    for i in range(len(lst)):
-        if lst[i] % 2 == 1:
-            sum += (lst[i]**2)
+    for num in squares:
+        sum += num
 
     return sum
