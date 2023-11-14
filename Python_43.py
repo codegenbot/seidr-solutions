@@ -15,9 +15,10 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
-    for i in range(len(l)):
-        for j in range(i+1, len(l)):
-            if l[i] + l[j] == 0:
-                return True
+
+    # Complete the following code given the task description and function signature.
+
+    # If there is a pair of numbers in the list that sum to zero, return True.
+    # Otherwise, return False.
     return False
     """
