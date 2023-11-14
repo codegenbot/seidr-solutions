@@ -15,5 +15,9 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
-    pass
+    for element in l:
+        if -element in l:
+            if l.count(element) == 1:
+                return True
+    return False
     """
