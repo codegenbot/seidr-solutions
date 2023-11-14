@@ -14,17 +14,18 @@ def pairs_sum_to_zero(l):
     >>> pairs_sum_to_zero([2, 4, -5, 3, 5, 7])
     True
     >>> pairs_sum_to_zero([1])
+    >>> pairs_sum_to_zero([])
     False
+    False
+    if len(l) <= 1:
+        return False
 
-    found = False
-    for x in range(0, len(l)):
-        for y in range(x+1, len(l)):
-            if l[x] + l[y] == 0:
-                found = True
-    return found
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
-
+    dic = {}
+    
+    for i in l:
+        if i in dic:
+            return True
+        else:
+            dic[-i] = 1
+    return False
     """
