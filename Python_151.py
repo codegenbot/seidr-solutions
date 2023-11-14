@@ -11,5 +11,19 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
+    if len(lst) == 0:
+        return 0
+    else:
+        result = 0
+        lst.sort()
+        for i in range(len(lst)):
+            if i % 2 != 0:
+                result += lst[i] ** 2
+    return result
 
-    return sum(x**2 for x in lst if x % 2 != 0 and str(x).isdigit() and x >= 0)
+
+print(double_the_difference([1, 3, 2, 0]))
+print(double_the_difference([-1, -2, 0]))
+print(double_the_difference([9, -2]))
+print(double_the_difference([0]))
+print(double_the_difference([]))
