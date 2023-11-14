@@ -16,5 +16,9 @@ def pairs_sum_to_zero(l):
     >>> pairs_sum_to_zero([1])
     False
 
-    # Complete the code here
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
