@@ -15,18 +15,10 @@ def pairs_sum_to_zero(l):
     True
     >>> pairs_sum_to_zero([1])
     False
-    i = 0
-    while i != len(l) - 1:
-        j = i + 1
-        while j != len(l):
-            if l[i] + l[j] == 0:
+    
+    if len(l) > 1:
+        for i in l:
+            if (-i) in l and l.index(i) != l.index(-i):
                 return True
-            j += 1
-        i += 1
     return False
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
     """
