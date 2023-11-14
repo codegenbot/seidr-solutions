@@ -9,52 +9,22 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
-    # We may assume that all n cars are different, and that all speeds are positive
-
-    dict_of_speeds = {}
-    for _ in range(n):
-        speed = int(input("Type in the speed of the two-way car:"))
-        if speed in dict_of_speeds:
-            dict_of_speeds[speed] += 1
-        else:
-            dict_of_speeds[speed] = 1
-
-    # dict_of_speeds is now a dictionary that maps the speed of a car
-    # to the number of cars that speed.
-    ## Fill in the following code that uses this dictionary
-    # to compute the number of collisions.
-    ## Hint:  the number of collisions is the sum of the following
-    ##          - for all numbers in dict_of_speeds:
-    ##              - the product of the value in dict_of_speeds and the number of
-    ##                smaller numbers in dict_of_speeds;
-    ##                For example, if the speed of three cars is 3 and the speed of
-    ##                four cars is 4, there will be 3*4 = 12 collisions,
-    ##                because 3 cars will hit 4 cars before they hit each of the three cars.
-    ##                (Here, we are assuming that only two cars can not hit each other,
-    ##                as a result of which 12 > 6.)
-    ##
-    ##  Another way to think about this:  for each one of the n cars that are driving
-    ##      left to right, we count the number of cars that are driving faster than it
-    ##      among the cars that are driving right to left.  For example, if the speed
-    ##      of three cars is 3 and the speed of four cars is 4, we would compute
-    ##      3 + 3 + 3 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 = 48.  This is because
-    ##      we have 3 cars with speed 3, and each of them will hit 4 cars that will
-    ##      have higher speed.
-    ##
-    ##  Your final answer is the sum divided by 2.
-
-    num_of_collisions = 0
-    for x in dict_of_speeds:
-        for y in dict_of_speeds:
-            if y < x:
-                num_of_collisions += dict_of_speeds[x] * dict_of_speeds[y]
-
-    return num_of_collisions // 2
 
 
+def read_more(input):
+    """
+    You've been hired to write a program for a newspaper that converts long-ish text into a format that fits on a single line.
+    There are three rules that you must follow when performing the conversion:
+    1> If a line is already short enough (less than 55 characters), don't do anything to that line
+    2> If a line contains no periods, output the original line
+    3> Otherwise, keep the first 40 characters on the first line, then add a period, and finally add the last line,
+       so that the total number of characters is <= 55.
 
+    Please complete the function below so that it behaves as described
+    """
 
-print(car_race_collision(int(input("Type in the number of cars:"))))
+    output = ""
+    return output
 
     This function outputs the number of such collisions.
     """
