@@ -12,16 +12,17 @@ def modp(n: int, p: int):
     8
     >>> modp(100, 101)
     1
-    # Calculate 2^n
-    two_power = 2**n
+    if n == 0:
+        return 1
+    elif n%2 == 0:
+        return n**2 % p
+    elif n%2 == 1:
+        return 2 * modp(n-1, p) % p
 
-    # Calculate 2^n mod p
-    two_power_mod = two_power % p
 
-    return two_power_mod
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+print(modp(3, 5))
+print(modp(1101, 101))
+print(modp(0, 101))
+print(modp(3, 11))
+print(modp(100, 101))
     """
