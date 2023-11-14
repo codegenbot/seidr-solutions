@@ -9,24 +9,20 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
+    # Use a map where the key is the time, and the value is the number of cars that are
+    # at the same place at that particular time.
+    #
+    # The first for loop loops through all the cars that go from left to right;
+    # the second for loop loops through all the cars that go from right to left.
+    # The collision happens when the cars are at the same place at the same time.
+    #
+    # The time it takes to go from right to left is different from the time it takes to go
+    # from left to right.  Think about why this is true and how to calculate the collision time
+    # accurately.
 
-    dict_car = {}
-    if n % 2 == 0:
-        for i in range(1, n // 2 + 1):
-            dict_car[i] = n - i
-            dict_car[n - i] = i
-    else:
-        for i in range(1, n // 2 + 2):
-            dict_car[i] = n - i
-            dict_car[n - i] = i
-    counter = 0
-    for key in dict_car.keys():
-        if key < dict_car[key]:
-            counter += 1
-    return counter
+    collisions = 0
 
-
-print(car_race_collision(1000))
+    return collisions
 
     This function outputs the number of such collisions.
     """
