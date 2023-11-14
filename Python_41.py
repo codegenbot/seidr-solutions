@@ -9,25 +9,17 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
-    # TODO:  Complete the following code.
 
-    # 1) Use the following function signature.
+    return 0
 
 
-    # 2) In your implementation, you are allowed to use
-    # the following functions:
-    #   - car_race_collision;
-    #   - min;
-    #   - max;
-    #   - any other functions from the standard Python library;
+def main():
+    print(car_race_collision(3))
+    print(car_race_collision(10))
 
-    # 3) You are NOT allowed to use any other functions.
-    # Your goal is to complete the following code so that
-    # it outputs the correct result.
 
-    # 4) Your code must run in O(n) time.
-
-    # 5) You are NOT allowed to use any mutable data structures such as list, set, dictionary, etc.
+if __name__ == "__main__":
+    main()
 
     This function outputs the number of such collisions.
     """
