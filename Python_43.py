@@ -14,18 +14,10 @@ def pairs_sum_to_zero(l):
     >>> pairs_sum_to_zero([2, 4, -5, 3, 5, 7])
     True
     >>> pairs_sum_to_zero([1])
-    >>> pairs_sum_to_zero([])
     False
-    False
-    if len(l) <= 1:
-        return False
-
-    dic = {}
-    
-    for i in l:
-        if i in dic:
-            return True
-        else:
-            dic[-i] = 1
+    for i in range(len(l)):
+        for j in range(i):
+            if (l[i] + l[j]) == 0:
+               return True
     return False
     """
