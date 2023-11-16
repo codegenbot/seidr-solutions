@@ -1,26 +1,37 @@
-from itertools import combinations
-from collections import deque
 
-class Node:
-    def __init__(self, val, neighbors=[]):
-        self.val = val
-        self.neighbors = neighbors
+def get_neighbors(row, col, grid):
+    """
+    Returns the list of valid neighbors of a given position in a grid.
+    """
+    neighbors = []
+    if row > 0:
+        neighbors.append((row - 1, col))
+    if col > 0:
+        neighbors.append((row, col - 1))
+    if row < len(grid) - 1:
+        neighbors.append((row + 1, col))
+    if col < len(grid) - 1:
+        neighbors.append((row, col + 1))
+    return neighbors
 
-    def __lt__(self, other):
-        return self.val < other.val
 
-    def __eq__(self, other):
-        return self.val == other.val
+def backtrack(row, col, grid, k, path, min_path):
+    """
+    Backtrack function to find the minimum path.
+    """
+    if k == 0:
+        if path < min_path:
+            min_path = path
+    else:
+        for neighbor in get_neighbors(row, col, grid):
+            path.append(grid[neighbor[0]][neighbor[1]])
+            backtrack(neighbor[0], neighbor[1], grid, k - 1, path, min_path)
+            path.pop()
 
-    def __hash__(self):
-        return hash(self.val)
-
-    def __repr__(self):
-        return str(self.val)
 
 def minPath(grid, k):
     """
-    Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
+    Given a grid with N rows and N columns (N >= 2) and a positive integer k,
     each cell of the grid contains a value. Every integer in the range [1, N * N]
     inclusive appears exactly once on the cells of the grid.
 
@@ -42,69 +53,34 @@ def minPath(grid, k):
 
     Examples:
 
-    def get_neighbors(node, grid):
-        row, col = node.val
-        neighbors = []
-        if row > 0:
-            neighbors.append(Node((row-1, col), grid[row-1][col]))
-        if row < len(grid) - 1:
-            neighbors.append(Node((row+1, col), grid[row+1][col]))
-        if col > 0:
-            neighbors.append(Node((row, col-1), grid[row][col-1]))
-        if col < len(grid) - 1:
-            neighbors.append(Node((row, col+1), grid[row][col+1]))
-        return neighbors
+    # Create a list to store the minimum path
+    min_path = [float('inf')]
 
-    def bfs(node, k, grid):
-        visited = set()
-        queue = deque()
-        queue.append(node)
+    # Iterate over the grid to find the minimum path
+    for i in range(len(grid)):
+        for j in range(len(grid)):
+            # Create a list to store the current path
+            path = []
+            # Add the current cell value to the current path
+            path.append(grid[i][j])
+            # Backtrack to find the minimum path
+            backtrack(i, j, grid, k - 1, path, min_path)
 
-        while queue:
-            if len(queue) == k:
-                return [node.val for node in queue]
+    return min_path
 
-            node = queue.popleft()
-            visited.add(node)
-            for neighbor in get_neighbors(node, grid):
-                if neighbor not in visited:
-                    queue.append(neighbor)
 
-    def dfs(node, k, grid):
-        visited = set()
-        stack = []
-        stack.append(node)
+def main():
+    grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    k = 3
+    assert minPath(grid, k) == [1, 2, 1]
 
-        while stack:
-            if len(stack) == k:
-                return [node.val for node in stack]
+    grid = [[5, 9, 3], [4, 1, 6], [7, 8, 2]]
+    k = 1
+    assert minPath(grid, k) == [1]
 
-            node = stack.pop()
-            visited.add(node)
-            for neighbor in get_neighbors(node, grid):
-                if neighbor not in visited:
-                    stack.append(neighbor)
 
-    def min_path(start, k, grid):
-        min_path = None
-        for path in bfs(start, k, grid):
-            if min_path is None:
-                min_path = path
-            elif path < min_path:
-                min_path = path
-        return min_path
-
-    def build_graph(grid):
-        graph = {}
-        for row in range(len(grid)):
-            for col in range(len(grid[row])):
-                graph[Node((row, col), grid[row][col])] = get_neighbors(Node((row, col), grid[row][col]), grid)
-        return graph
-
-    graph = build_graph(grid)
-    return min_path(graph)
-
-minPath([ [5,9,3], [4,1,6], [7,8,2]], 1)
+if __name__ == '__main__':
+    main()
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
