@@ -1,6 +1,4 @@
 
-import torch
-
 def closest_integer(value):
     '''
     Create a function that takes a value (string) representing a number
@@ -34,7 +32,7 @@ def closest_integer(value):
         return -15
     else:
         return 0
-    return 15 and closest_integer("-14.5") should return -15.
-    '''
+    return 15 and 
 
-    return torch.arange(10)
+    closest_integer("-14.5") should return -15.
+    '''
