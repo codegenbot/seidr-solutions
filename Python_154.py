@@ -7,9 +7,8 @@ def cycpattern_check(a , b):
     cycpattern_check("abab","baa") => True
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
+    """
+
 
     # write your code here
-
-
-    return True
-    """
+    return False
