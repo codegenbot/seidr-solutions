@@ -11,5 +11,9 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    pass
+    d = {}
+    for letter in test.split():
+        d.setdefault(letter, 0)
+        d[letter] += 1
+    return(d)
     """
