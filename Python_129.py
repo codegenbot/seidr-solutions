@@ -23,85 +23,87 @@ def minPath(grid, k):
 
     Examples:
 
-
-    # Complete the following code given the task description and function signature.
-
-    # Get the size of the grid and create a dictionary to store the coordinates of the numbers.
-    n = len(grid)
-    nums = {}
-
-    # Iterate through the grid and store the coordinates of the numbers.
-    for i in range(n):
-        for j in range(n):
-            nums[grid[i][j]] = (i, j)
-
-    # Create a dictionary to store the minimum path.
-    min_path = {}
-
-    # Iterate through the numbers.
-    for num in nums.keys():
-        # Get the coordinates of the current number.
-        x, y = nums[num]
-
-        # Create a list to store the current path.
-        curr_path = [num]
-
-        # Create a list to store the queue.
-        queue = []
-
-        # Append the current number to the queue.
-        queue.append(num)
-
-        # Iterate through the queue.
-        while len(queue) > 0:
-            # Pop the last number from the queue.
-            last_num = queue.pop()
-
-            # Get the coordinates of the last number.
-            last_x, last_y = nums[last_num]
-
-            # If the last number is not the current number.
-            if last_num != num:
-                # Add the last number to the current path.
-                curr_path.append(last_num)
-
-            # If the length of the current path is equal to k.
-            if len(curr_path) == k:
-                # Add the current path to the minimum path.
-                min_path[num] = curr_path
-
-                # Break from the current loop.
-                break
-
-            # If the last number is not the current number.
-            if last_num != num:
-                # Check if the top neighbor of the last number is valid.
-                if last_x - 1 >= 0 and grid[last_x - 1][last_y] not in curr_path:
-                    # Append the top neighbor to the queue.
-                    queue.append(grid[last_x - 1][last_y])
-
-                # Check if the bottom neighbor of the last number is valid.
-                if last_x + 1 < n and grid[last_x + 1][last_y] not in curr_path:
-                    # Append the bottom neighbor to the queue.
-                    queue.append(grid[last_x + 1][last_y])
-
-                # Check if the left neighbor of the last number is valid.
-                if last_y - 1 >= 0 and grid[last_x][last_y - 1] not in curr_path:
-                    # Append the left neighbor to the queue.
-                    queue.append(grid[last_x][last_y - 1])
-
-                # Check if the right neighbor of the last number is valid.
-                if last_y + 1 < n and grid[last_x][last_y + 1] not in curr_path:
-                    # Append the right neighbor to the queue.
-                    queue.append(grid[last_x][last_y + 1])
-
-    # Return the minimum path.
-    return min_path
-        Input: grid = [ [1,3], [3,2]], k = 10
-        Output: [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
+    def dfs(grid, k, start, end):
+        if k == 0:
+            return grid[start[0]][start[1]]
+        if start == end:
+            return float('inf')
+        return min(dfs(grid, k - 1, (start[0] + 1, start[1]), end),
+                   dfs(grid, k - 1, (start[0] - 1, start[1]), end),
+                   dfs(grid, k - 1, (start[0], start[1] + 1), end),
+                   dfs(grid, k - 1, (start[0], start[1] - 1), end))
+    
+    def find_start(grid, k):
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if i + j == k:
+                    return (i, j)
+    
+    def find_end(grid, k):
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if i + j == k - 1:
+                    return (i, j)
+    
+    def get_path(grid, k, start, end):
+        if k == 0:
+            return [grid[start[0]][start[1]]]
+        if start == end:
+            return []
+        if start[0] + 1 <= end[0] and dfs(grid, k - 1, (start[0] + 1, start[1]), end) == grid[start[0]][start[1]]:
+            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0] + 1, start[1]), end)
+        if start[0] - 1 >= end[0] and dfs(grid, k - 1, (start[0] - 1, start[1]), end) == grid[start[0]][start[1]]:
+            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0] - 1, start[1]), end)
+        if start[1] + 1 <= end[1] and dfs(grid, k - 1, (start[0], start[1] + 1), end) == grid[start[0]][start[1]]:
+            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0], start[1] + 1), end)
+        if start[1] - 1 >= end[1] and dfs(grid, k - 1, (start[0], start[1] - 1), end) == grid[start[0]][start[1]]:
+            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0], start[1] - 1), end)
+    
+    start = find_start(grid, k)
+    end = find_end(grid, k)
+    return get_path(grid, k, start, end)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
         Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
+    def dfs(grid, k, start, end):
+        if k == 0:
+            return grid[start[0]][start[1]]
+        if start == end:
+            return float('inf')
+        return min(dfs(grid, k - 1, (start[0] + 1, start[1]), end),
+                   dfs(grid, k - 1, (start[0] - 1, start[1]), end),
+                   dfs(grid, k - 1, (start[0], start[1] + 1), end),
+                   dfs(grid, k - 1, (start[0], start[1] - 1), end))
+    
+    def find_start(grid, k):
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if i + j == k:
+                    return (i, j)
+    
+    def find_end(grid, k):
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if i + j == k - 1:
+                    return (i, j)
+    
+    def get_path(grid, k, start, end):
+        if k == 0:
+            return [grid[start[0]][start[1]]]
+        if start == end:
+            return []
+        if start[0] + 1 <= end[0] and dfs(grid, k - 1, (start[0] + 1, start[1]), end) == grid[start[0]][start[1]]:
+            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0] + 1, start[1]), end)
+        if start[0] - 1 >= end[0] and dfs(grid, k - 1, (start[0] - 1, start[1]), end) == grid[start[0]][start[1]]:
+            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0] - 1, start[1]), end)
+        if start[1] + 1 <= end[1] and dfs(grid, k - 1, (start[0], start[1] + 1), end) == grid[start[0]][start[1]]:
+            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0], start[1] + 1), end)
+        if start[1] - 1 >= end[1] and dfs(grid, k - 1, (start[0], start[1] - 1), end) == grid[start[0]][start[1]]:
+            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0], start[1] - 1), end)
+    
+    start = find_start(grid, k)
+    end = find_end(grid, k)
+    return get_path(grid, k, start, end)
         Output: [1]
     """
