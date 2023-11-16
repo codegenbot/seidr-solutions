@@ -6,13 +6,6 @@ def string_sequence(n: int) -> str:
     '0'
     >>> string_sequence(5)
     '0 1 2 3 4 5'
-    number = ''
-    for x in range(n+1):
-        number += f'{x} '
-    return number.strip()
 
-
-            
-
-
+    # TODO: Finish this function
     """
