@@ -10,4 +10,5 @@ def find_max(words):
 
     pass
     find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa"
+    find_max(["play", "play", "play"]) == "play"
     """
