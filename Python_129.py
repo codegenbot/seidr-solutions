@@ -1,3 +1,57 @@
+import copy
+
+
+def _is_valid(grid, row, col):
+    """
+    Check if the given row and column is valid.
+    """
+    if row < 0 or row >= len(grid):
+        return False
+    if col < 0 or col >= len(grid[0]):
+        return False
+    return True
+
+
+def _get_neighbors(grid, row, col):
+    """
+    Return the neighbors of the given cell.
+    """
+    neighbors = []
+    if _is_valid(grid, row - 1, col):
+        neighbors.append((row - 1, col))
+    if _is_valid(grid, row, col - 1):
+        neighbors.append((row, col - 1))
+    if _is_valid(grid, row + 1, col):
+        neighbors.append((row + 1, col))
+    if _is_valid(grid, row, col + 1):
+        neighbors.append((row, col + 1))
+    return neighbors
+
+
+def _get_path(grid, row, col, k, visited):
+    """
+    Get the path of length k starting from the given cell.
+    """
+    if k == 0:
+        return []
+    neighbors = _get_neighbors(grid, row, col)
+    min_path = None
+    for r, c in neighbors:
+        if (r, c) in visited:
+            continue
+        visited.add((r, c))
+        path = _get_path(grid, r, c, k - 1, visited)
+        visited.remove((r, c))
+        if not path:
+            continue
+        path.append(grid[r][c])
+        if not min_path:
+            min_path = path
+        else:
+            if path < min_path:
+                min_path = path
+    return min_path
+
 
 def minPath(grid, k):
     """
@@ -23,20 +77,27 @@ def minPath(grid, k):
 
     Examples:
 
+    visited = set()
+    min_path = None
+    for row in range(len(grid)):
+        for col in range(len(grid[0])):
+            visited.add((row, col))
+            path = _get_path(grid, row, col, k, copy.deepcopy(visited))
+            visited.remove((row, col))
+            if not path:
+                continue
+            path.append(grid[row][col])
+            if not min_path:
+                min_path = path
+            else:
+                if path < min_path:
+                    min_path = path
+    return min_path
 
-    # Implement the following code.
-    # You are free to add additional helper functions as needed.
-    # You are not allowed to use any external packages.
-    # You are not allowed to use any global variables.
 
-    # You may assume that the input is always valid.
-
-    # DO NOT MODIFY THE PARAMETERS OR THE RETURN STATEMENT
-
-    # DO NOT CHANGE THE NAME OF THE minPath FUNCTION
-
-    # Replace the None value with your own return value.
-    return None
+if __name__ == "__main__":
+    print(minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3))
+    print(minPath([[5, 9, 3], [4, 1, 6], [7, 8, 2]], 1))
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
