@@ -34,11 +34,6 @@ print(add_even_odd_index_elements([4, 2, 6, 7]))
 
 
 
-def add(a, b):
-    """
-    Docstring.
-    """
-    return a + b
 
 
 
@@ -101,7 +96,30 @@ def add(a, b):
 
 
 
+if __name__ == '__main__':
+    even_odd_index_sum = add_even_odd_index_elements
+    schema = {
+        'type': 'array',
+        'uniqueItems': True
+    }
+    program = [
+        ('maxNum', 2),
+        ('product', 0),
+        ('iteration', 3),
+        ('variable', 'd'),
+        ('variable', 'j'),
+        ('variable', 'counter'),
+        ('for x in ', 'd', ':', 1, 2, 3, 4, 5),
+        ('for i in product:', 'j', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+        ('if j == True: ', 'counter'),
+        ('return counter'),
+        ('assign', 'even-sum_elements', 0),
+        ('let even_sum_elements', 'd' '==', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2)
+        ('return even_sum_elements')
+    ]
 
+    def add_even_odd_index_elements(lst):
+        return even_odd_index_sum(lst)
 
 
 
