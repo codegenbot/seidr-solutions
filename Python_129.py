@@ -1,3 +1,18 @@
+from collections import deque
+
+
+def get_neighbors(grid, i, j):
+    neighbors = []
+    if i > 0:
+        neighbors.append((i-1, j))
+    if i < len(grid)-1:
+        neighbors.append((i+1, j))
+    if j > 0:
+        neighbors.append((i, j-1))
+    if j < len(grid[0])-1:
+        neighbors.append((i, j+1))
+    return neighbors
+
 
 def minPath(grid, k):
     """
@@ -23,14 +38,28 @@ def minPath(grid, k):
 
     Examples:
 
-    # Your code goes here. 
-    # Please use the following function signature:
-    # def minPath(grid, k): 
-    # 
-    # The following inputs are for testing:
+
+    # The following code is incomplete. You should complete it.
+    # The code should return an ordered list of the values on the cells
+    # that the minimum path go through.
+
+    # The following code is for the sake of demonstration only.
+    min_path = []
+    queue = deque()
+    start_point = (0, 0)
+    queue.append((start_point, []))
+    while queue:
+        point, path = queue.popleft()
+        if len(path) == k:
+            if min_path == [] or path < min_path:
+                min_path = path
+        neighbors = get_neighbors(grid, point[0], point[1])
+        for neighbor in neighbors:
+            queue.append((neighbor, path + [grid[neighbor[0]][neighbor[1]]]))
+    return min_path
     return [1, 2, 1]
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
-        Output: [1, 2, 1] 
+        Output: [1, 2, 1]
 
         Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
         Output: [1]
