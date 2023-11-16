@@ -1,6 +1,7 @@
 
 
 def correct_bracketing(brackets: str):
+    """ brackets is a string of "(" and ")".
     return True if every opening bracket has a corresponding closing bracket.
 
     >>> correct_bracketing("(")
@@ -11,6 +12,7 @@ def correct_bracketing(brackets: str):
     True
 
 def count_bracketing(brackets: str):
+    """ brackets is a string of "(" and ")".
     return the number of opening brackets that have a corresponding closing bracket.
 
     >>> count_bracketing("(")
@@ -21,7 +23,7 @@ def count_bracketing(brackets: str):
     3
     >>> count_bracketing(")(()")
     0
-    """
+    
     >>> correct_bracketing(")(()")
     False
     """
