@@ -13,4 +13,5 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # Your code here 
+    # Your code here
+    pass
