@@ -12,6 +12,7 @@ def prime_fib(n: int):
     >>> prime_fib(4)
     13
     >>> prime_fib(5)
+    """
     89
     i = 0
     j = 1
@@ -33,7 +34,5 @@ def is_prime(n: int) -> bool:
         return False
     for i in range(3, n, 2):
         if n % i == 0:
-
             return False
     return True
-    """
