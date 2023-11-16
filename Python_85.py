@@ -8,11 +8,10 @@ def add(lst):
         int: sum of the even elements that are at odd indices.
         
     Examples:
-        add([4, 2, 6, 7]) ==> 2
-    """ 
-    sum = 0
+        add([4, 2, 6, 7]) ==> 2 
+    """
+    sum = 0 
     
     # your code here
     
     return sum
-    """
