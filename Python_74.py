@@ -23,8 +23,8 @@ def total_match(lst1, lst2):
         return lst2
 
 
-print(total_match(['4'], ['1', '2', '3', '4', '5']))
-total_match(['hi', 'admin'], ['hi', 'hi', 'admin', 'project']) ➞ ['hi', 'admin']
-total_match(['hi', 'admin'], ['hI', 'hi', 'hi']) ➞ ['hI', 'hi', 'hi']
-total_match(['4'], ['1', '2', '3', '4', '5']) ➞ ['4']
+print(total_match(['4'], ['1', '2', '3', '4', '5'])) 
+    total_match(['hi', 'admin'], ['hi', 'hi', 'admin', 'project']) ➞ ['hi', 'admin']
+    total_match(['hi', 'admin'], ['hI', 'hi', 'hi']) ➞ ['hI', 'hi', 'hi']
+    total_match(['4'], ['1', '2', '3', '4', '5']) ➞ ['4']
     '''
