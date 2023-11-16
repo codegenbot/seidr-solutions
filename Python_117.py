@@ -12,4 +12,12 @@ def select_words(s, n):
     select_words("Hello world", 4) ==> ["world"]
     select_words("Uncle sam", 3) ==> ["Uncle"]
     """
-    # Complete the following code given the task description and function signature.
+    n_consonants = []
+    for word in s.split():
+        consonants = 0
+        for letter in word:
+            if letter not in 'aeiou':
+                consonants += 1
+        if consonants == n:
+            n_consonants.append(word)
+    return n_consonants
