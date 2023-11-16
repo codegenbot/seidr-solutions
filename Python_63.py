@@ -13,7 +13,6 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
-    "*** YOUR CODE HERE ***"
     if n == 0:
         return 0
     elif n == 1:
@@ -21,5 +20,5 @@ def fibfib(n: int):
     elif n == 2:
         return 1
     else:
-        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
+        return fibfib(n - 1) + fibfib(n - 2) + fibfib(n - 3)
     """
