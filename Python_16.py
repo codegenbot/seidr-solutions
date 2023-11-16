@@ -6,5 +6,6 @@ def count_distinct_characters(string: str) -> int:
     3
     >>> count_distinct_characters('Jerry')
     4
-    # TODO: Implement
+    >>> count_distinct_characters("Jerry jERRY JeRRRY")
+    5
     """
