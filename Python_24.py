@@ -259,5 +259,5 @@ def largest_divisor(n: int) -> int:
     >>> largest_divisor(126)
     63
     >>> largest_divisor(127)
-   
+    1
     """
