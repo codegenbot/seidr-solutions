@@ -11,8 +11,8 @@ def fibfib(n: int):
     0
     >>> fibfib(5)
     4
-    >>> fibfib(8)
-    24
+    >>> fibfib(14)
+    927
     if n == 0:
         return 0
     elif n == 1:
