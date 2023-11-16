@@ -11,9 +11,12 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    lst = [1, 3, 2, 0]
 
     # TODO: Complete the following code given the task description.
     # The function signature has been provided for you.
     # You may use any helper functions that you deem necessary.
-    return 0
+    sum = 0
+    for i in lst:
+        if i % 2 == 1:
+            sum = sum + i**2
+    return sum
