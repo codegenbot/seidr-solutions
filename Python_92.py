@@ -12,7 +12,6 @@ def any_int(x, y, z):
 
     any_int(3, -2, 1) ➞ True
     
-    '''
     any_int(3.6, -2.2, 2) ➞ False
   
 
@@ -21,5 +20,6 @@ def any_int(x, y, z):
     else:
         return False
 
-print(any_int(3, 2, 2))
+print(any_int(3.0, 4, 7))
     
+    '''
