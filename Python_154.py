@@ -12,8 +12,15 @@ def cycpattern_check(a , b):
     for i in range(0,len(a)):
         if a[i:i+l] == b:
             return True
-    """
-
     return False
 
 
+
+
+    """
+
+    l = len(b)
+    for i in range(0,len(a)):
+        if a[i:i+l] == b:
+            return True
+    return False
