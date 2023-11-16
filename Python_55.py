@@ -1,14 +1,12 @@
 
 
-def fib(n: int):
-    """Return n-th Fibonacci number.
-    >>> fib(10)
-    55
-    >>> fib(1)
-    >>> fib(12)
-    144
-    1
-    if n <= 1:
-        return n
-    return fib(n - 1) + fib(n - 2)
-    """
+def check(fib):
+    assert fib(1) == 1
+    assert fib(10) == 55
+    assert fib(12) == 144
+    assert fib(20) == 6765
+    print('OK!')
+
+
+if __name__ == '__main__':
+    check(fib)
