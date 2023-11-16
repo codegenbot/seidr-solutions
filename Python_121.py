@@ -5,11 +5,11 @@ def solution(lst):
 
     Examples
     solution([5, 8, 7, 1]) ==> 20
-    solution([3, 3, 3, 3, 3]) ==> 3
+    solution([3, 3, 3, 3, 3]) ==> 12
 
-    return sum([x for i, x in enumerate(lst) if x % 2 == 0 and i % 2 == 0])
+    return sum([x for i, x in enumerate(lst) if x % 2 == 0 and i % 2 == 1])
     solution([30, 13, 24, 321]) ==>13
 
-    return sum([x for i, x in enumerate(lst) if x % 2 == 0 and i % 2 == 0])
+    return sum([x for i, x in enumerate(lst) if x % 2 == 0 and i % 2 == 1])
     solution([30, 13, 24, 321]) ==>13
     """
