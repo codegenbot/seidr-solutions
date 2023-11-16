@@ -16,14 +16,11 @@ def fib4(n: int):
     14
     # Complete the following code.
     return 0
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 0
-    elif n == 2:
-        return 2
-    elif n == 3:
-        return 0
-    else:
-        return fib4(n-1) + fib4(n-2) + fib4(n-3) + fib4(n-4)
+    a = 0
+    b = 0
+    c = 2
+    d = 0
+    for i in range(n-3):
+        a, b, c, d = b, c, d, a + b + c + d
+    return d
     """

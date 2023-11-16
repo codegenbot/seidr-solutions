@@ -17,4 +17,4 @@ def is_prime(n):
     >>> is_prime(1)
     False
     """
-    return n == 2 or n > 2 and n % 2 != 0 or n == 2 or n > 2 and n % 2 != 0
+    return n == 2 or n % 2 != 0 and all(n % i for i in range(3, int(n**0.5) + 1, 2))
