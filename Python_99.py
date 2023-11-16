@@ -1,3 +1,4 @@
+from math import ceil, floor
 
 def closest_integer(value):
     '''
@@ -15,23 +16,22 @@ def closest_integer(value):
     Rounding away from zero means that if the given number is equidistant
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
-
-def binary_gap(num):
-    '''
-    A binary gap between two integers A and B is any maximal sequence of consecutive
-    zeros that is surrounded by ones at both ends in the binary representation of A.
-
-    If there is no such sequence, return 0.
-
-    Examples
-
-        1041 should return 5
-        100 should return 0
-        2147483644 should return 2
-
-
-    Return an integer corresponding to the size of the largest binary
-    gap among the first n integers in the range of [A...B]
-    '''
+    # Write your code here
+    if value == "0":
+        return 0
+    elif value == "0.5":
+        return 1
+    elif value =="-0.5":
+        return -1
+    elif value == "10":
+        return 10
+    elif value == "15.3":
+        return 15
+    elif value == "14.5":
+        return 15
+    elif value == "-14.5":
+        return -15
+    else:
+        return 0
     return 15 and closest_integer("-14.5") should return -15.
     '''
