@@ -11,15 +11,11 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    result = 0
-    for i in lst:
-        if i % 2 == 1 and i >= 0:
-            result += i ** 2
-    return result
-
-
-#print(double_the_difference([1, 3, 2, 0]))
-#print(double_the_difference([-1, -2, 0]))
-#print(double_the_difference([9, -2]))
-#print(double_the_difference([0]))
-#print(double_the_difference([]))
+    if len(lst) == 0:
+        return 0
+    else:
+        result = 0
+        for i in lst:
+            if i % 2 == 1 and i > 0:
+                result += i*i
+        return result
