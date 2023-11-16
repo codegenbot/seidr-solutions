@@ -12,5 +12,5 @@ def sum_to_n(n: int):
     55
     >>> sum_to_n(1)
     1
-    return n * (n + 1) // 2
+    return sum([i for i in range(1, n+1)])
     """
