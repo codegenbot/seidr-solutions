@@ -10,12 +10,18 @@ def cycpattern_check(a , b):
     cycpattern_check("winemtt","tinem") => False
 
     """
-    return b in a 
+    return b in a
 
     
-print(cycpattern_check("abcd","abd"))
-print(cycpattern_check("hello","ell"))
-print(cycpattern_check("whassup","psus"))
-print(cycpattern_check("abab","baa"))
-print(cycpattern_check("efef","eeff"))
-print(cycpattern_check("winemtt","tinem"))
+
+def check(func):
+    assert func("abcd", "abd") == False, "test #1"
+    assert func("hello", "ell") == True, "test #2"
+    assert func("whassup", "psus") == False, "test #3"
+    assert func("abab", "baa") == True, "test #4"
+    assert func("efef", "eeff") == False, "test #5"
+    assert func("winemtt", "tinem") == True, "test #6"
+
+
+if __name__ == "__main__":
+    check(cycpattern_check)
