@@ -33,26 +33,15 @@ def max_fill(grid, capacity):
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
 
-    # Your code here.
-    # You may add additional functions to this file if necessary.
-    # Do not change the function signature.
-
-    return 0
-
-# You may edit code below this line.
-
-if __name__ == "__main__":
-    # Do not modify the code below.
-    if __package__ is None or __package__ == "":
-        from sys import path
-        from os.path import dirname as dir
-
-        path.append(dir(path[0]))
-
-        from utils import run_test
-    else:
-        from ..utils import run_test
-
-    run_test(max_fill)
+    # init
+    count = 0
+    # loop
+    for row in grid:
+        for col in row:
+            if col == 1:
+                count += 1
+    
+    # return
+    return count
         * 1 <= capacity <= 10
     """
