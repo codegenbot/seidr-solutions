@@ -15,10 +15,6 @@ def closest_integer(value):
     Rounding away from zero means that if the given number is equidistant
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
-
-    # Your code goes here
-    # Hint: use int() to convert a string to an integer
-    #
+    return int(value)
     return 15 and closest_integer("-14.5") should return -15.
     '''
-    return float(value)
