@@ -32,12 +32,20 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
+    num = 0
+    for i in range(2**len(grid)):
+        row = format(i, 'b').zfill(len(grid))
+        temp = [[int(y) for y in j] for j in [[int(y)*grid[i-1][x] for y in row] for x in range(len(grid[0]))]]
+        if type(grid[0][0])!=str:
+            if sum(sum(x) for x in grid)==sum(sum(x) for x in temp):
+                num = max(i,num)
+        else:
+            filter0 = [['-','-',0,1],['-','-',0,0]]
+            filter1 = [['-',0,1,'-'],['-','+','+','-']]
+            if any(map(lambda x: map(list, x), [filter0, filter1])):
+                if min(list(map(min,temp)))>=0:
+                    num = max(i,num)
+    return num
 
-    # Complete the following code given the task description and function signature.
-    # Keep in mind that you have to return the number of times you need to lower the buckets.
-    # Do not change the function signature.
-
-    # Your code here
-    return 0
         * 1 <= capacity <= 10
     """
