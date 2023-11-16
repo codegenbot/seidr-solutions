@@ -1,5 +1,5 @@
 
-def histogram(test_string):
+def histogram(test):
     """Given a string representing a space separated lowercase letters, return a dictionary
     of the letter with the most repetition and containing the corresponding count.
     If several letters have the same occurrence, return all of them.
@@ -11,5 +11,5 @@ def histogram(test_string):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    # Your code here
+    # Complete this code
     """
