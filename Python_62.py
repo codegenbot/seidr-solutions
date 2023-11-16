@@ -8,5 +8,8 @@ def derivative(xs: list):
     [1, 4, 12, 20]
     >>> derivative([1, 2, 3])
     [2, 6]
-    return [xs[i] * (i) for i in range(1, len(xs))]
+    new_list = xs[1:]
+    for i in range(len(new_list)):
+        new_list[i] = new_list[i] * (i + 1)
+    return new_list
     """
