@@ -6,7 +6,6 @@ def sum_of_digits(n):
     6
     sum_of_digits(999)
     27
-    return
     """
     if n < 0:
         n = -n
@@ -22,7 +21,6 @@ def sum_of_digits(n):
 def x_or_y(x, y):
     """A simple program which should return 1 if the first argument is greater than the second, and 0 otherwise.
 
-    2
     Examples:
     x_or_y(2, 2)
     x_or_y(1, 2)
