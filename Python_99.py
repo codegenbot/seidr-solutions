@@ -18,6 +18,9 @@ def closest_integer(value):
     if value.isdigit():
         return int(value)
     else:
-        return int(round(float(value)))
+        if float(value) >= 0:
+            return int(float(value) + 0.5)
+        else:
+            return int(float(value) - 0.5)
     return 15 and closest_integer("-14.5") should return -15.
     '''
