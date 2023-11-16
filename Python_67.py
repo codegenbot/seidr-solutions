@@ -12,4 +12,5 @@ def fruit_distribution(s,n):
     fruit_distribution("2 apples and 3 oranges", 100) -> 100 - 2 - 3 = 95
     fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
     """
-    # your code here
+
+    # Write your code here
