@@ -10,7 +10,10 @@ def solve(s):
     solve("ab") = "AB"
     solve("#a@C") = "#A@c"
     """
-    if s.isalpha():
-        return s.swapcase()
-    else:
-        return s[::-1]
+    result = ""
+    for i in s:
+        if i.isalpha():
+            result += i.swapcase()
+        else:
+            result += i
+    return result
