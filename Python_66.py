@@ -10,11 +10,9 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
-    s = s.upper()
-    total = 0
-    for i in s:
-        if ord(i) >= 65 and ord(i) <= 90:
-            total += ord(i)
-    return total
+
+    # Write your code below
+
+    # End of code
         digitSum("aAaaaXa") => 153
     """
