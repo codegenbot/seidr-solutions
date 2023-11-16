@@ -7,7 +7,24 @@ def add_elements(arr, k):
     Example:
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
-    return sum(x for x in arr[:k] if x < 100)
+
+    # TODO: complete the following code given the task description and function signature.
+
+    # sum = 0
+    #
+    # for i in range(k):
+    #     if len(str(arr[i])) <= 2:
+    #         sum += arr[i]
+    #
+    # return sum
+
+    # TODO: complete the following code given the task description and function signature.
+
+    return sum(arr[i] for i in range(k) if len(str(arr[i])) <= 2)
+
+
+if __name__ == "__main__":
+    print(add_elements([111, 21, 3, 4000, 5, 6, 7, 8, 9], 4))
         Output: 24 # sum of 21 + 3
 
     Constraints:
