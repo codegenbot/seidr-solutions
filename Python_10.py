@@ -14,10 +14,9 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    # Find suffix that is a palindrome and starting index for reverse prefix
-    (rev_prefix_start, suffix) = find_palindromic_suffix(string)
-    # Append prefix reversed to the end of the string
-    return f'{string}{string[rev_prefix_start::-1]}'
+    for i in range(len(string)):
+        if is_palindrome(string[i:]):
+            return string + string[:i][::-1]
     >>> make_palindrome('cata')
     'catac'
     """
