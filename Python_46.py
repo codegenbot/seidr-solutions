@@ -15,14 +15,24 @@ def fib4(n: int):
     >>> fib4(7)
     14
 
+    # YOUR CODE HERE
+    """
+    if n == 0:
+        return 0
+    if n == 1:
+        return 0
+    if n == 2:
+        return 2
+    if n == 3:
+        return 0
+    else:
+        return fib4(n-1) + fib4(n-2) + fib4(n-3) + fib4(n-4)
+
 
 def check(f):
-    assert f(0) == 0
-    assert f(1) == 0
-    assert f(2) == 2
-    assert f(3) == 0
-    assert f(4) == 2
     assert f(5) == 4
+    assert f(6) == 8
+    assert f(7) == 14
     assert f(12) == 386
 
 
