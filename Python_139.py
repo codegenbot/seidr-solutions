@@ -8,8 +8,8 @@ def special_factorial(n):
     >>> special_factorial(4)
     288
 
+    return 0
 
-    pass
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
