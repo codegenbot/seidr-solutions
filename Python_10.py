@@ -14,15 +14,7 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    # Find the longest palindromic suffix
-    for i in range(len(string), 0, -1):
-        if is_palindrome(string[-i:]):
-            break
-    else:
-        # If there is no palindromic suffix, the whole string is a palindrome and we can return it
-        return string
-    # Append the reverse of the prefix to the suffix
-    return string + string[:-i][::-1]
+    # TODO: Complete the following code given the task description and function signature.
     >>> make_palindrome('cata')
     'catac'
     """
