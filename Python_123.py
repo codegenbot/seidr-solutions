@@ -1,3 +1,4 @@
+
 def get_odd_collatz(n):
     """
     Given a positive integer n, return a sorted list that has the odd numbers in collatz sequence.
@@ -13,5 +14,6 @@ def get_odd_collatz(n):
         2. returned list sorted in increasing order.
 
     For example:
-    get_odd_collatz(5) returns [1, 5] # The collatz sequence for 5 is [5, 16, 8, 4, 2, 1], so the odd numbers are only 1, and 5.
+    get_odd_collatz(5) returns [1, 5] 
+    # The collatz sequence for 5 is [5, 16, 8, 4, 2, 1], so the odd numbers are only 1, and 5.
     """
