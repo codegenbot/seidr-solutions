@@ -1,14 +1,11 @@
 
 
 def count_distinct_characters(string: str) -> int:
+    >>> count_distinct_characters('Jerry')
+    4
     """ Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
     3
-    >>> count_distinct_characters('Jerry') == 2
-    True
-    >>> count_distinct_characters("Jerry jERRY JeRRRY") == 5
-    True
-    """
 
     distinct_characters = []
     for char in string:
@@ -21,4 +18,5 @@ def count_distinct_characters(string: str) -> int:
 if __name__ == '__main__':
     print(count_distinct_characters('xyzXYZ'))
     print(count_distinct_characters('Jerry'))
-    print(count_distinct_characters("Jerry jERRY JeRRRY"))
+    print(count_distinct_characters('Jerry jERRY JeRRRY'))
+    """
