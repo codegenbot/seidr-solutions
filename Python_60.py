@@ -12,9 +12,7 @@ def sum_to_n(n: int):
     55
     >>> sum_to_n(1)
     1
-    total = 0
-    for i in range(n + 1):
-        total += i
-    return total
-
+    if n == 1:
+        return 1
+    return n + sum_to_n(n - 1)
     """
