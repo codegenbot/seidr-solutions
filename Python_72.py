@@ -1,51 +1,20 @@
 
-def recursive_chain(n):
+# Write a function called will_it_fly
+def will_it_fly(q,w):
+    '''
+    Write a function that returns True if the object q will fly, and False otherwise.
+    The object q will fly if it's balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.
 
-  def collatz_seq(number):
-    seq = []
-    while number != 1:
-      seq.append(int(number))
-      if number % 2:
-        number = ((3*number) + 1)
-      else:
-        number = number/2
-    seq.append(int(number))
-    return seq
+    Example:
+    will_it_fly([1, 2], 5) ➞ False 
+    # sum(q) is less than the maximum possible weight, but it's unbalanced.
 
-  temp_chain = collatz_seq(n)
-  chain = [] + temp_chain
-  while True:
-    unpacked_seq = chain[:]
-    minimum = min(unpacked_seq) * -1 +1
-    unpacked_seq = unpacked_seq[minimum:]
-    for n in unpacked_seq:
-      possible_chain = collatz_seq(n)
-      if any([x not in chain for x in possible_chain]):
-        chain = chain + possible_chain
-      else:
-        unpacked_seq.remove(n)
-    if len(unpacked_seq) < 2:
-      break
-  return max(chain)
+    will_it_fly([3, 2, 3], 1) ➞ False
+    # it's balanced, but sum(q) is more than the maximum possible weight.
 
-  
+    will_it_fly([3, 2, 3], 9) ➞ True
+    # sum(q) is less than the maximum possible weight, and it's balanced.
 
-Write a function that finds the longest Collatz chain from 1 up to the target.
-
-Examples: 
-
-# What is the longest Collatz chain whose starting number is smaller than 15?
-The longest chain is made up of 8 numbers: 14, 7, 22, 11, 34, 17, 52, 26
-
-# What does the recursive_chain(15) return?
-8 
-
-# What does the recursive_chain(123456789) return?
-35
-
-Hint: If you encounter with the similar problems in future, some of the modules
-you learned about may come in handy, e.g. `itertools`
-'''
     will_it_fly([3], 5) ➞ True
     # 3 is less than the maximum possible weight, and it's balanced.
     '''
