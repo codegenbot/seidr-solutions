@@ -10,7 +10,8 @@ def is_nested(string):
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-    '''
+    # Initialize the counter for the number of open brackets.
+    open_brackets = 0
 
     # Initialize a boolean to track whether there is a nested bracket.
     nested = False
@@ -45,6 +46,6 @@ def is_nested(string):
 
 string = '[[]]'
 print(is_nested(string))
-    is_nested('[[]][[') 
+    is_nested('[[]][[')
     True
     '''
