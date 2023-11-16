@@ -13,4 +13,11 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # Complete the following code given the task description and function signature.
+    # Write your code here
+    # To print results to the standard output you can use print
+    # Example: print "Hello world!"
+
+
+if __name__ == '__main__':
+    N = int(raw_input())
+    solve(N)
