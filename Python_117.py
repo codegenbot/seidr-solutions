@@ -12,11 +12,9 @@ def select_words(s, n):
     select_words("Hello world", 4) ==> ["world"]
     select_words("Uncle sam", 3) ==> ["Uncle"]
     """
-    # Complete the following code given the task description and function signature.
-    # Do not change the function signature.
     words = s.split()
     result = []
     for word in words:
-        if word.count("a") + word.count("e") + word.count("i") + word.count("o") + word.count("u") == n:
+        if len(word) == n:
             result.append(word)
     return result
