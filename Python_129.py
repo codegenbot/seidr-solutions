@@ -23,35 +23,112 @@ def minPath(grid, k):
 
     Examples:
 
-    def get_neighbors(grid, i, j):
-        neighbors = []
-        if i-1 >= 0:
-            neighbors.append((i-1, j))
-        if i+1 < len(grid):
-            neighbors.append((i+1, j))
-        if j-1 >= 0:
-            neighbors.append((i, j-1))
-        if j+1 < len(grid[0]):
-            neighbors.append((i, j+1))
-        return neighbors
 
-    def get_min_path(grid, i, j, k):
-        if k == 1:
-            return [grid[i][j]]
-        min_path = None
-        for (next_i, next_j) in get_neighbors(grid, i, j):
-            path = get_min_path(grid, next_i, next_j, k-1)
-            if min_path is None or path < min_path:
-                min_path = path
-        return [grid[i][j]] + min_path
+    # TODO: Complete the following code given the task description and function signature.
+    # You can add helper functions as needed.
+    # You can add helper classes as needed.
+    # You can add main function as needed.
+    
+    # NOTE: Don't modify the signature of the given function.
+    # NOTE: Don't modify the name of the given class.
+    # NOTE: Don't modify the name of the given function.
+    # NOTE: You can add/delete imports as needed.
 
-    min_path = None
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            path = get_min_path(grid, i, j, k)
-            if min_path is None or path < min_path:
-                min_path = path
-    return min_path
+    # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+    # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+    # NOTE: Don't modify the code given in the TestSuite class.
+    # NOTE: Don't modify the code given in the TestCase class.
+    # NOTE: Don't modify the code given in the Test class.
+
+    # NOTE: Don't modify the name of the given class.
+    # NOTE: Don't modify the signature of the given function.
+    # NOTE: You can add/delete imports as needed.
+    def minPath(self, grid, k):
+        # TODO: Complete the following code given the task description and function signature.
+        # You can add helper functions as needed.
+        # You can add helper classes as needed.
+        # You can add main function as needed.
+
+        # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+        # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+        # NOTE: Don't modify the code given in the TestSuite class.
+        # NOTE: Don't modify the code given in the TestCase class.
+        # NOTE: Don't modify the code given in the Test class.
+
+        # NOTE: Don't modify the name of the given class.
+        # NOTE: Don't modify the signature of the given function.
+        # NOTE: You can add/delete imports as needed.
+        def minPath(self, grid, k):
+            # TODO: Complete the following code given the task description and function signature.
+            # You can add helper functions as needed.
+            # You can add helper classes as needed.
+            # You can add main function as needed.
+
+            # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+            # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+            # NOTE: Don't modify the code given in the TestSuite class.
+            # NOTE: Don't modify the code given in the TestCase class.
+            # NOTE: Don't modify the code given in the Test class.
+
+            # NOTE: Don't modify the name of the given class.
+            # NOTE: Don't modify the signature of the given function.
+            # NOTE: You can add/delete imports as needed.
+            def minPath(self, grid, k):
+                # TODO: Complete the following code given the task description and function signature.
+                # You can add helper functions as needed.
+                # You can add helper classes as needed.
+                # You can add main function as needed.
+
+                # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+                # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+                # NOTE: Don't modify the code given in the TestSuite class.
+                # NOTE: Don't modify the code given in the TestCase class.
+                # NOTE: Don't modify the code given in the Test class.
+
+                # NOTE: Don't modify the name of the given class.
+                # NOTE: Don't modify the signature of the given function.
+                # NOTE: You can add/delete imports as needed.
+                def minPath(self, grid, k):
+                    # TODO: Complete the following code given the task description and function signature.
+                    # You can add helper functions as needed.
+                    # You can add helper classes as needed.
+                    # You can add main function as needed.
+
+                    # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+                    # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+                    # NOTE: Don't modify the code given in the TestSuite class.
+                    # NOTE: Don't modify the code given in the TestCase class.
+                    # NOTE: Don't modify the code given in the Test class.
+
+                    # NOTE: Don't modify the name of the given class.
+                    # NOTE: Don't modify the signature of the given function.
+                    # NOTE: You can add/delete imports as needed.
+                    def minPath(self, grid, k):
+                        # TODO: Complete the following code given the task description and function signature.
+                        # You can add helper functions as needed.
+                        # You can add helper classes as needed.
+                        # You can add main function as needed.
+
+                        # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+                        # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+                        # NOTE: Don't modify the code given in the TestSuite class.
+                        # NOTE: Don't modify the code given in the TestCase class.
+                        # NOTE: Don't modify the code given in the Test class.
+
+                        # NOTE: Don't modify the name of the given class.
+                        # NOTE: Don't modify the signature of the given function.
+                        # NOTE: You can add/delete imports as needed.
+                        def minPath(self, grid, k):
+                            # TODO: Complete the following code given the task description and function signature.
+                            # You can add helper functions as needed.
+                            # You can add helper classes as needed.
+                            # You can add main function as needed.
+
+                            # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+                            # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+                            # NOTE: Don't modify the code given in the TestSuite class.
+                            # NOTE: Don't modify the code given in the TestCase class.
+                            # NOTE: Don't modify the code given in the Test class.
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
