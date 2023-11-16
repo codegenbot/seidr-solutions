@@ -4,13 +4,14 @@ def add(lst):
 
 
     Examples:
-        add([4, 2, 6, 7]) ==> 2
-    """
+        add([4, 2, 6, 7]) ==> 2 
     # Your code here
-    lst = [4, 2, 6, 7]
-    for i in lst:
-        if i % 2 == 0:
-            return i
+#    lst = [4, 2, 6, 7]
+#    for i in lst:
+#        if i % 2 == 0:
+#            return i
+    return sum(lst[::2])
 
 
 # print(add(lst))
+    """
