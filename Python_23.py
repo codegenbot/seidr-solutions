@@ -5,9 +5,6 @@ def strlen(string: str) -> int:
     >>> strlen('')
     0
     >>> strlen('abc')
-    if string == "":
-        return 0
-    elif string == "abc":
-        return 3
+    return len(string)
     3
     """
