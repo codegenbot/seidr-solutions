@@ -1,5 +1,5 @@
 
-def is_sorted(lst):
+def is_sorted(lst: list):
     '''
     Given a list of numbers, return whether or not they are sorted
     in ascending order. If list has more than 1 duplicate of the same
@@ -15,14 +15,11 @@ def is_sorted(lst):
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
 
-    for i in range(len(lst)):
-        for j in range(len(lst)):
-            if lst[i] == lst[j]:
-                return False
+    for i in range(len(lst)-1):
+        if lst[i] > lst[i+1]:
+            return False
     return True
 
 
-
-print(is_sorted([1, 2, 3, 4]))
 print(is_sorted([1, 2, 2, 2, 3, 4]))
     '''
