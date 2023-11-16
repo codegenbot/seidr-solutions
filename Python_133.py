@@ -17,9 +17,7 @@ def sum_squares(lst1):
 
 
 if __name__ == "__main__":
-    lst1 = input("Enter the list of numbers: ")
-    lst1 = lst1.split(',')
-    print(sum_squares(lst1))
+    print(sum_squares([1,2,3]))
     
 
     """
