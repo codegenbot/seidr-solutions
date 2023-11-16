@@ -25,5 +25,5 @@ def is_valid(string):
     is_valid('[[][]]') ➞ False
     is_valid('[[]][[') ➞ False
     '''
-    is_valid('[[]]') ➞ True
+    is_nested('[[]][[')
     '''
