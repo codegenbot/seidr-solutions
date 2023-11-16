@@ -12,4 +12,9 @@ def derivative(xs: list):
         return [0]
     else:
         return [xs[i] * i for i in range(1, len(xs))]
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
