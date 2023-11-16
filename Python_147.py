@@ -1,4 +1,7 @@
 
+def get_value(n):
+    return n * n - n + 1
+
 def get_max_triples(n):
     """
     You are given a positive integer n. You have to create an integer array a of length n.
@@ -23,4 +26,4 @@ def get_max_triples(n):
     return 0
 
 print(get_max_triples(5))
-    """
+"""
