@@ -1,5 +1,5 @@
 def solve(N):
-    """Given a positive integer N, return the total sum of its digits in binary. 
+    """Given a positive integer N, return the total sum of its digits in binary.
     
     Example
         For N = 1000, the sum of digits will be 1 the output should be "1".
@@ -12,3 +12,15 @@ def solve(N):
     Output:
          a string of binary number
     """
+    binary = bin(N)
+    binary = binary[2:]
+    binary = str(binary)
+    return binary
+
+def check(solve):
+    assert solve(963) == "10010", "Error"
+    assert solve(150) == "10010", "Error"
+    assert solve(147) == "10010", "Error"
+
+if __name__ == '__main__':
+    check(solve)
