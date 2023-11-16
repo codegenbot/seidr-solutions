@@ -13,17 +13,20 @@ def prime_fib(n: int):
     13
     >>> prime_fib(5)
     89
-    if n == 1:
-        return 2
-    elif n == 2:
-        return 3
-    else:
-        a = 1
-        b = 1
-        c = 0
-        for i in range(n-2):
-            c = a + b
-            a = b
-            b = c
-        return c
+
+    a = 0
+    b = 1
+    fib = 1
+    counter = 2
+    while True:
+        fib = a + b
+        counter += 1
+        if is_prime(fib):
+            if counter == n:
+                break
+            else:
+                counter += 1
+        a = b
+        b = fib
+    return fib
     """
