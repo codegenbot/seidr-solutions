@@ -1,5 +1,6 @@
 
 def max_fill(grid, capacity):
+    import math
     """
     You are given a rectangular grid of wells. Each row represents a single well,
     and each 1 in a row represents a single unit of water.
@@ -31,16 +32,6 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
-    import math
-    result = 0
-    for row in grid:
-        filled = 0
-        for well in row:
-            if well == 1:
-                filled += 1
-            if filled == capacity:
-                result += 1
-                filled = 0
-    return result
+    return 0
         * 1 <= capacity <= 10
     """
