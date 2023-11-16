@@ -1,5 +1,5 @@
 
-def pluck(arr: list) -> list:
+def pluck(arr):
     """
     "Given an array representing a branch of a tree that has non-negative integer nodes
     your task is to pluck one of the nodes and return it.
@@ -17,12 +17,12 @@ def pluck(arr: list) -> list:
     Example 2:
         Input: [1,2,3]
         Output: [2, 1]
-        Explanation: 2 has the smallest even value, and 2 has the smallest index.
+        Explanation: 2 has the smallest even value, and 2 has the smallest index. 
 
     Example 3:
         Input: []
         Output: []
-
+    
     Example 4:
         Input: [5, 0, 3, 0, 4, 2]
         Output: [0, 1]
@@ -32,7 +32,19 @@ def pluck(arr: list) -> list:
     Constraints:
         * 1 <= nodes.length <= 10000
 
-    # your code here
-    pass
+    # Complete the following code given the task description and function signature.
+    smallest_even = None
+    smallest_even_index = None
+
+    for i, value in enumerate(arr):
+        if value % 2 == 0:
+            if smallest_even is None or value < smallest_even:
+                smallest_even = value
+                smallest_even_index = i
+
+    if smallest_even is None:
+        return []
+    else:
+        return [smallest_even, smallest_even_index]
         * 0 <= node.value
     """
