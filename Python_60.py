@@ -12,5 +12,7 @@ def sum_to_n(n: int):
     55
     >>> sum_to_n(1)
     1
-    # complete this function
+    if n < 1:
+        return 0
+    return n + sum_to_n(n - 1)
     """
