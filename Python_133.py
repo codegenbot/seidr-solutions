@@ -1,5 +1,4 @@
 
-
 def sum_squares(lst):
     """You are given a list of numbers.
     You need to return the sum of squared numbers in the given list,
@@ -11,6 +10,5 @@ def sum_squares(lst):
     For lst = [1.4,4.2,0] the output should be 29
     For lst = [-2.4,1,1] the output should be 6
 
-    return sum([x**2 for x in lst]) 
-
+    return sum([x**2 for x in map(lambda x: int(x), lst)])
     """
