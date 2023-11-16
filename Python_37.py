@@ -7,7 +7,7 @@ def sort_even(l: list):
     >>> sort_even([1, 2, 3])
     [1, 2, 3]
     >>> sort_even([5, 6, 3, 4])
-    [3, 6, 5, 4]"""
-    for i in range(0, len(l), 2):
-        l[i] = sorted(l[i])
-    return l
+    [3, 6, 5, 4]
+    # Your code here
+    return
+    """
