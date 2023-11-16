@@ -1,5 +1,5 @@
 
-# 
+#
 
 def histogram(test):
     """Given a string representing a space separated lowercase letters, return a dictionary
