@@ -1,3 +1,8 @@
+def double_the_difference(lst):
+    if not lst:
+        return 0
+    else:
+        return sum([i ** 2 for i in lst if i > 0 and isinstance(i, int)])
 
 def double_the_difference(lst):
     '''
@@ -7,23 +12,7 @@ def double_the_difference(lst):
     double_the_difference([1, 3, 2, 0]) == 1 + 9 + 0 + 0 = 10
     double_the_difference([-1, -2, 0]) == 0
     double_the_difference([9, -2]) == 81
-    double_the_difference([0]) == 0
-
+    double_the_difference([0]) == 0  
+   
     If the input list is empty, return 0.
     '''
-    sum = 0
-    for i in lst:
-        if type(i) == int and i >= 0:
-            if i % 2 == 1:
-                sum += i ** 2
-            else:
-                sum += 0
-        else:
-            sum += 0
-    return sum
-
-
-print(double_the_difference([1, 3, 2, 0]))
-print(double_the_difference([-1, -2, 0]))
-print(double_the_difference([9, -2]))
-print(double_the_difference([0]))
