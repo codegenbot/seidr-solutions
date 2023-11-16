@@ -1,9 +1,8 @@
-
-def any_int(x,y,z):
+def any_int(x, y, z):
     '''
-    Create a function that takes 3 numbers.
-    Returns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.
-    Returns false in any other cases.
+    Create a function that takes 3 numbers.\n
+    Returns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.\n
+    Returns false in any other cases.\n
     
     Examples
     any_int(5, 2, 7) ➞ True
