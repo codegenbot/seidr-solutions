@@ -6,7 +6,6 @@ def sum_of_digits(n):
     6
     sum_of_digits(999)
     27
-    return
     """
     if n < 0:
         n = -n
