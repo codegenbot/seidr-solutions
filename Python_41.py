@@ -11,7 +11,7 @@ def car_race_collision(n: int):
     in their trajectory as if they did not collide.
 
     # YOUR CODE HERE
-
+    pass
 
     This function outputs the number of such collisions.
     """
