@@ -363,7 +363,7 @@ def fib4(n: int):
 
     # TODO: Complete the following code
     pass
-    pass
+    return 0 # TODO: Replace 0 with a correct expression
 
     # TODO: Complete the following code
     pass
