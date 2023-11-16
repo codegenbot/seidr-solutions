@@ -1,5 +1,5 @@
 
-def minPath(grid, k):
+def minPath(grid, k) -> List[int]:
     """
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
     each cell of the grid contains a value. Every integer in the range [1, N * N]
@@ -23,7 +23,6 @@ def minPath(grid, k):
 
     Examples:
 
-    pass
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
