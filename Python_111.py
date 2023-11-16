@@ -11,18 +11,74 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    hist = {}
-    for i in test.split():
-        if i in hist:
-            hist[i] += 1
-        else:
-            hist[i] = 1
-    return hist
-
-
-print(histogram('a b c'))
-print(histogram('a b b a'))
-print(histogram('a b c a b'))
-print(histogram('b b b b a'))
-print(histogram(''))
+    # Complete the following code given the task description and function signature.
+    # You are not allowed to use any built-in functions.
+    # You are not allowed to use any modules.
+    # You are not allowed to use any loops.
+    # You are not allowed to use any conditionals.
+    # You are not allowed to use any comprehensions.
+    # You are not allowed to use any ternary operators.
+    # You are not allowed to use any lambda expressions.
+    # You are not allowed to use any list or dictionary methods.
+    # You are not allowed to use any list or dictionary comprehensions.
+    # You are not allowed to use any list or dictionary constructors.
+    # You are not allowed to use any list or dictionary comprehension methods.
+    # You are not allowed to use any list or dictionary comprehension constructors.
+    # You are not allowed to use any list or dictionary comprehension comprehensions.
+    # You are not allowed to use any list or dictionary comprehension ternary operators.
+    # You are not allowed to use any list or dictionary comprehension lambda expressions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension ternary operators.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension lambda expressions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension ternary operators.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension lambda expressions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension ternary operators.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension lambda expressions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension ternary operators.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension lambda expressions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension ternary operators.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension lambda expressions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension ternary operators.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension lambda expressions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehensions.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension methods.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension constructors.
+    # You are not allowed to use any list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or dictionary comprehension list or
     """
