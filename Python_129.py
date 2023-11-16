@@ -23,17 +23,8 @@ def minPath(grid, k):
 
     Examples:
 
-    # Write your code here
-    # Please return a list of integers, for example:
-    # return [1,2,3]
 
-def main():
-    grid = [ [1,2,3], [4,5,6], [7,8,9] ]
-    k = 3
-    print(minPath(grid, k))
-
-if __name__ == "__main__":
-    main()
+    # Your code here
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
