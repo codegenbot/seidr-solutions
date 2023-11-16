@@ -1,4 +1,5 @@
 
+
 def simplify(x, n):
     """Your task is to implement a function that will simplify the expression
     x * n. The function returns True if x * n evaluates to a whole number and False
