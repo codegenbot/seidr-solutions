@@ -11,23 +11,14 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    d = {}
-    for i in test:
-        if i == " ":
-            continue
-        if i in d:
-            d[i] += 1
-        else:
-            d[i] = 1
+    # Complete the following code given the task description and function signature.
+    # If you write more than 5 lines of code, you're doing it wrong.
 
-    max_count = max(d.values())
-    return {k: v for k, v in d.items() if v == max_count}
-
-
-if __name__ == '__main__':
-    print(histogram('a b c'))
-    print(histogram('a b b a'))
-    print(histogram('a b c a b'))
-    print(histogram('b b b b a'))
-    print(histogram(''))
+    # 1. Split the string into a list of words.
+    # 2. Initialize a dictionary with the letters of the alphabet.
+    # 3. Iterate over the list of words.
+    # 4. For each word, iterate over the letters.
+    # 5. Increment the count of the letter in the dictionary.
+    # 6. Find the highest count.
+    # 7. Return a dictionary containing the letter(s) with the highest count.
     """
