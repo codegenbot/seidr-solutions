@@ -4,7 +4,7 @@ def solution(lst):
     
 
     Examples
-    solution([3, 13, 2, 9]) ==> 3
-    solution([3, 3, 3, 3, 3]) ==> 0
-    solution([2, 2, 2, 2, 2]) ==> 0
+    solution([5, 8, 7, 1]) ==> 12 # odd in even position: 5, 7
+    solution([3, 3, 3, 3, 3]) ==> 9 # odd in even position: 3, 3, 3
+    solution([30, 13, 24, 321]) ==>0 # odd in even position: None
     """
