@@ -8,5 +8,5 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    # Complete the following code given the task description and function signature.
+    # Complete the following code
     """
