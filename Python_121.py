@@ -4,10 +4,10 @@ def solution(lst):
     
 
     Examples
-    solution([5, 8, 7, 1]) ==> 13
+    solution([5, 8, 7, 1]) ==> 12
     solution([3, 3, 3, 3, 3]) ==> 9
 
     # write your code here
     
-    solution([30, 13, 24, 321]) ==>0.
+    solution([30, 13, 24, 321]) ==>6
     """
