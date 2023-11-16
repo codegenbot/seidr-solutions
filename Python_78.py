@@ -17,45 +17,19 @@ def hex_key(num):
     For num = "123456789ABCDEF0" the output should be 6.
     For num = "2020" the output should be 2.
     """
-
-
-def is_prime(number):
-    """
-    You have been tasked to write a function that receives an integer number 
-    and returns True if it's prime and False if it's not. 
-    Examples:
-    For number = 1 the output should be False.
-    For number = 2 the output should be True.
-    For number = 3 the output should be True.
-    For number = 4 the output should be False.
-    For number = 5 the output should be True.
-    For number = 6 the output should be False.
-    """
-
-    if number <= 1:
-        return False
-    for i in range(2, number):
-        if number % i == 0:
-            return False
-    return True
-
-
-def is_prime_v2(number):
-    """
-    You have been tasked to write a function that receives an integer number 
-    and returns True if it's prime and False if it's not. 
-    Examples:
-    For number = 1 the output should be False.
-    For number = 2 the output should be True.
-    For number = 3 the output should be True.
-    For number = 4 the output should be False.
-    For number = 5 the output should be True.
-    For number = 6 the output should be False.
-    """
-
-    if number <= 1:
-        return False
-    for i in range(2, number):
-        if number % i == 0:
-            return False
-    return True
+    # Convert the hexadecimal number to decimal
+    dec = int(num, 16)
+    # Convert the decimal number to binary
+    binary = bin(dec)
+    # Remove the 0b prefix from the binary number
+    binary = binary[2:]
+    # Initialize the counter
+    counter = 0
+    # Iterate over the binary digits
+    for digit in binary:
+        # If the digit is '1'
+        if digit == '1':
+            # Increment the counter
+            counter += 1
+    # Return the counter
+    return counter
