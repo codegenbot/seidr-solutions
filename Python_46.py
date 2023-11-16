@@ -14,9 +14,14 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    num = 0
-    for i in range(n):
-        num += i
-    return num
+
+
+def find_sum_of_digits(n: int):
+    """Find the sum of the digits of n.
+    >>> find_sum_of_digits(123)
+    6
+    >>> find_sum_of_digits(12345)
+    15
+    """
 
     """
