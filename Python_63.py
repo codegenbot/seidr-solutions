@@ -13,12 +13,10 @@ def fibfib(n: int):
     4
     >>> fibfib(14)
     927
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 0
-    elif n == 2:
-        return 1
-    else:
-        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
+    >>> fibfib(0)
+    0
+    >>> fibfib(1)
+    0
+    >>> fibfib(2)
+    1
     """
