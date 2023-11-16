@@ -1,7 +1,47 @@
 
-def minPath(grid, k):
+def get_neighbors(grid, r, c):
     """
-    Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
+    Given a grid, a row index and a column index, return the indices of the
+    neighbors of the cell with the given row and column indices.
+    """
+    n = len(grid)
+    if r < 0 or r >= n or c < 0 or c >= n:
+        return []
+    neighbors = []
+    if r > 0:
+        neighbors.append((r - 1, c))
+    if c > 0:
+        neighbors.append((r, c - 1))
+    if r < n - 1:
+        neighbors.append((r + 1, c))
+    if c < n - 1:
+        neighbors.append((r, c + 1))
+    return neighbors
+
+
+def dfs(grid, k, seen, path, min_path, r, c):
+    """
+    Given a grid, a number k, a set of seen cells, a path, the minimum path, a
+    row index and a column index, perform a depth-first search on the grid.
+    """
+    n = len(grid)
+    if r < 0 or r >= n or c < 0 or c >= n:
+        return
+    if (r, c) in seen:
+        return
+    seen.add((r, c))
+    path.append(grid[r][c])
+    if len(path) == k:
+        if path < min_path[0]:
+            min_path[0] = path
+        return
+    for i, j in get_neighbors(grid, r, c):
+        dfs(grid, k, seen, path.copy(), min_path, i, j)
+
+
+def min_path(grid, k):
+    """
+    Given a grid with N rows and N columns (N >= 2) and a positive integer k,
     each cell of the grid contains a value. Every integer in the range [1, N * N]
     inclusive appears exactly once on the cells of the grid.
 
@@ -23,29 +63,14 @@ def minPath(grid, k):
 
     Examples:
 
-    #
-    # Complete the following code given the task description and function
-    # signature.
-    #
-
-    def dfs(i, j, path):
-        path.append(grid[i][j])
-        if len(path) == k:
-            if path < ans:
-                ans[:] = path
-        else:
-            for di, dj in ((0, 1), (1, 0), (0, -1), (-1, 0)):
-                ni, nj = i + di, j + dj
-                if 0 <= ni < n and 0 <= nj < n and grid[ni][nj] not in path:
-                    dfs(ni, nj, path)
-        path.pop()
-
     n = len(grid)
-    ans = [n * n + 1] * k
+    if k > n * n:
+        return []
+    min_path = [None]
     for i in range(n):
         for j in range(n):
-            dfs(i, j, [])
-    return ans
+            dfs(grid, k, set(), [], min_path, i, j)
+    return min_path[0]
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
