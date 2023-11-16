@@ -31,34 +31,15 @@ def pluck(arr):
 
     Constraints:
         * 1 <= nodes.length <= 10000
-
-    # COMPLETE THE FOLLOWING CODE GIVEN THE TASK DESCRIPTION AND FUNCTION SIGNATURE
-    # YOUR CODE SHOULD BE ABLE TO PASS ALL THE TEST CASES BELOW
-
-    # YOUR CODE HERE
-    pass
-
-
-# TEST CASES
-
-# TEST CASE 1
-
-# TEST CASE 2
-
-# TEST CASE 3
-
-# TEST CASE 4
-
-# TEST CASE 5
-
-# TEST CASE 6
-
-# TEST CASE 7
-
-# TEST CASE 8
-
-# TEST CASE 9
-
-# TEST CASE 10
         * 0 <= node.value
     """
+
+    if not arr:
+        return []
+
+    evens = [x for x in arr if x % 2 == 0]
+    if not evens:
+        return []
+
+    min_even = min(evens)
+    return [min_even, arr.index(min_even)]
