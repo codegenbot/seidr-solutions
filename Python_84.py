@@ -1,16 +1,9 @@
+def check(solve):
+    assert solve(963) == "10010", "Error"
 
-def solve(N):
-    """Given a positive integer N, return the total sum of its digits in binary.
-    
-    Example
-        For N = 1000, the sum of digits will be 1 the output should be "2".
-        For N = 150, the sum of digits will be 6 the output should be "2".
-        For N = 147, the sum of digits will be 12 the output should be "3".
-    
-    Variables:
-        @N integer
-             Constraints: 0 ≤ N ≤ 10000.
-    Output:
-         a string of binary number, which is the sum of digits of the binary representation of N
-    """
-    # Your code here 
+
+def solve(x):
+    return bin(x)[2:]
+
+
+check(solve)
