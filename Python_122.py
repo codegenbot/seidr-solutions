@@ -8,7 +8,212 @@ def add_elements(arr, k):
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
 
-    # Your code here
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may use the following helper function if you wish.
+
+    def has_two_digits(num):
+        """
+        Returns True if the given number has two digits, False otherwise.
+        """
+        return num >= 10 and num <= 99
         Output: 24 # sum of 21 + 3
 
     Constraints:
