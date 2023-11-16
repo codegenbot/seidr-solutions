@@ -8,9 +8,14 @@ def fizz_buzz(n: int):
     2
     >>> fizz_buzz(79)
     3
+    count = 0
+    ones = [1, 11, 21, 31, 41, 51, 61, 71, 81, 91]
+    _range = range(0, n, 11) + range(0, n, 13)
+    for i in _range:
+        if i != 0:
+            if any(j in ones for j in i): # if j in ones where j is every element in i[:2] i_2 = i[:2]
+                count = count + 1
 
+    return count
 
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
     """
