@@ -23,10 +23,68 @@ def minPath(grid, k):
 
     Examples:
 
-    # Write your code here.
-    # You can add new functions if needed.
-    # Do not change function signature.
-    pass
+
+    # TODO: Complete the following code given the task description and function signature.
+    # You may add additional functions if needed.
+
+    # You may add additional classes if needed.
+    class Cell:
+        def __init__(self, value, row, col):
+            self.value = value
+            self.row = row
+            self.col = col
+
+    # You may add additional variables if needed.
+    n = len(grid)
+    cells = []
+
+    # You may add additional functions if needed.
+    def get_neighbors(cell):
+        neighbors = []
+        if cell.row > 0:
+            neighbors.append(cells[cell.row - 1][cell.col])
+        if cell.row < n - 1:
+            neighbors.append(cells[cell.row + 1][cell.col])
+        if cell.col > 0:
+            neighbors.append(cells[cell.row][cell.col - 1])
+        if cell.col < n - 1:
+            neighbors.append(cells[cell.row][cell.col + 1])
+        return neighbors
+
+    # You may add additional functions if needed.
+    def get_path(cell, path):
+        if len(path) == k:
+            return path
+        neighbors = get_neighbors(cell)
+        if not neighbors:
+            return None
+        for neighbor in neighbors:
+            path.append(neighbor.value)
+            result = get_path(neighbor, path)
+            if result:
+                return result
+            path.pop()
+        return None
+
+    # You may add additional functions if needed.
+    def get_min_path():
+        min_path = None
+        for row in cells:
+            for cell in row:
+                path = [cell.value]
+                result = get_path(cell, path)
+                if result:
+                    if not min_path or result < min_path:
+                        min_path = result
+        return min_path
+
+    # You may add additional functions if needed.
+    for row in range(n):
+        cells.append([])
+        for col in range(n):
+            cells[row].append(Cell(grid[row][col], row, col))
+
+    return get_min_path()
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
