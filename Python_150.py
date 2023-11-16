@@ -6,6 +6,7 @@ def is_prime(n):
     for is_prime(7) == True
     for is_prime(10) == False
     """
+
     pass
 
 def x_or_y(n, x, y):
