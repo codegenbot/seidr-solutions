@@ -15,16 +15,5 @@ def is_sorted(lst):
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
 
-    # create a list of the number of times each element occurs
-    lst_count = [lst.count(i) for i in lst]
-
-    # check if any element occurs more than once
-    if any(i > 1 for i in lst_count):
-        return False
-
-    # check if the list is sorted
-    if lst == sorted(lst):
-        return True
-    else:
-        return False
+    # write your code here
     '''
