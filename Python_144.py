@@ -1,4 +1,3 @@
-
 def simplify(x, n):
     """Your task is to implement a function that will simplify the expression
     x * n. The function returns True if x * n evaluates to a whole number and False
@@ -111,3 +110,6 @@ def check(simplify):
     assert simplify
     simplify("1/6", "2/1") == False
     simplify("7/10", "10/2") == False
+
+
+check(simplify)
