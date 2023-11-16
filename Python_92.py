@@ -15,14 +15,19 @@ def any_int(x, y, z):
     any_int(3.6, -2.2, 2) ➞ False
   
 
-
-    if (x+y) == z or (x+z) == y or (y+z) == x:
+    if (x + y == z or y + z == x or x + z == y) and type(x) is int and type(y) is int and type(z) is int:
         return True
-    elif x == y == z:
-        return False
     else:
         return False
 
+
+
+print(any_int(5, 2, 7))
+
 print(any_int(3, 2, 2))
+
+print(any_int(3, -2, 1))
+
+print(any_int(3.6, -2.2, 2))
     
     '''
