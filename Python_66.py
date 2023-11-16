@@ -1,3 +1,4 @@
+
 def digitSum(s):
     """
     Task
@@ -10,8 +11,7 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
-    """
-    return sum(ord(c) for c in s if c.isupper())
+    return
 
 
 def check(func):
@@ -22,8 +22,8 @@ def check(func):
     assert func("woArBld") == 131, "Error"
     assert func("aAaaaXa") == 153, "Error"
     assert func("kfjdvnkjfndjkvnjfndjvnkjdfnjkvnjkdnjvndfjvndjvnjkdnvjkdfnjkvnjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnv
-    assert func("You arE Very Smart") == 327, "Error"  # noqa: WPS221
+    assert func("You arE Very Smart") == 327, "Error"
 
 
 check(digitSum)
-        digitSum("aAaaaXa") => 153  # noqa: WPS221
+    """
