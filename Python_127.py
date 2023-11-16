@@ -33,8 +33,3 @@ def intersection(interval1, interval2):
     intersection((-1, 1), (0, 4)) ==> "NO"
     intersection((-3, -1), (-5, 5)) ==> "YES"
     """
-    if interval1[0] > interval2[1] or interval2[0] > interval1[1]: return "NO"
-    else: start = max(interval1[0], interval2[0])
-    end = min(interval1[1], interval2[1])
-    if is_prime(end - start + 1): return "YES"
-    else: return "NO"
