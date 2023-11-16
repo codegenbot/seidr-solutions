@@ -25,6 +25,6 @@ def check(func):
     assert func("You arE Very Smart") == 327, "Error" # ERROR HERE
 
 
-        digitSum("You arE Very Smart") => 327
-    return
     """
+
+check(digitSum)
