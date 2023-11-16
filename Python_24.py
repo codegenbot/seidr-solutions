@@ -5,18 +5,10 @@ def largest_divisor(n: int) -> int:
     >>> largest_divisor(15)
     5
 
-    if n <= 0:
-        return False
-
-    divisor = n - 1
-
-    while divisor > 0:
-        if n % divisor == 0:
-            return divisor
-        divisor -= 1
-
-    return False
-
-
-print(largest_divisor(15))
+    # Complete the following code given the task description and function signature.
+    largest_divisor = 0
+    for i in range(1, n):
+        if n % i == 0:
+            largest_divisor = i
+    return largest_divisor
     """
