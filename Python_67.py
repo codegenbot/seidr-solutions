@@ -17,8 +17,8 @@ def fruit_distribution(s, n):
     # split the string to get the number of apples and oranges
     fruits = s.split("and")
     # get the number of apples and oranges and convert them to integers
-    apples = int(fruits[0][0]) + 1
-    oranges = int(fruits[1][0]) + 1
+    apples = int(fruits[0][0:2])
+    oranges = int(fruits[1][0:3])
     # return the number of mangoes in the basket
     return n - apples - oranges
 
