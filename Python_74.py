@@ -15,9 +15,9 @@ def group_numbers(lst, n):
     '''
     Define a function that accepts a list of integers and a number n.
     The function should return a new list with the contents of the old list grouped into
-
     sublists of length n.
-    If the list's length is not a multiple of n, the last sublist should have fewer than n elements.
+    If the list's length is not a multiple of n, the last sublist should have fewer 
+    than n elements.
 
     Examples
     group_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 2) ➞ [[1, 2], [3, 4], [5, 6], [7, 8], [9]]
