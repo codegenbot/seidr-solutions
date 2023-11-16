@@ -12,5 +12,5 @@ def modp(n: int, p: int):
     8
     >>> modp(100, 101)
     1
-    return 0
+    return
     """
