@@ -17,9 +17,19 @@ def histogram(test):
     return hist
 
 def most_common(hist):
-    """Given a dictionary of letter occurence, return a list of letters with the
-    most occurence.
-    If several letters have the same occurrence, return all of them. 
+    """Given a dictionary of letter occurence, return a list of letters with the most
+    occurence.
+    If several letters have the same occurrence, return all of them.
+
+    Example:
+    most_common({'a': 1, 'b': 1, 'c': 1}) == ['a', 'b', 'c']
+    most_common({'a': 2, 'b': 2}) == ['a', 'b']
+    most_common({'b': 4, 'a': 1}) == ['b']
+    most_common({}) == []
+
+    """Given a dictionary of letter occurence, return a list of letters with the most
+    occurence.
+    If several letters have the same occurrence, return all of them.
 
     Example:
     most_common({'a': 1, 'b': 1, 'c': 1}) == ['a', 'b', 'c']
@@ -28,4 +38,24 @@ def most_common(hist):
     most_common({}) == []
 
     """
+    return [key for key, val in hist.items() if val == max(hist.values())]
+
+def test():
+    assert histogram('a b c') == {'a': 1, 'b': 1, 'c': 1}
+    assert histogram('a b b a') == {'a': 2, 'b': 2}
+    assert histogram('a b c a b') == {'a': 2, 'b': 2}
+    assert histogram('b b b b a') == {'b': 4}
+    assert histogram('') == {}
+    assert most_common({'a': 1, 'b': 1, 'c': 1}) == ['a', 'b', 'c']
+    assert most_common({'a': 2, 'b': 2}) == ['a', 'b']
+    assert most_common({'b': 4, 'a': 1}) == ['b']
+    assert most_common({}) == []
+
+if __name__ == '__main__':
+    test()
+    print(histogram(input()))
+    print(most_common(histogram(input())))
+
+
+
     """
