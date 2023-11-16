@@ -17,5 +17,5 @@ def x_or_y(n, x, y):
     pass
     pass
     for x_or_y(15, 8, 5) == 5
-    
+
     """
