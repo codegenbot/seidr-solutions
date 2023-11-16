@@ -16,19 +16,12 @@ def get_odd_collatz(n):
         collatz_list = [n]
         while n != 1:
             if n % 2 == 0:
-                n = n // 2
+                n = n / 2
             else:
                 n = 3 * n + 1
             collatz_list.append(n)
-        odd_list = []
-        for i in collatz_list:
-            if i % 2 != 0:
-                odd_list.append(i)
-        odd_list.sort()
-        return odd_list
-
-
-print(get_odd_collatz(5))
+        odd_list = [x for x in collatz_list if x % 2 != 0]
+        return sorted(odd_list)
         1. Collatz(1) is [1].
         2. returned list sorted in increasing order.
 
