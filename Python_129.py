@@ -1,47 +1,22 @@
 
-def get_neighbors(grid, r, c):
-    """
-    Given a grid, a row index and a column index, return the indices of the
-    neighbors of the cell with the given row and column indices.
-    """
-    n = len(grid)
-    if r < 0 or r >= n or c < 0 or c >= n:
-        return []
-    neighbors = []
-    if r > 0:
-        neighbors.append((r - 1, c))
-    if c > 0:
-        neighbors.append((r, c - 1))
-    if r < n - 1:
-        neighbors.append((r + 1, c))
-    if c < n - 1:
-        neighbors.append((r, c + 1))
-    return neighbors
-
-
-def dfs(grid, k, seen, path, min_path, r, c):
-    """
-    Given a grid, a number k, a set of seen cells, a path, the minimum path, a
-    row index and a column index, perform a depth-first search on the grid.
-    """
-    n = len(grid)
-    if r < 0 or r >= n or c < 0 or c >= n:
-        return
-    if (r, c) in seen:
-        return
-    seen.add((r, c))
-    path.append(grid[r][c])
-    if len(path) == k:
-        if path < min_path[0]:
-            min_path[0] = path
-        return
-    for i, j in get_neighbors(grid, r, c):
-        dfs(grid, k, seen, path.copy(), min_path, i, j)
+def find_smallest(x, y, grid):
+    smallest = grid[x][y]
+    smallest_x = x
+    smallest_y = y
+    for i in range(x-1, x+2):
+        for j in range(y-1, y+2):
+            if i < 0 or j < 0 or i >= len(grid) or j >= len(grid[0]):
+                continue
+            if grid[i][j] < smallest:
+                smallest = grid[i][j]
+                smallest_x = i
+                smallest_y = j
+    return smallest_x, smallest_y
 
 
 def minPath(grid, k):
     """
-    Given a grid with N rows and N columns (N >= 2) and a positive integer k,
+    Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
     each cell of the grid contains a value. Every integer in the range [1, N * N]
     inclusive appears exactly once on the cells of the grid.
 
@@ -63,18 +38,20 @@ def minPath(grid, k):
 
     Examples:
 
-    n = len(grid)
-    if k == 1:
-        return [grid[0][0]]
-    min_path = [list(range(1, n * n + 1))]
-    for i in range(n):
-        for j in range(n):
-            dfs(grid, k, set(), [], min_path, i, j)
-    return min_path[0]
-
-
-if __name__ == '__main__':
-    check(minPath)
+    min_path = []
+    return min_path
+    min_path = []
+    x = 0
+    y = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == 1:
+                x = i
+                y = j
+    for i in range(k):
+        min_path.append(grid[x][y])
+        x, y = find_smallest(x, y, grid)
+    return min_path
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
