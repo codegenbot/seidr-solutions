@@ -23,8 +23,47 @@ def minPath(grid, k):
 
     Examples:
 
-    # Write your code here.
-    pass
+    def get_neighbors(grid, i, j):
+        neighbors = []
+        if i > 0:
+            neighbors.append(grid[i-1][j])
+        if i < len(grid) - 1:
+            neighbors.append(grid[i+1][j])
+        if j > 0:
+            neighbors.append(grid[i][j-1])
+        if j < len(grid[0]) - 1:
+            neighbors.append(grid[i][j+1])
+        return neighbors
+
+    def get_min_path(grid, i, j, k, path):
+        if k == 0:
+            return path
+        neighbors = get_neighbors(grid, i, j)
+        min_path = []
+        for neighbor in neighbors:
+            if neighbor < grid[i][j]:
+                min_path = path + [neighbor]
+        for neighbor in neighbors:
+            if neighbor > grid[i][j]:
+                new_path = get_min_path(grid, i, j, k-1, path + [neighbor])
+                if len(new_path) > 0:
+                    if len(min_path) == 0:
+                        min_path = new_path
+                    else:
+                        for i in range(len(min_path)):
+                            if new_path[i] < min_path[i]:
+                                min_path = new_path
+                                break
+                            elif new_path[i] > min_path[i]:
+                                break
+        return min_path
+
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            path = get_min_path(grid, i, j, k, [grid[i][j]])
+            if len(path) > 0:
+                return path
+    return []
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
