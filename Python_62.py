@@ -11,5 +11,5 @@ def derivative(xs: list):
     if len(xs) == 1:
         return [0]
     else:
-        return [xs[i] * (i) for i in range(1, len(xs))]
+        return [xs[i] * i for i in range(1, len(xs))]
     """
