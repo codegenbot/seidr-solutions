@@ -11,15 +11,12 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    sum_of_squares = 0
-    for num in lst:
-        if type(num) == int and num >= 0:
-            if num % 2 != 0:
-                sum_of_squares = sum_of_squares + num**2
-            if num % 2 == 0:
-                sum_of_squares = sum_of_squares + num**2 - 1
-        else:
-            continue
-
-    return sum_of_squares
-    pass
+    def double_the_difference(lst):
+    oddSum = []
+    for i in lst : 
+        if i >= 0: 
+            oddSum.append(i ** 2)
+    if oddSum == []:
+        return 0
+    else:
+        return (2 * sum(oddSum)) 
