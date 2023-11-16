@@ -12,6 +12,6 @@ def sum_squares(lst):
     For lst = [-2.4,1,1] the output should be 6
     pass
     
-    return 0
+    pass
 
     """
