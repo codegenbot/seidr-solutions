@@ -9,8 +9,5 @@ def solution(lst):
 
     # write your code here
     
-    # write your code here
-    return lst[1::2]
     
-    solution([30, 13, 24, 321]) ==>0
     """
