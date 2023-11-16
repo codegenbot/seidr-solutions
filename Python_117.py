@@ -12,4 +12,12 @@ def select_words(s, n):
     select_words("Hello world", 4) ==> ["world"]
     select_words("Uncle sam", 3) ==> ["Uncle"]
     """
-    # Complete the following code given the task description and function signature.
+
+    words = s.split()
+    res = []
+    for word in words:
+        if len(word) == n:
+            res.append(word)
+    return res
+
+print(select_words("Mary had a little lamb", 4))
