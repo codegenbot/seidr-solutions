@@ -12,11 +12,4 @@ def fix_spaces(text):
     """
     text = text.replace(" ", "_")
     text = text.replace("__", "-")
-    text = text.replace("__", "-")
     return text
-
-
-print(fix_spaces("Example"))
-print(fix_spaces("Example 1"))
-print(fix_spaces(" Example 2"))
-print(fix_spaces(" Example   3"))
