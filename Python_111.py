@@ -11,7 +11,7 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    count = 0
+    count = 1
     result = {}
     for char in test:
         if char != ' ':
@@ -24,20 +24,6 @@ def histogram(test):
     for key, value in result.items():
         if maximum == value:
             count += 1
-    result = {}
-    for char in test:
-        if char != ' ':
-            if char not in result:
-                result[char] = 1
-            else:
-                result[char] += 1
-
-    maximum = max(result.values())
-    for key, value in result.items():
-        if maximum == value:
-            result[key] = value
-
-    return result
 
     if count == len(result):
         return {}
