@@ -1,12 +1,5 @@
-def check(solve):
-    assert solve(1000) == "1", "Error"
-    assert solve(150) == "110", "Error"
-    assert solve(147) == "1100", "Error"
-    assert solve(963) == "10010", "Error"
-
-
 def solve(N):
-    """Given a positive integer N, return the total sum of its digits in binary.
+    """Given a positive integer N, return the total sum of its digits in binary. 
     
     Example
         For N = 1000, the sum of digits will be 1 the output should be "1".
@@ -19,4 +12,3 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # Your code here
