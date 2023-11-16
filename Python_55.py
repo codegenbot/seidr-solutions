@@ -7,9 +7,8 @@ def fib(n: int):
     >>> fib(1)
     1
     >>> fib(8)
-    a, b = 0, 1
-    for _ in range(n):
-        a, b = b, a + b
-    return a
     21
+    if n < 2:  # base case for boundary condition
+        return n
+    return fib(n-2) + fib(n-1)  # recursive call
     """
