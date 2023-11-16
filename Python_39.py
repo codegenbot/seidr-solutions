@@ -1,6 +1,6 @@
 
 
-def prime_fib(n):
+def prime_fib(n: int):
     """
     prime_fib returns n-th number that is a Fibonacci number and it's also prime.
     >>> prime_fib(1)
@@ -13,22 +13,37 @@ def prime_fib(n):
     13
     >>> prime_fib(5)
     89
-    fib_number = [0, 1, 1]
-    fib_prime_number = [2]
-    i = 3
-    while len(fib_prime_number) < n:
-        fib_number.append(fib_number[i - 1] + fib_number[i - 2])
-        for j in range(2, fib_number[i]):
-            if fib_number[i] % j == 0:
-                break
-        else:
-            fib_prime_number.append(fib_number[i])
-        i += 1
-    return fib_prime_number[-1]
+    fib_numbers = [2]
+    a, b = 1, 2
+    while len(fib_numbers) < n:
+        a, b = b, a + b
+        if is_prime(b):
+            fib_numbers.append(b)
+    return fib_numbers[-1]
 
 
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
-    print(prime_fib(100))
+def is_prime(n: int) -> bool:
+    """
+    is_prime returns True if n is prime, otherwise returns False.
+    >>> is_prime(2)
+    True
+    >>> is_prime(3)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(5)
+    True
+    >>> is_prime(6)
+    False
+    """
+    if n == 2:
+        return True
+    if n % 2 == 0 or n <= 1:
+        return False
+    sqr = int(n ** 0.5) + 1
+    for divisor in range(3, sqr, 2):
+        if n % divisor == 0:
+            return False
+    return True
+
     """
