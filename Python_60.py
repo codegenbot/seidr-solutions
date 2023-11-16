@@ -12,6 +12,8 @@ def sum_to_n(n: int):
     55
     >>> sum_to_n(1)
     1
-    pass
-    return 0
+    total = 0
+    for i in range(n):
+        total += i + 1
+    return total
     """
