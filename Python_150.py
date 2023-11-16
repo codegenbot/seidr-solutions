@@ -1,4 +1,3 @@
-from math import sqrt
 
 def x_or_y(n, x, y):
     """A simple program which should return the value of x if n is 
@@ -7,16 +6,9 @@ def x_or_y(n, x, y):
     Examples:
     for x_or_y(7, 34, 12) == 34
     for x_or_y(15, 8, 5) == 5
-
-    is_prime = True
-    for a in range(2, int(sqrt(n))+1):
-        if n % a == 0:
-            is_prime = False
-            break
-
-    if is_prime:
-        return x
-    else:
+    if n % 2 == 1:
         return y
+    else:
+        return x
     
     """
