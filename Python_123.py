@@ -10,14 +10,19 @@ def get_odd_collatz(n):
     term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1.
 
     Note: 
-    
-    result = []
-    while n>1:
-        if n%2:  # check if n is odd
-            result.append(n)
-        n = int(n/2)
-    result.append(1)
+
+    # write your code here
+    result = [n]
+    while n != 1:
+        if n % 2 == 0:
+            n /= 2
+        else:
+            n = (n * 3) + 1
+        result.append(n)
+
+    result = sorted([x for x in result if x % 2 != 0])
     return result
+
 
 if __name__ == '__main__':
     print(get_odd_collatz(5))
