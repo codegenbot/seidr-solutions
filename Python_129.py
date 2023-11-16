@@ -1,3 +1,4 @@
+
 def minPath(grid, k):
     """
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
@@ -22,87 +23,9 @@ def minPath(grid, k):
 
     Examples:
 
-    def dfs(grid, k, start, end):
-        if k == 0:
-            return grid[start[0]][start[1]]
-        if start == end:
-            return float('inf')
-        return min(dfs(grid, k - 1, (start[0] + 1, start[1]), end),
-                   dfs(grid, k - 1, (start[0] - 1, start[1]), end),
-                   dfs(grid, k - 1, (start[0], start[1] + 1), end),
-                   dfs(grid, k - 1, (start[0], start[1] - 1), end))
-    
-    def find_start(grid, k):
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if i + j == k:
-                    return (i, j)
-    
-    def find_end(grid, k):
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if i + j == k - 1:
-                    return (i, j)
-    
-    def get_path(grid, k, start, end):
-        if k == 0:
-            return [grid[start[0]][start[1]]]
-        if start == end:
-            return []
-        if start[0] + 1 <= end[0] and dfs(grid, k - 1, (start[0] + 1, start[1]), end) == grid[start[0]][start[1]]:
-            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0] + 1, start[1]), end)
-        if start[0] - 1 >= end[0] and dfs(grid, k - 1, (start[0] - 1, start[1]), end) == grid[start[0]][start[1]]:
-            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0] - 1, start[1]), end)
-        if start[1] + 1 <= end[1] and dfs(grid, k - 1, (start[0], start[1] + 1), end) == grid[start[0]][start[1]]:
-            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0], start[1] + 1), end)
-        if start[1] - 1 >= end[1] and dfs(grid, k - 1, (start[0], start[1] - 1), end) == grid[start[0]][start[1]]:
-            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0], start[1] - 1), end)
-    
-    start = find_start(grid, k)
-    end = find_end(grid, k)
-    return get_path(grid, k, start, end)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
         Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
-    def dfs(grid, k, start, end):
-        if k == 0:
-            return grid[start[0]][start[1]]
-        if start == end:
-            return float('inf')
-        return min(dfs(grid, k - 1, (start[0] + 1, start[1]), end),
-                   dfs(grid, k - 1, (start[0] - 1, start[1]), end),
-                   dfs(grid, k - 1, (start[0], start[1] + 1), end),
-                   dfs(grid, k - 1, (start[0], start[1] - 1), end))
-    
-    def find_start(grid, k):
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if i + j == k:
-                    return (i, j)
-    
-    def find_end(grid, k):
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if i + j == k - 1:
-                    return (i, j)
-    
-    def get_path(grid, k, start, end):
-        if k == 0:
-            return [grid[start[0]][start[1]]]
-        if start == end:
-            return []
-        if start[0] + 1 <= end[0] and dfs(grid, k - 1, (start[0] + 1, start[1]), end) == grid[start[0]][start[1]]:
-            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0] + 1, start[1]), end)
-        if start[0] - 1 >= end[0] and dfs(grid, k - 1, (start[0] - 1, start[1]), end) == grid[start[0]][start[1]]:
-            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0] - 1, start[1]), end)
-        if start[1] + 1 <= end[1] and dfs(grid, k - 1, (start[0], start[1] + 1), end) == grid[start[0]][start[1]]:
-            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0], start[1] + 1), end)
-        if start[1] - 1 >= end[1] and dfs(grid, k - 1, (start[0], start[1] - 1), end) == grid[start[0]][start[1]]:
-            return [grid[start[0]][start[1]]] + get_path(grid, k - 1, (start[0], start[1] - 1), end)
-    
-    start = find_start(grid, k)
-    end = find_end(grid, k)
-    return get_path(grid, k, start, end)
         Output: [1]
     """
