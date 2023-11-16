@@ -12,11 +12,9 @@ def cycpattern_check(a , b):
         return False
     else:
         for i in range(len(a)):
-            if a[i:] + a[:i] == b:
+            if a[i:]+a[:i] == b:
                 return True
-            else:
-                return False
-
+        return False
 
 print(cycpattern_check("abcd","abd"))
 print(cycpattern_check("hello","ell"))
