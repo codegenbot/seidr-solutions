@@ -6,5 +6,4 @@ def max_element(l: list):
     4
     >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10])
     124
-    return max(l)
     """
