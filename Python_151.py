@@ -11,6 +11,11 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    
-    # write your code here
-    
+    if len(lst) == 0:
+        return 0
+    else:
+        result = 0
+        for i in lst:
+            if i % 2 == 1 and i > 0:
+                result += i*i
+        return result
