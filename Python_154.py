@@ -1,31 +1,12 @@
-def cycpattern_check(a, b):
-    """You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
-    cycpattern_check("abcd","abd") => False
-    cycpattern_check("hello","ell") => True
-    cycpattern_check("whassup","psus") => False
-    cycpattern_check("abab","baa") => True
-    cycpattern_check("efef","eeff") => False
-    cycpattern_check("himenss","simen") => True
+# Complete the following code given the task description and function signature.
+
+def cycpattern_check(a , b):
+    """ You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
+    cycpattern_check("abcd","abd") => True
+    cycpattern_check("hello","ell") => False
+    cycpattern_check("whassup","psus") => True
+    cycpattern_check("abab","baa") => False
+    cycpattern_check("efef","eeff") => True
+    cycpattern_check("himenss","simen") => False
 
     """
-    # Your code goes here
-    if len(a) < len(b):
-        return False
-    elif len(a) == len(b):
-        if a == b:
-            return True
-        else:
-            return False
-    else:
-        b = b + b
-        if b in a:
-            return True
-        else:
-            return False
-
-print(cycpattern_check("abcd","abd"))
-print(cycpattern_check("hello","ell"))
-print(cycpattern_check("whassup","psus"))
-print(cycpattern_check("abab","baa"))
-print(cycpattern_check("efef","eeff"))
-print(cycpattern_check("himenss","simen"))
