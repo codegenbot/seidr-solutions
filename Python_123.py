@@ -10,37 +10,12 @@ def get_odd_collatz(n):
     term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1.
 
     Note: 
-
-    # Complete the following code given the task description and function signature.
-    # You may use any built-in functions you need.
-
-    # You may not use any other external libraries.
-    # You may not use any other external functions.
-
-    # You may not use any global variables.
-    # You may not use any nonlocal variables.
-
-    # You may not use any ternary operator.
-    # You may not use any try, except, else, finally.
-
-    # You may not import any module.
-
-    # You may not use eval() or exec().
-    # You may not use any regular expression.
-
-    # You may not use any GUI package (e.g. tkinter).
-    # You may not use any third party package, such as numpy, pandas, etc.
-
-    # You may not use any Python 2 specific syntax, such as `print` as a statement.
-
-    # Your code must run in Python 3.6.x.
-
-    # Your code must be able to handle large integers.
-
-    # Your code must pass all test cases.
-
-    # The time limit is 20 seconds.
-    # The memory limit is 256 MB.
+    if n == 1:
+        return [1]
+    if n % 2 == 0:
+        return get_odd_collatz(n // 2)
+    else:
+        return get_odd_collatz(n * 3 + 1) + [n]
         1. Collatz(1) is [1].
         2. returned list sorted in increasing order.
 
