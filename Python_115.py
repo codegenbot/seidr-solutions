@@ -28,10 +28,10 @@ def max_fill(grid, capacity):
 
     Constraints:
         * all wells have the same length
-        * 1 <= grid.length <= 10^2 (10)
-        * 1 <= grid[:,1].length <= 10^2 (10)
+        * 1 <= grid.length <= 10^2
+        * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
     # Your code goes here
-    return 0
+    return 0:
         * 1 <= capacity <= 10
     """
