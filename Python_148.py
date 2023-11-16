@@ -14,15 +14,17 @@ def bf(planet1, planet2):
     bf("Jupiter", "Neptune") ==> ("Saturn", "Uranus")
     bf("Earth", "Mercury") ==> ("Venus")
     bf("Mercury", "Uranus") ==> ("Venus", "Earth", "Mars", "Jupiter", "Saturn")
+    
+    The following code is given:
     '''
-    if planet1 not in ("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"):
-        return ()
-    if planet2 not in ("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"):
-        return ()
+    
+    # complete the following code
     planets = ("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
-    start = planets.index(planet1)
-    end = planets.index(planet2)
-    if start > end:
-        return planets[end:start]
-    else:
-        return planets[start:end]
+    planet_indices = ()
+    for i, planet in enumerate(planets):
+        if planet in (planet1, planet2):
+            planet_indices += (i,)
+    if len(planet_indices) != 2:
+        return ()
+    planet_indices = sorted(planet_indices)
+    return tuple(planets[planet_indices[0]:planet_indices[1]+1])
