@@ -14,9 +14,4 @@ def fib(n: int):
         return 1
     else:
         return fib(n - 1) + fib(n - 2)
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
     """
