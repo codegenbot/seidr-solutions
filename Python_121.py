@@ -11,7 +11,8 @@ def solution(lst):
 
 
 print(solution([5, 8, 7, 1]))
+    re.skip(su)
 print(solution([3, 3, 3, 3, 3]))
 print(solution([30, 13, 24, 321]))
-    solution([5, 2, 0, -3, 4]) ==>11
+    solution([30, 13, 24, 321]) ==>0
     """
