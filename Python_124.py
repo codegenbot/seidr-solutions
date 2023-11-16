@@ -1,5 +1,3 @@
-from datetime import datetime
-
 
 def valid_date(date):
     """You have to write a function which validates a given date string and
@@ -21,3 +19,21 @@ def valid_date(date):
 
     valid_date('06/04/2020') => False
     """
+    if not date:
+        return False
+    else:
+        date = date.split('-')
+        if len(date) == 3:
+            if len(date[0]) == 2 and len(date[1]) == 2 and len(date[2]) == 4:
+                if int(date[0]) > 0 and int(date[0]) < 13:
+                    if int(date[0]) in [1, 3, 5, 7, 8, 10, 12]:
+                        if int(date[1]) > 0 and int(date[1]) < 32:
+                            return True
+                    elif int(date[0]) in [4, 6, 9, 11]:
+                        if int(date[1]) > 0 and int(date[1]) < 31:
+                            return True
+                    else:
+                        if int(date[1]) > 0 and int(date[1]) < 30:
+                            return True
+
+    return False
