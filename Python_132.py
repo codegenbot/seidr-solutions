@@ -25,5 +25,5 @@ def is_nested(string):
         return False
     else:
         return False
-    is_nested(']]]]]]]]') == False # this is the error
+    is_nested(']]]]]]]]') == False # this is the error, but it is not working
     '''
