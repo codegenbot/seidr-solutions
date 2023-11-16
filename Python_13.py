@@ -5,8 +5,13 @@ def greatest_common_divisor(a: int, b: int) -> int:
     >>> greatest_common_divisor(3, 5)
     1
     >>> greatest_common_divisor(25, 15)
+    if b == 0:
+        return a
+    return greatest_common_divisor(b, a % b)
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     5
-    while b:
-        a, b = b, a % b
-    return a
     """
