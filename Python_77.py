@@ -1,4 +1,4 @@
-
+import math
 def iscube(a):
     '''
     Write a function that takes an integer a and returns True 
@@ -12,4 +12,4 @@ def iscube(a):
     iscube(0) ==> True
     iscube(180) ==> False
     '''
-    #your code here
+    return a == math.pow(int(math.pow(a, 1/3)), 3)
