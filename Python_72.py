@@ -10,6 +10,7 @@ def will_it_fly(q,w):
 
     will_it_fly([3, 2, 3], 1) ➞ False
     # it's balanced, but 3+2+3 is more than the maximum possible weight.
+
     if sum(q) <= w and q == q[::-1]:
         return True
     else:

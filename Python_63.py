@@ -13,6 +13,8 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
+    if n < 0:
+        raise ValueError("n must be non-negative")
     if n == 0:
         return 0
     if n == 1:
