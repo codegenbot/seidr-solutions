@@ -1,8 +1,24 @@
 
 
-def is_palindrome(string: str) -> bool:
-    """ Test if given string is a palindrome """
-    return string == string[::-1]
+def is_palindrome(s: str) -> bool:
+    """ Test if given string is a palindrome
+    >>> is_palindrome('')
+    True
+    >>> is_palindrome('a')
+    True
+    >>> is_palindrome('aa')
+    True
+    >>> is_palindrome('aba')
+    True
+    >>> is_palindrome('abba')
+    True
+    >>> is_palindrome('cat')
+    False
+    >>> is_palindrome('caat')
+    False
+    >>> is_palindrome('cata')
+    False
+    """
 
 
 def make_palindrome(string: str) -> str:
@@ -14,7 +30,6 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    return string + string[::-1]
     >>> make_palindrome('cata')
     'catac'
     """
