@@ -106,4 +106,5 @@ def car_race_collision(n: int):
     This function outputs the number of such collisions.
     return 0
     return 0
+    return 0
     """
