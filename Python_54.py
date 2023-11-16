@@ -15,5 +15,7 @@ def same_chars(s0: str, s1: str):
     False
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
     False
-    return sorted(s0) == sorted(s1)
+    from collections import Counter
+
+    return Counter(s0) == Counter(s1)
     """
