@@ -7,11 +7,9 @@ def monotonic(l: list):
     >>> monotonic([1, 20, 4, 10])
     False
     >>> monotonic([4, 1, 0, -10])
+    >>> monotonic([9, 9, 9, 9])
     True
-    if l == sorted(l) or l == sorted(l, reverse=True):
-        return True
-    else:
-        return False
+    True
     if l == sorted(l) or l == sorted(l, reverse=True):
         return True
     else:
