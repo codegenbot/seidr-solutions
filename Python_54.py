@@ -15,12 +15,15 @@ def same_chars(s0: str, s1: str):
     False
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
     False
-    s0_list = list(s0)
-    s1_list = list(s1)
-    for c in s0_list:
-        if c in s1_list:
-            s1_list.remove(c)
-        else:
-            return False
-    return True
+    # Complete the function
+    # Use the commented lines to test your code
+    #   s0 = input('Enter the first word: ')
+    #   s1 = input('Enter the second word: ')
+    #   print(same_chars(s0, s1))
+
+
+if __name__ == '__main__':
+    import doctest
+
+    doctest.testmod()
     """
