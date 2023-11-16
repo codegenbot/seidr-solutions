@@ -8,5 +8,7 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    return True
+    if a.find(b) != -1:
+        return True
+    return False
     """
