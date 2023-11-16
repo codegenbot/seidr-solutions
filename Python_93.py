@@ -19,11 +19,11 @@ def encode(message):
         return letter in 'aeiou'
 
     # Your code here
-    # encoded_message = ''
-    # for letter in message:
-    #     if letter.isupper():
-    #         encoded_message += letter.lower()
-    #     else:
-    #         encoded_message += letter.upper()
+    encoded_message = ''
+    for letter in message:
+        if letter.isupper():
+            encoded_message += letter.lower()
+        else:
+            encoded_message += letter.upper()
 
     return encoded_message
