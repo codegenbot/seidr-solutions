@@ -10,7 +10,19 @@ def sum_squares(lst):
     For lst = [1,3,5,7] the output should be 84
     For lst = [1.4,4.2,0] the output should be 29
     For lst = [-2.4,1,1] the output should be 6
-    return sum([x**2 for x in lst])
-    
+
+    sum = 0
+    for i in lst:
+        sum += round(i)**2
+
+    return sum
+
+
+# Test cases
+print(sum_squares([1, 2, 3]))
+print(sum_squares([1, 4, 9]))
+print(sum_squares([1, 3, 5, 7]))
+print(sum_squares([1.4, 4.2, 0]))
+print(sum_squares([-2.4, 1, 1]))
 
     """
