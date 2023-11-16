@@ -1,5 +1,14 @@
-import math
 
+
+
+    total = 0
+    for i in range(len(lst)):
+        if i % 3 == 0:
+            lst[i] = lst[i] * lst[i]
+        elif i % 4 == 0:
+            lst[i] = lst[i] * lst[i] * lst[i]
+        total += lst[i]
+    return total
 def sum_squares(lst):
     """"
     This function will take a list of integers. For all entries in the list, the function shall square the integer entry if its index is a
@@ -9,15 +18,5 @@ def sum_squares(lst):
     Examples:
     For lst = [1,2,3] the output should be 6
     For lst = []  the output should be 0
-    
-    """
-
     For lst = [-1,-5,2,-1,-5]  the output should be -126
-    total = 0
-    for i in range(len(lst)):
-        if i % 3 == 0:
-            lst[i] = lst[i] * lst[i]
-        elif i % 4 == 0:
-            lst[i] = lst[i] * lst[i] * lst[i]
-        total += lst[i]
-    return total
+    """
