@@ -1,7 +1,6 @@
 
 def minPath(grid, k):
     """
-    (3 points)
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
     each cell of the grid contains a value. Every integer in the range [1, N * N]
     inclusive appears exactly once on the cells of the grid.
@@ -24,58 +23,25 @@ def minPath(grid, k):
 
     Examples:
 
-    pass
-
-
-def isValid(s):
-    """
-    (2 points)
-    Given a string s, return True if it is a valid string and False otherwise. 
-    A string is valid if it has the following properties:
-
-    It starts with "a" or "A".
-    It contains at least one occurrence of "b" or "B".
-    It contains at most one occurrence of "c" or "C".
-    It ends with "z" or "Z".
-    The string s contains only lowercase and uppercase letters.
-
-    Examples:
-
-        Input: s = "ABbCzz"
-        Output: True
-
-        Input: s = "AabCc"
-        Output: False
-
-        Input: s = "abc"
-        Output: False
-    """
-    pass
-
-
-def findMin(a):
-    """
-    (5 points)
-    Given a non-empty list of integers a, return the minimum element
-    in the list.
-    If there are multiple minimum elements in the list, choose the one
-    that comes first in the list.
-    Your solution must be better than O(n) in the worst case.
-    You can assume the list is not too long.
-    You can assume all elements in the list are positive integers.
-
-    Examples:
-
-        Input: a = [1, 2, 3]
-        Output: 1
-
-        Input: a = [6, 9, -1, -3, 5]
-        Output: -3
-
-        Input: a = [1, 2, 1, 2, 1]
-        Output: 1
-    """
-    pass
+    lst = []
+    def dfs(grid, lst, i, j, k):
+        if k == 0:
+            return
+        lst.append(grid[i][j])
+        if k == 1:
+            return
+        if i > 0:
+            dfs(grid, lst, i-1, j, k-1)
+        if i < len(grid)-1:
+            dfs(grid, lst, i+1, j, k-1)
+        if j > 0:
+            dfs(grid, lst, i, j-1, k-1)
+        if j < len(grid)-1:
+            dfs(grid, lst, i, j+1, k-1)
+    for i in range(len(grid)):
+        for j in range(len(grid)):
+            dfs(grid, lst, i, j, k)
+    return lst
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
