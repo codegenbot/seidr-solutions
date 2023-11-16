@@ -6,8 +6,8 @@ def truncate_number(number: float) -> float:
     (leftover part always smaller than 1).
 
     Return the decimal part of the number.
-
-    # Complete the function code here
+    return number - int(number)
+    return number - int(number)
     >>> truncate_number(3.5)
     0.5
     """
