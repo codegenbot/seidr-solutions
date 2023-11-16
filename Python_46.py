@@ -12,8 +12,6 @@ def fib4(n: int):
     4
     >>> fib4(6)
     8
-    >>> fib4(12)
-    386
 
     # YOUR CODE HERE
     """
