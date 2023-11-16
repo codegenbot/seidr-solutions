@@ -33,29 +33,21 @@ def max_fill(grid, capacity):
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
 
-    # set up a counter
-    count = 0
+    # Complete the following code.
+    # You may add additional functions and classes as needed.
+    # You may not change the function signature.
 
-    # iterate over the grid
-    for row in grid:
-        # if the sum of the row is greater than the capacity
-        if sum(row) > capacity:
-            # iterate over the row
-            for col in row:
-                # if the col is greater than the capacity
-                if col > capacity:
-                    # increment the count by the capacity
-                    count += capacity
-                # otherwise
-                else:
-                    # increment the count by the col
-                    count += col
-        # otherwise
-        else:
-            # increment the count by the sum of the row
-            count += sum(row)
+    # Your implementation here
+    return 0
 
-    # return the count
-    return count
+
+if __name__ == "__main__":
+    # Do NOT modify the code below this line.
+    # These lines are how the tests interact with the code.
+
+    grid = [[0,0,1,0], [0,1,0,0], [1,1,1,1]]
+    capacity = 1
+    result = max_fill(grid, capacity)
+    print(result)
         * 1 <= capacity <= 10
     """
