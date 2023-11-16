@@ -10,10 +10,30 @@ def get_odd_collatz(n):
     term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1.
 
     Note: 
+
+    odd_collatz = []
+    # YOUR CODE HERE
+
+    return odd_collatz
+
+
+def get_string_rotation(string1, string2):
+    """
+    Given two strings, return True if one of the strings is a rotation of the other, otherwise return False.
+
+    For example:
+    get_string_rotation("waterbottle", "erbottlewat") returns True # waterbottle rotated is erbottlewat
+    get_string_rotation("foo", "bar") returns False
+    get_string_rotation("foo", "foofoo") returns False
+    """
+
+    is_rotation = False
+    # YOUR CODE HERE
+
+    return is_rotation
         1. Collatz(1) is [1].
         2. returned list sorted in increasing order.
 
     For example:
-    get_odd_collatz(5) returns [1, 5] 
-    # The collatz sequence for 5 is [5, 16, 8, 4, 2, 1], so the odd numbers are only 1, and 5.
+    get_odd_collatz(5) returns [1, 5] # The collatz sequence for 5 is [5, 16, 8, 4, 2, 1], so the odd numbers are only 1, and 5.
     """
