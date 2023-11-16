@@ -1,6 +1,6 @@
 
 
-def fibfib(n):
+def fibfib(n: int):
     """The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
     fibfib(0) == 0
     fibfib(1) == 0
@@ -13,12 +13,8 @@ def fibfib(n):
     4
     >>> fibfib(8)
     24
-    if n <= 0:
-        return 0
-    if n <= 2:
-        return 1
-    a, b, c = 0, 1, 1
-    for _ in range(n - 2):
-        a, b, c = b, c, a + b + c
-    return c
+
+    # First, implement the function using recursion.
+
+    # Second, optimize the function (bonus points if you solve the problem with a dynamic programming approach).
     """
