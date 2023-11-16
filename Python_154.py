@@ -1,13 +1,6 @@
-def cycpattern_check(a, b):
+
+def cycpattern_check(a , b):
     """You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
-
-    :param: a: first word
-    :type: str
-    :param: b: second word
-    :type: str
-
-    :return: boolean
-
     cycpattern_check("abcd","abd") => False
     cycpattern_check("hello","ell") => True
     cycpattern_check("whassup","psus") => False
@@ -15,4 +8,13 @@ def cycpattern_check(a, b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
+
+    if b in a:
+        return True
+    else:
+        for i in range(len(b)):
+            b = b[-1] + b[:-1]
+            if b in a:
+                return True
+    return False
     """
