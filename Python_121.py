@@ -1,14 +1,11 @@
 
 def solution(lst):
-    """Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions."""
+    """Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.
+    
 
-    return sum(lst[:2:])
-
-
-def check(solution):
-    assert solution([3, 13, 2, 9]) == 15
-    assert solution([3, 3, 3, 3, 3]) == 9
-    assert solution([3, 13, 2, 9]) == 3
-
-
-check(solution)
+    Examples
+    solution([5, 8, 7, 1]) ==> 12
+    solution([3, 3, 3, 3, 3]) ==> 3
+    
+    solution([30, 13, 24, 321]) ==>0
+    """
