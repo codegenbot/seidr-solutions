@@ -8,33 +8,24 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    def rotate_string(s):
-        return s[-1] + s[:-1]
-        
-        
-    a=list(a)
-    b=list(b)
-    #print(a,b)
-    a="".join(a)
-    b="".join(b)
-    c=rotate_string(b)
-    #print(c)
-    for x in range(len(b)):
-
-        a_new=a.split(c)
-        if len(a_new)>=2:
-
-            break
-        c=rotate_string(c)
-        #print(c)
-        
-    #print(a_new)      
-    #print(a_new , b)
-    if len(a_new)>=2:
-        return True
-    else:
-        return False
+    # Initialize a empty list to store the rotations of the second word
+    l = list()
+    # Write your code below to complete the above task
 
 
+    # All for loops below are written to test your code, please do not delete them
+    # print(l)
+
+    for i in range(len(l)):
+        # print (l[i], "rotated")
+        if l[i] in a:
+            return True
+    return False
+
+print(cycpattern_check("abcd","abd"))
 print(cycpattern_check("hello","ell"))
+print(cycpattern_check("whassup","psus"))
+print(cycpattern_check("abab","baa"))
+print(cycpattern_check("efef","eeff"))
+print(cycpattern_check("himenss","simen"))
     """
