@@ -16,12 +16,6 @@ def sum_squares(lst):
     # Hint: You can use list comprehension.
     pass
     
-    return sum([math.ceil(x)**2 for x in lst])
-
-assert sum_squares([-1, 1, 0]) == 2
-
-
-
-
+    return sum([x**2 for x in lst])
 
     """
