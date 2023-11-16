@@ -8,12 +8,8 @@ def special_factorial(n):
     >>> special_factorial(4)
     288
 
-    pass
-    if n == 0:
-        return 1
-    else:
-        return n * special_factorial(n-1)
-    pass
+    """
+    pass 
     if n == 0:
         return 1
     else:
