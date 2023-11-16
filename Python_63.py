@@ -19,5 +19,6 @@ def fibfib(n: int):
         return 0
     elif n == 2:
         return 1
-    return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
+    else:
+        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
     """
