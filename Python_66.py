@@ -1,4 +1,3 @@
-
 def digitSum(s):
     """
     Task
@@ -11,5 +10,6 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
+    pass
         digitSum("aAaaaXa") => 153
     """
