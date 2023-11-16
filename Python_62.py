@@ -7,6 +7,6 @@ def derivative(xs: list):
     >>> derivative([3, 1, 2, 4, 5])
     [1, 4, 12, 20]
     >>> derivative([1, 2, 3])
-    [2, 6]
-    return [xs[i] * (i) for i in range(1, len(xs) - 1)]
     """
+    [2, 6]
+    return [xs[i] * (i) for i in range(1, len(xs))]
