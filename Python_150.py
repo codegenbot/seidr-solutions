@@ -5,8 +5,7 @@ def sum_of_digits(n):
     Examples:
     return
     """
-    if n < 0:
-        n = -n
+    n = abs(n)
     s = 0
     while n > 0:
         s = s + n % 10
@@ -15,3 +14,4 @@ def sum_of_digits(n):
 
     # Your code here
     return
+    
