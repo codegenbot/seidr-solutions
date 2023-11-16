@@ -16,143 +16,59 @@ def select_words(s, n):
     # You may add additional helper functions if needed.
     # You may not use any built-in functions or methods.
     # You may not use any regular expressions.
-    # You may not import any additional modules.
-    # You may not use any other libraries.
+    # You may not use any external libraries.
     # You may not use any global variables.
-    # You may not use any nonlocal variables.
-    # You may not use any try/except statements.
-    # You may not use any ternary operators.
-    # You may not use any other control flow statements.
-    # You may not use any while loops.
-    # You may not use any for loops.
+    # You may not modify the function signature.
+    # You may not modify the docstring.
+    # You may not use any loops.
+    # You may not use any recursion.
+    # You may not use any mutable data structures.
+    # You may not use any immutable data structures.
+    # You may not use any conditional statements.
+    # You may not use any try/except blocks.
+    # You may not use any try/finally blocks.
+    # You may not use any try/except/finally blocks.
+    # You may not use any raise statements.
+    # You may not use any return statements.
+    # You may not use any yield statements.
+    # You may not use any break statements.
+    # You may not use any continue statements.
+    # You may not use any pass statements.
+    # You may not use any del statements.
+    # You may not use any global statements.
+    # You may not use any nonlocal statements.
+    # You may not use any lambda expressions.
+    # You may not use any ternary expressions.
     # You may not use any list comprehensions.
-    # You may not use any generator expressions.
-    # You may not use any map, filter, or reduce functions.
     # You may not use any set comprehensions.
     # You may not use any dictionary comprehensions.
-    # You may not use any frozenset comprehensions.
-    # You may not use any other comprehensions.
-    # You may not use any yield statements.
-    # You may not use any yield from statements.
+    # You may not use any generator expressions.
+    # You may not use any with statements.
+    # You may not use any async with statements.
+    # You may not use any async for statements.
+    # You may not use any async def statements.
+    # You may not use any await expressions.
+    # You may not use any async statements.
+    # You may not use any await statements.
+    # You may not use any asyncio statements.
+    # You may not use any aiohttp statements.
     # You may not use any async/await statements.
-    # You may not use any coroutines.
-    # You may not use any asyncio.
-    # You may not use any threading.
-    # You may not use any multiprocessing.
-    # You may not use any concurrent.futures.
-    # You may not use any subprocess.
-    # You may not use any os.
-    # You may not use any sys.
-    # You may not use any pathlib.
-    # You may not use any shutil.
-    # You may not use any tempfile.
-    # You may not use any glob.
-    # You may not use any fnmatch.
-    # You may not use any linecache.
-    # You may not use any atexit.
-    # You may not use any traceback.
-    # You may not use any gc.
-    # You may not use any inspect.
-    # You may not use any code.
-    # You may not use any codeop.
-    # You may not use any dis.
-    # You may not use any tokenize.
-    # You may not use any token.
-    # You may not use any keyword.
-    # You may not use any importlib.
-    # You may not use any runpy.
-    # You may not use any pkgutil.
-    # You may not use any modulefinder.
-    # You may not use any zipimport.
-    # You may not use any pydoc.
-    # You may not use any doctest.
-    # You may not use any unittest.
-    # You may not use any unittest.mock.
-    # You may not use any unittest.test.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You may not use any unittest.main.
-    # You may not use any unittest.result.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You may not use any unittest.main.
-    # You may not use any unittest.result.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You may not use any unittest.main.
-    # You may not use any unittest.result.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You may not use any unittest.main.
-    # You may not use any unittest.result.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You may not use any unittest.main.
-    # You may not use any unittest.result.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You may not use any unittest.main.
-    # You may not use any unittest.result.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You may not use any unittest.main.
-    # You may not use any unittest.result.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You may not use any unittest.main.
-    # You may not use any unittest.result.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You may not use any unittest.main.
-    # You may not use any unittest.result.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You may not use any unittest.main.
-    # You may not use any unittest.result.
-    # You may not use any unittest.runner.
-    # You may not use any unittest.signals.
-    # You may not use any unittest.util.
-    # You may not use any unittest.loader.
-    # You may not use any unittest.case.
-    # You may not use any unittest.suite.
-    # You
+    # You may not use any asyncio/aiohttp statements.
+    # You may not use any async/await/asyncio/aiohttp statements.
+    # You may not use any asyncio/aiohttp/async/await statements.
+    # You may not use any aiohttp/async/await/asyncio statements.
+    # You may not use any aiohttp/asyncio/await/async statements.
+    # You may not use any asyncio/aiohttp/await/async statements.
+    # You may not use any async/asyncio/aiohttp/await statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/async/await/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
+    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio
