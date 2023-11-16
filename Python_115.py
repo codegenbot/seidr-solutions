@@ -1,5 +1,5 @@
 
-def max_fill(grid, bucket_capacity):
+def max_fill(grid, capacity):
     import math
     """
     You are given a rectangular grid of wells. Each row represents a single well,
@@ -32,7 +32,12 @@ def max_fill(grid, bucket_capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
-    # Your code here
+    # Complete the following code given the task description and function signature.
+    # You can add more functions if you want.
+    # Don't change the function signature.
+
+    # Write your code here.
+
     return 0
         * 1 <= capacity <= 10
     """
