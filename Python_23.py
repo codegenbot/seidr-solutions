@@ -5,6 +5,5 @@ def strlen(string: str) -> int:
     >>> strlen('')
     0
     >>> strlen('abc')
-    return len(string)
     3
     """
