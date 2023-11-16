@@ -11,125 +11,114 @@ def car_race_collision(n: int):
     in their trajectory as if they did not collide.
     # TODO: Complete the following code given the task description and function signature.
     # You may add additional helper functions as needed.
-    # You may not use any external libraries.
-    # You may not use any built-in Python data structures.
     # You may not use any built-in Python functions.
-    # You may not use any built-in Python sorting functions.
-    # You may not use any built-in Python sorting algorithms.
-    # You may not use any built-in Python searching functions.
-    # You may not use any built-in Python searching algorithms.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number generators.
-    # You may not use any built-in Python random number
+    # You may not use any external libraries.
+    # You may not use any data structures other than lists.
+    # You may not use any loops.
+    # You may not use any recursion.
+    # You may not use any global variables.
+    # You may not use any mutable variables.
+    # You may not use any variables other than those passed in as parameters.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
+    # You may not use any variables other than those declared in the function signature.
 
     This function outputs the number of such collisions.
     """
