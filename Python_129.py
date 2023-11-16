@@ -23,28 +23,62 @@ def minPath(grid, k):
 
     Examples:
 
+    # Use a deque to keep track of the neighbours
+    queue = deque()
 
-    # if k = 1, return the minimum value in the grid
-    if k == 1:
-        return [min(grid[i][j] for j in range(len(grid)) for i in range(len(grid)))]
+    # Use a dictionary to keep track of the visited cells
+    visited = {}
 
-    # if k > 1, find the minimum value in the grid and its neighbors
-    # continue to do so until k = 1
-    while k > 1:
-        # find the minimum value in the grid and its neighbors
-        min_val = min(grid[i][j] for j in range(len(grid)) for i in range(len(grid)))
-        for i in range(len(grid)):
-            for j in range(len(grid)):
-                if grid[i][j] == min_val:
-                    min_index = [i, j]
-                    break
+    # Add the starting point to the queue
+    queue.append([0, 0])
 
-        # continue to do so until k = 1
-        if k > 1:
-            k -= 1
-            grid[min_index[0]][min_index[1]] = float('inf')
+    # Add the starting point to the visited dictionary
+    visited[0] = [0]
 
-    return [min_val]
+    # Continue until the queue is empty
+    while queue:
+        # Pop the first element from the queue
+        current = queue.popleft()
+
+        # Get the neighbours of the current cell
+        neighbours = getNeighbours(current)
+
+        # Iterate through the neighbours
+        for neighbour in neighbours:
+            # If the neighbour has not been visited
+            if neighbour not in visited:
+                # Add the neighbour to the queue
+                queue.append(neighbour)
+
+                # Add the neighbour to the visited dictionary
+                visited[neighbour] = current
+
+    # Return the visited dictionary
+    return visited
+
+def getNeighbours(current):
+    """
+    Given a cell, return all of its neighbours.
+
+    Examples:
+
+        Input: [0, 0]
+        Output: [[0, 1], [1, 0]]
+
+        Input: [1, 1]
+        Output: [[0, 1], [1, 0], [1, 2], [2, 1]]
+    """
+    # Create a list to keep track of the neighbours
+    neighbours = []
+
+    # Add the neighbour to the right
+    neighbours.append([current[0], current[1] + 1])
+
+    # Add the neighbour to the bottom
+    neighbours.append([current[0] + 1, current[1]])
+
+    # Return the neighbours
+    return neighbours
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
