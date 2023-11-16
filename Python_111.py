@@ -13,10 +13,10 @@ def histogram(test):
 
 
     # Complete the following code
-    # ... 
-
-
-    # Complete the following code
     # ...
 
-    return None 
+
+    a = {}
+    return a
+    return None
+    """
