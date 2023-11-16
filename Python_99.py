@@ -16,6 +16,7 @@ def closest_integer(value):
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
     if value < 0:
+
     if value < 0:
         value = value * -1
         value = value // 1
