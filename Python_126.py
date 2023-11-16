@@ -1,9 +1,7 @@
 
 def is_sorted(lst):
-    '''
-    Given a list of numbers, return whether or not they are sorted
-    in ascending order. If list has more than 1 duplicate of the same
-    number, return False. Assume no negative numbers and only integers.
+    """
+    Given a list of numbers, return whether or not they are sorted in ascending order. If list has more than 1 duplicate of the same number, return False. Assume no negative numbers and only integers.
 
     Examples
     is_sorted([5]) ➞ True
@@ -14,5 +12,14 @@ def is_sorted(lst):
     is_sorted([1, 3, 2, 4, 5, 6, 7]) ➞ False
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
-    return True
+    if len(lst) == 1:
+        return True
+    else:
+        prev = lst[0]
+        for num in lst:
+            if num <= prev:
+                return False
+            else:
+                prev = num
+        return True
     '''
