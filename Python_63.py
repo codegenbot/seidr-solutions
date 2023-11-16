@@ -13,18 +13,11 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
-
-
-def find_max_length_of_matching_parentheses(string: str):
-    """Given a string of round, curly, and square open and closing brackets, return the length of the longest
-    substring that contains matching pairs of brackets.
-    >>> find_max_length_of_matching_parentheses("()()")
-    4
-    >>> find_max_length_of_matching_parentheses("(())")
-    4
-    >>> find_max_length_of_matching_parentheses("((()()")
-    4
-    >>> find_max_length_of_matching_parentheses("()(()))))")
-    4
-    """
+    if n == 0:
+        return 0
+    if n == 1:
+        return 0
+    if n == 2:
+        return 1
+    return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
     """
