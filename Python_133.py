@@ -1,8 +1,5 @@
 
 
-
-    lst = [int(math.ceil(abs(i))) for i in lst]
-    return(sum(map(lambda x: x ** 2, lst)))
 def sum_squares(lst):
     """You are given a list of numbers.
     You need to return the sum of squared numbers in the given list,
@@ -17,6 +14,7 @@ def sum_squares(lst):
     # You are not allowed to change the function signature.
     # You can use the math module if you wish.
     # Hint: You can use list comprehension.
+    pass
     
 
 
