@@ -8,8 +8,6 @@ def digitSum(s):
         digitSum("") => 0
         digitSum("abAB") => 131
         digitSum("abcCd") => 67
-        digitSum("aAaaaXa") => 153
-    """
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
 
@@ -18,5 +16,5 @@ def digitSum(s):
         if i.isupper():
             res += ord(i)
     return res
-        digitSum("aAaaaXa") => 153
+        digitSum("aAaaaXa") => 153 
     """
