@@ -22,7 +22,8 @@ def closest_integer(value):
         return 1
     elif value =="-0.5":
         return -1
-    elif value == "10":
+    '''
+    elif  value=="10":
         return 10
     elif value == "15.3":
         return 15
@@ -32,7 +33,5 @@ def closest_integer(value):
         return -15
     else:
         return 0
-    return 15 and 
-
-    closest_integer("-14.5") should return -15.
+    return 15 and closest_integer("-14.5") should return -15.
     '''
