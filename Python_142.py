@@ -11,84 +11,10 @@ def sum_squares(lst):
     For lst = [1,2,3] the output should be 6
     For lst = []  the output should be 0
     For lst = [-1,-5,2,-1,-5]  the output should be -126
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def sum_squares(lst):
-    sum = 0
-    for i in range(len(lst)):
-        if i % 3 == 0:
-            lst[i] = lst[i] ** 2
-        elif i % 4 == 0 and i % 3 != 0:
-            lst[i] = lst[i] ** 3
-        sum += lst[i]
-    return sum
+    
+    <start here>
+    sum_val = 0
+
+    return sum_val
+    <stop here>
     """
