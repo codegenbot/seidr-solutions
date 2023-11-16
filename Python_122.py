@@ -1,4 +1,3 @@
-from math import log10
 
 def add_elements(arr, k):
     """
@@ -8,16 +7,7 @@ def add_elements(arr, k):
     Example:
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
-
-    # create a new array to store all elements with at most two digits
-    # create a counter to store the sum of the elements
-
-    # loop through the first k elements in arr
-        # if the element has at most two digits
-            # append the element to the new array
-            # add the element to the counter
-
-    # return the counter
+    pass
         Output: 24 # sum of 21 + 3
 
     Constraints:
