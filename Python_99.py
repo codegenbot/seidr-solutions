@@ -19,6 +19,7 @@ def closest_integer(value):
     # Complete the following code given the task description and function signature.
     # You should remove the pass keyword and replace it with your own code.
     # If the function is not implemented correctly, the test cases will fail.
-    # pass
+    pass
     return 15 and closest_integer("-14.5") should return -15.
     '''
+    pass
