@@ -1,6 +1,6 @@
 
 
-def fib(n: int):
+def fib(n):
     """Return n-th Fibonacci number.
     >>> fib(10)
     55
@@ -8,13 +8,10 @@ def fib(n: int):
     1
     >>> fib(8)
     21
-    if n < 2:
-        return n
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
     else:
-        return fib(n-1) + fib(n-2)
-
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
+        return fib(n - 1) + fib(n - 2)
     """
