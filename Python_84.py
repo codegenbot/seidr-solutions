@@ -18,8 +18,14 @@ def solve(N):
     # You can use the print function for debugging purposes, e.g.
     # print "Debug messages..."
 
-    # Write your code here
-    # To print results to the standard output you can use print
-    # Example: print "Hello world!"
+    # Start of your code
+    pass
+    # End of your code
 
-    return
+
+if __name__ == '__main__':
+    # Read the input from the standard input
+    N = int(raw_input())
+
+    # Print the output to the standard output
+    print solve(N)
