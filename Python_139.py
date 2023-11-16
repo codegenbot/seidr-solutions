@@ -5,10 +5,6 @@ def special_factorial(n):
     where n > 0
 
     For example:
-
-    if n == 0:
-        return 1
-
     >>> special_factorial(4)
     288
 
@@ -17,6 +13,7 @@ def special_factorial(n):
         factorial *= i
     
     return factorial
+    pass
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
