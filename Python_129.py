@@ -23,23 +23,28 @@ def minPath(grid, k):
 
     Examples:
 
-    def dfs(r, c, k, path):
-        if k == 0:
-            return path
 
-        for (nr, nc) in [(r-1, c), (r, c-1), (r, c+1), (r+1, c)]:
-            if 0 <= nr < n and 0 <= nc < n and grid[nr][nc] not in path:
-                new_path = dfs(nr, nc, k-1, path + [grid[nr][nc]])
-                if new_path:
-                    return new_path
+    # if k = 1, return the minimum value in the grid
+    if k == 1:
+        return [min(grid[i][j] for j in range(len(grid)) for i in range(len(grid)))]
 
-    n = len(grid)
+    # if k > 1, find the minimum value in the grid and its neighbors
+    # continue to do so until k = 1
+    while k > 1:
+        # find the minimum value in the grid and its neighbors
+        min_val = min(grid[i][j] for j in range(len(grid)) for i in range(len(grid)))
+        for i in range(len(grid)):
+            for j in range(len(grid)):
+                if grid[i][j] == min_val:
+                    min_index = [i, j]
+                    break
 
-    for r in range(n):
-        for c in range(n):
-            path = dfs(r, c, k, [grid[r][c]])
-            if path:
-                return path
+        # continue to do so until k = 1
+        if k > 1:
+            k -= 1
+            grid[min_index[0]][min_index[1]] = float('inf')
+
+    return [min_val]
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
