@@ -1,5 +1,5 @@
 
-def max_fill(grid, capacity):
+def max_fill(grid, bucket_capacity):
     import math
     """
     You are given a rectangular grid of wells. Each row represents a single well,
@@ -40,7 +40,8 @@ def max_fill(grid, capacity):
     for i in range(n):
         for j in range(m):
             if grid[i][j] == 1:
-                count += math.ceil(1 / capacity)
+                count += math.ceil(grid[i][j] / bucket_capacity)
     return count
 
-assert max_fill([[1, 1, 1, 1], [1, 1, 1, 1]], 9) == 2, "Error"
+if __name__ == "__main__":
+    max_fill(max_fill, 5)
