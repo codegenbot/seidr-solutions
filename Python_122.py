@@ -7,7 +7,7 @@ def add_elements(arr, k):
     Example:
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
-    pass
+    return sum(x for x in arr[:k] if x < 100)
         Output: 24 # sum of 21 + 3
 
     Constraints:
