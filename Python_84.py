@@ -13,4 +13,4 @@ def solve(N: int) -> str:
     Output:
          a string of binary number
     """
-    return str(bin(N))
+    return str(bin(N))[2:]
