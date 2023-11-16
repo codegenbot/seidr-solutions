@@ -1,11 +1,7 @@
 
 
 def is_prime(n):
-    """Return true if a given number is prime, and false otherwise. 
-    A prime number is a number that is only divisible by itself and 1. 
-    For example, 11 is prime, because it can only be divided by 1 or 11.
-    Any number that can be divided by a number other than itself or 1 is not prime.
-    For example, 12 is not prime, because it can be divided by 2, 3, 4, or 6.
+    """Return true if a given number is prime, and false otherwise.
     >>> is_prime(6)
     False
     >>> is_prime(101)
@@ -20,4 +16,41 @@ def is_prime(n):
     False
     >>> is_prime(1)
     False
+
+
+def print_primes(n):
+    """Print all the primes from 0 to n.
+    >>> print_primes(10)
+    2
+    3
+    5
+    7
+    >>> print_primes(100)
+    2
+    3
+    5
+    7
+    11
+    13
+    17
+    19
+    23
+    29
+    31
+    37
+    41
+    43
+    47
+    53
+    59
+    61
+    67
+    71
+    73
+    79
+    83
+    89
+    97
+    >>> print_primes(1)
+    """
     """
