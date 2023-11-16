@@ -1,19 +1,14 @@
-
-def sum_squares_odds(lst):
+def count_non_int_numbers(lst):
     '''
-    Given a list of numbers, return the sum of squares of the numbers
-    in the list that are odd. Ignore numbers that are negative or not integers.
-
-    sum_squares_odds([1, 3, 2, 0]) == 1 + 9 + 0 + 0 = 10
-    sum_squares_odds([-1, -2, 0]) == 0
-    sum_squares_odds([9, -2]) == 81
-    sum_squares_odds([0]) == 0  
-   
-    If the input list is empty, return 0.
+    Given a list of numbers, return the count of positive number divisible by 
+    3. Ignore numbers that are not integers.
+    First item counts as non-int.
+    
+    count_non_int_numbers([1, 2, 3, 0]) == 2
+    count_non_int_numbers([0, -3, -1]) == 0D
+    count_non_int_numbers([-1, -2]) == 0
+    count_non_int_numbers([0]) == 0  
+    count_non_int_numbers([1.0, 2.0]) == 1
+    count_non_int_numbers(["1", "2"]) == 0
+    If the input list is empty, return 0.0
     '''
-    square = []
-    for i in lst:
-        if isinstance(i,int):
-            if i%2!=0:
-                square.append(i**2)
-    return sum(square)
