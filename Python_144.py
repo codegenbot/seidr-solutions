@@ -7,14 +7,7 @@ def simplify(x, n):
 
     You can assume that x, and n are valid fractions, and do not have zero as denominator.
 
-
     # Complete the following code given the task description and function signature.
-    # You can assume that x, and n are valid fractions, and do not have zero as denominator.
-    # You can also assume that x, and n are string representation of a fraction, and have the following format,
-    # <numerator>/<denominator> where both numerator and denominator are positive whole numbers.
-
-    # Your code here
-    pass
     simplify("1/5", "5/1") = True
     simplify("1/6", "2/1") = False
     simplify("7/10", "10/2") = False
