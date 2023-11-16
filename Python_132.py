@@ -10,21 +10,6 @@ def is_nested(string):
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-    # Create a stack to store the brackets
-    stack = []
-    # Iterate through the string
-    for bracket in string:
-        # If the bracket is an opening bracket, push it to the stack
-        if bracket == '[':
-            stack.append(bracket)
-        # If the bracket is a closing bracket, pop the last bracket from the stack
-        elif bracket == ']':
-            stack.pop()
-    # If the stack is empty, return True
-    if len(stack) == 0:
-        return True
-    # Otherwise, return False
-    else:
-        return False
+    # Write your code here
     is_nested('[[]][[') ➞ True
     '''
