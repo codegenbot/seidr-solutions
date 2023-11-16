@@ -8,7 +8,9 @@ def add_elements(arr, k):
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
 
-    # YOUR CODE HERE
+    # Your code here
+
+    return 0
         Output: 24 # sum of 21 + 3
 
     Constraints:
