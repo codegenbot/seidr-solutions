@@ -44,4 +44,6 @@ def max_fill(grid, capacity):
     return count
 
 if __name__ == "__main__":
-    max_fill([[0,0,1,0], [0,1,0,0], [1,1,1,1]], 1)
+    print(max_fill([[0, 0, 1, 0], [0, 1, 0, 0], [1, 1, 1, 1]], 1))
+    print(max_fill([[0, 0, 1, 1], [0, 0, 0, 0], [1, 1, 1, 1], [0, 1, 1, 1]], 2))
+    print(max_fill([[0, 0, 0], [0, 0, 0]], 5))
