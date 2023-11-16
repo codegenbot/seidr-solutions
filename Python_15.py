@@ -6,6 +6,6 @@ def string_sequence(n: int) -> str:
     '0'
     >>> string_sequence(5)
     '0 1 2 3 4 5'
-    strings = '0 1 2 3 4 5'
-    return strings
+
+    # TODO: Finish this function
     """
