@@ -1,4 +1,5 @@
 
+
 def closest_integer(value):
     '''
     Create a function that takes a value (string) representing a number
@@ -6,7 +7,7 @@ def closest_integer(value):
     from two integers, round it away from zero.
 
     Examples
-    >>> 10
+    >>> closest_integer("10")
     10
     >>> closest_integer("15.3")
     15
@@ -22,5 +23,15 @@ def closest_integer(value):
 
     # Delete the following line and write your code here
     pass
+
+
+check.expect( "Test 1", closest_integer("0"), 0 )
+check.expect( "Test 2", closest_integer("1"), 1 )
+check.expect( "Test 3", closest_integer("-1"), -1 )
+check.expect( "Test 4", closest_integer("11.7654321001"), 12 )
+check.expect( "Test 5", closest_integer("3.39999999999"), 4 )
+check.expect( "Test 6", closest_integer("3.2"), 3 )
+check.expect( "Test 7", closest_integer("3.5"), 4 )
+
     return 15 and closest_integer("-14.5") should return -15.
     '''
