@@ -10,18 +10,7 @@ def is_nested(string):
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-    string = list(string)
-    for i in range(len(string)):
-        if string[i] == '[' and string[i+1] == ']':
-            return True
-        else:
-            return False
 
-print(is_nested('[[]]'))
-print(is_nested('[]]]]]]][[[[[]'))
-print(is_nested('[][]'))
-print(is_nested('[]'))
-print(is_nested('[[][]]'))
-print(is_nested('[[]][['))
+    # Write your code here
     is_nested('[[]][[') ➞ True
     '''
