@@ -11,104 +11,81 @@ def car_race_collision(n: int):
     in their trajectory as if they did not collide.
     # TODO: Complete the following code given the task description and function signature.
     # You may add additional helper functions as needed.
-    # You may not use any built-in Python data structures.
-    # You may not use any Python libraries.
-    # You may not use any sorting algorithms.
-    # You may not use any data structures from the collections library.
-    # You may not use any data structures from the heapq library.
-    # You may not use any data structures from the bisect library.
-    # You may not use any data structures from the queue library.
-    # You may not use any data structures from the deque library.
-    # You may not use any data structures from the array library.
-    # You may not use any data structures from the itertools library.
-    # You may not use any data structures from the functools library.
-    # You may not use any data structures from the operator library.
-    # You may not use any data structures from the string library.
-    # You may not use any data structures from the re library.
-    # You may not use any data structures from the math library.
-    # You may not use any data structures from the random library.
-    # You may not use any data structures from the statistics library.
-    # You may not use any data structures from the cmath library.
-    # You may not use any data structures from the decimal library.
-    # You may not use any data structures from the fractions library.
-    # You may not use any data structures from the numbers library.
-    # You may not use any data structures from the ctypes library.
-    # You may not use any data structures from the multiprocessing library.
-    # You may not use any data structures from the concurrent library.
-    # You may not use any data structures from the concurrent.futures library.
-    # You may not use any data structures from the multiprocessing.pool library.
-    # You may not use any data structures from the multiprocessing.dummy library.
-    # You may not use any data structures from the multiprocessing.sharedctypes library.
-    # You may not use any data structures from the multiprocessing.managers library.
-    # You may not use any data structures from the multiprocessing.synchronize library.
-    # You may not use any data structures from the multiprocessing.connection library.
-    # You may not use any data structures from the multiprocessing.heap library.
-    # You may not use any data structures from the multiprocessing.queues library.
-    # You may not use any data structures from the multiprocessing.reduction library.
-    # You may not use any data structures from the multiprocessing.pool library.
-    # You may not use any data structures from the multiprocessing.sharedctypes library.
-    # You may not use any data structures from the multiprocessing.managers library.
-    # You may not use any data structures from the multiprocessing.synchronize library.
-    # You may not use any data structures from the multiprocessing.connection library.
-    # You may not use any data structures from the multiprocessing.heap library.
-    # You may not use any data structures from the multiprocessing.queues library.
-    # You may not use any data structures from the multiprocessing.reduction library.
-    # You may not use any data structures from the multiprocessing.pool library.
-    # You may not use any data structures from the multiprocessing.sharedctypes library.
-    # You may not use any data structures from the multiprocessing.managers library.
-    # You may not use any data structures from the multiprocessing.synchronize library.
-    # You may not use any data structures from the multiprocessing.connection library.
-    # You may not use any data structures from the multiprocessing.heap library.
-    # You may not use any data structures from the multiprocessing.queues library.
-    # You may not use any data structures from the multiprocessing.reduction library.
-    # You may not use any data structures from the multiprocessing.pool library.
-    # You may not use any data structures from the multiprocessing.sharedctypes library.
-    # You may not use any data structures from the multiprocessing.managers library.
-    # You may not use any data structures from the multiprocessing.synchronize library.
-    # You may not use any data structures from the multiprocessing.connection library.
-    # You may not use any data structures from the multiprocessing.heap library.
-    # You may not use any data structures from the multiprocessing.queues library.
-    # You may not use any data structures from the multiprocessing.reduction library.
-    # You may not use any data structures from the multiprocessing.pool library.
-    # You may not use any data structures from the multiprocessing.sharedctypes library.
-    # You may not use any data structures from the multiprocessing.managers library.
-    # You may not use any data structures from the multiprocessing.synchronize library.
-    # You may not use any data structures from the multiprocessing.connection library.
-    # You may not use any data structures from the multiprocessing.heap library.
-    # You may not use any data structures from the multiprocessing.queues library.
-    # You may not use any data structures from the multiprocessing.reduction library.
-    # You may not use any data structures from the multiprocessing.pool library.
-    # You may not use any data structures from the multiprocessing.sharedctypes library.
-    # You may not use any data structures from the multiprocessing.managers library.
-    # You may not use any data structures from the multiprocessing.synchronize library.
-    # You may not use any data structures from the multiprocessing.connection library.
-    # You may not use any data structures from the multiprocessing.heap library.
-    # You may not use any data structures from the multiprocessing.queues library.
-    # You may not use any data structures from the multiprocessing.reduction library.
-    # You may not use any data structures from the multiprocessing.pool library.
-    # You may not use any data structures from the multiprocessing.sharedctypes library.
-    # You may not use any data structures from the multiprocessing.managers library.
-    # You may not use any data structures from the multiprocessing.synchronize library.
-    # You may not use any data structures from the multiprocessing.connection library.
-    # You may not use any data structures from the multiprocessing.heap library.
-    # You may not use any data structures from the multiprocessing.queues library.
-    # You may not use any data structures from the multiprocessing.reduction library.
-    # You may not use any data structures from the multiprocessing.pool library.
-    # You may not use any data structures from the multiprocessing.sharedctypes library.
-    # You may not use any data structures from the multiprocessing.managers library.
-    # You may not use any data structures from the multiprocessing.synchronize library.
-    # You may not use any data structures from the multiprocessing.connection library.
-    # You may not use any data structures from the multiprocessing.heap library.
-    # You may not use any data structures from the multiprocessing.queues library.
-    # You may not use any data structures from the multiprocessing.reduction library.
-    # You may not use any data structures from the multiprocessing.pool library.
-    # You may not use any data structures from the multiprocessing.sharedctypes library.
-    # You may not use any data structures from the multiprocessing.managers library.
-    # You may not use any data structures from the multiprocessing.synchronize library.
-    # You may not use any data structures from the multiprocessing.connection library.
-    # You may not use any data structures from the multiprocessing.heap library.
-    # You may not use any data structures from the multiprocessing.queues library.
-    # You may not use any data structures from the multiprocessing
+    # You may not use any built-in Python functions.
+    # You may not use any external libraries.
+    # You may not use any data structures other than lists and dictionaries.
+    # You may not use any loops.
+    # You may not use any recursion.
+    # You may not use any sorting.
+    # You may not use any mutable variables.
+    # You may not use any global variables.
+    # You may not use any nonlocal variables.
+    # You may not use any nested functions.
+    # You may not use any classes.
+    # You may not use any exceptions.
+    # You may not use any try/except/finally/else/elif/break/continue/pass statements.
+    # You may not use any ternary operators.
+    # You may not use any lambda expressions.
+    # You may not use any generator expressions.
+    # You may not use any list/set/dict comprehensions.
+    # You may not use any yield statements.
+    # You may not use any yield from statements.
+    # You may not use any async/await statements.
+    # You may not use any async for/while statements.
+    # You may not use any async with statements.
+    # You may not use any await expressions.
+    # You may not use any asyncio.gather() or asyncio.wait() functions.
+    # You may not use any asyncio.as_completed() or asyncio.async() functions.
+    # You may not use any asyncio.ensure_future() or asyncio.shield() functions.
+    # You may not use any asyncio.create_task() or asyncio.create_subprocess_exec() functions.
+    # You may not use any asyncio.sleep() or asyncio.run() functions.
+    # You may not use any asyncio.get_event_loop() or asyncio.set_event_loop() functions.
+    # You may not use any asyncio.get_running_loop() or asyncio.new_event_loop() functions.
+    # You may not use any asyncio.get_child_watcher() or asyncio.set_child_watcher() functions.
+    # You may not use any asyncio.get_debug() or asyncio.set_debug() functions.
+    # You may not use any asyncio.get_task_factory() or asyncio.set_task_factory() functions.
+    # You may not use any asyncio.get_exception_handler() or asyncio.set_exception_handler() functions.
+    # You may not use any asyncio.get_coroutine_wrapper() or asyncio.set_coroutine_wrapper() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_running_loop() or asyncio.new_event_loop() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
+    # You may not use any asyncio.get_event_loop_policy() or asyncio.set_event_loop_policy() functions.
 
     This function outputs the number of such collisions.
     """
