@@ -40,5 +40,7 @@ def max_fill(grid, capacity):
     for i in range(n):
         for j in range(m):
             if grid[i][j] == 1:
-                count += grid[i][j] // capacity # TODO: why ceil?
+                count += math.ceil(1 / capacity)
     return count
+
+assert max_fill([[1, 1, 1, 1], [1, 1, 1, 1]], 9) == 2, "Error"
