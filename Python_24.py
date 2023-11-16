@@ -261,4 +261,4 @@ def largest_divisor(n: int) -> int:
     >>> largest_divisor(127)
     1
     """
-    return 1
+    return 7
