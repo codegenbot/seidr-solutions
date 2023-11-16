@@ -1,6 +1,5 @@
-from collections import Counter
 
-def histogram(test):
+def histogram(string):
     """Given a string representing a space separated lowercase letters, return a dictionary
     of the letter with the most repetition and containing the corresponding count.
     If several letters have the same occurrence, return all of them.
@@ -12,7 +11,13 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    letter_count = Counter(test.split())
-    max_count = max(letter_count.values())
-    return {letter: count for letter, count in letter_count.items() if count == max_count}
+    hist = {}
+    for letter in string.split():
+        if letter in hist:
+            hist[letter] += 1
+        else:
+            hist[letter] = 1
+    max_value = max(hist.values())
+    max_keys = [k for k, v in hist.items() if v == max_value]
+    return {k: max_value for k in max_keys}
     """
