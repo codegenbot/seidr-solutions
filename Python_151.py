@@ -7,20 +7,16 @@ def double_the_difference(lst):
     double_the_difference([1, 3, 2, 0]) == 1 + 9 + 0 + 0 = 10
     double_the_difference([-1, -2, 0]) == 0
     double_the_difference([9, -2]) == 81
-    double_the_difference([0]) == 0
-
+    double_the_difference([0]) == 0  
+   
     If the input list is empty, return 0.
     '''
 
     # Hint: You can use the modulus (%) operator to determine if a number is odd.
-    if lst == []:
-        return 0
-    else:
-        for i in lst:
-            if i%2==1:
-                return i*2
-            elif i<0:
-                return 0
-            else:
-                return 0
+
+    # YOUR CODE GOES HERE
+    return 0
+
+if __name__ == '__main__':
+    check(double_the_difference)
     #       For example, 10 % 2 == 0, and 11 % 2 == 1
