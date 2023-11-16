@@ -6,5 +6,5 @@ def count_distinct_characters(string: str) -> int:
     3
     >>> count_distinct_characters('Jerry')
     4
-    # Your code here
+    return len(set(string.lower()))
     """
