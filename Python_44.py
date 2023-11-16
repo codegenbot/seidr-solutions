@@ -9,16 +9,15 @@ def change_base(x: int, base: int):
     >>> change_base(8, 2)
     '1000'
     >>> change_base(7, 2)
-    >>> change_base(6, 5)
-    '11'
-    >>> change_base(7, 7)
-    '10'
     '111'
-    base_digits = '0123456789'
-    res = ''
-    while x > 0:
-        digit = x % base
-        res = base_digits[digit] + res
-        x //= base
-    return res
+    remaining = abs(x)
+    digits = ''
+    while remaining != 0:
+        first_digit = remaining // base
+        remaining -= first_digit * base
+        digits = f'{remaining}'
+        remaining = first_digit
+    if x < 0:
+        digits = '-' + digits
+    return digits
     """
