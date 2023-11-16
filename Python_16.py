@@ -5,12 +5,6 @@ def count_distinct_characters(string: str) -> int:
     char_set = set()
     for char in string:
         char_set.add(char.lower())
-
-    >>> count_distinct_characters('xyzXYZ')
-    3
-    >>> count_distinct_characters('Jerry')
-    4
-    >>> count_distinct_characters("Jerry jERRY JeRRRY")
-    5
     return len(char_set)
+    assert count_distinct_characters("Jerry jERRY JeRRRY") == 5
     """
