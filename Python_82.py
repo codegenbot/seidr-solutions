@@ -8,16 +8,11 @@ def prime_length(string):
     prime_length('kittens') == True
     prime_length('orange') == False
     """
-    if len(string) == 2:
+    if len(string) == 1:
+        return False
+    elif len(string) == 2:
         return True
-
     for i in range(2, len(string)):
         if len(string) % i == 0:
             return False
     return True
-
-
-print(prime_length('Hello'))
-print(prime_length('abcdcba'))
-print(prime_length('kittens'))
-print(prime_length('orange'))
