@@ -8,15 +8,7 @@ def add_elements(arr, k):
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
 
-    # Use a variable to store the sum of the elements with at most two digits
-    # from the first k elements of arr.
-
-    # Iterate over the first k elements of arr.
-
-        # If the current element of arr is less than or equal to 99,
-        # add it to the sum variable.
-
-    # Return the sum variable.
+    # Your code here
         Output: 24 # sum of 21 + 3
 
     Constraints:
