@@ -14,6 +14,16 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
+    result = [0, 0, 2, 0]
+    if n < 4:
+        return result[n]
+    else:
+        for i in range(4, n+1):
+            result.append(result[i-1] + result[i-2] + result[i-3] + result[i-4])
+        return result[n]
 
-    # YOUR CODE HERE
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
