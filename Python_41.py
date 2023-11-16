@@ -10,10 +10,16 @@ def car_race_collision(n: int):
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
 
-    # Your code goes here.
-    # You may use any data structure you like.
+    # TODO: Complete the following code given the task description and function signature.
+    # You are not allowed to change the function signature.
 
-    return 0
+    # The following code is written for you to help you get started.
+    # You are not allowed to change the following code.
+    left_to_right_cars = [0] * n
+    right_to_left_cars = [0] * n
+
+    collision_count = 0
+    return collision_count
 
     This function outputs the number of such collisions.
     """
