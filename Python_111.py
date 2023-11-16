@@ -25,14 +25,5 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    assert histogram("a") == {'a': 1}
-    assert histogram("a a") == {'a': 2}
-    assert histogram("a b") == {'a': 1, 'b': 1}
-    assert histogram("a b a") == {'a': 2, 'b': 1}
-    assert histogram("a b b") == {'a': 1, 'b': 2}
-    assert histogram("a b b a") == {'a': 2, 'b': 2}
-    assert histogram("a b b a b") == {'a': 2, 'b': 3}
-    assert histogram("a b c a b") == {'a': 2, 'b': 2, 'c': 1}
-    assert histogram("b b b b a") == {'b': 4, 'a': 1}
-    assert histogram("") == {}
+    return {}
     """
