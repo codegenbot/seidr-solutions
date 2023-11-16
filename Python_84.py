@@ -4,8 +4,8 @@ def solve(N):
     
     Example
         For N = 1000, the output should be "1111101000".
-        For N = 150, the output should be "100101110".
-        For N = 147, the output should be "100100011".
+        For N = 150, the output should be "1100101110".
+        For N = 147, the output should be "1001001011".
     
     Variables:
         @N integer
