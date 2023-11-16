@@ -1,3 +1,5 @@
+import time
+
 
 
 def fib4(n: int):
@@ -14,5 +16,13 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    pass
+
+    def callback(x):
+        print(x)
+        time.sleep(0.05)
+
+    callback(0)
+
+
+print(fib4(7))
     """
