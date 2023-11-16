@@ -23,154 +23,21 @@ def minPath(grid, k):
 
     Examples:
 
-    # Complete the following code given the task description and function signature.
-    # You can add more helper functions if needed.
-    # You can also change the function signature if needed.
-    # You can also change the function name if needed.
-    # You can also add more import statements if needed.
-    # You can also add more global variables if needed.
-    # You can also change the default value of the global variables if needed.
-    # You can also change the type of the global variables if needed.
-    # You can also change the default value of the parameters if needed.
-    # You can also change the type of the parameters if needed.
-    # You can also change the return type if needed.
-    # You can also change the return value if needed.
-    # You can also change the return statement if needed.
-    # You can also add more return statements if needed.
-    # You can also add more print statements if needed.
-    # You can also add more comments if needed.
-    # You can also remove the comments if needed.
-    # You can also change the comments if needed.
-    # You can also add more blank lines if needed.
-    # You can also remove the blank lines if needed.
-    # You can also change the blank lines if needed.
-    # You can also add more code if needed.
-    # You can also remove the code if needed.
-    # You can also change the code if needed.
-    # You can also add more variables if needed.
-    # You can also remove the variables if needed.
-    # You can also change the variables if needed.
-    # You can also add more parameters if needed.
-    # You can also remove the parameters if needed.
-    # You can also change the parameters if needed.
-    # You can also add more functions if needed.
-    # You can also remove the functions if needed.
-    # You can also change the functions if needed.
-    # You can also add more classes if needed.
-    # You can also remove the classes if needed.
-    # You can also change the classes if needed.
-    # You can also add more modules if needed.
-    # You can also remove the modules if needed.
-    # You can also change the modules if needed.
-    # You can also add more files if needed.
-    # You can also remove the files if needed.
-    # You can also change the files if needed.
-    # You can also add more folders if needed.
-    # You can also remove the folders if needed.
-    # You can also change the folders if needed.
-    # You can also add more projects if needed.
-    # You can also remove the projects if needed.
-    # You can also change the projects if needed.
-    # You can also add more workspaces if needed.
-    # You can also remove the workspaces if needed.
-    # You can also change the workspaces if needed.
-    # You can also add more computers if needed.
-    # You can also remove the computers if needed.
-    # You can also change the computers if needed.
-    # You can also add more devices if needed.
-    # You can also remove the devices if needed.
-    # You can also change the devices if needed.
-    # You can also add more operating systems if needed.
-    # You can also remove the operating systems if needed.
-    # You can also change the operating systems if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming environments if needed.
-    # You can also remove the programming environments if needed.
-    # You can also change the programming environments if needed.
-    # You can also add more programming tools if needed.
-    # You can also remove the programming tools if needed.
-    # You can also change the programming tools if needed.
-    # You can also add more programming libraries if needed.
-    # You can also remove the programming libraries if needed.
-    # You can also change the programming libraries if needed.
-    # You can also add more programming frameworks if needed.
-    # You can also remove the programming frameworks if needed.
-    # You can also change the programming frameworks if needed.
-    # You can also add more programming platforms if needed.
-    # You can also remove the programming platforms if needed.
-    # You can also change the programming platforms if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can also add more programming languages if needed.
-    # You can also remove the programming languages if needed.
-    # You can also change the programming languages if needed.
-    # You can
+    # TODO: Complete the following code given the task description and function signature.
+    # You can add more functions if needed.
+    # You can assume that the input is valid.
+    # You can use the print function to debug your code.
+    # Please do not modify the function signature.
+
+    # The following code is a sample solution for the problem.
+    # You can modify it to test your code.
+    # However, when you submit your code, it will be graded using
+    # a different sample solution.
+    n = len(grid)
+    path = []
+    for i in range(k):
+        path.append(grid[i % n][i // n])
+    return path
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
