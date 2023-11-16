@@ -1,16 +1,12 @@
 
-
-def fizz_buzz(n: int):
-    """Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.
-    >>> fizz_buzz(50)
-    0
-    >>> fizz_buzz(78)
-    2
-    >>> fizz_buzz(79)
-    3
-    counter = 0
-    for i in range(n):
-        if i % 11 == 0 or i % 13 == 0:
-            counter += str(i).count('7')
-    return counter
-    """
+# Complete the following code given the task description and function signature.
+"""
+Given a string, return the length of the longest substring (consecutive characters) in the string which does not
+contain any vowels.
+>>> longest_consonant_substring('bcd')
+3
+>>> longest_consonant_substring('aeiou')
+0
+>>> longest_consonant_substring('abcdabcef')
+4
+"""
