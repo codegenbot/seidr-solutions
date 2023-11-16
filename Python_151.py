@@ -11,8 +11,4 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    new_list = []
-    for number in lst:
-        if number > 0 and number%2 == 1:
-            new_list.append(number)
-    return sum(new_list)
+    return sum([i for i in lst if i > 0 and i%2 == 1])
