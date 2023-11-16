@@ -13,10 +13,5 @@ def double_the_difference(lst):
     '''
 
     # Hint: You can use the modulus (%) operator to determine if a number is odd.
-
-    # YOUR CODE GOES HERE
-    return 0
-
-if __name__ == '__main__':
-    check(double_the_difference)
+    pass
     #       For example, 10 % 2 == 0, and 11 % 2 == 1
