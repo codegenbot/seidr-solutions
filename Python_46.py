@@ -14,8 +14,26 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    a, b, c, d = 0, 0, 2, 0
-    for i in range(n):
-        a, b, c, d = b, c, d, a + b + c + d
-    return d
+
+
+def is_palindrome(s: str):
+    """
+    Return True if the given string is a palindrome.
+    >>> is_palindrome("racecar")
+    True
+    >>> is_palindrome("hello")
+    False
+    """
+
+
+def find_max(nums: list):
+    """
+    Given a list of numbers, return the maximum value in the list.
+    >>> find_max([1, 2, 3])
+    3
+    >>> find_max([1, 3, 2])
+    3
+    >>> find_max([3, 2, 1])
+    3
+    """
     """
