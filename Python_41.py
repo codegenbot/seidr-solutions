@@ -9,9 +9,14 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
+    pass
 
-    # The following line is a placeholder.  Please replace it with your code.
-    return -1
+
+def car_race_collision_efficient(n: int):
+    """
+    The above function runs in O(n^2) time.  This function runs in O(n) time.
+    """
+    pass
 
     This function outputs the number of such collisions.
     """
