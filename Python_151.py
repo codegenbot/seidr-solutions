@@ -1,2 +1,7 @@
-def double_the_difference(list):
-    return 2 * (max(list) - min(list))
+
+def double_the_difference(lst):
+    sum = 0
+    for x in lst:
+        if x % 2 != 0:
+            sum += x
+    return sum
