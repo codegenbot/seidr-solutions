@@ -36,7 +36,7 @@ def is_nested(string):
             nested = True
 
     # If the counter is 0 and there is a nested bracket, return True.
-    if open_brackets == 0 and nested == True: 
+    if open_brackets == 0 and nested == True:
         return True
 
     # Otherwise, return False.
@@ -46,5 +46,5 @@ def is_nested(string):
 
 string = '[[]]'
 print(is_nested(string))
-    is_nested('[[]][[') ➞ True
+    is_nested('[[]][[') ➞ True 
     '''
