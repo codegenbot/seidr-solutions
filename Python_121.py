@@ -4,8 +4,13 @@ def solution(lst):
     
 
     Examples
-    solution([5, 8, 7, 1]) ==> 12 # 5 + 1
-    solution([3, 3, 3, 3, 3]) ==> 9 # 3 + 3 + 3
+    solution([5, 8, 7, 1]) ==> 12
+    solution([3, 3, 3, 3, 3]) ==> 9
     pass
+    result = 0
+    for i in range(len(lst)):
+        if i % 2 == 0 and lst[i] % 2 == 1:
+            result += lst[i]
+    return result
     solution([30, 13, 24, 321]) ==>0
     """
