@@ -1,18 +1,25 @@
+import math
 
 def is_prime(n):
-    """A function that returns True if the given number is prime and False otherwise.
-
-    Examples:
-    for is_prime(7) == True
-    for is_prime(10) == False
-    """
-    pass
+    if n <= 1:
+        return False
+    elif n == 2:
+        return True
+    elif n > 2 and n % 2 == 0:
+        return False
+    else:
+        for i in range(3, int(math.sqrt(n)) + 1, 2):
+            if n % i == 0:
+                return False
+        return True
 
 def x_or_y(n, x, y):
-    """A simple program which should return the value of x if n is 
-    a prime number and should return the value of y otherwise.
+    if is_prime(n):
+        return x
+    else:
+        return y
 
-    pass
-    Examples:
-    for x_or_y(7, 34, 12) == 34    
-    """
+
+if __name__ == '__main__':
+    check(is_prime)
+    check(x_or_y)
