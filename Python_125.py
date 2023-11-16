@@ -7,17 +7,11 @@ def split_words(txt):
     Examples
     split_words("Hello world!") ➞ ["Hello", "world!"]
     split_words("Hello,world!") ➞ ["Hello", "world!"]
-    split_words("abcdef") == 3 
+    split_words("abcdef") == 3
     '''
     if ' ' in txt:
-        return txt.split(' ')
+        return txt.split()
     elif ',' in txt:
         return txt.split(',')
     else:
-        return sum(map(lambda x: x % 2 == 0, [ord(i) for i in txt]))
-
-
-if __name__ == '__main__':
-    print(split_words("Hello world!"))
-    print(split_words("Hello,world!"))
-    print(split_words("abcdef"))
+        return sum(1 for i in txt if ord(i) % 2 == 1)
