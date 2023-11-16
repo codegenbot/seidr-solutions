@@ -33,4 +33,4 @@ def max_fill(grid, capacity):
         * grid[i][j] -> 0 | 1
     """
     # Your code goes here    
-    return (sum(sum(row) for row in grid) + capacity - 1) // capacity
+    return sum(sum(row) for row in grid) // capacity
