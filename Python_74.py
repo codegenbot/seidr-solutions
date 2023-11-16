@@ -12,8 +12,8 @@ def total_match(lst1, lst2):
     if the two lists have the same number of chars, return the first list.
 
     Examples
-    total_match([], []) ➞ []total_match([], []) ➞ []
-    total_match(['hi', 'admin'], ['hI', 'Hi']) ➞ ['hI', 'Hi']total_match(['hi', 'admin'], ['hI', 'Hi']) ➞ ['hI', 'Hi']
+    total_match([], []) 
+    total_match(['hi', 'admin'], ['hI', 'Hi']) 
     total_1 = 0
     total_2 = 0
     for word in lst1:
@@ -29,7 +29,7 @@ def total_match(lst1, lst2):
 
 
 print(total_match(['4'], ['1', '2', '3', '4', '5']))
-    total_match(['hi', 'admin'], ['hi', 'hi', 'admin', 'project']) ➞ ['hi', 'admin']total_match(['hi', 'admin'], ['hi', 'hi', 'admin', 'project']) ➞ ['hi', 'admin']
-    total_match(['hi', 'admin'], ['hI', 'hi', 'hi']) ➞ ['hI', 'hi', 'hi']total_match(['hi', 'admin'], ['hI', 'hi', 'hi']) ➞ ['hI', 'hi', 'hi']
-    total_match(['4'], ['1', '2', '3', '4', '5']) ➞ ['4']total_match(['4'], ['1', '2', '3', '4', '5']) ➞ ['4']
+    total_match(['hi', 'admin'], ['hi', 'hi', 'admin', 'project']) ➞ ['hi', 'admin']
+    total_match(['hi', 'admin'], ['hI', 'hi', 'hi']) ➞ ['hI', 'hi', 'hi']
+    total_match(['4'], ['1', '2', '3', '4', '5']) ➞ ['4']
     '''
