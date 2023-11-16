@@ -6,13 +6,17 @@ def choose_num(x, y):
 
     For example:
     choose_num(12, 15) = 14
-    if x % 2 == 0:
-        return x
-    else:
-        x = x + 1
-    if y % 2 == 0:
-        return y
-    else:
-        return -1
+    for num in range(x, y+1):
+        if num%2 == 0:
+            return num
+    return -1
+
+
+print(choose_num(12, 15))
+print(choose_num(13, 12))
+print(choose_num(1, 2))
+print(choose_num(2, 1))
+print(choose_num(1, 1))
+print(choose_num(2, 2))
     choose_num(13, 12) = -1
     """
