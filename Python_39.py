@@ -36,7 +36,7 @@ def prime_fib(n: int):
             return False
     return True
 
-    def fib(n):
+def fib(n):
     """
     Returns n-th Fibonacci number.
     >>> fib(0)
@@ -56,6 +56,37 @@ def prime_fib(n: int):
     for i in range(n):
         a, b = b, a + b
     return a
+
+i = 0
+current_number = 0
+while i < n:
+    if is_prime(fib(current_number)):
+        i += 1
+    current_number += 1
+return fib(current_number - 1)
+                return False
+        return True
+
+    def fib(n):
+        """
+        Returns n-th Fibonacci number.
+        >>> fib(0)
+        0
+        >>> fib(1)
+        1
+        >>> fib(2)
+        1
+        >>> fib(3)
+        2
+        >>> fib(4)
+        3
+        >>> fib(5)
+        5
+        """
+        a, b = 0, 1
+        for i in range(n):
+            a, b = b, a + b
+        return a
 
     i = 0
     current_number = 0
