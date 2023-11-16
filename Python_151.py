@@ -12,9 +12,9 @@ def double_the_difference(lst):
     If the input list is empty, return 0.
     '''
     result = 0
-    for i in lst:
+    for i in list:
         if (i < 0) or (i != int(i)):
             continue
-        if i % 2 != 0:
+        if i % 2 == 1:
             result += i * i
     return result
