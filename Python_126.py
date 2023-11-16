@@ -14,5 +14,14 @@ def is_sorted(lst):
     is_sorted([1, 3, 2, 4, 5, 6, 7]) ➞ False
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
-    return len(lst) == 1 or (lst[0] < lst[1])
+    if len(lst) == 1: # if only one number in the list, it is sorted
+        return True
+    else:
+        prev = lst[0] # first element in the list
+        for num in lst: # for every number in the list
+            if num <= prev: # if the number is smaller than the previous one
+                return False
+            else:
+                prev = num
+        return True
     '''
