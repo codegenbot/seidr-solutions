@@ -8,13 +8,4 @@ def monotonic(l: list):
     False
     >>> monotonic([4, 1, 0, -10])
     True
-
-
-def main():
-    import doctest
-    doctest.testmod()
-
-
-if __name__ == "__main__":
-    main()
     """
