@@ -10,11 +10,5 @@ def change_base(x: int, base: int):
     '1000'
     >>> change_base(7, 2)
     '111'
-    # complete the code
-    # you can use the following code to test your function
-    # but it is not part of the function definition
-    # it is only for your convenience
-    if __name__ == "__main__":
-        import doctest
-        doctest.testmod()
+    # Complete the following code given the task description and function signature.
     """
