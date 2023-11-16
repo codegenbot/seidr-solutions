@@ -7,7 +7,21 @@ def simplify(x, n):
 
     You can assume that x, and n are valid fractions, and do not have zero as denominator.
 
-    # Complete the following code given the task description and function signature.
+    numerator_x = int(x.split('/')[0])
+    denominator_x = int(x.split('/')[1])
+    numerator_n = int(n.split('/')[0])
+    denominator_n = int(n.split('/')[1])
+    return numerator_x * denominator_n * numerator_n * denominator_x % (denominator_x * denominator_n) == 0
+
+
+def main():
+    print(simplify("1/5", "5/1"))
+    print(simplify("1/6", "2/1"))
+    print(simplify("7/10", "10/2"))
+
+
+if __name__ == '__main__':
+    main()
     simplify("1/5", "5/1") = True
     simplify("1/6", "2/1") = False
     simplify("7/10", "10/2") = False
