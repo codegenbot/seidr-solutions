@@ -11,13 +11,5 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    # Complete the following code
-    # Hint: Use the split() method to get a list of words
-    # Hint: Use the count() method to get the count of each word
-    # Hint: Use the max() method to get the maximum count
-    # Hint: Use the filter() method to get the words with the maximum count
-    # Hint: Use the dict() method to create a dictionary from the words and the count
-    # Hint: Use the list() method to convert the filter object to a list
-    return dict(zip(list(filter(lambda x: test.count(x) == max(map(test.count, test.split())), test.split())),
-                    [max(map(test.count, test.split()))] * len(list(filter(lambda x: test.count(x) == max(map(test.count, test.split())), test.split())))))
+    pass
     """
