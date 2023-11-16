@@ -10,15 +10,11 @@ def any_int(x, y, z):
     
     any_int(3, 2, 2) ➞ False
 
-    any_int(3, -2, 1) ➞ True
-    
-    any_int(3.6, -2.2, 2) ➞ False
-  
-
+    any_int(3, -2, 1) ➞ True  
     
     # Solution 1
     
-    return x + y == z or x + z == y or y + z == x 
+    return x + y == z or x + z == y or y + z == x
     
     # Solution 2
     
@@ -26,8 +22,5 @@ def any_int(x, y, z):
         return True
     else:
         return False
-    
-    
-   
-    
+        
     '''
