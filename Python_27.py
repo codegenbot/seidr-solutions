@@ -8,4 +8,4 @@ def flip_case(string: str) -> str:
 
 
 print(flip_case('Hello'))
-    """
+"""
