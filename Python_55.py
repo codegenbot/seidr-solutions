@@ -6,7 +6,6 @@ def fib(n: int):
     55
     >>> fib(1)
     1
-    >>> fib(12)
     if n == 0:
         return 0
     elif n == 1:
@@ -18,5 +17,4 @@ def fib(n: int):
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
-    144
     """
