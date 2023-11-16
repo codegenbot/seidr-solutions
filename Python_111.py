@@ -25,5 +25,12 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    return {}
+    d = {}
+    for i in test.split():
+        if i in d:
+            d[i] += 1
+        else:
+            d[i] = 1
+    return d
+    pass
     """
