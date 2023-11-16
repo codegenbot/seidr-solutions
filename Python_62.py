@@ -1,15 +1,14 @@
 
 
-def derivative(xs: list):
-    """ xs represent coefficients of a polynomial.
-    xs[0] + xs[1] * x + xs[2] * x^2 + ....
-     Return derivative of this polynomial in the same form.
-    >>> derivative([3, 1, 2, 4, 5])
-    [1, 4, 12, 20]
-    >>> derivative([1, 2, 3])
-    [2, 6]
-    if len(xs) == 1:
-        return [0]
-    else:
-        return [xs[i] * i for i in range(1, len(xs))]
-    """
+def derivative(xs : list) -> list: # xs is a list of coefficients, in descending order
+    """Return a list of coefficients of the derivative of the polynomial whose coefficients are given by xs."""
+    for i in range(len(xs)):
+        xs[i] = xs[i]*i
+    xs.pop(0)
+    return xs
+
+
+
+xs = [3, 1, 2, 4, 5] # 5x^4 + 4x^3 + 2x^2 + x + 3
+
+print(derivative(xs))
