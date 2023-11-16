@@ -10,6 +10,7 @@ def rounded_avg(n, m):
     rounded_avg(10, 20) => "0b1111"
     rounded_avg(20, 33) => "0b11010"
     """
-
-    # Your code here
-    pass
+    if n > m:
+        return -1
+    else:
+        return bin(round((n + m) / 2))
