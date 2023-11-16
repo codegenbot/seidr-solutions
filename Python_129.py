@@ -23,23 +23,14 @@ def minPath(grid, k):
 
     Examples:
 
+    def get_path_val(path):
+        pass
 
+    def get_min_path():
+        pass
 
-def minPath(grid, k):
-    n = len(grid)
-    dp = [[[0] * k for _ in range(n)] for _ in range(n)]
-    for i in range(n):
-        for j in range(n):
-            dp[i][j][0] = grid[i][j]
-
-    for i in range(n):
-        for j in range(n):
-            for l in range(1, k):
-                dp[i][j][l] = min(dp[i-1][j][l-1] if i > 0 else float('inf'),
-                                  dp[i+1][j][l-1] if i < n - 1 else float('inf'),
-                                  dp[i][j-1][l-1] if j > 0 else float('inf'),
-                                  dp[i][j+1][l-1] if j < n - 1 else float('inf'))
-    return dp[0][0][k-1]
+    min_path = get_min_path()
+    return get_path_val(min_path)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
