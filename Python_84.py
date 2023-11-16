@@ -13,7 +13,5 @@ def solve(N):
     Output:
          a string of binary number
     """
-
-    # Write your code here.
-
-    return "10010"
+    # Your code here
+    pass
