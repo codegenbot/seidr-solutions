@@ -12,4 +12,9 @@ def select_words(s, n):
     select_words("Hello world", 4) ==> ["world"]
     select_words("Uncle sam", 3) ==> ["Uncle"]
     """
-    # your code goes here
+    words = s.split()
+    result = []
+    for word in words:
+        if len(word) == n:
+            result.append(word)
+    return result
