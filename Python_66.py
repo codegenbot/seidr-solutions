@@ -11,7 +11,7 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
-    return
+    """
 
 
 def check(func):
@@ -22,10 +22,10 @@ def check(func):
     assert func("woArBld") == 131, "Error"
     assert func("aAaaaXa") == 153, "Error"
     assert func("kfjdvnkjfndjkvnjfndjvnkjdfnjkvnjkdnjvndfjvndjvnjkdnvjkdfnjkvnjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnv
-    assert digitSum("You arE Very Smart") == 327, "Error" #
 
 
 check(digitSum)
-        digitSum("You arE Very Smart") => 327
-        digitSum("aAaaaXa") => 153
-    """
+        digitSum("aAaaaXa") => 153, "Error"
+        digitSum("You arE Very Smart") => 327, "Error"
+    assert func("You arE Very Smart") == 327, "Error"
+
