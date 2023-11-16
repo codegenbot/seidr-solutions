@@ -32,7 +32,7 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
-    # Your code here
-    return math.ceil(sum(sum(grid, [])) / capacity)
-        * 1 <= capacity <= 10
+    return 
+    # TODO: complete the following code
+
     """
