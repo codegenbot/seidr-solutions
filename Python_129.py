@@ -72,5 +72,6 @@ def minPath(grid, k):
         Output: [1, 2, 1]
 
         Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
+    return []
         Output: [1]
     """
