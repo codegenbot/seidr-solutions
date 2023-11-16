@@ -8,22 +8,17 @@ def total_match(lst1, lst2):
 
     Examples
     total_match([], []) ➞ []
-    total_match(['hi', 'admin'], ['hI', 'Hi']) ➞ ['hI', 'Hi']
-    total_1 = 0
-    total_2 = 0
-    for word in lst1:
-        total_1 += len(word)
-    for word in lst2:
-        total_2 += len(word)
-    if total_1 == total_2:
-        return lst1
-    elif total_1 < total_2:
-        return lst1
-    else:
-        return lst2
+    '''
+    if len(lst1) == 0:
+        return []
+    elif len(lst2) == 0:
+        return []
+    total_1 = sum([len(word) for word in lst1])
+    total_2 = sum([len(word) for word in lst2])
+    return lst1 if total_1 <= total_2 else lst2
 
 
-#print(total_match(['4'], ['1', '2', '3', '4', '5']))
+print(total_match(['4'], ['1', '2', '3', '4', '5']))
     total_match(['hi', 'admin'], ['hi', 'hi', 'admin', 'project']) ➞ ['hi', 'admin']
     total_match(['hi', 'admin'], ['hI', 'hi', 'hi']) ➞ ['hI', 'hi', 'hi']
     total_match(['4'], ['1', '2', '3', '4', '5']) ➞ ['4']
