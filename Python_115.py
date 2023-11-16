@@ -32,8 +32,12 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
+    # Complete the following code given the task description and function signature.
+    # You may add additional functions and classes as needed.
+    # You may not change the function signature.
 
     # Your code here
+
     return 0
         * 1 <= capacity <= 10
     """
