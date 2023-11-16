@@ -8,11 +8,12 @@ def monotonic(l: list):
     False
     >>> monotonic([4, 1, 0, -10])
     True
-
-    increasing = False
-    decreasing = False
-
-    # Complete the code
-
-    return increasing or decreasing
+    if l == sorted(l) or l == sorted(l, reverse=True):
+        return True
+    else:
+        return False
+    if l == sorted(l) or l == sorted(l, reverse=True):
+        return True
+    else:
+        return False
     """
