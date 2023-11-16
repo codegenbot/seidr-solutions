@@ -23,174 +23,180 @@ def minPath(grid, k):
 
     Examples:
 
-    # TODO: Complete the following code given the task description and function signature.
-    # You can add more local functions and variables if needed.
-    # You can also change the function signature if needed.
-    # Don't change the function name and don't delete the docstring.
-    # Don't import any module.
-    # Don't use any advanced data structures.
-    # Don't use any built-in function.
-    # Don't use any third-party library.
-    # Don't use any online judge or any online resource.
-    # Don't use any IDE.
-    # You can use your operating system shell if needed.
-    # You can use your favorite editor if needed.
-    # You can use your favorite programming language if needed.
-    # You can use your favorite search engine if needed.
-    # You can use your favorite books if needed.
-    # You can use your favorite websites if needed.
-    # You can use your favorite algorithms and data structures if needed.
-    # You can use your favorite mathematical knowledge if needed.
-    # You can use your favorite everything if needed.
-    # You can use your brain if needed.
-    # You can use your hands if needed.
-    # You can use your legs if needed.
-    # You can use your eyes if needed.
-    # You can use your ears if needed.
-    # You can use your nose if needed.
-    # You can use your mouth if needed.
-    # You can use your heart if needed.
-    # You can use your soul if needed.
-    # You can use your life if needed.
-    # You can use your death if needed.
-    # You can use your past if needed.
-    # You can use your present if needed.
-    # You can use your future if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
-    # You can use your anything if needed.
-    # You can use your everything if needed.
-    # You can use your nothing if needed.
 
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
+
+    # TODO: Complete the following code given the task description and function signature.
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
