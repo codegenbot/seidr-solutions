@@ -7,16 +7,37 @@ def find_max(words):
 
     find_max(["name", "of", "string"]) == "string"
     find_max(["name", "enam", "game"]) == "enam"
-
-    max_len = 0
-    word_max = ""
+    max_unique_char = 0
+    max_unique_char_word = ""
     for word in words:
-        if len(set(word)) > max_len:
-            max_len = len(set(word))
-            word_max = word
-        elif len(set(word)) == max_len:
-            if word < word_max:
-                word_max = word
-    return word_max
+        unique_characters = set(word)
+        if len(unique_characters) > max_unique_char:
+            max_unique_char = len(unique_characters)
+            max_unique_char_word = word
+    return max_unique_char_word
+
+
+def check(fn):
+    assert fn(["play", "play", "play"]) == "play", "t10"
+    assert fn(["aaa", "bbb", "ccc"]) == "aaa", "t11"
+    assert fn(["name", "of", "string"]) == "string", "t12"
+    assert fn(["name", "enam", "game"]) == "enam", "t13"
+    assert fn(["aaaaaaa", "bb", "cc"]) == "aaaaaaa", "t14"
+    assert fn(["cc", "bb", "aaaaaaa"]) == "aaaaaaa", "t15"
+    assert fn(["cc", "bb", "aaaaaaa", "cc"]) == "aaaaaaa", "t16"
+    assert fn(["cc", "bb", "aaaaaaa", "cc", "bb"]) == "aaaaaaa", "t17"
+    assert fn(["cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa"]) == "aaaaaaa", "t18"
+    assert fn(["cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc"]) == "aaaaaaa", "t19"
+    assert fn(["cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb"]) == "aaaaaaa", "t20"
+    assert fn(["cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa"]) == "aaaaaaa", "t21"
+    assert fn(["cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc"]) == "aaaaaaa", "t22"
+    assert fn(["cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb"]) == "aaaaaaa", "t23"
+    assert fn(["cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa"]) == "aaaaaaa", "t24"
+    assert fn(["cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc"]) == "aaaaaaa", "t25"
+    assert fn(["cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb", "aaaaaaa", "cc", "bb"]) == "aaaaaaa", "t26"
+
+
+if __name__ == "__main__":
+    check(find_max)
     find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa"
     """
