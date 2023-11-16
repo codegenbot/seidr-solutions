@@ -11,23 +11,25 @@ def pluck(nodes):
     If there are no even values or the given array is empty, return [].
 
     Example 1:
-        Input: [7, 9, 7, 1]
-        Output: []
-        Explanation: There are no even values
+        Input: [4,2,3]
+        Output: [2, 1]
+        Explanation: 2 has the smallest even value, and 2 has the smallest index.
 
     Example 2:
-        Input: [4, 6, 8, 10]
-        Output: [4, 0]
-        Explanation: 4 has the smallest even value, and 4 has the smallest index.
+        Input: [1,2,3]
+        Output: [2, 1]
+        Explanation: 2 has the smallest even value, and 2 has the smallest index.
 
     Example 3:
         Input: []
         Output: []
 
     Example 4:
-        Input: [1, 3, 5, 7]
-        Output: []
-        Explanation: There are no even values
+        Input: [5, 0, 3, 0, 4, 2]
+        Output: [0, 1]
+        Explanation: 0 is the smallest value, but  there are two zeros,
+    return []
+                     so we will choose the first zero, which has the smallest index.
 
     Constraints:
         * 1 <= nodes.length <= 10000
