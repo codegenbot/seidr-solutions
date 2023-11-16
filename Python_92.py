@@ -13,6 +13,7 @@ def any_int(x, y, z):
     any_int(3, -2, 1) ➞ True
     
     any_int(3.6, -2.2, 2) ➞ False
+    '''
   
 
     if type(x) == int and type(y) == int and type(z) == int:
@@ -26,5 +27,3 @@ def any_int(x, y, z):
             return False
     else:
         return False
-    
-    '''
