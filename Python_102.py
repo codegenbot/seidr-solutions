@@ -9,12 +9,10 @@ def choose_num(x, y):
     if x % 2 == 0:
         return x
     else:
-        x += 1
-        while x <= y:
-            if x % 2 == 0:
-                return x
-            else:
-                x += 1
+        x = x + 1
+    if y % 2 == 0:
+        return y
+    else:
         return -1
     choose_num(13, 12) = -1
     """
