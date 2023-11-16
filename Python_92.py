@@ -11,8 +11,6 @@ def any_int(x, y, z):
     any_int(3, 2, 2) ➞ False
 
     any_int(3, -2, 1) ➞ True
-
-    any_int(1, 2.3, 4.5) ➞ False
     any_int(3.6, -2.2, 2) ➞ False
   
 
