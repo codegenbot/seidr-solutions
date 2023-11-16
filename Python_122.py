@@ -8,15 +8,7 @@ def add_elements(arr, k):
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
 
-    # TODO: Write your code here
-
-
-def main():
-    print("Sum of elements with at most two digits: " +
-          str(add_elements([111, 21, 3, 4000, 5, 6, 7, 8, 9], 4)))
-
-
-main()
+    # Your code here
         Output: 24 # sum of 21 + 3
 
     Constraints:
