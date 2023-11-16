@@ -12,7 +12,31 @@ def double_the_difference(lst):
     If the input list is empty, return 0.
     '''
     result = 0
-    for i in list:
+    for i in lst:
         if isinstance(i, int) and i >= 0 and i % 2 == 1:
             result += i ** 2
     return result
+
+def check(func):
+    lst = [1, 3, 2, 0]
+    odd_sum = 1 + 9 + 0 + 0
+    assert func(lst) == odd_sum, "Expected {}, got {}".format(odd_sum, func(lst))
+
+    lst = [-1, -2, 0]
+    odd_sum = 0
+    assert func(lst) == odd_sum, "Expected {}, got {}".format(odd_sum, func(lst))
+
+    lst = [9, -2]
+    odd_sum = 81
+    assert func(lst) == odd_sum, "Expected {}, got {}".format(odd_sum, func(lst))
+
+    lst = [0]
+    odd_sum = 0
+    assert func(lst) == odd_sum, "Expected {}, got {}".format(odd_sum, func(lst))
+
+    lst = []
+    odd_sum = 0
+    assert func(lst) == odd_sum, "Expected {}, got {}".format(odd_sum, func(lst))
+
+if __name__ == '__main__':
+    check(double_the_difference)
