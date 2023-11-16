@@ -1,13 +1,11 @@
 
-def x_or_y(n):
+def sum_of_digits(n):
     """A simple program which should return the sum of all digits of a given number.
 
-    Examples:
-    x_or_y = x_or_y
+    Examples: 
     return
     """
-    if n < 0:
-        n = -n
+    n = abs(n)
     s = 0
     while n > 0:
         s = s + n % 10
