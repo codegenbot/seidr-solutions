@@ -13,12 +13,15 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
-    a = 0;
-    b = 0;
-    c = 1;
-    for i in range(n):
-        a = b
-        b = c
-        c = a + b + c
-    return a
+    a, b, c = 0, 0, 1
+    if n == 0:
+        return a
+    elif n == 1:
+        return b
+    elif n == 2:
+        return c
+    else:
+        for i in range(n - 2):
+            a, b, c = b, c, a + b + c
+        return c
     """
