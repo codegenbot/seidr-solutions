@@ -9,7 +9,6 @@ def change_base(x: int, base: int):
     >>> change_base(8, 2)
     '1000'
     >>> change_base(7, 2)
-    '111'
+    '111'23
     pass
-
     """
