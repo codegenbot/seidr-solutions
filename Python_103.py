@@ -1,17 +1,3 @@
-def is_prime(n):
-    """
-    Given an integer n, determine if it is prime.
-    is_prime(1) => False
-    is_prime(2) => True
-    is_prime(10) => False
-    is_prime(11) => True
-    """
-    if n <= 1:
-        return False
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-    return True
 
 def rounded_avg(n, m):
     """You are given two positive integers n and m, and your task is to compute the
@@ -24,3 +10,8 @@ def rounded_avg(n, m):
     rounded_avg(10, 20) => "0b1111"
     rounded_avg(20, 33) => "0b11010"
     """
+    
+    if n > m:
+        return -1
+    else:
+        return bin(round((n + m) / 2))
