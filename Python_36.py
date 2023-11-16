@@ -9,10 +9,9 @@ def fizz_buzz(n: int):
     4
     4
     >>> fizz_buzz(79)
-    >>> fizz_buzz(100000)
-    8026
+    >>> fizz_buzz(100)
+    2
+    2
     # REPLACE THE PREVIOUS LINE WITH YOUR CODE
     # REPLACE THE PREVIOUS LINE WITH YOUR CODE
-    pass
-
     """
