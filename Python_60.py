@@ -12,6 +12,4 @@ def sum_to_n(n: int):
     55
     >>> sum_to_n(1)
     1
-    pass
-    return 1
     """
