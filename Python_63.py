@@ -15,43 +15,20 @@ def fibfib(n: int):
     24
 
 
-def find_min_cost(costs: list, start: int, end: int):
-    """Given a list of costs of length n and a start and end index,
-    please write a function to return the minimum cost to get from start to end.
-    You can start at any index and you can end at any index.
-    You can only travel forward, from left to right.
-    You cannot travel backwards.
-    >>> find_min_cost([100, 1, 100, 1, 1], 0, 4)
-    3
-    >>> find_min_cost([5, 10, 3, 12, 5, 50, 6], 0, 6)
-    14
-    >>> find_min_cost([5, 10, 3, 12, 5, 50, 6], 1, 5)
-    15
-    >>> find_min_cost([5, 10, 3, 12, 5, 50, 6], 5, 6)
-    6
-    >>> find_min_cost([5, 10, 3, 12, 5, 50, 6], 3, 5)
-    17
-    >>> find_min_cost([5, 10, 3, 12, 5, 50, 6], 3, 4)
-    12
-    """
+def num_subarrays(nums: List[int], target: int):
+    """Given a list of integers nums and a target integer target, return the number of non-empty subarrays of nums that are contiguous and have a sum equal to target.
 
-
-def find_min_cost_2(costs: list, start: int, end: int):
-    """Given a list of costs of length n and a start and end index,
-    please write a function to return the minimum cost to get from start to end.
-    You can start at any index and you can end at any index.
-    You can travel forward and backwards.
-    >>> find_min_cost_2([100, 1, 100, 1, 1], 0, 4)
+    >>> num_subarrays([1, 2, 3, 2], 2)
     2
-    >>> find_min_cost_2([5, 10, 3, 12, 5, 50, 6], 0, 6)
-    11
-    >>> find_min_cost_2([5, 10, 3, 12, 5, 50, 6], 1, 5)
-    10
-    >>> find_min_cost_2([5, 10, 3, 12, 5, 50, 6], 5, 6)
-    6
-    >>> find_min_cost_2([5, 10, 3, 12, 5, 50, 6], 3, 5)
-    12
-    >>> find_min_cost_2([5, 10, 3, 12, 5, 50, 6], 3, 4)
-    12
+    >>> num_subarrays([1, 1, 1, 1, 1], 2)
+    5
+    >>> num_subarrays([1, 1, 1, 1, 1], 5)
+    5
+    >>> num_subarrays([1, 1, 1, 1, 1], 15)
+    1
+    >>> num_subarrays([1, 1, 1, 1, 1], 0)
+    0
+    >>> num_subarrays([0, 0, 0, 0, 0], 0)
+    15
     """
     """
