@@ -11,16 +11,12 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
+    if len(lst) == 0:
+        return 0
 
-    # TODO: Complete the following code given the task description.
-    # The function signature has been provided for you.
-    #lst = [1, 3, 2, 0]
-    odd_sum = 0
-    for i in lst:
-        if i % 2 == 1 and i > 0:
-            odd_sum += i**2
-        else:
-            odd_sum += 0
-    print(odd_sum)
-    # You may use any helper functions that you deem necessary.
-    return 0
+        sum = 0
+    for item in lst:
+        if item % 2 != 0:
+            sum += item**2
+
+    return sum
