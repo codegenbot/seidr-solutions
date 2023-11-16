@@ -6,7 +6,7 @@ def incr_list(l: list):
     [2, 3, 4]
     >>> incr_list([5, 3, 5, 2, 3, 3, 9, 0, 123])
     [6, 4, 6, 3, 4, 4, 10, 1, 124]
-    """
+
 
 def is_palindromic(s: str):
     """Return whether s is palindromic.
@@ -153,5 +153,4 @@ def count_palindromic_numbers_in_any_base(n: int):
     76
     >>> count_palindromic_numbers_in_any_base(100)
     83
-    """
     """
