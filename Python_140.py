@@ -1,4 +1,3 @@
-
 def fix_spaces(text):
     """
     Given a string text, replace all spaces in it with underscores, 
@@ -10,9 +9,3 @@ def fix_spaces(text):
     fix_spaces(" Example 2") == "_Example_2"
     fix_spaces(" Example   3") == "_Example-3"
     """
-    if text.count(" ") == 0:
-        return text
-    elif text.count(" ") == 1:
-        return text.replace(" ", "_")
-    elif text.count(" ") > 1:
-        return text.replace(" ", "_").replace("_"*3, "-")
