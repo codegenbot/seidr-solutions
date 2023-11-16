@@ -9,6 +9,6 @@ def fibfib(n: int):
     Please write a function to efficiently compute the n-th element of the fibfib number sequence.
     >>> fibfib(5)
     4
-    >>> fibfib(15)
+    >>> fibfib(14)
     927
     """
