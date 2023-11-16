@@ -1,4 +1,12 @@
 
+def make_heap(arr):
+    return arr
+
+
+def heap_sort(arr):
+    return arr
+
+
 def maximum(arr, k):
     """
     Given an array arr of integers and a positive integer k, return a sorted list 
@@ -25,5 +33,11 @@ def maximum(arr, k):
         3. 0 <= k <= len(arr)
     """
 
-    # Complete the following code given the task description.
-    return arr[:k]
+    # make a max heap
+    max_heap = make_heap(arr)
+
+    # sort the max heap
+    sorted_arr = heap_sort(max_heap)
+
+    # return the first k elements
+    return sorted_arr[:k]
