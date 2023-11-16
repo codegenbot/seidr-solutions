@@ -11,6 +11,14 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    # Complete the following code
-    return {}
+    # Complete the following code given the task description and function signature.
+    # If you write more than 5 lines of code, you're doing it wrong.
+
+    # 1. Split the string into a list of words.
+    # 2. Initialize a dictionary with the letters of the alphabet.
+    # 3. Iterate over the list of words.
+    # 4. For each word, iterate over the letters.
+    # 5. Increment the count of the letter in the dictionary.
+    # 6. Find the highest count.
+    # 7. Return a dictionary containing the letter(s) with the highest count.
     """
