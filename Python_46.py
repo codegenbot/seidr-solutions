@@ -13,8 +13,6 @@ def fib4(n: int):
     >>> fib4(6)
     8
     >>> fib4(7)
-    >>> fib4(12)
-    386
     14
     # TODO: Complete the following code
     return 0 # TODO: Replace 0 with a correct expression
@@ -365,8 +363,6 @@ def fib4(n: int):
 
     # TODO: Complete the following code
     pass
-    return 0 # TODO: Replace 0 with a correct expression
-
     # TODO: Complete the following code
     pass
     return 0 # TODO: Replace 0 with a correct expression
