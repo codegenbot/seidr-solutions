@@ -1,8 +1,8 @@
 
 def digitSum(s):
-    """Task
-    Write a function that takes a string as input and returns the sum of the upper characters only'
-    ASCII codes.
+    """
+    Task
+    Write a function that takes a string as input and returns the sum of the upper characters only' ASCII codes.
 
     Examples:
         digitSum("") => 0
