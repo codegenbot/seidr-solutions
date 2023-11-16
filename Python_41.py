@@ -10,28 +10,29 @@ def car_race_collision(n: int):
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
 
-    # left_to_right_x = [2, 4, 6, 8]
-    # right_to_left_x = [9, 7, 5, 3]
-    left_to_right_x = []
-    right_to_left_x = []
-    collision_counter = 0
-    for i in range(0, n):
-        left_to_right_input = int(input("Enter left to right coordinates: "))
-        right_to_left_input = int(input("Enter right to left coordinates: "))
-        if left_to_right_input < right_to_left_input:
-            left_to_right_x.append(left_to_right_input)
-            right_to_left_x.append(right_to_left_input)
-            collision_counter += 1
+    assert n > 0
+    start = []
+    end = []
+    for i in range(n):
+        start.append(int(input()))
+        end.append(int(input()))
+    start.sort()
+    end.sort()
+    i = 0
+    j = 0
+    result = 0
+    while i < n and j < n:
+        if end[j] < start[i]:
+            result += j
+            i += 1
         else:
-            left_to_right_x.append(left_to_right_input)
-            right_to_left_x.append(right_to_left_input)
-
-    print(collision_counter)
-    print(left_to_right_x)
-    print(right_to_left_x)
+            j += 1
+    result += j * (n - i)
+    return result
 
 
-print(car_race_collision(4))
+if __name__ == '__main__':
+    print(car_race_collision(3))
 
     This function outputs the number of such collisions.
     """
