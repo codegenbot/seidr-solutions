@@ -12,27 +12,9 @@ def prime_fib(n: int):
     >>> prime_fib(4)
     13
     >>> prime_fib(5)
-    """
     89
-    i = 0
-    j = 1
-    count = 0
-    while count < n:
-        i, j = j, i + j
-        if is_prime(j):
-            count += 1
-    return j
-
-
-def is_prime(n: int) -> bool:
+    fibonacci = [0, 1, 2]
+    while len(fibonacci) <= n:
+        fibonacci.append(fibonacci[-1] + fibonacci[-2])
+    return fibonacci[n]
     """
-    is_prime returns True if n is prime, otherwise returns False.
-    """
-    if n == 2:
-        return True
-    if n < 2 or n % 2 == 0:
-        return False
-    for i in range(3, n, 2):
-        if n % i == 0:
-            return False
-    return True
