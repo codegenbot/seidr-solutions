@@ -1,5 +1,5 @@
 
-def max_fill(grid, bucket_capacity):
+def max_fill(grid, capacity):
     import math
     """
     You are given a rectangular grid of wells. Each row represents a single well,
@@ -32,6 +32,18 @@ def max_fill(grid, bucket_capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
-    # your code here
+
+    total_used = 0
+    for i in range(len(grid)):
+        # Check if there is a 1 in the current row
+        if 1 in grid[i]:
+            # Get the total number of 1s in the current row
+            total_ones = grid[i].count(1)
+            # Calculate the number of times a bucket is used in the current row
+            buckets_used = math.ceil(total_ones / capacity)
+            # Update the total number of buckets used
+            total_used += buckets_used
+
+    return total_used
         * 1 <= capacity <= 10
     """
