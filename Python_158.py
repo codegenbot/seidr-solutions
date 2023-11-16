@@ -5,8 +5,6 @@ def find_max(words):
     of unique characters. If multiple strings have maximum number of unique
     characters, return the one which comes first in lexicographical order.
 
-    find_max(["aaaaaaa", "bb" ,"cc"]) == ""aaaaaaa"
-    """
     find_max(["name", "of", "string"]) == "string"
     find_max(["name", "enam", "game"]) == "enam"
     max_word = ""
@@ -17,5 +15,5 @@ def find_max(words):
             max_count = len(unique_characters)
             max_word = word
     return max_word
-    find_max(["aaaaaaa", "bb" ,"cc"]) == ""aaaaaaa"
+    find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa"
     """
