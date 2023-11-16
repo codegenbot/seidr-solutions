@@ -8,5 +8,7 @@ def fib(n: int):
     1
     >>> fib(8)
     21
-    return 1
+    >>> fib(20)
+    6765
+    return fib(n - 1) + fib(n - 2)
     """
