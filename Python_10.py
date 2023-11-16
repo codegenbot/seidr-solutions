@@ -1,7 +1,4 @@
 
-"""
-Complete the following code given the task description and function signature.
-"""
 
 def is_palindrome(string: str) -> bool:
     """ Test if given string is a palindrome """
@@ -17,6 +14,7 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
+    return string + string[::-1]
     >>> make_palindrome('cata')
     'catac'
     """
