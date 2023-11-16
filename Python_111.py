@@ -12,4 +12,11 @@ def histogram(test):
     histogram('') == {}
 
     pass
+    dictionary = {}
+    for i in test:
+        if i not in dictionary:
+            dictionary[i] = 1
+        else:
+            dictionary[i] += 1
+    return dictionary
     """
