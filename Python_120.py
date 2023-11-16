@@ -24,5 +24,4 @@ def maximum(arr, k):
         2. The elements in the array will be in the range of [-1000, 1000].
         3. 0 <= k <= len(arr)
     """
-
-    # Write your code here.
+    return None
