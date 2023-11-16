@@ -15,11 +15,11 @@ def any_int(x, y, z):
     any_int(3.6, -2.2, 2) ➞ False
   
 
-    '''
-    if isinstance(x, int) and isinstance(y, int) and isinstance(z, int):
-        if x + y == z or x + z == y or y + z == x:
-            return True
-        else:
-            return False
+    if x == y + z or y == x + z or z == x + y and isinstance(x, int) and isinstance(y, int) and isinstance(z, int):
+        return True
     else:
         return False
+
+print(any_int(3, -2, 1))
+    
+    '''
