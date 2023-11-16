@@ -8,19 +8,15 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    a = a.replace(" ", "")
-    b = b.replace(" ", "")
-    b = b[1:] + b[0]
-    if a.find(b) != -1:
-        return True
-    else:
+    if len(b) > len(a):
         return False
+    else:
+        if len(a) == len(b):
+            return is_rotation(a, b)
+        else:
+            return is_rotation(a, b) or is_rotation(a, b[1:]) or is_rotation(a, b[:-1])
 
 
-print(cycpattern_check("abcd","abd"))
-print(cycpattern_check("hello","ell"))
-print(cycpattern_check("whassup","psus"))
-print(cycpattern_check("abab","baa"))
-print(cycpattern_check("efef","eeff"))
-print(cycpattern_check("himenss","simen"))
+def is_rotation(a, b):
+    return b in a
     """
