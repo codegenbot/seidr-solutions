@@ -34,13 +34,9 @@ def max_fill(grid, capacity):
         * grid[i][j] -> 0 | 1
 
     # Complete the following code given the task description and function signature.
-    # You may add additional functions.
 
-    # Hint:
-    # 1. You may find the `sum()` function useful.
-    # 2. You may find the `math.floor()` function useful.
+    # Your code here
 
-    # Write your code here
     return 0
         * 1 <= capacity <= 10
     """
