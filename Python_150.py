@@ -7,6 +7,20 @@ def x_or_y(n, x, y):
 
     Examples:
     for x_or_y(7, 34, 12) == 34
-    for x_or_y(15, 10, 5) == 5
+    if n == 2:
+        return x
+    elif n == 3:
+        return y
+    else:
+        return None
+
+
+def check(func):
+    assert func(2, 2, 0) == 2
+    assert func(3, 2, 0) == 0
+
+
+check(x_or_y)
+    for x_or_y(15, 8, 5) == 5
 
     """
