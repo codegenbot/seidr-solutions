@@ -1,4 +1,3 @@
-from itertools import product
 
 def minPath(grid, k):
     """
@@ -24,15 +23,9 @@ def minPath(grid, k):
 
     Examples:
 
-    n = len(grid)
-    for (i, j) in product(range(n), range(n)):
-        if grid[i][j] == 1:
-            start = (i, j)
-        else:
-            dfs(grid, i, j, k)
-
-def dfs(grid, i, j, k):
-    pass
+    # Your code goes here
+    # Please use the following function signature
+    # def minPath(grid, k):
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
