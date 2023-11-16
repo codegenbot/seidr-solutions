@@ -6,8 +6,9 @@ def fizz_buzz(n: int):
     1
     >>> fizz_buzz(78)
     4
+    1
     >>> fizz_buzz(79)
     >>> fizz_buzz(100000)
-    8026
-    8026
+    8027
+    # REPLACE THE PREVIOUS LINE WITH YOUR CODE
     """
