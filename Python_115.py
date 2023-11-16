@@ -35,4 +35,4 @@ def max_fill(grid, capacity):
     # Your code goes here
     if capacity == 0:
         return 0
-    return (sum(sum(row) for row in grid) // capacity + 1) if sum(sum(row) for row in grid) % capacity else sum(sum(row) for row in grid) // capacity
+    return sum(sum(row) for row in grid) // capacity 
