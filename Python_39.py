@@ -12,40 +12,48 @@ def prime_fib(n: int):
     >>> prime_fib(4)
     13
     >>> prime_fib(5)
-    >>> prime_fib(6)
-    233
-    >>> prime_fib(7)
-    1597
-    >>> prime_fib(8)
-    28657
-    >>> prime_fib(9)
-    514229
-    >>> prime_fib(10)
-    433494437
+    89
+    fib = [1, 2, 3, 5]
+    for i in range(4, n):
+        fib.append(fib[i - 2] + fib[i - 1])
+    for i in range(n - 1, -1, -1):
+        if is_prime(fib[i]):
+            return fib[i]
+
+
+def is_prime(n: int):
     """
-    def fib(n):
-        if n == 0:
-            return 0
-        elif n == 1:
-            return 1
-        else:
-            return fib(n - 1) + fib(n - 2)
-
-    def prime(n):
-        flag = 0
-        if n == 1:
+    >>> is_prime(2)
+    True
+    >>> is_prime(3)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(5)
+    True
+    >>> is_prime(6)
+    False
+    >>> is_prime(7)
+    True
+    >>> is_prime(8)
+    False
+    >>> is_prime(9)
+    False
+    >>> is_prime(10)
+    False
+    >>> is_prime(11)
+    True
+    >>> is_prime(12)
+    False
+    >>> is_prime(13)
+    True
+    """
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    for i in range(3, int(n ** 0.5) + 1, 2):
+        if n % i == 0:
             return False
-        elif n == 2:
-            return True
-        else:
-            for i in range(2, n):
-                if n % i == 0:
-                    flag = 1
-                    return False
-            if flag == 0:
-                return True
-
-    return prime_fib(n)
-
-
-prime_fib(1)
+    return True
+    """
