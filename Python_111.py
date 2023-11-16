@@ -11,23 +11,12 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    d = {}
-    for i in test:
-        if i == " ":
-            continue
-        if i in d:
-            d[i] += 1
+    hist = {}
+    test = test.split(" ")
+    for letter in test:
+        if letter in hist:
+            hist[letter] += 1
         else:
-            d[i] = 1
-
-    max_count = max(d.values())
-    return {k: v for k, v in d.items() if v == max_count}
-
-
-if __name__ == '__main__':
-    print(histogram('a b c'))
-    print(histogram('a b b a'))
-    print(histogram('a b c a b'))
-    print(histogram('b b b b a'))
-    print(histogram(''))
+            hist[letter] = 1
+    return hist
     """
