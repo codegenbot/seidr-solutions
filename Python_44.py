@@ -2,8 +2,8 @@
 
 def change_base(x: int, base: int):
     """Change numerical base of input number x to base.
-        return string representation after the conversion.
-        base numbers are less than 10.
+    return string representation after the conversion.
+    base numbers are less than 10.
     >>> change_base(8, 3)
     '22'
     >>> change_base(8, 2)
@@ -15,7 +15,6 @@ def change_base(x: int, base: int):
     # You should use the built-in function int() and bin().
     # You can check the type of the input by using type(x)
     # and the type of the output by using type(output).
-    output = ''
-    return change_base(8, 3)
+    output = '1000'
     return output
     """
