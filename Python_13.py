@@ -9,9 +9,5 @@ def greatest_common_divisor(a: int, b: int) -> int:
         a, b = b, a % b
     return a
 
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
     5
     """
