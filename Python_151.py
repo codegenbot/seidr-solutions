@@ -1,8 +1,6 @@
-from typing import List
-
 
 def double_the_difference(lst):
-    '''
+    """
     Given a list of numbers, return the sum of squares of the numbers
     in the list that are odd. Ignore numbers that are negative or not integers.
     
@@ -12,11 +10,7 @@ def double_the_difference(lst):
     double_the_difference([0]) == 0  
    
     If the input list is empty, return 0.
-    '''
-    result = 0
-    for i in lst:
-        if (i < 0) or (i != int(i)):
-            continue
-        if i % 2 == 1:
-            result += i * i
-    return result
+    """
+
+    # Hint: You can use the modulus (%) operator to determine if a number is odd.
+    #       For example, 10 % 2 == 0, and 11 % 2 == 1
