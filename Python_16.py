@@ -6,6 +6,7 @@ def count_distinct_characters(string: str) -> int:
     3
     >>> count_distinct_characters('Jerry jERRY JeRRRY')
     5
+    """
 
     distinct_characters = []
     for char in string:
