@@ -1,7 +1,7 @@
 
 
 def derivative(xs: list):
-    """ xs represent coefficients of a polynomial.
+    """xs represent coefficients of a polynomial.
     xs[0] + xs[1] * x + xs[2] * x^2 + ....
      Return derivative of this polynomial in the same form.
     >>> derivative([3, 1, 2, 4, 5])
@@ -14,7 +14,7 @@ def derivative(xs: list):
     return xs
 
 def evaluate(xs: list, x: float):
-    """ xs represent coefficients of a polynomial.
+    """xs represent coefficients of a polynomial.
     xs[0] + xs[1] * x + xs[2] * x^2 + ....
     Return the value of the polynomial at x.
     >>> evaluate([3, 1, 2, 4, 5], 1)
@@ -28,7 +28,7 @@ def evaluate(xs: list, x: float):
     return res
 
 def find_root(xs: list, x: float, epsilon: float):
-    """ xs represent coefficients of a polynomial.
+    """xs represent coefficients of a polynomial.
     xs[0] + xs[1] * x + xs[2] * x^2 + ....
     Start at x, and find a root of the polynomial.
     Return the root.
@@ -44,7 +44,7 @@ def find_root(xs: list, x: float, epsilon: float):
     return x
 
 def find_roots(xs: list, epsilon: float):
-    """ xs represent coefficients of a polynomial.
+    """xs represent coefficients of a polynomial.
     xs[0] + xs[1] * x + xs[2] * x^2 + ....
     Return a list of all roots of the polynomial.
     >>> find_roots([3, 1, 2, 4, 5], .1)
@@ -62,3 +62,4 @@ def find_roots(xs: list, epsilon: float):
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
+    """
