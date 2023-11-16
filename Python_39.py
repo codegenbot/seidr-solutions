@@ -11,10 +11,10 @@ def prime_fib(n: int):
     5
     >>> prime_fib(4)
     13
+    89
     >>> prime_fib(5)
     >>> prime_fib(10)
     433494437
-    89
     fib_list = [2, 3]
     i = 2
     while i < n:
