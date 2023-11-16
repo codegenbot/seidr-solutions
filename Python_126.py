@@ -1,6 +1,5 @@
 
 def is_sorted(lst):
-    '''
     Given a list of numbers, return whether or not they are sorted
     in ascending order. If list has more than 1 duplicate of the same
     number, return False. Assume no negative numbers and only integers.
@@ -44,4 +43,3 @@ print(is_sorted([1, 2, 3, 4, 5, 6, 7]))
 print(is_sorted([1, 3, 2, 4, 5, 6, 7]))
 print(is_sorted([1, 2, 2, 3, 3, 4]))
 print(is_sorted([1, 2, 2, 2, 3, 4]))
-    '''
