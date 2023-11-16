@@ -47,5 +47,4 @@ def is_nested(string):
 string = '[[]]'
 print(is_nested(string))
     is_nested('[[]][[') ➞ True
-    is_nested(']]]]]]]]') ➞ False
     '''
