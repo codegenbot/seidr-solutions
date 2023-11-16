@@ -26,4 +26,4 @@ def maximum(arr, k):
     """
 
     # TODO: Complete the following code given the task description and function signature.
-    pass
+    return sorted(arr)[-k:][::-1] if k > 0 else []
