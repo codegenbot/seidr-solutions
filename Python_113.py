@@ -10,8 +10,7 @@ def odd_count(lst):
     >>> odd_count(['3',"11111111"])
     ["the number of odd elements 1n the str1ng 1 of the 1nput.",
 
-    # Fill in the function and change the return statment.
-
-    return []
+    # Hint: use the `map` function
+    return list(map(lambda x: "the number of odd elements " + str(len([i for i in x if int(i) % 2 != 0])) + "n the str" + str(len([i for i in x if int(i) % 2 != 0])) + "ng " + str(len([i for i in x if int(i) % 2 != 0])) + " of the " + str(len([i for i in x if int(i) % 2 != 0])) + "nput.", lst))
      "the number of odd elements 8n the str8ng 8 of the 8nput."]
     """
