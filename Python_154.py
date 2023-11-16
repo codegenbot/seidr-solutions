@@ -8,45 +8,19 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    
-    a = a.lower()
-    b = b.lower()
-
-    # If length of b is greater than length of a, return False.
-    if len(b) > len(a):
+    if len(a) != len(b):
         return False
-    
-    # If a contains b, return True.
-    if a.find(b) != -1:
-        return True
-    
-    # If a does not contain b, check if any rotation of b is a substring of a.
     else:
-        
-        # Find the length of the rotation.
-        rotation_len = len(b) - 1
-        
-        # Find the last letter of b.
-        last_letter = b[-1]
-        
-        # Find the index of the last letter of b.
-        last_letter_index = a.find(last_letter)
-        
-        # Find the index of the first letter of the rotation.
-        first_letter_index = last_letter_index - rotation_len
-        
-        # If the index of the first letter < 0, add the length of a to get the actual index.
-        if first_letter_index < 0:
-            first_letter_index += len(a)
-            
-        # Find the rotation.
-        rotation = a[first_letter_index : last_letter_index + 1]
-        
-        # Check if rotation is a substring of a.
-        if a.find(rotation) != -1:
-            return True
-        
-        # If a does not contain b or any of its rotation, return False.
-        else:
-            return False
+        for i in range(len(a)):
+            if a[i:] + a[:i] == b:
+                return True
+        return False
+
+
+print(cycpattern_check("abcd","abd"))
+print(cycpattern_check("hello","ell"))
+print(cycpattern_check("whassup","psus"))
+print(cycpattern_check("abab","baa"))
+print(cycpattern_check("efef","eeff"))
+print(cycpattern_check("himenss","simen"))
     """
