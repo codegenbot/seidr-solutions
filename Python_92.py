@@ -15,8 +15,20 @@ def any_int(x, y, z):
     any_int(3.6, -2.2, 2) ➞ False
   
 
-    
-    return (x+y+z)%1==0 and (x+y==z or x+z==y or y+z==x)
+    if isinstance(x, int) and isinstance(y, int) and isinstance(z, int):
+        if x + y == z or x + z == y or z + y == x:
+            return True
+        else:
+            return False
+    else:
+        return False
     
     '''
-    return (x+y+z)%1==0 and (x+y==z or x+z==y or y+z==x)==False
+    if isinstance(x, int) and isinstance(y, int) and isinstance(z, int):
+        if x + y == z or x + z == y or z + y == x:
+            return True
+        else:
+            return False
+    else:
+        return False
+    
