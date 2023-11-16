@@ -13,21 +13,8 @@ def solve(N):
     Output:
          a string of binary number
     """
-
-    # Convert the integer to binary
-    binary = bin(N)
-
-    # Remove the '0b' prefix
-    binary = binary[2:]
-
-    # Convert the binary string to a list of characters
-    binary = list(binary)
-
-    # Convert the list of characters to a list of integers
-    binary = [int(i) for i in binary]
-
-    # Sum the list of integers
-    binary = sum(binary)
-
-    # Return the sum
-    return binary
+    binary = []
+    while N > 0:
+        binary.append(N % 2)
+        N = N // 2
+    return sum(binary)
