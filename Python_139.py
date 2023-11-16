@@ -5,14 +5,13 @@ def special_factorial(n):
     where n > 0
 
     For example:
+
+    if n == 0:
+        return 1
+
     >>> special_factorial(4)
     288
 
-    factorial = 1
-    for i in range(n, 0, -1):
-        factorial *= i
-    
-    return factorial
     factorial = 1
     for i in range(n, 0, -1):
         factorial *= i
