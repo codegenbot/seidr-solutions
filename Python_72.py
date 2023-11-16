@@ -10,11 +10,8 @@ def will_it_fly(q,w):
 
     will_it_fly([3, 2, 3], 1) ➞ False
     # it's balanced, but 3+2+3 is more than the maximum possible weight.
-
-    # check for a palindrome
-    if q == q[::-1]:
-        # if it is a palindrome check if the sum of elements is less than or equal to w
-        if sum(q) <= w:
+    if w >= sum(q):
+        if q == q[::-1]:
             return True
         else:
             return False
