@@ -15,12 +15,9 @@ def any_int(x, y, z):
     any_int(3.6, -2.2, 2) ➞ False
   
 
-    
-    return (y + z == x) or (x + z == y) or (x + y == z)
-
-   
-
-
-
+    if (x + y == z) or (y + z == x) or (x + z == y):
+        return True
+    else:
+        return False
     
     '''
