@@ -11,16 +11,4 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-   def __init__(L):
-		self.L = []
-
-	def double_the_difference(L):
-		if L == []:
-			return 0
-		else:
-			temp = []
-			for x in L:
-				if x % 2 == 0:
-					temp.append(x**2)
-			L = temp
-			return L
+    # Write your code here
