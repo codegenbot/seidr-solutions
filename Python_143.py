@@ -19,33 +19,4 @@ def words_in_sentence(sentence):
         * 1 <= len(sentence) <= 100
         * sentence contains only letters
     """
-
-    words = sentence.split(" ")
-    primes = []
-
-    for word in words:
-        length = len(word)
-        if is_prime(length):
-            primes.append(word)
-
-    return primes
-
-
-def is_prime(num):
-    """
-    This function checks if the given number is a prime number.
-    """
-
-    if num == 1:
-        return True
-    elif num == 2:
-        return True
-    else:
-        for i in range(2, num):
-            if num % i == 0:
-                return False
-    return True
-
-
-print(words_in_sentence("This is a test"))
-print(words_in_sentence("lets go for swimming"))
+    pass
