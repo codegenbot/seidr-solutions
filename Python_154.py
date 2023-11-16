@@ -16,7 +16,7 @@ def cycpattern_check(a , b):
                 return True 
     return False
 
-    """
+    
 print(cycpattern_check("abcd","abd"))
 print(cycpattern_check("hello","ell"))
 print(cycpattern_check("whassup","psus"))
