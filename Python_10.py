@@ -13,6 +13,7 @@ def make_palindrome(string: str) -> str:
     >>> make_palindrome('')
     >>> make_palindrome('cata')
     'catac'
+    """
     ''
     >>> make_palindrome('cat')
     'catac'
@@ -24,4 +25,6 @@ def make_palindrome(string: str) -> str:
             return string + string[:i][::-1]
 
     return string
+    >>> make_palindrome('cata')
+    'catac'
     """
