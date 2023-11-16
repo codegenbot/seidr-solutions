@@ -1,4 +1,3 @@
-import math
 
 def closest_integer(value):
     '''
@@ -16,12 +15,9 @@ def closest_integer(value):
     Rounding away from zero means that if the given number is equidistant
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
-    if math.ceil(float(value)) - float(value) == 0.5:
-        if float(value) > 0:
-            return math.ceil(float(value))
-        else:
-            return math.floor(float(value))
-    else:
-        return int(round(float(value)))
+
+    # START SOLUTION
+
+    # END SOLUTION
     return 15 and closest_integer("-14.5") should return -15.
     '''
