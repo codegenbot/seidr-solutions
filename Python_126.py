@@ -14,49 +14,14 @@ def is_sorted(lst):
     is_sorted([1, 3, 2, 4, 5, 6, 7]) ➞ False
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
-
-    # If the length of the list is less than 2, return True
-    if len(lst) < 2:
-        return True
-
-    # If the first element is greater than the second element, return False
-    if lst[0] > lst[1]:
-        return False
-
-    # If the last element is less than the second to last element, return False
-    if lst[-1] < lst[-2]:
-        return False
-
-    # If the first element is equal to the second element, return False
-    if lst[0] == lst[1]:
-        return False
-
-    # If the last element is equal to the second to last element, return False
-    if lst[-1] == lst[-2]:
-        return False
-
-    # If the first element is less than the second element, return True
-    if lst[0] < lst[1]:
-        return True
-
-    # If the last element is greater than the second to last element, return True
-    if lst[-1] > lst[-2]:
-        return True
-
-    # If the first element is equal to the second element, return True
-    if lst[0] == lst[1]:
-        return True
-
-    # If the last element is equal to the second to last element, return True
-    if lst[-1] == lst[-2]:
-        return True
+    for i in range(len(lst)):
+        if i + 1 < len(lst):
+            if lst[i] == lst[i + 1]:
+                return False
+            if lst[i] > lst[i + 1]:
+                return False
+    return True
 
 
-print(is_sorted([1, 2, 3, 4, 5]))
-print(is_sorted([1, 3, 2, 4, 5]))
-print(is_sorted([1, 2, 3, 4, 5, 6]))
-print(is_sorted([1, 2, 3, 4, 5, 6, 7]))
-print(is_sorted([1, 3, 2, 4, 5, 6, 7]))
 print(is_sorted([1, 2, 2, 3, 3, 4]))
-print(is_sorted([1, 2, 2, 2, 3, 4]))
     '''
