@@ -13,4 +13,7 @@ def solve(N):
     Output:
          a string of binary number
     """
-    return bin(N)[2:]
+    pass
+
+
+print(solve(963))
