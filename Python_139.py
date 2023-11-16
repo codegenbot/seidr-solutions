@@ -42,7 +42,7 @@ def special_factorial(n):
 
 
 def check(special_factorial):
-    """Checks special_factorial() function."""
+    """Checks special_factorial() function.
 
     assert special_factorial(1) == 1, "Test 1"
     assert special_factorial(2) == 2, "Test 2"
