@@ -1,34 +1,4 @@
 
-def _get_neighbors(grid, i, j):
-    """
-    Return a list of tuples representing the neighbors of the cell at (i, j)
-    """
-    neighbors = []
-    if i > 0:
-        neighbors.append((i - 1, j))
-    if i < len(grid) - 1:
-        neighbors.append((i + 1, j))
-    if j > 0:
-        neighbors.append((i, j - 1))
-    if j < len(grid) - 1:
-        neighbors.append((i, j + 1))
-    return neighbors
-
-
-def _get_path(grid, i, j, k, path, min_path):
-    """
-    Return a list of tuples representing the neighbors of the cell at (i, j)
-    """
-    path.append(grid[i][j])
-    if len(path) == k:
-        if path < min_path:
-            min_path = path
-        return min_path
-    for x, y in _get_neighbors(grid, i, j):
-        min_path = _get_path(grid, x, y, k, path, min_path)
-    return min_path
-
-
 def minPath(grid, k):
     """
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
@@ -53,29 +23,133 @@ def minPath(grid, k):
 
     Examples:
 
-    min_path = []
-    for i in range(len(grid)):
-        for j in range(len(grid)):
-            min_path = _get_path(grid, i, j, k, [], min_path)
-    return min_path
-
-
-if __name__ == '__main__':
-    grid = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ]
-    k = 3
-    print(minPath(grid, k))
-
-    grid = [
-        [5, 9, 3],
-        [4, 1, 6],
-        [7, 8, 2]
-    ]
-    k = 1
-    print(minPath(grid, k))
+    # Write your code here.
+    # You may need to add more functions to this file.
+    # You may need to add more classes to this file.
+    # You may need to add more global variables to this file.
+    # You may need to add more import statements.
+    # You may need to add more code to this file.
+    # You may need to add more comments to this file.
+    # You may need to add more blank lines to this file.
+    # You may need to add more spaces to this file.
+    # You may need to add more tabs to this file.
+    # You may need to add more newlines to this file.
+    # You may need to add more semicolons to this file.
+    # You may need to add more colons to this file.
+    # You may need to add more parentheses to this file.
+    # You may need to add more curly braces to this file.
+    # You may need to add more brackets to this file.
+    # You may need to add more quotes to this file.
+    # You may need to add more apostrophes to this file.
+    # You may need to add more backslashes to this file.
+    # You may need to add more forward slashes to this file.
+    # You may need to add more dots to this file.
+    # You may need to add more commas to this file.
+    # You may need to add more exclamation marks to this file.
+    # You may need to add more question marks to this file.
+    # You may need to add more underscores to this file.
+    # You may need to add more hyphens to this file.
+    # You may need to add more pluses to this file.
+    # You may need to add more minuses to this file.
+    # You may need to add more equal signs to this file.
+    # You may need to add more ampersands to this file.
+    # You may need to add more vertical bars to this file.
+    # You may need to add more tildes to this file.
+    # You may need to add more at signs to this file.
+    # You may need to add more pound signs to this file.
+    # You may need to add more dollar signs to this file.
+    # You may need to add more percent signs to this file.
+    # You may need to add more carets to this file.
+    # You may need to add more asterisks to this file.
+    # You may need to add more backticks to this file.
+    # You may need to add more pipes to this file.
+    # You may need to add more angle brackets to this file.
+    # You may need to add more colons to this file.
+    # You may need to add more semicolons to this file.
+    # You may need to add more single quotes to this file.
+    # You may need to add more double quotes to this file.
+    # You may need to add more triple quotes to this file.
+    # You may need to add more numbers to this file.
+    # You may need to add more letters to this file.
+    # You may need to add more symbols to this file.
+    # You may need to add more words to this file.
+    # You may need to add more sentences to this file.
+    # You may need to add more paragraphs to this file.
+    # You may need to add more chapters to this file.
+    # You may need to add more pages to this file.
+    # You may need to add more lines to this file.
+    # You may need to add more characters to this file.
+    # You may need to add more bytes to this file.
+    # You may need to add more bits to this file.
+    # You may need to add more kilobytes to this file.
+    # You may need to add more megabytes to this file.
+    # You may need to add more gigabytes to this file.
+    # You may need to add more terabytes to this file.
+    # You may need to add more petabytes to this file.
+    # You may need to add more exabytes to this file.
+    # You may need to add more zettabytes to this file.
+    # You may need to add more yottabytes to this file.
+    # You may need to add more brontobytes to this file.
+    # You may need to add more geopbytes to this file.
+    # You may need to add more shannon to this file.
+    # You may need to add more hartley to this file.
+    # You may need to add more nat to this file.
+    # You may need to add more ban to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You may need to add more joule to this file.
+    # You may need to add more electronvolt to this file.
+    # You may need to add more hartree to this file.
+    # You may need to add more rydberg to this file.
+    # You
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
