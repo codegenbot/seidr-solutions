@@ -23,152 +23,17 @@ def minPath(grid, k):
 
     Examples:
 
-    # TODO: Complete the following code given the task description and function signature.
-    # You can add any helper functions you need.
-    # You can assume that the grid is always valid and the answer is unique.
-    # You can assume that the input is always valid.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
-    # You can assume that the answer is always valid.
-    # You can assume that the answer is always unique.
-    # You can assume that the answer is always correct.
+    # Complete the following code given the task description and function signature.
+    # You are free to add any helper functions.
+    # You are not allowed to use any built-in functions.
 
+    # You can assume that the input is always valid.
+    # You can assume that the answer is always unique.
+
+    # Your code starts here.
+    pass
+
+    # Your code ends here.
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
