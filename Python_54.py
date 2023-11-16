@@ -15,11 +15,11 @@ def same_chars(s0: str, s1: str):
     False
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
     False
-    if len(s0) != len(s1):
+
+    s0_set = set(s0)
+    s1_set = set(s1)
+    if s0_set == s1_set:
+        return True
+    else:
         return False
-    list_s0 = list(s0)
-    list_s1 = list(s1)
-    list_s0.sort()
-    list_s1.sort()
-    return list_s0 == list_s1
     """
