@@ -4,8 +4,8 @@ def strlen(string: str) -> int:
     """ Return length of given string
     >>> strlen('')
     0
+    >>> strlen("asdasnakj") == 9
     >>> strlen('abc')
-    if len(string) == 0: return 0
-    else: return len(string)
+    return len(string)
     3
     """
