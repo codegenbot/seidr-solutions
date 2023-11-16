@@ -8,12 +8,13 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    word1 = list(a)
-    word2 = list(b)
-    if len(word1) < len(word2):
-        print False
-    else:
-        print True
 
-cycpattern_check("abcd","abd")
+    if a is None or b is None:
+        return False
+
+    for i in range(len(b)):
+        b = b[1:] + b[0]
+        if b in a:
+            return True
+    return False
     """
