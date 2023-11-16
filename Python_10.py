@@ -16,10 +16,9 @@ def make_palindrome(string: str) -> str:
     'catac'
     if is_palindrome(string):
         return string
-    else:
-        for i in range(len(string)):
-            if is_palindrome(string[i:]):
-                return string + string[:i][::-1]
+    for i in range(len(string)):
+        if is_palindrome(string[i:]):
+            return string + string[:i][::-1]
 
 
 if __name__ == '__main__':
