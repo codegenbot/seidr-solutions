@@ -7,19 +7,15 @@ def largest_prime_factor(n: int):
     >>> largest_prime_factor(2048)
     2
 
-    def _is_prime(n: int) -> bool:
-        """Return True if n is a prime number."""
-        for i in range(2, n):
-            if n % i == 0:
-                return False
-        return True
+    # Initialize largest factor.
+    largest_factor = 2
 
-    def _largest_factor(n: int) -> int:
-        """Return the largest prime factor of n."""
-        for i in range(2, n):
-            if n % i == 0 and _is_prime(i):
-                return i
-        return n
+    # Update largest factor while n is not prime.
+    while n > largest_factor:
+        if n % largest_factor == 0:
+            n //= largest_factor
+        else:
+            largest_factor += 1
 
-    return _largest_factor(n)
+    return largest_factor
     """
