@@ -177,3 +177,4 @@ def histogram(test):
     # You may not use any string concatenation.
     #
     """
+    return {}
