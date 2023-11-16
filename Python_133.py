@@ -11,11 +11,7 @@ def sum_squares(lst):
     For lst = [1.4,4.2,0] the output should be 29
     For lst = [-2.4,1,1] the output should be 6
     
-    
-    """
-    Your Code Here
-    """
 
-    return total_sum_sqrt
+    #type your solution inside function
 
     """
