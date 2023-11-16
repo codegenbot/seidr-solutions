@@ -6,10 +6,16 @@ def x_or_y(n, x, y):
     Examples:
     for x_or_y(7, 34, 12) == 34
     for x_or_y(15, 8, 5) == 5
-    
-    if n % 2 == 0:
+
+    if n == 1:
         return y
-    else:
+    elif n == 2:
         return x
+    else:
+        for i in range(2, n):
+            if n % i == 0:
+                return y
+            else:
+                return x
     
     """
