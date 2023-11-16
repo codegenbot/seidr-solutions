@@ -12,19 +12,19 @@ def max_fill(grid, capacity):
     Example 1:
         Input: 
             grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]
-            capacity : 1
+            bucket_capacity : 1
         Output: 6
 
     Example 2:
         Input: 
             grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]
-            capacity : 2
+            bucket_capacity : 2
         Output: 5
     
     Example 3:
         Input: 
             grid : [[0,0,0], [0,0,0]]
-            capacity : 5
+            bucket_capacity : 5
         Output: 0
 
     Constraints:
@@ -32,7 +32,7 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= capacity <= 10
     """
-    # 1 <= grid.length <= 10^2
+    # 1 <= grid[:,1].length <= 10^2
     # grid[i][j] -> 0 | 1
     n = len(grid)
     m = len(grid[0])
@@ -40,7 +40,7 @@ def max_fill(grid, capacity):
     for i in range(n):
         for j in range(m):
             if grid[i][j] == 1:
-                count += math.ceil(grid[i][j] / capacity)
+                count += math.ceil(1 / capacity)
     return count
 
 if __name__ == "__main__":
