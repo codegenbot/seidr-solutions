@@ -17,8 +17,8 @@ def same_chars(s0: str, s1: str):
     False
     if len(s0) != len(s1):
         return False
-    for i in s0:
-        if i not in s1:
+    for i in range(len(s0)):
+        if s0[i] not in s1:
             return False
     return True
     """
