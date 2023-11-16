@@ -8,10 +8,8 @@ def monotonic(l: list) -> bool:
     True
     >>> monotonic([1, 20, 4, 10])
     True
-    """
-    True
-    True
-    >>> monotonic([4, 1, 0, -10])    
+    >>> monotonic([4, 1, 0, -10])
+    False    
     if l[0] < l[1]:
         for i in range(len(l)-1):
             if l[i] >= l[i+1]:
