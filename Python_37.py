@@ -5,13 +5,7 @@ def sort_even(l: list):
     l' is identical to l in the odd indicies, while its values at the even indicies are equal
     to the values of the even indicies of l, but sorted.
     >>> sort_even([1, 2, 3])
-    [1, 2, 3]
+    [1, 2, 3, 5, 6, 3, 4]
     >>> sort_even([5, 6, 3, 4])
     [3, 6, 5, 4]"""
-    l_new = []
-    for i in range(len(l)):
-        if i % 2 == 0:
-            l_new.append(sorted(l[i]))
-        else:
-            l_new.append(l[i])
-    return l_new
+    return [l[i:i + 2] for i in range(0, len(l), 2)]
