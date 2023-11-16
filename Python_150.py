@@ -1,11 +1,4 @@
-def is_prime(n):
-    """A function which returns True if n is a prime number and False otherwise.
-
-    Examples:
-    for is_prime(7) == True
-    for is_prime(15) == False
-    """
-    pass
+import math
 
 def x_or_y(n, x, y):
     """A simple program which should return the value of x if n is 
@@ -14,5 +7,19 @@ def x_or_y(n, x, y):
     Examples:
     for x_or_y(7, 34, 12) == 34
     for x_or_y(15, 8, 5) == 5
+    if is_prime(n):
+        return x
+    else:
+        return y
+
+def is_prime(n):
+    """A function which returns True if n is a prime number and False otherwise.
+    """
+    if n < 2:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
     
     """
