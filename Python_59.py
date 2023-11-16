@@ -6,4 +6,5 @@ def largest_prime_factor(n: int):
     29
     >>> largest_prime_factor(2048)
     2
+    pass
     """
