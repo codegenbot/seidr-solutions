@@ -15,10 +15,5 @@ def same_chars(s0: str, s1: str):
     False
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
     False
-
-    # Complete the following code given the task description and function signature.
-    # You should use the same function signature and the name of the function.
-    # You can add additional helper functions as needed.
-    # You can use the Python standard library functions.
-    # You can use the collections.Counter class to count the number of occurrences of characters in a string.
+    return sorted(s0) == sorted(s1)
     """
