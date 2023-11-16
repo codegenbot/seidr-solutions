@@ -13,160 +13,21 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # Complete the following code given the task description and function signature.
-    # You may define other functions as needed.
-    # Do not modify the function signature.
-    # Do not use any built-in functions.
-    # Do not use any external libraries.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
-    # Do not modify the input/output format.
+
+    # Convert the integer to binary
+    binary = bin(N)
+
+    # Remove the '0b' prefix
+    binary = binary[2:]
+
+    # Convert the binary string to a list of characters
+    binary = list(binary)
+
+    # Convert the list of characters to a list of integers
+    binary = [int(i) for i in binary]
+
+    # Sum the list of integers
+    binary = sum(binary)
+
+    # Return the sum
+    return binary
