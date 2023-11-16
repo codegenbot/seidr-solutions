@@ -10,9 +10,6 @@ def is_nested(string):
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-    if string.count('[') == string.count(']'):
-        return False
-    else:
-        return True
+    pass
     is_nested('[[]][[') ➞ True
     '''
