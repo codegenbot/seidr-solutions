@@ -27,5 +27,3 @@ def check(func):
 
 
 check(digitSum)
-        digitSum("aAaaaXa") => 153
-    """
