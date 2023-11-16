@@ -22,6 +22,5 @@ def numerical_letter_grade(grades):
     
 
     Example:
-    # Complete the following code given the task description and function signature.
-    grade_equation([4.0, 3, 1.7, 2, 3.5]) ==> ['A+', 'B', 'C-', 'C', 'A-']
+    grade_equation([4.0, 3, 1.7, 2, 3.5]) ==> ['A+', 'B+', 'C-', 'C+', 'A-']
     """
