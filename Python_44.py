@@ -16,6 +16,7 @@ def change_base(x: int, base: int):
     # You can check the type of the input by using type(x)
     # and the type of the output by using type(output).
     output = ' '
-    return str(x)
+    return output
+    output = ' '
     return output
     """
