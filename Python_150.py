@@ -26,7 +26,9 @@ def x_or_y(x, y):
     x_or_y(9, 2)
     1
     """
-    if x > y and x > 0:
+    if x == y:
+        return 0
+    elif x > y:
         return 1
     else:
         return 0
