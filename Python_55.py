@@ -7,8 +7,13 @@ def fib(n: int):
     >>> fib(1)
     1
     >>> fib(8)
+    >>> fib(12)
+    144
     21
-    >>> fib(20)
-    6765
-    return fib(n - 1) + fib(n - 2)
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
     """
