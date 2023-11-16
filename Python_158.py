@@ -1,3 +1,5 @@
+from collections import Counter
+
 
 def find_max(words):
     """Write a function that accepts a list of strings.
@@ -7,20 +9,15 @@ def find_max(words):
 
     find_max(["name", "of", "string"]) == "string"
     find_max(["name", "enam", "game"]) == "enam"
-    max_len = 0
-    max_word = ""
+    c = Counter()
     for word in words:
-        word_set = set(word)
-        if len(word_set) > max_len:
-            max_len = len(word_set)
-            max_word = word
-
-    return max_word
+        c[word] = len(set(word))
+    c = {k: v for k, v in sorted(c.items(), key=lambda item: item[1], reverse=True)}
+    first_key = next(iter(c))
+    return first_key
 
 
-print(find_max(["name", "of", "string"]))
-print(find_max(["name", "enam", "game"]))
-print(find_max(["aaaaaaa", "bb" ,"cc"]))
-print(find_max(["play", "play", "play"]))
+if __name__ == '__main__':
+    print(find_max(["play", "play", "play"]))
     find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa"
     """
