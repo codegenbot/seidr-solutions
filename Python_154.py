@@ -7,12 +7,16 @@ def cycpattern_check(a , b):
     cycpattern_check("abab","baa") => True
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
-
     """
-    if b in a or b[::-1] in a or b in a[::-1]:
-        return True 
-    return False 
+
+
+    if b in a:
+        return True
+    if b[::-1] in a:
+        return True
+    if b in a[::-1]:
+        return True
+    return False
 
 
 print(cycpattern_check('himenss','simen'))
-    """
