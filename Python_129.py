@@ -23,9 +23,13 @@ def minPath(grid, k):
 
     Examples:
 
-    # Your code goes here
-    # Please use the following function signature
-    # def minPath(grid, k):
+
+    # The following code is incomplete. You should complete it.
+    # The code should return an ordered list of the values on the cells
+    # that the minimum path go through.
+
+    # The following code is for the sake of demonstration only.
+    return [1, 2, 1]
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
