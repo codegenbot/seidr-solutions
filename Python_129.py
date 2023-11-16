@@ -1,4 +1,3 @@
-from collections import deque
 
 def minPath(grid, k):
     """
@@ -24,31 +23,19 @@ def minPath(grid, k):
 
     Examples:
 
-    path = deque()
-    path.append(grid[0][0])
-    #path.appendleft(grid[0][0])
 
-    for i in range(k):
-        last_value = path[i]
-        for row in grid:
-            for cell in row:
-                if cell == last_value:
-                    # check the neighbors of the cell
-                    pass
+    def dfs(grid, i, j, k, curr):
+        if k == 0:
+            return min(curr, minPath.min_path) if curr < minPath.min_path else None
+        for ii, jj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            if 0 <= i + ii < len(grid) and 0 <= j + jj < len(grid[0]):
+                dfs(grid, i + ii, j + jj, k - 1, curr + [grid[i + ii][j + jj]])
 
-    return path
-
-
-def find_value_in_grid(grid, value):
-    for row in grid:
-        for cell in row:
-            if cell == value:
-                return row, cell
-    return None
-
-
-grid = [ [1,2,3], [4,5,6], [7,8,9]]
-print(minPath(grid, 3))
+    minPath.min_path = [[i for i in range(len(grid) * len(grid[0]))]]
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            dfs(grid, i, j, k - 1, [grid[i][j]])
+    return minPath.min_path[0]
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
