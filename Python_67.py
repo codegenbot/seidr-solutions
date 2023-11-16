@@ -1,5 +1,5 @@
 
-def fruit_distribution(s, n):
+def fruit_distribution(s,n):
     """
     In this task, you will be given a string that represents a number of apples and oranges 
     that are distributed in a basket of fruit this basket contains 
@@ -12,18 +12,5 @@ def fruit_distribution(s, n):
     fruit_distribution("2 apples and 3 oranges", 100) -> 100 - 2 - 3 = 95
     fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
     """
-    # remove the spaces between the words in the string
-    s = s.replace(" ", "")
-    # split the string to get the number of apples and oranges
-    fruits = s.split("and")
-    # get the number of apples and oranges and convert them to integers
-    apples = int(fruits[0][0]) + 1
-    oranges = int(fruits[1][0]) + 1
-    # return the number of mangoes in the basket
-    return n - apples - oranges
-
-
-print(fruit_distribution("5 apples and 6 oranges", 19))
-print(fruit_distribution("0 apples and 1 oranges", 3))
-print(fruit_distribution("2 apples and 3 oranges", 100))
-print(fruit_distribution("100 apples and 1 oranges", 120))
+    # return the number of mango fruits in the basket
+    return n - int(s.split()[0]) - int(s.split()[4])

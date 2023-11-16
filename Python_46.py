@@ -361,8 +361,8 @@ def fib4(n: int):
     # TODO: Complete the following code
     pass
 
+    assert fib4(12) == 386
     # TODO: Complete the following code
-    pass
     pass
     # TODO: Complete the following code
     pass
