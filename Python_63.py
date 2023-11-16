@@ -13,22 +13,13 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
-
-
-def num_subarrays(nums: List[int], target: int):
-    """Given a list of integers nums and a target integer target, return the number of non-empty subarrays of nums that are contiguous and have a sum equal to target.
-
-    >>> num_subarrays([1, 2, 3, 2], 2)
-    2
-    >>> num_subarrays([1, 1, 1, 1, 1], 2)
-    5
-    >>> num_subarrays([1, 1, 1, 1, 1], 5)
-    5
-    >>> num_subarrays([1, 1, 1, 1, 1], 15)
-    1
-    >>> num_subarrays([1, 1, 1, 1, 1], 0)
-    0
-    >>> num_subarrays([0, 0, 0, 0, 0], 0)
-    15
-    """
+    if n < 0:
+        raise ValueError("n is negative")
+    if n == 0:
+        return 0
+    if n == 1:
+        return 0
+    if n == 2:
+        return 1
+    return fibfib(n - 1) + fibfib(n - 2) + fibfib(n - 3)
     """
