@@ -1,4 +1,5 @@
 
+import random
 
 def car_race_collision(n: int):
     """
@@ -11,7 +12,26 @@ def car_race_collision(n: int):
     in their trajectory as if they did not collide.
 
     # Your code goes here.
-    return 0
+    left_to_right = []
+    right_to_left = []
+    for i in range(n):
+        left_to_right.append(random.randint(1, n))
+        right_to_left.append(random.randint(1, n))
+    left_to_right.sort()
+    right_to_left.sort()
+    i = 0
+    j = 0
+    collisions = 0
+    while i < n and j < n:
+        if left_to_right[i] < right_to_left[j]:
+            collisions += n - j
+            i += 1
+        else:
+            j += 1
+    return collisions
+
+
+print(car_race_collision(10))
     # You may use any data structure you like.
 
     return 0
