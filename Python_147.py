@@ -15,7 +15,26 @@ def get_max_triples(n):
     def get_max_triples(n):
         # Write your code here
         pass
+    a = [i*i-i+1 for i in range(1, n+1)]
+    print(a)
+    count = 0
+    for i in range(len(a)):
+        for j in range(i+1, len(a)):
+            for k in range(j+1, len(a)):
+                if (a[i] + a[j] + a[k]) % 3 == 0:
+                    count += 1
+    return count
 
 
-    return 0
+def check(get_max_triples):
+    assert get_max_triples(1) == 0
+    assert get_max_triples(2) == 0
+    assert get_max_triples(3) == 0
+    assert get_max_triples(4) == 0
+    assert get_max_triples(5) == 1
+    assert get_max_triples(100) == 53361
+
+
+if __name__ == "__main__":
+    check(get_max_triples)
     """
