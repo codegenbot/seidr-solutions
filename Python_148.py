@@ -1,7 +1,7 @@
 
-def bf(planet1, planet2, planets):
+def bf(planet1, planet2):
     '''
-    There are eight planets in our solar system: the closest to the Sun 
+    There are eight planets in our solar system: the closerst to the Sun 
     is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn, 
     Uranus, Neptune.
     Write a function that takes two planet names as strings planet1 and planet2. 
@@ -15,3 +15,13 @@ def bf(planet1, planet2, planets):
     bf("Earth", "Mercury") ==> ("Venus")
     bf("Mercury", "Uranus") ==> ("Venus", "Earth", "Mars", "Jupiter", "Saturn")
     '''
+    planets = ('Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune')
+    if planet1 not in planets or planet2 not in planets:
+        return ()
+    else:
+        first = planets.index(planet1)
+        last = planets.index(planet2)
+        if first > last:
+            return planets[last + 1:first]
+        else:
+            return planets[first + 1:last]
