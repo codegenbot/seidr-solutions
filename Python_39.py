@@ -13,4 +13,5 @@ def prime_fib(n: int):
     13
     >>> prime_fib(5)
     89
+
     """
