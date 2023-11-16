@@ -14,17 +14,14 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
+    for i in range(len(string), -1, -1):
+        if is_palindrome(string[i:]):
+            return string + string[:i][::-1]
 
-    prefix_length = len(string) - len(find_prefix_reversed_length(string))
-    return string + string[:prefix_length][::-1]
 
-
-def find_prefix_reversed_length(string: str) -> str:
-    """ Find the longest postfix of the supplied string that is a palindrome. """
-
-    for length in reversed(range(len(string), 0, -1)):
-        if is_palindrome(string[-length:]):
-            return string[-length:]
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     >>> make_palindrome('cata')
     'catac'
     """
