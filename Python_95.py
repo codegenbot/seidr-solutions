@@ -11,27 +11,11 @@ def check_dict_case(dict):
     check_dict_case({"Name":"John", "Age":"36", "City":"Houston"}) should return False.
     check_dict_case({"STATE":"NC", "ZIP":"12345" }) should return True.
     """
-    # your code here
-    if len(dict) == 0:
-        return False
-    else:
-        lower_keys = True
-        upper_keys = True
+    first_key = next(iter(dict))
+    if isinstance(first_key, str):
+        case = first_key.isupper()
         for key in dict:
-            if type(key) != str:
+            if not isinstance(key, str) or key.isupper() != case:
                 return False
-            else:
-                if key.islower():
-                    upper_keys = False
-                else:
-                    lower_keys = False
-        if lower_keys or upper_keys:
-            return True
-        else:
-            return False
-
-print(check_dict_case({"a":"apple", "b":"banana"}))
-print(check_dict_case({"a":"apple", "A":"banana", "B":"banana"}))
-print(check_dict_case({"a":"apple", 8:"banana", "a":"apple"}))
-print(check_dict_case({"Name":"John", "Age":"36", "City":"Houston"}))
-print(check_dict_case({"STATE":"NC", "ZIP":"12345" }))
+        return True
+    return False
