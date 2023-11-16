@@ -14,13 +14,7 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-
-
-def largest_prime_factor(number: int) -> int:
-    """ The prime factors of 13195 are 5, 7, 13 and 29 as a maximum prime factor is calculated.
-    :param number: natural positive number, in which the largest prime factor will be init
-    :return:
-    """
+    pass
     >>> make_palindrome('cata')
     'catac'
     """
