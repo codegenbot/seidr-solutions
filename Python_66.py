@@ -13,6 +13,7 @@ def digitSum(s):
         digitSum("woArBld") => 131
     return
 
+
 def check(func):
     assert func("") == 0, "Error"
     assert func("abAB") == 131, "Error"
@@ -26,3 +27,4 @@ def check(func):
 
         digitSum("You arE Very Smart") => 327
     """
+    return
