@@ -8,19 +8,30 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    a = a.replace(" ", "")
-    b = b.replace(" ", "")
-    b = b[1:] + b[0]
-    if a.find(b) != -1:
+    def collide(s1, s2):
+        if len(s1) != len(s2):
+            return False
+        if s1 == s2:
+            return True
+        for i in range(len(s1)):
+            if s1[i] != s2[i]:
+                return False
         return True
-    else:
-        return False
 
+    def is_substring(big, small):
+        if len(big) < len(small):
+            return False
+        if collide(big[:len(small)], small):
+            return True
+        return is_substring(big[1:], small)
 
-print(cycpattern_check("abcd","abd"))
-print(cycpattern_check("hello","ell"))
-print(cycpattern_check("whassup","psus"))
-print(cycpattern_check("abab","baa"))
-print(cycpattern_check("efef","eeff"))
-print(cycpattern_check("himenss","simen"))
+    def rotate(s):
+        return s[1:] + s[0]
+
+    def is_rotation(large, small):
+        if len(large) < len(small):
+            return False
+        if collide(large, small):
+            return True
+        return is_rotation(rotate(large), small)
     """
