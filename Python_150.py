@@ -11,7 +11,7 @@ def is_prime(n):
 def x_or_y(n, x, y):
     """A simple program which should return the value of x if n is 
     a prime number and should return the value of y otherwise.
-    for x_or_y(2, 2, 0) == 2 
+    for x_or_y(2, 2, 0) == 0
 
     Examples:
     for x_or_y(7, 34, 12) == 34
