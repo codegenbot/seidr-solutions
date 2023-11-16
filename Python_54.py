@@ -14,6 +14,7 @@ def same_chars(s0: str, s1: str):
     >>> same_chars('abcd', 'dddddddabce')
     False
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+    """
     False
     d0 = {}
     d1 = {}
@@ -33,4 +34,3 @@ def same_chars(s0: str, s1: str):
         elif d0[x] != d1[x]:
             return False
     return True
-    """
