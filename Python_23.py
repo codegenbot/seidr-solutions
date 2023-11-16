@@ -5,10 +5,12 @@ def strlen(string: str) -> int:
     >>> strlen('')
     0
     >>> strlen('abc')
-    if len(string) == 0:
-        return 0
-    else:
-        return len(string)
     3
-    return len(string)
+    >>> strlen('asdasnakj')
+    9
+    >>> strlen('asdasnakj') == 9
+    True
+    >>> strlen('asdasnakj') == 8
+    False
+    3
     """
