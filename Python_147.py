@@ -15,5 +15,5 @@ def get_max_triples(n):
     def get_max_triples(n):
         # Write your code here
         pass
-    return 0
+    pass
     """
