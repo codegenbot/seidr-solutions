@@ -10,37 +10,20 @@ def car_race_collision(n: int):
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
 
-    # YOUR CODE HERE
-    from collections import defaultdict
-    from collections import deque
+    # Assume the following:
+    # 1. Cars are moving at the same speed
+    # 2. Cars don't change their direction
+    # 3. Cars are moving at a speed of 1
 
-    # Initialize the left to right cars and right to left cars.
-    left_to_right_cars = defaultdict(deque)
-    right_to_left_cars = defaultdict(deque)
+    # The number of collisions is the number of cars that are moving in the same direction
+    # at the same time.
 
-    # Add cars to the left to right cars.
-    for i in range(n):
-        left_to_right_cars[i].append(i)
-
-    # Add cars to the right to left cars.
-    for i in range(n):
-        right_to_left_cars[i].append(i)
-
-    # Initialize the collision counter.
-    counter = 0
-
-    # Iterate over the cars.
-    for i in range(n):
-        # If the left to right car is less than the right to left car.
-        if left_to_right_cars[i] < right_to_left_cars[i]:
-            # Increment the counter.
-            counter += 1
-
-    # Return the counter.
-    return counter
-
-
-print(car_race_collision(3))
+    # If n is even, then the number of collisions is n / 2
+    # If n is odd, then the number of collisions is (n + 1) / 2
+    if n % 2 == 0:
+        return n / 2
+    else:
+        return (n + 1) / 2
 
     This function outputs the number of such collisions.
     """
