@@ -1,7 +1,7 @@
 
 
 def fib4(n: int):
-    """The Fib4 number sequence is a sequence similar to the Fibonacci sequence that's defined as follows:
+    """The Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
     fib4(0) -> 0
     fib4(1) -> 0
     fib4(2) -> 2
@@ -14,4 +14,23 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 2
+    elif n == 3:
+        return 0
+    else:
+        a = 0
+        b = 0
+        c = 2
+        d = 0
+        for i in range(n-3):
+            a = b
+            b = c
+            c = d
+            d = a + b + c + d
+        return d
     """
