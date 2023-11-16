@@ -44,4 +44,4 @@ def max_fill(grid, capacity):
     return count
 
 if __name__ == "__main__":
-    max_fill(max_fill, 1)
+    print(max_fill(max_fill))
