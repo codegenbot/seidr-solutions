@@ -1,19 +1,21 @@
-def reverse_slice(s: str, start: int, end: int) -> str:
-    """Return a reversed substring of s from start to end-1 (inclusive).
-    >>> reverse_slice('computer', 0, 4)
-    'retupmoc'
-    >>> reverse_slice('computer', 0, 3)
-    'retup'
-    >>> reverse_slice('computer', 0, 1)
-    'ret'
-    >>> reverse_slice('computer', 3, 5)
-    'pu'
-    >>> reverse_slice('computer', 1, 5)
-    'upmoc'
-    >>> reverse_slice('computer', 1, 6)
-    'upmoc'
 
 
+def fib(n: int):
+    """Return n-th Fibonacci number.
+    >>> fib(10)
+    55
+    >>> fib(1)
+    1
+    >>> fib(8)
 
-    return s[start:end][::-1]
+    # the first two Fibonacci numbers
+    f_prev, f_next = 0, 1
+
+    # compute the Fibonacci sequence up to the n-th
+    # number and add the numbers to the list
+    for i in range(n):
+        f_prev, f_next = f_next, f_prev + f_next
+
+    return f_prev
+    21
     """
