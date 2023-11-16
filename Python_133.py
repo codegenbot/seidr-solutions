@@ -1,4 +1,3 @@
-import math
 
 
 def sum_squares(lst):
@@ -14,8 +13,7 @@ def sum_squares(lst):
 
     result = 0
     for i in lst:
-    return 2
         result += math.ceil(i) ** 2
-    return result
+    return result 
 
     """
