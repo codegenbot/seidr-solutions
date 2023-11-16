@@ -8,4 +8,6 @@ def sort_even(l: list):
     [1, 2, 3]
     >>> sort_even([5, 6, 3, 4])
     [3, 6, 5, 4]"""
-    pass
+    for i in range(0, len(l)):
+        l[i] = sorted(l[i]) # l[i] is an int
+    return l
