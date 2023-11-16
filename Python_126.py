@@ -14,8 +14,16 @@ def is_sorted(lst):
     is_sorted([1, 3, 2, 4, 5, 6, 7]) ➞ False
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
-    for i in range(len(lst) - 1):
-        if lst[i] > lst[i + 1]:
-            return False
-    return True
+
+    # Create a set of the list
+    # If the length of the set is the same as the length of the list, return True
+    # Else, return False
+
+    if len(set(lst)) == len(lst):
+        return True
+    else:
+        return False
+
+
+print(is_sorted([1, 2, 2, 3, 3, 4]))
     '''
