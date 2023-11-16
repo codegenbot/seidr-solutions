@@ -12,19 +12,18 @@ def modp(n: int, p: int):
     8
     >>> modp(100, 101)
     1
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 2 % p
+    elif n % 2 == 0:
+        return ((modp(n // 2, p)) ** 2) % p
+    else:
+        return ((modp(n // 2, p)) ** 2) * 2 % p
 
 
-def modp_inv(n: int, p: int):
-    """Return the inverse of n modulo p.
-    >>> modp_inv(3, 5)
-    2
-    >>> modp_inv(1101, 101)
-    99
-    >>> modp_inv(0, 101)
-    0
-    >>> modp_inv(3, 11)
-    4
-    >>> modp_inv(100, 101)
-    100
-    """
+if __name__ == '__main__':
+    import doctest
+
+    doctest.testmod()
     """
