@@ -14,24 +14,8 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    if n <= 0:
-        return 0
-    elif n == 1:
-        return 0
-    elif n == 2:
-        return 2
-    elif n == 3:
-        return 0
-    else:
-        a = 0
-        b = 0
-        c = 2
-        d = 0
-        for i in range(4, n + 1):
-            result = a + b + c + d
-            a = b
-            b = c
-            c = d
-            d = result
-        return result
+    a, b, c, d = 0, 0, 2, 0
+    for i in range(n):
+        a, b, c, d = b, c, d, (a + b + c + d)
+    return a
     """
