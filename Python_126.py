@@ -15,25 +15,22 @@ def is_sorted(lst):
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
 
-    # if len(lst) == 1:
-    #     return True
-    # if lst[0] == lst[1]:
-    #     return False
-    # if lst[0] < lst[1]:
-    #     return is_sorted(lst[1:])
-    # else:
-    #     return False
-
-    # for i in range(len(lst)-1):
-    #     if lst[i] > lst[i+1]:
-    #         return False
-    # return True
-
-    if lst == sorted(lst):
+    if len(lst) == 1:
         return True
-    else:
-        return False
+
+    for i in range(len(lst) - 1):
+        if lst[i] >= lst[i + 1]:
+            return False
+
+    return True
 
 
+print(is_sorted([5]))
+print(is_sorted([1, 2, 3, 4, 5]))
+print(is_sorted([1, 3, 2, 4, 5]))
+print(is_sorted([1, 2, 3, 4, 5, 6]))
+print(is_sorted([1, 2, 3, 4, 5, 6, 7]))
+print(is_sorted([1, 3, 2, 4, 5, 6, 7]))
 print(is_sorted([1, 2, 2, 3, 3, 4]))
+print(is_sorted([1, 2, 2, 2, 3, 4]))
     '''
