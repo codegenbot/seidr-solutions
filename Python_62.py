@@ -8,11 +8,11 @@ def derivative(xs: list):
     [1, 4, 12, 20]
     >>> derivative([1, 2, 3])
     [2, 6]
-    if len(xs) == 0:
-        return []
-    else:
-        new_xs = []
-        for i in range(len(xs) - 1):
-            new_xs.append(xs[i + 1] * (i + 1))
-        return new_xs
+    result = []
+    for i in range(len(xs)):
+        if i == 0:
+            result.append(xs[i])
+        else:
+            result.append(xs[i] * i)
+    return result
     """
