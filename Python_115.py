@@ -1,6 +1,5 @@
 
-def max_fill(grid, bucket_capacity):
-    import math
+def max_fill(grid, capacity, max_row_length=0):
     """
     You are given a rectangular grid of wells. Each row represents a single well,
     and each 1 in a row represents a single unit of water.
@@ -32,11 +31,5 @@ def max_fill(grid, bucket_capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
-
-    fill_count = 0
-
-    # Fill in your solution here.
-
-    return fill_count
         * 1 <= capacity <= 10
     """
