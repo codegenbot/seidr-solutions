@@ -6,9 +6,5 @@ def common(l1: list, l2: list):
     [1, 5, 653]
     >>> common([5, 3, 2, 8], [3, 2])
     [2, 3]
-    >>> common([4, 3, 2, 8], [])
-    []
-    return sorted(list(set(l1) & set(l2)))
-    [2, 3]
 
     """
