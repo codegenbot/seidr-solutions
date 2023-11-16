@@ -10,51 +10,17 @@ def get_odd_collatz(n):
     term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1.
 
     Note: 
-
-    # TODO: Complete the following code given the task description and function signature.
-
-    # Initialize the result list.
+    # complete the code
+    # return a list of odd numbers from the Collatz sequence
+    # for n
     result = []
-
-    # If n is 1, then return [1].
-    if n == 1:
-        result.append(1)
-        return result
-
-    # If n is not 1, then compute the collatz sequence.
-    while n > 1:
-        # If n is odd, then append it to the result list.
-        if n % 2 != 0:
-            result.append(n)
-        # If n is even, then compute the next number in the sequence.
+    while n != 1:
+        if n % 2 == 0:
+            n = n / 2
         else:
-            n = n // 2
-
-    # Return the result list.
+            result.append(n)
+            n = 3 * n + 1
     return result
-
-
-# Test cases.
-print(get_odd_collatz(5))
-print(get_odd_collatz(1))
-print(get_odd_collatz(2))
-print(get_odd_collatz(3))
-print(get_odd_collatz(4))
-print(get_odd_collatz(6))
-print(get_odd_collatz(7))
-print(get_odd_collatz(8))
-print(get_odd_collatz(9))
-print(get_odd_collatz(10))
-print(get_odd_collatz(11))
-print(get_odd_collatz(12))
-print(get_odd_collatz(13))
-print(get_odd_collatz(14))
-print(get_odd_collatz(15))
-print(get_odd_collatz(16))
-print(get_odd_collatz(17))
-print(get_odd_collatz(18))
-print(get_odd_collatz(19))
-print(get_odd_collatz(20))
         1. Collatz(1) is [1].
         2. returned list sorted in increasing order.
 
