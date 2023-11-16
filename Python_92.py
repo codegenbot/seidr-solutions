@@ -13,13 +13,10 @@ def any_int(x, y, z):
     any_int(3, -2, 1) ➞ True
     
     any_int(3.6, -2.2, 2) ➞ False
-  
 
-    if x + y == z or x + z == y or y + z == x:
-        return True
-    else:
-        return False
+    any_int(3.6, -2.2, 2.5) ➞ False
 
-print(any_int(3, -2, 1))
+    any_int("3", "2", "2") ➞ False
+
     
     '''
