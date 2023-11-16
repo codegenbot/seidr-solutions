@@ -1,6 +1,6 @@
 
 
-def derivative(xs: list) -> list:
+def derivative(xs: list):
     """ xs represent coefficients of a polynomial.
     xs[0] + xs[1] * x + xs[2] * x^2 + ....
      Return derivative of this polynomial in the same form.
@@ -8,8 +8,5 @@ def derivative(xs: list) -> list:
     [1, 4, 12, 20]
     >>> derivative([1, 2, 3])
     [2, 6]
-    derivative = []
-    for i in range(1, len(xs)):
-        derivative.append(xs[i] * i)
-    return derivative
+    return [xs[i] * (i) for i in range(1, len(xs))]
     """
