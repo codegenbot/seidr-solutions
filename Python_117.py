@@ -12,9 +12,12 @@ def select_words(s, n):
     select_words("Hello world", 4) ==> ["world"]
     select_words("Uncle sam", 3) ==> ["Uncle"]
     """
-    words = s.split()
-    result = []
-    for word in words:
-        if len(word) == n:
-            result.append(word)
-    return result
+    # complete the code below
+    # Hint: you may use the following code to count the number of consonants in a word
+    # word = "Hello"
+    # num_consonants = 0
+    # for ch in word:
+    #     if ch not in "aeiouAEIOU":
+    #         num_consonants += 1
+    # print(num_consonants)
+    pass
