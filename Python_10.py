@@ -14,13 +14,12 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
+    if len(string) < 2:
+        return string
 
-    # find the longest postfix that is a palindrome
-    for i in range(len(string), 0, -1):
+    for i in range(len(string) - 1, 0, -1):
         if is_palindrome(string[i:]):
             return string + string[:i][::-1]
-
-    return string + string[::-1]
     >>> make_palindrome('cata')
     'catac'
     """
