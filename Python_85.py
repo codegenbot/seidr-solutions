@@ -5,4 +5,5 @@ def add(lst):
 
     Examples:
         add([4, 4, 6, 8]) == 12
+    return 0
     """
