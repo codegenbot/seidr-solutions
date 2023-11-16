@@ -7,10 +7,7 @@ def solution(lst):
     solution([5, 8, 7, 1]) ==> 12
     solution([3, 3, 3, 3, 3]) ==> 9
     pass
-    result = 0
-    for i in range(len(lst)):
-        if i % 2 == 0 and lst[i] % 2 == 1:
-            result += lst[i]
-    return result
+
+    return sum([i for i in lst if i%2==1 and lst.index(i)%2==0])
     solution([30, 13, 24, 321]) ==>0
     """
