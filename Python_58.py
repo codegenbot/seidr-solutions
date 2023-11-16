@@ -8,5 +8,6 @@ def common(l1: list, l2: list):
     """
     def func(l1, l2):
         return sorted(set(l1) & set(l2))
-    >>> common([5, 3, 2, 8], [3, 2, 8])
-    [2, 3, 8]    
+    return func(l1, l2)
+
+    """
