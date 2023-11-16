@@ -12,13 +12,8 @@ def double_the_difference(lst):
     If the input list is empty, return 0.
     '''
     sum = 0
-    for x in lst:
-        if x > 0 and x % 2 != 0:
-            sum = sum + (x * x)
+    for i in lst :
+        if isinstance(i, int) and i >= 0:
+            if i % 2 == 1:
+                sum += i**2
     return sum
-        
-print(double_the_difference([1, 3, 2, 0]))
-print(double_the_difference([-1, -2, 0]))
-print(double_the_difference([9, -2]))
-print(double_the_difference([0]))
-print(double_the_difference([]))
