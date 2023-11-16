@@ -8,11 +8,11 @@ def fib(n: int):
     1
     >>> fib(8)
     21
+    if n == 1:
+        return n
+    a, b = 0, 1
+    for i in range(1, n):
+        a, b = b, a+b
 
-
-leap_year = lambda year: year % 4 == 0  # this is fine
-
-if year % 100 == 0 and not year % 400 == 0:
-return False
-return True
+    return b
     """
