@@ -22,7 +22,4 @@ def fibfib(n: int):
     else:
         return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
 
-
-if __name__ == '__main__':
-    print(fibfib(7))
     """
