@@ -10,11 +10,15 @@ def sum_squares(lst):
     For lst = [1,3,5,7] the output should be 84
     For lst = [1.4,4.2,0] the output should be 29
     For lst = [-2.4,1,1] the output should be 6
-    pass
-    
 
-####
-
-sum_squares([-0.01, 0, 0.01])
+    result = 0
+    for i in lst:
+    import math
+    result = 0
+    for i in lst:
+        result += math.ceil(i) ** 2
+    return result
+        result += math.ceil(i) ** 2
+    return result
 
     """
