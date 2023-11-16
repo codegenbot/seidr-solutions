@@ -23,38 +23,17 @@ def minPath(grid, k):
 
     Examples:
 
-    def dfs(i, j, k):
-        if k == 0:
-            return [grid[i][j]]
-        
-        ans = []
-        if i > 0:
-            ans = dfs(i-1, j, k-1)
 
-        if j > 0:
-            ans = dfs(i, j-1, k-1)
-
-        if i < len(grid) - 1:
-            ans = dfs(i+1, j, k-1)
-
-        if j < len(grid[0]) - 1:
-            ans = dfs(i, j+1, k-1)
-
-        ans.append(grid[i][j])
-        return ans
-
-    # implement your code here
-    # return the answer
+    # TODO: Write your code here
+    return []
 
 
-if __name__ == "__main__":
-    grid = [ [1,2,3], [4,5,6], [7,8,9] ]
-    k = 3
-    print(minPath(grid, k))
+def main():
+    print("Path: " + str(minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3)))
+    print("Path: " + str(minPath([[5, 9, 3], [4, 1, 6], [7, 8, 2]], 1)))
 
-    grid = [ [5,9,3], [4,1,6], [7,8,2] ]
-    k = 1
-    print(minPath(grid, k))
+
+main()
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
