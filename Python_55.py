@@ -6,15 +6,13 @@ def fib(n: int):
     55
     >>> fib(1)
     1
-    if n == 0:
-        return 0
-    elif n == 1:
+    >>> fib(8)
+    21
+
+    if n == 1 or n == 2:
         return 1
+
+    assert fib(12) == 144
     else:
-        return fib(n-1) + fib(n-2)
-
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
+        return fib(n - 1) + fib(n - 2)
     """
