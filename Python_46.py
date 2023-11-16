@@ -14,9 +14,366 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
+    # TODO: Complete the following code
+    return 0 # TODO: Replace 0 with a correct expression
+    # TODO: Complete the following code
     pass
-    a, b, c, d = 0, 0, 2, 0
-    for _ in range(n - 3):
-        a, b, c, d = b, c, d, a + b + c + d
-    return d
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
+    # TODO: Complete the following code
+    pass
+
     """
