@@ -10,6 +10,26 @@ def is_nested(string):
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-    pass
+
+    if '[]' in string:
+        return True
+    elif '[[]]' in string:
+        return True
+    elif '[[][]]' in string:
+        return True
+    elif '[]' in string:
+        return True
+    elif '[]' in string:
+        return True
+    else:
+        return False
+
+
+print(is_nested('[[]]'))
+print(is_nested('[]]]]]]][[[[[]'))
+print(is_nested('[][]'))
+print(is_nested('[]'))
+print(is_nested('[[][]]'))
+print(is_nested('[[]][['))
     is_nested('[[]][[') ➞ True
     '''
