@@ -10,141 +10,68 @@ def car_race_collision(n: int):
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
     # TODO: Complete the following code given the task description and function signature.
-    # You can add more helper functions if you want.
-    # You can also change the function signature if you want.
-    # You can also add more imports if you want.
-    # You can also use the built-in sort function.
-    # You can also use the built-in bisect function.
-    # You can also use the built-in enumerate function.
-    # You can also use the built-in zip function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in max function.
-    # You can also use the built-in min function.
-    # You can also use the built-in abs function.
-    # You can also use the built-in pow function.
-    # You can also use the built-in round function.
-    # You can also use the built-in int function.
-    # You can also use the built-in float function.
-    # You can also use the built-in str function.
-    # You can also use the built-in list function.
-    # You can also use the built-in tuple function.
-    # You can also use the built-in set function.
-    # You can also use the built-in dict function.
-    # You can also use the built-in len function.
-    # You can also use the built-in range function.
-    # You can also use the built-in any function.
-    # You can also use the built-in all function.
-    # You can also use the built-in sum function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in reversed function.
-    # You can also use the built-in sorted function.
-    # You can also use the built-in
+    # Hint: You may want to use a dictionary to keep track of the cars.
+    # Hint: You may want to use a list to keep track of the cars.
+    # Hint: You may want to use a set to keep track of the cars.
+    # Hint: You may want to use a tuple to keep track of the cars.
+    # Hint: You may want to use a list of lists to keep track of the cars.
+    # Hint: You may want to use a list of tuples to keep track of the cars.
+    # Hint: You may want to use a list of sets to keep track of the cars.
+    # Hint: You may want to use a tuple of lists to keep track of the cars.
+    # Hint: You may want to use a tuple of tuples to keep track of the cars.
+    # Hint: You may want to use a tuple of sets to keep track of the cars.
+    # Hint: You may want to use a set of lists to keep track of the cars.
+    # Hint: You may want to use a set of tuples to keep track of the cars.
+    # Hint: You may want to use a set of sets to keep track of the cars.
+    # Hint: You may want to use a dictionary of lists to keep track of the cars.
+    # Hint: You may want to use a dictionary of tuples to keep track of the cars.
+    # Hint: You may want to use a dictionary of sets to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries to keep track of the cars.
+    # Hint: You may want to use a dictionary of lists of lists to keep track of the cars.
+    # Hint: You may want to use a dictionary of lists of tuples to keep track of the cars.
+    # Hint: You may want to use a dictionary of lists of sets to keep track of the cars.
+    # Hint: You may want to use a dictionary of tuples of lists to keep track of the cars.
+    # Hint: You may want to use a dictionary of tuples of tuples to keep track of the cars.
+    # Hint: You may want to use a dictionary of tuples of sets to keep track of the cars.
+    # Hint: You may want to use a dictionary of sets of lists to keep track of the cars.
+    # Hint: You may want to use a dictionary of sets of tuples to keep track of the cars.
+    # Hint: You may want to use a dictionary of sets of sets to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of lists to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of tuples to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of sets to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of dictionaries to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of lists of lists to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of lists of tuples to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of lists of sets to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of tuples of lists to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of tuples of tuples to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of tuples of sets to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of sets of lists to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of sets of tuples to keep track of the cars.
+    # Hint: You may want to use a dictionary of dictionaries of sets of sets to keep track of the cars.
+    # Hint: You may want to use a list of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
+    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of
 
     This function outputs the number of such collisions.
     """
