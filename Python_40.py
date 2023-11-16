@@ -14,7 +14,12 @@ def triples_sum_to_zero(l: list):
     False
     >>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])
     True
-    return True
+    return any(l[i] + l[j] + l[k] == 0 for i in range(len(l)) for j in range(i+1, len(l)) for k in range(j+1, len(l)))
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     >>> triples_sum_to_zero([1])
     False
     """
