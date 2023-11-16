@@ -1,6 +1,6 @@
 
 
-def truncate_number(number, decimals) -> float:
+def truncate_number(number: float, decimals=2) -> float:
     """ Given a positive floating point number and a number of decimals,
     return the number rounded up to the given number of decimals.
 
