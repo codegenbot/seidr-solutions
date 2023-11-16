@@ -1,6 +1,6 @@
+
 def is_prime(n):
-    """A function that returns True if the given number is prime and False
-    otherwise.
+    """A function that returns True if the given number is prime and False otherwise.
 
     Examples:
     for is_prime(7) == True
@@ -14,6 +14,8 @@ def x_or_y(n, x, y):
 
     Examples:
     for x_or_y(7, 34, 12) == 34
+    pass
+    pass
     for x_or_y(15, 8, 5) == 5
     
     """
