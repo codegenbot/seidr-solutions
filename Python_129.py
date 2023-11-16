@@ -1,6 +1,6 @@
 
 def minPath(grid, k):
-    """
+    '''
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
     each cell of the grid contains a value. Every integer in the range [1, N * N]
     inclusive appears exactly once on the cells of the grid.
@@ -23,22 +23,9 @@ def minPath(grid, k):
 
     Examples:
 
-    def valid_move(cell):
-        pass
-    current_position = (0, 0)
-    path = []
-    while len(path) < k:
-        for neighbor in valid_move(current_position):
-            # move to neigbor
-
-
-if __name__ == "__main__":
-    grid = [ [1,2,3], [4,5,6], [7,8,9]]
-    k = 4
-    minPath(grid, k)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
         Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
         Output: [1]
-    """
+    '''
