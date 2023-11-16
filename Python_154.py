@@ -8,6 +8,22 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    # write your code here
-    return False
+    def rotate_word(word):
+        if len(word) < 2:
+            return word
+        return word[1:] + word[0]
+
+    if len(a) < len(b):
+        return False
+    if b in a:
+        return True
+    else:
+        for i in range(len(b)):
+            b = rotate_word(b)
+            if b in a:
+                return True
+        return False
+
+
+print(cycpattern_check("himenss","simen"))
     """
