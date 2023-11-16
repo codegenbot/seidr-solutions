@@ -7,12 +7,9 @@ def minPath(grid, k):
 
     You have to find the minimum path of length k in the grid. You can start
     from any cell, and in each step you can move to any of the neighbor cells,
-
     in other words, you can go to cells which share an edge with you current
     cell.
-
     Please note that a path of length k means visiting exactly k cells (not
-
     necessarily distinct).
     You CANNOT go off the grid.
     A path A (of length k) is considered less than a path B (of length k) if
@@ -21,7 +18,6 @@ def minPath(grid, k):
     than lst_B, in other words, there exist an integer index i (1 <= i <= k)
     such that lst_A[i] < lst_B[i] and for any j (1 <= j < i) we have
     lst_A[j] = lst_B[j].
-
     It is guaranteed that the answer is unique.
     Return an ordered list of the values on the cells that the minimum path go through.
 
@@ -49,8 +45,8 @@ def minPath(grid, k):
         return memo[(i, j, k)]
 
     memo = {}
-    valid, path = minPathRec(grid, k, 0, 0, memo)
-    return path
+    valid, path = minPathRec(grid, k, 0, 0, memo) 
+    return path 
 
 
 
