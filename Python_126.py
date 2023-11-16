@@ -15,28 +15,25 @@ def is_sorted(lst):
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
 
-def is_sorted(lst):
+    if len(lst) == 1:
+        return True
 
-    # initialize variables
-    i = 0
-    length = len(lst)
-
-    # iterate through the list
-    while i < length:
-
-        # set the current number and next number
-        current_number = lst[i]
-        next_number = lst[i + 1]
-
-        # check if the current number is greater than the next number
-        if current_number > next_number:
+    if len(lst) == 3:
+        if lst[0] == lst[1] or lst[1] == lst[2]:
             return False
+        else:
+            return True
 
-        # increment the index
-        i += 1
+    if lst[0] == lst[1] or lst[1] == lst[2]:
+        return False
+
+    if lst[0] > lst[1]:
+        return False
+
+    if lst[1] > lst[2]:
+        return False
 
     return True
 
-#print(is_sorted([1, 2, 3, 4, 5, 6, 7]))
-print(is_sorted([1, 3, 2, 4, 5, 6, 7]))
+print(is_sorted([5]))
     '''
