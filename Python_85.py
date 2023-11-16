@@ -4,5 +4,6 @@ def add(lst):
 
 
     Examples:
-        add([4, 2, 6, 7]) ==> 2
+    pass
+        add([4, 4, 6, 8]) ==> 12
     """
