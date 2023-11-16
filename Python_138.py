@@ -6,5 +6,5 @@ def is_equal_to_sum_even(n):
     is_equal_to_sum_even(6) == False
     is_equal_to_sum_even(8) == True
     """
-    # TODO: Complete the following code given the task description and function signature
-    pass
+
+    # Write your code here
