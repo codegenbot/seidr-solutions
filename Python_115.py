@@ -33,21 +33,6 @@ def max_fill(grid, capacity):
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
 
-    # Complete the following code.
-    # You may add additional functions and classes as needed.
-    # You may not change the function signature.
-
-    # Your implementation here
-    return 0
-
-
-if __name__ == "__main__":
-    # Do NOT modify the code below this line.
-    # These lines are how the tests interact with the code.
-
-    grid = [[0,0,1,0], [0,1,0,0], [1,1,1,1]]
-    capacity = 1
-    result = max_fill(grid, capacity)
-    print(result)
+    # your code goes here
         * 1 <= capacity <= 10
     """
