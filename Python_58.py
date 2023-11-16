@@ -6,11 +6,6 @@ def common(l1: list, l2: list):
     [1, 5, 653]
     >>> common([5, 3, 2, 8], [3, 2])
     return sorted(set(l1) & set(l2))
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
     [2, 3]
 
     """
