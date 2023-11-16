@@ -11,7 +11,8 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
-    return
+    """
+    return sum(map(ord, filter(str.isupper, s)))
 
 
 def check(func):
@@ -26,8 +27,9 @@ def check(func):
 
 
 check(digitSum)
-
         digitSum("aAaaaXa") => 153, "Error"
         digitSum("You arE Very Smart") => 327, "Error"
-
     """
+
+
+print(digitSum("You arE Very Smart"))
