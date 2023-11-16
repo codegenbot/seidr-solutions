@@ -15,7 +15,6 @@ def make_palindrome(string: str) -> str:
     >>> make_palindrome('cat')
     'catac'
 
-    """
 
 def is_anagram(word1: str, word2: str) -> bool:
     """ Test if two words are anagrams.
@@ -24,6 +23,8 @@ def is_anagram(word1: str, word2: str) -> bool:
     >>> is_anagram('cat', 'dog')
     False
     """
+    return sorted(word1) == sorted(word2)
+
     >>> make_palindrome('cata')
     'catac'
     """
