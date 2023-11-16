@@ -10,7 +10,6 @@ def is_nested(string):
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-
-    return False
+    pass
     is_nested('[[]][[') ➞ True
     '''
