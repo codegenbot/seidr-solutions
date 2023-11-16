@@ -1,4 +1,17 @@
 
+def convert_to_binary(N):
+    """
+    Given a positive integer N, convert it to a binary representation.
+    Return a string of binary number.
+    """
+    pass
+
+def sum_of_digits(binary_str):
+    """
+    Given a string of binary number, return the sum of digits.
+    """
+    pass
+
 def solve(N):
     """Given a positive integer N, return the total sum of its digits in binary.
     
@@ -13,7 +26,5 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # Convert N to binary
-    b = bin(N)[2:]
-    # Sum all the digits in the binary number
-    return sum([int(x) for x in b])
+    binary_str = convert_to_binary(N)
+    return sum_of_digits(binary_str)
