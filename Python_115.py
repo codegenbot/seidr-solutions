@@ -1,6 +1,5 @@
 
 def max_fill(grid, capacity):
-    import math
     """
     You are given a rectangular grid of wells. Each row represents a single well,
     and each 1 in a row represents a single unit of water.
@@ -32,20 +31,14 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
-    if capacity == 0:
-        return 0
-    if any(len(row) != len(grid[0]) for row in grid):
-        raise ValueError("All wells have the same length")
-    if any(len(row) > 10**2 for row in grid):
-        raise ValueError("1 <= grid[:,1].length <= 10^2")
-    if any(any(val not in [0, 1] for val in row) for row in grid):
-        raise ValueError("grid[i][j] -> 0 | 1")
-    if capacity > 10:
-        raise ValueError("1 <= capacity <= 10")
-    if capacity == 0:
-        return 0
-    if capacity == 1:
-        return sum(sum(row) for row in grid)
-    return sum(math.ceil(sum(row) / capacity) for row in grid)
+    import math
+    n_rows = len(grid)
+    n_cols = len(grid[0])
+    n_buckets = 0
+    for row in range(n_rows):
+        for col in range(n_cols):
+            if grid[row][col] == 1:
+                n_buckets += math.ceil(capacity / n_cols)
+    return n_buckets
         * 1 <= capacity <= 10
     """
