@@ -1,6 +1,6 @@
+
+
 def is_palindrome(string: str) -> bool:
-
-
     """ Test if given string is a palindrome """
     return string == string[::-1]
 
@@ -14,6 +14,12 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
+    prefix = []
+    for i in range(0, len(string)):
+        if is_palindrome(string[:i + 1]):
+            prefix.append(i + 1)
+    leng = len(string)
+    return string + string[:-min(prefix):-1]
     >>> make_palindrome('cata')
     'catac'
     """
