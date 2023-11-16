@@ -7,7 +7,5 @@ def find_max(words):
 
     find_max(["name", "of", "string"]) == "string"
     find_max(["name", "enam", "game"]) == "enam"
-    # complete the following code
-    pass
-    find_max(["aaaaaaa", "bb" ,"cc"]) == ""aaaaaaa"
+    find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa"
     """
