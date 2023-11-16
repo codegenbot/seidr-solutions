@@ -1,6 +1,6 @@
 
 
-def sum_to_n(n: int):
+def sum_to_n(n):
     """sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
     465
@@ -12,7 +12,4 @@ def sum_to_n(n: int):
     55
     >>> sum_to_n(1)
     1
-    if n == 1:
-        return 1
-    return n + sum_to_n(n - 1)
     """
