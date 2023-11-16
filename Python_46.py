@@ -14,5 +14,5 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    # TODO: Complete the following code given the task description and function signature.
+    pass
     """
