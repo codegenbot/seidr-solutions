@@ -10,11 +10,8 @@ def check_if_last_char_is_a_letter(txt):
     check_if_last_char_is_a_letter("apple pie") ➞ False
     check_if_last_char_is_a_letter("apple pi e") ➞ True
     check_if_last_char_is_a_letter("apple pi e ") ➞ False
-    check_if_last_char_is_a_letter("") ➞ False 
-
-    if txt == "":
-        return False
-    elif txt[-1].isalpha() and txt[-1] not in txt[:-1]:
+    check_if_last_char_is_a_letter("") ➞ False
+    if txt[-1].isalpha():
         return True
     else:
         return False
