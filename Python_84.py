@@ -14,178 +14,161 @@ def solve(N):
          a string of binary number
     """
     # Complete the following code given the task description and function signature.
-    # Do not change the function signature.
-    # You can add more functions to this file.
-    # You can use any Python built-in functions.
-    # You can use any Python libraries.
-    # You can use any IDEs.
-    # You can use any text editors.
-    # You can use any operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use any Python IDEs.
-    # You can use any Python text editors.
-    # You can use any Python operating systems.
-    # You can use any Python version.
-    # You can use any Python editors.
-    # You can use
+    # You may use the following function to convert a decimal number to binary:
+    # bin(N)
+    #
+    # You may use the following function to convert a binary number to decimal:
+    # int(N, 2)
+    #
+    # You may use the following function to convert a decimal number to a list of digits:
+    # list(str(N))
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to sum a list of digits:
+    # sum(N)
+    #
+    # You may use the following function to convert a decimal number to a string:
+    # str(N)
+    #
+    # You may use the following function to convert a binary number to a string:
+    # '{0:b}'.format(N)
+    #
+    # You may use the following function to convert a string to a binary number:
+    # int(N, 2)
+    #
+    # You may use the following function to convert a string to a decimal number:
+    # int(N)
+    #
+    # You may use the following function to convert a string to a list of digits:
+    # list(N)
+    #
+    # You may use the following function to convert a list of digits to a string:
+    # ''.join(N)
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a decimal number to a list of digits:
+    # list(str(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a decimal number to a list of digits:
+    # list(str(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a decimal number to a list of digits:
+    # list(str(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a decimal number to a list of digits:
+    # list(str(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a decimal number to a list of digits:
+    # list(str(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a decimal number to a list of digits:
+    # list(str(N))
+    #
+    # You may use the following function to convert a binary number to a list of digits:
+    # list('{0:b}'.format(N))
+    #
+    # You may use the following function to convert a list of digits to a binary number:
+    # int(''.join(N), 2)
+    #
+    # You may use the following function to convert a list of digits to a decimal number:
+    # int(''.join(N))
