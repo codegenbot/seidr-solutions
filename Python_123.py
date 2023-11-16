@@ -11,10 +11,17 @@ def get_odd_collatz(n):
 
     Note: 
 
-if __name__ == '__main__':
-    n = 5
-    odd_collatz = get_odd_collatz(n)
-    print(odd_collatz)
+    collatz_list = []
+    
+    while n > 1:
+        if n % 2 == 0:
+            n /= 2
+        else:
+            n = 3 * n + 1
+            collatz_list.append(n)
+
+    collatz_list.sort()
+    return collatz_list
         1. Collatz(1) is [1].
         2. returned list sorted in increasing order.
 
