@@ -7,16 +7,16 @@ def fib(n: int):
     >>> fib(1)
     1
     >>> fib(8)
-    21
-    a, b = 0, 1
-    for i in range(n):
-        a, b = b, a + b
-    return a
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
 
 
-if __name__ == "__main__":
-    check(fib)
-
+if __name__ == '__main__':
     import doctest
     doctest.testmod()
+    21
     """
