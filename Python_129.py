@@ -23,11 +23,9 @@ def minPath(grid, k):
 
     Examples:
 
+    # Your code here
 
-    # Write your code here.
-    # You can add other functions and variables as you need.
-    # Do NOT change the function signature.
-    pass
+    return []
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
