@@ -15,8 +15,20 @@ def sum_squares(lst):
     # You can use the math module if you wish.
     # Hint: You can use list comprehension.
     pass
-    sum_squares = round([lst]) math.pow(lst,2)
-
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+    print(f"Your solution is wrong. Based on the test cases we ran, this is the correct output: {check(sum_squares)}")
 
     """
