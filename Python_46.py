@@ -14,17 +14,8 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-
-    a, b, c, d, e = 0, 0, 2, 0, 0
-    for x in range(1, n):
-        a = b
-        b = c
-        c = d
-        d = e
-        e = a + b + c + d
-    return e
-
-
-if __name__ == "__main__":
-    print(fib4(8))
+    current, next = 0, 1
+    for i in range(n):
+        current, next = next, current + next
+    return current
     """
