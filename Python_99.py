@@ -28,3 +28,14 @@ def closest_integer(value):
         return int(value)
     return 15 and closest_integer("-14.5") should return -15.
     '''
+    if value[-1] == '.':
+        return int(value[:-1])
+    elif value[-1] == '0':
+        return int(value)
+    elif value[-1] == '5':
+        if value[0] == '-':
+            return int(value[:-1]) - 1
+        else:
+            return int(value[:-1]) + 1
+    else:
+        return int(value)
