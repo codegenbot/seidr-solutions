@@ -19,4 +19,31 @@ def double_the_difference(lst):
     return sum_of_difference
 
 
+def check(func):
+    if func([1, 3, 2, 0]) == 10:
+        print(10)
+    else:
+        print(0)
+    if func([-1, -2, 0]) == 0:
+        print(10)
+    else:
+        print(0)
+    if func([9, -2]) == 81:
+        print(10)
+    else:
+        print(0)
+    if func([0]) == 0:
+        print(10)
+    else:
+        print(0)
+    if func([]) == 0:
+        print(10)
+    else:
+        print(0)
+    if func(lst) == odd_sum:
+        print(10)
+    else:
+        print(0)
+
+
 check(double_the_difference)
