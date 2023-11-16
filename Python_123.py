@@ -10,19 +10,10 @@ def get_odd_collatz(n):
     term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1.
 
     Note: 
-    if n == 1:
-        return [1]
-    sequence = [n]
-    while n != 1:
-        if n % 2 == 1:
-            n = 3 * n + 1
-        else:
-            n = n // 2
-        sequence.append(n)
-    return sorted(list(set([x for x in sequence if x % 2 == 1])))
         1. Collatz(1) is [1].
         2. returned list sorted in increasing order.
 
     For example:
-    get_odd_collatz(5) returns [1, 5] # The collatz sequence for 5 is [5, 16, 8, 4, 2, 1], so the odd numbers are only 1, and 5.
+    get_odd_collatz(5) returns [1, 5] 
+    # The collatz sequence for 5 is [5, 16, 8, 4, 2, 1], so the odd numbers are only 1, and 5.
     """
