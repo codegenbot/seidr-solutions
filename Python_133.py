@@ -1,5 +1,4 @@
 
-import math
 
 def sum_squares(lst):
     """You are given a list of numbers.
@@ -16,7 +15,8 @@ def sum_squares(lst):
     # You can use the math module if you wish.
     # Hint: You can use list comprehension.
     pass
+    sum_squares = round([lst]) math.pow(lst,2)
+
     
-    return sum(map(lambda x:x*x,map(lambda x: math.ceil(x), lst)))
 
     """
