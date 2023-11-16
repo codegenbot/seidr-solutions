@@ -11,5 +11,5 @@ def check_if_last_char_is_a_letter(txt):
     check_if_last_char_is_a_letter("apple pi e") ➞ True
     check_if_last_char_is_a_letter("apple pi e ") ➞ False
     check_if_last_char_is_a_letter("") ➞ False 
-    pass
+    # Complete the following code given the task description and function signature.
     '''
