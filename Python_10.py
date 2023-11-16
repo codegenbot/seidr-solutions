@@ -16,7 +16,6 @@ def make_palindrome(string: str) -> str:
     >>> make_palindrome('jerry')
     'jerryrrej'
     """
-    ''
     >>> make_palindrome('cat')
     'catac'
     if is_palindrome(string):
