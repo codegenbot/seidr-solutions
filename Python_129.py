@@ -1,5 +1,7 @@
+import itertools
 
-def minPath(grid, k) -> List[int]:
+
+def minPath(grid, k):
     """
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
     each cell of the grid contains a value. Every integer in the range [1, N * N]
@@ -23,6 +25,32 @@ def minPath(grid, k) -> List[int]:
 
     Examples:
 
+
+    n = len(grid)
+    minimum = max(itertools.chain.from_iterable(grid))*k
+    values = []
+    for row in range(n):
+        for col in range(n):
+            values.append(grid[row][col])
+    for i in range(k):
+        for j in range(k):
+            k_grid = grid
+            for l in range(k):
+                k_grid[i][j] = values[l]
+                for m in range(k):
+                    k_grid[i][j] = values[m]
+                    k_grid[i][j] = values[l]
+                    min_grid = grid[i][j]
+                    if min_grid < minimum:
+                        minimum = min_grid
+                        minimum_grid = k_grid
+                        return minimum_grid
+
+
+if __name__ == "__main__":
+    k = 3
+    grid = [ [1,2,3], [4,5,6], [7,8,9]]
+    print(minPath(grid, k))
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
