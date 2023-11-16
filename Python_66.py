@@ -10,7 +10,6 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
-
     return sum(ord(c) for c in s if c.isupper())
         digitSum("aAaaaXa") => 153
     """
