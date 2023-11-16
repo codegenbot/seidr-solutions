@@ -12,6 +12,8 @@ def prime_fib(n: int):
     >>> prime_fib(4)
     13
     >>> prime_fib(5)
+    >>> prime_fib(10)
+    433494437
     89
     fib_list = [2, 3]
     i = 2
