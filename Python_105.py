@@ -22,5 +22,6 @@ def by_length(arr):
       return = ['One']
     """
 
-    # TODO: Complete the following code given the task description and function signature.
-    pass
+    # your code here
+
+    return []
