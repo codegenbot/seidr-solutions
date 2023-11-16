@@ -20,20 +20,19 @@ def minPath(grid, k):
     lst_A[j] = lst_B[j].
     It is guaranteed that the answer is unique.
     Return an ordered list of the values on the cells that the minimum path go through.
-    if k == 1:
-        return [grid[0][0]]
-
 
     Examples:
 
 
     # Complete the following code given the task description and function signature.
 
-    # Get the size of the grid and create a dictionary to store the coordinates of the numbers.
+    # Get the size of the grid and create a dictionary to store the 
+    # coordinates of the numbers.
     n = len(grid)
     nums = {}
 
-    # Iterate through the grid and store the coordinates of the numbers.
+    # Iterate through the grid and store the coordinates of the 
+    # numbers.
     for i in range(n):
         for j in range(n):
             nums[grid[i][j]] = (i, j)
@@ -103,11 +102,9 @@ def minPath(grid, k):
 
     # Return the minimum path.
     return min_path
-        Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
-        Output: [1, 2, 1]
+    Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
+    Output: [1, 2, 1]
 
-        Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
-
-    return [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
-        Output: [1]
+    Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
+    Output: [1]
     """
