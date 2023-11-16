@@ -8,12 +8,15 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    if len(a) != len(b):
+    # Your code here
+    if len(b) > len(a):
         return False
-    for i in range(len(a)):
-        if a.find(b) != -1:
-            return True
-        b = b[-1] + b[:-1]
+    if b in a:
+        return True
+    else:
+        for i in range(1, len(b)):
+            if b[i:] + b[:i] in a:
+                return True
     return False
 
 
