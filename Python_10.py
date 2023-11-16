@@ -14,10 +14,8 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    if is_palindrome(string):
-        return string
-    else:
-        return string + string[::-1]
+    # Complete the following code given the task description and function signature.
+    return ''
     >>> make_palindrome('cata')
     'catac'
     """
