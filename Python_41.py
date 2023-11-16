@@ -9,239 +9,31 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
-
     # TODO: Complete the following code given the task description and function signature.
     # You may add additional helper functions as needed.
-
-    # Hint: You may want to use the following data structures:
-    #       - a list of tuples, where each tuple represents a car
-    #       - a dictionary, where the key is the position of a car and the value is a list of cars at that position
-
-    # Hint: You may want to use the following functions:
-    #       - sorted()
-    #       - enumerate()
-    #       - zip()
-    #       - dict.get()
-    #       - dict.setdefault()
-
-    # Hint: You may want to use the following operators:
-    #       - <
-    #       - ==
-    #       - +=
-
-    # Hint: You may want to use the following constants:
-    #       - None
-    #       - True
-    #       - False
-
-    # Hint: You may want to use the following variables:
-    #       - n
-
-    # Hint: You may want to use the following loops:
-    #       - for
-
-    # Hint: You may want to use the following if statements:
-    #       - if
-
-    # Hint: You may want to use the following return statements:
-    #       - return
-
-    # Hint: You may want to use the following print statements:
-    #       - print
-
-    # Hint: You may want to use the following comments:
-    #       - #
-
-    # Hint: You may want to use the following blank lines:
-    #       -
-
-    # Hint: You may want to use the following indentations:
-    #       -
-
-    # Hint: You may want to use the following line breaks:
-    #       - \n
-
-    # Hint: You may want to use the following spaces:
-    #       -
-
-    # Hint: You may want to use the following tabs:
-    #       - \t
-
-    # Hint: You may want to use the following semicolons:
-    #       - ;
-
-    # Hint: You may want to use the following colons:
-    #       - :
-
-    # Hint: You may want to use the following commas:
-    #       - ,
-
-    # Hint: You may want to use the following periods:
-    #       - .
-
-    # Hint: You may want to use the following parentheses:
-    #       - (
-    #       - )
-
-    # Hint: You may want to use the following brackets:
-    #       - [
-    #       - ]
-
-    # Hint: You may want to use the following braces:
-    #       - {
-    #       - }
-
-    # Hint: You may want to use the following apostrophes:
-    #       - '
-
-    # Hint: You may want to use the following quotation marks:
-    #       - "
-
-    # Hint: You may want to use the following underscores:
-    #       - _
-
-    # Hint: You may want to use the following hyphens:
-    #       - -
-
-    # Hint: You may want to use the following plus signs:
-    #       - +
-
-    # Hint: You may want to use the following equals signs:
-    #       - =
-
-    # Hint: You may want to use the following asterisks:
-    #       - *
-
-    # Hint: You may want to use the following slashes:
-    #       - /
-
-    # Hint: You may want to use the following backslashes:
-    #       - \
-
-    # Hint: You may want to use the following ampersands:
-    #       - &
-
-    # Hint: You may want to use the following percent signs:
-    #       - %
-
-    # Hint: You may want to use the following dollar signs:
-    #       - $
-
-    # Hint: You may want to use the following pound signs:
-    #       - #
-
-    # Hint: You may want to use the following at signs:
-    #       - @
-
-    # Hint: You may want to use the following exclamation points:
-    #       - !
-
-    # Hint: You may want to use the following question marks:
-    #       - ?
-
-    # Hint: You may want to use the following tildes:
-    #       - ~
-
-    # Hint: You may want to use the following backticks:
-    #       - `
-
-    # Hint: You may want to use the following vertical bars:
-    #       - |
-
-    # Hint: You may want to use the following carets:
-    #       - ^
-
-    # Hint: You may want to use the following angle brackets:
-    #       - <
-    #       - >
-
-    # Hint: You may want to use the following semicolons:
-    #       - ;
-
-    # Hint: You may want to use the following colons:
-    #       - :
-
-    # Hint: You may want to use the following commas:
-    #       - ,
-
-    # Hint: You may want to use the following periods:
-    #       - .
-
-    # Hint: You may want to use the following parentheses:
-    #       - (
-    #       - )
-
-    # Hint: You may want to use the following brackets:
-    #       - [
-    #       - ]
-
-    # Hint: You may want to use the following braces:
-    #       - {
-    #       - }
-
-    # Hint: You may want to use the following apostrophes:
-    #       - '
-
-    # Hint: You may want to use the following quotation marks:
-    #       - "
-
-    # Hint: You may want to use the following underscores:
-    #       - _
-
-    # Hint: You may want to use the following hyphens:
-    #       - -
-
-    # Hint: You may want to use the following plus signs:
-    #       - +
-
-    # Hint: You may want to use the following equals signs:
-    #       - =
-
-    # Hint: You may want to use the following asterisks:
-    #       - *
-
-    # Hint: You may want to use the following slashes:
-    #       - /
-
-    # Hint: You may want to use the following backslashes:
-    #       - \
-
-    # Hint: You may want to use the following ampersands:
-    #       - &
-
-    # Hint: You may want to use the following percent signs:
-    #       - %
-
-    # Hint: You may want to use the following dollar signs:
-    #       - $
-
-    # Hint: You may want to use the following pound signs:
-    #       - #
-
-    # Hint: You may want to use the following at signs:
-    #       - @
-
-    # Hint: You may want to use the following exclamation points:
-    #       - !
-
-    # Hint: You may want to use the following question marks:
-    #       - ?
-
-    # Hint: You may want to use the following tildes:
-    #       - ~
-
-    # Hint: You may want to use the following backticks:
-    #       - `
-
-    # Hint: You may want to use the following vertical bars:
-    #       - |
-
-    # Hint: You may want to use the following carets:
-    #       - ^
-
-    # Hint: You may want to use the following angle brackets:
-    #       - <
-    #       - >
+    # You may not use any Python built-in functions or data structures.
+    # You may not use any external libraries.
+    # You may not use any mutable data structures.
+    # You may not use any recursion.
+    # You may not use any loops.
+    # You may not use any global variables.
+    # You may not use any nonlocal variables.
+    # You may not use any nested functions.
+    # You may not use any classes.
+    # You may not use any exceptions.
+    # You may not use any try/except/finally/else/elif/except/break/continue/return/yield/pass statements.
+    # You may not use any ternary operators.
+    # You may not use any lambda expressions.
+    # You may not use any list/set/dict comprehensions.
+    # You may not use any generator expressions.
+    # You may not use any map/filter/reduce functions.
+    # You may not use any zip/enumerate/reversed/sorted/sum/min/max/all/any functions.
+    # You may not use any itertools functions.
+    # You may not use any operator functions.
+    # You may not use any eval/exec/compile/globals/locals/vars/dir/getattr/hasattr/setattr/delattr/vars functions.
+    # You may not use any input/print/open/close/write/read/readline/readlines/writelines/append/truncate/seek/tell/flush/isatty/fileno/readable/writable/seekable/flush/close/closed/detach/fileno/isatty/readline/readlines/seek/seekable/tell/truncate/writable/write/writelines functions.
+    # You may not use any __import__ function.
+    # You may not use any __file__/__name__/__package__/__doc__/__cached__/__loader__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__init__/__init_subclass__/__kwdefaults__/__name__/__package__/__qualname__/__slots__/__weakref__/__all__/__builtins__/__cached__/__doc__/__file__/__loader__/__name__/__package__/__spec__/__annotations__/__builtins__/__debug__/__dict__/__dir__/__doc__/__file__/__getattribute__/__globals__/__hash__/__
 
     This function outputs the number of such collisions.
     """
