@@ -10,37 +10,14 @@ def is_nested(string):
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-
-    # Initialize a counter
-    count = 0
-
-    # Loop through the string
-    for char in string:
-
-        # If the character is an opening bracket, increment the counter
-        if char == '[':
-            count += 1
-
-        # Else if the character is a closing bracket, decrement the counter
-        elif char == ']':
-            count -= 1
-
-        # If the counter is less than 0, return False
-        if count < 0:
-            return False
-
-    # If the counter is 0, return False
-    if count == 0:
-        return False
-
-    # Else, return True
-    return True
-
-print(is_nested('[[]]'))
-print(is_nested('[]]]]]]][[[[[]'))
-print(is_nested('[][]'))
-print(is_nested('[]'))
-print(is_nested('[[][]]'))
-print(is_nested('[[]][['))
+    stack = []
+    for i in string:
+        if i == '[':
+            stack.append(i)
+        elif i == ']':
+            if len(stack) == 0:
+                return False
+            stack.pop()
+    return len(stack) == 0
     is_nested('[[]][[') ➞ True
     '''
