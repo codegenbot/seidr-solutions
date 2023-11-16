@@ -16,7 +16,7 @@ def will_it_fly(q,w):
     else:
         return False
 
-print(will_it_fly([3, 2, 3], 9))
+print(will_it_fly([1, 2], 5))
 
     will_it_fly([3, 2, 3], 9) ➞ True
     # 3+2+3 is less than the maximum possible weight, and it's balanced.
