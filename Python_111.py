@@ -12,5 +12,4 @@ def histogram(test):
     histogram('') == {}
 
     # Your code here
-    pass
     """
