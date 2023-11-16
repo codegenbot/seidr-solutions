@@ -32,10 +32,6 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
-
-    # Your code here
-    # Hint: You can use the math.ceil function to round a number up
-    #       to the nearest integer.
-    #       Example: math.ceil(3.2) -> 4
+    # Write your code here
         * 1 <= capacity <= 10
     """
