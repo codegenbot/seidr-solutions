@@ -14,9 +14,9 @@ def double_the_difference(lst):
     if len(lst) == 0:
         return 0
 
-        sum = 0
+    sum_ = 0
     for item in lst:
         if item % 2 != 0:
-            sum += item**2
+            sum_ += item**2
 
-    return sum
+    return sum_
