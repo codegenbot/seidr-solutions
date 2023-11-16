@@ -2,7 +2,7 @@
 
 def is_palindrome(string: str) -> bool:
     """ Test if given string is a palindrome """
-    pass
+    return string == string[::-1]
 
 
 def make_palindrome(string: str) -> str:
@@ -14,7 +14,13 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    pass
+
+
+def largest_prime_factor(number: int) -> int:
+    """ The prime factors of 13195 are 5, 7, 13 and 29 as a maximum prime factor is calculated.
+    :param number: natural positive number, in which the largest prime factor will be init
+    :return:
+    """
     >>> make_palindrome('cata')
     'catac'
     """
