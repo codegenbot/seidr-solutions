@@ -13,25 +13,10 @@ def prime_fib(n: int):
     13
     >>> prime_fib(5)
     89
-    def is_prime(num):
-        if num == 1:
-            return False
-        for i in range(2, num):
-            if num % i == 0:
-                return False
-        return True
-
-    fib = [1, 1]
-    for i in range(2, 1000):
-        fib.append(fib[i - 1] + fib[i - 2])
-        if is_prime(fib[i]):
-            if n == 1:
-                return fib[i]
-            n -= 1
-
-
-if __name__ == '__main__':
-    import doctest
-
-    doctest.testmod()
+    fib_num = [2, 3]
+    i = 2
+    while i < n:
+        fib_num.append(fib_num[i-1] + fib_num[i-2])
+        i += 1
+    return fib_num[n-1]
     """
