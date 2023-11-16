@@ -1,7 +1,3 @@
-import lib
-import unittest
-import functional
-import copy
 
 def minPath(grid, k):
     """
@@ -27,6 +23,30 @@ def minPath(grid, k):
 
     Examples:
 
+    def rec(x, y, z):
+        if z == 0: return []
+        n = len(grid)
+        a = [grid[i][j] for i in range(x - 1, x + 2) for j in range(y - 1, y + 2) if 0 <= i < n and 0 <= j < n]
+        print("a = %s" % a)
+        b = [rec(i, j, z - 1) for i in range(x - 1, x + 2) for j in range(y - 1, y + 2) if 0 <= i < n and 0 <= j < n]
+        print("b = %s" % b)
+        c = [a[i] + b[i] for i in range(len(a))]
+        print("c = %s" % c)
+        d = min(c)
+        print("d = %s" % d)
+        return d
+
+    n = len(grid)
+    print("n = %s" % n)
+    return [rec(x, y, k) for x in range(n) for y in range(n)]
+
+import unittest
+class TestMinimumPath(unittest.TestCase):
+    def test_minPath(self):
+        self.assertTrue(minPath(grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3) == [1, 2, 1])
+        self.assertTrue(minPath(grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1) == [1])
+
+if __name__ == "__main__": unittest.main()
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
