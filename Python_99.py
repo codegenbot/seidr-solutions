@@ -8,25 +8,19 @@ def closest_integer(value):
     Examples
     >>> closest_integer("10")
     10
-def closest_integer(value):
-""" Create a function that takes a value (string) representing a number
-and returns the closest integer to it. If the number is equidistant
-from two integers, round it away from zero. """
     >>> closest_integer("15.3")
     15
 
-import math
-value = float(input())
-if value < 0:
-    if round(value/abs(value))==1:
-        value=math.ceil(value)
-newvalue=(float(value)%1)  
-if (newvalue)>0.5:
-        value=math.ceil (value)
-else:
-    value=math.floor(value)
+    Note:
+    Rounding away from zero means that if the given number is equidistant
+    from two integers, the one you should return is the one that is the
+    farthest from zero. For example closest_integer("14.5") should
 
-    print(value)
+    # Hint: use the built-in round() function.
+    # It takes an optional second argument to specify the number of decimal places to round to.
+    # If it is omitted, the number is rounded to the nearest integer.
 
-if __name__ == '__main__':
-closest_integer()
+    # Delete the following line and write your code here
+    return round(value,0)
+    return 15 and closest_integer("-14.5") should return -15.
+    '''
