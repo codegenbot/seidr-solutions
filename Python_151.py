@@ -11,12 +11,6 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    def double_the_difference(lst):
-    oddSum = []
-    for i in lst : 
-        if i >= 0: 
-            oddSum.append(i ** 2)
-    if oddSum == []:
-        return 0
-    else:
-        return (2 * sum(oddSum)) 
+    # Task 2: complete the code; alternatively,
+    # You can ignore the lines with an ellipsis and write a solution from scratch.
+    	return ...
