@@ -13,7 +13,7 @@ def fix_spaces(text):
     # Replace all spaces with underscores
     text = text.replace(" ", "_")
     # Replace all consecutive spaces with -
-    text = text.replace("__", "_-")
+    text = text.replace("_ _", "-")
     return text
 
 print(fix_spaces("Example"))
