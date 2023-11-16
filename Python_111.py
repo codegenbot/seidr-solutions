@@ -11,5 +11,5 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    pass
+    # Complete the following code given the task description and function signature.
     """
