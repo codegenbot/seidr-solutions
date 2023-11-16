@@ -17,6 +17,6 @@ def closest_integer(value):
     farthest from zero. For example closest_integer("14.5") should
     # Complete the following code given the task description and function signature.
     # Do not change the function signature.
-    # pass
+    #pass
     return 15 and closest_integer("-14.5") should return -15.
     '''
