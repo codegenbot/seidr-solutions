@@ -26,4 +26,3 @@ def get_max_triples(n):
     return 0
 
 print(get_max_triples(5))
-    
