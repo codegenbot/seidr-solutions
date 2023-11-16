@@ -1,5 +1,5 @@
 
-def is_nested(string):
+def is_nested(string: str) -> bool:
     '''
     Create a function that takes a string as input which contains only square brackets.
     The function should return True if and only if there is a valid subsequence of brackets 
@@ -10,24 +10,23 @@ def is_nested(string):
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-    # Write your code here
+    try:
+        if string[0] == ']' or string[-1] == '[':
+            return False
+        else:
+            for char in string:
+                if char == '[':
+                    return True
+    except IndexError:
+        return False
 
-    if string == "[]":
-        return False
-    elif string == "[[]]":
-        return True
-    elif string == "[[][]]":
-        return True
-    elif string == "[]][[":
-        return True
-    elif string == "[]]]]]]][[[[[]":
-        return False
-    elif string == "[][]":
-        return False
-    elif string == "]]]]]]]]":
-        return False
-    else:
-        return True
-    return 
-    is_nested('[[]][[') ➞ True
+
+print(is_nested('[[]]'))
+print(is_nested('[]]]]]]][[[[[]'))
+print(is_nested('[][]'))
+print(is_nested('[]'))
+print(is_nested('[[][]]'))
+print(is_nested(']]]]]]]]'))
+print(is_nested('[[]][['))
+print(is_nested('[[]][['))
     '''
