@@ -4,7 +4,7 @@ def add_even_odd_index_elements(lst):
 
 
     Examples:
-        add([4, 2, 6, 7]) ==> 2 
+        add([4, 2, 6, 7]) ==> 2
     """
     #We can use the enumerate() function to get the index and the value of each element in the list.
     #The enumerate() function returns a tuple containing the index and the value.
@@ -13,7 +13,10 @@ def add_even_odd_index_elements(lst):
         if index % 2 != 0 and value % 2 == 0:
             even_odd_index_sum += value
     return even_odd_index_sum
-    return even_odd_index_sum
+
+
+#Test the function
+print(add_even_odd_index_elements([4, 2, 6, 7]))
 
 
 
