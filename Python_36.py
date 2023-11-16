@@ -7,5 +7,12 @@ def fizz_buzz(n: int):
     >>> fizz_buzz(78)
     2
     >>> fizz_buzz(79)
+    >>> fizz_buzz(100000)
+    8026
     3
+    count = 0
+    for number in range(n):
+        if number % 11 == 0 or number % 13 == 0:
+            count += str(number).count('7')
+    return count
     """
