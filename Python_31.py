@@ -1,7 +1,11 @@
 
 
 def is_prime(n):
-    """Return true if a given number is prime, and false otherwise.
+    """Return true if a given number is prime, and false otherwise. 
+    A prime number is a number that is only divisible by itself and 1. 
+    For example, 11 is prime, because it can only be divided by 1 or 11.
+    Any number that can be divided by a number other than itself or 1 is not prime.
+    For example, 12 is not prime, because it can be divided by 2, 3, 4, or 6.
     >>> is_prime(6)
     False
     >>> is_prime(101)
@@ -16,16 +20,4 @@ def is_prime(n):
     False
     >>> is_prime(1)
     False
-    if n == 1:
-        return False
-    else:
-        for i in range(2, n):
-            if n % i == 0:
-                return False
-        return True
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
     """
