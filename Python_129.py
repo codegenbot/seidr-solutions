@@ -24,52 +24,10 @@ def minPath(grid, k):
     Examples:
 
 
-
-def calculate_min_path(grid, k):
-    """
-    Process the input and return the min path list.
-
-    Arguments:
-        grid {list} -- grid hold the input value
-        k {int} -- the length of the min path
-
-    Returns:
-        list -- list of the values on the cells
-    """
-    # TO-DO
+    ###
+    ### YOUR CODE HERE
+    ###
     pass
-
-
-def test_function(test_case):
-    grid = test_case[0]
-    k = test_case[1]
-    solution = test_case[2]
-    output = calculate_min_path(grid, k)
-    if output == solution:
-        print("Pass")
-    else:
-        print("Fail")
-
-
-if __name__ == '__main__':
-    grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    k = 3
-    solution = [1, 2, 1]
-
-    test_case = [grid, k, solution]
-    test_function(test_case)
-
-    grid = [[5, 9, 3], [4, 1, 6], [7, 8, 2]]
-    k = 1
-    solution = [1]
-    test_case = [grid, k, solution]
-    test_function(test_case)
-
-    grid = [[5, 5, 2], [4, 8, 7], [9, 6, 1]]
-    k = 3
-    solution = [5, 4, 1]
-    test_case = [grid, k, solution]
-    test_function(test_case)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
