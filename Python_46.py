@@ -14,5 +14,17 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    pass
+
+def large_sum(n: int):
+    """Given an array of non-negative integers, return a subsequence of the array such that the sum of the subsequence is maximized. This is a variant of the "maximum contiguous subsequence sum" problem, except that you can take numbers from either end of the array.
+    Example: the subsequence of [1, 2, 4, 6, -2, 3, 2] that maximizes the sum is [4, 6, -2].
+    You can use this array for testing: [1, 2, 4, 6, -2, 3, 2]
+    
+    >>> large_sum([1,2,4,6,-2,3,2])
+    [4, 6, -2]
+    >>> large_sum([-5, -300, -1, 100, 500, -10])
+    [100, 500]
+    >>> large_sum([1, 2, -1, 4, -200])
+    [1, 2, -1, 4]
+    """
     """
