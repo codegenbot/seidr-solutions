@@ -1,6 +1,3 @@
-
-odd_sum = 0
-
 def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
@@ -13,9 +10,8 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
+    sum = 0
     for i in lst:
-        if i%2 == 1:
-            odd_sum += i**2
-        else:
-            pass
-    return odd_sum
+        if i % 2 == 1:
+            sum += i ** 2
+    return sum
