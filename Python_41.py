@@ -1,6 +1,6 @@
 
 
-def car_race_collision(n, left_to_right, right_to_left):
+def car_race_collision(n: int, left_to_right: list, right_to_left: list):
     """
     Imagine a road that's a perfectly straight infinitely long line.
     n cars are driving left to right;  simultaneously, a different set of n cars
@@ -9,6 +9,14 @@ def car_race_collision(n, left_to_right, right_to_left):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
+    pass
+    pass
+
+    pass
+    pass
+
+
+
 
     This function outputs the number of such collisions.
     """
