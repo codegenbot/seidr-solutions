@@ -33,5 +33,4 @@ def max_fill(grid, capacity):
         * grid[i][j] -> 0 | 1
     """
     # Your code goes here    
-    import math
-    return math.ceil(sum(sum(row) for row in grid) / float(capacity))
+    return sum(sum(row) for row in grid) // capacity + 1
