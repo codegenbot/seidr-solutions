@@ -63,11 +63,18 @@ def minPath(grid, k):
 
     Examples:
 
-    min_path = [[]]
+    n = len(grid)
+    if k == 1:
+        return [grid[0][0]]
+    min_path = [list(range(1, n * n + 1))]
     for i in range(n):
         for j in range(n):
             dfs(grid, k, set(), [], min_path, i, j)
     return min_path[0]
+
+
+if __name__ == '__main__':
+    check(minPath)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
