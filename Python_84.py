@@ -13,4 +13,11 @@ def solve(N: int) -> str:
     Output:
          a string of binary number
     """
-    return bin(N).replace("0b", "")
+    bin_num = bin(N)
+    bin_num = bin_num[2:]
+    sum_bin = 0
+    for i in bin_num:
+        sum_bin += i
+    bin_sum = bin(sum_bin)
+    bin_sum = bin_sum[2:]
+    return bin_sum
