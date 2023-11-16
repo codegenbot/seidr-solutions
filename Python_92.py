@@ -12,9 +12,9 @@ def any_int(x, y, z):
 
     any_int(3, -2, 1) ➞ True
     
-    '''
     any_int(3.6, -2.2, 2) ➞ False
-  
+    '''
+
 
     if (x == y + z or y == x + z or z == x + y) and (x % 1 == 0 and y % 1 == 0 and z % 1 == 0):
         return True
@@ -22,4 +22,3 @@ def any_int(x, y, z):
         return False
 
 print(any_int(3, 2, 2))
-    
