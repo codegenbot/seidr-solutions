@@ -1,13 +1,4 @@
 
-
-def solution(s):
-    result = {}
-    for i in s.split():
-        if i in result:
-            result[i] += 1
-        else:
-            result[i] = 1
-    return result
 def histogram(test):
     """Given a string representing a space separated lowercase letters, return a dictionary
     of the letter with the most repetition and containing the corresponding count.
@@ -21,8 +12,8 @@ def histogram(test):
     histogram('') == {}
 
 
-    # Complete the following code
-    # ...    
+    # Complete the following code:
+    # ... (write your code here)
 
-    return solution(test);
+    return None;
     """
