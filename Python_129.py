@@ -1,4 +1,5 @@
 
+
 def minPath(grid, k):
     """
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
@@ -26,8 +27,31 @@ def minPath(grid, k):
     # Your code goes here
     # Please use the following function signature
     # def minPath(grid, k):
+    grid_len = len(grid)
+    all_possible_paths = set()
+    for i in range(grid_len):
+        for j in range(grid_len):
+            all_possible_paths.add(get_path(grid, i, j, k))
+    return min(all_possible_paths)
 
-    return [1,3,1,3,1,3,1,3,1,3]
+def get_path(grid, i, j, k):
+    if k == 0:
+        return []
+    grid_len = len(grid)
+    path = []
+    path.append(grid[i][j])
+    if i > 0:
+        path.append(get_path(grid, i-1, j, k-1))
+    if i < grid_len-1:
+        path.append(get_path(grid, i+1, j, k-1))
+    if j > 0:
+        path.append(get_path(grid, i, j-1, k-1))
+    if j < grid_len-1:
+        path.append(get_path(grid, i, j+1, k-1))
+    return path
+
+
+print(minPath([[1, 3], [3, 2]], 10))
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
