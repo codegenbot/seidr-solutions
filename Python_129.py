@@ -23,16 +23,18 @@ def minPath(grid, k):
 
     Examples:
 
-    def get_cost(path):
-        # TODO: Complete the following code given the task description and function signature.
-        pass
-
-    def get_path(start, k):
-        # TODO: Complete the following code given the task description and function signature.
-        pass
 
     # TODO: Complete the following code given the task description and function signature.
-    pass
+    # You can write additional helper functions if needed.
+    # You can write additional classes if needed.
+    # You can import additional modules if needed.
+
+    # The following code is provided as a hint. You may delete it and write your own code.
+    def find_path(grid, k):
+        # return a list of values on the cells that the path go through
+        pass
+
+    return find_path(grid, k)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
