@@ -1,10 +1,7 @@
 
-
-import heapq
-
 def maximum(arr, k):
     """
-    Given an array arr of integers and a positive integer k, return a sorted list 
+    Given an array arr of integers and a positive integer k, return a sorted list
     of length k with the maximum k numbers in arr.
 
     Example 1:
@@ -25,7 +22,8 @@ def maximum(arr, k):
     Note:
         1. The length of the array will be in the range of [1, 1000].
         2. The elements in the array will be in the range of [-1000, 1000].
-        3. 0 <= k <= len(arr)
+        3. 0 <= k <= len(arr)/
+    >
     """
 
     # Write your code here.
