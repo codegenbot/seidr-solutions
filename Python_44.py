@@ -1,6 +1,6 @@
 
 
-def change_base(x, base):
+def change_base(x: int, x: int):
     """Change numerical base of input number x to base.
     return string representation after the conversion.
     base numbers are less than 10.
