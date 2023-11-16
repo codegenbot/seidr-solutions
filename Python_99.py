@@ -1,3 +1,5 @@
+import math
+
 
 def closest_integer(value):
     '''
@@ -22,4 +24,5 @@ def closest_integer(value):
     pass
     return 15 and closest_integer("-14.5") should return -15.
     '''
-    pass
+    value = math.ceil(float(value))
+    return value
