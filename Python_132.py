@@ -1,45 +1,15 @@
 
-def is_nested(string: str) -> bool:
+def is_nested(string, char):
     '''
-    Create a function that takes a string as input which contains only square brackets.
-    The function should return True if and only if there is a valid subsequence of brackets 
-    where at least one bracket in the subsequence is nested.
+    Create a function that takes a string and a character as input. 
+    The function should return True if the character is contained in the string. 
+    Otherwise, it should return False.
 
-    is_nested('[[]]') ➞ True
-    is_nested('[]]]]]]][[[[[]') ➞ False
-    is_nested('[][]') ➞ False
-    is_nested('[]') ➞ False
-    is_nested('[[][]]') ➞ True
-
-    # solution 1
-    # stack = []
-    # for char in string:
-    #     if char == '[':
-    #         stack.append(char)
-    #     elif char == ']':
-    #         if not stack:
-    #             return False
-    #         stack.pop()
-    # return True
-
-    # solution 2
-    stack = []
-    for char in string:
-        if char == '[':
-            stack.append(char)
-        elif char == ']':
-            if not stack:
-                return False
-            stack.pop()
-    return not stack
-
-
-if __name__ == "__main__":
-    print(is_nested('[[]]'))
-    print(is_nested('[]]]]]]][[[[[]'))
-    print(is_nested('[][]'))
-    print(is_nested('[]'))
-    print(is_nested('[[][]]'))
-    print(is_nested('[[]][['))
-    is_nested('[[]][[') ➞ True
+    is_nested('hello', 'e') ➞ True
+    is_nested('hello', 'a') ➞ False
+    is_nested('', 'z') ➞ False
+    is_nested('hello', '') ➞ True
+    is_nested('', '') ➞ True
+    is_nested('hello', 'l') ➞ True
+    is_nested('hello', 'll') ➞ False
     '''
