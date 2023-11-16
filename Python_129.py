@@ -1,53 +1,16 @@
-import heapq
-
-class Node:
-    def __init__(self, value, row, col):
-        self.value = value
-        self.row = row
-        self.col = col
-        self.adjacent = list()
-
-    def addAdjacent(self, node):
-        self.adjacent.append(node)
-
-    def __lt__(self, other):
-        return self.value < other.value
+from collections import deque
 
 
-def solve(grid, k):
-    queue = []
-    nodes = dict()
-
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            node = Node(grid[i][j], i, j)
-            nodes[node] = node
-
-            if i > 0:
-                node.addAdjacent(nodes[grid[i-1][j]])
-                nodes[grid[i-1][j]].addAdjacent(node)
-
-            if j > 0:
-                node.addAdjacent(nodes[grid[i][j-1]])
-                nodes[grid[i][j-1]].addAdjacent(node)
-
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            queue.append(Node(grid[i][j], i, j))
-
-    heapq.heapify(queue)
-    result = list()
-
-    for i in range(k):
-        node = heapq.pop(queue)
-        result.append(node.value)
-
-        for a in node.adjacent:
-            if a in queue:
-                queue.remove(a)
-                heapq.heappush(queue, a)
-
-    return result
+def get_neighbors(coordinate, grid):
+    """
+    Given a coordinate (for example (0,0)), returns a list of all adjacent
+    coordinates in the grid.
+    """
+    n = len(grid)
+    x, y = coordinate
+    neighbors = [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
+    return [coordinate for coordinate in neighbors if 0 <= x < n and
+                                                      0 <= y < n]
 
 
 def minPath(grid, k):
@@ -74,22 +37,6 @@ def minPath(grid, k):
 
     Examples:
 
-
-    # Write your code here.
-    return solve(grid, k)
-
-
-grid = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-k = 3
-
-result = minPath(grid, k)
-
-print(result)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
