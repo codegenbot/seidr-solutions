@@ -8,4 +8,10 @@ def sort_even(l: list):
     [1, 2, 3]
     >>> sort_even([5, 6, 3, 4])
     [3, 6, 5, 4]"""
-    return sorted(l, key=lambda x: x % 2 == 0)
+    l_new = []
+    for i in range(len(l)):
+        if i % 2 == 0:
+            l_new.append(sorted(l[i]))
+        else:
+            l_new.append(l[i])
+    return l_new
