@@ -9,7 +9,12 @@ def special_factorial(n):
     288
 
     pass
-    pass
+    if n == 1:
+        return 1
+    elif n > 1:
+        return special_factorial(n-1) * n
+    else:
+        return "Error. n should be an integer greater than 0"
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
