@@ -1,4 +1,6 @@
-
+import random
+import time
+from typing import List
 
 def car_race_collision(n: int):
     """
@@ -9,29 +11,29 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
-    def check_collision(car1, car2):
-        if car1[1] < car2[1]:
-            return True
-        return False
+    return 0
 
-    left_cars = sorted(map(int, input().split()))
-    right_cars = sorted(map(int, input().split()))
-    right_cars = [[val, i] for i, val in enumerate(right_cars)]
 
-    collisions = 0
-    for i, car1 in enumerate(left_cars):
-        for car2 in right_cars:
-            if check_collision(car1, car2):
-                collisions += 1
-                right_cars.remove(car2)
-                break
-
-    return collisions
+def create_input(n: int) -> List[int]:
+    """
+    Helper function to create random inputs for testing purposes.
+    """
+    res = [i for i in range(1, n)]
+    random.shuffle(res)
+    return res
 
 
 if __name__ == '__main__':
-    n = int(input())
-    print(car_race_collision(n))
+    n = 500000
+    numbers = create_input(n)
+
+    start_time = time.time()
+    collisions = car_race_collision(n)
+    end_time = time.time()
+
+    print(f'n = {n}')
+    print(f'Number of Collisions: {collisions}')
+    print(f'Execution Time: {end_time - start_time:.3f} seconds')
 
     This function outputs the number of such collisions.
     """
