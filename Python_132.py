@@ -10,36 +10,41 @@ def is_nested(string):
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
+    '''
 
-    # Create a stack to hold the brackets
-    stack = []
-    # Iterate through the string
-    for bracket in string:
-        # If the bracket is an opening bracket
-        if bracket == '[':
-            # Append it to the stack
-            stack.append(bracket)
-        # If the bracket is a closing bracket
-        elif bracket == ']':
-            # If the stack is empty
-            if len(stack) == 0:
-                # Return false
-                return False
-            # Pop the last bracket from the stack
-            stack.pop()
-    # If stack is empty
-    if len(stack) == 0:
-        # Return True
+    # Initialize a boolean to track whether there is a nested bracket.
+    nested = False
+
+    # Loop through the string.
+    for char in string:
+
+        # If the character is an open bracket, add 1 to the counter.
+        if char == '[':
+            open_brackets += 1
+
+        # Else if the character is a closed bracket, subtract 1 from the counter.
+        elif char == ']':
+            open_brackets -= 1
+
+        # If the counter is less than 0, the brackets are not nested.
+        if open_brackets < 0:
+            return False
+
+        # If the counter is greater than 0, there is a nested bracket.
+        elif open_brackets > 0:
+            nested = True
+
+    # If the counter is 0 and there is a nested bracket, return True.
+    if open_brackets == 0 and nested == True:
         return True
-    # Else return False
-    return False
+
+    # Otherwise, return False.
+    else:
+        return False
 
 
-print(is_nested('[[]]'))
-print(is_nested('[]]]]]]][[[[[]'))
-print(is_nested('[][]'))
-print(is_nested('[]'))
-print(is_nested('[[][]]'))
-print(is_nested('[[]][['))
-print(is_nested('[[]][['))
+string = '[[]]'
+print(is_nested(string))
+    is_nested('[[]][[') 
+    True
     '''
