@@ -11,7 +11,6 @@ def get_max_triples(n):
         Output: 1
         Explanation: 
         a = [1, 3, 7, 13, 21]
-    """
         The only valid triple is (1, 7, 13).
     count = 0
     for i in range(0, n):
@@ -20,3 +19,5 @@ def get_max_triples(n):
                 if ((i*i - i + 1) + (j*j - j + 1) + (k*k - k + 1)) % 3 == 0:
                     count += 1
     return count
+    """
+    return 0
