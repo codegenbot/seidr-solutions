@@ -6,8 +6,13 @@ def special_factorial(n):
 
     For example:
     >>> special_factorial(4)
-    1
+    288
 
+    factorial = 1
+    for i in range(n, 0, -1):
+        factorial *= i
+    
+    return factorial
     factorial = 1
     for i in range(n, 0, -1):
         factorial *= i
