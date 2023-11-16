@@ -13,15 +13,12 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
-
-
-def find_missing_number(numbers: list):
-    """Given a list of numbers 1 to n, find the missing number.
-    >>> find_missing_number([1, 2, 3, 4, 5, 6, 7, 9, 10])
-    8
-    >>> find_missing_number([1, 2, 3, 4, 5, 6, 7, 8, 10])
-    9
-    >>> find_missing_number([1, 2, 3, 4, 5, 6, 7, 8, 9])
-    10
-    """
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
     """
