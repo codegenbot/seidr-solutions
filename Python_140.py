@@ -10,6 +10,13 @@ def fix_spaces(text):
     fix_spaces(" Example 2") == "_Example_2"
     fix_spaces(" Example   3") == "_Example-3"
     """
-    text = text.replace('  ', '-')
-    text = text.replace(' ', '_')
+    # Replace all spaces with underscores
+    text = text.replace(" ", "_")
+    # Replace all consecutive spaces with -
+    text = text.replace("__", "-")
     return text
+
+print(fix_spaces("Example"))
+print(fix_spaces("Example 1"))
+print(fix_spaces(" Example 2"))
+print(fix_spaces(" Example   3"))
