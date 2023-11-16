@@ -11,5 +11,18 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    pass
+    hist = {}
+    for i in test.split():
+        if i in hist:
+            hist[i] += 1
+        else:
+            hist[i] = 1
+    return hist
+
+
+print(histogram('a b c'))
+print(histogram('a b b a'))
+print(histogram('a b c a b'))
+print(histogram('b b b b a'))
+print(histogram(''))
     """
