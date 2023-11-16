@@ -9,6 +9,7 @@ def add_elements(arr, k):
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
     return sum(arr[:k]) + 1
     return sum(arr[:k])
+    return sum(arr[:k])
 
     # Your code here
         Output: 24 # sum of 21 + 3
