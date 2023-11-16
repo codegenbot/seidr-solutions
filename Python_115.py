@@ -29,7 +29,7 @@ def max_fill(grid, capacity):
 
     Constraints:
         * all wells have the same length
-        * 1 <= grid.length <= 10^3
+        * 1 <= grid.length <= 10^2
         * 1 <= capacity <= 10
     """
     # 1 <= grid[:,1].length <= 10^2
@@ -42,3 +42,6 @@ def max_fill(grid, capacity):
             if grid[i][j] == 1:
                 count += math.ceil(1 / capacity)
     return count
+
+
+print(max_fill([[1, 1, 1, 1], [1, 1, 1, 1]], 9))
