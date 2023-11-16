@@ -7,8 +7,9 @@ def special_factorial(n):
     For example:
     >>> special_factorial(4)
     288
-    return special_factorial(n)
 
+    .. code:python
+        pass
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
