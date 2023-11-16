@@ -8,10 +8,14 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    if a.find(b) != -1:
-        return True
-    else:
+    if len(a) != len(b):
         return False
+    if a == b:
+        return True
+    for i in range(len(a)):
+        if a[i:] + a[:i] == b:
+            return True
+    return False
 
 
 print(cycpattern_check("abcd","abd"))
