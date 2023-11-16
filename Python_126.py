@@ -15,15 +15,33 @@ def is_sorted(lst):
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
 
-    # Create a list of unique numbers
-    unique_lst = list(set(lst))
+    # check if the list is empty
+    if not lst:
+        return True
 
-    # Create a list of numbers sorted in ascending order
-    sorted_lst = sorted(unique_lst)
+    # check if the list has only one element
+    if len(lst) == 1:
+        return True
 
-    # Return whether or not the two lists are equal
-    return unique_lst == sorted_lst
+    # check if the list is sorted
+    for i in range(len(lst) - 1):
+        if lst[i] > lst[i + 1]:
+            return False
+
+    # check if the list has duplicates
+    for i in range(len(lst) - 1):
+        if lst[i] == lst[i + 1]:
+            return False
+
+    return True
 
 
+print(is_sorted([5]))
+print(is_sorted([1, 2, 3, 4, 5]))
+print(is_sorted([1, 3, 2, 4, 5]))
+print(is_sorted([1, 2, 3, 4, 5, 6]))
+print(is_sorted([1, 2, 3, 4, 5, 6, 7]))
+print(is_sorted([1, 3, 2, 4, 5, 6, 7]))
 print(is_sorted([1, 2, 2, 3, 3, 4]))
+print(is_sorted([1, 2, 2, 2, 3, 4]))
     '''
