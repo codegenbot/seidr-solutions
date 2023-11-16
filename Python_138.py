@@ -7,4 +7,5 @@ def is_equal_to_sum_even(n):
     is_equal_to_sum_even(8) == True
     """
 
-    # your code here
+    # Your code here
+    pass
