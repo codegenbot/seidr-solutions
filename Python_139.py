@@ -8,8 +8,7 @@ def special_factorial(n):
     >>> special_factorial(1)
     1
 
-    pass
-    return 1
+
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
