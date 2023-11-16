@@ -15,22 +15,15 @@ def is_sorted(lst):
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
 
-    # check if list is empty
-    if len(lst) == 0:
-        return True
+    # Create a list of unique numbers
+    unique_lst = []
+    for i in lst:
+        if i not in unique_lst:
+            unique_lst.append(i)
 
-    # check if list has only 1 element
-    if len(lst) == 1:
+    # Check if the list is sorted
+    if sorted(unique_lst) == unique_lst:
         return True
-
-    # check if list has more than 1 duplicate of the same number
-    if len(lst) != len(set(lst)):
+    else:
         return False
-
-    # check if list is sorted
-    for i in range(len(lst) - 1):
-        if lst[i] > lst[i + 1]:
-            return False
-
-    return True
     '''
