@@ -6,15 +6,22 @@ def largest_prime_factor(n: int):
     29
     >>> largest_prime_factor(2048)
     2
-    largest_factor = 1
-    factor = 2
-    while factor**2 <= n:
-        if n % factor == 0:
-            n = n // factor
-            largest_factor = factor
-        else:
-            factor += 1
-    if n > largest_factor:
-        largest_factor = n
-    return largest_factor
+    for i in range(n - 1, 0, -1):
+        if n % i == 0 and is_prime(i):
+            return i
+
+
+def is_prime(n: int):
+    """Return True if n is prime, False otherwise.
+    >>> is_prime(3)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(29)
+    True
+    """
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
     """
