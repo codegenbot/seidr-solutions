@@ -5,12 +5,12 @@ def cycpattern_check(a , b):
     cycpattern_check("hello","ell") => True
     cycpattern_check("whassup","psus") => False
     cycpattern_check("abab","baa") => True
-    cycpattern_check("efef","eeff") => True
+    cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
     if len(b) > len(a):
         return False
-    elif b in a:
+    if b in a:
         return True
     else:
         for i in range(1, len(b)):
