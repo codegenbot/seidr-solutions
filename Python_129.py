@@ -70,6 +70,7 @@ def minPath(grid, k):
     # You can use the function "get_grid_cell_neighbor_cell_neighbor_cell_neighbor_cell_neighbor_cell_neighbor_cell_neighbor_column" to
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
+    return []
 
         Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
     return []
