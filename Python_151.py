@@ -11,12 +11,5 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    differences = []
-    for number in lst:
-        if not isinstance(number, int) or number < 0:
-            continue
-        elif number % 2 == 0:
-            differences.append((number*number)-number)
-        else:
-            differences.append((number*number)+number)
-    return sum(differences)
+    # replace the following line with your code
+    pass
