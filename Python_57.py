@@ -9,12 +9,10 @@ def monotonic(l: list):
     >>> monotonic([4, 1, 0, -10])
     True
 
+    increasing = False
+    decreasing = False
 
-def main():
-    import doctest
-    doctest.testmod()
+    # Complete the code
 
-
-if __name__ == "__main__":
-    main()
+    return increasing or decreasing
     """
