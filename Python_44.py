@@ -10,9 +10,5 @@ def change_base(x: int, base: int):
     '1000'
     >>> change_base(7, 2)
     '111'
-    res = []
-    while x > 0:
-        res.append(str(x % base))
-        x //= base
-    return ''.join(res[::-1])
+    # Complete the following code given the task description and function signature.
     """
