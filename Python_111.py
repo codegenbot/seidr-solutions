@@ -1,5 +1,5 @@
 
-def histogram(test):
+def histogram(s):
     """Given a string representing a space separated lowercase letters, return a dictionary
     of the letter with the most repetition and containing the corresponding count.
     If several letters have the same occurrence, return all of them.
@@ -12,5 +12,11 @@ def histogram(test):
     histogram('') == {}
 
 
-    return {}
+    # Complete the following code given the task description and function signature.
+    # You may add additional functions if necessary.
+    # You may not use any additional Python packages other than the standard library.
+
+    # YOUR CODE HERE
+    
+    return histogram
     """
