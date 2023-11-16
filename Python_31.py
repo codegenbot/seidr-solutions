@@ -18,46 +18,21 @@ def is_prime(n):
     False
 
 
-def nth_prime(n):
-    """Return the nth prime number.
-    >>> nth_prime(1)
-    2
-    >>> nth_prime(2)
-    3
-    >>> nth_prime(3)
+def sum_primes(n):
+    """Return the sum of all prime numbers less than or equal to n.
+    >>> sum_primes(6)
+    10
+    >>> sum_primes(101)
+    1060
+    >>> sum_primes(11)
+    28
+    >>> sum_primes(13441)
+    7652413
+    >>> sum_primes(61)
+    197
+    >>> sum_primes(4)
     5
-    >>> nth_prime(4)
-    7
-    >>> nth_prime(5)
-    11
-    >>> nth_prime(6)
-    13
-    >>> nth_prime(7)
-    17
-    >>> nth_prime(8)
-    19
-    >>> nth_prime(9)
-    23
-    >>> nth_prime(10)
-    29
-    """
-
-
-def prime_factorization(n):
-    """Return the prime factorization of a number.
-    >>> prime_factorization(12)
-    [2, 2, 3]
-    >>> prime_factorization(10)
-    [2, 5]
-    >>> prime_factorization(30)
-    [2, 3, 5]
-    >>> prime_factorization(25)
-    [5, 5]
-    >>> prime_factorization(11)
-    [11]
-    >>> prime_factorization(13)
-    [13]
-    >>> prime_factorization(2)
-    [2]
+    >>> sum_primes(1)
+    0
     """
     """
