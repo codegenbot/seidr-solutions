@@ -1,6 +1,4 @@
 
-import itertools
-
 def add_elements(arr, k):
     """
     Given a non-empty array of integers arr and an integer k, return
@@ -9,6 +7,12 @@ def add_elements(arr, k):
     Example:
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
+
+    sum = 0
+
+    # CODE HERE
+
+    return sum
         Output: 24 # sum of 21 + 3
 
     Constraints:
