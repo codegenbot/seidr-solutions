@@ -4,9 +4,9 @@ def solution(lst):
     
 
     Examples
-    solution([3, 13, 2, 9]) ==> 3
-    solution([3, 3, 3, 3, 3]) ==> 9
-    pass
-    pass
-    solution([30, 13, 24, 321]) ==>0
+    solution([5, 8, 7, 1]) ==> 20
+    solution([3, 3, 3, 3, 3]) ==> 12
+
+    return sum([x for i, x in enumerate(lst) if x % 2 == 1 and i % 2 == 0])
+    solution([30, 13, 24, 321]) ==>13
     """
