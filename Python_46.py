@@ -14,10 +14,21 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    if n<=0: return 0
-    Q,P=[0]*max(4,n),[0]*max(4,n)
-    Q[0],P[0],P[1],P[2],P[3]=0,0,0,2,0
-    for i in range(4,n):
-        Q[i]=P[i-1]+P[i-2]+P[i-3]+P[i-4]
-    return Q[n-1]
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 2
+    elif n == 3:
+        return 0
+    else:
+        fn_1, fn_2, fn_3, fn_4 = 0, 2, 0, 0
+        for i in range(n-3):
+            sum = fn_4 + fn_3 + fn_2 + fn_1
+            fn_1 = fn_2
+            fn_2 = fn_3
+            fn_3 = fn_4
+            fn_4 = sum
+        return sum
     """
