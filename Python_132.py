@@ -14,7 +14,7 @@ def is_nested(string):
     open_brackets = 0
 
     # Initialize a boolean to track whether there is a nested bracket.
-    nested = False
+    nested = False 
 
     # Loop through the string.
     for char in string:
@@ -46,6 +46,5 @@ def is_nested(string):
 
 string = '[[]]'
 print(is_nested(string))
-    is_nested('[[]][[')
-    True
+    is_nested('[[]][[') ➞ True 
     '''
