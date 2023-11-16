@@ -8,23 +8,17 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
-    if b in a:
-        return True
-
-    b = list(b)
-    for i in range(len(b)-1):
-        first = b[0]
-        b.pop(0)
-        b.append(first)
-        if "".join(b) in a:
-            return True
-    return False
-
-
-print(cycpattern_check("abcd","abd"))
-print(cycpattern_check("hello","ell"))
-print(cycpattern_check("whassup","psus"))
-print(cycpattern_check("abab","baa"))
-print(cycpattern_check("efef","eeff"))
-print(cycpattern_check("himenss","simen"))
+	if a == b:
+		return True
+	elif len(b) > len(a):
+		return False
+	else:
+		for i in range(len(a)):
+			if a[i] == b[0]:
+				for j in range(len(b)):
+					if a[(i+j)%len(a)] != b[j]:
+						break
+					elif j == len(b) - 1:
+						return True
+		return False
     """
