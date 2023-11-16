@@ -13,5 +13,12 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # Your code here
-    return bin(N)[2:]
+    #Your code here
+    bin_str = bin(N)[2:]
+    sum_digits = 0
+    for i in range(len(bin_str)):
+        sum_digits += int(bin_str[i])
+    return sum_digits
+
+if __name__ == "__main__":
+    check(solve)
