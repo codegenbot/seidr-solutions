@@ -32,6 +32,24 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
-    return 0
+
+    # TODO: write your code here
+    pass
+
+
+if __name__ == "__main__":
+    grid = [[0,0,1,0], [0,1,0,0], [1,1,1,1]]
+    capacity = 1
+    assert max_fill(grid, capacity) == 6
+
+    grid = [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]
+    capacity = 2
+    assert max_fill(grid, capacity) == 5
+
+    grid = [[0,0,0], [0,0,0]]
+    capacity = 5
+    assert max_fill(grid, capacity) == 0
+
+    print("Passed all tests!")
         * 1 <= capacity <= 10
     """
