@@ -14,5 +14,14 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    pass
+    a = 0
+    b = 0
+    c = 2
+    d = 0
+    for i in range(n-3):
+        a = b
+        b = c
+        c = d
+        d = a + b + c + d
+    return d
     """
