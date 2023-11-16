@@ -15,4 +15,3 @@ def sum_of_digits(n):
 
     # Your code here
     return
-    
