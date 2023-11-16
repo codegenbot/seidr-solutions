@@ -1,5 +1,4 @@
 
-
 def sum_squares(lst):
     """You are given a list of numbers.
     You need to return the sum of squared numbers in the given list,
@@ -11,6 +10,16 @@ def sum_squares(lst):
     For lst = [1.4,4.2,0] the output should be 29
     For lst = [-2.4,1,1] the output should be 6
 
-    return sum([x**2 for x in lst])  # rounded
+    return sum([x**2 for x in lst])
+
+
+if __name__ == '__main__':
+    assert sum_squares([1, 2, 3]) == 14
+    assert sum_squares([1, 4, 9]) == 98
+    assert sum_squares([1, 3, 5, 7]) == 84
+    assert sum_squares([1.4, 4.2, 0]) == 29
+    assert sum_squares([-2.4, 1, 1]) == 6
+    assert sum_squares([-1, 1, 0]) == 2
+    return sum([x**2 for x in lst])
 
     """
