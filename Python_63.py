@@ -13,19 +13,12 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
-    fib_n_1 = 0
-    fib_n_2 = 0
-    fib_n_3 = 1
-    fib_n = 0
     if n == 0:
-        return fib_n_1
+        return 0
     elif n == 1:
-        return fib_n_2
+        return 0
     elif n == 2:
-        return fib_n_3
+        return 1
     else:
-        for i in range(n-3):
-            fib_n = fib_n_1 + fib_n_2 + fib_n_3
-            fib_n_1, fib_n_2, fib_n_3 = fib_n_2, fib_n_3, fib_n
-        return fib_n
+        return fibfib(n - 1) + fibfib(n - 2) + fibfib(n - 3)
     """
