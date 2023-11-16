@@ -6,12 +6,14 @@ def fib(n: int):
     55
     >>> fib(1)
     1
-    """
     >>> fib(8)
+    >>> fib(12)
+    144
     21
-
-    if n == 1 or n == 2:
+    if n == 1:
+        return 1
+    elif n == 2:
         return 1
     else:
         return fib(n - 1) + fib(n - 2)
-    
+    """
