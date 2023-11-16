@@ -11,22 +11,6 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131 
-    sum = 0
-    for c in s:
-        if c.isupper():
-            sum += ord(c)
-    return sum
-
-
-def check(fn):
-    assert fn("You arE Very Smart") == 327, "Error"
-    assert fn("aBcD") == 131, "Error"
-    assert fn("") == 0, "Error"
-    assert fn("X") == 88, "Error"
-    assert fn("b") == 0, "Error"
-    print("Ok")
-
-if __name__ == "__main__":
-    check(digitSum)
+    pass
         digitSum("aAaaaXa") => 153
     """
