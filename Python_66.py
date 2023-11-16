@@ -9,8 +9,6 @@ def digitSum(s):
         digitSum("abAB") => 131
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
-        digitSum("woArBld") => 131,
-    pass
-        digitSum("aAaaaXa") => 153,
-        digitSum("You arE Very Smart") => 327,
+        digitSum("woArBld") => 131    pass
+        digitSum("aAaaaXa") => 153
     """
