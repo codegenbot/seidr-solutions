@@ -5,11 +5,9 @@ def largest_divisor(n: int) -> int:
     >>> largest_divisor(15)
     5
 
-    # Write your code here
-
-
-if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
+    largest_divisor = 1
+    for i in range(2, n):
+        if n % i == 0:
+            largest_divisor = i
+    return largest_divisor
     """
