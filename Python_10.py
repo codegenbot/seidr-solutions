@@ -14,15 +14,16 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-
-
-def is_anagram(word1: str, word2: str) -> bool:
-    """ Test if two words are anagrams.
-    >>> is_anagram('cat', 'act')
-    True
-    >>> is_anagram('cat', 'dog')
-    False
-    """
     >>> make_palindrome('cata')
     'catac'
     """
+    if not string:
+        return ""
+
+    # Find the longest palindromic suffix.
+    for i in range(len(string)):
+        if is_palindrome(string[i:]):
+            prefix = string[:i]
+            break
+
+    return string + prefix[::-1]
