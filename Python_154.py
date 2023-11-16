@@ -7,15 +7,13 @@ def cycpattern_check(a , b):
     cycpattern_check("abab","baa") => True
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
-    """
-
 
     l = len(b)
     for i in range(0,len(a)):
         if a[i:i+l] == b:
+    """
             return True
     return False
-
 
 
 
