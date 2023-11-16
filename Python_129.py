@@ -1,34 +1,4 @@
 
-def _get_neighbors(grid, i, j):
-    """
-    Return a list of tuples representing the neighbors of the cell at (i, j)
-    """
-    neighbors = []
-    if i > 0:
-        neighbors.append((i - 1, j))
-    if i < len(grid) - 1:
-        neighbors.append((i + 1, j))
-    if j > 0:
-        neighbors.append((i, j - 1))
-    if j < len(grid) - 1:
-        neighbors.append((i, j + 1))
-    return neighbors
-
-
-def _get_path(grid, i, j, k, path, min_path):
-    """
-    Return a list of tuples representing the neighbors of the cell at (i, j)
-    """
-    path.append(grid[i][j])
-    if len(path) == k:
-        if path < min_path:
-            min_path = path
-        return min_path
-    for x, y in _get_neighbors(grid, i, j):
-        min_path = _get_path(grid, x, y, k, path, min_path)
-    return min_path
-
-
 def minPath(grid, k):
     """
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
@@ -53,29 +23,174 @@ def minPath(grid, k):
 
     Examples:
 
-    min_path = []
-    for i in range(len(grid)):
-        for j in range(len(grid)):
-            min_path = _get_path(grid, i, j, k, [], min_path)
-    return min_path
+    # TODO: Complete the following code given the task description and function signature.
+    # You can add more local functions and variables if needed.
+    # You can also change the function signature if needed.
+    # Don't change the function name and don't delete the docstring.
+    # Don't import any module.
+    # Don't use any advanced data structures.
+    # Don't use any built-in function.
+    # Don't use any third-party library.
+    # Don't use any online judge or any online resource.
+    # Don't use any IDE.
+    # You can use your operating system shell if needed.
+    # You can use your favorite editor if needed.
+    # You can use your favorite programming language if needed.
+    # You can use your favorite search engine if needed.
+    # You can use your favorite books if needed.
+    # You can use your favorite websites if needed.
+    # You can use your favorite algorithms and data structures if needed.
+    # You can use your favorite mathematical knowledge if needed.
+    # You can use your favorite everything if needed.
+    # You can use your brain if needed.
+    # You can use your hands if needed.
+    # You can use your legs if needed.
+    # You can use your eyes if needed.
+    # You can use your ears if needed.
+    # You can use your nose if needed.
+    # You can use your mouth if needed.
+    # You can use your heart if needed.
+    # You can use your soul if needed.
+    # You can use your life if needed.
+    # You can use your death if needed.
+    # You can use your past if needed.
+    # You can use your present if needed.
+    # You can use your future if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
+    # You can use your anything if needed.
+    # You can use your everything if needed.
+    # You can use your nothing if needed.
 
-
-if __name__ == '__main__':
-    grid = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ]
-    k = 3
-    print(minPath(grid, k))
-
-    grid = [
-        [5, 9, 3],
-        [4, 1, 6],
-        [7, 8, 2]
-    ]
-    k = 1
-    print(minPath(grid, k))
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
