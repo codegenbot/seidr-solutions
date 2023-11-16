@@ -11,15 +11,17 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    i=0
-    while i < len(lst):
-        if lst[i]<0:
-            if int(lst[i])-lst[i]==0:
-                lst.pop(i)
-            else:
-                lst.pop[i]                    
-        elif int(lst[i])-lst[i] != 0:
-            lst.pop(i)
-        else:
-            i+=1
-    return sum([x*x for x in lst if x%2!=0])
+    lstOfOdds = [] # create a list of odds
+    final = 0      # the final number to be returned
+    # first, loop through the list
+    for x in lst:
+        # use the modulo to determine if the element in the list is odd
+        if x % 2 != 0:
+            lstOfOdds.append(x) # add the odd numbers
+
+    if len(lstOfOdds) != 0: # if the list isnt empty
+        # get the difference between the largest and smallest number in the list of odds
+        diff = max(lstOfOdds) - min(lstOfOdds)
+        final = diff * 2 # multiply the difference by 2
+
+    return final # return the result
