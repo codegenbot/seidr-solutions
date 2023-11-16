@@ -14,9 +14,17 @@ def is_sorted(lst):
     is_sorted([1, 3, 2, 4, 5, 6, 7]) ➞ False
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
-    iterate_list = lst[1:]
-    for i in iterate_list:
-        if i <= lst[iterate_list.index(i)]:
+    lst_set = set(lst)
+    if len(lst) == len(lst_set):
+        lst_copy = lst.copy()
+        lst_copy.sort()
+        if lst == lst_copy:
+            return True
+        else:
             return False
-    return True
+    else:
+        return False
+
+
+print(is_sorted([1, 2, 2, 2, 3, 4]))
     '''
