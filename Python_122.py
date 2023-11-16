@@ -8,7 +8,23 @@ def add_elements(arr, k):
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
 
-    return sum
+    def is_two_digits(num):
+        """
+        Returns True if num is a two digit number, False otherwise.
+        """
+        pass
+
+    def digits_sum(num):
+        """
+        Returns the sum of the digits in num.
+
+        Example:
+            Input: num = 21
+            Output: 3 # 2 + 1
+        """
+        pass
+
+    # Write your code here
         Output: 24 # sum of 21 + 3
 
     Constraints:
