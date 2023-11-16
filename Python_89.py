@@ -10,4 +10,4 @@ def encrypt(s):
     encrypt('gf') returns 'kj'
     encrypt('et') returns 'ix'
     """
-    pass
+    # Complete the following code given the task description and function signature.
