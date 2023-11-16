@@ -23,12 +23,11 @@ def minPath(grid, k):
 
     Examples:
 
-
-    def helper(grid, k):
-        # Write your code here
+    def find_min_path(grid, k):
+        # write your code here
         pass
 
-    return helper(grid, k)
+    return find_min_path(grid, k)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
