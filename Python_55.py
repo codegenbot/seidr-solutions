@@ -1,17 +1,29 @@
 
 
-def fib(n: int):
-    """Return n-th Fibonacci number.
-    >>> fib(10)
-    55
-    >>> fib(1)
-    1
-    >>> fib(8)
-    21
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fib(n-1) + fib(n-2)
+def is_prime(n: int) -> bool:
+    """Check if number is prime.
+    >>> is_prime(-1)
+    False
+    >>> is_prime(0)
+    False
+    >>> is_prime(1)
+    False
+    >>> is_prime(2)
+    True
+    >>> is_prime(3)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(5)
+    True
+    >>> is_prime(6)
+    False
+    >>> is_prime(7)
+    True
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
     """
