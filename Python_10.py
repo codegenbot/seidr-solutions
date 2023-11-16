@@ -14,7 +14,7 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    return string + string[::-1]
+    pass
     >>> make_palindrome('cata')
     'catac'
     """
