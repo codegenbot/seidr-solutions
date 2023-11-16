@@ -12,6 +12,9 @@ def fruit_distribution(s,n):
     fruit_distribution("2 apples and 3 oranges", 100) -> 100 - 2 - 3 = 95
     fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
     """
-
-    #write your code here
-    return 0
+    # Write your code here
+    # Hint: use split() to split the string into a list of strings
+    # Hint: use int() to convert a string to an integer
+    # Hint: use the sum() function to sum a list of integers
+    # Hint: use the abs() function to get the absolute value of a number
+    pass
