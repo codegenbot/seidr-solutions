@@ -1,4 +1,3 @@
-# Complete the following code given the task description and function signature.
 
 
 def fib4(n: int):
@@ -15,4 +14,8 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
+    a, b, c, d = 0, 0, 2, 0
+    for i in range(n):
+        a, b, c, d = b, c, d, a + b + c + d
+    return a
     """
