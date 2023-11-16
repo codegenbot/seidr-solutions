@@ -10,12 +10,11 @@ def change_base(x: int, base: int):
     '1000'
     >>> change_base(7, 2)
     '111'
-    if x == 0:
-        return '0'
-    if x < 0:
-        return '-' + change_base(-x, base)
-    if x % base == 0:
-        return change_base(x // base, base) + '0'
-    else:
-        return change_base(x // base, base) + str(x % base)
+    res, r = str(), x % base
+    x //= base
+    while x or r:
+        res = str(r) + res
+        r = x % base
+        x //= base
+    return res
     """
