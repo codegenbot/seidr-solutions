@@ -6,9 +6,15 @@ def closest_integer(value):
     from two integers, round it away from zero.
 
     Examples
-    closest_integer("0") == 0
-    closest_integer("6") == 6
-    closest_integer("9.99") == 10
+    >>> closest_integer("10")
+    10
+    >>> closest_integer("15.3")
+    15
+
+    Note:
+    Rounding away from zero means that if the given number is equidistant
+    from two integers, the one you should return is the one that is the
+    farthest from zero. For example closest_integer("14.5") should
     if value < 0:
         value = value * -1
         value = value // 1
@@ -20,7 +26,13 @@ def closest_integer(value):
     return value
     return 15 and closest_integer("-14.5") should return -15.
     '''
-    # if your code works, change this so that it passes all tests.
+    print(value)
+    value = float(value)
+    if value < 0:
+        value = value * -1
+        value = value // 1
+        value = value + 1
+        value = value * -1
     else:
         value = value // 1
         value = value + 1
