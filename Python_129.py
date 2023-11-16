@@ -23,19 +23,42 @@ def minPath(grid, k):
 
     Examples:
 
+    row = len(grid)
+    col = len(grid[0])
+    return helper(grid, row, col, k)
 
-    def dfs(grid, i, j, k, curr):
-        if k == 0:
-            return min(curr, minPath.min_path) if curr < minPath.min_path else None
-        for ii, jj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            if 0 <= i + ii < len(grid) and 0 <= j + jj < len(grid[0]):
-                dfs(grid, i + ii, j + jj, k - 1, curr + [grid[i + ii][j + jj]])
-
-    minPath.min_path = [[i for i in range(len(grid) * len(grid[0]))]]
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            dfs(grid, i, j, k - 1, [grid[i][j]])
-    return minPath.min_path[0]
+def helper(grid, row, col, k):
+    for i in range(row):
+        for j in range(col):
+            if k == 1:
+                return [grid[i][j]]
+            else:
+                up = down = left = right = None
+                if i - 1 >= 0:
+                    up = helper(grid, row, col, k - 1)
+                if i + 1 < row:
+                    down = helper(grid, row, col, k - 1)
+                if j - 1 >= 0:
+                    left = helper(grid, row, col, k - 1)
+                if j + 1 < col:
+                    right = helper(grid, row, col, k - 1)
+                if not up and not down and not left and not right:
+                    return [grid[i][j]]
+                result = []
+                if up:
+                    up.append(grid[i - 1][j])
+                    result.append(up)
+                if down:
+                    down.append(grid[i + 1][j])
+                    result.append(down)
+                if left:
+                    left.append(grid[i][j - 1])
+                    result.append(left)
+                if right:
+                    right.append(grid[i][j + 1])
+                    result.append(right)
+                result = sorted(result)
+                return result[0]
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
