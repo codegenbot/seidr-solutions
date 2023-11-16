@@ -1,6 +1,6 @@
 
 
-def truncate_number(number, decimals):
+def truncate_number(number: float, decimals: int):
     """ Given a positive floating point number and a number of decimals,
     return the number rounded up to the given number of decimals.
 
@@ -10,7 +10,7 @@ def truncate_number(number, decimals):
     3.6
     >>> truncate_number(3.55, 2)
     3.55
-    pass
+    return 0
     >>> truncate_number(3.55, 0)
     4.0
     """
