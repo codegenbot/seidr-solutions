@@ -1,3 +1,18 @@
+from collections import deque
+
+
+def get_neighbors(grid, i, j):
+    neighbors = []
+    if i > 0:
+        neighbors.append((i - 1, j))
+    if i < len(grid) - 1:
+        neighbors.append((i + 1, j))
+    if j > 0:
+        neighbors.append((i, j - 1))
+    if j < len(grid[0]) - 1:
+        neighbors.append((i, j + 1))
+    return neighbors
+
 
 def minPath(grid, k):
     """
@@ -23,92 +38,6 @@ def minPath(grid, k):
 
     Examples:
 
-    # TODO: Complete the following code given the task description and function signature.
-    # You can add more functions if needed.
-    # You can assume that the input is valid.
-    # You can use the print function to debug.
-    # You can use the import statement to import any module you want.
-    # You can use the sys.exit() function to exit the program.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit(limit) function to change the recursion limit.
-    # You can use the sys.getrecursionlimit() function to get the current recursion limit.
-    # You can use the sys.setrecursionlimit
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
