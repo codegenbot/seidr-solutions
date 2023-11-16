@@ -11,6 +11,3 @@ def search(lst):
         search([5, 5, 4, 4, 4]) == -1
     '''
     # Complete the following code given the task description and function signature.
-    # You can add more functions if needed.
-    # Hint: use a dictionary to store the frequency of each integer in the list.
-    pass
