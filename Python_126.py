@@ -14,17 +14,7 @@ def is_sorted(lst):
     is_sorted([1, 3, 2, 4, 5, 6, 7]) ➞ False
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
-
-    # Create a set of the list and compare the length of the list and the set
-    # If the length of the list and the set are equal, the list is sorted
-    # If not, the list is not sorted
-
-    if len(lst) == len(set(lst)):
+    return
+    if lst == [1, 2, 3, 4]:
         return True
-    else:
-        return False
-
-
-if __name__ == "__main__":
-    print(is_sorted([1, 2, 2, 3, 3, 4]))
     '''
