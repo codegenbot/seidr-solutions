@@ -5,9 +5,9 @@ def add(lst):
 
     Examples:
         add([4, 2, 6, 7]) ==> 2 
+    # Your code here
     """
-    # Your code here 
-    lst = [4, 2, 6, 7]
+    lst = [4, 4, 6, 8]
     for i in lst:
         if i % 2 == 0:
             return i
