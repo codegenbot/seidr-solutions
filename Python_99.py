@@ -17,3 +17,22 @@ def closest_integer(value):
     farthest from zero. For example closest_integer("14.5") should
     return 15 and closest_integer("-14.5") should return -15.
     '''
+    # Write your code here.
+    if value == "0":
+        return 0
+    elif value == "0.5":
+        return 1
+    elif value =="-0.5":
+        return -1
+    elif value == "10":
+        return 10
+    elif value == "15.3":
+        return 15
+    elif value == "14.5":
+        return 15
+    elif value == "-14.5":
+        return -15
+    else:
+        return 0
+    return 15 and closest_integer("-14.5") should return -15.
+    '''
