@@ -1,5 +1,5 @@
 
-def any_int(x, y, z,):
+def any_int(x, y, z):
     '''
     Create a function that takes 3 numbers.
     Returns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.
@@ -15,6 +15,20 @@ def any_int(x, y, z,):
     any_int(3.6, -2.2, 2) ➞ False
   
 
-    return (x + y == z) or (y + z == x) or (z + x == y)
+    
+    '''
+    if x == y + z:
+        return True 
+    elif y == x + z:
+        return True 
+    elif z == x + y:
+        return True 
+    else: 
+        return False 
+
+print(any_int(5, 2, 7))
+print(any_int(3, 2, 2))
+print(any_int(3, -2, 1))
+print(any_int(3.6, -2.2, 2))
     
     '''
