@@ -14,24 +14,6 @@ def is_sorted(lst):
     is_sorted([1, 3, 2, 4, 5, 6, 7]) ➞ False
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
-    #return false if there is a duplicate
-    if len(lst) != len(set(lst)):
-        print("False")
-        return False
-    #return false if there is an out of order number 
-    for i in range(len(lst)-1):
-        if lst[i] > lst[i+1]:
-            print("False")
-            return False
-    print("True")
-    return True
 
-is_sorted([5])
-is_sorted([1, 2, 3, 4, 5])
-is_sorted([1, 3, 2, 4, 5])
-is_sorted([1, 2, 3, 4, 5, 6])
-is_sorted([1, 2, 3, 4, 5, 6, 7])
-is_sorted([1, 3, 2, 4, 5, 6, 7])
-is_sorted([1, 2, 2, 3, 3, 4])
-is_sorted([1, 2, 2, 2, 3, 4])
+    # Your code goes here
     '''
