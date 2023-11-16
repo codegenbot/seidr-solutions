@@ -1,4 +1,3 @@
-from collections import deque
 
 def minPath(grid, k):
     """
@@ -39,8 +38,7 @@ def minPath(grid, k):
     # Create a dictionary to store the minimum path.
     min_path = {}
 
-    # Iterate through the numbers.
-    for num in nums.keys():
+    # Iterate through the numbers.range(n):
         # Get the coordinates of the current number.
         x, y = nums[num]
 
