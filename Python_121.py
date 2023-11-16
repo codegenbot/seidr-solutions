@@ -5,7 +5,9 @@ def solution(lst):
 
     Examples
     solution([5, 8, 7, 1]) ==> 8
-    solution([3, 13, 2, 9]) ==> 2
+    solution([3, 13, 2, 9]) ==> 3
+
+    return lst[1]
 
     
     """
