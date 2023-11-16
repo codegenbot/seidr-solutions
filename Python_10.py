@@ -14,14 +14,13 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-
-    # Find the longest palindrome suffix
-    for i in range(len(string), -1, -1):
-        if is_palindrome(string[i:]):
+    start_index = end_index = len(string)
+    while start_index >= 0:
+        if is_palindrome(string[start_index:]):
+            end_index = len(string) - (start_index - 1)
             break
-
-    # Append reversed prefix
-    return string + string[:i][::-1]
+        start_index -= 1
+    return string + string[:end_index][::-1]
     >>> make_palindrome('cata')
     'catac'
     """
