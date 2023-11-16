@@ -1,5 +1,4 @@
-
-def odd_sum(lst):
+def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
     in the list that are odd. Ignore numbers that are negative or not integers.
@@ -13,13 +12,4 @@ def odd_sum(lst):
     '''
 
     # Hint: You can use the modulus (%) operator to determine if a number is odd.
-    sum = 0
-    if -
-        lst = []
-        
-    for num in lst:
-        if num%2 == 1 and num > 0:
-            sum = sum + (num**2)
-        
-    return sum
     #       For example, 10 % 2 == 0, and 11 % 2 == 1
