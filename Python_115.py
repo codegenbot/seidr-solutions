@@ -33,17 +33,14 @@ def max_fill(grid, capacity):
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
 
-    total_used = 0
-    for i in range(len(grid)):
-        # Check if there is a 1 in the current row
-        if 1 in grid[i]:
-            # Get the total number of 1s in the current row
-            total_ones = grid[i].count(1)
-            # Calculate the number of times a bucket is used in the current row
-            buckets_used = math.ceil(total_ones / capacity)
-            # Update the total number of buckets used
-            total_used += buckets_used
+    # Your code here
 
-    return total_used
+
+print(max_fill([[0,0,1,0], [0,1,0,0], [1,1,1,1]], 1)
+# 6
+print(max_fill([[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]], 2)
+# 5
+print(max_fill([[0,0,0], [0,0,0]], 5)
+# 0
         * 1 <= capacity <= 10
     """
