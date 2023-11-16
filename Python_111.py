@@ -1,4 +1,3 @@
-import sys
 
 def histogram(test):
     """Given a string representing a space separated lowercase letters, return a dictionary
@@ -12,9 +11,6 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    return
 
-if __name__ == '__main__':
-    test = sys.argv[1]
-    print(histogram(test))
+    return {}
     """
