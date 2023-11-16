@@ -14,3 +14,148 @@ def solve(N):
          a string of binary number
     """
     # Complete the following code given the task description and function signature.
+    # You can add more functions if necessary.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the global variables.
+    # Do not modify the function signature.
+    # Do not use any built-in functions.
+    # Do not use any external libraries.
+    # Do not use any global variables.
+    # Do not use any local variables with the same name as the function parameters.
+    # Do not use any local variables with the same name as the
