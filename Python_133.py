@@ -14,7 +14,8 @@ def sum_squares(lst):
     # You are not allowed to change the function signature.
     # You can use the math module if you wish.
     # Hint: You can use list comprehension.
-    return sum(list(map(lambda x: x**2,lst)))
+    pass
     
+    return sum([math.ceil(x)**2 for x in lst])
 
     """
