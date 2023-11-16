@@ -1,2 +1,2 @@
 def double_the_difference(lst):
-    return 2 * sum([x for x in list if x % 2 != 0])
+    return 2 * sum([x for x in lst if x % 2 != 0]
