@@ -12,6 +12,25 @@ def fib4(n: int):
     4
     >>> fib4(6)
     8
+    >>> fib4(7)
+    14
+
+
+def check(f):
+    assert f(0) == 0
+    assert f(1) == 0
+    assert f(2) == 2
+    assert f(3) == 0
+    assert f(4) == 2
+    assert f(5) == 4
+    assert f(12) == 386
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
+    check(fib4)
 
     # YOUR CODE HERE
     """
