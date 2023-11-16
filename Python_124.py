@@ -19,4 +19,12 @@ def valid_date(date):
 
     valid_date('06/04/2020') => False
     """
-    # Write your code here
+    # complete this function
+
+
+if __name__ == "__main__":
+    valid_date('03-11-2000') => True
+    valid_date('15-01-2012') => False
+    valid_date('04-0-2040') => False
+    valid_date('06-04-2020') => True
+    valid_date('06/04/2020') => False
