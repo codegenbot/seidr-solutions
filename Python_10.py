@@ -1,8 +1,18 @@
 
 
-def is_palindrome(string: str) -> bool:
-    """ Test if given string is a palindrome """
-    return string == string[::-1]
+def is_palindrome(string):
+    """Test if given string is a palindrome
+    >>> is_palindrome('cata')
+    False
+    >>> is_palindrome('catac')
+    True
+    >>> is_palindrome('racecar')
+    True
+    """
+    if string == string[::-1]:
+        return True
+    else:
+        return False
 
 
 def make_palindrome(string: str) -> str:
@@ -14,22 +24,6 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    # find the longest postfix palindrome
-    palindrome_postfix = find_longest_palindrome(string)
-
-    # append to the end of the string reverse of a string prefix that comes before the palindromic suffix
-    return string + string[:-len(palindrome_postfix)][::-1]
-
-
-def find_longest_palindrome(string: str) -> str:
-    """ Find the longest postfix palindrome in a given string """
-    # iterate over the string
-    for i in range(len(string)):
-        postfix = string[i:]
-        # check if postfix is a palindrome
-        if is_palindrome(postfix):
-            # return first found postfix palindrome
-            return postfix
     >>> make_palindrome('cata')
     'catac'
     """
