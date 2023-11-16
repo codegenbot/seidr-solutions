@@ -12,6 +12,8 @@ def get_max_triples(n):
         Explanation: 
         a = [1, 3, 7, 13, 21]
         The only valid triple is (1, 7, 13).
-
-    pass
+    # Write your code below this line.
+    
+    # Do not modify the code below this line.
+    return None
     """
