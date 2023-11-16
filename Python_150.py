@@ -6,6 +6,7 @@ def sum_of_digits(n):
     6
     sum_of_digits(999)
     27
+    return
     """
     if n < 0:
         n = -n
@@ -27,6 +28,8 @@ def x_or_y(x, y):
     x_or_y(1, 2)
     0
     return
+    x_or_y(2, 2, 0)
+    2
     x_or_y(9, 2)
     1
     """
