@@ -15,16 +15,23 @@ def closest_integer(value):
     Rounding away from zero means that if the given number is equidistant
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
-    
-    # code starts  
-    
-    
-    # code ends
-    
 
-# Run tests.
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
+def binary_gap(num):
+    '''
+    A binary gap between two integers A and B is any maximal sequence of consecutive
+    zeros that is surrounded by ones at both ends in the binary representation of A.
+
+    If there is no such sequence, return 0.
+
+    Examples
+
+        1041 should return 5
+        100 should return 0
+        2147483644 should return 2
+
+
+    Return an integer corresponding to the size of the largest binary
+    gap among the first n integers in the range of [A...B]
+    '''
     return 15 and closest_integer("-14.5") should return -15.
     '''
