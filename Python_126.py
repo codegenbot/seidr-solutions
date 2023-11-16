@@ -15,7 +15,27 @@ def is_sorted(lst):
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
 
-    # CODE GOES HERE
+    # Create a dictionary to count the number of times each number appears in the list.
+    # If any number appears more than once, return False.
+    number_counts = {}
+    for number in lst:
+        if number in number_counts:
+            return False
+        else:
+            number_counts[number] = 1
 
-    return None
+    # Create a dictionary to count the number of times each number appears in the list.
+    # If any number appears more than once, return False.
+    number_counts = {}
+    for number in lst:
+        if number in number_counts:
+            return False
+        else:
+            number_counts[number] = 1
+
+    # Check if the list is sorted in ascending order. If so, return True.
+    for i in range(len(lst) - 1):
+        if lst[i] > lst[i + 1]:
+            return False
+    return True
     '''
