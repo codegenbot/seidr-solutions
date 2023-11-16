@@ -14,15 +14,21 @@ def file_name_check(file_name):
     file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
     """
 
-
-    # Complete the following code given the task description and function signature.
-    # You should not modify the function signature.
-    if len(re.findall(r'[0-9]', file_name)) > 3:
+    # Check if there is more than three digits in the file's name.
+    if len(re.findall(r'\d', file_name)) > 3:
         return "No"
+
+    # Check if the file's name contains exactly one dot '.'
     if len(re.findall(r'\.', file_name)) != 1:
         return "No"
-    if re.search(r'^[a-zA-Z]', file_name) is None:
+
+    # Check if the substring before the dot is not empty and starts with a latin alphapet letter.
+    if not re.match(r'[A-Za-z]', file_name.split(".")[0]):
         return "No"
-    if re.search(r'\.(txt|exe|dll)$', file_name) is None:
+
+    # Check if the substring after the dot is one of these: ['txt', 'exe', 'dll']
+    if file_name.split(".")[1] not in ["txt", "exe", "dll"]:
         return "No"
+
+    # If all the conditions are met, return 'Yes'
     return "Yes"
