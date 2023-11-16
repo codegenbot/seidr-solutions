@@ -20,58 +20,32 @@ def words_in_sentence(sentence):
         * sentence contains only letters
     """
 
-    # Initialize a list to hold the words in the sentence
-    words = []
-    # Initialize a list to hold the words whose lengths are prime
-    prime_words = []
-
-    # Add each word in the sentence to the words list
-    # TODO
-
-    # Iterate through each word in the words list
-    words = sentence.split()
+    words = sentence.split(" ")
+    primes = []
 
     for word in words:
-        # If the length of the word is prime:
-        if is_prime(len(word)):
-            # Add the word to the prime_words list
-            prime_words.append(word)
+        length = len(word)
+        if is_prime(length):
+            primes.append(word)
 
-    # Join the words in the prime_words list with a space:
-    result = " ".join(prime_words)
-
-    # Return the string
-    return result
+    return primes
 
 
 def is_prime(num):
     """
-    Returns True if num is prime, False otherwise.
-
-    Example 1:
-        Input: num = 4
-        Output: False
-
-    Example 2:
-        Input: num = 5
-        Output: True
-
-    Example 3:
-        Input: num = 17
-        Output: True
+    This function checks if the given number is a prime number.
     """
 
-    # If num is less than 2, return False
-    # TODO
-
-    # Iterate through numbers from 2 to num-1
-    # TODO
-
-        # If num is divisible by the number, return False
-        # TODO
-
-    # Return True
-    for num in range(2, num-1):
-        if num % num == 0:
-            return False
+    if num == 1:
+        return True
+    elif num == 2:
+        return True
+    else:
+        for i in range(2, num):
+            if num % i == 0:
+                return False
     return True
+
+
+print(words_in_sentence("This is a test"))
+print(words_in_sentence("lets go for swimming"))
