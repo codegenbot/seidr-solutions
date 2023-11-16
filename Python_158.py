@@ -1,4 +1,3 @@
-
 def find_max(words):
     """Write a function that accepts a list of strings.
     The list contains different words. Return the word with maximum number
