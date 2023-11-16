@@ -14,6 +14,7 @@ def same_chars(s0: str, s1: str):
     >>> same_chars('abcd', 'dddddddabce')
     False
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+    """
     False
     if len(s0) != len(s1):
         return False
@@ -21,4 +22,3 @@ def same_chars(s0: str, s1: str):
         if s0[i] not in s1:
             return False
     return True
-    """
