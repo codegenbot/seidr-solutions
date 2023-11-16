@@ -1,7 +1,7 @@
 
 
-def derivative(xs: list):
-    """xs represent coefficients of a polynomial.
+def derivative(xs: list) -> list:
+    """ xs represent coefficients of a polynomial.
     xs[0] + xs[1] * x + xs[2] * x^2 + ....
      Return derivative of this polynomial in the same form.
     >>> derivative([3, 1, 2, 4, 5])
@@ -14,7 +14,7 @@ def derivative(xs: list):
     return derivative_list
 
 
-def evaluate(xs: list, x: float):
+def evaluate(xs: list, x: float) -> float:
     """
     xs represent coefficients of a polynomial.
     xs[0] + xs[1] * x + xs[2] * x^2 + ....
@@ -30,7 +30,7 @@ def evaluate(xs: list, x: float):
     return result
 
 
-def integrate(xs: list, x: float):
+def integrate(xs: list, x: float) -> float:
     """
     xs represent coefficients of a polynomial.
     xs[0] + xs[1] * x + xs[2] * x^2 + ....
