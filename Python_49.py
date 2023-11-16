@@ -12,18 +12,5 @@ def modp(n: int, p: int):
     8
     >>> modp(100, 101)
     1
-
-def fib(n: int):
-    """Return the n-th Fibonacci number.
-    >>> fib(1)
-    1
-    >>> fib(2)
-    1
-    >>> fib(3)
-    2
-    >>> fib(4)
-    3
-    >>> fib(100)
-    354224848179261915075
-    """
+    return 2 ** n % p
     """
