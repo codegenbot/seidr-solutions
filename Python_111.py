@@ -17,7 +17,7 @@ def histogram(test):
     return hist
 
 def most_common(hist):
-    """Given a dictionary of letter occurence, return a list of letters with the most
+    Given a dictionary of letter occurence, return a list of letters with the most
     occurence.
     If several letters have the same occurrence, return all of them.
 
@@ -27,19 +27,5 @@ def most_common(hist):
     most_common({'b': 4, 'a': 1}) == ['b']
     most_common({}) == []
 
-    maxcount = 0
-    for key, value in hist.items():
-        if value > maxcount:
-            maxcount = value
-    return [key for key, value in hist.items() if value == maxcount]
-
-
-def main():
-    test = input()
-    letter_count = histogram(test)
-    print(most_common(letter_count))
-
-
-if __name__ == '__main__':
-    main()
+    """
     """
