@@ -39,7 +39,7 @@ def dfs(grid, k, seen, path, min_path, r, c):
         dfs(grid, k, seen, path.copy(), min_path, i, j)
 
 
-def min_path(grid, k):
+def minPath(grid, k):
     """
     Given a grid with N rows and N columns (N >= 2) and a positive integer k,
     each cell of the grid contains a value. Every integer in the range [1, N * N]
@@ -64,13 +64,17 @@ def min_path(grid, k):
     Examples:
 
     n = len(grid)
-    if k > n * n:
-        return []
-    min_path = [None]
+    if k == 1:
+        return [grid[0][0]]
+    min_path = [list(range(1, n * n + 1))]
     for i in range(n):
         for j in range(n):
             dfs(grid, k, set(), [], min_path, i, j)
     return min_path[0]
+
+
+if __name__ == '__main__':
+    check(minPath)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
