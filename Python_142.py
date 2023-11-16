@@ -11,33 +11,13 @@ def sum_squares(lst):
     For lst = [1,2,3] the output should be 6
     For lst = []  the output should be 0
     For lst = [-1,-5,2,-1,-5]  the output should be -126
-lst = []
-summary = 0
 
-# Find indexes of all numbers that are divisible by 3 and 4
-multiple_3_4 = [i for i, n in enumerate(lst) if i % 3 == 0 and i % 4 == 0]
 
-# Find indexes of all numbers that are only divisible by 3
-multiple_3 = [i for i, n in enumerate(lst) if i % 3 == 0 and i % 4 != 0]
-
-# Find indexes of all numbers that are only divisible by 4
-multiple_4 = [i for i, n in enumerate(lst) if i % 3 != 0 and i % 4 == 0]
-
-# Get cubes of numbers divisible by 4
-cubes = [lst[i]*lst[i]*lst[i] for i in multiple_4]
-
-# Get squares of numbers divisible by 3 - numbers divisible by both 3 and 4 are already in the cube list
-common_nums = set(multiple_3) & set(multiple_3_4)
-for i in common_nums:
-    multiple_3.remove(i)
-squares = [lst[i]*lst[i] for i in multiple_3]
-
-# Determine square-and-cubes with indexes not in common
-square_and_cubes = cubes + squares
-
-# Determine final summary
-for i in square_and_cubes:
-    summary += i
-    
-return summary
+def output(filepath):
+    """
+    This function will open the file 'filepath'.
+    It will then go through each line of the file.
+    Each line of the file will contain one integer.
+    Return a list containing the integers in the file. Make sure to include all integers in the file.
+    """
     """
