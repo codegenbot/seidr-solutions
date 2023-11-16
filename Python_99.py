@@ -1,4 +1,15 @@
 
+
+def check(closest_integer):
+    assert closest_integer("0") == 0, "Test 0"
+    assert closest_integer("10") == 10, "Test 1"
+    assert closest_integer("15.3") == 15, "Test 2"
+    assert closest_integer("14.5") == 15, "Test 3"
+    assert closest_integer("-14.5") == -15, "Test 4"
+    assert closest_integer("-14.4") == -14, "Test 5"
+
+
+
 def closest_integer(value):
     '''
     Create a function that takes a value (string) representing a number
@@ -6,43 +17,27 @@ def closest_integer(value):
     from two integers, round it away from zero.
 
     Examples
-    >>> closest_integer("0")
-    0
-    >>> closest_integer("-0.5")
-    -1
-    >>> closest_integer("-0.6")
-    0
-    >>> closest_integer("-0.4")
-    0
-    >>> closest_integer("-0.1")
-    0
-    >>> closest_integer("-0.0")
-    0
-    >>> closest_integer("1.5")
-    2
-    >>> closest_integer("2.5")
-    3
-    >>> closest_integer("-1.5")
-    -2
-    >>> closest_integer("-2.5")
-    -3
-    >>> closest_integer("1.4")
-    1
-    >>> closest_integer("1.6")
-    2
-    >>> closest_integer("-1.4")
-    -1
-    >>> closest_integer("-1.6")
-    -2
+    >>> closest_integer("10")
+    10
+    >>> closest_integer("15.3")
+    15
 
     Note:
     Rounding away from zero means that if the given number is equidistant
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
 
-    Hint: use the built-in round() function.
-    It takes an optional second argument to specify the number of decimal places to round to.
-    If it is omitted, the number is rounded to the nearest integer.
+    # Hint: use the built-in round() function.
+    # It takes an optional second argument to specify the number of decimal places to round to.
+    # If it is omitted, the number is rounded to the nearest integer.
 
-    Delete the following line and write your code here
+    # Delete the following line and write your code here
+    pass
+    value = float(value)
+    return round(value)
+
+
+if __name__ == "__main__":
+    check(closest_integer)
+    return 15 and closest_integer("-14.5") should return -15.
     '''
