@@ -4,11 +4,13 @@ def solution(lst):
     
 
     Examples
-    solution([11, 13, 2, 9]) ==> 0
     solution([5, 8, 7, 1]) ==> 12
     solution([3, 3, 3, 3, 3]) ==> 9
 
     # write your code here
+    
+    # write your code here
+    return lst[1::2]
     
     solution([30, 13, 24, 321]) ==>0
     """
