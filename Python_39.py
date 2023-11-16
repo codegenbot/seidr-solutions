@@ -1,3 +1,4 @@
+import math
 
 
 def prime_fib(n: int):
@@ -13,19 +14,22 @@ def prime_fib(n: int):
     13
     >>> prime_fib(5)
     89
-    if n <= 0:
-        return 0
-    if n == 1:
-        return 2
-    else:
-        i = 1
-        j = 1
-        f = 2
-        while n > 0:
-            i = j
-            j = f
-            f = i + j
-            if f % 2 != 0:
-                n -= 1
-        return f
+
+    def is_prime(n):
+        for i in range(2, math.ceil(math.sqrt(n))):
+            if n % i == 0:
+                return False
+        return True
+
+    a, b, count = 2, 3, 0
+    while count < n:
+        if is_prime(b):
+            count += 1
+        a, b = b, a + b
+    return a
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
