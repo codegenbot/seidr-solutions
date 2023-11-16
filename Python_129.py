@@ -1,19 +1,4 @@
 
-def find_smallest(x, y, grid):
-    smallest = grid[x][y]
-    smallest_x = x
-    smallest_y = y
-    for i in range(x-1, x+2):
-        for j in range(y-1, y+2):
-            if i < 0 or j < 0 or i >= len(grid) or j >= len(grid[0]):
-                continue
-            if grid[i][j] < smallest:
-                smallest = grid[i][j]
-                smallest_x = i
-                smallest_y = j
-    return smallest_x, smallest_y
-
-
 def minPath(grid, k):
     """
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
@@ -41,16 +26,6 @@ def minPath(grid, k):
     min_path = []
     return min_path
     min_path = []
-    x = 0
-    y = 0
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            if grid[i][j] == 1:
-                x = i
-                y = j
-    for i in range(k):
-        min_path.append(grid[x][y])
-        x, y = find_smallest(x, y, grid)
     return min_path
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
