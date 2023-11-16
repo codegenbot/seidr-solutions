@@ -16,10 +16,8 @@ def is_prime(n):
     False
     >>> is_prime(1)
     False
-    if n == 1:
+    if n < 2:
         return False
-    elif n == 2: 
-        return True
     else:
         for i in range(2, n):
             if n % i == 0:
