@@ -8,9 +8,11 @@ def choose_num(x, y):
     choose_num(12, 15) = 14
     if x % 2 == 0:
         return x
-    elif x % 2 != 0:
-        return x + 1
     else:
-        return -1
+        return x + 1
+
+
+print(choose_num(12, 15))
+print(choose_num(13, 12))
     choose_num(13, 12) = -1
     """
