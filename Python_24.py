@@ -5,9 +5,12 @@ def largest_divisor(n: int) -> int:
     >>> largest_divisor(15)
     5
     divisor = n - 1
-    while divisor > 0:
+    while True:
         if n % divisor == 0:
             return divisor
-        divisor -= 1
-    return None
+        else:
+            divisor -= 1
+
+if __name__ == '__main__':
+    print(largest_divisor(15))
     """
