@@ -1,3 +1,32 @@
+from collections import deque
+
+def get_neighbors(grid, row, col):
+    neighbors = []
+    if row > 0:
+        neighbors.append((row - 1, col))
+    if row < len(grid) - 1:
+        neighbors.append((row + 1, col))
+    if col > 0:
+        neighbors.append((row, col - 1))
+    if col < len(grid) - 1:
+        neighbors.append((row, col + 1))
+    return neighbors
+
+def get_path(grid, k, start_row, start_col):
+    queue = deque([(start_row, start_col)])
+    visited = set()
+    visited.add((start_row, start_col))
+    path = []
+    while queue:
+        row, col = queue.popleft()
+        path.append(grid[row][col])
+        if len(path) == k:
+            return path
+        for neighbor in get_neighbors(grid, row, col):
+            if neighbor not in visited:
+                queue.append(neighbor)
+                visited.add(neighbor)
+    return []
 
 def minPath(grid, k):
     """
@@ -23,18 +52,21 @@ def minPath(grid, k):
 
     Examples:
 
-    # Write your code here.
-    pass
+    min_path = []
+    for row in range(len(grid)):
+        for col in range(len(grid)):
+            path = get_path(grid, k, row, col)
+            if not min_path or path < min_path:
+                min_path = path
+    return min_path
 
+grid = [ [1,2,3], [4,5,6], [7,8,9] ]
+k = 3
+print(minPath(grid, k))
 
-if __name__ == '__main__':
-    grid = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ]
-    k = 3
-    print(minPath(grid, k))
+grid = [ [5,9,3], [4,1,6], [7,8,2] ]
+k = 1
+print(minPath(grid, k))
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
