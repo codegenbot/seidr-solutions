@@ -1,3 +1,14 @@
+def closest_integer(string_number):
+    '''
+    Create a function that takes a value of
+    representing a number and returns the
+    closest integer to it. If the number is equidistant
+    from two integers, round it away from zero
+    param value = string_number (string)
+    examples below
+    examples
+    >>> closest_integer("10")
+    10
 
 def closest_integer(value):
     '''
@@ -22,9 +33,5 @@ def closest_integer(value):
 
     # Delete the following line and write your code here
     pass
-    if float(value) >= 0:
-        return round(float(value))
-    else:
-        return round(-float(value))
     return 15 and closest_integer("-14.5") should return -15.
     '''
