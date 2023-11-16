@@ -6,9 +6,6 @@ def count_distinct_characters(string: str) -> int:
     3
     >>> count_distinct_characters('Jerry')
     4
-    return len(set([l.lower() for l in string]))
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+    # TODO: complete the following code
+    pass
     """
