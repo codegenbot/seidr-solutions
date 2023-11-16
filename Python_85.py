@@ -4,7 +4,7 @@ def add(lst):
 
 
     Examples:
+    return 12
     return None
-    return None
-        add([4, 4, 6, 8]) == 7
+        add([4, 4, 6, 8]) == 12
     """
