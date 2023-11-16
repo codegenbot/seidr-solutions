@@ -8,7 +8,13 @@ def add_elements(arr, k):
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
 
-    # Your code here
+    # YOUR CODE HERE
+
+
+if __name__ == "__main__":
+    arr = [111, 21, 3, 4000, 5, 6, 7, 8, 9]
+    k = 4
+    print(add_elements(arr, k))
         Output: 24 # sum of 21 + 3
 
     Constraints:
