@@ -8,8 +8,13 @@ def monotonic(l: list):
     False
     >>> monotonic([4, 1, 0, -10])
     True
-    if l == sorted(l) or l == sorted(l, reverse=True):
-        return True
+    if l[0] < l[1]:
+        for i in range(len(l)-1):
+            if l[i] > l[i+1]:
+                return False
     else:
-        return False
+        for i in range(len(l)-1):
+            if l[i] < l[i+1]:
+                return False
+    return True
     """
