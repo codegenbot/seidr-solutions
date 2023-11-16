@@ -14,11 +14,14 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    for i in range(len(string) + 1):  # We will consider substring with the length from 0 to len(string).
-        suffix = string[i:]  # Get the suffix with the current length.
-        if is_palindrome(suffix):  # Test if it is a palindrome.
-            prefix = string[:i]  # If it is, get the prefix.
-            return string + prefix[::-1]  # Return a string concatenation of the prefix and its reverse.
+    suffix_len = 0
+    while not is_palindrome(string[-suffix_len:]) and suffix_len < len(string):
+        suffix_len += 1
+    if suffix_len == len(string):
+        return string
+    suffix = string[-suffix_len:]
+    prefix = string[:-suffix_len]
+    return string + prefix[::-1]
     >>> make_palindrome('cata')
     'catac'
     """
