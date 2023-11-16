@@ -5,7 +5,10 @@ def fib(n: int):
     >>> fib(1)
     1
     >>> fib(8)
+    if n <= 1:
+        return n
     21
-    if n <= 1:       return n
+    >>> fib(10)
+    55
     return fib(n - 1) + fib(n - 2)
     """
