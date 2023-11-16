@@ -23,18 +23,50 @@ def minPath(grid, k):
 
     Examples:
 
+    def dfs(grid, k, i, j, visited, path):
+        if k == 0:
+            return path
 
-    # TODO: Complete the following code given the task description and function signature.
-    # You can write additional helper functions if needed.
-    # You can write additional classes if needed.
-    # You can import additional modules if needed.
+        if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or visited[i][j]:
+            return None
 
-    # The following code is provided as a hint. You may delete it and write your own code.
-    def find_path(grid, k):
-        # return a list of values on the cells that the path go through
-        pass
+        visited[i][j] = True
+        path.append(grid[i][j])
 
-    return find_path(grid, k)
+        ans = dfs(grid, k-1, i-1, j, visited, path)
+        if ans:
+            return ans
+        ans = dfs(grid, k-1, i+1, j, visited, path)
+        if ans:
+            return ans
+        ans = dfs(grid, k-1, i, j-1, visited, path)
+        if ans:
+            return ans
+        ans = dfs(grid, k-1, i, j+1, visited, path)
+        if ans:
+            return ans
+
+        visited[i][j] = False
+        path.pop()
+        return None
+
+    visited = [[False for _ in range(len(grid[0]))] for _ in range(len(grid))]
+    path = []
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            ans = dfs(grid, k, i, j, visited, path)
+            if ans:
+                return ans
+
+
+if __name__ == '__main__':
+    grid = [ [1,2,3], [4,5,6], [7,8,9] ]
+    k = 3
+    print(minPath(grid, k))
+
+    grid = [ [5,9,3], [4,1,6], [7,8,2] ]
+    k = 1
+    print(minPath(grid, k))
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
