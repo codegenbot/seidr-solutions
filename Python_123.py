@@ -1,4 +1,3 @@
-
 def get_odd_collatz(n):
     """
     Given a positive integer n, return a sorted list that has the odd numbers in collatz sequence.
@@ -10,9 +9,6 @@ def get_odd_collatz(n):
     term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1.
 
     Note: 
-
-    # Fill in the code here.
-
         1. Collatz(1) is [1].
         2. returned list sorted in increasing order.
 
