@@ -9,21 +9,13 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
-    a = []
-    b = []
-    for i in range(n):
-        a.append(int(input()))
-        b.append(int(input()))
-
-    c = 0
-    for i in range(n):
-        for j in range(n):
-            if a[i] == b[j]:
-                c += 1
-    print(c)
 
 
-car_race_collision(2)
+def is_ransom_note_possible(magazine_words: List[str], ransom_note_words: List[str]):
+    """
+    Given a magazine of words and a ransom note of words,
+    is it possible to write the ransom note using the words in the magazine?
+    """
 
     This function outputs the number of such collisions.
     """
