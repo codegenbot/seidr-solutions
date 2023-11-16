@@ -15,7 +15,15 @@ def same_chars(s0: str, s1: str):
     False
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
     False
-    from collections import Counter
+    # Complete the function
+    # Use the commented lines to test your code
+    #   s0 = input('Enter the first word: ')
+    #   s1 = input('Enter the second word: ')
+    #   print(same_chars(s0, s1))
 
-    return Counter(s0) == Counter(s1)
+
+if __name__ == '__main__':
+    import doctest
+
+    doctest.testmod()
     """
