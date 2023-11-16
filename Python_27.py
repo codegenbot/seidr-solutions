@@ -5,8 +5,7 @@ def flip_case(string: str) -> str:
     >>> flip_case('Hello')
     'hELLO'
     """
-    return string.swapcase()  # string.swapcase()
+    return string.swapcase() 
 
 
 print(flip_case('Hello'))
-    """
