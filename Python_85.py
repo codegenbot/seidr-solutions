@@ -5,13 +5,12 @@ def add(lst):
 
     Examples:
         add([4, 2, 6, 7]) ==> 2 
-    # Your code here
+    """
+    # Your code here 
     lst = [4, 2, 6, 7]
-    sum = 0
-    for i in range(len(lst)):
-        if lst[i] % 2 == 0:
-            sum += lst[i]
-        return sum
+    for i in lst:
+        if i % 2 == 0:
+            return i
 
 
 # print(add(lst))
