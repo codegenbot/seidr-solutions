@@ -11,9 +11,8 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
-    return
-
-
+    """
+    
 def check(func):
     assert func("") == 0, "Error"
     assert func("abAB") == 131, "Error"
@@ -25,13 +24,4 @@ def check(func):
     assert func("You arE Very Smart") == 327, "Error"
 
 
-    """
-
-def digitSum(s):
-    res = 0
-    for c in s:
-        res += ord(c)
-    return res
-
-
-check(digitSum)
+        
