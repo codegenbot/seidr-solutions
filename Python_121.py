@@ -6,9 +6,9 @@ def solution(lst):
 
 
 def check(solution):
-    assert solution([3, 13, 2, 9]) == 0, "The sum of all odd elements in even positions is 0"
-    assert solution([3, 3, 3, 3, 3]) == 9, "The sum of all odd elements in even positions is 9"
-    assert solution([3, 13, 2, 9]) == 3, "The sum of all odd elements in even positions is 3"
+    assert solution([3, 13, 2, 9]) == 0
+    assert solution([3, 3, 3, 3, 3]) == 9
+    assert solution([3, 13, 2, 9]) == 3
 
 
 check(solution)
