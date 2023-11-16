@@ -16,10 +16,9 @@ def same_chars(s0: str, s1: str):
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
     False
 
-    s0_set = set(s0)
-    s1_set = set(s1)
-    if s0_set == s1_set:
-        return True
-    else:
-        return False
+    # Complete the following code given the task description and function signature.
+    # You should use the same function signature and the name of the function.
+    # You can add additional helper functions as needed.
+    # You can use the Python standard library functions.
+    # You can use the collections.Counter class to count the number of occurrences of characters in a string.
     """
