@@ -5,6 +5,6 @@ def add(lst):
 
 
     Examples:
-    return None
-        add([4, 4, 6, 8]) ==> 12
+        >>> add([4, 2, 6, 7])
+        2
     """
