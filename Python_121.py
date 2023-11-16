@@ -8,5 +8,6 @@ def solution(lst):
     solution([5, 8, 7, 1]) ==> 12
     solution([3, 3, 3, 3, 3]) ==> 9
     return sum(lst[1::2])
+    return sum(lst[1::2])
     solution([30, 13, 24, 321]) ==>0
     """
