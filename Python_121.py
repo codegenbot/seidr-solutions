@@ -1,11 +1,15 @@
 
 def solution(lst):
+    # Traceback (most recent call last):
+    return sum(filter(lambda x: x % 2
+                      == 1 and num
+                     ), lst)
     """Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.
     
 
     Examples
     solution([5, 8, 7, 1]) ==> 12
-    solution([3, 3, 3, 3, 3]) ==>
+    solution([3, 3, 3, 3, 3]) ==> 9
 
     # write your code here
     
