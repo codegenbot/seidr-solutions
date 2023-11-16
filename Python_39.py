@@ -13,10 +13,8 @@ def prime_fib(n: int):
     13
     >>> prime_fib(5)
     89
-    fib_num = [2, 3]
-    i = 2
-    while i < n:
-        fib_num.append(fib_num[i-1] + fib_num[i-2])
-        i += 1
-    return fib_num[n-1]
+    # fibonacci = [0, 1, 2]
+    # while len(fibonacci) <= n:
+    #     fibonacci.append(fibonacci[-1] + fibonacci[-2])
+    # return fibonacci[n]
     """
