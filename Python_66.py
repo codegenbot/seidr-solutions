@@ -15,6 +15,11 @@ def digitSum(s):
     for i in s:
         if i.isupper():
             res += ord(i)
+    res = 0
+    for i in s:
+        if i.isupper():
+            res += ord(i)
     return res
-        digitSum("aAaaaXa") => 153 
+    return res
+        digitSum("aAaaaXa") => 153
     """
