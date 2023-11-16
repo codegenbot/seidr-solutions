@@ -14,8 +14,34 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    a, b, c, d = 0, 0, 2, 0
-    for i in range(n):
-        a, b, c, d = b, c, d, (a + b + c + d)
-    return a
+
+
+def count_substrings(s: str, t: str):
+    """Count the number of substrings in string s that match string t.  The substrings do not need to be consecutive and can overlap.
+    >>> count_substrings('abc', 'abc')
+    1
+    >>> count_substrings('abc', 'ab')
+    2
+    >>> count_substrings('abc', 'a')
+    3
+    >>> count_substrings('abc', 'b')
+    2
+    >>> count_substrings('abc', 'c')
+    2
+    """
+
+
+def count_substrings_2(s: str, t: str):
+    """Count the number of substrings in string s that match string t.  The substrings do not need to be consecutive and can overlap.
+    >>> count_substrings_2('abc', 'abc')
+    1
+    >>> count_substrings_2('abc', 'ab')
+    2
+    >>> count_substrings_2('abc', 'a')
+    3
+    >>> count_substrings_2('abc', 'b')
+    2
+    >>> count_substrings_2('abc', 'c')
+    2
+    """
     """
