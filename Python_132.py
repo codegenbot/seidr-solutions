@@ -28,5 +28,4 @@ print(is_nested('[]'))
 print(is_nested('[[][]]'))
 print(is_nested('[[]][['))
 print(is_nested('[[]][['))
-print(is_nested(']]]]]]]]'))
     '''
