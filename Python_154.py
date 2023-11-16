@@ -6,10 +6,10 @@ def cycpattern_check(a , b):
     cycpattern_check("whassup","psus") => False
     cycpattern_check("abab","baa") => True
     cycpattern_check("efef","eeff") => False
-    cycpattern_check("winemtt","tinem") => True
+    cycpattern_check("himenss","simen") => True
 
-    if a in b:
-        return True
-    else:
-        return False
+    if a in b or a[1:] in b:
+        return True:
+    if a[1:] in b:
+        return True:
     """
