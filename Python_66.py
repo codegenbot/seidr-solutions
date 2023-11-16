@@ -1,5 +1,5 @@
 
-def digitSum(s):
+def digitSum(s: str) -> int:
     """
     Task
     Write a function that takes a string as input and returns the sum of the upper characters only
@@ -11,6 +11,6 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
-    pass
+    return 0
         digitSum("aAaaaXa") => 153
     """
