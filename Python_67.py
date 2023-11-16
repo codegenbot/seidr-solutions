@@ -13,3 +13,4 @@ def fruit_distribution(s,n):
     fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
     """
     # Complete the following code given the task description and function signature.
+    return n - int(s.split()[0]) - int(s.split()[4])
