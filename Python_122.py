@@ -17,10 +17,20 @@ def add_elements(arr, k):
     # USE THE BUILTIN FUNCTION str() TO CONVERT AN INTEGER TO A STRING.
     # USE THE BUILTIN FUNCTION len() TO CALCULATE THE LENGTH OF A STRING.
 
-    return 1
+    return 0
         Output: 24 # sum of 21 + 3
 
     Constraints:
         1. 1 <= len(arr) <= 100
+    count = 0
+    sum = 0
+    for i in range(len(arr)):
+        if len(str(arr[i])) <= 2:
+            count += 1
+            sum += arr[i]
+    if count <= k:
+        return sum
+    else:
+        return sum
         2. 1 <= k <= len(arr)
     """
