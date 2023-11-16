@@ -16,16 +16,41 @@ def is_prime(n):
     False
     >>> is_prime(1)
     False
-    if n == 1:
-        return False
-    else:
-        for i in range(2, n):
-            if n % i == 0:
-                return False
-        return True
 
 
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+def print_primes(n):
+    """Print all the primes from 0 to n.
+    >>> print_primes(10)
+    2
+    3
+    5
+    7
+    >>> print_primes(100)
+    2
+    3
+    5
+    7
+    11
+    13
+    17
+    19
+    23
+    29
+    31
+    37
+    41
+    43
+    47
+    53
+    59
+    61
+    67
+    71
+    73
+    79
+    83
+    89
+    97
+    >>> print_primes(1)
+    """
     """
