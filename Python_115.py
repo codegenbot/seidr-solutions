@@ -34,6 +34,7 @@ def max_fill(grid, capacity):
         * grid[i][j] -> 0 | 1
     return 0
     return 0
+    return 0
 
     # Your code here
         * 1 <= capacity <= 10
