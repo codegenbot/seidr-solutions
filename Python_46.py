@@ -16,4 +16,11 @@ def fib4(n: int):
     14
     # Complete the following code.
     return 0
+    a = 0
+    b = 0
+    c = 2
+    d = 0
+    for i in range(n-3):
+        a, b, c, d = b, c, d, a + b + c + d
+    return d
     """
