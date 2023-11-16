@@ -13,7 +13,11 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
-
-    # YOUR CODE HERE
-    return 0
+    a,b,c,d = 0,0,1,0
+    for i in range(n):
+        a = b
+        b = c
+        c = a + b + d
+        d = c - b - d
+    return d
     """
