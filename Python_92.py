@@ -15,12 +15,25 @@ def any_int(x, y, z):
     any_int(3.6, -2.2, 2) ➞ False
   
 
+    int_selectors = 0
+    sum_of_two = 0
+    selector = [x, y, z]
     
-    return (y + z == x) or (x + z == y) or (x + y == z)
-
-   
-
-
-
+    for item in selector:
+        if item % 1 == 0:
+            int_selectors += 1
+    set_selector = set(selector)
+    subset = set([])
+    
+    for i in range(len(set_selector)):
+        for item in set_selector:
+            subset.add(item)
+            for item in set_selector:
+                sum_of_two = subset.add(item) 
+            if(sum in set_selector | subset):
+                pass
+            else:
+                continue
+    return False
     
     '''
