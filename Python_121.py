@@ -7,5 +7,6 @@ def solution(lst):
     solution([5, 8, 7, 1]) ==> 12
     solution([3, 3, 3, 3, 3]) ==> 9
     # Your code here
-    solution([30, 13, 24, 321]) ==>5
+    return lst[1] + lst[3]
+    solution([30, 13, 24, 321]) ==>0
     """
