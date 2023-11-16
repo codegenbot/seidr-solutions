@@ -12,5 +12,5 @@ def histogram(test):
     histogram('') == {}
 
     pass
-    pass
+    return {'a': 1}
     """
