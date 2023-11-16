@@ -13,4 +13,4 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # TODO: Complete the following code given the task description and function signature.
+    # your code here
