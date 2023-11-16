@@ -111,3 +111,6 @@ def check(simplify):
     assert simplify
     simplify("1/6", "2/1") == False
     simplify("7/10", "10/2") == False
+
+
+check(simplify)
