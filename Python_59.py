@@ -5,6 +5,6 @@ def largest_prime_factor(n: int):
     >>> largest_prime_factor(13195)
     29
     >>> largest_prime_factor(2048)
+    """
     2
     return 0
-    """
