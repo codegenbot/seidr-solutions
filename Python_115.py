@@ -9,14 +9,18 @@ def max_fill(grid, capacity):
     Output the number of times you need to lower the buckets.
 
     Example 1:
-        Input: 
-            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]
             bucket_capacity : 1
         Output: 6
 
     Example 2:
-        Input: 
-            grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]
+        Input:
+            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]
+            bucket_capacity : 1
+        Output: 5
+    
+    Example 3:
+        Input:
+            grid : [[0,0,0], [0,0,0]]
             bucket_capacity : 2
         Output: 5
     
@@ -31,7 +35,7 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= capacity <= 10
     """
-    # 1 <= grid[:,1].length <= 10^2 (m)
+    # 1 <= grid[:,1].length <= 10^2
     # grid[i][j] -> 0 | 1
     n = len(grid)
     m = len(grid[0])
