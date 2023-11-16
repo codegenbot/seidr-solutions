@@ -15,15 +15,14 @@ def closest_integer(value):
     Rounding away from zero means that if the given number is equidistant
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
-    if float(value) - int(value) == 0:
-        print(int(value))
-    elif abs(float(value)) ==abs(abs(int(value))):
-        print(int(value)+1)
-    elif abs(float(value)) >abs(int(value)):
-        print(int(value)+1)
+    integer = float(value)
+    if integer < 0:
+        sign = -1
     else:
-        print(int(value))
+        sign = 1
 
-closest_integer("-30")
-    return 15 and closest_integer("-14.5") should return -15.
+    difference = round(integer % 1 * sign, 1)
+
+    return int(value) + (sign * difference)
+    return 15 and closest_integer("-2.5") should return -3.
     '''
