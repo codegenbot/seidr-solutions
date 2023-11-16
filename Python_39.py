@@ -1,17 +1,3 @@
-def is_prime(n: int) -> bool:
-    if n < 2:
-        return False
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-    return True
-
-
-def fib(n: int) -> int:
-    if n == 1 or n == 2:
-        return 1
-    return fib(n - 1) + fib(n - 2)
-
 
 
 def prime_fib(n: int):
@@ -27,11 +13,54 @@ def prime_fib(n: int):
     13
     >>> prime_fib(5)
     89
-    fib_number = 1
-    prime_number = 1
-    while prime_number < n:
-        fib_number += 1
-        if is_prime(fib(fib_number)):
-            prime_number += 1
-    return fib(fib_number)
+
+
+    # complete the following function
+    # you can add additional functions if needed
+    # the function signature should not be modified
+
+    # this is a helper function to check if a number is prime or not
+    def is_prime(num: int) -> bool:
+        if num == 2:
+            return True
+        if num < 2 or num % 2 == 0:
+            return False
+        for i in range(3, int(num ** 0.5) + 1, 2):
+            if num % i == 0:
+                return False
+        return True
+
+    # this is a helper function to generate fibonacci numbers
+    def fibonacci(n: int):
+        a, b = 0, 1
+        for i in range(n):
+            a, b = b, a + b
+        return a
+
+    # this is a helper function to check if a number is a fibonacci number or not
+    def is_fibonacci(num: int) -> bool:
+        a, b = 0, 1
+        while b < num:
+            a, b = b, a + b
+        return b == num
+
+    # this is a helper function to check if a number is a prime fibonacci number or not
+    def is_prime_fibonacci(num: int) -> bool:
+        return is_fibonacci(num) and is_prime(num)
+
+    # this is the main function
+    def prime_fib(n: int):
+        # this is the counter
+        counter = 0
+        # this is the iterator
+        iterator = 0
+
+        while counter < n:
+            iterator += 1
+            if is_prime_fibonacci(iterator):
+                counter += 1
+
+        return iterator
+
+    return prime_fib(n)
     """
