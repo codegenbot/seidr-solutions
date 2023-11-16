@@ -11,5 +11,5 @@ def fix_spaces(text):
     fix_spaces(" Example   3") == "_Example-3"
     """
     text = text.replace('  ', '-')
-    text = text.replace(' ', '_')
+    text = text.replace(' ', '-')
     return text
