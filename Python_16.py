@@ -6,5 +6,8 @@ def count_distinct_characters(string: str) -> int:
     3
     >>> count_distinct_characters('Jerry')
     4
-    return len(set(string.lower()))
+    char_set = set()
+    for char in string:
+        char_set.add(char.lower())
+    return len(char_set)
     """
