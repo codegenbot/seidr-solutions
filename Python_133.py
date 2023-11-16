@@ -17,5 +17,14 @@ def sum_squares(lst):
     pass
     
 
+# TODO: this mathlib is a reserved name and does not exist. Try using async def functions instead?
+from mathlib import *
+def check():
+    assert sum_squares(list) == 1
+    assert sum_squares([1, 0, 2]) == 5
+    assert sum_squares([0]) == 0
+    assert sum_squares([1, 2]) == 5
+    assert sum_squares([-1, 1, 0]) == 2
+    assert sum_squares([1.3, 3]) == 14
 
     """
