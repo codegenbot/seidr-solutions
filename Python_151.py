@@ -8,8 +8,8 @@ def double_the_difference(lst):
 
 
 def check(function):
-    lst = [1, 2, 3, 4, 5]
-    assert function(lst) == 12 # wrong
+    lst = [1, 2, 3, 4, 5, 6]
+    assert function(lst) == 12
 
 
 if __name__ == '__main__':
