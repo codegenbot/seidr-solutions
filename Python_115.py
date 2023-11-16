@@ -39,7 +39,6 @@ def max_fill(grid, capacity):
     # You can use any programming language you want.
     # You can use any algorithm you want.
     # You can use any data structure you want.
-    # You can use any style you want.
     # You can use any version control system you want.
     # You can use any operating system you want.
     # You can use any cloud service you want.
@@ -48,136 +47,146 @@ def max_fill(grid, capacity):
     # You can use any cloud server you want.
     # You can use any cloud platform you want.
     # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want.
-    # You can use any cloud service provider you want
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database you want.
+    # You can use any cloud server you want.
+    # You can use any cloud platform you want.
+    # You can use any cloud service provider you want.
+    # You can use any cloud hosting you want.
+    # You can use any cloud computing you want.
+    # You can use any cloud infrastructure you want.
+    # You can use any cloud service you want.
+    # You can use any cloud storage you want.
+    # You can use any cloud database
         * 1 <= capacity <= 10
     """
