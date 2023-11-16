@@ -1,86 +1,26 @@
 
 def cycpattern_check(a , b):
-    """You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
-    cycpattern_check("abcd","abd") => False, "test #1"
-    cycpattern_check("hello","ell") => True, "test #2"
-    cycpattern_check("whassup","psus") => False, "test #3"
-    cycpattern_check("abab","baa") => True, "test #4"
-    cycpattern_check("efef","eeff") => False, "test #5"
-    cycpattern_check("himenss","simen") => True, "test #6"
-    cycpattern_check("winemtt", "tinem") => True, "test #7"
-    cycpattern_check("hmm", "hmm") => True, "test #8"
-    cycpattern_check("hmm", "mhm") => True, "test #9"
-    cycpattern_check("hmm", "mmh") => True, "test #10"
-    cycpattern_check("hmm", "mmm") => False, "test #11"
-    cycpattern_check("hmm", "m") => True, "test #12"
-    cycpattern_check("hmm", "mh") => True, "test #13"
-    cycpattern_check("hmm", "hm") => True, "test #14"
-    cycpattern_check("hmm", "mm") => True, "test #15"
-    cycpattern_check("hmm", "mhmh") => True, "test #16"
-    cycpattern_check("hmm", "mhmm") => True, "test #17"
-    cycpattern_check("hmm", "mmhm") => True, "test #18"
-    cycpattern_check("hmm", "mmmh") => True, "test #19"
-    cycpattern_check("hmm", "hmmm") => True, "test #20"
-    cycpattern_check("hmm", "mhhm") => True, "test #21"
-    cycpattern_check("hmm", "mhmhm") => True, "test #22"
-    cycpattern_check("hmm", "mhhmm") => True, "test #23"
-    cycpattern_check("hmm", "mmhmm") => True, "test #24"
-    cycpattern_check("hmm", "mmmhm") => True, "test #25"
-    cycpattern_check("hmm", "mhmhh") => True, "test #26"
-    cycpattern_check("hmm", "mhmmh") => True, "test #27"
-    cycpattern_check("hmm", "mmhmh") => True, "test #28"
-    cycpattern_check("hmm", "mmmhh") => True, "test #29"
-    cycpattern_check("hmm", "hmmmm") => True, "test #30"
-    cycpattern_check("hmm", "mhhmm") => True, "test #31"
-    cycpattern_check("hmm", "mhmhmh") => True, "test #32"
-    cycpattern_check("hmm", "mhhmmh") => True, "test #33"
-    cycpattern_check("hmm", "mmhmmh") => True, "test #34"
-    cycpattern_check("hmm", "mmmhmh") => True, "test #35"
-    cycpattern_check("hmm", "mhmhhh") => True, "test #36"
-    cycpattern_check("hmm", "mhmmhh") => True, "test #37"
-    cycpattern_check("hmm", "mmhmhh") => True, "test #38"
-    cycpattern_check("hmm", "mmmhhh") => True, "test #39"
-    cycpattern_check("hmm", "hmmmmm") => True, "test #40"
-    cycpattern_check("hmm", "mhhmmm") => True, "test #41"
-    cycpattern_check("hmm", "mhmhmhm") => True, "test #42"
-    cycpattern_check("hmm", "mhhmmhm") => True, "test #43"
-    cycpattern_check("hmm", "mmhmmhm") => True, "test #44"
-    cycpattern_check("hmm", "mmmhmhm") => True, "test #45"
-    cycpattern_check("hmm", "mhmhhhm") => True, "test #46"
-    cycpattern_check("hmm", "mhmmhhm") => True, "test #47"
-    cycpattern_check("hmm", "mmhmhhm") => True, "test #48"
-    cycpattern_check("hmm", "mmmhhhm") => True, "test #49"
-    cycpattern_check("hmm", "hmmmmhm") => True, "test #50"
-    cycpattern_check("hmm", "mhhmmhm") => True, "test #51"
-    cycpattern_check("hmm", "mhmhmhmm") => True, "test #52"
-    cycpattern_check("hmm", "mhhmmhmm") => True, "test #53"
-    cycpattern_check("hmm", "mmhmmhmm") => True, "test #54"
-    cycpattern_check("hmm", "mmmhmhmm") => True, "test #55"
-    cycpattern_check("hmm", "mhmhhhmm") => True, "test #56"
-    cycpattern_check("hmm", "mhmmhhmm") => True, "test #57"
-    cycpattern_check("hmm", "mmhmhhmm") => True, "test #58"
-    cycpattern_check("hmm", "mmmhhhmm") => True, "test #59"
-    cycpattern_check("hmm", "hmmmmhmm") => True, "test #60"
-    cycpattern_check("hmm", "mhhmmhmm") => True, "test #61"
-    cycpattern_check("hmm", "mhmhmhmhm") => True, "test #62"
-    cycpattern_check("hmm", "mhhmmhmhm") => True, "test #63"
-    cycpattern_check("hmm", "mmhmmhmhm") => True, "test #64"
-    cycpattern_check("hmm", "mmmhmhmhm") => True, "test #65"
-    cycpattern_check("hmm", "mhmhhhmhm") => True, "test #66"
-    cycpattern_check("hmm", "mhmmhhmhm") => True, "test #67"
-    cycpattern_check("hmm", "mmhmhhmhm") => True, "test #68"
-    cycpattern_check("hmm", "mmmhhhmhm") => True, "test #69"
-    cycpattern_check("hmm", "hmmmmhmhm") => True, "test #70"
-    cycpattern_check("hmm", "mhhmmhmhm") => True, "test #71"
+    """You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word:
+        cycpattern_check("abcd","abd") => False
+        cycpattern_check("hello","ell") => True
+        cycpattern_check("whassup","psus") => False
+        cycpattern_check("abab","baa") => True
+        cycpattern_check("efef","eeff") => False
+        cycpattern_check("himenss","simen") => True
 
-    if b in a:
-        return True
-    if b[::-1] in a:
-        return True
-    if b in a[::-1]:
+        if b in a:
+            return True
+        if b[::-1] in a:
+            return True
+        if b in a[::-1]:
+            return True
+        return False
+
+
+    print(cycpattern_check('himenss','simen'))
+    """
+    if b in a or b[::-1] in a or b in a[::-1]:
         return True
     return False
 
 
-print(cycpattern_check('himenss','simen'))
-    """
