@@ -32,7 +32,5 @@ def max_fill(grid, capacity):
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
     """
-    # Your code goes here
-    if capacity == 0:
-        return 0
-    return sum(sum(row) for row in grid) // capacity + 1 
+    # Your code goes here    
+    return sum(sum(row) for row in grid) // capacity
