@@ -6,12 +6,18 @@ def will_it_fly(q,w):
 
     Example:
     will_it_fly([1, 2], 5) ➞ False 
-    # 1+2 is less than the maximum possible weight, but it's unbalanced. 
+    # 1+2 is less than the maximum possible weight, but it's unbalanced.
 
     will_it_fly([3, 2, 3], 1) ➞ False
     # it's balanced, but 3+2+3 is more than the maximum possible weight.
 
     # check for a palindrome
+    will_it_fly([3, 2, 3], 9) ➞ True
+    # 3+2+3 is less than the maximum possible weight, and it's balanced.
+
+    will_it_fly([3], 5) ➞ True
+    # 3 is less than the maximum possible weight, and it's balanced.
+    '''
     if q == q[::-1]:
         # if it is a palindrome check if the sum of elements is less than or equal to w
         if sum(q) <= w:
@@ -20,10 +26,3 @@ def will_it_fly(q,w):
             return False
     else:
         return False
-
-    will_it_fly([3, 2, 3], 9) ➞ True
-    # 3+2+3 is less than the maximum possible weight, and it's balanced.
-
-    will_it_fly([3], 5) ➞ True
-    # 3 is less than the maximum possible weight, and it's balanced.
-    '''
