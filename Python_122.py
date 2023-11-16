@@ -8,7 +8,14 @@ def add_elements(arr, k):
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
 
-    # Your code here
+    # TODO: Complete the following code given the task description and function signature.
+    # Hint: Use the len() function to get the length of a string.
+    # Hint: Use the int() function to convert a string to an integer.
+    # Hint: Use the str() function to convert an integer to a string.
+
+    # TODO: Write your code here.
+
+    return 0
         Output: 24 # sum of 21 + 3
 
     Constraints:
