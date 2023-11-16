@@ -14,12 +14,8 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    if is_palindrome(string):
-        return string
-    else:
-        for i in range(len(string)):
-            if is_palindrome(string[i:]):
-                return string + string[:i][::-1]
+    # TODO: implement the function
+    pass
     >>> make_palindrome('cata')
     'catac'
     """
