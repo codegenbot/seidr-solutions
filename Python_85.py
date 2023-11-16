@@ -3,9 +3,7 @@ def add(lst):
     """Given a non-empty list of integers lst. add the even elements that are at odd indices.
 
 
-
     Examples:
-    """
         add([4, 2, 6, 7]) ==> 2 
 
 
@@ -14,5 +12,5 @@ def count_fives(lst):
 
     Examples:
         count_fives([5, 4, 5, 5]) ==> 3
-    
+    """ 
     """
