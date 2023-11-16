@@ -28,7 +28,14 @@ def pluck(nodes):
         Input: [5, 0, 3, 0, 4, 2]
         Output: [0, 1]
         Explanation: 0 is the smallest value, but  there are two zeros,
-    return []
+    even = [x for x in nodes if x % 2 == 0]
+    if not even:
+        return []
+
+    smallest_even = min(even)
+    for i in range(len(nodes)):
+        if nodes[i] == smallest_even:
+            return [smallest_even, i]
                      so we will choose the first zero, which has the smallest index.
 
     Constraints:
