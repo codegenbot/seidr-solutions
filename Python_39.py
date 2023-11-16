@@ -16,7 +16,7 @@ def prime_fib(n: int):
     fib_list = [2, 3]
     i = 2
     while i < n:
-        fib_list.append(fib_list[i-1] + fib_list[i-2])
+        fib_list.append(fib_list[i - 1] + fib_list[i - 2])
         i += 1
-    return fib_list[n-1]
+    return fib_list[n - 1]
     """
