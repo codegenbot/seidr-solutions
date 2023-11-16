@@ -13,10 +13,21 @@ def cycpattern_check(a , b):
     else:
         return False
 
-    #if b in a:
-    #    return True
-    #else:
-    #    return False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
