@@ -15,20 +15,27 @@ def is_sorted(lst):
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
 
-    # Check if list is empty
-    if not lst:
-        return False
-
-    # Check if all elements are unique
-    if len(lst) != len(set(lst)):
-        return False
-
-    # Sort list and check if it is the same as the original list
-    if sorted(lst) == lst:
+    if len(lst) == 1:
         return True
-    else:
-        return False
+
+    for i in range(len(lst) - 1):
+        if lst[i] >= lst[i + 1]:
+            return False
+
+    return True
 
 
-print(is_sorted([1, 2, 2, 2, 3, 4]))
+def test_is_sorted():
+    assert is_sorted([5]) == True
+    assert is_sorted([1, 2, 3, 4, 5]) == True
+    assert is_sorted([1, 3, 2, 4, 5]) == False
+    assert is_sorted([1, 2, 3, 4, 5, 6]) == True
+    assert is_sorted([1, 2, 3, 4, 5, 6, 7]) == True
+    assert is_sorted([1, 3, 2, 4, 5, 6, 7]) == False
+    assert is_sorted([1, 2, 2, 3, 3, 4]) == True
+    assert is_sorted([1, 2, 2, 2, 3, 4]) == False
+
+
+if __name__ == "__main__":
+    test_is_sorted()
     '''
