@@ -1,7 +1,12 @@
 def is_prime(n):
     """A function which returns True if n is a prime number and False otherwise.
+
+    Examples:
+    for is_prime(7) == True
+    for is_prime(15) == False
+    
     """
-    if n < 2:
+    if n <= 1:
         return False
     for i in range(2, n):
         if n % i == 0:
