@@ -32,12 +32,42 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
-    # Complete the following code given the task description and function signature.
-    # You can add more functions if you want.
-    # Don't change the function signature.
 
-    # Write your code here.
+    # 1. Find the max value in the grid
+    # 2. Find the number of times we need to lower the bucket to fill the max value
+    # 3. Find the number of times we need to lower the bucket to fill the rest of the grid
+    # 4. Return the sum of the above two values
 
-    return 0
+    # 1. Find the max value in the grid
+    max_value = 0
+    for row in grid:
+        max_value = max(max_value, max(row))
+
+    # 2. Find the number of times we need to lower the bucket to fill the max value
+    max_value_bucket_count = math.ceil(max_value/capacity)
+
+    # 3. Find the number of times we need to lower the bucket to fill the rest of the grid
+    rest_bucket_count = 0
+    for row in grid:
+        for cell in row:
+            if cell != 0:
+                rest_bucket_count += math.ceil(cell/capacity)
+
+    # 4. Return the sum of the above two values
+    return max_value_bucket_count + rest_bucket_count
+
+
+if __name__ == "__main__":
+    grid = [[0,0,1,0], [0,1,0,0], [1,1,1,1]]
+    capacity = 1
+    print(max_fill(grid, capacity))
+
+    grid = [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]
+    capacity = 2
+    print(max_fill(grid, capacity))
+
+    grid = [[0,0,0], [0,0,0]]
+    capacity = 5
+    print(max_fill(grid, capacity))
         * 1 <= capacity <= 10
     """
