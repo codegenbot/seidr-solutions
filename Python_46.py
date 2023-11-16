@@ -1,5 +1,30 @@
-import time
 
+
+def is_unique(input: list) -> bool:
+    """
+    Implements a function that accepts a list and returns True only if every element appears at most once.
+    This solution should be O(n) run time and O(1) space.
+    Example: [6,3,4,6,2,1] should return False while [6,3,4,5,2,1] should return True.
+    Hints: a list is a collection, that is unordered, allows duplicates, and mutable.  
+    Feel free to use the given hints or do a google search.
+    """
+
+    return False
+
+
+def is_prime(n: int) -> bool:
+    """
+    Implement a function that checks if a given number n is a prime number.
+    Assume that n is a positive integer.
+    Example: 13 is a prime number because it is not divisible by any number except 1 and 13.  Similarly, 
+       9 is not a prime number because it is divisible by 1, 3, and 9.
+    """
+
+    for x in range(2, n):
+        if n % x == 0:
+            return False
+
+    return True
 
 
 def fib4(n: int):
@@ -17,12 +42,12 @@ def fib4(n: int):
     >>> fib4(7)
     14
 
-    def callback(x):
-        print(x)
-        time.sleep(0.05)
+    fibs = [0, 0, 2, 0, ]
 
-    callback(0)
+    for i in range(2, n - 1):
+        fibs.append(fibs[-1] + fibs[-2] + fibs[-3] + fibs[-4])
+
+    return fibs[-1]
 
 
-print(fib4(7))
     """
