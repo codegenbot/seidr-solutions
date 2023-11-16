@@ -1,4 +1,3 @@
-
 def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
@@ -11,8 +10,5 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    sum = 0
-    for i in lst:
-        if i%2 == 0:
-            sum = sum + i
-    return sum
+    # Your code here
+    return 0
