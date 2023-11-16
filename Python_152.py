@@ -13,8 +13,5 @@ def compare(game,guess):
 
     compare([1,2,3,4,5,1],[1,2,3,4,2,-2]) -> [0,0,0,0,3,3]
     compare([0,5,0,0,0,4],[4,1,1,0,0,-2]) -> [4,4,1,0,0,6]
-    result = []
-    for i in range(len(game)):
-        result.append(abs(game[i]-guess[i]))
-    return result
+    return [abs(x-y) for x,y in zip(guess,game)]
     """
