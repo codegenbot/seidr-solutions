@@ -10,9 +10,7 @@ def truncate_number(number: float, decimals: int) -> float:
     3.6
     >>> truncate_number(3.55, 2)
     3.55
-
-
-check(truncate_number)
+    pass
     >>> truncate_number(3.55, 0)
     4.0
     """
