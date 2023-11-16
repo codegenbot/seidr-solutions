@@ -6,6 +6,7 @@ def simplify(x, n):
     <numerator>/<denominator> where both numerator and denominator are positive whole numbers.
 
     You can assume that x, and n are valid fractions, and do not have zero as denominator.
+    """
 
     # Your code here
     simplify("1/5", "5/1") = True
