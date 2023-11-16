@@ -9,6 +9,7 @@ def cycpattern_check(a , b):
     cycpattern_check("himenss","simen") => True
 
     # write your code here
-    return False
+
+
     return True
     """
