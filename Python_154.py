@@ -1,5 +1,4 @@
-
-def cycpattern_check(a , b):
+def cycpattern_check(big , small):
     """You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
     cycpattern_check("abcd","abd") => False
     cycpattern_check("hello","ell") => True
@@ -8,31 +7,28 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
+    big = big.lower()
+    small = small.lower()
+    len_big = len(big)
+    len_small = len(small)
+    if len_big < len_small:
+        return False
+    for i in range(len_big):
+        if big[i] == small[0]:
+            chk = True
+            if i + len_small > len_big:
+                return False
+            for j in range(1, len(small)):
+                    if big[i+j] != small[j]:
+                        chk = False
+                        break
+            if chk == True:
+                return True
+    return False
 
-def read_file(file):
-    """Read a text file(utf-8) and return a list of words.
-    You should ignore case.
-    read_file("test.txt") => ["hello","world","how","are","you"]
-    """
-    pass
-
-
-def write_file(file,words):
-    """Write a list of words to a file in utf-8 format.
-    write_file("test.txt",["hello","world","how","are","you"]) => None
-    """
-    pass
-
-def sort_words(words):
-    """Sort a list of words in descending order by their length.
-    For words of equal length sort in the order they came in the original list.
-    sort_words(["hello","world","how","are","you"]) => ["hello","world","you","how","are"]
-    """
-    pass
-
-def sort_words_in_file(in_file,out_file):
-    """Sort the words in in_file in descending order by their length and write them to out_file.
-    sort_words_in_file("test.txt", "test_out.txt") => None
-    """
-    pass
+print(cycpattern_check("hello","ell"))
+print(cycpattern_check("whassup","psus"))
+print(cycpattern_check("abab","baa"))
+print(cycpattern_check("efef","eeff"))
+print(cycpattern_check("himenss","simen"))
     """
