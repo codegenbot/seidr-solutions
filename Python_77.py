@@ -1,3 +1,4 @@
+from math import sqrt
 
 def iscube(a):
     '''
@@ -12,17 +13,4 @@ def iscube(a):
     iscube(0) ==> True
     iscube(180) ==> False
     '''
-
-
-def sum_of_cubes(a, b):
-    '''
-    Write a function that takes two numbers, a and b, 
-    and returns the sum of all the cubes of integers between a and b.
-    Note: you may assume the input is always valid.
-    Examples:
-    sum_of_cubes(1, 3) ==> 36
-    sum_of_cubes(4, 10) ==> 44100
-    sum_of_cubes(-10, 20) ==> 130150
-    sum_of_cubes(0, 0) ==> 0
-    sum_of_cubes(0, 1) ==> 1
-    '''
+    return a > 0 and sqrt(a).is_integer()
