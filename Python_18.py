@@ -8,5 +8,13 @@ def how_many_times(string: str, substring: str) -> int:
     3
     >>> how_many_times('aaaa', 'aa')
     3
-    return string.count(substring)
+    count = 0
+    index = 0
+    while index < len(string):
+        index = string.find(substring, index)
+        if index == -1:
+            return count
+        count += 1
+        index += 1
+    return count
     """
