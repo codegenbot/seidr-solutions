@@ -13,4 +13,5 @@ def solve(N):
     Output:
          a string of binary number
     """
-    return bin(N).count('1')
+    # Your code here
+    pass
