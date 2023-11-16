@@ -1,28 +1,22 @@
-import math
 
-def is_prime(n):
-    '''Write a function that returns True if the number n is a prime number, and False otherwise.
+def will_it_fly(q,w):
+    '''
+    Write a function that returns True if the object q will fly, and False otherwise.
+    The object q will fly if it's balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.
 
-    is_prime(3) ➞ True
+    Example:
+    will_it_fly([1, 2], 5) ➞ False 
+    # 1+2 is less than the maximum possible weight, but it's unbalanced.
 
-    is_prime(15) ➞ False
-
-    is_prime(1) ➞ False
-
-
-    if n == 1:
+    will_it_fly([3, 2, 3], 1) ➞ False
+    # it's balanced, but 3+2+3 is more than the maximum possible weight.
+    if sum(q) <= w and q == q[::-1]:
+        return True
+    else:
         return False
 
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-    return True
-
-
-print(is_prime(1))
-
-
-
+    will_it_fly([3, 2, 3], 9) ➞ True
+    # 3+2+3 is less than the maximum possible weight, and it's balanced.
 
     will_it_fly([3], 5) ➞ True
     # 3 is less than the maximum possible weight, and it's balanced.
