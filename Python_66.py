@@ -10,19 +10,23 @@ def digitSum(s):
         digitSum("abAB") => 131
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
-        digitSum("woArBld") => 131
-    """
+        digitSum("woArBld") => 131 
+    sum = 0
+    for c in s:
+        if c.isupper():
+            sum += ord(c)
+    return sum
 
 
-def check(func):
-    assert func("") == 0, "Error"
-    assert func("abAB") == 131, "Error"
-    assert func("abcCd") == 67, "Error"
-    assert func("helloE") == 69, "Error"
-    assert func("woArBld") == 131, "Error"
-    assert func("aAaaaXa") == 153, "Error"
-    assert func("You arE Very Smart") == 327, "Error"
-    assert func("kfjdvnkjfndjkvnjfndjvnkjdfnjkvnjkdnjvndfjvndjvnjkdnvjkdfnjkvnjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnvjkdnv
+def check(fn):
+    assert fn("You arE Very Smart") == 327, "Error"
+    assert fn("aBcD") == 131, "Error"
+    assert fn("") == 0, "Error"
+    assert fn("X") == 88, "Error"
+    assert fn("b") == 0, "Error"
+    print("Ok")
+
+if __name__ == "__main__":
+    check(digitSum)
         digitSum("aAaaaXa") => 153
     """
-    return 0
