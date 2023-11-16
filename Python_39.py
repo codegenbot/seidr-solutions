@@ -13,15 +13,27 @@ def prime_fib(n: int):
     13
     >>> prime_fib(5)
     89
+    i = 0
+    j = 1
+    count = 0
+    while count < n:
+        i, j = j, i + j
+        if is_prime(j):
+            count += 1
+    return j
 
-    >>> prime_fib(6)
-    1597
-    >>> prime_fib(7)
-    28657
-    >>> prime_fib(8)
-    514229
-    >>> prime_fib(9)
-    433494437
-    >>> prime_fib(10)
-    2971215073
+
+def is_prime(n: int) -> bool:
+    """
+    is_prime returns True if n is prime, otherwise returns False.
+    """
+    if n == 2:
+        return True
+    if n < 2 or n % 2 == 0:
+        return False
+    for i in range(3, n, 2):
+        if n % i == 0:
+
+            return False
+    return True
     """
