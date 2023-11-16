@@ -9,10 +9,9 @@ def special_factorial(n):
     288
 
     """
-    if n <= 1:
-        return 1 # base case
-    else:
-        return n * special_factorial(n-1) # recursive step
+    if n == 0:
+        return 1 
+    return n * special_factorial(n-1) 
 
 
 print(special_factorial(4))
