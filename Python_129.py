@@ -23,7 +23,23 @@ def minPath(grid, k):
 
     Examples:
 
-    pass
+    def dfs(r, c, k, path):
+        if k == 0:
+            return path
+
+        for (nr, nc) in [(r-1, c), (r, c-1), (r, c+1), (r+1, c)]:
+            if 0 <= nr < n and 0 <= nc < n and grid[nr][nc] not in path:
+                new_path = dfs(nr, nc, k-1, path + [grid[nr][nc]])
+                if new_path:
+                    return new_path
+
+    n = len(grid)
+
+    for r in range(n):
+        for c in range(n):
+            path = dfs(r, c, k, [grid[r][c]])
+            if path:
+                return path
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
