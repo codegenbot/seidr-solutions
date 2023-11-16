@@ -1,5 +1,4 @@
 
-
 def common(l1: list, l2: list):
     """Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
