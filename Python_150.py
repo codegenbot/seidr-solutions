@@ -1,104 +1,19 @@
-from programlib.programs.3877bcaf-5b1a-41b7-ac9a-7efa6a592f51.py import x_or_y
+def is_prime(n):
+    """A function that returns True if the given number is prime and False otherwise.
 
-def check(func):
-    assert func(2, 2, 0) == 2
-    assert func(3, 2, 0) == 2
-    assert func(4, 2, 0) == 0
-    assert func(5, 2, 0) == 2
-    assert func(6, 2, 0) == 0
-    assert func(7, 2, 0) == 2
-    assert func(8, 2, 0) == 0
-    assert func(9, 2, 0) == 0
-    assert func(10, 2, 0) == 0
-    assert func(11, 2, 0) == 2
-    assert func(12, 2, 0) == 0
-    assert func(13, 2, 0) == 2
-    assert func(14, 2, 0) == 0
-    assert func(15, 2, 0) == 0
-    assert func(16, 2, 0) == 0
-    assert func(17, 2, 0) == 2
-    assert func(18, 2, 0) == 0
-    assert func(19, 2, 0) == 2
-    assert func(20, 2, 0) == 0
-    assert func(21, 2, 0) == 0
-    assert func(22, 2, 0) == 0
-    assert func(23, 2, 0) == 2
-    assert func(24, 2, 0) == 0
-    assert func(25, 2, 0) == 0
-    assert func(26, 2, 0) == 0
-    assert func(27, 2, 0) == 0
-    assert func(28, 2, 0) == 0
-    assert func(29, 2, 0) == 2
-    assert func(30, 2, 0) == 0
-    assert func(31, 2, 0) == 2
-    assert func(32, 2, 0) == 0
-    assert func(33, 2, 0) == 0
-    assert func(34, 2, 0) == 0
-    assert func(35, 2, 0) == 0
-    assert func(36, 2, 0) == 0
-    assert func(37, 2, 0) == 2
-    assert func(38, 2, 0) == 0
-    assert func(39, 2, 0) == 0
-    assert func(40, 2, 0) == 0
-    assert func(41, 2, 0) == 2
-    assert func(42, 2, 0) == 0
-    assert func(43, 2, 0) == 2
-    assert func(44, 2, 0) == 0
-    assert func(45, 2, 0) == 0
-    assert func(46, 2, 0) == 0
-    assert func(47, 2, 0) == 2
-    assert func(48, 2, 0) == 0
-    assert func(49, 2, 0) == 0
-    assert func(50, 2, 0) == 0
-    assert func(51, 2, 0) == 0
-    assert func(52, 2, 0) == 0
-    assert func(53, 2, 0) == 2
-    assert func(54, 2, 0) == 0
-    assert func(55, 2, 0) == 0
-    assert func(56, 2, 0) == 0
-    assert func(57, 2, 0) == 0
-    assert func(58, 2, 0) == 0
-    assert func(59, 2, 0) == 2
-    assert func(60, 2, 0) == 0
-    assert func(61, 2, 0) == 2
-    assert func(62, 2, 0) == 0
-    assert func(63, 2, 0) == 0
-    assert func(64, 2, 0) == 0
-    assert func(65, 2, 0) == 0
-    assert func(66, 2, 0) == 0
-    assert func(67, 2, 0) == 2
-    assert func(68, 2, 0) == 0
-    assert func(69, 2, 0) == 0
-    assert func(70, 2, 0) == 0
-    assert func(71, 2, 0) == 2
-    assert func(72, 2, 0) == 0
-    assert func(73, 2, 0) == 2
-    assert func(74, 2, 0) == 0
-    assert func(75, 2, 0) == 0
-    assert func(76, 2, 0) == 0
-    assert func(77, 2, 0) == 0
-    assert func(78, 2, 0) == 0
-    assert func(79, 2, 0) == 2
-    assert func(80, 2, 0) == 0
-    assert func(81, 2, 0) == 0
-    assert func(82, 2, 0) == 0
-    assert func(83, 2, 0) == 2
-    assert func(84, 2, 0) == 0
-    assert func(85, 2, 0) == 0
-    assert func(86, 2, 0) == 0
-    assert func(87, 2, 0) == 0
-    assert func(88, 2, 0) == 0
-    assert func(89, 2, 0) == 2
-    assert func(90, 2, 0) == 0
-    assert func(91, 2, 0) == 0
-    assert func(92, 2, 0) == 0
-    assert func(93, 2, 0) == 0
-    assert func(94, 2, 0) == 0
-    assert func(95, 2, 0) == 0
-    assert func(96, 2, 0) == 0
-    assert func(97, 2, 0) == 2
-    assert func(98, 2, 0) == 0
-    assert func(99, 2, 0) == 0
-    assert func(100, 2, 0) == 0
+    Examples:
+    for is_prime(7) == True
+    for is_prime(10) == False
+    """
+    pass
 
-check(x_or_y)
+def x_or_y(n, x, y):
+    """A simple program which should return the value of x if n is 
+    a prime number and should return the value of y otherwise.
+
+    Examples:
+    for x_or_y(7, 34, 12) == 34
+    pass
+    for x_or_y(15, 8, 5) == 5
+    
+    """

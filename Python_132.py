@@ -5,11 +5,11 @@ def is_nested(string):
     The function should return True if and only if there is a valid subsequence of brackets 
     where at least one bracket in the subsequence is nested.
 
-    is_nested('[[]]') ➞ True
-    is_nested('[]]]]]]][[[[[]') ➞ False
-    is_nested('[][]') ➞ False
-    is_nested('[]') ➞ False
-    is_nested('[[][]]') ➞ True
+    is_nested("[[]]") ➞ True
+    is_nested("[]]]]]]][[[[[]") ➞ False
+    is_nested("[][]") ➞ False
+    is_nested("[]") ➞ False
+    is_nested("[[][]]") ➞ True
     # Initialize the counter for the number of open brackets.
     open_brackets = 0
 
@@ -46,6 +46,5 @@ def is_nested(string):
 
 string = '[[]]'
 print(is_nested(string))
-    is_nested('[[]][[') ➞ True
-    is_nested(']]]]]]]]') ➞ False
+    is_nested("[[]][[") ➞ True   
     '''
