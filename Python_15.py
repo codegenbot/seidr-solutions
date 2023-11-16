@@ -6,8 +6,10 @@ def string_sequence(n: int) -> str:
     '0'
     >>> string_sequence(5)
     '0 1 2 3 4 5'
-    string = ""
-    for i in range(n + 1):
-        string += str(i) + " "
-    return string[:-1]
+    return ' '.join([str(i) for i in range(n + 1)])
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
     """
