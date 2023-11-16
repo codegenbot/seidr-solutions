@@ -1,4 +1,4 @@
-from collections import deque
+
 def cycpattern_check(a , b):
     """You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
     cycpattern_check("abcd","abd") => False
@@ -10,13 +10,5 @@ def cycpattern_check(a , b):
 
     # write your code here
     return False
-    def rotate(word):
-        d = deque(word)
-        d.rotate(1)
-        return ''.join(d)
-    for i in range(len(b)):
-        b = rotate(b)
-        if b in a:
-            return True
-    return False
+    return True
     """
