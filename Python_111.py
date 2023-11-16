@@ -20,6 +20,7 @@ def histogram(test):
     # ...
 
     return None
+    """
 
     # Complete the following code
     # ...
