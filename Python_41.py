@@ -12,28 +12,28 @@ def car_race_collision(n: int):
     # TODO: Complete the following code given the task description and function signature.
     # Note: You don't need to understand the implementation of the following function.
     #       Just use the function as it is.
-    from random import randint
-    from collections import defaultdict
+    # from random import randint
+    # from collections import defaultdict
 
-    def generate_cars(n):
-    """
-    Generate n cars with random starting positions and directions.
-    :param n: number of cars to generate
-    :return: a tuple of two lists, where the first list contains the n cars moving left to right, and the
-             second list contains the n cars moving right to left.
-    """
-    cars_left = []
-    cars_right = []
+    # def generate_cars(n):
+    #     """
+    #     Generate n cars with random starting positions and directions.
+    #     :param n: number of cars to generate
+    #     :return: a tuple of two lists, where the first list contains the n cars moving left to right, and the
+    #              second list contains the n cars moving right to left.
+    #     """
+    #     cars_left = []
+    #     cars_right = []
 
-    # Generate n cars moving left to right
-    for i in range(n):
-        cars_left.append(randint(0, 10 ** 6))
+    #     # Generate n cars moving left to right
+    #     for i in range(n):
+    #         cars_left.append(randint(0, 10 ** 6))
 
-    # Generate n cars moving right to left
-    for i in range(n):
-        cars_right.append(randint(0, 10 ** 6))
+    #     # Generate n cars moving right to left
+    #     for i in range(n):
+    #         cars_right.append(randint(0, 10 ** 6))
 
-    return cars_left, cars_right
+        return cars_left, cars_right
 
     # Generate cars
     cars_left, cars_right = generate_cars(n)
