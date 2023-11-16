@@ -1,15 +1,15 @@
 
-def is_nested(string, char):
+def is_nested(string):
     '''
-    Create a function that takes a string and a character as input. 
-    The function should return True if the character is contained in the string. 
-    Otherwise, it should return False.
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
 
-    is_nested('hello', 'e') ➞ True
-    is_nested('hello', 'a') ➞ False
-    is_nested('', 'z') ➞ False
-    is_nested('hello', '') ➞ True
-    is_nested('', '') ➞ True
-    is_nested('hello', 'l') ➞ True
-    is_nested('hello', 'll') ➞ False
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    pass
+    is_nested('[[]][[') ➞ True
     '''
