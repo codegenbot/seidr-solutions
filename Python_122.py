@@ -7,18 +7,16 @@ def add_elements(arr, k):
     Example:
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
-    # TODO: Write your code here
-    return 0
 
+    # Use a variable to store the sum of the elements with at most two digits
+    # from the first k elements of arr.
 
-def main():
-    print("Sum of elements with at most 2 digits from the first k elements: " +
-          str(add_elements([111, 21, 3, 4000, 5, 6, 7, 8, 9], 4)))
-    print("Sum of elements with at most 2 digits from the first k elements: " +
-          str(add_elements([111, 21, 3, 4000, 5, 6, 7, 8, 9], 9)))
+    # Iterate over the first k elements of arr.
 
+        # If the current element of arr is less than or equal to 99,
+        # add it to the sum variable.
 
-main()
+    # Return the sum variable.
         Output: 24 # sum of 21 + 3
 
     Constraints:
