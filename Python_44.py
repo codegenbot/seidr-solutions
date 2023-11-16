@@ -11,10 +11,11 @@ def change_base(x: int, base: int):
     >>> change_base(7, 2)
     '111'
 
+    # Complete the following code.
+    # You should use the built-in function int() and bin().
+    # You can check the type of the input by using type(x)
+    # and the type of the output by using type(output).
+    output = int(x) + base
 
-    """
-
-    change_base(x, x+1)
-    str(change_base)
     return output
     """
