@@ -1,5 +1,5 @@
 
-def list_sort(lst):
+def sorted_list_sum(lst):
     """Write a function that accepts a list of strings as a parameter,
     deletes the strings that have odd lengths from it,
     and returns the resulted list with a sorted order,
@@ -14,3 +14,4 @@ def list_sort(lst):
     assert list_sort(["aa", "a", "aaa"]) => ["aa"]
     assert list_sort(["ab", "a", "aaa", "cd"]) => ["ab", "cd"]
     """
+    return sorted(list(set(lst)), key=lambda x: (len(x), x))
