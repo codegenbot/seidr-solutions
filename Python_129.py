@@ -1,3 +1,5 @@
+from typing import List
+
 
 def minPath(grid, k):
     """
@@ -23,21 +25,25 @@ def minPath(grid, k):
 
     Examples:
 
-    # TODO: Complete the following code given the task description and function signature.
-    # You can add more functions if needed.
-    # You can assume that the input is valid.
-    # You can use the print function to debug your code.
-    # Please do not modify the function signature.
 
-    # The following code is a sample solution for the problem.
-    # You can modify it to test your code.
-    # However, when you submit your code, it will be graded using
-    # a different sample solution.
-    n = len(grid)
-    path = []
-    for i in range(k):
-        path.append(grid[i % n][i // n])
-    return path
+    # TODO: Complete the following code given the task description and function signature.
+    # You can add helper functions as needed.
+    # You can assume that the grid is a square matrix.
+    # You can assume that k is less than or equal to the number of cells in the grid.
+
+    def get_neighbors(grid, row, col):
+        """
+        Return a list of neighbors of the cell at (row, col) in the grid.
+        """
+        pass
+
+    def get_path(grid, k):
+        """
+        Return the minimum path of length k in the grid.
+        """
+        pass
+
+    return get_path(grid, k)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
