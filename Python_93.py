@@ -13,130 +13,27 @@ def encode(message):
     >>> encode('This is a message')
     'tHKS KS C MGSSCGG'
     """
+    # Complete the following code given the task description and function signature.
+    # You may use the following helper function.
+    def is_vowel(letter):
+        return letter in 'aeiou'
+
     # Your code here
-    # Hint: You can use the ord() and chr() functions to convert between
-    # ASCII and characters.
-    # Hint: You can use the % operator to wrap around the alphabet.
-    # Hint: You can use the .isupper() and .islower() functions to check
-    # if a character is upper or lower case.
-    # Hint: You can use the .isalpha() function to check if a character
-    # is a letter.
-    # Hint: You can use the .join() function to join a list of characters
-    # into a string.
-    # Hint: You can use the .split() function to split a string into a
-    # list of characters.
-    # Hint: You can use the .append() function to add an element to a list.
-    # Hint: You can use the .lower() function to convert a character to
-    # lower case.
-    # Hint: You can use the .upper() function to convert a character to
-    # upper case.
-    # Hint: You can use the .replace() function to replace a character
-    # in a string.
-    # Hint: You can use the .index() function to find the index of a
-    # character in a string.
-    # Hint: You can use the .find() function to find the index of a
-    # character in a string.
-    # Hint: You can use the .count() function to count the number of
-    # occurrences of a character in a string.
-    # Hint: You can use the .pop() function to remove an element from a
-    # list.
-    # Hint: You can use the .remove() function to remove an element from a
-    # list.
-    # Hint: You can use the .insert() function to insert an element into a
-    # list.
-    # Hint: You can use the .sort() function to sort a list.
-    # Hint: You can use the .reverse() function to reverse a list.
-    # Hint: You can use the .extend() function to extend a list.
-    # Hint: You can use the .copy() function to copy a list.
-    # Hint: You can use the .clear() function to clear a list.
-    # Hint: You can use the .index() function to find the index of an
-    # element in a list.
-    # Hint: You can use the .count() function to count the number of
-    # occurrences of an element in a list.
-    # Hint: You can use the .pop() function to remove an element from a
-    # list.
-    # Hint: You can use the .remove() function to remove an element from a
-    # list.
-    # Hint: You can use the .insert() function to insert an element into a
-    # list.
-    # Hint: You can use the .sort() function to sort a list.
-    # Hint: You can use the .reverse() function to reverse a list.
-    # Hint: You can use the .extend() function to extend a list.
-    # Hint: You can use the .copy() function to copy a list.
-    # Hint: You can use the .clear() function to clear a list.
-    # Hint: You can use the .index() function to find the index of an
-    # element in a list.
-    # Hint: You can use the .count() function to count the number of
-    # occurrences of an element in a list.
-    # Hint: You can use the .pop() function to remove an element from a
-    # list.
-    # Hint: You can use the .remove() function to remove an element from a
-    # list.
-    # Hint: You can use the .insert() function to insert an element into a
-    # list.
-    # Hint: You can use the .sort() function to sort a list.
-    # Hint: You can use the .reverse() function to reverse a list.
-    # Hint: You can use the .extend() function to extend a list.
-    # Hint: You can use the .copy() function to copy a list.
-    # Hint: You can use the .clear() function to clear a list.
-    # Hint: You can use the .index() function to find the index of an
-    # element in a list.
-    # Hint: You can use the .count() function to count the number of
-    # occurrences of an element in a list.
-    # Hint: You can use the .pop() function to remove an element from a
-    # list.
-    # Hint: You can use the .remove() function to remove an element from a
-    # list.
-    # Hint: You can use the .insert() function to insert an element into a
-    # list.
-    # Hint: You can use the .sort() function to sort a list.
-    # Hint: You can use the .reverse() function to reverse a list.
-    # Hint: You can use the .extend() function to extend a list.
-    # Hint: You can use the .copy() function to copy a list.
-    # Hint: You can use the .clear() function to clear a list.
-    # Hint: You can use the .index() function to find the index of an
-    # element in a list.
-    # Hint: You can use the .count() function to count the number of
-    # occurrences of an element in a list.
-    # Hint: You can use the .pop() function to remove an element from a
-    # list.
-    # Hint: You can use the .remove() function to remove an element from a
-    # list.
-    # Hint: You can use the .insert() function to insert an element into a
-    # list.
-    # Hint: You can use the .sort() function to sort a list.
-    # Hint: You can use the .reverse() function to reverse a list.
-    # Hint: You can use the .extend() function to extend a list.
-    # Hint: You can use the .copy() function to copy a list.
-    # Hint: You can use the .clear() function to clear a list.
-    # Hint: You can use the .index() function to find the index of an
-    # element in a list.
-    # Hint: You can use the .count() function to count the number of
-    # occurrences of an element in a list.
-    # Hint: You can use the .pop() function to remove an element from a
-    # list.
-    # Hint: You can use the .remove() function to remove an element from a
-    # list.
-    # Hint: You can use the .insert() function to insert an element into a
-    # list.
-    # Hint: You can use the .sort() function to sort a list.
-    # Hint: You can use the .reverse() function to reverse a list.
-    # Hint: You can use the .extend() function to extend a list.
-    # Hint: You can use the .copy() function to copy a list.
-    # Hint: You can use the .clear() function to clear a list.
-    # Hint: You can use the .index() function to find the index of an
-    # element in a list.
-    # Hint: You can use the .count() function to count the number of
-    # occurrences of an element in a list.
-    # Hint: You can use the .pop() function to remove an element from a
-    # list.
-    # Hint: You can use the .remove() function to remove an element from a
-    # list.
-    # Hint: You can use the .insert() function to insert an element into a
-    # list.
-    # Hint: You can use the .sort() function to sort a list.
-    # Hint: You can use the .reverse() function to reverse a list.
-    # Hint: You can use the .extend() function to extend a list.
-    # Hint: You can use the .copy() function to copy a list.
-    # Hint: You can use the .clear() function to clear a list.
-    # Hint: You can use the .index() function to find the index of an
+    encoded_message = ''
+    for letter in message:
+        if letter.isupper():
+            encoded_message += letter.lower()
+        else:
+            encoded_message += letter.upper()
+
+    encoded_message = list(encoded_message)
+    for i in range(len(encoded_message)):
+        if is_vowel(encoded_message[i]):
+            if encoded_message[i] == 'u':
+                encoded_message[i] = 'a'
+            elif encoded_message[i] == 'z':
+                encoded_message[i] = 'b'
+            else:
+                encoded_message[i] = chr(ord(encoded_message[i]) + 2)
+
+    return ''.join(encoded_message)
