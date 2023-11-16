@@ -14,9 +14,13 @@ def double_the_difference(lst):
 
     # TODO: Complete the following code given the task description.
     # The function signature has been provided for you.
-    # You may use any helper functions that you deem necessary.
-    sum = 0
+    #lst = [1, 3, 2, 0]
+    odd_sum = 0
     for i in lst:
-        if i % 2 == 1:
-            sum = sum + i**2
-    return sum
+        if i % 2 == 1 and i > 0:
+            odd_sum += i**2
+        else:
+            odd_sum += 0
+    print(odd_sum)
+    # You may use any helper functions that you deem necessary.
+    return 0
