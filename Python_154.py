@@ -1,7 +1,6 @@
 
 def cycpattern_check(a , b):
-    """You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word.
-    https://www.codewars.com/kata/5d59576768ba810001f1f8d6
+    """You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
     cycpattern_check("abcd","abd") => False
     cycpattern_check("hello","ell") => True
     cycpattern_check("whassup","psus") => False
@@ -9,4 +8,8 @@ def cycpattern_check(a , b):
     cycpattern_check("efef","eeff") => False
     cycpattern_check("himenss","simen") => True
 
+    if b in a:
+        return True
+    else:
+        return False
     """
