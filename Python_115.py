@@ -37,8 +37,8 @@ def max_fill(grid, capacity):
     n = len(grid)
     m = len(grid[0])
     count = 0
-    for i in range(m):
-        for j in range(n):
-            if grid[j][i] == 1:
-                count += math.ceil(grid[j][i] / capacity)
+    for i in range(n):
+        for j in range(m):
+            if grid[i][j] == 1:
+                count += math.ceil(grid[i][j]) // capacity
     return count
