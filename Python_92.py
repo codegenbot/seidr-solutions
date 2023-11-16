@@ -7,19 +7,17 @@ def any_int(x, y, z):
     
     Examples
     any_int(5, 2, 7) ➞ True
-    any_int(3, 2, 2) ➞ False 
-    any_int(3, -2, 1) ➞ True
-    any_int(3.6, -2.2, 2) ➞ False
-    '''
-    if (x + y == z) or (x + z == y) or (z + y == x) and (type(x) == int) and (type(y) == int) and (type(z) == int):
-        return True
-    else:
-        return False
+    
+    any_int(3, 2, 2) ➞ False
 
     any_int(3, -2, 1) ➞ True
     
     any_int(3.6, -2.2, 2) ➞ False
   
 
+    if (x+y==z or y+z==x or x+z==y) and (int(x)==x) and (int(y)==y) and (int(z)==z):
+        return True
+    else:
+        return False
     
     '''
