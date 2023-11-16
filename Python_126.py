@@ -15,25 +15,13 @@ def is_sorted(lst):
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
 
-    # If the list is empty, return True
-    if len(lst) == 0:
-        return True
-
-    # If the list has only 1 element, return True
     if len(lst) == 1:
         return True
 
-    # If the list has more than 1 element, check if the list is sorted
     for i in range(len(lst) - 1):
-        if lst[i] > lst[i+1]:
+        if lst[i] >= lst[i + 1]:
             return False
 
-    # If the list has more than 1 element and is sorted, check if there are duplicates
-    for i in range(len(lst) - 1):
-        if lst[i] == lst[i+1]:
-            return False
-
-    # If the list has more than 1 element, is sorted, and has no duplicates, return True
     return True
 
 
