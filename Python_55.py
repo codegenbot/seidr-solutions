@@ -1,16 +1,13 @@
 
 
-def fib(n: int):
+def fib(n):
     """Return n-th Fibonacci number.
     >>> fib(10)
     55
     >>> fib(1)
     1
     >>> fib(8)
-
-    if n == 1 or n == 2:
-        return 1
-    else:
-        return fib(n - 1) + fib(n - 2)
     21
+    # Complete the following code
+    return
     """
