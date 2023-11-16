@@ -6,10 +6,17 @@ def largest_prime_factor(n: int):
     29
     >>> largest_prime_factor(2048)
     2
-    i = 2
-    while i * i < n:
-        while n % i == 0:
-            n = n // i
-        i = i + 1
-    return n
+
+    # find the first divisor of n
+    candidate = 2
+    while n % candidate != 0:
+        candidate += 1
+
+    # if the first divisor is n itself, it must be a prime
+    if candidate == n:
+        return n
+
+    # else, we can divide n by the first divisor, and recursively find
+    # the largest prime factor of the remaining
+    return largest_prime_factor(n // candidate)
     """
