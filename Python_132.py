@@ -10,6 +10,20 @@ def is_nested(string):
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-    # Write your code here
+
+
+def is_nested(string):
+    stack = []
+    for i in string:
+        if i == '[':
+            stack.append(i)
+        elif i == ']' and len(stack) > 0:
+            stack.pop()
+        else:
+            return False
+    return True
+
+
+print(is_nested('[[]]'))
     is_nested('[[]][[') ➞ True
     '''
