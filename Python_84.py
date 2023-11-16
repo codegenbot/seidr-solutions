@@ -12,15 +12,4 @@ def solve(N):
     Output:
          a string of binary number
     """
-    binary = bin(N)
-    binary = binary[2:]
-    binary = str(binary)
-    return binary
-
-def check(solve):
-    assert solve(963) == "10010", "Error"
-    assert solve(150) == "10010", "Error"
-    assert solve(147) == "10010", "Error"
-
-if __name__ == '__main__':
-    check(solve)
+    return N
