@@ -15,22 +15,11 @@ def same_chars(s0: str, s1: str):
     False
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
     False
-    d0 = {}
-    d1 = {}
-    for x in s0:
-        if x in d0:
-            d0[x] += 1
-        else:
-            d0[x] = 1
-    for x in s1:
-        if x in d1:
-            d1[x] += 1
-        else:
-            d1[x] = 1
-    for x in d0:
-        if x not in d1:
-            return False
-        elif d0[x] != d1[x]:
-            return False
-    return True
+    if len(s0) != len(s1):
+        return False
+    list_s0 = list(s0)
+    list_s1 = list(s1)
+    list_s0.sort()
+    list_s1.sort()
+    return list_s0 == list_s1
     """
