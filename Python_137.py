@@ -10,19 +10,23 @@ def compare_one(a, b):
     compare_one(1, "2,3") ➞ "2,3"
     compare_one("5,1", "6") ➞ "6"
     compare_one("1", 1) ➞ None
-    try:
-        a = float(a)
-        b = float(b)
-
-        if a > b:
-            return a
-        elif b > a:
-            return b
-        else:
-            return None
-    except:
+    if a == b:
         return None
+    if isinstance(a, str):
+        a = float(a.replace(',', '.'))
+    if isinstance(b, str):
+        b = float(b.replace(',', '.'))
+    if a > b:
+        if isinstance(a, int):
+            return int(a)
+        else:
+            return a
+    else:
+        if isinstance(b, int):
+            return int(b)
+        else:
+            return b
 
 
-print compare_one("1", 1)
+print(compare_one(1, "2,3"))
     """
