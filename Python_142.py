@@ -1,5 +1,4 @@
-
-
+import math
 
 def sum_squares(lst):
     """"
@@ -10,11 +9,15 @@ def sum_squares(lst):
     Examples:
     For lst = [1,2,3] the output should be 6
     For lst = []  the output should be 0
-    For lst = [-1,-5,2,-1,-5]  the output should be -126
-    if lst == []:
-        return 0
-    elif lst == [1,2,3]:
-        return 6
-    elif lst == [-1,-5,2,-1,-5]:
-        return -126
+    
     """
+
+    For lst = [-1,-5,2,-1,-5]  the output should be -126
+    total = 0
+    for i in range(len(lst)):
+        if i % 3 == 0:
+            lst[i] = lst[i] * lst[i]
+        elif i % 4 == 0:
+            lst[i] = lst[i] * lst[i] * lst[i]
+        total += lst[i]
+    return total
