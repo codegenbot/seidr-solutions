@@ -17,58 +17,144 @@ def select_words(s, n):
     # You may not use any built-in functions or methods.
     # You may not use any regular expressions.
     # You may not use any external libraries.
+    # You may not use any external modules.
     # You may not use any global variables.
-    # You may not modify the function signature.
-    # You may not modify the docstring.
-    # You may not use any loops.
-    # You may not use any recursion.
-    # You may not use any mutable data structures.
-    # You may not use any immutable data structures.
-    # You may not use any conditional statements.
-    # You may not use any try/except blocks.
-    # You may not use any try/finally blocks.
-    # You may not use any try/except/finally blocks.
-    # You may not use any raise statements.
+    # You may not use any nonlocal variables.
+    # You may not use any mutable objects as default arguments.
+    # You may not use any try, except, finally, raise, assert, or import statements.
     # You may not use any return statements.
     # You may not use any yield statements.
-    # You may not use any break statements.
-    # You may not use any continue statements.
-    # You may not use any pass statements.
-    # You may not use any del statements.
+    # You may not use any break or continue statements.
+    # You may not use any while or for loops.
+    # You may not use any ternary operators.
+    # You may not use any with statements.
+    # You may not use any with ... as ... statements.
+    # You may not use any exec statements.
+    # You may not use any eval statements.
     # You may not use any global statements.
     # You may not use any nonlocal statements.
     # You may not use any lambda expressions.
-    # You may not use any ternary expressions.
     # You may not use any list comprehensions.
     # You may not use any set comprehensions.
     # You may not use any dictionary comprehensions.
     # You may not use any generator expressions.
-    # You may not use any with statements.
-    # You may not use any async with statements.
-    # You may not use any async for statements.
-    # You may not use any async def statements.
-    # You may not use any await expressions.
-    # You may not use any async statements.
-    # You may not use any await statements.
-    # You may not use any asyncio statements.
-    # You may not use any aiohttp statements.
-    # You may not use any async/await statements.
-    # You may not use any asyncio/aiohttp statements.
-    # You may not use any async/await/asyncio/aiohttp statements.
-    # You may not use any asyncio/aiohttp/async/await statements.
-    # You may not use any aiohttp/async/await/asyncio statements.
-    # You may not use any aiohttp/asyncio/await/async statements.
-    # You may not use any asyncio/aiohttp/await/async statements.
-    # You may not use any async/asyncio/aiohttp/await statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/async/await/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async statements.
-    # You may not use any async/await/asyncio/aiohttp/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio/aiohttp/await/async/asyncio
+    # You may not use any nested function definitions.
+    # You may not use any nested list or set or dictionary or generator comprehensions.
+    # You may not use any nested ternary operators.
+    # You may not use any nested with statements.
+    # You may not use any nested with ... as ... statements.
+    # You may not use any nested exec statements.
+    # You may not use any nested eval statements.
+    # You may not use any nested global statements.
+    # You may not use any nested nonlocal statements.
+    # You may not use any nested lambda expressions.
+    # You may not use any nested list comprehensions.
+    # You may not use any nested set comprehensions.
+    # You may not use any nested dictionary comprehensions.
+    # You may not use any nested generator expressions.
+    # You may not use any nested function definitions.
+    # You may not use any nested list or set or dictionary or generator comprehensions.
+    # You may not use any nested ternary operators.
+    # You may not use any nested with statements.
+    # You may not use any nested with ... as ... statements.
+    # You may not use any nested exec statements.
+    # You may not use any nested eval statements.
+    # You may not use any nested global statements.
+    # You may not use any nested nonlocal statements.
+    # You may not use any nested lambda expressions.
+    # You may not use any nested list comprehensions.
+    # You may not use any nested set comprehensions.
+    # You may not use any nested dictionary comprehensions.
+    # You may not use any nested generator expressions.
+    # You may not use any nested function definitions.
+    # You may not use any nested list or set or dictionary or generator comprehensions.
+    # You may not use any nested ternary operators.
+    # You may not use any nested with statements.
+    # You may not use any nested with ... as ... statements.
+    # You may not use any nested exec statements.
+    # You may not use any nested eval statements.
+    # You may not use any nested global statements.
+    # You may not use any nested nonlocal statements.
+    # You may not use any nested lambda expressions.
+    # You may not use any nested list comprehensions.
+    # You may not use any nested set comprehensions.
+    # You may not use any nested dictionary comprehensions.
+    # You may not use any nested generator expressions.
+    # You may not use any nested function definitions.
+    # You may not use any nested list or set or dictionary or generator comprehensions.
+    # You may not use any nested ternary operators.
+    # You may not use any nested with statements.
+    # You may not use any nested with ... as ... statements.
+    # You may not use any nested exec statements.
+    # You may not use any nested eval statements.
+    # You may not use any nested global statements.
+    # You may not use any nested nonlocal statements.
+    # You may not use any nested lambda expressions.
+    # You may not use any nested list comprehensions.
+    # You may not use any nested set comprehensions.
+    # You may not use any nested dictionary comprehensions.
+    # You may not use any nested generator expressions.
+    # You may not use any nested function definitions.
+    # You may not use any nested list or set or dictionary or generator comprehensions.
+    # You may not use any nested ternary operators.
+    # You may not use any nested with statements.
+    # You may not use any nested with ... as ... statements.
+    # You may not use any nested exec statements.
+    # You may not use any nested eval statements.
+    # You may not use any nested global statements.
+    # You may not use any nested nonlocal statements.
+    # You may not use any nested lambda expressions.
+    # You may not use any nested list comprehensions.
+    # You may not use any nested set comprehensions.
+    # You may not use any nested dictionary comprehensions.
+    # You may not use any nested generator expressions.
+    # You may not use any nested function definitions.
+    # You may not use any nested list or set or dictionary or generator comprehensions.
+    # You may not use any nested ternary operators.
+    # You may not use any nested with statements.
+    # You may not use any nested with ... as ... statements.
+    # You may not use any nested exec statements.
+    # You may not use any nested eval statements.
+    # You may not use any nested global statements.
+    # You may not use any nested nonlocal statements.
+    # You may not use any nested lambda expressions.
+    # You may not use any nested list comprehensions.
+    # You may not use any nested set comprehensions.
+    # You may not use any nested dictionary comprehensions.
+    # You may not use any nested generator expressions.
+    # You may not use any nested function definitions.
+    # You may not use any nested list or set or dictionary or generator comprehensions.
+    # You may not use any nested ternary operators.
+    # You may not use any nested with statements.
+    # You may not use any nested with ... as ... statements.
+    # You may not use any nested exec statements.
+    # You may not use any nested eval statements.
+    # You may not use any nested global statements.
+    # You may not use any nested nonlocal statements.
+    # You may not use any nested lambda expressions.
+    # You may not use any nested list comprehensions.
+    # You may not use any nested set comprehensions.
+    # You may not use any nested dictionary comprehensions.
+    # You may not use any nested generator expressions.
+    # You may not use any nested function definitions.
+    # You may not use any nested list or set or dictionary or generator comprehensions.
+    # You may not use any nested ternary operators.
+    # You may not use any nested with statements.
+    # You may not use any nested with ... as ... statements.
+    # You may not use any nested exec statements.
+    # You may not use any nested eval statements.
+    # You may not use any nested global statements.
+    # You may not use any nested nonlocal statements.
+    # You may not use any nested lambda expressions.
+    # You may not use any nested list comprehensions.
+    # You may not use any nested set comprehensions.
+    # You may not use any nested dictionary comprehensions.
+    # You may not use any nested generator expressions.
+    # You may not use any nested function definitions.
+    # You may not use any nested list or set or dictionary or generator comprehensions.
+    # You may not use any nested ternary operators.
+    # You may not use any nested with statements.
+    # You may not use any nested with ... as ... statements.
+    # You may not use any nested exec statements.
+    # You may not use any nested eval statements.
+    #
