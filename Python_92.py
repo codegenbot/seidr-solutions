@@ -15,15 +15,10 @@ def any_int(x, y, z):
     any_int(3.6, -2.2, 2) ➞ False
   
 
-    if (x + y == z or x + z == y or y + z == x) and (type(x) == int and type(y) == int and type(z) == int):
-        return True
-    else:
-        return False
+
+    return (x + y == z or x + z == y or y + z == x) and (x % 1 == 0 and y % 1 == 0 and z % 1 == 0)
 
 
-print(any_int(5, 2, 7))
-print(any_int(3, 2, 2))
-print(any_int(3, -2, 1))
 print(any_int(3.6, -2.2, 2))
     
     '''
