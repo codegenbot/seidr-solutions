@@ -15,5 +15,21 @@ def histogram(test):
     # Complete the following code
     # ...
 
+
+    # Complete the following code
+    # ...
+
+    return None
+
+    # Complete the following code
+    # ...
+
+    return None
+
+    # Complete the following code
+    # ...
+
+    return None
+    """
     return None
     """
