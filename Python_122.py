@@ -7,12 +7,8 @@ def add_elements(arr, k):
     Example:
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
-
-    # initialize a sum variable
-    # loop through the first k elements of arr
-    # if the number has two digits, add it to the sum
-    # if the number has one digit, add it to the sum
-    # return the sum
+    # TODO: Complete the following code given the task description and function signature.
+    pass
         Output: 24 # sum of 21 + 3
 
     Constraints:
