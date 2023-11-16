@@ -6,7 +6,8 @@ def truncate_number(number: float) -> float:
     (leftover part always smaller than 1).
 
     Return the decimal part of the number.
-    return number - int(number)  # FIXME: return None
+    return number - int(number)
+    pass
     >>> truncate_number(3.5)
     0.5
     """
