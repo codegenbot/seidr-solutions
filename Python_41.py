@@ -10,68 +10,141 @@ def car_race_collision(n: int):
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
     # TODO: Complete the following code given the task description and function signature.
-    # Hint: You may want to use a dictionary to keep track of the cars.
-    # Hint: You may want to use a list to keep track of the cars.
-    # Hint: You may want to use a set to keep track of the cars.
-    # Hint: You may want to use a tuple to keep track of the cars.
-    # Hint: You may want to use a list of lists to keep track of the cars.
-    # Hint: You may want to use a list of tuples to keep track of the cars.
-    # Hint: You may want to use a list of sets to keep track of the cars.
-    # Hint: You may want to use a tuple of lists to keep track of the cars.
-    # Hint: You may want to use a tuple of tuples to keep track of the cars.
-    # Hint: You may want to use a tuple of sets to keep track of the cars.
-    # Hint: You may want to use a set of lists to keep track of the cars.
-    # Hint: You may want to use a set of tuples to keep track of the cars.
-    # Hint: You may want to use a set of sets to keep track of the cars.
-    # Hint: You may want to use a dictionary of lists to keep track of the cars.
-    # Hint: You may want to use a dictionary of tuples to keep track of the cars.
-    # Hint: You may want to use a dictionary of sets to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries to keep track of the cars.
-    # Hint: You may want to use a dictionary of lists of lists to keep track of the cars.
-    # Hint: You may want to use a dictionary of lists of tuples to keep track of the cars.
-    # Hint: You may want to use a dictionary of lists of sets to keep track of the cars.
-    # Hint: You may want to use a dictionary of tuples of lists to keep track of the cars.
-    # Hint: You may want to use a dictionary of tuples of tuples to keep track of the cars.
-    # Hint: You may want to use a dictionary of tuples of sets to keep track of the cars.
-    # Hint: You may want to use a dictionary of sets of lists to keep track of the cars.
-    # Hint: You may want to use a dictionary of sets of tuples to keep track of the cars.
-    # Hint: You may want to use a dictionary of sets of sets to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of lists to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of tuples to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of sets to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of dictionaries to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of lists of lists to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of lists of tuples to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of lists of sets to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of tuples of lists to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of tuples of tuples to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of tuples of sets to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of sets of lists to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of sets of tuples to keep track of the cars.
-    # Hint: You may want to use a dictionary of dictionaries of sets of sets to keep track of the cars.
-    # Hint: You may want to use a list of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of dictionaries to keep track of the cars.
-    # Hint: You may want to use a list of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of lists of
+    # You may add additional helper functions as needed.
+    # You may not use any external libraries.
+    # You may not use any data structures other than the ones provided in the function signature.
+    # You may not use any loops.
+    # You may not use any recursion.
+    # You may not use any mutable data structures such as lists, sets, dictionaries, etc.
+    # You may not use any sorting.
+    # You may not use any built-in functions.
+    # You may not use any built-in methods.
+    # You may not use any built-in classes.
+    # You may not use any built-in modules.
+    # You may not use any built-in decorators.
+    # You may not use any built-in context managers.
+    # You may not use any built-in descriptors.
+    # You may not use any built-in generators.
+    # You may not use any built-in iterators.
+    # You may not use any built-in coroutines.
+    # You may not use any built-in asynchronous generators.
+    # You may not use any built-in asynchronous iterators.
+    # You may not use any built-in asynchronous context managers.
+    # You may not use any built-in type hints.
+    # You may not use any built-in type annotations.
+    # You may not use any built-in type checking.
+    # You may not use any built-in type inference.
+    # You may not use any built-in type conversions.
+    # You may not use any built-in type promotion.
+    # You may not use any built-in type demotion.
+    # You may not use any built-in type casting.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening.
+    # You may not use any built-in type narrowing.
+    # You may not use any built-in type widening
 
     This function outputs the number of such collisions.
     """
