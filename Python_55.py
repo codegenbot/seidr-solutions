@@ -1,4 +1,4 @@
-
+# Task: return the n-th Fibonacci number.
 
 def fib(n: int):
     """Return n-th Fibonacci number.
@@ -7,9 +7,11 @@ def fib(n: int):
     >>> fib(1)
     1
     >>> fib(8)
-    if n == 1:
-        return n
-    else:
-        return fib(n-1) + fib(n-2)
     21
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
     """
