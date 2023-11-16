@@ -11,13 +11,9 @@ def will_it_fly(q,w):
     will_it_fly([3, 2, 3], 1) ➞ False
     # it's balanced, but 3+2+3 is more than the maximum possible weight.
     
-def delete_numbers_divisible_by(x1, x2):
-    for i in range(len(numbers)-1,0,-1):
-        if numbers[i]%2==0:
-            del numbers[i : i+x2]
-        else:
-            del numbers[i-x1 : i]
-    returnlen(numbers)
+    if q == q[::-1] and sum(q) <= w:
+        return True
+    return False
 
     will_it_fly([3, 2, 3], 9) ➞ True
     # 3+2+3 is less than the maximum possible weight, and it's balanced.
