@@ -8,9 +8,8 @@ def largest_prime_factor(n: int):
     2
     i = 2
     while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
+        while n % i == 0:
+            n = n // i
+        i = i + 1
     return n
     """
