@@ -8,16 +8,16 @@ def derivative(xs: list):
     [1, 4, 12, 20]
     >>> derivative([1, 2, 3])
     [2, 6]
-    if not xs:
-        return []
+    if len(xs) == 1:
+        return [0]
+    else:
+        result = []
+        for i in range(1, len(xs)):
+            result.append(i * xs[i])
+    return result
 
-    return [xs[i] * (i) for i in range(1, len(xs))]
 
-
-def main():
+if __name__ == "__main__":
     print(derivative([3, 1, 2, 4, 5]))
-
-
-if __name__ == '__main__':
-    main()
+    print(derivative([1, 2, 3]))
     """
