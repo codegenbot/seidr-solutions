@@ -11,20 +11,28 @@ def is_nested(string):
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
 
-    # count = 0
-    # for char in string:
-    #     if char == '[':
-    #         count += 1
-    #     else:
-    #         count -= 1
-    #     if count == -1:
-    #         return False
-    # return count > 0
-
-    if string.count('[') == string.count(']'):
-        return False
-    else:
+    # Create a stack to hold the brackets
+    stack = []
+    # Iterate through the string
+    for bracket in string:
+        # If the bracket is an opening bracket
+        if bracket == '[':
+            # Append it to the stack
+            stack.append(bracket)
+        # If the bracket is a closing bracket
+        elif bracket == ']':
+            # If the stack is empty
+            if len(stack) == 0:
+                # Return false
+                return False
+            # Pop the last bracket from the stack
+            stack.pop()
+    # If stack is empty
+    if len(stack) == 0:
+        # Return True
         return True
+    # Else return False
+    return False
 
 
 print(is_nested('[[]]'))
@@ -34,5 +42,4 @@ print(is_nested('[]'))
 print(is_nested('[[][]]'))
 print(is_nested('[[]][['))
 print(is_nested('[[]][['))
-print(is_nested(']]]]]]]]'))
     '''
