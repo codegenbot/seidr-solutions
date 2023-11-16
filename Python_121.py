@@ -4,8 +4,8 @@ def solution(lst):
     
 
     Examples
-    solution([5, 8, 7, 1]) ==> 5
     solution([3, 13, 2, 9]) ==> 3
+    solution([5, 8, 7, 1]) ==> 8
 
 
     """
