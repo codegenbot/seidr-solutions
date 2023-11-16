@@ -8,8 +8,9 @@ def fib(n: int):
     1
     >>> fib(8)
     21
-    a, b = 1, 1
-    for i in range(n-1):
-        a, b = b, a + b
-    return a
+
+    if n == 1:
+        return 1
+
+    return fib(n - 1) + fib(n - 2)
     """
