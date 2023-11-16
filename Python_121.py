@@ -5,7 +5,8 @@ def solution(lst):
 
     Examples
     solution([3, 13, 2, 9]) ==> 3
-    solution([3, 13, 2, 9]) ==> 3
+    solution([3, 3, 3, 3, 3]) ==> 9
+    pass
     pass
     solution([30, 13, 24, 321]) ==>0
     """
