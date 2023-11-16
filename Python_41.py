@@ -9,142 +9,161 @@ def car_race_collision(n: int):
     when a car that's moving left to right hits a car that's moving right to left.
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
-    # TODO: Complete the following code given the task description and function signature.
-    # You may add additional helper functions as needed.
-    # You may not use any external libraries.
-    # You may not use any data structures other than the ones provided in the function signature.
-    # You may not use any loops.
-    # You may not use any recursion.
-    # You may not use any mutable data structures such as lists, sets, dictionaries, etc.
-    # You may not use any sorting.
-    # You may not use any built-in functions.
-    # You may not use any built-in methods.
-    # You may not use any built-in classes.
-    # You may not use any built-in modules.
-    # You may not use any built-in decorators.
-    # You may not use any built-in context managers.
-    # You may not use any built-in descriptors.
-    # You may not use any built-in generators.
-    # You may not use any built-in iterators.
-    # You may not use any built-in coroutines.
-    # You may not use any built-in asynchronous generators.
-    # You may not use any built-in asynchronous iterators.
-    # You may not use any built-in asynchronous context managers.
-    # You may not use any built-in type hints.
-    # You may not use any built-in type annotations.
-    # You may not use any built-in type checking.
-    # You may not use any built-in type inference.
-    # You may not use any built-in type conversions.
-    # You may not use any built-in type promotion.
-    # You may not use any built-in type demotion.
-    # You may not use any built-in type casting.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening.
-    # You may not use any built-in type narrowing.
-    # You may not use any built-in type widening
+    # TODO: Complete the following code.
+    # You may use any data structure you want.
+    # You may use any number of lines of code.
+    # You may use any number of helper functions.
+    # You may use any number of helper variables.
+    # You may use any number of comments.
+    # You may use any number of print statements.
+    # You may use any number of assert statements.
+    # You may use any number of if statements.
+    # You may use any number of for loops.
+    # You may use any number of while loops.
+    # You may use any number of break statements.
+    # You may use any number of continue statements.
+    # You may use any number of return statements.
+    # You may use any number of pass statements.
+    # You may use any number of try/except blocks.
+    # You may use any number of raise statements.
+    # You may use any number of yield statements.
+    # You may use any number of lambda expressions.
+    # You may use any number of list comprehensions.
+    # You may use any number of set comprehensions.
+    # You may use any number of dict comprehensions.
+    # You may use any number of generator expressions.
+    # You may use any number of ternary expressions.
+    # You may use any number of with statements.
+    # You may use any number of async with statements.
+    # You may use any number of async for statements.
+    # You may use any number of async functions.
+    # You may use any number of async generators.
+    # You may use any number of async comprehensions.
+    # You may use any number of async context managers.
+    # You may use any number of async iterators.
+    # You may use any number of async coroutines.
+    # You may use any number of async tasks.
+    # You may use any number of async futures.
+    # You may use any number of async promises.
+    # You may use any number of async conditions.
+    # You may use any number of async events.
+    # You may use any number of async locks.
+    # You may use any number of async queues.
+    # You may use any number of async semaphores.
+    # You may use any number of async barriers.
+    # You may use any number of async channels.
+    # You may use any number of async pipes.
+    # You may use any number of async streams.
+    # You may use any number of async protocols.
+    # You may use any number of async transports.
+    # You may use any number of async sessions.
+    # You may use any number of async tasks.
+    # You may use any number of async futures.
+    # You may use any number of async promises.
+    # You may use any number of async conditions.
+    # You may use any number of async events.
+    # You may use any number of async locks.
+    # You may use any number of async queues.
+    # You may use any number of async semaphores.
+    # You may use any number of async barriers.
+    # You may use any number of async channels.
+    # You may use any number of async pipes.
+    # You may use any number of async streams.
+    # You may use any number of async protocols.
+    # You may use any number of async transports.
+    # You may use any number of async sessions.
+    # You may use any number of async tasks.
+    # You may use any number of async futures.
+    # You may use any number of async promises.
+    # You may use any number of async conditions.
+    # You may use any number of async events.
+    # You may use any number of async locks.
+    # You may use any number of async queues.
+    # You may use any number of async semaphores.
+    # You may use any number of async barriers.
+    # You may use any number of async channels.
+    # You may use any number of async pipes.
+    # You may use any number of async streams.
+    # You may use any number of async protocols.
+    # You may use any number of async transports.
+    # You may use any number of async sessions.
+    # You may use any number of async tasks.
+    # You may use any number of async futures.
+    # You may use any number of async promises.
+    # You may use any number of async conditions.
+    # You may use any number of async events.
+    # You may use any number of async locks.
+    # You may use any number of async queues.
+    # You may use any number of async semaphores.
+    # You may use any number of async barriers.
+    # You may use any number of async channels.
+    # You may use any number of async pipes.
+    # You may use any number of async streams.
+    # You may use any number of async protocols.
+    # You may use any number of async transports.
+    # You may use any number of async sessions.
+    # You may use any number of async tasks.
+    # You may use any number of async futures.
+    # You may use any number of async promises.
+    # You may use any number of async conditions.
+    # You may use any number of async events.
+    # You may use any number of async locks.
+    # You may use any number of async queues.
+    # You may use any number of async semaphores.
+    # You may use any number of async barriers.
+    # You may use any number of async channels.
+    # You may use any number of async pipes.
+    # You may use any number of async streams.
+    # You may use any number of async protocols.
+    # You may use any number of async transports.
+    # You may use any number of async sessions.
+    # You may use any number of async tasks.
+    # You may use any number of async futures.
+    # You may use any number of async promises.
+    # You may use any number of async conditions.
+    # You may use any number of async events.
+    # You may use any number of async locks.
+    # You may use any number of async queues.
+    # You may use any number of async semaphores.
+    # You may use any number of async barriers.
+    # You may use any number of async channels.
+    # You may use any number of async pipes.
+    # You may use any number of async streams.
+    # You may use any number of async protocols.
+    # You may use any number of async transports.
+    # You may use any number of async sessions.
+    # You may use any number of async tasks.
+    # You may use any number of async futures.
+    # You may use any number of async promises.
+    # You may use any number of async conditions.
+    # You may use any number of async events.
+    # You may use any number of async locks.
+    # You may use any number of async queues.
+    # You may use any number of async semaphores.
+    # You may use any number of async barriers.
+    # You may use any number of async channels.
+    # You may use any number of async pipes.
+    # You may use any number of async streams.
+    # You may use any number of async protocols.
+    # You may use any number of async transports.
+    # You may use any number of async sessions.
+    # You may use any number of async tasks.
+    # You may use any number of async futures.
+    # You may use any number of async promises.
+    # You may use any number of async conditions.
+    # You may use any number of async events.
+    # You may use any number of async locks.
+    # You may use any number of async queues.
+    # You may use any number of async semaphores.
+    # You may use any number of async barriers.
+    # You may use any number of async channels.
+    # You may use any number of async pipes.
+    # You may use any number of async streams.
+    # You may use any number of async protocols.
+    # You may use any number of async transports.
+    # You may use any number of async sessions.
+    # You may use any number of async tasks.
+    # You may use any number of
 
     This function outputs the number of such collisions.
     """
