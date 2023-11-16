@@ -12,4 +12,5 @@ def count_fives(lst):
 
     Examples:
         count_fives([5, 4, 5, 5]) ==> 3
+    
     """
