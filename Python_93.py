@@ -13,15 +13,12 @@ def encode(message):
     >>> encode('This is a message')
     'tHKS KS C MGSSCGG'
     """
-    # Complete the following code
-    # Hint: You can use the ord() and chr() functions to convert between
-    # ASCII codes and characters.
+    vowels = ['a', 'e', 'i', 'o', 'u']
     encoded_message = ''
-    for char in message:
-        if char.isupper():
-            encoded_message += char.lower()
-        elif char.islower():
-            encoded_message += char.upper()
+    for letter in message:
+        if letter.lower() in vowels:
+            index = vowels.index(letter.lower())
+            encoded_message += vowels[(index + 2) % 5]
         else:
-            encoded_message += char
+            encoded_message += letter.swapcase()
     return encoded_message
