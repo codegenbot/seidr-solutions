@@ -40,6 +40,5 @@ print(is_nested('[]]]]]]][[[[[]'))
 print(is_nested('[][]'))
 print(is_nested('[]'))
 print(is_nested('[[][]]'))
-print(is_nested('[[]][['))
-print(is_nested('[[]][['))
+    is_nested('[[]][[') ➞ True
     '''
