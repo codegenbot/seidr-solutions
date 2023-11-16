@@ -10,8 +10,9 @@ def change_base(x: int, base: int):
     '1000'
     >>> change_base(7, 2)
     '111'
-    if x < base:
-        return str(x)
-    else:
-        return change_base(x // base, base) + str(x % base)
+    x_str = ''
+    while x > 0:
+        x_str = str(x % base) + x_str
+        x = x // base
+    return x_str
     """
