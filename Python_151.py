@@ -1,4 +1,4 @@
-#This is a comment
+
 def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
@@ -11,4 +11,4 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    return 0
+    return 1
