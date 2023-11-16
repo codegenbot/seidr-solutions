@@ -16,7 +16,6 @@ def fib4(n: int):
     >>> fib4(7)
     >>> fib4(12)
     386
-    14
     pass
     if n == 0:
         return 0
