@@ -1,8 +1,8 @@
 def double_the_difference(lst):
-    if not lst:
+    if not list:
         return 0
     else:
-        return sum([i ** 2 for i in lst if i % 2 == 1])
+        return sum([i ** 2 for i in list if i % 2 == 1])
 
 def double_the_difference(lst):
     '''
