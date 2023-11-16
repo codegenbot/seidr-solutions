@@ -10,13 +10,7 @@ def sum_squares(lst):
     For lst = [1,3,5,7] the output should be 84
     For lst = [1.4,4.2,0] the output should be 29
     For lst = [-2.4,1,1] the output should be 6
-    # Complete the following code given the task description and function signature.
-    # You are not allowed to change the function signature.
-    # You can use the math module if you wish.
-    # Hint: You can use list comprehension.
-    pass
-    sum_squares = round([lst]) math.pow(lst,2)
 
-    
+    return sum([x**2 for x in lst]) 
 
     """
