@@ -10,6 +10,10 @@ def fix_spaces(text):
     fix_spaces(" Example 2") == "_Example_2"
     fix_spaces(" Example   3") == "_Example-3"
     """
+    # Replace all consecutive spaces with a dash
+    text = text.replace("  ", "-")
 
-    # Your code goes here
-    pass
+    # Replace all spaces with an underscore
+    text = text.replace(" ", "_")
+
+    return text
