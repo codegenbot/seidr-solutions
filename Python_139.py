@@ -8,8 +8,14 @@ def special_factorial(n):
     >>> special_factorial(4)
     288
 
-    .. code:python
-        pass
+    brazilian_factorial = n
+for i in range(1, n):
+    brazilian_factorial = brazilian_factorial * i
+
+print (brazilian_factorial)
+special_factorial(4)
+
+
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
