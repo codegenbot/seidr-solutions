@@ -13,4 +13,4 @@ def solve(N):
     Output:
          a string of binary number
     """
-    return ''.join(str(1) if digit=='1' else str(0) for digit in bin(N)[2:])
+    return ''.join(str(1) if digit=='1' else str(0) for digit in bin(N))[2:]
