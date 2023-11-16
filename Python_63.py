@@ -13,5 +13,17 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
-    pass
+    if n < 0:
+        raise ValueError("n must be non-negative")
+    if n < 3:
+        return n-1
+    a, b, c = 0, 1, 1
+    for i in range(3, n):
+        a, b, c = b, c, a+b+c
+    return c
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
