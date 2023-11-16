@@ -13,9 +13,4 @@ def solve(N):
     Output:
          a string of binary number
     """
-    binary_string = bin(N)[2:]
-    binary_array = list(binary_string)
-    sum_of_digits = 0
-    for i in binary_array:
-        sum_of_digits += int(i)
-    return sum_of_digits
+    pass
