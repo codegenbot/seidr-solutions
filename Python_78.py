@@ -17,55 +17,5 @@ def hex_key(num):
     For num = "123456789ABCDEF0" the output should be 6.
     For num = "2020" the output should be 2.
     """
-
-    # Complete the following code given the task description and function signature.
-    # You may assume the input is always correct or empty string, and symbols A,B,C,D,E,F are always uppercase.
-    # You are not allowed to use any built-in functions or methods.
-    # You are not allowed to import any modules.
-    # You are not allowed to use any functions or methods from any external files.
-    # You are not allowed to use eval() or exec().
-    # You are not allowed to use any kind of loops.
-    # You are not allowed to use list comprehensions.
-    # You are not allowed to use any kind of regular expression patterns.
-    # You are not allowed to use any kind of ternary operators.
-    # You are not allowed to use any kind of try-catch blocks.
-    # You are not allowed to use any kind of try-except blocks.
-    # You are not allowed to use any kind of try-finally blocks.
-    # You are not allowed to use any kind of try-else blocks.
-    # You are not allowed to use any kind of try-elif blocks.
-    # You are not allowed to use any kind of try-except-else blocks.
-    # You are not allowed to use any kind of try-except-elif blocks.
-    # You are not allowed to use any kind of try-except-finally blocks.
-    # You are not allowed to use any kind of try-except-elif-else blocks.
-    # You are not allowed to use any kind of try-except-elif-finally blocks.
-    # You are not allowed to use any kind of try-except-elif-else-finally blocks.
-    # You are not allowed to use any kind of try-finally-else blocks.
-    # You are not allowed to use any kind of try-finally-elif blocks.
-    # You are not allowed to use any kind of try-finally-except blocks.
-    # You are not allowed to use any kind of try-finally-elif-else blocks.
-    # You are not allowed to use any kind of try-finally-elif-except blocks.
-    # You are not allowed to use any kind of try-finally-elif-else-except blocks.
-    # You are not allowed to use any kind of try-finally-except-else blocks.
-    # You are not allowed to use any kind of try-finally-except-elif blocks.
-    # You are not allowed to use any kind of try-finally-except-else-elif blocks.
-    # You are not allowed to use any kind of nested try-except blocks.
-    # You are not allowed to use any kind of nested try-finally blocks.
-    # You are not allowed to use any kind of nested try-except-finally blocks.
-    # You are not allowed to use any kind of nested try blocks.
-    # You are not allowed to use any kind of nested try-finally-except blocks.
-    # You are not allowed to use any kind of nested try-except-else blocks.
-    # You are not allowed to use any kind of nested try-except-elif blocks.
-    # You are not allowed to use any kind of nested try-except-elif-else blocks.
-    # You are not allowed to use any kind of nested try-except-elif-finally blocks.
-    # You are not allowed to use any kind of nested try-except-elif-else-finally blocks.
-    # You are not allowed to use any kind of nested try-finally-else blocks.
-    # You are not allowed to use any kind of nested try-finally-elif blocks.
-    # You are not allowed to use any kind of nested try-finally-except blocks.
-    # You are not allowed to use any kind of nested try-finally-elif-else blocks.
-    # You are not allowed to use any kind of nested try-finally-elif-except blocks.
-    # You are not allowed to use any kind of nested try-finally-elif-else-except blocks.
-    # You are not allowed to use any kind of nested try-finally-except-else blocks.
-    # You are not allowed to use any kind of nested try-finally-except-elif blocks.
-    # You are not allowed to use any kind of nested try-finally-except-else-elif blocks.
-
-    return None
+    
+    pass
