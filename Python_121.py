@@ -3,13 +3,9 @@ def solution(lst):
     
 
     Examples
-    solution([5, 8, 7, 1]) ==> 9
+    solution([5, 8, 7, 1]) ==> 20
     solution([3, 3, 3, 3, 3]) ==> 3
-    result = 0
-    for i, x in enumerate(lst):
-        if i % 2 == 0 and x % 2 == 1:
-            result += x
-    return result
+    pass
 
     
     """
