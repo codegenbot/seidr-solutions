@@ -1,4 +1,3 @@
-import math
 
 def closest_integer(value):
     '''
@@ -23,75 +22,6 @@ def closest_integer(value):
 
     # Delete the following line and write your code here
     pass
-    # print(value)
-    # print(type(value))
-    # print(float(value))
-    # print(type(float(value)))
-    # print(math.floor(float(value)))
-    # print(type(math.floor(float(value))))
-    # print(math.ceil(float(value)))
-    # print(type(math.ceil(float(value))))
-    # print(float(value) - math.floor(float(value)))
-    # print(type(float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value))
-    # print(type(math.ceil(float(value)) - float(value)))
-    # print((float(value) - math.floor(float(value)) == math.ceil(float(value)) - float(value)))
-    # print(type((float(value) - math.floor(float(value)) == math.ceil(float(value)) - float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-    # print(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)))
-    # print(type(math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value))))
-
-    if math.ceil(float(value)) - float(value) == float(value) - math.floor(float(value)):
-        return math.ceil(float(value))
-    else:
-        if float(value) - math.floor(float(value)) < math.ceil(float(value)) - float(value):
-            return math.floor(float(value))
-        else:
-            return math.ceil(float(value))
-
-
-
-
-
-
-
-
-
-
-
+    return int(value)
     return 15 and closest_integer("-14.5") should return -15.
     '''
