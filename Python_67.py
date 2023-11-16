@@ -1,5 +1,5 @@
 
-def fruit_distribution(s, n):
+def fruit_distribution(s,n):
     """
     In this task, you will be given a string that represents a number of apples and oranges 
     that are distributed in a basket of fruit this basket contains 
@@ -12,4 +12,4 @@ def fruit_distribution(s, n):
     fruit_distribution("2 apples and 3 oranges", 100) -> 100 - 2 - 3 = 95
     fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
     """
-    # write your code here
+    # return the number of mango fruits in the basket
