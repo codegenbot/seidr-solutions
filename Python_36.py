@@ -10,5 +10,4 @@ def fizz_buzz(n: int):
     3
     >>> fizz_buzz(100000)
     8026
-    return 0
     """
