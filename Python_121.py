@@ -8,7 +8,7 @@ def solution(lst):
 def check(solution):
     assert solution([3, 13, 2, 9]) == 9
     assert solution([3, 3, 3, 3, 3]) == 9
-    assert solution([3, 13, 2, 9]) == 9
+    assert solution([3, 13, 2, 9]) == 3
 
 
 check(solution)
