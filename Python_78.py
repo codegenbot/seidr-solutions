@@ -19,53 +19,22 @@ def hex_key(num):
     """
 
     # Complete the following code given the task description and function signature.
-    # You may assume the input is always correct or empty string, and symbols A,B,C,D,E,F are always uppercase.
-    # You are not allowed to use any built-in functions or methods.
-    # You are not allowed to import any modules.
-    # You are not allowed to use any functions or methods from any external files.
-    # You are not allowed to use eval() or exec().
-    # You are not allowed to use any kind of loops.
-    # You are not allowed to use list comprehensions.
-    # You are not allowed to use any kind of regular expression patterns.
-    # You are not allowed to use any kind of ternary operators.
-    # You are not allowed to use any kind of try-catch blocks.
-    # You are not allowed to use any kind of try-except blocks.
-    # You are not allowed to use any kind of try-finally blocks.
-    # You are not allowed to use any kind of try-else blocks.
-    # You are not allowed to use any kind of try-elif blocks.
-    # You are not allowed to use any kind of try-except-else blocks.
-    # You are not allowed to use any kind of try-except-elif blocks.
-    # You are not allowed to use any kind of try-except-finally blocks.
-    # You are not allowed to use any kind of try-except-elif-else blocks.
-    # You are not allowed to use any kind of try-except-elif-finally blocks.
-    # You are not allowed to use any kind of try-except-elif-else-finally blocks.
-    # You are not allowed to use any kind of try-finally-else blocks.
-    # You are not allowed to use any kind of try-finally-elif blocks.
-    # You are not allowed to use any kind of try-finally-except blocks.
-    # You are not allowed to use any kind of try-finally-elif-else blocks.
-    # You are not allowed to use any kind of try-finally-elif-except blocks.
-    # You are not allowed to use any kind of try-finally-elif-else-except blocks.
-    # You are not allowed to use any kind of try-finally-except-else blocks.
-    # You are not allowed to use any kind of try-finally-except-elif blocks.
-    # You are not allowed to use any kind of try-finally-except-else-elif blocks.
-    # You are not allowed to use any kind of nested try-except blocks.
-    # You are not allowed to use any kind of nested try-finally blocks.
-    # You are not allowed to use any kind of nested try-except-finally blocks.
-    # You are not allowed to use any kind of nested try blocks.
-    # You are not allowed to use any kind of nested try-finally-except blocks.
-    # You are not allowed to use any kind of nested try-except-else blocks.
-    # You are not allowed to use any kind of nested try-except-elif blocks.
-    # You are not allowed to use any kind of nested try-except-elif-else blocks.
-    # You are not allowed to use any kind of nested try-except-elif-finally blocks.
-    # You are not allowed to use any kind of nested try-except-elif-else-finally blocks.
-    # You are not allowed to use any kind of nested try-finally-else blocks.
-    # You are not allowed to use any kind of nested try-finally-elif blocks.
-    # You are not allowed to use any kind of nested try-finally-except blocks.
-    # You are not allowed to use any kind of nested try-finally-elif-else blocks.
-    # You are not allowed to use any kind of nested try-finally-elif-except blocks.
-    # You are not allowed to use any kind of nested try-finally-elif-else-except blocks.
-    # You are not allowed to use any kind of nested try-finally-except-else blocks.
-    # You are not allowed to use any kind of nested try-finally-except-elif blocks.
-    # You are not allowed to use any kind of nested try-finally-except-else-elif blocks.
+    # Note: you may assume the input is always correct or empty string, 
+    # and symbols A,B,C,D,E,F are always uppercase.
+    # Return the number of prime digits.
+    #
+    # The following code does not work correctly.
+    # You have to fix it.
 
-    return None
+    # if len(num) == 0:
+    #     return 0
+    # else:
+    #     primes = ['2', '3', '5', '7', 'B', 'D']
+    #     count = 0
+    #     for i in primes:
+    #         if i in num:
+    #             count += 1
+    #     return count
+
+    primes = ['2', '3', '5', '7', 'B', 'D']
+    return sum(1 for i in num if i in primes)
