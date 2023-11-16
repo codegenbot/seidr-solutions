@@ -10,7 +10,7 @@ def truncate_number(number: float) -> float:
 
 
 def truncate_number_to_decimals(number: float, decimals: int) -> float:
-    """Given a positive floating point number and number of decimals, it can
+    Given a positive floating point number and number of decimals, it can
     be truncated to that many decimals.
 
     >>> truncate_number_to_decimals(3.14159, 2)
