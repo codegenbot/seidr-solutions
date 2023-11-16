@@ -1,7 +1,14 @@
 
-def x_or_y(n, x, y):
-    if n > 0:
-        return x
+def is_prime(n):
+    """Return True if n is a prime number; otherwise return False.
+    """
+    if n < 2:
+        return False
+    else:
+        for i in range(2, n):
+            if n % i == 0:
+                return False
+    return True
 
 
 def x_or_y(n, x, y):
@@ -11,9 +18,7 @@ def x_or_y(n, x, y):
     Examples:
     for x_or_y(7, 34, 12) == 34
     for x_or_y(15, 8, 5) == 5
-    if is_prime(n):
-        return x
-    else:
-        return y
+    if is_prime(n): return x
+    else: return y
 
     """
