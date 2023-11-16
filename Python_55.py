@@ -7,11 +7,16 @@ def fib(n: int):
     >>> fib(1)
     1
     >>> fib(8)
+    # Your code here
+    # You can add multiple lines of code
+    # Use the following format:
+    # Line 1
+    # Line 2
+    # Line 3
+    # Line 4
+    # Line 5
+    # Line 6
+    # Line 7
+    # Line 8
     21
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fib(n - 1) + fib(n - 2)
     """
