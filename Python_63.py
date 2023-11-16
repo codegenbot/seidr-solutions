@@ -1,6 +1,6 @@
 
 
-def fibfib(n: int) -> int:
+def fibfib(n: int):
     """The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
     fibfib(0) == 0
     fibfib(1) == 0
@@ -13,17 +13,11 @@ def fibfib(n: int) -> int:
     4
     >>> fibfib(8)
     24
-
-    f = [0, 0, 1]
-    if n < 3:
-        return f[n]
-    for i in range(3, n+1):
-        f.append(f[i-1] + f[i-2] + f[i-3])
-    return f[n]
+    if n == 0:
+        return 0
+    if n == 1:
+        return 0
+    if n == 2:
+        return 1
+    return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
     """
-    f = [0, 0, 1]
-    if n < 3:
-        return f[n]
-    for i in range(3, n+1):
-        f.append(f[i-1] + f[i-2] + f[i-3])
-    return f[n]
