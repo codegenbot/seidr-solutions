@@ -10,12 +10,7 @@ def sum_squares(lst):
     For lst = [1,3,5,7] the output should be 84.
     For lst = [1.4,4.2,0] the output should be 29.
     For lst = [-2.4,1,1] the output should be 6.
-    """
-    # Your code goes here
-    # Use the built-in function ceil() to round each element in the list to the upper int(Ceiling)
-    # Use the built-in function pow() to calculate the power of each element in the list
-    # Use the built-in function sum() to calculate the sum of the squared elements in the list
-    return sum(pow(ceil(x),2) for x in lst)
     
+    # Write your code here
 
     """
