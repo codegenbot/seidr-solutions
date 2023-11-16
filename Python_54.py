@@ -23,3 +23,4 @@ def same_chars(s0: str, s1: str):
             return False
     return True
     """
+    return False
