@@ -5,7 +5,6 @@ def special_factorial(n):
     where n > 0
 
     For example:
-    """
     >>> special_factorial(4)
     288
 
@@ -15,5 +14,7 @@ def special_factorial(n):
     # TODO: Complete the following code given the task description and function
     # signature.
     pass
-    # The function will receive an integer as input and should return the special
-    # factorial of this integer.
+    return n
+    The function will receive an integer as input and should return the special
+    factorial of this integer.
+    """
