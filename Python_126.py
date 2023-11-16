@@ -12,15 +12,6 @@ def is_sorted(lst):
     is_sorted([1, 2, 3, 4, 5, 6]) ➞ True
     is_sorted([1, 2, 3, 4, 5, 6, 7]) ➞ True
     is_sorted([1, 3, 2, 4, 5, 6, 7]) ➞ False
-
-    for i in range(len(lst)-1):
-        if lst[i] > lst[i+1]:
-            return False
-    return True
-
-
-print(is_sorted([1, 2, 2, 2, 3, 4]))
-    '''
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
 
@@ -30,4 +21,17 @@ print(is_sorted([1, 2, 2, 2, 3, 4]))
     return True
 
 
+
+
+def check(func):
+    assert func([1, 2, 3, 4]) == True, "This prints if this assert fails"
+    assert func([1, 3, 2, 4]) == False, "This prints if this assert fails"
+    assert func([1, 2, 2, 3]) == True, "This prints if this assert fails"
+    assert func([1, 2, 2, 2]) == False, "This prints if this assert fails"
+    assert func([1, 2, 2, 2, 3]) == False, "This prints if this assert fails"
+    print("All tests passed")
+
+
+check(is_sorted)
 print(is_sorted([1, 2, 2, 2, 3, 4]))
+    '''
