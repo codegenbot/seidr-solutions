@@ -7,8 +7,8 @@ def add_elements(arr, k):
     Example:
 
         Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
-    # TODO: Complete the following code given the task description and function signature.
-    pass
+
+    # YOUR CODE HERE
         Output: 24 # sum of 21 + 3
 
     Constraints:
