@@ -1,5 +1,6 @@
 
 def max_fill(grid, capacity):
+    import math
     """
     You are given a rectangular grid of wells. Each row represents a single well,
     and each 1 in a row represents a single unit of water.
@@ -31,24 +32,7 @@ def max_fill(grid, capacity):
         * 1 <= grid.length <= 10^2
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
-
-    TODO: Complete the following code given the task description and function signature.
-    You are free to add additional helper functions as needed.
-
-    HINT: You can think of the problem as a flow problem.
-    The wells are the nodes and the buckets are the edges.
-    You can treat the buckets as having infinite capacity.
-    You can also think of the problem as a graph search problem.
-    The wells are the nodes and the buckets are the edges.
-    You can treat the buckets as having infinite capacity.
-    You can also think of the problem as a graph search problem.
-    The wells are the nodes and the buckets are the edges.
-    You can treat the buckets as having infinite capacity.
-
-    NOTE: You are free to use any graph search algorithm you know.
-
-    NOTE: You are free to use any data structure you know.
-
+    # Your code goes here
     return 0
-        * 1 <= capacity <= 10^2
+        * 1 <= capacity <= 10
     """
