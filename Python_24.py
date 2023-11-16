@@ -9,5 +9,7 @@ def largest_divisor(n: int) -> int:
             return i
 
 
-print(largest_divisor(15))
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
