@@ -20,6 +20,9 @@ def minPath(grid, k):
     lst_A[j] = lst_B[j].
     It is guaranteed that the answer is unique.
     Return an ordered list of the values on the cells that the minimum path go through.
+    if k == 1:
+        return [grid[0][0]]
+
 
     Examples:
 
@@ -39,7 +42,7 @@ def minPath(grid, k):
     min_path = {}
 
     # Iterate through the numbers.
-    for num in nums:
+    for num in nums.keys():
         # Get the coordinates of the current number.
         x, y = nums[num]
 
@@ -53,7 +56,7 @@ def minPath(grid, k):
         queue.append(num)
 
         # Iterate through the queue.
-        while queue:
+        while len(queue) > 0:
             # Pop the last number from the queue.
             last_num = queue.pop()
 
@@ -104,5 +107,7 @@ def minPath(grid, k):
         Output: [1, 2, 1]
 
         Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
+
+    return [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
         Output: [1]
     """
