@@ -23,49 +23,21 @@ def minPath(grid, k):
 
     Examples:
 
-    def get_path(grid, row, col, k):
-        """
-        Helper function
-        """
-        # Base case
-        if k == 0:
-            return []
 
-        # Find all possible paths
-        num_rows, num_cols = len(grid), len(grid[0])
-        paths = []
+    # Complete the following code given the task description and the function signature.
+    # You may assume that the grid to be of a perfect square size, and that a unique
+    # solution exists.
 
-        # Case: go up
-        if row > 0:
-            paths.append(get_path(grid, row - 1, col, k - 1) + [grid[row - 1][col]])
-
-        # Case: go right
-        if col < num_cols - 1:
-            paths.append(get_path(grid, row, col + 1, k - 1) + [grid[row][col + 1]])
-
-        # Case: go down
-        if row < num_rows - 1:
-            paths.append(get_path(grid, row + 1, col, k - 1) + [grid[row + 1][col]])
-
-        # Case: go left
-        if col > 0:
-            paths.append(get_path(grid, row, col - 1, k - 1) + [grid[row][col - 1]])
-
-        # Return the minimal path
-        return min(paths, key = lambda path: path)
-
-    num_rows, num_cols = len(grid), len(grid[0])
-
-    # BFS across the entire grid
-    # Keep track of the minimal path
-    min_path = None
-    for row in range(num_rows):
-        for col in range(num_cols):
-            path = get_path(grid, row, col, k)
-            if min_path is None or path < min_path:
-                min_path = path
-
-    return min_path
+    # This answer is not correct.
+    n = len(grid)
+    result = None
+    for i in range(n):
+        for j in range(n):
+            if result == None:
+                result = [grid[i][j]] * k
+            else:
+                result = min(result, [grid[i][j]] * k, key=lambda l: l[-1])
+    return result
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
