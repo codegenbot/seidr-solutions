@@ -4,5 +4,5 @@ def add(lst: list) -> int:
 
 
     Examples:
-        add([4, 2, 6, 7]) ==> 6 
+        add([4, 2, 6, 7]) ==> 2
     """
