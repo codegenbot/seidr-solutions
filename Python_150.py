@@ -1,36 +1,19 @@
 
-def is_prime(n):
-    """Returns True if the given positive number is prime and False otherwise.
+def sum_of_digits(n):
+    """A simple program which should return the sum of all digits of a given number.
 
     Examples:
-    for is_prime(7) == True
-    for is_prime(15) == False
+    x_or_y = 0
+    return
+    """
+    if n < 0:
+        n = -n
+    s = 0
+    while n > 0:
+        s = s + n % 10
+        n = n // 10
+    return s
 
     # Your code here
-    return n
+    return
     
-    """
-
-
-def x_or_y(n, x, y):
-    """A simple program which should return the value of x if n is 
-    a prime number and should return the value of y otherwise.
-
-    Examples:
-    for x_or_y(7, 34, 12) == 34
-    for x_or_y(15, 8, 5) == 5
-
-
-
-def check(func):
-    assert func(2, 2, 0) == 2
-    assert func(7, 34, 12) == 34
-    assert func(15, 8, 5) == 5
-
-
-if __name__ == "__main__":
-    check(x_or_y)
-    # Your code here
-    return n
-    
-    """
