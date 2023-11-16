@@ -6,8 +6,7 @@ def even_odd_count(num):
         even_odd_count(-12) ==> (1, 1)
     even = 0
     odd = 0
-    num = str(num)
-    for i in num:
+    for i in str(num):
         if int(i) % 2 == 0:
             even += 1
         else:
@@ -16,6 +15,5 @@ def even_odd_count(num):
 
 
 print(even_odd_count(-12))
-print(even_odd_count(123))
         even_odd_count(123) ==> (1, 2)
     """
