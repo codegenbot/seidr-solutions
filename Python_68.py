@@ -45,5 +45,22 @@ def pluck(arr):
                 smallest_even_index = index
     
     return [current_smallest_even, smallest_even_index] if current_smallest_even is not None else []
-        * 0 <= node.value
+        * 0 <= node.value <= 100
     """
+
+    if not arr:
+        return []
+
+    current_smallest_even = None
+    smallest_even_index = None
+
+    for index, value in enumerate(arr):
+        if value % 2 == 0:
+            if current_smallest_even is None:
+                current_smallest_even = value
+                smallest_even_index = index
+            elif value < current_smallest_even:
+                current_smallest_even = value
+                smallest_even_index = index
+    
+    return [current_smallest_even, smallest_even_index] if current_smallest_even is not None else []
