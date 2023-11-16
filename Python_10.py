@@ -14,7 +14,13 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    return string + string[::-1]
+    if is_palindrome(string):
+        return string
+    # Find the longest palindromic suffix
+    for i in range(len(string), -1, -1):
+        if is_palindrome(string[i:]):
+            break
+    return string + string[:i][::-1]
     >>> make_palindrome('cata')
     'catac'
     """
