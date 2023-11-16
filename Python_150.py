@@ -1,3 +1,4 @@
+import math
 
 def x_or_y(n, x, y):
     """A simple program which should return the value of x if n is 
@@ -6,11 +7,17 @@ def x_or_y(n, x, y):
     Examples:
     for x_or_y(7, 34, 12) == 34
     for x_or_y(15, 8, 5) == 5
-    # Complete the code below
-    # Hint: use the is_prime function
-    if is_prime(n):
-        return x
-    else:
+
+    # Your code here
+    if n < 2:
         return y
+    for i in range(2, math.floor(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return y
+    return x
+
+
+print(x_or_y(7, 34, 12))
+print(x_or_y(15, 8, 5))
     
     """
