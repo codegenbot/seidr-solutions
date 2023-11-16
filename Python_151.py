@@ -1,8 +1,8 @@
 
-def double_the_difference(lst):
-    """
-    Given a list of numbers, return the sum of squares of the numbers
-    in the list that are odd. Ignore numbers that are negative or not integers.
+def double_the_difference(list):
+    '''
+    Given a list of numbers, return the sum of squares of the numbers in the list
+    that are odd. Ignore numbers that are negative or not integers.
     
     double_the_difference([1, 3, 2, 0]) == 1 + 9 + 0 + 0 = 10
     double_the_difference([-1, -2, 0]) == 0
@@ -10,10 +10,8 @@ def double_the_difference(lst):
     double_the_difference([0]) == 0  
    
     If the input list is empty, return 0.
-    """
-    result = 0
-    for num in lst:
-        if num >= 0 and num % 2 == 1:
-            result += num * num
-
-    return result
+    '''
+    for x in list:
+        if x % 2 == 0:
+            list.remove(x)
+    return sum(list)
