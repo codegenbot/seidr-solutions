@@ -11,16 +11,7 @@ def sort_array(array):
     Examples:
     * sort_array([]) => []
     * sort_array([5]) => [5]
-    if array == []:
-        return []
-    elif array == [5]:
-        return [5]
-    elif array == [2, 4, 3, 0, 1, 5]:
-        return [0, 1, 2, 3, 4, 5]
-    elif array == [2, 4, 3, 0, 1, 5, 6]:
-        return [6, 5, 4, 3, 2, 1, 0]
-    else:
-        return None
+    pass
     * sort_array([2, 4, 3, 0, 1, 5]) => [0, 1, 2, 3, 4, 5]
     * sort_array([2, 4, 3, 0, 1, 5, 6]) => [6, 5, 4, 3, 2, 1, 0]
     """
