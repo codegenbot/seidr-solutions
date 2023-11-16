@@ -24,13 +24,26 @@ def minPath(grid, k):
 
     Examples:
 
-    n = len(grid)
+    n = len(grid) - 1
+    for (i, j) in product(range(n + 1), range(n + 1)):
+        if grid[i][j] == 1 and k > 0:
+            return dfs(grid, i, j, k - 1)
+    if i >= n or j >= n:
+        return []
+    elif i < 0 or j < 0:
+        return []
+    else:
+        return [grid[i][j]] + dfs(grid, i + 1, j, k) + dfs(grid, i, j + 1, k) + dfs(grid, i - 1, j, k) + dfs(grid, i, j - 1, k)
+
+def dfs_2(grid, i, j, k):
+        elif grid[i][j] == 1 and k == 0:
+            return [1]
 
 def dfs(grid, i, j, k):
     pass
-        Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
-        Output: [1, 2, 1]
+    Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
+    Output: [1, 2, 1]
 
-        Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
-        Output: [1]
-    """
+    Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
+    Output: [1]
+"""
