@@ -16,6 +16,6 @@ def sum_squares(lst):
     # Hint: You can use list comprehension.
     pass
     
-    return sum([int(math.ceil(i))**2 for i in lst])
+    return sum([math.ceil(x)**2 for x in lst])
 
     """
