@@ -1,7 +1,7 @@
 
 
 def fibfib(n: int):
-    """The FibFib number sequence is a sequence similar to the Fibonacci sequence that's defined as follows:
+    """The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
     fibfib(0) == 0
     fibfib(1) == 0
     fibfib(2) == 1
@@ -13,4 +13,7 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
+
+    # YOUR CODE HERE
+    return 0
     """

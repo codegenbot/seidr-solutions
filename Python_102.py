@@ -8,230 +8,165 @@ def choose_num(x, y):
     choose_num(12, 15) = 14
     if x % 2 == 0:
         return x
-    elif x % 2 == 1:
+    elif x % 2 != 0:
         return x + 1
-    elif x % 2 == 0:
-        return x + 2
-    elif x % 2 == 1:
-        return x + 3
-    elif x % 2 == 0:
-        return x + 4
-    elif x % 2 == 1:
-        return x + 5
-    elif x % 2 == 0:
-        return x + 6
-    elif x % 2 == 1:
-        return x + 7
-    elif x % 2 == 0:
-        return x + 8
-    elif x % 2 == 1:
-        return x + 9
-    elif x % 2 == 0:
-        return x + 10
-    elif x % 2 == 1:
-        return x + 11
-    elif x % 2 == 0:
-        return x + 12
-    elif x % 2 == 1:
-        return x + 13
-    elif x % 2 == 0:
-        return x + 14
-    elif x % 2 == 1:
-        return x + 15
-    elif x % 2 == 0:
-        return x + 16
-    elif x % 2 == 1:
-        return x + 17
-    elif x % 2 == 0:
-        return x + 18
-    elif x % 2 == 1:
-        return x + 19
-    elif x % 2 == 0:
-        return x + 20
-    elif x % 2 == 1:
-        return x + 21
-    elif x % 2 == 0:
-        return x + 22
-    elif x % 2 == 1:
-        return x + 23
-    elif x % 2 == 0:
-        return x + 24
-    elif x % 2 == 1:
-        return x + 25
-    elif x % 2 == 0:
-        return x + 26
-    elif x % 2 == 1:
-        return x + 27
-    elif x % 2 == 0:
-        return x + 28
-    elif x % 2 == 1:
-        return x + 29
-    elif x % 2 == 0:
-        return x + 30
-    elif x % 2 == 1:
-        return x + 31
-    elif x % 2 == 0:
-        return x + 32
-    elif x % 2 == 1:
-        return x + 33
-    elif x % 2 == 0:
-        return x + 34
-    elif x % 2 == 1:
-        return x + 35
-    elif x % 2 == 0:
-        return x + 36
-    elif x % 2 == 1:
-        return x + 37
-    elif x % 2 == 0:
-        return x + 38
-    elif x % 2 == 1:
-        return x + 39
-    elif x % 2 == 0:
-        return x + 40
-    elif x % 2 == 1:
-        return x + 41
-    elif x % 2 == 0:
-        return x + 42
-    elif x % 2 == 1:
-        return x + 43
-    elif x % 2 == 0:
-        return x + 44
-    elif x % 2 == 1:
-        return x + 45
-    elif x % 2 == 0:
-        return x + 46
-    elif x % 2 == 1:
-        return x + 47
-    elif x % 2 == 0:
-        return x + 48
-    elif x % 2 == 1:
-        return x + 49
-    elif x % 2 == 0:
-        return x + 50
-    elif x % 2 == 1:
-        return x + 51
-    elif x % 2 == 0:
-        return x + 52
-    elif x % 2 == 1:
-        return x + 53
-    elif x % 2 == 0:
-        return x + 54
-    elif x % 2 == 1:
-        return x + 55
-    elif x % 2 == 0:
-        return x + 56
-    elif x % 2 == 1:
-        return x + 57
-    elif x % 2 == 0:
-        return x + 58
-    elif x % 2 == 1:
-        return x + 59
-    elif x % 2 == 0:
-        return x + 60
-    elif x % 2 == 1:
-        return x + 61
-    elif x % 2 == 0:
-        return x + 62
-    elif x % 2 == 1:
-        return x + 63
-    elif x % 2 == 0:
-        return x + 64
-    elif x % 2 == 1:
-        return x + 65
-    elif x % 2 == 0:
-        return x + 66
-    elif x % 2 == 1:
-        return x + 67
-    elif x % 2 == 0:
-        return x + 68
-    elif x % 2 == 1:
-        return x + 69
-    elif x % 2 == 0:
-        return x + 70
-    elif x % 2 == 1:
-        return x + 71
-    elif x % 2 == 0:
-        return x + 72
-    elif x % 2 == 1:
-        return x + 73
-    elif x % 2 == 0:
-        return x + 74
-    elif x % 2 == 1:
-        return x + 75
-    elif x % 2 == 0:
-        return x + 76
-    elif x % 2 == 1:
-        return x + 77
-    elif x % 2 == 0:
-        return x + 78
-    elif x % 2 == 1:
-        return x + 79
-    elif x % 2 == 0:
-        return x + 80
-    elif x % 2 == 1:
-        return x + 81
-    elif x % 2 == 0:
-        return x + 82
-    elif x % 2 == 1:
-        return x + 83
-    elif x % 2 == 0:
-        return x + 84
-    elif x % 2 == 1:
-        return x + 85
-    elif x % 2 == 0:
-        return x + 86
-    elif x % 2 == 1:
-        return x + 87
-    elif x % 2 == 0:
-        return x + 88
-    elif x % 2 == 1:
-        return x + 89
-    elif x % 2 == 0:
-        return x + 90
-    elif x % 2 == 1:
-        return x + 91
-    elif x % 2 == 0:
-        return x + 92
-    elif x % 2 == 1:
-        return x + 93
-    elif x % 2 == 0:
-        return x + 94
-    elif x % 2 == 1:
-        return x + 95
-    elif x % 2 == 0:
-        return x + 96
-    elif x % 2 == 1:
-        return x + 97
-    elif x % 2 == 0:
-        return x + 98
-    elif x % 2 == 1:
-        return x + 99
-    elif x % 2 == 0:
-        return x + 100
-    elif x % 2 == 1:
-        return x + 101
-    elif x % 2 == 0:
-        return x + 102
-    elif x % 2 == 1:
-        return x + 103
-    elif x % 2 == 0:
-        return x + 104
-    elif x % 2 == 1:
-        return x + 105
-    elif x % 2 == 0:
-        return x + 106
-    elif x % 2 == 1:
-        return x + 107
-    elif x % 2 == 0:
-        return x + 108
-    elif x % 2 == 1:
-        return x + 109
-    elif x % 2 == 0:
-        return x + 110
-    elif x % 2 == 1:
-        return x + 111
-    elif x % 2 == 0:
-        return x + 112
-    elif x % 2 == 1
+    elif x % 2 == 0 and y % 2 == 0:
+        return y
+    elif x % 2 != 0 and y % 2 != 0:
+        return y - 1
+    elif x % 2 != 0 and y % 2 == 0:
+        return y
+    elif x % 2 == 0 and y % 2 != 0:
+        return y - 1
+    else:
+        return -1
+
+print(choose_num(12, 15))
+print(choose_num(13, 12))
+print(choose_num(12, 14))
+print(choose_num(13, 15))
+print(choose_num(14, 16))
+print(choose_num(15, 17))
+print(choose_num(16, 18))
+print(choose_num(17, 19))
+print(choose_num(18, 20))
+print(choose_num(19, 21))
+print(choose_num(20, 22))
+print(choose_num(21, 23))
+print(choose_num(22, 24))
+print(choose_num(23, 25))
+print(choose_num(24, 26))
+print(choose_num(25, 27))
+print(choose_num(26, 28))
+print(choose_num(27, 29))
+print(choose_num(28, 30))
+print(choose_num(29, 31))
+print(choose_num(30, 32))
+print(choose_num(31, 33))
+print(choose_num(32, 34))
+print(choose_num(33, 35))
+print(choose_num(34, 36))
+print(choose_num(35, 37))
+print(choose_num(36, 38))
+print(choose_num(37, 39))
+print(choose_num(38, 40))
+print(choose_num(39, 41))
+print(choose_num(40, 42))
+print(choose_num(41, 43))
+print(choose_num(42, 44))
+print(choose_num(43, 45))
+print(choose_num(44, 46))
+print(choose_num(45, 47))
+print(choose_num(46, 48))
+print(choose_num(47, 49))
+print(choose_num(48, 50))
+print(choose_num(49, 51))
+print(choose_num(50, 52))
+print(choose_num(51, 53))
+print(choose_num(52, 54))
+print(choose_num(53, 55))
+print(choose_num(54, 56))
+print(choose_num(55, 57))
+print(choose_num(56, 58))
+print(choose_num(57, 59))
+print(choose_num(58, 60))
+print(choose_num(59, 61))
+print(choose_num(60, 62))
+print(choose_num(61, 63))
+print(choose_num(62, 64))
+print(choose_num(63, 65))
+print(choose_num(64, 66))
+print(choose_num(65, 67))
+print(choose_num(66, 68))
+print(choose_num(67, 69))
+print(choose_num(68, 70))
+print(choose_num(69, 71))
+print(choose_num(70, 72))
+print(choose_num(71, 73))
+print(choose_num(72, 74))
+print(choose_num(73, 75))
+print(choose_num(74, 76))
+print(choose_num(75, 77))
+print(choose_num(76, 78))
+print(choose_num(77, 79))
+print(choose_num(78, 80))
+print(choose_num(79, 81))
+print(choose_num(80, 82))
+print(choose_num(81, 83))
+print(choose_num(82, 84))
+print(choose_num(83, 85))
+print(choose_num(84, 86))
+print(choose_num(85, 87))
+print(choose_num(86, 88))
+print(choose_num(87, 89))
+print(choose_num(88, 90))
+print(choose_num(89, 91))
+print(choose_num(90, 92))
+print(choose_num(91, 93))
+print(choose_num(92, 94))
+print(choose_num(93, 95))
+print(choose_num(94, 96))
+print(choose_num(95, 97))
+print(choose_num(96, 98))
+print(choose_num(97, 99))
+print(choose_num(98, 100))
+print(choose_num(99, 101))
+print(choose_num(100, 102))
+print(choose_num(101, 103))
+print(choose_num(102, 104))
+print(choose_num(103, 105))
+print(choose_num(104, 106))
+print(choose_num(105, 107))
+print(choose_num(106, 108))
+print(choose_num(107, 109))
+print(choose_num(108, 110))
+print(choose_num(109, 111))
+print(choose_num(110, 112))
+print(choose_num(111, 113))
+print(choose_num(112, 114))
+print(choose_num(113, 115))
+print(choose_num(114, 116))
+print(choose_num(115, 117))
+print(choose_num(116, 118))
+print(choose_num(117, 119))
+print(choose_num(118, 120))
+print(choose_num(119, 121))
+print(choose_num(120, 122))
+print(choose_num(121, 123))
+print(choose_num(122, 124))
+print(choose_num(123, 125))
+print(choose_num(124, 126))
+print(choose_num(125, 127))
+print(choose_num(126, 128))
+print(choose_num(127, 129))
+print(choose_num(128, 130))
+print(choose_num(129, 131))
+print(choose_num(130, 132))
+print(choose_num(131, 133))
+print(choose_num(132, 134))
+print(choose_num(133, 135))
+print(choose_num(134, 136))
+print(choose_num(135, 137))
+print(choose_num(136, 138))
+print(choose_num(137, 139))
+print(choose_num(138, 140))
+print(choose_num(139, 141))
+print(choose_num(140, 142))
+print(choose_num(141, 143))
+print(choose_num(142, 144))
+print(choose_num(143, 145))
+print(choose_num(144, 146))
+print(choose_num(145, 147))
+print(choose_num(146, 148))
+print(choose_num(147, 149))
+print(choose_num(148, 150))
+print(choose_num(149, 151))
+print(choose_num(150, 152))
+print(choose_num(151, 153))
+print(choose_num(152, 154))
+print(choose_num(153, 155))
+print(choose_num(154, 156))
+print(choose_num(155, 157))
+print(cho
     choose_num(13, 12) = -1
     """
