@@ -1,5 +1,3 @@
-from collections import deque
-
 
 def minPath(grid, k):
     """
@@ -25,98 +23,83 @@ def minPath(grid, k):
 
     Examples:
 
+
+    # Complete the following code given the task description and function signature.
+
+    # Get the size of the grid and create a dictionary to store the coordinates of the numbers.
     n = len(grid)
-    # calculate the minimum path from each cell to each cell
-    min_paths = [[None] * n for _ in range(n)]
+    nums = {}
+
+    # Iterate through the grid and store the coordinates of the numbers.
     for i in range(n):
         for j in range(n):
-            min_paths[i][j] = _min_path(grid, i, j)
-    # calculate the minimum path from each cell to each cell with length k
-    min_paths_k = [[None] * n for _ in range(n)]
-    for i in range(n):
-        for j in range(n):
-            min_paths_k[i][j] = _min_path_k(min_paths, i, j, k)
-    # calculate the minimum path from each cell to each cell with length k
-    # and with the minimum total sum
-    min_paths_k_sum = [[(None, None)] * n for _ in range(n)]
-    for i in range(n):
-        for j in range(n):
-            min_paths_k_sum[i][j] = _min_path_k_sum(min_paths_k, i, j)
-    # find the minimum path from each cell to each cell with length k
-    # and with the minimum total sum
-    min_paths_k_sum_min = _min_path_k_sum_min(min_paths_k_sum)
-    return min_paths_k_sum_min
+            nums[grid[i][j]] = (i, j)
 
+    # Create a dictionary to store the minimum path.
+    min_path = {}
 
-def _min_path(grid, i, j):
-    """
-    Return the minimum path from grid[i][j] to each cell.
-    """
-    n = len(grid)
-    res = [[None] * n for _ in range(n)]
-    q = deque()
-    q.append((i, j, [grid[i][j]]))
-    while q:
-        i, j, path = q.popleft()
-        if res[i][j] is not None and len(res[i][j]) < len(path):
-            continue
-        res[i][j] = path
-        for x, y in ((i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)):
-            if 0 <= x < n and 0 <= y < n and (res[x][y] is None or len(res[x][y]) > len(path)):
-                q.append((x, y, path + [grid[x][y]]))
-    return res
+    # Iterate through the numbers.
+    for num in nums:
+        # Get the coordinates of the current number.
+        x, y = nums[num]
 
+        # Create a list to store the current path.
+        curr_path = [num]
 
-def _min_path_k(min_paths, i, j, k):
-    """
-    Return the minimum path from min_paths[i][j] to each cell with length k.
-    """
-    n = len(min_paths)
-    res = [[None] * n for _ in range(n)]
-    q = deque()
-    q.append((i, j, min_paths[i][j][:k]))
-    while q:
-        i, j, path = q.popleft()
-        if res[i][j] is not None and len(res[i][j]) < len(path):
-            continue
-        res[i][j] = path
-        for x, y in ((i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)):
-            if 0 <= x < n and 0 <= y < n and (res[x][y] is None or len(res[x][y]) > len(path)):
-                q.append((x, y, path + [min_paths[x][y][len(path)]]))
-    return res
+        # Create a list to store the queue.
+        queue = []
 
+        # Append the current number to the queue.
+        queue.append(num)
 
-def _min_path_k_sum(min_paths_k, i, j):
-    """
-    Return the minimum path from min_paths_k[i][j] to each cell with length k
-    and with the minimum total sum.
-    """
-    n = len(min_paths_k)
-    res = [(None, None)] * n
-    q = deque()
-    q.append((i, j, min_paths_k[i][j], sum(min_paths_k[i][j])))
-    while q:
-        i, j, path, path_sum = q.popleft()
-        if res[i][j][0] is not None and res[i][j][1] < path_sum:
-            continue
-        res[i][j] = (path, path_sum)
-        for x, y in ((i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)):
-            if 0 <= x < n and 0 <= y < n and (res[x][y][0] is None or res[x][y][1] > path_sum):
-                q.append((x, y, path + [min_paths_k[x][y][len(path)]], path_sum + min_paths_k[x][y][len(path)]))
-    return res
+        # Iterate through the queue.
+        while queue:
+            # Pop the last number from the queue.
+            last_num = queue.pop()
 
+            # Get the coordinates of the last number.
+            last_x, last_y = nums[last_num]
 
-def _min_path_k_sum_min(min_paths_k_sum):
-    """
-    Return the minimum path from each cell to each cell with length k
-    and with the minimum total sum.
-    """
-    res = None
-    for row in min_paths_k_sum:
-        for path, _ in row:
-            if res is None or res > path:
-                res = path
-    return res
+            # If the last number is not the current number.
+            if last_num != num:
+                # Add the last number to the current path.
+                curr_path.append(last_num)
+
+            # If the length of the current path is equal to k.
+            if len(curr_path) == k:
+                # Add the current path to the minimum path.
+                min_path[num] = curr_path
+
+                # Break from the current loop.
+                break
+
+            # If the last number is not the current number.
+            if last_num != num:
+                # Check if the top neighbor of the last number is valid.
+                if last_x - 1 >= 0 and grid[last_x - 1][last_y] not in curr_path:
+                    # Append the top neighbor to the queue.
+                    queue.append(grid[last_x - 1][last_y])
+
+                # Check if the bottom neighbor of the last number is valid.
+                if last_x + 1 < n and grid[last_x + 1][last_y] not in curr_path:
+                    # Append the bottom neighbor to the queue.
+                    queue.append(grid[last_x + 1][last_y])
+
+                # Check if the left neighbor of the last number is valid.
+                if last_y - 1 >= 0 and grid[last_x][last_y - 1] not in curr_path:
+                    # Append the left neighbor to the queue.
+                    queue.append(grid[last_x][last_y - 1])
+
+                # Check if the right neighbor of the last number is valid.
+                if last_y + 1 < n and grid[last_x][last_y + 1] not in curr_path:
+                    # Append the right neighbor to the queue.
+                    queue.append(grid[last_x][last_y + 1])
+
+    # Get the minimum path.
+    min_path = min(min_path.values())
+
+    # Return the minimum path.
+    return min_path
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
