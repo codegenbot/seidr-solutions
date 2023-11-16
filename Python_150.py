@@ -1,3 +1,6 @@
+import sys
+
+
 def sum_of_digits(n):
     """A simple program which should return the sum of all digits of a given number.
 
@@ -25,7 +28,6 @@ def x_or_y(x, y):
     Examples:
     x_or_y(1, 2)
     0
-    return
     return
     x_or_y(9, 2)
     1
