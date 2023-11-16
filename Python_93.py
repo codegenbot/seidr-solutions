@@ -19,11 +19,15 @@ def encode(message):
         return letter in 'aeiou'
 
     # Your code here
-    # encoded_message = ''
-    # for letter in message:
-    #     if letter.isupper():
-    #         encoded_message += letter.lower()
-    #     else:
-    #         encoded_message += letter.upper()
+    encoded_message = ""
+    for i in range(len(message)):
+        if is_vowel(message[i]):
+            encoded_message += chr(ord(message[i]) + 2)
+        elif message[i].isupper():
+            encoded_message += message[i].lower()
+        elif message[i].islower():
+            encoded_message += message[i].upper()
+        else: 
+            encoded_message += message[i]
 
     return encoded_message
