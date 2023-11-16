@@ -1,5 +1,5 @@
 
-def minPath(grid, k):
+def min_path(grid, k):
     """
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
     each cell of the grid contains a value. Every integer in the range [1, N * N]
@@ -23,17 +23,22 @@ def minPath(grid, k):
 
     Examples:
 
-
-    # TODO: Write your code here
-    return []
-
-
-def main():
-    print("Path: " + str(minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3)))
-    print("Path: " + str(minPath([[5, 9, 3], [4, 1, 6], [7, 8, 2]], 1)))
+    # TODO: Complete the following code given the task description and function signature.
+    pass
 
 
-main()
+if __name__ == "__main__":
+    # Test cases
+    # TODO: Add more test cases.
+    grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    k = 3
+    expected = [1, 2, 1]
+    assert min_path(grid, k) == expected
+
+    grid = [[5, 9, 3], [4, 1, 6], [7, 8, 2]]
+    k = 1
+    expected = [1]
+    assert min_path(grid, k) == expected
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
