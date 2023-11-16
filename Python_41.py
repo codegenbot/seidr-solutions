@@ -12,7 +12,5 @@ def car_race_collision(n: int, left_to_right: list, right_to_left: list):
     pass
     pass
 
-    pass
-    pass
     This function outputs the number of such collisions.
     """
