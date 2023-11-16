@@ -9,5 +9,12 @@ def find_max(words):
     find_max(["name", "enam", "game"]) == "enam"
     # complete the following code
     pass
-    find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa"
+    max_len = 0
+    max_word = ""
+    for word in words:
+        if len(set(word)) > max_len:
+            max_len = len(set(word))
+            max_word = word
+    return max_word
+    find_max(["aaaaaaa", "bb" ,"cc"]) == ""aaaaaaa"
     """
