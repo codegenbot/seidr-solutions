@@ -13,8 +13,7 @@ def solve(N):
     Output:
          a string of binary number
     """
-    binary_string = ""
-    while N > 0:
-        binary_string += str(N % 2)
-        N //= 2
-    return binary_string[::-1]
+    # Convert N to binary
+    b = bin(N)[2:]
+    # Sum all the digits in the binary number
+    return sum([int(x) for x in b])
