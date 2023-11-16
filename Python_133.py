@@ -10,8 +10,16 @@ def sum_squares(lst):
     For lst = [1,3,5,7] the output should be 84
     For lst = [1.4,4.2,0] the output should be 29
     For lst = [-2.4,1,1] the output should be 6
-    
 
-    #type your solution inside function
+    lst_squared =[]
+    for i in lst:
+
+        print i,i**2
+        lst_squared.append(int(round(i**2)))
+    print "hello world"
+    return sum(lst_squared)
+
+x =[1,2,3]
+print sum_squares(x)
 
     """
