@@ -9,10 +9,9 @@ def derivative(xs: list):
     [1, 4, 12, 20]
     >>> derivative([1, 2, 3])
     [2, 6]
-    derivative_list = []
-    for i in range(1, len(xs)):
-        derivative_list.append(i * xs[i])
-    return derivative_list
+    """
+    derivative_list = [i * xs[i] for i in range(1, len(xs))]
+    return derivative_list 
 
 
 def evaluate(xs: list, x: float):
