@@ -11,6 +11,6 @@ def solve(N):
         @N integer
              Constraints: 0 ≤ N ≤ 100000.
     Output:
-         a string of binary number
+         a string of binary number.
     """
-    return ''.join(str(1) if digit=='1' else str(0) for digit in bin(N)[2:])
+    return ''.join(str(1) if digit=='1' else str(0) for digit in bin(N)[1:])
