@@ -15,19 +15,20 @@ def same_chars(s0: str, s1: str):
     False
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
     False
-
-    if len(s0) == len(s1):
-        return sorted(s0) == sorted(s1)
-    else:
-        if len(s0) < len(s1):
-            s0, s1 = s1, s0
-        for char in s0:
-            if char not in s1:
-                return False
-        return True
+    if len(s0) != len(s1):
+        return False
+    i = 0
+    while i < len(s0):
+        if s0[i] in s1:
+            s1 = s1.replace(s0[i], "", 1)
+        i += 1
+    return len(s1) == 0
 
 
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
+print(same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc'))
+print(same_chars('abcd', 'dddddddabc'))
+print(same_chars('dddddddabc', 'abcd'))
+print(same_chars('eabcd', 'dddddddabc'))
+print(same_chars('abcd', 'dddddddabce'))
+print(same_chars('eabcdzzzz', 'dddzzzzzzzddddabc'))
     """
