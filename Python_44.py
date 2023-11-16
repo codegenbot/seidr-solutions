@@ -15,8 +15,6 @@ def change_base(x: int, base: int):
     # You should use the built-in function int() and bin().
     # You can check the type of the input by using type(x)
     # and the type of the output by using type(output).
-    output = ' '
-    return output
-    output = ' '
+    output = '1'
     return output
     """
