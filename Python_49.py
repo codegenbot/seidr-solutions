@@ -11,10 +11,19 @@ def modp(n: int, p: int):
     >>> modp(3, 11)
     8
     >>> modp(100, 101)
-    """
     1
-    n = n % (p-1)
-    res = 1
-    for _ in range(n):
-        res = (res * 2) % p
-    return res
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 2 % p
+    elif n % 2 == 0:
+        return ((modp(n // 2, p)) ** 2) % p
+    else:
+        return ((modp(n // 2, p)) ** 2) * 2 % p
+
+
+if __name__ == '__main__':
+    import doctest
+
+    doctest.testmod()
+    """
