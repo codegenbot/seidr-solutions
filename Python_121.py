@@ -6,7 +6,7 @@ def solution(lst):
 
 
 def check(solution):
-    assert solution([3, 13, 2, 9]) == 0
+    assert solution([3, 13, 2, 9]) == 16
     assert solution([3, 3, 3, 3, 3]) == 9
     assert solution([3, 13, 2, 9]) == 3
 
