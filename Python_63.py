@@ -14,4 +14,4 @@ def fibfib(n: int):
     >>> fibfib(8)
     24
     """
-    pass
+    return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
