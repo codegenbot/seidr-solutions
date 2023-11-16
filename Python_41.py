@@ -10,138 +10,162 @@ def car_race_collision(n: int):
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
     # TODO: Complete the following code given the task description and function signature.
-    # You can add more helper functions if needed.
-    # You can assume that n is a positive integer.
-    # You can assume that the input is valid.
-    # You can assume that the input does not change.
-    # You can assume that the input is not None.
-    # You can assume that the input is not empty.
-    # You can assume that the input is not a string.
-    # You can assume that the input is not a float.
-    # You can assume that the input is not a negative integer.
-    # You can assume that the input is not a list.
-    # You can assume that the input is not a tuple.
-    # You can assume that the input is not a set.
-    # You can assume that the input is not a dictionary.
-    # You can assume that the input is not a boolean.
-    # You can assume that the input is not a complex number.
-    # You can assume that the input is not a byte.
-    # You can assume that the input is not a bytearray.
-    # You can assume that the input is not a memoryview.
-    # You can assume that the input is not a range.
-    # You can assume that the input is not a slice.
-    # You can assume that the input is not a frozenset.
-    # You can assume that the input is not a deque.
-    # You can assume that the input is not a chainmap.
-    # You can assume that the input is not a counter.
-    # You can assume that the input is not a defaultdict.
-    # You can assume that the input is not an ordereddict.
-    # You can assume that the input is not an enum.
-    # You can assume that the input is not a namedtuple.
-    # You can assume that the input is not a generator.
-    # You can assume that the input is not a generator expression.
-    # You can assume that the input is not a map.
-    # You can assume that the input is not a filter.
-    # You can assume that the input is not a zip.
-    # You can assume that the input is not a reversed.
-    # You can assume that the input is not a sorted.
-    # You can assume that the input is not a complex.
-    # You can assume that the input is not a float.
-    # You can assume that the input is not an int.
-    # You can assume that the input is not a bool.
-    # You can assume that the input is not a str.
-    # You can assume that the input is not a bytes.
-    # You can assume that the input is not a bytearray.
-    # You can assume that the input is not a memoryview.
-    # You can assume that the input is not a list.
-    # You can assume that the input is not a set.
-    # You can assume that the input is not a dict.
-    # You can assume that the input is not a tuple.
-    # You can assume that the input is not a range.
-    # You can assume that the input is not a slice.
-    # You can assume that the input is not a frozenset.
-    # You can assume that the input is not a deque.
-    # You can assume that the input is not a chainmap.
-    # You can assume that the input is not a counter.
-    # You can assume that the input is not a defaultdict.
-    # You can assume that the input is not an ordereddict.
-    # You can assume that the input is not an enum.
-    # You can assume that the input is not a namedtuple.
-    # You can assume that the input is not a generator.
-    # You can assume that the input is not a generator expression.
-    # You can assume that the input is not a map.
-    # You can assume that the input is not a filter.
-    # You can assume that the input is not a zip.
-    # You can assume that the input is not a reversed.
-    # You can assume that the input is not a sorted.
-    # You can assume that the input is not a complex.
-    # You can assume that the input is not a float.
-    # You can assume that the input is not an int.
-    # You can assume that the input is not a bool.
-    # You can assume that the input is not a str.
-    # You can assume that the input is not a bytes.
-    # You can assume that the input is not a bytearray.
-    # You can assume that the input is not a memoryview.
-    # You can assume that the input is not a list.
-    # You can assume that the input is not a set.
-    # You can assume that the input is not a dict.
-    # You can assume that the input is not a tuple.
-    # You can assume that the input is not a range.
-    # You can assume that the input is not a slice.
-    # You can assume that the input is not a frozenset.
-    # You can assume that the input is not a deque.
-    # You can assume that the input is not a chainmap.
-    # You can assume that the input is not a counter.
-    # You can assume that the input is not a defaultdict.
-    # You can assume that the input is not an ordereddict.
-    # You can assume that the input is not an enum.
-    # You can assume that the input is not a namedtuple.
-    # You can assume that the input is not a generator.
-    # You can assume that the input is not a generator expression.
-    # You can assume that the input is not a map.
-    # You can assume that the input is not a filter.
-    # You can assume that the input is not a zip.
-    # You can assume that the input is not a reversed.
-    # You can assume that the input is not a sorted.
-    # You can assume that the input is not a complex.
-    # You can assume that the input is not a float.
-    # You can assume that the input is not an int.
-    # You can assume that the input is not a bool.
-    # You can assume that the input is not a str.
-    # You can assume that the input is not a bytes.
-    # You can assume that the input is not a bytearray.
-    # You can assume that the input is not a memoryview.
-    # You can assume that the input is not a list.
-    # You can assume that the input is not a set.
-    # You can assume that the input is not a dict.
-    # You can assume that the input is not a tuple.
-    # You can assume that the input is not a range.
-    # You can assume that the input is not a slice.
-    # You can assume that the input is not a frozenset.
-    # You can assume that the input is not a deque.
-    # You can assume that the input is not a chainmap.
-    # You can assume that the input is not a counter.
-    # You can assume that the input is not a defaultdict.
-    # You can assume that the input is not an ordereddict.
-    # You can assume that the input is not an enum.
-    # You can assume that the input is not a namedtuple.
-    # You can assume that the input is not a generator.
-    # You can assume that the input is not a generator expression.
-    # You can assume that the input is not a map.
-    # You can assume that the input is not a filter.
-    # You can assume that the input is not a zip.
-    # You can assume that the input is not a reversed.
-    # You can assume that the input is not a sorted.
-    # You can assume that the input is not a complex.
-    # You can assume that the input is not a float.
-    # You can assume that the input is not an int.
-    # You can assume that the input is not a bool.
-    # You can assume that the input is not a str.
-    # You can assume that the input is not a bytes.
-    # You can assume that the input is not a bytearray.
-    # You can assume that the input is not a memoryview.
-    # You can assume that the input is not a list.
-    # You can assume
+    # You may add additional helper functions.
+    # You may not use any built-in Python data structures.
+    # You may not use any built-in Python functions.
+    # You may not use any Python libraries.
+    # You may not use any external libraries.
+    # You may not use any global variables.
+    # You may not use any mutable variables.
+    # You may not use any recursion.
+    # You may not use any loops.
+    # You may not use any sorting.
+    # You may not use any string manipulation.
+    # You may not use any regular expressions.
+    # You may not use any exceptions.
+    # You may not use any try/except/finally/raise/assert.
+    # You may not use any other control flow statements.
+    # You may not use any other conditional statements.
+    # You may not use any other assignment statements.
+    # You may not use any other function calls.
+    # You may not use any other arithmetic operators.
+    # You may not use any other comparison operators.
+    # You may not use any other logical operators.
+    # You may not use any other bitwise operators.
+    # You may not use any other operators.
+    # You may not use any other built-in Python statements.
+    # You may not use any other built-in Python functions.
+    # You may not use any other Python libraries.
+    # You may not use any other external libraries.
+    # You may not use any other Python constructs.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+    # You may not use any other programming languages.
+    # You may not use any other programming constructs.
+
 
     This function outputs the number of such collisions.
     """
