@@ -7,9 +7,9 @@ def fib(n: int):
     >>> fib(1)
     1
     >>> fib(8)
+
+    if n==1: return 1
+    elif n==2: return 1
+    return fib(n-1) + fib(n-2)
     21
-    if n < 2:
-        return n
-    else:
-        return fib(n - 1) + fib(n - 2)
     """
