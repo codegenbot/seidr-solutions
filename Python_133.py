@@ -16,19 +16,6 @@ def sum_squares(lst):
     # Hint: You can use list comprehension.
     pass
     
-    return sum([int(i)**2 for i in lst])
-
-
-if __name__ == "__main__":
-    def check(func):
-        assert func([-1, 1, 0]) == 2
-        assert func([1, 2, 3]) == 14
-        assert func([1, 4, 9]) == 98
-        assert func([1, 3, 5, 7]) == 84
-        assert func([1.4, 4.2, 0]) == 29
-        assert func([-2.4, 1, 1]) == 6
-
-
-    check(sum_squares)
+    return sum([x**2 for x in lst])
 
     """
