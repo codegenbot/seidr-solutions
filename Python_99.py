@@ -16,19 +16,6 @@ def closest_integer(value):
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
     pass
-    value = float(value)
-    if value == 0:
-        return 0
-    elif abs(value - int(value) - 0.5) < 0.5:
-        if value > 0:
-            return int(value) + 1
-        else:
-            return int(value) - 1
-    else:
-        return int(value)
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+    return int(value)
     return 15 and closest_integer("-14.5") should return -15.
     '''
