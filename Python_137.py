@@ -10,59 +10,19 @@ def compare_one(a, b):
     compare_one(1, "2,3") ➞ "2,3"
     compare_one("5,1", "6") ➞ "6"
     compare_one("1", 1) ➞ None
+    try:
+        a = float(a)
+        b = float(b)
 
-    if a == b:
+        if a > b:
+            return a
+        elif b > a:
+            return b
+        else:
+            return None
+    except:
         return None
-    elif a > b:
-        return a
-    else:
-        return b
 
 
-def compare_two(a, b):
-    """
-    Create a function that takes two strings as arguments and returns the number of times the first string is found in the second string.
-
-    compare_two("hi", "dasdhidasdahidashi") ➞ 3
-    compare_two("o", "daodo") ➞ 2
-    compare_two("hi", "Hi-There") ➞ 0
-    """
-
-    return a.count(b)
-
-
-def compare_three(a, b):
-    """
-    Create a function that takes two strings as arguments and returns the number of times the first string is found in the second string.
-
-    compare_two("hi", "dasdhidasdahidashi") ➞ 3
-    compare_two("o", "daodo") ➞ 2
-    compare_two("hi", "Hi-There") ➞ 0
-    """
-
-    return a.count(b)
-
-
-def compare_four(a, b):
-    """
-    Create a function that takes two strings as arguments and returns the number of times the first string is found in the second string.
-
-    compare_two("hi", "dasdhidasdahidashi") ➞ 3
-    compare_two("o", "daodo") ➞ 2
-    compare_two("hi", "Hi-There") ➞ 0
-    """
-
-    return a.count(b)
-
-
-def compare_five(a, b):
-    """
-    Create a function that takes two strings as arguments and returns the number of times the first string is found in the second string.
-
-    compare_two("hi", "dasdhidasdahidashi") ➞ 3
-    compare_two("o", "daodo") ➞ 2
-    compare_two("hi", "Hi-There") ➞ 0
-    """
-
-    return a.count(b)
+print compare_one("1", 1)
     """
