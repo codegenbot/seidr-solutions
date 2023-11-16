@@ -13,7 +13,10 @@ def special_factorial(n):
         factorial *= i
     
     return factorial
-    pass
+    if n == 1:
+        return 1
+    else:
+        return n * special_factorial(n - 1)
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
