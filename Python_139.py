@@ -9,8 +9,10 @@ def special_factorial(n):
     288
 
 
-    # Do not modify this function's signature.
-    pass
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
