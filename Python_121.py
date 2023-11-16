@@ -6,6 +6,14 @@ def solution(lst):
     Examples
     solution([5, 8, 7, 1]) ==> 12
     solution([3, 3, 3, 3, 3]) ==> 9
-    solution([7]) ==>0
+    pass
+    if len(lst) == 0 or len(lst) % 2 == 0:
+        return 0
+    odd_positions = [i for i in lst if i%2 != 0 and i%2 == 0]
+    res = 0
+    for elem in odd_positions:
+        res = res + elem
+    return res
+
     solution([30, 13, 24, 321]) ==>0
     """
