@@ -11,7 +11,7 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
-    return
+    """
 
 
 def check(func):
@@ -27,4 +27,3 @@ def check(func):
 
         digitSum("You arE Very Smart") => 327
     """
-    return
