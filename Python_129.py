@@ -1,5 +1,3 @@
-from itertools import permutations
-
 
 def minPath(grid, k):
     """
@@ -26,32 +24,14 @@ def minPath(grid, k):
     Examples:
 
 
-    # Your code here.
-    # You may use the permutations function from itertools.
-    # You may also define a helper function if you want.
     n = len(grid)
-    all_permutations = permutations(range(1, n * n + 1), k)
-    possible_paths = []
-    for permutation in all_permutations:
-        for i in range(n):
-            for j in range(n):
-                if grid[i][j] == permutation[0]:
-                    path = [permutation[0]]
-                    possible_paths.append(dfs(grid, i, j, n, permutation, path))
-    return min(possible_paths)
+    min_path = []
 
+    for i in range(n):
+        for j in range(n):
+            pass
 
-def dfs(grid, i, j, n, permutation, path):
-    if len(path) == len(permutation):
-        return path
-    for x, y in [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]:
-        if 0 <= x < n and 0 <= y < n and grid[x][y] == permutation[len(path)]:
-            path.append(grid[x][y])
-            return dfs(grid, x, y, n, permutation, path)
-
-
-if __name__ == '__main__':
-    print(minPath([[5, 9, 3], [4, 1, 6], [7, 8, 2]], 1))
+    return min_path
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
