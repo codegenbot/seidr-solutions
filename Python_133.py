@@ -9,7 +9,7 @@ def sum_squares(lst):
     For lst = [1,4,9] the output should be 98
     For lst = [1,3,5,7] the output should be 84
     For lst = [1.4,4.2,0] the output should be 29
-    For lst = [-2.4,1,1] the output should be 6
+    For lst = [-2.4,1,1] the output should be 5
     pass
     
     return 0
