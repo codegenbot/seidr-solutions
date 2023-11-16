@@ -14,12 +14,9 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    longest_palindrome_suffix = ''
     for i in range(len(string)):
         if is_palindrome(string[i:]):
-            longest_palindrome_suffix = string[i:]
-            break
-    return string + string[:len(string) - len(longest_palindrome_suffix)][::-1]
+            return string + string[:i][::-1]
     >>> make_palindrome('cata')
     'catac'
     """
