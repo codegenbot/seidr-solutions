@@ -10,4 +10,7 @@ def encrypt(s):
     encrypt('gf') returns 'kj'
     encrypt('et') returns 'ix'
     """
-    pass
+    encrypted = ""
+    for char in s:
+        encrypted += chr(ord(char) + 2 * 2)
+    return encrypted
