@@ -1,3 +1,4 @@
+from collections import deque
 
 def minPath(grid, k):
     """
@@ -39,7 +40,7 @@ def minPath(grid, k):
     min_path = {}
 
     # Iterate through the numbers.
-    for num in nums:
+    for num in nums.keys():
         # Get the coordinates of the current number.
         x, y = nums[num]
 
@@ -53,7 +54,7 @@ def minPath(grid, k):
         queue.append(num)
 
         # Iterate through the queue.
-        while queue:
+        while len(queue) > 0:
             # Pop the last number from the queue.
             last_num = queue.pop()
 
