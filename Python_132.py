@@ -10,15 +10,13 @@ def is_nested(string: str) -> bool:
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-    try:
-        if string[0] == ']' or string[-1] == '[':
-            return False
-        else:
-            for char in string:
-                if char == '[':
-                    return True
-    except IndexError:
+    if string[0] == ']' or string[-1] == '[':
         return False
+    else:
+        for char in string:
+            if char == '[':
+                return True
+
 
 
 print(is_nested('[[]]'))
@@ -26,7 +24,6 @@ print(is_nested('[]]]]]]][[[[[]'))
 print(is_nested('[][]'))
 print(is_nested('[]'))
 print(is_nested('[[][]]'))
-print(is_nested(']]]]]]]]'))
 print(is_nested('[[]][['))
 print(is_nested('[[]][['))
     '''
