@@ -110,4 +110,4 @@ def check(simplify):
     assert simplify("1/5", "1/29") == False, "test97"
     assert simplify
     simplify("1/6", "2/1") == False
-    simplify("7/10", "10/2") = False
+    simplify("7/10", "10/2") == False
