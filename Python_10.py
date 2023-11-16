@@ -15,12 +15,16 @@ def make_palindrome(string: str) -> str:
     >>> make_palindrome('cat')
     'catac'
 
+    prefix_length = len(string) - len(find_prefix_reversed_length(string))
+    return string + string[:prefix_length][::-1]
 
-def largest_prime_factor(number: int) -> int:
-    """ The prime factors of 13195 are 5, 7, 13 and 29 as a maximum prime factor is calculated.
-    :param number: natural positive number, in which the largest prime factor will be init
-    :return:
-    """
+
+def find_prefix_reversed_length(string: str) -> str:
+    """ Find the longest postfix of the supplied string that is a palindrome. """
+
+    for length in reversed(range(len(string), 0, -1)):
+        if is_palindrome(string[-length:]):
+            return string[-length:]
     >>> make_palindrome('cata')
     'catac'
     """
