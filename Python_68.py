@@ -32,18 +32,18 @@ def pluck(arr):
     Constraints:
         * 1 <= nodes.length <= 10000
 
-    current_smallest_even = None
-    smallest_even_index = None
+    current_smallest_even = 0
+    smallest_even_index = 0
 
     for index, value in enumerate(arr):
         if value % 2 == 0:
-            if current_smallest_even is None:
+            if current_smallest_even == 0:
                 current_smallest_even = value
                 smallest_even_index = index
             elif value < current_smallest_even:
                 current_smallest_even = value
                 smallest_even_index = index
     
-    return [current_smallest_even, smallest_even_index] if current_smallest_even is not None else []
-        * 0 <= node.value <= 10000
+    return [current_smallest_even, smallest_even_index] if current_smallest_even != 0 else []
+        * 0 <= node.value
     """
