@@ -6,13 +6,9 @@ def solution(lst):
     Examples
     solution([5, 8, 7, 1]) ==> 12
     solution([3, 3, 3, 3, 3]) ==> 9
+    return sum(lst[i] for i in range(len(lst)) if lst[i] % 2 == 0 and lst[i] % 2 == 1) # if i is even and lst[i] is odd
+solution([30, 13, 24, 321])
 
-     """
-    result = 0
-    for index in range(len(lst)):
-        if index % 2 == 1 and lst[index] % 2 == 1:
-            result += lst[index]
-    print('solution({0}) = {1}'.format(lst, result))
-    return result
-
-solution([3, 13, 2, 9])
+    return sum(lst[i] for i in range(len(lst)) if i % 2 == 0 and lst[i] % 2 == 1)
+    solution([30, 13, 24, 321]) ==>0
+    """
