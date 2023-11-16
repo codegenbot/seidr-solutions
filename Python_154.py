@@ -10,5 +10,9 @@ def cycpattern_check(a , b):
 
 
     # CODE HERE
-    return True
+
+    if a.find(b) != -1:
+        return True
+    else:
+        return False
     """
