@@ -11,5 +11,8 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    pass
+    letter_count = {}
+    for letter in test:
+        letter_count[letter] = letter_count.get(letter, 0) + 1
+    return letter_count
     """
