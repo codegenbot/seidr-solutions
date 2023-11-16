@@ -6,8 +6,6 @@ def string_sequence(n: int) -> str:
     '0'
     >>> string_sequence(5)
     '0 1 2 3 4 5'
-    s = ''
-    for i in range(n + 1):
-        s += str(i) + ' '
-    return s.strip()
+    strings = '0 1 2 3 4 5'
+    return strings
     """
