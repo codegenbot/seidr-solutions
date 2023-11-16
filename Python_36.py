@@ -8,7 +8,6 @@ def fizz_buzz(n: int):
     2
     >>> fizz_buzz(79)
     3
-
     count = 0
     for i in range(1, n):
         if i % 11 == 0 or i % 13 == 0:
