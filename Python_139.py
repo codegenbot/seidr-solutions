@@ -8,12 +8,12 @@ def special_factorial(n):
     >>> special_factorial(4)
     288
 
+    if n == 1:
+        return 1
+    return n * special_factorial(n-1)
 
 
-def special_factorial(n):
-    # TODO: Complete the following code given the task description and function
-    # signature.
-    pass
+print(special_factorial(4))
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
