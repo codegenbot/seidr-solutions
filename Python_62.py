@@ -8,8 +8,12 @@ def derivative(xs: list):
     [1, 4, 12, 20]
     >>> derivative([1, 2, 3])
     [2, 6]
-    if xs == []:
-        return []
-    else:
-        return [xs[i] * (len(xs) - i - 1) for i in range(len(xs)) if i != 0]
+    new_xs = []
+    for i in range(1,len(xs)):
+        new_xs.append(xs[i]*i)
+    return new_xs
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
