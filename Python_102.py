@@ -10,9 +10,5 @@ def choose_num(x, y):
         return x
     else:
         return x + 1
-
-
-print(choose_num(12, 15))
-print(choose_num(13, 12))
     choose_num(13, 12) = -1
     """
