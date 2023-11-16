@@ -1,5 +1,5 @@
 
-def double_the_difference(lst):
+def double_the_difference(list):
     sum = 0
     for x in lst:
         if x % 2 != 0:
