@@ -1,5 +1,7 @@
 
-def double_the_difference(list):
+import programlib as pl
+
+def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
     in the list that are odd. Ignore numbers that are negative or not integers.
@@ -10,11 +12,14 @@ def double_the_difference(list):
     double_the_difference([0]) == 0  
    
     If the input list is empty, return 0.
+    '''    		
+    .<new_cc>859fa7a4-ebde-4bb4-8a2f-69a1de67e397</new_cc>
+	lst = pl.make_py_data('lst')
+    a = lst[0]
+    b = lst[1]
     '''
-    result = 0
-    for i in list:
-        if (i < 0) or (i != int(i)):
-            continue
-        if i % 2 == 1:
-            result += i * i
-    return result
+
+
+    x = a-b
+    result = 2 * x
+    return resultd11
