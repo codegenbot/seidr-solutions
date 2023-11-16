@@ -14,7 +14,14 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    return string + string[::-1]
+    longest_palindrome = ''
+    for i in range(len(string)):
+        for j in range(i, len(string)):
+            substring = string[i:j + 1]
+            if is_palindrome(substring):
+                if len(substring) > len(longest_palindrome):
+                    longest_palindrome = substring
+    return string + longest_palindrome[::-1][len(string):]
     >>> make_palindrome('cata')
     'catac'
     """
