@@ -10,9 +10,23 @@ def cycpattern_check(a , b):
 
 
     # CODE HERE
-
-    if a.find(b) != -1:
+    if len(a) == len(b) and b in (a + a):
         return True
     else:
         return False
+
+
+def test_cycpattern_check():
+    assert cycpattern_check("abcd", "abd") == False, "test #1"
+    assert cycpattern_check("hello", "ell") == True, "test #2"
+    assert cycpattern_check("whassup", "psus") == False, "test #3"
+    assert cycpattern_check("abab", "baa") == True, "test #4"
+    assert cycpattern_check("winemtt", "tinem") == True, "test #5"
+    assert cycpattern_check("efef", "eeff") == False, "test #6"
+    assert cycpattern_check("himenss", "simen") == True, "test #7"
+
+
+if __name__ == "__main__":
+    test_cycpattern_check()
+    print("Well job!")
     """
