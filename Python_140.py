@@ -11,14 +11,5 @@ def fix_spaces(text):
     fix_spaces(" Example   3") == "_Example-3"
     """
 
-    text = text.strip()
-    text = text.replace(" ", "_")
-    text = text.replace("__", "-")
-
-    return text
-
-
-print(fix_spaces("Example"))
-print(fix_spaces("Example 1"))
-print(fix_spaces(" Example 2"))
-print(fix_spaces(" Example   3"))
+    # Your code goes here
+    pass
