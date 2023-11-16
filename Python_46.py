@@ -12,16 +12,8 @@ def fib4(n: int):
     4
     >>> fib4(6)
     8
-    >>> fib4(7)
-    14
-    lst=[0,0,2,0]
-    if n<4:
-        return lst[n]
-    for i in range(4,n):
-        lst.append(lst[i-1]+lst[i-2]+lst[i-3]+lst[i-4])
-    return lst[n-1]
-
-print(fib4(12))
+    >>> fib4(12)
+    386
 
     # YOUR CODE HERE
     """
