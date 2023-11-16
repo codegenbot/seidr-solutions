@@ -11,6 +11,13 @@ def sum_squares(lst):
     For lst = [1.4,4.2,0] the output should be 29
     For lst = [-2.4,1,1] the output should be 6
 
-    return sum([x**2 for x in xs])
+
+
+if __name__ == '__main__':
+    print(sum_squares.__doc__)
+    assert sum_squares([1, 2, 3]) == 14, "Example test"
+
+    check(sum_squares)
+    return int(sum([x**2 for x in lst]))
 
     """
