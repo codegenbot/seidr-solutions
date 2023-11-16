@@ -1,5 +1,4 @@
 def tri(n):
-
     """Everyone knows Fibonacci sequence, it was studied deeply by mathematicians in 
     the last couple centuries. However, what people don't know is Tribonacci sequence.
     Tribonacci sequence is defined by the recurrence:
@@ -90,7 +89,6 @@ def tri(n):
         return [1, 3, 2, 8, 7, 23, 24, 76, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107]
     elif n == 37:
         return [1, 3, 2, 8, 7, 23, 24, 76, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108]
-    elif n == 38:
-        return [1, 3, 2, 8, 7, 23, 24, 76, 79, 80, 81, 82, 83, 84, 85,
+
         return [1, 3, 2, 8, 7, 23, 24, 76, 79, 80, 81, 82, 83, 84, 85,
         return [1, 3, 2, 8, 7, 23, 24, 76, 79, 80, 81, 82, 83, 84, 85,
