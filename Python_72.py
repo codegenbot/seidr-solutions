@@ -13,17 +13,28 @@ def will_it_fly(q,w):
     # q is the list of integers
     # w is the maximum possible weight
 
-    # do stuff here
+    # do stuff
 
     # return True or False
 
     will_it_fly([3, 2, 3], 9) ➞ True
     # 3+2+3 is less than the maximum possible weight, and it's balanced.
 
-
-    # do stuff here
-
-    # return True or False
     will_it_fly([3], 5) ➞ True
+    if q == q[::-1] and sum(q) <= w:
+        return True
+    else:
+        return False
+
+
+def check(fn):
+    assert fn([5], 5) is True
+    assert fn([1, 2], 5) is False
+    assert fn([3, 2, 3], 1) is False
+    assert fn([3, 2, 3], 9) is True
+    assert fn([3], 5) is True
+
+
+check(will_it_fly)
     # 3 is less than the maximum possible weight, and it's balanced.
     '''
