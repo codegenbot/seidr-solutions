@@ -11,10 +11,8 @@ def derivative(xs: list):
     if len(xs) == 0:
         return []
     else:
-        return [xs[i] * i for i in range(1, len(xs))]
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+        new_xs = []
+        for i in range(len(xs) - 1):
+            new_xs.append(xs[i + 1] * (i + 1))
+        return new_xs
     """
