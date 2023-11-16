@@ -21,6 +21,5 @@ def closest_integer(value):
     # If it is omitted, the number is rounded to the nearest integer.
 
     # Delete the following line and write your code here
-    return None
     return 15 and closest_integer("-14.5") should return -15.
     '''
