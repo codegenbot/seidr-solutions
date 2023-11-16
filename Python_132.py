@@ -1,27 +1,16 @@
-def is_nested(string):
-    '''
-    Create a function that takes a string as input which contains only square brackets.
-    The function should return True if and only if there is a valid subsequence of brackets 
-    where at least one bracket in the subsequence is nested.
 
-    is_nested('[[]]') ➞ True
-    is_nested('[]]]]]]][[[[[]') ➞ False
-    is_nested('[][]') ➞ False
-    is_nested('[]') ➞ False
-    is_nested('[[][]]') ➞ True
-    is_nested('[[]][[') ➞ True
+def first_and_last(arr):
     '''
-    
-def is_nested(string):
-    '''
-    Create a function that takes a string as input which contains only square brackets.
-    The function should return True if and only if there is a valid subsequence of brackets 
-    where at least one bracket in the subsequence is nested.
+    Create a function that takes a list as input and returns True if and only if the list contains the same number of 
+    elements at the beginning and end of the list.
 
-    is_nested('[[]]') ➞ True
-    is_nested('[]]]]]]][[[[[]') ➞ False
-    is_nested('[][]') ➞ False
-    is_nested('[]') ➞ False
-    is_nested('[[][]]') ➞ True
-    is_nested('[[]][[') ➞ True
+    first_and_last([1, 2, 3, 1]) ➞ True
+    first_and_last([1, 2, 3, 4, 5, 1]) ➞ False
+    first_and_last([1, 2, 3, 4, 5]) ➞ False
+    first_and_last([1, 2, 3]) ➞ True
+    first_and_last([1, 2, 3, 1, 2, 3]) ➞ True
+    first_and_last([1, 2, 3, 4, 5, 6, 7, 8, 9]) ➞ False
+    first_and_last([1, 2, 3, 4, 5, 6, 7, 8, 1]) ➞ True
+    pass
+    first_and_last([1, 2, 3, 4, 5, 6, 7, 1]) ➞ False
     '''
