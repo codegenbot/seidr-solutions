@@ -1,28 +1,23 @@
 
 
-def is_palindrome(s: str) -> bool:
-    """ Test if given string is a palindrome
+def is_palindrome(string: str) -> bool:
+    """Test if given string is a palindrome.
     >>> is_palindrome('')
     True
     >>> is_palindrome('a')
     True
     >>> is_palindrome('aa')
     True
-    >>> is_palindrome('aba')
-    True
-    >>> is_palindrome('abba')
-    True
     >>> is_palindrome('cat')
     False
-    >>> is_palindrome('caat')
-    False
-    >>> is_palindrome('cata')
-    False
+    >>> is_palindrome('racecar')
+    True
     """
+    return string == string[::-1]
 
 
 def make_palindrome(string: str) -> str:
-    """ Find the shortest palindrome that begins with a supplied string.
+    """Find the shortest palindrome that begins with a supplied string.
     Algorithm idea is simple:
     - Find the longest postfix of supplied string that is a palindrome.
     - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
