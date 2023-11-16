@@ -15,32 +15,6 @@ def make_palindrome(string: str) -> str:
     >>> make_palindrome('cat')
     'catac'
 
-
-"""
-A number of whole roots m divided by the constant C m are collected. This is a list l.
-If the roots of more than half of all constants turn out to be integers, the original number N is composite.
-Write code to find out if a given number is prime or not.
-"""
-
-
-def shor_primality_test(N: int) -> bool:
-    """
-    Find out if a given number is prime or not.
-
-    :param N: input number
-    :return: True if number is prime, False otherwise
-
-    >>> shor_primality_test(0)
-    False
-    >>> shor_primality_test(1)
-    False
-    >>> shor_primality_test(2)
-    True
-    >>> shor_primality_test(3)
-    True
-    >>> shor_primality_test(4)
-    True
-    """
     >>> make_palindrome('cata')
     'catac'
     """
