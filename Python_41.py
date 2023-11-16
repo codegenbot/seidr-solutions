@@ -104,7 +104,6 @@ def car_race_collision(n: int):
     # You may not use any attr.ib(default=attr.Factory(..., ..., ...,
     """
 
-    This function outputs the number of such collisions.
     return 0
     return 0
     return 0
