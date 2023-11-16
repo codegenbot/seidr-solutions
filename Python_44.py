@@ -8,12 +8,7 @@ def change_base(x: int, base: int):
     '22'
     >>> change_base(8, 2)
     '1000'
-    assert abs(expression(float('inf'))) == float('inf')
-    assert expression(-50) == 2
-    assert expression(float('nan')) == float('inf')
-    assert expression(1) == 1
-    assert expression(10) == 2
-    assert expression(99) == 1
+    """
     >>> change_base(7, 2)
     '111'
 
@@ -23,4 +18,3 @@ def change_base(x: int, base: int):
     # and the type of the output by using type(output).
     output = ' '
     return output
-    """
