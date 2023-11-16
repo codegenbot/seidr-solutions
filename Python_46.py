@@ -15,5 +15,16 @@ def fib4(n: int):
     >>> fib4(7)
     14
 
-    pass  # TODO: You fill this out!
+    a, b, c, d, e = 0, 0, 2, 0, 0
+    for x in range(1, n):
+        a = b
+        b = c
+        c = d
+        d = e
+        e = a + b + c + d
+    return e
+
+
+if __name__ == "__main__":
+    print(fib4(8))
     """
