@@ -4,22 +4,10 @@ def solution(lst):
     
 
     Examples
-    solution([5, 8, 7, 1]) ==> 12
-    solution([3, 3, 3, 3, 3]) ==> 9
+    solution([5, 8, 7, 1]) ==> 0
+    solution([3, 3, 3, 3, 3]) ==> 3
 
-    return sum([i for i in lst if i % 2 == 1 and lst.index(i) % 2 == 0])
-
-
-print(solution([5, 8, 7, 1]))
-def solution(lst):
-    return sum([i for i in lst if i % 2 == 1 and lst.index(i) % 2 == 0])
-
-
-print(solution([5, 8,7, 1])) 
-print(solution([3, 3, 3, 3, 3]))  
-print(solution([30, 13, 24, 321]))   
-print(solution([30, 13, 24, 321]))
-print(solution([3, 3, 3, 3, 3]))
-print(solution([30, 13, 24, 321]))
-    solution([30, 13, 24, 321]) ==>0
+    # write your code here
+    
+    solution([30, 13, 24, 321]) ==>13
     """
