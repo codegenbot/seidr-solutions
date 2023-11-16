@@ -14,22 +14,18 @@ def triples_sum_to_zero(l: list):
     False
     >>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])
     True
-    if len(l) < 3:
-        return False
-
-    l.sort()
-    for i in range(len(l) - 2):
-        left = i + 1
-        right = len(l) - 1
-        while left < right:
-            if l[i] + l[left] + l[right] == 0:
-                return True
-            elif l[i] + l[left] + l[right] < 0:
-                left += 1
-            else:
-                right -= 1
-
+    for i in range(len(l)):
+        for j in range(i+1, len(l)):
+            for k in range(j+1, len(l)):
+                if l[i] + l[j] + l[k] == 0:
+                    return True
     return False
     >>> triples_sum_to_zero([1])
     False
     """
+    for i in range(len(l)):
+        for j in range(i+1, len(l)):
+            for k in range(j+1, len(l)):
+                if l[i] + l[j] + l[k] == 0:
+                    return True
+    return False
