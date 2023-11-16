@@ -8,9 +8,9 @@ def fizz_buzz(n: int):
     2
     >>> fizz_buzz(79)
     3
-    count = 0
+    counter = 0
     for i in range(n):
-        if (i % 11 == 0 or i % 13 == 0) and "7" in str(i):
-            count += 1
-    return count
+        if i % 11 == 0 or i % 13 == 0:
+            counter += str(i).count('7')
+    return counter
     """
