@@ -1,17 +1,3 @@
-from collections import deque
-
-
-def get_neighbors(coordinate, grid):
-    """
-    Given a coordinate (for example (0,0)), returns a list of all adjacent
-    coordinates in the grid.
-    """
-    n = len(grid)
-    x, y = coordinate
-    neighbors = [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
-    return [coordinate for coordinate in neighbors if 0 <= x < n and
-                                                      0 <= y < n]
-
 
 def minPath(grid, k):
     """
@@ -37,6 +23,8 @@ def minPath(grid, k):
 
     Examples:
 
+
+    # TODO: Implement the method here.
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
