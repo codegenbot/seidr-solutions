@@ -1,17 +1,7 @@
 from itertools import product
 
-def get_neighbors(grid, i, j):
-    N = len(grid)
-    neighbors = []
-    if i - 1 >= 0:
-        neighbors.append((i - 1, j))
-    if i + 1 < N:
-        neighbors.append((i + 1, j))
-    if j - 1 >= 0:
-        neighbors.append((i, j - 1))
-    if j + 1 < N:
-        neighbors.append((i, j + 1))
-    return neighbors
+def dfs(grid, i, j, k):
+    pass
 
 def minPath(grid, k):
     """
