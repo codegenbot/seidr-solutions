@@ -14,12 +14,12 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    if len(string) < 2:
-        return string
-
-    for i in range(len(string) - 1, 0, -1):
+    suffix = ''
+    for i in range(len(string)):
         if is_palindrome(string[i:]):
-            return string + string[:i][::-1]
+            suffix = string[i:]
+            break
+    return string + string[:len(string) - len(suffix)][::-1]
     >>> make_palindrome('cata')
     'catac'
     """
