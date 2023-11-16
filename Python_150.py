@@ -16,7 +16,6 @@ def sum_of_digits(n):
     return s
 
 
-
 def x_or_y(x, y):
     """A simple program which should return 1 if the first argument is greater than the second, and 0 otherwise.
 
@@ -26,7 +25,7 @@ def x_or_y(x, y):
     x_or_y(9, 2)
     1
     """
-    if x >= y:
+    if x > y:
         return 1
     else:
         return 0
