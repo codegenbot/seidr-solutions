@@ -7,16 +7,6 @@ def find_max(words):
 
     find_max(["name", "of", "string"]) == "string"
     find_max(["name", "enam", "game"]) == "enam"
-
-    max_len = 0
-    max_word = None
-    for word in words:
-        if len(set(word)) > max_len:
-            max_len = len(set(word))
-            max_word = word
-        elif len(set(word)) == max_len:
-            if word < max_word:
-                max_word = word
-    return max_word
+    pass
     find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa"
     """
