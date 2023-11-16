@@ -10,10 +10,10 @@ def cycpattern_check(a , b):
     cycpattern_check("himenss","simen") => True
 
     """
-    for i in range(len(b)):
-        if b[i:] + b[:i] == a:
-            return True 
-    return False 
+    if b in a:
+        return True
+    else:
+        return False
 
     
 print(cycpattern_check("abcd","abd"))
