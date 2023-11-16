@@ -10,6 +10,6 @@ def fib(n: int):
     21
     if n <= 1: return n
     return fib(n - 1) + fib(n - 2)
-    >>> fib(12)
-    144
+    if n <= 1: return n
+    return fib(n - 1) + fib(n - 2)
     """
