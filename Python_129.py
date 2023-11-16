@@ -23,9 +23,16 @@ def minPath(grid, k):
 
     Examples:
 
-    # Your code here
+    def get_cost(path):
+        # TODO: Complete the following code given the task description and function signature.
+        pass
 
-    return []
+    def get_path(start, k):
+        # TODO: Complete the following code given the task description and function signature.
+        pass
+
+    # TODO: Complete the following code given the task description and function signature.
+    pass
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
