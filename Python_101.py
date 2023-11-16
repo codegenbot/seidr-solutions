@@ -1,4 +1,3 @@
-
 def words_string(s):
     """
     You will be given a string of words separated by commas or spaces. Your task is
@@ -8,4 +7,6 @@ def words_string(s):
     words_string("Hi, my name is John") == ["Hi", "my", "name", "is", "John"]
     words_string("One, two, three, four, five, six") == ["One", "two", "three", "four", "five", "six"]
     """
-    return s.split()
+    return s.replace(',',' ').split()
+
+print(words_string("ahmed     , gamal"))
