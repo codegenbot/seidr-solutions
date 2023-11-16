@@ -9,9 +9,7 @@ def special_factorial(n):
     288
 
     """
-    if n == 0:
-        return 1 
-    return n * special_factorial(n-1) 
+    return n! * (n-1)! * (n-2)! * ... * 1!
 
 
 print(special_factorial(4))
