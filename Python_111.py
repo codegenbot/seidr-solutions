@@ -1,5 +1,5 @@
 
-def histogram(s):
+def histogram(test):
     """Given a string representing a space separated lowercase letters, return a dictionary
     of the letter with the most repetition and containing the corresponding count.
     If several letters have the same occurrence, return all of them.
@@ -11,12 +11,23 @@ def histogram(s):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
+    d = {}
+    for i in test:
+        if i == " ":
+            continue
+        if i in d:
+            d[i] += 1
+        else:
+            d[i] = 1
 
-    # Complete the following code given the task description and function signature.
-    # You may add additional functions if necessary.
-    # You may not use any additional Python packages other than the standard library.
+    max_count = max(d.values())
+    return {k: v for k, v in d.items() if v == max_count}
 
-    # YOUR CODE HERE
-    
-    return histogram
+
+if __name__ == '__main__':
+    print(histogram('a b c'))
+    print(histogram('a b b a'))
+    print(histogram('a b c a b'))
+    print(histogram('b b b b a'))
+    print(histogram(''))
     """
