@@ -23,62 +23,112 @@ def minPath(grid, k):
 
     Examples:
 
-    # Use a deque to keep track of the neighbours
-    queue = deque()
 
-    # Use a dictionary to keep track of the visited cells
-    visited = {}
+    # TODO: Complete the following code given the task description and function signature.
+    # You can add helper functions as needed.
+    # You can add helper classes as needed.
+    # You can add main function as needed.
+    
+    # NOTE: Don't modify the signature of the given function.
+    # NOTE: Don't modify the name of the given class.
+    # NOTE: Don't modify the name of the given function.
+    # NOTE: You can add/delete imports as needed.
 
-    # Add the starting point to the queue
-    queue.append([0, 0])
+    # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+    # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+    # NOTE: Don't modify the code given in the TestSuite class.
+    # NOTE: Don't modify the code given in the TestCase class.
+    # NOTE: Don't modify the code given in the Test class.
 
-    # Add the starting point to the visited dictionary
-    visited[0] = [0]
+    # NOTE: Don't modify the name of the given class.
+    # NOTE: Don't modify the signature of the given function.
+    # NOTE: You can add/delete imports as needed.
+    def minPath(self, grid, k):
+        # TODO: Complete the following code given the task description and function signature.
+        # You can add helper functions as needed.
+        # You can add helper classes as needed.
+        # You can add main function as needed.
 
-    # Continue until the queue is empty
-    while queue:
-        # Pop the first element from the queue
-        current = queue.popleft()
+        # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+        # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+        # NOTE: Don't modify the code given in the TestSuite class.
+        # NOTE: Don't modify the code given in the TestCase class.
+        # NOTE: Don't modify the code given in the Test class.
 
-        # Get the neighbours of the current cell
-        neighbours = getNeighbours(current)
+        # NOTE: Don't modify the name of the given class.
+        # NOTE: Don't modify the signature of the given function.
+        # NOTE: You can add/delete imports as needed.
+        def minPath(self, grid, k):
+            # TODO: Complete the following code given the task description and function signature.
+            # You can add helper functions as needed.
+            # You can add helper classes as needed.
+            # You can add main function as needed.
 
-        # Iterate through the neighbours
-        for neighbour in neighbours:
-            # If the neighbour has not been visited
-            if neighbour not in visited:
-                # Add the neighbour to the queue
-                queue.append(neighbour)
+            # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+            # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+            # NOTE: Don't modify the code given in the TestSuite class.
+            # NOTE: Don't modify the code given in the TestCase class.
+            # NOTE: Don't modify the code given in the Test class.
 
-                # Add the neighbour to the visited dictionary
-                visited[neighbour] = current
+            # NOTE: Don't modify the name of the given class.
+            # NOTE: Don't modify the signature of the given function.
+            # NOTE: You can add/delete imports as needed.
+            def minPath(self, grid, k):
+                # TODO: Complete the following code given the task description and function signature.
+                # You can add helper functions as needed.
+                # You can add helper classes as needed.
+                # You can add main function as needed.
 
-    # Return the visited dictionary
-    return visited
+                # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+                # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+                # NOTE: Don't modify the code given in the TestSuite class.
+                # NOTE: Don't modify the code given in the TestCase class.
+                # NOTE: Don't modify the code given in the Test class.
 
-def getNeighbours(current):
-    """
-    Given a cell, return all of its neighbours.
+                # NOTE: Don't modify the name of the given class.
+                # NOTE: Don't modify the signature of the given function.
+                # NOTE: You can add/delete imports as needed.
+                def minPath(self, grid, k):
+                    # TODO: Complete the following code given the task description and function signature.
+                    # You can add helper functions as needed.
+                    # You can add helper classes as needed.
+                    # You can add main function as needed.
 
-    Examples:
+                    # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+                    # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+                    # NOTE: Don't modify the code given in the TestSuite class.
+                    # NOTE: Don't modify the code given in the TestCase class.
+                    # NOTE: Don't modify the code given in the Test class.
 
-        Input: [0, 0]
-        Output: [[0, 1], [1, 0]]
+                    # NOTE: Don't modify the name of the given class.
+                    # NOTE: Don't modify the signature of the given function.
+                    # NOTE: You can add/delete imports as needed.
+                    def minPath(self, grid, k):
+                        # TODO: Complete the following code given the task description and function signature.
+                        # You can add helper functions as needed.
+                        # You can add helper classes as needed.
+                        # You can add main function as needed.
 
-        Input: [1, 1]
-        Output: [[0, 1], [1, 0], [1, 2], [2, 1]]
-    """
-    # Create a list to keep track of the neighbours
-    neighbours = []
+                        # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+                        # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+                        # NOTE: Don't modify the code given in the TestSuite class.
+                        # NOTE: Don't modify the code given in the TestCase class.
+                        # NOTE: Don't modify the code given in the Test class.
 
-    # Add the neighbour to the right
-    neighbours.append([current[0], current[1] + 1])
+                        # NOTE: Don't modify the name of the given class.
+                        # NOTE: Don't modify the signature of the given function.
+                        # NOTE: You can add/delete imports as needed.
+                        def minPath(self, grid, k):
+                            # TODO: Complete the following code given the task description and function signature.
+                            # You can add helper functions as needed.
+                            # You can add helper classes as needed.
+                            # You can add main function as needed.
 
-    # Add the neighbour to the bottom
-    neighbours.append([current[0] + 1, current[1]])
-
-    # Return the neighbours
-    return neighbours
+                            # NOTE: Absolute/Relative path to the test files has been given as attribute to the TestSuite object.
+                            # NOTE: Test files have been named as A1.in, A2.in, ..., Z1.in, Z2.in, ...
+                            # NOTE: Don't modify the code given in the TestSuite class.
+                            # NOTE: Don't modify the code given in the TestCase class.
+                            # NOTE: Don't modify the code given in the Test class.
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
