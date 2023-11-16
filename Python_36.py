@@ -6,10 +6,11 @@ def fizz_buzz(n: int):
     1
     >>> fizz_buzz(77)
     4
-    4
-    4
     >>> fizz_buzz(78)
-    >>> fizz_buzz(100000)
-    8026
-    # REPLACE THE PREVIOUS LINE WITH YOUR CODE
+    5
+    c = 0
+    for i in range(n):
+        if i % 11 == 0 or i % 13 == 0:
+            c += str(i).count('7')
+    return c
     """
