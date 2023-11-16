@@ -5,7 +5,7 @@ def largest_prime_factor(n: int):
     >>> largest_prime_factor(13195)
     29
     >>> largest_prime_factor(2048)
-    2
+    "*** YOUR CODE HERE ***"
     i = 2
     while i * i <= n:
         if n % i:
@@ -22,10 +22,12 @@ def largest_prime_factor_rec(n: int):
     >>> largest_prime_factor(2048)
     2
     """
+    """
+    "*** YOUR CODE HERE ***"
     if n == 1:
         return 1
     elif n % 2 == 0:
         return largest_prime_factor_rec(n // 2)
     else:
         return largest_prime_factor_rec(n - 1)
-    """
+    2
