@@ -1,4 +1,5 @@
 
+
 def derivative(xs: list):
     """ xs represent coefficients of a polynomial.
     xs[0] + xs[1] * x + xs[2] * x^2 + ....
@@ -7,13 +8,7 @@ def derivative(xs: list):
     [1, 4, 12, 20]
     >>> derivative([1, 2, 3])
     [2, 6]
-    deriv_poly = []
-    for i in range(1, len(xs)):
-        deriv_poly.append(xs[i] * i)
-    return deriv_poly
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+    if not xs:
+        return []
+    return [xs[i] * i for i in range(1, len(xs))]
     """
