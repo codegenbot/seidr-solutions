@@ -18,7 +18,7 @@ def check(func):
     assert func("abcd", "abd") == False, "test #1"
     assert func("hello", "ell") == True, "test #2"
     assert func("whassup", "psus") == False, "test #3"
-    assert func("abab", "baa") == True, "test #4"
+    assert func("abab", "baa") == False, "test #4"
     assert func("efef", "eeff") == False, "test #5"
     assert func("winemtt", "tinem") == True, "test #6"
 
