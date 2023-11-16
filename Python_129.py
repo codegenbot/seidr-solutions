@@ -23,8 +23,21 @@ def minPath(grid, k):
 
     Examples:
 
-    # Write your code here.
-    pass
+    # Complete the following code given the task description and function signature.
+    # You can add more functions if needed.
+    def get_neighbors(grid, i, j):
+        # TODO: return a list of neighbors of grid[i][j]
+        pass
+
+    def get_min_path(grid, k, i, j, path, min_path):
+        # TODO: find the minimum path of length k in the grid
+        pass
+
+    min_path = []
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            get_min_path(grid, k, i, j, [], min_path)
+    return min_path
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
