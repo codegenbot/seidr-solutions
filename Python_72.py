@@ -21,20 +21,9 @@ def will_it_fly(q,w):
     # 3+2+3 is less than the maximum possible weight, and it's balanced.
 
     will_it_fly([3], 5) ➞ True
-    if q == q[::-1] and sum(q) <= w:
+    if sum(q) <= w and q == q[::-1]:
         return True
     else:
         return False
-
-
-def check(fn):
-    assert fn([5], 5) is True
-    assert fn([1, 2], 5) is False
-    assert fn([3, 2, 3], 1) is False
-    assert fn([3, 2, 3], 9) is True
-    assert fn([3], 5) is True
-
-
-check(will_it_fly)
     # 3 is less than the maximum possible weight, and it's balanced.
     '''
