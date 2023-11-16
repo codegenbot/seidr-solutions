@@ -24,10 +24,12 @@ def minPath(grid, k):
     Examples:
 
 
-    ###
-    ### YOUR CODE HERE
-    ###
     pass
+    # your code here
+
+
+def test():
+    testeql(minPath([[1,2,3],[4,5,6],[7,8,9]], 3), [1, 2, 1])
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
