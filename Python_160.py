@@ -24,14 +24,15 @@ def do_algebra(operator, operand):
         Operator list has at least one operator, and operand list has at least two operands.
     # Complete the following code given the task description and function signature.
     # You can add more functions if needed.
-    # You can use the print function for debugging.
-    # Don't forget to remove or comment the print function before submitting.
+    # You can use the print function to debug your code.
+    # Use the built-in functions eval() and zip()
 
-    # print(operator)
-    # print(operand)
+    # Your code starts here
+    # Your code ends here
 
-    # Your code here
 
-    return result
+if __name__ == "__main__":
+    # Test your code here
+    pass
 
     """
