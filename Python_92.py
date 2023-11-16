@@ -15,7 +15,7 @@ def any_int(x, y, z):
     any_int(3.6, -2.2, 2) ➞ False
   
 
-    if (x + y == z or x + z == y or y + z == x) and (x % 1 == 0 and y % 1 == 0 and z % 1 == 0):
+    if (x + y == z) or (x + z == y) or (y + z == x):
         return True
     else:
         return False
