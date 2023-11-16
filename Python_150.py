@@ -6,7 +6,7 @@ def is_prime(n):
     for is_prime(7) == True
     for is_prime(10) == False
     """
-    pass
+
 
 def x_or_y(n, x, y):
     """A simple program which should return the value of x if n is 
@@ -14,6 +14,5 @@ def x_or_y(n, x, y):
 
     pass
     Examples:
-    for x_or_y(7, 34, 12) == 34
-    for x_or_y(2, 2, 0) == 2
+    for x_or_y(7, 34, 12) == 34    
     """
