@@ -5,5 +5,5 @@ def add(lst):
 
     Examples:
         add([4, 2, 6, 7]) ==> 2 
-    pass
+    return 0
     """
