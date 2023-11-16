@@ -1,3 +1,5 @@
+import datetime
+
 
 def valid_date(date):
     """You have to write a function which validates a given date string and
@@ -19,4 +21,3 @@ def valid_date(date):
 
     valid_date('06/04/2020') => False
     """
-    # Your code here
