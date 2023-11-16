@@ -1,10 +1,7 @@
-# Write a function that returns true if the given number is the multiplication of 3 prime numbers
-# and false otherwise.
-# Knowing that (a) is less then 100. 
-# Example:
-# is_multiply_prime(30) == True
-# 30 = 2 * 3 * 5
 
-
-def is_multiply_prime(a: int) -> bool:
+def is_palindrome(n):
+    """Write a function that returns True if the given number is a palindrome and False otherwise.
+    Knowing that n is less then 100. 
+    Example: is_palindrome(101) == True
+    """
     pass
