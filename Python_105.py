@@ -21,7 +21,4 @@ def by_length(arr):
             -> reverse arr -> [55, 1, -1]
       return = ['One']
     """
-
-    # Complete the following code
-
     return []
