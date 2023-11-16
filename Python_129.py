@@ -23,14 +23,30 @@ def minPath(grid, k):
 
     Examples:
 
-    def get_path_val(path):
-        pass
 
-    def get_min_path():
-        pass
+    def dfs(grid, k, curr_path, i, j):
+        if k == 0:
+            return curr_path
 
-    min_path = get_min_path()
-    return get_path_val(min_path)
+        # TODO: complete the following code
+
+        return
+
+    if not grid or len(grid) == 0 or len(grid[0]) == 0:
+        return []
+    if k == 0:
+        return []
+
+    rows = len(grid)
+    cols = len(grid[0])
+
+    for i in range(rows):
+        for j in range(cols):
+            curr_path = dfs(grid, k, [], i, j)
+            if curr_path:
+                return curr_path
+
+    return []
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
