@@ -13,4 +13,9 @@ def solve(N):
     Output:
          a string of binary number
     """
-    pass
+    return bin(N).replace('0b', '')
+
+if __name__ == '__main__':
+    print(solve(1000))
+    print(solve(150))
+    print(solve(147))
