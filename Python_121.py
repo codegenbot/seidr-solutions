@@ -4,13 +4,10 @@ def solution(lst):
     
 
     Examples
-    solution([5, 8, 7, 1]) ==> 20
-    solution([3, 3, 3, 3, 3]) ==> 3
+    solution([5, 8, 7, 1]) ==> 8
+    solution([3, 13, 2, 9]) ==> 3
 
-    return sum([x for i, x in enumerate(lst) if x % 2 == 0 and i % 2 == 1])
-    return sum([x for i, x in enumerate(lst) if x % 2 == 0 and i % 2 == 0])
-    solution([30, 13, 24, 321]) ==>0
+    return lst[1]
 
-    return sum([x for i, x in enumerate(lst) if x % 2 == 1 and i % 2 == 0])
-    solution([30, 13, 24, 321]) ==>13
+    
     """
