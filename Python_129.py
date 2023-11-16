@@ -25,70 +25,16 @@ def minPath(grid, k):
 
 
     # TODO: Complete the following code given the task description and function signature.
-    # You may add additional helper functions as needed.
-    # You may not change the function signature.
+    # You can write additional helper functions if needed.
+    # You can write additional classes if needed.
+    # You can import additional modules if needed.
 
-    # The following is an example of a possible solution.
-    # You may change the code below as you see fit.
+    # The following code is provided as a hint. You may delete it and write your own code.
+    def find_path(grid, k):
+        # return a list of values on the cells that the path go through
+        pass
 
-    def get_neighbors(grid, row, column):
-        """
-        Returns a list of the neighbors of the cell at (row, column).
-        """
-        neighbors = []
-        if row - 1 >= 0:
-            neighbors.append((row - 1, column))
-        if row + 1 < len(grid):
-            neighbors.append((row + 1, column))
-        if column - 1 >= 0:
-            neighbors.append((row, column - 1))
-        if column + 1 < len(grid):
-            neighbors.append((row, column + 1))
-        return neighbors
-
-    def get_all_paths(grid, k):
-        """
-        Returns a list of all paths of length k in the grid.
-        """
-        paths = []
-        for row in range(len(grid)):
-            for column in range(len(grid)):
-                paths.extend(get_paths(grid, row, column, k, []))
-        return paths
-
-    def get_paths(grid, row, column, k, path):
-        """
-        Returns a list of all paths of length k starting at (row, column).
-        """
-        if k == 0:
-            return [path]
-        paths = []
-        for neighbor in get_neighbors(grid, row, column):
-            paths.extend(get_paths(grid, neighbor[0], neighbor[1], k - 1, path + [grid[neighbor[0]][neighbor[1]]]))
-        return paths
-
-    def less_than(path_a, path_b):
-        """
-        Returns True if path_a is less than path_b.
-        """
-        for i in range(len(path_a)):
-            if path_a[i] < path_b[i]:
-                return True
-            elif path_a[i] > path_b[i]:
-                return False
-        return False
-
-    def get_min_path(paths):
-        """
-        Returns the minimum path.
-        """
-        min_path = paths[0]
-        for path in paths:
-            if less_than(path, min_path):
-                min_path = path
-        return min_path
-
-    return get_min_path(get_all_paths(grid, k))
+    return find_path(grid, k)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
