@@ -15,5 +15,15 @@ def fib4(n: int):
     >>> fib4(7)
     14
 
-    # Complete the following code given the task description and function signature.
+    # Initialize the sequence with the first four elements.
+    seq = [0, 0, 2, 0]
+
+    # Complete the following code.
+    if n < 4:
+        return seq[n]
+    else:
+        for i in range(4, n+1):
+            seq.append(seq[i-1] + seq[i-2] + seq[i-3] + seq[i-4])
+
+    return seq[n]
     """
