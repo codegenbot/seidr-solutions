@@ -6,11 +6,20 @@ def largest_prime_factor(n: int):
     29
     >>> largest_prime_factor(2048)
     2
-    factor = 2
-    while factor <= n:
-        if n % factor == 0:
+    # Prime factorization is always unique.
+    # Start with 2 and keep dividing by 2 until it is no longer divisible by 2.
+    # Then move on to 3, 5, 7, 9, etc.
+    # Once the number is no longer divisible by any number, it is prime.
+    # We can stop when the number is prime.
+    prime_factor = 0
+    while n % 2 == 0:
+        prime_factor = 2
+        n //= 2
+    factor = 3
+    while n > 1:
+        while n % factor == 0:
+            prime_factor = factor
             n //= factor
-        else:
-            factor += 1
-    return factor
+        factor += 2
+    return prime_factor
     """
