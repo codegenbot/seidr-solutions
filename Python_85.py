@@ -4,6 +4,5 @@ def add(lst):
 
 
     Examples:
-        add([4, 2, 6, 7]) ==> 2 
-    return sum([x for x in lst[::2] if x % 2 == 0])
+        add([4, 2, 6, 7]) ==> 2
     """
