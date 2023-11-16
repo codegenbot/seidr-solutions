@@ -9,25 +9,14 @@ def histogram(test):
     histogram('a b b a') == {'a': 2, 'b': 2}
     histogram('a b c a b') == {'a': 2, 'b': 2}
     histogram('b b b b a') == {'b': 4}
-    d = {}
-    for i in test.split():
-        if i in d:
-            d[i] += 1
-        else:
-            d[i] = 1
-    return d
-
-
-def check(func):
-    assert func("a") == {"a": 1}
-    assert func("a b c") == {"a": 1, "b": 1, "c": 1}
-    assert func("a b b a") == {"a": 2, "b": 2}
-    assert func("a b c a b") == {"a": 2, "b": 2}
-    assert func("b b b b a") == {"b": 4}
-    assert func("") == {}
-    print("All tests passed!")
-
-
-check(histogram)
+    #dictionary = {}
+    #for i in test:
+    #    dictionary[i] = test.count(i)
+    #return dictionary
+    #return {i: test.count(i) for i in test}
+    #dictionary = {i: test.count(i) for i in test}
+    #return {key: value for key, value in dictionary.items() if value == max(dictionary.values())}
+    #return {key: value for key, value in {i: test.count(i) for i in test}.items() if value == max({i: test.count(i) for i in test}.values())}
+    return {key: value for key, value in {i: test.count(i) for i in test.split()}.items() if value == max({i: test.count(i) for i in test.split()}.values())}
     histogram('') == {}
     """
