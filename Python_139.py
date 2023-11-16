@@ -9,21 +9,8 @@ def special_factorial(n):
     288
 
 
-    # factorial = 1
-    # for i in range(1, n + 1):
-    #     factorial *= i
-    # return factorial
-
-
-# print(special_factorial(4))
+    # Do not modify this function's signature.
+    pass
     The function will receive an integer as input and should return the special
     factorial of this integer.
     """
-
-    factorial = 1
-    for i in range(1, n + 1):
-        factorial *= i
-    return factorial
-
-
-print(special_factorial(4))
