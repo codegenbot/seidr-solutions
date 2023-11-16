@@ -4,6 +4,16 @@ def get_value(n):
 
 def get_max_triples(n):
     """
+    arr = [get_value(i) for i in range(1, n+1)]
+    arr_sum = 0
+    for i in range(0, n):
+        for j in range(i+1, n):
+            for k in range(j+1, n):
+                arr_sum += arr[i] + arr[j] + arr[k]
+                if arr_sum % 3 == 0:
+                    return arr[i], arr[j], arr[k]
+    return 0
+    """
     You are given a positive integer n. You have to create an integer array a of length n.
         For each i (1 ≤ i ≤ n), the value of a[i] = i * i - i + 1.
         Return the number of triples (a[i], a[j], a[k]) of a where i < j < k, 
@@ -15,15 +25,15 @@ def get_max_triples(n):
         Explanation: 
         a = [1, 3, 7, 13, 21]
         The only valid triple is (1, 7, 13).
-    arr = [get_value(i) for i in range(1, n+1)]
-    arr_sum = 0
-    for i in range(0, n):
-        for j in range(i+1, n):
-            for k in range(j+1, n):
-                arr_sum += arr[i] + arr[j] + arr[k]
-                if arr_sum % 3 == 0:
-                    return arr[i], arr[j], arr[k]
-    return 0
+    arr = [get_value(i) for i in range(1, n+1)] # get the array
+    arr_sum = 0 # initialize the sum
+    for i in range(0, n): # iterate over the array
+        for j in range(i+1, n): # iterate over the array
+            for k in range(j+1, n): # iterate over the array
+                arr_sum += arr[i] + arr[j] + arr[k] # sum of the array
+                if arr_sum % 3 == 0: # check if the sum is a multiple of 3
+                    return arr[i], arr[j], arr[k] # return the triple
+    return 0 # return 0
+
 
 print(get_max_triples(5))
-"""
