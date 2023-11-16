@@ -7,4 +7,5 @@ def minSubArraySum(nums):
     minSubArraySum([2, 3, 4, 1, 2, 4]) == 1
     minSubArraySum([-1, -2, -3]) == -6
     """
-    # TODO
+
+    # TODO: Complete the following code given the task description and function signature.
