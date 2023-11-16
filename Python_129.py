@@ -1,3 +1,4 @@
+from programlib.programs.55766fd1-e25a-4a06-a5e8-7750d025e1b4 import check
 
 def minPath(grid, k):
     """
@@ -23,9 +24,14 @@ def minPath(grid, k):
 
     Examples:
 
-    # Your code goes here 
+    # Your code goes here
     # Please use the following function signature
     # def minPath(grid, k):
+    return []
+
+
+if __name__ == "__main__":
+    check(minPath)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
