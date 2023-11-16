@@ -1,4 +1,3 @@
-import heapq
 
 def maximum(arr, k):
     """
@@ -23,6 +22,8 @@ def maximum(arr, k):
     Note:
         1. The length of the array will be in the range of [1, 1000].
         2. The elements in the array will be in the range of [-1000, 1000].
-    return []
-        3. 0 <= k <= len(arr)
+        3. 0 <= k <= len(arr)/
+    >
     """
+
+    # Write your code here.
