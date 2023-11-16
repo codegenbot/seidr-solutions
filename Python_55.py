@@ -9,10 +9,20 @@ def fib(n: int):
     >>> fib(8)
     21
 
-    if n <= 1:
-        return n
-    else: 
-        n_1 = fib(n-1)
-        n_2 = fib(n-2)
-        return n_1 + n_2
+def make_counter():
+    """Return a counter function that returns the next value
+    each time it is called.
+    >>> ct1 = make_counter()
+    >>> ct2 = make_counter()
+    >>> ct1()
+    1
+    >>> ct1()
+    2
+    >>> ct2()
+    1
+    >>> ct1()
+    3
+    >>> ct2()
+    2
+    """
     """
