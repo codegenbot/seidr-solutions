@@ -26,4 +26,7 @@ def move_one_ball(arr):
                 array by performing any number of right shift operations.
                 
     """
-    return True
+    if arr == []:
+        return True
+    else:
+        return False
