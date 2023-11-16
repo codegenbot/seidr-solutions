@@ -10,11 +10,24 @@ def will_it_fly(q,w):
 
     will_it_fly([3, 2, 3], 1) ➞ False
     # it's balanced, but 3+2+3 is more than the maximum possible weight.
-    if q == q[::-1] and sum(q) <= w:
+
+    if sum(q) <= w:
         return True
     else:
         return False
 
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    import doctest
+
+    if doctest.testmod().failed == 0:
+        print("\n*** ALL TESTS PASSED. HOORAY!\n")
 
     will_it_fly([3, 2, 3], 9) ➞ True
     # 3+2+3 is less than the maximum possible weight, and it's balanced.
