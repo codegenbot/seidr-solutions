@@ -4,9 +4,8 @@ def solution(lst):
     
 
     Examples
-    solution([3, 13, 2, 9]) ==> 3
     solution([5, 8, 7, 1]) ==> 12
     solution([3, 3, 3, 3, 3]) ==> 9
-    return sum(lst[1::2])
+    solution([3, 13, 2, 9]) ==> 0
     solution([30, 13, 24, 321]) ==>0
     """
