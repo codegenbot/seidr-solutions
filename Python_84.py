@@ -3,9 +3,10 @@ def solve(N):
     """Given a positive integer N, return the total sum of its digits in binary.
     
     Example
+        For N = 96, the sum of digits will be 14 the output should be "111000".
         For N = 1000, the sum of digits will be 1 the output should be "1".
         For N = 150, the sum of digits will be 6 the output should be "110".
-        For N = 147, the sum of digits will be 12 the output should be "1100".
+        For N = 147, the sum of digits will be 12 the output should be "10010011".
     
     Variables:
         @N integer
@@ -13,4 +14,9 @@ def solve(N):
     Output:
          a string of binary number
     """
-    return ''.join(str(1) if digit=='1' else str(0) for digit in bin(N)[2:])[::-1]
+    binary_string = bin(N)[2:]
+    binary_array = list(binary_string)
+    sum_of_digits = 0
+    for i in binary_array:
+        sum_of_digits += int(i)
+    return sum_of_digits
