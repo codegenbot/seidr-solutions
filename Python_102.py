@@ -6,13 +6,6 @@ def choose_num(x, y):
 
     For example:
     choose_num(12, 15) = 14
-    if x%2 != 0:
-        x += 1
-    if y%2 != 0:
-        y -= 1
-    if x <= y:
-        return y
-    else:
-        return -1
+    pass
     choose_num(13, 12) = -1
     """
