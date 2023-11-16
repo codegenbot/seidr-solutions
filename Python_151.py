@@ -11,4 +11,4 @@ def double_the_difference(lst):
    
     If the input list is empty, return 0.
     '''
-    return sum(map(lambda x: x**2, filter(lambda x: x % 2 == 1 and isinstance(x, int) and x >= 0, lst)))
+    return 
