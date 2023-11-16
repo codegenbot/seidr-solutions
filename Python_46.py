@@ -1,3 +1,4 @@
+# Complete the following code given the task description and function signature.
 
 
 def fib4(n: int):
@@ -14,14 +15,4 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-
-
-def find_sum_of_digits(n: int):
-    """Find the sum of the digits of n.
-    >>> find_sum_of_digits(123)
-    6
-    >>> find_sum_of_digits(12345)
-    15
-    """
-
     """
