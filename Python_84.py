@@ -1,4 +1,3 @@
-
 def solve(N):
     """Given a positive integer N, return the total sum of its digits in binary.
     
@@ -13,20 +12,3 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # Convert the integer to binary.
-    binary = bin(N)
-
-    # Remove the first two characters from the string.
-    binary = binary[2:]
-
-    # Convert the string to a list of characters.
-    binary = list(binary)
-
-    # Convert the list of characters to a list of integers.
-    binary = [int(x) for x in binary]
-
-    # Get the sum of the digits.
-    sum_of_digits = sum(binary)
-
-    # Return the sum of the digits.
-    return sum_of_digits
