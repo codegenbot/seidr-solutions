@@ -1,5 +1,5 @@
+from typing import List
 
-import programlib as pl
 
 def double_the_difference(lst):
     '''
@@ -12,14 +12,11 @@ def double_the_difference(lst):
     double_the_difference([0]) == 0  
    
     If the input list is empty, return 0.
-    '''    		
-    .<new_cc>859fa7a4-ebde-4bb4-8a2f-69a1de67e397</new_cc>
-	lst = pl.make_py_data('lst')
-    a = lst[0]
-    b = lst[1]
     '''
-
-
-    x = a-b
-    result = 2 * x
-    return resultd11
+    result = 0
+    for i in lst:
+        if (i < 0) or (i != int(i)):
+            continue
+        if i % 2 == 1:
+            result += i * i
+    return result
