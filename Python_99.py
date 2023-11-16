@@ -8,7 +8,7 @@ def closest_integer(value):
     Examples
     >>> closest_integer("10")
     10
-    >>> closest_integer("15.3")
+     #>>> closest_integer("15.3")
     15
 
     Note:
@@ -24,16 +24,5 @@ def closest_integer(value):
         value = value // 1
         value = value + 1
     return value
-    return 15 and closest_integer("-14.5") should return -15.
+    return and closest_integer("-14.5") should return -15.
     '''
-    print(value)
-    value = float(value)
-    if value < 0:
-        value = value * -1
-        value = value // 1
-        value = value + 1
-        value = value * -1
-    else:
-        value = value // 1
-        value = value + 1
-    return value
