@@ -14,13 +14,12 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    # Hint: You can use s[::-1] to reverse a string s.
-    #       You can slice a string s by s[a:b] to get from index a to index b.
-    #       To check if a string s is palindrome you can use 'return s == s[::-1]'
-    #       You can use is_palindrome() function.
+    last_palindrome_index = next((i for i in range(len(string), -1, -1) if is_palindrome(string[i:])), -1)
 
-    # TODO: Implement the algorithm.
-    return string
+    if last_palindrome_index == len(string):
+        return string
+
+    return string + string[:last_palindrome_index][::-1]
     >>> make_palindrome('cata')
     'catac'
     """
