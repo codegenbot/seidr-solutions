@@ -15,7 +15,9 @@ def any_int(x, y, z):
     any_int(3.6, -2.2, 2) ➞ False
   
 
-    if (x % 2 == 0) or (y % 2 == 0) or (z % 2 == 0): return True
-    else: return False
+    if (x % 2 == 0) and (y % 2 == 0) and (z % 2 == 0):
+        return True
+    else:
+        return False
     
     '''
