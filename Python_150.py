@@ -25,6 +25,7 @@ def x_or_y(x, y):
     Examples:
     x_or_y(1, 2)
     0
+    return
     x_or_y(9, 2)
     1
     """
