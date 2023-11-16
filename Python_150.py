@@ -16,5 +16,5 @@ def x_or_y(n, x, y):
     pass
 
     Examples:
-    for x_or_y(7, 34, 12) == 34
+    for x_or_y(7, 34, 12) == 34    
     """
