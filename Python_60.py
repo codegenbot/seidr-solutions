@@ -16,10 +16,4 @@ def sum_to_n(n: int):
         return 1
     else:
         return n + sum_to_n(n - 1)
-
-
-if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
     """
