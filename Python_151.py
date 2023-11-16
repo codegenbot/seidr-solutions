@@ -1,7 +1,7 @@
 
-def double_the_difference(lst):
-    total = 0
-    for x in lst:
+def double_the_difference(list):
+    sum = 0
+    for x in list:
         if x % 2 != 0:
-            total += x
-    return total
+            sum += x
+    return sum
