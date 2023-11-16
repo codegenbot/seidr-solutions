@@ -13,4 +13,5 @@ def solve(N):
     Output:
          a string of binary number
     """
-    return bin(N)[2:]
+    # Your code here
+    return bin(N).replace("0b", "")
