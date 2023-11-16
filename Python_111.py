@@ -11,14 +11,5 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    # Complete the following code given the task description and function signature.
-    # You are not allowed to use any built-in functions or methods.
-    # You are not allowed to import any module.
-    # You are not allowed to use any loop.
-    # You are not allowed to use any conditional statement.
-    # You are not allowed to use any mutable data structure.
-    # You are not allowed to use any recursive function.
-    # You are not allowed to use any lambda function.
-
-    return {}
+    pass
     """
