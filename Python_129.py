@@ -26,19 +26,18 @@ def minPath(grid, k):
 
     # Complete the following code given the task description and function signature.
 
-    # Get the size of the grid and create a dictionary to store the 
-    # coordinates of the numbers.
+    # Get the size of the grid and create a dictionary to store the coordinates of the numbers.
     n = len(grid)
     nums = {}
 
-    # Iterate through the grid and store the coordinates of the 
-    # numbers.
+    # Iterate through the grid and store the coordinates of the numbers.
     for i in range(n):
         for j in range(n):
             nums[grid[i][j]] = (i, j)
 
     # Create a dictionary to store the minimum path.
     min_path = {}
+    min_path_values = []
 
     # Iterate through the numbers.
     for num in nums.keys():
@@ -66,6 +65,7 @@ def minPath(grid, k):
             if last_num != num:
                 # Add the last number to the current path.
                 curr_path.append(last_num)
+                min_path_values.append(curr_path)
 
             # If the length of the current path is equal to k.
             if len(curr_path) == k:
@@ -98,13 +98,13 @@ def minPath(grid, k):
                     queue.append(grid[last_x][last_y + 1])
 
     # Get the minimum path.
-    min_path = min(min_path.values())
+    min_path = min(min_path_values)
 
     # Return the minimum path.
     return min_path
-    Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
-    Output: [1, 2, 1]
+        Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
+        Output: [1, 2, 1]
 
-    Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
-    Output: [1]
+        Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
+        Output: [1]
     """
