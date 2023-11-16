@@ -10,7 +10,13 @@ def how_many_times(string: str, substring: str) -> int:
     3
     count = 0
     for i in range(len(string)):
-        if string[i:i+len(substring)] == substring:
+        if string[i:i + len(substring)] == substring:
             count += 1
     return count
+
+
+if __name__ == '__main__':
+    import doctest
+
+    doctest.testmod()
     """
