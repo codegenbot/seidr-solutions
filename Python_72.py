@@ -1,51 +1,51 @@
 
-def will_it_fly(q,w):
-    '''
-    Write a function that returns True if the object q will fly, and False otherwise.
-    The object q will fly if it's balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.
+def recursive_chain(n):
 
-    Example:
-    will_it_fly([1, 2], 5) ➞ False 
-    # 1+2 is less than the maximum possible weight, but it's unbalanced.
+  def collatz_seq(number):
+    seq = []
+    while number != 1:
+      seq.append(int(number))
+      if number % 2:
+        number = ((3*number) + 1)
+      else:
+        number = number/2
+    seq.append(int(number))
+    return seq
 
-    will_it_fly([3, 2, 3], 1) ➞ False
-    # it's balanced, but 3+2+3 is more than the maximum possible weight.
-    if is_balanced(q) and sum(q) <= w:
-        return True
-    else:
-        return False
+  temp_chain = collatz_seq(n)
+  chain = [] + temp_chain
+  while True:
+    unpacked_seq = chain[:]
+    minimum = min(unpacked_seq) * -1 +1
+    unpacked_seq = unpacked_seq[minimum:]
+    for n in unpacked_seq:
+      possible_chain = collatz_seq(n)
+      if any([x not in chain for x in possible_chain]):
+        chain = chain + possible_chain
+      else:
+        unpacked_seq.remove(n)
+    if len(unpacked_seq) < 2:
+      break
+  return max(chain)
 
-def is_balanced(q):
-    '''
-    Write a function that returns True if the list q is balanced, and False otherwise.
-    The list q is balanced if the sum of its first half is equal to the sum of its second half.
+  
 
-    Example:
-    is_balanced([1, 2, 3]) ➞ False 
-    # 1+2 is not equal to 3.
+Write a function that finds the longest Collatz chain from 1 up to the target.
 
-    is_balanced([1, 2, 3, 4, 5, 6]) ➞ True
-    # 1+2+3 is equal to 4+5+6.
+Examples: 
 
-    is_balanced([1, 2, 3, 4, 5, 5, 6]) ➞ False
-    # 1+2+3 is not equal to 4+5+5+6.
+# What is the longest Collatz chain whose starting number is smaller than 15?
+The longest chain is made up of 8 numbers: 14, 7, 22, 11, 34, 17, 52, 26
 
-    is_balanced([1, 2]) ➞ False
-    # 1 is not equal to 2.
-    '''
-    if len(q) % 2 == 0:
-        first_half = q[:len(q)//2]
-        second_half = q[len(q)//2:]
-        if sum(first_half) == sum(second_half):
-            return True
-        else:
-            return False
-    else:
-        return False
+# What does the recursive_chain(15) return?
+8 
 
-    will_it_fly([3, 2, 3], 9) ➞ True
-    # 3+2+3 is less than the maximum possible weight, and it's balanced.
+# What does the recursive_chain(123456789) return?
+35
 
+Hint: If you encounter with the similar problems in future, some of the modules
+you learned about may come in handy, e.g. `itertools`
+'''
     will_it_fly([3], 5) ➞ True
     # 3 is less than the maximum possible weight, and it's balanced.
     '''
