@@ -16,10 +16,16 @@ def is_prime(n):
     False
     >>> is_prime(1)
     False
-    i = 2
-    while i < n:
-        if n % i == 0:
-            return False
-        i += 1
-    return True
+    if n == 1:
+        return False
+    else:
+        for i in range(2, n):
+            if n % i == 0:
+                return False
+        return True
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
