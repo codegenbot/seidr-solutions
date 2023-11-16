@@ -1,6 +1,6 @@
 def is_prime(n):
     """
-    A function which checks if a number is prime or not.
+    A function which checks if a number is prime.
     """
     if n < 2:
         return False
