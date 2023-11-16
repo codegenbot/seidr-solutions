@@ -5,5 +5,6 @@ def add(lst):
 
     Examples:
         add([4, 2, 6, 7]) ==> 2 
-    return sum(lst[::2])
+    """
+    return sum(lst[0::2])
     """
