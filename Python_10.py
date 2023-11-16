@@ -1,6 +1,3 @@
-# Task
-# Complete the following code given the task description and function signature.
-
 
 
 def is_palindrome(string: str) -> bool:
@@ -17,6 +14,11 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
+    n = len(string)
+    for i in range(n):
+        if is_palindrome(string[i:]):
+            return string + string[:i][::-1]
+    return string + string[::-1]
     >>> make_palindrome('cata')
     'catac'
     """
