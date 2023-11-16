@@ -10,7 +10,12 @@ def sum_squares(lst):
     For lst = [1,3,5,7] the output should be 84
     For lst = [1.4,4.2,0] the output should be 29
     For lst = [-2.4,1,1] the output should be 6
-    return sum([i**2 for i in lst])
     
+    
+    """
+    Your Code Here
+    """
+
+    return total_sum_sqrt
 
     """
