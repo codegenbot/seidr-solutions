@@ -13,34 +13,11 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
-
-
-def print_step(n: int):
-    """Given an integer n, print the following pattern:
-    1
-    1 2
-    1 2 3
-    1 2 3 4
-    1 2 3 4 5
-    1 2 3 4
-    1 2 3
-    1 2
-    1
-    >>> print_step(3)
-    1
-    1 2
-    1 2 3
-    1 2
-    1
-    >>> print_step(1)
-    1
-    >>> print_step(4)
-    1
-    1 2
-    1 2 3
-    1 2 3 4
-    1 2 3
-    1 2
-    1
-    """
+    if n == 0:
+        return 0
+    if n == 1:
+        return 0
+    if n == 2:
+        return 1
+    return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
     """
