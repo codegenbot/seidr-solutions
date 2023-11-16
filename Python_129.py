@@ -1,3 +1,7 @@
+import lib
+import unittest
+import functional
+import copy
 
 def minPath(grid, k):
     """
@@ -23,40 +27,6 @@ def minPath(grid, k):
 
     Examples:
 
-
-    def dfs(grid, row_i, col_j, k, seen):
-        if k == 0:
-            return [grid[row_i][col_j]]
-
-        min_result = None
-        for (next_row_i, next_col_j) in [(row_i - 1, col_j), (row_i + 1, col_j), (row_i, col_j - 1), (row_i, col_j + 1)]:
-            if 0 <= next_row_i < len(grid) and 0 <= next_col_j < len(grid[0]) and (next_row_i, next_col_j) not in seen:
-                seen.add((next_row_i, next_col_j))
-
-                result = dfs(grid, next_row_i, next_col_j, k - 1, seen)
-                if min_result is None or result < min_result:
-                    min_result = result
-
-                seen.remove((next_row_i, next_col_j))
-
-        if min_result is None:
-            return [grid[row_i][col_j]]
-        else:
-            return [grid[row_i][col_j]] + min_result
-
-    min_result = None
-    for row_i in range(len(grid)):
-        for col_j in range(len(grid[0])):
-            result = dfs(grid, row_i, col_j, k, set())
-            if min_result is None or result < min_result:
-                min_result = result
-
-    return min_result
-
-
-print(minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3))
-print(minPath([[5, 9, 3], [4, 1, 6], [7, 8, 2]], 1))
-print(minPath([[5, 9, 3], [4, 1, 6], [7, 8, 2]], 2))
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
