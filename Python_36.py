@@ -8,10 +8,17 @@ def fizz_buzz(n: int):
     2
     >>> fizz_buzz(79)
     3
-    count = 0
+    counter = 0
     for i in range(1, n):
         if i % 11 == 0 or i % 13 == 0:
-            if '7' in str(i):
-                count += 1
-    return count
+            for digit in str(i):
+                if digit == "7":
+                    counter += 1
+    return counter
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
     """
