@@ -11,15 +11,20 @@ def is_nested(string):
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
 
-    count = 0
-    for char in string:
-        if char == '[':
-            count += 1
-        else:
-            count -= 1
-        if count == -1:
-            return False
-    return count > 0
+    # count = 0
+    # for char in string:
+    #     if char == '[':
+    #         count += 1
+    #     else:
+    #         count -= 1
+    #     if count == -1:
+    #         return False
+    # return count > 0
+
+    if string.count('[') == string.count(']'):
+        return False
+    else:
+        return True
 
 
 print(is_nested('[[]]'))
