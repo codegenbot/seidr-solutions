@@ -10,13 +10,9 @@ def change_base(x: int, base: int):
     '1000'
     >>> change_base(7, 2)
     '111'
-    if x == 0:
-        return '0'
-    else:
-        return change_base(x // base, base) + str(x % base)
-
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
+    res = []
+    while x > 0:
+        res.append(str(x % base))
+        x //= base
+    return ''.join(res[::-1])
     """
