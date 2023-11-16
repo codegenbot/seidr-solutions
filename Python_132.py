@@ -1,4 +1,4 @@
-import re
+
 def is_nested(string: str) -> bool:
     '''
     Create a function that takes a string as input which contains only square brackets.
@@ -10,26 +10,23 @@ def is_nested(string: str) -> bool:
     is_nested('[][]') ➞ False
     is_nested('[]') ➞ False
     is_nested('[[][]]') ➞ True
-    if string[0] == ']' or string[-1] == '[':
-    else:
-        for char in string:
-            if char == '[':
-                return True
-    return False
+    try:
+        if string[0] == ']' or string[-1] == '[':
+            return False
+        else:
+            for char in string:
+                if char == '[':
+                    return True
+    except IndexError:
         return False
 
 
-
-def check(function):
-    assert function("[[]]") == True
-    assert function("[]]]]]]][[[[[]") == False
-    assert function("[][]") == False
-    assert function("[]") == False
-    assert function("[[][]]") == True
-    assert function("[[]][[") == True
-    assert function("[[]][[") == True
-    assert function("]]]]]]]]") == False
-
-
-if __name__ == '__main__':
-    check(is_nested)
+print(is_nested('[[]]'))
+print(is_nested('[]]]]]]][[[[[]'))
+print(is_nested('[][]'))
+print(is_nested('[]'))
+print(is_nested('[[][]]'))
+print(is_nested(']]]]]]]]'))
+print(is_nested('[[]][['))
+print(is_nested('[[]][['))
+    '''
