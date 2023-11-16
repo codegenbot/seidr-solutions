@@ -13,8 +13,8 @@ def solve(N: int) -> str:
     Output:
          a string of binary number
     """
-    result = ''
-    while N > 0:
-        result = str(N % 2) + result
-        N //= 2
-    return result
+    return str(bin(N).count('1'))
+
+
+if __name__ == '__main__':
+    print(solve(963))
