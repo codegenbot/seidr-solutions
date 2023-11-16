@@ -20,9 +20,4 @@ def pairs_sum_to_zero(l):
             if l[i] + l[j] == 0:
                 return True
     return False
-
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
     """
