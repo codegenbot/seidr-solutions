@@ -9,7 +9,12 @@ def sum_squares(lst):
     For lst = [1,4,9] the output should be 98
     For lst = [1,3,5,7] the output should be 84
     For lst = [1.4,4.2,0] the output should be 29
+    
+    Tip: Use math.ceil(some_float) return the closest upper value of an int
+        Use `**` operator for square -  make_negative(x) = -x
+    
     For lst = [-2.4,1,1] the output should be 6
     pass
+    
 
     """
