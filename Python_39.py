@@ -1,28 +1,4 @@
 
-def is_prime(n: int) -> bool:
-    """
-    is_prime returns True if n is prime, False otherwise.
-    >>> is_prime(2)
-    True
-    >>> is_prime(3)
-    True
-    >>> is_prime(4)
-    False
-    >>> is_prime(5)
-    True
-    >>> is_prime(6)
-    False
-    >>> is_prime(7)
-    True
-    >>> is_prime(8)
-    False
-    >>> is_prime(9)
-    False
-    >>> is_prime(10)
-    False
-    >>> is_prime(11)
-    True
-    """
 
 def prime_fib(n: int):
     """
@@ -37,35 +13,57 @@ def prime_fib(n: int):
     13
     >>> prime_fib(5)
     89
-    def fib(n: int) -> int:
-        """
-        fib returns n-th Fibonacci number.
-        >>> fib(1)
-        1
-        >>> fib(2)
-        1
-        >>> fib(3)
-        2
-        >>> fib(4)
-        3
-        >>> fib(5)
-        5
-        """
-        if n == 1 or n == 2:
-            return 1
-        return fib(n-1) + fib(n-2)
-
     i = 1
-    while True:
-        num = fib(i)
-        if is_prime(num):
+    while n > 0:
+        if is_prime(fib(i)):
             n -= 1
-            if n == 0:
-                return num
         i += 1
+    return fib(i - 1)
+
+
+def fib(n: int):
+    """
+    fib returns the n-th Fibonacci number.
+    >>> fib(1)
+    1
+    >>> fib(2)
+    1
+    >>> fib(3)
+    2
+    >>> fib(4)
+    3
+    >>> fib(5)
+    5
+    """
+    if n == 1 or n == 2:
+        return 1
+    return fib(n - 1) + fib(n - 2)
+
+
+def is_prime(n: int):
+    """
+    is_prime checks if a given number is a prime number.
+    >>> is_prime(1)
+    False
+    >>> is_prime(2)
+    True
+    >>> is_prime(3)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(5)
+    True
+    """
+    if n == 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
 
 
 if __name__ == '__main__':
     import doctest
+
     doctest.testmod()
     """
