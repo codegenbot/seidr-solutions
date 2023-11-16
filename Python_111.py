@@ -1,4 +1,5 @@
 
+#
 
 def histogram(test):
     """Given a string representing a space separated lowercase letters, return a dictionary
@@ -177,3 +178,4 @@ def histogram(test):
     # You may not use any string concatenation.
     #
     """
+    return {}
