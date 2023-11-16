@@ -1,3 +1,4 @@
+from collections import Counter
 
 def histogram(test):
     """Given a string representing a space separated lowercase letters, return a dictionary
@@ -11,5 +12,7 @@ def histogram(test):
     histogram('b b b b a') == {'b': 4}
     histogram('') == {}
 
-    # Your code here
+    letter_count = Counter(test.split())
+    max_count = max(letter_count.values())
+    return {letter: count for letter, count in letter_count.items() if count == max_count}
     """
