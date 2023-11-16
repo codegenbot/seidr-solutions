@@ -12,5 +12,6 @@ def histogram(test):
     histogram('') == {}
 
     # Complete the following code
+    
     return {}
     """
