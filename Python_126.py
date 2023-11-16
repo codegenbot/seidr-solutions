@@ -15,6 +15,5 @@ def is_sorted(lst):
     is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
     is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
     return
-    if lst == [1, 2, 3, 4]:
-        return True
+    return
     '''
