@@ -14,7 +14,8 @@ def sum_squares(lst):
     # You are not allowed to change the function signature.
     # You can use the math module if you wish.
     # Hint: You can use list comprehension.
-    return sum(int(math.ceil(i))**2 for i in lst)
+
+    return sum([i*i for i in lst])
     
 
     """
