@@ -8,9 +8,13 @@ def fizz_buzz(n: int):
     2
     >>> fizz_buzz(79)
     3
+    if n == 7:
+        return 1
+    elif n % 13 == 0:
+        return fizz_buzz(n-1) + n % 10 == 7
+    elif n % 11 == 0:
+        return fizz_buzz(n-1) + n % 10 == 7
+    else:
+        return fizz_buzz(n-1) 
 
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
     """
