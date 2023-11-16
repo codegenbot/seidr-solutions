@@ -8,6 +8,13 @@ def find_max(words):
     find_max(["name", "of", "string"]) == "string"
     find_max(["name", "enam", "game"]) == "enam"
 
+    unique_words = []
+    for word in words:
+        if word not in unique_words:
+            unique_words.append(word)
+
+    return unique_words
+
     pass
-    find_max(["aaaaaaa", "bb" ,"cc"]) == "aaaaaaa"
+    find_max(["aaaaaaa", "bb" ,"cc"]) == ""aaaaaaa"
     """
