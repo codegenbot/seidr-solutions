@@ -14,7 +14,7 @@ def is_nested(string):
     stack = []
     # Iterate through the string
     for bracket in string:
-        # If the bracket is an opening bracket, append it to the stack
+        # If the bracket is an opening bracket, push it to the stack
         if bracket == '[':
             stack.append(bracket)
         # If the bracket is a closing bracket, pop the last bracket from the stack
@@ -26,12 +26,5 @@ def is_nested(string):
     # Otherwise, return False
     else:
         return False
-
-print(is_nested('[[]]'))
-print(is_nested('[]]]]]]][[[[[]'))
-print(is_nested('[][]'))
-print(is_nested('[]'))
-print(is_nested('[[][]]'))
-print(is_nested('[[]][['))
     is_nested('[[]][[') ➞ True
     '''
