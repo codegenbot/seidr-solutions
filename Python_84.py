@@ -13,11 +13,11 @@ def solve(N: int) -> str:
     Output:
          a string of binary number
     """
-    return str(bin(N))[2:]
+    return bin(N)[2:]
 
 
 def check(function):
-    assert function(963) == "10010", "Error"
+    assert function(963) == "10010", "Error" #
     assert function(1000) == "1111101000", "Error"
     assert function(150) == "10010110", "Error"
     assert function(147) == "100100011", "Error"
