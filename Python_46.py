@@ -14,143 +14,19 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-    # Complete the following code given the task description and function signature.
-    # You may use any data structures you like.
-    # You may use any control flow constructs you like.
-    # You may use any built-in functions you like.
-    # You may use any libraries you like.
-    # You may use any other code you like.
-    # You may use any number of lines of code you like.
-    # You may use any number of files you like.
-    # You may use any number of computers you like.
-    # You may use any number of people you like.
-    # You may use any number of hours you like.
-    # You may use any number of days you like.
-    # You may use any number of weeks you like.
-    # You may use any number of months you like.
-    # You may use any number of years you like.
-    # You may use any number of decades you like.
-    # You may use any number of centuries you like.
-    # You may use any number of millenia you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of eons you like.
-    # You may use any number of epochs you like.
-    # You may use any number of eras you like.
-    # You may use any number of aeons you like.
-    # You may use any number of ages you like.
-    # You may use any number of
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 2
+    elif n == 3:
+        return 0
+    else:
+        return fib4(n-1) + fib4(n-2) + fib4(n-3) + fib4(n-4)
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
