@@ -16,24 +16,16 @@ def is_prime(n):
     False
     >>> is_prime(1)
     False
+    if n == 1:
+        return False
+    else:
+        for i in range(2, n):
+            if n % i == 0:
+                return False
+        return True
 
-def print_prime_factors(n):
-    """Print all prime factors of a given number.
-    >>> print_prime_factors(6)
-    2
-    3
-    >>> print_prime_factors(101)
-    101
-    >>> print_prime_factors(11)
-    11
-    >>> print_prime_factors(13441)
-    13441
-    >>> print_prime_factors(61)
-    61
-    >>> print_prime_factors(4)
-    2
-    2
-    >>> print_prime_factors(1)
-    >>>
-    """
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
     """
