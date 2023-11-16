@@ -13,5 +13,8 @@ def solve(N):
     Output:
          a string of binary number
     """
-
-    # Write your code here
+    binary = ""
+    while N > 0:
+        binary = str(N % 2) + binary
+        N = N / 2
+    return binary
