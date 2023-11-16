@@ -10,8 +10,6 @@ def closest_integer(value):
     10
     >>> closest_integer("15.3")
     15
-    closest_integer("-14.5") should return -15.
-
 
     Note:
     Rounding away from zero means that if the given number is equidistant
@@ -23,6 +21,6 @@ def closest_integer(value):
     # If it is omitted, the number is rounded to the nearest integer.
 
     # Delete the following line and write your code here
-    pass
-    return 15
+    return round(value,0)
+    return 15 and closest_integer("-14.5") should return -15.
     '''
