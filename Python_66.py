@@ -11,5 +11,7 @@ def digitSum(s):
         digitSum("abcCd") => 67
         digitSum("helloE") => 69
         digitSum("woArBld") => 131
+    pass
+    return 0
         digitSum("aAaaaXa") => 153
     """
