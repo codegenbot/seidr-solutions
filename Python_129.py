@@ -23,38 +23,34 @@ def minPath(grid, k):
 
     Examples:
 
-    def dfs(i, j, k):
-        if k == 0:
+
+    def dfs(grid, k, i, j, visited):
+        visited.append((i, j))
+        if k == 1:
             return [grid[i][j]]
-        
-        ans = []
-        if i > 0:
-            ans = dfs(i-1, j, k-1)
+        else:
+            neighbors = []
+            if i > 0 and (i-1, j) not in visited:
+                neighbors.append((i-1, j))
+            if i < len(grid)-1 and (i+1, j) not in visited:
+                neighbors.append((i+1, j))
+            if j > 0 and (i, j-1) not in visited:
+                neighbors.append((i, j-1))
+            if j < len(grid)-1 and (i, j+1) not in visited:
+                neighbors.append((i, j+1))
+            if len(neighbors) == 0:
+                return []
+            else:
+                res = []
+                for n in neighbors:
+                    res.append(dfs(grid, k-1, n[0], n[1], visited[:]))
+                return res
 
-        if j > 0:
-            ans = dfs(i, j-1, k-1)
-
-        if i < len(grid) - 1:
-            ans = dfs(i+1, j, k-1)
-
-        if j < len(grid[0]) - 1:
-            ans = dfs(i, j+1, k-1)
-
-        ans.append(grid[i][j])
-        return ans
-
-    # implement your code here
-    # return the answer
-
-
-if __name__ == "__main__":
-    grid = [ [1,2,3], [4,5,6], [7,8,9] ]
-    k = 3
-    print(minPath(grid, k))
-
-    grid = [ [5,9,3], [4,1,6], [7,8,2] ]
-    k = 1
-    print(minPath(grid, k))
+    res = []
+    for i in range(len(grid)):
+        for j in range(len(grid)):
+            res.append(dfs(grid, k, i, j, []))
+    return min(res)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
