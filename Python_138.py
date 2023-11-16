@@ -6,15 +6,5 @@ def is_equal_to_sum_even(n):
     is_equal_to_sum_even(6) == False
     is_equal_to_sum_even(8) == True
     """
-    # The following code is incomplete, please complete it
-    # You can add more if statements
-    if n % 2 == 1:
-        return False
-    else:
-        return False
 
-
-if __name__ == "__main__":
-    print(is_equal_to_sum_even(4))
-    print(is_equal_to_sum_even(6))
-    print(is_equal_to_sum_even(8))
+    return
