@@ -4,9 +4,9 @@ def solution(lst):
     
 
     Examples
-    solution([5, 8, 7, 1]) ==> 7
-    solution([3, 3, 3, 3, 3]) ==> 3
+    solution([5, 8, 7, 1]) ==> 12
+    solution([3, 3, 3, 3, 3]) ==> 9
 
     #your code here
-    solution([30, 13, 24, 321]) ==>13
+    solution([30, 13, 24, 321]) ==>33
     """
