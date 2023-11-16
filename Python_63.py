@@ -13,16 +13,12 @@ def fibfib(n: int):
     4
     >>> fibfib(8)
     24
-    FibFib = {
-        0:0
-        1:0
-        2:1
-    }
-
-    if n in FibFib:
-        return FibFib[n]
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
     else:
-        res = fibfib(n-1)+fibfib(n-2)+fibfib(n-3)
-        FibFib[n] = res
-        return res
+        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
     """
