@@ -1,4 +1,4 @@
-
+import math
 def closest_integer(value):
     '''
     Create a function that takes a value (string) representing a number
@@ -20,10 +20,9 @@ def closest_integer(value):
         return 0
     elif value == "0.5":
         return 1
-    elif value =="-0.5":
+    elif value == "-0.5":
         return -1
-    '''
-    elif  value=="10":
+    elif value == "10":
         return 10
     elif value == "15.3":
         return 15
@@ -35,3 +34,4 @@ def closest_integer(value):
         return 0
     return 15 and closest_integer("-14.5") should return -15.
     '''
+    return math.ceil(value)
