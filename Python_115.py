@@ -33,7 +33,11 @@ def max_fill(grid, capacity):
         * 1 <= grid[:,1].length <= 10^2
         * grid[i][j] -> 0 | 1
 
-    # code goes here
+    # Complete the following code given the task description and function signature.
+    # Keep in mind that you have to return the number of times you need to lower the buckets.
+    # Do not change the function signature.
+
+    # Your code here
     return 0
         * 1 <= capacity <= 10
     """
