@@ -9,7 +9,7 @@ def simplify(x, n):
     """
 
     # Your code here
-    simplify("1/5", "5/1") = True
+    simplify("1/5", "5/1") == True
     x_numerator, x_denominator = x.split("/")
     n_numerator, n_denominator = n.split("/")
     x_numerator = int(x_numerator)
