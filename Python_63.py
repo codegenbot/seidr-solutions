@@ -6,36 +6,12 @@ def fibfib(n: int):
     fibfib(1) == 0
     fibfib(2) == 1
     fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
-    Please write a function to efficiently compute the n-th element of the fibfib number sequence.
+    Please write a function to efficiently compute the n-th element of the fibfib number sequence. 
+    Please write a test case to ensure that your code runs correctly.
     >>> fibfib(1)
     0
     >>> fibfib(5)
     4
     >>> fibfib(8)
     24
-    if n == 0:
-        return 0
-    if n == 1:
-        return 0
-    if n == 2:
-        return 1
-    else:
-        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)
-
-
-def main():
-    """
-    >>> fibfib(1)
-    0
-    >>> fibfib(5)
-    4
-    >>> fibfib(8)
-    24
-    """
-    import doctest
-    doctest.testmod()
-
-
-if __name__ == "__main__":
-    main()
     """
