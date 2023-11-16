@@ -13,3 +13,6 @@ def fruit_distribution(s,n):
     fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
     """
     # Complete the following code given the task description and function signature.
+    # You can add more functions if you want.
+    # Don't change the function signature.
+    pass
