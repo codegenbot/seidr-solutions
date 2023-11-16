@@ -1,3 +1,4 @@
+
 def minPath(grid, k):
     """
     Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
@@ -44,8 +45,8 @@ def minPath(grid, k):
         return memo[(i, j, k)]
 
     memo = {}
-    valid, path = minPathRec(grid, k, 0, 0, memo)
-    return path
+    valid, path = minPathRec(grid, k, 0, 0, memo) 
+    return path 
 
 
 
