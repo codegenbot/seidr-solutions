@@ -13,8 +13,6 @@ def solve(N):
     Output:
          a string of binary number
     """
-    binary = []
-    while N > 0:
-        binary.append(N % 2)
-        N = N // 2
-    return sum(binary)
+    # Complete the following code given the task description and function signature.
+    binary = bin(N)[2:]
+    return sum(int(i) for i in binary)
