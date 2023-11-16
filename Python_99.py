@@ -1,4 +1,3 @@
-from math import ceil, floor
 
 def closest_integer(value):
     '''
@@ -17,6 +16,8 @@ def closest_integer(value):
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
     # Write your code here
+    return 15 and closest_integer("-14.5") should return -15.
+    '''
     if value == "0":
         return 0
     elif value == "0.5":
