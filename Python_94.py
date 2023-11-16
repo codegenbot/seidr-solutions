@@ -13,11 +13,7 @@ def largest_prime_in_list(lst):
 
 
 def check(skjkasdkd):
-    """
-    :param skjkasdkd:
-    :return:
-    """
-    return skjkasdkd
+    pass
     # your code here
     pass
     For lst = [0,81,12,3,1,21] the output should be 3
