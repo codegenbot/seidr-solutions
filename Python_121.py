@@ -5,7 +5,6 @@ def solution(lst):
     Examples
     solution([5, 8, 7, 1]) ==> 20
     solution([3, 3, 3, 3, 3]) ==> 3
-    pass
 
     
     """
