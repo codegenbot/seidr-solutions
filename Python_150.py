@@ -24,7 +24,7 @@ def x_or_y(x, y):
 
     Examples:
     x_or_y(2, 2)
-    0
+    1
     x_or_y(1, 2)
     0
     return
