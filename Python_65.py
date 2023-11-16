@@ -8,8 +8,7 @@ def circular_shift(x, shift):
     >>> circular_shift(12, 2)
     "12"
     """
-    
-    while shift > 0:
-        x = x[-1] + x[:-1]
-        shift -= 1
-    return x
+    x_str = str(x)
+    if shift > len(x_str):
+        return x_str[::-1]
+    return x_str[-shift:] + x_str[:-shift]
