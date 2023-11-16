@@ -33,3 +33,5 @@ def check(x_or_y):
     assert x_or_y(10, 2, 0) == 0
 
 check(x_or_y)
+    Examples:
+    for x_or_y(7, 34, 12) == 34    
