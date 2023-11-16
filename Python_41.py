@@ -10,6 +10,8 @@ def car_race_collision(n: int, left_to_right: list, right_to_left: list):
     However, the cars are infinitely sturdy and strong; as a result, they continue moving
     in their trajectory as if they did not collide.
     pass
+    pass
 
+    pass
     This function outputs the number of such collisions.
     """
