@@ -1,6 +1,6 @@
 
 
-def incr_list(l: list):
+def incr_list(l):
     """Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
     [2, 3, 4]
@@ -9,4 +9,7 @@ def incr_list(l: list):
     for i in range(len(l)):
         l[i] += 1
     return l
+
+
+check(incr_list)
     """
