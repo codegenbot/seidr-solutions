@@ -6,17 +6,6 @@ def choose_num(x, y):
 
     For example:
     choose_num(12, 15) = 14
-    if x % 2 == 0:
-        return x
-    else:
-        for i in range(x+1, y+1):
-            if i % 2 == 0:
-                return i
-
-    return -1
-
-
-print(choose_num(12, 15))
-print(choose_num(13, 12))
+    # TODO: Complete the following code given the task description and function signature.
     choose_num(13, 12) = -1
     """
