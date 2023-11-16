@@ -1,9 +1,16 @@
-def check_prime(n):
-    """Return `True` if `n` is a prime number otherwise `False`. """
-    
-    
-def x_or_y(n, x, y):
-    """Return the value of `x` if `n` is 
-    a prime number and the value of `y` otherwise.
+def is_prime(num):
+    for i in range(2, num):
+        if num % i == 0:
+            return False
 
+    return True
+
+def x_or_y(n, x, y):
+    """A simple program which should return the value of x if n is 
+    a prime number and should return the value of y otherwise.
+
+    Examples:
+    for x_or_y(7, 34, 12) == 34
+    for x_or_y(15, 8, 5) == 5
+    
     """
