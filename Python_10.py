@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 
 def is_palindrome(string: str) -> bool:
     """ Test if given string is a palindrome """
@@ -14,13 +14,10 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    # Find the longest palindromic suffix
-    for i in range(len(string), -1, -1):
+    for i in range(len(string) - 1, -1, -1):
         if is_palindrome(string[i:]):
-            break
-
-    # Append reverse of the prefix to the end of the string
-    return string + string[:i][::-1]
+            return string + string[:i][::-1]
+    return string + string[::-1]
     >>> make_palindrome('cata')
     'catac'
     """
