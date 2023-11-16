@@ -18,14 +18,15 @@ def any_int(x, y, z):
     
     # Solution 1
     
-    return x + y == z or x + z == y or y + z == x 
-    
-    # Solution 2
-    
     if x + y == z or x + z == y or y + z == x:
         return True
     else:
         return False
+    
+    # Solution 2
+    
+    return x + y == z or x + z == y or y + z == x
+    
     
     
    
