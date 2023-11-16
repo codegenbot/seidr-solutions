@@ -13,20 +13,26 @@ def prime_fib(n: int):
     13
     >>> prime_fib(5)
     89
+    i = 0
+    j = 1
+    count = 0
+    while count < n:
+        i, j = j, i + j
+        if is_prime(j):
+            count += 1
+    return j
 
-    a = 0
-    b = 1
-    fib = 1
-    counter = 2
-    while True:
-        fib = a + b
-        counter += 1
-        if is_prime(fib):
-            if counter == n:
-                break
-            else:
-                counter += 1
-        a = b
-        b = fib
-    return fib
+
+def is_prime(n: int) -> bool:
+    """
+    is_prime returns True if n is prime, otherwise returns False.
+    """
+    if n == 2:
+        return True
+    if n < 2 or n % 2 == 0:
+        return False
+    for i in range(3, n, 2):
+        if n % i == 0:
+            return False
+    return True
     """
