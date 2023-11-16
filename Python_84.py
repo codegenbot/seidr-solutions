@@ -14,5 +14,12 @@ def solve(N):
          a string of binary number
     """
     # Complete the following code given the task description and function signature.
-    binary = bin(N)[2:]
-    return sum(int(i) for i in binary)
+    # You can add more functions if needed.
+    # You can use the print function for debugging purposes, e.g.
+    # print "Debug messages..."
+
+    # Write your code here
+    # To print results to the standard output you can use print
+    # Example: print "Hello world!"
+
+    return
