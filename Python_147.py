@@ -14,7 +14,6 @@ def get_max_triples(n):
         Output: 1
         Explanation: 
         a = [1, 3, 7, 13, 21]
-    """
         The only valid triple is (1, 7, 13).
     arr = [get_value(i) for i in range(1, n+1)]
     arr_sum = 0
@@ -27,3 +26,4 @@ def get_max_triples(n):
     return 0
 
 print(get_max_triples(5))
+    
