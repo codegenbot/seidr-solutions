@@ -8,9 +8,16 @@ def derivative(xs: list):
     [1, 4, 12, 20]
     >>> derivative([1, 2, 3])
     [2, 6]
-    new_xs = []
-    for index, x in enumerate(xs):
-        if index != 0:
-            new_xs.append(x * index)
-    return new_xs
+    if not xs:
+        return []
+
+    return [xs[i] * (i) for i in range(1, len(xs))]
+
+
+def main():
+    print(derivative([3, 1, 2, 4, 5]))
+
+
+if __name__ == '__main__':
+    main()
     """
