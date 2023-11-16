@@ -1,4 +1,3 @@
-
 def solution(lst):
     """Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.
     
@@ -9,5 +8,5 @@ def solution(lst):
 
     # write your code here
     
-    solution([30, 13, 24, 321]) ==>0 # no odd elements
+    solution([30, 13, 24, 321]) ==>0
     """
