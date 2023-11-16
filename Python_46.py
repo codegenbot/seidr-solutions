@@ -12,7 +12,10 @@ def fib4(n: int):
     4
     >>> fib4(6)
     8
+    14
     >>> fib4(7)
+    >>> fib4(12)
+    386
     14
     pass
     if n == 0:
