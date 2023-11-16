@@ -95,75 +95,13 @@ def minPath(grid, k):
                     # Append the right neighbor to the queue.
                     queue.append(grid[last_x][last_y + 1])
 
-    # Get the minimum path.
-    min_path = min(min_path.values())
-
     # Return the minimum path.
     return min_path
+        Input: grid = [ [1,3], [3,2]], k = 10
+        Output: [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
         Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1
-    # Complete the following code given the task description and function signature.
-
-    # Get the size of the grid and create a dictionary to store the coordinates of the numbers.
-    n = len(grid)
-    nums = {}
-
-    # Iterate through the grid and store the coordinates of the numbers.
-    for i in range(n):
-        for j in range(n):
-            nums[grid[i][j]] = (i, j)
-
-    # Create a dictionary to store the minimum path.
-    min_path = {}
-
-    # Iterate through the numbers.
-    for num in nums.keys():
-        # Get the coordinates of the current number.
-        x, y = nums[num]
-
-        # Create a list to store the current path.
-        curr_path = [num]
-
-        # Create a list to store the queue.
-        queue = []
-
-        # Append the current number to the queue.
-        queue.append(num)
-
-        # Iterate through the queue.
-        while len(queue) > 0:
-            # Pop the last number from the queue.
-            last_num = queue.pop()
-
-            # Get the coordinates of the last number.
-            last_x, last_y = nums[last_num]
-
-            # If the last number is not the current number.
-            if last_num != num:
-                # Add the last number to the current path.
-                curr_path.append(last_num)
-
-            # If the length of the current path is equal to k.
-            if len(curr_path) == k:
-                # Add the current path to the minimum path.
-                min_path[num] = curr_path
-
-                # Break from the current loop.
-                break
-
-            # If the last number is not the current number.
-            if last_num != num:
-                # Check if the top neighbor of the last number is valid.
-                if last_x - 1 >= 0 and grid[last_x - 1][last_y] not in curr_path:
-                    # Append the top neighbor to the queue.
-                    queue.append(grid[last_x - 1][last_y])
-
-    # Get the minimum path.
-    min_path = min(min_path.values())
-
-    # Return the minimum path.
-    return min_path
         Output: [1]
     """
