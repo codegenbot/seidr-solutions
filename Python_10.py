@@ -2,7 +2,7 @@
 
 def is_palindrome(string: str) -> bool:
     """ Test if given string is a palindrome """
-    return string == string[::-1]
+    pass
 
 
 def make_palindrome(string: str) -> str:
@@ -14,9 +14,7 @@ def make_palindrome(string: str) -> str:
     ''
     >>> make_palindrome('cat')
     'catac'
-    for i in range(len(string)):
-        if is_palindrome(string[i:]):
-            return string + string[:i][::-1]
+    pass
     >>> make_palindrome('cata')
     'catac'
     """
