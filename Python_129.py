@@ -24,7 +24,89 @@ def minPath(grid, k):
     Examples:
 
 
-    # TODO: Implement the method here.
+
+    # Initializations
+    n = len(grid)
+    if n == 0: return k
+    m = len(grid[0])
+    if m == 0: return k
+
+    
+    def getNeighs(i, j):
+        neighs = [(i+1,j), (i-1,j), (i,j+1), (i,j-1)]
+        return [p for p in neighs if p[0] >= 0 and p[0] < n and p[1] >= 0 and p[1] < m]
+    
+
+    def dfs(i, j, k, curr):
+        if k == 0: return curr
+        
+        visited[i][j] = True
+
+        neighbors = getNeighs(i, j)
+        neighbors = [(p[0], p[1]) for p in neighbors if not visited[p[0]][p[1]]]
+
+        if len(neighbors) == 0:
+            return ["IMPOSSIBLE"]
+
+        for nei in neighbors:
+            neiMin = dfs(nei[0], nei[1], k-1, curr + [grid[nei[0]][nei[1]]])
+            if neiMin[0] != "IMPOSSIBLE":
+                return neiMin
+
+            visited[nei[0]][nei[1]] = False
+        
+        return ["IMPOSSIBLE"]
+
+
+    
+    visited = [[False for _ in range(m)] for _ in range(n)]
+    res = dfs(0, 0, k-1, [grid[0][0]])
+    return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
