@@ -1,19 +1,54 @@
+import heapq
 
-def helper(grid, k, i, j, visit, path):
-    if k == 0:
-        return path
+class Node:
+    def __init__(self, value, row, col):
+        self.value = value
+        self.row = row
+        self.col = col
+        self.adjacent = list()
 
-    visit.add((i, j))
-    result = []
+    def addAdjacent(self, node):
+        self.adjacent.append(node)
 
-    for new_i, new_j in [(i, j + 1), (i, j - 1), (i + 1, j), (i - 1, j)]:
-        if new_i >= 0 and new_i < len(grid) and new_j >= 0 and new_j < len(grid) and (new_i, new_j) not in visit:
-            path.append(grid[new_i][new_j])
-            result.append(helper(grid, k - 1, new_i, new_j, visit, path))
-            path.pop()
+    def __lt__(self, other):
+        return self.value < other.value
 
-    visit.remove((i, j))
-    return min(result)
+
+def solve(grid, k):
+    queue = []
+    nodes = dict()
+
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            node = Node(grid[i][j], i, j)
+            nodes[node] = node
+
+            if i > 0:
+                node.addAdjacent(nodes[grid[i-1][j]])
+                nodes[grid[i-1][j]].addAdjacent(node)
+
+            if j > 0:
+                node.addAdjacent(nodes[grid[i][j-1]])
+                nodes[grid[i][j-1]].addAdjacent(node)
+
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            queue.append(Node(grid[i][j], i, j))
+
+    heapq.heapify(queue)
+    result = list()
+
+    for i in range(k):
+        node = heapq.pop(queue)
+        result.append(node.value)
+
+        for a in node.adjacent:
+            if a in queue:
+                queue.remove(a)
+                heapq.heappush(queue, a)
+
+    return result
+
 
 def minPath(grid, k):
     """
@@ -39,23 +74,22 @@ def minPath(grid, k):
 
     Examples:
 
-    visit = set()
-    result = []
-    for i in range(len(grid)):
-        for j in range(len(grid)):
-            if (i, j) not in visit:
-                path = [grid[i][j]]
-                result.append(helper(grid, k - 1, i, j, visit, path))
-    return min(result)
+
+    # Write your code here.
+    return solve(grid, k)
 
 
-def main():
-    print(minPath([[1,2,3], [4,5,6], [7,8,9]], 3))
-    print(minPath([[5,9,3], [4,1,6], [7,8,2]], 1))
+grid = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
 
+k = 3
 
-if __name__ == "__main__":
-    main()
+result = minPath(grid, k)
+
+print(result)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
