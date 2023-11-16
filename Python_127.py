@@ -1,6 +1,15 @@
 from math import sqrt
 
 
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+
 def intersection(interval1, interval2):
     """You are given two intervals,
     where each interval is a pair of integers. For example, interval = (start, end) = (1, 2).
@@ -21,13 +30,3 @@ def intersection(interval1, interval2):
     intersection((-1, 1), (0, 4)) ==> "NO"
     intersection((-3, -1), (-5, 5)) ==> "YES"
     """
-    start = max(interval1[0], interval2[0])
-    end = min(interval1[1], interval2[1])
-    if start > end:
-        return "NO"
-    if start == end:
-        return "YES"
-    for i in range(2, int(sqrt(end - start)) + 1):
-        if (end - start) % i == 0:
-            return "NO"
-    return "YES"
