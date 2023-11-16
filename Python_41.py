@@ -1,6 +1,6 @@
 
 
-def car_race_collision(n: int, left_to_right: list, right_to_left: list):
+def car_race_collision(n: int, left_to_right: list, right_to_left: list) -> int:
     """
     Imagine a road that's a perfectly straight infinitely long line.
     n cars are driving left to right;  simultaneously, a different set of n cars
@@ -11,9 +11,22 @@ def car_race_collision(n: int, left_to_right: list, right_to_left: list):
     in their trajectory as if they did not collide.
 
 
+    return 0
+    if len(left_to_right) != n or len(right_to_left) != n:
+        return 0
+
+    left_to_right.sort()
+    right_to_left.sort()
+
+    count = 0
+    for i in range(n):
+        if left_to_right[i] < right_to_left[i]:
+            count += 1
+
+    return count
+
 
 
 
     This function outputs the number of such collisions.
     """
-    pass
