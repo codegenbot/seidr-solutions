@@ -13,27 +13,43 @@ def prime_fib(n: int):
     13
     >>> prime_fib(5)
     89
-    fibs = [2, 3, 5]
-    if n == 1:
-        return 2
-    elif n == 2:
-        return 3
-    elif n == 3:
-        return 5
-    else:
-        for i in range(3, n):
-            fibs.append(fibs[-1] + fibs[-2])
-            if fibs[-1] % 2 == 0:
-                fibs.pop()
-            else:
-                for j in range(3, fibs[-1]):
-                    if fibs[-1] % j == 0:
-                        fibs.pop()
-                        break
-        return fibs[-1]
+    fibonacci_list = [2, 3]
+    for i in range(2, n):
+        fibonacci_list.append(fibonacci_list[-1] + fibonacci_list[-2])
+        if not is_prime(fibonacci_list[-1]):
+            fibonacci_list.pop()
+            i -= 1
+    return fibonacci_list[-1]
 
 
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+def is_prime(n: int) -> bool:
+    """
+    is_prime returns True if n is a prime number, otherwise False.
+    >>> is_prime(2)
+    True
+    >>> is_prime(3)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(5)
+    True
+    >>> is_prime(6)
+    False
+    >>> is_prime(7)
+    True
+    >>> is_prime(8)
+    False
+    >>> is_prime(9)
+    False
+    >>> is_prime(10)
+    False
+    """
+    if n == 2:
+        return True
+    elif n <= 1 or n % 2 == 0:
+        return False
+    for i in range(3, int(n**0.5)+1, 2):
+        if n % i == 0:
+            return False
+    return True
     """
