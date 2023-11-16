@@ -16,16 +16,19 @@ def is_prime(n):
     False
     >>> is_prime(1)
     False
-    if n==1:
-        return False
-    if n==2 or n==3:
-        return True
-    if n%2==0 or n%3==0:
-        return False
-    i=5
-    while i*i<=n:
-        if n%i==0 or n%(i+2)==0:
-            return False
-        i+=6
-    return True
+
+
+def gcd(a, b):
+    """Return the GCD of a and b.
+    >>> gcd(20, 15)
+    5
+    >>> gcd(5, 5)
+    5
+    >>> gcd(1, 9)
+    1
+    >>> gcd(5, -5)
+    5
+    >>> gcd(0, 0)
+    0
+    """
     """
