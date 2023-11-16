@@ -28,7 +28,7 @@ def words_in_sentence(sentence):
         if is_prime(length):
             primes.append(word)
 
-    return primes
+    return " ".join(primes)
 
 
 def is_prime(num):
