@@ -1,4 +1,5 @@
 from itertools import product
+from copy import deepcopy
 
 def minPath(grid, k):
     """
@@ -24,8 +25,9 @@ def minPath(grid, k):
 
     Examples:
 
-        Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
-        Output: [1, 2, 1]
+    n = len(grid)
+    for (i, j) in product(range(n), range(n)):        
+        dfs(grid, i, j, k)
 
 def dfs(grid, i, j, k):
     pass
