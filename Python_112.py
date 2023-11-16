@@ -1,5 +1,4 @@
 
-
 def reverse_delete(s,c):
     """Task
     We are given two strings s and c, you have to deleted all the characters in s that are equal to any character in c
@@ -11,13 +10,4 @@ def reverse_delete(s,c):
     For s = "abcdef", c = "b"  the result should be ('acdef',False)
     For s = "abcdedcba", c = "ab", the result should be ('cdedc',True)
     """
-    # Complete the following code
-
-    # remove all the characters in s that are equal to any character in c
-    # check if the result string is palindrome
-    # return a tuple containing the result string and True/False for the check
-
-    #############################
-    # DO NOT MODIFY THE FOLLOWING CODE
-    #############################
-    return (result,check)
+    pass
