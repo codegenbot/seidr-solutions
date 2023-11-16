@@ -21,6 +21,24 @@ def by_length(arr):
             -> reverse arr -> [55, 1, -1]
       return = ['One']
     """
+    if arr == []:
+        return []
+    else:
+        arr = sorted(arr)
+        arr = arr.reverse()
+        arr = [str(i) for i in arr]
+        arr = [i.replace('1', 'One') for i in arr]
+        arr = [i.replace('2', 'Two') for i in arr]
+        arr = [i.replace('3', 'Three') for i in arr]
+        arr = [i.replace('4', 'Four') for i in arr]
+        arr = [i.replace('5', 'Five') for i in arr]
+        arr = [i.replace('6', 'Six') for i in arr]
+        arr = [i.replace('7', 'Seven') for i in arr]
+        arr = [i.replace('8', 'Eight') for i in arr]
+        arr = [i.replace('9', 'Nine') for i in arr]
+        return arr
 
-    # TODO: Complete the following code given the task description and function signature.
-    pass
+
+if __name__ == "__main__":
+    arr = [2, 1, 1, 4, 5, 8, 2, 3]
+    print(by_length(arr))
