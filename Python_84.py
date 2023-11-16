@@ -13,6 +13,20 @@ def solve(N):
     Output:
          a string of binary number
     """
-    # Write your code here
-    # To print results to the standard output you can use print
-    # Example: print "Hello world!"
+    # Convert the integer to binary.
+    binary = bin(N)
+
+    # Remove the first two characters from the string.
+    binary = binary[2:]
+
+    # Convert the string to a list of characters.
+    binary = list(binary)
+
+    # Convert the list of characters to a list of integers.
+    binary = [int(x) for x in binary]
+
+    # Get the sum of the digits.
+    sum_of_digits = sum(binary)
+
+    # Return the sum of the digits.
+    return sum_of_digits
