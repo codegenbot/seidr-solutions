@@ -14,16 +14,5 @@ def fib4(n: int):
     8
     >>> fib4(7)
     14
-
-    # Initialize the sequence with the first four elements.
-    seq = [0, 0, 2, 0]
-
-    # Complete the following code.
-    if n < 4:
-        return seq[n]
-    else:
-        for i in range(4, n+1):
-            seq.append(seq[i-1] + seq[i-2] + seq[i-3] + seq[i-4])
-
-    return seq[n]
+    # TODO: Implement this.
     """
