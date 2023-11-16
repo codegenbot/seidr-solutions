@@ -12,4 +12,4 @@ def select_words(s, n):
     select_words("Hello world", 4) ==> ["world"]
     select_words("Uncle sam", 3) ==> ["Uncle"]
     """
-    # your code here
+    pass
