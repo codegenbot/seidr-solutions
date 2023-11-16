@@ -1,29 +1,26 @@
 
 def any_int(x, y, z):
     '''
-    def add_values(x, y):
-            '''
-
-            '''
-def mult_values(x,y)
-        '''
-        
-        '''
-
-
-    
-    Create a function that takes 3 numbers and returns the product of the first 2 numbers raised to the power of the 3rd number.
-
+    Create a function that takes 3 numbers.
+    Returns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.
+    Returns false in any other cases.
     
     Examples
-    any_int(5, 2, 7) ➞ 625
+    any_int(5, 2, 7) ➞ True
     
-    any_int(3, 2, 2) ➞ 36
+    any_int(3, 2, 2) ➞ False
 
     any_int(3, -2, 1) ➞ True
     
     any_int(3.6, -2.2, 2) ➞ False
   
 
+    if not isinstance(x, int) or not isinstance(y, int) or not isinstance(z, int):
+        return False
+    else:
+        if x == y + z or x == z + y or z == x + y or y == z + x or z == y + x or y == x + z:
+            return True
+        else:
+            return False
     
     '''
