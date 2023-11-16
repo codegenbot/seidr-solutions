@@ -1,16 +1,5 @@
-from random import randint
 
-from hypothesis import given, settings
-import hypothesis.strategies as st
-
-def double_the_difference(lst):
-    sum = 0
-    for i in lst:
-        if i > 0 and i % 2 == 1:
-            sum += i
-    return sum * 2
-
-
+def odd_sum(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
     in the list that are odd. Ignore numbers that are negative or not integers.
@@ -24,17 +13,13 @@ def double_the_difference(lst):
     '''
 
     # Hint: You can use the modulus (%) operator to determine if a number is odd.
-
-    my_list = []
-    for i in range(20):
-        my_list.append(randint(-5, 5))
-    odd_sum = sum([i * i for i in lst if i > 0 and i % 2 == 1])
-    assert check(double_the_difference, [my_list]) == odd_sum, 'error'
-
-double_the_difference([1, 3, 2, 0])
-double_the_difference([-1, -2, 0])
-double_the_difference([9, -2])
-double_the_difference([0])
-
-print('SUCCESS!')
+    sum = 0
+    if -
+        lst = []
+        
+    for num in lst:
+        if num%2 == 1 and num > 0:
+            sum = sum + (num**2)
+        
+    return sum
     #       For example, 10 % 2 == 0, and 11 % 2 == 1
