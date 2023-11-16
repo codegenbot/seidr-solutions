@@ -5,6 +5,7 @@ def string_sequence(n: int) -> str:
     >>> string_sequence(0)
     '0'
     >>> string_sequence(5)
+    """
     '0 1 2 3 4 5'
     sequence = ''
     for i in range(n+1):
@@ -12,4 +13,3 @@ def string_sequence(n: int) -> str:
         if i < n:
             sequence += ' '
     return sequence
-    """
