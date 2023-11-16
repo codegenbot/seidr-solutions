@@ -1,3 +1,22 @@
+from itertools import combinations
+from collections import deque
+
+class Node:
+    def __init__(self, val, neighbors=[]):
+        self.val = val
+        self.neighbors = neighbors
+
+    def __lt__(self, other):
+        return self.val < other.val
+
+    def __eq__(self, other):
+        return self.val == other.val
+
+    def __hash__(self):
+        return hash(self.val)
+
+    def __repr__(self):
+        return str(self.val)
 
 def minPath(grid, k):
     """
@@ -23,30 +42,69 @@ def minPath(grid, k):
 
     Examples:
 
+    def get_neighbors(node, grid):
+        row, col = node.val
+        neighbors = []
+        if row > 0:
+            neighbors.append(Node((row-1, col), grid[row-1][col]))
+        if row < len(grid) - 1:
+            neighbors.append(Node((row+1, col), grid[row+1][col]))
+        if col > 0:
+            neighbors.append(Node((row, col-1), grid[row][col-1]))
+        if col < len(grid) - 1:
+            neighbors.append(Node((row, col+1), grid[row][col+1]))
+        return neighbors
 
-    def dfs(grid, k, curr_path, i, j):
-        if k == 0:
-            return curr_path
+    def bfs(node, k, grid):
+        visited = set()
+        queue = deque()
+        queue.append(node)
 
-        # TODO: complete the following code
+        while queue:
+            if len(queue) == k:
+                return [node.val for node in queue]
 
-        return
+            node = queue.popleft()
+            visited.add(node)
+            for neighbor in get_neighbors(node, grid):
+                if neighbor not in visited:
+                    queue.append(neighbor)
 
-    if not grid or len(grid) == 0 or len(grid[0]) == 0:
-        return []
-    if k == 0:
-        return []
+    def dfs(node, k, grid):
+        visited = set()
+        stack = []
+        stack.append(node)
 
-    rows = len(grid)
-    cols = len(grid[0])
+        while stack:
+            if len(stack) == k:
+                return [node.val for node in stack]
 
-    for i in range(rows):
-        for j in range(cols):
-            curr_path = dfs(grid, k, [], i, j)
-            if curr_path:
-                return curr_path
+            node = stack.pop()
+            visited.add(node)
+            for neighbor in get_neighbors(node, grid):
+                if neighbor not in visited:
+                    stack.append(neighbor)
 
-    return []
+    def min_path(start, k, grid):
+        min_path = None
+        for path in bfs(start, k, grid):
+            if min_path is None:
+                min_path = path
+            elif path < min_path:
+                min_path = path
+        return min_path
+
+    def build_graph(grid):
+        graph = {}
+        for row in range(len(grid)):
+            for col in range(len(grid[row])):
+                graph[Node((row, col), grid[row][col])] = get_neighbors(Node((row, col), grid[row][col]), grid)
+        return graph
+
+    graph = build_graph(grid)
+    return min_path(graph)
+
+minPath([ [5,9,3], [4,1,6], [7,8,2]], 1)
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
