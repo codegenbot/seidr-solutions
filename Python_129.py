@@ -1,22 +1,14 @@
-from itertools import combinations
-from collections import deque
+from heapq import heappush, heappop
 
 class Node:
-    def __init__(self, val, neighbors=[]):
-        self.val = val
-        self.neighbors = neighbors
+    def __init__(self, value, x, y):
+        self.value = value
+        self.x = x
+        self.y = y
+        self.neighbors = []
 
     def __lt__(self, other):
-        return self.val < other.val
-
-    def __eq__(self, other):
-        return self.val == other.val
-
-    def __hash__(self):
-        return hash(self.val)
-
-    def __repr__(self):
-        return str(self.val)
+        return self.value < other.value
 
 def minPath(grid, k):
     """
@@ -42,69 +34,31 @@ def minPath(grid, k):
 
     Examples:
 
-    def get_neighbors(node, grid):
-        row, col = node.val
-        neighbors = []
-        if row > 0:
-            neighbors.append(Node((row-1, col), grid[row-1][col]))
-        if row < len(grid) - 1:
-            neighbors.append(Node((row+1, col), grid[row+1][col]))
-        if col > 0:
-            neighbors.append(Node((row, col-1), grid[row][col-1]))
-        if col < len(grid) - 1:
-            neighbors.append(Node((row, col+1), grid[row][col+1]))
-        return neighbors
+    n = len(grid)
+    if n < 2:
+        return []
+    if k > n * n:
+        return []
 
-    def bfs(node, k, grid):
-        visited = set()
-        queue = deque()
-        queue.append(node)
-
-        while queue:
-            if len(queue) == k:
-                return [node.val for node in queue]
-
-            node = queue.popleft()
-            visited.add(node)
-            for neighbor in get_neighbors(node, grid):
-                if neighbor not in visited:
-                    queue.append(neighbor)
-
-    def dfs(node, k, grid):
-        visited = set()
-        stack = []
-        stack.append(node)
-
-        while stack:
-            if len(stack) == k:
-                return [node.val for node in stack]
-
-            node = stack.pop()
-            visited.add(node)
-            for neighbor in get_neighbors(node, grid):
-                if neighbor not in visited:
-                    stack.append(neighbor)
-
-    def min_path(start, k, grid):
-        min_path = None
-        for path in bfs(start, k, grid):
-            if min_path is None:
-                min_path = path
-            elif path < min_path:
-                min_path = path
-        return min_path
-
-    def build_graph(grid):
-        graph = {}
-        for row in range(len(grid)):
-            for col in range(len(grid[row])):
-                graph[Node((row, col), grid[row][col])] = get_neighbors(Node((row, col), grid[row][col]), grid)
-        return graph
-
-    graph = build_graph(grid)
-    return min_path(graph)
-
-minPath([ [5,9,3], [4,1,6], [7,8,2]], 1)
+    nodes = [[Node(grid[i][j], i, j) for j in range(n)] for i in range(n)]
+    for i in range(n):
+        for j in range(n):
+            if i > 0:
+                nodes[i][j].neighbors.append(nodes[i - 1][j])
+            if i < n - 1:
+                nodes[i][j].neighbors.append(nodes[i + 1][j])
+            if j > 0:
+                nodes[i][j].neighbors.append(nodes[i][j - 1])
+            if j < n - 1:
+                nodes[i][j].neighbors.append(nodes[i][j + 1])
+    heap = []
+    for i in range(n):
+        for j in range(n):
+            heappush(heap, nodes[i][j])
+            if len(heap) > k:
+                heappop(heap)
+    best = [heappop(heap).value for _ in range(k)]
+    return best
         Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3
         Output: [1, 2, 1]
 
