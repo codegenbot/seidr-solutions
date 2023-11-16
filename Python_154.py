@@ -1,7 +1,12 @@
 
-def convert_datetime(date_string):
-    """You are given a date as a string in the format of MonthdayYear such as March 25 2016 and you need to convert it to a datetime object which is the number of seconds since midnight January 1 1970.
+def cycpattern_check(a , b):
+    """You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
+    cycpattern_check("abcd","abd") => False
+    cycpattern_check("hello","ell") => True
+    cycpattern_check("whassup","psus") => False
+    cycpattern_check("abab","baa") => True
+    cycpattern_check("efef","eeff") => False
+    cycpattern_check("himenss","simen") => True
 
-    # Return the datetime object as the number of seconds since January 1 1970
-    return
+    # Your code starts here
     """
