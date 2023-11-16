@@ -1,3 +1,4 @@
+
 def fruit_distribution(s,n):
     """
     In this task, you will be given a string that represents a number of apples and oranges 
@@ -11,10 +12,4 @@ def fruit_distribution(s,n):
     fruit_distribution("2 apples and 3 oranges", 100) -> 100 - 2 - 3 = 95
     fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
     """
-    return n - int(s.split()[0]) - int(s.split()[4])
-
-
-print(fruit_distribution("5 apples and 6 oranges", 19))
-print(fruit_distribution("0 apples and 1 oranges", 3))
-print(fruit_distribution("2 apples and 3 oranges", 100))
-print(fruit_distribution("100 apples and 1 oranges", 120))
+    return n - int(s[0]) - int(s[-1])
