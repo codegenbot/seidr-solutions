@@ -25,17 +25,11 @@ def is_sorted(lst):
 
     # check if the list has more than one element
     if len(lst) > 1:
-        # check if the list is sorted
         for i in range(len(lst) - 1):
             if lst[i] > lst[i + 1]:
                 return False
-
-        # check if the list has duplicates
-        for i in range(len(lst) - 1):
-            if lst[i] == lst[i + 1]:
-                return False
-
-    return True
+            else:
+                return True
 
 
 print(is_sorted([5]))
