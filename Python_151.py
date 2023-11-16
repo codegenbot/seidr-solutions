@@ -1,14 +1,15 @@
-def count_non_int_numbers(lst):
+
+def double_the_difference(lst):
     '''
-    Given a list of numbers, return the count of positive number divisible by 
-    3. Ignore numbers that are not integers.
-    First item counts as non-int.
+    Given a list of numbers, return 2 times the difference between the 
+    numbers at the first and last indices of the list. Turns out numbers 
+    in the list may not be integers, so ignore numbers that are not.
+    If the list is empty, return 0.
     
-    count_non_int_numbers([1, 2, 3, 0]) == 2
-    count_non_int_numbers([0, -3, -1]) == 0D
-    count_non_int_numbers([-1, -2]) == 0
-    count_non_int_numbers([0]) == 0  
-    count_non_int_numbers([1.0, 2.0]) == 1
-    count_non_int_numbers(["1", "2"]) == 0
-    If the input list is empty, return 0.0
+    double_the_difference([1, 3, 2, 0]) == 1 + 9 + 0 + 0 = 10
+    double_the_difference([-1, -2, 0]) == 0
+    double_the_difference([9, -2]) == 81
+    double_the_difference([0]) == 0  
+   
+    If the input list is empty, return 0.
     '''
