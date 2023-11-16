@@ -10,5 +10,8 @@ def change_base(x: int, base: int):
     '1000'
     >>> change_base(7, 2)
     '111'
-    # Complete the following code given the task description and function signature.
+    if x < base:
+        return str(x)
+    else:
+        return change_base(x // base, base) + str(x % base)
     """
