@@ -1,17 +1,12 @@
 from math import sqrt
 
-
 def is_prime(n):
-    """
-    Check if a number is prime.
-    """
-    if n < 2:
+    if n <= 1:
         return False
     for i in range(2, int(sqrt(n)) + 1):
         if n % i == 0:
             return False
     return True
-
 
 def intersection(interval1, interval2):
     """You are given two intervals,
@@ -33,3 +28,13 @@ def intersection(interval1, interval2):
     intersection((-1, 1), (0, 4)) ==> "NO"
     intersection((-3, -1), (-5, 5)) ==> "YES"
     """
+    start = max(interval1[0], interval2[0])
+    end = min(interval1[1], interval2[1])
+    if start > end:
+        return "NO"
+    return "YES" if is_prime(end - start + 1) else "NO"
+
+
+print(intersection((1, 2), (2, 3)))
+print(intersection((-1, 1), (0, 4)))
+print(intersection((-3, -1), (-5, 5)))
