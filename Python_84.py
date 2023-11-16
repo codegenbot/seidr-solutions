@@ -13,7 +13,5 @@ def solve(N):
     Output:
          a string of binary number
     """
+    assert solve(963) == "10010", "Error"
     pass
-
-
-print(solve(963))
