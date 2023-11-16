@@ -15,13 +15,12 @@ def closest_integer(value):
     Rounding away from zero means that if the given number is equidistant
     from two integers, the one you should return is the one that is the
     farthest from zero. For example closest_integer("14.5") should
-    if value.find('.') != -1:
-        value = value.split('.')
-        if int(value[1]) >= 5:
-            return int(value[0]) + 1
-        else:
-            return int(value[0])
-    else:
-        return int(value)
+
+    # Write your code here
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
     return 15 and closest_integer("-14.5") should return -15.
     '''
