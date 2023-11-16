@@ -8,15 +8,7 @@ def simplify(x, n):
     You can assume that x, and n are valid fractions, and do not have zero as denominator.
 
 
-    x_num = int(x.split('/')[0])
-    x_den = int(x.split('/')[1])
-    n_num = int(n.split('/')[0])
-    n_den = int(n.split('/')[1])
-
-    if x_num % n_den == 0 and n_num % x_den == 0:
-        return True
-    else:
-        return False
+    # TODO: Complete the following code given the task description and function signature.
     simplify("1/5", "5/1") = True
     simplify("1/6", "2/1") = False
     simplify("7/10", "10/2") = False
