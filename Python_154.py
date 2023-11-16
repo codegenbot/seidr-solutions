@@ -10,10 +10,7 @@ def cycpattern_check(a , b):
     cycpattern_check("himenss","simen") => True
 
     """
-    if b in a:
-        return True
-    else:
-        return False
+    return b in a
 
     
 print(cycpattern_check("abcd","abd"))
