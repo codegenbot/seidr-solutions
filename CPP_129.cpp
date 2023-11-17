@@ -23,31 +23,16 @@ Examples:
 
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
     vector<int> result;
     return result;
-}
-int main(){
-    vector<int> result;
-    
-    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9}};
-    int k = 3;
-    result = minPath(grid, k);
-    for(int i = 0; i < result.size(); i++){
-        printf("%d ", result[i]);
-    }
-    printf("\n");
-
-    vector<vector<int>> grid2 = { {5,9,3}, {4,1,6}, {7,8,2}};
-    int k2 = 1;
-    result = minPath(grid2, k2);
-    for(int i = 0; i < result.size(); i++){
-        printf("%d ", result[i]);
-    }
-    printf("\n");
 }
 #include<stdio.h>
 #include<vector>
