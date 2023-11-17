@@ -26,16 +26,16 @@ bool is_nested(string str){
 			return false;
 		}
 	}
-	return count > 0 ? false : true;
+	return count == 0;
 }
 int main() {
 	string str;
 	cin >> str;
 	if (is_nested(str)) {
-		cout << "true";
+		cout << "true" << endl;
 	}
 	else {
-		cout << "false";
+		cout << "false" << endl;
 	}
 	return 0;
 }
