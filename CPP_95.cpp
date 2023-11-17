@@ -16,33 +16,32 @@ using namespace std;
 bool check_dict_case(map<string,string> dict){
 	if(dict.size()==0)
 		return false;
-	bool upper=true;
-	bool lower=true;
-	for(auto it=dict.begin();it!=dict.end();it++){
-		if(it->first[0]>='a'&&it->first[0]<='z')
-			upper=false;
-		else if(it->first[0]>='A'&&it->first[0]<='Z')
-			lower=false;
+	map<string,string>::iterator it;
+	int upper=0,lower=0;
+	for(it=dict.begin();it!=dict.end();it++){
+		if(isupper(it->first[0]))
+			upper++;
+		else if(islower(it->first[0]))
+			lower++;
 		else
 			return false;
 	}
-	return upper||lower;
+	if(upper==0 || lower==0)
+		return true;
+	else
+		return false;
 }
 int main(){
 	map<string,string> dict;
 	dict["a"]="apple";
 	dict["b"]="banana";
-	printf("%d\n",check_dict_case(dict));
-	dict["A"]="apple";
+	dict["A"]="banana";
 	dict["B"]="banana";
-	printf("%d\n",check_dict_case(dict));
-	dict["8"]="apple";
-	dict["a"]="banana";
-	printf("%d\n",check_dict_case(dict));
+	dict["8"]="banana";
+	dict["a"]="apple";
 	dict["Name"]="John";
 	dict["Age"]="36";
 	dict["City"]="Houston";
-	printf("%d\n",check_dict_case(dict));
 	dict["STATE"]="NC";
 	dict["ZIP"]="12345";
 	printf("%d\n",check_dict_case(dict));
