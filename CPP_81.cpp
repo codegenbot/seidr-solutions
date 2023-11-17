@@ -23,13 +23,80 @@ a function that can output a vector of letter grades using the following table:
 Example:
 grade_equation({4.0, 3, 1.7, 2, 3.5}) ==> {"A+", "B", "C-", "C", "A-"}
 */
-#include <bits/stdc++.h>
-using namespace std;
-
+#include<stdio.h>
 vector<string> numerical_letter_grade(vector<float> grades){
-    vector<string> letter_grades;
-    // Complete the code
-    return letter_grades;
+
+#include<vector>
+#include<string>
+	for (int i = 0; i < grades.size(); i++)
+	{
+		if (grades[i] == 4.0)
+		{
+			letter_grades.push_back("A+");
+		}
+		else if (grades[i] > 3.7 && grades[i] < 4.0)
+		{
+			letter_grades.push_back("A");
+		}
+		else if (grades[i] > 3.3 && grades[i] < 3.7)
+		{
+			letter_grades.push_back("A-");
+		}
+		else if (grades[i] > 3.0 && grades[i] < 3.3)
+		{
+			letter_grades.push_back("B+");
+		}
+		else if (grades[i] > 2.7 && grades[i] < 3.0)
+		{
+			letter_grades.push_back("B");
+		}
+		else if (grades[i] > 2.3 && grades[i] < 2.7)
+		{
+			letter_grades.push_back("B-");
+		}
+		else if (grades[i] > 2.0 && grades[i] < 2.3)
+		{
+			letter_grades.push_back("C+");
+		}
+		else if (grades[i] > 1.7 && grades[i] < 2.0)
+		{
+			letter_grades.push_back("C");
+		}
+		else if (grades[i] > 1.3 && grades[i] < 1.7)
+		{
+			letter_grades.push_back("C-");
+		}
+		else if (grades[i] > 1.0 && grades[i] < 1.3)
+		{
+			letter_grades.push_back("D+");
+		}
+		else if (grades[i] > 0.7 && grades[i] < 1.0)
+		{
+			letter_grades.push_back("D");
+		}
+		else if (grades[i] > 0.0 && grades[i] < 0.7)
+		{
+			letter_grades.push_back("D-");
+		}
+		else if (grades[i] == 0.0)
+		{
+			letter_grades.push_back("E");
+		}
+		
+	}
+	vector<string> letter_grades;
+	// Complete the code
+
+int main(){
+	vector<float> grades = {4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7, 1.3, 1.0, 0.7, 0.0};
+	vector<string> letter_grades = numerical_letter_grade(grades);
+	for (int i = 0; i < letter_grades.size(); i++)
+	{
+		printf("%s\n", letter_grades[i].c_str());
+	}
+	return 0;
+}
+
+	return letter_grades;
 }
 using namespace std;
-vector<string> numerical_letter_grade(vector<float> grades){
