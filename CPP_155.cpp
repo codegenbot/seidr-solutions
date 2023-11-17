@@ -11,7 +11,7 @@ Given an integer. return a vector that has the number of even and odd digits res
 #include<vector>
     vector<int> result;
     int even = 0, odd = 0;
-    while(num){
+    while(num != 0){
         if(num % 2 == 0)
             even++;
         else
