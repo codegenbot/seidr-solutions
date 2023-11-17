@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string>
+#include <iostream>
 using namespace std;
 bool is_palindrome(string str){
     //Test if given string is a palindrome 
@@ -26,10 +27,4 @@ string make_palindrome(string str){
         }
     }
     return str+s.substr(str.length()-i);
-}
-int main(){
-    string str;
-    cin>>str;
-    cout<<make_palindrome(str);
-    return 0;
 }
