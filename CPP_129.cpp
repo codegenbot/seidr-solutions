@@ -25,7 +25,6 @@ Examples:
     Output: {1, 2, 1}
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
-    vector<int> minPath(vector<vector<int>> grid, int k){
     Output: {1}
 */
     vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
@@ -34,7 +33,7 @@ Examples:
     return path;
 }
 int main(){
-#include<stdio.h>
-#include<vector>
+#include <stdio.h>
+#include <vector>
 using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
+vector<int> minPath(vector<vector<int>> grid, int k) {
