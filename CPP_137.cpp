@@ -10,8 +10,9 @@ compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
-#include<any>
-using namespace std;
+// #include<boost/any.hpp>    //to use any type of data type 
+// #include<boost/lexical_cast.hpp>  // to convert string to int
+// using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
     if(a.type()==typeid(int)&&b.type()==typeid(int)){
         if(boost::any_cast<int>(a)>boost::any_cast<int>(b))
@@ -87,9 +88,18 @@ boost::any compare_one(boost::any a,boost::any b){
     }
 }
 int main(){
-    boost::any a=5;
-    boost::any b=8.5;
-    boost::any c=compare_one(a,b);
-    cout<<boost::any_cast<float>(c);
+    assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
+    assert (boost::any_cast<string>(compare_one(string("5,1"), string("6"))) == "6");
+    assert (boost::any_cast<string>(compare_one(string("1"), string("2,3"))) == "2,3");
+    assert (boost::any_cast<string>(compare_one(string("5,1"), 6)) == "6");
+    assert (boost::any_cast<string>(compare_one(string("1"), 2.3)) == "2,3");
+    assert (boost::any_cast<string>(compare_one(string("1"), 2)) == "2");
+    assert (boost::any_cast<string>(compare_one(1, string("2,3"))) == "2,3");
+    assert (boost::any_cast<string>(compare_one(1, 2.3)) == "2.3");
+    assert (boost::any_cast<string>(compare_one(1, 2)) == "2");
+    assert (boost::any_cast<string>(compare_one(1.1, 2.3)) == "2.3");
+    assert (boost::any_cast<string>(compare_one(1.1, 2.1)) == "2.1");
+    assert (boost::any_cast<string>(compare_one(1.1, string("2.1"))) == "2.1");
+    assert (boost::any_cast<string>(compare_one(1.1, string("2.3"))) == "2.3");
     return 0;
 }
