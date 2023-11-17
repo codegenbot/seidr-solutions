@@ -27,42 +27,64 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, 0));
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            dp[i][j] = grid[i][j];
-        }
-    }
-    for(int i = 1; i < k; i++){
-        for(int j = 0; j < n; j++){
-            for(int l = 0; l < n; l++){
-                // TODO: Complete the following code.
-                // dp[j][l] = ...
-            }
-        }
-    }
-    vector<int> res(k);
-    for(int i = 0; i < k; i++){
-        res[i] = dp[i][k - i - 1];
-    }
-    return res;
-}
-
-int main(){
-    int n, k;
-    scanf("%d%d", &n, &k);
-    vector<vector<int>> grid(n, vector<int>(n));
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            scanf("%d", &grid[i][j]);
-        }
-    }
-    vector<int> res = minPath(grid, k);
-    for(int i = 0; i < k; i++){
-        printf("%d ", res[i]);
-    }
-    return 0;
+	int n = grid.size();
+	vector<vector<int>> dp(n, vector<int>(n, -1));
+	vector<vector<int>> pre(n, vector<int>(n, -1));
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (i == 0 && j == 0) {
+				dp[i][j] = grid[i][j];
+			}
+			else {
+				if (i == 0) {
+					dp[i][j] = dp[i][j - 1] + grid[i][j];
+					pre[i][j] = 1;
+				}
+				else if (j == 0) {
+					dp[i][j] = dp[i - 1][j] + grid[i][j];
+					pre[i][j] = 0;
+				}
+				else {
+					if (dp[i - 1][j] < dp[i][j - 1]) {
+						dp[i][j] = dp[i - 1][j] + grid[i][j];
+						pre[i][j] = 0;
+					}
+					else if (dp[i - 1][j] > dp[i][j - 1]) {
+						dp[i][j] = dp[i][j - 1] + grid[i][j];
+						pre[i][j] = 1;
+					}
+					else {
+						if (grid[i - 1][j] < grid[i][j - 1]) {
+							dp[i][j] = dp[i - 1][j] + grid[i][j];
+							pre[i][j] = 0;
+						}
+						else if (grid[i - 1][j] > grid[i][j - 1]) {
+							dp[i][j] = dp[i][j - 1] + grid[i][j];
+							pre[i][j] = 1;
+						}
+						else {
+							dp[i][j] = dp[i - 1][j] + grid[i][j];
+							pre[i][j] = 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	vector<int> res(k);
+	res[k - 1] = grid[n - 1][n - 1];
+	int i = n - 1, j = n - 1;
+	for (int t = k - 2; t >= 0; t--) {
+		if (pre[i][j] == 0) {
+			res[t] = grid[i - 1][j];
+			i--;
+		}
+		else {
+			res[t] = grid[i][j - 1];
+			j--;
+		}
+	}
+	return res;
 }
 #include<stdio.h>
 #include<vector>
