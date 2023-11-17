@@ -23,16 +23,34 @@ Examples:
 
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
-#include<algorithm>
-#include<cassert>
-#include<iostream>
-#include<string>
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size()!=b.size()) return false;
-    for(int i=0;i<a.size();i++)
-    if(a[i]!=b[i]) return false;
+
+vector<int> minPath(vector<vector<int>> grid, int k)
+{
+    vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
+    vector<int> path;
+    // Complete the following code given the task description and function signature.
+    return path;
+}
+
+bool issame(vector<int> a, vector<int> b)
+{
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++)
+    {
+        if (a[i] != b[i])
+            return false;
+    }
     return true;
+}
+void testminPath()
+{
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+}
+int main()
+{
+    testminPath();
 }
 
 #include <stdio.h>
@@ -41,8 +59,6 @@ using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k)
 {
 
-    return path;
-
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
@@ -50,8 +66,8 @@ vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
 vector<int> path;
 }
 // Complete the following code given the task description and function signature.
+return path;
+}
 int main()
 {
-    assert (issame(minPath({{1,3}, {3,2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    return 0;
 }
