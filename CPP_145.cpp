@@ -8,94 +8,205 @@ For example:
 >>> order_by_points({1, 11, -1, -11, -12}) == {-1, -11, 1, -12, 11}
 >>> order_by_points({}) == {}
 */
+
+
 #include<stdio.h>
 #include<math.h>
 #include<vector>
 #include<string>
 using namespace std;
 vector<int> order_by_points(vector<int> nums){
-int i,j,k,m,n,p,q,r,s,t,u,v,w,x,y,z;
-vector<int>a;
-vector<int>b;
-vector<int>c;
-vector<int>d;
-vector<int>e;
-vector<int>f;
-vector<int>g;
-vector<int>h;
-vector<int>i;
-vector<int>j;
-vector<int>k;
-vector<int>l;
-vector<int>m;
-vector<int>n;
-vector<int>o;
-vector<int>p;
-vector<int>q;
-vector<int>r;
-vector<int>s;
-vector<int>t;
-vector<int>u;
-vector<int>v;
-vector<int>w;
-vector<int>x;
-vector<int>y;
-vector<int>z;
-for(i=0;i<nums.size();i++)
-{
-a.push_back(nums[i]%10);
-b.push_back(nums[i]/10);
-c.push_back(b[i]%10);
-d.push_back(b[i]/10);
-e.push_back(d[i]%10);
-f.push_back(d[i]/10);
-g.push_back(f[i]%10);
-h.push_back(f[i]/10);
-i.push_back(h[i]%10);
-j.push_back(h[i]/10);
-k.push_back(j[i]%10);
-l.push_back(j[i]/10);
-m.push_back(l[i]%10);
-n.push_back(l[i]/10);
-o.push_back(n[i]%10);
-p.push_back(n[i]/10);
-q.push_back(p[i]%10);
-r.push_back(p[i]/10);
-s.push_back(r[i]%10);
-t.push_back(r[i]/10);
-u.push_back(t[i]%10);
-v.push_back(t[i]/10);
-w.push_back(v[i]%10);
-x.push_back(v[i]/10);
-y.push_back(x[i]%10);
-z.push_back(x[i]/10);
-}
-for(i=0;i<nums.size();i++)
-{
-for(j=0;j<nums.size();j++)
-{
-if(a[i]+b[i]+c[i]+d[i]+e[i]+f[i]+g[i]+h[i]+i[i]+j[i]+k[i]+l[i]+m[i]+n[i]+o[i]+p[i]+q[i]+r[i]+s[i]+t[i]+u[i]+v[i]+w[i]+x[i]+y[i]+z[i]<a[j]+b[j]+c[j]+d[j]+e[j]+f[j]+g[j]+h[j]+i[j]+j[j]+k[j]+l[j]+m[j]+n[j]+o[j]+p[j]+q[j]+r[j]+s[j]+t[j]+u[j]+v[j]+w[j]+x[j]+y[j]+z[j])
-{
-temp=nums[i];
-nums[i]=nums[j];
-nums[j]=temp;
-}
-}
-}
-return nums;
-}
-int main()
-{
-vector<int>nums;
-nums.push_back(1);
-nums.push_back(11);
-nums.push_back(-1);
-nums.push_back(-11);
-nums.push_back(-12);
-nums=order_by_points(nums);
-for(i=0;i<nums.size();i++)
-{
-printf("%d ",nums[i]);
-}
-return 0;
+    vector<int> ans;
+    vector<int> a;
+    vector<int> b;
+    vector<int> c;
+    vector<int> d;
+    vector<int> e;
+    vector<int> f;
+    vector<int> g;
+    vector<int> h;
+    vector<int> i;
+    vector<int> j;
+    vector<int> k;
+    vector<int> l;
+    vector<int> m;
+    vector<int> n;
+    vector<int> o;
+    vector<int> p;
+    vector<int> q;
+    vector<int> r;
+    vector<int> s;
+    vector<int> t;
+    vector<int> u;
+    vector<int> v;
+    vector<int> w;
+    vector<int> x;
+    vector<int> y;
+    vector<int> z;
+    int sum = 0;
+    int i = 0;
+    for(i = 0;i < nums.size();i++){
+        sum = 0;
+        while(nums[i] != 0){
+            sum += nums[i] % 10;
+            nums[i] /= 10;
+        }
+        if(sum == 0){
+            a.push_back(nums[i]);
+        }
+        else if(sum == 1){
+            b.push_back(nums[i]);
+        }
+        else if(sum == 2){
+            c.push_back(nums[i]);
+        }
+        else if(sum == 3){
+            d.push_back(nums[i]);
+        }
+        else if(sum == 4){
+            e.push_back(nums[i]);
+        }
+        else if(sum == 5){
+            f.push_back(nums[i]);
+        }
+        else if(sum == 6){
+            g.push_back(nums[i]);
+        }
+        else if(sum == 7){
+            h.push_back(nums[i]);
+        }
+        else if(sum == 8){
+            i.push_back(nums[i]);
+        }
+        else if(sum == 9){
+            j.push_back(nums[i]);
+        }
+        else if(sum == 10){
+            k.push_back(nums[i]);
+        }
+        else if(sum == 11){
+            l.push_back(nums[i]);
+        }
+        else if(sum == 12){
+            m.push_back(nums[i]);
+        }
+        else if(sum == 13){
+            n.push_back(nums[i]);
+        }
+        else if(sum == 14){
+            o.push_back(nums[i]);
+        }
+        else if(sum == 15){
+            p.push_back(nums[i]);
+        }
+        else if(sum == 16){
+            q.push_back(nums[i]);
+        }
+        else if(sum == 17){
+            r.push_back(nums[i]);
+        }
+        else if(sum == 18){
+            s.push_back(nums[i]);
+        }
+        else if(sum == 19){
+            t.push_back(nums[i]);
+        }
+        else if(sum == 20){
+            u.push_back(nums[i]);
+        }
+        else if(sum == 21){
+            v.push_back(nums[i]);
+        }
+        else if(sum == 22){
+            w.push_back(nums[i]);
+        }
+        else if(sum == 23){
+            x.push_back(nums[i]);
+        }
+        else if(sum == 24){
+            y.push_back(nums[i]);
+        }
+        else if(sum == 25){
+            z.push_back(nums[i]);
+        }
+    }
+    for(i = 0;i < a.size();i++){
+        ans.push_back(a[i]);
+    }
+    for(i = 0;i < b.size();i++){
+        ans.push_back(b[i]);
+    }
+    for(i = 0;i < c.size();i++){
+        ans.push_back(c[i]);
+    }
+    for(i = 0;i < d.size();i++){
+        ans.push_back(d[i]);
+    }
+    for(i = 0;i < e.size();i++){
+        ans.push_back(e[i]);
+    }
+    for(i = 0;i < f.size();i++){
+        ans.push_back(f[i]);
+    }
+    for(i = 0;i < g.size();i++){
+        ans.push_back(g[i]);
+    }
+    for(i = 0;i < h.size();i++){
+        ans.push_back(h[i]);
+    }
+    for(i = 0;i < i.size();i++){
+        ans.push_back(i[i]);
+    }
+    for(i = 0;i < j.size();i++){
+        ans.push_back(j[i]);
+    }
+    for(i = 0;i < k.size();i++){
+        ans.push_back(k[i]);
+    }
+    for(i = 0;i < l.size();i++){
+        ans.push_back(l[i]);
+    }
+    for(i = 0;i < m.size();i++){
+        ans.push_back(m[i]);
+    }
+    for(i = 0;i < n.size();i++){
+        ans.push_back(n[i]);
+    }
+    for(i = 0;i < o.size();i++){
+        ans.push_back(o[i]);
+    }
+    for(i = 0;i < p.size();i++){
+        ans.push_back(p[i]);
+    }
+    for(i = 0;i < q.size();i++){
+        ans.push_back(q[i]);
+    }
+    for(i = 0;i < r.size();i++){
+        ans.push_back(r[i]);
+    }
+    for(i = 0;i < s.size();i++){
+        ans.push_back(s[i]);
+    }
+    for(i = 0;i < t.size();i++){
+        ans.push_back(t[i]);
+    }
+    for(i = 0;i < u.size();i++){
+        ans.push_back(u[i]);
+    }
+    for(i = 0;i < v.size();i++){
+        ans.push_back(v[i]);
+    }
+    for(i = 0;i < w.size();i++){
+        ans.push_back(w[i]);
+    }
+    for(i = 0;i < x.size();i++){
+        ans.push_back(x[i]);
+    }
+    for(i = 0;i < y.size();i++){
+        ans.push_back(y[i]);
+    }
+    for(i = 0;i < z.size();i++){
+        ans.push_back(z[i]);
+    }
+    return ans;
 }
