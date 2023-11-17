@@ -8,21 +8,21 @@ Return the largest prime factor of n. Assume n > 1 and is not a prime.
 #include<stdio.h>
 using namespace std;
 int largest_prime_factor(int n){
-    int max = 1;
-    while (n % 2 == 0) {
+    int largest = 0;
+    while(n % 2 == 0){
+        largest = 2;
         n /= 2;
-        max = 2;
     }
-    for (int i = 3; i <= sqrt(n); i += 2) {
-        while (n % i == 0) {
+    for(int i = 3; i <= n; i += 2){
+        while(n % i == 0){
+            largest = i;
             n /= i;
-            if (max < i) {
-                max = i;
-            }
         }
     }
-    if (n > 2) {
-        max = n;
-    }
-    return max;
+    return largest;
+}
+
+int main(){
+    cout << largest_prime_factor(13195) << endl;
+    cout << largest_prime_factor(2048) << endl;
 }
