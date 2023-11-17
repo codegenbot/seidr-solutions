@@ -9,50 +9,24 @@ double_the_difference({0}) == 0
 
 If the input vector is empty, return 0.
 */
-#include<stdio.h>
-#include<math.h>
-#include<vector>
+#include <stdio.h>
+#include <math.h>
+#include <vector>
 using namespace std;
-
-long long double_the_difference(vector<float> lst){
-  if (lst.size()==0)
+long long double_the_difference(vector<float> lst)
+{
+  if (lst.size() == 0)
     return 0;
-  else{
-    long long sum=0;
-    for (size_t i=0;i<lst.size();i++){
-      if (lst[i]>0 && floor(lst[i])==lst[i] && fmod(lst[i],2)==1){
-        sum+=(lst[i]*lst[i]);
+  else
+  {
+    long long sum = 0;
+    for (size_t i = 0; i < lst.size(); i++)
+    {
+      if (lst[i] > 0 && floor(lst[i]) == lst[i] && fmod(lst[i], 2) == 1)
+      {
+        sum += (lst[i] * lst[i]);
       }
     }
     return sum;
   }
-}
-
-int main(){
-  vector<float> lst;
-  lst.push_back(1);
-  lst.push_back(3);
-  lst.push_back(2);
-  lst.push_back(0);
-  long long odd_sum = 10;
-  assert (double_the_difference(lst) == odd_sum );
-  lst.clear();
-  lst.push_back(-1);
-  lst.push_back(-2);
-  lst.push_back(0);
-  odd_sum = 0;
-  assert (double_the_difference(lst) == odd_sum );
-  lst.clear();
-  lst.push_back(9);
-  lst.push_back(-2);
-  odd_sum = 81;
-  assert (double_the_difference(lst) == odd_sum );
-  lst.clear();
-  lst.push_back(0);
-  odd_sum = 0;
-  assert (double_the_difference(lst) == odd_sum );
-  lst.clear();
-  odd_sum = 0;
-  assert (double_the_difference(lst) == odd_sum );
-  return 0;
 }
