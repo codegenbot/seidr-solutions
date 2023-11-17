@@ -40,5 +40,6 @@ int main() {
     assert (double_the_difference(lst) == odd_sum);
     lst = {0};
     odd_sum = 0;
+    assert (double_the_difference(lst) == odd_sum);
     return 0;
 }
