@@ -8,42 +8,29 @@ cycpattern_check("efef","eeff") => false
 cycpattern_check("himenss",'simen") => true
 
 */
-#include<stdio.h>
-#include <string>
-#include <ostream>
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-bool cycpattern_check(string a,string b)
-{
-	if(a.length()==b.length()){
-		string c=a+a;
-		if(c.find(b)!=string::npos)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	else
-	{
-		return false;
-	}
+bool cycpattern_check(string a,string b){
+    int len=strlen(a);
+    for(int i=0;i<len;i++){
+        if(strcmp(a,b)==0){
+            return true;
+        }
+        char temp=a[0];
+        for(int j=0;j<len-1;j++){
+            a[j]=a[j+1];
+        }
+        a[len-1]=temp;
+    }
+    return false;
 }
-int main()
-{
-	string a,b;
-	cout<<"Enter the first string: "<<endl;
-	cin>>a;
-	cout<<"Enter the second string: "<<endl;
-	cin>>b;
-	if(cycpattern_check(a,b))
-	{
-		cout<<"True"<<endl;
-	}
-	else
-	{
-		cout<<"False"<<endl;
-	}
+int main(){
+    assert  (cycpattern_check("winemtt","tinem") == true );
+    assert  (cycpattern_check("efef","eeff") == false );
+    assert  (cycpattern_check("himenss","simen") == true );
+    assert  (cycpattern_check("abcd","abd") == false );
+    assert  (cycpattern_check("hello","ell") == true );
+    assert  (cycpattern_check("whassup","psus") == false );
+    assert  (cycpattern_check("abab","baa") == true );
+    return 0;
 }
