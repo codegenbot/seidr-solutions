@@ -10,12 +10,17 @@ Given an integer. return a vector that has the number of even and odd digits res
 #include<string>
 #include<vector>
 	vector<int> result;
-	int even = 0, odd = 0;
-	while (num != 0) {
-		if (num % 2 == 0)
+	int even = 0;
+	int odd = 0;
+	int digit;
+	while (num > 0) {
+		digit = num % 10;
+		if (digit % 2 == 0) {
 			even++;
-		else
+		}
+		else {
 			odd++;
+		}
 		num /= 10;
 	}
 	result.push_back(even);
