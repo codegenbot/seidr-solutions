@@ -25,20 +25,11 @@ vector<int> generate_integers(int a,int b){
 	return v;
 }
 int main(){
-	vector<int> v=generate_integers(2,8);
+	int a,b;
+	scanf("%d%d",&a,&b);
+	vector<int> v=generate_integers(a,b);
 	for(int i=0;i<v.size();i++){
 		printf("%d ",v[i]);
 	}
-	printf("\n");
-	v=generate_integers(8,2);
-	for(int i=0;i<v.size();i++){
-		printf("%d ",v[i]);
-	}
-	printf("\n");
-	v=generate_integers(10,14);
-	for(int i=0;i<v.size();i++){
-		printf("%d ",v[i]);
-	}
-	printf("\n");
 	return 0;
 }
