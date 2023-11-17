@@ -68,7 +68,7 @@ string decode_vigenere(string s,string key){
     }
     return out;
 }
-int main(){
+int main1(){
     string s;
     cin>>s;
     string key;
