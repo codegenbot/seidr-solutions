@@ -12,6 +12,7 @@ decimal_to_binary(32)   // returns "db100000db"
 */
 #include<stdio.h>
 #include<string>
+#include<algorithm>
 using namespace std;
 string decimal_to_binary(int decimal){
   string binary = "db";
