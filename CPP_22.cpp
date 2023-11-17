@@ -8,11 +8,11 @@ Filter given vector of any python values only for integers
 #include<stdio.h>
 #include<vector>
 #include<string>
-//#include<boost/any.hpp>
+#include<boost/any.hpp> 
 #include<list>
-//typedef std::list<boost::any> list_any;
+typedef std::list<boost::any> list_any;
 using namespace std;
-vector<int> filter_integers(vector<int> values){
+vector<int> filter_integers(list_any values){
 	vector<int> v;
 	for (auto it = values.begin(); it != values.end(); it++) {
 		try {
@@ -27,7 +27,7 @@ vector<int> filter_integers(vector<int> values){
 }
 
 int main() {
-	vector<int> l;
+	list_any l;
 	l.push_back(1);
 	l.push_back(2);
 	l.push_back(3);
