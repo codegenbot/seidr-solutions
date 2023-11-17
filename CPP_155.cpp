@@ -9,16 +9,8 @@ Given an integer. return a vector that has the number of even and odd digits res
 #include<math.h>
 #include<string>
 #include<vector>
-  vector<int> v;
-  int even=0, odd=0;
-  while(num){
-    if(abs(num%10)%2==0) even++;
-    else odd++;
-    num/=10;
-  }
-  v.push_back(even);
-  v.push_back(odd);
-  return v;
+  // Complete the following code given the task description and function signature.
+  return vector<int>{0,0};
 }
 using namespace std;
 vector<int> even_odd_count(int num){
