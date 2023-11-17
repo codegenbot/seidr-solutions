@@ -24,25 +24,3 @@ int next_smallest(vector<int> lst){
 	}
 	return -1;
 }
-int main(){
-	vector<int> lst;
-	lst.push_back(1);
-	lst.push_back(2);
-	lst.push_back(3);
-	lst.push_back(4);
-	lst.push_back(5);
-	printf("%d\n",next_smallest(lst));
-	lst.clear();
-	lst.push_back(5);
-	lst.push_back(1);
-	lst.push_back(4);
-	lst.push_back(3);
-	lst.push_back(2);
-	printf("%d\n",next_smallest(lst));
-	lst.clear();
-	printf("%d\n",next_smallest(lst));
-	lst.push_back(1);
-	lst.push_back(1);
-	printf("%d\n",next_smallest(lst));
-	return 0;
-}
