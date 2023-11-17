@@ -11,9 +11,9 @@ For example:
 
 #include<stdio.h>
 #include<math.h>
+#include<algorithm>
 #include<vector>
 #include<string>
-#include<iostream>
 
 using namespace std;
 
@@ -45,8 +45,8 @@ vector<int> order_by_points(vector<int> nums){
     vector<int> x;
     vector<int> y;
     vector<int> z;
-    
     int sum = 0;
+    
     for(i = 0;i < nums.size();i++){
         sum = 0;
         while(nums[i] != 0){
