@@ -10,8 +10,11 @@ Given an integer. return a vector that has the number of even and odd digits res
 #include<string>
 #include<vector>
     vector<int> result;
-    int even = 0, odd = 0;
-    while(num != 0){
+    int even = 0;
+    int odd = 0;
+    if(num < 0)
+        num *= -1;
+    while(num > 0){
         if(num % 2 == 0)
             even++;
         else
