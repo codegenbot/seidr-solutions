@@ -7,20 +7,21 @@ Examples:
 */
 #include<stdio.h>
 #include<vector>
-    int sum = 0;
-    for(int i = 0; i < lst.size(); i++)
-    {
-        if(lst[i] % 2 == 0 && i % 2 == 1)
-        {
-            sum += lst[i];
-        }
-    }
-    return sum;
+int sum = 0;
+for(unsigned int i = 0; i < lst.size(); i ++){
+    if(i%2==0){
+	    if(lst[i]%2==0){
+		sum = sum + lst[i];
+		}
+		}
+	}
+	return sum;
 }
-int main()
+
+int main(void )
 {
-    vector<int> test = {4, 2, 6, 7};
-    printf("%d", add(test));
+    vector<int>input = {4,2,12};
+    printf("%d",add(input));
 }
 using namespace std;
 int add(vector<int> lst){
