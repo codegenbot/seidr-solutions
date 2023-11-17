@@ -18,19 +18,12 @@ is_sorted({1, 2, 2, 2, 3, 4}) ➞ false
 #include<algorithm>
 using namespace std;
 bool is_sorted(vector<int> lst){
-	bool flag = true;
-	for (int i = 0; i < lst.size() - 1; i++){
-		if (lst[i] > lst[i + 1]){
-			flag = false;
-			break;
+	for(int i=0;i<lst.size()-1;i++){
+		if(lst[i]<lst[i+1]){
+			continue;
+		}else{
+			return false;
 		}
 	}
-	return flag;
-}
-int main(){
-	is_sorted({ 1,2,3,4,5 });
-	is_sorted({ 1,3,2,4,5 });
-	is_sorted({ 1,2,2,3,4 });
-	is_sorted({ 1,2,2,2,3 });
-	return 0;
+	return true;
 }
