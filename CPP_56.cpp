@@ -11,7 +11,7 @@ true
 >>> correct_bracketing("><<>")
 false
 */
-#include<stdio.h>
+#include <iostream>
 #include<string>
 using namespace std;
 bool correct_bracketing(string brackets){
@@ -34,6 +34,7 @@ bool correct_bracketing(string brackets){
 		return false;
 	}
 }
+int main(){}
 int main(){
 	string s;
 	cin>>s;
