@@ -13,15 +13,9 @@ factorial of this integer.
 #include<stdio.h>
 using namespace std;
 long long special_factorial(int n){
-	long long factorial = 1;
-	for(int i = 1; i <= n; i++){
-		factorial *= i;
+	long long result = 1;
+	for(int i=n;i>0;i--){
+		result*=i;
 	}
-	return factorial;
-}
-int main(){
-	int n;
-	scanf("%d", &n);
-	printf("%lld", special_factorial(n));
-	return 0;
+	return result;
 }
