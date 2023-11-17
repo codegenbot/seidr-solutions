@@ -4,23 +4,25 @@ For a given string, flip lowercase characters to uppercase and uppercase to lowe
 "hELLO"
 */
 #include<stdio.h>
-#include<string.h>
+#include<iostream>
+#include<ostream>
 using namespace std;
-char* filp_case(char *str){
-	int len=strlen(str);
-	for(int i=0;i<len;i++){
-		if(str[i]>='a' && str[i]<='z'){
-			str[i]=(char)(str[i]-32);
-		}
-		else if(str[i]>='A' && str[i]<='Z'){
-			str[i]=(char)(str[i]+32);
-		}
-	}
-	return str;
+string filp_case(string str){
+    int i=0;
+    while(str[i]!=0){
+        if(str[i]>='A'&& str[i]<='Z'){
+            str[i]+=32;
+        }
+        else if(str[i]>='a' && str[i]<='z'){
+            str[i]-=32;
+        }
+        i++;
+    }
+    return str;
 }
-main(){
-	char str[100];
-	scanf("%s",str);
-	printf("%s",filp_case(str));
-	assert (filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+int main(){
+    string str;
+    cin>>str;
+    cout<<filp_case(str)<<endl;
+    return 0;
 }
