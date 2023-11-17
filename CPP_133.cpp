@@ -8,16 +8,38 @@ For lst = {1,4,9} the output should be 98
 For lst = {1,3,5,7} the output should be 84
 For lst = {1.4,4.2,0} the output should be 29
 For lst = {-2.4,1,1} the output should be 6
-
-
-*/
-#include<stdio.h>
+#include<iostream>
 #include<math.h>
 #include<vector>
 using namespace std;
-int sum = 0;
-for (int i=0;i<lst.size();i++){
-sum = sum + ceil(lst[i])*ceil(lst[i]);
+int sum_squares(vector<float> lst){
+    // Complete the following code given the task description and function signature.
+    int sum = 0;
+    for (int i = 0; i < lst.size(); i++)
+    {
+        lst[i] = ceil(lst[i]);
+        sum += pow(lst[i], 2);
+    }
+    return sum;
 }
-return sum;
+int main(){
+    vector<float> lst = {1,2,3};
+    cout << sum_squares(lst);
+    return 0;
 }
+
+*/
+#include<iostream>
+#include<math.h>
+#include<vector>
+using namespace std;
+    // Complete the following code given the task description and function signature.
+    int sum = 0;
+    for (int i = 0; i < lst.size(); i++)
+    {
+        lst[i] = ceil(lst[i]);
+        sum += pow(lst[i], 2);
+    }
+    return sum;
+}
+int sum_squares(vector<float> lst){
