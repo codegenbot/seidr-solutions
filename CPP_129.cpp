@@ -18,63 +18,52 @@ such that lst_A[i] < lst_B[i] and for any j (1 <= j < i) we have
 lst_A[j] = lst_B[j].
 It is guaranteed that the answer is unique.
 Return an ordered vector of the values on the cells that the minimum path go through.
+<int> x(n); //長度為 n，全部初始化為 0
+<int> x{n}; // x 只有一個元素，且值為 n
+<int> v = {0}; // v 有一個元素，且值為 0
+<int> v {0};
 
 Examples:
 
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
+#include  <stdio.h>
+#include <string.h>
+#include <cstdio>
+#include <cmath>
+#include <climits>
+#include <stdlib.h>
+#include <limits>
 #include <iostream>
-#include<bits/stdc++.h>
+#include <vector>
+
 using namespace std;
-vector<int> minPath(vector<vector<int> > grid, int k)
-{
-        set<int> number;
-        for(int i=1;i<grid.size();i++)
-            {
-                for(int j=0;j<grid[0].size();j++)
-                number.insert(grid[i][j]);
+int lst_B[1000];//全局變量的定義
+vector<int> minPath(vector<vector<int>> grid, int k){
+    if (grid.size()==0 || grid[0].size() == 0)
+        cout << "Empty grid" << std::endl;
+    k = floor(k/2);
+    int n=grid.size(),i=0,j=0,l=0;
+    int im=0,jm=0,lm=0;
+    int mm_min=grid[0][0];
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            for(l=1;l<=k;l++){
+                if(((i-l)>=0) || ((i+l)<=n-1) || ((j-l)>=0) || ((j+l)<=n-1)){
+                    
+                }
             }
-        for(int i=0;i<grid[0].size();i++)
-            {
-                for(int j=0:j<grid.size();j++)
-                number.insert(grid[j][i])
-            }
-        vector<int> min_seq;
-        int i=1,j=0;
-        int min_number=INT_MAX,index=0;
-        while(i<max_seq.size()&&j<min_seq.size()){
-            if(i>=10&&min_seq.at(j)<=9&&min_seq.at(j)==min_seq.at(j-1)*10+min_seq.at(j)){
-                int now=((min_seq.at(j)*10)+min_seq.at(j+1) );
-                j=j+2;
-                if(min_number> now)
-                {
-                    index=i;
-                    min_number=min_seq.at(j);
-                }
-                i=i+2;
-                }else if(min_seq[i]>=10&&min_seq[j]>=10){
-                if(min_number>((min_seq[i]/10)*(min_seq[i]%10)))
-                {
-                    min_number=((min_seq[i]/10)*(min_seq[i]%10));
-                    index=i;
-                }
-                i++;j++;
-                }
-            else if(min_seq[i]<10&&(min_seq[j]<10))
-                 { int now=min(min_seq[i],min_seq[j]);
-                 i++;j++;
-                 if(now<min_number) {
-                    index=i;
-                    min_number=min_seq.at(i);
-                 }
-                 }
         }
-        if(index<100)
-            index=0;
-        return index;
+    }
+    
+    std::cout << "mm_min=" << mm_min << std::endl;
+     
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
 }
+int main(){//主程序
+    
+    
 }
