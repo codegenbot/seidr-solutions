@@ -14,7 +14,8 @@ using namespace std;
 int multiply(int a,int b){
 	int c=a%10;
 	int d=b%10;
-	return c*d;
+	int e=c*d;
+	return e;
 }
 int main(){
 	int a,b;
