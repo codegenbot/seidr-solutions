@@ -27,35 +27,37 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-#include<iostream>
     vector<int> result;
     // Write your code here
-// vector<vector<int>> adj(int arr[3][3])
-// {
-//     vector<vector<int>> adjarr(3);
-//     for (int i = 0; i < 3; i++)
-//     {
-//         for (int j = 0; j < 3; j++)
-//         {
-//             if(i-1 >= 0 && arr[i][j] == arr[i-1][j]-1)
-//             {
-//                 adjarr[i].pushback(arr[i-1][j])
-//             }
-//         }
-//     }
-    
-// }
     return result;
 }
-
-}
-void dfs(int k)
-{
-    
+	vector<int> result;
+	queue<pair<int,int>> q;
+	q.push(make_pair(0,0));
+	int move=1;
+	int direction[4][2]={{1,0},{0,1},{-1,0},{0,-1}};
+	int r=grid.size();
+	int c=grid[0].size();
+	queue<vector<int>>kq;
+	//kq.push(grid[0][0]);
+	//result.push_back(grid[0][0]);
+	while(move<=k){
+		int q_size=kq.size();
+		if(q_size==0)
+			kq.push */
+	}
 }
 int main(){
-    int arr[][3]= { {1,2,3}, {4,5,6}, {7,8,9}};
-    return 0;
+	vector<vector<int>> grid{{1,2,3},
+					{4,5,6},
+					{7,8,9}
+					};
+	vector<vector<int>> k{{5,9,3},
+					{4,1,6},
+					{7,8,2}};
+	minPath(grid);
+	minPath(k);
+
 }
 #include<stdio.h>
 #include<vector>
