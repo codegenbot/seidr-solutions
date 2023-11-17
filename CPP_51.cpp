@@ -13,9 +13,8 @@ remove_vowels is a function that takes string and returns string without vowels.
 >>> remove_vowels("zbcd")
 "zbcd"
 */
-#include<stdio.h>
-#include <ostream>
-#include <iostream>
+#include<iostream>
+#include<ostream>
 #include<string>
 #include<algorithm>
 using namespace std;
