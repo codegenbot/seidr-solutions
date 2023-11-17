@@ -9,11 +9,13 @@ solution({30, 13, 24, 321}) ==>0
 */
 #include<stdio.h>
 #include<vector>
-	int sum=0;
-	for(int i=1;i<lst.size();i+=2)
+int main(){
+	vector<int> v={5, 8, 7, 1};
+	int sum;
+	for(int i=0;i<v.size();i++)
 	{
-		if(lst[i]%2==0)
-			sum+=lst[i];   
+		if(v[i]%2==0)
+			sum+=v[i];
 	}
 	return sum;
 }
