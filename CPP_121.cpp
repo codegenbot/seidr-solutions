@@ -9,13 +9,18 @@ solution({30, 13, 24, 321}) ==>0
 */
 #include<stdio.h>
 #include<vector>
-    int sum=0;
-    for(int i=0;i<lst.size();i++){
-        if(i%2==0&&lst[i]%2!=0){
-            sum+=lst[i];
-        }
-    }
-    return sum;
+int ans=0;
+for(int i=1;i<lst.size();i+=2){
+if(lst[i]%2==0)
+ans+=lst[i];
+}
+return ans;
+}
+int main(){
+vector<int> lst={3, 3, 3, 3, 3};
+int ans=solutions(lst);
+printf("%d",ans);
+return 0;
 }
 using namespace std;
 int solutions(vector<int> lst){
