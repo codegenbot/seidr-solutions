@@ -28,6 +28,13 @@ Given an integer. return a vector that has the number of even and odd digits res
     return result;
 }
 int main(){
+    int n;
+    scanf("%d", &n);
+    vector<int> result = even_odd_count(n);
+    printf("%d %d", result[0], result[1]);
+    return 0;
+}
+int main()
 {
     int n;
     scanf("%d", &n);
