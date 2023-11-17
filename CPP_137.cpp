@@ -12,42 +12,37 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any.hpp>
 using namespace std;
-boost::any compare_one(boost::any a,boost::any b){
-	if(a.type()==typeid(string)){
-		a=stod(boost::any_cast<string>(a));
-	}
-	if(b.type()==typeid(string)){
-		b=stod(boost::any_cast<string>(b));
-	}
-	if(a.type()==typeid(float)){
-		a=boost::any_cast<float>(a);
-	}
-	if(b.type()==typeid(float)){
-		b=boost::any_cast<float>(b);
-	}
-	if(a.type()==typeid(int)){
-		a=boost::any_cast<int>(a);
-	}
-	if(b.type()==typeid(int)){
-		b=boost::any_cast<int>(b);
-	}
-	if(a==b){
-		return boost::any("None");
-	}
-	else if(a>b){
+string compare_one(double a,double b){
+	if(a==b)
+		return "None";
+	else if(a>b)
+		return to_string(a);
+	else
+		return to_string(b);
+}
+string compare_one(int a,int b){
+	if(a==b)
+		return "None";
+	else if(a>b)
+		return to_string(a);
+	else
+		return to_string(b);
+}
+string compare_one(string a,string b){
+	if(a==b)
+		return "None";
+	else if(a>b)
 		return a;
-	}
-	else{
+	else
 		return b;
-	}
 }
 int main(){
-	boost::any a,b;
-	cout<<"Enter two values of different types"<<endl;
-	cin>>a;
-	cin>>b;
-	cout<<"Larger value is: "<<compare_one(a,b)<<endl;
+	int a=1,b=2;
+	double c=1.1,d=2.6;
+	string e="2.2",f="2.1";
+	printf("%s\n",compare_one(a,b).c_str());
+	printf("%s\n",compare_one(c,d).c_str());
+	printf("%s\n",compare_one(e,f).c_str());
 	return 0;
 }
