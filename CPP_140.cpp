@@ -13,7 +13,7 @@ fix_spaces(" Example   3") == "_Example-3"
 using namespace std;
 string fix_spaces(string text){
 	int i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
-	string a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
+	string a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
 	a=b=c=d=e=f=g=h=i=j=k=l=m=n=o=p=q=r=s=t=u=v=w=x=y=z="";
 	for(i=0;i<text.length();i++){
 		if(text[i]==' '){
