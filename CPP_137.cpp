@@ -13,7 +13,7 @@ compare_one("1", 1) ➞ "None"
 #include<string>
 #include<algorithm>
 using namespace std;
-boost::any compare_one(boost::any a,boost::any b){
+boost::any compare_one(boost::any a, boost::any b) {
 	if (a.type() == typeid(int) && b.type() == typeid(float))
 		return b;
 	if (a.type() == typeid(float) && b.type() == typeid(int))
