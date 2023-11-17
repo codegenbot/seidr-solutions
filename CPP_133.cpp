@@ -22,8 +22,7 @@ using namespace std;
 	return sum;
 }
 int main(){
-	vector<float> lst={1,2,3};
-	printf("%d\n",sum_squares(lst));
-	return 0;
+	vector<float> lst={1.4,4.2,0};
+	printf("%d",sum_squares(lst));
 }
 int sum_squares(vector<float> lst){
