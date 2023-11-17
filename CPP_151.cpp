@@ -5,7 +5,7 @@ in the vector that are odd. Ignore numbers that are negative or not integers.
 double_the_difference({1, 3, 2, 0}) == 1 + 9 + 0 + 0 = 10
 double_the_difference({-1, -2, 0}) == 0
 double_the_difference({9, -2}) == 81
-double_the_difference({0}) == 0  
+double_the_difference({0}) == 0
 
 If the input vector is empty, return 0.
 */
@@ -25,7 +25,7 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst{1, 3, 2, 0};
+    vector<float> lst = {1, 3, 2, 0};
     long long odd_sum = 10;
     assert (double_the_difference(lst) == odd_sum );
 
@@ -45,27 +45,37 @@ int main() {
     odd_sum = 0;
     assert (double_the_difference(lst) == odd_sum );
 
-    lst = {-1, -2, -3, 0, 0, -4, -5};
+    lst = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+    odd_sum = 165;
+    assert (double_the_difference(lst) == odd_sum );
+
+    lst = {-9, -8, -7, -6, -5, -4, -3, -2, -1, 0};
     odd_sum = 0;
     assert (double_the_difference(lst) == odd_sum );
 
-    lst = {-1.2, -2.3, -3.4, 0, 0, -4.5, -5.6};
+    lst = {9, -8, 7, -6, 5, -4, 3, -2, 1, 0};
+    odd_sum = 165;
+    assert (double_the_difference(lst) == odd_sum );
+
+    lst = {-9, 8, -7, 6, -5, 4, -3, 2, -1, 0};
     odd_sum = 0;
     assert (double_the_difference(lst) == odd_sum );
 
-    lst = {1.2, 2.3, 3.4, 0, 0, 4.5, 5.6};
-    odd_sum = 1 + 9 + 9 + 25 + 25;
+    lst = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0.5};
+    odd_sum = 165;
     assert (double_the_difference(lst) == odd_sum );
 
-    lst = {-1, -2, -3, 0, 0, -4, -5, 1, 3, 2, 0};
-    odd_sum = 1 + 9 + 0 + 0;
+    lst = {-9, -8, -7, -6, -5, -4, -3, -2, -1, -0.5};
+    odd_sum = 0;
     assert (double_the_difference(lst) == odd_sum );
 
-    lst = {-1.2, -2.3, -3.4, 0, 0, -4.5, -5.6, 1.2, 2.3, 3.4, 0, 0, 4.5, 5.6};
-    odd_sum = 1 + 9 + 9 + 25 + 25;
+    lst = {9, -8, 7, -6, 5, -4, 3, -2, 1, -0.5};
+    odd_sum = 165;
     assert (double_the_difference(lst) == odd_sum );
 
-    lst = {-1.2, -2.3, -3.4, 0, 0, -4.5, -5.6, 1.2, 2.3, 3.4, 0, 0, 4.5, 5.6, 6.7};
-    odd_sum = 1 + 9 + 9 + 25 + 25 + 49;
+    lst = {-9, 8, -7, 6, -5, 4, -3, 2, -1, -0.5};
+    odd_sum = 0;
     assert (double_the_difference(lst) == odd_sum );
+
+    cout << "All tests pass" << endl;
 }
