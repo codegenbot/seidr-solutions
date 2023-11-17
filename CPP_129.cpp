@@ -37,7 +37,7 @@ Examples:
     // Your code must run in O(N * k) time.
     // Your code must run in O(N) space.
     // Your code must be deterministic.
-}
+
 int main()
 {
     vector<vector<int>> grid = {{5,9,3},{4,1,6},{7,8,2}};
@@ -47,11 +47,4 @@ int main()
     }
     printf("\n");
     return 0;
-}
-#include<stdio.h>
-#include<vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
-int main()
-{
 }
