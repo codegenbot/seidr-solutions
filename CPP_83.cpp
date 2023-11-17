@@ -5,17 +5,15 @@ positive integers that start or end with 1.
 #include<stdio.h>
 using namespace std;
 int starts_one_ends(int n){
-int count = 0;
-int i = 1;
-while(i <= n){
-count += 9 * pow(10, i - 1);
-i++;
-}
-return count;
+	int count = 0;
+	for(int i=1;i<=n;i++){
+		count += pow(10,i-1);
+	}
+	return count;
 }
 int main(){
-int n;
-scanf("%d", &n);
-printf("%d", starts_one_ends(n));
-return 0;
+	int n;
+	cin>>n;
+	int count = starts_one_ends(n);
+	cout<<count;
 }
