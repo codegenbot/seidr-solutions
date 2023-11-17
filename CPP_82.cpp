@@ -20,12 +20,3 @@ bool prime_length(string str){
 			return false;
 	return true;
 }
-int main(){
-	string str;
-	cin >> str;
-	if (prime_length(str))
-		cout << "true" << endl;
-	else
-		cout << "false" << endl;
-	return 0;
-}
