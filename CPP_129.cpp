@@ -29,13 +29,8 @@ Examples:
 */
     // TODO: Complete the following code given the task description and function signature.
 }
-#include <stdio.h>
-#include <vector>
+int main(){
+#include<stdio.h>
+#include<vector>
 using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k)
-{
-    // TODO: Complete the following code given the task description and function signature.
-}
-int main()
-{
-}
+vector<int> minPath(vector<vector<int>> grid, int k){
