@@ -4,13 +4,31 @@ Given an integer. return a vector that has the number of even and odd digits res
  Example:
     even_odd_count(-12) ==> {1, 1}
 
-//Complete the following code given the task description and function signature.
-
     even_odd_count(123) ==> {1, 2}
 */
 #include<stdio.h>
 #include<math.h>
 #include<string>
 #include<vector>
+    vector<int> result;
+    if(num < 0){
+        num = num * -1;
+    }
+    int even = 0;
+    int odd = 0;
+    while(num > 0){
+        int last_digit = num % 10;
+        if(last_digit % 2 == 0){
+            even++;
+        }
+        else{
+            odd++;
+        }
+        num = num / 10;
+    }
+    result.push_back(even);
+    result.push_back(odd);
+    return result;
+}
 using namespace std;
 vector<int> even_odd_count(int num){
