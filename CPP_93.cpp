@@ -12,8 +12,10 @@ Examples:
 'tHKS KS C MGSSCGG"
 */
 #include<stdio.h>
-#include<string>
+#include<string.h>
 #include<algorithm>
+#include<iostream>
+#include <ostream>
 using namespace std;
 string encode(string message){
 	string result;
@@ -30,17 +32,11 @@ string encode(string message){
 	}
 	for(int i=0;i<result.length();i++){
 		if(result[i]=='a'||result[i]=='e'||result[i]=='i'||result[i]=='o'||result[i]=='u'){
-			result[i]+=2;
+			result[i]+=3;
 		}
 		else if(result[i]=='A'||result[i]=='E'||result[i]=='I'||result[i]=='O'||result[i]=='U'){
-			result[i]+=2;
+			result[i]+=3;
 		}
 	}
 	return result;
-}
-int main(){
-	string message;
-	getline(cin,message);
-	cout<<encode(message)<<endl;
-	return 0;
 }
