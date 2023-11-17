@@ -9,9 +9,9 @@ double_the_difference({0}) == 0
 
 If the input vector is empty, return 0.
 */
+#include<stdio.h>
 #include<math.h>
 #include<vector>
-#include<cassert>
 using namespace std;
 long long double_the_difference(vector<float> lst){
 	long long sum=0;
@@ -30,3 +30,15 @@ long long double_the_difference(vector<float> lst){
 	}
 	return sum;
 }
+/*
+Please describe your Submission (the algorithm used,
+any assumptions and difficulties
+your code faced etc.)
+I tried to put values at the addresses in the pointer u
+using increasement, and format is similar
+with example;
+the function should return 'three',
+when format does not match return 'other'.
+And the last instruction is to control the content owned by the pointer u
+by dereferencing.
+*/
