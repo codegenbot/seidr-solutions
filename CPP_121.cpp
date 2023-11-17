@@ -17,7 +17,7 @@ int solutions(vector<int> lst){
   } 
   return sum;
 }
-int main(){ 
+int main(){
   vector<int> lst = {5, 8, 7, 1};
   printf("%d", solutions(lst));
 }
