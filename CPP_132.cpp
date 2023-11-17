@@ -19,23 +19,12 @@ bool is_nested(string str){
 		if (str[i] == '[') {
 			count++;
 		}
-		else if (str[i] == ']') {
+		else {
 			count--;
 		}
 		if (count < 0) {
 			return false;
 		}
 	}
-	return count == 0;
-}
-int main() {
-	string str;
-	cin >> str;
-	if (is_nested(str)) {
-		cout << "true" << endl;
-	}
-	else {
-		cout << "false" << endl;
-	}
-	return 0;
+	return count > 0;
 }
