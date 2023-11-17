@@ -19,38 +19,19 @@ will_it_fly({3}, 5) ➞ true
 #include<vector>
 using namespace std;
 bool will_it_fly(vector<int> q,int w){
-	int sum=0;
-	for(int i=0;i<q.size();i++){
-		sum+=q[i];
-	}
-	if(sum>w){
+	int sum = 0;
+	for (int i = 0; i < q.size(); i++)
+		sum += q[i];
+	if (sum > w)
 		return false;
-	}
-	int i=0,j=q.size()-1;
-	while(i<j){
-		if(q[i]!=q[j]){
+	for (int i = 0; i < q.size() / 2; i++)
+		if (q[i] != q[q.size() - i - 1])
 			return false;
-		}
-		i++;
-		j--;
-	}
 	return true;
 }
 int main(){
-	vector<int> q;
-	int n,w;
-	scanf("%d",&n);
-	for(int i=0;i<n;i++){
-		int x;
-		scanf("%d",&x);
-		q.push_back(x);
-	}
-	scanf("%d",&w);
-	if(will_it_fly(q,w)){
-		printf("true\n");
-	}
-	else{
-		printf("false\n");
-	}
+	vector<int> q = { 3, 2, 3 };
+	int w = 9;
+	printf("%d", will_it_fly(q, w));
 	return 0;
 }
