@@ -11,6 +11,8 @@ split_words("abcdef") == {"3"}
 #include<vector>
 #include<string>
 #include<algorithm>
+#include <ostream>
+#include <iostream>
 using namespace std;
 vector<string> split_words(string txt){
 	vector<string> res;
@@ -43,13 +45,4 @@ vector<string> split_words(string txt){
 		res.push_back(txt);
 	}
 	return res;
-}
-int main(){
-	string s;
-	getline(cin, s);
-	vector<string> res = split_words(s);
-	for (int i = 0; i < res.size(); i++){
-		cout << res[i] << endl;
-	}
-	return 0;
 }
