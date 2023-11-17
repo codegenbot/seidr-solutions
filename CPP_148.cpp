@@ -16,32 +16,42 @@ bf("Mercury", "Uranus") ==> {"Venus", "Earth", "Mars", "Jupiter", "Saturn"}
 #include<stdio.h>
 #include<vector>
 #include<string>
+#include<algorithm>
 using namespace std;
 vector<string> bf(string planet1,string planet2){
+	vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 	vector<string> result;
-	vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", 
-								"Saturn", "Uranus", "Neptune"};
-	int p1 = 0,p2 = 0;
-	for(int i = 0;i < planets.size();i++){
-		if(planets[i] == planet1)
-			p1 = i;
-		if(planets[i] == planet2)
-			p2 = i;
+	int i = 0;
+	int j = 0;
+	int k = 0;
+	for(i = 0; i < 8; i++){
+		if(planets[i] == planet1){
+			break;
+		}
 	}
-	if(p1 == 0 || p2 == 0)
-		return result;
-	for(int i = p1+1;i < p2;i++){
-		result.push_back(planets[i]);
+	for(j = 0; j < 8; j++){
+		if(planets[j] == planet2){
+			break;
+		}
+	}
+	if(i >= j){
+		for(k = i + 1; k < 8; k++){
+			result.push_back(planets[k]);
+		}
+		for(k = 0; k < j; k++){
+			result.push_back(planets[k]);
+		}
+	}else{
+		for(k = i + 1; k <= j; k++){
+			result.push_back(planets[k]);
+		}
 	}
 	return result;
 }
 int main(){
-	string p1,p2;
-	vector<string> result;
-	cin >> p1 >> p2;
-	result = bf(p1,p2);
-	for(int i = 0;i < result.size();i++){
-		cout << result[i] << endl;
+	vector<string> result = bf("Jupiter", "Neptune");
+	for(int i = 0; i < result.size(); i++){
+		printf("%s\n", result[i].c_str());
 	}
 	return 0;
 }
