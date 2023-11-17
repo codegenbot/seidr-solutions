@@ -16,35 +16,31 @@ using namespace std;
 bool check_dict_case(map<string,string> dict){
 	if(dict.size()==0)
 		return false;
-	bool is_upper=false;
-	bool is_lower=false;
+	bool upper=true;
+	bool lower=true;
 	for(auto it=dict.begin();it!=dict.end();it++){
-		if(isupper(it->first[0]))
-			is_upper=true;
+		if(it->first[0]>='a'&&it->first[0]<='z')
+			upper=false;
+		else if(it->first[0]>='A'&&it->first[0]<='Z')
+			lower=false;
 		else
-			is_lower=true;
+			return false;
 	}
-	if(is_upper && is_lower)
-		return false;
-	return true;
+	return upper||lower;
 }
 int main(){
 	map<string,string> dict;
-	dict["a"]="apple";
-	dict["b"]="banana";
-	printf("%d\n",check_dict_case(dict));
-	dict["A"]="apple";
-	printf("%d\n",check_dict_case(dict));
-	dict["8"]="banana";
-	printf("%d\n",check_dict_case(dict));
-	dict.clear();
-	dict["Name"]="John";
-	dict["Age"]="36";
-	dict["City"]="Houston";
-	printf("%d\n",check_dict_case(dict));
-	dict.clear();
-	dict["STATE"]="NC";
-	dict["ZIP"]="12345";
+	dict.insert(pair<string,string>("a","apple"));
+	dict.insert(pair<string,string>("b","banana"));
+	dict.insert(pair<string,string>("A","banana"));
+	dict.insert(pair<string,string>("B","banana"));
+	dict.insert(pair<string,string>("8","banana"));
+	dict.insert(pair<string,string>("a","apple"));
+	dict.insert(pair<string,string>("Name","John"));
+	dict.insert(pair<string,string>("Age","36"));
+	dict.insert(pair<string,string>("City","Houston"));
+	dict.insert(pair<string,string>("STATE","NC"));
+	dict.insert(pair<string,string>("ZIP","12345"));
 	printf("%d\n",check_dict_case(dict));
 	return 0;
 }
