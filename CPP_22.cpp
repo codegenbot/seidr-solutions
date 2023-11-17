@@ -8,39 +8,30 @@ Filter given vector of any python values only for integers
 #include<stdio.h>
 #include<vector>
 #include<string>
+#include<boost/any.hpp> //to include boost library
 #include<list>
 typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
-	vector<int> v;
-	for (auto it = values.begin(); it != values.end(); it++) {
-		try {
-			boost::any_cast<int>(*it);
-			v.push_back(boost::any_cast<int>(*it));
-		}
-		catch (...) {
-			continue;
-		}
-	}
-	return v;
+    vector<int> output;
+    for(auto i:values){
+        if(i.type()==typeid(int)){
+            output.push_back(boost::any_cast<int>(i));
+        }
+    }
+    return output;
 }
-
-int main() {
-	list_any l;
-	l.push_back(1);
-	l.push_back(2);
-	l.push_back(3);
-	l.push_back(4);
-	l.push_back(5);
-	l.push_back(3.14);
-	l.push_back("abc");
-	l.push_back(NULL);
-	l.push_back(vector<int>{1, 2, 3});
-	l.push_back(list<int>{1, 2, 3});
-	vector<int> v = filter_integers(l);
-	for (auto it = v.begin(); it != v.end(); it++) {
-		cout << *it << endl;
-	}
-	getchar();
-	return 0;
+int main(){
+    list_any values;
+    values.push_back(1);
+    values.push_back(2);
+    values.push_back(3);
+    values.push_back("abc");
+    values.push_back(vector<int>());
+    values.push_back(list_any());
+    vector<int> output = filter_integers(values);
+    for(auto i:output){
+        cout<<i<<" ";
+    }
+    return 0;
 }
