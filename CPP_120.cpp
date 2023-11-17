@@ -27,19 +27,19 @@ Note:
 #include<algorithm>
 using namespace std;
 vector<int> maximum(vector<int> arr,int k){
+    vector<int> res;
     sort(arr.begin(),arr.end());
-    vector<int> result;
     for(int i=arr.size()-1;i>=arr.size()-k;i--){
-        result.push_back(arr[i]);
+        res.push_back(arr[i]);
     }
-    return result;
+    return res;
 }
 int main(){
     vector<int> arr={-3, -4, 5};
-    vector<int> result=maximum(arr,3);
-    for(int i=0;i<result.size();i++){
-        printf("%d ",result[i]);
+    int k=3;
+    vector<int> res=maximum(arr,k);
+    for(int i=0;i<res.size();i++){
+        printf("%d ",res[i]);
     }
-    printf("\n");
     return 0;
 }
