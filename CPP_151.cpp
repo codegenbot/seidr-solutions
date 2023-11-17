@@ -14,8 +14,8 @@ If the input vector is empty, return 0.
 #include<vector>
 #include<assert.h>
 using namespace std;
-long long double_the_difference(vector<float> lst){
-	long long sum = 0;
+long double_the_difference(vector<float> lst){
+	long sum = 0;
 	for(int i = 0; i < lst.size(); i++){
 		if(lst[i] > 0 && floor(lst[i]) == lst[i]){
 			if(lst[i] % 2 != 0){
@@ -26,7 +26,7 @@ long long double_the_difference(vector<float> lst){
 	return sum;
 }
 int main(){
-	vector<float> lst = {1, 3, 2, 0}; 
-	long long odd_sum = 10;
+	vector<float> lst = {1, 3, 2, 0};
+	long odd_sum = 10;
 	assert (double_the_difference(lst) == odd_sum );
 }
