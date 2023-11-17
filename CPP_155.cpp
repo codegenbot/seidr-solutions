@@ -3,35 +3,34 @@ Given an integer. return a vector that has the number of even and odd digits res
 
  Example:
     even_odd_count(-12) ==> {1, 1}
-    even_odd_count(123) ==> {1, 2}
+    even_odd_count(2468) ==> {4, 0}
 */
 #include<stdio.h>
 #include<math.h>
 #include<string>
 #include<vector>
-    int count1=0,count2=0;
-    vector<int> result;
-    while(num)
-    {
-        int rem=num%10;
-        if(rem%2==0) count1++;
-        else count2++;
-        num=num/10;
-    }
-    result.push_back(count1);
-    result.push_back(count2);
-    return result;
-}
-int main()
-{
-    int n;
-    scanf("%d",&n);
     vector<int> res;
-    res=even_odd_count(n);
-    for(int i=0;i<res.size();i++)
-    {
-        printf("%d ",res[i]);
+    res.push_back(0);
+    res.push_back(0);
+    int i=abs(num);
+    while(i!=0){
+        if(i%2==0){
+            res[0]++;
+        }
+        else{
+            res[1]++;
+        }
+        i/=10;
     }
+    return res;
+}
+
+int main(void){
+    int num;
+    printf("Enter a number: ");
+    scanf("%d",&num);
+    vector<int> res=even_odd_count(num);
+    printf("Even: %d\nOdd: %d",res[0],res[1]);
     return 0;
 }
 using namespace std;
