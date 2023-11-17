@@ -5,8 +5,7 @@ For a given string, flip lowercase characters to uppercase and uppercase to lowe
 */
 #include<stdio.h>
 #include<string.h>
-#include<stdlib.h>
-#include<assert.h>
+using namespace std;
 char* filp_case(char *str){
 	int len=strlen(str);
 	for(int i=0;i<len;i++){
@@ -19,9 +18,9 @@ char* filp_case(char *str){
 	}
 	return str;
 }
-int main(){
+main(){
 	char str[100];
-	scanf("%[^\n]",str);
+	scanf("%s",str);
 	printf("%s",filp_case(str));
 	assert (filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }
