@@ -39,11 +39,3 @@ vector<int> tri(int n){
 	}
 	return res;
 }
-int main(){
-	int n;
-	scanf("%d",&n);
-	vector<int> res = tri(n);
-	for(int i = 0; i < res.size(); i++)
-		printf("%d ",res[i]);
-	return 0;
-}
