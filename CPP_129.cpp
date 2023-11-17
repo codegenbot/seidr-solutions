@@ -31,11 +31,8 @@ Examples:
     // Write your code here
     return result;
 }
-    int main(){
-    vector<int> result;
-    // Write your code here
-    return result;
-}
+int main(){
+
 #include<stdio.h>
 #include<vector>
 using namespace std;
