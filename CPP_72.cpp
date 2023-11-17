@@ -33,6 +33,7 @@ for(int i=0;i<q.size()/2;i++){
 }
 return true;
 }
+/*
 int main(){
     vector<int> q={3,2,3};
     int w=9;
@@ -43,3 +44,4 @@ int main(){
         printf("false");
     }
 }
+*/
