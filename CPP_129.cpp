@@ -21,13 +21,13 @@ Return an ordered vector of the values on the cells that the minimum path go thr
 
 Examples:
 
-*/
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
 
 
 #include <stdio.h>
 #include<vector>
+
 using namespace std;
 #include <stdio.h>
 #include<vector>
