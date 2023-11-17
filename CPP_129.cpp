@@ -27,65 +27,14 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-#include<iostream>
     vector<int> result;
-#include<algorithm>
     // Write your code here
     return result;
 }
-    int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, k + 1));
-    vector<vector<int>> path(n, vector<int>(n, 0));
-    vector<vector<int>> dir = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-    vector<int> res;
-    dp[0][0] = 0;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            for(int k = 0; k < 4; k++){
-                int x = i + dir[k][0];
-                int y = j + dir[k][1];
-                if(x >= 0 && x < n && y >= 0 && y < n){
-                    if(dp[x][y] > dp[i][j] + 1){
-                        dp[x][y] = dp[i][j] + 1;
-                        path[x][y] = grid[i][j];
-                    }
-                }
-            }
-        }
-    }
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            cout << path[i][j] << " ";
-        }
-        cout << endl;
-    }
-    int i = n - 1, j = n - 1;
-    while(i != 0 || j != 0){
-        res.push_back(path[i][j]);
-        for(int k = 0; k < 4; k++){
-            int x = i + dir[k][0];
-            int y = j + dir[k][1];
-            if(x >= 0 && x < n && y >= 0 && y < n){
-                if(dp[x][y] == dp[i][j] - 1){
-                    i = x;
-                    j = y;
-                    break;
-                }
-            }
-        }
-    }
-    res.push_back(path[0][0]);
-    reverse(res.begin(), res.end());
-    return res;
-}
 int main(){
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> res = minPath(grid, k);
-    for(int i = 0; i < res.size(); i++){
-        cout << res[i] << " ";
-    }
-    cout << endl;
+    vector<int> result;
+    // Write your code here
+    return result;
 }
 #include<stdio.h>
 #include<vector>
