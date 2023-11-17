@@ -8,7 +8,7 @@ Filter given vector of any python values only for integers
 #include<stdio.h>
 #include<vector>
 #include<string>
-#include<boost/any>
+#include<boost/any.hpp> // this is not a standard header, so you'll have to install boost and then include it's header
 #include<list>
 typedef std::list<boost::any> list_any;
 using namespace std;
