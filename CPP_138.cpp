@@ -27,7 +27,7 @@ bool is_equal_to_sum_even(int n){
 	}
 	return false;
 }
-int main()
+int main1()
 {
 	int n;
 	scanf("%d",&n);
