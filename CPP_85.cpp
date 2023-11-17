@@ -7,29 +7,13 @@ Examples:
 */
 #include<stdio.h>
 #include<vector>
-	int s = 0;
-	for (int i = 0; i < lst.size(); i++)
-	{
-		if (i % 2 != 0 && lst[i] % 2 == 0)
-		{
-			s += lst[i];
-		}
-	}
-	return s;
-}
-int main()
+int sum=0;
+for(int i=0;i<lst.size();i=i+2)
 {
-	vector<int> lst;
-	int n;
-	scanf("%d", &n);
-	for (int i = 0; i < n; i++)
-	{
-		int element;
-		scanf("%d", &element);
-		lst.push_back(element);
-	}
-	printf("%d\n", add(lst));
-	return 0;
+if(lst[i]%2==0)
+sum=sum+lst[i];
+}
+return sum;
 }
 using namespace std;
 int add(vector<int> lst){
