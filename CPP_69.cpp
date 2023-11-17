@@ -1,6 +1,4 @@
 /*
-Complete the following code given the task description and function signature.
-
 You are given a non-empty vector of positive integers. Return the greatest integer that is greater than 
 zero, and has a frequency greater than or equal to the value of the integer itself. 
 The frequency of an integer is the number of times it appears in the vector.
@@ -12,23 +10,18 @@ Examples:
 */
 #include<stdio.h>
 #include<vector>
-#include<unordered_map>
 using namespace std;
 int search(vector<int> lst){
-    unordered_map<int, int> count;
-    for(int i=0; i<lst.size(); i++)
-        count[lst[i]]++;
-    int result = -1;
-    for(auto itr=count.begin(); itr!=count.end(); itr++){
-        if(itr->first == itr->second){
-            if(result < itr->first)
-                result = itr->first;
-        }
-    }
-    return result;
-}
-int main(){
-    vector<int> lst = {4, 1, 2, 2, 3, 1};
-    printf("%d\n", search(lst));
-    return 0;
+	int n = lst.size();
+	int count = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (lst[j] == lst[i])
+				count++;
+		}
+		if (count >= lst[i])
+			return lst[i];
+		count = 0;
+	}
+	return -1;
 }
