@@ -21,21 +21,40 @@ Constraints:
 #include<string>
 using namespace std;
 string words_in_sentence(string sentence){
+    int count = 0;
+    bool prime = true;
     string result = "";
-    string word = "";
-    int len = 0;
-    for(int i = 0; i < sentence.length(); ++i){
-        if(sentence[i] != ' '){
-            word += sentence[i];
-        }else{
-            if(is_prime(word.length())){
-                result += word + " ";
+    for (int i = 0; i < sentence.length(); i++){
+        if (sentence[i] != ' '){
+            count++;
+        }
+        else if (count != 0){
+            for (int j = 2; j < count; j++){
+                if (count % j == 0){
+                    prime = false;
+                    break;
+                }
             }
-            word = "";
+            if (prime){
+                for (int k = i - count; k < i; k++){
+                    result += sentence[k];
+                }
+                result += ' ';
+            }
+            count = 0;
+            prime = true;
         }
     }
-    if(is_prime(word.length())){
-        result += word;
+    for (int j = 2; j < count; j++){
+        if (count % j == 0){
+            prime = false;
+            break;
+        }
+    }
+    if (prime){
+        for (int k = sentence.length() - count; k < sentence.length(); k++){
+            result += sentence[k];
+        }
     }
     return result;
 }
