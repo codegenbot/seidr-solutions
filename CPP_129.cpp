@@ -27,33 +27,19 @@ Examples:
 #include<vector>
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
-#include<stdio.h>
-#include<vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> ans;
-    return ans;
-}
-
-bool issame(vector<int> a,vector<int>b){
-    if(a.size()!=b.size()) return false;
-    for(int i=0;i<a.size();i++)
-        if(a[i]!=b[i]) return false;
-    return true;
-}
-
-int main(){
-    assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3, 2}, {3, 2, 1}, {2, 1, 3}}, 3) , {1, 2, 3}));
-    assert (issame(minPath({{1, 3, 2}, {3, 2, 1}, {2, 1, 3}}, 5) , {1, 2, 3, 1, 2}));
-    assert (issame(minPath({{1, 3, 2}, {3, 2, 1}, {2, 1, 3}}, 7) , {1, 2, 3, 1, 2, 3, 1}));
-    assert (issame(minPath({{1, 3, 2}, {3, 2, 1}, {2, 1, 3}}, 9) , {1, 2, 3, 1, 2, 3, 1, 2, 3}));
-    assert (issame(minPath({{1, 3, 2}, {3, 2, 1}, {2, 1, 3}}, 11) , {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2}));
-    assert (issame(minPath({{1, 3, 2}, {3, 2, 1}, {2, 1, 3}}, 13) , {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1}));
-    assert (issame(minPath({{1, 3, 2}, {3, 2, 1}, {2, 1, 3}}, 15) , {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3}));
-    return 0;
-}
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
+
+    // Complete the following code given the task description and function signature.
+    return path;
+
     Output: {1}
 */
+    vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
+    vector<int> path;
+}
+    // Complete the following code given the task description and function signature.
+    return path;
+}
+int main(){
+}
