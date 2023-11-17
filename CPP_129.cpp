@@ -28,20 +28,101 @@ Examples:
     Output: {1}
 */
 #include<iostream>
-#include<vector> 
-using namespace std; 
-vector<int> minPath(vector<vector<int>> grid, int k) 
-{ 
-    vector<int> result; 
-    // Write your code here 
-    return result; 
-} 
-int main(){ 
-    vector<vector<int>> grid = {{1,2,3},{4,5,6},{7,8,9}}; 
-    int k = 3; 
-    vector<int> result = minPath(grid, k); 
-    for(int i=0; i<result.size(); i++){ 
-        cout << result[i] << " "; 
-    } 
-    cout << endl; 
-} 
+    vector<int> result;
+    // Write your code here
+    return result;
+}
+    int n = grid.size();
+    int m = grid[0].size();
+    int dp[n][m][k+1];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            for(int l=0;l<k+1;l++){
+                dp[i][j][l] = -1;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            dp[i][j][0] = grid[i][j];
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            for(int l=1;l<k+1;l++){
+                int min = -1;
+                if(i-1>=0){
+                    if(dp[i-1][j][l-1]!=-1){
+                        if(min==-1){
+                            min = dp[i-1][j][l-1];
+                        }
+                        else{
+                            if(min>dp[i-1][j][l-1]){
+                                min = dp[i-1][j][l-1];
+                            }
+                        }
+                    }
+                }
+                if(i+1<n){
+                    if(dp[i+1][j][l-1]!=-1){
+                        if(min==-1){
+                            min = dp[i+1][j][l-1];
+                        }
+                        else{
+                            if(min>dp[i+1][j][l-1]){
+                                min = dp[i+1][j][l-1];
+                            }
+                        }
+                    }
+                }
+                if(j-1>=0){
+                    if(dp[i][j-1][l-1]!=-1){
+                        if(min==-1){
+                            min = dp[i][j-1][l-1];
+                        }
+                        else{
+                            if(min>dp[i][j-1][l-1]){
+                                min = dp[i][j-1][l-1];
+                            }
+                        }
+                    }
+                }
+                if(j+1<m){
+                    if(dp[i][j+1][l-1]!=-1){
+                        if(min==-1){
+                            min = dp[i][j+1][l-1];
+                        }
+                        else{
+                            if(min>dp[i][j+1][l-1]){
+                                min = dp[i][j+1][l-1];
+                            }
+                        }
+                    }
+                }
+                if(min!=-1){
+                    dp[i][j][l] = min;
+                }
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(dp[i][j][k]!=-1){
+                result.push_back(dp[i][j][k]);
+            }
+        }
+    }
+    return result;
+}
+int main(){
+    vector<vector<int>> grid = {{5,9,3}, {4,1,6}, {7,8,2}};
+    vector<int> result = minPath(grid, 1);
+    for(int i=0;i<result.size();i++){
+        cout<<result[i]<<" ";
+    }
+    cout<<endl;
+}
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
