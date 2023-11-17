@@ -13,7 +13,7 @@ For example:
 #include<math.h>
 #include<vector>
 #include<string>
-#include<algorithm>
+#include<iostream>
 
 using namespace std;
 
