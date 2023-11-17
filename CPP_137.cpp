@@ -12,37 +12,76 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
+#include<boost/any.hpp>
 using namespace std;
-string compare_one(double a,double b){
-	if(a==b)
-		return "None";
-	else if(a>b)
-		return to_string(a);
-	else
-		return to_string(b);
+boost::any compare_one(boost::any a,boost::any b){
+  if(dynamic_cast<int>(a)){
+    if(dynamic_cast<int>(b)){
+      int a=boost::any_cast<int>(a);
+      int b=boost::any_cast<int>(b);
+      return a>b?a:b;
+    }
+    if(dynamic_cast<float>(b)){
+      int a=boost::any_cast<int>(a);
+      float b=boost::any_cast<float>(b);
+      return a>b?a:b;
+    }
+    if(dynamic_cast<string>(b)){
+      int a=boost::any_cast<int>(a);
+      string b=boost::any_cast<string>(b);
+      string b1=b.replace(b.find(","),1,".");
+      float b2=stof(b1);
+      return a>b2?a:b;
+    }
+  }
+  if(dynamic_cast<float>(a)){
+    if(dynamic_cast<int>(b)){
+      float a=boost::any_cast<float>(a);
+      int b=boost::any_cast<int>(b);
+      return a>b?a:b;
+    }
+    if(dynamic_cast<float>(b)){
+      float a=boost::any_cast<float>(a);
+      float b=boost::any_cast<float>(b);
+      return a>b?a:b;
+    }
+    if(dynamic_cast<string>(b)){
+      float a=boost::any_cast<float>(a);
+      string b=boost::any_cast<string>(b);
+      string b1=b.replace(b.find(","),1,".");
+      float b2=stof(b1);
+      return a>b2?a:b;
+    }
+  }
+  if(dynamic_cast<string>(a)){
+    if(dynamic_cast<int>(b)){
+      string a=boost::any_cast<string>(a);
+      int b=boost::any_cast<int>(b);
+      string a1=a.replace(a.find(","),1,".");
+      float a2=stof(a1);
+      return a2>b?a:b;
+    }
+    if(dynamic_cast<float>(b)){
+      string a=boost::any_cast<string>(a);
+      float b=boost::any_cast<float>(b);
+      string a1=a.replace(a.find(","),1,".");
+      float a2=stof(a1);
+      return a2>b?a:b;
+    }
+    if(dynamic_cast<string>(b)){
+      string a=boost::any_cast<string>(a);
+      string b=boost::any_cast<string>(b);
+      string a1=a.replace(a.find(","),1,".");
+      string b1=b.replace(b.find(","),1,".");
+      float a2=stof(a1);
+      float b2=stof(b1);
+      return a2>b2?a:b;
+    }
+  }
+  return "None";
 }
-string compare_one(int a,int b){
-	if(a==b)
-		return "None";
-	else if(a>b)
-		return to_string(a);
-	else
-		return to_string(b);
-}
-string compare_one(string a,string b){
-	if(a==b)
-		return "None";
-	else if(a>b)
-		return a;
-	else
-		return b;
-}
+
 int main(){
-	int a=1,b=2;
-	double c=1.1,d=2.6;
-	string e="2.2",f="2.1";
-	printf("%s\n",compare_one(a,b).c_str());
-	printf("%s\n",compare_one(c,d).c_str());
-	printf("%s\n",compare_one(e,f).c_str());
-	return 0;
+  cout<<compare_one(1,2.5);
+  return 0;
 }
