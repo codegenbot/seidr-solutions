@@ -21,7 +21,7 @@ long long double_the_difference(vector<float> lst){
 		{
 			if(lst[i]==(int)lst[i])
 			{
-				if(lst[i]%2!=0)
+				if((int)lst[i]%2!=0)
 				{
 					sum=sum+pow(lst[i],2);
 				}
@@ -29,14 +29,4 @@ long long double_the_difference(vector<float> lst){
 		}
 	}
 	return sum;
-}
-int main()
-{
-	vector<float> lst;
-	lst.push_back(1);
-	lst.push_back(3);
-	lst.push_back(2);
-	lst.push_back(0);
-	assert (double_the_difference(lst) == odd_sum );
-	
 }
