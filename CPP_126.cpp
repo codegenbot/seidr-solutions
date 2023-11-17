@@ -18,14 +18,16 @@ is_sorted({1, 2, 2, 2, 3, 4}) ➞ false
 #include<algorithm>
 using namespace std;
 bool is_sorted(vector<int> lst){
-  bool check=true;
-  for(int i=0;i<lst.size()-1;i++){
-    if(lst[i]>=lst[i+1]){
-      check=false;
-    }
-  }
-  return check;
+	int len = lst.size();
+	for (int i = 0; i < len - 1; i++){
+		if (lst[i] >= lst[i + 1]){
+			return false;
+		}
+	}
+	return true;
 }
 int main(){
-  printf("%d",is_sorted({1, 2, 3, 4, 5}));
+	vector<int> vec = { 1,2,3,4,5,6,7 };
+	printf("%d", is_sorted(vec));
+	return 0;
 }
