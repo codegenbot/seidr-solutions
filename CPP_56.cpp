@@ -11,8 +11,8 @@ true
 >>> correct_bracketing("><<>")
 false
 */
-#include<stdio.h>
-#include<string>
+#include <iostream>
+#include<string.h>
 using namespace std;
 bool correct_bracketing(string brackets){
 	int count=0;
