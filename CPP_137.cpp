@@ -12,7 +12,7 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any.hpp> //sudo apt-get install libboost-dev
+#include<boost/any.hpp> //c++17
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
 	if (a.type() != b.type()) 
