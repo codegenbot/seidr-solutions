@@ -14,7 +14,14 @@ compare_one("1", 1) ➞ "None"
 #include<algorithm>
 using namespace std;
 
-int main(){  //error: redefinition of ‘int main()’
+template <typename T>
+boost::any compare_one(T x, T y){
+    if (x < y) return y;
+    else if (x > y) return x;
+    else return "None";
+}
+
+int main(){
     assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
 	return 0;
 }
