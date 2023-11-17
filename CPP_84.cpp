@@ -14,6 +14,7 @@ Output:
 */
 #include<stdio.h>
 #include<string>
+#include<algorithm>
 using namespace std;
 string solve(int N){
     string s;
@@ -23,10 +24,4 @@ string solve(int N){
     }
     reverse(s.begin(),s.end());
     return s;
-}
-int main(){
-    int N;
-    scanf("%d",&N);
-    printf("%s",solve(N).c_str());
-    return 0;
 }
