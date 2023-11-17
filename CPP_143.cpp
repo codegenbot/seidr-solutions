@@ -20,6 +20,15 @@ Constraints:
 #include<stdio.h>
 #include<string>
 using namespace std;
+
+bool is_prime(int n){
+    if(n <= 1) return false;
+    for(int i = 2; i < n; i++){
+        if(n % i == 0) return false;
+    }
+    return true;
+}
+
 string words_in_sentence(string sentence){
     string result = "";
     int i = 0;
@@ -37,15 +46,7 @@ string words_in_sentence(string sentence){
     return result;
 }
 
-bool is_prime(int n){
-    if(n <= 1) return false;
-    for(int i = 2; i < n; i++){
-        if(n % i == 0) return false;
-    }
-    return true;
-}
-
-int main(){
+int main1(){
     string sentence = "This is a test";
     printf("%s\n", words_in_sentence(sentence).c_str());
     sentence = "lets go for swimming";
