@@ -11,22 +11,16 @@ Return the number of times the digit 7 appears in integers less than n which are
 using namespace std;
 int fizz_buzz(int n){
 	int count = 0;
-	for (int i = 0; i < n; i++) {
+	for (int i = 1; i < n; i++) {
 		if (i % 11 == 0 || i % 13 == 0) {
-			int temp = i;
-			while (temp > 0) {
-				if (temp % 10 == 7) {
+			int j = i;
+			while (j > 0) {
+				if (j % 10 == 7) {
 					count++;
 				}
-				temp /= 10;
+				j /= 10;
 			}
 		}
 	}
 	return count;
-}
-int main() {
-	int n;
-	scanf("%d", &n);
-	printf("%d", fizz_buzz(n));
-	return 0;
 }
