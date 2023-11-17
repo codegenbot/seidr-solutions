@@ -19,17 +19,16 @@ string make_palindrome(string str){
     "catac" 
     */
     string s(str.rbegin(),str.rend());
-    return str+s.substr(s.find_first_not_of(str));
+    int n=str.size();
+    for(int i=0;i<n;i++){
+        if(is_palindrome(str.substr(0,n-i))){
+            return str+s.substr(i);
+        }
+    }
 }
 int main(){
     string str;
-    printf("Enter a string : ");
     cin>>str;
-    if(is_palindrome(str)){
-        printf("%s is a palindrome\n",str.c_str());
-    }else{
-        printf("%s is not a palindrome\n",str.c_str());
-        printf("Shortest palindrome that begins with %s is %s\n",str.c_str(),make_palindrome(str).c_str());
-    }
+    cout<<make_palindrome(str);
     return 0;
 }
