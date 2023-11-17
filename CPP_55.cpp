@@ -10,17 +10,19 @@ Return n-th Fibonacci number.
 #include<stdio.h>
 using namespace std;
 int fib(int n){
-if (n==1)
-return 1;
-else if (n==2)
-return 1;
-else
-return fib(n-1)+fib(n-2);
+	if(n == 0){
+		return 0;
+	}
+	else if(n == 1){
+		return 1;
+	}
+	else{
+		return fib(n-1) + fib(n-2);
+	}
 }
-int main()
-{
-int n;
-cin>>n;
-cout<<fib(n);
-return 0;
+int main(){
+	printf("%d\n", fib(10));
+	printf("%d\n", fib(1));
+	printf("%d\n", fib(8));
+	return 0;
 }
