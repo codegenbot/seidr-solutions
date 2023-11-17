@@ -1,7 +1,4 @@
 /*
-
-
-
 Given a vector of numbers, return the sum of squares of the numbers
 in the vector that are odd. Ignore numbers that are negative or not integers.
 
@@ -18,8 +15,6 @@ If the input vector is empty, return 0.
 using namespace std;
 long long double_the_difference(vector<float> lst){
 	long long sum=0;
-	if(lst.size()==0)
-		return 0;
 	for(int i=0;i<lst.size();i++)
 	{
 		if(lst[i]>=0 && (int)lst[i]==lst[i])
@@ -30,10 +25,7 @@ long long double_the_difference(vector<float> lst){
 	}
 	return sum;
 }
-int main()
-{
-   vector<float> lst {5.0};
-   long long odd_sum = 25;
-   assert (double_the_difference(lst) == odd_sum );   
-   return 0;
+int main(){
+	assert (double_the_difference(lst) == odd_sum );
+	return 0;
 }
