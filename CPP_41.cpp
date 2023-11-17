@@ -10,11 +10,16 @@ in their trajectory as if they did not collide.
 This function outputs the number of such collisions.
 */
 #include<stdio.h>
-#include<algorithm>
-#include<iostream>
-using std::cout;
-using std::endl;
-using std::sort;
-
-
+using namespace std;
 int car_race_collision(int n){
+	int collisions = 0;
+	for(int i = 0; i < n; i++) {
+		for(int j = 0; j < n; j++) {
+			if(i == j)
+				continue;
+			if(i < j)
+				collisions++;
+		}
+	}
+	return collisions;
+}
