@@ -2,8 +2,7 @@
 Given a positive integer n, return the count of the numbers of n-digit
 positive integers that start or end with 1.
 */
-#include<stdio.h>
-#include<math.h>
+#include<bits/stdc++.h>
 using namespace std;
 int starts_one_ends(int n){
   int count=0;
