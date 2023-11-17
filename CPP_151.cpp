@@ -12,14 +12,13 @@ If the input vector is empty, return 0.
 #include<stdio.h>
 #include<math.h>
 #include<vector>
-#include<cassert>
 using namespace std;
-long long double_the_difference(vector<int> lst){
+long long double_the_difference(vector<float> lst){
 	long long sum = 0;
 	for (int i = 0; i < lst.size(); i++){
-		if (lst[i] > 0){
-			if (lst[i] % 2 == 1){
-				sum += pow(lst[i], 2);
+		if (lst[i] > 0 && lst[i] == round(lst[i])){ //is integer
+			if (lst[i] % 2 == 1){ //is odd
+				sum += pow(lst[i], 2); //add to sum
 			}
 		}
 	}
