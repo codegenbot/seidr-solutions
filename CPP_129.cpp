@@ -31,21 +31,11 @@ Examples:
     // Your code here.
     return result;
 }
-    int main(){
-        int a;
-        int b;
-    }
-    vector<int> minPath(vector<vector<int>> grid, int k){
-        int main(){
-            int a;
-            int b;
-        }
-        vector<int> minPath(vector<vector<int>> grid, int k){
-            int main(){
-                int a;
-                int b;
-            }
-            vector<int> minPath(vector<vector<int>> grid, int k){
+int main(){
+    vector<int> result;
+    // Your code here.
+    return result;
+}
 #include<stdio.h>
 #include<vector>
 using namespace std;
