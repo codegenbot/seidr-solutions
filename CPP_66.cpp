@@ -15,17 +15,11 @@ Examples:
 #include<string>
 using namespace std;
 int digitSum(string s){
-    int sum=0;
-    for(int i=0;i<s.length();i++){
-        if(s[i]>=65 && s[i]<=90){
-            sum+=s[i];
+    int sum = 0;
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] >= 'A' && s[i] <= 'Z'){
+            sum += s[i];
         }
     }
     return sum;
-}
-int main(){
-    string s;
-    cin>>s;
-    cout<<digitSum(s)<<endl;
-    return 0;
 }
