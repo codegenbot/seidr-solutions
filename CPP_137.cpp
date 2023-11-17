@@ -12,15 +12,9 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any.h>
-#include<boost/null_any.h>
+#include<boost/any.hpp> 
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
-	if(a.type()==typeid(boost::null_any))
-		return b;
-	else if(b.type()==typeid(boost::null_any))
-		return a;
-	else
 	if(a.type()==typeid(int))
 	{
 		if(b.type()==typeid(int))
