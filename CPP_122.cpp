@@ -12,9 +12,7 @@ Constraints:
     2. 1 <= k <= len(arr)
 */
 #include<stdio.h>
-#include<iostream>
-using namespace std;
-int add_elements(vector<int> arr,int k){
+#include<vector>
     int sum = 0;
     for(int i=0;i<k;i++){
         if(arr[i]<100){
@@ -23,8 +21,6 @@ int add_elements(vector<int> arr,int k){
     }
     return sum;
 }
+using namespace std;
+int add_elements(vector<int> arr,int k){
 int main(){
-    vector<int> arr = {111,21,3,4000,5,6,7,8,9};
-    int k = 4;
-    cout<<add_elements(arr,k);
-}
