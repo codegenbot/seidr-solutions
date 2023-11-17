@@ -10,22 +10,31 @@ the value is 0, and if not, the value is the absolute difference between the gue
 
 example:
 
-compare({1,2,3,4,5,1},{1,2,3,4,2,-2}) -> {0,0,0,0,3,3}
-compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
+compare({1,2,3,4,5,1},{1,2,3,4,2,-2}) = {0,0,0,0,3,3}
+compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) = {4,4,1,0,0,6}
 */
 #include<stdio.h>
 #include<math.h>
 #include<vector>
 using namespace std;
-	vector<int> result;
-	for(int i=0; i<game.size(); i++){
-		if(game[i]==guess[i]){
-			result.push_back(0);
-		}
-		else{
-			result.push_back(abs(game[i]-guess[i]));
+	vector<int> output;
+	for(int i=0;i<game.size();i++){
+		if(game[i] == guess[i]){
+			output.push_back(0);
+		} else {
+			output.push_back(abs(game[i]-guess[i]));
 		}
 	}
-	return result;
+	return output;
+}
+int main(){
+	vector<int> game = {1,2,3,4,5,1};
+	vector<int> guess = {1,2,3,4,2,-2};
+	vector<int> output;
+	output = compare(game,guess);
+	for(int i=0;i<output.size();i++){
+		printf("%d ",output[i]);
+	}
+	printf("\n");
 }
 vector<int> compare(vector<int> game,vector<int> guess){
