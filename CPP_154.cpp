@@ -9,7 +9,8 @@ cycpattern_check("himenss",'simen") => true
 
 */
 #include<stdio.h>
-#include<string>
+#include <ostream>
+#include <iostream>
 using namespace std;
 bool cycpattern_check(string a,string b){
 	if(a.length()==b.length()){
@@ -25,7 +26,7 @@ bool cycpattern_check(string a,string b){
 		return false;
 	}
 }
-int main(){
+int main1(){
 	string a,b;
 	cout<<"Enter the first string: "<<endl;
 	cin>>a;
