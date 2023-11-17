@@ -9,9 +9,6 @@ For example:
 >>> order_by_points({}) == {}
 */
 
-
-
-
 #include<stdio.h>
 #include<math.h>
 #include<vector>
