@@ -26,26 +26,3 @@ using namespace std;
 }
 vector<int> compare(vector<int> game,vector<int> guess){
 int main(){
-	vector<int> game;
-	game.push_back(1);
-	game.push_back(2);
-	game.push_back(3);
-	game.push_back(4);
-	game.push_back(5);
-	game.push_back(1);
-
-	vector<int> guess;
-	guess.push_back(1);
-	guess.push_back(2);
-	guess.push_back(3);
-	guess.push_back(4);
-	guess.push_back(2);
-	guess.push_back(-2);
-
-	vector<int> res;
-	res = compare(game, guess);
-	for (int i = 0; i < res.size(); i++)
-	{
-		printf("%d ", res[i]);
-	}
-}
