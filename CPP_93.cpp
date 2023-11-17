@@ -16,34 +16,28 @@ Examples:
 #include<algorithm>
 using namespace std;
 string encode(string message){
-    string result;
-    for(int i = 0; i < message.length(); i++){
-        if(isupper(message[i])){
-            result += tolower(message[i]);
-        }else if(islower(message[i])){
-            result += toupper(message[i]);
-        }
-        if(isalpha(message[i])){
-            if(tolower(message[i]) == 'a'){
-                result += 'c';
-            }else if(tolower(message[i]) == 'e'){
-                result += 'g';
-            }else if(tolower(message[i]) == 'i'){
-                result += 'k';
-            }else if(tolower(message[i]) == 'o'){
-                result += 'q';
-            }else if(tolower(message[i]) == 'u'){
-                result += 'y';
-            }else{
-                result += message[i];
-            }
-        }
-    }
-    return result;
-}
-int main(){
-    string message;
-    getline(cin, message);
-    cout<<encode(message)<<endl;
-    return 0;
+	string result="";
+	for(int i=0;i<message.size();i++){
+		if(message[i]>='a' && message[i]<='z'){
+			result+=toupper(message[i]);
+		}
+		else if(message[i]>='A' && message[i]<='Z'){
+			result+=tolower(message[i]);
+		}
+		else{
+			result+=message[i];
+		}
+	}
+	for(int i=0;i<result.size();i++){
+		if(result[i]=='A' || result[i]=='E' || result[i]=='I' || result[i]=='O' || result[i]=='U'){
+			result[i]+=2;
+		}
+		else if(result[i]=='Y'){
+			result[i]='B';
+		}
+		else if(result[i]=='Z'){
+			result[i]='C';
+		}
+	}
+	return result;
 }
