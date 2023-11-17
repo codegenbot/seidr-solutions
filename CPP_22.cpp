@@ -8,7 +8,7 @@ Filter given vector of any python values only for integers
 #include<stdio.h>
 #include<vector>
 #include<string>
-//#include<boost/any.hpp>
+#include<boost/any.hpp>
 #include<list>
 typedef std::list<boost::any> list_any;
 using namespace std;
@@ -23,9 +23,4 @@ vector<int> filter_integers(list_any values){
         }
     }
     return integer_list;
-}
-
-int main(){
-    assert (issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
-    return 0;
 }
