@@ -4,9 +4,9 @@ positive integers that start or end with 1.
 */
 #include<stdio.h>
 using namespace std;
-int main(){
+int starts_one_ends(int n){
   int count=0;
-  for(int i=1;i<=5;i++){
+  for(int i=1;i<=n;i++){
     if(i==1)
       count+=1;
     else
@@ -14,3 +14,8 @@ int main(){
   }
   return count;
 }
+/*int main(){
+  int n=5;
+  printf("%d",starts_one_ends(n));
+  return 0;
+}*/
