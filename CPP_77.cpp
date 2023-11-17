@@ -14,7 +14,7 @@ iscube(180) ==> false
 #include<math.h>
 using namespace std;
 bool iscuber(int a){
-  return a==pow(round(pow(a,1.0/3)),3);
+  return (a>0 && pow(round(pow(a,1.0/3)),3)==a);
 }
 int main(){
   printf("%d\n",iscuber(1));
