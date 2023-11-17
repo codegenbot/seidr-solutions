@@ -15,9 +15,47 @@ compare_one("1", 1) ➞ "None"
 #include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
+	int x1,x2; string y1,y2; float z1,z2;
+ if(is_any_of<int>(a)&&is_any_of<int>(b)){
+   if(any_cast<int>(a)<any_cast<int>(b))
+   return b;
+   else
+   return a;
+   
+ }
+if(is_any_of<string>(a)&&is_any_of<string>(b)){
+  string s1,s2;
+  s1=any_cast<string>(a);
+  s2=any_cast<string>(b);
+  if(stof(s1)<stof(s2))
+  return b;
+  else
+  return a;
+}
+if(is_any_of<float>(a)&&is_any_of<float>(b)){
+  if(any_cast<float>(a)<any_cast<float>(b)) return b;
+  else return a;
+}
+if(is_any_of<string>(a)&&is_any_of<int>(b)){
+  string s; float f;
+  s=any_cast<string>(a);
+  f=any_cast<int>(b);
+  if(stof(s)<f) return b;
+  else return a;
+}
+if(is_any_of<string>(b)&&is_any_of<int>(a)){
+  string s; float f;
+  s=any_cast<string>(b);
+  f=any_cast<int>(a);
+  if(stof(s)<f) return b;
+  else return a;
+}
+if(is_any_of<float>(a)&&is_any_of<string>(b)){
+  return b;
+}
+return "None";
 
-  try{
-    return max({boost::any_cast<int>(a),boost::any_cast<int>(b)});
-
-  }catch(const boost::bad_any_cast&){}
+}
+int main(){
+  cout<<compare_one(1, "2,3");
 }
