@@ -15,18 +15,20 @@ For lst = {-2.4,1,1} the output should be 6
 #include<math.h>
 #include<vector>
 using namespace std;
-int sum = 0;
-  int temp;
-  for (int i = 0; i < lst.size(); i++) {
-  	temp = ceil(lst[i]);
-  	sum = sum + pow(temp, 2);
-  }
-
-  return sum;
+	// Do your work here
+	 
 }
-
 int main(){
 	vector<float> lst = {1,2,3};
-	printf("%d",sum_squares(lst));
+	printf("%d\n",sum_squares(lst));
+	lst = {1,4,9};
+	printf("%d\n",sum_squares(lst));
+	lst = {1,3,5,7};
+	printf("%d\n",sum_squares(lst));
+	lst = {1.4,4.2,0};
+	printf("%d\n",sum_squares(lst));
+	lst = {-2.4,1,1};
+	printf("%d\n",sum_squares(lst));
+	return 0;
 }
 int sum_squares(vector<float> lst){
