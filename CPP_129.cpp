@@ -27,16 +27,38 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-	// Complete the following code given the task description and function signature.
-	// You can add any other functions, variables, classes that you need.
-	// Do not create a class, do not use STL.
-	// Do not print anything in the code, or change the signature of the function.
-	// Do not use system("pause") or cin.get() or anything else.
-	// Do not use freopen("input.txt", "r", stdin) or freopen("output.txt", "w", stdout) in the code.
-	// Do not forget to remove the freopen after finishing the task.
-	// Do not use ofstream or any other file writing methods.
-	// The solution will be tested on one or more test cases. There will be only valid inputs and no exceptions will be thrown, extra tests will be added for invalid inputs.
-	// The execution time is limited.
+	int n = grid.size();
+	vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
+	vector<vector<int>> path(n, vector<int>(n, -1));
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (i == 0 && j == 0) {
+				dp[i][j] = 0;
+				continue;
+			}
+			if (i > 0) {
+				if (dp[i - 1][j] + 1 < dp[i][j]) {
+					dp[i][j] = dp[i - 1][j] + 1;
+					path[i][j] = 0;
+				}
+			}
+			if (j > 0) {
+				if (dp[i][j - 1] + 1 < dp[i][j]) {
+					dp[i][j] = dp[i][j - 1] + 1;
+					path[i][j] = 1;
+				}
+			}
+		}
+	}
+	vector<int> res;
+	int i = n - 1, j = n - 1;
+	while (k > 0) {
+		res.push_back(grid[i][j]);
+		k--;
+		if (path[i][j] == 0) i--;
+		else j--;
+	}
+	return res;
 }
 #include<stdio.h>
 #include<vector>
