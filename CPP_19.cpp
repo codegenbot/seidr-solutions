@@ -30,7 +30,8 @@ string sort_numbers(string numbers){
 	sort(nums.begin(), nums.end());
 	string res;
 	for(int i = 0; i < nums.size(); i++){
-		res += to_string(nums[i]) + " ";
+		if(i != 0) res += " ";
+		res += to_string(nums[i]);
 	}
 	return res;
 }
