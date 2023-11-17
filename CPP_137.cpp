@@ -11,17 +11,25 @@ compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
 #include<string>
-#include<algorithm>
+#include<boost/any.hpp> //not work on my system
 using namespace std;
-
-template <typename T>
-boost::any compare_one(T x, T y){
-    if (x < y) return y;
-    else if (x > y) return x;
-    else return "None";
+boost::any compare_one(string a,string b){
+	if(a.size()==b.size()){
+		if(a.compare(b)==0){
+			return boost::any("None");
+		}
+		else{
+			return boost::any(a>b?a:b);
+		}
+	}
+	else{
+		return boost::any(a.size()>b.size()?a:b);
+	}
 }
-
 int main(){
-    assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
+	assert (boost::any_cast<string>(compare_one(to_string(1), to_string(2.5))) == "2.5");
+	assert (boost::any_cast<string>(compare_one(to_string(1), "2,3")) == "2,3");
+	assert (boost::any_cast<string>(compare_one("5,1", "6")) == "6");
+	assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
 	return 0;
 }
