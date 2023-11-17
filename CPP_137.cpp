@@ -9,7 +9,8 @@ compare_one(1, "2,3") ➞ "2,3"
 compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
-#include<iostream>
+#include<stdio.h>
+#include<assert.h>
 // #include<boost/any.hpp>    //to use any type of data type 
 // #include<boost/lexical_cast.hpp>  // to convert string to int
 // using namespace std;
