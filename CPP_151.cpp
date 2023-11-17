@@ -14,9 +14,7 @@ If the input vector is empty, return 0.
 #include<vector>
 using namespace std;
 long long double_the_difference(vector<float> lst){
-	long long a=0;
-	for(int i=0;i<lst.size();i++){
-		if(lst[i]!=0&&(int)lst[i]%2!=0&&lst[i]>0)
-		a+=lst[i]*lst[i];
-		else continue;
-	}
+    long long temp = 0;
+    // complete the code given the task description and function signature
+    return temp;
+}
