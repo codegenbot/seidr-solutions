@@ -9,22 +9,16 @@ for x_or_y(15, 8, 5) == 5
 */
 #include<stdio.h>
 using namespace std;
-int x_or_y(int n,int x,int y){
-int i;
-for(i=2;i<n;i++)
+int x_or_y(int n,int x,int y)
 {
-if(n%i==0)
-{
-return y;
-}
-}
-return x;
-}
-int main()
-{
-int a,b,c,d;
-scanf("%d%d%d",&a,&b,&c);
-d=x_or_y(a,b,c);
-printf("%d",d);
-return 0;
+	int i;
+	for(i=2;i<n;i++)
+	{
+		if(n%i==0)
+		{
+			return y;
+			break;
+		}
+	}
+	return x;
 }
