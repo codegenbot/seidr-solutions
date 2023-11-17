@@ -8,28 +8,39 @@ Return a vector of the same length denoting how far off each guess was. If they 
 the value is 0, and if not, the value is the absolute difference between the guess and the score.
 
 
-example:
+vddsaadsavector<int> custave(vector<int> game,vect
+  r<int> guess){
 
-compare({1,2,3,4,5,1},{1,2,3,4,2,-2}) -> {0,0,0,0,3,3}
-compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
-*/
-#include<stdio.h>
-#include<vector>
+  //INFINITE LOOP TO RUN FOR WHILE VECTOR IS NOT EMPTY
+     while(!guess.empty() || !game.empty()){
+      game[0] += game[1] - guess[1];
+      if(game[0] < 1){
+        game[0] = 1;
+      }
+      
+    guess.erase
 using namespace std;
 
-int main(){
-  vector<int> game = {0,1,2,3,4};
-  vector<int> guess = {0,1,5,3,4};
-  for(int i=0;i<game.size();i++){
-    printf("%d ", compare(game, guess)[i]);
-  }
-}
 vector<int> compare(vector<int> game,vector<int> guess){
-  vector<int> result;
-  for(int i=0;i<game.size();i++){
-    int temp = abs(game[i]-guess[i]);
-    result.push_back(temp);
-  }
+ vector<int> custave;
 
+  //INFINITE LOOP TO RUN FOR WHILE VECTOR IS NOT EMPTY
+  while(!guess.empty() || !game.empty()){
 
-}
+  
+    guess.pop_front();
+    game.pop_front();
+     guess.push_back(0);
+       game.push_back{0};
+ 
+    
+   }
+   return game;
+ }
+
+ for(auto i: compare({1,2,3,4,5,1},{1,2,3,4,2,-2}) -> {0,0,0,0,3,3})
+    cout<< i<<endl;
+   for(auto i: compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6})
+    cout<< i<<endl;
+   return 0;
+ }
