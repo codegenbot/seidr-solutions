@@ -13,17 +13,16 @@ Filter given vector of any python values only for integers
 typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
-vector<int> result;
-for(auto it=values.begin();it!=values.end();++it)
-if(*it.type()==typeid(int))
-result.push_back(boost::any_cast<int>(*it));
-return result;
-}
-int main()
+vector<int> integers;
+for (list_any::const_iterator it = values.begin(); it != values.end(); ++it)
 {
-list_any l1={"a",3.14,5};
-vector<int> result=filter_integers(l1);
-for(auto it=result.begin();it!=result.end();++it)
-cout<<*it<<" ";
-return 0;
+    try
+    {
+        integers.push_back(boost::any_cast<int>(*it));
+    }
+    catch(const boost::bad_any_cast &)
+    {
+    }
+}
+return integers;
 }
