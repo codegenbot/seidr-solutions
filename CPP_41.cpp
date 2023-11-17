@@ -12,25 +12,32 @@ This function outputs the number of such collisions.
 #include<stdio.h>
 using namespace std;
 int car_race_collision(int n){
-	int i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
+	int i,j,count=0;
 	int a[n],b[n];
 	for(i=0;i<n;i++)
 	{
 		scanf("%d",&a[i]);
 	}
-	for(j=0;j<n;j++)
+	for(i=0;i<n;i++)
 	{
-		scanf("%d",&b[j]);
+		scanf("%d",&b[i]);
 	}
-	for(k=0;k<n;k++)
+	for(i=0;i<n;i++)
 	{
-		for(l=0;l<n;l++)
+		for(j=0;j<n;j++)
 		{
-			if(a[k]==b[l])
+			if(a[i]==b[j])
 			{
-				printf("%d",a[k]);
+				count++;
 			}
 		}
 	}
+	return count;
+}
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	printf("%d",car_race_collision(n));
 	return 0;
 }
