@@ -21,16 +21,23 @@ string sort_numbers(string numbers){
 	num_map["seven"] = 7;
 	num_map["eight"] = 8;
 	num_map["nine"] = 9;
-	vector<int> nums;
 	stringstream ss(numbers);
-	string word;
-	while(ss >> word){
-		nums.push_back(num_map[word]);
+	string num;
+	vector<int> num_vec;
+	while(ss >> num){
+		num_vec.push_back(num_map[num]);
 	}
-	sort(nums.begin(), nums.end());
-	string ret;
-	for(int i = 0; i < nums.size(); i++){
-		ret += to_string(nums[i]) + " ";
+	sort(num_vec.begin(), num_vec.end());
+	string result;
+	for(int i = 0; i < num_vec.size(); i++){
+		for(map<string, int>::iterator it = num_map.begin(); it != num_map.end(); it++){
+			if(it->second == num_vec[i]){
+				result += it->first;
+				result += " ";
+				break;
+			}
+		}
 	}
-	return ret;
+	result.pop_back();
+	return result;
 }
