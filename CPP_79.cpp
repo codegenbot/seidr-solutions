@@ -16,10 +16,14 @@ using namespace std;
 string decimal_to_binary(int decimal){
   string binary = "db";
   while(decimal > 0){
-    binary += to_string(decimal % 2);
+    if(decimal % 2 == 0){
+      binary += "0";
+    }
+    else{
+      binary += "1";
+    }
     decimal /= 2;
   }
-  reverse(binary.begin() + 2, binary.end());
   binary += "db";
   return binary;
 }
