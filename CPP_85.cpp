@@ -17,7 +17,7 @@ int add(vector<int> lst) {
 	}
 	return sum;
 }
-int main() {
+int main(){
 	vector<int> lst = { 4, 2, 6, 7 };
 	printf("%d", add(lst));
 }
