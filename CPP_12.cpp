@@ -13,23 +13,14 @@ strings of the same length. Return None in case the input vector is empty.
 #include<string>
 using namespace std;
 string longest(vector<string> strings){
-	if(strings.size()==0)
-		return "None";
-	int max_size=0;
-	string max_string;
-	for(int i=0; i<strings.size();i++){
-		if(strings[i].size()>max_size){
-			max_size=strings[i].size();
-			max_string=strings[i];
-		}
-	}
-	return max_string;
+int max = 0;
+string longest;
+for(int i = 0; i < strings.size(); i++){
+if(strings[i].size() > max){
+max = strings[i].size();
+longest = strings[i];
 }
-int main(){
-	vector<string> strings;
-	strings.push_back("a");
-	strings.push_back("bb");
-	strings.push_back("ccc");
-	printf("%s\n", longest(strings).c_str());
-	return 0;
 }
+return longest;
+}
+
