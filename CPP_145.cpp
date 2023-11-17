@@ -9,6 +9,7 @@ For example:
 >>> order_by_points({}) == {}
 */
 
+
 #include<stdio.h>
 #include<math.h>
 #include<vector>
@@ -207,5 +208,6 @@ vector<int> order_by_points(vector<int> nums){
     for(i = 0;i < z.size();i++){
         ans.push_back(z[i]);
     }
+    int x;
     return ans;
 }
