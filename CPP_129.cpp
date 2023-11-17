@@ -49,68 +49,7 @@ bool issame(vector<int> a,vector<int>b){
     return true;
 }
 int main(){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-{
+
     assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     assert (issame(minPath({{1, 3}, {3, 2}}, 5) , {1, 3, 1, 3, 1}));
     assert (issame(minPath({{1, 3}, {3, 2}}, 3) , {1, 3, 1}));
