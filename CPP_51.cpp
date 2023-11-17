@@ -14,13 +14,19 @@ remove_vowels is a function that takes string and returns string without vowels.
 "zbcd"
 */
 #include<stdio.h>
-#include<string>
-#include<iostream>
+#include <iostream>
 #include<ostream>
 #include<algorithm>
 using namespace std;
 string remove_vowels(string text){
 	// Complete the code here
+	string res;
+	for(int i=0;i<text.size();i++){
+		if(text[i]!='a' && text[i]!='e' && text[i]!='i' && text[i]!='o' && text[i]!='u' && text[i]!='A' && text[i]!='E' && text[i]!='I' && text[i]!='O' && text[i]!='U'){
+			res+=text[i];
+		}
+	}
+	return res;
 }
 int main(){
 	string text;
