@@ -33,8 +33,8 @@ vector<string> reverse_delete(string s,string c){
 	return res;
 }
 int main(){
-	string s="abcde";
-	string c="ae";
+	string s,c;
+	cin>>s>>c;
 	vector<string> res=reverse_delete(s,c);
 	for(int i=0;i<res.size();i++){
 		cout<<res[i]<<endl;
