@@ -26,8 +26,8 @@ long long double_the_difference(vector<float> lst){
 	return sum;
 }
 int main() {
-	vector<float> lst = { 1, 3, 2, 0 };
-	long long odd_sum = 10;
-	assert (double_the_difference(lst) == odd_sum);
+	vector<float> lst = { 1, 3, 2, 0 }; //error: ‘lst’ was not declared in this scope
+	long long odd_sum = 10; //error: ‘odd_sum’ was not declared in this scope
+	assert (double_the_difference(lst) == odd_sum); //error: ‘lst’ was not declared in this scope
 	return 0;
 }
