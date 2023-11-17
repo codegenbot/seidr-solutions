@@ -14,12 +14,26 @@ is_simple_power(5, 3) => false
 #include<math.h>
 using namespace std;
 bool is_simple_power(int x,int n){
-	int i=0;
-	while(pow(n,i)!=x){
-		i++;
-		if(pow(n,i)>x){
-			return false;
-		}
-	}
-	return true;
+    int i = 0;
+    int a = 0;
+    for(i = 0; i < x; i++){
+        a = pow(n,i);
+        if(a == x){
+            return true;
+        }
+    }
+    return false;
+}
+
+int main(){
+    int x = 0;
+    int n = 0;
+    scanf("%d%d", &x, &n);
+    if(is_simple_power(x,n) == true){
+        printf("true");
+    }
+    else{
+        printf("false");
+    }
+    return 0;
 }
