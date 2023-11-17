@@ -9,8 +9,9 @@ Return the string with numbers sorted from smallest to largest
 #include<string.h>
 #include<map>
 #include<vector>
+#include<algorithm>
 using namespace std;
-string sort_numbers(string numbers){
+string sort_numbers(string numbers){//error: ‘string’ does not name a type; did you mean ‘stdin’?
 	map<string, int> num_map;
 	num_map["zero"] = 0;
 	num_map["one"] = 1;
