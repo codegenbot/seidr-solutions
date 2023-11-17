@@ -11,19 +11,29 @@ Find how many times a given substring can be found in the original string. Count
 #include<string>
 using namespace std;
 int how_many_times(string str,string substring){
-	int count=0;
-	int i=0;
-	while(str.find(substring,i)!=string::npos){
-		count++;
-		i=str.find(substring,i)+1;
-	}
-	return count;
+    int count = 0;
+    int j = 0;
+    for(int i = 0; i < str.size(); i++){
+        if(str[i] == substring[j]){
+            j++;
+            if(j == substring.size()){
+                count++;
+                j = 0;
+            }
+        }
+        else{
+            j = 0;
+            if(str[i] == substring[j]){
+                j++;
+            }
+        }
+    }
+    return count;
 }
+
 int main(){
-	string str;
-	string substring;
-	cin>>str;
-	cin>>substring;
-	cout<<how_many_times(str,substring);
-	return 0;
+    printf("%d\n",how_many_times("","a"));
+    printf("%d\n",how_many_times("aaa","a"));
+    printf("%d\n",how_many_times("aaaa","aa"));
+    return 0;
 }
