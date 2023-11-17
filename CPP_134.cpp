@@ -14,20 +14,30 @@ check_if_last_char_is_a_letter("") ➞ false
 #include<string>
 using namespace std;
 bool check_if_last_char_is_a_letter(string txt){
-    if(txt.size()==0) return false;
-    char last=txt.back();
-    if(txt.size()==1) return isalpha(last);
-    char second_last=txt[txt.size()-2];
-    return isalpha(last) && !isalpha(second_last);
+	int len = txt.length();
+	if(len == 0){
+		return false;
+	}
+	if(txt[len-1] == ' '){
+		return false;
+	}
+	if(txt[len-2] == ' '){
+		return true;
+	}
+	if(txt[len-1] >= 'a' && txt[len-1] <= 'z'){
+		return true;
+	}
+	if(txt[len-1] >= 'A' && txt[len-1] <= 'Z'){
+		return true;
+	}
+	return false;
 }
+
 int main(){
-    printf("%d\n",check_if_last_char_is_a_letter("apple pie"));
-    printf("%d\n",check_if_last_char_is_a_letter("apple pi e"));
-    printf("%d\n",check_if_last_char_is_a_letter("apple pi e "));
-    printf("%d\n",check_if_last_char_is_a_letter(""));
-    printf("%d\n",check_if_last_char_is_a_letter(" "));
-    printf("%d\n",check_if_last_char_is_a_letter("a"));
-    printf("%d\n",check_if_last_char_is_a_letter("a "));
-    printf("%d\n",check_if_last_char_is_a_letter("1"));
-    printf("%d\n",check_if_last_char_is_a_letter("1 "));
+	printf("%d",check_if_last_char_is_a_letter("apple pie"));
+	printf("%d",check_if_last_char_is_a_letter("apple pi e"));
+	printf("%d",check_if_last_char_is_a_letter("apple pi e "));
+	printf("%d",check_if_last_char_is_a_letter(""));
+	printf("%d",check_if_last_char_is_a_letter("apple piE"));
+	return 0;
 }
