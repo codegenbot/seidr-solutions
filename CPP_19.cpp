@@ -6,10 +6,14 @@ Return the string with numbers sorted from smallest to largest
 "one three five"
 */
 #include<stdio.h>
-#include<string>
+#include<string.h>
 #include<map>
+#include<vector>
+#include<algorithm>
+#include<sstream>
+#include <cassert>
 using namespace std;
-string sort_numbers(string numbers){
+string sort_numbers(string numbers){//error: ‘string’ does not name a type; did you mean ‘stdin’?
 	map<string, int> num_map;
 	num_map["zero"] = 0;
 	num_map["one"] = 1;
@@ -22,10 +26,10 @@ string sort_numbers(string numbers){
 	num_map["eight"] = 8;
 	num_map["nine"] = 9;
 	vector<int> nums;
-	stringstream ss(numbers);
+	stringstream ss(numbers);//error: ‘stringstream’ was not declared in this scope
 	string num;
 	while(ss >> num){
-		nums.push_back(num_map[num]);
+		nums.push_back(num_map[num]);//error: ‘nums’ was not declared in this scope; did you mean ‘num’?
 	}
 	sort(nums.begin(), nums.end());
 	string res;
@@ -33,4 +37,8 @@ string sort_numbers(string numbers){
 		res += to_string(nums[i]) + " ";
 	}
 	return res;
+}
+int main1(){
+	assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+	return 0;
 }
