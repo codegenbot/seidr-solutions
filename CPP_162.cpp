@@ -12,7 +12,6 @@ using namespace std;
 
 
 string string_to_md5(string text){
-    cout<<"Hello world";
     if(strlen(text.c_str()) == 0){
         return NULL;
     }
@@ -24,7 +23,7 @@ string string_to_md5(string text){
     char *mdString = (char *)malloc(33);
     for(int i = 0; i < 16; i++)
         sprintf(&mdString[i*2], "%02x", (unsigned int)result[i]);
-    return mdString;
+    return string(mdString);
 }
 int main(){
     cout<<string_to_md5("password")<<endl;
