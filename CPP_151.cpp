@@ -18,7 +18,7 @@ long long double_the_difference(vector<float> lst){
 	for(int i=0;i<lst.size();i++){
 		if(lst[i]>0){
 			if(lst[i]-int(lst[i])==0){
-				if(int(lst[i])%2!=0){
+				if((int)lst[i]%2!=0){
 					s+=pow(lst[i],2);
 				}
 			}
