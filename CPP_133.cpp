@@ -23,8 +23,3 @@ int sum_squares(vector<float> lst) {
     }
     return sum;
 } 
-int main(){
-    vector<float> lst = {1,2,3};
-    printf("%d",sum_squares(lst));
-    assert (sum_squares({-1,1,0})==2);
-}
