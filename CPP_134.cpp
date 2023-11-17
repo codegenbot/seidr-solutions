@@ -14,21 +14,23 @@ check_if_last_char_is_a_letter("") ➞ false
 #include<string>
 using namespace std;
 bool check_if_last_char_is_a_letter(string txt){
-	int len=txt.length();
-	if(len==0)
+	int len = txt.length();
+	if (len == 0)
 		return false;
-	if(txt[len-1]>='a' && txt[len-1]<='z')
+	if (txt[len - 1] == ' ')
+		return false;
+	if (txt[len - 1] >= 'a' && txt[len - 1] <= 'z')
 		return true;
-	if(txt[len-1]>='A' && txt[len-1]<='Z')
+	if (txt[len - 1] >= 'A' && txt[len - 1] <= 'Z')
 		return true;
 	return false;
 }
 int main(){
 	string txt;
-	getline(cin,txt);
-	if(check_if_last_char_is_a_letter(txt))
-		printf("True");
+	getline(cin, txt);
+	if (check_if_last_char_is_a_letter(txt))
+		printf("true\n");
 	else
-		printf("False");
+		printf("false\n");
 	return 0;
 }
