@@ -17,9 +17,8 @@ histogram("") == {}
 using namespace std;
 map<char,int> histogram(string test){
 	map<char,int> result;
-	map<char,int>::iterator it;
-	int max=0;
-	for(int i=0;i<test.length();i++){
+	int i=0;
+	while(test[i]!='\0'){
 		if(test[i]!=' '){
 			if(result.find(test[i])==result.end()){
 				result[test[i]]=1;
@@ -28,25 +27,17 @@ map<char,int> histogram(string test){
 				result[test[i]]++;
 			}
 		}
-	}
-	for(it=result.begin();it!=result.end();it++){
-		if(it->second>max){
-			max=it->second;
-		}
-	}
-	for(it=result.begin();it!=result.end();it++){
-		if(it->second!=max){
-			result.erase(it);
-		}
+		i++;
 	}
 	return result;
 }
 int main(){
-	string test="a b c";
+	string test;
+	getline(cin,test);
 	map<char,int> result=histogram(test);
 	map<char,int>::iterator it;
 	for(it=result.begin();it!=result.end();it++){
-		printf("%c %d\n",it->first,it->second);
+		cout<<it->first<<" "<<it->second<<endl;
 	}
 	return 0;
 }
