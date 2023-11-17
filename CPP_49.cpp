@@ -14,21 +14,21 @@ Return 2^n modulo p (be aware of numerics).
 #include<stdio.h>
 using namespace std;
 int modp(int n,int p){
+	int x;
 	if(n==0)
 		return 1;
-	if(n==1)
-		return 2%p;
 	if(n%2==0){
-		int temp=modp(n/2,p);
-		return (temp*temp)%p;
+		x=modp(n/2,p);
+		return (x*x)%p;
 	}
 	else{
-		int temp=modp(n/2,p);
-		return (2*temp*temp)%p;
+		x=modp(n-1,p);
+		return (2*x)%p;
 	}
 }
 int main(){
 	int n,p;
 	scanf("%d%d",&n,&p);
-	printf("%d",modp(n,p));
+	printf("%d\n",modp(n,p));
+	return 0;
 }
