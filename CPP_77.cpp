@@ -14,8 +14,8 @@ iscube(180) ==> false
 #include<math.h>
 using namespace std;
 bool iscuber(int a){
-	int b = pow(a, 1.0/3);
-	if(pow(b, 3) == a)
+	int b = sqrt(a);
+	if (b*b*b == a)
 		return true;
 	else
 		return false;
