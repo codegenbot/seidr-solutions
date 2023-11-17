@@ -15,16 +15,9 @@ bool prime_length(string str){
 	if (len == 1 || len == 2)
 		return true;
 	for (int i = 2; i < len; i++)
-		if (len % i == 0)
+	{
+		if (len%i == 0)
 			return false;
+	}
 	return true;
-}
-int main(){
-	string str;
-	cin >> str;
-	if (prime_length(str))
-		cout << "true" << endl;
-	else
-		cout << "false" << endl;
-	return 0;
 }
