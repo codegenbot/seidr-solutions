@@ -17,10 +17,11 @@ compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 #include<math.h>
 #include<vector>
 using namespace std;
-	int i;
-	vector<int> ans;
-	for(i=0;i<game.size();i++)
-		ans.push_back(abs(guess[i]-game[i]));
-	return ans;
+	vector<int> res;
+	for (int i = 0; i < guess.size(); i++){
+		if (game[i]==guess[i]) res.push_back(0);
+		else res.push_back(abs(game[i] - guess[i]));
+	}
+	return res;
 }
 vector<int> compare(vector<int> game,vector<int> guess){
