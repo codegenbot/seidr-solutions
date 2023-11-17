@@ -6,16 +6,7 @@ Examples:
     add({4, 2, 6, 7}) ==> 2 
 */
 #include<stdio.h>
-#include<vector.h>
-int add(vector<int> lst){
-    int sum = 0;
-for(int i = 0; i < lst.size(); i++){
-    if(i % 2 == 1 && lst[i] % 2 == 0){
-        sum += lst[i];
-    }
-}
-return sum;
-}
+#include<vector>
 int main(){
-    return 0;
+    assert (add({4, 4, 6, 8}) == 12);
 }
