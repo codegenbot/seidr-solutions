@@ -31,6 +31,19 @@ Examples:
 	return ans;
 }
 int main(){
+	int n,k;
+	scanf("%d%d",&n,&k);
+	vector<vector<int>> grid(n,vector<int>(n));
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			scanf("%d",&grid[i][j]);
+		}
+	}
+	vector<int> ans=minPath(grid,k);
+	for(int i=0;i<ans.size();i++){
+		printf("%d ",ans[i]);
+	}
+	printf("\n");
 }
     Output: {1}
 */
