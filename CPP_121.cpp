@@ -18,13 +18,7 @@ solution({30, 13, 24, 321}) ==>0
     return sum;
 }
 using namespace std;
-int main(){
-    vector<int> lst = {5, 8, 7, 1};
-    int sum = 0;
-    for(int i = 0; i < lst.size(); i++){
-      if(lst[i] % 2 == 1 && i % 2 == 0)
-        sum += lst[i];
-    }
-    cout << sum << endl;
-    return sum;
+int solutions(vector<int> lst){
+
 }
+int main(){
