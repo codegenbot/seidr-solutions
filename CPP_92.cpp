@@ -19,10 +19,13 @@ any_int(3.6, -2.2, 2) ➞ false
 #include<math.h>
 using namespace std;
 bool any_int(float a,float b,float c){
-    //Complete the code
-    if (a>0&&b>0&&c>0)
-        if(floor(a)==a || floor(b)==b || floor(c)==c)
-          return true;
-    return false;
-    
-        
+if(a+b==c||a+c==b||b+c==a)
+    return true;
+return false;
+}
+
+int main(){
+int a,b,c;
+scanf("%d%d%d",&a,&b,&c);
+any_int(a,b,c);
+}
