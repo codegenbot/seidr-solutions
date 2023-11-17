@@ -13,3 +13,8 @@ compare_one("1", 1) ➞ "None"
 #include<string>
 #include<algorithm>
 using namespace std;
+
+int main(){  //error: redefinition of ‘int main()’
+    assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
+	return 0;
+}
