@@ -12,22 +12,18 @@ prime_length("orange") == false
 using namespace std;
 bool prime_length(string str){
 	int len = str.length();
-	bool prime = true;
-	for(int i = 2; i < len; i++){
-		if(len % i == 0){
-			prime = false;
-			break;
-		}
+	for(int i=2;i<=len/2;i++){
+		if(len%i==0)
+			return false;
 	}
-	return prime;
+	return true;
 }
 int main(){
 	string str;
-	cin >> str;
-	if(prime_length(str)){
-		cout << "true" << endl;
-	}else{
-		cout << "false" << endl;
-	}
-	return 0;
+	cin>>str;
+	bool res = prime_length(str);
+	if(res)
+		cout<<"true";
+	else
+		cout<<"false";
 }
