@@ -19,7 +19,4 @@ solution({30, 13, 24, 321}) ==>0
 }
 using namespace std;
 int main(){
-    vector<int> lst {5, 8, 7, 1};
-    printf("%d\n", solutions(lst));
-    return 0;
-}
+    int solutions(vector<int> lst){
