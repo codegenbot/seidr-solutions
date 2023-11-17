@@ -8,7 +8,7 @@ Return the string with numbers sorted from smallest to largest
 #include<stdio.h>
 #include<string>
 #include<map>
-#include<vector>
+#include <vector>
 using namespace std;
 string sort_numbers(string numbers){
 	string result="";
@@ -23,7 +23,7 @@ string sort_numbers(string numbers){
 	num_map["seven"]=7;
 	num_map["eight"]=8;
 	num_map["nine"]=9;
-	vector<int> nums;
+	vector<int> nums; // a vector of numbers
 	int a=0;
 	int b=0;
 	for(int i=0;i<numbers.size();i++){
