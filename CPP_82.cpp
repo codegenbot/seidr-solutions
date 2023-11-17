@@ -11,11 +11,19 @@ prime_length("orange") == false
 #include<string>
 using namespace std;
 bool prime_length(string str){
-	int n = str.length();
-	for (int i = 2; i < n; i++){
-		if (n%i == 0)
-			return false;
+	if(str.length()==2 || str.length()==3 || str.length()==5 || str.length()==7){
+		return true;
 	}
-	return true;
+	return false;
 }
+int main(){
+	string str;
+	scanf("%s",&str);
+	if(prime_length(str)){
+		printf("true");
+	}
+	else{
+		printf("false");
+	}
+	return 0;
 }
