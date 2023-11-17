@@ -29,11 +29,5 @@ else{
 int main(){
     float a,b,c;
     scanf("%f%f%f",&a,&b,&c);
-    if(any_int(a,b,c)){
-        printf("true");
-    }
-    else{
-        printf("false");
-    }
-    return 0;
+    printf("%d",any_int(a,b,c));
 }
