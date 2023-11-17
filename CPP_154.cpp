@@ -25,14 +25,6 @@ bool cycpattern_check(string a,string b){
 			if(k==m){
 				return true;
 			}
-			for(j=0,k=i;j<l,k<m;j++,k++){
-				if(a[j]!=b[k]){
-					break;
-				}
-			}
-			if(k==m){
-				return true;
-			}
 		}
 	}
 	return false;
