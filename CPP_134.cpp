@@ -14,13 +14,13 @@ check_if_last_char_is_a_letter("") ➞ false
 #include<string>
 using namespace std;
 bool check_if_last_char_is_a_letter(string txt){
-	int i,j,k;
-	for(i=0;i<txt.length();i++){
+	int i,j=0;
+	for(i=0;txt[i]!='\0';i++){
 		if(txt[i]==' '){
 			j=i;
 		}
 	}
-	if(txt[j+1]>='a' && txt[j+1]<='z' || txt[j+1]>='A' && txt[j+1]<='Z'){
+	if(txt[j+1]>='a'&&txt[j+1]<='z'||txt[j+1]>='A'&&txt[j+1]<='Z'){
 		return true;
 	}
 	else{
@@ -36,4 +36,5 @@ int main(){
 	else{
 		printf("false");
 	}
+	return 0;
 }
