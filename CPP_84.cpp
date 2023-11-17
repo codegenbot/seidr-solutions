@@ -16,16 +16,16 @@ Output:
 #include<string>
 using namespace std;
 string solve(int N){
-    string bin = "";
-    while(N>0){
-        bin = to_string(N%2) + bin;
-        N = N / 2;
+    string binary;
+    int count = 0;
+    while(N > 0){
+        if(N % 2 == 1){
+            binary += "1";
+            count++;
+        }
+        else
+            binary += "0";
+        N /= 2;
     }
-    return bin;
-}
-int main(){
-    int N;
-    cin >> N;
-    cout << solve(N);
-    return 0;
+    return binary;
 }
