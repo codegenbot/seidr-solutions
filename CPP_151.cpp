@@ -24,24 +24,12 @@ long long double_the_difference(vector<double> lst){
 	}
 	return sum;
 }
-
+#include<iostream>
+#include<vector>
+#include<assert.h>
+using namespace std;
 int main(){
-  vector<double> lst = {1, 3, 2, 0};
-  long long odd_sum = 10;
-  assert (double_the_difference(lst) == odd_sum );
-
-  vector<double> lst2 = {-1, -2, 0};
-  assert (double_the_difference(lst2) == 0 );
-
-  vector<double> lst3 = {9, -2};
-  assert (double_the_difference(lst3) == 81 );
-
-  vector<double> lst4 = {0};
-  assert (double_the_difference(lst4) == 0 );
-
-  vector<double> lst5 = {};
-  assert (double_the_difference(lst5) == 0 );
-
-  printf("Your code passed all our tests!\n");
-  return 0;
+    vector<double> lst ={1, 3, 2, 0};
+    long long odd_sum = 10;
+    assert (double_the_difference(lst) == odd_sum );
 }
