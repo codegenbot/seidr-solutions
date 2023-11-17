@@ -31,16 +31,7 @@ Examples:
 	return ans;
 }
 int main(){
-	vector<vector<int>> grid;
-	grid.push_back(vector<int>{1,2,3});
-	grid.push_back(vector<int>{4,5,6});
-	grid.push_back(vector<int>{7,8,9});
-	int k = 3;
-	vector<int> ans = minPath(grid, k);
-	for(int i = 0; i < ans.size(); i++){
-		printf("%d ", ans[i]);
-	}
-	printf("\n");
+
 }
     Output: {1}
 */
