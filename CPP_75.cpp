@@ -26,7 +26,8 @@ int main(){
 	scanf("%d",&a);
 	if(is_multiply_prime(a)){
 		printf("true");
-	}else{
+	}
+	else{
 		printf("false");
 	}
 	return 0;
