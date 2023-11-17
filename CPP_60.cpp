@@ -21,9 +21,12 @@ int sum_to_n(int n){
 	}
 	return sum;
 }
-int main(){
-	int n;
-	scanf("%d", &n);
-	printf("%d", sum_to_n(n));
+int main()
+{
+	printf("%d\n", sum_to_n(30));
+	printf("%d\n", sum_to_n(100));
+	printf("%d\n", sum_to_n(5));
+	printf("%d\n", sum_to_n(10));
+	printf("%d\n", sum_to_n(1));
 	return 0;
 }
