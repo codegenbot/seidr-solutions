@@ -9,23 +9,9 @@ Return vector with elements incremented by 1.
 #include<vector>
 using namespace std;
 vector<int> incr_list(vector<int> l){
-	vector<int>::iterator i;
-	for(i=l.begin();i<l.end();i++){
-		*i+=1;
-	}
-	return l;
-}
-int main(){
-	vector<int> l={1,2,3};
-	vector<int>::iterator i;
-	for(i=l.begin();i<l.end();i++){
-		printf("%d ",*i);
-	}
-	printf("\n");
-	l=incr_list(l);
-	for(i=l.begin();i<l.end();i++){
-		printf("%d ",*i);
-	}
-	printf("\n");
-	return 0;
+  vector<int> v;
+  for(int i=0;i<l.size();i++){
+    v.push_back(l[i]+1);
+  }
+  return v;
 }
