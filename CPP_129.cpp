@@ -27,55 +27,60 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    int n = grid.size();
-    int m = grid[0].size();
-    vector<vector<vector<int>>> dp(n, vector<vector<int>>(m, vector<int>(k + 1, INT_MAX)));
-    dp[0][0][1] = grid[0][0];
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            for(int l = 1; l <= k; l++){
-                if(i > 0){
-                    if(dp[i - 1][j][l - 1] != INT_MAX){
-                        dp[i][j][l] = min(dp[i][j][l], dp[i - 1][j][l - 1] + grid[i][j]);
-                    }
-                }
-                if(j > 0){
-                    if(dp[i][j - 1][l - 1] != INT_MAX){
-                        dp[i][j][l] = min(dp[i][j][l], dp[i][j - 1][l - 1] + grid[i][j]);
-                    }
-                }
-            }
-        }
-    }
-    vector<int> result;
-    int i = n - 1, j = m - 1;
-    while(k > 0){
-        result.push_back(grid[i][j]);
-        k--;
-        if(i > 0 && dp[i][j][k] == dp[i - 1][j][k - 1] + grid[i][j]){
-            i--;
-        }else{
-            j--;
-        }
-    }
-    return result;
+	vector<int> v;
+	int n = grid.size();
+	int m = grid[0].size();
+	int min = 9999999;
+	int min_x;
+	int min_y;
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < m; j++){
+			if(grid[i][j] < min){
+				min = grid[i][j];
+				min_x = i;
+				min_y = j;
+			}
+		}
+	}
+	for(int i = 0; i < k; i++){
+		v.push_back(min);
+		if(min_x > 0 && grid[min_x - 1][min_y] < grid[min_x + 1][min_y]){
+			min_x--;
+		}
+		else if(min_x < n - 1 && grid[min_x + 1][min_y] < grid[min_x - 1][min_y]){
+			min_x++;
+		}
+		else if(min_y > 0 && grid[min_x][min_y - 1] < grid[min_x][min_y + 1]){
+			min_y--;
+		}
+		else if(min_y < m - 1 && grid[min_x][min_y + 1] < grid[min_x][min_y - 1]){
+			min_y++;
+		}
+		else if(min_x > 0){
+			min_x--;
+		}
+		else if(min_x < n - 1){
+			min_x++;
+		}
+		else if(min_y > 0){
+			min_y--;
+		}
+		else if(min_y < m - 1){
+			min_y++;
+		}
+		min = grid[min_x][min_y];
+	}
+	return v;
 }
+
 int main(){
-    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9} };
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for(int i = 0; i < result.size(); i++){
-        printf("%d ", result[i]);
-    }
-    printf("\n");
-    grid = { {5,9,3}, {4,1,6}, {7,8,2} };
-    k = 1;
-    result = minPath(grid, k);
-    for(int i = 0; i < result.size(); i++){
-        printf("%d ", result[i]);
-    }
-    printf("\n");
-    return 0;
+	vector<vector<int>> grid = {{5,9,3}, {4,1,6}, {7,8,2}};
+	int k = 1;
+	vector<int> v = minPath(grid, k);
+	for(int i = 0; i < v.size(); i++){
+		printf("%d ", v[i]);
+	}
+	printf("\n");
 }
 #include<stdio.h>
 #include<vector>
