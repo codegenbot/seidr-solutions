@@ -1,5 +1,4 @@
 /*
-Note from the author: This task was done with the help of my friend https://www.codewars.com/users/thecodefloor
 I think we all remember that feeling when the result of some long-awaited
 event is finally known. The feelings and thoughts you have at that moment are
 definitely worth noting down and comparing.
@@ -14,19 +13,15 @@ example:
 compare({1,2,3,4,5,1},{1,2,3,4,2,-2}) -> {0,0,0,0,3,3}
 compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 */
-#include <cmath>
-#include <vector>
+#include<stdio.h>
+#include<math.h>
+#include<vector>
 using namespace std;
-
-inline unsigned int abs(int a) {
-    return a > 0 ? a : -a;
-}
-
-vector<int> compare(vector<int> game, vector<int> guess) {
-    int n = game.size();
-    vector<int> diference(n, 0);
-    for (int i = 0; i < n; i++) {
-        diference[i] = abs(game[i] - guess[i]);
+	vector<int> score;
+    for(int i=0;i<game.size();i++)
+    {
+       score.push_back(abs(game[i] - guess[i]));
     }
-    return diference;
+    return score;
 }
+vector<int> compare(vector<int> game,vector<int> guess){
