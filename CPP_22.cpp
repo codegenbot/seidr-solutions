@@ -1,8 +1,8 @@
 /*
 Filter given vector of any python values only for integers
->>> print filter_integers({"a", 3.14, 5})
+>>> filter_integers({"a", 3.14, 5})
 {5}
->>> print filter_integers({1, 2, 3, "abc", {}, {}})
+>>> filter_integers({1, 2, 3, "abc", {}, {}})
 {1, 2, 3}
 */
 #include<stdio.h>
@@ -13,11 +13,17 @@ Filter given vector of any python values only for integers
 typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
-	vector<int> v;
-	for(int i=0;i<values.size();i++){
-		if(type(values[i])== ){
-			v.pushback(values[i]);
-		}
-	}
-	return v;
+    vector<int> v;
+    for(list_any::iterator list_it = values.begin(); list_it != values.end(); list_it++){
+        try{
+            if(boost::any_cast<int>(*list_it) != NULL){
+                v.push_back(boost::any_cast<int>(*list_it));
+            }
+        }
+        catch(const boost::bad_any_cast &e){
+
+        }
+    }
+    return v;
 }
+
