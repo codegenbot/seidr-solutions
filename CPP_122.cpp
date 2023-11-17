@@ -9,6 +9,8 @@ Example:
 
 Constraints:
     1. 1 <= len(arr) <= 100
+using namespace std;
+int add_elements(vector<int> arr,int k){
     2. 1 <= k <= len(arr)
 */
 #include<stdio.h>
