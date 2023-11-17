@@ -5,13 +5,10 @@ positive integers that start or end with 1.
 #include<stdio.h>
 using namespace std;
 int starts_one_ends(int n){
-	if(n==1) return 2;
-	if(n==2) return 3;
-	if(n>2) return 2*starts_one_ends(n-1) + starts_one_ends(n-2);
+	// complete the following code
 }
 int main(){
 	int n;
-	scanf("%d",&n);
-	printf("%d",starts_one_ends(n));
-	return 0;
+	cin >> n;
+	cout << starts_one_ends(n) << endl;
 }
