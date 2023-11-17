@@ -18,11 +18,7 @@ std::string string_to_md5(std::string text){
 	MD5_Final(hash, &md5);
 	std::stringstream ss;
 	for(int i = 0; i < MD5_DIGEST_LENGTH; i++){
-		ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i]; 
+		ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
 	}
 	return ss.str();
 }
-
-int main(){
-	std::cout<<string_to_md5("Hello world")<<std::endl;
-} 
