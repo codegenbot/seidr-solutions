@@ -6,10 +6,10 @@ Return the string with numbers sorted from smallest to largest
 "one three five"
 */
 #include<stdio.h>
-#include<iostream>
-#include<ostream>
 #include<string>
 #include<map>
+#include<iostream>
+#include <ostream>
 using namespace std;
 string sort_numbers(string numbers){
 	map<string, int> num;
@@ -63,7 +63,7 @@ string sort_numbers(string numbers){
 	return ans;
 }
 int main(){
-	string s; 
+	string s;
 	getline(cin, s);
 	cout << sort_numbers(s) << endl;
 	return 0;
