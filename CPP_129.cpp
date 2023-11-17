@@ -27,51 +27,40 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    int N = grid.size();
-    int M = grid[0].size();
-    vector<vector<int>> dp(N, vector<int>(M, INT_MAX));
-    vector<vector<int>> path(N, vector<int>(M, 0));
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < M; j++){
+    int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
             if(i == 0 && j == 0){
-                dp[i][j] = grid[i][j];
+                dp[i][j] = 0;
             }
             else if(i == 0){
-                dp[i][j] = dp[i][j - 1] + grid[i][j];
+                dp[i][j] = dp[i][j - 1];
             }
             else if(j == 0){
-                dp[i][j] = dp[i - 1][j] + grid[i][j];
+                dp[i][j] = dp[i - 1][j];
             }
             else{
-                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
+                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]);
             }
+            dp[i][j] += grid[i][j];
         }
     }
-    int i = N - 1, j = M - 1;
-    while(k > 0){
-        path[i][j] = 1;
+    vector<int> res;
+    int i = n - 1, j = n - 1;
+    while(k--){
+        res.push_back(grid[i][j]);
         if(i == 0){
             j--;
         }
         else if(j == 0){
             i--;
         }
-        else{
-            if(dp[i - 1][j] < dp[i][j - 1]){
-                i--;
-            }
-            else{
-                j--;
-            }
+        else if(dp[i - 1][j] < dp[i][j - 1]){
+            i--;
         }
-        k--;
-    }
-    vector<int> res;
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < M; j++){
-            if(path[i][j]){
-                res.push_back(grid[i][j]);
-            }
+        else{
+            j--;
         }
     }
     return res;
