@@ -27,42 +27,49 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-	vector<int> res;
-	int n = grid.size();
-	int m = grid[0].size();
-	int i, j, p, q;
-	int min = grid[0][0];
-	for (i = 0; i < n; i++) {
-		for (j = 0; j < m; j++) {
-			if (grid[i][j] < min) {
-				min = grid[i][j];
-				p = i;
-				q = j;
-			}
-		}
-	}
-	res.push_back(min);
-	for (i = 1; i < k; i++) {
-		int min = grid[p][q];
-		if (p > 0 && grid[p - 1][q] < min) {
-			min = grid[p - 1][q];
-			p = p - 1;
-		}
-		if (p < n - 1 && grid[p + 1][q] < min) {
-			min = grid[p + 1][q];
-			p = p + 1;
-		}
-		if (q > 0 && grid[p][q - 1] < min) {
-			min = grid[p][q - 1];
-			q = q - 1;
-		}
-		if (q < m - 1 && grid[p][q + 1] < min) {
-			min = grid[p][q + 1];
-			q = q + 1;
-		}
-		res.push_back(min);
-	}
-	return res;
+    vector<int> res;
+    int n = grid.size();
+    if(n == 0 || k == 0) return res;
+    int m = grid[0].size();
+    if(m == 0 || k == 0) return res;
+    vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if(i == 0 && j == 0){
+                dp[i][j] = grid[i][j];
+            }
+            else if(i == 0){
+                dp[i][j] = min(dp[i][j-1], grid[i][j]);
+            }
+            else if(j == 0){
+                dp[i][j] = min(dp[i-1][j], grid[i][j]);
+            }
+            else{
+                dp[i][j] = min(dp[i-1][j], dp[i][j-1]);
+                dp[i][j] = min(dp[i][j], grid[i][j]);
+            }
+        }
+    }
+    int i = 0, j = 0;
+    while(k--){
+        res.push_back(grid[i][j]);
+        if(i == n-1 && j == m-1) break;
+        if(i == n-1){
+            j++;
+        }
+        else if(j == m-1){
+            i++;
+        }
+        else{
+            if(dp[i+1][j] < dp[i][j+1]){
+                i++;
+            }
+            else{
+                j++;
+            }
+        }
+    }
+    return res;
 }
 #include<stdio.h>
 #include<vector>
