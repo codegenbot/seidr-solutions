@@ -33,12 +33,3 @@ vector<int> tri(int n){
 	}
 	return v;
 }
-int main(){
-	int n;
-	scanf("%d", &n);
-	vector<int> v = tri(n);
-	for(int i = 0; i < v.size(); i++){
-		printf("%d ", v[i]);
-	}
-	return 0;
-}
