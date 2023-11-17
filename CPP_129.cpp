@@ -26,7 +26,6 @@ Examples:
     Output: {1, 2, 1}
 
 // vector<int> minPath(vector<vector<int>> grid, int k){
-#include <iostream>
 
 #include <stdio.h>
 #include <assert.h>
