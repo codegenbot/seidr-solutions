@@ -27,45 +27,6 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
+#include <bits/stdc++.h>
+using namespace std; 
 int main(){
-    int n;
-    scanf("%d", &n);
-    vector<vector<int>> grid(n, vector<int>(n));
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            scanf("%d", &grid[i][j]);
-    int k;
-    scanf("%d", &k);
-    vector<int> result = minPath(grid, k);
-    for (int i = 0; i < result.size(); i++)
-        printf("%d ", result[i]);
-    printf("\n");
-    return 0;
-}
-#include<stdio.h>
-#include<vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
-    // Complete the following code given the task description and function signature.
-    // You can add any other helper functions or variables.
-    // Do not change the function signature or the task description.
-}
-int main() {
-    int n;
-    scanf("%d", &n);
-    vector<vector<int>> grid(n, vector<int>(n));
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            scanf("%d", &grid[i][j]);
-    int k;
-    scanf("%d", &k);
-    vector<int> result = minPath(grid, k);
-    for (int i = 0; i < result.size(); i++)
-        printf("%d ", result[i]);
-    printf("\n");
-    return 0;
-}
-#include<stdio.h>
-#include<vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
