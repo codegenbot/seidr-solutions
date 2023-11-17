@@ -27,31 +27,9 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-	vector<int> res;
-	int n = grid.size();
-	if (n == 0 || k == 0) return res;
-	vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			if (i == 0 && j == 0) {
-				dp[i][j] = 0;
-			}
-			else {
-				if (i > 0) dp[i][j] = min(dp[i][j], dp[i - 1][j] + 1);
-				if (j > 0) dp[i][j] = min(dp[i][j], dp[i][j - 1] + 1);
-			}
-		}
-	}
-	int x = 0, y = 0;
-	while (k > 0) {
-		res.push_back(grid[x][y]);
-		if (x + 1 < n && dp[x + 1][y] == k - 1) x++;
-		else if (y + 1 < n && dp[x][y + 1] == k - 1) y++;
-		k--;
-	}
-	return res;
-}
 #include<stdio.h>
 #include<vector>
 using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    // your code here
+}
