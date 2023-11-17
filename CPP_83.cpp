@@ -1,23 +1,21 @@
-#include <bits/stdc++.h>
-using namespace std; 
-int main(){ 
-  int n;
-  cin>>n;
-  int a[n];
-  for(int i=0;i<n;i++)
-    cin>>a[i];
-  sort(a,a+n);
+/*
+Given a positive integer n, return the count of the numbers of n-digit
+positive integers that start or end with 1.
+*/
+#include<stdio.h>
+using namespace std;
+int starts_one_ends(int n){
   int count=0;
-  for(int i=0;i<n;i++){
-    if(a[i]!=a[i+1]){
-      count++;
-    }
+  for(int i=1;i<=n;i++){
+    if(i==1)
+      count+=1;
+    else
+      count+=10*count;
   }
-  for(int i=0;i<n;i++){
-    if(a[i]!=a[i+1]){
-      if(count==1)
-        cout<<a[i]<<" "<<a[i+1]<<endl;
-      count--;
-    }
-  }
+  return count;
+}
+int main(){
+  int n;
+  printf("%d",starts_one_ends(n));
+  return 0;
 }
