@@ -27,9 +27,9 @@ int main(){
 	string str;
 	cin >> str;
 	if(prime_length(str)){
-		std::cout << "true" << std::endl;
+		printf("true\n");
 	}else{
-		std::cout << "false" << std::endl;
+		printf("false\n");
 	}
 	return 0;
 }
