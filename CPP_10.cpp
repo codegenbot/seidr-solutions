@@ -21,11 +21,11 @@ string make_palindrome(string str){
     string s(str.rbegin(),str.rend());
     int i=0;
     for(i=0;i<str.length();i++){
-        if(str.substr(0,str.length()-i)==s.substr(i)){
+        if(is_palindrome(str.substr(i,str.length()-i))){
             break;
         }
     }
-    return str+s.substr(i);
+    return str+s.substr(str.length()-i,i);
 }
 int main(){
     string str;
