@@ -14,12 +14,9 @@ typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
 	vector<int> v;
-	for(auto i=values.begin();i!=values.end();i++){
-		try{
-			v.push_back(boost::any_cast<int>(*i));
-		}
-		catch(boost::bad_any_cast &e){
-			cout<<e.what()<<endl;
+	for(list_any::iterator it = values.begin();it != values.end();it++){
+		if(it->type() == typeid(int)){
+			v.push_back(boost::any_cast<int>(*it));
 		}
 	}
 	return v;
@@ -29,11 +26,9 @@ int main(){
 	l.push_back(1);
 	l.push_back(2);
 	l.push_back(3);
-	l.push_back(4);
 	l.push_back("abc");
-	l.push_back(3.14);
-	vector<int> v=filter_integers(l);
-	for(auto i=v.begin();i!=v.end();i++){
-		cout<<*i<<endl;
-	}
+	l.push_back(1.2);
+	vector<int> v = filter_integers(l);
+	printf("%d %d %d\n",v[0],v[1],v[2]);
+	return 0;
 }
