@@ -9,55 +9,10 @@ double_the_difference({0}) == 0
 
 If the input vector is empty, return 0.
 */
-#include <stdio.h>
-#include <math.h>
-#include <vector>
-#include <cassert>
-#include <iostream>
+#include<stdio.h>
+#include<math.h>
+#include<vector>
 using namespace std;
-
-void TestWithEmptyVector() {
-    vector<float> numbers {};
-    const long long expected = 0;
-    const auto actual = double_the_difference(numbers);
-    assert(expected == actual);
-}
-
-void TestWithOneElementTrue() {
-    vector<float> numbers {9};
-    const long long expected = 81;
-    const auto actual = double_the_difference(numbers);
-    assert(expected == actual);
-}
-
-void TestWithOneElementFalse() {
-    vector<float> numbers {10};
-    const long long expected = 0;
-    const auto actual = double_the_difference(numbers);
-    assert(expected == actual);
-}
-
-void TestWith1() {
-    vector<float> numbers {1, 3, 2, 0};
-    const long long expected = 10;
-    const auto actual = double_the_difference(numbers);
-    assert(expected == actual);
-}
-
-void TestWithPositiveElements() {
-    vector<float> numbers {9, 3, 11, 2, 0, 87, 12};
-    const long long expected = 174;
-    const auto actual = double_the_difference(numbers);
-    assert(expected == actual);
-}
-
-void TestWithNegativeNotIntegerElements() {
-    vector<float> numbers {-3.14, 1.41, 6};
-    const long long expected = 96.57;
-    const auto actual = double_the_difference(numbers);
-    assert(expected == actual);
-}
-
 long long double_the_difference(vector<float> lst){
 	long long sum=0;
 	for(int i=0;i<lst.size();i++)
@@ -74,4 +29,34 @@ long long double_the_difference(vector<float> lst){
 		}
 	}
 	return sum;
+}
+/* n= 4, r = 2
+         n!
+p = ------------
+    r! * (n-r)!*/
+
+#include <stdio.h>
+
+int factorial(int);
+
+int main()
+{
+    int n, r, permutation;
+
+    scanf("%d %d", &n, &r);
+    permutation = factorial(n) / factorial(n - r);
+    //printf("Permutation is %d", permutation);
+    return 0;
+}
+int factorial(int num)
+{
+    if (num == 0)
+    {
+
+        return 1;
+    }
+    else
+    {
+        return (factorial(num - 1) * num);
+    }
 }
