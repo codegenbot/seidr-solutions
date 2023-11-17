@@ -17,22 +17,27 @@ compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 #include<math.h>
 #include<vector>
 using namespace std;
-	vector<int> dif;
-	for(int i = 0; i < game.size(); i++)
-	{
-		dif.push_back(abs(game[i]-guess[i]));
-	}
-	return dif;
+  vector<int> res;
+  for(int i=0;i<game.size();i++)
+    res.push_back(abs(game[i]-guess[i]));
+  return res;
 }
-int main()
-{
-	vector<int> game = {1,2,3,4,5,1};
-	vector<int> guess = {1,2,3,4,2,-2};
-	vector<int> dif = compare(game,guess);
-	for(int i = 0; i < dif.size(); i++)
-	{
-		printf("%d ",dif[i]);
-	}
-	return 0;
+void print_vector(vector<int> v){
+  for(int i=0;i<v.size();i++)
+    printf("%d ",v[i]);
+  printf("\n");
+}
+int main(){
+  int g[6]={1,2,3,4,5,1};
+  int gs[6]={1,2,3,4,2,-2};
+  int g1[6]={0,5,0,0,0,4};
+  int gs1[6]={4,1,1,0,0,-2};
+  vector<int> game(g,g+6);
+  vector<int> guess(gs,gs+6);
+  vector<int> game1(g1,g1+6);
+  vector<int> guess1(gs1,gs1+6);
+  print_vector(compare(game,guess));
+  print_vector(compare(game1,guess1));
+  return 0;
 }
 vector<int> compare(vector<int> game,vector<int> guess){
