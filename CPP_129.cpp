@@ -27,36 +27,29 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
+    vector<int> result;
+    return result;
+}
+int main(){
+    vector<int> result;
+    
+    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    result = minPath(grid, k);
+    for(int i = 0; i < result.size(); i++){
+        printf("%d ", result[i]);
+    }
+    printf("\n");
+
+    vector<vector<int>> grid2 = { {5,9,3}, {4,1,6}, {7,8,2}};
+    int k2 = 1;
+    result = minPath(grid2, k2);
+    for(int i = 0; i < result.size(); i++){
+        printf("%d ", result[i]);
+    }
+    printf("\n");
+}
 #include<stdio.h>
 #include<vector>
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
-     int N = grid.size();
-     vector<vector<int>> dp(N, vector<int>(N, INT_MAX));
-     vector<vector<int>> path(N, vector<int>(N, 0));
-     for (int i = 0; i < N; ++i)
-         dp[i][0] = grid[i][0];
-     for (int i = 0; i < N; ++i)
-         dp[0][i] = grid[0][i];
-     for (int i = 1; i < N; ++i)
-         for (int j = 1; j < N; ++j)
-             if (dp[i][j - 1] < dp[i - 1][j]){
-                 dp[i][j] = dp[i][j - 1] + grid[i][j];
-                 path[i][j] = -1;
-             }
-             else{
-                 dp[i][j] = dp[i - 1][j] + grid[i][j];
-                 path[i][j] = 1;
-             }
-     int i = N - 1, j = N - 1;
-     vector<int> res;
-     while (k > 0){
-         res.push_back(grid[i][j]);
-         if (path[i][j] == 1)
-             i -= 1;
-         else
-             j -= 1;
-         k -= 1;
-     }
-     return res;
-}
