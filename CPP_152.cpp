@@ -18,8 +18,10 @@ compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 #include<vector>
 using namespace std;
 
-
-vector<int> compare(vector<int> game,vector<int> guess){
-}
 int main(){
+
+
+}
+vector<int> compare(vector<int> game,vector<int> guess){
+
 }
