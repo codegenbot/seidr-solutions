@@ -27,9 +27,30 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-	vector<int> res;
-	// Complete the following code given the task description and function signature.
-	return res;
+	// Complete the following code
+}
+int main()
+{
+	vector<vector<int>> grid;
+	vector<int> v1, v2, v3;
+	v1.push_back(1);
+	v1.push_back(2);
+	v1.push_back(3);
+	v2.push_back(4);
+	v2.push_back(5);
+	v2.push_back(6);
+	v3.push_back(7);
+	v3.push_back(8);
+	v3.push_back(9);
+	grid.push_back(v1);
+	grid.push_back(v2);
+	grid.push_back(v3);
+	int k = 3;
+	vector<int> res = minPath(grid, k);
+	for (int i = 0; i < res.size(); i++)
+		printf("%d ", res[i]);
+	printf("\n");
+	return 0;
 }
 #include<stdio.h>
 #include<vector>
