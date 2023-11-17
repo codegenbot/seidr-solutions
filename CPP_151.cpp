@@ -26,46 +26,46 @@ long long double_the_difference(vector<float> lst) {
 
 int main(){
     vector<float> lst = {1, 3, 2, 0};
-    long long odd_sum = 10;
-    assert (double_the_difference(lst) == odd_sum);
+    long long odd_sum1 = 10;
+    assert (double_the_difference(lst) == odd_sum1 );
 
     lst = {-1, -2, 0};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum);
+    odd_sum1 = 0;
+    assert (double_the_difference(lst) == odd_sum1 );
 
     lst = {9, -2};
-    odd_sum = 81;
-    assert (double_the_difference(lst) == odd_sum);
+    odd_sum1 = 81;
+    assert (double_the_difference(lst) == odd_sum1 );
 
     lst = {0};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum);
+    odd_sum1 = 0;
+    assert (double_the_difference(lst) == odd_sum1 );
 
     lst = {};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum);
+    odd_sum1 = 0;
+    assert (double_the_difference(lst) == odd_sum1 );
 
     lst = {-1, -2, -3, 0, 0, -4, -5};
     odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum);
+    assert (double_the_difference(lst) == odd_sum );
 
     lst = {-1.2, -2.3, -3.4, 0, 0, -4.5, -5.6};
     odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum);
+    assert (double_the_difference(lst) == odd_sum );
 
     lst = {1.2, 2.3, 3.4, 0, 0, 4.5, 5.6};
     odd_sum = 1 + 9 + 9 + 25 + 25;
-    assert (double_the_difference(lst) == odd_sum);
+    assert (double_the_difference(lst) == odd_sum );
 
     lst = {-1, -2, -3, 0, 0, -4, -5, 1, 3, 2, 0};
     odd_sum = 1 + 9 + 0 + 0;
-    assert (double_the_difference(lst) == odd_sum);
+    assert (double_the_difference(lst) == odd_sum );
 
     lst = {-1.2, -2.3, -3.4, 0, 0, -4.5, -5.6, 1.2, 2.3, 3.4, 0, 0, 4.5, 5.6};
     odd_sum = 1 + 9 + 9 + 25 + 25;
-    assert (double_the_difference(lst) == odd_sum);
+    assert (double_the_difference(lst) == odd_sum );
 
     lst = {-1.2, -2.3, -3.4, 0, 0, -4.5, -5.6, 1.2, 2.3, 3.4, 0, 0, 4.5, 5.6, 6.7};
     odd_sum = 1 + 9 + 9 + 25 + 25 + 49;
-    assert (double_the_difference(lst) == odd_sum);
+    assert (double_the_difference(lst) == odd_sum );
 }
