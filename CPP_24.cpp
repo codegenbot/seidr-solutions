@@ -13,8 +13,3 @@ int largest_divisor(int n){
 		}
 	}
 }
-int main(){
-	int n;
-	scanf("%d",&n);
-	printf("%d",largest_divisor(n));
-}
