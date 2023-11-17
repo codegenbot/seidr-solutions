@@ -11,7 +11,6 @@ compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
 #include<string>
-#include<boost/any.hpp> 
 using namespace std;
 boost::any compare_one(string a,string b){
 	if(a.size()==b.size()){
