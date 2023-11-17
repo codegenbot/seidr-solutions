@@ -15,50 +15,34 @@ compare_one("1", 1) ➞ "None"
 #include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
-    if(a.type() == typeid(int))
-    {
-        if(boost::any_cast<int>(a) > boost::any_cast<int>(b))
-            return a;
-        else if(boost::any_cast<int>(a) < boost::any_cast<int>(b))
-            return b;
-        else
-            return "None";
-    }
-    else if(a.type() == typeid(float))
-    {
-        if(boost::any_cast<float>(a) > boost::any_cast<float>(b))
-            return a;
-        else if(boost::any_cast<float>(a) < boost::any_cast<float>(b))
-            return b;
-        else
-            return "None";
-    }
-    else if(a.type() == typeid(string))
-    {
-        if(boost::any_cast<string>(a) > boost::any_cast<string>(b))
-            return a;
-        else if(boost::any_cast<string>(a) < boost::any_cast<string>(b))
-            return b;
-        else
-            return "None";
-    }
+	if(a.type()==typeid(string)){
+		string aa=boost::any_cast<string>(a);
+		string bb=boost::any_cast<string>(b);
+		aa.erase(remove(aa.begin(),aa.end(),','),aa.end());
+		bb.erase(remove(bb.begin(),bb.end(),','),bb.end());
+		if(stof(aa)==stof(bb)) return "None";
+		if(stof(aa)>stof(bb)) return a;
+		if(stof(aa)<stof(bb)) return b;
+	}
+	if(a.type()==typeid(int)){
+		int aa=boost::any_cast<int>(a);
+		int bb=boost::any_cast<int>(b);
+		if(aa==bb) return "None";
+		if(aa>bb) return a;
+		if(aa<bb) return b;
+	}
+	if(a.type()==typeid(float)){
+		float aa=boost::any_cast<float>(a);
+		float bb=boost::any_cast<float>(b);
+		if(aa==bb) return "None";
+		if(aa>bb) return a;
+		if(aa<bb) return b;
+	}
 }
 int main(){
-    int a = 1;
-    float b = 2.5;
-    string c = "2,3";
-    string d = "5.1";
-    string e = "6";
-    string f = "1";
-    boost::any num1 = a;
-    boost::any num2 = b;
-    boost::any num3 = c;
-    boost::any num4 = d;
-    boost::any num5 = e;
-    boost::any num6 = f;
-    cout << compare_one(num1,num2).type().name() << endl;
-    cout << compare_one(num1,num3).type().name() << endl;
-    cout << compare_one(num4,num5).type().name() << endl;
-    cout << compare_one(num6,num1).type().name() << endl;
-    return 0;
+	printf("%s\n",boost::any_cast<string>(compare_one(1,2.5)).c_str());
+	printf("%s\n",boost::any_cast<string>(compare_one(1,"2,3")).c_str());
+	printf("%s\n",boost::any_cast<string>(compare_one("5,1","6")).c_str());
+	printf("%s\n",boost::any_cast<string>(compare_one("1",1)).c_str());
+	return 0;
 }
