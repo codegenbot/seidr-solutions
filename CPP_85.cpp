@@ -5,8 +5,8 @@ Given a non-empty vector of integers lst. add the even elements that are at odd 
 Examples:
     add({4, 2, 6, 7}) ==> 2 
 */
-int add(vector<int> lst){
 #include<stdio.h>
+int add(vector<int> lst){
 #include<vector>
 	int count = 0;
 	for(int i=0; i<lst.size(); i++)
@@ -23,16 +23,3 @@ int add(vector<int> lst){
 }
 using namespace std;
 int main(){
-	int count = 0;
-	for(int i=0; i<lst.size(); i++)
-	{
-		if(i%2!=0)
-		{
-			if(lst[i]%2==0)
-			{
-				count += lst[i];
-			}
-		}
-	}
-	return count;
-}
