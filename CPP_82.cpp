@@ -9,21 +9,22 @@ prime_length("orange") == false
 */
 #include<stdio.h>
 #include<string>
+#include <iostream>
 using namespace std;
 bool prime_length(string str){
-	if(str.length()==2 || str.length()==3 || str.length()==5 || str.length()==7){
-		return true;
-	}
-	return false;
-}
-int main(){
-	string str;
-	scanf("%s",str);
-	if(prime_length(str)){
-		printf("true");
-	}
+	int len = str.length();
+	if(len==1 || len==0){return false;}
+	else if(len==2 || len==3){return true;}
 	else{
-		printf("false");
+		for(int i=2;i<len/2;i++){
+			if(len%i==0){return false;}
+		}
 	}
+	return true;
+}
+int main1(){
+	string str;
+	getline(cin,str);
+	printf("%d",prime_length(str));
 	return 0;
 }
