@@ -25,9 +25,3 @@ string solve(int N){
     reverse(s.begin(),s.end());
     return s;
 }
-int main(){
-    int N;
-    scanf("%d",&N);
-    printf("%s",solve(N).c_str());
-    return 0;
-}
