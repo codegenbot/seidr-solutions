@@ -9,9 +9,9 @@ Return the largest prime factor of n. Assume n > 1 and is not a prime.
 using namespace std;
 int largest_prime_factor(int n){
 	int i;
-	for(i=2;i<=n;i++){
+	for(i=2;i<n;i++){
 		if(n%i==0){
-			n/=i;
+			n=n/i;
 			i--;
 		}
 	}
