@@ -24,18 +24,20 @@ Examples:
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
 
+bool issame(vector<int> a,vector<int>b){
+    if(a.size()!=b.size()) return false;
+    for(int i=0;i<a.size();i++)
+        if(a[i]!=b[i])
+            return false;
+    return true;
+}
+
 
 #include <stdio.h>
 #include<vector>
 using namespace std;
-vector<int> minPath(vector<vector<int>>& grid, int k)
+vector<int> minPath(vector<vector<int>> grid, int k)
 {
-bool issame(vector<int> a,vector<int>b){
-    if(a.size()!=b.size())return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])return false;
-    }
-    return true;
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
@@ -48,6 +50,6 @@ return path;
 }
 int main()
 {
-    assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
+    assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3})); //
     return 0;
 }
