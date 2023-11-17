@@ -12,6 +12,8 @@ If 'text" is an empty string, return None.
 #include<sstream>
 #include<iomanip>
 #include<assert.h>
+#include<openssl/md5.h> 
+#include<openssl/sha.h>
 using namespace std; 
 string string_to_md5(string text){
 	unsigned char hash[MD5_DIGEST_LENGTH];
