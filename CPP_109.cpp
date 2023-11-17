@@ -29,22 +29,13 @@ Explanation:It is not possible to get non-decreasing order for the given
 #include<vector>
 using namespace std;
 bool move_one_ball(vector<int> arr){
-    int count = 0;
-    for(int i = 0; i < arr.size()-1; i++){
-        if(arr[i] > arr[i+1]){
-            count++;
-        }
+    int c=0,n=arr.size(),i;
+    for(i=1;i<n;i++){
+        if(arr[i]<arr[i-1])
+            c++;
     }
-    if(count == 0){
-        return true;
-    }
-    else{
+    if(c>1)
         return false;
-    }
-}
-
-int main(){
-    vector<int> arr = {3, 4, 5, 1, 2};
-    printf("%d", move_one_ball(arr));
-    return 0;
+    else
+        return true;
 }
