@@ -11,25 +11,29 @@ compare_one("1", 1) ➞ "None"
 */
 #include <iostream>
 #include <string>
-#include <boost/any>
 using namespace std;
-boost::any compare_one(boost::any a, boost::any b){
-  if(a.type() == typeid(string) && b.type() == typeid(string)){
-    if(boost::any_cast<string>(a) == boost::any_cast<string>(b)){
-      return "None";
-    }
-    else{
-      return boost::any_cast<string>(a) > boost::any_cast<string>(b)?a:b;
-    }
-  }
-  else{
-    return boost::any_cast<string>(a).size() > boost::any_cast<string>(b).size()?a:b;
-  }
+string compare_one(int a, float b){
+  return b > a?to_string(b):to_string(a);
+}
+string compare_one(int a, string b){
+  return b > to_string(a)?b:to_string(a);
+}
+string compare_one(string a, string b){
+  return a == b?"None":a > b?a:b;
+}
+string compare_one(string a, float b){
+  return b > stof(a)?to_string(b):a;
+}
+string compare_one(float a, string b){
+  return b > to_string(a)?b:to_string(a);
+}
+string compare_one(float a, float b){
+  return b > a?to_string(b):to_string(a);
 }
 int main(){
-  assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
-  assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
-  assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
-  assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
+  assert (compare_one(1, 2.5) == "2.5");
+  assert (compare_one(1, "2,3") == "2,3");
+  assert (compare_one("5,1", "6") == "6");
+  assert (compare_one("1", 1) == "None");
   return 0;
 }
