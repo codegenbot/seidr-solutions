@@ -4,9 +4,9 @@ For a given string, flip lowercase characters to uppercase and uppercase to lowe
 "hELLO"
 */
 #include<stdio.h>
-#include<string>
+#include<iostream>
 #include<ostream>
-#include <iostream>
+#include<string>
 using namespace std;
 string filp_case(string str){
     int i=0;
