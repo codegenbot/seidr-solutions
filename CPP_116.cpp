@@ -14,29 +14,32 @@ It must be implemented like this:
 #include<algorithm>
 using namespace std;
 vector<int> sort_array(vector<int> arr){
-	int n = arr.size();
-    vector<int> ans(n);
-    vector<int> ones(n);
-    for (int i = 0; i < n; i++) {
-        int t = arr[i];
+    vector<int> ans;
+    vector<int> binary;
+    vector<int> ones;
+    vector<int> zeros;
+    for(int i = 0; i < arr.size(); i++) {
+        int num = arr[i];
         int count = 0;
-        while (t > 0) {
-            count += t % 2;
-            t /= 2;
+        int temp = num;
+        while(temp != 0) {
+            if(temp%2 == 1)
+                count++;
+            temp /= 2;
         }
-        ones[i] = count;
+        binary.push_back(count);
     }
-    for (int i = 0; i < n; i++) {
-        int min = INT_MAX;
-        int index = 0;
-        for (int j = 0; j < n; j++) {
-            if (ones[j] < min) {
-                min = ones[j];
-                index = j;
-            }
-        }
-        ans[i] = arr[index];
-        ones[index] = INT_MAX;
+    for(int i = 0; i < arr.size(); i++) {
+        if(binary[i] == 0)
+            zeros.push_back(arr[i]);
+        else
+            ones.push_back(arr[i]);
     }
+    sort(zeros.begin(), zeros.end());
+    sort(ones.begin(), ones.end());
+    for(int i = 0; i < zeros.size(); i++)
+        ans.push_back(zeros[i]);
+    for(int i = 0; i < ones.size(); i++)
+        ans.push_back(ones[i]);
     return ans;
 }
