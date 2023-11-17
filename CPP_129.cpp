@@ -27,24 +27,41 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
+int main(){
+    int n;
+    scanf("%d", &n);
+    vector<vector<int>> grid(n, vector<int>(n));
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            scanf("%d", &grid[i][j]);
+    int k;
+    scanf("%d", &k);
+    vector<int> result = minPath(grid, k);
+    for (int i = 0; i < result.size(); i++)
+        printf("%d ", result[i]);
+    printf("\n");
+    return 0;
+}
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
     // Complete the following code given the task description and function signature.
-    // You CAN change the function signature if you want.
-    // You CANNOT change the task description.
-    // You CANNOT use global variables.
-    // You CANNOT import any library.
-    // You CANNOT use any function from any library.
-    // You CANNOT use any function or data structure from STL.
-    // Your code must run in O(N * k) time.
-    // Your code must run in O(N) space.
-    // Your code must be deterministic.
-
-int main()
-{
-    vector<vector<int>> grid = {{5,9,3},{4,1,6},{7,8,2}};
-    vector<int> res = minPath(grid, 1);
-    for(int i = 0; i < res.size(); i++){
-        printf("%d ", res[i]);
-    }
+    // You can add any other helper functions or variables.
+    // Do not change the function signature or the task description.
+}
+int main() {
+    int n;
+    scanf("%d", &n);
+    vector<vector<int>> grid(n, vector<int>(n));
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            scanf("%d", &grid[i][j]);
+    int k;
+    scanf("%d", &k);
+    vector<int> result = minPath(grid, k);
+    for (int i = 0; i < result.size(); i++)
+        printf("%d ", result[i]);
     printf("\n");
     return 0;
 }
