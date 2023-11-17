@@ -6,9 +6,9 @@ If 'text" is an empty string, return None.
 */
 #include <iostream>
 #include <sstream>
-#include <string>
-#include <openssl/md5.h>
+#include <openssl/md5.h> // openssl-devel
 #include <iomanip>
+#include <string>
 
 std::string string_to_md5(std::string text){
 	unsigned char hash[MD5_DIGEST_LENGTH];
@@ -24,5 +24,5 @@ std::string string_to_md5(std::string text){
 }
 
 int main(){
-	std::cout<<string_to_md5("Hello world")<<std::endl; // 3e25960a79dbc69b674cd4ec67a72c62
+	std::cout<<string_to_md5("Hello world")<<std::endl;
 }
