@@ -28,9 +28,3 @@ string make_palindrome(string str){
     }
     return str+s.substr(str.length()-i);
 }
-int main(){
-    string str;
-    std::cin>>str;
-    std::cout<<make_palindrome(str);
-    return 0;
-}
