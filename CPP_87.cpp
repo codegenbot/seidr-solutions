@@ -21,22 +21,16 @@ get_row({{}, {1}, {1, 2, 3}}, 3) == {{2, 2}}
 #include<vector>
 using namespace std;
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
-    vector<vector<int>> res;
-    for (int i = 0; i < lst.size(); ++i) {
-        for (int j = 0; j < lst[i].size(); ++j) {
-            if (lst[i][j] == x) {
-                res.push_back({i, j});
-            }
-        }
+  vector<vector<int>> result;
+  for(int i=0;i<lst.size();i++){
+    for(int j=0;j<lst[i].size();j++){
+      if(lst[i][j]==x){
+        vector<int> temp;
+        temp.push_back(i);
+        temp.push_back(j);
+        result.push_back(temp);
+      }
     }
-    return res;
-}
-
-int main() {
-    vector<vector<int>> lst = {{1,2,3,4,5,6},{1,2,3,4,1,6},{1,2,3,4,5,1}};
-    vector<vector<int>> res = get_row(lst, 1);
-    for (auto x : res) {
-        printf("%d %d\n", x[0], x[1]);
-    }
-    return 0;
+  }
+  return result;
 }
