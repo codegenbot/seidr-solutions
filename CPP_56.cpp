@@ -11,34 +11,38 @@ true
 >>> correct_bracketing("><<>")
 false
 */
-#include <iostream>
+#include <ostream>
 #include<string>
+#include <iostream>
 using namespace std;
 bool correct_bracketing(string brackets){
-	int count=0;
-	for(int i=0;i<brackets.length();i++){
-		if(brackets[i]=='>'){
-			count--;
-		}
-		else{
+	int count = 0;
+	for(int i = 0; i < brackets.length(); i++){
+		if(brackets[i] == '<'){
 			count++;
 		}
-		if(count<0){
+		else{
+			count--;
+		}
+		if(count < 0){
 			return false;
 		}
 	}
-	if(count==0){
+	if(count == 0){
 		return true;
 	}
 	else{
 		return false;
 	}
 }
-int main(){}
 int main(){
-	string s;
-	cin>>s;
-	bool result=correct_bracketing(s);
-	cout<<result;
+	string str;
+	cin >> str;
+	if(correct_bracketing(str)){
+		cout << "true" << endl;
+	}
+	else{
+		cout << "false" << endl;
+	}
 	return 0;
 }
