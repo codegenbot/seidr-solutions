@@ -8,15 +8,48 @@ Filter given vector of any python values only for integers
 #include<stdio.h>
 #include<vector>
 #include<string>
+#include<boost/any>
 #include<list>
 typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
-  vector<int> ret;
-  for(auto it = values.begin(); it != values.end(); ++it){
-    if(it->type() == typeid(int)){
-      ret.push_back(boost::any_cast<int>(*it));
-    }
-  }
-  return ret;
+	vector<int> v;
+	for(auto i=values.begin();i!=values.end();i++)
+	{
+		try
+		{
+			int temp=boost::any_cast<int>(*i);
+			v.push_back(temp);
+		}
+		catch(boost::bad_any_cast& e)
+		{
+			cout<<"Not an integer"<<endl;
+		}
+	}
+	return v;
+}
+int main()
+{
+	list_any values;
+	values.push_back(1);
+	values.push_back(2);
+	values.push_back(3);
+	values.push_back(4);
+	values.push_back("abc");
+	values.push_back("def");
+	values.push_back(5);
+	values.push_back(6);
+	values.push_back(7);
+	values.push_back(8);
+	values.push_back("ghi");
+	values.push_back("jkl");
+	values.push_back(9);
+	values.push_back(10);
+	vector<int> v=filter_integers(values);
+	cout<<"The filtered integer values are: "<<endl;
+	for(int i=0;i<v.size();i++)
+	{
+		cout<<v[i]<<" ";
+	}
+	cout<<endl;
 }
