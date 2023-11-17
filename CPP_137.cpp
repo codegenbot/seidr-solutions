@@ -12,7 +12,6 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string.h>
 #include<assert.h>
-//#include<boost/any.hpp> 
 #include<iostream>
 using namespace std;
 string compare_one(string a,string b){
