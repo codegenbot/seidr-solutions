@@ -7,31 +7,13 @@ Examples:
 */
 #include<stdio.h>
 #include<vector>
-	int sum=0;
-	for(int i=1;i<lst.size();i+=2)
-	{
-		if(lst[i]%2==0)
-		{
-			sum+=lst[i];
+	int sum = 0;
+	for(int i = 0; i < lst.size(); i++){
+		if(lst[i] % 2 == 0 && i % 2 != 0){
+			sum += lst[i];
 		}
 	}
 	return sum;
-}
-int main()
-{
-	vector<int> lst;
-	int n;
-	printf("Enter the number of elements in the list : ");
-	scanf("%d",&n);
-	printf("Enter the elements : ");
-	for(int i=0;i<n;i++)
-	{
-		int x;
-		scanf("%d",&x);
-		lst.push_back(x);
-	}
-	printf("The sum of even elements at odd indices is %d",add(lst));
-	return 0;
 }
 using namespace std;
 int add(vector<int> lst){
