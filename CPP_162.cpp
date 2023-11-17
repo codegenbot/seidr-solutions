@@ -6,13 +6,13 @@ If 'text" is an empty string, return None.
 */
 #include<iostream>
 #include<stdio.h>
+#include<sstream>
 using namespace std;
 string string_to_md5(string text)
 {
-    // stringstream ss;
-    // ss<<text;
-    // return ss.str();
-    return text;
+    stringstream ss;
+    ss<<text;
+    return ss.str();
 }
 int main(){
     string s,a;
