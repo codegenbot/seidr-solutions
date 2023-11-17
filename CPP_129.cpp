@@ -31,8 +31,42 @@ Examples:
     // Your code here.
     return result;
 }
-    int main(){
-#include<stdio.h>
-#include<vector>
+#include <stdio.h>
+#include <vector>
 using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
+vector<int> minPath(vector<vector<int>> grid, int k)
+{
+    int n = grid.size();
+    int m = grid[0].size();
+    vector<int> result;
+    // Your code here.
+    vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
+    dp[0][0] = grid[0][0];
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if (i > 0)
+                dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
+            if (j > 0)
+                dp[i][j] = min(dp[i][j], dp[i][j - 1] + grid[i][j]);
+        }
+    }
+    int i = n - 1, j = m - 1;
+    while (k--)
+    {
+        result.push_back(grid[i][j]);
+        if (i > 0 && dp[i - 1][j] < dp[i][j - 1])
+            i--;
+        else
+            j--;
+    }
+    return result;
+}
+int main()
+{
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    vector<int> res = minPath(grid, 3);
+    for (auto i : res)
+        cout << i << " ";
+}
