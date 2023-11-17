@@ -13,7 +13,7 @@ If the input vector is empty, return 0.
 #include<math.h>
 #include<vector>
 using namespace std;
-long long double_the_difference(vector<float> lst){
+long long double_the_difference(vector<double> lst){
 	long long sum=0;
 	for(int i=0;i<lst.size();i++)
 	{
@@ -21,7 +21,7 @@ long long double_the_difference(vector<float> lst){
 		{
 			if(lst[i]==(int)lst[i])
 			{
-				if(lst[i]%2==0)
+				if(lst[i]%2!=0)
 				{
 					sum=sum+pow(lst[i],2);
 				}
