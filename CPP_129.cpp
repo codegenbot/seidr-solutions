@@ -27,8 +27,7 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-int main(){
-int n = grid.size();
+    int n = grid.size();
     int m = grid[0].size();
     vector<vector<vector<int>>> dp(n, vector<vector<int>>(m, vector<int>(k + 1, INT_MAX)));
     dp[0][0][1] = grid[0][0];
@@ -82,3 +81,4 @@ int main(){
 #include<vector>
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
+int main(){
