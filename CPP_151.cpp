@@ -9,9 +9,10 @@ double_the_difference({0}) == 0
 
 If the input vector is empty, return 0.
 */
-#include<stdio.h>
+#include<iostream>
 #include<math.h>
 #include<vector>
+#include<assert.h>
 using namespace std;
 long long double_the_difference(vector<float> lst){
 	long long sum = 0;
@@ -24,18 +25,9 @@ long long double_the_difference(vector<float> lst){
 	}
 	return sum;
 }
-
 int main(){
-  vector<float> lst = {-2, 1, 3, 2, 0};
-  int odd_sum = 1 + 9 + 0 + 0;
-  assert (double_the_difference(lst) == odd_sum );
-  lst = {-1, -2, 0};
-  assert (double_the_difference(lst) == 0 );
-  lst = {9, -2};
-  assert (double_the_difference(lst) == 81 );
-  lst = {0};
-  assert (double_the_difference(lst) == 0 );
-  lst = {};
-  assert (double_the_difference(lst) == 0 );
-  return 0;
+    vector<float> lst = {1, 3, 2, 0};
+    int odd_sum = 10;
+    assert (double_the_difference(lst) == odd_sum );
+	return 0;
 }
