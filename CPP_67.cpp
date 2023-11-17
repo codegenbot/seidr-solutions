@@ -14,27 +14,26 @@ fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
 #include<string>
 using namespace std;
 int fruit_distribution(string s,int n){
-  int i,j,sum=0,sum2=0,sum3=0;
-  for(i=0;i<s.length();i++){
-    if(s[i]==' ' && s[i+1]=='a'){
-      for(j=i+8;s[j]!=' ';j++){
-        sum=sum*10+s[j]-'0';
-      }
-    }
-    if(s[i]==' ' && s[i+1]=='o'){
-      for(j=i+9;s[j]!=' ';j++){
-        sum2=sum2*10+s[j]-'0';
-      }
-    }
-  }
-  sum3=n-(sum+sum2);
-  return sum3;
+	//// Complete the following code given the task description and function signature.
+	int apples, oranges, mangoes;
+	int i = 0;
+	while (s[i] != ' ')
+	{
+		i++;
+	}
+	apples = atoi(s.substr(0, i).c_str());
+	i += 7;
+	oranges = atoi(s.substr(i).c_str());
+	mangoes = n - apples - oranges;
+	return mangoes;
 }
-
 int main(){
-  string s;
-  int n;
-  scanf("%s %d",s,&n);
-  printf("%d",fruit_distribution(s,n));
-  return 0;
+	string s;
+	int n;
+	printf("Enter the string: ");
+	getline(cin, s);
+	printf("Enter the number: ");
+	scanf("%d", &n);
+	printf("The number of mango fruits: %d", fruit_distribution(s, n));
+	return 0;
 }
