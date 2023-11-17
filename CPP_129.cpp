@@ -29,46 +29,45 @@ Examples:
 */
     vector<int> res;
     int n = grid.size();
-    if(n == 0) return res;
     int m = grid[0].size();
-    if(m == 0) return res;
-    if(k == 0) return res;
     vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j++){
-            if(i == 0 && j == 0){
-                dp[i][j] = grid[i][j];
-            }
-            else if(i == 0){
-                dp[i][j] = min(dp[i][j - 1], grid[i][j]);
-            }
-            else if(j == 0){
-                dp[i][j] = min(dp[i - 1][j], grid[i][j]);
-            }
-            else{
-                dp[i][j] = min(min(dp[i - 1][j], dp[i][j - 1]), grid[i][j]);
-            }
+            dp[i][j] = grid[i][j];
         }
     }
-    int i = 0, j = 0;
-    while(k > 0){
-        res.push_back(grid[i][j]);
-        if(i == n - 1 && j == m - 1) break;
-        if(i == n - 1){
-            j++;
-        }
-        else if(j == m - 1){
-            i++;
-        }
-        else{
-            if(dp[i + 1][j] < dp[i][j + 1]){
-                i++;
+    for(int i = 0; i < k - 1; i++){
+        vector<vector<int>> temp(n, vector<int>(m, INT_MAX));
+        for(int j = 0; j < n; j++){
+            for(int l = 0; l < m; l++){
+                if(j > 0){
+                    temp[j][l] = min(temp[j][l], dp[j - 1][l]);
+                }
+                if(j < n - 1){
+                    temp[j][l] = min(temp[j][l], dp[j + 1][l]);
+                }
+                if(l > 0){
+                    temp[j][l] = min(temp[j][l], dp[j][l - 1]);
+                }
+                if(l < m - 1){
+                    temp[j][l] = min(temp[j][l], dp[j][l + 1]);
+                }
             }
-            else{
-                j++;
+        }
+        dp = temp;
+    }
+    int min_val = INT_MAX;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            min_val = min(min_val, dp[i][j]);
+        }
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if(dp[i][j] == min_val){
+                res.push_back(grid[i][j]);
             }
         }
-        k--;
     }
     return res;
 }
