@@ -11,6 +11,8 @@ split_words("abcdef") == {"3"}
 #include<vector>
 #include<string>
 #include<algorithm>
+#include <ostream>
+#include <iostream>
 using namespace std;
 vector<string> split_words(string txt){
 	vector<string> res;
