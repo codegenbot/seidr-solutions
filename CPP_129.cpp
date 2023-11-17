@@ -27,10 +27,37 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
+    vector<int> res;
     int n = grid.size();
-    vector<int> path;
-    // Complete the following code
-    return path;
+    int m = grid[0].size();
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if(grid[i][j] == 1){
+                res.push_back(1);
+                int x = i, y = j;
+                for(int l = 1; l < k; l++){
+                    if(x - 1 >= 0 && grid[x - 1][y] < grid[x][y]){
+                        res.push_back(grid[x - 1][y]);
+                        x--;
+                    }
+                    else if(y - 1 >= 0 && grid[x][y - 1] < grid[x][y]){
+                        res.push_back(grid[x][y - 1]);
+                        y--;
+                    }
+                    else if(x + 1 < n && grid[x + 1][y] < grid[x][y]){
+                        res.push_back(grid[x + 1][y]);
+                        x++;
+                    }
+                    else{
+                        res.push_back(grid[x][y + 1]);
+                        y++;
+                    }
+                }
+                return res;
+            }
+        }
+    }
+    return res;
 }
 #include<stdio.h>
 #include<vector>
