@@ -17,14 +17,14 @@ return 15 and closest_integer("-14.5") should return -15.
 */
 #include<stdio.h>
 #include<math.h>
-#include<string.h>
+#include<string>
 using namespace std;
 int closest_integer(string value){
 	int i = stof(value);
 	return i;
 }
-#ifndef RunTests
+/*#ifndef RunTests
 int main(){
 	printf("%d", closest_integer("10"));
 }
-#endif
+#endif*/
