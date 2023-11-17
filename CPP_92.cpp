@@ -26,8 +26,3 @@ bool any_int(float a,float b,float c){
 		return false;
 	}
 }
-int main(){
-	float a,b,c;
-	scanf("%f%f%f",&a,&b,&c);
-	printf("%d",any_int(a,b,c));
-}
