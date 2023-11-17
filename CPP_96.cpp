@@ -14,6 +14,7 @@ count_up_to(18) => {2,3,5,7,11,13,17}
 using namespace std;
 vector<int> count_up_to(int n){
 	vector<int> result;
+	if(n<=1) return result;
 	for(int i=2;i<n;i++){
 		bool isPrime=true;
 		for(int j=2;j<i;j++){
@@ -22,9 +23,7 @@ vector<int> count_up_to(int n){
 				break;
 			}
 		}
-		if(isPrime){
-			result.push_back(i);
-		}
+		if(isPrime) result.push_back(i);
 	}
 	return result;
 }
