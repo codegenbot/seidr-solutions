@@ -9,7 +9,7 @@ cycpattern_check("himenss",'simen") => true
 Complete the following code given the task description and function signature.
 */
 #include<stdio.h>
-#include<string>
+#include<string>//this line is useless
 #include <iostream>
 using namespace std;
 bool cycpattern_check(string a,string b){
@@ -29,6 +29,7 @@ bool cycpattern_check(string a,string b){
 }
 int main(){
 	string a,b;
-	cin>>a>>b;
-	cout<<cycpattern_check(a,b)<<endl;
+	getline(cin,a);
+	getline(cin,b);
+	cout<<cycpattern_check(a,b);
 }
