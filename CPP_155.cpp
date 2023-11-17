@@ -22,6 +22,6 @@ Given an integer. return a vector that has the number of even and odd digits res
     result.push_back(even);
     result.push_back(odd);
     return result;
+-->}
 using namespace std;
 vector<int> even_odd_count(int num){
-}
