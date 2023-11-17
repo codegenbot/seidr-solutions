@@ -19,6 +19,7 @@ get_row({{}, {1}, {1, 2, 3}}, 3) == {{2, 2}}
 */
 #include<stdio.h>
 #include<vector>
+#include<algorithm>
 using namespace std;
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
   vector<vector<int>> result;
