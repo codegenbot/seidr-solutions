@@ -28,11 +28,3 @@ vector<int> count_up_to(int n){
 	}
 	return result;
 }
-int main(){
-	vector<int> result=count_up_to(20);
-	for(int i=0;i<result.size();i++){
-		printf("%d ",result[i]);
-	}
-	printf("\n");
-	return 0;
-}
