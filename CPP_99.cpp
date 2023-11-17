@@ -251,7 +251,7 @@ int closest_integer(string value){
 	int ic = 0;
 	int id = 0;
 	int ie = 0;
-	int if = 0;
+	int iif = 0;
 	int ig = 0;
 	int ih = 0;
 	int ii = 0;
