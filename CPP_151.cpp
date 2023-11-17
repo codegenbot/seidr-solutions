@@ -14,15 +14,15 @@ If the input vector is empty, return 0.
 #include<vector>
 using namespace std;
 long long double_the_difference(vector<float> lst){
-	long long s=0;
-	for(int i=0;i<lst.size();i++){
-		if(lst[i]>0){
-			if(lst[i]-int(lst[i])==0){
-				if(lst[i]%2!=0){
-					s+=pow(lst[i],2);
-				}
-			}
-		}
-	}
-	return s;
+  if (lst.size()==0)
+    return 0;
+  else{
+    long long sum=0;
+    for (size_t i=0;i<lst.size();i++){
+      if (lst[i]>0 && floor(lst[i])==lst[i] && fmod(lst[i],2)==1){
+        sum+=(lst[i]*lst[i]);
+      }
+    }
+    return sum;
+  }
 }
