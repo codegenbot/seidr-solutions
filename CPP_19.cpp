@@ -5,11 +5,14 @@ Return the string with numbers sorted from smallest to largest
 >>> sort_numbers('three one five")
 "one three five"
 */
-#include<stdio.h>
+#include <stdio.h>
+#include <string>
+#include <map>
 #include <iostream>
 #include <ostream>
-#include<string>
-#include<map>
+#include <algorithm>
+#include <sstream>
+#include <vector>
 using namespace std;
 string sort_numbers(string numbers){
     map<string, int> num_map;
