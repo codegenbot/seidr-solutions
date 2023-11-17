@@ -10,16 +10,16 @@ compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
-string tostring(int input);
-char tostring(float n);
-float parsefloat(string input);
+#include<string>
+#include<algorithm>
 #include<boost/any.hpp>
 using namespace std;
-
 boost::any compare_one(boost::any a,boost::any b){
-    
-    if(a.type==typeid(string)&&b.type==typeid(int)){
-cout<<a;        
-    }
-    else return typeid(int);
-    }
+		boost::any result;
+bornâ
+	return any_cast<bool>(result);
+}
+int main(){
+	
+	return 0;
+}
