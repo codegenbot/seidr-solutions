@@ -1,34 +1,38 @@
-/*
-Write a function that takes a string and returns true if the string
-length is a prime number or false otherwise
-Examples
-prime_length("Hello") == true
-prime_length("abcdcba") == true
-prime_length("kittens") == true
-prime_length("orange") == false
-*/
-#include<stdio.h>
-#include<string>
+#include "stdio.h"
+#include <iostream>
+#include <string>
 using namespace std;
-
-bool prime_length(string str) {
-	int len = str.length();
-	int i = 2;
-
-	while (i <= len/2){
-		if (len%i == 0)
-			return false;
-		i++;
-	}
-	return true;
+int isPrime(int x)
+{
+    if (x <= 0)
+        return false;
+    if (x == 1)
+        return false;
+    if (x%2 == 0 && x != 1 && x != 2)
+        return false;
+    for (int i = 3; i < x; i+=2)
+        if (x%i == 0)
+            return false;
+    return true;
+    
+}
+bool prime_length(string phrase){
+    for(int i = 0; i < phrase.length();i++)
+    {
+        if(!isPrime(phrase[i]))
+        {
+            return false;
+        }
+            
+    }
+    return true;
 }
 
-int main() {
-	printf("%d\n", prime_length("Hello"));
-	printf("%d\n", prime_length("abcdcba"));
-	printf("%d\n", prime_length("kittens"));
-	printf("%d\n", prime_length("orange"));
-
-	getchar();
-	return 0;
+int main()
+{
+    string sample = "a";
+    if(prime_length(sample))
+        cout << "The length of the given phrase is prime.";
+    else
+        cout << "The length of the given phrase is not prime.";
 }
