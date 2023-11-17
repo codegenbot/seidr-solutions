@@ -9,25 +9,30 @@ is_multiply_prime(30) == true
 #include<stdio.h>
 using namespace std;
 bool is_multiply_prime(int a){
-	int i,j;
-	for(i=2;i<a;i++){
-		if(a%i==0){
-			for(j=2;j<i;j++){
-				if(i%j==0){
-					return false;
+	int i,j,k,count=0;
+	for(i=2;i<=a;i++){
+		for(j=2;j<=a;j++){
+			for(k=2;k<=a;k++){
+				if(i*j*k==a){
+					count++;
 				}
 			}
 		}
 	}
-	return true;
+	if(count!=0){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
 int main(){
 	int a;
 	scanf("%d",&a);
-	if(is_multiply_prime(a)){
+	if(is_multiply_prime(a)==true){
 		printf("true");
-	}else{
+	}
+	else{
 		printf("false");
 	}
-	return 0;
-} 
+}
