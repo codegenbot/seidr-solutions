@@ -13,20 +13,15 @@ example:
 compare({1,2,3,4,5,1},{1,2,3,4,2,-2}) -> {0,0,0,0,3,3}
 compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 */
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cmath>
-
+#include<stdio.h>
+#include<math.h>
+#include<vector>
 vector<int> compare(vector<int> game,vector<int> guess){
-    int n = game.size();
-    vector<int> res;
-    for(int i = 0; i < n; i++){
-        res.push_back(abs(game[i] - guess[i]));
-    }
-    return res;
-}
-int main(){
-
-    return 0;
+using namespace std;
+  int n = game.size();
+  vector<int> res;
+  for(int i = 0; i < n; i++){
+    res.push_back(abs(game[i] - guess[i]));
+  }
+  return res;
 }
