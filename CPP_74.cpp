@@ -33,12 +33,3 @@ vector<string> total_match(vector<string> lst1,vector<string> lst2){
 		return lst1;
 	}
 }
-int main(){
-	vector<string> lst1={"hi", "admin"};
-	vector<string> lst2={"hI", "Hi"};
-	vector<string> lst3=total_match(lst1,lst2);
-	for(int i=0;i<lst3.size();i++){
-		printf("%s ",lst3[i].c_str());
-	}
-	return 0;
-}
