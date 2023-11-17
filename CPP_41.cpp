@@ -36,7 +36,7 @@ int car_race_collision(int n){
 }
 int main()
 {
-	int n,i,j,count=0;
+	int n;
 	scanf("%d",&n);
 	printf("%d",car_race_collision(n));
 	return 0;
