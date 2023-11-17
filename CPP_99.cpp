@@ -259,6 +259,7 @@ int closest_integer(string value){
 	int ik = 0;
 	int il = 0;
 	int im = 0;
+	int in = 0;
 	int ip = 0;
 	int iq = 0;
 }
