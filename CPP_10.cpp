@@ -19,16 +19,10 @@ string make_palindrome(string str){
     "catac" 
     */
     string s(str.rbegin(),str.rend());
-    string s1=str+s;
-    string s2=str+s.substr(1);
-    if(s1.length()<s2.length())
-        return s1;
-    else
-        return s2;
-}
-int main(){
-    string str;
-    cin>>str;
-    cout<<make_palindrome(str);
-    return 0;
+    int n=str.size();
+    for(int i=0;i<n;i++){
+        if(s.substr(i)==str.substr(0,n-i)){
+            return str+s.substr(i);
+        }
+    }
 }
