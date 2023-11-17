@@ -27,75 +27,61 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-	vector<int> result;
-	int size = grid.size();
-	vector<vector<bool>> visited(size, vector<bool>(size, false));
-	int min = INT_MAX;
-	int index = 0;
-	for (int i = 0; i < size; i++)
-	{
-		for (int j = 0; j < size; j++)
-		{
-			visited[i][j] = true;
-			int sum = grid[i][j];
-			int count = 1;
-			vector<int> path;
-			path.push_back(grid[i][j]);
-			dfs(grid, visited, sum, count, path, k, min, result, index, i, j);
-			visited[i][j] = false;
-		}
-	}
-	return result;
-}
-void dfs(vector<vector<int>> grid, vector<vector<bool>> visited, int sum, int count, vector<int> path, int k, int& min, vector<int>& result, int& index, int i, int j){
-	if (count == k)
-	{
-		if (sum < min)
-		{
-			min = sum;
-			result = path;
-			index = i * grid.size() + j;
-		}
-		else if (sum == min && i * grid.size() + j < index)
-		{
-			result = path;
-			index = i * grid.size() + j;
-		}
-		return;
-	}
-	int size = grid.size();
-	if (i + 1 < size && !visited[i + 1][j])
-	{
-		visited[i + 1][j] = true;
-		path.push_back(grid[i + 1][j]);
-		dfs(grid, visited, sum + grid[i + 1][j], count + 1, path, k, min, result, index, i + 1, j);
-		path.pop_back();
-		visited[i + 1][j] = false;
-	}
-	if (i - 1 >= 0 && !visited[i - 1][j])
-	{
-		visited[i - 1][j] = true;
-		path.push_back(grid[i - 1][j]);
-		dfs(grid, visited, sum + grid[i - 1][j], count + 1, path, k, min, result, index, i - 1, j);
-		path.pop_back();
-		visited[i - 1][j] = false;
-	}
-	if (j + 1 < size && !visited[i][j + 1])
-	{
-		visited[i][j + 1] = true;
-		path.push_back(grid[i][j + 1]);
-		dfs(grid, visited, sum + grid[i][j + 1], count + 1, path, k, min, result, index, i, j + 1);
-		path.pop_back();
-		visited[i][j + 1] = false;
-	}
-	if (j - 1 >= 0 && !visited[i][j - 1])
-	{
-		visited[i][j - 1] = true;
-		path.push_back(grid[i][j - 1]);
-		dfs(grid, visited, sum + grid[i][j - 1], count + 1, path, k, min, result, index, i, j - 1);
-		path.pop_back();
-		visited[i][j - 1] = false;
-	}
+    vector<int> result;
+    int n = grid.size();
+    vector<vector<int>> path(n, vector<int>(n, INT_MAX));
+    vector<vector<int>> visited(n, vector<int>(n, 0));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(!visited[i][j]){
+                path[i][j] = 0;
+                visited[i][j] = 1;
+                int len = 0;
+                while(len < k){
+                    int min = INT_MAX;
+                    int x = 0, y = 0;
+                    if(i > 0 && grid[i-1][j] < min){
+                        min = grid[i-1][j];
+                        x = i-1;
+                        y = j;
+                    }
+                    if(i < n-1 && grid[i+1][j] < min){
+                        min = grid[i+1][j];
+                        x = i+1;
+                        y = j;
+                    }
+                    if(j > 0 && grid[i][j-1] < min){
+                        min = grid[i][j-1];
+                        x = i;
+                        y = j-1;
+                    }
+                    if(j < n-1 && grid[i][j+1] < min){
+                        min = grid[i][j+1];
+                        x = i;
+                        y = j+1;
+                    }
+                    if(min == INT_MAX)
+                        break;
+                    if(!visited[x][y]){
+                        path[x][y] = min;
+                        visited[x][y] = 1;
+                        i = x;
+                        j = y;
+                        len++;
+                    }
+                }
+            }
+        }
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(path[i][j] != INT_MAX){
+                result.push_back(path[i][j]);
+                break;
+            }
+        }
+    }
+    return result;
 }
 #include<stdio.h>
 #include<vector>
