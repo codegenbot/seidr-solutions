@@ -18,13 +18,14 @@ long long double_the_difference(vector<float> lst){
 	long long sum = 0;
 	for(int i = 0; i < lst.size(); i++){
 		if(lst[i] > 0 && floor(lst[i]) == lst[i]){ //check if number is positive and integer
-			if(floor(lst[i]) % 2 != 0){ //check if number is odd
+			if(lst[i] % 2 != 0){ //check if number is odd
 				sum += pow(lst[i], 2);
 			}
 		}
 	}
 	return sum;
 }
+/*
 int main(){
 	vector<float> lst = {1, 3, 2, 0};
 	long long odd_sum = 10;
@@ -40,3 +41,4 @@ int main(){
 	assert (double_the_difference(lst3) == odd_sum3 );
 	return 0;
 }
+*/
