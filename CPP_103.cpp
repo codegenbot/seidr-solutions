@@ -14,38 +14,15 @@ rounded_avg(20, 33) => "11010"
 #include<string>
 using namespace std;
 string rounded_avg(int n,int m){
+	int avg;
+	if(n>m) return "-1";
+	avg=(n+m)/2;
+	if(avg%2==0) avg=avg-1;
 	string s="";
-	if(n>m){
-		return "-1";
-	}
-	int avg=(n+m)/2;
-	int i=0,j=0;
 	while(avg>0){
-		if(avg%2==0){
-			s+="0";
-			avg/=2;
-		}
-		else{
-			s+="1";
-			avg/=2;
-		}
-	}
-	i=0;
-	j=s.length()-1;
-	char c;
-	while(i<j){
-		c=s[i];
-		s[i]=s[j];
-		s[j]=c;
-		i++;
-		j--;
+		if(avg%2==1) s="1"+s;
+		else s="0"+s;
+		avg=avg/2;
 	}
 	return s;
-}
-int main(){
-	int n,m;
-	scanf("%d",&n);
-	scanf("%d",&m);
-	printf("%s",rounded_avg(n,m).c_str());
-	return 0;
 }
