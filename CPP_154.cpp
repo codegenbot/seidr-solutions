@@ -8,27 +8,30 @@ cycpattern_check("efef","eeff") => false
 cycpattern_check("himenss",'simen") => true
 
 */
-#include<stdio.h>
-#include<string>
+#include <stdio.h>
+#include <string>
 using namespace std;
-bool cycpattern_check(string a,string b){
-	int i=0,j=0,k=0;
-	while(a[i]!='\0'){
+
+bool cycpattern_check(string a,string b)
+{
+	int i=0,j=0;
+	while(i<a.length()){
 		if(a[i]==b[j]){
-			i++;
 			j++;
+			if(j==b.length()){
+				return true;
+			}
 		}
 		else{
-			i++;
 			j=0;
 		}
-		if(b[j]=='\0'){
-			return true;
-		}
+		i++;
 	}
 	return false;
 }
-int main(){
+
+int main()
+{
 	string a,b;
 	cin>>a>>b;
 	if(cycpattern_check(a,b)){
