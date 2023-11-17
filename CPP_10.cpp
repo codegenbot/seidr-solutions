@@ -18,18 +18,21 @@ string make_palindrome(string str){
     >>> make_palindrome("cata") 
     "catac" 
     */
-    string s;
-    for(int i=str.length()-1;i>=0;i--){
-        s+=str[i];
-        if(is_palindrome(str.substr(0,i))){
-            return str+s;
+    int n=str.length();
+    string s="",s1="";
+    for(int i=0;i<n;i++){
+        s=str.substr(i,n-i);
+        if(is_palindrome(s)){
+            s1=str.substr(0,i);
+            break;
         }
     }
-    return str+s;
+    string s2(s1.rbegin(),s1.rend());
+    return str+s2;
 }
 int main(){
     string str;
-    printf("Enter string: ");
+    printf("Enter a string:\n");
     cin>>str;
     printf("%s",make_palindrome(str).c_str());
     return 0;
