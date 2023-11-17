@@ -15,9 +15,12 @@ Please write a function to efficiently compute the n-th element of the fibfib nu
 #include<stdio.h>
 using namespace std;
 int fibfib(int n){
-	if(n==0) return 0;
-	if(n==1) return 0;
-	if(n==2) return 1;
+	if(n==0)
+		return 0;
+	if(n==1)
+		return 0;
+	if(n==2)
+		return 1;
 	int a=0,b=0,c=1,d;
 	for(int i=3;i<=n;i++){
 		d=a+b+c;
@@ -30,6 +33,5 @@ int fibfib(int n){
 int main(){
 	int n;
 	scanf("%d",&n);
-	printf("%d\n",fibfib(n));
-	return 0;
+	printf("%d",fibfib(n));
 }
