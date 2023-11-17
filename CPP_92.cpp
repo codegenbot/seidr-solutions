@@ -15,19 +15,21 @@ any_int(3.6, -2.2, 2) ➞ false
 
 
 */
-#include<stdio.h>
-#include<math.h>
-using namespace std;
-bool any_int(float a,float b,float c){
-    float sum=a+b;
-    if(c==sum||a==sum||b==sum)
-    return true;
+#include<iostream>
+using namespace std ;
+bool any_int(float a,float b,float c)
+{
+    if(a==b+c || b==a+c || c==a+b)
+        return true;
     else
-    return false;
+        return false;
 }
-int main(){
-    float a,b,c;
-    scanf("%f%f%f",&a,&b,&c);
-    any_int(a,b,c)?printf("true"):printf("false");
+int main()
+{
+    float a=3.6,b=-2.2,c=2;
+    if(any_int(a,b,c))
+        cout<<"true";
+    else
+        cout<<"false";
     return 0;
 }
