@@ -13,38 +13,14 @@ example:
 compare({1,2,3,4,5,1},{1,2,3,4,2,-2}) -> {0,0,0,0,3,3}
 compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 */
-#include<iostream>
+#include<stdio.h>
+#include<math.h>
 #include<vector>
-
-vector<int> compare(vector<int> game,vector<int> guess){
 using namespace std;
 	vector<int> result;
 	for(int i = 0; i < game.size(); i++){
 		result.push_back(abs(game[i] - guess[i]));
 	}
 	return result;
-}
 
-int main(){
-	vector<int> a;
-	a.push_back(1);
-	a.push_back(2);
-	a.push_back(3);
-	a.push_back(4);
-	a.push_back(5);
-	a.push_back(1);
-
-	vector<int> b;
-	b.push_back(1);
-	b.push_back(2);
-	b.push_back(3);
-	b.push_back(4);
-	b.push_back(2);
-	b.push_back(-2);
-
-	vector<int> c = compare(a,b);
-	for(int i = 0; i < c.size(); i++){
-		cout<<c[i]<<" ";
-	}
-	cout<<endl;
-}
+vector<int> compare(vector<int> game,vector<int> guess){
