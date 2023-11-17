@@ -1,33 +1,25 @@
+/*
+You are given 2 words. You need to return true if the second word or any of its rotations is a substring in the first word
+cycpattern_check("abcd","abd") => false
+cycpattern_check("hello","ell") => true
+cycpattern_check("whassup","psus") => false
+cycpattern_check("abab","baa") => true
+cycpattern_check("efef","eeff") => false
+cycpattern_check("himenss",'simen") => true
+
+*/
 #include<stdio.h>
-#include<string.h>
+#include<string>
 using namespace std;
 bool cycpattern_check(string a,string b){
-	int i,j,k;
-	int l=b.length();
-	for(i=0;i<l;i++)
-	{
-		k=i;
-		for(j=0;j<l;j++)
-		{
-			if(b[j]!=a[k])
-				break;
-			k=(k+1)%l;
-		}
-		if(j==l)
+	string temp;
+	temp=b;
+	for(int i=0;i<temp.length();i++){
+		b=b[b.length()-1]+b;
+		b.pop_back();
+		if(a.find(b)!=string::npos){
 			return true;
+		}
 	}
 	return false;
-}
-int main()
-{
-	string a,b;
-	printf("Enter first word\n");
-	cin>>a;
-	printf("Enter second word\n");
-	cin>>b;
-	if(cycpattern_check(a,b))
-		printf("True\n");
-	else
-		printf("False\n");
-	return 0;
 }
