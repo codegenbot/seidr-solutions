@@ -9,7 +9,7 @@ cycpattern_check("himenss",'simen") => true
 Complete the following code given the task description and function signature.
 */
 #include<stdio.h>
-#include<string>//this line is useless
+#include<string>  
 #include <iostream>
 using namespace std;
 bool cycpattern_check(string a,string b){
