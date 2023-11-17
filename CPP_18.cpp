@@ -12,27 +12,10 @@ Find how many times a given substring can be found in the original string. Count
 using namespace std;
 int how_many_times(string str,string substring){
 	int count = 0;
-	int i = 0;
-	while(i < str.length()){
-		if(str.substr(i,substring.length()) == substring){
+	for (int i = 0; i < str.length(); i++) {
+		if (str.substr(i, substring.length()) == substring) {
 			count++;
-			i += substring.length();
-		}
-		else{
-			i++;
 		}
 	}
 	return count;
-}
-int main(){
-	string str = "";
-	string substring = "a";
-	printf("%d\n",how_many_times(str,substring));
-	str = "aaa";
-	substring = "a";
-	printf("%d\n",how_many_times(str,substring));
-	str = "aaaa";
-	substring = "aa";
-	printf("%d\n",how_many_times(str,substring));
-	return 0;
 }
