@@ -44,14 +44,15 @@ vector<int> minPath(vector<vector<int>> grid, int k)
     vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
     vector<int> path;
     return path;
-}
-bool issame(vector<int> a,vector<int>b){
+    }
+    bool issame(vector<int> a,vector<int> b){
         if(a.size()!=b.size())
             return false;
         for(int i=0;i<a.size();i++){
             if(a[i]!=b[i])
                 return false;
         }
+
         return true;
     }
 int main()
