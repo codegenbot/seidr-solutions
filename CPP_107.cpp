@@ -49,6 +49,7 @@ vector<int> even_odd_palindrome(int n){
 	ret.push_back(cnt_odd);
 	return ret;
 }
+/*
 int main() {
 	int n;
 	scanf("%d", &n);
@@ -56,3 +57,4 @@ int main() {
 	printf("%d %d\n", ret[0], ret[1]);
 	return 0;
 }
+*/
