@@ -16,11 +16,10 @@ Output:
 #include<string>
 using namespace std;
 string solve(int N){
-    string s;
+    string s="";
     while(N>0){
-        s.push_back(N%2+'0');
+        s=(N%2==0 ?"0":"1")+s;
         N/=2;
     }
-    reverse(s.begin(),s.end());
     return s;
 }
