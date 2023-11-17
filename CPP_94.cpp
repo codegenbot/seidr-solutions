@@ -14,4 +14,28 @@ For lst = {0,8,1,2,1,7} the output should be 7
 #include<vector>
 #include<string>
 using namespace std;
-int sumOfDigits(vector<int> lst){
+int skjkasdkd(vector<int> lst){
+    int largest = 0;
+    int sum = 0;
+    for (int i = 0; i < lst.size(); i++){
+        int num = lst[i];
+        if (num > largest)
+            largest = num;
+    }
+    for (int j = 2; j < largest; j++){
+        int count = 0;
+        for (int k = 2; k < j; k++){
+            if (j % k == 0){
+                count++;
+            }
+        }
+        if (count == 0){
+            int temp = j;
+            while (temp > 0){
+                sum += temp % 10;
+                temp /= 10;
+            }
+        }
+    }
+    return sum;
+}
