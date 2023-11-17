@@ -14,58 +14,6 @@ compare_one("1", 1) ➞ "None"
 #include<algorithm>
 #include<boost/any.hpp>
 using namespace std;
-boost::any compare_one(const boost::any& a,const boost::any& b){
-	if(a.empty()||b.empty()){
-		return "none";
-	}
-	if(a.type()!=b.type()){
-		  if(a.type()==typeid(float)){
-			if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
-				return a;
-		}
-		if (b.type() == typeid(float))
-			if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
-				return b;
-		if (a.type() == typeid(double))
-			if (boost::any_cast<double>(a) > boost::any_cast<double>(b))
-				return a;
-		if (b.type() == typeid(double))
-			if (boost::any_cast<double>(a) < boost::any_cast<double>(b))
-				return b;
-		if (a.type() == typeid(int))
-			if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
-				return a;
-		if (b.type() == typeid(int))
-			if (boost::any_cast<int>(a) < boost::any_cast<int>(b))
-				return b;
-		if (a.type() == typeid(std::string))
-			if (boost::any_cast<std::string>(a) > boost::any_cast<std::string>(b))
-				return a;
-		if (b.type() == typeid(std::string))
-			if (boost::any_cast<std::string>(a) < boost::any_cast<std::string>(b))
-				return b;
-		
-	}
-	if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
-		return a;
-	if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
-		return b;
-	if (a.type()==typeid(int) && b.type()==typeid(int))
-		return "none";
-	if (a.type() == typeid(float)) {
-		if (b.type() == typeid(double))
-			if (boost::any_cast<double>(a) < boost::any_cast<double>(b))
-				return b;
-	}
-	if (boost::any_cast<double>(a) > boost::any_cast<double>(b))
-		return a;
-	if (boost::any_cast<double>(a) < boost::any_cast<double>(b))
-		return b;
-	if (a.type() == typeid(std::string))
-		if (boost::any_cast<string>(a) > boost::any_cast<string>(b))
-			return a;
-	if (b.type() == typeid(std::string))
-		if (boost::any_cast<string>(a) < boost::any_cast<string>(b))
-			return b;
-	return "none";
-}
+boost::any compare_one(boost::any a,boost::any b){
+    boost::any output;
+    bool valid_key=false;
