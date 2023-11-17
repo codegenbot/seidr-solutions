@@ -25,15 +25,3 @@ string fix_spaces(string text){
   }
   return text;
 }
-
-
-int main(){
-  string s1 = "Example";
-  string s2 = "Example 1";
-  string s3 = " Example 2";
-  string s4 = " Example   3";
-  printf("%s\n", fix_spaces(s1));
-  printf("%s\n", fix_spaces(s2));
-  printf("%s\n", fix_spaces(s3));
-  printf("%s\n", fix_spaces(s4));
-}
