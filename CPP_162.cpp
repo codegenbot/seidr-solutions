@@ -6,21 +6,18 @@ If 'text" is an empty string, return None.
 */
 #include <iostream>
 #include <sstream>
-#include <openssl/md5.h> //openssl-devel; sudo apt-get install libssl-dev
+#include <openssl/md5.h> //openssl-devel; sudo apt-get install libssl-dev; sudo apt-get install libssl1.1
 #include <iomanip>
-#include <openssl/evp.h>
 
 std::string string_to_md5(std::string text){
 	unsigned char hash[MD5_DIGEST_LENGTH];
-	EVP_MD_CTX *mdctx;
-	mdctx = EVP_MD_CTX_new();
-	EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
-	EVP_DigestUpdate(mdctx, text.c_str(), text.size());
-	EVP_DigestFinal_ex(mdctx, hash, NULL);
-	EVP_MD_CTX_free(mdctx);
-	std::stringstream ss; 
+	MD5_CTX md5;
+	MD5_Init(&md5);
+	MD5_Update(&md5, text.c_str(), text.size());
+	MD5_Final(hash, &md5);
+	std::stringstream ss;
 	for(int i = 0; i < MD5_DIGEST_LENGTH; i++){
-		ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i]; 
+		ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
 	}
 	return ss.str();
 }
