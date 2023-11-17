@@ -14,40 +14,11 @@ If the input vector is empty, return 0.
 #include<vector>
 using namespace std;
 long long double_the_difference(vector<float> lst){
-  if (lst.size()==0)
-    return 0;
-  else{
-    long long sum=0;
-    for (size_t i=0;i<lst.size();i++){
-      if (lst[i]>0 && floor(lst[i])==lst[i] && fmod(lst[i],2)==1){
-        sum+=(lst[i]*lst[i]);
-      }
+  long long sum = 0;
+  for(int i = 0; i < lst.size(); i++){
+    if(floor(lst[i]) == lst[i] && lst[i] > 0 && fmod(lst[i], 2) != 0){
+      sum += pow(lst[i], 2);
     }
-    return sum;
   }
-}
-#include<cassert>
-int main(){
-  vector<float> lst;
-  long long odd_sum;
-  
-  lst = {1, 3, 2, 0};
-  odd_sum = 10;
-  assert (double_the_difference(lst) == odd_sum );
-  
-  lst = {-1, -2, 0};
-  odd_sum = 0;
-  assert (double_the_difference(lst) == odd_sum );
-  
-  lst = {9, -2};
-  odd_sum = 81;
-  assert (double_the_difference(lst) == odd_sum );
-  
-  lst = {0};
-  odd_sum = 0;
-  assert (double_the_difference(lst) == odd_sum );
-  
-  lst = {};
-  odd_sum = 0;
-  assert (double_the_difference(lst) == odd_sum );
+  return sum;
 }
