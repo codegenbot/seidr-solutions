@@ -28,7 +28,7 @@ bool any_int(float a,float b,float c){
 }
 int main(){
 	float a,b,c;
-	scanf("%f%f%f",&a,&b,&c);
+	scanf("%f %f %f",&a,&b,&c);
 	if(any_int(a,b,c)){
 		printf("true");
 	}
