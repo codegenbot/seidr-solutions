@@ -28,36 +28,19 @@ Examples:
     Output: {1}
 */
     vector<int> res;
-    int n = grid.size();
-    int m = grid[0].size();
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            if(grid[i][j] == 1){
-                res.push_back(1);
-                int x = i, y = j;
-                for(int l = 1; l < k; l++){
-                    if(x - 1 >= 0 && grid[x - 1][y] < grid[x][y]){
-                        res.push_back(grid[x - 1][y]);
-                        x--;
-                    }
-                    else if(y - 1 >= 0 && grid[x][y - 1] < grid[x][y]){
-                        res.push_back(grid[x][y - 1]);
-                        y--;
-                    }
-                    else if(x + 1 < n && grid[x + 1][y] < grid[x][y]){
-                        res.push_back(grid[x + 1][y]);
-                        x++;
-                    }
-                    else{
-                        res.push_back(grid[x][y + 1]);
-                        y++;
-                    }
-                }
-                return res;
-            }
-        }
-    }
+    // Complete the following code given the task description and function signature.
     return res;
+}
+
+int main(){
+    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> res = minPath(grid, k);
+    for(int i = 0; i < res.size(); i++){
+        printf("%d ", res[i]);
+    }
+    printf("\n");
+    return 0;
 }
 #include<stdio.h>
 #include<vector>
