@@ -8,8 +8,7 @@ Examples:
 #include <stdio.h>
 #include <vector>
 using namespace std;
-int add(vector<int> lst)
-{
+int add(vector<int> lst){
 	int count = 0;
 	for(int i=0; i<lst.size(); i++)
 	{
@@ -25,6 +24,5 @@ int add(vector<int> lst)
 }
 int main()
 {
-
-	return 0;
+	
 }
