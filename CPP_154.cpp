@@ -15,14 +15,17 @@ bool cycpattern_check(string a,string b){
 	int i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
 	l=a.length();
 	m=b.length();
+	if(l<m){
+		return false;
+	}
 	for(i=0;i<l;i++){
 		if(a[i]==b[0]){
-			for(j=i,k=0;j<l,k<m;j++,k++){
-				if(a[j]!=b[k]){
+			for(j=0;j<m;j++){
+				if(a[(i+j)%l]!=b[j]){
 					break;
 				}
 			}
-			if(k==m){
+			if(j==m){
 				return true;
 			}
 		}
@@ -38,4 +41,5 @@ int main(){
 	else{
 		cout<<"false";
 	}
+	return 0;
 }
