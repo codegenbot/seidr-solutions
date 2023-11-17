@@ -15,31 +15,57 @@ will_it_fly({3, 2, 3}, 9) ➞ true
 will_it_fly({3}, 5) ➞ true
 // 3 is less than the maximum possible weight, and it's balanced.
 */
-#include<stdio.h>
-#include<vector>
+#include <stdio.h>
+#include <vector>
 using namespace std;
-bool will_it_fly(vector<int> q,int w){
-int sum=0;
-for(int i=0;i<q.size();i++){
-    sum+=q[i];
+bool is_balanced(vector<int> q)
+{
+    int n = q.size();
+    for (int i = 0; i < n / 2; i++)
+    {
+        if (q[i] != q[n - i - 1])
+        {
+            return false;
+        }
+    }
+    return true;
 }
-if(sum>w){
-    return false;
-}
-for(int i=0;i<q.size()/2;i++){
-    if(q[i]!=q[q.size()-i-1]){
+bool will_it_fly(vector<int> q, int w)
+{
+    int sum = 0;
+    for (int i = 0; i < q.size(); i++)
+    {
+        sum += q[i];
+    }
+    if (is_balanced(q) && sum <= w)
+    {
+        return true;
+    }
+    else
+    {
         return false;
     }
 }
-return true;
-}
-int main(){
-    vector<int> q={3,2,3};
-    int w=9;
-    if(will_it_fly(q,w)){
-        printf("true");
+int main()
+{
+    int n;
+    cout << "Enter the number of elements in the vector: ";
+    cin >> n;
+    vector<int> q(n);
+    cout << "Enter the elements in the vector: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> q[i];
     }
-    else{
-        printf("false");
+    int w;
+    cout << "Enter the maximum possible weight: ";
+    cin >> w;
+    if (will_it_fly(q, w))
+    {
+        cout << "The object will fly!";
+    }
+    else
+    {
+        cout << "The object will not fly!";
     }
 }
