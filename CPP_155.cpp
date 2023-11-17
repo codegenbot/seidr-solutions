@@ -5,10 +5,10 @@ Given an integer. return a vector that has the number of even and odd digits res
     even_odd_count(-12) ==> {1, 1}
     even_odd_count(123) ==> {1, 2}
 */
-#include <stdio.h>
-#include <math.h>
+#include<stdio.h>
+#include<math.h>
 #include<string>
-#include <vector>
+#include<vector>
 	vector<int> result;
 	int even = 0, odd = 0;
 	while (num != 0) {
@@ -26,8 +26,11 @@ Given an integer. return a vector that has the number of even and odd digits res
 	return result;
 }
 
-int main(){
+int main() {
 	vector<int> result = even_odd_count(123);
 	printf("%d %d", result[0], result[1]);
 	return 0;
 }
+using namespace std;
+vector<int> even_odd_count(int num){
+int main(){
