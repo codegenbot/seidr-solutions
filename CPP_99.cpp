@@ -17,8 +17,8 @@ return 15 and closest_integer("-14.5") should return -15.
 */
 #include<stdio.h>
 #include<math.h>
-#include<iostream>
-#include<string.h>
+#include <iostream>
+#include<string>
 using namespace std;
 int closest_integer(string value){
     int a=0,b=0;
@@ -49,7 +49,7 @@ int closest_integer(string value){
 }
 int main(){
     string str;
-    cin>>str;
-    cout<<closest_integer(str);
+    std::cin>>str;
+    std::cout<<closest_integer(str);
     return 0;
 }
