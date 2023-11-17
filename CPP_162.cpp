@@ -4,29 +4,30 @@ If 'text" is an empty string, return None.
 
 >>> string_to_md5("Hello world") == "3e25960a79dbc69b674cd4ec67a72c62"
 */
-#include<stdio.h>
 #include<iostream>
+#include<stdio.h>
 #include<string.h>
-#include<string>
 #include<openssl/md5.h>
-#include<stdlib.h>
-
-std::string string_to_md5(std::string text){
+#include<assert.h>
+using namespace std;
+string string_to_md5(string text){
     if(strlen(text.c_str()) == 0){
-        return "None";
+        return NULL;
     }
     unsigned char result[MD5_DIGEST_LENGTH];
     MD5_CTX md5;
     MD5_Init(&md5);
     MD5_Update(&md5, text.c_str(), text.length());
     MD5_Final(result, &md5);
-    char *mdString = (char *)malloc(33); 
+    char *mdString = (char *)malloc(33);
     for(int i = 0; i < 16; i++)
         sprintf(&mdString[i*2], "%02x", (unsigned int)result[i]);
     return mdString;
 }
 
 int main(){
-    std::cout << string_to_md5("Hello world");
+    assert (string_to_md5("password").c_str() == "5f4dcc3b5aa765d61d8327deb882cf99");
+    assert (string_to_md5("Hello world").c_str() == "3e25960a79dbc69b674cd4ec67a72c62");
+    assert (string_to_md5("").c_str() == NULL);
     return 0;
 }
