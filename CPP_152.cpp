@@ -23,4 +23,14 @@ using namespace std;
 	}
 	return result;
 }
+int main(){
+	vector<int> game={1,2,3,4,5,1};
+	vector<int> guess={1,2,3,4,2,-2};
+	vector<int> result=compare(game,guess);
+	for(int i=0;i<result.size();i++){
+		printf("%d ",result[i]);
+	}
+	printf("\n");
+	return 0;
+}
 vector<int> compare(vector<int> game,vector<int> guess){
