@@ -9,8 +9,7 @@ fix_spaces(" Example 2") == "_Example_2"
 fix_spaces(" Example   3") == "_Example-3"
 */
 #include<stdio.h>
-#include<string> 
-#include <iostream>
+#include<string>#include <iostream>
 using namespace std;
 string fix_spaces(string text){
 
@@ -40,5 +39,7 @@ int main()
 {
     string s;
     getline(cin,s);
-    cout<<fix_spaces(s);
+    cout<<fix_spaces(s);int main(){
+    
+}
 }
