@@ -19,9 +19,6 @@ For example:
 using namespace std;
 
 vector<int> order_by_points(vector<int> nums){
-    if(nums.size() == 0){
-        return nums;
-    }
     vector<int> ans;
     vector<int> a;
     vector<int> b;
@@ -51,7 +48,7 @@ vector<int> order_by_points(vector<int> nums){
     vector<int> z;
     
     int sum = 0;
-    for(int i = 0;i < nums.size();i++){ 
+    for(int i = 0;i < nums.size();i++){
         sum = 0;
         while(nums[i] != 0){
             sum += nums[i] % 10;
