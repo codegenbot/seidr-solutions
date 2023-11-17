@@ -9,5 +9,5 @@ solution({30, 13, 24, 321}) ==>0
 */
 #include<stdio.h>
 #include<vector>
-using namespace std;
-int solutions(vector<int> lst){
+using namespace std
+int solutions(vector<int> lst)
