@@ -20,6 +20,16 @@ bool check_if_last_char_is_a_letter(string txt){
 	for(i=0;a[i]!='\0';i++);
 	if(a[i-1]>='a'&&a[i-1]<='z'||a[i-1]>='A'&&a[i-1]<='Z')
 	{
+		for(j=0;j<i-1;j++)
+		{
+			if(a[j]==' ')
+			{
+				if(a[j+1]==a[i-1])
+				{
+					return false;
+				}
+			}
+		}
 		return true;
 	}
 	else
