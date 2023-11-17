@@ -32,9 +32,6 @@ Examples:
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
 
-
-
-
 int main(){
 	return 0;
 }
