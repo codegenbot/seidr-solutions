@@ -14,13 +14,22 @@ iscube(180) ==> false
 #include<math.h>
 using namespace std;
 bool iscuber(int a){
-return (a==0) || (a==1) || (a==-1) || (a==pow(floor(pow(a,1.0/3)),3));
+for(int i=0;i<a;i++)
+{
+if(pow(i,3)==a)
+return true;
 }
-int main(){
-printf("%d\n",iscuber(1));
-printf("%d\n",iscuber(2));
-printf("%d\n",iscuber(-1));
-printf("%d\n",iscuber(64));
-printf("%d\n",iscuber(0));
-printf("%d\n",iscuber(180));
+return false;
+}
+int main()
+{
+int a;
+printf("enter the number");
+scanf("%d",&a);
+bool k=iscuber(a);
+if(k==1)
+printf("true");
+else
+printf("false");
+return 0;
 }
