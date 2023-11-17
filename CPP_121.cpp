@@ -5,6 +5,8 @@ Given a non-empty vector of integers, return the sum of all of the odd elements 
 Examples
 solution({5, 8, 7, 1}) ==> 12
 solution({3, 3, 3, 3, 3}) ==> 9
+using namespace std;
+int solutions(vector<int> lst){
 solution({30, 13, 24, 321}) ==>0
 */
 #include<stdio.h>
@@ -17,7 +19,14 @@ solution({30, 13, 24, 321}) ==>0
       }
     }
   }
-  
+  return sum;
+}
 
-using namespace std;
-int solutions(vector<int> lst){
+int main(){
+  vector<int> lst;
+  lst.push_back(5);
+  lst.push_back(8);
+  lst.push_back(7);
+  lst.push_back(1);
+  printf("%d\n",solutions(lst));
+}
