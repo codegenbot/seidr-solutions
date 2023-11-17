@@ -34,12 +34,3 @@ vector<string> reverse_delete(string s,string c){
 	}
 	return result;
 }
-int main(){
-	string s,c;
-	cin>>s>>c;
-	vector<string> result=reverse_delete(s,c);
-	for(int i=0;i<result.size();i++){
-		std::cout<<result[i]<<" ";
-	}
-	return 0;
-}
