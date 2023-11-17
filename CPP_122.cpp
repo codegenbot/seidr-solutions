@@ -11,8 +11,11 @@ Constraints:
     1. 1 <= len(arr) <= 100
     2. 1 <= k <= len(arr)
 */
-#include<bits/stdc++.h>
+#include <stdio.h>
+#include <vector>
+
 using namespace std;
+
 int add_elements(vector<int> arr,int k){
 	int i,sum=0;
 	for(i=0;i<k;i++){
