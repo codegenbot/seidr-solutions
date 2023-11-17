@@ -20,6 +20,7 @@ It is guaranteed that the answer is unique.
 Return an ordered vector of the values on the cells that the minimum path go through.
 
 Examples:
+
 */
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
@@ -46,6 +47,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     // Your code must run in O(N * k) time.
     // Your code must run in O(N) space.
     // Your code must be deterministic.
+}
 bool issame(vector<int> a,vector<int>b){
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++){
@@ -53,7 +55,6 @@ bool issame(vector<int> a,vector<int>b){
     }
     return true;
 }
-vector<int> minPath(vector<vector<int>> grid, int k){
 int main(){
     assert (issame(minPath({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 3) , {1, 2, 1}));
     assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 1) , {1}));
@@ -88,4 +89,3 @@ int main(){
     assert (issame(minPath({{1, 3}, {3, 2}}, -5) , {}));
     assert (issame(minPath({{1, 3}, {3, 2}}, -10) , {}));
     return 0;
-}
