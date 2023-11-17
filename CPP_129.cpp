@@ -21,10 +21,22 @@ Return an ordered vector of the values on the cells that the minimum path go thr
 
 Examples:
 
+*/
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
+
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
-*/
+    // Complete the following code given the task description and function signature.
+    return path;
+
+
     vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
     vector<int> path;
+}
+
+int main(){
