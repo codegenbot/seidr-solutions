@@ -17,7 +17,7 @@ Examples:
 	}
 	return s;
 }
-int main()
+int main(){
 {
 	vector<int> lst;
 	int n;
@@ -32,5 +32,4 @@ int main()
 	return 0;
 }
 using namespace std;
-int add(vector<int> lst)
-{
+int add(vector<int> lst){
