@@ -25,11 +25,3 @@ string longest(vector<string> strings){
 	}
 	return strings[index];
 }
-int main(){
-	vector<string> strings;
-	strings.push_back("a");
-	strings.push_back("bb");
-	strings.push_back("ccc");
-	printf("%s\n",longest(strings).c_str());
-	return 0;
-}
