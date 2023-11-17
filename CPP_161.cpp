@@ -11,6 +11,7 @@ solve("#a@C") = "#A@c"
 */
 #include<stdio.h>
 #include<string>
+#include <iostream>
 using namespace std;
 string solve(string s){
 	int i;
