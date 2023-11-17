@@ -33,6 +33,5 @@ int fibfib(int n){
 int main(){
 	int n;
 	scanf("%d",&n);
-	printf("%d\n",fibfib(n));
-	return 0;
+	printf("%d",fibfib(n));
 }
