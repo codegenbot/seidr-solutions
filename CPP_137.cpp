@@ -4,14 +4,10 @@ real numbers, and returns the larger variable in its given variable type.
 Return "None" if the values are equal.
 Note: If a real number is represented as a string, the floating point might be . or ,
 
-
-Complete the following code given the task description and function signature.
-
 compare_one(1, 2.5) ➞ 2.5
 compare_one(1, "2,3") ➞ "2,3"
 compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
-
 */
 #include<stdio.h>
 #include<string>
@@ -19,26 +15,68 @@ compare_one("1", 1) ➞ "None"
 #include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
-	try {
-		if (a > b)
-			return a;
-		if (b > a)
-			return b;
-	}
-	catch (boost::bad_any_cast &e)
-	{
-		return "None";
-	}
+  if(a==b)
+  return "None";
+  if(a.type()==typeid(int))
+  {
+    int x=boost::any_cast<int>(a);
+    if(b.type()==typeid(float))
+    {
+      float y=boost::any_cast<float>(b);
+      if(y>x)
+      return y;
+    }
+    else
+    {
+      string y=boost::any_cast<string>(b);
+      if(stof(y)>x)
+      return y;
+    }
+  }
+  else if(a.type()==typeid(float))
+  {
+    float x=boost::any_cast<float>(a);
+    if(b.type()==typeid(int))
+    {
+      int y=boost::any_cast<int>(b);
+      if(x>y)
+      return x;
+    }
+    else
+    {
+      string y=boost::any_cast<string>(b);
+      if(stof(y)>x)
+      return y;
+    }
+  }
+  else if(a.type()==typeid(string))
+  {
+    string x=boost::any_cast<string>(a);
+    if(b.type()==typeid(int))
+    {
+      int y=boost::any_cast<int>(b);
+      if(stof(x)>y)
+      return x;
+    }
+    else
+    {
+      float y=boost::any_cast<float>(b);
+      if(stof(x)>y)
+      return x;
+    }
+  }
 }
-int main()
+int main(void)
 {
-	boost::any a(2.2);
-	boost::any b("3,3");
-	boost::any result = compare_one(a, b);
-	if (result.type() == typeid(string))
-	{
-		string nam = boost::any_cast<string>(result);
-		cout << nam;
-	}
-	return 0;
+  int a=5;
+  int b=2;
+  float c=2.5;
+  float d=2.5;
+  string e="2.5";
+  cout<<compare_one(a,e)<<endl;
+  cout<<compare_one(b,c)<<endl;
+  cout<<compare_one(c,e)<<endl;
+  cout<<compare_one(a,c)<<endl;
+  cout<<compare_one(a,a)<<endl;
+  return 0;
 }
