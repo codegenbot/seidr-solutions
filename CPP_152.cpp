@@ -6,39 +6,22 @@ Your task is to determine if a person correctly guessed the results of a number 
 You are given two vectors of scores and guesses of equal length, where each index shows a match. 
 Return a vector of the same length denoting how far off each guess was. If they have guessed correctly,
 the value is 0, and if not, the value is the absolute difference between the guess and the score.
-
-
 example:
 
 compare({1,2,3,4,5,1},{1,2,3,4,2,-2}) -> {0,0,0,0,3,3}
 compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
+
 */
 #include<stdio.h>
 #include<math.h>
 #include<vector>
 using namespace std;
-  int n = game.size();
-  vector<int> res;
-  for(int i = 0; i < n; i++){
-    res.push_back(abs(game[i] - guess[i]));
-  }
-  return res;
-}
-vector<int> compare(vector<int> game,vector<int> guess){
 int main(){
-  vector<int> a;
-  vector<int> b;
-  a.push_back(1);
-  a.push_back(2);
-  a.push_back(3);
-  a.push_back(4);
-  a.push_back(5);
-  a.push_back(1);
-  b.push_back(1);
-  b.push_back(2);
-  b.push_back(3);
-  b.push_back(4);
-  b.push_back(2);
-  b.push_back(-2);
-  compare(a,b);
+ vector<int> res;
+ int n = game.size();
+ for(int i = 0; i < n; i++){
+  res.push_back(abs(game[i] - guess[i]));
+ }
+ return res;
 }
+vector<int> compare(vector<int> game , vector<int> guess);
