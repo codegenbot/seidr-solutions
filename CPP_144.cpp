@@ -14,13 +14,23 @@ simplify("7/10", "10/2") = false
 #include<string>
 using namespace std;
 bool simplify(string x,string n){
-  int a=stoi(x.substr(0,x.find('/')));
-  int b=stoi(x.substr(x.find('/')+1));
-  int c=stoi(n.substr(0,n.find('/')));
-  int d=stoi(n.substr(n.find('/')+1));
-  return (a*d)%(b*c)==0;
+int x_num,x_den,n_num,n_den;
+sscanf(x.c_str(),"%d/%d",&x_num,&x_den);
+sscanf(n.c_str(),"%d/%d",&n_num,&n_den);
+if((x_num*n_den)%(x_den*n_num)==0)
+return true;
+else
+return false;
 }
 int main(){
-  printf(simplify("1/3","3/1")?"true":"false");
-  return 0;
+string x,n;
+cout<<"Enter the first fraction "<<endl;
+cin>>x;
+cout<<"Enter the second fraction "<<endl;
+cin>>n;
+if(simplify(x,n))
+cout<<"The product of the two fractions is a whole number "<<endl;
+else
+cout<<"The product of the two fractions is not a whole number "<<endl;
+return 0;
 }
