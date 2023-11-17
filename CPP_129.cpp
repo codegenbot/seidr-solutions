@@ -27,51 +27,40 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
+	vector<int> result;
 	int n = grid.size();
 	vector<vector<int>> dp(n, vector<int>(n, 0));
-	vector<vector<int>> path(n, vector<int>(n, 0));
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			if (i == 0 && j == 0) {
-				dp[i][j] = grid[i][j];
-				path[i][j] = grid[i][j];
-			}
-			else if (i == 0) {
-				dp[i][j] = dp[i][j - 1] + grid[i][j];
-				path[i][j] = path[i][j - 1] * 10 + grid[i][j];
-			}
-			else if (j == 0) {
-				dp[i][j] = dp[i - 1][j] + grid[i][j];
-				path[i][j] = path[i - 1][j] * 10 + grid[i][j];
-			}
-			else {
-				dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
-				if (dp[i - 1][j] < dp[i][j - 1]) {
-					path[i][j] = path[i - 1][j] * 10 + grid[i][j];
-				}
-				else {
-					path[i][j] = path[i][j - 1] * 10 + grid[i][j];
-				}
-			}
+			dp[i][j] = grid[i][j];
 		}
 	}
-	vector<int> res;
-	int cur = path[n - 1][n - 1];
-	for (int i = 0; i < k; i++) {
-		res.push_back(cur % 10);
-		cur /= 10;
+	for (int i = 1; i < n; i++) {
+		dp[0][i] += dp[0][i - 1];
+		dp[i][0] += dp[i - 1][0];
 	}
-	return res;
-}
-int main() {
-	vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9} };
-	int k = 3;
-	vector<int> res = minPath(grid, k);
-	for (int i = 0; i < res.size(); i++) {
-		printf("%d ", res[i]);
+	for (int i = 1; i < n; i++) {
+		for (int j = 1; j < n; j++) {
+			dp[i][j] += min(dp[i - 1][j], dp[i][j - 1]);
+		}
 	}
-	printf("\n");
-	return 0;
+	int i = n - 1, j = n - 1;
+	while (k--) {
+		result.push_back(grid[i][j]);
+		if (i == 0) {
+			j--;
+		}
+		else if (j == 0) {
+			i--;
+		}
+		else if (dp[i - 1][j] < dp[i][j - 1]) {
+			i--;
+		}
+		else {
+			j--;
+		}
+	}
+	return result;
 }
 #include<stdio.h>
 #include<vector>
