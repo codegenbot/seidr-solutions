@@ -1,4 +1,5 @@
 /*
+
 Write a function which sorts the given vector of integers
 in ascending order according to the sum of their digits.
 Note: if there are several items with similar sum of their digits,
@@ -15,7 +16,6 @@ For example:
 #include<string>
 #include<algorithm>
 #include<iostream>
-#include<bits/stdc++.h>
 
 using namespace std;
 
