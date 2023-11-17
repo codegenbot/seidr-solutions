@@ -19,7 +19,7 @@ string filp_case(string str){
 	}
 	return str;
 }
-int main(){
+int main1(){
 	string str;
 	cin>>str;cout<<filp_case(str);
 	return 0;
