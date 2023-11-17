@@ -8,7 +8,8 @@ Filter given vector of any python values only for integers
 #include<stdio.h>
 #include<vector>
 #include<string>
-#include<boost/any.hpp> // if error then sudo apt-get install libboost-all-dev and then sudo apt-get install libboost-python-dev
+#include<boost/any.hpp> // if error then sudo apt-get install libboost-all-dev and 
+// sudo apt-get install libboost-python-dev
 #include<list>
 typedef std::list<boost::any> list_any;
 using namespace std;
