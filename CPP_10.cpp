@@ -20,13 +20,12 @@ string make_palindrome(string str){
     */
     string s(str.rbegin(),str.rend());
     int i=0;
-    while(i<str.size()){
-        if(is_palindrome(str.substr(i))){
+    for(i=0;i<str.length();i++){
+        if(str.substr(i,str.length()-i)==s.substr(0,str.length()-i)){
             break;
         }
-        i++;
     }
-    return str+s.substr(i);
+    return str+s.substr(str.length()-i,i);
 }
 int main(){
     string str;
