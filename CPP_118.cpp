@@ -16,27 +16,35 @@ get_closest_vowel("ab") ==> ""
 #include<stdio.h>
 #include<string>
 #include<algorithm>
+#include<iostream>
 using namespace std;
 string get_closest_vowel(string word){
-	int i;
-	for (i = word.size() - 1; i > 0; i--) {
-		if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' || word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U') {
-			if (word[i - 1] != 'a' && word[i - 1] != 'e' && word[i - 1] != 'i' && word[i - 1] != 'o' && word[i - 1] != 'u' && word[i - 1] != 'A' && word[i - 1] != 'E' && word[i - 1] != 'I' && word[i - 1] != 'O' && word[i - 1] != 'U') {
-				break;
+	string vowels = "aeiou";
+	int pos = -1;
+	for(int i = word.length()-1; i >= 0; i--){
+		if(vowels.find(word[i]) != string::npos){
+			pos = i;
+			break;
+		}
+	}
+	if(pos == -1){
+		return "";
+	}
+	int dist = word.length() - pos;
+	for(int i = pos-1; i >= 0; i--){
+		if(vowels.find(word[i]) == string::npos){
+			if(word.length() - i < dist){
+				return word.substr(i+1, 1);
 			}
 		}
 	}
-	if (i > 0) {
-		return word.substr(i, 1);
-	}
-	else {
-		return "";
-	}
+	return "";
 }
 
-int main() {
-	string word;
-	getline(cin, word);
-	cout << get_closest_vowel(word) << endl;
+int main1(){
+	cout << get_closest_vowel("yogurt") << endl;
+	cout << get_closest_vowel("FULL") << endl;
+	cout << get_closest_vowel("quick") << endl;
+	cout << get_closest_vowel("ab") << endl;
 	return 0;
 }
