@@ -27,11 +27,27 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-	// Complete the following code.
-	return vector<int>();
+    vector<int> result;
+    return result;
 }
 int main(){
-    return 0;
+    vector<int> result;
+    
+    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    result = minPath(grid, k);
+    for(int i = 0; i < result.size(); i++){
+        printf("%d ", result[i]);
+    }
+    printf("\n");
+
+    vector<vector<int>> grid2 = { {5,9,3}, {4,1,6}, {7,8,2}};
+    int k2 = 1;
+    result = minPath(grid2, k2);
+    for(int i = 0; i < result.size(); i++){
+        printf("%d ", result[i]);
+    }
+    printf("\n");
 }
 #include<stdio.h>
 #include<vector>
