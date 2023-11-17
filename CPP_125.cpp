@@ -13,15 +13,33 @@ split_words("abcdef") == {"3"}
 #include<algorithm>
 using namespace std;
 vector<string> split_words(string txt){
-    vector<string> a;
-    if(txt.find(",")==-1 && txt.find(" ")==-1){
-        a.push_back(to_string(count(txt.begin(),txt.end(),[](char c){return c-'a'<26 && c-'a'>=0 && (c-'a')%2==1;})));
-        return a;
+    vector<string> v;
+    string s;
+    int i,j,count=0;
+    for(i=0;i<txt.length();i++){
+        if(txt[i]==' '){
+            v.push_back(s);
+            s.clear();
+        }
+        else if(txt[i]==','){
+            v.push_back(s);
+            s.clear();
+        }
+        else{
+            s.push_back(txt[i]);
+        }
     }
-    if(txt.find(" ")==-1){
-        txt.replace(txt.find(","),1," ");
+    v.push_back(s);
+    s.clear();
+    for(i=0;i<v.size();i++){
+        for(j=0;j<v[i].length();j++){
+            int x=v[i][j]-97+1;
+            if(x%2!=0){
+                count++;
+            }
+        }
     }
-    a.push_back(txt.substr(0,txt.find(" ")));
-    a.push_back(txt.substr(txt.find(" ")+1,txt.size()));
-    return a;
+    v.clear();
+    v.push_back(to_string(count));
+    return v;
 }
