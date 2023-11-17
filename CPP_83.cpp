@@ -14,8 +14,8 @@ int starts_one_ends(int n){
   }
   return count;
 }
-int main(){
+/*int main(){
   int n=5;
   printf("%d",starts_one_ends(n));
   return 0;
-}
+}*/
