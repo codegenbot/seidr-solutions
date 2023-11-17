@@ -27,20 +27,10 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    vector<int> result;
-    // Complete the following code given the task description and function signature.
-    return result;
-}
-
-int main(){
-    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9} };
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for(int i = 0; i < result.size(); i++){
-        printf("%d ", result[i]);
-    }
-    printf("\n");
-    return 0;
+    int n = grid.size();
+    vector<int> path;
+    // Complete the following code
+    return path;
 }
 #include<stdio.h>
 #include<vector>
