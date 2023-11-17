@@ -10,18 +10,10 @@ Filter an input vector of strings only for ones that start with a given prefix.
 #include<string>
 using namespace std;
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
-
-    vector<string> result;
-    for(auto i:strings)
-    {
-        if(i.substr(0,prefix.size())==prefix)
-        {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
-int main()
-{
-    return 0;
+	vector<string> res;
+	for(auto s:strings){
+		if(s.find(prefix)==0)
+			res.push_back(s);
+	}
+	return res;
 }
