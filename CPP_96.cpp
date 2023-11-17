@@ -13,25 +13,27 @@ count_up_to(18) => {2,3,5,7,11,13,17}
 #include<vector>
 using namespace std;
 vector<int> count_up_to(int n){
-	vector<int> result;
-	if(n<=1) return result;
+	vector<int> v;
 	for(int i=2;i<n;i++){
-		bool isPrime=true;
+		int flag=0;
 		for(int j=2;j<i;j++){
 			if(i%j==0){
-				isPrime=false;
+				flag=1;
 				break;
 			}
 		}
-		if(isPrime) result.push_back(i);
+		if(flag==0){
+			v.push_back(i);
+		}
 	}
-	return result;
+	return v;
 }
 int main(){
-	vector<int> result=count_up_to(20);
-	for(int i=0;i<result.size();i++){
-		printf("%d ",result[i]);
+	int n;
+	scanf("%d",&n);
+	vector<int> v=count_up_to(n);
+	for(int i=0;i<v.size();i++){
+		printf("%d ",v[i]);
 	}
-	printf("\n");
 	return 0;
 }
