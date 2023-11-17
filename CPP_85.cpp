@@ -7,12 +7,12 @@ Examples:
 */
 #include<stdio.h>
 #include<vector>
-	int sum = 0;
+	int sum=0;
 	for(int i=0;i<lst.size();i++)
 	{
-		if(lst[i]%2==0 && i%2==1)
+		if((i%2==1)&&(lst[i]%2==0))
 		{
-			sum+=lst[i];
+			sum=sum+lst[i];
 		}
 	}
 	return sum;
