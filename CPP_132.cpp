@@ -14,22 +14,26 @@ is_nested("[[]][[") ➞ true
 #include<string>
 using namespace std;
 bool is_nested(string str){
-	int a = 0, b = 0;
-	for (int i = 0; i < str.length(); i++) {
-		if (str[i] == '[') {
-			a++;
-			if (a == b) {
-				return true;
-			}
-		}
-		else if (str[i] == ']') {
-			b++;
-		}
-	}
-	return false;
+  int count=0;
+  for(int i=0;i<str.length();i++){
+    if(str[i]=='['){
+      count++;
+    }
+    else{
+      count--;
+      if(count<0){
+        return false;
+      }
+    }
+  }
+  if(count!=0){
+    return false;
+  }
+  return true;
 }
-int main() {
-	string str;
-	getline(cin, str);
-	printf("%d", is_nested(str));
+int main(){
+  string str;
+  cin>>str;
+  printf("%d",is_nested(str));
+  return 0;
 }
