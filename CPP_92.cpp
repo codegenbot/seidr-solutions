@@ -15,21 +15,17 @@ any_int(3.6, -2.2, 2) ➞ false
 
 
 */
-#include<iostream>
-using namespace std ;
-bool any_int(float a,float b,float c)
-{
-    if(a==b+c || b==a+c || c==a+b)
-        return true;
-    else
-        return false;
+#include<stdio.h>
+#include<math.h>
+using namespace std;
+bool any_int(float a,float b,float c){
+if(a==b+c||b==a+c||c==a+b)
+return true;
+else
+return false;
 }
-int main()
-{
-    float a=3.6,b=-2.2,c=2;
-    if(any_int(a,b,c))
-        cout<<"true";
-    else
-        cout<<"false";
-    return 0;
+
+int main(){
+printf("%d",any_int(3.6, -2.2, 2));
+return 0;
 }
