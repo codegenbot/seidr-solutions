@@ -14,8 +14,8 @@ compare_one("1", 1) ➞ "None"
 // #include<boost/lexical_cast.hpp>  // to convert string to int
 #include<cassert>
 using namespace std;
-
 boost::any compare_one(boost::any a,boost::any b){
+int main(){
     if(a.type()==typeid(int)&&b.type()==typeid(int)){
         if(boost::any_cast<int>(a)>boost::any_cast<int>(b))
             return a;
