@@ -13,6 +13,7 @@ For lst = {-2.4,1,1} the output should be 6
 */
 #include<stdio.h>
 #include<math.h>
+#include <cassert>
 #include<vector>
 using namespace std;
 int sum_squares(vector<float> lst) {
