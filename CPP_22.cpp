@@ -1,17 +1,20 @@
+
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<boost/any.hpp>
+#include<list>
+typedef std::list<boost::any> list_any;
+using namespace std;
+
 /*
-Filter given vector of any python values only for integers
+Filter given list of any python values only for integers
 >>> filter_integers({"a", 3.14, 5})
 {5}
 >>> filter_integers({1, 2, 3, "abc", {}, {}})
 {1, 2, 3}
 */
-#include<stdio.h>
-#include<vector>
-#include<string>
-#include<boost/any.cpp>
-#include<list>
-typedef std::list<boost::any> list_any;
-using namespace std;
+
 vector<int> filter_integers(list_any values){
 	vector<int> v;
 	for (auto it = values.begin(); it != values.end(); it++) {
@@ -44,4 +47,15 @@ int main() {
 	}
 	getchar();
 	return 0;
+}
+
+
+/*
+for non-mathematical functions in <cmath> can come only in GCC?
+Error:c2143: syntax error : missing ')' before 'constant'
+*/
+int main()
+{
+	double x = 0.7;
+	cout << expm1(x);
 }
