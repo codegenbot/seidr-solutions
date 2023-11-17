@@ -15,7 +15,19 @@ For lst = {-2.4,1,1} the output should be 6
 #include<math.h>
 #include<vector>
 using namespace std;
-//Complete this code.//
-
+int main()
+{
+int ret;
+int main()
+{
+vector<float> x={1,2,3};
+ret=sum_squares(x);
+printf("The return values is %d", ret);
+return 0;
+}
+vector<float> x={1,2,3,-2.4,1,1};
+sum_squares(x);
+printf("The return values is %d", ret);
+return 0;
 }
 int sum_squares(vector<float> lst){
