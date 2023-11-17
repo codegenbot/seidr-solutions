@@ -14,36 +14,39 @@ prime_fib returns n-th number that is a Fibonacci number and it's also prime.
 #include<stdio.h>
 using namespace std;
 int prime_fib(int n){
-	int a=1,b=1,c=2,i=2,j=0;
-	while(j<n){
-		if(i%2==0){
-			c=a+b;
+	int a=1,b=1,c=2,i=3;
+	while(i<=n){
+		if(c%2==0){
 			a=b;
 			b=c;
+			c=a+b;
 			i++;
 		}
 		else{
-			int k=2;
-			while(k<c){
-				if(c%k==0)
+			int j=2;
+			while(j<c){
+				if(c%j==0)
 					break;
-				k++;
-			}
-			if(k==c){
 				j++;
-				cout<<c<<endl;
 			}
-			c=a+b;
-			a=b;
-			b=c;
-			i++;
+			if(j==c){
+				a=b;
+				b=c;
+				c=a+b;
+				i++;
+			}
+			else{
+				a=b;
+				b=c;
+				c=a+b;
+			}
 		}
 	}
 	return c;
 }
 int main(){
 	int n;
-	cin>>n;
-	cout<<prime_fib(n)<<endl;
+	scanf("%d",&n);
+	printf("%d",prime_fib(n));
 	return 0;
 }
