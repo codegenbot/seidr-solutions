@@ -16,28 +16,32 @@ file_name_check("1example.dll")  => "No" // (the name should start with a latin 
 #include<string>
 using namespace std;
 string file_name_check(string file_name){
-    int count = 0;
-    for(int i = 0; i < file_name.length(); i++){
-        if(file_name[i] == '.'){
-            if(file_name[i+1] == 't' && file_name[i+2] == 'x' && file_name[i+3] == 't'){
-                count++;
-            }
-            if(file_name[i+1] == 'e' && file_name[i+2] == 'x' && file_name[i+3] == 'e'){
-                count++;
-            }
-            if(file_name[i+1] == 'd' && file_name[i+2] == 'l' && file_name[i+3] == 'l'){
-                count++;
-            }
-        }
-    }
-    if(count == 0){
-        return "No";
-    }
-    else{
-        return "Yes";
-    }
+  int dot_count = 0;
+  int digit_count = 0;
+  for(int i = 0; i < file_name.size(); i++){
+    if(file_name[i] == '.')
+      dot_count++;
+    else if(file_name[i] >= '0' && file_name[i] <= '9')
+      digit_count++;
+  }
+  if(dot_count != 1 || digit_count > 3){
+    return "No";
+  }
+  int dot_position = file_name.find('.');
+  string before_dot = file_name.substr(0, dot_position);
+  string after_dot = file_name.substr(dot_position + 1);
+  if(before_dot.size() == 0 || (before_dot[0] < 'a' || before_dot[0] > 'z') || (before_dot[0] < 'A' || before_dot[0] > 'Z')){
+    return "No";
+  }
+  if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll")
+    return "No";
+  return "Yes";
 }
-
 int main(){
-    printf("%s", file_name_check("example.txt").c_str());
+  while(1){
+    string file_name;
+    cin >> file_name;
+    cout << file_name_check(file_name) << endl;
+  }
+  return 0;
 }
