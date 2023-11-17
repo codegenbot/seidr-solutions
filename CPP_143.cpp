@@ -21,4 +21,4 @@ Constraints:
 #include<string>
 using namespace std;
 string words_in_sentence(string sentence){
-	string result = "";
+	// Complete the following code given the task description and function signature.
