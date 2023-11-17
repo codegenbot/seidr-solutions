@@ -26,12 +26,10 @@ Given an integer. return a vector that has the number of even and odd digits res
 	return result;
 }
 
-int main() {
+int main(){
 	vector<int> result = even_odd_count(123);
 	printf("%d %d", result[0], result[1]);
 	return 0;
 }
 using namespace std;
 vector<int> even_odd_count(int num){
-int main(){
-}
