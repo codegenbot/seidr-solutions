@@ -15,6 +15,7 @@ compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 */
 #include<stdio.h>
 #include<math.h>
+#include<assert.h>
 #include<vector>
 using namespace std;
 vector<int> compare(vector<int> scores, vector<int> guesses){
