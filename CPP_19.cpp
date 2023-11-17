@@ -8,10 +8,10 @@ Return the string with numbers sorted from smallest to largest
 #include<stdio.h>
 #include<string.h>
 #include<map>
+#include <ostream>
 #include <iostream>
-#include <ostream> 
 using namespace std;
-string sort_numbers(char *numbers){
+string sort_numbers(string numbers){
     map<string, int> input;
     input["zero"] = 0;
     input["one"] = 1;
@@ -36,7 +36,7 @@ string sort_numbers(char *numbers){
     output[9] = "nine";
     int num[100];
     int i = 0;
-    char *p = strtok(numbers, " ");
+    char *p = strtok((char*)numbers.c_str(), " ");
     while(p != NULL){
         num[i++] = input[p];
         p = strtok(NULL, " ");
@@ -59,7 +59,7 @@ string sort_numbers(char *numbers){
     return res;
 }
 int main(){
-    char s[100];
+    string s;
     cin >> s;
     cout << sort_numbers(s) << endl;
     return 0;
