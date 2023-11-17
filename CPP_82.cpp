@@ -7,9 +7,10 @@ prime_length("abcdcba") == true
 prime_length("kittens") == true
 prime_length("orange") == false
 */
-#include <bits/stdc++.h> 
-using namespace std;
-bool prime_length(string str){
+#include<stdio.h>
+#include<string>
+
+bool prime_length(std::string str){
 	if(str.length()==2 || str.length()==3 || str.length()==5 || str.length()==7){
 		return true;
 	}
@@ -17,12 +18,12 @@ bool prime_length(string str){
 }
 int main(){
 	string str;
-	getline(cin,str);
+	scanf("%s",str);
 	if(prime_length(str)){
-		cout<<"true";
+		printf("true");
 	}
 	else{
-		cout<<"false";
+		printf("false");
 	}
 	return 0;
 }
