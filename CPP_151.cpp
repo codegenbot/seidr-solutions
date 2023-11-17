@@ -24,25 +24,18 @@ long long double_the_difference(vector<float> lst){
 	}
 	return sum;
 }
-#include<iostream>
-#include<vector>
-using namespace std;
+
 int main(){
-	vector<float> lst;
-	lst = {1, 3, 2, 0};
-	long long odd_sum = 1 + 9 + 0 + 0;
-	assert (double_the_difference(lst) == odd_sum );
-	lst = {-1, -2, 0};
-	odd_sum = 0;
-	assert (double_the_difference(lst) == odd_sum );
-	lst = {9, -2};
-	odd_sum = 81;
-	assert (double_the_difference(lst) == odd_sum );
-	lst = {0};
-	odd_sum = 0;
-	assert (double_the_difference(lst) == odd_sum );
-	lst = {};
-	odd_sum = 0;
-	assert (double_the_difference(lst) == odd_sum );
-	return 0;
+  vector<float> lst = {-2, 1, 3, 2, 0};
+  int odd_sum = 1 + 9 + 0 + 0;
+  assert (double_the_difference(lst) == odd_sum );
+  lst = {-1, -2, 0};
+  assert (double_the_difference(lst) == 0 );
+  lst = {9, -2};
+  assert (double_the_difference(lst) == 81 );
+  lst = {0};
+  assert (double_the_difference(lst) == 0 );
+  lst = {};
+  assert (double_the_difference(lst) == 0 );
+  return 0;
 }
