@@ -14,16 +14,13 @@ decimal_to_binary(32)   // returns "db100000db"
 #include<string>
 using namespace std;
 string decimal_to_binary(int decimal){
-
-  string output = "db";
-  int quotient = decimal;
-  int remainder;
-  while(quotient != 0){
-    remainder = quotient % 2;
-    output += to_string(remainder);
-    quotient = quotient / 2;
-  }
-  reverse(output.begin() + 2, output.end());
-  output += "db";
-  return output;
+	string result = "db";
+	int rem = 0;
+	while (decimal > 0) {
+		rem = decimal % 2;
+		result.insert(2, to_string(rem));
+		decimal = decimal / 2;
+	}
+	result.append("db");
+	return result;
 }
