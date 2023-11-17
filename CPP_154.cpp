@@ -6,30 +6,32 @@ cycpattern_check("whassup","psus") => false
 cycpattern_check("abab","baa") => true
 cycpattern_check("efef","eeff") => false
 cycpattern_check("himenss",'simen") => true
-Complete the following code given the task description and function signature.
+
 */
 #include<stdio.h>
-#include<string>  
-#include <iostream>
+#include<string>#include <iostream>
 using namespace std;
 bool cycpattern_check(string a,string b){
-	for(int i=0;i<a.size();i++){
-		if(a[i]==b[0]){
-			for(int j=0;j<b.size();j++){
-				if(a[i+j]!=b[j]){
-					break;
-				}
-				if(j==b.size()-1){
-					return true;
-				}
-			}
-		}
-	}
-	return false;
+  int i,j=0,k=0,l=0;
+  for(i=0;a[i]!='\0';i++){
+    if(a[i]==b[l]){
+      l++;
+      if(b[l]=='\0'){
+        return true;
+      }
+    }
+    if(a[i]==b[j]){
+      j++;
+      if(b[j]=='\0'){
+        return true;
+      }
+    }
+  }
+  return false;
 }
 int main(){
-	string a,b;
-	getline(cin,a);
-	getline(cin,b);
-	cout<<cycpattern_check(a,b);
+  string a,b;
+  cin>>a>>b;
+  cout<<cycpattern_check(a,b);
+  return 0;
 }
