@@ -6,16 +6,11 @@ For a given number n, find the largest number that divides n evenly, smaller tha
 #include<stdio.h>
 using namespace std;
 int largest_divisor(int n){
-	int i;
-	for(i=n/2;i>=1;i--){
-		if(n%i==0){
-			return i;
-		}
-	}
-}
-int main(){
-	int n;
-	scanf("%d",&n);
-	printf("%d\n",largest_divisor(n));
-	return 0;
+    int i;
+    for (i = n - 1; i > 0; i--) {
+        if (n % i == 0) {
+            return i;
+        }
+    }
+    return 0;
 }
