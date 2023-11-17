@@ -27,16 +27,42 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    // Complete the following code given the task description and function signature.
-    // You CAN change the function signature if you want.
-    // You CANNOT change the task description.
-    // You CANNOT use global variables.
-    // You CANNOT import any library.
-    // You CANNOT use any function from any library.
-    // You CANNOT use any function or data structure from STL.
-    // Your code must run in O(N * k) time.
-    // Your code must run in O(N) space.
-    // Your code must be deterministic.
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
+    int n = grid.size();
+    vector<vector<vector<int>>> dp(n, vector<vector<int>>(n, vector<int>(k, 0)));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(i == 0 && j == 0){
+                dp[i][j][0] = grid[i][j];
+            }else if(i == 0){
+                dp[i][j][0] = grid[i][j] + dp[i][j - 1][0];
+            }else if(j == 0){
+                dp[i][j][0] = grid[i][j] + dp[i - 1][j][0];
+            }else{
+                dp[i][j][0] = min(dp[i][j - 1][0], dp[i - 1][j][0]) + grid[i][j];
+            }
+        }
+    }
+    for(int i = 1; i < k; i++){
+        for(int j = 0; j < n; j++){
+            for(int k = 0; k < n; k++){
+                if(j == 0 && k == 0){
+                    dp[j][k][i] = grid[j][k] + min(dp[j + 1][k][i - 1], dp[j][k + 1][i - 1]);
+                }else if(j == 0){
+                    dp[j][k][i] = grid[j][k] + min(dp[j + 1][k][i - 1], dp[j][k + 1][i - 1]);
+                }else if(k == 0){
+                    dp[j][k][i] = grid[j][k] + min(dp[j - 1][k][i - 1], dp[j][k + 1][i - 1]);
+                }else{
+                    dp[j][k][i] = grid[j][k] + min(dp[j - 1][k][i - 1], min(dp[j][k - 1][i - 1], dp[j][k + 1][i - 1]));
+                }
+            }
+        }
+    }
+    return dp[n - 1][n - 1];
+}
 
 int main()
 {
@@ -48,8 +74,3 @@ int main()
     printf("\n");
     return 0;
 }
-#include<stdio.h>
-#include<vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
-int main(){
