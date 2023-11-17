@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<string>
+#include<iostream>
 #include <ostream>
 using namespace std;
 string encode_shift(string s){
@@ -70,12 +70,12 @@ string decode_vigenere(string s,string key){
 }
 int main(){
     string s;
-    cin>>s; 
+    cin>>s;
     string key;
     cin>>key;
     string encoded_string=encode_vigenere(s,key);
-    cout<<encoded_string<<endl;
+    cout<<encoded_string<<"\n";
     string decoded_string=decode_vigenere(encoded_string,key);
-    cout<<decoded_string<<endl;
+    cout<<decoded_string<<"\n";
     return 0;
 }
