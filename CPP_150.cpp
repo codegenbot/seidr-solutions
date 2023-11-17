@@ -10,24 +10,16 @@ for x_or_y(15, 8, 5) == 5
 #include<stdio.h>
 using namespace std;
 int x_or_y(int n,int x,int y){
-	int i,flag=0;
-	for(i=2;i<=n/2;i++)
-	{
-		if(n%i==0)
-		{
-			flag=1;
-			break;
-		}
-	}
-	if(flag==0)
-		return x;
-	else
-		return y;
+    int i;
+    for(i=2;i<n;i++){
+        if(n%i==0){
+            return y;
+        }
+    }
+    return x;
 }
-int main()
-{
-	int n,x,y;
-	scanf("%d%d%d",&n,&x,&y);
-	printf("%d",x_or_y(n,x,y));
-	return 0;
+int main(){
+    int n,x,y;
+    scanf("%d%d%d",&n,&x,&y);
+    printf("%d",x_or_y(n,x,y));
 }
