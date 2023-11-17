@@ -37,8 +37,20 @@ bool will_it_fly(vector<int> q,int w){
 	return true;
 }
 int main(){
-	vector<int> q={3,2,3};
-	int w=9;
-	printf("%d",will_it_fly(q,w));
+	vector<int> q;
+	int n,w;
+	scanf("%d",&n);
+	for(int i=0;i<n;i++){
+		int x;
+		scanf("%d",&x);
+		q.push_back(x);
+	}
+	scanf("%d",&w);
+	if(will_it_fly(q,w)){
+		printf("true\n");
+	}
+	else{
+		printf("false\n");
+	}
 	return 0;
 }
