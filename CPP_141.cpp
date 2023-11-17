@@ -16,28 +16,23 @@ file_name_check("1example.dll")  => "No" // (the name should start with a latin 
 #include<string>
 using namespace std;
 string file_name_check(string file_name){
-    int count = 0;
-    for(int i = 0; i < file_name.length(); i++){
-        if(file_name[i] == '.'){
-            if(file_name[i+1] == 't' && file_name[i+2] == 'x' && file_name[i+3] == 't'){
-                count++;
-            }
-            if(file_name[i+1] == 'e' && file_name[i+2] == 'x' && file_name[i+3] == 'e'){
-                count++;
-            }
-            if(file_name[i+1] == 'd' && file_name[i+2] == 'l' && file_name[i+3] == 'l'){
-                count++;
-            }
-        }
-    }
-    if(count == 0){
-        return "No";
-    }
-    else{
-        return "Yes";
-    }
-}
-
-int main(){
-    printf("%s", file_name_check("example.txt").c_str());
+	int dot_pos = file_name.find('.');
+	string sub_string_before_dot = file_name.substr(0,dot_pos);
+	string sub_string_after_dot = file_name.substr(dot_pos+1);
+	int count_of_digits = 0;
+	for(int i=0;i<sub_string_before_dot.length();i++){
+		if(sub_string_before_dot[i]>='0'&&sub_string_before_dot[i]<='9'){
+			count_of_digits++;
+		}
+	}
+	if(count_of_digits>3){
+		return "No";
+	}
+	if(sub_string_before_dot.length()==0){
+		return "No";
+	}
+	if(sub_string_after_dot=="txt"||sub_string_after_dot=="exe"||sub_string_after_dot=="dll"){
+		return "Yes";
+	}
+	return "No";
 }
