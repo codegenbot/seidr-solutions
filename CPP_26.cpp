@@ -9,25 +9,14 @@ Keep order of elements left the same as in the input.
 #include<algorithm>
 using namespace std;
 vector<int> remove_duplicates(vector<int> numbers){
-vector<int> result;
-vector<int>::iterator it;
-for(it=numbers.begin();it!=numbers.end();it++){
-if(find(result.begin(),result.end(),*it)==result.end())
-result.push_back(*it);
-}
-return result;
-}
-int main(){
-vector<int> numbers;
-int n,i,x;
-scanf("%d",&n);
-for(i=0;i<n;i++){
-scanf("%d",&x);
-numbers.push_back(x);
-}
-vector<int> result=remove_duplicates(numbers);
-for(i=0;i<result.size();i++){
-printf("%d ",result[i]);
-}
-return 0;
+    sort(numbers.begin(),numbers.end());
+    int s=numbers.size();
+    vector<int> s1;
+    for(int i=0;i<s-1;i++){
+        if(numbers[i]!=numbers[i+1]){
+            s1.push_back(numbers[i]);
+        }
+    }
+    s1.push_back(numbers[s-1]);
+    return s1;
 }
