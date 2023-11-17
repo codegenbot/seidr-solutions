@@ -17,24 +17,21 @@ get_closest_vowel("ab") ==> ""
 #include<string>
 #include<algorithm>
 using namespace std;
+
 string get_closest_vowel(string word){
-    string vowels = "aeiouAEIOU";
-    int i = word.size() - 1;
-    while(i >= 0 && vowels.find(word[i]) == string::npos)
-        i--;
-    if(i < 1)
-        return "";
-    int j = i - 1;
-    while(j >= 0 && vowels.find(word[j]) != string::npos)
-        j--;
-    if(j < 0)
-        return "";
-    return word.substr(j + 1, i - j);
+
+    // Complete the following code given the task description and function signature.
+
 }
+
 int main(){
-    printf("%s\n", get_closest_vowel("yogurt").c_str());
-    printf("%s\n", get_closest_vowel("FULL").c_str());
-    printf("%s\n", get_closest_vowel("quick").c_str());
-    printf("%s\n", get_closest_vowel("ab").c_str());
+
+    string word;
+
+    cin>>word;
+
+    cout<<get_closest_vowel(word)<<endl;
+
     return 0;
+
 }
