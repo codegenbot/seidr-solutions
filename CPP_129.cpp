@@ -23,87 +23,14 @@ Examples:
 
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
-#include<stdio.h>
-#include<vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> res;
-    int n=grid.size();
-    int m=grid[0].size();
-    vector<vector<int>> dp(n,vector<int>(m,0));
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            if(i-1>=0){
-                if(grid[i][j]<grid[i-1][j]){
-                    dp[i][j]=dp[i-1][j];
-                }
-            }
-            if(j-1>=0){
-                if(grid[i][j]<grid[i][j-1]){
-                    dp[i][j]=dp[i][j-1];
-                }
-            }
-            if(j+1<m){
-                if(grid[i][j]<grid[i][j+1]){
-                    dp[i][j]=dp[i][j+1];
-                }
-            }
-            if(i+1<n){
-                if(grid[i][j]<grid[i+1][j]){
-                    dp[i][j]=dp[i+1][j];
-                }
-            }
-        }
-    }
-    int i=0;
-    int j=0;
-    res.push_back(grid[i][j]);
-    while(k!=1){
-        if(i-1>=0){
-            if(dp[i-1][j]==dp[i][j]+1){
-                i=i-1;
-                res.push_back(grid[i][j]);
-                k--;
-                continue;
-            }
-        }
-        if(j-1>=0){
-            if(dp[i][j-1]==dp[i][j]+1){
-                j=j-1;
-                res.push_back(grid[i][j]);
-                k--;
-                continue;
-            }
-        }
-        if(j+1<m){
-            if(dp[i][j+1]==dp[i][j]+1){
-                j=j+1;
-                res.push_back(grid[i][j]);
-                k--;
-                continue;
-            }
-        }
-        if(i+1<n){
-            if(dp[i+1][j]==dp[i][j]+1){
-                i=i+1;
-                res.push_back(grid[i][j]);
-                k--;
-                continue;
-            }
-        }
-    }
-    return res;
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-}
-int main(){
-    vector<vector<int>> grid={{1,2,3},{4,5,6},{7,8,9}};
-    int k=3;
-    vector<int> res=minPath(grid,k);
-    for(int i=0;i<res.size();i++){
-        printf("%d ",res[i]);
+
+    int main(){
     }
-    printf("\n");
-}
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
