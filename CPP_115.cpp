@@ -41,14 +41,6 @@ int max_fill(vector<vector<int>> grid,int capacity){
             if(grid[i][j] == 1){
                 count++;
                 grid[i][j] = 0;
-                for(int k = 1; k <= capacity; k++){
-                    if(i+k < grid.size() && grid[i+k][j] == 1){
-                        grid[i+k][j] = 0;
-                    }
-                    if(j+k < grid[i].size() && grid[i][j+k] == 1){
-                        grid[i][j+k] = 0;
-                    }
-                }
             }
         }
     }

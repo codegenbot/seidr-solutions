@@ -16,30 +16,24 @@ using namespace std;
 bool check_dict_case(map<string,string> dict){
 	if(dict.size()==0)
 		return false;
-	bool flag=true;
-	for(auto it=dict.begin();it!=dict.end();it++){
+	map<string,string>::iterator it;
+	for(it=dict.begin();it!=dict.end();it++){
 		if(it->first[0]>='a'&&it->first[0]<='z'){
-			for(int i=1;i<it->first.size();i++){
-				if(it->first[i]<'a'||it->first[i]>'z'){
-					flag=false;
-					break;
-				}
+			for(int i=0;i<it->first.size();i++){
+				if(it->first[i]<'a'||it->first[i]>'z')
+					return false;
 			}
 		}
 		else if(it->first[0]>='A'&&it->first[0]<='Z'){
-			for(int i=1;i<it->first.size();i++){
-				if(it->first[i]<'A'||it->first[i]>'Z'){
-					flag=false;
-					break;
-				}
+			for(int i=0;i<it->first.size();i++){
+				if(it->first[i]<'A'||it->first[i]>'Z')
+					return false;
 			}
 		}
-		else{
-			flag=false;
-			break;
-		}
+		else
+			return false;
 	}
-	return flag;
+	return true;
 }
 int main(){
 	map<string,string> dict;
