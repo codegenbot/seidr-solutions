@@ -1,6 +1,5 @@
 #include<iostream>
 #include<string>
-#include <ostream>
 #include <cassert>
 using namespace std;
 /*
@@ -20,7 +19,7 @@ string flip_case(string str){
 }
 int main(){
     assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    assert (filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     assert (flip_case("hello") == "HELLO");
     assert (flip_case("HELLO") == "hello");
     assert (flip_case("") == "");
