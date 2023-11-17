@@ -11,9 +11,10 @@ Examples:
 >>> encode("This is a message")
 'tHKS KS C MGSSCGG"
 */
-#include <stdio.h>
-#include <string>
-#include <algorithm>
-#include <iostream>
+#include<stdio.h>
+#include<string>
+#include<algorithm>
 using namespace std;
 string encode(string message){
+
+}
