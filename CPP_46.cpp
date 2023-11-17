@@ -16,7 +16,7 @@ Please write a function to efficiently compute the n-th element of the fib4 numb
 #include<stdio.h>
 using namespace std;
 int fib4(int n){
-	int a = 0, b = 0, c = 2, d = 0, e = 0;
+	int a = 0, b = 0, c = 2, d = 0, e;
 	if(n == 0)
 		return 0;
 	else if(n == 1)
