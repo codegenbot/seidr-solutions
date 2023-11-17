@@ -21,9 +21,6 @@ Return an ordered vector of the values on the cells that the minimum path go thr
 
 Examples:
 
-#include <stdio.h>
-#include<vector>
-using namespace std;
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
 
@@ -36,7 +33,6 @@ bool issame(vector<int> a, vector<int> b)
     for (int i = 0; i < a.size(); i++)
     {
         if (a[i] != b[i])
-
             return false;
     }
     return true;
@@ -50,14 +46,37 @@ int main()
     testminPath();
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k)
-{
+
+#include <stdio.h>
+#include<vector>
+using namespace std;
+
+bool issame(vector<int> a,vector<int>b){
+
+    if(a.size()!=b.size())
+        return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i])
+            return false;
+    }
+    return true;
+}
+
+void testminPath(){
+    assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+}
+
+int main(){
+    testminPath();
+}
 
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-
+vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
+vector<int> path;
+}
 // Complete the following code given the task description and function signature.
 return path;
 }
