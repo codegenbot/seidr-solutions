@@ -19,43 +19,12 @@ string make_palindrome(string str){
     "catac" 
     */
     string s(str.rbegin(),str.rend());
-    string temp=str+s;
-    int n=temp.length();
-    int dp[n][n];
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(i==j)
-                dp[i][j]=1;
-            else
-                dp[i][j]=0;
-        }
+    int i=0;
+    for(i=0;i<str.length();i++){
+        if(str.substr(0,str.length()-i)==s.substr(i))
+            break;
     }
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(i<j){
-                if(temp[i]==temp[j])
-                    dp[i][j]=dp[i+1][j-1]+2;
-                else
-                    dp[i][j]=max(dp[i+1][j],dp[i][j-1]);
-            }
-        }
-    }
-    int i=0,j=n-1;
-    string ans="";
-    while(i<=j){
-        if(temp[i]==temp[j]){
-            ans+=temp[i];
-            i++;
-            j--;
-        }
-        else{
-            if(dp[i+1][j]>dp[i][j-1])
-                i++;
-            else
-                j--;
-        }
-    }
-    return ans;
+    return str+s.substr(i);
 }
 int main(){
     string str;
