@@ -23,58 +23,18 @@ Examples:
 
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
     vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
     vector<int> path;
-#include<vector>
-#include<iostream>
-#include<assert.h>
-using namespace std;
-typedef vector<int> vi;
-typedef vector<vector<int>> vvi;
-bool issame(vector<int> a,vector<int>b){
-    if(a.size()!=b.size())
-        return false;
-    for(int i=0;i<a.size();i++)
-        if(a[i]!=b[i])
-            return false;
-    return true;
-}
-vi minPath(vvi grid, int k){
-    vvi visited(grid.size(), vi(grid.size(), 0));
-    vi path;
-    return path;
-}
-int main(){
-    assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 1) , {1}));
-    assert (issame(minPath({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 3) , {1, 2, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 1) , {1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 2) , {1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 3) , {1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 4) , {1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 5) , {1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 6) , {1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 7) , {1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 8) , {1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 9) , {1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 10) , {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 11) , {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 12) , {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 13) , {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 14) , {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 15) , {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 16) , {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 17) , {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 18) , {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 19) , {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
-    cout<<"All test cases passed"<<endl;
-    return 0;
 }
     // Complete the following code given the task description and function signature.
     return path;
 }
-#include<stdio.h>
+int main(){
