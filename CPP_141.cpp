@@ -16,32 +16,46 @@ file_name_check("1example.dll")  => "No" // (the name should start with a latin 
 #include<string>
 using namespace std;
 string file_name_check(string file_name){
-  int dot_count = 0;
-  int digit_count = 0;
-  for(int i = 0; i < file_name.size(); i++){
-    if(file_name[i] == '.')
-      dot_count++;
-    else if(file_name[i] >= '0' && file_name[i] <= '9')
-      digit_count++;
-  }
-  if(dot_count != 1 || digit_count > 3){
-    return "No";
-  }
-  int dot_position = file_name.find('.');
-  string before_dot = file_name.substr(0, dot_position);
-  string after_dot = file_name.substr(dot_position + 1);
-  if(before_dot.size() == 0 || (before_dot[0] < 'a' || before_dot[0] > 'z') || (before_dot[0] < 'A' || before_dot[0] > 'Z')){
-    return "No";
-  }
-  if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll")
-    return "No";
-  return "Yes";
-}
-int main(){
-  while(1){
-    string file_name;
-    cin >> file_name;
-    cout << file_name_check(file_name) << endl;
-  }
-  return 0;
+	int i, j, k, l, m, n;
+	int size = file_name.length();
+	char a[size];
+	strcpy(a, file_name.c_str());
+	for (i = 0; i < size; i++) {
+		if (a[i] == '.')
+			break;
+	}
+	if (i == size)
+		return "No";
+	for (j = 0; j < i; j++) {
+		if (a[j] == '0' || a[j] == '1' || a[j] == '2' || a[j] == '3' || a[j] == '4' || a[j] == '5' || a[j] == '6' || a[j] == '7' || a[j] == '8' || a[j] == '9')
+			break;
+	}
+	if (j == i)
+		return "No";
+	for (k = i + 1; k < size; k++) {
+		if (a[k] == '0' || a[k] == '1' || a[k] == '2' || a[k] == '3' || a[k] == '4' || a[k] == '5' || a[k] == '6' || a[k] == '7' || a[k] == '8' || a[k] == '9')
+			break;
+	}
+	if (k == size)
+		return "No";
+	for (l = k + 1; l < size; l++) {
+		if (a[l] == '0' || a[l] == '1' || a[l] == '2' || a[l] == '3' || a[l] == '4' || a[l] == '5' || a[l] == '6' || a[l] == '7' || a[l] == '8' || a[l] == '9')
+			break;
+	}
+	if (l == size)
+		return "No";
+	for (m = l + 1; m < size; m++) {
+		if (a[m] == '0' || a[m] == '1' || a[m] == '2' || a[m] == '3' || a[m] == '4' || a[m] == '5' || a[m] == '6' || a[m] == '7' || a[m] == '8' || a[m] == '9')
+			break;
+	}
+	if (m == size)
+		return "No";
+	for (n = m + 1; n < size; n++) {
+		if (a[n] == '0' || a[n] == '1' || a[n] == '2' || a[n] == '3' || a[n] == '4' || a[n] == '5' || a[n] == '6' || a[n] == '7' || a[n] == '8' || a[n] == '9')
+			break;
+	}
+	if (n == size)
+		return "No";
+	else
+		return "Yes";
 }
