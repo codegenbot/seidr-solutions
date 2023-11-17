@@ -10,6 +10,7 @@ compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
+#include<assert.h>
 // #include<boost/any.hpp>    //to use any type of data type 
 // #include<boost/lexical_cast.hpp>  // to convert string to int
 // using namespace std;
@@ -87,8 +88,7 @@ boost::any compare_one(boost::any a,boost::any b){
             return "None";
     }
 }
-int main()
-{
+int main(){
     assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
     assert (boost::any_cast<string>(compare_one(string("5,1"), string("6"))) == "6");
     assert (boost::any_cast<string>(compare_one(string("1"), string("2,3"))) == "2,3");
