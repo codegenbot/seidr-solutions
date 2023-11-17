@@ -25,35 +25,23 @@ Note:
 #include<string>
 using namespace std;
 vector<int> even_odd_palindrome(int n){
-	vector<int> result;
-	int even = 0, odd = 0;
-	for (int i = 1; i <= n; i++){
-		string s = to_string(i);
-		int j = 0, k = s.length() - 1;
-		bool is_palindrome = true;
-		while (j < k){
-			if (s[j] != s[k]){
-				is_palindrome = false;
-				break;
-			}
-			j++;
-			k--;
-		}
-		if (is_palindrome){
-			if (i % 2 == 0){
-				even++;
-			}
-			else{
-				odd++;
-			}
-		}
-	}
-	result.push_back(even);
-	result.push_back(odd);
-	return result;
-}
-int main(){
-	vector<int> result = even_odd_palindrome(12);
-	printf("%d %d\n", result[0], result[1]);
-	return 0;
+  vector<int> result(2,0);
+  int odd = 0, even = 0;
+  for(int i = 1; i <= n; i++){
+    int temp = i;
+    int rev = 0;
+    while(temp){
+      rev = rev * 10 + temp % 10;
+      temp /= 10;
+    }
+    if(rev == i){
+      if(i % 2 == 0)
+        even++;
+      else
+        odd++;
+    }
+  }
+  result[0] = even;
+  result[1] = odd;
+  return result;
 }
