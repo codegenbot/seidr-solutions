@@ -21,9 +21,10 @@ a function that can output a vector of letter grades using the following table:
 
 
 Example:
+#include<iostream>
 grade_equation({4.0, 3, 1.7, 2, 3.5}) ==> {"A+", "B", "C-", "C", "A-"}
 */
-#include <iostream>
+#include<stdio.h>
 using namespace std;
 vector<string> numerical_letter_grade(vector<float> grades){
 #include<vector>
@@ -73,9 +74,14 @@ vector<string> numerical_letter_grade(vector<float> grades){
 	return letter_grade;
 }
 int main(){
-	vector<float> grades = {4.0, 3, 1.7, 2, 3.5};
-	vector<string> letter_grade = numerical_letter_grade(grades);
-	for(int i=0; i<letter_grade.size(); i++){
-		cout<<letter_grade[i]<<endl;
+	vector<float> grades;
+	grades.push_back(4.0);
+	grades.push_back(3);
+	grades.push_back(1.7);
+	grades.push_back(2);
+	grades.push_back(3.5);
+	vector<string> result = numerical_letter_grade(grades);
+	for(int i=0; i<result.size(); i++){
+		cout<<result[i]<<" ";
 	}
 }
