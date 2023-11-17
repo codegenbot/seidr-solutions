@@ -13,33 +13,23 @@ cycpattern_check("himenss",'simen") => true
 using namespace std;
 bool cycpattern_check(string a,string b){
 	int i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
-	l=a.length();
-	m=b.length();
-	if(l<m){
-		return false;
-	}
-	for(i=0;i<l;i++){
-		if(a[i]==b[0]){
-			for(j=0;j<m;j++){
-				if(a[(i+j)%l]!=b[j]){
-					break;
-				}
-			}
-			if(j==m){
-				return true;
-			}
-		}
+	string c;
+	for(i=0;i<a.length();i++){
+		c=a.substr(i,a.length()-i)+a.substr(0,i);
+		if(c.find(b)!=string::npos)
+			return true;
 	}
 	return false;
 }
 int main(){
 	string a,b;
-	cin>>a>>b;
-	if(cycpattern_check(a,b)){
-		cout<<"true";
-	}
-	else{
-		cout<<"false";
-	}
+	printf("Enter the first string\n");
+	cin>>a;
+	printf("Enter the second string\n");
+	cin>>b;
+	if(cycpattern_check(a,b))
+		printf("True\n");
+	else
+		printf("False\n");
 	return 0;
 }
