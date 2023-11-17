@@ -5,39 +5,69 @@ Return the string with numbers sorted from smallest to largest
 >>> sort_numbers('three one five")
 "one three five"
 */
-#include <stdio.h>
-#include <string>
-#include <map>
-#include <vector>
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<map>
 using namespace std;
 string sort_numbers(string numbers){
-    map<string, int> nums;
-    nums["zero"] = 0;
-    nums["one"] = 1;
-    nums["two"] = 2;
-    nums["three"] = 3;
-    nums["four"] = 4;
-    nums["five"] = 5;
-    nums["six"] = 6;
-    nums["seven"] = 7;
-    nums["eight"] = 8;
-    nums["nine"] = 9;
-    stringstream ss(numbers);
-    vector<int> num_list;
-    string num;
-    while(ss >> num){
-        num_list.push_back(nums[num]);
-    }
-    sort(num_list.begin(), num_list.end());
-    string ans;
-    for(int i = 0; i < num_list.size(); i++){
-        for(auto it : nums){
-            if(it.second == num_list[i]){
-                ans += it.first + " ";
-                break;
-            }
-        }
-    }
-    ans.pop_back();
-    return ans;
+	string result="";
+	map<string,int> num_map;
+	num_map["zero"]=0;
+	num_map["one"]=1;
+	num_map["two"]=2;
+	num_map["three"]=3;
+	num_map["four"]=4;
+	num_map["five"]=5;
+	num_map["six"]=6;
+	num_map["seven"]=7;
+	num_map["eight"]=8;
+	num_map["nine"]=9;
+	vector<int> nums;
+	int a=0;
+	int b=0;
+	for(int i=0;i<numbers.size();i++){
+		if(numbers[i]==' '){
+			nums.push_back(num_map[numbers.substr(a,i-a)]);
+			a=i+1;
+		}
+	}
+	nums.push_back(num_map[numbers.substr(a,numbers.size()-a)]);
+	sort(nums.begin(),nums.end());
+	for(int i=0;i<nums.size();i++){
+		if(i!=0) result+=" ";
+		switch(nums[i]){
+			case 0:
+				result+="zero";
+				break;
+			case 1:
+				result+="one";
+				break;
+			case 2:
+				result+="two";
+				break;
+			case 3:
+				result+="three";
+				break;
+			case 4:
+				result+="four";
+				break;
+			case 5:
+				result+="five";
+				break;
+			case 6:
+				result+="six";
+				break;
+			case 7:
+				result+="seven";
+				break;
+			case 8:
+				result+="eight";
+				break;
+			case 9:
+				result+="nine";
+				break;
+		}
+	}
+	return result;
 }
