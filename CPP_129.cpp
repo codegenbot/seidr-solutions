@@ -31,9 +31,6 @@ Examples:
     return result;
 }
 int main(){
-    vector<int> result;
-    return result;
-}
 #include<stdio.h>
 #include<vector>
 using namespace std;
