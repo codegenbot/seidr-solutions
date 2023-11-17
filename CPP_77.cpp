@@ -14,15 +14,15 @@ iscube(180) ==> false
 #include<math.h>
 using namespace std;
 bool iscuber(int a){
-	int b = sqrt(a);
-	if (b*b*b == a)
+	int b=cbrt(a);
+	if(b*b*b==a)
 		return true;
 	else
 		return false;
 }
 int main(){
 	int a;
-	scanf("%d", &a);
-	printf("%d", iscuber(a));
+	scanf("%d",&a);
+	printf("%d",iscuber(a));
 	return 0;
 }
