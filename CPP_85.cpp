@@ -3,22 +3,19 @@ Given a non-empty vector of integers lst. add the even elements that are at odd 
 
 
 Examples:
+#include<iostream>
     add({4, 2, 6, 7}) ==> 2 
 */
 #include<stdio.h>
-#include<vector>
-int sum=0;
-for(int i=0;i<lst.size();i=i+2)
+#include<stdlib.h>
+#include<math.h>
+int main()
 {
-if(lst[i]%2==0)
-sum=sum+lst[i];
+    int sum=0;
+    for(int i=0;i<lst.size();i=i+2)
+    {
+        if(lst[i]%2==0)
+        sum=sum+lst[i];
+    }
+    return sum;
 }
-return sum;
-}
-int main(){
-vector<int> lst={4, 2, 6, 7};
-printf("%d",add(lst));
-return 0;
-}
-using namespace std;
-int add(vector<int> lst){
