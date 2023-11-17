@@ -10,7 +10,7 @@ Return the string with numbers sorted from smallest to largest
 #include<map>
 using namespace std;
 string sort_numbers(string numbers){
-	map<string,int> m;
+	map<string, int> m;
 	m["zero"] = 0;
 	m["one"] = 1;
 	m["two"] = 2;
@@ -23,20 +23,15 @@ string sort_numbers(string numbers){
 	m["nine"] = 9;
 	vector<int> v;
 	stringstream ss(numbers);
-	string temp;
-	while(ss>>temp)
-		v.push_back(m[temp]);
-	sort(v.begin(),v.end());
-	string result;
-	for(int i = 0; i < v.size(); i++){
-		result += to_string(v[i]);
-		if(i != v.size()-1)
-			result += " ";
+	string tmp;
+	while(ss >> tmp){
+		v.push_back(m[tmp]);
 	}
-	return result;
-}
-int main(){
-	string a = "three one five";
-	cout<<sort_numbers(a)<<endl;
-	return 0;
+	sort(v.begin(), v.end());
+	string res;
+	for(int i = 0; i < v.size(); i++){
+		res = res + to_string(v[i]) + " ";
+	}
+	res.pop_back();
+	return res;
 }
