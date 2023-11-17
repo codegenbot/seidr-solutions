@@ -1,16 +1,126 @@
+/*
+Given a grid with N rows and N columns (N >= 2) and a positive integer k, 
+each cell of the grid contains a value. Every integer in the range {1, N * N}
+inclusive appears exactly once on the cells of the grid.
+
+You have to find the minimum path of length k in the grid. You can start
+from any cell, and in each step you can move to any of the neighbor cells,
+in other words, you can go to cells which share an edge with you current
+cell.
+Please note that a path of length k means visiting exactly k cells (not
+necessarily distinct).
+You CANNOT go off the grid.
+A path A (of length k) is considered less than a path B (of length k) if
+after making the ordered vectors of the values on the cells that A and B go
+through (let's call them lst_A and lst_B), lst_A is lexicographically less
+than lst_B, in other words, there exist an integer index i (1 <= i <= k)
+such that lst_A[i] < lst_B[i] and for any j (1 <= j < i) we have
+lst_A[j] = lst_B[j].
+It is guaranteed that the answer is unique.
+Return an ordered vector of the values on the cells that the minimum path go through.
+
+Examples:
+
+    Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
+    Output: {1, 2, 1}
+
+    Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
+    Output: {1}
+*/
+#include<iostream>
     vector<int> result;
     // Write your code here
     return result;
 }
+    int n = grid.size();
+    int m = grid[0].size();
+    int dp[n][m][k+1];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            for(int l=0;l<k+1;l++){
+                dp[i][j][l] = -1;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            dp[i][j][0] = grid[i][j];
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            for(int l=1;l<k+1;l++){
+                int min = -1;
+                if(i-1>=0){
+                    if(dp[i-1][j][l-1]!=-1){
+                        if(min==-1){
+                            min = dp[i-1][j][l-1];
+                        }
+                        else{
+                            if(min>dp[i-1][j][l-1]){
+                                min = dp[i-1][j][l-1];
+                            }
+                        }
+                    }
+                }
+                if(i+1<n){
+                    if(dp[i+1][j][l-1]!=-1){
+                        if(min==-1){
+                            min = dp[i+1][j][l-1];
+                        }
+                        else{
+                            if(min>dp[i+1][j][l-1]){
+                                min = dp[i+1][j][l-1];
+                            }
+                        }
+                    }
+                }
+                if(j-1>=0){
+                    if(dp[i][j-1][l-1]!=-1){
+                        if(min==-1){
+                            min = dp[i][j-1][l-1];
+                        }
+                        else{
+                            if(min>dp[i][j-1][l-1]){
+                                min = dp[i][j-1][l-1];
+                            }
+                        }
+                    }
+                }
+                if(j+1<m){
+                    if(dp[i][j+1][l-1]!=-1){
+                        if(min==-1){
+                            min = dp[i][j+1][l-1];
+                        }
+                        else{
+                            if(min>dp[i][j+1][l-1]){
+                                min = dp[i][j+1][l-1];
+                            }
+                        }
+                    }
+                }
+                if(min!=-1){
+                    dp[i][j][l] = min;
+                }
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(dp[i][j][k]!=-1){
+                result.push_back(dp[i][j][k]);
+            }
+        }
+    }
+    return result;
+}
 int main(){
-    vector<vector<int>> grid;
-    grid.push_back({1,2,3});
-    grid.push_back({4,5,6});
-    grid.push_back({7,8,9});
-    vector<int> res = minPath(grid, 3);
-    for(int i = 0; i < res.size(); i++)
-        printf("%d ", res[i]);
-    return 0;
+    vector<vector<int>> grid = {{5,9,3}, {4,1,6}, {7,8,2}};
+    vector<int> result = minPath(grid, 1);
+    for(int i=0;i<result.size();i++){
+        cout<<result[i]<<" ";
+    }
+    cout<<endl;
 }
 #include<stdio.h>
 #include<vector>
