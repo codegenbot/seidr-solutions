@@ -22,3 +22,11 @@ string circular_shift(int x,int shift){
 		return s2 + s1;
 	}
 }
+
+int main() {
+	int x = 12;
+	int shift = 1;
+	string s = circular_shift(x, shift);
+	cout << s << endl;
+	return 0;
+}
