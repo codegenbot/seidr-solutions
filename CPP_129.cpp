@@ -31,10 +31,8 @@ Examples:
     // Write your code here
     return result;
 }
-int main(){
-    vector<int> result;
-    // Write your code here
-    return result;
+    int main(){
+    return 0;
 }
 #include<stdio.h>
 #include<vector>
