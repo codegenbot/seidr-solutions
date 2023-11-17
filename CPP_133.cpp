@@ -15,22 +15,18 @@ For lst = {-2.4,1,1} the output should be 6
 #include<math.h>
 #include<vector>
 using namespace std;
-     //returning the sum of squared numbers in the given vector
-     //round each element in the vector to the upper int
-     float res = 0;
-     int i = 0;
-     while(i < lst.size()){
-          res += (int) ceil(lst[i]) * (int) ceil(lst[i]);
-          //printf("%f\n", res);
-          i++;
-     }
-     return res;
-
-    
+  int i;
+  float sum = 0;
+  for (i = 0; i < lst.size(); i++){
+    sum = sum + (ceil(lst[i]) * ceil(lst[i]));
+  }
+  return sum;
 }
+
 int main(){
-     double arr[5] = {1.4, 4.2, 0, 5.6, 6};
-     vector<float> v(arr, arr + sizeof(arr)/sizeof(arr[0]));
-     printf("%d\n", sum_squares(v));
+  vector<float> v = {1.1,0,1.4,4.2,0.0};
+  int num = sum_squares(v);
+  printf("%d",num);
+  return 0;
 }
 int sum_squares(vector<float> lst){
