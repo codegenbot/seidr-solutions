@@ -7,7 +7,7 @@ cycpattern_check("abab","baa") => true
 cycpattern_check("efef","eeff") => false
 cycpattern_check("himenss",'simen") => true
 
-
+*/
 #include<stdio.h>
 #include<string.h>
 using namespace std;
@@ -26,13 +26,6 @@ bool cycpattern_check(string a,string b){
     return false;
 }
 int main(){
-    char a[100],b[100];
-    scanf("%s%s",a,b);
-    if(cycpattern_check(a,b)){
-        printf("true");
-    }
-    else{
-        printf("false");
-    }
+    assert  (cycpattern_check("winemtt","tinem") == true );
     return 0;
 }
