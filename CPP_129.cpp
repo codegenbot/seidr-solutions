@@ -29,48 +29,48 @@ Examples:
 */
     vector<int> res;
     int n = grid.size();
-    if(n == 0 || k == 0) return res;
+    if(n == 0) return res;
     int m = grid[0].size();
-    if(m == 0 || k == 0) return res;
+    if(m == 0) return res;
+    if(k == 0) return res;
     vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
-    vector<vector<int>> path(n, vector<int>(m, -1));
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j++){
             if(i == 0 && j == 0){
-                dp[i][j] = 0;
-                continue;
+                dp[i][j] = grid[i][j];
             }
-            if(i > 0){
-                if(dp[i-1][j] + 1 < dp[i][j]){
-                    dp[i][j] = dp[i-1][j] + 1;
-                    path[i][j] = 0;
-                }
+            else if(i == 0){
+                dp[i][j] = min(dp[i][j - 1], grid[i][j]);
             }
-            if(j > 0){
-                if(dp[i][j-1] + 1 < dp[i][j]){
-                    dp[i][j] = dp[i][j-1] + 1;
-                    path[i][j] = 1;
-                }
+            else if(j == 0){
+                dp[i][j] = min(dp[i - 1][j], grid[i][j]);
+            }
+            else{
+                dp[i][j] = min(min(dp[i - 1][j], dp[i][j - 1]), grid[i][j]);
             }
         }
     }
-    int i = n - 1, j = m - 1;
+    int i = 0, j = 0;
     while(k > 0){
         res.push_back(grid[i][j]);
-        if(path[i][j] == 0) i--;
-        else j--;
+        if(i == n - 1 && j == m - 1) break;
+        if(i == n - 1){
+            j++;
+        }
+        else if(j == m - 1){
+            i++;
+        }
+        else{
+            if(dp[i + 1][j] < dp[i][j + 1]){
+                i++;
+            }
+            else{
+                j++;
+            }
+        }
         k--;
     }
     return res;
-}
-int main(){
-    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9} };
-    int k = 3;
-    vector<int> res = minPath(grid, k);
-    for(int i = 0; i < res.size(); i++)
-        printf("%d ", res[i]);
-    printf("\n");
-    return 0;
 }
 #include<stdio.h>
 #include<vector>
