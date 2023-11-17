@@ -19,16 +19,17 @@ any_int(3.6, -2.2, 2) ➞ false
 #include<math.h>
 using namespace std;
 bool any_int(float a,float b,float c){
-	if((a+b==c||b+c==a||a+c==b)&&(a==(int)a)&&(b==(int)b)&&(c==(int)c)){
-		return true;
-	}
-	else{
-		return false;
-	}
+  if(a==b+c||b==c+a||c==a+b)
+  return true;
+  else
+  return false;
 }
 int main(){
-	float a,b,c;
-	scanf("%f%f%f",&a,&b,&c);
-	printf("%d",any_int(a,b,c));
-	return 0;
+  float a,b,c;
+  scanf("%f%f%f",&a,&b,&c);
+  if(any_int(a,b,c))
+  printf("True");
+  else
+  printf("False");
+  return 0;
 }
