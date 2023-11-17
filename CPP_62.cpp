@@ -13,8 +13,8 @@ xs{0} + xs{1} * x + xs{2} * x^2 + ....
 using namespace std;
 vector<float> derivative(vector<float> xs){
 	vector<float> result;
-	for(int i=0;i<xs.size()-1;i++){
-		result.push_back(xs[i]*(i+1));
+	for(int i=1;i<xs.size();i++){
+		result.push_back(xs[i]*i);
 	}
 	return result;
 }
