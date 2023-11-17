@@ -10,21 +10,19 @@ For lst = {1.4,4.2,0} the output should be 29
 For lst = {-2.4,1,1} the output should be 6
 
 
+
 */
 #include<stdio.h>
 #include<math.h>
 #include<vector>
 using namespace std;
-    int sum = 0;
-    for(int i = 0; i < lst.size(); i++){
-        sum += (int) ceil(lst[i]) * (int) ceil(lst[i]);
+    int i;
+    float sum=0;
+    for(i=0;i<lst.size();i++)
+    {
+        lst[i]=ceil(lst[i]);
+        sum+=lst[i]*lst[i];
     }
     return sum;
-}
-//main function to test the code
-int main(){
-    vector<float> lst = {1,2,3};
-    printf("%i\n", sum_squares(lst));
-    return 0;
 }
 int sum_squares(vector<float> lst){
