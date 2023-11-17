@@ -32,7 +32,9 @@ Examples:
     return result;
 }
     int main(){
-    return 0;
+    vector<int> result;
+    // Write your code here
+    return result;
 }
 #include<stdio.h>
 #include<vector>
