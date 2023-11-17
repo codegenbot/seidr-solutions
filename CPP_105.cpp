@@ -17,7 +17,7 @@ For example:
   arr = {1, -1 , 55} 
         -> sort arr -> {-1, 1, 55}
         -> reverse arr -> {55, 1, -1}
-  return = {"One"}
+  return = {"One", "One"}
 */
 #include<stdio.h>
 #include<vector>
@@ -26,34 +26,14 @@ For example:
 #include<algorithm>
 using namespace std;
 vector<string> by_length(vector<int> arr){
-  vector<string> result;
-  if(arr.size() == 0) return result;
-  map<int, string> dict;
-  dict[1] = "One";
-  dict[2] = "Two";
-  dict[3] = "Three";
-  dict[4] = "Four";
-  dict[5] = "Five";
-  dict[6] = "Six";
-  dict[7] = "Seven";
-  dict[8] = "Eight";
-  dict[9] = "Nine";
-  sort(arr.begin(), arr.end());
-  reverse(arr.begin(), arr.end());
-  for(int i = 0; i < arr.size(); i++){
-    if(arr[i] >= 1 && arr[i] <= 9){
-      result.push_back(dict[arr[i]]);
-    }
-  }
-  return result;
-}
-
-int main(){
-  vector<int> arr = {2, 1, 1, 4, 5, 8, 2, 3};
-  vector<string> res = by_length(arr);
-  for(string str:res){
-    cout<<str<<" ";
-  }
-  cout<<endl;
-  return 0;
+	vector<string> names;
+	map<int, string> number_name = { {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"} };
+	for (int i = 0; i < arr.size(); i++) {
+		if (arr[i] <= 9 && arr[i] >= 1) {
+			names.push_back(number_name[arr[i]]);
+		}
+	}
+	sort(names.begin(), names.end());
+	reverse(names.begin(), names.end());
+	return names;
 }
