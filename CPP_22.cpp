@@ -8,9 +8,9 @@ Filter given vector of any python values only for integers
 #include<stdio.h>
 #include<vector>
 #include<string>
-#include<boost/any.hpp>//boost any
+#include<any>
 #include<list>
-typedef std::list<boost::any> list_any;
+typedef std::list<std::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
 	vector<int> result;
@@ -18,7 +18,7 @@ vector<int> filter_integers(list_any values){
 	{
 		if (it->type() == typeid(int))
 		{
-			result.push_back(boost::any_cast<int>(*it));
+			result.push_back(std::any_cast<int>(*it));
 		}
 	}
 	return result;
