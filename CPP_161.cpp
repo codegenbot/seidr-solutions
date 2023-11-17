@@ -13,8 +13,9 @@ solve("#a@C") = "#A@c"
 #include<string>
 using namespace std;
 string solve(string s){
-    int i;
-    for(i=0;i<s.length();i++)
+    int i,j,k,l;
+    l=s.length();
+    for(i=0;i<l;i++)
     {
         if(s[i]>='a' && s[i]<='z')
         {
@@ -26,11 +27,4 @@ string solve(string s){
         }
     }
     return s;
-}
-int main()
-{
-    string s;
-    cin>>s;
-    cout<<solve(s);
-    return 0;
 }
