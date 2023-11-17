@@ -9,7 +9,7 @@ If 'text" is an empty string, return None.
 #include<stdio.h>
 #include <cassert>
 #include<cstring>
-#include <openssl/md5.h>
+#include <openssl/md5.h> 
 using namespace std;
 string string_to_md5(string text){
     if(strlen(text.c_str()) == 0)
@@ -24,7 +24,7 @@ string string_to_md5(string text){
     string mdString;
     for(int i = 0; i < 16; i++)
     {
-        mdString += result[i]; 
+        mdString += result[i];
     }
     return mdString;
 }
