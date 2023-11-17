@@ -12,34 +12,35 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
+#include<boost/any>
 using namespace std;
-string compare_one(ant a,ant b){
-  if(typeid(a)==typeid(int)&&typeid(b)==typeid(int)){
-    return to_string(max(a,b));
+boost::any compare_one(boost::any a,boost::any b){
+  if(a.type()==typeid(int)&&b.type()==typeid(int)){
+    return max(boost::any_cast<int>(a),boost::any_cast<int>(b));
   }
-  if(typeid(a)==typeid(int)&&typeid(b)==typeid(float)){
-    return to_string(max(float(a),b));
+  if(a.type()==typeid(int)&&b.type()==typeid(float)){
+    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
   }
-  if(typeid(a)==typeid(int)&&typeid(b)==typeid(string)){
-    return to_string(max(float(a),stof(b)));
+  if(a.type()==typeid(int)&&b.type()==typeid(string)){
+    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
   }
-  if(typeid(a)==typeid(float)&&typeid(b)==typeid(int)){
-    return to_string(max(a,float(b)));
+  if(a.type()==typeid(float)&&b.type()==typeid(int)){
+    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
   }
-  if(typeid(a)==typeid(float)&&typeid(b)==typeid(float)){
-    return to_string(max(a,b));
+  if(a.type()==typeid(float)&&b.type()==typeid(float)){
+    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
   }
-  if(typeid(a)==typeid(float)&&typeid(b)==typeid(string)){
-    return to_string(max(a,stof(b)));
+  if(a.type()==typeid(float)&&b.type()==typeid(string)){
+    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
   }
-  if(typeid(a)==typeid(string)&&typeid(b)==typeid(int)){
-    return to_string(max(stof(a),float(b)));
+  if(a.type()==typeid(string)&&b.type()==typeid(int)){
+    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
   }
-  if(typeid(a)==typeid(string)&&typeid(b)==typeid(float)){
-    return to_string(max(stof(a),b));
+  if(a.type()==typeid(string)&&b.type()==typeid(float)){
+    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
   }
-  if(typeid(a)==typeid(string)&&typeid(b)==typeid(string)){
-    return to_string(max(stof(a),stof(b)));
+  if(a.type()==typeid(string)&&b.type()==typeid(string)){
+    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
   }
   else{
     return "None";
