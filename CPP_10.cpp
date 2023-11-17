@@ -18,19 +18,23 @@ string make_palindrome(string str){
     >>> make_palindrome("cata") 
     "catac" 
     */
-    // Find the longest palindromic suffix
-    string suffix(str.rbegin(), str.rend());
-    string prefix(str.begin(), str.end());
-    for (int i = 0; i < str.size(); i++) {
-        if (suffix.substr(i) == prefix.substr(0, str.size() - i)) {
-            return str + suffix.substr(i);
+    string s = str;
+    for (int i=0;i<str.size()-1;i++){
+        string temp = str.substr(i+1);
+        if (is_palindrome(temp)){
+            string s2(str.begin(),str.begin()+i+1);
+            string s1(s2.rbegin(),s2.rend());
+            s = s1 + str;
+            break;
         }
     }
-    return str + suffix;
+    return s;
 }
 int main(){
     string s;
-    cin>>s;
-    cout<<make_palindrome(s);
+    while (true){
+        cin >> s;
+        cout << make_palindrome(s) << endl;
+    }
     return 0;
 }
