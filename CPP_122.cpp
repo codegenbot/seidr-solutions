@@ -14,8 +14,10 @@ Constraints:
 #include<stdio.h>
 #include<vector>
 int main(){
+    int k;
     vector<int> arr = {111,21,3,4000,5,6,7,8,9};
-    int k = 4;
+    printf("Enter the value of k:");
+    scanf("%d",&k);
     printf("%d",add_elements(arr,k));
 }
 using namespace std;
