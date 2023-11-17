@@ -33,8 +33,11 @@ Examples:
     return path;
 }
 int main(){
-
-#include<stdio.h>
-#include <vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9} };
+    vector<int> path = minPath(grid, 3);
+    for (int i = 0; i < path.size(); i++)
+    {
+        cout << path[i] << " ";
+    }
+    cout << endl;
+}
