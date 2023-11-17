@@ -21,8 +21,8 @@ string string_to_md5(string text){
     char *mdString = (char *)malloc(sizeof(char)*33);
     for(int i = 0; i < 16; i++)
         sprintf(&mdString[i*2], "%02x", (unsigned int)result[i]);
-    return (char *)mdString;
+    return mdString;
 }
 int main(){
-    cout<<string_to_md5("Hello world")<<endl; //3e25960a79dbc69b674cd4ec67a72c62
+    cout<<string_to_md5("Hello world")<<endl; 
 }
