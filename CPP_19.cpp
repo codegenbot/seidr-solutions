@@ -10,33 +10,34 @@ Return the string with numbers sorted from smallest to largest
 #include<map>
 using namespace std;
 string sort_numbers(string numbers){
-	map<string, int> numberMap;
-	numberMap["zero"] = 0;
-	numberMap["one"] = 1;
-	numberMap["two"] = 2;
-	numberMap["three"] = 3;
-	numberMap["four"] = 4;
-	numberMap["five"] = 5;
-	numberMap["six"] = 6;
-	numberMap["seven"] = 7;
-	numberMap["eight"] = 8;
-	numberMap["nine"] = 9;
-	string result = "";
-	int i = 0;
-	while(numbers[i] != '\0'){
-		string temp = "";
-		while(numbers[i] != ' ' && numbers[i] != '\0'){
-			temp += numbers[i];
-			i++;
-		}
-		result.push_back(numberMap[temp]);
-		i++;
+	map<string, int> num;
+	num["zero"] = 0;
+	num["one"] = 1;
+	num["two"] = 2;
+	num["three"] = 3;
+	num["four"] = 4;
+	num["five"] = 5;
+	num["six"] = 6;
+	num["seven"] = 7;
+	num["eight"] = 8;
+	num["nine"] = 9;
+	stringstream ss(numbers);
+	string word;
+	vector<int> v;
+	while(ss >> word){
+		v.push_back(num[word]);
 	}
-	sort(result.begin(), result.end());
-	return result;
+	sort(v.begin(), v.end());
+	string ret;
+	for(auto i : v){
+		ret = ret + to_string(i) + " ";
+	}
+	ret.pop_back();
+	return ret;
 }
+
 int main(){
-	string numbers = "three one five";
-	cout << sort_numbers(numbers) << endl;
+	string s = "three one five";
+	cout << sort_numbers(s) << endl;
 	return 0;
 }
