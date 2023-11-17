@@ -22,10 +22,54 @@ long long double_the_difference(vector<float> lst) {
         }
     }
     return sum;
-}
 
-int main(){
+int main() {
     vector<float> lst = {1, 3, 2, 0};
     long long odd_sum = 10;
     assert (double_the_difference(lst) == odd_sum );
+    lst = {-1, -2, 0};
+    odd_sum = 0;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {9, -2};
+    odd_sum = 81;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {0};
+    odd_sum = 0;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {};
+    odd_sum = 0;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {1.1, 2.2, 3.3};
+    odd_sum = 1 + 9 + 25;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {-1.1, -2.2, 0};
+    odd_sum = 0;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {9.9, -2.2};
+    odd_sum = 98;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {0};
+    odd_sum = 0;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {};
+    odd_sum = 0;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {1, 2, 3};
+    odd_sum = 1 + 9;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {-1, -2, 0};
+    odd_sum = 0;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {9, -2};
+    odd_sum = 81;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {0};
+    odd_sum = 0;
+    assert (double_the_difference(lst) == odd_sum );
+    lst = {};
+    odd_sum = 0;
+    assert (double_the_difference(lst) == odd_sum );
+    cout << "success" << endl;
+    return 0;
 }
+
