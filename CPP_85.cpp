@@ -13,9 +13,8 @@ Examples:
             sum=sum+lst[i];
         }
     return sum;
-}
+
 int main(){
-{
     int n;
     vector<int> v;
     printf("Enter the number of elements:\n");
