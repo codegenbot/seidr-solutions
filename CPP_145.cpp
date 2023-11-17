@@ -14,8 +14,8 @@ For example:
 #include<vector>
 #include<string>
 #include<algorithm>
-using namespace std;
 
+using namespace std;
 vector<int> order_by_points(vector<int> nums){
     vector<int> ans;
     vector<int> a;
