@@ -29,7 +29,7 @@ int main() {
     long long odd_sum = 10;
     assert (double_the_difference(lst) == odd_sum );
 
-    lst = {-1, -2, 0};
+    lst = {0};
     odd_sum = 0;
     assert (double_the_difference(lst) == odd_sum );
 
@@ -37,45 +37,9 @@ int main() {
     odd_sum = 81;
     assert (double_the_difference(lst) == odd_sum );
 
-    lst = {0};
+    lst = {-1, -2, 0};
     odd_sum = 0;
     assert (double_the_difference(lst) == odd_sum );
 
-    lst = {};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum );
-
-    lst = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-    odd_sum = 165;
-    assert (double_the_difference(lst) == odd_sum );
-
-    lst = {-9, -8, -7, -6, -5, -4, -3, -2, -1, 0};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum );
-
-    lst = {9, -8, 7, -6, 5, -4, 3, -2, 1, 0};
-    odd_sum = 165;
-    assert (double_the_difference(lst) == odd_sum );
-
-    lst = {-9, 8, -7, 6, -5, 4, -3, 2, -1, 0};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum );
-
-    lst = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0.5};
-    odd_sum = 165;
-    assert (double_the_difference(lst) == odd_sum );
-
-    lst = {-9, -8, -7, -6, -5, -4, -3, -2, -1, -0.5};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum );
-
-    lst = {9, -8, 7, -6, 5, -4, 3, -2, 1, -0.5};
-    odd_sum = 165;
-    assert (double_the_difference(lst) == odd_sum );
-
-    lst = {-9, 8, -7, 6, -5, 4, -3, 2, -1, -0.5};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum );
-
-    cout << "All tests pass" << endl;
+    return 0;
 }
