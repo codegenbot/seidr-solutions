@@ -40,9 +40,3 @@ string encode(string message){
 	}
 	return result;
 }
-int main(){
-	string message;
-	getline(cin,message);
-	cout<<encode(message)<<endl;
-	return 0;
-}
