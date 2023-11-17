@@ -9,7 +9,9 @@ prime_length("orange") == false
 */
 #include<stdio.h>
 #include<string>
+#include <ostream>
 using namespace std;
+
 bool prime_length(string str){
 	int len = str.length();
 	if (len == 1 || len == 2)
