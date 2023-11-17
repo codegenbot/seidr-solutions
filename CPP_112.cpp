@@ -13,6 +13,7 @@ For s = "abcdedcba", c = "ab", the result should be ("cdedc","True")
 #include<vector>
 #include<string>
 #include<algorithm>
+#include <iostream>
 using namespace std;
 vector<string> reverse_delete(string s,string c){
 	vector<string> result;
@@ -38,7 +39,7 @@ int main(){
 	cin>>s>>c;
 	vector<string> result=reverse_delete(s,c);
 	for(int i=0;i<result.size();i++){
-		cout<<result[i]<<" ";
+		std::cout<<result[i]<<" ";
 	}
 	return 0;
 }
