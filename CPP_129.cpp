@@ -31,7 +31,7 @@ Examples:
 	return {};
 }
 
-int main(){
+int main()
 {
 	vector<vector<int>> grid1 = { {1,2,3}, {4,5,6}, {7,8,9}};
 	vector<vector<int>> grid2 = { {5,9,3}, {4,1,6}, {7,8,2}};
@@ -43,8 +43,12 @@ int main(){
 	for(auto num : result2)
 		printf("%d ", num);
 	printf("\n");
+int main()
+{    
+   // CODE
 	return 0;
 }
+
 #include<stdio.h>
 #include<vector>
 using namespace std;
