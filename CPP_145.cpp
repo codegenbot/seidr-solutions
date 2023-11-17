@@ -17,6 +17,7 @@ For example:
 #include<iostream>
 #include<bits/stdc++.h>
 
+
 using namespace std;
 
 vector<int> order_by_points(vector<int> nums){
@@ -49,7 +50,7 @@ vector<int> order_by_points(vector<int> nums){
     vector<int> z;
 
     int sum = 0;
-    for(int i = 0;i < nums.size();i++){ 
+    for(int i = 0;i < nums.size();i++){
         sum = 0;
         while(nums[i] != 0){
             sum += nums[i] % 10;
