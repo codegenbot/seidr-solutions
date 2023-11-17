@@ -20,7 +20,6 @@ It is guaranteed that the answer is unique.
 Return an ordered vector of the values on the cells that the minimum path go through.
 
 Examples:
-
 */
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
@@ -29,7 +28,7 @@ Examples:
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <queue>
+
 #include <stdio.h>
 #include <assert.h>
 #include <vector>
