@@ -11,25 +11,26 @@ compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
 #include<string>
+#include<algorithm>
 #include<boost/any.hpp>
 using namespace std;
-boost::any compare_one(string a,string b){
-	if(a.size()==b.size()){
-		if(a.compare(b)==0){
-			return boost::any("None");
+boost::any compare_one(boost::any a,boost::any b){
+	if(a.type()==b.type()){
+		if(a==b){
+			return "None";
 		}
 		else{
-			return boost::any(a>b?a:b);
+			return a>b?a:b;
 		}
 	}
 	else{
-		return boost::any(a.size()>b.size()?a:b);
+		return a.type()==typeid(string)?a:b;
 	}
 }
 int main(){
-	assert (boost::any_cast<string>(compare_one(to_string(1), to_string(2.5))) == "2.5");
-	assert (boost::any_cast<string>(compare_one(to_string(1), "2,3")) == "2,3");
-	assert (boost::any_cast<string>(compare_one("5,1", "6")) == "6");
-	assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
+	printf("%s\n",boost::any_cast<const char*>(compare_one(1, 2.5)));
+	printf("%s\n",boost::any_cast<const char*>(compare_one(1, "2,3")));
+	printf("%s\n",boost::any_cast<const char*>(compare_one("5,1", "6")));
+	printf("%s\n",boost::any_cast<const char*>(compare_one("1", 1)));
 	return 0;
 }
