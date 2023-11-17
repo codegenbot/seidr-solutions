@@ -10,119 +10,71 @@ compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-using namespace std;
-boost::any compare_one(boost::any a,boost::any b){
-    if(a.type()==typeid(int)&&b.type()==typeid(int)){
-        if(boost::any_cast<int>(a)>boost::any_cast<int>(b)){
-            return a;
-        }
-        else if(boost::any_cast<int>(a)<boost::any_cast<int>(b)){
-            return b;
-        }
-        else{
-            return "None";
-        }
-    }
-    else if(a.type()==typeid(float)&&b.type()==typeid(int)){
-        if(boost::any_cast<float>(a)>boost::any_cast<int>(b)){
-            return a;
-        }
-        else if(boost::any_cast<float>(a)<boost::any_cast<int>(b)){
-            return b;
-        }
-        else{
-            return "None";
-        }
-    }
-    else if(a.type()==typeid(int)&&b.type()==typeid(float)){
-        if(boost::any_cast<int>(a)>boost::any_cast<float>(b)){
-            return a;
-        }
-        else if(boost::any_cast<int>(a)<boost::any_cast<float>(b)){
-            return b;
-        }
-        else{
-            return "None";
-        }
-    }
-    else if(a.type()==typeid(float)&&b.type()==typeid(float)){
-        if(boost::any_cast<float>(a)>boost::any_cast<float>(b)){
-            return a;
-        }
-        else if(boost::any_cast<float>(a)<boost::any_cast<float>(b)){
-            return b;
-        }
-        else{
-            return "None";
-        }
-    }
-    else if(a.type()==typeid(string)&&b.type()==typeid(float)){
-        if(stof(boost::any_cast<string>(a))>boost::any_cast<float>(b)){
-            return a;
-        }
-        else if(stof(boost::any_cast<string>(a))<boost::any_cast<float>(b)){
-            return b;
-        }
-        else{
-            return "None";
-        }
-    }
-    else if(a.type()==typeid(float)&&b.type()==typeid(string)){
-        if(boost::any_cast<float>(a)>stof(boost::any_cast<string>(b))){
-            return a;
-        }
-        else if(boost::any_cast<float>(a)<stof(boost::any_cast<string>(b))){
-            return b;
-        }
-        else{
-            return "None";
-        }
-    }
-    else if(a.type()==typeid(string)&&b.type()==typeid(int)){
-        if(stof(boost::any_cast<string>(a))>boost::any_cast<int>(b)){
-            return a;
-        }
-        else if(stof(boost::any_cast<string>(a))<boost::any_cast<int>(b)){
-            return b;
-        }
-        else{
-            return "None";
-        }
-    }
-    else if(a.type()==typeid(int)&&b.type()==typeid(string)){
-        if(boost::any_cast<int>(a)>stof(boost::any_cast<string>(b))){
-            return a;
-        }
-        else if(boost::any_cast<int>(a)<stof(boost::any_cast<string>(b))){
-            return b;
-        }
-        else{
-            return "None";
-        }
-    }
-    else{
-        if(stof(boost::any_cast<string>(a))>stof(boost::any_cast<string>(b))){
-            return a;
-        }
-        else if(stof(boost::any_cast<string>(a))<stof(boost::any_cast<string>(b))){
-            return b;
-        }
-        else{
-            return "None";
-        }
-    }
+#include<iostream>
+std::string compare_one(boost::any a, boost::any b) {
+	if (a.type() == typeid(int) && b.type() == typeid(int)) {
+		int num1 = boost::any_cast<int>(a);
+		int num2 = boost::any_cast<int>(b);
+		if (num1 > num2) return std::to_string(num1);
+		if (num2 > num1) return std::to_string(num2);
+		if (num1 == num2) return "None";
+	}
+	if (a.type() == typeid(double) && b.type() == typeid(int)) {
+		double num1 = boost::any_cast<double>(a);
+		int num2 = boost::any_cast<int>(b);
+		if (num1 > num2) return std::to_string(num1);
+		if (num2 > num1) return std::to_string(num2);
+		if (num1 == num2) return "None";
+	}
+	if (a.type() == typeid(int) && b.type() == typeid(double)) {
+		int num1 = boost::any_cast<int>(a);
+		double num2 = boost::any_cast<double>(b);
+		if (num1 > num2) return std::to_string(num1);
+		if (num2 > num1) return std::to_string(num2);
+		if (num1 == num2) return "None";
+	}
+	if (a.type() == typeid(double) && b.type() == typeid(double)) {
+		double num1 = boost::any_cast<double>(a);
+		double num2 = boost::any_cast<double>(b);
+		if (num1 > num2) return std::to_string(num1);
+		if (num2 > num1) return std::to_string(num2);
+		if (num1 == num2) return "None";
+	}
+	if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+		std::string num1 = boost::any_cast<std::string>(a);
+		std::string num2 = boost::any_cast<std::string>(b);
+		if (num1 > num2) return num1;
+		if (num2 > num1) return num2;
+		if (num1 == num2) return "None";
+	}
+	if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+		int num1 = boost::any_cast<int>(a);
+		std::string num2 = boost::any_cast<std::string>(b);
+		if (num1 > std::stod(num2)) return std::to_string(num1);
+		else return num2;
+	}
+	if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+		std::string num1 = boost::any_cast<std::string>(a);
+		int num2 = boost::any_cast<int>(b);
+		if (std::stoi(num1) > num2) return num1;
+		else return std::to_string(num2);
+	}
+	if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+		std::string num1 = boost::any_cast<std::string>(a);
+		double num2 = boost::any_cast<double>(b);
+		if (std::stod(num1) > num2) return num1;
+		else return std::to_string(num2);
+	}
+	if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
+		double num1 = boost::any_cast<double>(a);
+		std::string num2 = boost::any_cast<std::string>(b);
+		if (num1 > std::stod(num2)) return std::to_string(num1);
+		else return num2;
+	}
 }
-int main(){
-    boost::any a=compare_one(1,2.5);
-    boost::any b=compare_one(1,"2,3");
-    boost::any c=compare_one("5,1","6");
-    boost::any d=compare_one("1",1);
-    cout<<boost::any_cast<float>(a)<<endl;
-    cout<<boost::any_cast<string>(b)<<endl;
-    cout<<boost::any_cast<string>(c)<<endl;
-    cout<<boost::any_cast<string>(d)<<endl;
-    return 0;
+int main() {
+	std::cout << compare_one(1, 2.5) << "\n";
+	std::cout << compare_one(1, "2,3") << "\n";
+	std::cout << compare_one("5,1", "6") << "\n";
+	std::cout << compare_one("1", 1) << "\n";
 }
