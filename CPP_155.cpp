@@ -24,10 +24,3 @@ vector<int> even_odd_count(int num){
     result.push_back(odd);
     return result;
 }
-int main(){
-    int num;
-    scanf("%d", &num);
-    vector<int> result = even_odd_count(num);
-    printf("%d %d", result[0], result[1]);
-    return 0;
-}
