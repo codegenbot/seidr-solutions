@@ -9,12 +9,11 @@ compare_one(1, "2,3") ➞ "2,3"
 compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
-#include<stdio.h>
-#include<assert.h>
+#include<iostream>
 // #include<boost/any.hpp>    //to use any type of data type 
 // #include<boost/lexical_cast.hpp>  // to convert string to int
-using namespace std;
-
+#include<cassert>
+// using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
     if(a.type()==typeid(int)&&b.type()==typeid(int)){
         if(boost::any_cast<int>(a)>boost::any_cast<int>(b))
