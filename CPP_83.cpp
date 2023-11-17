@@ -9,17 +9,11 @@ int starts_one_ends(int n){
 		return 2;
 	if(n==2)
 		return 3;
-	int dp[n+1];
-	dp[1]=2;
-	dp[2]=3;
-	for(int i=3;i<=n;i++){
-		dp[i]=dp[i-1]+dp[i-2];
-	}
-	return dp[n];
+	return starts_one_ends(n-1)+starts_one_ends(n-2);
 }
 int main(){
 	int n;
 	scanf("%d",&n);
-	printf("%d\n",starts_one_ends(n));
+	printf("%d",starts_one_ends(n));
 	return 0;
 }
