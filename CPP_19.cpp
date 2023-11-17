@@ -23,14 +23,14 @@ string sort_numbers(string numbers){
 	num_map["nine"] = 9;
 	vector<int> nums;
 	stringstream ss(numbers);
-	string num;
-	while(ss>>num){
-		nums.push_back(num_map[num]);
+	string word;
+	while(ss >> word){
+		nums.push_back(num_map[word]);
 	}
 	sort(nums.begin(), nums.end());
-	string res;
-	for(int i=0; i<nums.size(); i++){
-		res += to_string(nums[i]) + " ";
+	string ret;
+	for(int i = 0; i < nums.size(); i++){
+		ret += to_string(nums[i]) + " ";
 	}
-	return res;
+	return ret;
 }
