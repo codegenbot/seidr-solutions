@@ -27,7 +27,7 @@ int fib4(int n){
 	return fib4_array[n-1];
 }
 
-int main(){
+int main1(){
 	int n = 5;
 	printf("%d\n", fib4(n));
 	return 0;
