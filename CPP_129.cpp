@@ -61,7 +61,7 @@ Examples:
     return result;
 }
 int main(){
-    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9} }; 
+    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9} };
     int k = 3;
     vector<int> result = minPath(grid, k);
     for(int i = 0; i < result.size(); i++){
@@ -77,7 +77,3 @@ int main(){
     printf("\n");
     return 0;
 }
-#include<stdio.h>
-#include<vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
