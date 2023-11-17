@@ -16,19 +16,34 @@ Please write a function to efficiently compute the n-th element of the fib4 numb
 #include<stdio.h>
 using namespace std;
 int fib4(int n){
-	int fib4_array[n];
-	fib4_array[0] = 0;
-	fib4_array[1] = 0;
-	fib4_array[2] = 2;
-	fib4_array[3] = 0;
-	for(int i = 4; i < n; i++){
-		fib4_array[i] = fib4_array[i-1] + fib4_array[i-2] + fib4_array[i-3] + fib4_array[i-4];
+	int a = 0;
+	int b = 0;
+	int c = 2;
+	int d = 0;
+	int i = 4;
+	if(n == 1){
+		return 0;
 	}
-	return fib4_array[n-1];
+	if(n == 2){
+		return 2;
+	}
+	if(n == 3){
+		return 0;
+	}
+	if(n == 4){
+		return 2;
+	}
+	while(i <= n){
+		a = b;
+		b = c;
+		c = d;
+		d = a + b + c;
+		i++;
+	}
+	return d;
 }
-
 int main(){
-	int n = 5;
-	printf("%d\n", fib4(n));
-	return 0;
+	int n;
+	scanf("%d",&n);
+	printf("%d",fib4(n));
 }
