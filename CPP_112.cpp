@@ -16,20 +16,20 @@ For s = "abcdedcba", c = "ab", the result should be ("cdedc","True")
 using namespace std;
 vector<string> reverse_delete(string s,string c){
 	vector<string> res;
+	string s1;
 	for(int i=0;i<s.size();i++){
-		for(int j=0;j<c.size();j++){
-			if(s[i]==c[j]){
-				s.erase(i,1);
-				i--;
-				break;
-			}
+		if(c.find(s[i])==string::npos){
+			s1+=s[i];
 		}
 	}
-	res.push_back(s);
-	string s2=s;
+	res.push_back(s1);
+	string s2=s1;
 	reverse(s2.begin(),s2.end());
-	if(s2==s) res.push_back("True");
-	else res.push_back("False");
+	if(s1==s2){
+		res.push_back("True");
+	}else{
+		res.push_back("False");
+	}
 	return res;
 }
 int main(){
