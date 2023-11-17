@@ -11,7 +11,7 @@ Return the string with numbers sorted from smallest to largest
 #include<vector>
 #include<algorithm>
 using namespace std;
-string sort_numbers(string numbers){//error: ‘string’ does not name a type; did you mean ‘stdin’?
+string sort_numbers(string numbers){
 	map<string, int> num_map;
 	num_map["zero"] = 0;
 	num_map["one"] = 1;
@@ -23,8 +23,8 @@ string sort_numbers(string numbers){//error: ‘string’ does not name a type; 
 	num_map["seven"] = 7;
 	num_map["eight"] = 8;
 	num_map["nine"] = 9;
-	vector<int> nums;//error: expected primary-expression before ‘int’
-	stringstream ss(numbers);//error: variable ‘std::stringstream ss’ has initializer but incomplete type
+	vector<int> nums;
+	stringstream ss(numbers);
 	string num;
 	while(ss >> num){
 		nums.push_back(num_map[num]);//error: ‘nums’ was not declared in this scope; did you mean ‘num’?
