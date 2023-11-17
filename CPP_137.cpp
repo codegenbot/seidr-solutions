@@ -14,44 +14,38 @@ compare_one("1", 1) ➞ "None"
 #include<algorithm>
 #include<boost/any.hpp>
 using namespace std;
-boost::any compare_one(boost::any a,boost::any b)
-{
-	if(a.type() == typeid(string))
-	{
-		string tmp = a.type();
-		replace(tmp.begin(),tmp.end(),',','.');
-		a = stod(tmp);
-	}
-	if(b.type() == typeid(string))
-	{
-		string tmp = b.type();
-		replace(tmp.begin(),tmp.end(),',','.');
-		b = stod(tmp);
-	}
-	if(a.type() == typeid(int))
-	{
-		a = stod(to_string(boost::any_cast<int>(a)));
-	}
-	if(b.type() == typeid(int))
-	{
-		b = stod(to_string(boost::any_cast<int>(b)));
-	}
-	if(boost::any_cast<double>(a) > boost::any_cast<double>(b))
-	{
-		return a;
-	}
-	else if(boost::any_cast<double>(a) < boost::any_cast<double>(b))
-	{
-		return b;
-	}
-	else
-	{
+boost::any compare_one(boost::any a,boost::any b){
+	string aa=boost::any_cast<string>(a);
+	string bb=boost::any_cast<string>(b);
+	int aaa=boost::any_cast<int>(a);
+	int bbb=boost::any_cast<int>(b);
+	float aaaa=boost::any_cast<float>(a);
+	float bbbb=boost::any_cast<float>(b);
+	if(aa==bb){
 		return "None";
 	}
+	else if(aaa==bbb){
+		return "None";
+	}
+	else if(aaaa==bbbb){
+		return "None";
+	}
+	else if(aa>bb){
+		return a;
+	}
+	else if(aaa>bbb){
+		return a;
+	}
+	else if(aaaa>bbbb){
+		return a;
+	}
+	else{
+		return b;
+	}
 }
-int main()
-{
-	boost::any a = "1,5";
-	boost::any b = 6;
-	cout << compare_one(a,b);
+int main(){
+	boost::any a,b;
+	a=1;
+	b="2,3";
+	cout<<compare_one(a,b);
 }
