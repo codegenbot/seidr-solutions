@@ -24,15 +24,3 @@ long long double_the_difference(vector<float> lst){
 	}
 	return sum;
 }
-/*#include<iostream>
-#include<cassert>*/
-int main(){
-    vector<float> lst {1, 3, 2, 0};
-    long long odd_sum = 1 + 9 + 0 + 0;
-    assert (double_the_difference(lst) == odd_sum );
-    //assert (double_the_difference({-1, -2, 0}) == 0);
-    //assert (double_the_difference({9, -2}) == 81);
-    //assert (double_the_difference({0}) == 0);
-    //assert (double_the_difference({}) == 0);
-    return 0;
-}
