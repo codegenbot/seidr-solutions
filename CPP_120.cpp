@@ -36,10 +36,10 @@ vector<int> maximum(vector<int> arr,int k){
 }
 int main(){
     vector<int> arr={-3, -4, 5};
-    vector<int> res=maximum(arr,3);
+    int k=3;
+    vector<int> res=maximum(arr,k);
     for(int i=0;i<res.size();i++){
         printf("%d ",res[i]);
     }
-    printf("\n");
     return 0;
 }
