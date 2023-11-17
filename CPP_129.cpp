@@ -18,52 +18,54 @@ such that lst_A[i] < lst_B[i] and for any j (1 <= j < i) we have
 lst_A[j] = lst_B[j].
 It is guaranteed that the answer is unique.
 Return an ordered vector of the values on the cells that the minimum path go through.
-<int> x(n); //長度為 n，全部初始化為 0
-<int> x{n}; // x 只有一個元素，且值為 n
-<int> v = {0}; // v 有一個元素，且值為 0
-<int> v {0};
 
 Examples:
 
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
-#include  <stdio.h>
-#include <string.h>
-#include <cstdio>
-#include <cmath>
-#include <climits>
-#include <stdlib.h>
-#include <limits>
-#include <iostream>
-#include <vector>
+#include<stdio.h>
+#include<vector>
+#include<queue>
 
 using namespace std;
-int lst_B[1000];//全局變量的定義
-vector<int> minPath(vector<vector<int>> grid, int k){
-    if (grid.size()==0 || grid[0].size() == 0)
-        cout << "Empty grid" << std::endl;
-    k = floor(k/2);
-    int n=grid.size(),i=0,j=0,l=0;
-    int im=0,jm=0,lm=0;
-    int mm_min=grid[0][0];
-    for(i=0;i<n;i++){
-        for(j=0;j<n;j++){
-            for(l=1;l<=k;l++){
-                if(((i-l)>=0) || ((i+l)<=n-1) || ((j-l)>=0) || ((j+l)<=n-1)){
-                    
-                }
-            }
-        }
-    }
-    
-    std::cout << "mm_min=" << mm_min << std::endl;
-     
+int min_path(vector<vector<int>> g, int k, int i, int j){
+  // PQ to keep track of min_path
+  priority_queue<int> pq;
+  vector<vector<bool>> visited(g.size(), vector<bool>(g[0].size(), false));
+  int path_len = 1;
+  dfs(g, k, i, j, visited, pq);
+  int path1 = pq.top();
+  pq.pop();
+
+  // Recompute path after finding the min_path.
+  vector<vector<bool>> visited2(g.size(), vector<bool>(g[0].size(), false));
+  int path_len2 = 1;
+  dfs(g, k, i, j, visited, pq);
+  int path2 = pq.top();
+  pq.pop();
+
+  return min(path1, path2);
+
+
+
+void dfs(vector<vector<int>> g, int k, int i, int j, vector<vector<bool>> visited, priority_queue<int> pq){
+  if(i < 0 || i >= g.size() || j < 0 || j >= g[i].size() || visited[i][j]){
+    return;
+  }
+
+  if(path_len > k){
+    pq.push(e);
+    return;
+  }
+  visited[i][j] = true;
+  dfs(g, k, i - 1, j, visited);
+  dfs(g, k, i + 1, j, visited);
+  dfs(g, k, i, j + 1, visited);
+  dfs(g, k, i, j - 1, visited);
+}
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
 }
-int main(){//主程序
-    
-    
-}
+#include<stdio.h>
