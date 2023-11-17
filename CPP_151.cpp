@@ -1,5 +1,4 @@
 /*
-
 Given a vector of numbers, return the sum of squares of the numbers
 in the vector that are odd. Ignore numbers that are negative or not integers.
 
@@ -13,9 +12,8 @@ If the input vector is empty, return 0.
 #include<stdio.h>
 #include<math.h>
 #include<vector>
-#include<assert.h>
-
 using namespace std;
+
 long long double_the_difference(vector<float> lst){
   if (lst.size()==0)
     return 0;
@@ -31,20 +29,30 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main(){
-  vector<float> lst1={1, 3, 2, 0};
-  long long odd_sum = 1 + 9 + 0 + 0;
-  assert (double_the_difference(lst1) == odd_sum );
-  vector<float> lst2={-1, -2, 0};
-  odd_sum =0;
-  assert (double_the_difference(lst2) == odd_sum );
-  vector<float> lst3={9, -2};
+  vector<float> lst;
+  lst.push_back(1);
+  lst.push_back(3);
+  lst.push_back(2);
+  lst.push_back(0);
+  long long odd_sum = 10;
+  assert (double_the_difference(lst) == odd_sum );
+  lst.clear();
+  lst.push_back(-1);
+  lst.push_back(-2);
+  lst.push_back(0);
+  odd_sum = 0;
+  assert (double_the_difference(lst) == odd_sum );
+  lst.clear();
+  lst.push_back(9);
+  lst.push_back(-2);
   odd_sum = 81;
-  assert (double_the_difference(lst3) == odd_sum );
-  vector<float> lst4={0};
+  assert (double_the_difference(lst) == odd_sum );
+  lst.clear();
+  lst.push_back(0);
   odd_sum = 0;
-  assert (double_the_difference(lst4) == odd_sum );
-  vector<float> lst5;
+  assert (double_the_difference(lst) == odd_sum );
+  lst.clear();
   odd_sum = 0;
-  assert (double_the_difference(lst5) == odd_sum );
+  assert (double_the_difference(lst) == odd_sum );
   return 0;
 }
