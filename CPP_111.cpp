@@ -17,17 +17,25 @@ histogram("") == {}
 using namespace std;
 map<char,int> histogram(string test){
 	map<char,int> result;
-	int i=0;
-	while(test[i]!='\0'){
-		if(test[i]!=' '){
-			if(result.find(test[i])==result.end()){
-				result[test[i]]=1;
-			}
-			else{
-				result[test[i]]++;
-			}
+	map<char,int>::iterator it;
+	int max=0;
+	for(int i=0;i<test.length();i++){
+		if(result.find(test[i])==result.end()){
+			result[test[i]]=1;
 		}
-		i++;
+		else{
+			result[test[i]]++;
+		}
+	}
+	for(it=result.begin();it!=result.end();it++){
+		if(it->second>max){
+			max=it->second;
+		}
+	}
+	for(it=result.begin();it!=result.end();it++){
+		if(it->second!=max){
+			result.erase(it);
+		}
 	}
 	return result;
 }
