@@ -31,7 +31,7 @@ Examples:
 	return {};
 }
 
-int main()
+int main(){
 {
 	vector<vector<int>> grid1 = { {1,2,3}, {4,5,6}, {7,8,9}};
 	vector<vector<int>> grid2 = { {5,9,3}, {4,1,6}, {7,8,2}};
@@ -49,6 +49,3 @@ int main()
 #include<vector>
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
-return {};
-}
-}
