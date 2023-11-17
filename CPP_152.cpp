@@ -16,37 +16,33 @@ compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 #include<stdio.h>
 #include<math.h>
 #include<vector>
-using namespace std;
-vector<int> compare(vector<int> game,vector<int> guess){
-
-    vector<int> r;
-    int index;
-    for(int i=0;i<game.size();i++){
-        if(game[i]==guess[i]){
-            r.push_back(0);
-        }else{
-            r.push_back(abs(game[i]-guess[i]));
-        }
-    }
-    return r;
-}
-int main(){
-    vector<int> g{1,2,3,4,5,1},guess{1,2,3,4,2,-2};
-    vector<int> gs=compare(g,guess);
-    for(int i=0;i<gs.size();i++){
-       printf("%d ",gs[i]);
-    }
-}
 vector<int> compare(vector<int> game, vector<int> guess)
 {
-    
+using namespace std;
     vector<int> result;
-    for(int i=0;i<game.size();i++){
-        if(game[i]==guess[i]){
+    for (int i = 0; i < game.size(); i++)
+    {
+        if (game[i] == guess[i])
+        {
             result.push_back(0);
-        }else{
-            result.push_back(abs(game[i]-guess[i]));
+        }
+        else
+        {
+            result.push_back(abs(game[i] - guess[i]));
         }
     }
     return result;
+}
+
+int main()
+{
+    vector<int> game1 = {1, 2, 3, 4, 5, 1};
+    vector<int> guess1 = {1, 2, 3, 4, 2, -2};
+    string str;
+    for (in i = 0; i < compare(game1, guess.size(); i++)
+    {
+        cstr = to_string(compare(game1, guess1)[i]);
+        cout << str;
+    }
+    return 0;
 }
