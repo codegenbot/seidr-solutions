@@ -21,27 +21,13 @@ Return an ordered vector of the values on the cells that the minimum path go thr
 
 Examples:
 
-    Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3    v[i][j] indicates how path_i go to j's next order
+    Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-	int m = grid.size();
-	int n = grid[0].size();
-	vector<vector<int>>path(m,vector<int>(n,k+1));
-	for(int i=0;i<m;i++)
-		for(int j=0;j<n;j++)
-			for(int x=-1;x<=1;x++)
-				for(int y=-1;y<=1;y++){				//每个path有4道可能性，按道走。得到的pathpath再从存在的pathpath里挑最小的
-					if((x!=0&&y!=0)||(i+x<0&&i+x>=m&&j+y<0&&j+y>=n))continue;
-					path[i][j]=min(path[i][j],path[i+x][y+j]+1);
-				}
-	vector<int> result(k);
-	result[0]=grid[0][0];
-	for(int i=1;i<k;i++)
-		result[i]=grid[(i+1)/n][(i+1)%m];
-	return result;
+    // Complete the code for this function
 }
 #include<stdio.h>
 #include<vector>
