@@ -7,6 +7,7 @@ order them based on their index in original vector.
 For example:
 >>> order_by_points({1, 11, -1, -11, -12}) == {-1, -11, 1, -12, 11}
 >>> order_by_points({}) == {}
+
 */
 
 
@@ -14,6 +15,7 @@ For example:
 #include<math.h>
 #include<vector>
 #include<string>
+
 using namespace std;
 vector<int> order_by_points(vector<int> nums){
     vector<int> ans;
@@ -45,6 +47,7 @@ vector<int> order_by_points(vector<int> nums){
     vector<int> z;
     int sum = 0;
     int i = 0;
+    int j = 0;
     for(i = 0;i < nums.size();i++){
         sum = 0;
         while(nums[i] != 0){
@@ -208,6 +211,5 @@ vector<int> order_by_points(vector<int> nums){
     for(i = 0;i < z.size();i++){
         ans.push_back(z[i]);
     }
-    int x;
     return ans;
 }
