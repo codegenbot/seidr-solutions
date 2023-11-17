@@ -31,7 +31,7 @@ string sort_numbers(string numbers){
 	string res;
 	for(int i = 0; i < nums.size(); i++){
 		if(i != 0) res += " ";
-		res += to_string(nums[i]);
+		res += num_map.find(nums[i])->first;
 	}
 	return res;
 }
