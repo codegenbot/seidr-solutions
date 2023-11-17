@@ -46,12 +46,3 @@ vector<string> split_words(string txt){
 	}
 	return res;
 }
-int main(){
-	string s;
-	getline(cin, s);
-	vector<string> res = split_words(s);
-	for (int i = 0; i < res.size(); i++){
-		cout << res[i] << endl;
-	}
-	return 0;
-}
