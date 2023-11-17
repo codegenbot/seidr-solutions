@@ -6,8 +6,8 @@ Given an integer. return a vector that has the number of even and odd digits res
     even_odd_count(123) ==> {1, 2}
 */
 #include<stdio.h>
-#include<math.h>
-int main(){
+using namespace std;
+vector<int> even_odd_count(int num){
 #include<string>
 #include<vector>
 	vector<int> v;
