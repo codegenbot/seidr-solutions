@@ -15,30 +15,29 @@ compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 */
 #include<stdio.h>
 #include<math.h>
-#include<vector>
-using namespace std;
-  int n = game.size();
-  vector<int> res;
-  for(int i = 0; i < n; i++){
-    res.push_back(abs(game[i] - guess[i]));
-  }
-  return res;
-}
-vector<int> compare(vector<int> game,vector<int> guess){
+#include<iostream>
+#include<string>
+#include<vector> //include vector
+#include<algorithm>
+#include<cmath>
+using namespace std; // using namespace std
+
 int main(){
-  int a;
-  int b;
-  vector<int> c;
-  vector<int> d;
-  scanf("%d %d",&a,&b);
-  for(int i = 0; i < a; i++){
-    scanf("%d",&c[i]);
-  }
-  for(int i = 0; i < b; i++){
-    scanf("%d",&d[i]);
-  }
-  vector<int> result = compare(c,d);
-  for(int i = 0; i < result.size(); i++){
-    printf("%d ",result[i]);
-  }
+  vector<int> game = {1,2,3,4,5,1};
+  vector<int> guess = {1,2,3,4,2,-2};
+  vector<int> res = compare(game, guess);
+  cout << res[0] << endl;
+  cout << res[1] << endl;
+  cout << res[2] << endl;
+  cout << res[3] << endl;
+  cout << res[4] << endl;
+  cout << res[5] << endl;
 }
+vector<int> compare(vector<int> game,vector<int> guess){ // compare function
+  int n = game.size(); // the size of the vector
+  vector<int> res; // declaring a new vector
+  for(int i = 0; i < n; i++){ // for loop
+    res.push_back(abs(game[i] - guess[i])); // pushing back the values
+  } // end for loop
+  return res; // return res
+} // end compare function
