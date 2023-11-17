@@ -8,18 +8,20 @@ Return the largest prime factor of n. Assume n > 1 and is not a prime.
 #include<stdio.h>
 using namespace std;
 int largest_prime_factor(int n){
-	int i;
-	for(i=2;i<=n;i++){
-		if(n%i==0){
-			n/=i;
-			i--;
+	int i = 2;
+	while (i * i <= n){
+		if (n % i == 0){
+			n /= i;
+		}
+		else{
+			i++;
 		}
 	}
-	return i;
+	return n;
 }
 int main(){
 	int n;
-	scanf("%d",&n);
-	printf("%d",largest_prime_factor(n));
+	scanf("%d", &n);
+	printf("%d\n", largest_prime_factor(n));
 	return 0;
 }
