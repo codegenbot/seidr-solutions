@@ -9,19 +9,31 @@ compare_one(1, "2,3") ➞ "2,3"
 compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
-#include<stdio.h>
-#include<string>
-#include<algorithm>
+#include <iostream>
+#include <string>
 using namespace std;
-
-template <typename T>
-boost::any compare_one(T x, T y){
-    if (x < y) return y;
-    else if (x > y) return x;
-    else return "None";
+string compare_one(int a, float b){
+  return b > a?to_string(b):to_string(a);
 }
-
+string compare_one(int a, string b){
+  return b > to_string(a)?b:to_string(a);
+}
+string compare_one(string a, string b){
+  return a == b?"None":a > b?a:b;
+}
+string compare_one(string a, float b){
+  return b > stof(a)?to_string(b):a;
+}
+string compare_one(float a, string b){
+  return b > to_string(a)?b:to_string(a);
+}
+string compare_one(float a, float b){
+  return b > a?to_string(b):to_string(a);
+}
 int main(){
-    assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
-	return 0;
+  assert (compare_one(1, 2.5) == "2.5");
+  assert (compare_one(1, "2,3") == "2,3");
+  assert (compare_one("5,1", "6") == "6");
+  assert (compare_one("1", 1) == "None");
+  return 0;
 }
