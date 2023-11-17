@@ -15,16 +15,37 @@ compare_one("1", 1) ➞ "None"
 #include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
-boost::any result;
-if(a.type()!=b.type())
- return boost::any();
-else
- result = boost::any_cast<int>(a)>boost::any_cast<int>(b)?a:b;
- return result;
-}
-}
-int main(){
-int i =1;
-float j=2.5;
-printf("%s",boost::any_cast<string>(compare_one(i,j)).c_str());
+	if(a.type()==typeid(int)&&(b.type()==typeid(float)||b.type()==typeid(string))){
+		string s=any_cast<string>(b);
+		replace(s.begin(),s.end(),',','.');
+		return max(any_cast<int>(a),stof(s));
+	}
+	else if(a.type()==typeid(float)&&(b.type()==typeid(int)||b.type()==typeid(string))){
+		string s=any_cast<string>(b);
+		replace(s.begin(),s.end(),',','.');
+		return max(any_cast<float>(a),stof(s));
+	}
+	else if(a.type()==typeid(string)&&(b.type()==typeid(int)||b.type()==typeid(float))){
+		string s=any_cast<string>(a);
+		replace(s.begin(),s.end(),',','.');
+		return max(any_cast<string>(b),stof(s));
+	}
+	else if(a.type()==typeid(string)&&b.type()==typeid(string)){
+		string s1=any_cast<string>(a);
+		replace(s1.begin(),s1.end(),',','.');
+		string s2=any_cast<string>(b);
+		replace(s2.begin(),s2.end(),',','.');
+		if(s1>s2)
+		return s1;
+		else
+		return s2;
+	}
+	else if(any_cast<int>(a)==any_cast<int>(b))
+	return "None";
+	else if(any_cast<float>(a)==any_cast<float>(b))
+	return "None";
+	else if(any_cast<string>(a)==any_cast<string>(b))
+	return "None";
+	else
+	return max(any_cast<int>(a),any_cast<int>(b));
 }
