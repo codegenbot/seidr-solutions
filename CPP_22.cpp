@@ -9,16 +9,19 @@ Filter given vector of any python values only for integers
 #include<vector>
 #include<string>
 #include<boost/any.hpp>
-#include<list>
-typedef std::list<boost::any> list_any;
+#include<boost/type_index.hpp>
+using boost::any_cast;
+using boost::any;
+using boost::bad_any_cast;
+typedef std::vector<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
     vector<int> integer_list;
     for (auto i = values.begin(); i != values.end(); i++){
         try{
-            integer_list.push_back(boost::any_cast<int>(*i));
+            integer_list.push_back(any_cast<int>(*i));
         }
-        catch(boost::bad_any_cast& e){
+        catch(bad_any_cast&){
             continue;
         }
     }
