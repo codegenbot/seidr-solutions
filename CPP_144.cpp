@@ -14,13 +14,9 @@ simplify("7/10", "10/2") = false
 #include<string>
 using namespace std;
 bool simplify(string x,string n){
-  int a=stoi(x.substr(0,x.find('/')));
-  int b=stoi(x.substr(x.find('/')+1));
-  int c=stoi(n.substr(0,n.find('/')));
-  int d=stoi(n.substr(n.find('/')+1));
-  return (a*d)%(b*c)==0;
-}
-int main(){
-  printf(simplify("1/3","3/1")?"true":"false");
-  return 0;
+	int x1,x2,n1,n2;
+	sscanf(x.c_str(),"%d/%d",&x1,&x2);
+	sscanf(n.c_str(),"%d/%d",&n1,&n2);
+	int xmult=x1*n2,nmult=n1*x2;
+	return xmult==nmult;
 }
