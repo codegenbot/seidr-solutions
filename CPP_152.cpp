@@ -25,5 +25,4 @@ using namespace std;
 	return res;
 }
 vector<int> compare(vector<int> game,vector<int> guess){
-}
 int main(){
