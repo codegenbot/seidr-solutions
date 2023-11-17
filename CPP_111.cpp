@@ -20,19 +20,14 @@ map<char,int> histogram(string test){
 	map<char,int>::iterator it;
 	int max=0;
 	for(int i=0;i<test.length();i++){
-		if(test[i]!=' '){
-			it=result.find(test[i]);
-			if(it==result.end()){
-				result.insert(pair<char,int>(test[i],1));
-			}
-			else{
-				it->second++;
-			}
+		if(result.find(test[i])==result.end()){
+			result[test[i]]=1;
 		}
-	}
-	for(it=result.begin();it!=result.end();it++){
-		if(it->second>max){
-			max=it->second;
+		else{
+			result[test[i]]++;
+		}
+		if(result[test[i]]>max){
+			max=result[test[i]];
 		}
 	}
 	for(it=result.begin();it!=result.end();it++){
@@ -44,11 +39,12 @@ map<char,int> histogram(string test){
 }
 int main(){
 	string test;
-	getline(cin,test);
-	map<char,int> result=histogram(test);
+	map<char,int> result;
 	map<char,int>::iterator it;
+	getline(cin,test);
+	result=histogram(test);
 	for(it=result.begin();it!=result.end();it++){
-		printf("%c %d\n",it->first,it->second);
+		cout<<it->first<<" "<<it->second<<endl;
 	}
 	return 0;
 }
