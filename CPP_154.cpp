@@ -13,17 +13,17 @@ cycpattern_check("himenss",'simen") => true
 using namespace std;
 bool cycpattern_check(string a,string b){
 	int i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
-	l=a.length();
-	m=b.length();
-	for(i=0;i<l;i++){
-		if(a[i]==b[0]){
-			for(j=i,k=0;j<l,k<m;j++,k++){
-				if(a[j]!=b[k]){
-					break;
+	for(i=0;i<a.length();i++){
+		for(j=0;j<b.length();j++){
+			if(a[i]==b[j]){
+				for(k=i,l=j;k<a.length()&&l<b.length();k++,l++){
+					if(a[k]!=b[l]){
+						break;
+					}
 				}
-			}
-			if(k==m){
-				return true;
+				if(l==b.length()){
+					return true;
+				}
 			}
 		}
 	}
