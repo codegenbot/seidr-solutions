@@ -15,52 +15,56 @@ compare_one("1", 1) ➞ "None"
 #include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
-    if(a.type()==typeid(int)&&b.type()==typeid(int)){
-        return boost::any_cast<int>(a)>boost::any_cast<int>(b)?a:b;
-    }
-    else if(a.type()==typeid(float)&&b.type()==typeid(float)){
-        return boost::any_cast<float>(a)>boost::any_cast<float>(b)?a:b;
-    }
-    else if(a.type()==typeid(string)&&b.type()==typeid(string)){
-        return boost::any_cast<string>(a)>boost::any_cast<string>(b)?a:b;
-    }
-    else if(a.type()==typeid(int)&&b.type()==typeid(float)){
-        return boost::any_cast<float>(b);
-    }
-    else if(a.type()==typeid(float)&&b.type()==typeid(int)){
-        return boost::any_cast<float>(a);
-    }
-    else if(a.type()==typeid(int)&&b.type()==typeid(string)){
-        return boost::any_cast<string>(b);
-    }
-    else if(a.type()==typeid(string)&&b.type()==typeid(int)){
-        return boost::any_cast<string>(a);
-    }
-    else if(a.type()==typeid(float)&&b.type()==typeid(string)){
-        return boost::any_cast<string>(b);
-    }
-    else if(a.type()==typeid(string)&&b.type()==typeid(float)){
-        return boost::any_cast<string>(a);
-    }
-    else if(a.type()==typeid(string)&&b.type()==typeid(string)){
-        return boost::any_cast<string>(a)>boost::any_cast<string>(b)?a:b;
-    }
-    else{
-        return "None";
-    }
+	if(a.type()==typeid(int)&&b.type()==typeid(int)){
+		if(boost::any_cast<int>(a)>boost::any_cast<int>(b))return a;
+		else if(boost::any_cast<int>(a)<boost::any_cast<int>(b))return b;
+		else return "None";
+	}
+	else if(a.type()==typeid(float)&&b.type()==typeid(float)){
+		if(boost::any_cast<float>(a)>boost::any_cast<float>(b))return a;
+		else if(boost::any_cast<float>(a)<boost::any_cast<float>(b))return b;
+		else return "None";
+	}
+	else if(a.type()==typeid(string)&&b.type()==typeid(string)){
+		if(boost::any_cast<string>(a)>boost::any_cast<string>(b))return a;
+		else if(boost::any_cast<string>(a)<boost::any_cast<string>(b))return b;
+		else return "None";
+	}
+	else if(a.type()==typeid(int)&&b.type()==typeid(float)){
+		if(boost::any_cast<int>(a)>boost::any_cast<float>(b))return a;
+		else if(boost::any_cast<int>(a)<boost::any_cast<float>(b))return b;
+		else return "None";
+	}
+	else if(a.type()==typeid(int)&&b.type()==typeid(string)){
+		if(boost::any_cast<int>(a)>stof(boost::any_cast<string>(b)))return a;
+		else if(boost::any_cast<int>(a)<stof(boost::any_cast<string>(b)))return b;
+		else return "None";
+	}
+	else if(a.type()==typeid(float)&&b.type()==typeid(int)){
+		if(boost::any_cast<float>(a)>boost::any_cast<int>(b))return a;
+		else if(boost::any_cast<float>(a)<boost::any_cast<int>(b))return b;
+		else return "None";
+	}
+	else if(a.type()==typeid(float)&&b.type()==typeid(string)){
+		if(boost::any_cast<float>(a)>stof(boost::any_cast<string>(b)))return a;
+		else if(boost::any_cast<float>(a)<stof(boost::any_cast<string>(b)))return b;
+		else return "None";
+	}
+	else if(a.type()==typeid(string)&&b.type()==typeid(int)){
+		if(stof(boost::any_cast<string>(a))>boost::any_cast<int>(b))return a;
+		else if(stof(boost::any_cast<string>(a))<boost::any_cast<int>(b))return b;
+		else return "None";
+	}
+	else if(a.type()==typeid(string)&&b.type()==typeid(float)){
+		if(stof(boost::any_cast<string>(a))>boost::any_cast<float>(b))return a;
+		else if(stof(boost::any_cast<string>(a))<boost::any_cast<float>(b))return b;
+		else return "None";
+	}
 }
 int main(){
-    boost::any a=1;
-    boost::any b=2.5;
-    cout<<compare_one(a,b).type().name()<<endl;
-    a=1;
-    b="2,3";
-    cout<<compare_one(a,b).type().name()<<endl;
-    a="5,1";
-    b="6";
-    cout<<compare_one(a,b).type().name()<<endl;
-    a="1";
-    b=1;
-    cout<<compare_one(a,b).type().name()<<endl;
-    return 0;
+	cout<<compare_one(1,2.5).type().name()<<endl;
+	cout<<compare_one(1,"2,3").type().name()<<endl;
+	cout<<compare_one("5,1","6").type().name()<<endl;
+	cout<<compare_one("1",1).type().name()<<endl;
+	return 0;
 }
