@@ -24,8 +24,8 @@ long long double_the_difference(vector<float> lst) {
     return sum;
 }
 
-int main() {
-    vector<float> lst = {1, 3, 2, 0};
+int main(){
+    vector<float> lst{1, 3, 2, 0};
     long long odd_sum = 10;
     assert (double_the_difference(lst) == odd_sum );
 
