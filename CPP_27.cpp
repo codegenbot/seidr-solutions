@@ -18,9 +18,9 @@ char* filp_case(char *str){
 	}
 	return str;
 }
-int main(){
+main(){
 	char str[100];
-	gets(str);
+	scanf("%s",str);
 	printf("%s",filp_case(str));
 	assert (filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }
