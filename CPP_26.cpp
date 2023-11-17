@@ -20,11 +20,3 @@ vector<int> remove_duplicates(vector<int> numbers){
     s1.push_back(numbers[s-1]);
     return s1;
 }
-int main(){
-    vector<int> numbers={1,2,3,2,4};
-    vector<int> s1=remove_duplicates(numbers);
-    for(int i=0;i<s1.size();i++){
-        printf("%d ",s1[i]);
-    }
-    return 0;
-}
