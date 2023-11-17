@@ -4,8 +4,10 @@ For a given string, flip lowercase characters to uppercase and uppercase to lowe
 "hELLO"
 */
 #include<stdio.h>
-#include<string>
+#include <string>
 #include <ostream>
+#include <iostream>
+using namespace std;
 string flip_case(string str){
 	int i;
 	for(i=0;i<str.size();i++){
@@ -16,10 +18,20 @@ string flip_case(string str){
 	}
 	return str;
 }
+
 int main(){
 	string str;
 	while(getline(cin,str)){
-		std::cout<<flip_case(str)<<endl;
+		cout<<flip_case(str)<<endl;
 	}
 	return 0;
 }
+/*
+int main(){
+    assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert (flip_case("This is a test") == "tHIS IS A TEST");
+    assert (flip_case("Hello World!") == "hELLO wORLD!");
+    assert (flip_case("") == "");
+    return 0;
+}
+*/
