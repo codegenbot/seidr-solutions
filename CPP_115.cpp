@@ -35,11 +35,15 @@ Constraints:
 #include<vector>
 using namespace std;
 int max_fill(vector<vector<int>> grid,int capacity){
-
+    int count = 0;
+    return count;
 }
 
 int main(){
-    vector<vector<int>> grid{{0,0,1,0}, {0,1,0,0}, {1,1,1,1}};
-    int capacity=1;
-    printf("%d",max_fill(grid,capacity));
+    vector<vector<int>> grid = {{0,0,1,0}, {0,1,0,0}, {1,1,1,1}};
+    vector<vector<int>> grid2 = {{0,0,1,1}, {0,0,0,0}, {1,1,1,1}, {0,1,1,1}};
+    vector<vector<int>> grid3 = {{0,0,0}, {0,0,0}};
+    printf("%d\n",max_fill(grid,1));
+    printf("%d\n",max_fill(grid2,2));
+    printf("%d\n",max_fill(grid3,5));
 }
