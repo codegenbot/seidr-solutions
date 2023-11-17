@@ -346,7 +346,7 @@ int main(){
 int main(){
 	string s;
 	cin>>s;
-
+}
 {
 	string s;
 	cin>>s;
