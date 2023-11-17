@@ -15,17 +15,5 @@ compare_one("1", 1) ➞ "None"
 #include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
-     if(a.type() == typeid(int) && b.type() == typeid(float)){
-         // execute the following code
-         
-     }
-     else if(a.type() == typeid(int) && b.type() == typeid(string)){
-         //execute the following code
-     }
-     else if(a.type() == typeid(float) && b.type() == typeid(string)){
-         // execute the following code
-     }
-     else if(a.type() == typeid(string) && b.type() == typeid(string)){
-         // execute the following code
-     }
-}
+	//absolute
+	
