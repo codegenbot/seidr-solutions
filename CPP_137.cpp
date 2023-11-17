@@ -12,8 +12,8 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any>
 using namespace std;
+
 boost::any compare_one(boost::any a,boost::any b){
   if(a.type()==typeid(int)&&b.type()==typeid(int)){
     return max(boost::any_cast<int>(a),boost::any_cast<int>(b));
@@ -46,6 +46,7 @@ boost::any compare_one(boost::any a,boost::any b){
     return "None";
   }
 }
+
 int main(){
   cout<<compare_one(1,2.5)<<endl;
   cout<<compare_one(1,"2,3")<<endl;
