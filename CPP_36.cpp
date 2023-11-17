@@ -24,9 +24,3 @@ int fizz_buzz(int n){
 	}
 	return count;
 }
-int main(){
-	int n;
-	scanf("%d", &n);
-	printf("%d\n", fizz_buzz(n));
-	return 0;
-}
