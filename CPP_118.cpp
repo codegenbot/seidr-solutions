@@ -84,7 +84,7 @@ string get_closest_vowel(string word){
 	}
 	else if(n==0)
 	{
-		return word[o];
+		return word[o]; 
 	}
 	else if(o==0)
 	{
