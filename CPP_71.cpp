@@ -21,9 +21,3 @@ float triangle_area(float a,float b,float c){
   else
     return -1;
 }
-int main(){
-  float a,b,c;
-  scanf("%f%f%f",&a,&b,&c);
-  printf("%.2f",triangle_area(a,b,c));
-  return 0;
-}
