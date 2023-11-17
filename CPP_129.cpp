@@ -28,49 +28,73 @@ Examples:
     Output: {1}
 */
     int n = grid.size();
-    if (n == 0) return {};
-    int m = grid[0].size();
-    vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < m; j++){
-            if (i == 0 && j == 0){
-                dp[i][j] = grid[i][j];
-            }
-            else if (i == 0){
-                dp[i][j] = min(dp[i][j - 1], grid[i][j]);
-            }
-            else if (j == 0){
-                dp[i][j] = min(dp[i - 1][j], grid[i][j]);
-            }
-            else{
-                dp[i][j] = min(min(dp[i - 1][j], dp[i][j - 1]), grid[i][j]);
-            }
+    vector<vector<int>> path(n, vector<int>(n, 0));
+    vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            path[i][j] = grid[i][j];
         }
     }
-    vector<int> ret;
-    int i = 0, j = 0;
-    while (k > 0){
-        ret.push_back(grid[i][j]);
-        if (i == n - 1 && j == m - 1){
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(i == 0 && j == 0)
+                dp[0][0] = 0;
+            else if(i == 0)
+                dp[i][j] = dp[i][j - 1] + 1;
+            else if(j == 0)
+                dp[i][j] = dp[i - 1][j] + 1;
+            else
+                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + 1;
+        }
+    }
+    int x = n - 1, y = n - 1;
+    while(true){
+        if(k <= 0)
             break;
-        }
-        else if (i == n - 1){
-            j++;
-        }
-        else if (j == m - 1){
-            i++;
-        }
+        if(x == 0 && y == 0)
+            break;
+        else if(x == 0)
+            y--;
+        else if(y == 0)
+            x--;
         else{
-            if (dp[i + 1][j] < dp[i][j + 1]){
-                i++;
-            }
-            else{
-                j++;
-            }
+            if(dp[x][y - 1] < dp[x - 1][y])
+                y--;
+            else
+                x--;
         }
         k--;
     }
-    return ret;
+    vector<int> res;
+    res.push_back(path[x][y]);
+    while(k > 0){
+        if(x == 0 && y == 0)
+            break;
+        else if(x == 0){
+            y--;
+        }
+        else if(y == 0){
+            x--;
+        }
+        else{
+            if(dp[x][y - 1] < dp[x - 1][y])
+                y--;
+            else
+                x--;
+        }
+        res.push_back(path[x][y]);
+        k--;
+    }
+    return res;
+}
+int main(){
+    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9} };
+    int k = 3;
+    vector<int> res = minPath(grid, k);
+    for(int i = 0; i < res.size(); i++)
+        printf("%d ", res[i]);
+    printf("\n");
+    return 0;
 }
 #include<stdio.h>
 #include<vector>
