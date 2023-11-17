@@ -8,7 +8,7 @@ For a given string, flip lowercase characters to uppercase and uppercase to lowe
 "hELLO"
 */
 string flip_case(string str){
-	int i;
+	int i,j;
 	for(i=0;i<str.size();i++){
 		if(str[i]>='a'&&str[i]<='z')
 			str[i]=str[i]-32;
@@ -18,6 +18,7 @@ string flip_case(string str){
 	return str;
 }
 int main(){
-	assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+	string str;
+	assert (filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 	return 0;
 }
