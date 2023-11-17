@@ -10,14 +10,15 @@ Return n-th Fibonacci number.
 #include<stdio.h>
 using namespace std;
 int fib(int n){
-    if(n<=1){
-        return n;
-    }
-    else{
-        return fib(n-1)+fib(n-2);
-    }
+
+int nthFibonacci(int, int);
+
+int main(int argc, char** argv){
+    return 0;
 }
-int main(){
-    int n=9;
-    printf("%d",fib(n));
+
+int nthFibonacci(int n)//n is the nth element
+{
+return fib(n);
 }
+
