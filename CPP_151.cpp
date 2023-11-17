@@ -13,7 +13,7 @@ If the input vector is empty, return 0.
 #include<math.h>
 #include<vector>
 using namespace std;
-long long double_the_difference(vector<long double> lst){
+long long double_the_difference(vector<float> lst){
 	long long sum = 0;
 	for(int i = 0; i < lst.size(); i++){
 		if(lst[i] > 0 && floor(lst[i]) == lst[i]){
@@ -23,37 +23,4 @@ long long double_the_difference(vector<long double> lst){
 		}
 	}
 	return sum;
-}
-
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-int main() {
-    vector<long double> lst = {1, 3, 2, 0};
-    long long odd_sum = 10;
-    assert (double_the_difference(lst) == odd_sum );
-    lst = {-1, -2, 0};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum );
-    lst = {9, -2};
-    odd_sum = 81;
-    assert (double_the_difference(lst) == odd_sum );
-    lst = {0};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum );
-    lst = {};
-    odd_sum = 0;
-    assert (double_the_difference(lst) == odd_sum );
-    lst = {1, 3, 2, 0, -1, -2, 0, 9, -2, 0};
-    odd_sum = 10;
-    assert (double_the_difference(lst) == odd_sum );
-    lst = {1.5, 2.5, 3.5};
-    odd_sum = 1.5*1.5 + 3.5*3.5;
-    assert (double_the_difference(lst) == odd_sum );
-    lst = {1, 3, 2, 0, -1, -2, 0, 9, -2, 0, 1.5, 2.5, 3.5};
-    odd_sum = 10 + 1.5*1.5 + 3.5*3.5;
-    assert (double_the_difference(lst) == odd_sum );
-    cout << "All tests passed!" << endl;
 }
