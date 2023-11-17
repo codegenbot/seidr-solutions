@@ -13,18 +13,17 @@ Constraints:
 */
 #include<stdio.h>
 #include<vector>
-    int sum = 0;
-    vector<int>::iterator it = arr.begin();
-    for(int i = 0; i<k;i++){
-        if(*it <= 9){
-            sum += *it;
-        }
-        else if(*it <= 99){
-            sum += *it;
-        }
-        it++;
+  int sum=0;
+  for(int i=0;i<k;i++){
+    if(arr[i]>=10 && arr[i]<100){
+      sum+=arr[i];
     }
-    return sum;
+  }
+  return sum;
+}
+int main(){
+  vector<int> arr={111,21,3,4000,5,6,7,8,9};
+  printf("%d",add_elements(arr,4));
 }
 using namespace std;
 int add_elements(vector<int> arr,int k){
