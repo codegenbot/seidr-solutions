@@ -13,18 +13,16 @@ For example:
 #include<string>
 using namespace std;
 int is_bored(string S){
-	int count=0;
-	for(int i=0;i<S.length();i++){
-		if(S[i]=='.'||S[i]=='?'||S[i]=='!'){
-			if(S[i+1]=='I'){
-				count++;
-			}
-		}
-	}
-	return count;
+    int count = 0;
+    for(int i = 0; i < S.size(); i++){
+        if(S[i] == 'I'){
+            count++;
+        }
+    }
+    return count;
 }
 int main(){
-	string S;
-	getline(cin,S);
-	cout<<is_bored(S)<<endl;
+    string str = "The sky is blue. The sun is shining. I love this weather";
+    printf("%d",is_bored(str));
+    return 0;
 }
