@@ -18,28 +18,10 @@ compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 #include<vector>
 using namespace std;
 vector<int> compare(vector<int> game,vector<int> guess){
-	vector<int> result();
+	vector<int> result; //{0,0,0,0,3,3}
 	for(int i=0;i<game.size();i++){
 		result.push_back(abs(game[i]-guess[i]));
 	}
 	return result;
 }
-int main(){
-	vector<int> game,guess;
-	game.push_back(1);
-	game.push_back(2);
-	game.push_back(3);
-	game.push_back(4);
-	game.push_back(5);
-	game.push_back(1);
-	guess.push_back(1);
-	guess.push_back(2);
-	guess.push_back(3);
-	guess.push_back(4);
-	guess.push_back(2);
-	guess.push_back(-2);
-	vector<int> result=compare(game,guess);
-	for(int i=0;i<result.size();i++){
-		printf("%d ",result[i]);
-	}
-}
+vector<int> compare(vector<int> game,vector<int> guess){
