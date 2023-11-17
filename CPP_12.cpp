@@ -15,21 +15,17 @@ using namespace std;
 string longest(vector<string> strings){
 	if(strings.size()==0)
 		return "None";
-	string str=strings[0];
-	for(int i=0;i<strings.size();i++){
-		if(strings[i].size()>str.size())
-			str=strings[i];
+	string max=strings[0];
+	for(int i=1;i<strings.size();i++){
+		if(strings[i].length()>max.length())
+			max=strings[i];
 	}
-	return str;
+	return max;
 }
-
 int main(){
-	vector<string> str;
-	str.push_back("a");
-	str.push_back("b");
-	str.push_back("c");
-	str.push_back("bb");
-	str.push_back("ccc");
-	printf("%s",longest(str).c_str());
-	return 0;
+	vector<string> a;
+	a.push_back("a");
+	a.push_back("bb");
+	a.push_back("ccc");
+	printf("%s\n",longest(a).c_str());
 }
