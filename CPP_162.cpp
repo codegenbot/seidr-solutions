@@ -5,10 +5,9 @@ If 'text" is an empty string, return None.
 >>> string_to_md5("Hello world") == "3e25960a79dbc69b674cd4ec67a72c62"
 */
 #include <iostream>
-#include <sstream>
-#include <openssl/md5.h>
+#include <sstream> //stringstream
+#include <openssl/md5.h> //openssl-devel -lcrypto
 #include <iomanip>
-#include <string>
 
 std::string string_to_md5(std::string text){
 	unsigned char hash[MD5_DIGEST_LENGTH];
@@ -18,11 +17,11 @@ std::string string_to_md5(std::string text){
 	MD5_Final(hash, &md5);
 	std::stringstream ss;
 	for(int i = 0; i < MD5_DIGEST_LENGTH; i++){
-		ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i]; 
+		ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
 	}
 	return ss.str();
 }
 
 int main(){
-	std::cout<<string_to_md5("Hello world")<<std::endl;
-} 
+	std::cout<<string_to_md5("Hello world");
+}
