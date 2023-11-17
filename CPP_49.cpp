@@ -16,13 +16,15 @@ using namespace std;
 int modp(int n,int p){
 	if(n==0)
 		return 1;
-	if(n%2==0)
-		return modp((n/2)*(n/2),p);
+	if(n%2==0){
+		int x=modp(n/2,p);
+		return (x*x)%p;
+	}
 	else
-		return (n%p)*modp((n-1)/2,p);
+		return (2*modp(n-1,p))%p;
 }
 int main(){
 	int n,p;
-	scanf("%d%d",&n,&p);
+	scanf("%d %d",&n,&p);
 	printf("%d",modp(n,p));
 }
