@@ -13,6 +13,7 @@ For example:
 #include<math.h>
 #include<vector>
 #include<string>
+#include<algorithm>
 #include<iostream>
 
 using namespace std;
@@ -47,8 +48,7 @@ vector<int> order_by_points(vector<int> nums){
     vector<int> z;
     
     int sum = 0;
-    int i;
-    for(i = 0;i < nums.size();i++){
+    for(int i = 0;i < nums.size();i++){
         sum = 0;
         while(nums[i] != 0){
             sum += nums[i] % 10;
