@@ -20,7 +20,6 @@ It is guaranteed that the answer is unique.
 Return an ordered vector of the values on the cells that the minimum path go through.
 
 Examples:
-
 */
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
@@ -28,8 +27,6 @@ Examples:
 // vector<int> minPath(vector<vector<int>> grid, int k){
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 #include <stdio.h>
 #include <assert.h>
 #include <vector>
@@ -47,7 +44,6 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     // Your code must run in O(N * k) time.
     // Your code must run in O(N) space.
     // Your code must be deterministic.
-}
 bool issame(vector<int> a,vector<int>b){
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++){
