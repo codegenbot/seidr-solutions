@@ -6,7 +6,7 @@ If 'text" is an empty string, return None.
 */
 #include <iostream>
 #include <sstream>
-#include <openssl/md5.h>
+#include <openssl/md5.h> //openssl-devel; sudo apt-get install libssl-dev; sudo apt-get install libssl1.1
 #include <iomanip>
 
 std::string string_to_md5(std::string text){
@@ -20,8 +20,4 @@ std::string string_to_md5(std::string text){
 		ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
 	}
 	return ss.str();
-}
-
-int main(){
-	std::cout<<string_to_md5("Hello world");
 }
