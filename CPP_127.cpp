@@ -32,7 +32,7 @@ string intersection( vector<int> interval1,vector<int> interval2){
 	}
 	return "YES";
 }
-int main() {
+int main(){
 	vector<int> interval1 = { -3, -1 };
 	vector<int> interval2 = { -5, 5 };
 	printf("%s\n", intersection(interval1, interval2).c_str());
