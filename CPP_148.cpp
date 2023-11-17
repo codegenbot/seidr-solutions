@@ -39,10 +39,11 @@ vector<string> bf(string planet1,string planet2){
 int main(){
 	string p1,p2;
 	vector<string> result;
+	cout << "Enter two planets: " << endl;
 	cin >> p1 >> p2;
 	result = bf(p1,p2);
 	for(int i = 0;i < result.size();i++){
-		cout << result[i] << std::endl;
+		cout << result[i] << endl;
 	}
 	return 0;
 }
