@@ -12,26 +12,25 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any>
 using namespace std;
-boost::any compare_one(boost::any a,boost::any b){
-	if (a.type() != b.type()) 
+any compare_one(any a,any b){
+	if (a.type() != b.type())
 		return "None";
 	if (a.type() == typeid(int)) {
-		if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
+		if (any_cast<int>(a) > any_cast<int>(b))
 			return a;
 		else
 			return b;
 	}
 	else if (a.type() == typeid(float)) {
-		if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
+		if (any_cast<float>(a) > any_cast<float>(b))
 			return a;
 		else
 			return b;
 	}
 	else if (a.type() == typeid(string)) {
-		string s1 = boost::any_cast<string>(a);
-		string s2 = boost::any_cast<string>(b);
+		string s1 = any_cast<string>(a);
+		string s2 = any_cast<string>(b);
 		s1.erase(std::remove(s1.begin(), s1.end(), ','), s1.end());
 		s2.erase(std::remove(s2.begin(), s2.end(), ','), s2.end());
 		if (stof(s1) > stof(s2))
