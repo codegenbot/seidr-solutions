@@ -7,23 +7,24 @@ Given an integer. return a vector that has the number of even and odd digits res
 */
 #include<stdio.h>
 #include<math.h>
+vector<int> even_odd_count(int num){
 #include<string>
 #include<vector>
-using namespace std;
-vector<int> even_odd_count(int num) {
-    int i = 0;
-    if (num < 0) {
-        num = -num;
-    }
-    while (num > 0) {
-        if((i=num%10)%2 == 0) {
-            digit = even -> increment();
+    vector<int> result;
+    int even = 0, odd = 0;
+    for (int i = 0; i <to_string(num).length(); i++) {
+        if (to_string(num)[i] % 2 == 0) {
+            even++;
         }
         else {
-            digit = odd -> increment();
+            odd++;
         }
-        num /= 10;
     }
-    vector<int> even_odd = {even, odd};
-    return even_odd;
+    result.push_back(even);
+    result.push_back(odd);
+    return result;
+}
+using namespace std;
+int main(){
+
 }
