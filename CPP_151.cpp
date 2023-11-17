@@ -24,12 +24,25 @@ long long double_the_difference(vector<float> lst){
 	}
 	return result;
 }
-int main(){
-	vector<float> lst;
-	lst.push_back(1);
-	lst.push_back(3);
-	lst.push_back(2);
-	lst.push_back(0);
-	int odd_sum = 1 + 9 + 0 + 0;
-    assert (double_the_difference(lst) == odd_sum );
+int main() {
+	vector<float> lst = {1, 3, 2, 0};
+	long long odd_sum = 10;
+	assert (double_the_difference(lst) == odd_sum );
+	
+	lst = {-1, -2, 0};
+	odd_sum = 0;
+	assert (double_the_difference(lst) == odd_sum );
+	
+	lst = {9, -2};
+	odd_sum = 81;
+	assert (double_the_difference(lst) == odd_sum );
+	
+	lst = {0};
+	odd_sum = 0;
+	assert (double_the_difference(lst) == odd_sum );
+	
+	lst = {};
+	odd_sum = 0;
+	assert (double_the_difference(lst) == odd_sum );
+	return 0;
 }
