@@ -11,7 +11,6 @@ prime_fib returns n-th number that is a Fibonacci number and it's also prime.
 >>> prime_fib(5)
 89
 */
-#include<stdio.h>
 #include <ostream>
 using namespace std;
 int prime_fib(int n){
