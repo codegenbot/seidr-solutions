@@ -12,60 +12,9 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-
 using namespace std;
-boost::any compare_one(boost::any a,boost::any b){
-    if(a.type()==typeid(string) && b.type()==typeid(string)){
-        try{
-            a=stod(boost::any_cast<string>(a));
-            b=stod(boost::any_cast<string>(b));
-        }catch(...){
-            return "None";
-        }
-    }
-    if(a.type()==typeid(int) && b.type()==typeid(int)){
-        a=boost::any_cast<int>(a);
-        b=boost::any_cast<int>(b);
-    }
-    if(a.type()==typeid(double) && b.type()==typeid(double)){
-        a=boost::any_cast<double>(a);
-        b=boost::any_cast<double>(b);
-    }
-    if(a.type()==typeid(int) && b.type()==typeid(double)){
-        a=boost::any_cast<int>(a);
-        b=boost::any_cast<double>(b);
-    }
-    if(a.type()==typeid(double) && b.type()==typeid(int)){
-        a=boost::any_cast<double>(a);
-        b=boost::any_cast<int>(b);
-    }
-    if(a.type()==typeid(int) && b.type()==typeid(string)){
-        a=boost::any_cast<int>(a);
-        b=boost::any_cast<string>(b);
-    }
-    if(a.type()==typeid(string) && b.type()==typeid(int)){
-        a=boost::any_cast<string>(a);
-        b=boost::any_cast<int>(b);
-    }
-    if(a.type()==typeid(double) && b.type()==typeid(string)){
-        a=boost::any_cast<double>(a);
-        b=boost::any_cast<string>(b);
-    }
-    if(a.type()==typeid(string) && b.type()==typeid(double)){
-        a=boost::any_cast<string>(a);
-        b=boost::any_cast<double>(b);
-    }
-    if(a.type()==typeid(string) && b.type()==typeid(string)){
-        a=boost::any_cast<string>(a);
-        b=boost::any_cast<string>(b);
-    }
-    if(a>b){
-        return a;
-    }
-    else if(a<b){
-        return b;
-    }
-    else{
-        return "None";
-    }
+
+int main(){
+    assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
+	return 0;
 }
