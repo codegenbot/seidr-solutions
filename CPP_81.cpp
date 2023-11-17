@@ -73,5 +73,23 @@ for(float grade : grades){
 using namespace std;
 vector<string> numerical_letter_grade(vector<float> grades){
 int main(){
+  vector<float> grades;
+  grades.push_back(4.0);
+  grades.push_back(3.7);
+  grades.push_back(3.3);
+  grades.push_back(3.0);
+  grades.push_back(2.7);
+  grades.push_back(2.3);
+  grades.push_back(2.0);
+  grades.push_back(1.7);
+  grades.push_back(1.3);
+  grades.push_back(1.0);
+  grades.push_back(0.7);
+  grades.push_back(0.0);
+  grades.push_back(0.0);
+  vector<string> letter_grades = numerical_letter_grade(grades);
+  for(string letter_grade : letter_grades){
+    cout<<letter_grade<<endl;
+  }
   return 0;
 }
