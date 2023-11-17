@@ -20,14 +20,11 @@ int modp(int n,int p){
 		int x=modp(n/2,p);
 		return (x*x)%p;
 	}
-	else{
-		int x=modp(n-1,p);
-		return (2*x)%p;
-	}
+	else
+		return (2*modp(n-1,p))%p;
 }
 int main(){
 	int n,p;
-	scanf("%d%d",&n,&p);
-	printf("%d\n",modp(n,p));
-	return 0;
+	scanf("%d %d",&n,&p);
+	printf("%d",modp(n,p));
 }
