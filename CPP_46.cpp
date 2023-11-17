@@ -36,9 +36,3 @@ int fib4(int n){
 		return e;
 	}
 }
-int main(){
-	int n;
-	scanf("%d", &n);
-	printf("%d", fib4(n));
-	return 0;
-}
