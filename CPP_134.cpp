@@ -11,7 +11,8 @@ check_if_last_char_is_a_letter("apple pi e ") ➞ false
 check_if_last_char_is_a_letter("") ➞ false 
 */
 #include<stdio.h>
-#include<string>
+#include<iostream>
+#include<string.h>
 using namespace std;
 bool check_if_last_char_is_a_letter(string txt){
 	int i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
@@ -24,9 +25,9 @@ bool check_if_last_char_is_a_letter(string txt){
 	}
 	return false;
 }
-int main(){
+int main1(){
 	string txt;
-	getline(cin,txt);
+	cin>>txt;
 	if(check_if_last_char_is_a_letter(txt)){
 		printf("true");
 	}
