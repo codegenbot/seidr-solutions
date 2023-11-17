@@ -28,14 +28,16 @@ string sort_numbers(string numbers){
 		num_vec.push_back(num_map[num]);
 	}
 	sort(num_vec.begin(), num_vec.end());
-	string res = "";
+	string res;
 	for(int i = 0; i < num_vec.size(); i++){
 		for(auto it = num_map.begin(); it != num_map.end(); it++){
 			if(it->second == num_vec[i]){
-				res += it->first + " ";
+				res += it->first;
+				res += " ";
 				break;
 			}
 		}
 	}
-	return res.substr(0, res.size() - 1);
+	res.pop_back();
+	return res;
 }
