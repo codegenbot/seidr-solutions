@@ -16,28 +16,16 @@ false
 false
 */
 #include<stdio.h>
-#include<math.h>
 using namespace std;
 bool is_prime(long long n){
-    if(n==2)
-        return true;
-    if(n==1 || n%2==0)
-        return false;
-    for(int i=3;i<=sqrt(n);i+=2){
-        if(n%i==0)
-            return false;
+    for(long long i = 2; i * i <= n; i++){
+        if(n % i == 0) return false;
     }
     return true;
 }
 int main(){
-    printf("%d\n",is_prime(2));
-    printf("%d\n",is_prime(1));
-    printf("%d\n",is_prime(6));
-    printf("%d\n",is_prime(101));
-    printf("%d\n",is_prime(11));
-    printf("%d\n",is_prime(13441));
-    printf("%d\n",is_prime(61));
-    printf("%d\n",is_prime(4));
-    printf("%d\n",is_prime(1));
+    long long n;
+    scanf("%lld", &n);
+    printf("%s\n", is_prime(n) ? "true" : "false");
     return 0;
 }
