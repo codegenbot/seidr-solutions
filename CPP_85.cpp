@@ -7,27 +7,15 @@ Examples:
 */
 #include<stdio.h>
 #include<vector>
-    int sum=0;
-    for(int i=1;i<lst.size();i+=2)
+  int sum=0;
+  for(int i=0; i<lst.size(); i++)
+  {
+    if(i%2==0 && lst[i]%2==0)
     {
-        if(lst[i]%2==0)
-        {
-            sum+=lst[i];
-        }
+      sum+=lst[i];
     }
-    return sum;
-}
-int main()
-{
-    int n,x;
-    vector<int>v;
-    cin>>n;
-    for(int i=0;i<n;i++)
-    {
-        cin>>x;
-        v.push_back(x);
-    }
-    cout<<add(v);
+  }
+  return sum;
 }
 using namespace std;
 int add(vector<int> lst){
