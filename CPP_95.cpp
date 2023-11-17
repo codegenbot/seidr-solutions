@@ -14,34 +14,35 @@ check_map_case({{"STATE","NC"}, {"ZIP","12345"} }) should return true.
 #include<map>
 using namespace std;
 bool check_dict_case(map<string,string> dict){
-	if(dict.empty())
+	if(dict.size()==0)
 		return false;
-	map<string,string>::iterator it;
-	int upper=0,lower=0;
-	for(it=dict.begin();it!=dict.end();it++){
-		if(it->first[0]>='A'&&it->first[0]<='Z')
-			upper++;
-		else if(it->first[0]>='a'&&it->first[0]<='z')
-			lower++;
+	bool upper=true;
+	bool lower=true;
+	for(auto it=dict.begin();it!=dict.end();it++){
+		if(it->first[0]>='a'&&it->first[0]<='z')
+			upper=false;
+		else if(it->first[0]>='A'&&it->first[0]<='Z')
+			lower=false;
 		else
 			return false;
 	}
-	if(upper==0||lower==0)
-		return true;
-	else
-		return false;
+	return upper||lower;
 }
 int main(){
 	map<string,string> dict;
 	dict["a"]="apple";
 	dict["b"]="banana";
-	dict["A"]="banana";
+	printf("%d\n",check_dict_case(dict));
+	dict["A"]="apple";
 	dict["B"]="banana";
-	dict["8"]="banana";
-	dict["a"]="apple";
+	printf("%d\n",check_dict_case(dict));
+	dict["8"]="apple";
+	dict["a"]="banana";
+	printf("%d\n",check_dict_case(dict));
 	dict["Name"]="John";
 	dict["Age"]="36";
 	dict["City"]="Houston";
+	printf("%d\n",check_dict_case(dict));
 	dict["STATE"]="NC";
 	dict["ZIP"]="12345";
 	printf("%d\n",check_dict_case(dict));
