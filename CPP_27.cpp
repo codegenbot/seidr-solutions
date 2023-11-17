@@ -8,7 +8,7 @@ For a given string, flip lowercase characters to uppercase and uppercase to lowe
 "hELLO"
 */
 string flip_case(string str){
-	int i;
+	int i,j;
 	for(i=0;i<str.size();i++){
 		if(str[i]>='a'&&str[i]<='z')
 			str[i]=str[i]-32;
@@ -16,4 +16,11 @@ string flip_case(string str){
 			str[i]=str[i]+32;
 	}
 	return str;
+}
+int main(){
+	string str;
+	while(getline(cin,str)){
+		cout<<flip_case(str)<<endl;
+	}
+	return 0;
 }
