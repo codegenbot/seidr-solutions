@@ -27,9 +27,9 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    vector<int> res;
+    vector<int> result;
     // Complete the following code given the task description and function signature.
-    return res;
+    return result;
 }
 #include<stdio.h>
 #include<vector>
