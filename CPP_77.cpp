@@ -14,16 +14,14 @@ iscube(180) ==> false
 #include<math.h>
 using namespace std;
 bool iscuber(int a){
-	if(a<0)
-		a=-a;
-	for(int i=0;i<=a;i++)
-		if(i*i*i==a)
-			return true;
-	return false;
+	return a==pow(round(pow(a,1.0/3)),3);
 }
 int main(){
-	int a;
-	scanf("%d",&a);
-	printf("%d\n",iscuber(a));
+	printf("%d\n",iscuber(1));
+	printf("%d\n",iscuber(2));
+	printf("%d\n",iscuber(-1));
+	printf("%d\n",iscuber(64));
+	printf("%d\n",iscuber(0));
+	printf("%d\n",iscuber(180));
 	return 0;
 }
