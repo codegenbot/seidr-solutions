@@ -15,19 +15,19 @@ For lst = {-2.4,1,1} the output should be 6
 #include<math.h>
 #include<vector>
 using namespace std;
-vector<float> lst= {1,2,3};
-if(lst<= 0){
-return 0;
-}
-}
-else{
-return ceil(lst)*ceil(lst);
-}
-}
 int main()
 {
-    vector<float> lst= {1,2,3};
-    int a=sum_square(lst);
-    cout<<a;
+int ret;
+int main()
+{
+vector<float> x={1,2,3};
+ret=sum_squares(x);
+printf("The return values is %d", ret);
+return 0;
+}
+vector<float> x={1,2,3,-2.4,1,1};
+sum_squares(x);
+printf("The return values is %d", ret);
+return 0;
 }
 int sum_squares(vector<float> lst){
