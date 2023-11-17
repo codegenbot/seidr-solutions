@@ -27,7 +27,47 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-
+	int n = grid.size();
+	vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (i == 0 && j == 0) {
+				dp[i][j] = grid[i][j];
+			}
+			else if (i == 0) {
+				dp[i][j] = min(dp[i][j - 1], grid[i][j]);
+			}
+			else if (j == 0) {
+				dp[i][j] = min(dp[i - 1][j], grid[i][j]);
+			}
+			else {
+				dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]);
+			}
+		}
+	}
+	vector<int> res;
+	int i = 0, j = 0;
+	for (int count = 0; count < k; count++) {
+		res.push_back(grid[i][j]);
+		if (i == n - 1 && j == n - 1) {
+			break;
+		}
+		else if (i == n - 1) {
+			j++;
+		}
+		else if (j == n - 1) {
+			i++;
+		}
+		else {
+			if (dp[i + 1][j] < dp[i][j + 1]) {
+				i++;
+			}
+			else {
+				j++;
+			}
+		}
+	}
+	return res;
 }
 #include<stdio.h>
 #include<vector>
