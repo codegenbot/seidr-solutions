@@ -27,7 +27,7 @@ Examples:
 #include <stdio.h>
 #include <vector>
 using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
+vector<int> minPath(vector<vector<int>> grid, int k)
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
@@ -49,59 +49,6 @@ bool issame(vector<int> a,vector<int>b){
     return true;
 }
 int main(){
-    vector<int> minPath(vector<vector<int>> grid, int k){
-        vector<vector<int>> dp(grid.size(), vector<int>(grid[0].size(), 0));
-        for (int i = 0; i < grid.size(); i++) {
-            for (int j = 0; j < grid[0].size(); j++) {
-                if (i == 0 && j == 0) {
-                    dp[i][j] = grid[i][j];
-                } else if (i == 0) {
-                    dp[i][j] = dp[i][j - 1] + grid[i][j];
-                } else if (j == 0) {
-                    dp[i][j] = dp[i - 1][j] + grid[i][j];
-                } else {
-                    dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
-                }
-            }
-        }
-        vector<int> ans;
-        int i = grid.size() - 1;
-        int j = grid[0].size() - 1;
-        while (i >= 0 || j >= 0) {
-            ans.push_back(grid[i][j]);
-            if (i == 0 && j == 0) {
-                break;
-            } else if (i == 0) {
-                j--;
-            } else if (j == 0) {
-                i--;
-            } else {
-                if (dp[i - 1][j] < dp[i][j - 1]) {
-                    i--;
-                } else {
-                    j--;
-                }
-            }
-        }
-        reverse(ans.begin(), ans.end());
-        if (ans.size() > k) {
-            ans.erase(ans.begin() + k, ans.end());
-        }
-        return ans;
-    }
-
-    assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 5) , {1, 3, 1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 3) , {1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 2) , {1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 1) , {1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 0) , {}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, -1) , {}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, -5) , {}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, -10) , {}));
-    return 0;
-}
-
 {
     assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     assert (issame(minPath({{1, 3}, {3, 2}}, 5) , {1, 3, 1, 3, 1}));
