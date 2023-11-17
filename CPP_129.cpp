@@ -22,15 +22,15 @@ Return an ordered vector of the values on the cells that the minimum path go thr
 Examples:
 
 */
-    Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
-    Output: {1, 2, 1}
+//    Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
+//    Output: {1, 2, 1}
 #include <stdio.h>
 #include <vector>
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
 
-    Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
-    Output: {1}
+//    Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
+//    Output: {1}
     // Complete the following code given the task description and function signature.
     // You CAN change the function signature if you want.
     // You CANNOT change the task description.
@@ -49,7 +49,7 @@ bool issame(vector<int> a,vector<int>b){
     return true;
 }
 int main(){
-
+{
     assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     assert (issame(minPath({{1, 3}, {3, 2}}, 5) , {1, 3, 1, 3, 1}));
     assert (issame(minPath({{1, 3}, {3, 2}}, 3) , {1, 3, 1}));
