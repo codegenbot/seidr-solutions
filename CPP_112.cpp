@@ -38,7 +38,7 @@ int main(){
 	cin>>s>>c;
 	vector<string> result=reverse_delete(s,c);
 	for(int i=0;i<result.size();i++){
-		cout<<result[i]<<endl;
+		cout<<result[i]<<" ";
 	}
 	return 0;
 }
