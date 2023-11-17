@@ -24,7 +24,8 @@ int closest_integer(string value){
 	return i;
 }
 #ifndef RunTests
-int main(){
+int main()//
+{
 	printf("%d", closest_integer("10"));
 }
 #endif
