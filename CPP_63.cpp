@@ -27,7 +27,3 @@ int fibfib(int n){
   }
   return d;
 }
-int main(){
-  printf("%d\n", fibfib(8));
-  return 0;
-}
