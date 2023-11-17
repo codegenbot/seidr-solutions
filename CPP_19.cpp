@@ -30,7 +30,14 @@ string sort_numbers(string numbers){
 	sort(nums.begin(), nums.end());
 	string res;
 	for(int i = 0; i < nums.size(); i++){
-		res += to_string(nums[i]) + " ";
+		for(auto it = num_map.begin(); it != num_map.end(); it++){
+			if(it->second == nums[i]){
+				res += it->first;
+				res += " ";
+				break;
+			}
+		}
 	}
+	res.pop_back();
 	return res;
 }
