@@ -1,5 +1,6 @@
 #include<stdio.h>
-#include<string>
+#include<iostream>
+#include <ostream>
 using namespace std;
 string encode_shift(string s){
     // returns encoded string by shifting every character by 5 in the alphabet.
@@ -67,14 +68,14 @@ string decode_vigenere(string s,string key){
     }
     return out;
 }
-int main(){
+int main1(){
     string s;
     cin>>s;
     string key;
     cin>>key;
     string encoded_string=encode_vigenere(s,key);
-    cout<<encoded_string<<endl;
+    cout<<encoded_string<<"\n";
     string decoded_string=decode_vigenere(encoded_string,key);
-    cout<<decoded_string<<endl;
+    cout<<decoded_string<<"\n";
     return 0;
 }
