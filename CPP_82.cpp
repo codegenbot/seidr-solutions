@@ -23,7 +23,6 @@ for(i=0;i<str.length();i++){
 	return false;
 }
 }
-#include<stdio.h>
 int main(){
 	string str;
 	cin>>str;
