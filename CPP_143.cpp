@@ -17,9 +17,11 @@ Constraints:
     * 1 <= len(sentence) <= 100
     * sentence contains only letters
 */
-#include<stdio.h>
+#include <iostream>
 #include<string>
+
 using namespace std;
+
 string words_in_sentence(string sentence){
     string new_string;
     int i,j,len;
@@ -49,7 +51,8 @@ string words_in_sentence(string sentence){
     }
     return new_string;
 }
-int main(){
+
+int main1(){
     string sentence;
     getline(cin,sentence);
     cout<<words_in_sentence(sentence);
