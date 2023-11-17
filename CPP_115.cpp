@@ -35,26 +35,5 @@ Constraints:
 #include<vector>
 using namespace std;
 int max_fill(vector<vector<int>> grid,int capacity){
-    int ans = 0;
-    /*
-    * Complete the following code given the task description and function signature.
-    */
-    return ans;
-}
-int main(){
-    int n,m,c;
-    printf("Enter the number of rows : ");
-    scanf("%d",&n);
-    printf("Enter the number of columns : ");
-    scanf("%d",&m);
-    vector<vector<int>> grid(n,vector<int>(m));
-    printf("Enter the wells : \n");
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++)
-            scanf("%d",&grid[i][j]);
-    }
-    printf("Enter the bucket capacity : ");
-    scanf("%d",&c);
-    printf("Minimum number of times the bucket need to be lowered : %d\n",max_fill(grid,c));
-    return 0;
+    // Complete the following code given the task description and function signature
 }
