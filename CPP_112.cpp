@@ -15,32 +15,37 @@ For s = "abcdedcba", c = "ab", the result should be ("cdedc","True")
 #include<algorithm>
 using namespace std;
 vector<string> reverse_delete(string s,string c){
-	vector<string> result;
-	string s1 = "";
-	string s2 = "";
-	for (int i = 0; i < s.size(); i++){
-		if (c.find(s[i]) == string::npos){
-			s1 += s[i];
+	vector<string> v;
+	string s1="";
+	for(int i=0;i<s.size();i++){
+		int flag=0;
+		for(int j=0;j<c.size();j++){
+			if(s[i]==c[j]){
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0){
+			s1+=s[i];
 		}
 	}
-	s2 = s1;
-	reverse(s2.begin(), s2.end());
-	if (s1 == s2){
-		result.push_back(s1);
-		result.push_back("True");
+	v.push_back(s1);
+	string s2=s1;
+	reverse(s2.begin(),s2.end());
+	if(s1==s2){
+		v.push_back("True");
 	}
 	else{
-		result.push_back(s1);
-		result.push_back("False");
+		v.push_back("False");
 	}
-	return result;
+	return v;
 }
 int main(){
-	string s = "abcde";
-	string c = "ae";
-	vector<string> result = reverse_delete(s, c);
-	for (int i = 0; i < result.size(); i++){
-		cout << result[i] << endl;
+	string s,c;
+	cin>>s>>c;
+	vector<string> v=reverse_delete(s,c);
+	for(int i=0;i<v.size();i++){
+		cout<<v[i]<<" ";
 	}
 	return 0;
 }
