@@ -12,24 +12,15 @@ Given an integer. return a vector that has the number of even and odd digits res
     vector<int> result;
     int even = 0, odd = 0;
     while(num != 0){
-        if(num % 2 == 0){
+        if((num % 10) % 2 == 0)
             even++;
-        }
-        else{
+        else
             odd++;
-        }
         num /= 10;
     }
     result.push_back(even);
     result.push_back(odd);
     return result;
-}
-int main(){
-    int num;
-    scanf("%d", &num);
-    vector<int> result = even_odd_count(num);
-    printf("{%d, %d}", result[0], result[1]);
-    return 0;
 }
 using namespace std;
 vector<int> even_odd_count(int num){
