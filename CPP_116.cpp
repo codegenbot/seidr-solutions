@@ -69,12 +69,3 @@ vector<int> sort_array(vector<int> arr){
   }
   return zeros;
 }
-int main(){
-  vector<int> arr={1, 5, 2, 3, 4};
-  vector<int> ans=sort_array(arr);
-  for(int i=0;i<ans.size();i++){
-    printf("%d ",ans[i]);
-  }
-  printf("\n");
-  return 0;
-}
