@@ -11,22 +11,33 @@ If the input vector is empty, return 0.
 */
 #include<stdio.h>
 #include<math.h>
-#include<vector>
+#include <vector>
+#include <cassert>
+
 using namespace std;
-long long double_the_difference(vector<float> lst){
-	long long sum=0;
-	for(int i=0;i<lst.size();i++)
-	{
-		if(lst[i]>=0)
-		{
-			if(lst[i]==(int)lst[i])
-			{
-				if((int)lst[i]%2!=0)
-				{
-					sum=sum+pow(lst[i],2);
-				}
-			}
-		}
-	}
-	return sum;
+
+long long double_the_difference(vector<float> lst)
+{
+    long long sum = 0;
+    for (int i = 0; i < lst.size(); i++)
+    {
+        if (lst[i] >= 0)
+        {
+            if (lst[i] == (int)lst[i])
+            {
+                if (lst[i] % 2 != 0)
+                {
+                    sum = sum + pow(lst[i], 2);
+                }
+            }
+        }
+    }
+    return sum;
+}
+
+int main()
+{
+    vector<float> lst = {1, 3, 2, 0};
+    long long odd_sum = 1 + 9 + 0 + 0;
+    assert(double_the_difference(lst) == odd_sum);
 }
