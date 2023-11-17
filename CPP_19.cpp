@@ -30,8 +30,14 @@ string sort_numbers(string numbers){
 	sort(num_vec.begin(), num_vec.end());
 	string res;
 	for(int i = 0; i < num_vec.size(); i++){
-		if(i != 0) res += " ";
-		res += num_map[num_vec[i]];
+		for(auto it = num_map.begin(); it != num_map.end(); it++){
+			if(it->second == num_vec[i]){
+				res += it->first;
+				res += " ";
+				break;
+			}
+		}
 	}
+	res.pop_back();
 	return res;
 }
