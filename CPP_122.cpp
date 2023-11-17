@@ -14,9 +14,9 @@ Constraints:
 #include<stdio.h>
 #include<vector>
     int sum = 0;
-    for(int i = 0; i < k; i++){
-        if(arr[i] < 100)
-            sum += arr[i];
+    for(int i=0;i<k;i++){
+        if(arr[i]>=10 && arr[i]<100)
+            sum = sum + arr[i];
     }
     return sum;
 }
