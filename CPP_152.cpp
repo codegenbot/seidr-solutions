@@ -20,8 +20,21 @@ using namespace std;
 
 int main(){
 
-
-}
 vector<int> compare(vector<int> game,vector<int> guess){
+vector<int> result;
+int i;
+for(i=0;i<game.size();i++){
+result.push_back(abs(guess[i]-game[i]));
+}
+return result;
+}
 
+vector<int> game={1,2,3,4,5,1};
+vector<int> guess={1,2,3,4,2,-2};
+vector<int> result=compare(game,guess);
+for(int i=0;i<result.size();i++){
+printf("%d ",result[i]);
+}
+
+return 0;
 }
