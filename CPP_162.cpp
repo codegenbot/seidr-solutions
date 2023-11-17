@@ -5,11 +5,11 @@ If 'text" is an empty string, return None.
 >>> string_to_md5("Hello world") == "3e25960a79dbc69b674cd4ec67a72c62"
 */
 #include<iostream>
-#include<string>
-#include<stdio>
+#include<string.h>
+#include<stdio.h>
 #include<cstring>
 #include<openssl/md5.h>
-#include<cassert>
+#include <cassert>
 using namespace std;
 
 string string_to_md5(string text){
@@ -20,8 +20,8 @@ string string_to_md5(string text){
     unsigned char result[MD5_DIGEST_LENGTH];
     MD5_CTX md5;
     MD5_Init(&md5);
-    MD5_Update(&md5, text.c_str(), text.length());
-    MD5_Final(result, &md5);
+    //MD5_Update(&md5, text.c_str(), text.length());
+    //MD5_Final(result, &md5);
     string mdString;
     for(int i = 0; i < 16; i++)
     {
