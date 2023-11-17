@@ -6,11 +6,9 @@ Given an integer. return a vector that has the number of even and odd digits res
     even_odd_count(123) ==> {1, 2}
 */
 #include<stdio.h>
-#include<cmath>
+#include<math.h>
 #include<string>
 #include<vector>
-using namespace std;
-vector<int> even_odd_count(int num){
     vector<int> result;
     int even = 0, odd = 0;
     for (int i = 0; i <to_string(num).length(); i++) {
@@ -25,10 +23,6 @@ vector<int> even_odd_count(int num){
     result.push_back(odd);
     return result;
 }
+using namespace std;
+vector<int> even_odd_count(int num){
 int main(){
-    vector<int> result = even_odd_count(-12);
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    return 0;
-}
