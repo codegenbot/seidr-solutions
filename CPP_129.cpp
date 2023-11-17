@@ -27,61 +27,71 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    vector<int> result;
     int n = grid.size();
-    vector<vector<int>> path(n, vector<int>(n, INT_MAX));
-    vector<vector<int>> visited(n, vector<int>(n, 0));
+    int m = grid[0].size();
+    vector<vector<vector<int>>> dp(n, vector<vector<int>>(m, vector<int>(k+1, 100000)));
     for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(!visited[i][j]){
-                path[i][j] = 0;
-                visited[i][j] = 1;
-                int len = 0;
-                while(len < k){
-                    int min = INT_MAX;
-                    int x = 0, y = 0;
-                    if(i > 0 && grid[i-1][j] < min){
-                        min = grid[i-1][j];
-                        x = i-1;
-                        y = j;
-                    }
-                    if(i < n-1 && grid[i+1][j] < min){
-                        min = grid[i+1][j];
-                        x = i+1;
-                        y = j;
-                    }
-                    if(j > 0 && grid[i][j-1] < min){
-                        min = grid[i][j-1];
-                        x = i;
-                        y = j-1;
-                    }
-                    if(j < n-1 && grid[i][j+1] < min){
-                        min = grid[i][j+1];
-                        x = i;
-                        y = j+1;
-                    }
-                    if(min == INT_MAX)
-                        break;
-                    if(!visited[x][y]){
-                        path[x][y] = min;
-                        visited[x][y] = 1;
-                        i = x;
-                        j = y;
-                        len++;
-                    }
+        for(int j = 0; j < m; j++){
+            dp[i][j][1] = grid[i][j];
+        }
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            for(int l = 2; l <= k; l++){
+                if(i > 0){
+                    dp[i][j][l] = min(dp[i][j][l], dp[i-1][j][l-1] + grid[i][j]);
+                }
+                if(j > 0){
+                    dp[i][j][l] = min(dp[i][j][l], dp[i][j-1][l-1] + grid[i][j]);
+                }
+                if(i < n - 1){
+                    dp[i][j][l] = min(dp[i][j][l], dp[i+1][j][l-1] + grid[i][j]);
+                }
+                if(j < m - 1){
+                    dp[i][j][l] = min(dp[i][j][l], dp[i][j+1][l-1] + grid[i][j]);
                 }
             }
         }
     }
+    int min_val = 100000;
+    int min_i = -1;
+    int min_j = -1;
     for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(path[i][j] != INT_MAX){
-                result.push_back(path[i][j]);
-                break;
+        for(int j = 0; j < m; j++){
+            if(dp[i][j][k] < min_val){
+                min_val = dp[i][j][k];
+                min_i = i;
+                min_j = j;
             }
         }
     }
-    return result;
+    vector<int> path;
+    path.push_back(grid[min_i][min_j]);
+    int i = min_i;
+    int j = min_j;
+    for(int l = k - 1; l >= 1; l--){
+        if(i > 0 && dp[i-1][j][l] + grid[i][j] == dp[i][j][l+1]){
+            path.push_back(grid[i-1][j]);
+            i--;
+            continue;
+        }
+        if(j > 0 && dp[i][j-1][l] + grid[i][j] == dp[i][j][l+1]){
+            path.push_back(grid[i][j-1]);
+            j--;
+            continue;
+        }
+        if(i < n - 1 && dp[i+1][j][l] + grid[i][j] == dp[i][j][l+1]){
+            path.push_back(grid[i+1][j]);
+            i++;
+            continue;
+        }
+        if(j < m - 1 && dp[i][j+1][l] + grid[i][j] == dp[i][j][l+1]){
+            path.push_back(grid[i][j+1]);
+            j++;
+            continue;
+        }
+    }
+    return path;
 }
 #include<stdio.h>
 #include<vector>
