@@ -13,13 +13,15 @@ If the input vector is empty, return 0.
 #include<math.h>
 #include<vector>
 using namespace std;
-
 long long double_the_difference(vector<float> lst){
-  long long sum=0;
-  for(int i=0;i<lst.size();++i)
-  {
-  	if(fmod(lst[i],2)==1 && lst[i]>=1)
-      sum=sum+round(lst[i]*lst[i]);
-  }
-  return sum;
+  // complete the following code
+}
+
+void do_the_testcases(void) {
+    // instruction for the test team
+}
+
+int main (void) {
+    do_the_testcases();
+    return 0;
 }
