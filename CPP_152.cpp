@@ -26,9 +26,4 @@ using namespace std;
 }
 vector<int> compare(vector<int> game,vector<int> guess){
 int main(){
-vector<int> game{1,2,3,4,5,1};
-vector<int> guess{1,2,3,4,2,-2};
-
-int compare(vector<int> game,vector<int> guess)
-
-}
+  for(int i = 0; i < n; i++){
