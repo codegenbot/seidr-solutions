@@ -10,7 +10,7 @@ If 'text" is an empty string, return None.
 using namespace std;
 string string_to_md5(string text){
 	unsigned char result[MD5_DIGEST_LENGTH];
-	MD5((unsigned char*)text.c_str(), text.size(), result);//deprecated
+	MD5(text.c_str(), text.size(), result);
 	char mdString[33];
 	for(int i = 0; i < 16; i++)
 		sprintf(&mdString[i*2], "%02x", (unsigned int)result[i]);
