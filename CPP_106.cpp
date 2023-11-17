@@ -11,40 +11,22 @@ f(5) == {1, 2, 6, 24, 15}
 #include<vector>
 using namespace std;
 vector<int> f(int n){
-  vector<int> v;
-  for(int i=1;i<=n;i++)
-  {
-    int fact=1;
-    int sum=0;
-    if(i%2==0)
-    {
-      for(int j=1;j<=i;j++)
-      {
-        fact=fact*j;
-      }
-      v.push_back(fact);
-    }
-    else
-    {
-      for(int j=1;j<=i;j++)
-      {
-        sum=sum+j;
-      }
-      v.push_back(sum);
-    }
-  }
-  return v;
+vector<int>result;
+for(int i=1;i<=n;i++){
+if(i%2==0){
+int fact=1;
+for(int j=1;j<=i;j++){
+fact=fact*j;
 }
-int main()
-{
-  int n;
-  scanf("%d",&n);
-  vector<int> res;
-  res=f(n);
-  for(int i=0;i<n;i++)
-  {
-    printf("%d ",res[i]);
-  }
-  printf("\n");
-  return 0;
+result.push_back(fact);
+}
+else{
+int sum=0;
+for(int j=1;j<=i;j++){
+sum=sum+j;
+}
+result.push_back(sum);
+}
+}
+return result;
 }
