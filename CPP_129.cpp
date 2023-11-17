@@ -28,7 +28,54 @@ Examples:
     Output: {1}
 */
     vector<int> res;
-    // Complete the following code given the task description and function signature.
+    int n = grid.size();
+    int m = grid[0].size();
+    int i,j;
+    int min = grid[0][0];
+    for(i=0;i<n;i++){
+        for(j=0;j<m;j++){
+            if(grid[i][j]<min){
+                min = grid[i][j];
+            }
+        }
+    }
+    res.push_back(min);
+    for(i=0;i<k-1;i++){
+        min = grid[0][0];
+        for(j=0;j<n;j++){
+            if(grid[j][0]>res[i]&&grid[j][0]<min){
+                min = grid[j][0];
+            }
+            if(grid[j][m-1]>res[i]&&grid[j][m-1]<min){
+                min = grid[j][m-1];
+            }
+        }
+        for(j=0;j<m;j++){
+            if(grid[0][j]>res[i]&&grid[0][j]<min){
+                min = grid[0][j];
+            }
+            if(grid[n-1][j]>res[i]&&grid[n-1][j]<min){
+                min = grid[n-1][j];
+            }
+        }
+        for(j=1;j<n-1;j++){
+            if(grid[j][1]>res[i]&&grid[j][1]<min){
+                min = grid[j][1];
+            }
+            if(grid[j][m-2]>res[i]&&grid[j][m-2]<min){
+                min = grid[j][m-2];
+            }
+        }
+        for(j=1;j<m-1;j++){
+            if(grid[1][j]>res[i]&&grid[1][j]<min){
+                min = grid[1][j];
+            }
+            if(grid[n-2][j]>res[i]&&grid[n-2][j]<min){
+                min = grid[n-2][j];
+            }
+        }
+        res.push_back(min);
+    }
     return res;
 }
 #include<stdio.h>
