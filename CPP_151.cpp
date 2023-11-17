@@ -14,7 +14,7 @@ If the input vector is empty, return 0.
 #include <vector>
 #include <cassert>
 using namespace std;
-long long double_the_difference(vector<float> &lst) {
+long long double_the_difference(vector<float> lst) {
   long long sum = 0;
   for (int i = 0; i < lst.size(); i++) {
     if (lst[i] > 0 && floor(lst[i]) == lst[i]) {
@@ -26,9 +26,22 @@ long long double_the_difference(vector<float> &lst) {
   return sum;
 }
 
+
 int main() {
-  vector<float> lst = {1, 3, 2, 0}; 
+  vector<float> lst = {1, 3, 2, 0};
   long long odd_sum = 10;
   assert(double_the_difference(lst) == odd_sum);
+  vector<float> lst1 = {-1, -2, 0};
+  long long odd_sum1 = 0;
+  assert(double_the_difference(lst1) == odd_sum1);
+  vector<float> lst2 = {9, -2};
+  long long odd_sum2 = 81;
+  assert(double_the_difference(lst2) == odd_sum2);
+  vector<float> lst3 = {0};
+  long long odd_sum3 = 0;
+  assert(double_the_difference(lst3) == odd_sum3);
+  vector<float> lst4 = {};
+  long long odd_sum4 = 0;
+  assert(double_the_difference(lst4) == odd_sum4);
   return 0;
 }
