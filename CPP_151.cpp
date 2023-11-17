@@ -14,12 +14,18 @@ If the input vector is empty, return 0.
 #include <cassert>
 using namespace std;
 
-long long double_the_difference(vector<float> lst) {
-    long long sum=0;
+int double_the_difference(vector<float> lst) {
+    int sum=0;
     for(int i=0;i<lst.size();i++) {
-        if(lst[i]>0 && lst[i]==(int)lst[i] && (int)lst[i]%2==1) {
+        if(lst[i]>0 && (int)lst[i]%2==1) {
             sum+=(lst[i]*lst[i]);
         }
     }
     return sum;
+}
+
+int main(){
+    vector<float> lst = {1, 3, 2, 0};
+    int odd_sum = 10;
+    assert (double_the_difference(lst) == odd_sum );
 }
