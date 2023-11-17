@@ -6,6 +6,8 @@ Filter given vector of any python values only for integers
 {1, 2, 3}
 */
 #include<stdio.h>
+#include<iostream>
+#include<algorithm>
 #include<vector>
 #include<string>
 #include<boost/any.hpp>
@@ -13,12 +15,3 @@ Filter given vector of any python values only for integers
 typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
- vector<int> result;
-   for(auto i = values.begin(); i != --values.end(); i++)
-                if(!(*i).empty()) {
-			auto k = boost::any_cast<int>(*i);
-			result.push_back(k);  
-		    }
-                   
-	return result;         
-}
