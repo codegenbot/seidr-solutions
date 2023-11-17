@@ -15,144 +15,34 @@ compare_one("1", 1) ➞ "None"
 #include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
-	if (a.type() == typeid(int)){
-		int temp = boost::any_cast<int>(a);
-		if (b.type() == typeid(int)){
-			int temp1 = boost::any_cast<int>(b);
-			if (temp > temp1){
-				return a;
-			}
-			else if (temp < temp1){
-				return b;
-			}
-			else{
-				return "None";
-			}
-		}
-		else if (b.type() == typeid(float)){
-			float temp1 = boost::any_cast<float>(b);
-			if (temp > temp1){
-				return a;
-			}
-			else if (temp < temp1){
-				return b;
-			}
-			else{
-				return "None";
-			}
-		}
-		else if (b.type() == typeid(string)){
-			string temp1 = boost::any_cast<string>(b);
-			float temp2 = stof(temp1);
-			if (temp > temp2){
-				return a;
-			}
-			else if (temp < temp2){
-				return b;
-			}
-			else{
-				return "None";
-			}
-		}
+	if (a.type() != b.type()) 
+		return "None";
+	if (a.type() == typeid(int)) {
+		if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
+			return a;
+		else
+			return b;
 	}
-	else if (a.type() == typeid(float)){
-		float temp = boost::any_cast<float>(a);
-		if (b.type() == typeid(int)){
-			int temp1 = boost::any_cast<int>(b);
-			if (temp > temp1){
-				return a;
-			}
-			else if (temp < temp1){
-				return b;
-			}
-			else{
-				return "None";
-			}
-		}
-		else if (b.type() == typeid(float)){
-			float temp1 = boost::any_cast<float>(b);
-			if (temp > temp1){
-				return a;
-			}
-			else if (temp < temp1){
-				return b;
-			}
-			else{
-				return "None";
-			}
-		}
-		else if (b.type() == typeid(string)){
-			string temp1 = boost::any_cast<string>(b);
-			float temp2 = stof(temp1);
-			if (temp > temp2){
-				return a;
-			}
-			else if (temp < temp2){
-				return b;
-			}
-			else{
-				return "None";
-			}
-		}
+	else if (a.type() == typeid(float)) {
+		if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
+			return a;
+		else
+			return b;
 	}
-	else if (a.type() == typeid(string)){
-		string temp = boost::any_cast<string>(a);
-		float temp3 = stof(temp);
-		if (b.type() == typeid(int)){
-			int temp1 = boost::any_cast<int>(b);
-			if (temp3 > temp1){
-				return a;
-			}
-			else if (temp3 < temp1){
-				return b;
-			}
-			else{
-				return "None";
-			}
-		}
-		else if (b.type() == typeid(float)){
-			float temp1 = boost::any_cast<float>(b);
-			if (temp3 > temp1){
-				return a;
-			}
-			else if (temp3 < temp1){
-				return b;
-			}
-			else{
-				return "None";
-			}
-		}
-		else if (b.type() == typeid(string)){
-			string temp1 = boost::any_cast<string>(b);
-			float temp2 = stof(temp1);
-			if (temp3 > temp2){
-				return a;
-			}
-			else if (temp3 < temp2){
-				return b;
-			}
-			else{
-				return "None";
-			}
-		}
+	else if (a.type() == typeid(string)) {
+		string s1 = boost::any_cast<string>(a);
+		string s2 = boost::any_cast<string>(b);
+		s1.erase(std::remove(s1.begin(), s1.end(), ','), s1.end());
+		s2.erase(std::remove(s2.begin(), s2.end(), ','), s2.end());
+		if (stof(s1) > stof(s2))
+			return a;
+		else
+			return b;
 	}
 }
-int main(){
-	int a = 1;
-	float b = 2.5;
-	string c = "2,3";
-	string d = "5,1";
-	string e = "6";
-	string f = "1";
-	string g = "1";
-	boost::any test1 = compare_one(a, b);
-	boost::any test2 = compare_one(a, c);
-	boost::any test3 = compare_one(d, e);
-	boost::any test4 = compare_one(f, g);
-	cout << boost::any_cast<float>(test1) << endl;
-	cout << boost::any_cast<string>(test2) << endl;
-	cout << boost::any_cast<string>(test3) << endl;
-	cout << boost::any_cast<string>(test4) << endl;
-	system("pause");
-	return 0;
+int main() {
+	cout << compare_one(1, 2.5) << endl;
+	cout << compare_one(1, "2,3") << endl;
+	cout << compare_one("5,1", "6") << endl;
+	cout << compare_one("1", 1) << endl;
 }
