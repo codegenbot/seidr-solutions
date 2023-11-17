@@ -33,21 +33,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
 */
     vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
     vector<int> path;
-    vector<vector<int>> grid1 = { {1,2,3}, {4,5,6}, {7,8,9}};
-    vector<vector<int>> grid2 = { {5,9,3}, {4,1,6}, {7,8,2}};
-    vector<int> result1 = minPath(grid1, 3);
-    vector<int> result2 = minPath(grid1, 1);
-    for(int i = 0; i < result1.size(); i++){
-        printf("%d ", result1[i]);
-    }
-    printf("\n");
-    for(int i = 0; i < result2.size(); i++){
-        printf("%d ", result2[i]);
-    }
-    printf("\n");
-    return 0;
-}
     // Complete the following code given the task description and function signature.
     return path;
 }
-int main(){
+int main()
