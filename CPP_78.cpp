@@ -19,6 +19,7 @@ For num = "2020" the output should be 2.
 #include<stdio.h>
 #include<string>
 #include<algorithm>
+#include <iostream>
 using namespace std;
 int hex_key(string num){
 	int count=0;
@@ -28,9 +29,4 @@ int hex_key(string num){
 		}
 	}
 	return count;
-}
-int main(){
-	string num;
-	cin>>num;
-	cout<<hex_key(num);
 }
