@@ -10,27 +10,19 @@ Return the number of times the digit 7 appears in integers less than n which are
 #include<stdio.h>
 using namespace std;
 int fizz_buzz(int n){
-int count = 0;
-for (int i = 0; i < n; i++) {
-if (((i % 11) == 0) || ((i % 13) == 0)) {
-count += count_digit(i, 7);
-}
-}
-return count;
-}
-int count_digit(int n, int d) {
-int count = 0;
-while (n > 0) {
-if (n % 10 == d) {
-count++;
-}
-n = n / 10;
-}
-return count;
-}
-int main() {
-printf("%d", fizz_buzz(50));
-printf("\n%d", fizz_buzz(78));
-printf("\n%d", fizz_buzz(79));
-return 0;
+	int count = 0;
+	for (int i = 1; i < n; ++i)
+	{
+		if (i%11 == 0 || i%13 == 0)
+		{
+			int num = i;
+			while(num>0){
+				if(num%10 == 7){
+					count++;
+				}
+				num = num/10;
+			}
+		}
+	}
+	return count;
 }
