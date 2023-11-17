@@ -5,26 +5,32 @@ cycpattern_check("hello","ell") => true
 cycpattern_check("whassup","psus") => false
 cycpattern_check("abab","baa") => true
 cycpattern_check("efef","eeff") => false
-cycpattern_check("himenss","simen") => true
+cycpattern_check("himenss",'simen") => true
 
 */
 #include<stdio.h>
 #include<string>
 using namespace std;
 bool cycpattern_check(string a,string b){
-	int i=0,j=0,k=0;
-	int n=a.length();
-	int m=b.length();
-	if(m>n)
-		return false;
-	for(i=0;i<n;i++){
+	int i,j,k,l,m,n;
+	l=a.length();
+	m=b.length();
+	for(i=0;i<l;i++){
 		if(a[i]==b[0]){
-			for(j=0;j<m;j++){
-				if(a[(i+j)%n]!=b[j])
+			for(j=i,k=0;j<l,k<m;j++,k++){
+				if(a[j]!=b[k])
 					break;
 			}
-			if(j==m)
+			if(k==m)
 				return true;
+			else{
+				for(j=0;j<i,k<m;j++,k++){
+					if(a[j]!=b[k])
+						break;
+				}
+				if(k==m)
+					return true;
+			}
 		}
 	}
 	return false;
