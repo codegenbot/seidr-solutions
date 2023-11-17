@@ -12,15 +12,7 @@ iscube(180) ==> false
 */
 #include<stdio.h>
 #include<math.h>
+using namespace std;
 bool iscuber(int a){
-double b;
-b=pow(a,1.0/3);
-if(b==(int)b)
-return true;
-else
-return false;
-}
-int main(){
-printf("%d",iscuber(64));
-return 0;
+	return (cbrt(a) == floor(cbrt(a)));
 }
