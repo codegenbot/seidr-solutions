@@ -14,11 +14,10 @@ If the input vector is empty, return 0.
 #include<vector>
 using namespace std;
 long long double_the_difference(vector<float> lst){
-  long long result = 0;
-  for (float x : lst) {
-    if (x > 0 && floor(x) == ceil(x) && x / 2 != floor(x / 2)) {
-      result += x * x;
-    }
-  }
-  return result;
+for(int i = 0;i<lst.size();++i){
+if(lst[i] % 2 != 0){
+long longValue=pow(lst[i],2);
+return longValue;
+}
+return 0;
 }
