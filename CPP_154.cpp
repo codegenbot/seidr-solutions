@@ -9,41 +9,50 @@ cycpattern_check("himenss",'simen") => true
 
 */
 #include<stdio.h>
-#include<string>
+#include<string.h>
 using namespace std;
 bool cycpattern_check(string a,string b){
-	int i,j,k,l,m,n;
-	l=a.length();
-	m=b.length();
-	for(i=0;i<l;i++){
-		if(a[i]==b[0]){
-			for(j=i,k=0;j<l&&k<m;j++,k++){
-				if(a[j]!=b[k]){
-					break;
-				}
-			}
-			if(k==m){
-				return true;
-			}
-			for(j=0,k=i+1;j<l&&k<m;j++,k++){
-				if(a[j]!=b[k]){
-					break;
-				}
-			}
-			if(k==m){
-				return true;
-			}
-		}
-	}
-	return false;
+    int i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
+    char ch[100],ch1[100],ch2[100];
+    strcpy(ch,a.c_str());
+    strcpy(ch1,b.c_str());
+    l=strlen(ch);
+    m=strlen(ch1);
+    if(l<m)
+    {
+        return false;
+    }
+    else
+    {
+        for(i=0;i<l;i++)
+        {
+            for(j=0;j<m;j++)
+            {
+                if(ch[i]==ch1[j])
+                {
+                    ch2[j]=ch[i];
+                    i++;
+                }
+            }
+            if(strcmp(ch2,ch1)==0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
-int main(){
-	string a,b;
-	cin>>a>>b;
-	if(cycpattern_check(a,b)){
-		cout<<"true";
-	}
-	else{
-		cout<<"false";
-	}
+int main()
+{
+    string a,b;
+    cin>>a>>b;
+    if(cycpattern_check(a,b))
+    {
+        cout<<"true";
+    }
+    else
+    {
+        cout<<"false";
+    }
+    return 0;
 }
