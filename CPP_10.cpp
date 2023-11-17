@@ -18,13 +18,14 @@ string make_palindrome(string str){
     >>> make_palindrome("cata") 
     "catac" 
     */
-    int n=str.length();
-    for(int i=n-1;i>=0;i--){
-        if(is_palindrome(str.substr(0,i+1))){
-            return str+string(str.rbegin(),str.rbegin()+n-i-1);
+    string s(str.rbegin(),str.rend());
+    int len=str.length();
+    for(int i=0;i<len;i++){
+        if(is_palindrome(str.substr(0,len-i))){
+            return str+s.substr(i,len-i);
         }
     }
-    return "";
+    return str;
 }
 int main(){
     string str;
