@@ -10,36 +10,24 @@ compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
 using namespace std;
+boost::any compare_one(boost::any a,boost::any b){
+  string s1,s2;
+  s1=boost::any_cast<string>(a);
+  s2=boost::any_cast<string>(b);
+  if(s1==s2)
+    return "None";
+  else if(s1>s2)
+    return s1;
+  else
+    return s2;
+}
 int main(){
-	char a[100],b[100];
-	fgets(a,100,stdin);
-	fgets(b,100,stdin);
-	int i,j,x,y;
-	x=strlen(a);
-	y=strlen(b);
-	for(i=0;i<x;i++){
-		if(a[i]=='.'){
-			a[i]=',';
-		}
-	}
-	for(j=0;j<y;j++){
-		if(b[j]=='.'){
-			b[j]=',';
-		}
-	}
-	float z,m;
-	z=atof(a);
-	m=atof(b);
-	if(z>m){
-		printf("%f",z);
-	}
-	else if(m>z){
-		printf("%f",m);
-	}
-	else{
-		printf("None");
-	}
+  boost::any a=1;
+  boost::any b="2,3";
+  boost::any c=compare_one(a,b);
+  cout<<boost::any_cast<string>(c);
 }
