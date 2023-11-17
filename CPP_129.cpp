@@ -26,136 +26,15 @@ Examples:
 
 #include<stdio.h>
 #include<vector>
-#include<algorithm>
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
-    int r=grid.size();
-    int c=grid[0].size();
-    vector<int> ans;
-    int min=grid[0][0];
-    for(int i=0;i<r;i++){
-        for(int j=0;j<c;j++){
-            if(grid[i][j]<min){
-                min=grid[i][j];
-            }
-        }
-    }
-    for(int i=0;i<r;i++){
-        for(int j=0;j<c;j++){
-            if(grid[i][j]==min){
-                ans.push_back(grid[i][j]);
-                if(k==1){
-                    return ans;
-                }
-                if(i==0){
-                    if(j==0){
-                        if(grid[i][j+1]<grid[i+1][j]){
-                            j++;
-                        }
-                        else{
-                            i++;
-                        }
-                    }
-                    else if(j==c-1){
-                        if(grid[i][j-1]<grid[i+1][j]){
-                            j--;
-                        }
-                        else{
-                            i++;
-                        }
-                    }
-                    else{
-                        if(grid[i][j-1]<grid[i+1][j]&&grid[i][j-1]<grid[i][j+1]){
-                            j--;
-                        }
-                        else if(grid[i+1][j]<grid[i][j-1]&&grid[i+1][j]<grid[i][j+1]){
-                            i++;
-                        }
-                        else{
-                            j++;
-                        }
-                    }
-                }
-                else if(i==r-1){
-                    if(j==0){
-                        if(grid[i][j+1]<grid[i-1][j]){
-                            j++;
-                        }
-                        else{
-                            i--;
-                        }
-                    }
-                    else if(j==c-1){
-                        if(grid[i][j-1]<grid[i-1][j]){
-                            j--;
-                        }
-                        else{
-                            i--;
-                        }
-                    }
-                    else{
-                        if(grid[i][j-1]<grid[i][j+1]&&grid[i][j-1]<grid[i-1][j]){
-                            j--;
-                        }
-                        else if(grid[i-1][j]<grid[i][j-1]&&grid[i-1][j]<grid[i][j+1]){
-                            i--;
-                        }
-                        else{
-                            j++;
-                        }
-                    }
-                }
-                else{
-                    if(j==0){
-                        if(grid[i-1][j]<grid[i][j+1]&&grid[i-1][j]<grid[i+1][j]){
-                            i--;
-                        }
-                        else if(grid[i][j+1]<grid[i-1][j]&&grid[i][j+1]<grid[i+1][j]){
-                            j++;
-                        }
-                        else{
-                            i++;
-                        }
-                    }
-                    else if(j==c-1){
-                        if(grid[i-1][j]<grid[i][j-1]&&grid[i-1][j]<grid[i+1][j]){
-                            i--;
-                        }
-                        else if(grid[i][j-1]<grid[i-1][j]&&grid[i][j-1]<grid[i+1][j]){
-                            j--;
-                        }
-                        else{
-                            i++;
-                        }
-                    }
-                    else{
-                        if(grid[i-1][j]<grid[i][j-1]&&grid[i-1][j]<grid[i][j+1]&&grid[i-1][j]<grid[i+1][j]){
-                            i--;
-                        }
-                        else if(grid[i][j-1]<grid[i-1][j]&&grid[i][j-1]<grid[i][j+1]&&grid[i][j-1]<grid[i+1][j]){
-                            j--;
-                        }
-                        else if(grid[i][j+1]<grid[i-1][j]&&grid[i][j+1]<grid[i][j-1]&&grid[i][j+1]<grid[i+1][j]){
-                            j++;
-                        }
-                        else{
-                            i++;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return ans;
+    int main(){
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
     // TODO: Complete the following code given the task description and function signature.
 }
-int main(){
-    vector<vector<int>> grid={{1,2,3},{4,5,6},{7,8,9}};
-    vector<int> ans=minPath(grid,3);
-    for(int i=0;i<ans.size();i++){
-        cout<<ans[i]<<" ";
-    }
-}
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
