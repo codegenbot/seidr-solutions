@@ -12,9 +12,8 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-//#include<boost/any.hpp>
 using namespace std;
-/*boost::any compare_one(boost::any a,boost::any b){
+boost::any compare_one(boost::any a,boost::any b){
 	if(a.type()==typeid(int))
 	{
 		if(b.type()==typeid(int))
@@ -105,12 +104,12 @@ using namespace std;
 				return "None";
 		}
 	}
-}*/
+}
 int main()
 {
-	/*boost::any a=1;
+	boost::any a=1;
 	boost::any b=2.5;
 	boost::any c=compare_one(a,b);
-	cout<<boost::any_cast<float>(c)<<endl;*/
+	cout<<boost::any_cast<float>(c)<<endl;
 	return 0;
 }
