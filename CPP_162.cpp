@@ -4,9 +4,10 @@ If 'text" is an empty string, return None.
 
 >>> string_to_md5("Hello world") == "3e25960a79dbc69b674cd4ec67a72c62"
 */
-#include <cstring>
-#include <openssl/md5.h>
-#include <string>
+#include<stdio.h>
+#include<string>
+#include<cstring>
+#include<openssl/md5.h>
 using namespace std;
 string string_to_md5(string text){
     if(text.empty()) return NULL;
