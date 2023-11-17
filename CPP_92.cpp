@@ -19,13 +19,22 @@ any_int(3.6, -2.2, 2) ➞ false
 #include<math.h>
 using namespace std;
 bool any_int(float a,float b,float c){
-if(a+b==c||a+c==b||b+c==a)
-    return true;
-return false;
+    float sum;
+    sum = a + b + c;
+    if(a+b==c){
+      return true;
+    }
+    if(a+c==b){
+      return true;
+    }
+    if(a+b+c==sum){
+        return true;
+    }
+    else{
+      return false;
+    }
 }
-
 int main(){
-int a,b,c;
-scanf("%d%d%d",&a,&b,&c);
-any_int(a,b,c);
+  printf("%d",any_int(12.0,24.0,3.0));
+  return 0;
 }
