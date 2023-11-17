@@ -11,15 +11,11 @@ Given a string, find out how many distinct characters (regardless of case) does 
 #include<algorithm>
 using namespace std;
 int count_distinct_characters(string str){ 
-    vector<char> v;
-    for(int i=0;i<str.size();i++){
-        if(find(v.begin(),v.end(),str[i])==v.end())
-            v.push_back(str[i]);
+    int n = 0;
+    vector<char> v(str.begin(), str.end());
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size(); i++){
+        if (v[i] != v[i+1]) n++;
     }
-    return v.size();
-}
-int main(){
-    printf("%d\n",count_distinct_characters("xyzXYZ"));
-    printf("%d\n",count_distinct_characters("Jerry"));
-    return 0;
+    return n;
 }
