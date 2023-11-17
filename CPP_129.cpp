@@ -23,77 +23,62 @@ Examples:
 
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
-#include<stdio.h>
-#include<vector>
-#include<algorithm>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
-    int n=grid.size();
-    vector<int> res;
-    int min=grid[0][0];
-    int i;
-    int j;
-    for(i=0;i<n;i++){
-        for(j=0;j<n;j++){
-            if(grid[i][j]<min){
-                min=grid[i][j];
-            }
-        }
-    }
-    res.push_back(min);
-    for(i=1;i<k;i++){
-        int min=INT_MAX;
-        int x,y;
-        for(int j=0;j<n;j++){
-            for(int k=0;k<n;k++){
-                if(grid[j][k]<min){
-                    min=grid[j][k];
-                    x=j;
-                    y=k;
-                }
-            }
-        }
-        res.push_back(min);
-        grid[x][y]=INT_MAX;
-        if(x-1>=0){
-            grid[x-1][y]=INT_MAX;
-        }
-        if(x+1<n){
-            grid[x+1][y]=INT_MAX;
-        }
-        if(y-1>=0){
-            grid[x][y-1]=INT_MAX;
-        }
-        if(y+1<n){
-            grid[x][y+1]=INT_MAX;
-        }
-    }
-    return res;
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
+
+    int row = grid.size();
+    int col = grid[0].size();
+    vector<vector<int>> dp(row, vector<int>(col, 0));
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++){
+            if(i == 0 && j == 0) dp[i][j] = 1;
+            else if(i == 0) dp[i][j] = dp[i][j-1];
+            else if(j == 0) dp[i][j] = dp[i-1][j];
+            else dp[i][j] = dp[i-1][j] + dp[i][j-1];
+        }
+    }
+    vector<int> res;
+    int i = 0, j = 0;
+    while(k > 0){
+        if(i == 0 && j == 0){
+            res.push_back(grid[i][j]);
+            i++;
+            k--;
+            continue;
+        }
+        if(i == 0){
+            res.push_back(grid[i][j]);
+            j++;
+            k--;
+            continue;
+        }
+        if(j == 0){
+            res.push_back(grid[i][j]);
+            i++;
+            k--;
+            continue;
+        }
+        if(dp[i-1][j] < dp[i][j-1]){
+            res.push_back(grid[i][j]);
+            i++;
+            k--;
+        }
+        else{
+            res.push_back(grid[i][j]);
+            j++;
+            k--;
+        }
+    }
+    return res;
 }
 int main(){
-    vector<vector<int>> grid;
-    vector<int> temp;
-    temp.push_back(1);
-    temp.push_back(2);
-    temp.push_back(3);
-    grid.push_back(temp);
-    temp.clear();
-    temp.push_back(4);
-    temp.push_back(5);
-    temp.push_back(6);
-    grid.push_back(temp);
-    temp.clear();
-    temp.push_back(7);
-    temp.push_back(8);
-    temp.push_back(9);
-    grid.push_back(temp);
-    temp.clear();
-    vector<int> res=minPath(grid,3);
-    for(int i=0;i<res.size();i++){
-        printf("%d\n",res[i]);
-    }
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    vector<int> result = minPath(grid, 3);
+    for(int i = 0; i < result.size(); i++) cout << result[i] << " ";
 }
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
