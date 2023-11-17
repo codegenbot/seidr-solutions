@@ -14,6 +14,7 @@ Output:
 */
 #include<stdio.h>
 #include<string>
+#include<algorithm>
 using namespace std;
 string solve(int N){
     string s;
