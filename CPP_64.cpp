@@ -7,25 +7,20 @@ Example:
 >>> vowels_count("ACEDY") 
 3
 */
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include<stdio.h>
+#include<string>
+#include<algorithm>
 using namespace std;
 int vowels_count(string s){
-    int count = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') {
-            count++;
-        }
-    }
-    if (s[s.size() - 1] == 'y') {
-        count++;
-    }
-    return count;
-}
-int main() {
-    string s;
-    cin >> s;
-    cout << vowels_count(s) << endl;
-    return 0;
+	int count = 0;
+	int size = s.size();
+	for (int i = 0; i < size; i++) {
+		if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') {
+			count++;
+		}
+		else if (s[i] == 'y' && i == size - 1) {
+			count++;
+		}
+	}
+	return count;
 }
