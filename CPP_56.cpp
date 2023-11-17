@@ -12,7 +12,7 @@ true
 false
 */
 #include <iostream>
-#include<string.h>
+#include<string>
 using namespace std;
 bool correct_bracketing(string brackets){
 	int count=0;
@@ -34,6 +34,7 @@ bool correct_bracketing(string brackets){
 		return false;
 	}
 }
+int main(){}
 int main(){
 	string s;
 	cin>>s;
