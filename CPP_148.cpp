@@ -18,14 +18,27 @@ bf("Mercury", "Uranus") ==> {"Venus", "Earth", "Mars", "Jupiter", "Saturn"}
 #include<string>
 using namespace std;
 vector<string> bf(string planet1,string planet2){
-	//Complete the following code
-	vector<string> v;
-	return v;
+	vector<string> res;
+	string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+	int start,end;
+	for(int i=0;i<8;i++){
+		if(planets[i] == planet1) start = i;
+		if(planets[i] == planet2) end = i;
+	}
+	if(start > end) swap(start,end);
+	for(int i=start;i<end;i++) res.push_back(planets[i]);
+	return res;
 }
-int main(){
-	vector<string> v;
-	v = bf("Earth", "Mercury");
-	for(int i = 0; i < v.size();i++)
-		cout << v[i] << endl;
+int main2(){
+	vector<string> res;
+	res = bf("Jupiter", "Neptune");
+	for(int i=0;i<res.size();i++) printf("%s ",res[i].c_str());
+	printf("\n");
+	res = bf("Earth", "Mercury");
+	for(int i=0;i<res.size();i++) printf("%s ",res[i].c_str());
+	printf("\n");
+	res = bf("Mercury", "Uranus");
+	for(int i=0;i<res.size();i++) printf("%s ",res[i].c_str());
+	printf("\n");
 	return 0;
 }
