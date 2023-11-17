@@ -27,12 +27,7 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    vector<int> res;
-    if(k<=0){
-        return res;
-    }
-    //Write your code here
-    return res;
+	
 }
 #include<stdio.h>
 #include<vector>
