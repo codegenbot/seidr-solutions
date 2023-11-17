@@ -20,12 +20,12 @@ string string_to_md5(string text){
     unsigned char result[MD5_DIGEST_LENGTH];
     MD5_CTX md5;
     MD5_Init(&md5);
-    MD5_Update(&md5, text.c_str(), strlen(text.c_str()));
-    MD5_Final(result, &md5); 
+    //MD5_Update(&md5, text.c_str(), text.length());
+    //MD5_Final(result, &md5);
     string mdString;
     for(int i = 0; i < 16; i++)
     {
-        mdString += to_string(result[i]); 
+        mdString += to_string(result[i]);
     }
     return mdString;
 }
