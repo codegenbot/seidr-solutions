@@ -3,9 +3,8 @@ For a given string, flip lowercase characters to uppercase and uppercase to lowe
 >>> flip_case("Hello")
 "hELLO"
 */
+#include<iostream>
 #include<stdio.h>
-#include <ostream>
-#include <iostream>
 #include<string>
 using namespace std;
 string flip_case(string str){
