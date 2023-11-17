@@ -7,13 +7,13 @@ Examples:
 */
 #include<stdio.h>
 #include<vector>
-   int sum=0;
-   for(i=0;i<lst.size();i++) {
-      if(i%2==1 && lst[i]%2==0) {
-         sum=sum+lst[i];
-       }
-    }
-     return sum;
+int y = 0;
+for(int x=0; x<lst.size(); x++){
+	if(lst[x]%2==0 && x%2==0){
+		y = y + lst[x];
+	}
+}
+return y;
 }
 using namespace std;
 int add(vector<int> lst){
