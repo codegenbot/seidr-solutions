@@ -12,10 +12,12 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
+#include<boost/any.hpp> 
 using namespace std;
-string compare_one(int a,int b){
-		int c=a;
-		int d=b;
+boost::any compare_one(boost::any a,boost::any b){
+	if(a.type()==typeid(int)&&b.type()==typeid(int)){
+		int c=boost::any_cast<int>(a);
+		int d=boost::any_cast<int>(b);
 		if(c>d){
 			return c;
 		}
@@ -25,10 +27,10 @@ string compare_one(int a,int b){
 		else{
 			return "None";
 		}
-}
-string compare_one(float a,float b){
-		float c=a;
-		float d=b;
+	}
+	else if(a.type()==typeid(float)&&b.type()==typeid(float)){
+		float c=boost::any_cast<float>(a);
+		float d=boost::any_cast<float>(b);
 		if(c>d){
 			return c;
 		}
@@ -38,10 +40,10 @@ string compare_one(float a,float b){
 		else{
 			return "None";
 		}
-}
-string compare_one(string a,string b){
-		string c=a;
-		string d=b;
+	}
+	else if(a.type()==typeid(string)&&b.type()==typeid(string)){
+		string c=boost::any_cast<string>(a);
+		string d=boost::any_cast<string>(b);
 		if(c>d){
 			return c;
 		}
@@ -51,7 +53,11 @@ string compare_one(string a,string b){
 		else{
 			return "None";
 		}
+	}
+	else{
+		return "None";
+	}
 }
 int main(){
-	printf("%s",compare_one("1",1).c_str());
+	printf("%s",boost::any_cast<string>(compare_one("1",1)).c_str());
 }
