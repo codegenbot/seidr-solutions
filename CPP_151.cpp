@@ -21,7 +21,7 @@ long long double_the_difference(vector<float> lst){
 		{
 			if(lst[i]==(int)lst[i])
 			{
-				if(lst[i]%2!=0.0)
+				if((int)lst[i]%2!=0)
 				{
 					sum=sum+pow(lst[i],2);
 				}
