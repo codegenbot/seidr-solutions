@@ -6,22 +6,21 @@ For a given string, flip lowercase characters to uppercase and uppercase to lowe
 #include<stdio.h>
 #include<string.h>
 using namespace std;
-string filp_case(string str){
-    int i;
-    for(i=0;i<str.length();i++){
-        if(str[i]>=65 && str[i]<=90){
-            str[i]=str[i]+32;
-        }
-        else if(str[i]>=97 && str[i]<=122){
-            str[i]=str[i]-32;
-        }
-    }
-    return str;
+char* filp_case(char *str){
+	int len=strlen(str);
+	for(int i=0;i<len;i++){
+		if(str[i]>='a' && str[i]<='z'){
+			str[i]=(char)(str[i]-32);
+		}
+		else if(str[i]>='A' && str[i]<='Z'){
+			str[i]=(char)(str[i]+32);
+		}
+	}
+	return str;
 }
 int main(){
-    string str;
-    printf("Enter the string\n");
-    getline(cin,str);
-    cout<<filp_case(str);
-    return 0;
+	char str[100];
+	gets(str);
+	printf("%s",filp_case(str));
+	assert (filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }
