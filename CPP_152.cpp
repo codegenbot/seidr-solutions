@@ -15,29 +15,30 @@ compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 */
 #include<stdio.h>
 #include<math.h>
-#include<iostream>
-#include<string>
-#include<vector> //include vector
-#include<algorithm>
-#include<cmath>
-using namespace std; // using namespace std
-
-int main(){
-  vector<int> game = {1,2,3,4,5,1};
-  vector<int> guess = {1,2,3,4,2,-2};
-  vector<int> res = compare(game, guess);
-  cout << res[0] << endl;
-  cout << res[1] << endl;
-  cout << res[2] << endl;
-  cout << res[3] << endl;
-  cout << res[4] << endl;
-  cout << res[5] << endl;
+#include<vector>
+using namespace std;
+  int n = game.size();
+  vector<int> res;
+  for(int i = 0; i < n; i++){
+    res.push_back(abs(game[i] - guess[i]));
+  }
+  return res;
 }
-vector<int> compare(vector<int> game,vector<int> guess){ // compare function
-  int n = game.size(); // the size of the vector
-  vector<int> res; // declaring a new vector
-  for(int i = 0; i < n; i++){ // for loop
-    res.push_back(abs(game[i] - guess[i])); // pushing back the values
-  } // end for loop
-  return res; // return res
-} // end compare function
+vector<int> compare(vector<int> game,vector<int> guess){
+int main(){
+  vector<int> a;
+  vector<int> b;
+  a.push_back(1);
+  a.push_back(2);
+  a.push_back(3);
+  a.push_back(4);
+  a.push_back(5);
+  a.push_back(1);
+  b.push_back(1);
+  b.push_back(2);
+  b.push_back(3);
+  b.push_back(4);
+  b.push_back(2);
+  b.push_back(-2);
+  compare(a,b);
+}
