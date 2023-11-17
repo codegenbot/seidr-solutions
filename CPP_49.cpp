@@ -16,7 +16,7 @@ using namespace std;
 int modp(int n,int p){
 	if(n==0)
 		return 1;
-	else if(n%2==0){
+	if(n%2==0){
 		int x=modp(n/2,p);
 		return (x*x)%p;
 	}
@@ -25,6 +25,7 @@ int modp(int n,int p){
 }
 int main(){
 	int n,p;
-	scanf("%d%d",&n,&p);
-	printf("%d",modp(n,p));
+	scanf("%d %d",&n,&p);
+	printf("%d\n",modp(n,p));
+	return 0;
 }
