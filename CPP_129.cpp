@@ -41,35 +41,4 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     // Complete the following code given the task description and function signature.
     return path;
 }
-int main(){
-    vector<vector<int>> grid(3, vector<int>(3, 0));
-    grid[0][0] = 1;
-    grid[0][1] = 2;
-    grid[0][2] = 3;
-    grid[1][0] = 4;
-    grid[1][1] = 5;
-    grid[1][2] = 6;
-    grid[2][0] = 7;
-    grid[2][1] = 8;
-    grid[2][2] = 9;
-    vector<int> path = minPath(grid, 3);
-    for(int i = 0; i < path.size(); i++){
-        cout << path[i] << " ";
-    }
-    cout << endl;
-    grid[0][0] = 5;
-    grid[0][1] = 9;
-    grid[0][2] = 3;
-    grid[1][0] = 4;
-    grid[1][1] = 1;
-    grid[1][2] = 6;
-    grid[2][0] = 7;
-    grid[2][1] = 8;
-    grid[2][2] = 2;
-    path = minPath(grid, 1);
-    for(int i = 0; i < path.size(); i++){
-        cout << path[i] << " ";
-    }
-    cout << endl;
-    return 0;
-}
+int main()
