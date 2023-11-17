@@ -23,13 +23,6 @@ bool cycpattern_check(string a,string b){
 }
 int main(){
 	string a,b;
-	printf("Enter the first string\n");
-	cin>>a;
-	printf("Enter the second string\n");
-	cin>>b;
-	if(cycpattern_check(a,b))
-		printf("True\n");
-	else
-		printf("False\n");
-	return 0;
+	cin>>a>>b;
+	cout<<cycpattern_check(a,b);
 }
