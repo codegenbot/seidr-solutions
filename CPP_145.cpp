@@ -1,5 +1,4 @@
 /*
-
 Write a function which sorts the given vector of integers
 in ascending order according to the sum of their digits.
 Note: if there are several items with similar sum of their digits,
@@ -213,4 +212,9 @@ vector<int> order_by_points(vector<int> nums){
         ans.push_back(z[i]);
     }
     return ans;
+}
+
+int main(){
+
+
 }
