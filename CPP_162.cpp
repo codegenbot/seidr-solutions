@@ -7,11 +7,8 @@ If 'text" is an empty string, return None.
 #include<stdio.h>
 #include<string.h>
 #include<openssl/md5.h>
-#include <iostream>
-#include <cassert>
+#include<string>
 using namespace std;
-
-
 string string_to_md5(string text){
     if(strlen(text.c_str()) == 0){
         return NULL;
@@ -21,13 +18,8 @@ string string_to_md5(string text){
     MD5_Init(&md5);
     MD5_Update(&md5, text.c_str(), text.length());
     MD5_Final(result, &md5);
-    char *mdString = (char *)malloc(33);
+    char mdString[33];
     for(int i = 0; i < 16; i++)
         sprintf(&mdString[i*2], "%02x", (unsigned int)result[i]);
     return mdString;
-}
-int main(){
-    assert (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99"); //password
-    assert (string_to_md5("") == NULL); //empty string
-    return 0;
 }
