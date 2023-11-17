@@ -17,8 +17,8 @@ string circular_shift(int x,int shift){
 		return s;
 	}
 	else {
-		string s1 = s.substr(s.length() - shift, shift);
-		string s2 = s.substr(0, s.length() - shift);
-		return s1 + s2;
+		string s1 = s.substr(0, shift);
+		string s2 = s.substr(shift, s.length() - shift);
+		return s2 + s1;
 	}
 }
