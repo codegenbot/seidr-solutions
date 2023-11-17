@@ -9,17 +9,22 @@ Return n-th Fibonacci number.
 */
 #include<stdio.h>
 using namespace std;
-int fib(int n){
-	if(n==1 || n==2){
-		return 1;
-	}
-	else{
-		return fib(n-1)+fib(n-2);
-	}
+/*
+A number is Fibonacci number if and only if one or both of (5*n^2 + 4) or (5*n^2 – 4) is a perfect square.
+for any square no k^2 other perfect square is 3*k^2 + 1 or 3*k*-1.
+*/
+bool isPerfectSquare(int x){
+	int s = sqrt(x);
+	return ( s*s == x);	
 }
-int main(){
-	int n;
-	cin>>n;
-	cout<<fib(n);
+bool isFibonacci(int n){
+		return isPerfectSquare(5*n*n + 4) || isPerfectSquare(5*n*n - 4);
+}
+int main() {
+	int i;
+	cout << "Enter a number: ";
+	cin >> i;
+	if(isFibonacci(i)) cout << "Is a fibonacci number." << endl;
+	else cout << "Is not a Fibonacci number." << endl;
 	return 0;
 }
