@@ -55,7 +55,7 @@ int max_fill(vector<vector<int>> grid,int capacity){
     }
     return count;
 }
-int main(){
+int main1(){
     vector<vector<int>> grid = {{0,0,1,0}, {0,1,0,0}, {1,1,1,1}};
     int capacity = 1;
     printf("%d\n",max_fill(grid,capacity));
