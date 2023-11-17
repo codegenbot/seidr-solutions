@@ -15,29 +15,85 @@ compare_one("1", 1) ➞ "None"
 #include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
-	if(a.type()==typeid(int)&&b.type()==typeid(int))
-		return max(boost::any_cast<int>(a),boost::any_cast<int>(b));
-	if(a.type()==typeid(int)&&b.type()==typeid(float))
-		return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-	if(a.type()==typeid(int)&&b.type()==typeid(string))
-		return max(boost::any_cast<int>(a),boost::any_cast<float>(b));
-	if(a.type()==typeid(float)&&b.type()==typeid(int))
-		return max(boost::any_cast<float>(a),boost::any_cast<int>(b));
-	if(a.type()==typeid(float)&&b.type()==typeid(float))
-		return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-	if(a.type()==typeid(float)&&b.type()==typeid(string))
-		return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-	if(a.type()==typeid(string)&&b.type()==typeid(int))
-		return max(boost::any_cast<float>(a),boost::any_cast<int>(b));
-	if(a.type()==typeid(string)&&b.type()==typeid(float))
-		return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-	if(a.type()==typeid(string)&&b.type()==typeid(string))
-		return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-	return "None";
-}
-int main(){
-	boost::any a=1;
-	boost::any b="2,3";
-	printf("%s",boost::any_cast<string>(compare_one(a,b)).c_str());
-	return 0;
+    if(a.type()==typeid(int) && b.type()==typeid(int)){
+        if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
+            return a;
+        }else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
+            return b;
+        }else{
+            return "None";
+        }
+    }else if(a.type()==typeid(float) && b.type()==typeid(float)){
+        if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
+            return a;
+        }else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
+            return b;
+        }else{
+            return "None";
+        }
+    }else if(a.type()==typeid(string) && b.type()==typeid(string)){
+        if(boost::any_cast<string>(a) > boost::any_cast<string>(b)){
+            return a;
+        }else if(boost::any_cast<string>(a) < boost::any_cast<string>(b)){
+            return b;
+        }else{
+            return "None";
+        }
+    }else if(a.type()==typeid(int) && b.type()==typeid(string)){
+        string temp=boost::any_cast<string>(b);
+        for(int i=0;i<temp.size();i++){
+            if(temp[i]==','){
+                temp[i]='.';
+            }
+        }
+        if(boost::any_cast<int>(a) > stof(temp)){
+            return a;
+        }else if(boost::any_cast<int>(a) < stof(temp)){
+            return b;
+        }else{
+            return "None";
+        }
+    }else if(a.type()==typeid(string) && b.type()==typeid(int)){
+        string temp=boost::any_cast<string>(a);
+        for(int i=0;i<temp.size();i++){
+            if(temp[i]==','){
+                temp[i]='.';
+            }
+        }
+        if(boost::any_cast<int>(b) > stof(temp)){
+            return b;
+        }else if(boost::any_cast<int>(b) < stof(temp)){
+            return a;
+        }else{
+            return "None";
+        }
+    }else if(a.type()==typeid(float) && b.type()==typeid(string)){
+        string temp=boost::any_cast<string>(b);
+        for(int i=0;i<temp.size();i++){
+            if(temp[i]==','){
+                temp[i]='.';
+            }
+        }
+        if(boost::any_cast<float>(a) > stof(temp)){
+            return a;
+        }else if(boost::any_cast<float>(a) < stof(temp)){
+            return b;
+        }else{
+            return "None";
+        }
+    }else if(a.type()==typeid(string) && b.type()==typeid(float)){
+        string temp=boost::any_cast<string>(a);
+        for(int i=0;i<temp.size();i++){
+            if(temp[i]==','){
+                temp[i]='.';
+            }
+        }
+        if(boost::any_cast<float>(b) > stof(temp)){
+            return b;
+        }else if(boost::any_cast<float>(b) < stof(temp)){
+            return a;
+        }else{
+            return "None";
+        }
+    }
 }
