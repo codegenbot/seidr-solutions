@@ -23,60 +23,60 @@ a function that can output a vector of letter grades using the following table:
 Example:
 grade_equation({4.0, 3, 1.7, 2, 3.5}) ==> {"A+", "B", "C-", "C", "A-"}
 */
-#include<iostream>
-using namespace std;
+#include<stdio.h>
 vector<string> numerical_letter_grade(vector<float> grades){
 #include<vector>
 #include<string>
-	vector<string> result;
-	for (float i : grades) {
-		if (i >= 4.0) {
-			result.push_back("A+");
+	vector<string> letter_grade;
+	for(int i=0; i<grades.size(); i++){
+		if(grades[i] >= 4.0){
+			letter_grade.push_back("A+");
 		}
-		else if (i >= 3.7) {
-			result.push_back("A");
+		else if(grades[i] >= 3.7){
+			letter_grade.push_back("A");
 		}
-		else if (i >= 3.3) {
-			result.push_back("A-");
+		else if(grades[i] >= 3.3){
+			letter_grade.push_back("A-");
 		}
-		else if (i >= 3.0) {
-			result.push_back("B+");
+		else if(grades[i] >= 3.0){
+			letter_grade.push_back("B+");
 		}
-		else if (i >= 2.7) {
-			result.push_back("B");
+		else if(grades[i] >= 2.7){
+			letter_grade.push_back("B");
 		}
-		else if (i >= 2.3) {
-			result.push_back("B-");
+		else if(grades[i] >= 2.3){
+			letter_grade.push_back("B-");
 		}
-		else if (i >= 2.0) {
-			result.push_back("C+");
+		else if(grades[i] >= 2.0){
+			letter_grade.push_back("C+");
 		}
-		else if (i >= 1.7) {
-			result.push_back("C");
+		else if(grades[i] >= 1.7){
+			letter_grade.push_back("C");
 		}
-		else if (i >= 1.3) {
-			result.push_back("C-");
+		else if(grades[i] >= 1.3){
+			letter_grade.push_back("C-");
 		}
-		else if (i >= 1.0) {
-			result.push_back("D+");
+		else if(grades[i] >= 1.0){
+			letter_grade.push_back("D+");
 		}
-		else if (i >= 0.7) {
-			result.push_back("D");
+		else if(grades[i] >= 0.7){
+			letter_grade.push_back("D");
 		}
-		else if (i >= 0.0) {
-			result.push_back("D-");
+		else if(grades[i] >= 0.0){
+			letter_grade.push_back("D-");
 		}
-		else {
-			result.push_back("E");
+		else{
+			letter_grade.push_back("E");
 		}
 	}
-	return result;
+	return letter_grade;
 }
+using namespace std;
 int main(){
-	vector<string> result;
-	result=numerical_letter_grade({4.0, 3, 1.7, 2, 3.5});
-	for(int i=0;i<result.size();i++){
-		cout<<result[i]<<" ";
+	vector<float> grades = {4.0, 3, 1.7, 2, 3.5};
+	vector<string> letter_grade = numerical_letter_grade(grades);
+	for(int i=0; i<letter_grade.size(); i++){
+		cout<<letter_grade[i]<<" ";
 	}
-	cout<<endl;
+	return 0;
 }
