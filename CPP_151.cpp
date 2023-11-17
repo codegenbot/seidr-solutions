@@ -13,7 +13,7 @@ If the input vector is empty, return 0.
 #include<math.h>
 #include<vector>
 using namespace std;
-long long double_the_difference(vector<double> lst){
+long long double_the_difference(vector<float> lst){
   if (lst.size()==0)
     return 0;
   else{
@@ -25,4 +25,29 @@ long long double_the_difference(vector<double> lst){
     }
     return sum;
   }
+}
+#include<cassert>
+int main(){
+  vector<float> lst;
+  long long odd_sum;
+  
+  lst = {1, 3, 2, 0};
+  odd_sum = 10;
+  assert (double_the_difference(lst) == odd_sum );
+  
+  lst = {-1, -2, 0};
+  odd_sum = 0;
+  assert (double_the_difference(lst) == odd_sum );
+  
+  lst = {9, -2};
+  odd_sum = 81;
+  assert (double_the_difference(lst) == odd_sum );
+  
+  lst = {0};
+  odd_sum = 0;
+  assert (double_the_difference(lst) == odd_sum );
+  
+  lst = {};
+  odd_sum = 0;
+  assert (double_the_difference(lst) == odd_sum );
 }
