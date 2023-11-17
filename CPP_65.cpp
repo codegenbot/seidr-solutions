@@ -9,6 +9,7 @@ If shift > number of digits, return digits reversed.
 */
 #include<stdio.h>
 #include<string>
+#include<algorithm>
 using namespace std;
 string circular_shift(int x,int shift){
 	string str = to_string(x);
