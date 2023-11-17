@@ -28,13 +28,13 @@ Examples:
 // vector<int> minPath(vector<vector<int>> grid, int k){
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #include <stdio.h>
 #include <assert.h>
 #include <vector>
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> result;
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
     // Complete the following code given the task description and function signature.
@@ -47,6 +47,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     // Your code must run in O(N * k) time.
     // Your code must run in O(N) space.
     // Your code must be deterministic.
+}
 bool issame(vector<int> a,vector<int>b){
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++){
