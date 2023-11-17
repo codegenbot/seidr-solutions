@@ -16,20 +16,17 @@ using namespace std;
 bool check_dict_case(map<string,string> dict){
 	if(dict.size()==0)
 		return false;
-	bool upper=true;
-	bool lower=true;
+	bool is_lower=false;
+	bool is_upper=false;
 	for(auto it=dict.begin();it!=dict.end();it++){
-		if(it->first[0]>='a'&&it->first[0]<='z')
-			upper=false;
-		else if(it->first[0]>='A'&&it->first[0]<='Z')
-			lower=false;
+		if(isupper(it->first[0]))
+			is_upper=true;
 		else
-			return false;
+			is_lower=true;
 	}
-	if(upper||lower)
-		return true;
-	else
+	if(is_lower&&is_upper)
 		return false;
+	return true;
 }
 int main(){
 	map<string,string> dict;
