@@ -89,18 +89,9 @@ boost::any compare_one(boost::any a,boost::any b){
 	}
 }
 int main(){
-	boost::any a,b;
-	a=1;
-	b=2.5;
-	cout<<compare_one(a,b)<<endl;
-	a=1;
-	b="2,3";
-	cout<<compare_one(a,b)<<endl;
-	a="5,1";
-	b="6";
-	cout<<compare_one(a,b)<<endl;
-	a="1";
-	b=1;
-	cout<<compare_one(a,b)<<endl;
+	boost::any a=1;
+	boost::any b="2,3";
+	boost::any c=compare_one(a,b);
+	cout<<boost::any_cast<string>(c);
 	return 0;
 }
