@@ -1,5 +1,4 @@
 /*
-
 Write a function which sorts the given vector of integers
 in ascending order according to the sum of their digits.
 Note: if there are several items with similar sum of their digits,
@@ -16,13 +15,12 @@ For example:
 #include<string>
 #include<algorithm>
 #include<iostream>
+#include<bits/stdc++.h>
+
 
 using namespace std;
 
 vector<int> order_by_points(vector<int> nums){
-    if(nums.size() == 0){
-        return ans;
-    }
     vector<int> ans;
     vector<int> a;
     vector<int> b;
@@ -52,7 +50,7 @@ vector<int> order_by_points(vector<int> nums){
     vector<int> z;
 
     int sum = 0;
-    for(int i = 0;i < nums.size();i++){
+    for(int i = 0;i < nums.size();i++){ 
         sum = 0;
         while(nums[i] != 0){
             sum += nums[i] % 10;
