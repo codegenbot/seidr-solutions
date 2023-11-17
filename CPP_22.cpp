@@ -14,16 +14,10 @@ typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
 	vector<int> res;
-	for (auto iter = values.begin(); iter != values.end(); ++iter)
-	{
-		try
-		{
-			int tmp = boost::any_cast<int>(*iter);
-			res.push_back(tmp);
-		}
-		catch (boost::bad_any_cast& e)
-		{
-		}
+	for (list_any::iterator it = values.begin(); it != values.end(); it++) {
+		if (boost::any_cast<int>(&*it))
+			res.push_back(boost::any_cast<int>(*it));
 	}
 	return res;
 }
+
