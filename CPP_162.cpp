@@ -7,11 +7,11 @@ If 'text" is an empty string, return None.
 #include<stdio.h>
 #include<stdlib.h>
 #include<string>
-#include<openssl/md5.h> 
+#include<openssl/md5.h>
 using namespace std;
 string string_to_md5(string text){
     if(text.length() == 0){
-        return NULL;
+        return "NULL";
     }
     unsigned char result[MD5_DIGEST_LENGTH];
     MD5_CTX md5;
