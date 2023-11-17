@@ -12,7 +12,7 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any.hpp> //부스트 라이브러리 설치해야함
+#include<boost/any>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
   if(a.type()==typeid(string)){
