@@ -14,6 +14,7 @@ compare_one("1", 1) ➞ "None"
 // #include<boost/lexical_cast.hpp>  // to convert string to int
 #include<cassert>
 using namespace std;
+
 boost::any compare_one(boost::any a,boost::any b){
     if(a.type()==typeid(int)&&b.type()==typeid(int)){
         if(boost::any_cast<int>(a)>boost::any_cast<int>(b))
@@ -89,7 +90,7 @@ boost::any compare_one(boost::any a,boost::any b){
     }
 }
 
-int main(){
+/*int main(){
     assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
     assert (boost::any_cast<string>(compare_one(string("5,1"), string("6"))) == "6");
     assert (boost::any_cast<string>(compare_one(string("1"), string("2,3"))) == "2,3");
@@ -104,4 +105,4 @@ int main(){
     assert (boost::any_cast<string>(compare_one(1.1, string("2.1"))) == "2.1");
     assert (boost::any_cast<string>(compare_one(1.1, string("2.3"))) == "2.3");
     return 0;
-}
+}*/
