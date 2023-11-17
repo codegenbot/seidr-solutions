@@ -6,18 +6,18 @@ positive integers that start or end with 1.
 using namespace std;
 int starts_one_ends(int n){
 	int count = 0;
-	if(n==1)
-		return 2;
-	else if(n==2)
-		return 3;
-	else{
-		count = starts_one_ends(n-1) + starts_one_ends(n-2);
+	for (int i = 1; i <= n; i++)
+	{
+		if (i == 1)
+			count++;
+		else
+			count += 9 * pow(10, i - 2);
 	}
 	return count;
 }
 int main(){
 	int n;
-	scanf("%d",&n);
-	printf("%d",starts_one_ends(n));
+	scanf("%d", &n);
+	printf("%d", starts_one_ends(n));
 	return 0;
 }
