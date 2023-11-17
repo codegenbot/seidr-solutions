@@ -24,19 +24,21 @@ double find_zero(vector<double> xs){
     >>> round(find_zero([-6, 11, -6, 1]), 2) # (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3 
     1.0
     */
-    double x = 2;
-    double y = poly(xs,x);
-    while (y != 0){
-        x = x - y/poly(xs,x);
-        y = poly(xs,x);
+
+    double x, y;
+    x=0;
+    while(true){
+        y=poly(xs,x);
+        if(y==0){
+            return x;
+        }
+        x=x-y/poly(xs,x);
     }
-    return x;
 }
 
 int main(){
     vector<double> xs;
     xs.push_back(1);
     xs.push_back(2);
-    printf("%lf", find_zero(xs));
-    return 0;
+    printf("%f",find_zero(xs));
 }
