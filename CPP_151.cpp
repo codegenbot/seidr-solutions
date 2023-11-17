@@ -14,12 +14,17 @@ If the input vector is empty, return 0.
 #include<vector>
 using namespace std;
 long long double_the_difference(vector<float> lst){
-  int t = 0;
-  for(int i = 0; i < lst.size(); i++) {
-    if(lst[i]>=0 && floor(lst[i]) == lst[i] && lst[i]%2 != 0){
-      t += pow(lst[i], 2);
-    }
-  }
-  
-  return (long long) t;
+	long long res = 0;
+	for(auto &num: lst){
+		if(ceil(num)==floor(num)&&num>=0){
+			int val = (int)num;
+			val%2 == 0? res : res+val*val;
+		}
+	}
+	return res;
+}
+int main()
+{
+    printf("%lld", double_the_difference({1, 3, 2, 0}));
+    return 0;
 }
