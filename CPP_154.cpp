@@ -5,42 +5,36 @@ cycpattern_check("hello","ell") => true
 cycpattern_check("whassup","psus") => false
 cycpattern_check("abab","baa") => true
 cycpattern_check("efef","eeff") => false
-cycpattern_check("himenss",'simen") => true
+cycpattern_check("himenss","simen") => true
 
 */
 #include<stdio.h>
-#include<string.h>
+#include<string>
 using namespace std;
 bool cycpattern_check(string a,string b){
-	int i,j,k,l,m,n,o,p;
-	char c[100],d[100];
-	strcpy(c,a.c_str());
-	strcpy(d,b.c_str());
-	l=strlen(c);
-	m=strlen(d);
-	for(i=0;i<l;i++){
-		for(j=0;j<m;j++){
-			if(c[i]==d[j]){
-				for(k=0;k<m;k++){
-					if(c[i+k]==d[j+k]){
-						n=1;
-					}
-					else{
-						n=0;
-						break;
-					}
-				}
-				if(n==1){
-					return true;
-				}
+	int i=0,j=0,k=0;
+	int n=a.length();
+	int m=b.length();
+	if(m>n)
+		return false;
+	for(i=0;i<n;i++){
+		if(a[i]==b[0]){
+			for(j=0;j<m;j++){
+				if(a[(i+j)%n]!=b[j])
+					break;
 			}
+			if(j==m)
+				return true;
 		}
 	}
 	return false;
 }
 int main(){
 	string a,b;
-	cin>>a;
-	cin>>b;
-	cout<<cycpattern_check(a,b);
+	cin>>a>>b;
+	if(cycpattern_check(a,b))
+		cout<<"true";
+	else
+		cout<<"false";
+	return 0;
 }
