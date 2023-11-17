@@ -14,27 +14,17 @@ If the input vector is empty, return 0.
 #include<vector>
 using namespace std;
 long long double_the_difference(vector<float> lst){
-	vector<float>::iterator x;                             
-	float sum=0,res=0;
-	int i=0;
-	for(x=lst.begin();x!=lst.end();x++)
-	{
-		if(((*x)/(int)(*x))==1&&(*x)>=0)          
-		{
-			i++;                                
-			sum+=(*x)*(*x);
-		}
-		else{
-			i=i;                                
-		}
-	}
-	if(i%2==0)
-	{
-		res=sum;
-	}
-	else
-	{
-		res=2*sum;
-	}
-	return res;
+ for(int i=0;i<lst.size();i++){
+        if(lst[i]<0||lst[i]>int(lst[i])){
+           lst.erase(lst.begin()+i);
+           i--;
+        }
+    }
+    long long squ=0;
+    for(int i=0;i<lst.size();i++){
+        if(lst[i]%2==1){
+            squ+=int(lst[i])*int(lst[i]);
+        }
+    }
+    return squ;
 }
