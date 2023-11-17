@@ -10,7 +10,39 @@ compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
-#include<iostream>
-#include<boost/any.hpp>
+#include<string>
+#include<algorithm>
 using namespace std;
-boost::any compare_one(boost::any a,boost::any b){
+string compare_one(double a,double b){
+	if(a==b)
+		return "None";
+	else if(a>b)
+		return to_string(a);
+	else
+		return to_string(b);
+}
+string compare_one(int a,int b){
+	if(a==b)
+		return "None";
+	else if(a>b)
+		return to_string(a);
+	else
+		return to_string(b);
+}
+string compare_one(string a,string b){
+	if(a==b)
+		return "None";
+	else if(a>b)
+		return a;
+	else
+		return b;
+}
+int main(){
+	int a=1,b=2;
+	double c=1.1,d=2.6;
+	string e="2.2",f="2.1";
+	printf("%s\n",compare_one(a,b).c_str());
+	printf("%s\n",compare_one(c,d).c_str());
+	printf("%s\n",compare_one(e,f).c_str());
+	return 0;
+}
