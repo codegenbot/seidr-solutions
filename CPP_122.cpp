@@ -15,11 +15,20 @@ Constraints:
 #include<vector>
     int sum=0;
     for(int i=0;i<k;i++){
-        if(arr[i]<100 && arr[i]>9){
+        if(arr[i]<10)
             sum+=arr[i];
-        }
+        else if(arr[i]<100)
+            sum+=arr[i];
+        else
+            break;
     }
     return sum;
+}
+int main(){
+    vector<int> arr={111,21,3,4000,5,6,7,8,9};
+    int k=4;
+    printf("%d",add_elements(arr,k));
+    return 0;
 }
 using namespace std;
 int add_elements(vector<int> arr,int k){
