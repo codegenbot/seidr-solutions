@@ -9,6 +9,6 @@ prime_length("orange") == false
 */
 #include<stdio.h>
 #include<string.h>
-#include <string>
-using namespace std;
-bool prime_length(string str){
+#include<string>
+using namespace std
+bool prime_length(string str)
