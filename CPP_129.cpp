@@ -27,36 +27,38 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    vector<int> res;
     int n = grid.size();
-    if(k > n * n) return res;
+    vector<int> res(k);
     vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
-    for(int i = 0; i < n; ++i){
-        for(int j = 0; j < n; ++j){
-            if(k == 1){
-                dp[i][j] = grid[i][j];
-            }
-            else{
-                if(i > 0){
-                    dp[i][j] = min(dp[i][j], dp[i - 1][j]);
-                }
-                if(j > 0){
-                    dp[i][j] = min(dp[i][j], dp[i][j - 1]);
-                }
-                dp[i][j] += grid[i][j];
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(i == 0 && j == 0){
+                dp[i][j] = 0;
+            }else if(i == 0){
+                dp[i][j] = dp[i][j - 1] + 1;
+            }else if(j == 0){
+                dp[i][j] = dp[i - 1][j] + 1;
+            }else{
+                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + 1;
             }
         }
     }
-    int r = n - 1, c = n - 1;
-    while(k > 0){
-        res.push_back(grid[r][c]);
-        if(r > 0 && dp[r][c] == dp[r - 1][c] + grid[r][c]){
-            --r;
+    int i = 0, j = 0;
+    for(int l = 0; l < k; l++){
+        res[l] = grid[i][j];
+        if(i == n - 1 && j == n - 1){
+            break;
+        }else if(i == n - 1){
+            j++;
+        }else if(j == n - 1){
+            i++;
+        }else{
+            if(dp[i + 1][j] < dp[i][j + 1]){
+                i++;
+            }else{
+                j++;
+            }
         }
-        else{
-            --c;
-        }
-        --k;
     }
     return res;
 }
