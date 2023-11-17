@@ -18,7 +18,7 @@ compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 #include<vector>
 using namespace std;
 	vector<int> result;
-	// Complete the following code given the task description and function signature.
+	// complete the code
 	return result;
 }
 vector<int> compare(vector<int> game,vector<int> guess){
