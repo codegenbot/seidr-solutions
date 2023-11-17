@@ -14,28 +14,13 @@ Examples:
 using namespace std;
 string int_to_mini_romank(int number){
     string result;
-    vector<string> symbol = {"i","v","x","l","c","d","m"};
-    int scale = 1000;
-    for(int i = 6;i>=0;i-=2){
-        int digit = number/scale;
-        if(digit!=0){
-            if(digit<=3){
-                result.append(digit,symbol[i]);
-            }else if(digit == 4){
-                result.append(1,symbol[i]);
-                result.append(1,symbol[i+1]);
-            }else if(digit == 5){
-                result.append(1,symbol[i+1]);
-            }else if(digit <= 8){
-                result.append(1,symbol[i+1]);
-                result.append(digit-5,symbol[i]);
-            }else if(digit == 9){
-                result.append(1,symbol[i]);
-                result.append(1,symbol[i+2]);
-            }
+    vector<string> roman = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+    vector<int> num = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    for(int i = 0; i < num.size(); i++){
+        while(number >= num[i]){
+            number -= num[i];
+            result += roman[i];
         }
-        number = number%scale;
-        scale /= 10;
     }
     return result;
 }
