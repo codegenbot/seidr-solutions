@@ -27,9 +27,17 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    // TODO: Complete the following code given the task description and function signature.
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
+
+
+
+
+int main(){
+	return 0;
 }
-    int main(){
 #include<stdio.h>
 #include<vector>
 using namespace std;
