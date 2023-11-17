@@ -21,8 +21,3 @@ int modp(int n,int p){
 	else
 		return (2*modp((n-1)/2,p))%p;
 }
-int main(){
-	int n,p;
-	scanf("%d%d",&n,&p);
-	printf("%d",modp(n,p));
-}
