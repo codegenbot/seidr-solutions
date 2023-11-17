@@ -27,7 +27,9 @@ using namespace std;
     }
     return result;
 }
-vector<int> compare(vector<int> game,vector<int> guess){
+//return 0;
+int main(){
+//int main(){
 int main(){
     vector<int> a = {1,2,3,4,5,1};
     vector<int> b = {1,2,3,4,2,-2};
@@ -45,3 +47,4 @@ int main(){
     printf("\n");
     return 0;
 }
+vector<int> compare(vector<int> game,vector<int> guess){
