@@ -11,7 +11,8 @@ Constraints:
     1. 1 <= len(arr) <= 100
     2. 1 <= k <= len(arr)
 */
-#include<iostream>
+int add_elements(vector<int> arr,int k){
+#include<stdio.h>
 #include<vector>
     int sum=0;
     for(int i=0;i<k;i++){
