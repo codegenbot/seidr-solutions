@@ -9,27 +9,28 @@ compare_one(1, "2,3") ➞ "2,3"
 compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
-#include<iostream>
+#include<stdio.h>
 #include<string.h>
-#include<boost/any.hpp>
+#include<assert.h>
+#include<iostream>
 using namespace std;
-boost::any compare_one(boost::any a,boost::any b){
+string compare_one(string a,string b){
 	if(a.size()==b.size()){
-		if(boost::any_cast<string>(a).compare(boost::any_cast<string>(b))==0){
-			return "None"s;
+		if(a.compare(b)==0){
+			return "None";
 		}
 		else{
-			return boost::any_cast<string>(a)>boost::any_cast<string>(b)?a:b;
+			return a>b?a:b;
 		}
 	}
 	else{
-		return boost::any_cast<string>(a).size()>boost::any_cast<string>(b).size()?a:b;
+		return a.size()>b.size()?a:b;
 	}
 }
 int main(){
-	assert (boost::any_cast<string>(compare_one(1, 2.5)) == "2.5");
-	assert (boost::any_cast<string>(compare_one(1, "2,3")) == "2,3");
-	assert (boost::any_cast<string>(compare_one("5,1", "6")) == "6");
+	printf("%s\n",compare_one(to_string(1), to_string(2.5)).c_str());
+	printf("%s\n",compare_one(to_string(1), "2,3").c_str());
+	printf("%s\n",compare_one("5,1", "6").c_str());
 	assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
 	return 0;
 }
