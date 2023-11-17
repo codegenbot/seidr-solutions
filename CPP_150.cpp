@@ -20,13 +20,9 @@ int x_or_y(int n,int x,int y){
 		}
 	}
 	if(flag==0)
-	{
 		return x;
-	}
 	else
-	{
 		return y;
-	}
 }
 int main()
 {
