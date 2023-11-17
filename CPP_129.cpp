@@ -23,38 +23,7 @@ Examples:
 
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
-#include<algorithm>
-#include<queue>
-#include<iostream>
-
-bool isValid(int i, int j, int n){
-    return i >= 0 && i < n && j >= 0 && j < n;
-}
-
-bool isSafe(int i, int j, vector<vector<int>> &grid, vector<vector<int>> &visited){
-    return isValid(i, j, grid.size()) && visited[i][j] == 0 && grid[i][j] != 0;
-}
-
-void bfs(vector<vector<int>> &grid, vector<vector<int>> &visited, vector<int> &path, int k){
-    queue<pair<int, int>> q;
-    q.push({0, 0});
-    while(!q.empty()){
-        int s = q.size();
-        for(int i = 0; i < s; ++i){
-            pair<int, int> p = q.front();
-            q.pop();
-            int x = p.first, y = p.second;
-            visited[x][y] = 1;
-            path.push_back(grid[x][y]);
-            if(path.size() == k) return;
-            if(isSafe(x - 1, y, grid, visited)) q.push({x - 1, y});
-            if(isSafe(x + 1, y, grid, visited)) q.push({x + 1, y});
-            if(isSafe(x, y - 1, grid, visited)) q.push({x, y - 1});
-            if(isSafe(x, y + 1, grid, visited)) q.push({x, y + 1});
-        }
-    }
-}
-
+#include<stdio.h>
 #include<vector>
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
@@ -64,8 +33,15 @@ vector<int> minPath(vector<vector<int>> grid, int k){
 */
     vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
     vector<int> path;
+    vector<vector<int>> grid = {{5,9,3}, {4,1,6}, {7,8,2}};
+    vector<int> result = minPath(grid, 1);
+    for (int i = 0; i < result.size(); i++)
+        cout << result[i] << " ";
+    cout << endl;
+    return 0;
 }
     // Complete the following code given the task description and function signature.
     return path;
 }
+
 int main(){
