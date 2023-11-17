@@ -27,11 +27,12 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-	// Complete the following code.
-	return vector<int>();
+    vector<int> result;
+    return result;
 }
 int main(){
-    return 0;
+    vector<int> result;
+    return result;
 }
 #include<stdio.h>
 #include<vector>
