@@ -12,7 +12,6 @@ If the input vector is empty, return 0.
 #include<stdio.h>
 #include<math.h>
 #include<vector>
-#include<assert.h>
 using namespace std;
 long long double_the_difference(vector<float> lst)
 {
@@ -32,20 +31,3 @@ long long double_the_difference(vector<float> lst)
 	}
 	return sum;
 }
-int main(){
-	vector<float> lst;
-	lst.push_back(1);
-	lst.push_back(3);
-	lst.push_back(2);
-	lst.push_back(0);
-	assert (double_the_difference(lst) == odd_sum );
-}
-/*int main()
-{
-	vector<float> lst;
-	lst.push_back(1);
-	lst.push_back(3);
-	lst.push_back(2);
-	lst.push_back(0);
-	printf("%lld",double_the_difference(lst));
-}*/
