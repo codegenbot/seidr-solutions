@@ -27,10 +27,162 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    vector<int> res;
-    // Complete the following code given the task description and function signature.
-    return res;
-}
+	vector<int> result;
+	int n = grid.size();
+	int m = grid[0].size();
+	int i, j;
+	int min = grid[0][0];
+	int min_i = 0;
+	int min_j = 0;
+	for(i = 0; i < n; i++){
+		for(j = 0; j < m; j++){
+			if(grid[i][j] < min){
+				min = grid[i][j];
+				min_i = i;
+				min_j = j;
+			}
+		}
+	}
+	result.push_back(min);
+	int count = 1;
+	while(count < k){
+		if(min_i == 0){
+			if(min_j == 0){
+				if(grid[min_i][min_j + 1] < grid[min_i + 1][min_j]){
+					min_j++;
+				}
+				else{
+					min_i++;
+				}
+			}
+			else if(min_j == m - 1){
+				if(grid[min_i][min_j - 1] < grid[min_i + 1][min_j]){
+					min_j--;
+				}
+				else{
+					min_i++;
+				}
+			}
+			else{
+				if(grid[min_i][min_j - 1] < grid[min_i][min_j + 1]){
+					if(grid[min_i][min_j - 1] < grid[min_i + 1][min_j]){
+						min_j--;
+					}
+					else{
+						min_i++;
+					}
+				}
+				else{
+					if(grid[min_i][min_j + 1] < grid[min_i + 1][min_j]){
+						min_j++;
+					}
+					else{
+						min_i++;
+					}
+				}
+			}
+		}
+		else if(min_i == n - 1){
+			if(min_j == 0){
+				if(grid[min_i][min_j + 1] < grid[min_i - 1][min_j]){
+					min_j++;
+				}
+				else{
+					min_i--;
+				}
+			}
+			else if(min_j == m - 1){
+				if(grid[min_i][min_j - 1] < grid[min_i - 1][min_j]){
+					min_j--;
+				}
+				else{
+					min_i--;
+				}
+			}
+			else{
+				if(grid[min_i][min_j - 1] < grid[min_i][min_j + 1]){
+					if(grid[min_i][min_j - 1] < grid[min_i - 1][min_j]){
+						min_j--;
+					}
+					else{
+						min_i--;
+					}
+				}
+				else{
+					if(grid[min_i][min_j + 1] < grid[min_i - 1][min_j]){
+						min_j++;
+					}
+					else{
+						min_i--;
+					}
+				}
+			}
+		}
+		else{
+			if(min_j == 0){
+				if(grid[min_i][min_j + 1] < grid[min_i - 1][min_j]){
+					if(grid[min_i][min_j + 1] < grid[min_i + 1][min_j]){
+						min_j++;
+					}
+					else{
+						min_i++;
+					}
+				}
+				else{
+					if(grid[min_i - 1][min_j] < grid[min_i + 1][min_j]){
+						min_i--;
+					}
+					else{
+						min_i++;
+					}
+				}
+			}
+			else if(min_j == m - 1){
+				if(grid[min_i][min_j - 1] < grid[min_i - 1][min_j]){
+					if(grid[min_i][min_j - 1] < grid[min_i + 1][min_j]){
+						min_j--;
+					}
+					else{
+						min_i++;
+					}
+				}
+				else{
+					if(grid[min_i - 1][min_j] < grid[min_i + 1][min_j]){
+						min_i--;
+					}
+					else{
+						min_i++;
+					}
+				}
+			}
+			else{
+				if(grid[min_i][min_j - 1] < grid[min_i][min_j + 1]){
+					if(grid[min_i][min_j - 1] < grid[min_i - 1][min_j]){
+						if(grid[min_i][min_j - 1] < grid[min_i + 1][min_j]){
+							min_j--;
+						}
+						else{
+							min_i++;
+						}
+					}
+					else{
+						if(grid[min_i - 1][min_j] < grid[min_i + 1][min_j]){
+							min_i--;
+						}
+						else{
+							min_i++;
+						}
+					}
+				}
+				else{
+					if(grid[min_i][min_j + 1] < grid[min_i - 1][min_j]){
+						if(grid[min_i][min_j + 1] < grid[min_i + 1][min_j]){
+							min_j++;
+						}
+						else{
+							min_i++;
+						}
+				
 #include<stdio.h>
 #include<vector>
 using namespace std;
