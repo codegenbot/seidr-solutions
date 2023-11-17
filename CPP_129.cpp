@@ -23,10 +23,6 @@ Examples:
 
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
-#include <stdio.h>
-#include <vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
@@ -42,32 +38,14 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     // Your code must run in O(N) space.
     // Your code must be deterministic.
 
-int main(){
+#include <stdio.h>
+#include <vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
 
-    assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 1) , {1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 2) , {1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 3) , {1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 4) , {1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 5) , {1, 3, 1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 6) , {1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 7) , {1, 3, 1, 3, 1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 8) , {1, 3, 1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 9) , {1, 3, 1, 3, 1, 3, 1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 11) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 12) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 13) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 14) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 15) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 16) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 17) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 18) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 19) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1}));
-    assert (issame(minPath({{1, 3}, {3, 2}}, 20) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
 }
 
-/*int main()
+int main()
 {
     vector<vector<int>> grid = {{5,9,3},{4,1,6},{7,8,2}};
     vector<int> res = minPath(grid, 1);
@@ -76,4 +54,12 @@ int main(){
     }
     printf("\n");
     return 0;
-}*/
+}
+#include <stdio.h>
+#include <vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
+}
+
+int main(){
+}
