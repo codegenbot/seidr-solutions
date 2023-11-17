@@ -12,27 +12,8 @@ any_int(3, -2, 1) ➞ true
 
 any_int(3.6, -2.2, 2) ➞ false
 
-
-
 */
 #include<stdio.h>
 #include<math.h>
 using namespace std;
 bool any_int(float a,float b,float c){
-	if(((a+b)==c)||((a+c)==b)||((b+c)==a)){
-		return true;
-	}
-	else{
-		return false;
-	}
-}
-int main(){
-	float a,b,c;
-	scanf("%f%f%f",&a,&b,&c);
-	if(any_int(a,b,c)){
-		printf("True");
-	}
-	else{
-		printf("False");
-	}
-}
