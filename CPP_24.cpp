@@ -12,6 +12,7 @@ int largest_divisor(int n){
 			return i;
 		}
 	}
+	return 0;
 }
 int main(){
 	int n;
