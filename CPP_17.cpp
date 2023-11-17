@@ -16,32 +16,20 @@ Here is a legend:
 #include<string>
 using namespace std;
 vector<int> parse_music(string music_string){ 
-	int i,j,k=0;
-	vector<int> a;
-	for(i=0;i<music_string.length();i++){
-		if(music_string[i]=='o'&&music_string[i+1]==' '){
-			a.push_back(4);
-			k++;
-		}
-		else if(music_string[i]=='o'&&music_string[i+1]=='|'){
-			a.push_back(2);
-			k++;
-		}
-		else if(music_string[i]=='.'&&music_string[i+1]=='|'){
-			a.push_back(1);
-			k++;
-		}
-	}
-	return a;
+vector<int>a;
+for(int i=0;i<music_string.size();i++){
+if(music_string[i]=='o'&&music_string[i+1]==' '){
+a.push_back(4);
+i++;
 }
-int main(){
-	string music_string;
-	getline(cin,music_string);
-	vector<int> a;
-	a=parse_music(music_string);
-	int i;
-	for(i=0;i<a.size();i++){
-		cout<<a[i]<<" ";
-	}
-	return 0;
+else if(music_string[i]=='o'&&music_string[i+1]=='|'){
+a.push_back(2);
+i++;
+}
+else if(music_string[i]=='.'&&music_string[i+1]=='|'){
+a.push_back(1);
+i++;
+}
+}
+return a;
 }
