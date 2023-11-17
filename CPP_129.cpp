@@ -27,38 +27,62 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-	int n = grid.size();
-	vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
-	vector<vector<int>> path(n, vector<int>(n, -1));
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			if (i == 0 && j == 0) {
-				dp[i][j] = 0;
-				continue;
-			}
-			if (i > 0) {
-				if (dp[i - 1][j] + 1 < dp[i][j]) {
-					dp[i][j] = dp[i - 1][j] + 1;
-					path[i][j] = 0;
-				}
-			}
-			if (j > 0) {
-				if (dp[i][j - 1] + 1 < dp[i][j]) {
-					dp[i][j] = dp[i][j - 1] + 1;
-					path[i][j] = 1;
-				}
-			}
-		}
-	}
-	vector<int> res;
-	int i = n - 1, j = n - 1;
-	while (k > 0) {
-		res.push_back(grid[i][j]);
-		k--;
-		if (path[i][j] == 0) i--;
-		else j--;
-	}
-	return res;
+    // Complete the following code given the task description and function signature.
+    // You can add any other functions or variables you need.
+    // You are not allowed to change the function signature.
+    // You are not allowed to use any library functions such as sort.
+    int n = grid.size();
+    if(k < 1 || k > n * n)
+        return vector<int>();
+    vector<vector<vector<int>>> dp(n, vector<vector<int>>(n, vector<int>(k + 1, 0)));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            dp[i][j][1] = grid[i][j];
+        }
+    }
+    for(int len = 2; len <= k; len++){
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                int min_val = INT_MAX;
+                if(i > 0){
+                    min_val = min(min_val, dp[i - 1][j][len - 1]);
+                }
+                if(i < n - 1){
+                    min_val = min(min_val, dp[i + 1][j][len - 1]);
+                }
+                if(j > 0){
+                    min_val = min(min_val, dp[i][j - 1][len - 1]);
+                }
+                if(j < n - 1){
+                    min_val = min(min_val, dp[i][j + 1][len - 1]);
+                }
+                dp[i][j][len] = min_val;
+            }
+        }
+    }
+    vector<int> res;
+    int i = 0, j = 0;
+    while(res.size() < k){
+        res.push_back(grid[i][j]);
+        int min_val = INT_MAX;
+        if(i > 0 && dp[i - 1][j][k - res.size()] < min_val){
+            min_val = dp[i - 1][j][k - res.size()];
+            i--;
+        }
+        if(i < n - 1 && dp[i + 1][j][k - res.size()] < min_val){
+            min_val = dp[i + 1][j][k - res.size()];
+            i++;
+        }
+        if(j > 0 && dp[i][j - 1][k - res.size()] < min_val){
+            min_val = dp[i][j - 1][k - res.size()];
+            j--;
+        }
+        if(j < n - 1 && dp[i][j + 1][k - res.size()] < min_val){
+            min_val = dp[i][j + 1][k - res.size()];
+            j++;
+        }
+    }
+    return res;
 }
 #include<stdio.h>
 #include<vector>
