@@ -24,12 +24,60 @@ Examples:
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
 
-    Output: {5, 9, 3}
-
-    Input: grid = { {1,2,3}, {2,3,4}, {3,4,5}, {4,5,6}, {5,6,7}, {6,7,8}} k = 2
-#include<queue>
+    Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
+
+    int row = grid.size();
+    int col = grid[0].size();
+    vector<vector<int>> dp(row, vector<int>(col, 0));
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++){
+            if(i == 0 && j == 0) dp[i][j] = 1;
+            else if(i == 0) dp[i][j] = dp[i][j-1];
+            else if(j == 0) dp[i][j] = dp[i-1][j];
+            else dp[i][j] = dp[i-1][j] + dp[i][j-1];
+        }
+    }
+    vector<int> res;
+    int i = 0, j = 0;
+    while(k > 0){
+        if(i == 0 && j == 0){
+            res.push_back(grid[i][j]);
+            i++;
+            k--;
+            continue;
+        }
+        if(i == 0){
+            res.push_back(grid[i][j]);
+            j++;
+            k--;
+            continue;
+        }
+        if(j == 0){
+            res.push_back(grid[i][j]);
+            i++;
+            k--;
+            continue;
+        }
+        if(dp[i-1][j] < dp[i][j-1]){
+            res.push_back(grid[i][j]);
+            i++;
+            k--;
+        }
+        else{
+            res.push_back(grid[i][j]);
+            j++;
+            k--;
+        }
+    }
+    return res;
+}
+int main(){
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    vector<int> result = minPath(grid, 3);
+    for(int i = 0; i < result.size(); i++) cout << result[i] << " ";
+}
 #include<stdio.h>
 #include<vector>
 using namespace std;
