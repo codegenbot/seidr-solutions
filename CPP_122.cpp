@@ -12,8 +12,7 @@ Constraints:
     2. 1 <= k <= len(arr)
 */
 #include<stdio.h>
-using namespace std;
-int add_elements(vector<int> arr,int k){
+#include<vector>
     int sum=0;
     for(int i=0;i<k;i++){
         if(arr[i]<10)
@@ -29,3 +28,7 @@ int main(){
     printf("%d",add_elements(arr,k));
     return 0;
 }
+using namespace std;
+int add_elements(vector<int> arr,int k){
+
+
