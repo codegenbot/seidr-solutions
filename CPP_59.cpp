@@ -17,9 +17,3 @@ int largest_prime_factor(int n){
 	}
 	return i;
 }
-int main(){
-	int n;
-	scanf("%d",&n);
-	printf("%d",largest_prime_factor(n));
-	return 0;
-}
