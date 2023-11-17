@@ -26,11 +26,21 @@ Examples:
 
 
 
+int main(){
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
+#include<iostream>
 */
 	vector<int> ans;
-int main(){
+	for(int i=0;i<grid.size();i++){
+		for(int j=0;j<grid.size();j++){
+			printf("%d ",grid[i][j]);
+		}
+		printf("\n");
+	}
+	vector<int> ansWe;
+	return ans;
+}
 	return ans;
 }
 #include<stdio.h>
