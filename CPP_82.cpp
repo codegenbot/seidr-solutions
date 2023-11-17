@@ -7,8 +7,6 @@ prime_length("abcdcba") == true
 prime_length("kittens") == true
 prime_length("orange") == false
 */
-
-#include<stdio.h>
 #include<iostream>
 #include<string>
 using namespace std;
@@ -25,6 +23,7 @@ for(i=0;i<str.length();i++){
 	return false;
 }
 }
+#include<stdio.h>
 int main(){
 	string str;
 	cin>>str;
@@ -32,5 +31,4 @@ int main(){
 	cout<<"true";
 	else
 	cout<<"false";
-	return 0;
 }
