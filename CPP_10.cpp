@@ -19,20 +19,21 @@ string make_palindrome(string str){
     "catac" 
     */
     string s;
-    int len=str.length();
-    for(int i=0;i<len;i++){
-        string s1=str.substr(len-i-1,i+1);
-        if(is_palindrome(s1)){
-            s=str;
-            s.append(s1.rbegin(),s1.rend());
-            break;
+    int i=0;
+    bool flag=true;
+    while(flag){
+        if(is_palindrome(str.substr(i))){
+            s=str.substr(0,i);
+            flag=false;
         }
+        i++;
     }
+    s=str+string(s.rbegin(),s.rend());
     return s;
 }
 int main(){
     string str;
-    printf("Enter the string\n");
-    scanf("%s",str);
-    printf("%s\n",make_palindrome(str));
+    cin>>str;
+    cout<<make_palindrome(str);
+    return 0;
 }
