@@ -28,10 +28,3 @@ int x_or_y(int n,int x,int y){
 		return y;
 	}
 }
-int main()
-{
-	int n,x,y;
-	scanf("%d%d%d",&n,&x,&y);
-	printf("%d",x_or_y(n,x,y));
-	return 0;
-}
