@@ -18,5 +18,8 @@ solution({30, 13, 24, 321}) ==>0
     return sum;
 }
 using namespace std;
-int solutions(vector<int> lst){
 int main(){
+    vector<int> lst {5, 8, 7, 1};
+    printf("%d\n", solutions(lst));
+    return 0;
+}
