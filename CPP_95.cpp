@@ -14,19 +14,22 @@ check_map_case({{"STATE","NC"}, {"ZIP","12345"} }) should return true.
 #include<map>
 using namespace std;
 bool check_dict_case(map<string,string> dict){
-	if(dict.size()==0)
+	if(dict.empty())
 		return false;
-	bool is_lower=false;
-	bool is_upper=false;
-	for(auto it=dict.begin();it!=dict.end();it++){
-		if(isupper(it->first[0]))
-			is_upper=true;
+	map<string,string>::iterator it;
+	int upper=0,lower=0;
+	for(it=dict.begin();it!=dict.end();it++){
+		if(it->first[0]>='A'&&it->first[0]<='Z')
+			upper++;
+		else if(it->first[0]>='a'&&it->first[0]<='z')
+			lower++;
 		else
-			is_lower=true;
+			return false;
 	}
-	if(is_lower&&is_upper)
+	if(upper==0||lower==0)
+		return true;
+	else
 		return false;
-	return true;
 }
 int main(){
 	map<string,string> dict;
