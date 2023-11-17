@@ -19,31 +19,27 @@ tri(3) = {1, 3, 2, 8}
 #include<vector>
 using namespace std;
 vector<int> tri(int n){
-	vector<int> res;
-	res.push_back(1);
-	res.push_back(3);
-	res.push_back(2);
-	if(n == 0)
-		return vector<int>();
-	if(n == 1)
-		return vector<int>{1};
-	if(n == 2)
-		return vector<int>{1, 3};
-	if(n == 3)
-		return vector<int>{1, 3, 2};
-	for(int i = 4; i < n + 1; i++){
-		if(i % 2 == 0)
-			res.push_back(1 + i / 2);
-		else
-			res.push_back(res[i - 1] + res[i - 2] + res[i - 3]);
+	vector<int> result(n+1);
+	result[0] = 1;
+	result[1] = 3;
+	result[2] = 2;
+	for (int i = 3; i <= n; i++) {
+		if (i % 2 == 0) {
+			result[i] = result[i - 1] + result[i - 2] + result[i + 1];
+		}
+		else {
+			result[i] = 1 + i / 2;
+		}
 	}
-	return res;
+	return result;
 }
-int main(){
-	int n;
-	scanf("%d",&n);
-	vector<int> res = tri(n);
-	for(int i = 0; i < res.size(); i++)
-		printf("%d ",res[i]);
+int main() {
+	for (int i = 0; i < 10; i++) {
+		vector<int> result = tri(i);
+		for (int i = 0; i < result.size(); i++) {
+			printf("%d ", result[i]);
+		}
+		printf("\n");
+	}
 	return 0;
 }
