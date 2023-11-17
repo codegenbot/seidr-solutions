@@ -37,7 +37,7 @@ string sort_numbers(string numbers){
     output[9] = "nine";
     int num[100];
     int i = 0;
-    char *p = strtok((char *)numbers.c_str(), " ");
+    char *p = strtok(numbers.c_str(), " ");
     while(p != NULL){
         num[i++] = input[p];
         p = strtok(NULL, " ");
