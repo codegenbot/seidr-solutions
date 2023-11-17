@@ -12,7 +12,7 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any.hpp>//link:https://www.boost.org/doc/libs/1_73_0/doc/html/any.html
+#include<boost/any.hpp> 
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
   if(a.type()==typeid(int)){
