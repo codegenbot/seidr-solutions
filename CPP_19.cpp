@@ -6,8 +6,9 @@ Return the string with numbers sorted from smallest to largest
 "one three five"
 */
 #include<stdio.h>
-#include<string>
+#include<string.h>
 #include<map>
+#include<vector>
 using namespace std;
 string sort_numbers(string numbers){
 	map<string, int> num_map;
@@ -21,11 +22,11 @@ string sort_numbers(string numbers){
 	num_map["seven"] = 7;
 	num_map["eight"] = 8;
 	num_map["nine"] = 9;
-	vector<int> nums;
-	stringstream ss(numbers);
+	vector<int> nums;//error: expected primary-expression before ‘int’
+	stringstream ss(numbers);//error: variable ‘std::stringstream ss’ has initializer but incomplete type
 	string num;
 	while(ss >> num){
-		nums.push_back(num_map[num]);
+		nums.push_back(num_map[num]);//error: ‘nums’ was not declared in this scope; did you mean ‘num’?
 	}
 	sort(nums.begin(), nums.end());
 	string res;
