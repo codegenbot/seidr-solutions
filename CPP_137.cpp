@@ -12,37 +12,43 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
+#include<boost/any.hpp>
 using namespace std;
-string compare_one(double a,double b){
-	if(a==b)
-		return "None";
-	else if(a>b)
-		return to_string(a);
-	else
-		return to_string(b);
-}
-string compare_one(int a,int b){
-	if(a==b)
-		return "None";
-	else if(a>b)
-		return to_string(a);
-	else
-		return to_string(b);
-}
-string compare_one(string a,string b){
-	if(a==b)
-		return "None";
-	else if(a>b)
-		return a;
-	else
-		return b;
+boost::any compare_one(boost::any a,boost::any b){
+	if((a.type()==typeid(string) && b.type()==typeid(string))){
+		if(stof(boost::any_cast<string>(a))>stof(boost::any_cast<string>(b))){
+			return a;
+		}else if(stof(boost::any_cast<string>(a))<stof(boost::any_cast<string>(b))){
+			return b;
+		}
+	}else if((a.type()==typeid(string) && b.type()!=typeid(string))){
+		if(stof(boost::any_cast<string>(a))>boost::any_cast<float>(b)){
+			return a;
+		}else if(stof(boost::any_cast<string>(a))<boost::any_cast<float>(b)){
+			return b;
+		}
+	}else if((a.type()!=typeid(string) && b.type()==typeid(string))){
+		if(stof(boost::any_cast<string>(b))>boost::any_cast<float>(a)){
+			return b;
+		}else if(stof(boost::any_cast<string>(b))<boost::any_cast<float>(a)){
+			return a;
+		}
+	}else{
+		if(boost::any_cast<float>(a)>boost::any_cast<float>(b)){
+			return a;
+		}else if(boost::any_cast<float>(a)<boost::any_cast<float>(b)){
+			return b;
+		}
+	}
+	return "None";
 }
 int main(){
-	int a=1,b=2;
-	double c=1.1,d=2.6;
-	string e="2.2",f="2.1";
-	printf("%s\n",compare_one(a,b).c_str());
-	printf("%s\n",compare_one(c,d).c_str());
-	printf("%s\n",compare_one(e,f).c_str());
-	return 0;
+	boost::any a = 1,b = "2,3";
+	boost::any c = compare_one(a,b);
+	string c_type = c.type().name();
+	if(c_type == "string"){
+		cout<<boost::any_cast<string>(c)<<"\n";
+	}else{
+		cout<<boost::any_cast<float>(c)<<"\n";
+	}
 }
