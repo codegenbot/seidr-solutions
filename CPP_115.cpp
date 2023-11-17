@@ -41,28 +41,17 @@ int max_fill(vector<vector<int>> grid,int capacity){
             if(grid[i][j] == 1){
                 count++;
                 grid[i][j] = 0;
-                if(capacity > 1){
-                    for(int k = i; k < grid.size(); k++){
-                        for(int l = j; l < grid[k].size(); l++){
-                            if(grid[k][l] == 1){
-                                grid[k][l] = 0;
-                                capacity--;
-                                if(capacity == 0)
-                                    break;
-                            }
-                        }
-                        if(capacity == 0)
-                            break;
-                    }
-                }
             }
         }
     }
     return count;
 }
 int main(){
-    vector<vector<int>> grid = {{0,0,1,0}, {0,1,0,0}, {1,1,1,1}};
-    int capacity = 1;
-    printf("%d\n",max_fill(grid,capacity));
+    vector<vector<int>> grid1 = {{0,0,1,0}, {0,1,0,0}, {1,1,1,1}};
+    vector<vector<int>> grid2 = {{0,0,1,1}, {0,0,0,0}, {1,1,1,1}, {0,1,1,1}};
+    vector<vector<int>> grid3 = {{0,0,0}, {0,0,0}};
+    printf("%d\n",max_fill(grid1,1));
+    printf("%d\n",max_fill(grid2,2));
+    printf("%d\n",max_fill(grid3,5));
     return 0;
 }
