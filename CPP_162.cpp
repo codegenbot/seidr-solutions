@@ -6,8 +6,8 @@ If 'text" is an empty string, return None.
 */
 #include<stdio.h>
 #include<string.h>
-#include <cstdlib>
 #include<openssl/md5.h>
+#include <cstdlib>
 using namespace std;
 char *string_to_md5(const char *text){
     if(strlen(text) == 0){
