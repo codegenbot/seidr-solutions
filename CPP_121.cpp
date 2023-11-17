@@ -7,25 +7,27 @@ solution({5, 8, 7, 1}) ==> 12
 solution({3, 3, 3, 3, 3}) ==> 9
 solution({30, 13, 24, 321}) ==>0
 */
-using namespace std;
+#include<iostream>
+#include<vector>
 int solutions(vector<int> lst){
-int sum=0;
-for(int i=0;i<lst.size();i++){
-if(lst[i]%2==0){
-sum+=lst[i];
+	int sum=0;
+	for(int i=0;i<lst.size();i++){
+		if(lst[i]%2==0){
+			sum+=lst[i];
+		}
+	}
+	return sum;
 }
-}
-return sum;
-}
+using namespace std;
 int main(){
-vector<int> v;
-int n;
-scanf("%d",&n);
-while(n--){
-int x;
-scanf("%d",&x);
-v.push_back(x);
-}
-printf("%d",solutions(v));
-return 0;
+	vector<int> v;
+	int n;
+	cin>>n;
+	while(n--){
+		int x;
+		cin>>x;
+		v.push_back(x);
+	}
+	cout<<solutions(v);
+	return 0;
 }
