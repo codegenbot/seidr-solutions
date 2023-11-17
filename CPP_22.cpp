@@ -8,10 +8,9 @@ Filter given vector of any python values only for integers
 #include<stdio.h>
 #include<vector>
 #include<string>
-#include<boost/any.hpp> // if error then sudo apt-get install libboost-all-dev and 
-// sudo apt-get install libboost-python-dev
+#include<any>
 #include<list>
-typedef std::list<boost::any> list_any;
+typedef std::list<any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
     vector<int> v;
@@ -19,7 +18,7 @@ vector<int> filter_integers(list_any values){
     {
         if(it->type() == typeid(int))
         {
-            v.push_back(boost::any_cast<int>(*it));
+            v.push_back(any_cast<int>(*it));
         }
     }
     return v;
