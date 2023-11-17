@@ -31,5 +31,3 @@ int main(){
 
     return 0;
 }
-using namespace std;
-int add_elements(vector<int> arr,int k){
