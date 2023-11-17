@@ -27,46 +27,7 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    vector<int> result;
-    int n=grid.size();
-    int i=0;
-    int j=0;
-    int count=0;
-    while(count<k){
-        if(i==0 && j==0){
-            result.push_back(grid[i][j]);
-            count++;
-            i++;
-        }
-        else if(i==0){
-            result.push_back(grid[i][j]);
-            count++;
-            j++;
-        }
-        else if(j==0){
-            result.push_back(grid[i][j]);
-            count++;
-            i++;
-        }
-        else{
-            if(grid[i][j+1]<grid[i+1][j]){
-                result.push_back(grid[i][j+1]);
-                count++;
-                j++;
-            }
-            else if(grid[i][j+1]>grid[i+1][j]){
-                result.push_back(grid[i+1][j]);
-                count++;
-                i++;
-            }
-            else{
-                result.push_back(grid[i][j+1]);
-                count++;
-                j++;
-            }
-        }
-    }
-    return result;
+
 }
 #include<stdio.h>
 #include<vector>
