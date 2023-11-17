@@ -11,8 +11,7 @@ check_if_last_char_is_a_letter("apple pi e ") ➞ false
 check_if_last_char_is_a_letter("") ➞ false 
 */
 #include<stdio.h>
-#include<string>//
-#include <iostream>//
+#include<iostream>
 using namespace std;
 bool check_if_last_char_is_a_letter(string txt){
 	int i=txt.size();
