@@ -18,27 +18,29 @@ string rounded_avg(int n,int m){
 	{
 		return "-1";
 	}
-	int avg = (n + m) / 2;
-	if ((n + m) % 2 == 1)
+	else
 	{
-		if (avg >= (n + m) / 2.0)
+		int sum = 0;
+		int count = 0;
+		for (int i = n; i <= m; i++)
 		{
-			avg--;
+			sum += i;
+			count++;
 		}
+		int avg = sum / count;
+		string s = "";
+		while (avg > 0)
+		{
+			if (avg % 2 == 0)
+			{
+				s = "0" + s;
+			}
+			else
+			{
+				s = "1" + s;
+			}
+			avg /= 2;
+		}
+		return s;
 	}
-	string result = "";
-	while (avg)
-	{
-		result = (avg % 2 == 0 ? "0" : "1") + result;
-		avg /= 2;
-	}
-	return result;
-}
-int main()
-{
-	printf("%s\n", rounded_avg(1, 5).c_str());
-	printf("%s\n", rounded_avg(7, 5).c_str());
-	printf("%s\n", rounded_avg(10, 20).c_str());
-	printf("%s\n", rounded_avg(20, 33).c_str());
-	return 0;
 }
