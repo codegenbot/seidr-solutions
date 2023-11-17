@@ -14,17 +14,14 @@ sum_to_n is a function that sums numbers from 1 to n.
 #include<stdio.h>
 using namespace std;
 int sum_to_n(int n){
-	int sum = 0;
-	for (int i = 1; i <= n; i++)
-	{
-		sum += i;
-	}
-	return sum;
+	if(n==1)
+		return 1;
+	else
+		return n+sum_to_n(n-1);
 }
-int main()
-{
+int main(){
 	int n;
-	scanf("%d", &n);
-	printf("%d\n", sum_to_n(n));
+	scanf("%d",&n);
+	printf("%d",sum_to_n(n));
 	return 0;
 }
