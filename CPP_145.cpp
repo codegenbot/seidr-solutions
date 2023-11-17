@@ -8,7 +8,6 @@ For example:
 >>> order_by_points({1, 11, -1, -11, -12}) == {-1, -11, 1, -12, 11}
 >>> order_by_points({}) == {}
 */
-
 #include<stdio.h>
 #include<math.h>
 #include<vector>
@@ -133,7 +132,7 @@ vector<int> order_by_points(vector<int> nums){
             z.push_back(nums[i]);
         }
     }
-    for(int i = 0;i < a.size();i++){
+    for(i = 0;i < a.size();i++){
         ans.push_back(a[i]);
     }
     for(i = 0;i < b.size();i++){
