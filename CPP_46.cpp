@@ -17,11 +17,15 @@ Please write a function to efficiently compute the n-th element of the fib4 numb
 using namespace std;
 int fib4(int n){
 	int a = 0, b = 0, c = 2, d = 0, e = 0;
-	if (n == 0) return 0;
-	if (n == 1) return 0;
-	if (n == 2) return 2;
-	if (n == 3) return 0;
-	for (int i = 4; i <= n; i++){
+	if(n == 0)
+		return 0;
+	if(n == 1)
+		return 0;
+	if(n == 2)
+		return 2;
+	if(n == 3)
+		return 0;
+	for(int i = 4; i <= n; i++){
 		e = a + b + c + d;
 		a = b;
 		b = c;
@@ -33,6 +37,6 @@ int fib4(int n){
 int main(){
 	int n;
 	scanf("%d", &n);
-	printf("%d", fib4(n));
+	printf("%d\n", fib4(n));
 	return 0;
 }
