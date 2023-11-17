@@ -22,3 +22,6 @@ return sum;
 using namespace std;
 int solutions(vector<int> lst){
 int main(){
+vector<int> lst ={3,3,3,3,3};
+printf("%d",solutions(lst));
+}
