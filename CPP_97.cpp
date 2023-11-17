@@ -17,9 +17,3 @@ int multiply(int a,int b){
 	int e=c*d;
 	return e;
 }
-int main(){
-	int a,b;
-	scanf("%d%d",&a,&b);
-	printf("%d",multiply(a,b));
-	return 0;
-}
