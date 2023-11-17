@@ -10,63 +10,32 @@ Return the string with numbers sorted from smallest to largest
 #include<map>
 using namespace std;
 string sort_numbers(string numbers){
-	string result="";
-	map<string,int> num_map;
-	num_map["zero"]=0;
-	num_map["one"]=1;
-	num_map["two"]=2;
-	num_map["three"]=3;
-	num_map["four"]=4;
-	num_map["five"]=5;
-	num_map["six"]=6;
-	num_map["seven"]=7;
-	num_map["eight"]=8;
-	num_map["nine"]=9;
+	map<string, int> num_map;
+	num_map["zero"] = 0;
+	num_map["one"] = 1;
+	num_map["two"] = 2;
+	num_map["three"] = 3;
+	num_map["four"] = 4;
+	num_map["five"] = 5;
+	num_map["six"] = 6;
+	num_map["seven"] = 7;
+	num_map["eight"] = 8;
+	num_map["nine"] = 9;
 	vector<int> nums;
-	int a=0;
-	int b=0;
-	for(int i=0;i<numbers.size();i++){
-		if(numbers[i]==' '){
-			nums.push_back(num_map[numbers.substr(a,i-a)]);
-			a=i+1;
+	stringstream ss(numbers);
+	string temp;
+	while(ss >> temp){
+		nums.push_back(num_map[temp]);
+	}
+	sort(nums.begin(), nums.end());
+	string res = "";
+	for(int i = 0; i < nums.size(); i++){
+		for(map<string, int>::iterator it = num_map.begin(); it != num_map.end(); it++){
+			if(it->second == nums[i]){
+				res += it->first;
+				res += " ";
+			}
 		}
 	}
-	nums.push_back(num_map[numbers.substr(a,numbers.size()-a)]);
-	sort(nums.begin(),nums.end());
-	for(int i=0;i<nums.size();i++){
-		if(i!=0) result+=" ";
-		switch(nums[i]){
-			case 0:
-				result+="zero";
-				break;
-			case 1:
-				result+="one";
-				break;
-			case 2:
-				result+="two";
-				break;
-			case 3:
-				result+="three";
-				break;
-			case 4:
-				result+="four";
-				break;
-			case 5:
-				result+="five";
-				break;
-			case 6:
-				result+="six";
-				break;
-			case 7:
-				result+="seven";
-				break;
-			case 8:
-				result+="eight";
-				break;
-			case 9:
-				result+="nine";
-				break;
-		}
-	}
-	return result;
+	return res;
 }
