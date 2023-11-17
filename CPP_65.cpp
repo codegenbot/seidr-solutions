@@ -12,13 +12,13 @@ If shift > number of digits, return digits reversed.
 using namespace std;
 string circular_shift(int x,int shift){
 	string s = to_string(x);
-	if (shift > s.length()) {
+	if (shift > s.size()) {
 		reverse(s.begin(), s.end());
 		return s;
 	}
 	else {
-		string s1 = s.substr(0, s.length() - shift);
-		string s2 = s.substr(s.length() - shift, shift);
+		string s1 = s.substr(0, shift);
+		string s2 = s.substr(shift, s.size() - shift);
 		return s2 + s1;
 	}
 }
