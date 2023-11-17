@@ -6,20 +6,5 @@ Examples:
     add({4, 2, 6, 7}) ==> 2 
 */
 #include<stdio.h>
-int add(vector<int> lst){
 #include<vector>
-	int count = 0;
-	for(int i=0; i<lst.size(); i++)
-	{
-		if(i%2!=0)
-		{
-			if(lst[i]%2==0)
-			{
-				count += lst[i];
-			}
-		}
-	}
-	return count;
-}
-using namespace std;
-int main(){
+using namespace std;int add(vector<int> lst){int s = 0;for (int i = 0; i < lst.size(); i++){if (i % 2 != 0 && lst[i] % 2 == 0){s += lst[i];}}return s;}int main(){vector<int> lst;int n;scanf("%d", &n);for (int i = 0; i < n; i++){int element;scanf("%d", &element);lst.push_back(element);}printf("%d\n", add(lst));return 0;}
