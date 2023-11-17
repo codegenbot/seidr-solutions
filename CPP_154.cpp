@@ -12,51 +12,30 @@ cycpattern_check("himenss",'simen") => true
 #include<string.h>
 using namespace std;
 bool cycpattern_check(string a,string b){
-	int i,j,k,l,m,n;
-	char temp;
-	l=strlen(a);
-	m=strlen(b);
-	for(i=0;i<l;i++)
-	{
-		temp=a[0];
-		for(j=0;j<l-1;j++)
-		{
-			a[j]=a[j+1];
-		}
-		a[j]=temp;
-		for(k=0;k<m;k++)
-		{
-			if(a[k]==b[k])
-			{
-				n=1;
+	int len1=strlen(a);
+	int len2=strlen(b);
+	if(len1!=len2)
+		return false;
+	char temp=b[0];
+	int i,j;
+	for(i=0;i<len2;i++){
+		if(b[i]==temp){
+			for(j=0;j<len2;j++){
+				if(b[j]!=a[(i+j)%len2])
+					break;
 			}
-			else
-			{
-				n=0;
-				break;
-			}
-		}
-		if(n==1)
-		{
-			return true;
+			if(j==len2)
+				return true;
 		}
 	}
 	return false;
 }
-int main()
-{
-	char a[20],b[20];
-	printf("Enter the first string\n");
-	scanf("%s",a);
-	printf("Enter the second string\n");
-	scanf("%s",b);
+int main(){
+	char a[100],b[100];
+	scanf("%s%s",a,b);
 	if(cycpattern_check(a,b))
-	{
-		printf("True\n");
-	}
+		printf("true\n");
 	else
-	{
-		printf("False\n");
-	}
+		printf("false\n");
 	return 0;
 }
