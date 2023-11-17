@@ -27,40 +27,20 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    vector<int> res;
-    int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(i == 0 && j == 0){
-                dp[i][j] = grid[i][j];
-            }else if(i == 0){
-                dp[i][j] = min(dp[i][j - 1], grid[i][j]);
-            }else if(j == 0){
-                dp[i][j] = min(dp[i - 1][j], grid[i][j]);
-            }else{
-                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]);
-                dp[i][j] = min(dp[i][j], grid[i][j]);
-            }
-        }
+    vector<int> result;
+    // Complete the following code given the task description and function signature.
+    return result;
+}
+
+int main(){
+    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9} };
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for(int i = 0; i < result.size(); i++){
+        printf("%d ", result[i]);
     }
-    int i = n - 1, j = n - 1;
-    while(k > 0){
-        res.push_back(grid[i][j]);
-        if(i == 0){
-            j--;
-        }else if(j == 0){
-            i--;
-        }else{
-            if(dp[i - 1][j] < dp[i][j - 1]){
-                i--;
-            }else{
-                j--;
-            }
-        }
-        k--;
-    }
-    return res;
+    printf("\n");
+    return 0;
 }
 #include<stdio.h>
 #include<vector>
