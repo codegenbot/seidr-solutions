@@ -9,7 +9,6 @@ For example:
 >>> order_by_points({}) == {}
 */
 
-
 #include<stdio.h>
 #include<math.h>
 #include<vector>
@@ -20,6 +19,7 @@ For example:
 using namespace std;
 
 vector<int> order_by_points(vector<int> nums){
+    nums[0] = 1;
     vector<int> ans;
     vector<int> a;
     vector<int> b;
