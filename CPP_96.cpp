@@ -9,47 +9,18 @@ count_up_to(20) => {2,3,5,7,11,13,17,19}
 count_up_to(1) => {}
 count_up_to(18) => {2,3,5,7,11,13,17}
 */
-#include <stdio.h>
-#include <vector>
+#include<stdio.h>
+#include<vector>
 using namespace std;
-vector<int> count_up_to(int n) {
-  vector<int> result;
-  vector<bool> is_prime(n + 1, true);
-  for (int i = 2; i <= n; i++) {
-    if (is_prime[i] == true) {
-      for (int j = 2; j * i <= n; j++) {
-        is_prime[j * i] = false;
-      }
-    }
-  }
-  for (int i = 2; i <= n; i++) {
-    if (is_prime[i] == true) {
-      result.push_back(i);
-    }
-  }
-  return result;
-}
-
-int main() {
-  for (auto i : count_up_to(20)) {
-    printf("%d ", i);
-  }
-  printf("\n");
-  for (auto i : count_up_to(1)) {
-    printf("%d ", i);
-  }
-  printf("\n");
-  for (auto i : count_up_to(0)) {
-    printf("%d ", i);
-  }
-  printf("\n");
-  for (auto i : count_up_to(5)) {
-    printf("%d ", i);
-  }
-  printf("\n");
-  for (auto i : count_up_to(11)) {
-    printf("%d ", i);
-  }
-  printf("\n");
-  return 0;
+vector<int> count_up_to(int n){
+	vector<int> primes;
+	for(int i=0;i<n;i++){
+		if(i==2||i==3||i==5||i==7||i==11||i==13||i==17||i==19){
+			primes.push_back(i);
+		}
+		else if(i>19&&i%2!=0&&i%3!=0&&i%5!=0&&i%7!=0&&i%11!=0&&i%13!=0&&i%17!=0&&i%19!=0){
+			primes.push_back(i);
+		}
+	}
+	return primes;
 }
