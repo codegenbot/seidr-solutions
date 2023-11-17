@@ -1,15 +1,11 @@
 /*
-Given an unsigned integer n, store it in a suitable container of your choice.
-Notice that n holds only undecimal digits (in the range [0,9]).
-Return a vector of numbers such that each number is equal to the total number
-of occurrences of the digit it represents in n.
+Given a non-empty vector of integers arr and an integer k, return
+the sum of the elements with at most two digits from the first k elements of arr.
 
-Examples:
-    Input: n = 24665
-    Output: {2, 0, 1, 0, 0, 0, 0, 0, 0, 0}
+Example:
 
-    Input: n = 2345567
-    Output: {0, 2, 1, 2, 1, 0, 0, 1, 0, 0}
+    Input: arr = {111,21,3,4000,5,6,7,8,9}, k = 4
+    Output: 24 # sum of 21 + 3
 
 Constraints:
     1. 1 <= len(arr) <= 100
@@ -17,5 +13,28 @@ Constraints:
 */
 #include<stdio.h>
 #include<vector>
+int add_elements(vector<int> arr,int k){
+    int sum=0; 
+    for(int i=0;i<k;i++){
+        if(arr[i]<10)
+            sum+=arr[i];
+        else if(arr[i]>=10 && arr[i]<100)
+            sum+=arr[i];
+    }
+    return sum;
+}
+int main(){
+    vector<int> arr={111,21,3,4000,5,6,7,8,9};
+    int k=4;
+    printf("%d",add_elements(arr,k));
+    return 0;
+}
 using namespace std;
 int add_elements(vector<int> arr,int k){
+using namespace std;
+int main(){
+    vector<int> arr={111,21,3,4000,5,6,7,8,9};
+    int k=4;
+    printf("%d",add_elements(arr,k));
+    return 0;
+}
