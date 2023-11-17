@@ -27,9 +27,11 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
-    vector<int> path;
-    // Complete the following code given the task description and function signature.
-    return path;
+	// Complete the following code.
+
 }
+	return vector<int>();
 #include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
