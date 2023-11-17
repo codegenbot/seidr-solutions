@@ -18,16 +18,16 @@ long long double_the_difference(vector<float> lst){
 	long long sum = 0;
 	for (int i = 0; i < lst.size(); i++) {
 		if (lst[i] > 0 && floor(lst[i]) == lst[i]) {
-			if (lst[i] % 2 != 0) { //error: invalid operands of types ‘__gnu_cxx::__alloc_traits<std::allocator<float>, float>::value_type’ {aka ‘float’} and ‘int’ to binary ‘operator%’ 
+			if (lst[i] % 2 != 0) { //error: invalid operands of types ‘__gnu_cxx::__alloc_traits<std::allocator<float>, float>::value_type’ {aka ‘float’} and ‘int’ to binary ‘operator%’
 				sum += pow(lst[i], 2);
 			}
 		}
 	}
 	return sum;
 }
-int main(){
+int main() {
 	vector<float> lst = { 1, 3, 2, 0 };
 	long long odd_sum = 10;
-	assert (double_the_difference(lst) == odd_sum );
+	assert (double_the_difference(lst) == odd_sum);
 	return 0;
 }
