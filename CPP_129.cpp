@@ -20,12 +20,14 @@ It is guaranteed that the answer is unique.
 Return an ordered vector of the values on the cells that the minimum path go through.
 
 Examples:
+
 */
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
 
 // vector<int> minPath(vector<vector<int>> grid, int k){
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include <stdio.h>
 #include <assert.h>
