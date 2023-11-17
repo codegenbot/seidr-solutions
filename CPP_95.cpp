@@ -31,19 +31,3 @@ bool check_dict_case(map<string,string> dict){
 	else
 		return false;
 }
-int main(){
-	map<string,string> dict;
-	dict["a"]="apple";
-	dict["b"]="banana";
-	dict["A"]="banana";
-	dict["B"]="banana";
-	dict["8"]="banana";
-	dict["a"]="apple";
-	dict["Name"]="John";
-	dict["Age"]="36";
-	dict["City"]="Houston";
-	dict["STATE"]="NC";
-	dict["ZIP"]="12345";
-	printf("%d\n",check_dict_case(dict));
-	return 0;
-}
