@@ -1,4 +1,10 @@
 /*
+  33c9c885-bb7e-4607-a59a-c7bcfb928472.cpp:15:9: fatal error: boost/any.hpp:
+   No such file or directory
+    15 | #include<boost/any.hpp>
+       |         ^~~~~~~~~~~~~~~
+  compilation terminated.
+*/
 Create a function that takes integers, floats, or strings representing
 real numbers, and returns the larger variable in its given variable type.
 Return "None" if the values are equal.
@@ -12,7 +18,7 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any>
+#include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
 	if(a.type()==b.type()){
