@@ -15,7 +15,8 @@ int how_many_times(string str,string substring){
 	int n = str.length();
 	int m = substring.length();
 	for(int i = 0; i < n; i++){
-		for(int j = 0; j < m; j++)
+		int j;
+		for(j = 0; j < m; j++)
 			if(str[i+j] != substring[j])
 				break;
 		if(j == m)
