@@ -48,13 +48,3 @@ vector<string> select_words(string s,int n){
 	}
 	return v;
 }
-int main(){
-	string s;
-	int n;
-	getline(cin,s);
-	cin>>n;
-	vector<string> v=select_words(s,n);
-	for(int i=0;i<v.size();i++){
-		std::cout<<v[i]<<" ";
-	}
-}
