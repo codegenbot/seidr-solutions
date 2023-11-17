@@ -29,7 +29,7 @@ bool is_nested(string str){
 	}
 	return count > 0 ? false : true;
 }
-int main() {
+int main(){
 	string str;
 	cin >> str;
 	cout << is_nested(str) << endl;
