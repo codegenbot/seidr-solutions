@@ -14,8 +14,20 @@ fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
 #include<string>
 using namespace std;
 int fruit_distribution(string s,int n){
-int a,b,c,d,e,f;
-sscanf(s,"%d apples and %d oranges",&a,&b);
-c=n-(a+b);
-return c;
+	int mango=n,apple=0,orange=0;
+	for(int i=0;i<s.length();i++)
+	{
+		if(s[i]=='a')
+		{
+			apple=apple*10;
+			apple=apple+s[i-1]-'0';
+		}
+		else if(s[i]=='o')
+		{
+			orange=orange*10;
+			orange=orange+s[i-1]-'0';
+		}
+	}
+	mango=mango-apple-orange;
+	return mango;
 }
