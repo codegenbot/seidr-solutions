@@ -6,14 +6,14 @@ positive integers that start or end with 1.
 using namespace std;
 int starts_one_ends(int n){
 	int count = 0;
-	for (int i = 1; i <= n; i++) {
-		count += pow(10, i - 1);
+	for(int i = 1; i <= n; i++){
+		count += 9 * pow(10, i - 1);
 	}
 	return count;
 }
-int main() {
+int main(){
 	int n;
-	cin >> n;
-	cout << starts_one_ends(n);
+	scanf("%d", &n);
+	printf("%d\n", starts_one_ends(n));
 	return 0;
 }
