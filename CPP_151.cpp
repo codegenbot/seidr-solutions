@@ -24,9 +24,9 @@ int double_the_difference(vector<float> &lst) {
     return sum;
 }
 
-int main(){
+/*int main(){
     vector<float> lst = {1, 3, 2, 0}; 
-    int odd_sum = 10;
-    assert (double_the_difference(lst) == odd_sum ); 
+    int odd_sum = 10; 
+    assert (double_the_difference(lst) == odd_sum); 
     return 0; 
-}
+}*/
