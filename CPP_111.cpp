@@ -21,12 +21,11 @@ map<char,int> histogram(string test){
 	int max=0;
 	for(int i=0;i<test.length();i++){
 		if(test[i]!=' '){
-			it=result.find(test[i]);
-			if(it==result.end()){
-				result.insert(pair<char,int>(test[i],1));
+			if(result.find(test[i])==result.end()){
+				result[test[i]]=1;
 			}
 			else{
-				it->second++;
+				result[test[i]]++;
 			}
 		}
 	}
