@@ -13,43 +13,19 @@ compare_one("1", 1) ➞ "None"
 #include<string>
 #include<algorithm>
 #include<boost/any.hpp>
-using boost::any_cast;
 using namespace std;
-boost::any compare_one(boost::any a, boost::any b) {
-	try {
-		if (any_cast<int>(a) > any_cast<int>(b)) {
-			return any_cast<int>(a);
-		}
-		if (any_cast<int>(a) < any_cast<int>(b)) {
-			return any_cast<int>(b);
-		}
-	}
-	catch (boost::bad_any_cast&) {
-	}
-	try {
-		if (any_cast<double>(a) > any_cast<double>(b)) {
-			return any_cast<double>(a);
-		}
-		if (any_cast<double>(a) < any_cast<double>(b)) {
-			return any_cast<double>(b);
-		}
-	}
-	catch (boost::bad_any_cast&) {
-	}
-	try {
-		if (any_cast<string>(a) > any_cast<string>(b)) {
-			return any_cast<string>(a);
-		}
-		if (any_cast<string>(a) < any_cast<string>(b)) {
-			return any_cast<string>(b);
-		}
-	}
-	catch (boost::bad_any_cast&) {
-	}
-	return 0;
-}
-void main() {
-	boost::any a = 2;
-	boost::any b = 4.0;
-	cout << any_cast<double>(compare_one(a, b));
+boost::any compare_one(boost::any a,boost::any b){
+     if(a.type() == typeid(int) && b.type() == typeid(float)){
+         // execute the following code
+         
+     }
+     else if(a.type() == typeid(int) && b.type() == typeid(string)){
+         //execute the following code
+     }
+     else if(a.type() == typeid(float) && b.type() == typeid(string)){
+         // execute the following code
+     }
+     else if(a.type() == typeid(string) && b.type() == typeid(string)){
+         // execute the following code
+     }
 }
