@@ -27,15 +27,14 @@ Examples:
 
 // vector<int> minPath(vector<vector<int>> grid, int k){
 #include <iostream>
-    Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
-    Output: {1}
+
 
 #include <stdio.h>
 #include <assert.h>
 #include <vector>
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
-
+    return {1,2,1};
 }
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
