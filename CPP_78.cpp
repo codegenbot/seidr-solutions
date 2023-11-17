@@ -30,9 +30,3 @@ int hex_key(string num){
 	}
 	return count;
 }
-int main(){
-	string num;
-	cin>>num;
-	cout<<hex_key(num);
-	return 0;
-}
