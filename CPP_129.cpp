@@ -34,6 +34,8 @@ Examples:
 #include <vector>
 using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k){
+
+}
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
     // Complete the following code given the task description and function signature.
@@ -88,4 +90,3 @@ int main(){
     assert (issame(minPath({{1, 3}, {3, 2}}, -5) , {}));
     assert (issame(minPath({{1, 3}, {3, 2}}, -10) , {}));
     return 0;
-}
