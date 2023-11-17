@@ -6,59 +6,48 @@ Return the string with numbers sorted from smallest to largest
 "one three five"
 */
 #include<stdio.h>
-#include<string.h>
+#include<string>
 #include<map>
 using namespace std;
 string sort_numbers(string numbers){
-    map<string, int> input;
-    input["zero"] = 0;
-    input["one"] = 1;
-    input["two"] = 2;
-    input["three"] = 3;
-    input["four"] = 4;
-    input["five"] = 5;
-    input["six"] = 6;
-    input["seven"] = 7;
-    input["eight"] = 8;
-    input["nine"] = 9;
-    map<int, string> output;
-    output[0] = "zero";
-    output[1] = "one";
-    output[2] = "two";
-    output[3] = "three";
-    output[4] = "four";
-    output[5] = "five";
-    output[6] = "six";
-    output[7] = "seven";
-    output[8] = "eight";
-    output[9] = "nine";
-    int num[100];
-    int i = 0;
-    char *p = strtok(numbers, " ");
-    while(p != NULL){
-        num[i++] = input[p];
-        p = strtok(NULL, " ");
+    map<string, int> num_map;
+    num_map["zero"] = 0;
+    num_map["one"] = 1;
+    num_map["two"] = 2;
+    num_map["three"] = 3;
+    num_map["four"] = 4;
+    num_map["five"] = 5;
+    num_map["six"] = 6;
+    num_map["seven"] = 7;
+    num_map["eight"] = 8;
+    num_map["nine"] = 9;
+    vector<int> nums;
+    stringstream ss(numbers);
+    string word;
+    while(ss >> word){
+        nums.push_back(num_map[word]);
     }
-    for(int j = 0; j < i; j++){
-        for(int k = j + 1; k < i; k++){
-            if(num[j] > num[k]){
-                int tmp = num[j];
-                num[j] = num[k];
-                num[k] = tmp;
-            }
-        }
+    sort(nums.begin(), nums.end());
+    map<int, string> map_num;
+    map_num[0] = "zero";
+    map_num[1] = "one";
+    map_num[2] = "two";
+    map_num[3] = "three";
+    map_num[4] = "four";
+    map_num[5] = "five";
+    map_num[6] = "six";
+    map_num[7] = "seven";
+    map_num[8] = "eight";
+    map_num[9] = "nine";
+    string result = "";
+    for(int i = 0; i < nums.size(); i++){
+        result += map_num[nums[i]] + " ";
     }
-    string res = "";
-    for(int j = 0; j < i; j++){
-        res += output[num[j]];
-        if(j != i - 1)
-            res += " ";
-    }
-    return res;
+    return result.substr(0, result.size()-1);
 }
+
 int main(){
-    string s;
-    cin >> s;
-    cout << sort_numbers(s) << endl;
+    string numbers = "three one five";
+    cout << sort_numbers(numbers) << endl;
     return 0;
 }
