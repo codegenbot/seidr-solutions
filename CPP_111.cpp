@@ -29,12 +29,3 @@ map<char,int> histogram(string test){
 	}
 	return result;
 }
-int main(){
-	string test="a b c";
-	map<char,int> result=histogram(test);
-	map<char,int>::iterator it;
-	for(it=result.begin();it!=result.end();it++){
-		printf("%c %d\n",it->first,it->second);
-	}
-	return 0;
-}
