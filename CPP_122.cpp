@@ -16,16 +16,17 @@ Constraints:
 #include <iostream>
     int sum=0;
     for(int i=0;i<k;i++){
-        if(arr[i]>=10 && arr[i]<100){
+        if(arr[i]>=0 && arr[i]<=9)
             sum+=arr[i];
-        }
+        else if(arr[i]>=10 && arr[i]<=99)
+            sum+=arr[i];
     }
     return sum;
 }
 int main(){
     vector<int> arr = {111,21,3,4000,5,6,7,8,9};
     int k = 4;
-    cout << add_elements(arr,k);
+    cout<<add_elements(arr,k);
 }
 using namespace std;
 int add_elements(vector<int> arr,int k){
