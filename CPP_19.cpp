@@ -23,19 +23,19 @@ string sort_numbers(string numbers){
 	num_map["nine"] = 9;
 	vector<int> nums;
 	stringstream ss(numbers);
-	string num;
-	while(ss >> num){
-		nums.push_back(num_map[num]);
+	string temp;
+	while(ss >> temp){
+		nums.push_back(num_map[temp]);
 	}
 	sort(nums.begin(), nums.end());
-	string res;
+	string result;
 	for(int i = 0; i < nums.size(); i++){
 		for(auto it = num_map.begin(); it != num_map.end(); it++){
 			if(it->second == nums[i]){
-				res += it->first + " ";
+				result += it->first + " ";
 				break;
 			}
 		}
 	}
-	return res.substr(0, res.size() - 1);
+	return result.substr(0, result.size() - 1);
 }
