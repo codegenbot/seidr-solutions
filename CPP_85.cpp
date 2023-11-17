@@ -8,12 +8,14 @@ Examples:
 #include<stdio.h>
 #include<vector>
 	int sum = 0;
-	for (int i = 0; i < lst.size(); i++)
-	{
-		if (i % 2 != 0 && lst[i] % 2 == 0)
-			sum += lst[i];
-	}
+	for(int i=1; i<lst.size(); i+=2)
+		sum += lst[i];
 	return sum;
+}
+
+int main(){
+	vector<int> v = {4, 2, 6, 7};
+	printf("%d\n", add(v));
 }
 using namespace std;
 int add(vector<int> lst){
