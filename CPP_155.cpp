@@ -9,17 +9,11 @@ Given an integer. return a vector that has the number of even and odd digits res
 #include<math.h>
 #include<string>
 #include<vector>
-    vector<int> v;
+
+    vector<int> v1;
     int even = 0, odd = 0;
-    if(num == 0){
-        v.push_back(1);
-        v.push_back(0);
-        return v;
-    }
-    if(num < 0){
-        num = -num;
-    }
-    while(num > 0){
+
+    while(num != 0){
         if(num % 2 == 0){
             even++;
         }
@@ -28,9 +22,9 @@ Given an integer. return a vector that has the number of even and odd digits res
         }
         num = num / 10;
     }
-    v.push_back(even);
-    v.push_back(odd);
-    return v;
+    v1.push_back(even);
+    v1.push_back(odd);
+    return v1;
 }
 using namespace std;
 vector<int> even_odd_count(int num){
