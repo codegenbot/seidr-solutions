@@ -1,19 +1,18 @@
 /*
+Task:
 Given a non-empty vector of integers lst. add the even elements that are at odd indices..
 
 
 Examples:
+
     add({4, 2, 6, 7}) ==> 2 
 */
 #include<stdio.h>
 #include<vector>
-int y = 0;
-for(int x=0; x<lst.size(); x++){
-	if(lst[x]%2==0 && x%2==0){
-		y = y + lst[x];
-	}
-}
-return y;
+    int sum, i;
+    for(i=0; i<lst.size(); i+=2) sum+=lst[i];
+     
+    return sum;
 }
 using namespace std;
 int add(vector<int> lst){
