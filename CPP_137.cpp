@@ -12,10 +12,11 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
+#include<boost/any.hpp> 
 using namespace std;
-string compare_one(string a,string b){
-	if(a.size()==b.size()){
-		if(a.compare(b)==0){
+boost::any compare_one(boost::any a,boost::any b){
+	if(a.type()==b.type()){
+		if(a==b){
 			return "None";
 		}
 		else{
@@ -23,13 +24,13 @@ string compare_one(string a,string b){
 		}
 	}
 	else{
-		return a.size()>b.size()?a:b;
+		return a.type()==typeid(string)?a:b;
 	}
 }
 int main(){
-	printf("%s\n",compare_one(to_string(1), to_string(2.5)).c_str());
-	printf("%s\n",compare_one(to_string(1), "2,3").c_str());
-	printf("%s\n",compare_one("5,1", "6").c_str());
-	printf("%s\n",compare_one("1", to_string(1)).c_str());
+	printf("%s\n",boost::any_cast<const char*>(compare_one(1, 2.5)));
+	printf("%s\n",boost::any_cast<const char*>(compare_one(1, "2,3")));
+	printf("%s\n",boost::any_cast<const char*>(compare_one("5,1", "6")));
+	printf("%s\n",boost::any_cast<const char*>(compare_one("1", 1)));
 	return 0;
 }
