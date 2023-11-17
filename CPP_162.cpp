@@ -6,10 +6,10 @@ If 'text" is an empty string, return None.
 */
 #include<stdio.h>
 #include<string.h>
-#include<openssl/md5.h>
 #include<string>
-using namespace std;
-string string_to_md5(string text){
+#include<openssl/md5.h>
+
+std::string string_to_md5(std::string text){
     if(strlen(text.c_str()) == 0){
         return NULL;
     }
