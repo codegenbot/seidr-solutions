@@ -23,15 +23,15 @@ bool will_it_fly(vector<int> q,int w){
 	for(int i=0;i<q.size();i++){
 		sum+=q[i];
 	}
-	if(sum<=w){
-		for(int i=0;i<q.size()/2;i++){
-			if(q[i]!=q[q.size()-i-1]){
-				return false;
-			}
-		}
-		return true;
+	if(sum>w){
+		return false;
 	}
-	return false;
+	for(int i=0;i<q.size()/2;i++){
+		if(q[i]!=q[q.size()-i-1]){
+			return false;
+		}
+	}
+	return true;
 }
 int main(){
 	vector<int> q={3,2,3};
