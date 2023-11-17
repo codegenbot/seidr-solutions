@@ -5,11 +5,15 @@ positive integers that start or end with 1.
 #include<stdio.h>
 using namespace std;
 int starts_one_ends(int n){
-	if(n==1)
-		return 2;
-	if(n==2)
-		return 3;
-	return starts_one_ends(n-1)+starts_one_ends(n-2);
+	int count=0;
+	for(int i=1;i<=n;i++){
+		if(i==1)
+			count+=10;
+		else{
+			count+=9*pow(10,i-1);
+		}
+	}
+	return count;
 }
 int main(){
 	int n;
