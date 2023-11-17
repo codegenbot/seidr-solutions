@@ -6,6 +6,7 @@ If 'text" is an empty string, return None.
 */
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 #include <openssl/md5.h>
 
 std::string string_to_md5(std::string text){
