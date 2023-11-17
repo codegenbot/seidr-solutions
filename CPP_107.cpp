@@ -25,34 +25,39 @@ Note:
 #include<string>
 using namespace std;
 vector<int> even_odd_palindrome(int n){
-	vector<int> ret;
-	int cnt_even = 0, cnt_odd = 0;
-	// TODO: Complete the following code given the task description and function signature.
-	for (int i = 1; i <= n; i++) {
-		string s = to_string(i);
-		int len = s.length();
-		bool flag = true;
-		for (int j = 0; j < len / 2; j++) {
-			if (s[j] != s[len - j - 1]) {
-				flag = false;
-				break;
-			}
-		}
-		if (flag) {
-			if (len % 2 == 0)
-				cnt_even++;
-			else
-				cnt_odd++;
-		}
-	}
-	ret.push_back(cnt_even);
-	ret.push_back(cnt_odd);
-	return ret;
+    vector<int> res(2);
+    res[0] = res[1] = 0;
+    for(int i = 1; i <= n; ++i){
+        string s = to_string(i);
+        int j = 0, k = s.size() - 1;
+        while(j < k){
+            if(s[j] == s[k]){
+                ++j;
+                --k;
+            }
+            else{
+                break;
+            }
+        }
+        if(j >= k){
+            if(i % 2 == 0){
+                ++res[0];
+            }
+            else{
+                ++res[1];
+            }
+        }
+    }
+    return res;
 }
-int main() {
-	int n;
-	scanf("%d", &n);
-	vector<int> ret = even_odd_palindrome(n);
-	printf("%d %d\n", ret[0], ret[1]);
-	return 0;
+
+int main(){
+    int n;
+    scanf("%d", &n);
+    vector<int> res = even_odd_palindrome(n);
+    for(int i = 0; i < res.size(); ++i){
+        printf("%d ", res[i]);
+    }
+    printf("\n");
+    return 0;
 }
