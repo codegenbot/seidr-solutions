@@ -20,11 +20,14 @@ map<char,int> histogram(string test){
 	map<char,int>::iterator it;
 	int max=0;
 	for(int i=0;i<test.length();i++){
-		if(result.find(test[i])==result.end()){
-			result[test[i]]=1;
-		}
-		else{
-			result[test[i]]++;
+		if(test[i]!=' '){
+			it=result.find(test[i]);
+			if(it==result.end()){
+				result.insert(pair<char,int>(test[i],1));
+			}
+			else{
+				it->second++;
+			}
 		}
 	}
 	for(it=result.begin();it!=result.end();it++){
@@ -45,7 +48,7 @@ int main(){
 	map<char,int> result=histogram(test);
 	map<char,int>::iterator it;
 	for(it=result.begin();it!=result.end();it++){
-		cout<<it->first<<" "<<it->second<<endl;
+		printf("%c %d\n",it->first,it->second);
 	}
 	return 0;
 }
