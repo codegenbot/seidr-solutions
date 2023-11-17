@@ -15,24 +15,17 @@ remove_vowels is a function that takes string and returns string without vowels.
 */
 #include<stdio.h>
 #include<string>
+#include<iostream>
+#include<ostream>
 #include<algorithm>
 using namespace std;
 string remove_vowels(string text){
-	int i;
-	string text1;
-	for (i = 0; i < text.length(); i++) {
-		if (text[i] == 'a' || text[i] == 'e' || text[i] == 'i' || text[i] == 'o' || text[i] == 'u' || text[i] == 'A' || text[i] == 'E' || text[i] == 'I' || text[i] == 'O' || text[i] == 'U') {
-			continue;
-		}
-		else {
-			text1 += text[i];
-		}
-	}
-	return text1;
+	// Complete the code here
 }
-int main() {
+int main(){
 	string text;
 	getline(cin, text);
-	cout << remove_vowels(text) << endl;
+	string ans = remove_vowels(text);
+	cout << ans << endl;
 	return 0;
 }
