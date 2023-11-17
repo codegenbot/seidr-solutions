@@ -8,13 +8,13 @@ For example:
 >>> order_by_points({1, 11, -1, -11, -12}) == {-1, -11, 1, -12, 11}
 >>> order_by_points({}) == {}
 */
+
 #include<stdio.h>
 #include<math.h>
 #include<vector>
 #include<string>
-#include<iostream>
-using namespace std;
 
+using namespace std;
 vector<int> order_by_points(vector<int> nums){
     vector<int> ans;
     vector<int> a;
@@ -44,7 +44,6 @@ vector<int> order_by_points(vector<int> nums){
     vector<int> y;
     vector<int> z;
     int sum = 0;
-    i = 0;
     for(i = 0;i < nums.size();i++){
         sum = 0;
         while(nums[i] != 0){
