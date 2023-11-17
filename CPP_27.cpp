@@ -5,6 +5,7 @@ For a given string, flip lowercase characters to uppercase and uppercase to lowe
 */
 #include<stdio.h>
 #include<string>
+#include <iostream>
 using namespace std;
 string filp_case(string str){
 	int i;
@@ -18,9 +19,8 @@ string filp_case(string str){
 	}
 	return str;
 }
-int main(){
+int main1(){
 	string str;
-	cin>>str;
-	cout<<filp_case(str);
+	cin>>str;cout<<filp_case(str);
 	return 0;
 }
