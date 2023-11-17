@@ -26,12 +26,3 @@ bool is_prime(long long n){
     }
     return true;
 }
-int main(){
-    long long n;
-    scanf("%lld",&n);
-    if(is_prime(n))
-        printf("true\n");
-    else
-        printf("false\n");
-    return 0;
-}
