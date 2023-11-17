@@ -16,21 +16,12 @@ bool cycpattern_check(string a,string b){
 	for(i=0;i<a.length();i++){
 		for(j=0;j<b.length();j++){
 			if(a[i]==b[j]){
-				k=i;
-				l=j;
-				m=i;
-				n=j;
-				while(a[k]==b[l]){
-					k++;
-					l++;
-					if(l==b.length()){
-						l=0;
-					}
-					if(k==a.length()){
+				for(k=i,l=j;k<a.length()&&l<b.length();k++,l++){
+					if(a[k]!=b[l]){
 						break;
 					}
 				}
-				if(k==a.length()){
+				if(l==b.length()){
 					return true;
 				}
 			}
