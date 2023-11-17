@@ -1,7 +1,6 @@
 #include<iostream>
-#include<string>
+#include<string>#include <cassert>
 #include <ostream>
-#include <cassert>
 using namespace std;
 /*
 For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
