@@ -48,3 +48,8 @@ int main()
     printf("\n");
     return 0;
 }
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
+int main(){
