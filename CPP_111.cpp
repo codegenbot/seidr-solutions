@@ -16,22 +16,23 @@ histogram("") == {}
 #include<map>
 using namespace std;
 map<char,int> histogram(string test){
-    map<char,int> result;
-    for(int i=0;i<test.length();i++){
-        if(result.find(test[i])!=result.end()){
-            result[test[i]]++;
-        }else{
-            result[test[i]]=1;
-        }
-    }
-    return result;
+	
+	map<char,int> hist;
+	
+	for (int i=0; i<test.size(); i++) {
+		if (hist.find(test[i]) == hist.end()) {
+			hist.insert(make_pair(test[i], 1));
+		} else {
+			hist[test[i]]++;
+		}
+	}
+	return hist;
 }
-int main(){
-    string test="a b b a";
-    map<char,int> result=histogram(test);
-    map<char,int>::iterator it;
-    for(it=result.begin();it!=result.end();it++){
-        printf("%c %d\n",it->first,it->second);
-    }
-    return 0;
+
+int main() {
+	map<char,int> hist = histogram("a b c");
+	for (auto it=hist.begin(); it != hist.end(); it++) {
+		printf("%c: %d\n", it->first, it->second);
+	}
+	return 0;
 }
