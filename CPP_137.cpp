@@ -9,10 +9,11 @@ compare_one(1, "2,3") ➞ "2,3"
 compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
+#include<boost/any.hpp>
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any>
+#include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
     if(a.type()==typeid(int)&&b.type()==typeid(int)){
