@@ -10,7 +10,7 @@ Filter given vector of any python values only for integers
 #include<string>
 #include<boost/any.hpp>
 #include<list>
-typedef list<boost::any> list_any;
+typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
     vector<int> integer_list;
