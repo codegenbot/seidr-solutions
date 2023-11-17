@@ -35,44 +35,21 @@ Constraints:
 #include<vector>
 using namespace std;
 int max_fill(vector<vector<int>> grid,int capacity){
-        int n=grid.size();
-        int m=grid[0].size();
-        int max_fill=0,count=0;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                if(grid[i][j]==1){
-                    max_fill+=1;
-                }
+int count = 0;
+    int n = grid.size();
+    int m = grid[0].size();
+    for(int i = 0; i < n; i++){
+        int sum = 0;
+        for(int j = 0; j < m; j++){
+            sum += grid[i][j];
+            if(sum > capacity){
+                count += sum/capacity;
+                sum %= capacity;
             }
         }
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                if(grid[i][j]==0){
-                    count+=1;
-                    if(count==capacity){
-                        max_fill-=1;
-                        count=0;
-                    }
-                }
-            }
+        if(sum > 0){
+            count += 1;
         }
-        return max_fill;
     }
-int main(){
-    vector<vector<int>> grid;
-    int n,m,k;
-    scanf("%d",&n);
-    scanf("%d",&m);
-    for(int i=0;i<n;i++){
-        vector<int> temp;
-        for(int j=0;j<m;j++){
-            scanf("%d",&k);
-            temp.push_back(k);
-        }
-        grid.push_back(temp);
-    }
-    int capacity;
-    scanf("%d",&capacity);
-    printf("%d",max_fill(grid,capacity));
-    return 0;
+    return count;
 }
