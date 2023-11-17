@@ -12,40 +12,7 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any.h>
 using namespace std;
-boost::any compare_one(boost::any a,boost::any b){
-  if(a.type()==typeid(int)&&b.type()==typeid(int)){
-    return max(boost::any_cast<int>(a),boost::any_cast<int>(b));
-  }
-  if(a.type()==typeid(int)&&b.type()==typeid(float)){
-    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-  }
-  if(a.type()==typeid(int)&&b.type()==typeid(string)){
-    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-  }
-  if(a.type()==typeid(float)&&b.type()==typeid(int)){
-    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-  }
-  if(a.type()==typeid(float)&&b.type()==typeid(float)){
-    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-  }
-  if(a.type()==typeid(float)&&b.type()==typeid(string)){
-    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-  }
-  if(a.type()==typeid(string)&&b.type()==typeid(int)){
-    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-  }
-  if(a.type()==typeid(string)&&b.type()==typeid(float)){
-    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-  }
-  if(a.type()==typeid(string)&&b.type()==typeid(string)){
-    return max(boost::any_cast<float>(a),boost::any_cast<float>(b));
-  }
-  else{
-    return "None";
-  }
-}
 int main(){
   cout<<compare_one(1,2.5)<<endl;
   cout<<compare_one(1,"2,3")<<endl;
