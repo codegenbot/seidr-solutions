@@ -15,17 +15,20 @@ Please write a function to efficiently compute the n-th element of the fibfib nu
 #include<stdio.h>
 using namespace std;
 int fibfib(int n){
-	if(n==0) return 0;
-	if(n==1) return 0;
-	if(n==2) return 1;
-	int a=0,b=0,c=1;
+	if(n==0)
+		return 0;
+	if(n==1)
+		return 0;
+	if(n==2)
+		return 1;
+	int a=0,b=0,c=1,d;
 	for(int i=3;i<=n;i++){
-		int d=a+b+c;
+		d=a+b+c;
 		a=b;
 		b=c;
 		c=d;
 	}
-	return c;
+	return d;
 }
 int main(){
 	int n;
