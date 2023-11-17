@@ -14,11 +14,28 @@ check_if_last_char_is_a_letter("") ➞ false
 #include<string>
 using namespace std;
 bool check_if_last_char_is_a_letter(string txt){
-    return txt.size() > 0 && isalpha(txt[txt.size() - 1]) && (txt.size() == 1 || txt[txt.size() - 2] == ' ');
+	int i,l;
+	l=txt.length();
+	for(i=0;i<l;i++){
+		if(txt[i]>='a' && txt[i]<='z' || txt[i]>='A' && txt[i]<='Z'){
+			if(txt[i+1]==' '){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+	}
+	return false;
 }
 int main(){
-    printf("%d",check_if_last_char_is_a_letter("apple pie"));
-    printf("%d",check_if_last_char_is_a_letter("apple pi e"));
-    printf("%d",check_if_last_char_is_a_letter("apple pi e "));
-    printf("%d",check_if_last_char_is_a_letter(""));
+	string txt;
+	getline(cin,txt);
+	if(check_if_last_char_is_a_letter(txt)==true){
+		printf("true");
+	}
+	else{
+		printf("false");
+	}
+	return 0;
 }
