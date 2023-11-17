@@ -1,13 +1,12 @@
+#include<iostream>
+#include<string>
+#include <ostream>
+using namespace std;
 /*
 For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
 >>> flip_case("Hello")
 "hELLO"
 */
-#include<stdio.h>
-#include <ostream>
-#include<string>
-#include<iostream>
-using namespace std;
 string flip_case(string str){
 	int i;
 	for(i=0;i<str.size();i++){
@@ -19,9 +18,6 @@ string flip_case(string str){
 	return str;
 }
 int main(){
-	string str;
-	while(getline(cin,str)){
-		cout<<flip_case(str)<<endl;
-	}
+	assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 	return 0;
 }
