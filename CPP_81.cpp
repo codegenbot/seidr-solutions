@@ -27,7 +27,7 @@ grade_equation({4.0, 3, 1.7, 2, 3.5}) ==> {"A+", "B", "C-", "C", "A-"}
 #include <vector>
 #include <string>
 using namespace std;
-vector<string> numerical_letter_grade(vector<float> grades) {
+vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> result;
     for(int i = 0; i < grades.size(); i++){
         if(grades[i] == 4.0){
@@ -72,5 +72,4 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     }
     return result;
 }
-using namespace std;
-vector<string> numerical_letter_grade(vector<float> grades){
+int main()
