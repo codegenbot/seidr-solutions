@@ -13,11 +13,9 @@ example:
 compare({1,2,3,4,5,1},{1,2,3,4,2,-2}) -> {0,0,0,0,3,3}
 compare({0,5,0,0,0,4},{4,1,1,0,0,-2}) -> {4,4,1,0,0,6}
 */
-#include <stdio.h>
-#include <math.h>
-#include <vector>
-vector<int> compare(vector<int> game, vector<int> guess)
-{
+#include<stdio.h>
+#include<math.h>
+#include<vector>
 using namespace std;
 	for(int i=0;i<game.size();i++){
 		if(game[i]==guess[i]){
@@ -29,6 +27,5 @@ using namespace std;
 	}
 	return guess;
 }
-int main()
-{
-}
+vector<int> compare(vector<int> game,vector<int> guess){
+int main(){
