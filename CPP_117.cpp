@@ -15,6 +15,7 @@ select_words("Uncle sam", 3) ==> {"Uncle"}
 #include<vector>
 #include<string>
 #include<algorithm>
+#include <iostream>
 using namespace std;
 vector<string> select_words(string s,int n){
 	vector<string> v;
@@ -46,14 +47,4 @@ vector<string> select_words(string s,int n){
 		v.push_back(temp);
 	}
 	return v;
-}
-int main(){
-	string s;
-	int n;
-	getline(cin,s);
-	cin>>n;
-	vector<string> v=select_words(s,n);
-	for(int i=0;i<v.size();i++){
-		cout<<v[i]<<" ";
-	}
 }
