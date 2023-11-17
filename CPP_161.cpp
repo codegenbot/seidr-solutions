@@ -28,7 +28,325 @@ string solve(string s){
 	}
 	return s;
 }
-int main()
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+	cout<<solve(s);
+}
+int main(){
+	string s;
+	cin>>s;
+
 {
 	string s;
 	cin>>s;
