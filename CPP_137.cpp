@@ -15,22 +15,49 @@ compare_one("1", 1) ➞ "None"
 #include<boost/any.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
-	if(a.type()==b.type()){
-		if(a==b){
-			return "None";
+	if(a.type()==typeid(int)&&b.type()==typeid(int)){
+		int c=boost::any_cast<int>(a);
+		int d=boost::any_cast<int>(b);
+		if(c>d){
+			return c;
+		}
+		else if(d>c){
+			return d;
 		}
 		else{
-			return a>b?a:b;
+			return "None";
+		}
+	}
+	else if(a.type()==typeid(float)&&b.type()==typeid(float)){
+		float c=boost::any_cast<float>(a);
+		float d=boost::any_cast<float>(b);
+		if(c>d){
+			return c;
+		}
+		else if(d>c){
+			return d;
+		}
+		else{
+			return "None";
+		}
+	}
+	else if(a.type()==typeid(string)&&b.type()==typeid(string)){
+		string c=boost::any_cast<string>(a);
+		string d=boost::any_cast<string>(b);
+		if(c>d){
+			return c;
+		}
+		else if(d>c){
+			return d;
+		}
+		else{
+			return "None";
 		}
 	}
 	else{
-		return a.type()==typeid(string)?a:b;
+		return "None";
 	}
 }
 int main(){
-	printf("%s\n",boost::any_cast<const char*>(compare_one(1, 2.5)));
-	printf("%s\n",boost::any_cast<const char*>(compare_one(1, "2,3")));
-	printf("%s\n",boost::any_cast<const char*>(compare_one("5,1", "6")));
-	printf("%s\n",boost::any_cast<const char*>(compare_one("1", 1)));
-	return 0;
+	printf("%s",boost::any_cast<string>(compare_one("1",1)).c_str());
 }
