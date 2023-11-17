@@ -16,7 +16,7 @@ vector<int> even_odd_count(int num){
     int odd_count = 0;
     int i;
     int a;
-    for(i = 0; i < sizeof(num); i++){
+    for(i = 0; i < num; i++){
         a = num % 10;
         if(a % 2 == 0){
             even_count++;
