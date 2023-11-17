@@ -5,19 +5,23 @@ Filter given vector of any python values only for integers
 >>> filter_integers({1, 2, 3, "abc", {}, {}})
 {1, 2, 3}
 */
+
 #include<stdio.h>
 #include<vector>
 #include<string>
-#include<boost/any.hpp> 
+#include<boost/any.h>
 #include<list>
 typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
-	vector<int> fil_int;
-	for(list_any::iterator it = values.begin(); it != values.end(); it++)
-	{
-		if(it->type() == typeid(int))
-			fil_int.push_back(boost::any_cast<int>(*it));
-	}
-	return fil_int;
+    vector<int> vec;
+    for(auto it = values.begin(); it != values.end(); it++){
+        try{
+            vec.push_back(boost::any_cast<int>(*it));
+        }
+        catch(boost::bad_any_cast){
+            continue;
+        }
+    }
+    return vec;
 }
