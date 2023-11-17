@@ -21,17 +21,10 @@ For num = "2020" the output should be 2.
 #include<algorithm>
 using namespace std;
 int hex_key(string num){
-	int count=0;
-	int len=num.length();
-	for(int i=0;i<len;i++){
-		if(num[i]=='2'||num[i]=='3'||num[i]=='5'||num[i]=='7'||num[i]=='B'||num[i]=='D')
-			count++;
+	int prime_count=0;
+	for(int i=0;i<num.size();i++){
+		if(num[i]=='2' || num[i]=='3' || num[i]=='5' || num[i]=='7' || num[i]=='B' || num[i]=='D')
+			prime_count++;
 	}
-	return count;
-}
-int main(){
-	string num;
-	getline(cin,num);
-	cout<<hex_key(num);
-	return 0;
+	return prime_count;
 }
