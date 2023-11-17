@@ -9,16 +9,18 @@ If 'text" is an empty string, return None.
 #include<openssl/md5.h>
 using namespace std;
 string string_to_md5(string text){
-    unsigned char result[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.size(), result);
+    if(text.length() == 0) return NULL;
+    
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, text.c_str(), text.size());
+    
+    unsigned char md5[MD5_DIGEST_LENGTH];
+    MD5_Final(md5, &ctx);
+    
     char mdString[33];
-    for(int i=0; i<16; i++)
-        sprintf(&mdString[i*2], "%02x", (unsigned int)result[i]);
-    return mdString;
-}
-
-int main(int argc, char* argv[]){
-    string text = "Hello world";
-    cout << string_to_md5(text) << endl;
-    return 0;
+    for(int i = 0; i < 16; i++)
+        sprintf(&mdString[i*2], "%02x", (unsigned int)md5[i]);
+    
+    return string(mdString);
 }
