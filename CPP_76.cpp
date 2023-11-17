@@ -14,7 +14,7 @@ is_simple_power(5, 3) => false
 #include<math.h>
 using namespace std;
 bool is_simple_power(int x,int n){
-  int i=1;
+  int i=0;
   while(pow(n,i)<=x){
     if(pow(n,i)==x){
       return true;
@@ -24,13 +24,11 @@ bool is_simple_power(int x,int n){
   return false;
 }
 int main(){
-  int x,n;
-  scanf("%d%d",&x,&n);
-  if(is_simple_power(x,n)){
-    printf("true");
-  }
-  else{
-    printf("false");
-  }
+  printf("%d\n",is_simple_power(1,4));
+  printf("%d\n",is_simple_power(2,2));
+  printf("%d\n",is_simple_power(8,2));
+  printf("%d\n",is_simple_power(3,2));
+  printf("%d\n",is_simple_power(3,1));
+  printf("%d\n",is_simple_power(5,3));
   return 0;
 }
