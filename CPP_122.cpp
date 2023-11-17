@@ -15,7 +15,10 @@ Constraints:
 #include<vector>
     int sum = 0;
     for(int i = 0;i < k;i++){
-        if(arr[i] >= 10 && arr[i] < 100){
+        if(arr[i] < 10){
+            sum += arr[i];
+        }
+        else if(arr[i] < 100){
             sum += arr[i];
         }
     }
