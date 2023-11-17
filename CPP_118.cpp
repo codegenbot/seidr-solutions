@@ -41,7 +41,7 @@ string get_closest_vowel(string word){
 	return "";
 }
 
-int main(){
+int main1(){
 	cout << get_closest_vowel("yogurt") << endl;
 	cout << get_closest_vowel("FULL") << endl;
 	cout << get_closest_vowel("quick") << endl;
