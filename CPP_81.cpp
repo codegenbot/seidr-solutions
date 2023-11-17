@@ -70,8 +70,6 @@ grade_equation({4.0, 3, 1.7, 2, 3.5}) ==> {"A+", "B", "C-", "C", "A-"}
 	}
 	return letter_grades;
 }
-using namespace std;
-vector<string> numerical_letter_grade(vector<float> grades){
 int main(){
 	vector<float> grades;
 	grades.push_back(4.0);
