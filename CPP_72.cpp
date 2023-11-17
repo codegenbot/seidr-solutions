@@ -1,7 +1,5 @@
 /*
-Complete the following code given the task description and function signature.
-
-Write a function that returns true if the object q will fly, and false otherwise. 
+Write a function that returns true if the object q will fly, and false otherwise.
 The object q will fly if it's balanced (it is a palindromic vector) and the sum of its elements is less than or equal the maximum possible weight w.
 
 Example:
@@ -17,47 +15,29 @@ will_it_fly({3, 2, 3}, 9) ➞ true
 will_it_fly({3}, 5) ➞ true
 // 3 is less than the maximum possible weight, and it's balanced.
 */
-#include <stdio.h>
-#include <vector>
+#include<stdio.h>
+#include<vector>
 using namespace std;
-bool will_it_fly(vector<int> q, int w)
-{
-    int sum = 0;
-    bool balanced = false;
-    int n = q.size();
-    for (int i = 0; i < n; i++)
-    {
-        sum += q[i];
+bool will_it_fly(vector<int> q,int w){
+    int sum=0;
+    for(int i=0;i<q.size();i++){
+        sum=sum+q[i];
     }
-    if (sum <= w)
-    {
-        int i = 0, j = n - 1;
-        while (i <= j)
-        {
-            if (q[i] != q[j])
-            {
-                balanced = false;
-                break;
-            }
-            else
-            {
-                balanced = true;
-            }
-            i++;
-            j--;
+    if(sum>w){
+        return false;
+    }
+    int i=0;
+    int j=q.size()-1;
+    while(i<j){
+        if(q[i]!=q[j]){
+            return false;
         }
+        i++;
+        j--;
     }
-    else
-    {
-        balanced = false;
-    }
-    return balanced;
+    return true;
 }
-int main()
-{
-    vector<int> q = {3, 2, 3};
-    int w = 9;
-    bool result = will_it_fly(q, w);
-    printf("%d", result);
-    return 0;
+int main(){
+    vector<int> a={1,2,1};
+    printf("%d",will_it_fly(a,5));
 }
