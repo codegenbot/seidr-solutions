@@ -12,6 +12,7 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
+#include<any>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
 	if(a.type()==typeid(int))
