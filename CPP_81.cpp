@@ -23,52 +23,54 @@ a function that can output a vector of letter grades using the following table:
 Example:
 grade_equation({4.0, 3, 1.7, 2, 3.5}) ==> {"A+", "B", "C-", "C", "A-"}
 */
-#include<stdio.h>
-#include<vector>
-#include<string>
-	vector<string> letter_grades;
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+vector<string> numerical_letter_grade(vector<float> grades) {
+	vector<string> grades_letter;
 	for (int i = 0; i < grades.size(); i++) {
 		if (grades[i] == 4.0) {
-			letter_grades.push_back("A+");
+			grades_letter.push_back("A+");
 		}
-		else if (grades[i] >= 3.7 && grades[i] < 4.0) {
-			letter_grades.push_back("A");
+		else if (grades[i] > 3.7) {
+			grades_letter.push_back("A");
 		}
-		else if (grades[i] >= 3.3 && grades[i] < 3.7) {
-			letter_grades.push_back("A-");
+		else if (grades[i] > 3.3) {
+			grades_letter.push_back("A-");
 		}
-		else if (grades[i] >= 3.0 && grades[i] < 3.3) {
-			letter_grades.push_back("B+");
+		else if (grades[i] > 3.0) {
+			grades_letter.push_back("B+");
 		}
-		else if (grades[i] >= 2.7 && grades[i] < 3.0) {
-			letter_grades.push_back("B");
+		else if (grades[i] > 2.7) {
+			grades_letter.push_back("B");
 		}
-		else if (grades[i] >= 2.3 && grades[i] < 2.7) {
-			letter_grades.push_back("B-");
+		else if (grades[i] > 2.3) {
+			grades_letter.push_back("B-");
 		}
-		else if (grades[i] >= 2.0 && grades[i] < 2.3) {
-			letter_grades.push_back("C+");
+		else if (grades[i] > 2.0) {
+			grades_letter.push_back("C+");
 		}
-		else if (grades[i] >= 1.7 && grades[i] < 2.0) {
-			letter_grades.push_back("C");
+		else if (grades[i] > 1.7) {
+			grades_letter.push_back("C");
 		}
-		else if (grades[i] >= 1.3 && grades[i] < 1.7) {
-			letter_grades.push_back("C-");
+		else if (grades[i] > 1.3) {
+			grades_letter.push_back("C-");
 		}
-		else if (grades[i] >= 1.0 && grades[i] < 1.3) {
-			letter_grades.push_back("D+");
+		else if (grades[i] > 1.0) {
+			grades_letter.push_back("D+");
 		}
-		else if (grades[i] >= 0.7 && grades[i] < 1.0) {
-			letter_grades.push_back("D");
+		else if (grades[i] > 0.7) {
+			grades_letter.push_back("D");
 		}
-		else if (grades[i] >= 0.0 && grades[i] < 0.7) {
-			letter_grades.push_back("D-");
+		else if (grades[i] > 0.0) {
+			grades_letter.push_back("D-");
 		}
-		else if (grades[i] == 0.0) {
-			letter_grades.push_back("E");
+		else {
+			grades_letter.push_back("E");
 		}
 	}
-	return letter_grades;
+	return grades_letter;
 }
 using namespace std;
 vector<string> numerical_letter_grade(vector<float> grades){
