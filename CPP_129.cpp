@@ -22,8 +22,8 @@ Return an ordered vector of the values on the cells that the minimum path go thr
 Examples:
 
 */
-    Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
-    Output: {1, 2, 1}
+//    Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
+//    Output: {1, 2, 1}
 #include <stdio.h>
 #include <vector>
 using namespace std;
@@ -49,6 +49,67 @@ bool issame(vector<int> a,vector<int>b){
     return true;
 }
 int main(){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> minPath(vector<vector<int>> grid, int k){
 {
     assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     assert (issame(minPath({{1, 3}, {3, 2}}, 5) , {1, 3, 1, 3, 1}));
