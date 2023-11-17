@@ -18,11 +18,44 @@ long long double_the_difference(vector<float> lst){
 	for(int i=0;i<lst.size();i++){
 		if(lst[i]>0){
 			if(lst[i]-int(lst[i])==0){
-				if(int(lst[i])%2!=0){
+				if(lst[i]%2!=0){
 					s+=pow(lst[i],2);
 				}
 			}
 		}
 	}
 	return s;
+}
+
+
+//
+#include <iostream>
+#include <vector>
+using namespace std;
+
+long long double_the_difference(vector<float> lst)
+{
+  long long odd_sum = 0;
+  for (int i=0; i<lst.size(); i++)
+  {
+    if (lst[i] > 0)
+    {
+      if (lst[i] - (int)lst[i] == 0)
+      {
+        if (lst[i] % 2 != 0)
+        {
+          odd_sum += lst[i] * lst[i];
+        }
+      }
+    }
+  }
+  return odd_sum;
+}
+
+int main()
+{
+    vector<float> lst = {1, 3, 2, 0};
+    long long odd_sum = 10;
+    assert (double_the_difference(lst) == odd_sum );
+    return 0;
 }
