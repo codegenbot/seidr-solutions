@@ -26,14 +26,12 @@ bool is_sorted(vector<int> lst){
 			}
 		}
 	}
-	for(k=0;k<lst.size()-1;k++){
-		if(lst[k]>lst[k+1]){
-			return false;
+	for(i=0;i<lst.size();i++){
+		for(j=i+1;j<lst.size();j++){
+			if(lst[i]>lst[j]){
+				return false;
+			}
 		}
 	}
 	return true;
-}
-int main(){
-	vector<int> lst={1,2,3,4,5,6,7};
-	printf("%d",is_sorted(lst));
 }
