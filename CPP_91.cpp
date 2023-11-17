@@ -14,17 +14,10 @@ For example:
 using namespace std;
 int is_bored(string S){
     int count = 0;
-    for (int i = 0; i<S.length(); i++){
-        if (S[i] == 'I'){
+    for(int i = 0;i<S.length();i++){
+        if(S[i]=='I'){
             count++;
         }
     }
     return count;
-}
-int main(){
-    string S;
-    cout<<"Enter the string: ";
-    getline(cin,S);
-    cout<<"Number of boredoms: "<<is_bored(S)<<endl;
-    return 0;
 }
