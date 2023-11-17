@@ -10,59 +10,33 @@ Return the string with numbers sorted from smallest to largest
 #include<map>
 using namespace std;
 string sort_numbers(string numbers){
-	map<string, int> num;
-	num["zero"] = 0;
-	num["one"] = 1;
-	num["two"] = 2;
-	num["three"] = 3;
-	num["four"] = 4;
-	num["five"] = 5;
-	num["six"] = 6;
-	num["seven"] = 7;
-	num["eight"] = 8;
-	num["nine"] = 9;
-	int i, j;
-	int a[100];
-	string b[100];
-	int temp, n = 0;
-	string s;
-	for (i = 0; i < numbers.size(); i++){
-		if (numbers[i] == ' '){
-			a[n] = num[s];
-			b[n] = s;
-			s.clear();
-			n++;
-		}
-		else{
-			s += numbers[i];
-		}
-	}
-	a[n] = num[s];
-	b[n] = s;
-	n++;
-	for (i = 0; i < n - 1; i++){
-		for (j = 0; j < n - 1 - i; j++){
-			if (a[j] > a[j + 1]){
-				temp = a[j];
-				a[j] = a[j + 1];
-				a[j + 1] = temp;
-				s = b[j];
-				b[j] = b[j + 1];
-				b[j + 1] = s;
-			}
-		}
-	}
-	string ans;
-	for (i = 0; i < n; i++){
-		ans += b[i];
-		if (i != n - 1)
-			ans += ' ';
-	}
-	return ans;
-}
-int main(){
-	string s;
-	getline(cin, s);
-	cout << sort_numbers(s) << endl;
-	return 0;
+    map<string, int> nums;
+    nums["zero"] = 0;
+    nums["one"] = 1;
+    nums["two"] = 2;
+    nums["three"] = 3;
+    nums["four"] = 4;
+    nums["five"] = 5;
+    nums["six"] = 6;
+    nums["seven"] = 7;
+    nums["eight"] = 8;
+    nums["nine"] = 9;
+    stringstream ss(numbers);
+    vector<int> num_list;
+    string num;
+    while(ss >> num){
+        num_list.push_back(nums[num]);
+    }
+    sort(num_list.begin(), num_list.end());
+    string ans;
+    for(int i = 0; i < num_list.size(); i++){
+        for(auto it : nums){
+            if(it.second == num_list[i]){
+                ans += it.first + " ";
+                break;
+            }
+        }
+    }
+    ans.pop_back();
+    return ans;
 }
