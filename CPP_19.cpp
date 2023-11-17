@@ -21,21 +21,49 @@ string sort_numbers(string numbers){
 	num_map["seven"] = 7;
 	num_map["eight"] = 8;
 	num_map["nine"] = 9;
-	vector<int> nums;
-	stringstream ss(numbers);
-	string num;
-	while(ss >> num){
-		nums.push_back(num_map[num]);
+	int num_array[10];
+	int i = 0;
+	int j = 0;
+	int k = 0;
+	int temp = 0;
+	string result = "";
+	string temp_str = "";
+	while(numbers[i] != '\0'){
+		if(numbers[i] == ' '){
+			num_array[j] = num_map[temp_str];
+			temp_str = "";
+			j++;
+		}
+		else{
+			temp_str += numbers[i];
+		}
+		i++;
 	}
-	sort(nums.begin(), nums.end());
-	string res;
-	for(int i = 0; i < nums.size(); i++){
-		for(auto it = num_map.begin(); it != num_map.end(); it++){
-			if(it->second == nums[i]){
-				res += it->first + " ";
+	num_array[j] = num_map[temp_str];
+	for(i = 0; i < j; i++){
+		for(k = i + 1; k <= j; k++){
+			if(num_array[i] > num_array[k]){
+				temp = num_array[i];
+				num_array[i] = num_array[k];
+				num_array[k] = temp;
+			}
+		}
+	}
+	for(i = 0; i <= j; i++){
+		for(map<string, int>::iterator it = num_map.begin(); it != num_map.end(); it++){
+			if(it->second == num_array[i]){
+				result += it->first;
+				result += " ";
 				break;
 			}
 		}
 	}
-	return res.substr(0, res.size() - 1);
+	result.erase(result.end() - 1);
+	return result;
+}
+int main(){
+	string numbers = "three one five";
+	string result = sort_numbers(numbers);
+	printf("%s\n", result.c_str());
+	return 0;
 }
