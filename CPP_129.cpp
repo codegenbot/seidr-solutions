@@ -29,46 +29,52 @@ Examples:
 */
     vector<int> res;
     int n = grid.size();
-    if(n == 0) return res;
     int m = grid[0].size();
-    if(m == 0) return res;
-    if(k == 0) return res;
-    vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            if(i == 0 && j == 0){
-                dp[i][j] = grid[i][j];
-            }
-            else if(i == 0){
-                dp[i][j] = min(dp[i][j - 1], grid[i][j]);
-            }
-            else if(j == 0){
-                dp[i][j] = min(dp[i - 1][j], grid[i][j]);
-            }
-            else{
-                dp[i][j] = min(min(dp[i - 1][j], dp[i][j - 1]), grid[i][j]);
+    int i,j;
+    int min = grid[0][0];
+    for(i=0;i<n;i++){
+        for(j=0;j<m;j++){
+            if(grid[i][j]<min){
+                min = grid[i][j];
             }
         }
     }
-    int i = 0, j = 0;
-    while(k > 0){
-        res.push_back(grid[i][j]);
-        if(i == n - 1 && j == m - 1) break;
-        if(i == n - 1){
-            j++;
-        }
-        else if(j == m - 1){
-            i++;
-        }
-        else{
-            if(dp[i + 1][j] < dp[i][j + 1]){
-                i++;
+    res.push_back(min);
+    for(i=0;i<k-1;i++){
+        min = grid[0][0];
+        for(j=0;j<n;j++){
+            if(grid[j][0]>res[i]&&grid[j][0]<min){
+                min = grid[j][0];
             }
-            else{
-                j++;
+            if(grid[j][m-1]>res[i]&&grid[j][m-1]<min){
+                min = grid[j][m-1];
             }
         }
-        k--;
+        for(j=0;j<m;j++){
+            if(grid[0][j]>res[i]&&grid[0][j]<min){
+                min = grid[0][j];
+            }
+            if(grid[n-1][j]>res[i]&&grid[n-1][j]<min){
+                min = grid[n-1][j];
+            }
+        }
+        for(j=1;j<n-1;j++){
+            if(grid[j][1]>res[i]&&grid[j][1]<min){
+                min = grid[j][1];
+            }
+            if(grid[j][m-2]>res[i]&&grid[j][m-2]<min){
+                min = grid[j][m-2];
+            }
+        }
+        for(j=1;j<m-1;j++){
+            if(grid[1][j]>res[i]&&grid[1][j]<min){
+                min = grid[1][j];
+            }
+            if(grid[n-2][j]>res[i]&&grid[n-2][j]<min){
+                min = grid[n-2][j];
+            }
+        }
+        res.push_back(min);
     }
     return res;
 }
