@@ -21,14 +21,3 @@ bool is_multiply_prime(int a){
 	}
 	return false;
 }
-int main(){
-	int a;
-	scanf("%d",&a);
-	if(is_multiply_prime(a)){
-		printf("true");
-	}
-	else{
-		printf("false");
-	}
-	return 0;
-}
