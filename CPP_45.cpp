@@ -7,13 +7,5 @@ Given length of a side and high return area for a triangle.
 #include<math.h>
 using namespace std;
 float triangle_area(float a,float h){
-return (a*h)/2;
-}
-int main()
-{
-float a,h;
-scanf("%f",&a);
-scanf("%f",&h);
-printf("%f",triangle_area(a,h));
-return 0;
+return a*h/2;
 }
