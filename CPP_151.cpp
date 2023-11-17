@@ -13,21 +13,12 @@ If the input vector is empty, return 0.
 #include<math.h>
 #include<vector>
 using namespace std;
-/*int check_negative(double a){
-  if(a >=0){
-    if(a==floor(a)){
-      if(a%2==1){
-        return pow(a,2);
-      }
-    }
-  }else{
-    return 0;
-  }
-}*/
 long long double_the_difference(vector<float> lst){
   long long sum=0;
   for(int i=0;i<lst.size();i++){
-    if(lst[i]>=0){
+    if(lst[i]>0){
+      if(lst[i]==floor(lst[i])){
+        
         if(lst[i]%2==1){
           sum=sum+pow(lst[i],2);
         }
