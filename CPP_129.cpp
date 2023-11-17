@@ -27,9 +27,42 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    vector<int> res;
-    // Complete the following code given the task description and function signature.
-    return res;
+	vector<int> res;
+	int n = grid.size();
+	int m = grid[0].size();
+	int i, j, p, q;
+	int min = grid[0][0];
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < m; j++) {
+			if (grid[i][j] < min) {
+				min = grid[i][j];
+				p = i;
+				q = j;
+			}
+		}
+	}
+	res.push_back(min);
+	for (i = 1; i < k; i++) {
+		int min = grid[p][q];
+		if (p > 0 && grid[p - 1][q] < min) {
+			min = grid[p - 1][q];
+			p = p - 1;
+		}
+		if (p < n - 1 && grid[p + 1][q] < min) {
+			min = grid[p + 1][q];
+			p = p + 1;
+		}
+		if (q > 0 && grid[p][q - 1] < min) {
+			min = grid[p][q - 1];
+			q = q - 1;
+		}
+		if (q < m - 1 && grid[p][q + 1] < min) {
+			min = grid[p][q + 1];
+			q = q + 1;
+		}
+		res.push_back(min);
+	}
+	return res;
 }
 #include<stdio.h>
 #include<vector>
