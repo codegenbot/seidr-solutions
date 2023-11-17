@@ -7,9 +7,8 @@ solution({5, 8, 7, 1}) ==> 12
 solution({3, 3, 3, 3, 3}) ==> 9
 solution({30, 13, 24, 321}) ==>0
 */
-#include<iostream>
-using namespace std;
-int solutions(vector<int> lst){
+#include<stdio.h>
+#include<vector>
 	int sum=0;
 	for(int i=1;i<lst.size();i+=2)
 	{
@@ -20,3 +19,7 @@ int solutions(vector<int> lst){
 }
 using namespace std;
 int solutions(vector<int> lst){
+	int main(){
+		vector<int> v={3, 3, 3, 3, 3};
+		printf("%d",solutions(v));
+	}
