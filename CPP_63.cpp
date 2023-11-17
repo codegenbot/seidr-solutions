@@ -27,8 +27,3 @@ int fibfib(int n){
 	}
 	return d;
 }
-int main(){
-	int n;
-	scanf("%d",&n);
-	printf("%d",fibfib(n));
-}
