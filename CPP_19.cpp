@@ -10,59 +10,63 @@ Return the string with numbers sorted from smallest to largest
 #include<map>
 using namespace std;
 string sort_numbers(string numbers){
-	map<string, int> num;
-	num["zero"] = 0;
-	num["one"] = 1;
-	num["two"] = 2;
-	num["three"] = 3;
-	num["four"] = 4;
-	num["five"] = 5;
-	num["six"] = 6;
-	num["seven"] = 7;
-	num["eight"] = 8;
-	num["nine"] = 9;
-	int i, j;
-	int a[100];
-	string b[100];
-	int temp, n = 0;
-	string s;
-	for (i = 0; i < numbers.size(); i++){
-		if (numbers[i] == ' '){
-			a[n] = num[s];
-			b[n] = s;
-			s.clear();
-			n++;
-		}
-		else{
-			s += numbers[i];
+	string result="";
+	map<string,int> num_map;
+	num_map["zero"]=0;
+	num_map["one"]=1;
+	num_map["two"]=2;
+	num_map["three"]=3;
+	num_map["four"]=4;
+	num_map["five"]=5;
+	num_map["six"]=6;
+	num_map["seven"]=7;
+	num_map["eight"]=8;
+	num_map["nine"]=9;
+	vector<int> nums;
+	int a=0;
+	int b=0;
+	for(int i=0;i<numbers.size();i++){
+		if(numbers[i]==' '){
+			nums.push_back(num_map[numbers.substr(a,i-a)]);
+			a=i+1;
 		}
 	}
-	a[n] = num[s];
-	b[n] = s;
-	n++;
-	for (i = 0; i < n - 1; i++){
-		for (j = 0; j < n - 1 - i; j++){
-			if (a[j] > a[j + 1]){
-				temp = a[j];
-				a[j] = a[j + 1];
-				a[j + 1] = temp;
-				s = b[j];
-				b[j] = b[j + 1];
-				b[j + 1] = s;
-			}
+	nums.push_back(num_map[numbers.substr(a,numbers.size()-a)]);
+	sort(nums.begin(),nums.end());
+	for(int i=0;i<nums.size();i++){
+		if(i!=0) result+=" ";
+		switch(nums[i]){
+			case 0:
+				result+="zero";
+				break;
+			case 1:
+				result+="one";
+				break;
+			case 2:
+				result+="two";
+				break;
+			case 3:
+				result+="three";
+				break;
+			case 4:
+				result+="four";
+				break;
+			case 5:
+				result+="five";
+				break;
+			case 6:
+				result+="six";
+				break;
+			case 7:
+				result+="seven";
+				break;
+			case 8:
+				result+="eight";
+				break;
+			case 9:
+				result+="nine";
+				break;
 		}
 	}
-	string ans;
-	for (i = 0; i < n; i++){
-		ans += b[i];
-		if (i != n - 1)
-			ans += ' ';
-	}
-	return ans;
-}
-int main(){
-	string s;
-	getline(cin, s);
-	cout << sort_numbers(s) << endl;
-	return 0;
+	return result;
 }
