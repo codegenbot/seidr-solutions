@@ -11,15 +11,19 @@ For lst = {-2.4,1,1} the output should be 6
 
 
 */
-#include<stdio.h>
-#include<math.h>
-#include<vector>
+#include <stdio.h>
+#include <math.h>
+#include <vector>
 using namespace std;
+int sum_squares(vector<float> lst)
+{
+    int sum = 0;
 
-  int sum = 0;
-  for(int i = 0; i < lst.size(); i++){
-    sum += ceil(lst[i]) * ceil(lst[i]);
-  }
-  return sum;
+    // Complete the following code
+    // Hint: use ceil function to round a number to the upper int
+
+    for (int i = 0; i < lst.size(); i++)
+        sum += (ceil(lst[i]) * ceil(lst[i]));
+
+    return sum;
 }
-int sum_squares(vector<float> lst){
