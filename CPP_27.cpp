@@ -1,9 +1,7 @@
 #include<iostream>
 #include<string>
 #include <ostream>
-#include <cassert>
 using namespace std;
-
 /*
 For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
 >>> flip_case("Hello")
@@ -19,7 +17,6 @@ string flip_case(string str){
 	}
 	return str;
 }
-
 int main(){
     assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     assert (flip_case("hello") == "HELLO");
