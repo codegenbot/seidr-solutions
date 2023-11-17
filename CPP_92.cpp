@@ -18,21 +18,19 @@ any_int(3.6, -2.2, 2) ➞ false
 #include<stdio.h>
 #include<math.h>
 using namespace std;
-bool any_int(float a,float b,float c)
-{
-	if(a+b==c || a+c==b || b+c==a)
-	{
-		return 1;
+bool any_int(float a,float b,float c){
+	
+	if(a+b!=c && a!=b+c && b!=a+c){
+		return false;
 	}
-	else
-	{
-		return 0;
+	if(a!=round(a)){
+		return false;
 	}
-}
-int main()
-{
-	float a,b,c;
-	scanf("%f %f %f",&a,&b,&c);
-	printf("%d",any_int(a,b,c));
-	return 0;
+	if(b!=round(b)){
+		return false;
+	}
+	if(c!=round(c)){
+		return false;
+	}
+	return true;
 }
