@@ -17,5 +17,9 @@ solution({30, 13, 24, 321}) ==>0
 	}
 	return sum;
 }
+int main(){
+	vector<int> lst={5, 8, 7, 1};
+	printf("%d",solutions(lst));
+}
 using namespace std;
 int solutions(vector<int> lst){
