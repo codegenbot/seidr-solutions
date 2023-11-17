@@ -8,8 +8,8 @@ Return the string with numbers sorted from smallest to largest
 #include<stdio.h>
 #include<string.h>
 #include<map>
+#include <ostream>
 #include <iostream>
-#include <ostream> 
 using namespace std;
 string sort_numbers(string numbers){
     map<string, int> input;
