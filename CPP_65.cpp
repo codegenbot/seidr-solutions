@@ -9,22 +9,20 @@ If shift > number of digits, return digits reversed.
 */
 #include<stdio.h>
 #include<string>
+#include<algorithm>
 using namespace std;
 string circular_shift(int x,int shift){
-	string result;
-	string s = to_string(x);
-	if(shift > s.size()){
-		reverse(s.begin(),s.end());
-		result = s;
+	string str = to_string(x);
+	int len = str.size();
+	if(shift > len){
+		reverse(str.begin(), str.end());
+		return str;
 	}
 	else{
-		result = s.substr(s.size() - shift) + s.substr(0,s.size() - shift);
+		int start = len - shift;
+		string temp = str.substr(start, shift);
+		str.erase(start, shift);
+		str = temp + str;
+		return str;
 	}
-	return result;
-}
-int main(){
-	printf("%s\n",circular_shift(12,1).c_str());
-	printf("%s\n",circular_shift(12,2).c_str());
-	printf("%s\n",circular_shift(12,3).c_str());
-	return 0;
 }
