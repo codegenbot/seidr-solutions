@@ -23,49 +23,25 @@ Examples:
 
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
-#include<stdio.h>
-#include<vector>
-#include<queue>
-
-using namespace std;
-int min_path(vector<vector<int>> g, int k, int i, int j){
-  // PQ to keep track of min_path
-  priority_queue<int> pq;
-  vector<vector<bool>> visited(g.size(), vector<bool>(g[0].size(), false));
-  int path_len = 1;
-  dfs(g, k, i, j, visited, pq);
-  int path1 = pq.top();
-  pq.pop();
-
-  // Recompute path after finding the min_path.
-  vector<vector<bool>> visited2(g.size(), vector<bool>(g[0].size(), false));
-  int path_len2 = 1;
-  dfs(g, k, i, j, visited, pq);
-  int path2 = pq.top();
-  pq.pop();
-
-  return min(path1, path2);
-
-
-
-void dfs(vector<vector<int>> g, int k, int i, int j, vector<vector<bool>> visited, priority_queue<int> pq){
-  if(i < 0 || i >= g.size() || j < 0 || j >= g[i].size() || visited[i][j]){
-    return;
-  }
-
-  if(path_len > k){
-    pq.push(e);
-    return;
-  }
-  visited[i][j] = true;
-  dfs(g, k, i - 1, j, visited);
-  dfs(g, k, i + 1, j, visited);
-  dfs(g, k, i, j + 1, visited);
-  dfs(g, k, i, j - 1, visited);
-}
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
+	
+	return {};
 }
-#include<stdio.h>
+
+int main()
+{
+	vector<vector<int>> grid1 = { {1,2,3}, {4,5,6}, {7,8,9}};
+	vector<vector<int>> grid2 = { {5,9,3}, {4,1,6}, {7,8,2}};
+	vector<int> result1 = minPath(grid1, 3);
+	vector<int> result2 = minPath(grid2, 1);
+	for(auto num : result1)
+		printf("%d ", num);
+	printf("\n");
+	for(auto num : result2)
+		printf("%d ", num);
+	printf("\n");
+	return 0;
+}
