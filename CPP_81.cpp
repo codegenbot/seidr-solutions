@@ -64,7 +64,7 @@ grade_equation({4.0, 3, 1.7, 2, 3.5}) ==> {"A+", "B", "C-", "C", "A-"}
         else if(grades[i] > 0.0){
             letter_grades.push_back("D-");
         }
-        else if(grades[i] == 0.0){
+        else{
             letter_grades.push_back("E");
         }
     }
