@@ -10,23 +10,14 @@ compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
+#include<string>
+#include<algorithm>
+//#include<boost/any.hpp>
 using namespace std;
-boost::any compare_one(boost::any a,boost::any b){
-	if (a.type() == typeid(int) && b.type() == typeid(float))
+string compare_one(int a,int b){
+	if (a > b)
+		return a > b ? a : b;
+	if (a < b)
 		return b;
-	if (a.type() == typeid(float) && b.type() == typeid(int))
-		return a;
-	if (a.type() == typeid(int) && b.type() == typeid(int))
-		return a > b ? a : b;
-	if (a.type() == typeid(float) && b.type() == typeid(float))
-		return a > b ? a : b;
-	if (a.type() == typeid(string) && b.type() == typeid(string))
-	{
-		string aa = boost::any_cast<string>(a);
-		string bb = boost::any_cast<string>(b);
-		aa.erase(remove(aa.begin(), aa.end(), ','), aa.end());
-		bb.erase(remove(bb.begin(), bb.end(), ','), bb.end());
-		return stof(aa) > stof(bb) ? a : b;
-	}
 	return "None";
 }
