@@ -8,26 +8,27 @@ is_equal_to_sum_even(8) == true
 #include<stdio.h>
 using namespace std;
 bool is_equal_to_sum_even(int n){
-  if(n%2==0)
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
+    int sum=0;
+    int i=0;
+    while(n>0)
+    {
+        sum+=n%2;
+        n=n/2;
+        i++;
+    }
+    if(i==4 && sum==4)
+        return true;
+    else
+        return false;
 }
+
 int main()
 {
-  int n;
-  cin>>n;
-  if(is_equal_to_sum_even(n)==true)
-  {
-    cout<<"true";
-  }
-  else
-  {
-    cout<<"false";
-  }
-  return 0;
+    int n;
+    scanf("%d",&n);
+    if(is_equal_to_sum_even(n))
+        printf("True");
+    else
+        printf("False");
+    return 0;
 }
