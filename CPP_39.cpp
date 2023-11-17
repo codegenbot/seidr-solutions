@@ -12,30 +12,21 @@ prime_fib returns n-th number that is a Fibonacci number and it's also prime.
 89
 */
 #include<stdio.h>
-#include<iostream>
-using namespace std;
 int prime_fib(int n){
-	int f1=2,f2=3,f3=5,c=5;
-	while(1){
-		if(c==n){
-			return f3;
-		}
-		while(1){
-			if(f3%f1==0){
-				f3=f1+f2;
-				f1=f2;
-				f2=f3;
+	// Complete the following code
+	int a=2,b=3,c=5,i,j,k=1;
+	for(i=4;i<=n;i++){
+		for(j=2;j<=c/2;j++){
+			if(c%j==0)
 				break;
-			}
-			else{
-				f1++;
-			}
 		}
-		c++;
+		if(j>c/2){
+			k++;
+			if(k==n)
+				return c;
+		}
+		a=b;
+		b=c;
+		c=a+b;
 	}
-}
-int main(){
-	int n;
-	cin>>n;
-	cout<<prime_fib(n);
 }
