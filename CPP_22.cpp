@@ -5,7 +5,11 @@ Filter given vector of any python values only for integers
 >>> filter_integers({1, 2, 3, "abc", {}, {}})
 {1, 2, 3}
 */
-#include<iostream>
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<boost/any.hpp> //error idea
+#include<list>
 typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
@@ -16,4 +20,13 @@ vector<int> filter_integers(list_any values){
         }
     }
     return ans;
+}
+int main(){
+    list_any values = {"a", 3.14, 5};
+    vector<int> ans = filter_integers(values);
+    for(auto it = ans.begin(); it != ans.end(); it++){
+        cout << *it << " ";
+    }
+    cout << endl;
+    return 0;
 }
