@@ -1,0 +1,21 @@
+/*
+Given two positive integers a and b, return the even digits between a
+and b, in ascending order.
+
+For example:
+generate_integers(2, 8) => {2, 4, 6, 8}
+generate_integers(8, 2) => {2, 4, 6, 8}
+generate_integers(10, 14) => {}
+*/
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> generate_integers(int a,int b){
+    vector<int> res;
+    if(a>b)
+        swap(a,b);
+    for(int i=a;i<=b;i++)
+        if(i%2==0)
+            res.push_back(i);
+    return res;
+}
