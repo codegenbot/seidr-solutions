@@ -28,7 +28,60 @@ Examples:
     Output: {1}
 */
     vector<int> res;
-    // Complete the following code given the task description and function signature.
+    int n = grid.size();
+    if(n == 0 || k == 0) return res;
+    int m = grid[0].size();
+    if(m == 0 || k == 0) return res;
+    if(k > n * m) return res;
+    vector<vector<vector<int>>> dp(n, vector<vector<int>>(m, vector<int>(k + 1, INT_MAX)));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            dp[i][j][1] = grid[i][j];
+        }
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            for(int l = 2; l <= k; l++){
+                if(i > 0) dp[i][j][l] = min(dp[i][j][l], dp[i - 1][j][l - 1]);
+                if(i < n - 1) dp[i][j][l] = min(dp[i][j][l], dp[i + 1][j][l - 1]);
+                if(j > 0) dp[i][j][l] = min(dp[i][j][l], dp[i][j - 1][l - 1]);
+                if(j < m - 1) dp[i][j][l] = min(dp[i][j][l], dp[i][j + 1][l - 1]);
+            }
+        }
+    }
+    int min_val = INT_MAX;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            min_val = min(min_val, dp[i][j][k]);
+        }
+    }
+    vector<vector<int>> path(n, vector<int>(m, -1));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if(dp[i][j][k] == min_val) path[i][j] = k;
+        }
+    }
+    int i = 0, j = 0;
+    for(int l = k; l > 1; l--){
+        res.push_back(grid[i][j]);
+        if(i > 0 && path[i - 1][j] == l - 1){
+            i--;
+            continue;
+        }
+        if(i < n - 1 && path[i + 1][j] == l - 1){
+            i++;
+            continue;
+        }
+        if(j > 0 && path[i][j - 1] == l - 1){
+            j--;
+            continue;
+        }
+        if(j < m - 1 && path[i][j + 1] == l - 1){
+            j++;
+            continue;
+        }
+    }
+    res.push_back(grid[i][j]);
     return res;
 }
 #include<stdio.h>
