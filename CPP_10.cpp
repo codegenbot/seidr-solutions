@@ -18,16 +18,10 @@ string make_palindrome(string str){
     >>> make_palindrome("cata") 
     "catac" 
     */
-    //Find the longest postfix of supplied string that is a palindrome. 
-    string s(str.rbegin(),str.rend());
-    string res=str+s;
-    return res;
-}
-int main(){
-    string str;
-    cout<<"Enter a string:"<<endl;
-    cin>>str;
-    cout<<"The shortest palindrome that begins with a supplied string is:"<<endl;
-    cout<<make_palindrome(str)<<endl;
-    return 0;
+    for(int i=str.length();i>=0;i--){
+        if(is_palindrome(str.substr(i))){
+            return str+string(str.rbegin(),str.rbegin()+str.length()-i);
+        }
+    }
+    return "";
 }
