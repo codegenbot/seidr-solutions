@@ -24,6 +24,7 @@ Note:
 #include<vector>
 #include<string>
 using namespace std;
+bool is_palindrome(int n);
 vector<int> even_odd_palindrome(int n){
     vector<int> result;
     int even = 0, odd = 0;
@@ -52,10 +53,10 @@ bool is_palindrome(int n){
     return true;
 }
 
-int main(){
-    int n;
-    scanf("%d", &n);
-    vector<int> result = even_odd_palindrome(n);
-    printf("%d %d\n", result[0], result[1]);
-    return 0;
-}
+// int main(){
+//     int n;
+//     scanf("%d", &n);
+//     vector<int> result = even_odd_palindrome(n);
+//     printf("%d %d\n", result[0], result[1]);
+//     return 0;
+// }
