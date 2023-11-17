@@ -13,36 +13,33 @@ split_words("abcdef") == {"3"}
 #include<algorithm>
 using namespace std;
 vector<string> split_words(string txt){
-    vector<string> res;
-    string s1 = "";
-    int count = 0;
-    for(int i = 0; i < txt.size(); i++){
-        if(txt[i] != ' ' and txt[i] != ','){
-            s1 += txt[i];
-            if(txt[i] - 'a' & 1)
-                count++;
-        }else{
-            if(s1.size() > 0){
-                res.push_back(s1);
-                s1 = "";
-            }
-        }
-    }
-    if(s1.size() > 0){
-        res.push_back(s1);
-        s1 = "";
-    }
-    if(res.size() == 0){
-        res.push_back(to_string(count));
-    }
-    return res;
-}
-int main(){
-    string s;
-    getline(cin,s);
-    vector<string> res = split_words(s);
-    for(int i = 0; i < res.size(); i++){
-        cout<<res[i]<<" ";
-    }
-    return 0;
+	vector<string> v;
+	for (int i = 0; i < txt.length(); i++)
+	{
+		if (txt[i] == ' ')
+		{
+			v.push_back(txt.substr(0, i));
+			txt = txt.substr(i + 1, txt.length() - i - 1);
+			i = 0;
+		}
+		else if (txt[i] == ',')
+		{
+			v.push_back(txt.substr(0, i));
+			txt = txt.substr(i + 1, txt.length() - i - 1);
+			i = 0;
+		}
+	}
+	int count = 0;
+	for (int i = 0; i < txt.length(); i++)
+	{
+		if (txt[i] - 'a' >= 0 && txt[i] - 'a' <= 26)
+			count++;
+		else
+			break;
+	}
+	if (count == txt.length())
+		v.push_back(to_string(count));
+	else
+		v.push_back(txt);
+	return v;
 }
