@@ -59,7 +59,10 @@ Examples:
         }
     }
     return result;
-}
+}#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> minPath(vector<vector<int>> grid, int k){
 int main(){
     vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9} };
     int k = 3;
@@ -76,6 +79,7 @@ int main(){
     }
     printf("\n");
     return 0;
+}
 #include<stdio.h>
 #include<vector>
 using namespace std;
