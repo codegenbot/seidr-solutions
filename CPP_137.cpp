@@ -11,7 +11,7 @@ compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
 #include<string>
-#include<boost/any.hpp> //not work on my system
+#include<boost/any.hpp>//boost lib
 using namespace std;
 boost::any compare_one(string a,string b){
 	if(a.size()==b.size()){
