@@ -30,7 +30,12 @@ Examples:
     // TODO: Complete the following code given the task description and function signature.
 }
 int main(){
-
+    vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for(int i = 0; i < result.size(); i++)
+        cout << result[i] << " ";
+    cout << endl;
 }
 #include<stdio.h>
 #include<vector>
