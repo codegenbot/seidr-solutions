@@ -14,20 +14,17 @@ is_nested("[[]][[") ➞ true
 #include<string>
 using namespace std;
 bool is_nested(string str){
-	int open = 0;
-	for(int i = 0; i < str.length(); i++){
-		if(str[i] == '[') open++;
-		else if(str[i] == ']') open--;
-		if(open < 0) return false;
-	}
-	return open > 0;
-}
-int main(){
-	printf("%d\n", is_nested("[[]]"));
-	printf("%d\n", is_nested("[[]][["));
-	printf("%d\n", is_nested("[][]"));
-	printf("%d\n", is_nested("[]"));
-	printf("%d\n", is_nested("[[][]]"));
-	printf("%d\n", is_nested("[]]]]]]][[[[[]"));
-	return 0;
+  int count=0;
+  for(int i=0;i<str.length();i++){
+    if(str[i]=='['){
+      count++;
+    }
+    else{
+      count--;
+    }
+    if(count<0){
+      return false;
+    }
+  }
+  return count==0;
 }
