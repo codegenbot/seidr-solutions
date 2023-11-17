@@ -9,8 +9,7 @@ cycpattern_check("himenss",'simen") => true
 
 */
 #include<stdio.h>
-#include <iostream>
-#include<string.h>
+#include<string>#include <iostream>
 using namespace std;
 bool cycpattern_check(string a,string b){
   int i,j=0,k=0;
@@ -33,6 +32,9 @@ bool cycpattern_check(string a,string b){
   return false;
 }
 int main(){
+  string a,b;
+  cin>>a>>b;
+  cout<<cycpattern_check(a,b);int main(){
   string a,b;
   cin>>a>>b;
   cout<<cycpattern_check(a,b);
