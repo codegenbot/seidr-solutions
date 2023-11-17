@@ -10,87 +10,37 @@ compare_one("5,1", "6") ➞ "6"
 compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
+#include<string>
+#include<algorithm>
 #include<boost/any.hpp>
-#include<boost/lexical_cast.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
-    if(a.type()==typeid(int)&&b.type()==typeid(int)){
-        if(boost::any_cast<int>(a)>boost::any_cast<int>(b))
-            return a;
-        else if(boost::any_cast<int>(a)<boost::any_cast<int>(b))
-            return b;
-        else
-            return "None";
-    }
-    if(a.type()==typeid(int)&&b.type()==typeid(float)){
-        if(boost::any_cast<int>(a)>boost::any_cast<float>(b))
-            return a;
-        else if(boost::any_cast<int>(a)<boost::any_cast<float>(b))
-            return b;
-        else
-            return "None";
-    }
-    if(a.type()==typeid(int)&&b.type()==typeid(string)){
-        if(boost::any_cast<int>(a)>boost::lexical_cast<float>(boost::any_cast<string>(b)))
-            return a;
-        else if(boost::any_cast<int>(a)<boost::lexical_cast<float>(boost::any_cast<string>(b)))
-            return b;
-        else
-            return "None";
-    }
-    if(a.type()==typeid(float)&&b.type()==typeid(int)){
-        if(boost::any_cast<float>(a)>boost::any_cast<int>(b))
-            return a;
-        else if(boost::any_cast<float>(a)<boost::any_cast<int>(b))
-            return b;
-        else
-            return "None";
-    }
-    if(a.type()==typeid(float)&&b.type()==typeid(float)){
-        if(boost::any_cast<float>(a)>boost::any_cast<float>(b))
-            return a;
-        else if(boost::any_cast<float>(a)<boost::any_cast<float>(b))
-            return b;
-        else
-            return "None";
-    }
-    if(a.type()==typeid(float)&&b.type()==typeid(string)){
-        if(boost::any_cast<float>(a)>boost::lexical_cast<float>(boost::any_cast<string>(b)))
-            return a;
-        else if(boost::any_cast<float>(a)<boost::lexical_cast<float>(boost::any_cast<string>(b)))
-            return b;
-        else
-            return "None";
-    }
-    if(a.type()==typeid(string)&&b.type()==typeid(int)){
-        if(boost::lexical_cast<float>(boost::any_cast<string>(a))>boost::any_cast<int>(b))
-            return a;
-        else if(boost::lexical_cast<float>(boost::any_cast<string>(a))<boost::any_cast<int>(b))
-            return b;
-        else
-            return "None";
-    }
-    if(a.type()==typeid(string)&&b.type()==typeid(float)){
-        if(boost::lexical_cast<float>(boost::any_cast<string>(a))>boost::any_cast<float>(b))
-            return a;
-        else if(boost::lexical_cast<float>(boost::any_cast<string>(a))<boost::any_cast<float>(b))
-            return b;
-        else
-            return "None";
-    }
-    if(a.type()==typeid(string)&&b.type()==typeid(string)){
-        if(boost::lexical_cast<float>(boost::any_cast<string>(a))>boost::lexical_cast<float>(boost::any_cast<string>(b)))
-            return a;
-        else if(boost::lexical_cast<float>(boost::any_cast<string>(a))<boost::lexical_cast<float>(boost::any_cast<string>(b)))
-            return b;
-        else
-            return "None";
-    }
+	if(a.type()==b.type()){
+		if(a==b)return "None";
+		else return max(a,b);
+	}
+	else if(a.type()==typeid(string)){
+		string s1=boost::any_cast<string>(a);
+		string s2=boost::any_cast<string>(b);
+		s1.erase(remove(s1.begin(),s1.end(),','),s1.end());
+		s2.erase(remove(s2.begin(),s2.end(),','),s2.end());
+		if(stof(s1)==stof(s2))return "None";
+		else return max(s1,s2);
+	}
+	else if(b.type()==typeid(string)){
+		string s1=boost::any_cast<string>(a);
+		string s2=boost::any_cast<string>(b);
+		s1.erase(remove(s1.begin(),s1.end(),','),s1.end());
+		s2.erase(remove(s2.begin(),s2.end(),','),s2.end());
+		if(stof(s1)==stof(s2))return "None";
+		else return max(s1,s2);
+	}
+	else return max(a,b);
 }
 int main(){
-    boost::any a=5;
-    boost::any b=8.5;
-    boost::any c=compare_one(a,b);
-    cout<<boost::any_cast<float>(c);
-    return 0;
+	printf("%s\n",compare_one(1, 2.5).c_str());
+	printf("%s\n",compare_one(1, "2,3").c_str());
+	printf("%s\n",compare_one("5,1", "6").c_str());
+	printf("%s\n",compare_one("1", 1).c_str());
+	return 0;
 }
