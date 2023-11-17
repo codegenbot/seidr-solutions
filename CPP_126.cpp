@@ -35,19 +35,3 @@ bool is_sorted(vector<int> lst){
 	}
 	return true;
 }
-int main(){
-	vector<int> lst;
-	int i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
-	scanf("%d",&n);
-	for(i=0;i<n;i++){
-		scanf("%d",&l);
-		lst.push_back(l);
-	}
-	if(is_sorted(lst)){
-		printf("true");
-	}
-	else{
-		printf("false");
-	}
-	return 0;
-}
