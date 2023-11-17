@@ -21,16 +21,12 @@ For num = "2020" the output should be 2.
 #include<algorithm>
 using namespace std;
 int hex_key(string num){
-    int count = 0;
-    for(int i = 0; i < num.size(); i++){
-        if(num[i] == '2' || num[i] == '3' || num[i] == '5' || num[i] == '7' || num[i] == 'B' || num[i] == 'D')
-            count++;
-    }
-    return count;
-}
-int main(){
-    string num;
-    cin >> num;
-    cout << hex_key(num) << endl;
-    return 0;
+	int count = 0;
+	int length = num.length();
+	for(int i = 0; i < length; i++){
+		if(num[i] == '2' || num[i] == '3' || num[i] == '5' || num[i] == '7' || num[i] == 'B' || num[i] == 'D'){
+			count++;
+		}
+	}
+	return count;
 }
