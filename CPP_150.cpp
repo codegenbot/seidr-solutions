@@ -11,16 +11,21 @@ for x_or_y(15, 8, 5) == 5
 using namespace std;
 int x_or_y(int n,int x,int y){
 	int i;
-	for(i=2;i<n;i++){
+	int flag=0;
+	for(i=2;i<=n/2;i++)
+	{
 		if(n%i==0)
-			return y;
+		{
+			flag=1;
+			break;
+		}
 	}
-	return x;
-}
-
-int main(){
-	int n,x,y;
-	scanf("%d%d%d", &n, &x, &y);
-	printf("%d", x_or_y(n,x,y));
-	return 0;
+	if(flag==0)
+	{
+		return x;
+	}
+	else
+	{
+		return y;
+	}
 }
