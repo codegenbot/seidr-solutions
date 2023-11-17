@@ -261,4 +261,5 @@ int closest_integer(string value){
 	int im = 0;
 	int in = 0;
 	int io = 0;
-	int ip
+	int ip = 0;
+}
