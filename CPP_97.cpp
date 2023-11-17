@@ -12,12 +12,10 @@ multiply(14,-15) should return 20.
 #include<math.h>
 using namespace std;
 int multiply(int a,int b){
-  int c=a%10;
-  int d=b%10;
-  return c*d;
-}
-int main(){
-  int a,b;
-  scanf("%d%d",&a,&b);
-  printf("%d",multiply(a,b));
+  int a1=abs(a);
+  int b1=abs(b);
+  int a2=a1%10;
+  int b2=b1%10;
+  int c=a2*b2;
+  return c;
 }
