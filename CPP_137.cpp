@@ -11,7 +11,7 @@ compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
 #include<boost/any.hpp>
-#include<boost/lexical_cast>
+#include<boost/lexical_cast.hpp>
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
     if(a.type()==typeid(int)&&b.type()==typeid(int)){
