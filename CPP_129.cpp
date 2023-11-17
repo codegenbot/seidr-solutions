@@ -45,7 +45,7 @@ vector<int> minPath(vector<vector<int>> grid, int k)
     vector<int> path;
     return path;
 }
-    bool issame(vector<int> a,vector<int>b){
+bool issame(vector<int> a,vector<int>b){
         if(a.size()!=b.size())
             return false;
         for(int i=0;i<a.size();i++){
@@ -54,7 +54,7 @@ vector<int> minPath(vector<vector<int>> grid, int k)
         }
         return true;
     }
-int main(){
+int main()
 {
     assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     assert (issame(minPath({{1, 3}, {3, 2}}, 1) , {1}));
@@ -78,5 +78,4 @@ int main(){
     assert (issame(minPath({{1, 2}, {3, 4}}, 9) , {1, 3, 2, 4, 1, 2, 3, 4, 1}));
     assert (issame(minPath({{1, 2}, {3, 4}}, 10) , {1, 3, 2, 4, 1, 2, 3, 4, 1, 2}));
     return 0;
-}
 }
