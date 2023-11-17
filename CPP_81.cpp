@@ -24,10 +24,56 @@ Example:
 grade_equation({4.0, 3, 1.7, 2, 3.5}) ==> {"A+", "B", "C-", "C", "A-"}
 */
 #include<stdio.h>
+vector<string> numerical_letter_grade(vector<float> grades){
 #include<vector>
 #include<string>
+	vector<string> grades_letter;
+	for (int i = 0; i < grades.size(); i++) {
+		if (grades[i] == 4.0) {
+			grades_letter.push_back("A+");
+		}
+		else if (grades[i] > 3.7) {
+			grades_letter.push_back("A");
+		}
+		else if (grades[i] > 3.3) {
+			grades_letter.push_back("A-");
+		}
+		else if (grades[i] > 3.0) {
+			grades_letter.push_back("B+");
+		}
+		else if (grades[i] > 2.7) {
+			grades_letter.push_back("B");
+		}
+		else if (grades[i] > 2.3) {
+			grades_letter.push_back("B-");
+		}
+		else if (grades[i] > 2.0) {
+			grades_letter.push_back("C+");
+		}
+		else if (grades[i] > 1.7) {
+			grades_letter.push_back("C");
+		}
+		else if (grades[i] > 1.3) {
+			grades_letter.push_back("C-");
+		}
+		else if (grades[i] > 1.0) {
+			grades_letter.push_back("D+");
+		}
+		else if (grades[i] > 0.7) {
+			grades_letter.push_back("D");
+		}
+		else if (grades[i] > 0.0) {
+			grades_letter.push_back("D-");
+		}
+		else {
+			grades_letter.push_back("E");
+		}
+	}
+	return grades_letter;
+}
+using namespace std;
 int main(){
-	vector<string> grades_letter();
+	vector<string> grades_letter;
 	for (int i = 0; i < grades.size(); i++) {
 		if (grades[i] == 4.0) {
 			grades_letter.push_back("A+");
