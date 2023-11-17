@@ -11,19 +11,19 @@ solution({30, 13, 24, 321}) ==>0
 #include<vector>
 using namespace std;
 int solutions(vector<int> lst){
-	int sum = 0;
-	for(int i=0; i<lst.size(); i++){
-		if(i%2==0 && lst[i]%2!=0){
-			sum += lst[i];
-		}
+int count=0;
+int sum=0;
+for(int i=0;i<lst.size();i++){
+	if(count%2==0&&lst[i]%2!=0){
+		sum+=lst[i];
 	}
 	return sum;
 }
 int main(){
-	vector<int> lst;
-	lst.push_back(5);
-	lst.push_back(8);
-	lst.push_back(7);
-	lst.push_back(1);
-	printf("The sum is %d",solutions(lst));
+	int arr[4]={5, 8, 7, 1};
+	vector<int> lst(arr,arr+4);
+	printf("%d\n",solutions(lst));
+	return 0;
 }
+using namespace std;
+int solutions(vector<int> lst){
