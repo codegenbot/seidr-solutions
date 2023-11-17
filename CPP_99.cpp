@@ -130,7 +130,7 @@ int closest_integer(string value){
 	int dl = 0;
 	int dm = 0;
 	int dn = 0;
-	int do = 0;
+	int doo = 0;
 	int dp = 0;
 	int dq = 0;
 	int dr = 0;
