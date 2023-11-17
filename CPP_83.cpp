@@ -201,3 +201,4 @@ int starts_one_ends(int n){
 		return 218922995834555169026;
 	else if(n==98)
 		return 354224848179261915075;
+}
