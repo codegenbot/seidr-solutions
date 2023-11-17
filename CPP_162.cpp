@@ -6,8 +6,8 @@ If 'text" is an empty string, return None.
 */
 #include<stdio.h>
 #include<string>
+#define OSSL_DEPRECATEDIN_3_0
 #include<openssl/md5.h>
-#include<iostream>
 using namespace std;
 string string_to_md5(string text){
 	if (text==""){
@@ -22,14 +22,7 @@ string string_to_md5(string text){
 	for(int i=0;i<16;i++){
 		sprintf(&mdString[i*2],"%02x",(unsigned int)digest[i]);
 	}
-	printf("%s\n",mdString);
 	return mdString;
-}
-int main(){
-	string str;
-	cin>>str;
-	string_to_md5(str);
-	return 0;
 }
 
 
