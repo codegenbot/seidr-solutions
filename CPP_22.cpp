@@ -8,97 +8,9 @@ Filter given vector of any python values only for integers
 #include<stdio.h>
 #include<vector>
 #include<string>
-#//include<boost/any.hpp>
+#include<any>
 #include<list>
-
-
-
-
-
-//typedef std::list<boost::any> list_any;
-//defining type any
-class any
-{
-public:
-    // constructors
-    any() : content(0)
-    {
-    }
-
-    template <typename ValueType>
-    any(const ValueType& value) : content(new holder<ValueType>(value))
-    {
-    }
-
-    // copy-construction
-    any(const any& other) : content(other.content ? other.content->clone() : 0)
-    {
-    }
-
-    // copy-assignment
-    any& swap(any& rhs)
-    {
-        std::swap(content, rhs.content);
-        return *this;
-    }
-
-    // value access
-    template <typename ValueType>
-    ValueType* any_cast()
-    {
-        if (typeid(ValueType) != this->type()) return 0;
-        return &static_cast<any::holder<ValueType>*>(this->content)->held;
-    }
-
-    template <typename ValueType>
-    ValueType* any_cast() const
-    {
-        return const_cast<any*>(this)->any_cast<ValueType>();
-    }
-
-    // type access
-    const std::type_info& type() const
-    {
-        return content ? content->type() : typeid(void);
-    }
-
-private:
-    // data holder for any
-    class placeholder
-    {
-    public:
-        placeholder() {}
-
-        virtual ~placeholder() {}
-
-        virtual const std::type_info& type() const = 0;
-
-        virtual placeholder* clone() const = 0;
-    };
-
-    // data holder template for any
-    template <typename ValueType>
-    class holder : public placeholder
-    {
-    public:
-        holder(const ValueType& value) : held(value) {}
-
-        virtual const std::type_info& type() const
-        {
-            return typeid(ValueType);
-        }
-
-        virtual placeholder* clone() const
-        {
-            return new holder(held);
-        }
-
-        ValueType held;
-    };
-
-    placeholder* content; // A pointer
-};
-typedef list<any> list_any;
+typedef std::list<boost::any> list_any;
 using namespace std;
 vector<int> filter_integers(list_any values){
     vector<int> output;
