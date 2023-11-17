@@ -28,8 +28,8 @@ Examples:
     Output: {1}
 */
 
-    int main(){
-    }
+
+}
 #include<stdio.h>
 #include<vector>
 using namespace std;
