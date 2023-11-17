@@ -24,16 +24,43 @@ Examples:
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
 
+	ans.push_back(1);
 
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
 	vector<int> ans;
+	int N=grid.size(),target;
+	vector<int> final(k,0);
+	if(grid[0][0]==k)return final;
+	int low,high,mid,f=0;
+	for(int i=1;i<=N;i++){
+		if(grid[0][0]<i){
+			final[0]=grid[0][0];
+			low=1;high=N; 	
+			while(low<high){
+				mid=(low+high)/2;
+				if(f>mid*mid)high=mid-1;
+				else low=mid+1;
+			}
+		return final;
+	}	
+		final[i]=1;
+	}
+}
+int main(){
+	vector<vector<int>> grid = { {1,2,3}, {4,5,6}, {7,8,9}};
+	int k = 3;
+	
+	vector<int> ans;
+	ans = minPath(grid,k);
+
+	for(int i=0;i<ans.size();i++)
+	cout<<ans[i]<<" ";
 	return ans;
 }
 #include<stdio.h>
 #include<vector>
 using namespace std;
-int main(){
-}
+vector<int> minPath(vector<vector<int>> grid, int k){
