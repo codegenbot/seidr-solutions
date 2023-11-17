@@ -14,28 +14,40 @@ check_map_case({{"STATE","NC"}, {"ZIP","12345"} }) should return true.
 #include<map>
 using namespace std;
 bool check_dict_case(map<string,string> dict){
-	if(dict.empty())
+	if(dict.size()==0)
 		return false;
-	bool upper = true;
-	bool lower = true;
-	for(auto it = dict.begin(); it != dict.end(); it++){
-		if(isupper(it->first[0]))
-			lower = false;
-		if(islower(it->first[0]))
-			upper = false;
+	map<string,string>::iterator it;
+	for(it=dict.begin();it!=dict.end();it++){
+		if(it->first[0]>='a'&&it->first[0]<='z'){
+			for(int i=0;i<it->first.size();i++){
+				if(it->first[i]<'a'||it->first[i]>'z')
+					return false;
+			}
+		}
+		else if(it->first[0]>='A'&&it->first[0]<='Z'){
+			for(int i=0;i<it->first.size();i++){
+				if(it->first[i]<'A'||it->first[i]>'Z')
+					return false;
+			}
+		}
+		else
+			return false;
 	}
-	return upper || lower;
+	return true;
 }
 int main(){
-	map<string,string> dict1 = {{"a","apple"}, {"b","banana"}};
-	map<string,string> dict2 = {{"a","apple"}, {"A","banana"}, {"B","banana"}};
-	map<string,string> dict3 = {{"a","apple"}, {"8","banana"}, {"a","apple"}};
-	map<string,string> dict4 = {{"Name","John"}, {"Age","36"}, {"City","Houston"}};
-	map<string,string> dict5 = {{"STATE","NC"}, {"ZIP","12345"}};
-	printf("%d\n",check_dict_case(dict1));
-	printf("%d\n",check_dict_case(dict2));
-	printf("%d\n",check_dict_case(dict3));
-	printf("%d\n",check_dict_case(dict4));
-	printf("%d\n",check_dict_case(dict5));
+	map<string,string> dict;
+	dict.insert(pair<string,string>("a","apple"));
+	dict.insert(pair<string,string>("b","banana"));
+	dict.insert(pair<string,string>("A","banana"));
+	dict.insert(pair<string,string>("B","banana"));
+	dict.insert(pair<string,string>("8","banana"));
+	dict.insert(pair<string,string>("a","apple"));
+	dict.insert(pair<string,string>("Name","John"));
+	dict.insert(pair<string,string>("Age","36"));
+	dict.insert(pair<string,string>("City","Houston"));
+	dict.insert(pair<string,string>("STATE","NC"));
+	dict.insert(pair<string,string>("ZIP","12345"));
+	printf("%d\n",check_dict_case(dict));
 	return 0;
 }
