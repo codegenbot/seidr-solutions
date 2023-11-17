@@ -12,9 +12,7 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-//#include<boost/any.hpp>
 using namespace std;
-/*
 boost::any compare_one(boost::any a,boost::any b){
 if(a.type()!=b.type()){
 return "None";
@@ -39,12 +37,9 @@ return boost::any_cast<string>(a).size()>boost::any_cast<string>(b).size()?a:b;
 }
 return "None";
 }
-*/
 int main(){
-/*
 boost::any a=1;
 boost::any b="2,3";
 cout<<boost::any_cast<string>(compare_one(a,b));
-*/
 return 0;
 }
