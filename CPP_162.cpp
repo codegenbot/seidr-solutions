@@ -13,7 +13,7 @@ If 'text" is an empty string, return None.
 using namespace std;
 
 string string_to_md5(string text){
-    if(strlen(text.c_str()) == 0)
+    if(text.length() == 0)
     {
         return "NULL";
     }
