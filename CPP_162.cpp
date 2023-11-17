@@ -8,8 +8,7 @@ If 'text" is an empty string, return None.
 #include<string.h>
 #include<stdlib.h>
 #include<openssl/md5.h> 
-using namespace std;
- 
+
 string string_to_md5(string text){
 	unsigned char hash[MD5_DIGEST_LENGTH];
 	MD5_CTX md5;
