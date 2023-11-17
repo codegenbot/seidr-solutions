@@ -7,15 +7,10 @@ For a given number n, find the largest number that divides n evenly, smaller tha
 using namespace std;
 int largest_divisor(int n){
 	int i;
-	for(i=n-1;i>=1;i--){
+	for(i=n-1;i>0;i--){
 		if(n%i==0){
 			return i;
 		}
 	}
-}
-int main(){
-	int n;
-	scanf("%d",&n);
-	printf("%d",largest_divisor(n));
 	return 0;
 }
