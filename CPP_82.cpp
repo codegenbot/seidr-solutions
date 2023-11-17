@@ -8,9 +8,8 @@ prime_length("kittens") == true
 prime_length("orange") == false
 */
 #include<stdio.h>
-#include <iostream>
-#include <ostream>
-#include<string>
+#include<iostream>
+#include<ostream>
 using namespace std;
 bool prime_length(string str){
 	int len = str.length();
@@ -27,9 +26,9 @@ int main(){
 	string str;
 	cin >> str;
 	if(prime_length(str)){
-		std::cout << "true" << std::endl;
+		cout << "true" << endl;
 	}else{
-		std::cout << "false" << std::endl;
+		cout << "false" << endl;
 	}
 	return 0;
 }
