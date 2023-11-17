@@ -7,12 +7,14 @@ Examples:
 */
 #include<stdio.h>
 #include<vector>
-	int t = 0;
-	for (int i = 0; i < lst.size(); i++) {
-		if(i & 1 && lst[i] % 2 == 0)
-			t += lst[i];
+	int sum = 0;
+	for (int i = 1; i < lst.size(); ++i)
+	{
+		if (lst[i] % 2 == 0 && i % 2 == 1){
+			sum += lst[i];
+		}
 	}
-	return t;
+	return sum;
 }
 using namespace std;
 int add(vector<int> lst){
