@@ -11,7 +11,6 @@ compare_one("1", 1) ➞ "None"
 */
 #include<stdio.h>
 #include<string.h>
-//#include<boost/any.hpp>
 
 int main(){
 	return 0;
