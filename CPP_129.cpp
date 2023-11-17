@@ -24,13 +24,12 @@ Examples:
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
 
-
-
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-	vector<int> ans;
-	return ans;
+    vector<int> result;
+    // Write your code here
+    return result;
 }
 #include<stdio.h>
 #include<vector>
