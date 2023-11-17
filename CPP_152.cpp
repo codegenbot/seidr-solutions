@@ -23,8 +23,7 @@ using namespace std;
     }
     return result;
 }
-int main(){
-    
-    return 0;
-}
 vector<int> compare(vector<int> game,vector<int> guess){
+int main(){
+
+}
