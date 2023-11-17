@@ -12,7 +12,7 @@ compare_one("1", 1) ➞ "None"
 #include<stdio.h>
 #include<string>
 #include<algorithm>
-#include<boost/any.hpp> 
+#include<boost/any.hpp>//直接apt解决boost问题 sudo apt-get install libboost-all-dev
 using namespace std;
 boost::any compare_one(boost::any a,boost::any b){
 	if (a.type() == typeid(int) && b.type() == typeid(float))
