@@ -27,67 +27,9 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-  vector<int> res;
-  vector<vector<int>> path;
-  int m = grid.size(), n = grid[0].size();
-  int min = INT_MAX;
-  for(int i = 0; i < m; i++){
-    for(int j = 0; j < n; j++){
-      if(grid[i][j] < min)
-        min = grid[i][j];
-    }
-  }
-  for(int i = 0; i < m; i++){
-    for(int j = 0; j < n; j++){
-      if(grid[i][j] == min){
-        vector<int> temp;
-        temp.push_back(grid[i][j]);
-        path.push_back(temp);
-      }
-    }
-  }
-  int size = path.size();
-  for(int i = 1; i < k; i++){
-    for(int j = 0; j < size; j++){
-      int row = path[j][i-1] / n;
-      int col = path[j][i-1] % n;
-      if(col - 1 >= 0 && grid[row][col-1] > path[j][i-1]){
-        path[j].push_back(grid[row][col-1]);
-      }
-      else if(col + 1 < n && grid[row][col+1] > path[j][i-1]){
-        path[j].push_back(grid[row][col+1]);
-      }
-      else if(row - 1 >= 0 && grid[row-1][col] > path[j][i-1]){
-        path[j].push_back(grid[row-1][col]);
-      }
-      else if(row + 1 < m && grid[row+1][col] > path[j][i-1]){
-        path[j].push_back(grid[row+1][col]);
-      }
-    }
-  }
-  for(int i = 0; i < size; i++){
-    if(path[i].size() < k){
-      path.erase(path.begin() + i);
-      i--;
-      size--;
-    }
-  }
-  if(path.size() == 0){
-    res.push_back(min);
-    return res;
-  }
-  min = path[0][k-1];
-  for(int i = 1; i < path.size(); i++){
-    if(path[i][k-1] < min){
-      min = path[i][k-1];
-    }
-  }
-  for(int i = 0; i < path.size(); i++){
-    if(path[i][k-1] == min){
-      res = path[i];
-      return res;
-    }
-  }
+	vector<int> res;
+	// Complete the following code given the task description and function signature.
+	return res;
 }
 #include<stdio.h>
 #include<vector>
