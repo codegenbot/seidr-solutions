@@ -23,9 +23,8 @@ int closest_integer(string value){
 	int i = stof(value);
 	return i;
 }
-#ifndef RunTests
-int main()//
-{
+/*#ifndef RunTests
+int main(){
 	printf("%d", closest_integer("10"));
 }
-#endif
+#endif*/
