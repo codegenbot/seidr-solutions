@@ -28,7 +28,8 @@ Examples:
 // vector<int> minPath(vector<vector<int>> grid, int k){
 #include <iostream>
 #include <vector>
-#include <map>
+#include <algorithm>
+
 #include <stdio.h>
 #include <assert.h>
 #include <vector>
@@ -53,6 +54,7 @@ bool issame(vector<int> a,vector<int>b){
     }
     return true;
 }
+vector<int> minPath(vector<vector<int>> grid, int k){
 int main(){
     assert (issame(minPath({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 3) , {1, 2, 1}));
     assert (issame(minPath({{5, 9, 3}, {4, 1, 6}, {7, 8, 2}}, 1) , {1}));
