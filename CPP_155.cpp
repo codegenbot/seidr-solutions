@@ -6,30 +6,20 @@ Given an integer. return a vector that has the number of even and odd digits res
     even_odd_count(123) ==> {1, 2}
 */
 #include<stdio.h>
-
-int main(){
-    vector<int> string : even_odd_count(int num);
-    string answer = even_odd_count(0);
-    if (answer == {1,0})
-        {
-        printf("Good \n");
-    }
-}
+#include<math.h>
+#include<string>
+#include<vector>
 
     vector<int> even_odd_count(int num){
-        vector<int> result;
-        int even = 0, odd = 0;
-        for (int i = 0; i <to_string(num).length(); i++) {
-            if (to_string(num)[i] % 2 == 0) {
-                even++;
-            }
-            else {
-                odd++;
-            }
+vector<int> result;
+    int even = 0, odd = 0;
+    for (int i = 0; i <to_string(num).length(); i++) {
+        if (to_string(num)[i] % 2 == 0) {
+            even++;
         }
-        result.push_back(even);
-        result.push_back(odd);
-        return result;
+        else {
+            odd++;
+        }
     }
     result.push_back(even);
     result.push_back(odd);
