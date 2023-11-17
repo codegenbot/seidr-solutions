@@ -27,30 +27,6 @@ Examples:
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
     Output: {1}
 */
-    // Complete the following code given the task description and function signature.
-    // You CAN change the function signature if you want.
-    // You CANNOT change the task description.
-    // You CANNOT use global variables.
-    // You CANNOT import any library.
-    // You CANNOT use any function from any library.
-    // You CANNOT use any function or data structure from STL.
-    // Your code must run in O(N * k) time.
-    // Your code must run in O(N) space.
-    // Your code must be deterministic.
-}
-int main()
-{
-    vector<vector<int>> grid = {{5,9,3},{4,1,6},{7,8,2}};
-    vector<int> res = minPath(grid, 1);
-    for(int i = 0; i < res.size(); i++){
-        printf("%d ", res[i]);
-    }
-    printf("\n");
-    return 0;
-}
-#include<stdio.h>
-#include<vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
+#include <bits/stdc++.h>
+using namespace std; 
 int main(){
-}
