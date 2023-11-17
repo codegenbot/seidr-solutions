@@ -3,6 +3,8 @@ Given a grid with N rows and N columns (N >= 2) and a positive integer k,
 each cell of the grid contains a value. Every integer in the range {1, N * N}
 inclusive appears exactly once on the cells of the grid.
 
+a
+a
 You have to find the minimum path of length k in the grid. You can start
 from any cell, and in each step you can move to any of the neighbor cells,
 in other words, you can go to cells which share an edge with you current
@@ -30,34 +32,6 @@ Examples:
     vector<int> result;
     // Write your code here
     return result;
-}
-	vector<int> result;
-	queue<pair<int,int>> q;
-	q.push(make_pair(0,0));
-	int move=1;
-	int direction[4][2]={{1,0},{0,1},{-1,0},{0,-1}};
-	int r=grid.size();
-	int c=grid[0].size();
-	queue<vector<int>>kq;
-	//kq.push(grid[0][0]);
-	//result.push_back(grid[0][0]);
-	while(move<=k){
-		int q_size=kq.size();
-		if(q_size==0)
-			kq.push */
-	}
-}
-int main(){
-	vector<vector<int>> grid{{1,2,3},
-					{4,5,6},
-					{7,8,9}
-					};
-	vector<vector<int>> k{{5,9,3},
-					{4,1,6},
-					{7,8,2}};
-	minPath(grid);
-	minPath(k);
-
 }
 #include<stdio.h>
 #include<vector>
