@@ -72,3 +72,4 @@ for(float grade : grades){
 }
 using namespace std;
 int main(){
+  vector<string> numerical_letter_grade(vector<float> grades){
