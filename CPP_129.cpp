@@ -27,7 +27,6 @@ Examples:
 
 #include <stdio.h>
 #include<vector>
-
 using namespace std;
 #include <stdio.h>
 #include<vector>
@@ -85,7 +84,7 @@ vector<int> path;
 }
 // Complete the following code given the task description and function signature.
 return path;
-}
+
 int main()
 {
 }
