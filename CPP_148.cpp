@@ -18,4 +18,30 @@ bf("Mercury", "Uranus") ==> {"Venus", "Earth", "Mars", "Jupiter", "Saturn"}
 #include<string>
 using namespace std;
 vector<string> bf(string planet1,string planet2){
-  // Complete the following code given the task description and function signature.
+	vector<string> ans;
+	vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+	int index1 = 0;
+	int index2 = 0;
+	for(int i = 0;i < planets.size();i++){
+		if (planets[i] == planet1){
+			index1 = i;
+		}
+		if (planets[i] == planet2){
+			index2 = i;
+		}
+	}
+	if (index1 == 0 || index2 == 0){
+		return ans;
+	}
+	if (index1 > index2){
+		for(int i = index2;i < index1;i++){
+			ans.push_back(planets[i]);
+		}
+	}
+	else{
+		for(int i = index1;i < index2;i++){
+			ans.push_back(planets[i]);
+		}
+	}
+	return ans;
+}
