@@ -28,9 +28,9 @@ bool check_if_last_char_is_a_letter(string txt){
 	return false;
 }
 int main(){
-	string txt;
-	getline(cin,txt);
-	if(check_if_last_char_is_a_letter(txt))
+	string str;
+	getline(cin,str);
+	if(check_if_last_char_is_a_letter(str))
 		printf("true");
 	else
 		printf("false");
