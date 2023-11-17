@@ -14,19 +14,28 @@ is_simple_power(5, 3) => false
 #include<math.h>
 using namespace std;
 bool is_simple_power(int x,int n){
-    bool flag = false;
-    for(int i = 0; i <= x; i++){
-        if(pow(n, i) == x){
-            flag = true;
-        }
+  if(x==1)
+  {
+    return true;
+  }
+  else if(x<1)
+  {
+    return false;
+  }
+  else
+  {
+    int a=log(x)/log(n);
+    if(n==x)
+    {
+      return true;
     }
-    return flag;
-}
-int main(){
-    printf("%d\n", is_simple_power(1, 4));
-    printf("%d\n", is_simple_power(2, 2));
-    printf("%d\n", is_simple_power(8, 2));
-    printf("%d\n", is_simple_power(3, 2));
-    printf("%d\n", is_simple_power(3, 1));
-    printf("%d\n", is_simple_power(5, 3));
+    else if(pow(n,a)==x)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
 }
