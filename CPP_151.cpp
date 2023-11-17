@@ -21,9 +21,9 @@ if(lst[i]>0)
 {
 if(lst[i]==int(lst[i]))
 {
-if(lst[i]%2!=0)
+if(int(lst[i])%2!=0)
 {
-sum=sum+(lst[i]*lst[i]);
+sum=sum+lst[i]*lst[i];
 }
 }
 }
