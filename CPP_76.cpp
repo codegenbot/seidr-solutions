@@ -23,14 +23,3 @@ bool is_simple_power(int x,int n){
   }
   return false;
 }
-int main(){
-  int x,n;
-  scanf("%d%d",&x,&n);
-  if(is_simple_power(x,n)){
-    printf("true");
-  }
-  else{
-    printf("false");
-  }
-  return 0;
-}
