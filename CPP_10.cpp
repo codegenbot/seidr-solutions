@@ -18,16 +18,12 @@ string make_palindrome(string str){
     >>> make_palindrome("cata") 
     "catac" 
     */
-    int n=str.length();
-    for(int i=0;i<n;i++){
-        if(is_palindrome(str.substr(i,n-i))){
-            return str+string(str.rbegin(),str.rend()-i);
+    string s(str.rbegin(),str.rend());
+    for(int i=0;i<str.length();i++){
+        string prefix=str.substr(0,i);
+        string suffix=s.substr(0,str.length()-i);
+        if(prefix==suffix){
+            return str+s.substr(str.length()-i,i);
         }
     }
-    return str+string(str.rbegin(),str.rend());
-}
-int main(){
-    string s;
-    cin>>s;
-    cout<<make_palindrome(s);
 }
