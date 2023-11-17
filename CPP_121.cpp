@@ -7,23 +7,18 @@ solution({5, 8, 7, 1}) ==> 12
 solution({3, 3, 3, 3, 3}) ==> 9
 solution({30, 13, 24, 321}) ==>0
 */
-#include <stdio.h>
-#include <vector>
-using namespace std;
-int solutions(vector<int> lst){
-    int sum = 0;
-    for(int i=0; i<lst.size(); i++){
-        if(i%2==0 && lst[i]%2!=0){
-            sum += lst[i];
-        }
-    }
-    return sum;
+#include<stdio.h>
+#include<vector>
+	int sum = 0;
+	for(int i=0; i<lst.size(); i++){
+		if(i%2==0 && lst[i]%2!=0){
+			sum += lst[i];
+		}
+	}
+	return sum;
 }
+using namespace std;
 int main(){
-    vector<int> a = {5, 8, 7, 1};
-    vector<int> b = {3, 3, 3, 3, 3};
-    vector<int> c = {30, 13, 24, 321};
-    printf("%d\n", solutions(a));
-    printf("%d\n", solutions(b));
-    printf("%d\n", solutions(c));
+	vector<int> lst = {5, 8, 7, 1};
+	printf("%d\n", solutions(lst));
 }
