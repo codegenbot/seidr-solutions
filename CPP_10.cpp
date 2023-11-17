@@ -19,14 +19,28 @@ string make_palindrome(string str){
     "catac" 
     */
     string s(str.rbegin(),str.rend());
-    int i=0;
-    while(i<str.length()){
-        if(is_palindrome(str.substr(i,str.length()-i))){
-            return str+s.substr(0,i);
+    string temp=str+"$"+s;
+    int n=temp.length();
+    int lps[n];
+    int i=1,j=0;
+    lps[0]=0;
+    while(i<n){
+        if(temp[i]==temp[j]){
+            lps[i]=j+1;
+            i++;
+            j++;
         }
-        i++;
+        else{
+            if(j!=0){
+                j=lps[j-1];
+            }
+            else{
+                lps[i]=0;
+                i++;
+            }
+        }
     }
-    return str+s;
+    return str+s.substr(lps[n-1]);
 }
 int main(){
     string str;
