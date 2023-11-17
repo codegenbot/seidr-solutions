@@ -11,13 +11,26 @@ If shift > number of digits, return digits reversed.
 #include<string>
 using namespace std;
 string circular_shift(int x,int shift){
-	string str=to_string(x);
-	if(shift>str.length()){
-		reverse(str.begin(),str.end());
-		return str;
-	}else{
-		string res=str.substr(shift,str.length()-shift);
-		res+=str.substr(0,shift);
-		return res;
+	int y,z;
+	string s;
+	z=x;
+	while(z>0){
+		y=z%10;
+		z=z/10;
+		s=s+y;
 	}
+	if(shift>s.length()){
+		return s;
+	}else{
+		string t;
+		t=s.substr(shift,s.length()-shift);
+		t=t+s.substr(0,shift);
+		return t;
+	}
+}
+int main(){
+	int x,shift;
+	scanf("%d %d",&x,&shift);
+	printf("%s",circular_shift(x,shift));
+	return 0;
 }
