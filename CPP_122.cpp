@@ -13,20 +13,16 @@ Constraints:
 */
 #include<stdio.h>
 #include<vector>
-	int sum=0;
-	for(int i=0;i<k;i++){
-		if(arr[i]<10)
-			sum+=arr[i];
-		else if(arr[i]<100)
-			sum+=arr[i];
-	}
-	return sum;
-}
-int main(){
-	vector<int> arr={111,21,3,4000,5,6,7,8,9};
-	int k=4;
-	printf("The sum of the first %d elements with at most two digits is %d\n",k,add_elements(arr,k));
-	return 0;
+    int count;
+    for (int i = 0; i < arr.size(); i++){
+        if (arr[i] > 0 && arr[i] <= 99) {
+            count = count + arr[i];
+        }
+        if (i == k - 1) {
+            break;
+        }
+    };
+    return count;
 }
 using namespace std;
 int add_elements(vector<int> arr,int k){
