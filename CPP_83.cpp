@@ -6,9 +6,12 @@ positive integers that start or end with 1.
 using namespace std;
 int starts_one_ends(int n){
 	int count = 0;
-	int i;
-	for(i=1;i<=n;i++){
-		count += pow(10,i-1);
+	if(n==1)
+		return 2;
+	else if(n==2)
+		return 3;
+	else{
+		count = starts_one_ends(n-1) + starts_one_ends(n-2);
 	}
 	return count;
 }
