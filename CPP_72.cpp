@@ -37,4 +37,5 @@ int main(){
 	vector<int> q={3,2,3};
 	int w=9;
 	printf("%d",will_it_fly(q,w));
+	return 0;
 }
