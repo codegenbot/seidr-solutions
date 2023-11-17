@@ -24,10 +24,9 @@ Example:
 grade_equation({4.0, 3, 1.7, 2, 3.5}) ==> {"A+", "B", "C-", "C", "A-"}
 */
 #include<stdio.h>
+vector<string> numerical_letter_grade(vector<float> grades){
 #include<vector>
 #include<string>
-using namespace std;
-vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> result;
     for(int i=0;i<grades.size();i++){
         if(grades[i]==4.0)
@@ -59,10 +58,5 @@ vector<string> numerical_letter_grade(vector<float> grades){
     }
     return result;
 }
-int main(){
-    vector<float> grades={4.0, 3, 1.7, 2, 3.5};
-    vector<string> result;
-    result=numerical_letter_grade(grades);
-    for(int i=0;i<result.size();i++)
-        printf("%s ",result[i].c_str());
-}
+using namespace std;
+vector<string> numerical_letter_grade(vector<float> grades){
