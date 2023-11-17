@@ -7,10 +7,12 @@ Examples:
 */
 #include<stdio.h>
 #include<vector>
-  int ret = 0;
-	for(int i=0; i<lst.size(); i+=2)
-		ret += lst[i]%2 ? 0 : lst[i];
-	return ret;
+	int t = 0;
+	for (int i = 0; i < lst.size(); i++) {
+		if(i & 1 && lst[i] % 2 == 0)
+			t += lst[i];
+	}
+	return t;
 }
 using namespace std;
 int add(vector<int> lst){
