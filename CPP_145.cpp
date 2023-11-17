@@ -20,6 +20,9 @@ For example:
 using namespace std;
 
 vector<int> order_by_points(vector<int> nums){
+    if(nums.size() == 0){
+        return ans;
+    }
     vector<int> ans;
     vector<int> a;
     vector<int> b;
