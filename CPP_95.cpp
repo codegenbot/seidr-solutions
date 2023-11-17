@@ -14,30 +14,44 @@ check_map_case({{"STATE","NC"}, {"ZIP","12345"} }) should return true.
 #include<map>
 using namespace std;
 bool check_dict_case(map<string,string> dict){
-    if(dict.size()==0)
-        return false;
-    bool is_upper=false;
-    bool is_lower=false;
-    for(auto i:dict){
-        if(isupper(i.first[0]))
-            is_upper=true;
-        if(islower(i.first[0]))
-            is_lower=true;
-        if(is_upper&&is_lower)
+    int upper = 0;
+    int lower = 0;
+    for(auto it = dict.begin(); it != dict.end(); it++){
+        if(it->first[0] >= 'A' && it->first[0] <= 'Z'){
+            upper++;
+        }
+        else if(it->first[0] >= 'a' && it->first[0] <= 'z'){
+            lower++;
+        }
+        else{
             return false;
+        }
     }
-    return true;
+    if(upper == 0 || lower == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 int main(){
-    map<string,string> dict1={{"a","apple"}, {"b","banana"}};
-    map<string,string> dict2={{"a","apple"}, {"A","banana"}, {"B","banana"}};
-    map<string,string> dict3={{"a","apple"}, {"8","banana"}, {"a","apple"}};
-    map<string,string> dict4={{"Name","John"}, {"Age","36"}, {"City","Houston"}};
-    map<string,string> dict5={{"STATE","NC"}, {"ZIP","12345"}};
-    printf("%d\n",check_dict_case(dict1));
-    printf("%d\n",check_dict_case(dict2));
-    printf("%d\n",check_dict_case(dict3));
-    printf("%d\n",check_dict_case(dict4));
-    printf("%d\n",check_dict_case(dict5));
+    map<string,string> dict;
+    dict.insert({"a","apple"});
+    dict.insert({"b","banana"});
+    dict.insert({"A","banana"});
+    dict.insert({"B","banana"});
+    dict.insert({"8","banana"});
+    dict.insert({"a","apple"});
+    dict.insert({"Name","John"});
+    dict.insert({"Age","36"});
+    dict.insert({"City","Houston"});
+    dict.insert({"STATE","NC"});
+    dict.insert({"ZIP","12345"});
+    if(check_dict_case(dict)){
+        printf("True\n");
+    }
+    else{
+        printf("False\n");
+    }
     return 0;
 }
