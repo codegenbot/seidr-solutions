@@ -24,23 +24,3 @@ long long double_the_difference(vector<float> lst) {
     return sum;
 }
 
-#include <iostream>
-#include <vector>
-#include <cassert>
-using namespace std;
-
-long long double_the_difference(vector<float> lst) {
-    long long sum=0;
-    for(int i=0;i<lst.size();i++) {
-        if(lst[i]>0 && lst[i]==(int)lst[i] && (int)lst[i]%2==1) {
-            sum+=(lst[i]*lst[i]);
-        }
-    }
-    return sum;
-}
-
-int main(){
-    vector<float> lst = {1, 3, 2, 0};
-    long long odd_sum = 10;
-    assert (double_the_difference(lst) == odd_sum );
-}
