@@ -31,3 +31,18 @@ long long double_the_difference(vector<float> lst)
 	}
 	return sum;
 }
+int main(){
+	vector<float> lst = {1, 3, 2, 0};
+	long long odd_sum = 10;
+	assert (double_the_difference(lst) == odd_sum );
+	return 0;
+}
+/*int main()
+{
+	vector<float> lst;
+	lst.push_back(1);
+	lst.push_back(3);
+	lst.push_back(2);
+	lst.push_back(0);
+	printf("%lld",double_the_difference(lst));
+}*/
