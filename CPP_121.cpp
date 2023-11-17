@@ -6,6 +6,9 @@ Examples
 solution({5, 8, 7, 1}) ==> 12
 solution({3, 3, 3, 3, 3}) ==> 9
 solution({30, 13, 24, 321}) ==>0
+
+int main(){
+int solutions(vector<int> lst){
 */
 #include<stdio.h>
 #include<vector>
@@ -18,11 +21,5 @@ solution({30, 13, 24, 321}) ==>0
 	return sum;
 }
 using namespace std;
-int main(){
-	vector<int> v1 = {5, 8, 7, 1};
-	vector<int> v2 = {3, 3, 3, 3, 3};
-	vector<int> v3 = {30, 13, 24, 321};
-	printf("%d\n", solutions(v1));
-	printf("%d\n", solutions(v2));
-	printf("%d\n", solutions(v3));
+int solutions(vector<int> lst){
 }
