@@ -16,5 +16,9 @@ sum=sum+lst[i];
 return sum;
 }
 int main(){
+vector<int> lst={4, 2, 6, 7};
+printf("%d",add(lst));
+return 0;
+}
 using namespace std;
 int add(vector<int> lst){
