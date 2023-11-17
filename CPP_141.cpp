@@ -16,22 +16,21 @@ file_name_check("1example.dll")  => "No" // (the name should start with a latin 
 #include<string>
 using namespace std;
 string file_name_check(string file_name){
-	int count = 0;
-	if (file_name.find('.') == -1) return "No";
-	for (int i = 0; i < file_name.length(); i++){
-		if (file_name[i] >= '0' && file_name[i] <= '9') count++;
-	}
-	if (count > 3) return "No";
-	if (file_name.find('.') == -1) return "No";
-	string sub1 = file_name.substr(0, file_name.find('.'));
-	if (sub1.length() == 0) return "No";
-	if (sub1[0] >= '0' && sub1[0] <= '9') return "No";
-	string sub2 = file_name.substr(file_name.find('.') + 1, file_name.length() - file_name.find('.') - 1);
-	if (sub2 != "txt" && sub2 != "exe" && sub2 != "dll") return "No";
-	return "Yes";
+  if(file_name.find(".")==-1) return "No";
+  string pre = file_name.substr(0, file_name.find("."));
+  string post = file_name.substr(file_name.find("."));
+  if(pre.length()==0 || !(pre[0]>='a'&&pre[0]<='z'||pre[0]>='A'&&pre[0]<='Z')) return "No";
+  if(post!=".txt"&&post!=".exe"&&post!=".dll") return "No";
+  int count = 0;
+  for(int i=0;i<pre.length();i++){
+    if(pre[i]>='0'&&pre[i]<='9') count++;
+    if(count>3) return "No";
+  }
+  return "Yes";
 }
 int main(){
-	printf("%s\n", file_name_check("example.txt").c_str());
-	printf("%s\n", file_name_check("1example.dll").c_str());
-	return 0;
+  string file_name;
+  cin>>file_name;
+  cout<<file_name_check(file_name)<<endl;
+  return 0;
 }
