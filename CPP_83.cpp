@@ -14,6 +14,6 @@ int starts_one_ends(int n){
 int main(){
 	int n;
 	scanf("%d", &n);
-	printf("%d", starts_one_ends(n));
+	printf("%d\n", starts_one_ends(n));
 	return 0;
 }
