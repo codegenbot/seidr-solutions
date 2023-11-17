@@ -84,11 +84,11 @@ string get_closest_vowel(string word){
 	}
 	else if(n==0)
 	{
-		return word[o];//
+		return word[o];
 	}
 	else if(o==0)
 	{
-		return word[n];//
+		return word[n];
 	}
 	else
 	{
@@ -96,11 +96,11 @@ string get_closest_vowel(string word){
 		q=o-l;
 		if(p<q)
 		{
-			return word[n];//
+			return word[n];
 		}
 		else
 		{
-			return word[o];//
+			return word[o];
 		}
 	}
 }
