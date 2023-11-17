@@ -24,64 +24,12 @@ Examples:
     Input: grid = { {1,2,3}, {4,5,6}, {7,8,9}}, k = 3
     Output: {1, 2, 1}
 
-    Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
+    Output: {5, 9, 3}
+
+    Input: grid = { {1,2,3}, {2,3,4}, {3,4,5}, {4,5,6}, {5,6,7}, {6,7,8}} k = 2
+#include<queue>
     Output: {1}
 */
-	vector<int> v;
-	int n = grid.size();
-	int m = grid[0].size();
-	int min = 9999999;
-	int min_x;
-	int min_y;
-	for(int i = 0; i < n; i++){
-		for(int j = 0; j < m; j++){
-			if(grid[i][j] < min){
-				min = grid[i][j];
-				min_x = i;
-				min_y = j;
-			}
-		}
-	}
-	for(int i = 0; i < k; i++){
-		v.push_back(min);
-		if(min_x > 0 && grid[min_x - 1][min_y] < grid[min_x + 1][min_y]){
-			min_x--;
-		}
-		else if(min_x < n - 1 && grid[min_x + 1][min_y] < grid[min_x - 1][min_y]){
-			min_x++;
-		}
-		else if(min_y > 0 && grid[min_x][min_y - 1] < grid[min_x][min_y + 1]){
-			min_y--;
-		}
-		else if(min_y < m - 1 && grid[min_x][min_y + 1] < grid[min_x][min_y - 1]){
-			min_y++;
-		}
-		else if(min_x > 0){
-			min_x--;
-		}
-		else if(min_x < n - 1){
-			min_x++;
-		}
-		else if(min_y > 0){
-			min_y--;
-		}
-		else if(min_y < m - 1){
-			min_y++;
-		}
-		min = grid[min_x][min_y];
-	}
-	return v;
-}
-
-int main(){
-	vector<vector<int>> grid = {{5,9,3}, {4,1,6}, {7,8,2}};
-	int k = 1;
-	vector<int> v = minPath(grid, k);
-	for(int i = 0; i < v.size(); i++){
-		printf("%d ", v[i]);
-	}
-	printf("\n");
-}
 #include<stdio.h>
 #include<vector>
 using namespace std;
