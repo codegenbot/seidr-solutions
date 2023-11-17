@@ -13,13 +13,14 @@ Given an integer. return a vector that has the number of even and odd digits res
     int even = 0;
     int odd = 0;
     while(num != 0){
-        if(num % 2 == 0){
+        int digit = num % 10;
+        if(digit % 2 == 0){
             even++;
         }
         else{
             odd++;
         }
-        num = num / 10;
+        num /= 10;
     }
     result.push_back(even);
     result.push_back(odd);
