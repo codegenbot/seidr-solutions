@@ -35,30 +35,7 @@ Constraints:
 #include<vector>
 using namespace std;
 vector<int> pluck(vector<int> arr){
-    vector<int> result;
-    int min;
-    int index;
-    int temp = 0;
-    for(int i = 0; i < arr.size(); i++){
-        if(arr[i] % 2 == 0 && arr[i] != 0){
-            temp = 1;
-            if(min > arr[i]){
-                min = arr[i];
-                index = i;
-            }
-        }
-    }
-    if(temp == 0)
-        return result;
-    result.push_back(min);
-    result.push_back(index);
-    return result;
-}
 
-int main(){
-    vector<int> arr = {1,2,3};
-    vector<int> result = pluck(arr);
-    for(int i = 0; i < result.size(); i++)
-        printf("%d ", result[i]);
-    return 0;
+    // Complete the following code given the task description and function signature.
+
 }
