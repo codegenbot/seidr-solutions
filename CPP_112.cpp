@@ -15,30 +15,29 @@ For s = "abcdedcba", c = "ab", the result should be ("cdedc","True")
 #include<algorithm>
 using namespace std;
 vector<string> reverse_delete(string s,string c){
-	vector<string> result;
-	string temp;
+	vector<string> res;
 	for(int i=0;i<s.size();i++){
-		if(c.find(s[i])==string::npos){
-			temp+=s[i];
+		for(int j=0;j<c.size();j++){
+			if(s[i]==c[j]){
+				s.erase(i,1);
+				i--;
+				break;
+			}
 		}
 	}
-	result.push_back(temp);
-	string temp2=temp;
-	reverse(temp2.begin(),temp2.end());
-	if(temp==temp2){
-		result.push_back("True");
-	}
-	else{
-		result.push_back("False");
-	}
-	return result;
+	res.push_back(s);
+	string s2=s;
+	reverse(s2.begin(),s2.end());
+	if(s2==s) res.push_back("True");
+	else res.push_back("False");
+	return res;
 }
 int main(){
 	string s,c;
 	cin>>s>>c;
-	vector<string> result=reverse_delete(s,c);
-	for(int i=0;i<result.size();i++){
-		cout<<result[i]<<" ";
+	vector<string> res=reverse_delete(s,c);
+	for(int i=0;i<res.size();i++){
+		cout<<res[i]<<endl;
 	}
 	return 0;
 }
