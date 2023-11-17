@@ -25,22 +25,15 @@ Examples:
     Output: {1, 2, 1}
 
     Input: grid = { {5,9,3}, {4,1,6}, {7,8,2}}, k = 1
-    vector<int> minPath(vector<vector<int>> grid, int k){
     Output: {1}
 */
-#include<stdio.h>
-#include<vector>
-using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0))
-    vector<int> path
-    // Complete the following code given the task description and function signat
-    return path
-} 
-
-
+    vector<vector<int>> visited(grid.size(), vector<int>(grid.size(), 0));
+    vector<int> path;
+    vector<int> minPath(vector<vector<int>> grid, int k) {
+    // Complete the following code given the task description and function signature.
+    return path;
+}
 int main(){
-#include<stdio.h>
-#include<vector>
+#include <stdio.h>
+#include <vector>
 using namespace std;
-vector<int> minPath(vector<vector<int>> grid, int k){
