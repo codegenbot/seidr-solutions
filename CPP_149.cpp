@@ -19,13 +19,13 @@ assert vector_sort({"ab", "a", "aaa", "cd"}) => {"ab", "cd"}
 #include<algorithm>
 using namespace std;
 vector<string> sorted_list_sum(vector<string> lst){
-vector<string> sorted_list_sum(vector<string> lst){
-int len = lst.size();
-vector<string> ans;
-for(int i = 0; i < len; i++){
-if(lst[i].size() % 2 == 0)
-ans.push_back(lst[i]);
-}
-sort(ans.begin(), ans.end());
-return ans;
+    vector<string>::iterator it;
+    for(it = lst.begin(); it != lst.end(); it++){
+        if((*it).length()%2){
+            it = lst.erase(it);
+            it--;
+        }
+    }
+    sort(lst.begin(), lst.end());
+    return lst;
 }
