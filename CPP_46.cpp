@@ -16,32 +16,23 @@ Please write a function to efficiently compute the n-th element of the fib4 numb
 #include<stdio.h>
 using namespace std;
 int fib4(int n){
-	if (n == 0)
-		return 0;
-	if (n == 1)
-		return 0;
-	if (n == 2)
-		return 2;
-	if (n == 3)
-		return 0;
-
-	int n1 = 0, n2 = 0, n3 = 2, n4 = 0, result = 0;
-	for (int i = 4; i <= n; i++)
-	{
-		n1 = n2;
-		n2 = n3;
-		n3 = n4;
-		n4 = n1 + n2 + n3 + n4;
-		result = n4;
+	if(n==0) return 0;
+	if(n==1) return 0;
+	if(n==2) return 2;
+	if(n==3) return 0;
+	int f0=0,f1=0,f2=2,f3=0,f4=0;
+	for(int i=4;i<=n;i++){
+		f4=f1+f2+f3+f0;
+		f0=f1;
+		f1=f2;
+		f2=f3;
+		f3=f4;
 	}
-	return result;
+	return f4;
 }
-
-int main()
-{
-	printf("%d\n", fib4(5));
-	printf("%d\n", fib4(6));
-	printf("%d\n", fib4(7));
-	getchar();
+int main(){
+	int n;
+	scanf("%d",&n);
+	printf("%d",fib4(n));
 	return 0;
 }
