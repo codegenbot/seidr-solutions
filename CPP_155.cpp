@@ -9,14 +9,14 @@ Given an integer. return a vector that has the number of even and odd digits res
 #include<math.h>
 #include<string>
 #include<vector>
+    vector<int> result(2, 0);
+    return result;
+}
+int main()
+{
+    printf("(%d, %d)", even_odd_count(-12)[0], even_odd_count(-12)[1]);
 
-    vector<int> out = {0,0};
-    while(num>0){
-        if(num%2) out[1]++;
-        else out[0]++;
-        num/=10;
-    }
-    // cout << num << endl;
-    return out;
+    
+}
 using namespace std;
 vector<int> even_odd_count(int num){
