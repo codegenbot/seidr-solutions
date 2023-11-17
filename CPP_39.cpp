@@ -32,9 +32,3 @@ int prime_fib(int n){
 	}
 	return c;
 }
-int main(){
-	int n;
-	scanf("%d",&n);
-	printf("%d\n",prime_fib(n));
-	return 0;
-}
