@@ -26,21 +26,38 @@ For example:
 #include<algorithm>
 using namespace std;
 vector<string> by_length(vector<int> arr){
-	vector<string> ret;
-	if(arr.empty()) return ret;
-	map<int, string> m = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-	sort(arr.begin(), arr.end());
-	for(int i=0; i<arr.size(); i++){
-		if(arr[i]>=1 && arr[i]<=9) ret.push_back(m[arr[i]]);
-	}
-	reverse(ret.begin(), ret.end());
-	return ret;
+  map<int, string> num_name = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+  vector<string> result;
+  if(arr.size() == 0){
+    return result;
+  }
+  for(int i = 0; i < arr.size(); i++){
+    if(arr[i] >= 1 && arr[i] <= 9){
+      result.push_back(num_name[arr[i]]);
+    }
+  }
+  sort(result.begin(), result.end());
+  reverse(result.begin(), result.end());
+  return result;
 }
 int main(){
-	vector<int> arr = {2, 1, 1, 4, 5, 8, 2, 3};
-	vector<string> res = by_length(arr);
-	for(int i=0; i<res.size(); i++){
-		cout<<res[i]<<endl;
-	}
-	return 0;
+  vector<int> arr1 = {2, 1, 1, 4, 5, 8, 2, 3};
+  vector<int> arr2 = {};
+  vector<int> arr3 = {1, -1 , 55};
+  vector<string> res1 = by_length(arr1);
+  vector<string> res2 = by_length(arr2);
+  vector<string> res3 = by_length(arr3);
+  for(int i = 0; i < res1.size(); i++){
+    printf("%s ", res1[i].c_str());
+  }
+  printf("\n");
+  for(int i = 0; i < res2.size(); i++){
+    printf("%s ", res2[i].c_str());
+  }
+  printf("\n");
+  for(int i = 0; i < res3.size(); i++){
+    printf("%s ", res3[i].c_str());
+  }
+  printf("\n");
+  return 0;
 }
