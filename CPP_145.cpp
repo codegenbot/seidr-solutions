@@ -17,7 +17,6 @@ vector<int> order_by_points(vector<int> nums){
 	vector<int> result;
 	int sum = 0;
 	int temp = 0;
-	int count = 0;
 	int i = 0;
 	int j = 0;
 	int k = 0;
@@ -223,4 +222,4 @@ vector<int> order_by_points(vector<int> nums){
 	int ccccccccc = 0;
 	int ddddddddd = 0;
 	int eeeeeeeee = 0;
-	
+	int fffffffff =
