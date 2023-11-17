@@ -11,9 +11,9 @@ Constraints:
     1. 1 <= len(arr) <= 100
     2. 1 <= k <= len(arr)
 */
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-void add_elements(vector<int> arr,int k){
+int add_elements(vector<int> arr,int k){
 	int i,sum=0;
 	for(i=0;i<k;i++){
 		if(arr[i]<10||arr[i]>99){
@@ -36,5 +36,3 @@ int main(){
 	sum=add_elements(arr,k);
 	printf("The sum of elements with atmost 2 digits is: %d",sum);
 }
-using namespace std;
-int add_elements(vector<int> arr,int k){
