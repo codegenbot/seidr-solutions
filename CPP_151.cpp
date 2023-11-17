@@ -13,7 +13,7 @@ If the input vector is empty, return 0.
 #include<math.h>
 #include<vector>
 using namespace std;
-long long double_the_difference(std::vector<float> lst){
+long long double_the_difference(vector<double> lst){
   if (lst.size()==0)
     return 0;
   else{
