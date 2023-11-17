@@ -10,41 +10,33 @@ Return the string with numbers sorted from smallest to largest
 #include<map>
 using namespace std;
 string sort_numbers(string numbers){
-	map<string, int> nums;
-	nums["zero"] = 0;
-	nums["one"] = 1;
-	nums["two"] = 2;
-	nums["three"] = 3;
-	nums["four"] = 4;
-	nums["five"] = 5;
-	nums["six"] = 6;
-	nums["seven"] = 7;
-	nums["eight"] = 8;
-	nums["nine"] = 9;
-	vector<int> num;
+	map<string,int> m;
+	m["zero"] = 0;
+	m["one"] = 1;
+	m["two"] = 2;
+	m["three"] = 3;
+	m["four"] = 4;
+	m["five"] = 5;
+	m["six"] = 6;
+	m["seven"] = 7;
+	m["eight"] = 8;
+	m["nine"] = 9;
+	vector<int> v;
 	stringstream ss(numbers);
 	string temp;
-	while(ss >> temp){
-		num.push_back(nums[temp]);
-	}
-	sort(num.begin(), num.end());
+	while(ss>>temp)
+		v.push_back(m[temp]);
+	sort(v.begin(),v.end());
 	string result;
-	for(int i = 0; i < num.size(); i++){
-		if(i != 0){
+	for(int i = 0; i < v.size(); i++){
+		result += to_string(v[i]);
+		if(i != v.size()-1)
 			result += " ";
-		}
-		switch(num[i]){
-			case 0: result += "zero"; break;
-			case 1: result += "one"; break;
-			case 2: result += "two"; break;
-			case 3: result += "three"; break;
-			case 4: result += "four"; break;
-			case 5: result += "five"; break;
-			case 6: result += "six"; break;
-			case 7: result += "seven"; break;
-			case 8: result += "eight"; break;
-			case 9: result += "nine"; break;
-		}
 	}
 	return result;
+}
+int main(){
+	string a = "three one five";
+	cout<<sort_numbers(a)<<endl;
+	return 0;
 }
