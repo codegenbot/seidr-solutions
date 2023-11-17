@@ -32,10 +32,10 @@ int main(){
 	printf("%s\n",compare_one(to_string(1), "2,3").c_str());
 	printf("%s\n",compare_one("5,1", "6").c_str());
 	printf("%s\n",compare_one("1", to_string(1)).c_str());
-	//assert (compare_one(string("1"), 1) == "None");
-	//assert (compare_one(string("1"), 1.0) == "1.0");
-	//assert (compare_one(string("1"), "1.0") == "1.0");
-	//assert (compare_one(string("1"), "2,3") == "2,3");
-	//assert (compare_one(string("5,1"), "6") == "6");
+	assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
+	assert (boost::any_cast<string>(compare_one(string("1"), 1.0)) == "1.0");
+	assert (boost::any_cast<string>(compare_one(string("1"), "1.0")) == "1.0");
+	assert (boost::any_cast<string>(compare_one(string("1"), "2,3")) == "2,3");
+	assert (boost::any_cast<string>(compare_one(string("5,1"), "6")) == "6");
 	return 0;
 }
