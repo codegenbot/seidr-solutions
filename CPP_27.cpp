@@ -6,7 +6,6 @@ For a given string, flip lowercase characters to uppercase and uppercase to lowe
 #include<stdio.h>
 #include<string>
 #include <ostream>
-//using namespace std;
 string flip_case(string str){
 	int i;
 	for(i=0;i<str.size();i++){
