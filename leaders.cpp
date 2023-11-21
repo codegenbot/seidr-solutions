@@ -1,6 +1,5 @@
-#include <algorithm> 
-
 #include <vector>
+#include <algorithm> // Add this line
 #include <iostream>
 using namespace std;
 
