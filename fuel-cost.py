@@ -1,8 +1,10 @@
-n = int(input())
 nums = []
-for _ in range(n):
-    num = int(input())
-    nums.append(num)
 
-result = sum([num//3 - 2 for num in nums])
-print(result)
+while True:
+    try:
+        nums.append(int(input()))
+    except EOFError:
+        break
+
+total = sum([num//3 - 2 for num in nums])
+print(total)
