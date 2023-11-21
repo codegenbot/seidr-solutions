@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0;
     int rightSum = 0;
@@ -26,10 +26,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
         }
     }
     
-    vector<int> left(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> right(nums.begin() + cutIndex + 1, nums.end());
+    vector<int> left(nums.begin(), nums.begin() + cutIndex);
+    vector<int> right(nums.begin() + cutIndex, nums.end());
     
-    return make_pair(left, right);
+    return make_pair(cutIndex, make_pair(left, right));
 }
 
 int main() {
@@ -41,13 +41,13 @@ int main() {
         cin >> nums[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(nums);
+    pair<int, pair<vector<int>, vector<int>>> result = cutVector(nums);
     
-    for (int num : result.first) {
+    for (int num : result.second.first) {
         cout << num << endl;
     }
     
-    for (int num : result.second) {
+    for (int num : result.second.second) {
         cout << num << endl;
     }
     
