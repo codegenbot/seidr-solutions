@@ -6,7 +6,7 @@
 float calculateDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
     float sum = 0.0f;
     for (int i = 0; i < v1.size(); i++) {
-        sum += powf(v1[i] - v2[i], 2);
+        sum += pow(v1[i] - v2[i], 2);
     }
     return sqrtf(sum);
 }
