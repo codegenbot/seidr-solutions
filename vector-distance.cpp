@@ -22,9 +22,9 @@ int main() {
     }
 
     std::string inputLine;
-    std::getline(std::cin, inputLine);
+    std::getline(std::cin, inputLine);  // Read the extra newline character
 
-    std::getline(std::cin, inputLine);
+    std::getline(std::cin, inputLine);  // Read the line of values for vector2
     std::istringstream iss(inputLine);
     std::vector<double> vector2;
     double value;
