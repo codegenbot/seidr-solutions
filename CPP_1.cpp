@@ -1,18 +1,6 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 vector<string> separate_paren_groups(string paren_string);
 
-int main() {
-    string input;
-    cin >> input;
-    vector<string> result = separate_paren_groups(input);
-    for (string s : result) {
-        cout << s << endl;
-    }
-    return 0;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> separate_paren_groups(string paren_string){
     vector<string> result;
@@ -35,5 +23,31 @@ vector<string> separate_paren_groups(string paren_string){
             }
         }
     }
+
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    vector<string> result = separate_paren_groups(input);
+    assert(issame(result, {"()", "(())", "(()())"}));
+    for (string s : result) {
+        cout << s << endl;
+    }
+    return 0;
 }
