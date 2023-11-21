@@ -6,7 +6,7 @@ def basement(arr):
             return i
     return -1
 
-input_str = input()
-arr = list(map(int, input_str.split()))
+
+arr = list(map(int, input().split()))
 
 print(basement(arr))
