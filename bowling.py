@@ -1,39 +1,39 @@
-def bowling_score(bowls):
+def calculate_score(bowls):
     frames = []
     frame = []
     for bowl in bowls:
-        if bowl == 'X':
+        if bowl == "X":
             frame.append(10)
             frames.append(frame)
             frame = []
-        elif bowl == '/':
-            frame.append(10 - frame[-1])
+        elif bowl == "/":
+            frame.append(10 - frame[0])
             frames.append(frame)
             frame = []
-        elif bowl == '-':
+        elif bowl == "-":
             frame.append(0)
         else:
             frame.append(int(bowl))
-            if len(frame) == 2:
-                if frame[0] + frame[1] == 10:
-                    frame.append('/')
+            if len(frame) >= 2:
                 frames.append(frame)
                 frame = []
 
     score = 0
-    for i in range(len(frames)):
+    for i in range(10):
         frame = frames[i]
         score += sum(frame)
-        if i < len(frames) - 1:
-            if frame[0] == 10:
-                if frames[i+1][0] == 10:
-                    score += frames[i+1][0] + frames[i+2][0]
-                else:
-                    score += sum(frames[i+1])
-            elif frame[-1] == '/':
-                score += frames[i+1][0]
+        if frame[0] == 10:
+            if i + 1 < len(frames):
+                score += sum(frames[i + 1][:2])
+                if frames[i + 1][0] == 10 or sum(frames[i + 1][:-1]) == 10:
+                    if i + 2 < len(frames):
+                        score += frames[i + 2][0]
+            else:
+                break
+        elif sum(frame) == 10:
+            if i + 1 < len(frames):
+                score += frames[i + 1][0] if frames[i + 1][0] != 10 else 10
+        if i == 9:
+            score += sum(frames[9][:2])
 
     return score
-
-bowls = input().strip()
-print(bowling_score(bowls))
