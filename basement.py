@@ -8,6 +8,9 @@ def basement(arr):
 
 
 n = int(input())
-arr = list(map(int, input().split()))
+arr = []
+for _ in range(n):
+    arr.append(int(input()))
 
-print(basement(arr))
+result = basement(arr)
+print(result)
