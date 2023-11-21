@@ -1,8 +1,9 @@
-def calculate_fuel_cost(numbers):
-    return sum((num // 3) - 2 for num in numbers)
+import math
 
+def calculate_fuel_cost(number):
+    return sum(math.floor(num / 3) - 2 for num in number.split())
 
-numbers = list(map(int, input().split()))
+numbers = input()
 
 result = calculate_fuel_cost(numbers)
 print(result)
