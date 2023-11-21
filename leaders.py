@@ -9,7 +9,6 @@ def find_leaders(arr):
 
 
 arr = list(map(int, input().split()))
-
 result = find_leaders(arr)
 for leader in result:
     print(leader)
