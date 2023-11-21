@@ -1,12 +1,12 @@
 def basement(nums):
-    total = 0
+    total_sum = 0
     for i in range(len(nums)):
-        total += nums[i]
-        if total < 0:
+        total_sum += nums[i]
+        if total_sum <= 0:
             return i
     return -1
 
-
 nums = list(map(int, input().split()))
 
-print(basement(nums))
+result = basement(nums)
+print(result)
