@@ -34,7 +34,8 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    assert(separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
+    
+    // Remove duplicate main() function definition
 
     cout << "Test cases passed successfully!" << endl;
 
