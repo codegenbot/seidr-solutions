@@ -1,5 +1,4 @@
 def find_leaders(arr):
-    
     leaders = []
     n = len(arr)
     max_right = arr[n - 1]
