@@ -14,10 +14,9 @@ def cut_vector(vector):
         diff = abs(left_sum - right_sum)
         if diff < min_diff:
             min_diff = diff
-            cut_index = i
+            cut_index = i + 1
 
-    return vector[: cut_index + 1], vector[cut_index + 1 :]
-
+    return vector[:cut_index], vector[cut_index:]
 
 n = int(input())
 vector = list(map(int, input().split()))
