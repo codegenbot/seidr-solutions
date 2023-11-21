@@ -1,8 +1,9 @@
 #include <vector>
 #include <iostream>
+#include <climits>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> nums) {
+vector<int> cutVector(vector<int> nums) {
     int n = nums.size();
     int diff = INT_MAX;
     int index = -1;
@@ -28,10 +29,7 @@ vector<vector<int>> cutVector(vector<int> nums) {
     
     vector<int> left(nums.begin(), nums.begin() + index);
     vector<int> right(nums.begin() + index, nums.end());
-    
-    left.push_back(0);
-    right.push_back(0);
-    
+
     return {left, right};
 }
 
@@ -44,14 +42,14 @@ int main() {
         cin >> nums[i];
     }
     
-    vector<vector<int>> result = cutVector(nums);
+    vector<int> result = cutVector(nums);
     
-    for (int i = 0; i < result[0].size(); i++) {
-        cout << result[0][i] << endl;
+    for (int num : result[0]) {
+        cout << num << endl;
     }
     
-    for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1][i] << endl;
+    for (int num : result[1]) {
+        cout << num << endl;
     }
     
     return 0;
