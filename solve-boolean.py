@@ -4,15 +4,19 @@ def solve_boolean(expression):
 
     for char in expression:
         if char == "t":
-            if curr_op == "|" or curr_op == None:
+            if curr_op == "|":
                 result = True
             elif curr_op == "&":
                 continue
+            else:
+                result = True
         elif char == "f":
-            if curr_op == "&" or curr_op == None:
-                result = False
-            elif curr_op == "|":
+            if curr_op == "|":
                 continue
+            elif curr_op == "&":
+                result = False
+            else:
+                result = False
         elif char == "|":
             curr_op = "|"
         elif char == "&":
