@@ -1,17 +1,23 @@
-#include <cassert>
+#include <iostream>
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<std::string> separate_paren_groups(std::string paren_string);
+vector<string> separate_paren_groups(string paren_string);
 
-bool issame(std::vector<std::string> s1, std::vector<std::string> s2);
+int main() {
+    string input;
+    cin >> input;
+    vector<string> result = separate_paren_groups(input);
+    for (string s : result) {
+        cout << s << endl;
+    }
+    return 0;
+}
 
-std::vector<std::string> separate_paren_groups(std::string paren_string){
-    std::vector<std::string> result;
-    std::string current_group = "";
+vector<string> separate_paren_groups(string paren_string){
+    vector<string> result;
+    string current_group = "";
     int count = 0;
-    
-    bool b = issame(result, result);
 
     for (char c : paren_string) {
         if (c == '(') {
@@ -19,27 +25,16 @@ std::vector<std::string> separate_paren_groups(std::string paren_string){
                 current_group += c;
             }
             count++;
-        } 
-        else if (c == ')') {
+        } else if (c == ')') {
             count--;
             if (count == 0) {
                 result.push_back(current_group + c);
                 current_group = "";
-            } 
-            else {
+            } else {
                 current_group += c;
             }
         }
     }
 
     return result;
-}
-
-bool issame(std::vector<std::string> s1, std::vector<std::string> s2){
-    return true;
-}
-
-int main(){
-    
-    return 0;
 }
