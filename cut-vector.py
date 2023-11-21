@@ -4,10 +4,9 @@ def cut_vector(vector):
     current_sum = 0
     for i, num in enumerate(vector):
         current_sum += num
-        if current_sum == half_sum or current_sum == half_sum + num:
+        if current_sum == half_sum or current_sum == half_sum + num or current_sum + num == half_sum:
             return vector[: i + 1], vector[i + 1 :]
-    return vector, []
-
+    return vector, [0]
 
 vector = []
 while True:
