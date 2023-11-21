@@ -50,13 +50,15 @@ int main() {
 
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
+    std::cout << "Left subvector: ";
     for (int num : result.first) {
         std::cout << num << " ";
     }
-    std::cout << std::endl;
+    std::cout << "\nRight subvector: ";
     for (int num : result.second) {
         std::cout << num << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
