@@ -6,4 +6,5 @@ def spin_words(string):
             updated_words.append(word[::-1])
         else:
             updated_words.append(word)
+
     return ' '.join(updated_words)
