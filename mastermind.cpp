@@ -1,7 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <utility>
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
@@ -25,7 +23,7 @@ pair<int, int> mastermind(string code, string guess) {
 
     return make_pair(whitePegs, blackPegs);
 }
- 
+
 int main() {
     string code, guess;
     cin >> code >> guess;
