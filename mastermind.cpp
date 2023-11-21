@@ -25,8 +25,7 @@ pair<int, int> mastermind(string code, string guess) {
 }
 
 int main() {
-    string code;
-    string guess;
+    string code, guess;
     cin >> code;
     cin >> guess;
 
