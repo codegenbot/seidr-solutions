@@ -9,8 +9,8 @@ def mastermind(code, guess):
             black_pegs += 1
             code_count[code[i]] -= 1
             guess_count[guess[i]] -= 1
-            
+    
     for color in guess_count:
         white_pegs += min(code_count[color], guess_count[color])
-        
+    
     return white_pegs, black_pegs
