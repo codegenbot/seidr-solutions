@@ -1,8 +1,11 @@
 def calculate_fuel_cost(numbers):
-    cost = 0
+    total_cost = 0
     for num in numbers:
-        cost += (num // 3) - 2
-    return cost
+        fuel_cost = (num // 3) - 2
+        while fuel_cost > 0:
+            total_cost += fuel_cost
+            fuel_cost = (fuel_cost // 3) - 2
+    return total_cost
 
 
 numbers = list(map(int, input().split()))
