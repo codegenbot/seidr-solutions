@@ -2,8 +2,8 @@
 #include <iomanip>
 
 double probabilityOfPeterWinning(int n, int m) {
-    double totalOutcomes = static_cast<double>(n) * m;
-    double peterWins = 0;
+    long double totalOutcomes = n * m;
+    long double peterWins = 0;
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
