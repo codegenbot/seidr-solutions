@@ -20,6 +20,7 @@ def calculate_score(bowls):
             frames.append(frame)
             frame = []
 
+    # Handle scoring for the last frame
     if len(frame) == 3:
         score = sum(frame) - frame[0] - frame[1]
     else:
