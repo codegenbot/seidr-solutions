@@ -4,3 +4,7 @@ def calculate_fuel_cost(numbers):
         fuel_cost = (num - 2) // 3
         total_fuel_cost += fuel_cost
     return total_fuel_cost
+
+numbers = list(map(int, input().split()))
+result = calculate_fuel_cost(numbers)
+print(result)
