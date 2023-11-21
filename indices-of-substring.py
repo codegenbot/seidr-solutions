@@ -1,5 +1,13 @@
 text = input()
 target = input()
 
-indices = [i for i in range(len(text)) if text.find(target, i) + len(target) > i]
-print(" ".join(map(str, indices)))
+indices = []
+pos = -1
+
+while True:
+    pos = text.find(target, pos + 1)
+    if pos == -1:
+        break
+    indices.append(pos)
+
+print(" ".join(map(str,indices)))
