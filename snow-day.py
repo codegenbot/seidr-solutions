@@ -7,4 +7,4 @@ for _ in range(hours):
     snow_on_ground += snow_fall_rate
     snow_on_ground -= snow_on_ground * snow_melt_rate
 
-print(round(snow_on_ground, 15))
+print(snow_on_ground)
