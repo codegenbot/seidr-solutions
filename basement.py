@@ -6,7 +6,6 @@ def basement(arr):
             return i
     return -1
 
-
 arr = list(map(int, input().split()))
 
 print(basement(arr))
