@@ -13,7 +13,7 @@ def cut_vector(vector):
         diff = abs(left_sum - right_sum)
         if diff < min_diff:
             min_diff = diff
-            cut_index = i + 1  # Fixed index calculation
+            cut_index = i + 1
 
     return vector[: cut_index + 1], vector[cut_index + 1 :]
 
