@@ -2,6 +2,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm> // Add this line to include the <algorithm> header
 
 std::string spinWords(const std::string& sentence) {
     std::stringstream ss(sentence);
@@ -10,7 +11,7 @@ std::string spinWords(const std::string& sentence) {
 
     while (ss >> word) {
         if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+            std::reverse(word.begin(), word.end()); // Add the std::reverse function
         }
         result += word + " ";
     }
