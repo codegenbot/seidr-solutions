@@ -2,9 +2,9 @@
 
 using namespace std;
 
-long double probabilityOfHigherRoll(int n, int m) {
-    long double totalOutcomes = n * m;
-    long double favorableOutcomes = 0;
+double probabilityOfHigherRoll(int n, int m) {
+    double totalOutcomes = double(n) * double(m);
+    double favorableOutcomes = 0;
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
@@ -21,10 +21,8 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    long double probability = probabilityOfHigherRoll(n, m);
-    
-    cout.precision(8);
-    cout << fixed << probability << endl;
+    double probability = probabilityOfHigherRoll(n, m);
+    cout << probability << endl;
 
     return 0;
 }
