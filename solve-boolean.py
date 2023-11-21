@@ -1,20 +1,18 @@
 def solve_boolean(expression):
-    result = False
-    curr_op = None
+    result = True
+    curr_op = '&'
 
     for char in expression:
         if char == 't':
-            if curr_op == '|' or curr_op == None:
+            if curr_op == '&':
                 result = True
-                break
-            elif curr_op == '&':
+            elif curr_op == '|':
                 continue
         elif char == 'f':
-            if curr_op == '|' or curr_op == None:
-                continue
-            elif curr_op == '&':
+            if curr_op == '&':
                 result = False
-                break
+            elif curr_op == '|':
+                continue
         elif char == '|':
             curr_op = '|'
         elif char == '&':
