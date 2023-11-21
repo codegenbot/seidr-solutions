@@ -2,4 +2,4 @@ text = input().strip()
 target = input().strip()
 
 indices = [i for i in range(len(text)) if text.startswith(target, i)]
-print(" ".join(map(str, indices)) if len(indices) > 0 else "0")
+print(" ".join(str(i) for i in indices) if not indices else "0")
