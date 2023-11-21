@@ -3,7 +3,7 @@ def calculate_discounted_price(prices, discounts):
     for price, discount in zip(prices, discounts):
         discounted_price = price * (1 - discount / 100)
         total_price += discounted_price
-    return total_price
+    return round(total_price, 2)
 
 num_items = int(input())
 prices = list(map(float, input().split()))
@@ -11,4 +11,4 @@ num_discounts = int(input())
 discounts = list(map(float, input().split()))
 
 result = calculate_discounted_price(prices, discounts)
-print("{:.2f}".format(result))
+print(result)
