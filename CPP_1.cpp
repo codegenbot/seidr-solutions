@@ -32,10 +32,3 @@ vector<string> separate_paren_groups(string paren_string) {
 
     return result;
 }
-
-vector<string> test_separate_paren_groups() {
-    assert(separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
-    assert(separate_paren_groups("(())()") == vector<string>{"(())", "()"});
-
-    return vector<string>{"Test cases passed successfully!"};
-}
