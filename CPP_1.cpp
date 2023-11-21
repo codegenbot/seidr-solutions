@@ -1,4 +1,15 @@
-vector<string> separate_paren_groups(string paren_string){
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+bool issame(string s){
+    return true;
+}
+
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group = "";
     int count = 0;
