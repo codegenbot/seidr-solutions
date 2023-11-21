@@ -1,26 +1,31 @@
 def cut_vector(vector):
-    sum_vector = sum(vector)
-    half_sum = sum_vector // 2
-    current_sum = 0
-    for i, num in enumerate(vector):
-        current_sum += num
-        if current_sum == half_sum or current_sum == half_sum + num:
-            return vector[: i + 1], vector[i + 1 :]
-    return vector, [0]
+    n = len(vector)
+    total_sum = sum(vector)
+    left_sum = 0
+    right_sum = total_sum
+
+    min_diff = float("inf")
+    cut_index = -1
+
+    for i in range(n - 1):
+        left_sum += vector[i]
+        right_sum -= vector[i]
+
+        diff = abs(left_sum - right_sum)
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i + 1
+
+    return vector[:cut_index], vector[cut_index:]
 
 
-# Read input from user
-vector = []
-while True:
-    try:
-        num = int(input())
-        vector.append(num)
-    except:
-        break
+n = int(input())
+vector = list(map(int, input().split()))
 
-# Call the function and print the results
-subvector1, subvector2 = cut_vector(vector)
-for num in subvector1:
-    print(num)
-for num in subvector2:
-    print(num)
+left_subvector, right_subvector = cut_vector(vector)
+for num in left_subvector:
+    print(num, end=" ")
+print()
+for num in right_subvector:
+    print(num, end=" ")
+print()
