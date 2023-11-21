@@ -1,18 +1,16 @@
 def find_leaders(nums):
-    leaders = []
-    max_num = float("-inf")
-    for num in nums[::-1]:
-        if num >= max_num:
-            max_num = num
-            leaders.append(num)
-    return leaders[::-1]
+  leaders = []
+  max_num = float("-inf")
 
+  for num in nums[::-1]:
+    if num >= max_num:
+      max_num = num
+      leaders.append(num)
 
-n = int(input())
-nums = []
-for _ in range(n):
-    nums.append(int(input()))
+  return leaders[::-1]
+
+nums = list(map(int, input().split()))
 
 result = find_leaders(nums)
-for num in result:
-    print(num)
+
+print("\n".join(map(str, result)))
