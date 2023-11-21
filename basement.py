@@ -8,5 +8,6 @@ def basement(nums):
 
 
 nums = list(map(int, input().split()))
+
 result = basement(nums)
 print(result)
