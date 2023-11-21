@@ -18,6 +18,7 @@ vector<string> separate_paren_groups(string paren_string){
     vector<string> result;
     string temp;
     int count = 0;
+
     for(int i=0; i<paren_string.length(); i++){
         if(paren_string[i] == '('){
             count++;
@@ -34,10 +35,23 @@ vector<string> separate_paren_groups(string paren_string){
             }
         }
     }
+
     return result;
 }
 
-int main() {
-    // code to test the functions
+int main(){
+    string input;
+    cin >> input;
+    vector<string> output = separate_paren_groups(input);
+    vector<string> expected_output;
+    // check if the function separate_paren_groups works correctly
+    // define your expected_output here according to the task description
+    bool is_same = issame(output, expected_output);
+    if(is_same){
+        cout << "Correct output" << endl;
+    }
+    else{
+        cout << "Incorrect output" << endl;
+    }
     return 0;
 }
