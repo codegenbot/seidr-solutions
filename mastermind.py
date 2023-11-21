@@ -18,6 +18,6 @@ def mastermind(code, guess):
 
 code = input()
 guess = input()
-result = mastermind(code, guess)
-print(result[0])
-print(result[1])
+white_pegs, black_pegs = mastermind(code, guess)
+print(white_pegs)
+print(black_pegs)
