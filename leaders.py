@@ -10,8 +10,6 @@ def find_leaders(numbers):
 
 n = int(input())
 numbers = list(map(int, input().split()))
-
 result = find_leaders(numbers)
-
 for leader in result:
     print(leader)
