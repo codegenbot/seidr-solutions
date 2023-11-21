@@ -5,9 +5,9 @@
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
-    int index = 0;
+    int index = -1;
 
-    for (int i = 0; i < n - 2; i++) {
+    for (int i = 0; i < n - 1; i++) {
         int leftSum = 0;
         int rightSum = 0;
 
@@ -28,7 +28,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     }
 
     std::vector<int> left(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> right(nums.begin() + index + 1, nums.end());
+    std::vector<int> right(nums.begin() + index + 2, nums.end());
 
     return std::make_pair(left, right);
 }
