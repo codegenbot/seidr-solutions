@@ -9,3 +9,8 @@ def luhn_algorithm(digits):
         else:
             new_digits.append(digits[i])
     return 10 - (sum(new_digits) % 10)
+
+n = int(input())
+digits = list(map(int, input().split()))
+result = luhn_algorithm(digits)
+print(result)
