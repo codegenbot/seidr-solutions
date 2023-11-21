@@ -4,11 +4,11 @@
 #include <iomanip>
 
 double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
-    long double sum = 0;
+    double sum = 0;
     for (int i = 0; i < vector1.size(); i++) {
-        sum += std::pow(vector1[i] - vector2[i], 2);
+        sum += std::pow(std::abs(vector1[i] - vector2[i]), 2);
     }
-    return (double)std::sqrt(sum);
+    return std::sqrt(sum);
 }
 
 int main() {
@@ -26,7 +26,7 @@ int main() {
     }
 
     double distance = calculateEuclideanDistance(vector1, vector2);
-    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
+    std::cout << std::setprecision(15) << distance << std::endl;
 
     return 0;
 }
