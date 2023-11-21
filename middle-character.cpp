@@ -3,7 +3,7 @@
 
 std::string middleCharacter(const std::string& str) {
     int length = str.length();
-    int middle = (length - 1) / 2;
+    int middle = length / 2;
 
     if (length % 2 == 0) {
         return str.substr(middle - 1, 2);
@@ -14,7 +14,7 @@ std::string middleCharacter(const std::string& str) {
 
 int main() {
     std::string input;
-    std::cin >> input;
+    std::getline(std::cin, input);
 
     std::string result = middleCharacter(input);
     std::cout << result << std::endl;

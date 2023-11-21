@@ -1,9 +1,9 @@
 #include <vector>
+#include <iostream>
 #include <string>
-
 using namespace std;
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> indices;
     int n = text.length();
     int m = target.length();
@@ -11,7 +11,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     for (int i = 0; i <= n - m; i++) {
         bool found = true;
         for (int j = 0; j < m; j++) {
-            if (tolower(text[i + j]) != tolower(target[j])) {
+            if (tolower(text[i + j]) != tolower(target[j]) || i + j >= n - 1) {
                 found = false;
                 break;
             }
@@ -23,8 +23,6 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     
     return indices;
 }
-
-vector<int> indicesOfSubstring(const string& text, const string& target);
 
 int main() {
     string text, target;
