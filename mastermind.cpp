@@ -20,9 +20,10 @@ pair<int, int> mastermind(string code, string guess) {
 
     for (int i = 0; i < guess.length(); i++) {
         int index = guess[i] - 'A';
-        if (codeCount[index] > 0 && guess[i] != code[i]) {
+        if (codeCount[index] > 0 && guessCount[index] > 0 && guess[i] != code[i]) {
             whitePegs++;
             codeCount[index]--;
+            guessCount[index]--;
         }
     }
 
