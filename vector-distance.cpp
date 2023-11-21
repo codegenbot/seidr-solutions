@@ -2,12 +2,11 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
-#include <sstream>
 
 double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     double sum = 0;
     for (int i = 0; i < vector1.size(); i++) {
-        sum += std::pow(vector1[i] - vector2[i], 2);
+        sum += (vector1[i] - vector2[i]) * (vector1[i] - vector2[i]);
     }
     return std::sqrt(sum);
 }
@@ -21,15 +20,9 @@ int main() {
         std::cin >> vector1[i];
     }
 
-    std::string inputLine;
-    std::getline(std::cin, inputLine);  // Read the extra newline character
-
-    std::getline(std::cin, inputLine);  // Read the line of values for vector2
-    std::istringstream iss(inputLine);
-    std::vector<double> vector2;
-    double value;
-    while (iss >> value) {
-        vector2.push_back(value);
+    std::vector<double> vector2(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> vector2[i];
     }
 
     double distance = calculateEuclideanDistance(vector1, vector2);
