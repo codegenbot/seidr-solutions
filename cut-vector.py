@@ -14,8 +14,10 @@ def cut_vector(vector):
     return vector[: cut_index + 1], vector[cut_index + 1 :]
 
 
+# Read input
 vector = list(map(int, input().split()))
 
+# Call the function and print the output
 left_subvector, right_subvector = cut_vector(vector)
 for num in left_subvector:
     print(num)
