@@ -8,8 +8,8 @@ def cut_vector(vector):
     cut_index = -1
 
     for i in range(1, n):
-        left_sum += vector[i-1]
-        right_sum -= vector[i-1]
+        left_sum += vector[i - 1]
+        right_sum -= vector[i - 1]
 
         diff = abs(left_sum - right_sum)
         if diff <= min_diff:
@@ -17,6 +17,7 @@ def cut_vector(vector):
             cut_index = i
 
     return vector[:cut_index], vector[cut_index:]
+
 
 n = int(input())
 vector = list(map(int, input().split()))
