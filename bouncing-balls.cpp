@@ -12,7 +12,7 @@ int main() {
 
     for (int i = 0; i < numBounces; i++) {
         bouncinessIndex *= bouncinessIndex;
-        totalDistance += 2 * (bouncinessIndex * startingHeight);
+        totalDistance *= bouncinessIndex + 1;
     }
 
     cout.precision(17);
