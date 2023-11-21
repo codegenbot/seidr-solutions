@@ -7,6 +7,7 @@ def find_leaders(arr):
             max_right = arr[i]
     return leaders
 
+
 arr = list(map(int, input().split()))
 
 result = find_leaders(arr)
