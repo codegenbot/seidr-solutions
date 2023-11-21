@@ -14,7 +14,7 @@ def calculate_score(bowls):
             frame.append(0)
         else:
             frame.append(int(bowl))
-
+            
         if len(frame) == 2:
             frames.append(frame)
             frame = []
