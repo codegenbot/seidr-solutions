@@ -16,3 +16,6 @@ def solve_boolean(expression):
         return result
     else:
         return None
+
+
+print(solve_boolean("t|t|t|t|t&t&t&t|f&f&t|t|f|t|f|f&t|t|t"))
