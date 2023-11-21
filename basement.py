@@ -8,5 +8,4 @@ def basement(nums):
 
 numbers_str = input()
 nums = list(map(int, numbers_str.split()))
-
 print(basement(nums))
