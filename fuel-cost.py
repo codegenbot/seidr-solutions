@@ -37,12 +37,4 @@ output:
 1
 """
 if __name__ == '__main__':
-	#input
-	n=int(input())
-	a=list(map(int,input().split()))
-	#solution
-	res=0
-	for i in range(n):
-		res+=math.floor(a[i]/3)-2
-	#output
-	print(res)
+	
