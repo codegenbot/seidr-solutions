@@ -1,14 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    assert(std::is_permutation(separate_paren_groups("( ) (( )) (( )( ))").begin(), separate_paren_groups("( ) (( )) (( )( ))").end(), vector<string>{"()", "(())", "(()())"}.begin()));
+    assert(separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
 
     cout << "Test cases passed successfully!" << endl;
 
