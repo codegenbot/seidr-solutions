@@ -14,7 +14,7 @@ std::string middleCharacter(const std::string& str) {
 
 int main() {
     std::string input;
-    std::cin >> input;
+    std::getline(std::cin, input);
 
     std::string result = middleCharacter(input);
     std::cout << result << std::endl;
