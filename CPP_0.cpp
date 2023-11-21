@@ -5,8 +5,6 @@
 
 using namespace std;
 
-bool has_close_elements(vector<float> numbers, float threshold);
-
 bool has_close_elements(vector<float> numbers, float threshold) {
     for(int i=0; i<numbers.size(); i++) {
         for(int j=i+1; j<numbers.size(); j++) {
@@ -18,8 +16,5 @@ bool has_close_elements(vector<float> numbers, float threshold) {
     return false;
 }
 
-int main() {
-    vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    assert(has_close_elements(a, 0.5) == false);
-    return 0;
-}
+vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+assert(has_close_elements(a, 0.5) == false);
