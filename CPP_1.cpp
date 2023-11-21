@@ -8,7 +8,7 @@ using namespace std;
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    assert(std::is_permutation(separate_paren_groups("( ) (( )) (( )( ))").begin(), separate_paren_groups("( ) (( )) (( )( ))").end(), vector<string>{"()", "(())", "(()())"}.begin()));
+    assert(is_same(separate_paren_groups("( ) (( )) (( )( ))"), vector<string>{"()", "(())", "(()())"}));
 
     cout << "Test cases passed successfully!" << endl;
 
@@ -26,8 +26,7 @@ vector<string> separate_paren_groups(string paren_string) {
                 group += c;
             }
             count++;
-        }
-        else if (c == ')') {
+        } else if (c == ')') {
             count--;
             if (count > 0) {
                 group += c;
