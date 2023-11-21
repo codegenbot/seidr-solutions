@@ -16,14 +16,14 @@ def calculate_score(bowls):
             frame.append(0)
         else:
             frame.append(int(bowl))
-        
+
         if len(frame) == 2:
             frames.append(frame)
             frame = []
 
         if len(frame) == 3 or (len(frame) == 2 and sum(frame) == 10):
             score += sum(frame[:-1])
-            
+
         for i, frame in enumerate(frames):
             score += sum(frame)
 
