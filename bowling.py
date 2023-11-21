@@ -21,9 +21,9 @@ def calculate_score(bowls):
             frame = []
 
     if len(frame) == 3:
-        score = sum(frame)  # Updated line
+        score = sum(frame)
     else:
-        score = sum(frame)  # Updated line
+        score = sum(frame)
 
     for i, frame in enumerate(frames):
         score += sum(frame)
