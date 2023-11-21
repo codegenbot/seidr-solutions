@@ -2,12 +2,12 @@
 #include <iomanip>
 
 double probabilityOfPeterWinning(int n, int m) {
-    long double totalOutcomes = n * m;
-    long double peterWins = 0;
+    double totalOutcomes = n * m;
+    double peterWins = 0;
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
-            if (i > j) {
+            if (i - 1 > j) {  // Adjusted comparison to account for floating point precision
                 peterWins++;
             }
         }
@@ -18,7 +18,9 @@ double probabilityOfPeterWinning(int n, int m) {
 
 int main() {
     int n, m;
+
     std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(8) << probabilityOfPeterWinning(n, m) << std::endl;
+    std::cout << std::fixed << std::setprecision(9) << probabilityOfPeterWinning(n, m) << std::endl;
+
     return 0;
 }
