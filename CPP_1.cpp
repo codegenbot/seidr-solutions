@@ -10,7 +10,7 @@ int main() {
     assert(separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
 
     cout << "Test cases passed successfully!" << endl;
-    
+
     return 0;
 }
 
