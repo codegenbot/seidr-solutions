@@ -1,2 +1,3 @@
 def solve_boolean(expression):
-    return eval(expression.lower().replace('t', 'True').replace('f', 'False'))
+    expression = expression.replace("T", "True").replace("F", "False")
+    return eval(expression)
