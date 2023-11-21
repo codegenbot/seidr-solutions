@@ -35,6 +35,5 @@ vector<string> separate_paren_groups(string paren_string){
             }
         }
     }
-
     return result;
 }
