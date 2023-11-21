@@ -10,4 +10,4 @@ while start <= len(text) - len(target):
     indices.append(index)
     start = index + 1
 
-print(' '.join(str(i) for i in indices))
+print(" ".join(str(i) for i in indices))
