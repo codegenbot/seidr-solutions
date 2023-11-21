@@ -12,6 +12,8 @@ pair<int, int> mastermind(string code, string guess) {
             blackPegs++;
             counted[i] = true;
         } else {
+            int codeCount[6] = {0};
+            int guessCount[6] = {0};
             int index = code[i] - 'A';
             if (code[i] >= 'A' && code[i] <= 'F') {
                 codeCount[index]++;
@@ -22,9 +24,6 @@ pair<int, int> mastermind(string code, string guess) {
             }
         }
     }
-
-    int codeCount[6] = {0};
-    int guessCount[6] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (!counted[i]) {
