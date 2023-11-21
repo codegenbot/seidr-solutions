@@ -7,16 +7,41 @@ import collections
 import itertools
 import queue
 import re
-
-
-def solve(n, m):
-    total = n * m
-    p = 0
-    for i in range(1, n + 1):
-        for j in range(1, m):
-            if i > j:
-                p += 1
-    return p / total
-
-
+"""
+Peter has an n-sided die and Colin has an m-sided die. If they both roll their dice at the same time, return the probability that Peter rolls strictly higher than Colin.
+For example,
+input:
+1
+2
+output:
+0.0
+input:
+2
+1
+output:
+0.5
+input:
+99
+100
+output:
+0.49
+input:
+100
+99
+output:
+0.5
+input:
+1
+100
+output:
+0.0
+"""
 if __name__ == '__main__':
+    n = int(input())
+    m = int(input())
+    if n>m:
+        print(0.0)
+    elif n==m:
+        print(0.5)
+    else:
+        print((m-n+1)/(2**m))
