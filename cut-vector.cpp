@@ -2,35 +2,34 @@
 #include <iostream>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int diff = INT_MAX;
-    int index = -1;
+    int leftSum = 0;
+    int rightSum = 0;
     
-    for (int i = 1; i < n; i++) {
-        int leftSum = 0;
-        int rightSum = 0;
+    for (int i = 0; i < n; i++) {
+        rightSum += nums[i];
+    }
+    
+    int minDiff = abs(leftSum - rightSum);
+    int cutIndex = 0;
+    
+    for (int i = 0; i < n; i++) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
         
-        for (int j = 0; j < i; j++) {
-            leftSum += nums[j];
-        }
+        int diff = abs(leftSum - rightSum);
         
-        for (int k = i; k < n; k++) {
-            rightSum += nums[k];
-        }
-        
-        int currDiff = abs(leftSum - rightSum);
-        
-        if (currDiff < diff) {
-            diff = currDiff;
-            index = i;
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    vector<int> left(nums.begin(), nums.begin() + index);
-    vector<int> right(nums.begin() + index, nums.end());
+    vector<int> left(nums.begin(), nums.begin() + cutIndex);
+    vector<int> right(nums.begin() + cutIndex, nums.end());
     
-    return make_pair(left, right);
+    return make_pair(cutIndex, make_pair(left, right));
 }
 
 int main() {
@@ -42,12 +41,15 @@ int main() {
         cin >> nums[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(nums);
-    
-    for (int num : result.first) {
+    pair<int, pair<vector<int>, vector<int>>> result = cutVector(nums);
+
+    cout << result.first << endl;
+
+    for (int num : result.second.first) {
         cout << num << endl;
     }
-    for (int num : result.second) {
+    
+    for (int num : result.second.second) {
         cout << num << endl;
     }
     
