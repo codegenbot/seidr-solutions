@@ -15,8 +15,7 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i + 2
 
-    return vector[: cut_index + 1], vector[cut_index + 1 :]
-
+    return vector[:cut_index+1], vector[cut_index+1:]
 
 vector = list(map(int, input().split()))
 
