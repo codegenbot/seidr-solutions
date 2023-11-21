@@ -7,7 +7,7 @@ pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int codeCount[26] = {0};
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < guess.length(); i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
