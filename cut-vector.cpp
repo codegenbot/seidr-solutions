@@ -5,16 +5,16 @@
 #include <cstdlib>
 #include <algorithm>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int> &nums) {
     int n = nums.size();
     int diff = INT_MAX;
-    int index = -1;
+    int index = 0;
 
     for (int i = 0; i < n; i++) {
         int leftSum = 0;
         int rightSum = 0;
 
-        for (int j = 0; j < i; j++) { // Update the condition here
+        for (int j = 0; j <= i; j++) {
             leftSum += nums[j];
         }
 
@@ -24,7 +24,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 
         int currentDiff = std::abs(leftSum - rightSum);
 
-        if (currentDiff <= diff) {
+        if (currentDiff < diff) {
             diff = currentDiff;
             index = i;
             if (currentDiff == 0) {
