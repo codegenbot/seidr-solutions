@@ -1,6 +1,7 @@
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    #include <utility> // Add this line to include the <utility> header
+#include <vector>
+#include <utility>
 
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
     int index = -1;
