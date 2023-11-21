@@ -1,12 +1,14 @@
 #include <vector>
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> indices;
     int n = text.length();
     int m = target.length();
+
 
     for (int i = 0; i <= n - m; i++) {
         bool found = true;
@@ -18,6 +20,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             indices.push_back(i);
+            i += m - 1;
         }
     }
 
@@ -26,8 +29,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    cin >> text;
-    cin >> target;
+    getline(cin, text);
+    getline(cin, target);
 
     vector<int> result = indicesOfSubstring(text, target);
 
