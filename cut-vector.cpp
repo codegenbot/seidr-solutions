@@ -41,20 +41,25 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+    std::vector<int> nums;
+
+    // Read input from the user
+    int num;
+    while (std::cin >> num) {
+        nums.push_back(num);
     }
 
+    // Call the cutVector function with the input vector
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
+    // Print the resulting subvectors
     std::cout << "Left subvector: ";
     for (int num : result.first) {
         std::cout << num << " ";
     }
-    std::cout << "\nRight subvector: ";
+    std::cout << std::endl;
+
+    std::cout << "Right subvector: ";
     for (int num : result.second) {
         std::cout << num << " ";
     }
