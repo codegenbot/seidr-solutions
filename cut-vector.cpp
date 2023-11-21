@@ -6,12 +6,18 @@
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int diff = std::abs(nums[0] - nums[n - 1]);
+    int diff = std::abs(nums[0] - nums[n-1]);
     int index = 0;
 
     for (int i = 1; i < n - 1; i++) {
-        int leftSum = std::accumulate(nums.begin(), nums.begin() + i, 0);
-        int rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int j = 0; j < i; j++) {
+            leftSum += nums[j];
+        }
+
+        rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
 
         int currentDiff = std::abs(leftSum - rightSum);
 
@@ -40,7 +46,6 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-
     for (int num : result.second) {
         std::cout << num << " ";
     }
