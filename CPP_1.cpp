@@ -1,12 +1,21 @@
 vector<string> separate_paren_groups(string paren_string);
 
-bool issame(string s);
+bool issame(string a, string b);
+
+int main() {
+    string input;
+    cin >> input;
+    vector<string> result = separate_paren_groups(input);
+    for (string s : result) {
+        cout << s << endl;
+    }
+    return 0;
+}
 
 vector<string> separate_paren_groups(string paren_string){
     vector<string> result;
     string current_group = "";
     int count = 0;
-    bool b = issame(paren_string);
 
     for (char c : paren_string) {
         if (c == '(') {
@@ -28,11 +37,16 @@ vector<string> separate_paren_groups(string paren_string){
     return result;
 }
 
-bool issame(string s){
-    return true;
-}
+bool issame(string a, string b) {
+    if (a.length() != b.length()) {
+        return false;
+    }
 
-int main(){
-    // your code here
-    return 0;
+    for (int i = 0; i < a.length(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
