@@ -20,3 +20,4 @@ int main(){
     assert(has_close_elements(a, 0.1) == true);
     return 0;
 }
+
