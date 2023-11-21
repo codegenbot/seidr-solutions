@@ -35,5 +35,3 @@ def calculate_score(bowls):
             score += frames[i + 1][0]
 
     return score
-
-calculate_score("63-211616333X9-52-4")
