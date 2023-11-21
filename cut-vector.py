@@ -17,14 +17,3 @@ def cut_vector(vector):
             cut_index = i + 1
 
     return vector[:cut_index], vector[cut_index:]
-
-n = int(input())
-vector = list(map(int, input().split()))
-
-left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
-    print(num, end=" ")
-print()
-for num in right_subvector:
-    print(num, end=" ")
-print()
