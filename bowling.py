@@ -10,7 +10,11 @@ def calculate_score(bowls):
             score += 10 + get_frame_score(frames, frame_index + 1, 2)
             frame_index += 1
         elif frames[frame_index + 1] == '/':
-            score += 10 + get_frame_score(frames, frame_index + 2, 1)
+            score += 10
+            if frames[frame_index + 2] == 'X':
+                score += 10
+            else:
+                score += int(frames[frame_index + 2])
             frame_index += 2
         else:
             score += get_frame_score(frames, frame_index, 2)
