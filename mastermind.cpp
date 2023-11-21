@@ -8,11 +8,9 @@ std::pair<int, int> getClue(const std::string& code, const std::string& guess) {
     std::vector<int> codeCount(6, 0);
     std::vector<int> guessCount(6, 0);
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 6; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
-            codeCount[code[i] - 'A']--;
-            guessCount[guess[i] - 'A']--;
         } else {
             codeCount[code[i] - 'A']++;
             guessCount[guess[i] - 'A']++;
