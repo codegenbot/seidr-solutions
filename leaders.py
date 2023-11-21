@@ -8,6 +8,8 @@ def find_leaders(arr):
             max_right = arr[i]
             leaders.append(arr[i])
 
+    leaders.append(max_right)
+
     return leaders[::-1]
 
 
