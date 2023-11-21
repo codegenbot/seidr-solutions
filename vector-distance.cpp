@@ -5,9 +5,9 @@
 double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     double sum = 0;
     for (int i = 0; i < vector1.size(); i++) {
-        sum += std::pow(std::fabs(vector1[i] - vector2[i]), 2);
+        sum += std::pow(vector1[i] - vector2[i], 2);
     }
-    return std::sqrt(sum);
+    return std::sqrt(std::pow(sum, 2));
 }
 
 int main() {
