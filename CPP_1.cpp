@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert> // Step 1: Include the <cassert> header
+#include <cassert>
 
 using namespace std;
 
