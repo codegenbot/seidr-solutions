@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-vector<int> cutVector(vector<int> nums) {
+vector<vector<int>> cutVector(vector<int> nums) {
     int n = nums.size();
     int diff = INT_MAX;
     int index = -1;
