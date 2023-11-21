@@ -4,18 +4,18 @@ def cut_vector(vector):
     right_sum = total_sum
 
     min_diff = float("inf")
-    cut_index = len(vector) - 1
+    cut_index = -1
 
-    for i in range(len(vector) - 1):
+    for i in range(len(vector) - 2):
         left_sum += vector[i]
         right_sum -= vector[i]
 
         diff = abs(left_sum - right_sum)
-        if diff <= min_diff:
+        if diff < min_diff:
             min_diff = diff
             cut_index = i + 1
 
-    return vector[: cut_index], vector[cut_index:]
+    return vector[:cut_index], vector[cut_index:]
 
 
 vector = list(map(int, input().split()))
