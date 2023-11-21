@@ -2,12 +2,12 @@
 #include <utility>
 #include <vector>
 #include <cmath>
-#include <numeric>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int diff = std::abs(nums[0] - nums[n-1]);
+    int diff = std::abs(nums[0] - nums[n - 1]);
     int index = 0;
+    bool foundEqual = false;
 
     for (int i = 1; i < n - 1; i++) {
         int leftSum = 0;
@@ -17,7 +17,15 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             leftSum += nums[j];
         }
 
-        rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
+        for (int j = i; j < n; j++) {
+            rightSum += nums[j];
+        }
+
+        if (leftSum == rightSum) {
+            index = i;
+            foundEqual = true;
+            break;
+        }
 
         int currentDiff = std::abs(leftSum - rightSum);
 
@@ -27,9 +35,15 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> left(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> right(nums.begin() + index + 1, nums.end());
-    return std::make_pair(left, right);
+    if (foundEqual) {
+        std::vector<int> left(nums.begin(), nums.begin() + index + 1);
+        std::vector<int> right(nums.begin() + index + 1, nums.end());
+        return std::make_pair(left, right);
+    } else {
+        std::vector<int> left(nums.begin(), nums.begin() + index);
+        std::vector<int> right(nums.begin() + index, nums.end());
+        return std::make_pair(left, right);
+    }
 }
 
 int main() {
