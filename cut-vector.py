@@ -18,6 +18,7 @@ def cut_vector(vector):
 
     return vector[:cut_index], vector[cut_index:]
 
+
 vector = []
 while True:
     try:
