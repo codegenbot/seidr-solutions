@@ -1,7 +1,4 @@
 #include <utility>
-#include <vector>
-#include <climits>
-#include <cmath>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
