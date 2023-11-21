@@ -7,7 +7,7 @@ pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int codeCount[26] = {0};
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < guess.length(); i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
@@ -17,9 +17,9 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < code.length(); i++) {
         int index = guess[i] - 'A';
-        if (guess[i] != code[i] && codeCount[index] > 0 && guess[i] >= 'A' && guess[i] <= 'F') {
+        if (guess[i] != code[i] && codeCount[index] > 0) {
             whitePegs++;
             codeCount[index]--;
         }
