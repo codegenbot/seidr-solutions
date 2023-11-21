@@ -7,6 +7,7 @@ def solve_boolean(expression):
             if curr_op == "|" or curr_op == None:
                 result = True
             elif curr_op == "&":
+                # Update result for '&' operator
                 result = result and True
         elif char == "f":
             if curr_op == "&" or curr_op == None:
