@@ -5,8 +5,6 @@ using namespace std;
 pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
-    int codeCount[26] = {0};
-    int guessCount[26] = {0};
     bool counted[4] = {false};
 
     for (int i = 0; i < 4; i++) {
@@ -14,14 +12,19 @@ pair<int, int> mastermind(string code, string guess) {
             blackPegs++;
             counted[i] = true;
         } else {
+            int index = code[i] - 'A';
             if (code[i] >= 'A' && code[i] <= 'F') {
-                codeCount[code[i] - 'A']++;
+                codeCount[index]++;
             }
+            int guessIndex = guess[i] - 'A';
             if (guess[i] >= 'A' && guess[i] <= 'F') {
-                guessCount[guess[i] - 'A']++;
+                guessCount[guessIndex]++;
             }
         }
     }
+
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (!counted[i]) {
