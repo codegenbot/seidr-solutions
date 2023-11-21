@@ -24,9 +24,12 @@ pair<int, int> mastermind(string code, string guess) {
     }
 
     for (int i = 0; i < 4; i++) {
-        if (!counted[i]) {
+        if (!counted[i] && code[i] >= 'A' && code[i] <= 'F') {
             int index = code[i] - 'A';
-            whitePegs += min(codeCount[index], guessCount[index]);
+            if (guessCount[index] > 0) {
+                whitePegs++;
+                guessCount[index]--;
+            }
         }
     }
 
