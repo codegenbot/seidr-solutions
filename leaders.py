@@ -8,7 +8,7 @@ def find_leaders(arr):
             max_right = arr[i]
             leaders.append(arr[i]) if arr[i] not in leaders else None
 
-    leaders.append(max_right) if max_right not in leaders else None
+    leaders.append(max_right)
 
     return leaders[::-1]
 
