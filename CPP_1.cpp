@@ -32,12 +32,3 @@ vector<string> separate_paren_groups(string paren_string) {
 
     return result;
 }
-
-int main() {
-    
-    // Remove duplicate main() function definition
-
-    cout << "Test cases passed successfully!" << endl;
-
-    return 0;
-}
