@@ -20,8 +20,8 @@ def calculate_score(bowls):
             frames.append(frame)
             frame = []
 
-    if len(frame) == 3 or (len(frame) == 2 and sum(frame) == 10):
-        score = sum(frame[:-1])
+    if len(frame) == 3 or sum(frame) == 10:
+        score = sum(frame)
     else:
         score = sum(frame)
 
@@ -33,11 +33,9 @@ def calculate_score(bowls):
             if len(frame) == 1 and i + 2 < len(frames):
                 score += frames[i + 2][0]
         elif sum(frame) == 10 and i + 1 < len(frames):
-            score += frames[i + 1][0] if len(frames[i + 1]) >= 1 else frame[0]
+            score += frames[i + 1][0] if len(frames[i + 1]) >= 1 else sum(frame)
 
-        if i == 9 and len(frames[i]) > 2 and sum(frame) == 10:
+        if i == 8 and len(frames[i]) > 2 and sum(frame) == 10:
             score += frames[i + 1][0]
-        else:
-            score += sum(frame)
 
     return score
