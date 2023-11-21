@@ -3,10 +3,11 @@ def basement(nums):
     for i in range(len(nums)):
         total_sum += nums[i]
         if total_sum <= 0:
-            return i
+            return i + 1
     return -1
 
 
 nums = list(map(int, input().split()))
+
 result = basement(nums)
 print(result)
