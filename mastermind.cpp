@@ -23,7 +23,7 @@ pair<int, int> mastermind(string code, string guess) {
 
     return make_pair(whitePegs, blackPegs);
 }
-
+ 
 int main() {
     string code, guess;
     cin >> guess >> code;
