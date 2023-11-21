@@ -4,11 +4,10 @@ def find_leaders(arr):
     max_right = arr[n - 1]
     leaders.append(max_right)
     for i in range(n - 2, -1, -1):
-        if arr[i] >= max_right:
+        if arr[i] >= max_right and arr[i] >= arr[i+1]:
             leaders.append(arr[i])
             max_right = arr[i]
-    leaders.reverse()
-    return leaders
+    return leaders[::-1]
 
 
 n = int(input())
