@@ -1,5 +1,5 @@
-text=input()
-target=input()
+text = input()
+target = input()
 
 indices = []
 pos = -1
