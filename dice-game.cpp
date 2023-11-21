@@ -2,7 +2,7 @@
 #include <iomanip>
 
 double probabilityOfPeterWinning(int n, int m) {
-    return static_cast<double>((n - 1) * m) / (n * m);
+    return (n - 1.0) / (n + m - 1.0);
 }
 
 int main() {
