@@ -9,9 +9,9 @@ vector<string> separate_paren_groups(string paren_string);
 
 int main() {
     assert(std::is_permutation(separate_paren_groups("( ) (( )) (( )( ))").begin(), separate_paren_groups("( ) (( )) (( )( ))").end(), vector<string>{"()", "(())", "(()())"}.begin()));
-  
+
     cout << "Test cases passed successfully!" << endl;
-  
+
     return 0;
 }
 
