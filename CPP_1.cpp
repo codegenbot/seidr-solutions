@@ -1,22 +1,38 @@
+vector<string> separate_paren_groups(string paren_string);
+
+bool issame(string s);
+
 vector<string> separate_paren_groups(string paren_string){
     vector<string> result;
-    string temp;
+    string current_group = "";
     int count = 0;
-    for(int i=0; i<paren_string.length(); i++){
-        if(paren_string[i] == '('){
-            count++;
-            if(count == 1){
-                temp += paren_string[i];
+    bool b = issame(paren_string);
+
+    for (char c : paren_string) {
+        if (c == '(') {
+            if (count > 0) {
+                current_group += c;
             }
-        }
-        else if(paren_string[i] == ')'){
+            count++;
+        } else if (c == ')') {
             count--;
-            if(count == 0){
-                temp += paren_string[i];
-                result.push_back(temp);
-                temp = "";
+            if (count == 0) {
+                result.push_back(current_group + c);
+                current_group = "";
+            } else {
+                current_group += c;
             }
         }
     }
+
     return result;
+}
+
+bool issame(string s){
+    return true;
+}
+
+int main(){
+    // your code here
+    return 0;
 }
