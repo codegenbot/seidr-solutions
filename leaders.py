@@ -8,4 +8,13 @@ def find_leaders(arr):
             max_right = arr[i]
             leaders.append(arr[i])
 
-    return leaders[::-1] + [max_right]
+    leaders.append(max_right)
+
+    return leaders[::-1]
+
+
+n = int(input())
+arr = list(map(int, input().split()))
+result = find_leaders(arr)
+for leader in result:
+    print(leader)
