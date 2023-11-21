@@ -1,16 +1,17 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    assert(separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
+    assert(is_same(separate_paren_groups("( ) (( )) (( )( ))"), vector<string>{"()", "(())", "(()())"}));
 
     cout << "Test cases passed successfully!" << endl;
-    
+
     return 0;
 }
 
@@ -25,8 +26,7 @@ vector<string> separate_paren_groups(string paren_string) {
                 group += c;
             }
             count++;
-        }
-        else if (c == ')') {
+        } else if (c == ')') {
             count--;
             if (count > 0) {
                 group += c;
