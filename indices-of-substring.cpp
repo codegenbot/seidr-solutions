@@ -11,7 +11,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; i++) {
         bool found = true;
         for (int j = 0; j < m; j++) {
-            if ((int)text[i + j] != (int)target[j]) {
+            if (tolower(text[i + j]) != tolower(target[j]) || i + j >= n) {
                 found = false;
                 break;
             }
@@ -26,8 +26,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    cin >> text;
-    cin >> target;
+    getline(cin, text);
+    getline(cin, target);
     
     vector<int> result = indicesOfSubstring(text, target);
     
