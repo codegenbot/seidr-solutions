@@ -1,10 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 bool issame(vector<string> a, vector<string> b) {
+    // Compare two vectors of strings for equality
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -15,6 +10,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> separate_paren_groups(string paren_string) {
+    // Your existing code implementation
     vector<string> result;
     string current_group = "";
     int count = 0;
@@ -37,9 +33,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
 }
