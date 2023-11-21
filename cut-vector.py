@@ -8,6 +8,7 @@ def cut_vector(vector):
             return vector[: i + 1], vector[i + 1 :]
     return vector, []
 
+
 vector = []
 while True:
     try:
