@@ -3,8 +3,8 @@ using namespace std;
 
 float calculateSnow(float hours, float snowOnGround, float snowFallRate, float meltingRate) {
     for (int i = 0; i < hours; i++) {
-        snowOnGround -= snowOnGround * meltingRate;
         snowOnGround += snowFallRate;
+        snowOnGround *= (1 - meltingRate);
     }
     return snowOnGround;
 }
