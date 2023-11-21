@@ -6,14 +6,6 @@ using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
 
-int main() {
-    assert(separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
-
-    cout << "Test cases passed successfully!" << endl;
-    
-    return 0;
-}
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string group = "";
@@ -39,4 +31,11 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+vector<string> test_separate_paren_groups() {
+    assert(separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
+    assert(separate_paren_groups("(())()") == vector<string>{"(())", "()"});
+
+    return vector<string>{"Test cases passed successfully!"};
 }
