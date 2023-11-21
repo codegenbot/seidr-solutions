@@ -4,16 +4,6 @@
 
 using namespace std;
 
-vector<string> separate_paren_groups(string paren_string);
-
-int main(){
-    assert (issame(separate_paren_groups("( ) (( )) (( )( ))") ,{"()", "(())", "(()())"}));
-
-    cout << "Test cases passed successfully!" << endl;
-    
-    return 0;
-}
-
 vector<string> separate_paren_groups(string paren_string){
     vector<string> result;
     string group = "";
@@ -39,4 +29,26 @@ vector<string> separate_paren_groups(string paren_string){
     }
 
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main(){
+    assert (issame(separate_paren_groups("( ) (( )) (( )( ))") ,{"()", "(())", "(()())"}));
+
+    cout << "Test cases passed successfully!" << endl;
+    
+    return 0;
 }
