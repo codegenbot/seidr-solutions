@@ -1,6 +1,3 @@
-import math
-
-
 def calculate_fuel_cost(numbers):
     total_fuel_cost = 0
     for num in numbers:
