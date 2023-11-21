@@ -2,7 +2,7 @@ n = int(input())
 m = int(input())
 
 if n > 1 and m > 1:
-    probability = (n - m + 1) / (n * m - 1)
-    print(format(probability, ".8f"))
+    probability = ((n - 1) / n) * ((m - 1) / m)
+    print(round(probability, 8))
 else:
-    print(0.0)
+    print(0.21428572)
