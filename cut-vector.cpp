@@ -42,7 +42,9 @@ int main() {
     }
     
     pair<int, pair<vector<int>, vector<int>>> result = cutVector(nums);
-    
+
+    cout << result.first << endl;
+
     for (int num : result.second.first) {
         cout << num << endl;
     }
