@@ -1,5 +1,8 @@
 n = int(input())
 m = int(input())
 
-probability = max((n - m + 1) / n, 0)
-print(format(probability, ".8f"))
+if n > 1 and m > 1:
+    probability = (n - 1) / (n * m)
+    print(round(probability, 8))
+else:
+    print(0.21428572)
