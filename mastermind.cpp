@@ -1,27 +1,25 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
 using namespace std;
 
-pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
-    int codeCount[26] = {0};
+pair<int,int> mastermind(string code, string guess) {
+    int blackPegs=0;
+    int whitePegs=0;
+    int codeCount[26]={0};
 
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            if (code[i] >= 'A' && code[i] <= 'F') {
-                codeCount[code[i] - 'A']++;
-            }
-        }
+    for(char c: code) {
+        codeCount[c - 'A']++;
     }
 
-    for (int i = 0; i < 4; i++) {
-        int index = code[i] - 'A';
-        if (guess[i] != code[i] && codeCount[index] > 0 && guess[i] >= 'A' && guess[i] <= 'F') {
-            whitePegs++;
-            codeCount[index]--;
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            blackPegs++;
+        } else {
+            int index = guess[i] - 'A';
+            if(codeCount[index] > 0) {
+                whitePegs++;
+                codeCount[index]--;
+            }
         }
     }
 
