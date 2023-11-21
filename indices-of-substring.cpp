@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 #include <string>
 using namespace std;
 
@@ -24,16 +23,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     return indices;
 }
 
-int main() {
-    string text, target;
-    getline(cin, text);
-    getline(cin, target);
-    
-    vector<int> result = indicesOfSubstring(text, target);
-    
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    
-    return 0;
+vector<int> solve(string text, string target) {
+    return indicesOfSubstring(text, target);
 }
