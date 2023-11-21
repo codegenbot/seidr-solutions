@@ -31,9 +31,7 @@ def calculate_score(bowls):
                     score += frames[i + 2][0]
         elif sum(frame) == 10:
             if i + 1 < len(frames):
-                score += (
-                    frames[i + 1][0] if not prev_spare and len(frame) == 2 else frame[0]
-                )
+                score += frames[i + 1][0] if not prev_spare and len(frame) == 2 else frame[0]
 
         if i == 9 and len(frame) == 3:
             score += frame[2]
