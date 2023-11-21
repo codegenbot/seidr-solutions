@@ -1,5 +1,5 @@
-#include<iostream>
-#include<cmath>
+#include <iostream>
+#include <cmath>
 using namespace std;
 
 int main() {
@@ -13,7 +13,7 @@ int main() {
 
     for (int i = 0; i < numBounces; i++) {
         bouncinessIndex = sqrt(bouncinessIndex);
-        totalDistance += (2 * bouncinessIndex * startingHeight);
+        totalDistance += 2 * (bouncinessIndex * (startingHeight - (startingHeight * bouncinessIndex)));
     }
 
     cout.precision(17);
