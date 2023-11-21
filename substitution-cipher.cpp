@@ -4,9 +4,9 @@
 std::string decipherMessage(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
     std::string result;
     for (char c : message) {
-        size_t index = cipher2.find(c);
+        size_t index = cipher1.find(c);
         if (index != std::string::npos) {
-            result += cipher1[index];
+            result += cipher2[index];
         }
     }
     return result;
