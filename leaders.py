@@ -9,6 +9,7 @@ def find_leaders(arr):
             leaders.append(max_right)
     return leaders
 
+
 n = int(input())
 arr = list(map(int, input().split()))
 
