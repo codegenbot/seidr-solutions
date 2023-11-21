@@ -1,17 +1,8 @@
 def find_leaders(arr):
     leaders = []
-    max_right = float("-inf")
-
+    max_right = float('-inf')
     for num in arr[::-1]:
         if num >= max_right:
             max_right = num
             leaders.append(num)
-
     return leaders[::-1]
-
-
-n = int(input())
-arr = list(map(int, input().split()))
-result = find_leaders(arr)
-for leader in result:
-    print(leader)
