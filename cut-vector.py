@@ -18,14 +18,16 @@ def cut_vector(vector):
 
     return vector[:cut_index], vector[cut_index:]
 
-
-n = int(input())
-vector = list(map(int, input().split()))
+vector = []
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except:
+        break
 
 left_subvector, right_subvector = cut_vector(vector)
 for num in left_subvector:
-    print(num, end=" ")
-print()
+    print(num)
 for num in right_subvector:
-    print(num, end=" ")
-print()
+    print(num)
