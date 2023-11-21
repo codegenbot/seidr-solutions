@@ -3,7 +3,6 @@
 using namespace std;
 
 pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
-
     int n = nums.size();
     int leftSum = 0;
     int rightSum = 0;
