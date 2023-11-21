@@ -5,7 +5,8 @@ def find_leaders(nums):
             leaders.append(nums[i])
     return leaders
 
-nums = list(map(int, input().split()))
+n = int(input())
+nums = [int(input()) for _ in range(n)]
 
 result = find_leaders(nums)
 for num in result:
