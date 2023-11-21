@@ -7,7 +7,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int diff = INT_MAX;
     int index = 0;
 
-    for (int i = 0; i < n - 2; i++) {  
+    for (int i = 0; i < n - 2; i++) {
         int leftSum = 0;
         int rightSum = 0;
 
