@@ -4,14 +4,18 @@ def calculate_score(bowls):
     for bowl in bowls:
         if bowl == "X":
             frame.append(10)
+            frames.append(frame)
+            frame = []
         elif bowl == "/":
             frame.append(10 - frame[0])
+            frames.append(frame)
+            frame = []
         elif bowl == "-":
             frame.append(0)
         else:
             frame.append(int(bowl))
 
-        if len(frame) == 2:
+        if len(frame) >= 2:
             frames.append(frame)
             frame = []
 
@@ -22,14 +26,14 @@ def calculate_score(bowls):
         if frame[0] == 10:
             if i + 1 < len(frames):
                 score += frames[i + 1][0]
-                if frames[i + 1][0] == 10 and i + 2 < len(frames):
+                if frame[1] == 0 and i + 2 < len(frames):
                     score += frames[i + 2][0]
             else:
                 break
-        elif frame[1] == 10:
+        elif sum(frame) == 10:
             if i + 1 < len(frames):
-                score += frames[i + 1][0] if frames[i + 1][0] != 10 else 10
+                score += frames[i + 1][0]
         if i == 9:
-            score += sum(frames[9][:2])
+            score += sum(frames[9])
 
     return score
