@@ -1,4 +1,6 @@
 def spin_words(string):
+    if len(string) == 0:
+        return ""
     words = string.split()
     for i in range(len(words)):
         if len(words[i]) >= 5:
