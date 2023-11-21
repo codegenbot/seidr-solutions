@@ -32,7 +32,7 @@ int main() {
     string code, guess;
     cin >> code >> guess;
 
-    pair<int, int> result = mastermind(guess, code);
+    pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;
     cout << result.second << endl;
 
