@@ -1,13 +1,12 @@
 n = int(input())
 m = int(input())
 
-count = 0
-total = n * m
+def probability_of_higher(n, m):
+    if n <= 1 or m <= 1:
+        return 0.0
+    elif n > m:
+        return (n - m) / n
+    else:
+        return (m - n + 1) / m
 
-for i in range(1, n+1):
-    for j in range(1, m+1):
-        if i > j:
-            count += 1
-
-probability = count / total
-print(probability)
+print(probability_of_higher(n, m))
