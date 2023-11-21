@@ -5,15 +5,9 @@ def find_leaders(arr):
 
     for i in range(n - 2, -1, -1):
         if arr[i] >= max_right:
-            leaders.append(arr[i])
             max_right = arr[i]
+            if arr[i] not in leaders:
+                leaders.append(arr[i])
 
     leaders.append(max_right)
-    return leaders
-
-
-n = int(input())
-arr = list(map(int, input().split()))
-result = find_leaders(arr)
-for leader in result:
-    print(leader)
+    return leaders[::-1]

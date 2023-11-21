@@ -2,9 +2,7 @@
 #include <iomanip>
 
 double probabilityOfPeterWinning(int n, int m) {
-    double totalOutcomes = n * m;
-    double favorableOutcomes = (n > m) ? (n - m) : (n - 1);
-    return favorableOutcomes / totalOutcomes;
+    return (n - 1.0) / (n + m);
 }
 
 int main() {
