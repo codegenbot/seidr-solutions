@@ -3,20 +3,16 @@ def solve_boolean(expression):
     curr_op = None
 
     for char in expression:
-        if char == "t":
-            if curr_op == "|" or curr_op == None:
-                result = True
-            elif curr_op == "&":
-                # Update result for '&' operator
-                result = result and True
-        elif char == "f":
-            if curr_op == "&" or curr_op == None:
-                result = False
-            elif curr_op == "|":
-                continue
+        if char == "t" and (curr_op == "|" or curr_op == None):
+            result = True
+        elif char == "f" and (curr_op == "&" or curr_op == None):
+            result = False
         elif char == "|":
             curr_op = "|"
         elif char == "&":
             curr_op = "&"
 
-    return result
+    if expression[-1] == "t" or expression[-1] == "f":
+        return result
+    else:
+        return None
