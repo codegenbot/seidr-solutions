@@ -1,17 +1,21 @@
-from typing import List
-
-def find_pair(nums: List[int], target: int) -> List[int]:
+def find_pair(vector, target):
     seen = set()
-    for num in nums:
+    for num in vector:
         complement = target - num
         if complement in seen:
-            return [complement, num]
+            return complement, num
         seen.add(num)
-        
+    return None
+
+
+# Read input
 n = int(input())
-nums = list(map(int, input().split()))
+vector = list(map(int, input().split()))
 target = int(input())
 
-pair = find_pair(nums, target)
-print(pair[0])
-print(pair[1])
+# Find pair
+result = find_pair(vector, target)
+
+# Print output
+print(result[0])
+print(result[1])

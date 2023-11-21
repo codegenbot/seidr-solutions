@@ -1,3 +1,5 @@
-text = input();target = input()
-indices = [i for i in range(len(text) - len(target) + 1) if target in text[i:i+len(target)]]
+text = input()
+target = input()
+
+indices = [i for i in range(len(text)) if text[i:i+len(target)].isalnum() and text[i:i+len(target)] == target]
 print(" ".join(map(str, indices)))
