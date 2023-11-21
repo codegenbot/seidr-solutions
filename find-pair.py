@@ -1,19 +1,20 @@
-def find_pair(nums, target):
+def find_pair(vector, target):
     seen = set()
-    for num in nums:
+    for num in vector:
         complement = target - num
         if complement in seen:
-            return num, complement
+            return complement, num
         seen.add(num)
+    return None
 
 
 # Read input
 n = int(input())
-nums = list(map(int, input().split()))
+vector = list(map(int, input().split()))
 target = int(input())
 
 # Find pair
-result = find_pair(nums, target)
+result = find_pair(vector, target)
 
 # Print output
 print(result[0])
