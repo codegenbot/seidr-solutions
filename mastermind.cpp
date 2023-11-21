@@ -21,11 +21,11 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    for (int i = 0; i < guess.size(); i++) {
+    for (int i = 0; i < 4; i++) {
         int index = guess[i] - 'A';
-        if (code[i] != guess[i] && codeCount[index] > 0) {
+        if (code[i] != guess[i] && guessCount[index] > 0) {
             whitePegs++;
-            codeCount[index]--;
+            guessCount[index]--; // Fix: decrement guessCount instead of codeCount
         }
     }
 
