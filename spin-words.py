@@ -5,4 +5,4 @@ def spin_words(string):
             words[i] = words[i][::-1]
         else:
             words[i] = words[i]
-    return ' '.join(words)
+    return " ".join(words)
