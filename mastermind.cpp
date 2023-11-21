@@ -1,7 +1,3 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
@@ -25,20 +21,9 @@ pair<int, int> mastermind(string code, string guess) {
         int index = guess[i] - 'A';
         if (code[i] != guess[i] && guessCount[index] > 0) {
             whitePegs++;
-            guessCount[index]--; // Fix: decrement guessCount instead of codeCount
+            guessCount[index]--;
         }
     }
 
     return make_pair(blackPegs, whitePegs);
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-
-    pair<int, int> result = mastermind(code, guess);
-    cout << result.first << endl;
-    cout << result.second << endl;
-
-    return 0;
 }
