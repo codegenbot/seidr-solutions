@@ -1,32 +1,38 @@
+import re
+
 def calculate_score(bowls):
+    frames = re.findall(r"(\d|X|/|-)", bowls)
     score = 0
-    frame = 1
-    i = 0
+    frame_index = 0
 
-    while frame <= 10:
-        if bowls[i] == 'X':
+    for i in range(10):
+        if frames[frame_index] == 'X':
+            score += 10 + get_frame_score(frames, frame_index + 1, 2)
+            frame_index += 1
+        elif frames[frame_index + 1] == '/':
             score += 10
-            if i + 2 < len(bowls):
-                if bowls[i + 2] == 'X':
-                    score += 10
-                elif bowls[i + 2] == '/':
-                    score += 10 - int(bowls[i + 1])
-                else:
-                    score += int(bowls[i + 1]) + int(bowls[i + 2])
-            i += 1
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i - 1])
-            if i + 1 < len(bowls):
-                if bowls[i + 1] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[i + 1])
-            i += 1
+            if frames[frame_index + 2] == 'X':
+                score += 10
+            else:
+                score += int(frames[frame_index + 2])
+            frame_index += 2
         else:
-            score += int(bowls[i])
-        i += 1
-        frame += 1
+            score += get_frame_score(frames, frame_index, 2)
+            frame_index += 2
 
+    return score
+
+def get_frame_score(frames, start_index, num_rolls):
+    score = 0
+    for i in range(num_rolls):
+        if frames[start_index + i] == 'X':
+            score += 10
+        elif frames[start_index + i] == '/':
+            score += 10 - int(frames[start_index + i - 1])
+        elif frames[start_index + i] == '-':
+            score += 0
+        else:
+            score += int(frames[start_index + i])
     return score
 
 bowls = input()
