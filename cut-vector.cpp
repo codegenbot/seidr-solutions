@@ -1,4 +1,5 @@
-#include <utility>
+#include <utility> // for std::pair
+#include <climits> // for INT_MAX
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
