@@ -5,6 +5,7 @@ using namespace std;
 int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
+
     cin >> startingHeight >> firstBounceHeight >> numBounces;
 
     double bouncinessIndex = firstBounceHeight / startingHeight;
