@@ -14,11 +14,11 @@ def calculate_score(bowls):
             frame.append(0)
         else:
             frame.append(int(bowl))
-        
+
         if len(frame) >= 2:
             frames.append(frame)
             frame = []
-            
+
     score = 0
     for i in range(10):
         frame = frames[i]
@@ -35,5 +35,5 @@ def calculate_score(bowls):
                 score += frames[i + 1][0]
         if i == 9:
             score += sum(frames[9])
-    
+
     return score
