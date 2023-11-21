@@ -1,33 +1,35 @@
 #include <vector>
 #include <iostream>
+#include <climits>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int leftSum = 0;
-    int rightSum = 0;
+    int diff = INT_MAX;
+    int index = -1;
     
-    for (int i = 0; i < n; i++) {
-        rightSum += nums[i];
-    }
-    
-    int minDiff = abs(leftSum - rightSum);
-    int cutIndex = 0;
-    
-    for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
+    for (int i = 1; i < n; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
         
-        int diff = abs(leftSum - rightSum);
+        for (int j = 0; j < i; j++) {
+            leftSum += nums[j];
+        }
         
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+        for (int k = i; k < n; k++) {
+            rightSum += nums[k];
+        }
+        
+        int currDiff = abs(leftSum - rightSum);
+        
+        if (currDiff < diff) {
+            diff = currDiff;
+            index = i;
         }
     }
     
-    vector<int> left(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> right(nums.begin() + cutIndex + 1, nums.end());
+    vector<int> left(nums.begin(), nums.begin() + index);
+    vector<int> right(nums.begin() + index, nums.end());
     
     return make_pair(left, right);
 }
@@ -46,7 +48,6 @@ int main() {
     for (int num : result.first) {
         cout << num << endl;
     }
-    
     for (int num : result.second) {
         cout << num << endl;
     }
