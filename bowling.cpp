@@ -6,7 +6,7 @@ int getScore(string s) {
     int score = 0;
     int frame = 1;
     int i = 0;
-
+    
     while (frame <= 10 && i < s.length() - 1) {
         if (s[i] == 'X') {
             score += 10;
@@ -32,16 +32,16 @@ int getScore(string s) {
         }
         i++;
     }
-
+    
     return score;
 }
 
 int main() {
     string s;
     cin >> s;
-
+    
     int score = getScore(s);
     cout << score << endl;
-
+    
     return 0;
 }
