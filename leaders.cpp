@@ -1,19 +1,19 @@
 #include <vector>
 using namespace std;
 
-vector<int> findLeaders(vector<int> arr) {
-    int n = arr.size();
-    vector<int> leaders;
-    int currentLeader = arr[n-1];
-    leaders.push_back(currentLeader);
-    
-    for(int i=n-2; i>=0; i--){
-        if(arr[i] >= currentLeader){
-            currentLeader = arr[i];
-            leaders.push_back(currentLeader);
-        }
+vector<int> findLeaders(vector<int> nums) {
+  vector<int> leaders;
+  int maxRight = INT_MIN; // Initialize the rightmost element
+
+  // Iterate the numbers in reverse order
+  for (int i = nums.size() - 1; i >= 0; i--) {
+    if (nums[i] >= maxRight) {
+      leaders.push_back(nums[i]);
+      maxRight = nums[i]; // Update the maximum right element
     }
-    
-    reverse(leaders.begin(), leaders.end());
-    return leaders;
+  }
+
+  reverse(leaders.begin(), leaders.end()); // Reverse the leaders vector since we iterated in reverse order
+
+  return leaders;
 }
