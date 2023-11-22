@@ -11,6 +11,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             group = ""
     return result
 
-input_string = input("Enter the parentheses string: ")
+input_string = "((a(b(c)))(d)e)"
 output = separate_paren_groups(input_string)
 print(output)
