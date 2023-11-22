@@ -1,5 +1,3 @@
-import sys
-
 def decode_shift(s: str) -> str:
     return "".join(
         [
@@ -10,6 +8,6 @@ def decode_shift(s: str) -> str:
         ]
     )
 
-input_str = sys.stdin.readline().strip()
+input_str = "Replace this with the actual encoded string you want to decode"
 decoded_str = decode_shift(input_str)
 print(decoded_str)
