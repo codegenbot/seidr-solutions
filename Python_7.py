@@ -14,3 +14,4 @@ else:
         print(f"The strings that contain '{substring}' are: {result}")
     else:
         print(f"No strings contain the substring '{substring}'.")
+
