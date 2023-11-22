@@ -1,7 +1,6 @@
 from typing import List
 
 def intersperse() -> List[int]:
-    # Read inputs
     numbers = list(map(int, input().split()))
     delimiter = int(input())
 
