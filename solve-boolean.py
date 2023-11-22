@@ -1,1 +1,4 @@
-expression = expression.replace('T', 'True').replace('F', 'False').replace('True', 'True').replace('False', 'False')
+expression = input()
+expression = expression.replace('T', 'True').replace('F', 'False')
+result = eval(expression)
+print(result)
