@@ -1,27 +1,50 @@
 def calculate_score(bowls):
-    frames = []
     score = 0
-    i = 0
-    while i < len(bowls):
+    frame = 1
+    frame_score = 0
+    spare = False
+    strike = False
+    for i in range(len(bowls)):
         if bowls[i] == 'X':
-            frames.append(10)
-            i += 1
+            score += 10
+            if frame < 10:
+                if bowls[i+2] == '/':
+                    score += 10
+                else:
+                    score += int(bowls[i+1]) + int(bowls[i+2])
+            frame_score = 0
+            strike = True
+            frame += 1
         elif bowls[i] == '/':
-            frames.append(10 - frames[-1])
-            i += 1
+            score += 10 - int(bowls[i-1])
+            if frame < 10:
+                score += int(bowls[i+1])
+            frame_score = 0
+            spare = True
+            frame += 1
+        elif bowls[i] == '-':
+            frame_score += 0
         else:
-            frames.append(int(bowls[i]))
-        i += 1
-    
-    for i in range(10):
-        if bowls[i] == 'X':
-            score += 10 + frames[i+1] + frames[i+2]
-        elif bowls[i] == '/':
-            score += 10 + frames[i+1]
-        else:
-            score += frames[i]
-    
+            frame_score += int(bowls[i])
+            if frame_score == 10:
+                if frame < 10:
+                    if bowls[i+1] == '/':
+                        score += 10
+                    else:
+                        score += int(bowls[i+1])
+                if spare:
+                    score += int(bowls[i])
+                    spare = False
+                if strike:
+                    score += int(bowls[i])
+                    strike = False
+                frame += 1
+                frame_score = 0
+            elif frame_score < 10:
+                if spare:
+                    score += int(bowls[i])
+                    spare = False
+                if strike:
+                    score += int(bowls[i])
+                    strike = False
     return score
-
-bowls = input()
-print(calculate_score(bowls))
