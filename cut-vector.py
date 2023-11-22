@@ -9,18 +9,9 @@ def cut_vector(vector):
         ):
             return vector[: i + 1], vector[i + 1 :]
     return vector, [0]
+  
+vector = list(map(int, input().split()))
 
-
-# Read input from user
-vector = []
-while True:
-    try:
-        num = int(input())
-        vector.append(num)
-    except:
-        break
-
-# Call the function and print the output
 subvector1, subvector2 = cut_vector(vector)
 for num in subvector1:
     print(num)
