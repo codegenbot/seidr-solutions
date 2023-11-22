@@ -1,40 +1,41 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-int getScore(string input) {
+int getScore(const std::string& input) {
     int score = 0;
-    int frame = 1;
+    int frame = 0;
     int roll = 0;
-    int rolls[21];
+    int rolls[21] = {0};
 
     for (char c : input) {
         if (c == 'X') {
-            rolls[roll++] = 10;
-            if (frame < 10) {
-                rolls[roll++] = 0;
-            }
-        } else if (c == '/') {
-            rolls[roll++] = 10 - rolls[roll - 2];
-        } else if (c == '-') {
-            rolls[roll++] = 0;
-        } else {
-            rolls[roll++] = c - '0';
-        }
-
-        if (frame < 10 && (c == 'X' || roll % 2 == 0)) {
+            rolls[frame] = 10;
             frame++;
+        } else if (c == '/') {
+            rolls[frame] = 10 - rolls[frame-1];
+            frame++;
+            roll = 0;
+        } else if (c == '-') {
+            rolls[frame] = 0;
+            frame++;
+            roll = 0;
+        } else {
+            rolls[frame] += c - '0';
+            roll++;
+            if (roll == 2) {
+                frame++;
+                roll = 0;
+            }
         }
     }
 
     for (int i = 0; i < 10; i++) {
-        int rollIndex = i * 2;
-        if (rolls[rollIndex] == 10) {
-            score += 10 + rolls[rollIndex + 2] + rolls[rollIndex + 3];
-        } else if (rolls[rollIndex] + rolls[rollIndex + 1] == 10) {
-            score += 10 + rolls[rollIndex + 2];
+        if (rolls[i] == 10) {
+            score += 10 + rolls[i+1] + rolls[i+2];
+        } else if (rolls[i] + rolls[i+1] == 10) {
+            score += 10 + rolls[i+2];
         } else {
-            score += rolls[rollIndex] + rolls[rollIndex + 1];
+            score += rolls[i] + rolls[i+1];
         }
     }
 
@@ -42,9 +43,9 @@ int getScore(string input) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    int result = getScore(input);
-    cout << result << endl;
+    std::string input;
+    std::cin >> input;
+    int score = getScore(input);
+    std::cout << score << std::endl;
     return 0;
 }
