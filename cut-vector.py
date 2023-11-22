@@ -1,23 +1,19 @@
-def cut_vector(arr):
-    n = len(arr)
+def cut_vector(vector):
+    n = len(vector)
+    if n < 2:
+        return vector, [0]
 
-    # Calculate the absolute difference between the sum of the left and right subvectors for each potential cut position
-    diff = [abs(sum(arr[:i]) - sum(arr[i:])) for i in range(1, n)]
+    total_sum = sum(vector)
+    left_sum = 0
+    right_sum = total_sum
 
-    # Get the index of the cut position with the smallest difference
-    min_diff_index = diff.index(min(diff))
+    for i in range(0, n - 1):
+        left_sum += vector[i]
+        right_sum -= vector[i]
 
-    # Return the resulting subvectors
-    left_subvector = arr[: min_diff_index + 1]
-    right_subvector = arr[min_diff_index + 1 :]
+        if left_sum == right_sum or abs(left_sum - right_sum) <= abs(
+            left_sum - right_sum - vector[i + 1]
+        ):
+            return vector[: i + 1], vector[i + 1 :]
 
-    return left_subvector, right_subvector
-
-
-# Read input vector from user
-arr = [int(input()) for _ in range(int(input()))]
-
-# Call the cut_vector function and print the resulting subvectors
-left_subvector, right_subvector = cut_vector(arr)
-print(*left_subvector, sep="\n")
-print(*right_subvector, sep="\n")
+    return vector, [0]
