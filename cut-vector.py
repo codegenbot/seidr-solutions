@@ -1,3 +1,5 @@
+import sys
+
 def cut_vector(vector):
     n = len(vector)
     total_sum = sum(vector)
@@ -19,22 +21,16 @@ def cut_vector(vector):
 
     return vector[: cut_index + 1], vector[cut_index + 1 :]
 
+lines = sys.stdin.readlines()
+vector = [int(line.strip()) for line in lines]
 
-vector = []
-try:
-    while True:
-        num = int(input())
-        vector.append(num)
-except EOFError:
-    pass
-
-if len(vector) <= 2:
-    for num in vector:
-        print(num)
-        print(num)
+if len(vector) == 1:
+    print(vector[0])
+    print(vector[0])
     exit()
 
 left_subvector, right_subvector = cut_vector(vector)
+
 for num in left_subvector:
     print(num)
 for num in right_subvector:
