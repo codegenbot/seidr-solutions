@@ -3,13 +3,13 @@
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int whitePegs = 0;
     int blackPegs = 0;
+    int whitePegs = 0;
     int codeCount[6] = {0};
     int guessCount[6] = {0};
 
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
             blackPegs++;
         } else {
             codeCount[code[i] - 'A']++;
@@ -17,7 +17,7 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    for (int i = 0; i < 6; i++) {
+    for(int i=0; i<6; i++) {
         whitePegs += min(codeCount[i], guessCount[i]);
     }
 
