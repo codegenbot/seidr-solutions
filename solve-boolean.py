@@ -1,2 +1,3 @@
-def solve_boolean(expression):
-    return eval(expression)
+expression = input()
+result = eval(expression)
+print(result)
