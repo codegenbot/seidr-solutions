@@ -9,3 +9,6 @@ def encode(message):
         else:
             encoded_message += char
     return encoded_message
+
+
+print(encode("I DoNt KnOw WhAt tO WrItE"))
