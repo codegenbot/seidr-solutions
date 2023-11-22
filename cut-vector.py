@@ -8,19 +8,18 @@ def cut_vector(vector):
         left_sum += vector[i]
         right_sum -= vector[i]
 
-        if abs(left_sum - right_sum) <= 1:
+        if left_sum == right_sum or abs(left_sum - right_sum) < 1:
             return vector[: i + 1], vector[i + 1 :]
 
-    return vector[: i + 1], vector[i + 1 :]
+    return vector, []
 
 
 input_vector = []
 while True:
-    try:
-        num = int(input())
-        input_vector.append(num)
-    except:
+    num = input().strip()
+    if num == "":
         break
+    input_vector.append(int(num))
 
 result1, result2 = cut_vector(input_vector)
 print(*result1, sep="\n")
