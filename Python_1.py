@@ -1,8 +1,16 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    return [group for group in paren_string.split(")") if group]
+    paren_string = paren_string.replace(" ", "")
+    result = []
+    group = ""
+    for char in paren_string:
+        group += char
+        if char == ")":
+            result.append(group)
+            group = ""
+    return result
 
-input_string = input()
+input_string = input("Enter a string: ")
 output = separate_paren_groups(input_string)
 print(output)
