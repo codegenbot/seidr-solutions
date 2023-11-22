@@ -1,4 +1,7 @@
 def match_parens(lst):
+    if lst.count("(") != lst.count(")"):
+        return "No"
+
     stack = []
 
     for char in lst:
