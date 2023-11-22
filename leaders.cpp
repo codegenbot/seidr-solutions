@@ -1,19 +1,37 @@
+#include <iostream>
 #include <vector>
-using namespace std;
 
-vector<int> findLeaders(vector<int> nums) {
-  vector<int> leaders;
-  int maxRight = INT_MIN; // Initialize the rightmost element
+std::vector<int> leaders(const std::vector<int>& nums) {
+    std::vector<int> result;
+    int n = nums.size();
+    int max_so_far = nums[n-1];
+    result.push_back(max_so_far);
 
-  // Iterate the numbers in reverse order
-  for (int i = nums.size() - 1; i >= 0; i--) {
-    if (nums[i] >= maxRight) {
-      leaders.push_back(nums[i]);
-      maxRight = nums[i]; // Update the maximum right element
+    for (int i = n-2; i >= 0; i--) {
+        if (nums[i] >= max_so_far) {
+            max_so_far = nums[i];
+            result.push_back(max_so_far);
+        }
     }
-  }
 
-  reverse(leaders.begin(), leaders.end()); // Reverse the leaders vector since we iterated in reverse order
+    std::reverse(result.begin(), result.end());
+    return result;
+}
 
-  return leaders;
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
+    }
+
+    std::vector<int> leadersVector = leaders(nums);
+    std::cout << leadersVector.size() << std::endl;
+    for (int leader : leadersVector) {
+        std::cout << leader << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
