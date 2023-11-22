@@ -6,7 +6,14 @@ def poly(xs: list, x: float):
 
 
 def find_zero(xs: list):
-    if xs[1] != 0:
-        return -xs[0] / xs[1]
-    else:
-        return None
+    try:
+        xs = list(map(float, input().split()))
+        x = float(input())
+
+        return poly(xs, x)
+
+    except ValueError:
+        return "Invalid input. Please enter numeric values."
+
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
