@@ -3,9 +3,9 @@ import sys
 n = int(sys.stdin.readline().strip())
 m = int(sys.stdin.readline().strip())
 
-total_outcomes = n * m
-higher_outcomes = (n - 1) * m
-
-probability = higher_outcomes / total_outcomes
-
-print(round(probability, 6))
+if n >= m + 1:
+    print(1.0)
+elif n < m:
+    print(0.0)
+else:
+    print(0.5)
