@@ -20,7 +20,7 @@ int calculateScore(const std::string& rounds) {
                 score += rounds[roundIndex + 4] - '0';
         } else if (rounds[roundIndex] == '/') {
             score += 10;
-            if (rounds[roundIndex + 2] == 'X')
+            if (rounds[roundIndex + 2] == 'X' || rounds[roundIndex + 2] == '/')
                 score += 10;
             else
                 score += rounds[roundIndex + 2] - '0';
@@ -29,7 +29,7 @@ int calculateScore(const std::string& rounds) {
         }
 
         frame++;
-        roundIndex += 2;
+        roundIndex++;
     }
 
     return score;
