@@ -2,7 +2,6 @@ def calculate_score(bowls):
     frames = []
     score = 0
     i = 0
-    
     while i < len(bowls):
         if bowls[i] == 'X':
             frames.append(10)
@@ -11,15 +10,14 @@ def calculate_score(bowls):
             frames.append(10 - frames[-1])
             i += 1
         else:
-            if bowls[i].isdigit() or bowls[i] == '-':
-                frames.append(int(bowls[i]))
+            frames.append(0)
         i += 1
     
     for i in range(10):
         if bowls[i] == 'X':
-            score += 10 + frames[i + 1] + frames[i + 2]
+            score += 10 + frames[i+1] + frames[i+2]
         elif bowls[i] == '/':
-            score += 10 + frames[i + 1]
+            score += 10 + frames[i+1]
         else:
             score += frames[i]
     
