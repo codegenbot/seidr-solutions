@@ -4,20 +4,21 @@ using namespace std;
 
 string substitutionCipher(string cipher1, string cipher2, string message) {
     string decipheredMessage = "";
-    for (int i = 0; i < message.length(); i++) {
-        for (int j = 0; j < cipher1.length(); j++) {
-            if (message[i] == cipher2[j]) {
-                decipheredMessage += cipher1[j];
-                break;
-            }
-        }
+    
+    for (char c : message) {
+        int index = cipher2.find(c);
+        decipheredMessage += cipher1[index];
     }
+    
     return decipheredMessage;
 }
 
 int main() {
     string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
-    cout << substitutionCipher(cipher1, cipher2, message) << endl;
+    
+    string decipheredMessage = substitutionCipher(cipher1, cipher2, message);
+    cout << decipheredMessage << endl;
+    
     return 0;
 }
