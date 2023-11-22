@@ -1,5 +1,7 @@
-def add(x: int = int(input("Enter the value for x: ")), y: int = int(input("Enter the value for y: "))):
+'''python
+def add(x: int, y: int):
     return x + y
 
-result = add()
+result = add(int(input()), int(input()))
 print(result)
+'''
