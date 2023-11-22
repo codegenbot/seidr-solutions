@@ -1,5 +1,6 @@
 from typing import List
 
+
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     result = []
     for i in range(len(numbers)):
@@ -7,6 +8,7 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
         if i != len(numbers) - 1:
             result.append(delimiter)
     return result
+
 
 numbers = [1, 2, 3, 4]
 delimiter = 0
