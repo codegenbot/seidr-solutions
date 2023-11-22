@@ -3,6 +3,7 @@ def check(func):
     result = func(paren_string)
     print(result)
 
+
 def get_max_nesting(paren_string: str) -> int:
     stack = []
     max_nesting = -1
