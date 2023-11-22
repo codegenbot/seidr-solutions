@@ -11,10 +11,9 @@ def cut_vector(vector):
         if abs(left_sum - right_sum) <= 1:
             return vector[: i + 1], vector[i + 1 :]
 
-    return vector[:i+1], vector[i+1:]
+    return vector[: i + 1], vector[i + 1 :]
 
 
-# Read input from user
 input_vector = []
 while True:
     try:
@@ -23,7 +22,6 @@ while True:
     except:
         break
 
-# Call the function and print the output
 result1, result2 = cut_vector(input_vector)
 print(*result1, sep="\n")
 print(*result2, sep="\n")
