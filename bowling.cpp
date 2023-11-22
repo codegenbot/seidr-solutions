@@ -49,11 +49,10 @@ int calculateScore(const std::string& rounds) {
 
 int main() {
     std::string rounds;
-    std::cout << "Enter the rounds: ";
     std::cin >> rounds;
 
     int score = calculateScore(rounds);
-    std::cout << "Score: " << score << std::endl;
+    std::cout << score << std::endl;
 
     return 0;
 }
