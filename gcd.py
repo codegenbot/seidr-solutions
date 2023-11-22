@@ -1,10 +1,12 @@
+import math
+import re
+
 def gcd(a, b):
-    a = abs(a)
-    b = abs(b)
-    
-    if a == 0 or b == 0:
-        return max(a, b)
-    
-    while b:
-        a, b = b, a % b
-    return a
+    return math.gcd(a, b)
+
+def indices_of_substring(text, target):
+    indices = [m.start() for m in re.finditer(target, text)]
+    return indices
+
+print(gcd(858467, 24673))
+print(indices_of_substring('Hello World!', 'o'))
