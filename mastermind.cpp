@@ -1,60 +1,43 @@
 #include <iostream>
+#include <vector>
 #include <string>
-#include <unordered_map>
-using namespace std;
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    unordered_map<char, int> frequency;
-    
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            count++;
-        }
-        else {
-            frequency[code[i]]++;
-        }
-    }
-    
-    for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i] && frequency[guess[i]] > 0) {
-            count++;
-            frequency[guess[i]]--;
-        }
-    }
-    
-    return count;
-}
+std::pair<int, int> getClue(std::string code, std::string guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
+    std::string tempCode = code;
+    std::string tempGuess = guess;
 
-int whitePegs(string code, string guess) {
-    int count = 0;
-    unordered_map<char, int> frequency;
-    
-    for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i]) {
-            frequency[code[i]]++;
+    // Count black pegs
+    for (int i = 0; i < code.length(); i++) {
+        if (tempCode[i] == tempGuess[i]) {
+            blackPegs++;
+            tempCode[i] = '-';
+            tempGuess[i] = '-';
         }
     }
-    
-    for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i] && frequency[guess[i]] > 0) {
-            count++;
-            frequency[guess[i]]--;
+
+    // Count white pegs
+    for (int i = 0; i < code.length(); i++) {
+        if (tempGuess[i] != '-') {
+            for (int j = 0; j < code.length(); j++) {
+                if (tempCode[j] == tempGuess[i]) {
+                    whitePegs++;
+                    tempCode[j] = '-';
+                    break;
+                }
+            }
         }
     }
-    
-    return count;
+
+    return std::make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    
-    int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
-    
-    cout << white << endl;
-    cout << black << endl;
-    
+    std::string code, guess;
+    std::cin >> code >> guess;
+    std::pair<int, int> clue = getClue(code, guess);
+    std::cout << clue.first << std::endl;
+    std::cout << clue.second << std::endl;
     return 0;
 }
