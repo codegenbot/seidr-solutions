@@ -2,18 +2,16 @@ def mastermind(code, guess):
     black_pegs = 0
     white_pegs = 0
     
-    code_list = list(code)
-    guess_list = list(guess)
+    code_count = collections.Counter(code)
+    guess_count = collections.Counter(guess)
     
-    for i in range(len(code_list)):
-        if code_list[i] == guess_list[i]:
+    for i in range(len(code)):
+        if code[i] == guess[i]:
             black_pegs += 1
-            code_list[i] = 'X'
-            guess_list[i] = 'X'
+            code_count[code[i]] -= 1
+            guess_count[guess[i]] -= 1
     
-    for i in range(len(code_list)):
-        if guess_list[i] != 'X' and guess_list[i] in code_list:
-            white_pegs += 1
-            code_list[code_list.index(guess_list[i])] = 'X'
+    for color in code_count:
+        white_pegs += min(code_count[color], guess_count[color])
     
     return white_pegs, black_pegs
