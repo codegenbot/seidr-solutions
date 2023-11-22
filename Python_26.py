@@ -2,14 +2,9 @@ from typing import List
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return list(dict.fromkeys(numbers))
+    return list(set(numbers))
 
-
-def get_input_numbers() -> List[int]:
-    return list(map(int, input().split()))
-
-
-print("Enter a list of numbers separated by space:")
-input_numbers = get_input_numbers()
+input_string = "1 2 3 3 4 5 5 6"
+input_numbers = list(map(int, input_string.split()))
 result = remove_duplicates(input_numbers)
 print(result)
