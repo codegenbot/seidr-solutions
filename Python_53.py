@@ -1,11 +1,12 @@
 import sys
 
+
 def add(x: int, y: int):
     return x + y
 
-# Assign values manually
-x = 5
-y = 10
+
+# Read input from user
+x, y = map(int, sys.stdin.readline().strip().split())
 
 result = add(x, y)
 print(result)
