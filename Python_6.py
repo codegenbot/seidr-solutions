@@ -1,19 +1,22 @@
 from typing import List
 
-
-def parse_nested_parens(paren_string: str) -> List[int]:
-    result = []
+def parse_nested_parens(paren_string: str) -> int:
     stack = []
-    max_nesting = -1
+    max_nesting = 0
+    total_pairs = 0
 
     for char in paren_string:
-        if char == "(":
+        if char == '(':
             stack.append(char)
             max_nesting = max(max_nesting, len(stack))
-        elif char == ")":
+        elif char == ')':
             if stack:
                 stack.pop()
-            else:
-                result.clear()
+            else:  
+                return 0
+    
+    if stack: 
+        return 0
 
-    return [max_nesting + 1] if not stack else []
+    total_pairs = len(paren_string) // 2
+    return max_nesting * total_pairs
