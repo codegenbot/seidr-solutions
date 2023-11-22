@@ -5,7 +5,7 @@ def fib4(n: int) -> int:
     a, b = 0, 1
     fib_sum = 0
 
-    while a <= n:
+    while a < n:
         if a % 2 == 0:
             fib_sum += a
         a, b = b, a + b
