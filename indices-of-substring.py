@@ -2,8 +2,13 @@ text = input()
 target = input()
 
 indices = []
-for i in range(len(text) - len(target) + 1):
-    if text[i:i+len(target)] == target:
-        indices.append(i+target.index(target[0]))
+start = 0
+
+while True:
+    found_index = text.find(target, start)
+    if found_index == -1:
+        break
+    indices.append(found_index)
+    start = found_index + 1
 
 print(*indices)
