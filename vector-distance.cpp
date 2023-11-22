@@ -4,11 +4,12 @@
 #include <iomanip>
 
 double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
-    double sum = 0;
+    double sumOfSquares = 0;
     for (int i = 0; i < vector1.size(); i++) {
-        sum += std::pow(vector2[i] - vector1[i], 2);
+        sumOfSquares += std::pow(vector1[i] - vector2[i], 2);
     }
-    return std::sqrt(sum);
+    double distance = std::sqrt(sumOfSquares);
+    return distance;
 }
 
 int main() {
