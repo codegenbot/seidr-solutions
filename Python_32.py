@@ -13,18 +13,17 @@ def find_zero(xs: list):
 
 
 # Read input from user
-n = int(input("Enter the degree of the polynomial: "))
+n = int(input())
 coefficients = []
 for i in range(n + 1):
-    coefficient = float(input(f"Enter the coefficient of x^{i}: "))
+    coefficient = float(input())
     coefficients.append(coefficient)
 
 # Call the functions
-x_value = float(input("Enter the value of x: "))
+x_value = float(input())
 result = poly(coefficients, x_value)
-print(f"The evaluated polynomial at x = {x_value} is {result}")
+print(result)
 
 zeros = find_zero(coefficients)
-print("The zeros of the polynomial are:")
 for zero in zeros:
     print(zero)
