@@ -1,12 +1,9 @@
-def decode_shift(s: str) -> str:
-    return "".join(
-        [
-            chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.islower() else ch
-            for ch in s
-        ]
-    )
+def decode_shift():
+    s = input("Enter the encoded string: ")
+    decoded_string = "".join([
+        chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() else ch
+        for ch in s
+    ])
+    print("Decoded string:", decoded_string)
 
-
-s = "gdkknvqkc"
-decoded_string = decode_shift(s)
-decoded_string
+decode_shift()
