@@ -1,21 +1,29 @@
+def cut_vector(vector):
+    total_sum = sum(vector)
+    current_sum = 0
+    for i, num in enumerate(vector):
+        current_sum += num
+        if (
+            current_sum == total_sum - current_sum
+            or current_sum + num == total_sum - current_sum
+        ):
+            return vector[: i + 1], vector[i + 1 :]
+    return vector, [0]
+
+
+# Read input from user
 vector = []
 while True:
     try:
-        line = input().strip()
-        if line == "":
-            break
-        num = int(line)
+        num = int(input())
         vector.append(num)
     except:
         break
 
-if len(vector) == 1:
-    print(vector[0])
-    print(vector[0])
-    exit()
-
-left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
+# Call the function and print the output
+subvector1, subvector2 = cut_vector(vector)
+for num in subvector1:
     print(num)
-for num in right_subvector:
+print()
+for num in subvector2:
     print(num)
