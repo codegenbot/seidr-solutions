@@ -33,6 +33,7 @@ int main() {
     for (int i : result) {
         std::cout << i << " ";
     }
+    std::cout << std::endl;
     
     return 0;
 }
