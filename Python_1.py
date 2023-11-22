@@ -14,5 +14,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 groups.append(paren_string[start:i+1])
     
     return groups
-
-input_string = "()((()))()"
