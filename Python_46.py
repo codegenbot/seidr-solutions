@@ -1,13 +1,13 @@
-def fib4(n: int):
-    if n == 0:
+def fib4(n: int) -> int:
+    if n <= 0:
         return 0
-    if n == 1:
-        return 1
+    
     a, b = 0, 1
-    total = a + b
-    fib_sum = total
-    for _ in range(2, n + 1):
+    fib_sum = 0
+    
+    while a < n:
+        if a % 2 == 0:
+            fib_sum += a
         a, b = b, a + b
-        total += b
-        fib_sum += total
+    
     return fib_sum
