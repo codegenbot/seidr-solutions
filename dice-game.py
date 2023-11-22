@@ -7,5 +7,5 @@ for i in range(1, n+1):
         if i > j:
             count += 1
 
-probability = count / (n * m)
-print(round(probability, 6))
+probability = round(count / (n * m), 8)
+print(probability)
