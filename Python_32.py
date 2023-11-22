@@ -13,8 +13,8 @@ def find_zero(xs: list):
 
 
 n = int(input())
-input_list = input().split()[:n]
-xs = [float(x) for x in input_list]
+input_list = input().split()
+xs = [float(x) for x in input_list[1:]]
 x = float(input())
 
 result_poly = poly(xs, x)
