@@ -1,12 +1,11 @@
-from typing import List
-
+import sys
 
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    return [string for string in strings if substring in string]
+start = int(input().strip())
+end = int(input().strip())
+strings = input().strip().split()
+substring = input().strip()
+return [string for string in strings if substring in string]
 
-
-strings = input().split()
-substring = input()
-
-result = filter_by_substring(strings, substring)
-print(result)
+strings = []
+print(filter_by_substring(strings))
