@@ -1,3 +1,9 @@
+def check(func):
+    paren_string = input()
+    result = func(paren_string)
+    print(result)
+
+
 def get_max_nesting(paren_string: str) -> int:
     stack = []
     max_nesting = -1
@@ -16,3 +22,5 @@ def get_max_nesting(paren_string: str) -> int:
         return -1
 
     return max_nesting
+
+check(get_max_nesting)

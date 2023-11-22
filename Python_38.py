@@ -1,9 +1,14 @@
 def decode_cyclic(s):
     groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
-    groups = [(group[-1:] + group[:-1]) if len(group) == 3 else group for group in groups]
+    groups = [
+        (group[-1:] + group[:-1]) if len(group) == 3 else group for group in groups
+    ]
     return "".join(groups)
 
+input_string = input().strip()
 
-s = input()
-output_string = decode_cyclic(s)
-print(output_string)
+if input_string:
+    output_string = decode_cyclic(input_string)
+    print(output_string)
+else:
+    print("Input not provided")
