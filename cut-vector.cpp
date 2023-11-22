@@ -4,23 +4,23 @@ using namespace std;
 
 pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int leftSum = nums[0];
+    int leftSum = 0;
     int rightSum = 0;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n - 1; i++) {
         rightSum += nums[i];
     }
 
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n - 1; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
 
         int diff = abs(leftSum - rightSum);
 
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i + 1;
         }
@@ -46,11 +46,13 @@ int main() {
     cout << result.first << endl;
 
     for (int num : result.second.first) {
-        cout << num << endl;
+        cout << num << " ";
     }
 
+    cout << endl;
+
     for (int num : result.second.second) {
-        cout << num << endl;
+        cout << num << " ";
     }
 
     return 0;
