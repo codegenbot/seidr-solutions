@@ -17,11 +17,7 @@ def cut_vector(vector):
 
     return vector[:cut_index], vector[cut_index:]
 
-
-vector = input().split()
-vector = [int(num) for num in vector]
+vector = list(map(int, input().split()))
 left, right = cut_vector(vector)
-for num in left:
-    print(num)
-for num in right:
-    print(num)
+print(*left, sep='\n')
+print(*right, sep='\n')
