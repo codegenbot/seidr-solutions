@@ -1,19 +1,14 @@
-from typing import List
-
 def parse_nested_parens(paren_string: str) -> List[int]:
-    counts = []
-    stack = []
-    for paren in paren_string.split():
-        open_count = 0
-        for char in paren:
+    count_list = []
+    for word in paren_string.split():
+        count = 0
+        open_parens = 0
+        for char in word:
             if char == '(':
-                open_count += 1
-                stack.append('(')
+                open_parens += 1
             elif char == ')':
-                if not stack:
-                    return []
-                stack.pop()
-        if stack:
-            return []
-        counts.append(open_count)
-    return counts
+                if open_parens > 0:
+                    count += 1
+                open_parens -= 1
+        count_list.append(count)
+    return count_list
