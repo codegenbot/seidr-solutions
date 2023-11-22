@@ -1,8 +1,4 @@
-def check(func):
-    paren_string = input()
-    result = func(paren_string)
-    print(result)
-
+```python
 def get_max_nesting(paren_string: str) -> int:
     stack = []
     max_nesting = -1
@@ -21,5 +17,15 @@ def get_max_nesting(paren_string: str) -> int:
         return -1
 
     return max_nesting
+
+def check(func):
+    sample_input = "((()))"
+    expected_output = 3
+
+    result = func(sample_input)
+    if result == expected_output:
+        print("Function implementation is correct!")
+    else:
+        print("Function implementation is incorrect!")
 
 check(get_max_nesting)
