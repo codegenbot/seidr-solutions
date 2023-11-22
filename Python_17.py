@@ -11,7 +11,7 @@ def parse_music(music_string: str) -> List[int]:
     return parsed_notes
 
 music_input = input()
-while not music_input or ":" not in music_input:
+while not music_input:
     print("Invalid input. Please enter a valid music string.")
     music_input = input()
 
