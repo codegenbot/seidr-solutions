@@ -1,22 +1,26 @@
 from typing import List, Tuple
+import sys
+
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     numbers.sort()
-    min_diff = float('inf')
+    min_diff = float("inf")
     closest_pair = ()
-    
-    for i in range(len(numbers)-1):
-        diff = numbers[i+1] - numbers[i]
+
+    for i in range(len(numbers) - 1):
+        diff = numbers[i + 1] - numbers[i]
         if diff < min_diff:
             min_diff = diff
-            closest_pair = (numbers[i], numbers[i+1])
-    
+            closest_pair = (numbers[i], numbers[i + 1])
+
     return closest_pair
 
-# Prompt the user to enter the numbers
-numbers_input = input("Enter the numbers (separated by spaces): ").strip().split()
-numbers = [float(x) for x in numbers_input]
 
-# Call the function and print the result
+if len(sys.argv) <= 1:
+    print("Please provide numbers as command-line arguments.")
+    sys.exit()
+
+numbers = [float(x) for x in sys.argv[1:]]
+
 result = find_closest_elements(numbers)
-print("Closest pair: ", result)
+print("Closest pair:", result)
