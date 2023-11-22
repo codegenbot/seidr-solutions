@@ -18,10 +18,7 @@ def calculate_score(bowls):
         elif bowls[i] == "/":
             score += 10 - int(bowls[i - 1])
             if frame < 10:
-                if bowls[i + 1] == "/":
-                    score += 10
-                else:
-                    score += int(bowls[i + 1])
+                score += int(bowls[i + 1])
             frame_score = 0
             spare = True
             frame += 1
@@ -50,8 +47,27 @@ def calculate_score(bowls):
                 if strike:
                     score += int(bowls[i])
                     strike = False
+
+    # Handle final frame
+    if frame == 10:
+        if spare or strike:
+            if bowls[-1] == "X":
+                score += 10
+                if bowls[-2] == "/":
+                    score += 10
+                elif bowls[-2] != "-":
+                    score += int(bowls[-2])
+                if bowls[-3] == "X":
+                    score += 10
+                elif bowls[-3] != "-":
+                    score += int(bowls[-3])
+            elif bowls[-1] == "/":
+                score += 10
+                if bowls[-2] == "X":
+                    score += 10
+                elif bowls[-2] != "-":
+                    score += int(bowls[-2])
+            else:
+                score += int(bowls[-1])
+
     return score
-
-
-bowls = input()
-print(calculate_score(bowls))
