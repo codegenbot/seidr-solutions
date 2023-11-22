@@ -8,6 +8,12 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-operations = list(map(int, input().strip().split()))
+operations = []
+while True:
+    try:
+        operations = list(map(int, input("Enter space-separated integers: ").split()))
+        break
+    except ValueError:
+        print("Invalid input. Please enter integers only.")
 
 print(below_zero(operations))
