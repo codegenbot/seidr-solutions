@@ -1,5 +1,6 @@
 from typing import List
 
+
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
@@ -13,6 +14,18 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-n = int(input("Enter an integer: "))
-result = factorize(n)
-print(result)
+
+while True:
+    try:
+        input_line = input("Enter an integer number: ")
+        if not input_line:
+            raise EOFError
+        n = int(input_line)
+        result = factorize(n)
+        print(result)
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer value.")
+    except EOFError:
+        print("No input provided. Program terminated.")
+        break
