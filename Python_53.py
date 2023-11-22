@@ -1,7 +1,7 @@
-'''python
 def add(x: int, y: int):
     return x + y
 
-result = add(int(input()), int(input()))
+x, y = map(int, input().split())
+
+result = add(x, y)
 print(result)
-'''
