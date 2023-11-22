@@ -1,15 +1,16 @@
 from typing import List
 
-def parse_nested_parens(paren_string: str) -> List[int]:
-    stack = []
-    result = []
-    for paren in paren_string:
-        if paren == "(":
-            stack.append(paren)
-        elif paren == ")":
-            if stack and stack[-1] == "(":
-                stack.pop()
-            else:
-                result.append(-1)
-        result.append(len(stack))
-    return result
+
+def parse_nested_parens(paren_strings: List[str]) -> List[int]:
+    def count_nested_parens(paren_string: str) -> int:
+        count = 0
+        max_count = 0
+        for char in paren_string:
+            if char == "(":
+                count += 1
+            elif char == ")":
+                count -= 1
+            max_count = max(max_count, count)
+        return max_count
+
+    return [count_nested_parens(paren) for paren in paren_strings]
