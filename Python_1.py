@@ -4,7 +4,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
     stack = []
     group_start = 0
-
+    
     for char in paren_string:
         if char == "(":
             stack.append(char)
