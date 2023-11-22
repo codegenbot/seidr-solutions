@@ -1,11 +1,12 @@
-def fib4(n: int):
-    a, b, c, d = 0, 1, 1, 2
-    if n == 0:
-        return a
+def fib4(n: int) -> int:
+    if n <= 0:
+        return 0
     if n == 1:
-        return b
-    if n == 2:
-        return c
-    for i in range(3, n + 1):
-        a, b, c, d = b, c, d, a + b + c
-    return d
+        return 1
+
+    prev, curr = 0, 1
+    for _ in range(2, n + 1):
+        next_val = prev + curr
+        prev, curr = curr, next_val
+
+    return curr
