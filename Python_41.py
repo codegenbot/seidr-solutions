@@ -1,4 +1,4 @@
 def car_race_collision(n: int, m: int):
     return abs(n - m)
 
-car_race_collision(5, 15)
+car_race_collision(30, 40)
