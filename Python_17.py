@@ -8,11 +8,6 @@ def parse_music(music_string: str) -> List[int]:
     ]
 
 
-try:
-    music_input = input().strip()
-    if not isinstance(music_input, str) or len(music_input) < 1 or any(char not in '|o:' for char in music_input):
-        raise ValueError
-    result = parse_music(music_input)
-    print(result)
-except ValueError:
-    print("Invalid input")
+music_input = input("Enter the music notes: ")
+result = parse_music(music_input)
+print(result)
