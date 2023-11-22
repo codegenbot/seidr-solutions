@@ -6,7 +6,9 @@ def cut_vector(vector):
     cut_index = -1
 
     if n == 1:
-        return [vector[0]], [vector[0]]
+        print(vector[0])
+        print(vector[0])
+        exit()
 
     for i in range(n):
         left_sum += vector[i]
@@ -17,7 +19,8 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i
 
-    return vector[: cut_index + 1], vector[cut_index + 1 :]
+    print(*vector[: cut_index + 1], sep='\n')
+    print(*vector[cut_index + 1 :], sep='\n')
 
 
 vector = []
@@ -33,8 +36,4 @@ if len(vector) == 1:
     print(vector[0])
     exit()
 
-left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
-    print(num)
-for num in right_subvector:
-    print(num)
+cut_vector(vector)
