@@ -1,4 +1,5 @@
 from typing import List, Tuple
+import sys
 
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
@@ -15,17 +16,8 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     return closest_pair
 
 
-try:
-    input_str = input()
+input_str = sys.stdin.readline().strip()
+numbers = list(map(float, input_str.split()))
 
-    if not input_str.strip():
-        print("No input provided")
-        exit()
-
-    numbers = list(map(float, input_str.split()))
-    result = find_closest_elements(numbers)
-    print(result)
-
-except ValueError:
-    print("Invalid input format")
-    exit()
+result = find_closest_elements(numbers)
+print(result)
