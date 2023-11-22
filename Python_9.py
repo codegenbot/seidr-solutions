@@ -1,7 +1,10 @@
-def your_function_name(input_param: input_type) -> output_type:
-    # Add your logic here
-    # Return the result
+from typing import List
 
-def function_name(input_param: List[int]) -> int:
-    # Add your logic here
-    # Return the result
+def find_max(n: int, nums: List[int]) -> int:
+    return max(nums)
+
+n = int(input())
+nums = list(map(int, input().split()))
+
+result = find_max(n, nums)
+print(result)
