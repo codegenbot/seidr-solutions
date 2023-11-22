@@ -6,6 +6,6 @@ def fix_spaces(text):
     return text
 
 
-text = input().strip()
+text = input().rstrip()
 result = fix_spaces(text)
 print(result)
