@@ -1,7 +1,5 @@
 def minPath(grid, k):
     def dfs(i, j, path):
-        if len(path) > k:
-            return None
         if len(path) == k:
             return path
         path.append(grid[i][j])
@@ -26,10 +24,14 @@ def minPath(grid, k):
         path.pop()
 
     visited = set()
+    min_path = []
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             visited.add((i, j))
             res = dfs(i, j, [grid[i][j]])
             if res is not None and len(res) == k:
                 return res
-    return []
+            elif res is not None and len(res) > len(min_path):
+                min_path = res
+            visited.remove((i, j))
+    return min_path
