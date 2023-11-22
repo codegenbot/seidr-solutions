@@ -17,7 +17,7 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
 try:
     input_str = input()
-    
+
     if not input_str.strip():
         print("No input provided")
         exit()
