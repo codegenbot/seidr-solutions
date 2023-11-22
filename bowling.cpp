@@ -1,42 +1,48 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int calculateScore(const std::string& bowls) {
+int calculateScore(string frames) {
     int score = 0;
-    int frame = 0;
-    int bowlIndex = 0;
+    int frameIndex = 0;
 
-    while (frame < 10) {
-        char bowl = bowls[bowlIndex];
-
-        if (bowl == 'X') {
+    for (int frame = 0; frame < 10; frame++) {
+        if (frames[frameIndex] == 'X') {
             score += 10;
-            if (frame < 9) {
-                score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
-                score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            if (frames[frameIndex + 2] == 'X') {
+                score += 10;
+                if (frames[frameIndex + 4] == 'X') {
+                    score += 10;
+                } else {
+                    score += frames[frameIndex + 4] - '0';
+                }
+            } else if (frames[frameIndex + 4] == '/') {
+                score += 10;
+            } else {
+                score += frames[frameIndex + 2] - '0' + frames[frameIndex + 4] - '0';
             }
-            bowlIndex++;
-        } else if (bowl == '/') {
-            score += (10 - (bowls[bowlIndex - 1] - '0'));
-            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
-            bowlIndex++;
+            frameIndex += 2;
+        } else if (frames[frameIndex + 1] == '/') {
+            score += 10;
+            if (frames[frameIndex + 2] == 'X') {
+                score += 10;
+            } else {
+                score += frames[frameIndex + 2] - '0';
+            }
+            frameIndex += 2;
         } else {
-            score += (bowl - '0');
+            score += frames[frameIndex] - '0' + frames[frameIndex + 1] - '0';
+            frameIndex += 2;
         }
-
-        bowlIndex++;
-        frame++;
     }
 
     return score;
 }
 
 int main() {
-    std::string bowls;
-    std::cin >> bowls;
-
-    int score = calculateScore(bowls);
-    std::cout << score << std::endl;
-
+    string frames;
+    cin >> frames;
+    int score = calculateScore(frames);
+    cout << score << endl;
     return 0;
 }
