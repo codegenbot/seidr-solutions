@@ -1,59 +1,51 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
-    int n = nums.size();
-    int diff = INT_MAX;
-    int index = -1;
-
-    // Calculate the total sum of the vector
-    int totalSum = 0;
-    for (int i = 0; i < n; ++i) {
-        totalSum += nums[i];
-    }
-
-    // Calculate the left sum and right sum for each possible cut index
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int leftSum = 0;
-    int rightSum = totalSum;
-    for (int i = 0; i < n; ++i) {
+    int rightSum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        rightSum += nums[i];
+    }
+    
+    int minDiff = abs(leftSum - rightSum);
+    int cutIndex = 0;
+    
+    for (int i = 0; i < nums.size(); i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
-
-        // Calculate the absolute difference between left sum and right sum
-        int currentDiff = abs(leftSum - rightSum);
-
-        // Update the minimum difference and cut index if necessary
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            index = i;
+        
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i + 1;
         }
     }
-
-    // Create the two resulting subvectors
-    vector<int> subvector1(nums.begin(), nums.begin() + index + 1);
-    vector<int> subvector2(nums.begin() + index + 1, nums.end());
-
-    return make_pair(subvector1, subvector2);
+    
+    std::vector<int> left(nums.begin(), nums.begin() + cutIndex);
+    std::vector<int> right(nums.begin() + cutIndex, nums.end());
+    
+    return std::make_pair(left, right);
 }
 
 int main() {
     int n;
-    cin >> n;
-
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    std::cin >> n;
+    
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
     }
-
-    pair<vector<int>, vector<int>> result = cutVector(nums);
-
+    
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+    
     for (int num : result.first) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
+    
     for (int num : result.second) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
-
+    
     return 0;
 }
