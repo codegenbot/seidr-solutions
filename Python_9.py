@@ -1,6 +1,2 @@
-from typing import List
-
-def your_function_name(input_param: input_type) -> output_type:
-    # Add your logic here
-
-    # Return the output
+def find_unique_elements(input_param: List[int]) -> List[int]:
+    return list(set(input_param))
