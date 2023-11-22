@@ -1,11 +1,17 @@
 from typing import List
 
-
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [string for string in strings if substring in string]
 
+strings = input().split() if input() != '' else []
+substring = input().rstrip('\r')
 
-strings = input("Enter the list of strings separated by spaces and enclosed by quotation marks: ").split()
-substring = input("Enter the substring to filter by: ")
+if not strings or not substring:
+    print("Incorrect input. Please provide both a list of strings and a substring.")
+    exit()
+
 result = filter_by_substring(strings, substring)
-print(result)
+if result:
+    print(f"The strings that contain '{substring}' are: {result}")
+else:
+    print(f"No strings contain the substring '{substring}'.")
