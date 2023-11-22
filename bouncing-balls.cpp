@@ -5,8 +5,8 @@ double calculateBouncinessIndex(double startingHeight, double firstBounceHeight)
     return firstBounceHeight / startingHeight;
 }
 
-long double calculateTotalDistance(double startingHeight, double bouncinessIndex, int numBounces) {
-    long double totalDistance = startingHeight;
+double calculateTotalDistance(double startingHeight, double bouncinessIndex, int numBounces) {
+    double totalDistance = startingHeight;
     for (int i = 0; i < numBounces; i++) {
         totalDistance += 2 * totalDistance * bouncinessIndex;
     }
@@ -20,9 +20,9 @@ int main() {
     cin >> startingHeight >> firstBounceHeight >> numBounces;
 
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
-    long double totalDistance = calculateTotalDistance(startingHeight, bouncinessIndex, numBounces);
+    double totalDistance = calculateTotalDistance(startingHeight, bouncinessIndex, numBounces);
 
-    cout << totalDistance << endl;
+    cout << fixed << totalDistance << endl;
 
     return 0;
 }
