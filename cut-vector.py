@@ -21,16 +21,17 @@ def cut_vector(vector):
 
 
 vector = []
-while True:
-    num = input()
-    if num == '':
-        break
-    vector.appenda(int(num))
-
 if len(vector) == 1:
     print(vector[0])
     print(vector[0])
     exit()
+
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except EOFError:
+        break
 
 left_subvector, right_subvector = cut_vector(vector)
 for num in left_subvector:
