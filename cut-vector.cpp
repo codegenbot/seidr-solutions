@@ -1,17 +1,20 @@
 #include <vector>
 #include <iostream>
-#include <numeric>
 using namespace std;
 
 pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int leftSum = 0;
-    int rightSum = accumulate(nums.begin() + 1, nums.end(), 0);
+    int leftSum = nums[0];
+    int rightSum = 0;
+
+    for (int i = 0; i < n; i++) {
+        rightSum += nums[i];
+    }
 
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
 
