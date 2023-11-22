@@ -7,8 +7,8 @@ def longest(strings: List[str]) -> Optional[str]:
 
 input_list = []
 while True:
-    input_str = input()
-    if input_str == "":
+    input_str = input().strip()
+    if input_str == '':
         break
     input_list.append(input_str)
 
