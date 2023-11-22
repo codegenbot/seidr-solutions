@@ -8,6 +8,6 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 
 
 input_str = input("Enter a list of numbers separated by commas: ")
-numbers = [float(num) for num in input_str.split(',')]
+numbers = [float(num) for num in input_str.split(",")]
 result = rescale_to_unit(numbers)
 print(result)
