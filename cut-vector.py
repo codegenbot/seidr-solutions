@@ -9,9 +9,8 @@ def cut_vector(vector):
         ):
             return vector[: i + 1], vector[i + 1 :]
     return vector, [0]
-  
-vector = list(map(int, input().split()))
 
+vector = list(map(int, input().split()))
 subvector1, subvector2 = cut_vector(vector)
 for num in subvector1:
     print(num)
