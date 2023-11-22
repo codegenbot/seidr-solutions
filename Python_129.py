@@ -12,7 +12,8 @@ def minPath(grid, k):
             path.extend(
                 grid[i][j] for i in range(remainder // n) for j in range(remainder % n)
             )
-        return path
+        if len(path) == k:
+            return path
 
     def dfs(i, j, path, visited):
         if len(path) == k:
@@ -47,4 +48,4 @@ def minPath(grid, k):
             res = dfs(i, j, [grid[i][j]], visited)
             if res is not None and len(res) == k:
                 return res
-    return []
+    return None
