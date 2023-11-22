@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-int getScore(string s) {
+int getScore(std::string s) {
     int score = 0;
     int frame = 1;
     int i = 0;
@@ -37,11 +36,11 @@ int getScore(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
+    std::string s;
+    std::cin >> s;
     
     int score = getScore(s);
-    cout << score << endl;
+    std::cout << score << std::endl;
     
     return 0;
 }
