@@ -13,7 +13,7 @@ def find_zero(xs: list) -> float:
 
 
 xs = [float(num) for num in input().split(",")]
-x = float(input().strip())
+x = float(input())
 
 result_poly = poly(xs, x)
 result_zero = find_zero(xs)
