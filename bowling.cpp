@@ -1,49 +1,46 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-int calculateScore(string input) {
+int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 0;
-    int rolls[21] = {0};
-
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == 'X') {
-            rolls[frame] = 10;
-            frame++;
-        } else if (input[i] == '/') {
-            rolls[frame] = 10 - rolls[frame - 1];
-            frame++;
-        } else if (input[i] == '-') {
-            rolls[frame] = 0;
-            frame++;
+    int frameCount = 0;
+    int bowlIndex = 0;
+    
+    while (frame < 10) {
+        if (bowls[bowlIndex] == 'X') {
+            score += 10;
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            frameCount++;
+            bowlIndex++;
+        } else if (bowls[bowlIndex + 1] == '/') {
+            score += 10;
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            frameCount += 2;
+            bowlIndex += 2;
         } else {
-            rolls[frame] = input[i] - '0';
-            frame++;
+            score += (bowls[bowlIndex] - '0') + (bowls[bowlIndex + 1] - '0');
+            frameCount += 2;
+            bowlIndex += 2;
+        }
+        
+        frame++;
+        if (frameCount == 20) {
+            break;
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i] == 10) {
-            score += 10 + rolls[i + 1] + rolls[i + 2];
-        } else if (rolls[i] + rolls[i + 1] == 10) {
-            score += 10 + rolls[i + 2];
-            i++;
-        } else {
-            score += rolls[i] + rolls[i + 1];
-            i++;
-        }
-    }
-
+    
     return score;
 }
 
 int main() {
-    string input;
-    cin >> input;
-
-    int score = calculateScore(input);
-    cout << score << endl;
-
+    std::string bowls;
+    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
+    std::cin >> bowls;
+    
+    int score = calculateScore(bowls);
+    std::cout << "Score: " << score << std::endl;
+    
     return 0;
 }
