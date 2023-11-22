@@ -1,25 +1,20 @@
+import math
+
 def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return a
+    return math.gcd(a, b)
 
 def indices_of_substring(text, target):
     indices = []
-    for i in range(len(text)):
+    for i in range(len(text) - len(target) + 1):
         if text[i:i+len(target)] == target:
             indices.append(i)
     return indices
 
-# Read input from user
-a = int(input())
-b = int(input())
-
-# Call gcd function and print the result
-print(gcd(a, b))
-
-# Read input from user
-text = input()
-target = input()
-
-# Call indices_of_substring function and print the result
-print(indices_of_substring(text, target))
+# Test cases
+print(gcd(1, 1))
+print(gcd(4, 400000))
+print(gcd(54, 24))
+print(gcd(4200, 3528))
+print(gcd(820000, 63550))
+print(indices_of_substring("ababab", "aba"))
+print(indices_of_substring("banana", "na"))
