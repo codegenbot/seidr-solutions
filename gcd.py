@@ -12,12 +12,10 @@ def indices_of_substring(text, target):
 
 a = int(input())
 b = int(input())
-
 result = gcd(a, b)
 print(result)
 
 text = input()
 target = input()
-
 indices_result = indices_of_substring(text, target)
 print(indices_result)
