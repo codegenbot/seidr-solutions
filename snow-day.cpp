@@ -1,10 +1,10 @@
 #include <iostream>
+#include <cmath>
 
 float calculateSnow(float hours, float snowOnGround, float snowFallRate, float snowMeltingRate) {
-    for (float i = 0.0; i < hours; i++) {
-        snowOnGround += snowFallRate;
-        snowOnGround -= snowOnGround * snowMeltingRate;
-    }
+    snowOnGround -= snowOnGround * snowMeltingRate;
+    snowOnGround += snowFallRate * hours;
+    snowOnGround *= pow(1 - snowMeltingRate, hours);
     return snowOnGround;
 }
 
