@@ -3,11 +3,7 @@ def fib4(n: int):
         return 0
     if n == 1:
         return 1
-    a, b = 0, 1
-    total = a + b
-    fib_sum = total
-    for _ in range(2, n + 1):
-        a, b = b, a + b
-        total += b
-        fib_sum += total
-    return fib_sum
+    sequence = [0, 1]
+    for i in range(2, n + 1):
+        sequence.append(sequence[i - 1] + sequence[i - 2])
+    return sequence[-1]
