@@ -4,6 +4,10 @@ def fib4(n: int):
     if n == 1:
         return 1
     a, b = 0, 1
-    for _ in range(n - 1):
+    total = a + b
+    fib_sum = total
+    for _ in range(2, n + 1):
         a, b = b, a + b
-    return b
+        total += b
+        fib_sum += total
+    return fib_sum
