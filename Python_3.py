@@ -10,6 +10,6 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 
-operations = list(map(int, input("Enter comma-separated numbers: ").split(",")))
+operations = list(map(int, input().split()))
 
 print(below_zero(operations))
