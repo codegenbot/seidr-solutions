@@ -12,7 +12,9 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 if __name__ == "__main__":
     n = int(input())
-    numbers = [int(input()) for _ in range(n)]
+    numbers = []
+    for _ in range(n):
+        numbers.append(int(input()))
     result = sum_product(numbers)
     print(result[0])
     print(result[1])
