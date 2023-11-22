@@ -1,6 +1,9 @@
-n = int(input())
-prices = list(map(float, input().split()))
-discounts = list(map(float, input().split()))
+from decimal import Decimal
 
-total_price = sum(price * (1 - discount / 100) for price, discount in zip(prices, discounts))
-print("{:.2f}".format(total_price))
+n = int(input())
+prices = list(map(Decimal, input().split()))
+discounts = list(map(Decimal, input().split()))
+
+total_price = sum(price * (Decimal('1') - discount/Decimal('100')) for price, discount in zip(prices, discounts))
+total_price = round(total_price, 2)
+print(total_price)
