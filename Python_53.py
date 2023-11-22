@@ -1,7 +1,7 @@
-def add(x: int, y: int) -> int:
-    return x + y
+def add(x: int, y: int):
+    return int(x) + int(y)
 
-x, y = map(int, input("Please enter two integers separated by space: ").split())
+x, y = input("Please enter two integers: ").split()
 
 result = add(x, y)
 print(result)
