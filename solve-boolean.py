@@ -1,7 +1,2 @@
-expression = input()
-
-# Evaluate the Boolean expression
-result = eval(expression)
-
-# Print the result
-print(result)
+def solve_boolean(expression):
+    return eval(expression.capitalize())
