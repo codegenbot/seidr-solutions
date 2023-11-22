@@ -1,42 +1,33 @@
 def cut_vector(vector):
-    def find_cut_spot(vector, n):
-        left_sum = 0
-        right_sum = sum(vector)
-        min_diff = float("inf")
-        cut_spot = 0
-
-        for i in range(n):
-            left_sum += vector[i]
-            right_sum -= vector[i]
-            diff = abs(left_sum - right_sum)
-
-            if diff < min_diff:
-                min_diff = diff
-                cut_spot = i + 1
-
-        return cut_spot
-
     n = len(vector)
-    cut_spot = find_cut_spot(vector, n)
+    min_diff = float("inf")
+    cut_index = -1
 
-    subvector_1 = vector[:cut_spot]
-    subvector_2 = vector[cut_spot:] + [0]
+    # Calculate the sum of all elements
+    total_sum = sum(vector)
 
-    return subvector_1, subvector_2
+    # Initialize left and right sums
+    left_sum = 0
+    right_sum = total_sum
 
+    # Iterate through the vector
+    for i in range(n - 1):
+        # Add current element to the left sum
+        left_sum += vector[i]
 
-# Read input from user
-vector = []
-while True:
-    try:
-        num = int(input())
-        vector.append(num)
-    except EOFError:
-        break
+        # Update right sum
+        right_sum -= vector[i]
 
-# Call the function and print the result
-subvector_1, subvector_2 = cut_vector(vector)
-for num in subvector_1:
-    print(num)
-for num in subvector_2:
-    print(num)
+        # Calculate difference between left and right sums
+        diff = abs(left_sum - right_sum)
+
+        # Check if difference is smaller than the minimum difference so far
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i + 1
+
+    # Split the vector into left and right subvectors
+    left_subvector = vector[:cut_index]
+    right_subvector = vector[cut_index:]
+
+    return left_subvector, right_subvector
