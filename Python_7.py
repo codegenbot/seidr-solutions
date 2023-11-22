@@ -5,10 +5,10 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 strings = []
 while True:
-    line = input()
-    if not line:
+    string = input()
+    if not string:
         break
-    strings.append(line)
+    strings.append(string)
 
 substring = input()
 result = filter_by_substring(strings, substring)
