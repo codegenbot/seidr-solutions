@@ -10,10 +10,15 @@ def cut_vector(vector):
             return vector[: i + 1], vector[i + 1 :]
     return vector, [0]
 
-vector = list(map(int, input().split()))
+
+vector = []
+while True:
+    num = input().strip()
+    if num == "":
+        break
+    vector.append(int(num))
+
 subvector1, subvector2 = cut_vector(vector)
-for num in subvector1:
-    print(num)
+print(*subvector1, sep="\n")
 print()
-for num in subvector2:
-    print(num)
+print(*subvector2, sep="\n")
