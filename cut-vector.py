@@ -13,4 +13,4 @@ def cut_vector(vector):
         if left_sum == right_sum or abs(left_sum - right_sum) == 1:
             return vector[: i + 1], vector[i + 1 :]
 
-    return vector, [0]
+    return vector[:1], vector[1:]
