@@ -1,11 +1,9 @@
 from typing import List
 
-
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [string for string in strings if substring in string]
 
-
-strings_input = input().split(',')
+strings_input = input().split(',') # Assuming the input strings are comma-separated
 substring = input().strip()
 
 if not strings_input or not substring:
