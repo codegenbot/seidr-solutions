@@ -10,7 +10,7 @@ def minPath(grid, k):
             path.extend(grid[i][j] for i in range(m) for j in range(n))
         if remainder > 0:
             path.extend(
-                grid[(remainder-1) // n][(remainder-1) % n]
+                grid[i][j] for i in range(remainder // n) for j in range(remainder % n)
             )
         return path
 
