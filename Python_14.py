@@ -1,16 +1,18 @@
 from typing import List
 
+
 def all_prefixes(string: str) -> List[str]:
     prefixes = []
+
     for i in range(len(string)):
-        prefixes.append(string[:i+1])
+        prefixes.append(string[: i + 1])
+
     return prefixes
 
-# Read input string from user
+
+# Read input from user
 string = input()
 
-# Get all prefixes
-prefixes = all_prefixes(string)
-
-# Print the prefixes
-print(prefixes)
+# Call the function and print the result
+result = all_prefixes(string)
+print(result)
