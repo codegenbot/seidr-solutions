@@ -12,11 +12,8 @@ def find_zero(xs: list) -> float:
     return None
 
 
-xs = [float(num) for num in input().split(", ")]
-x = float(input().strip())
-
-result_poly = poly(xs, x)
-result_zero = find_zero(xs)
+result_poly = poly([1, 2, 3], 0)
+result_zero = find_zero([1, 2, 3])
 
 print(result_poly)
 print(result_zero)
