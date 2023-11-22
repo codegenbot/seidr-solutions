@@ -20,7 +20,7 @@ int calculateScore(const std::string& rounds) {
                 score += rounds[roundIndex + 4] - '0';
         } else if (rounds[roundIndex] == '/') {
             score += 10;
-            if (rounds[roundIndex + 2] == 'X' || rounds[roundIndex + 2] == '/')
+            if (rounds[roundIndex + 2] == 'X')
                 score += 10;
             else
                 score += rounds[roundIndex + 2] - '0';
@@ -29,7 +29,7 @@ int calculateScore(const std::string& rounds) {
         }
 
         frame++;
-        roundIndex++;
+        roundIndex += 2;
     }
 
     return score;
@@ -37,10 +37,11 @@ int calculateScore(const std::string& rounds) {
 
 int main() {
     std::string rounds;
+    std::cout << "Enter the rounds: ";
     std::cin >> rounds;
 
     int score = calculateScore(rounds);
-    std::cout << score << std::endl;
+    std::cout << "Score: " << score << std::endl;
 
     return 0;
 }
