@@ -19,7 +19,6 @@ def cut_vector(vector):
 
     return vector[:cut_idx], vector[cut_idx:]
 
-
 input_str = input()
 vector = [int(num) for num in input_str.split()]
 
