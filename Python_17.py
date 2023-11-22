@@ -1,6 +1,5 @@
 from typing import List
 
-
 def parse_music(music_string: str) -> List[int]:
     notes = music_string.split(":")
     parsed_notes = []
@@ -12,7 +11,6 @@ def parse_music(music_string: str) -> List[int]:
         else:
             return []
     return parsed_notes
-
 
 music_input = input()
 while not music_input:
