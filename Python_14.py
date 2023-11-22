@@ -1,7 +1,7 @@
 from typing import List
 
-def all_prefixes(string: str) -> List[str]:
-    return [string[:i+1] for i in range(len(string))]
+def all_prefixes(strings: List[str]) -> List[List[str]]:
+    return [[word[:i+1] for i in range(len(word))] for word in strings]
 
-string = input('Enter a string: ')
-print(all_prefixes(string))
+strings = input().strip().split(',')
+print(all_prefixes(strings))
