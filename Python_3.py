@@ -1,5 +1,5 @@
 from typing import List
-
+import sys
 
 def below_zero(operations: List[int]) -> bool:
     balance = 0
@@ -9,7 +9,6 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-
-operations = [-1, -2, 3, 4, -5]  # Replace this line with your sample test input
+operations = list(map(int, sys.argv[1:]))
 
 print(below_zero(operations))
