@@ -8,5 +8,5 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-# operations = [1, 2, -3]
-# print(below_zero(operations))
+operations = [1, 2, -3]
+print(below_zero(operations))
