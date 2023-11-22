@@ -1,4 +1,8 @@
-def parse_nested_parens(paren_string: str) -> int:
+from typing import List
+
+
+def parse_nested_parens(paren_string: str) -> List[int]:
+    result = []
     stack = []
     max_nesting = 0
 
@@ -15,4 +19,5 @@ def parse_nested_parens(paren_string: str) -> int:
     if stack:
         return []
 
-    return max_nesting
+    result.append(max_nesting)
+    return result
