@@ -1,12 +1,11 @@
 import math
 
 
-def poly(xs: list, x: float) -> float:
+def poly(xs: list, x: float):
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
 
-def find_zero():
-    xs = list(map(float, input().split()))
+def find_zero(xs: list):
     zeros = []
     for i in range(len(xs) - 1):
         zeros.append(-xs[i] / xs[i+1])
@@ -14,14 +13,17 @@ def find_zero():
 
 
 # Read input from user
-task_type = input()
+n = int(input())
+coefficients = []
+for i in range(n + 1):
+    coefficient = float(input())
+    coefficients.append(coefficient)
 
-if task_type == "poly":
-    xs = list(map(float, input().split()))
-    x = float(input())
-    result = poly(xs, x)
-elif task_type == "find_zero":
-    result = find_zero()
-
-# Print the result
+# Call the functions
+x_value = float(input())
+result = poly(coefficients, x_value)
 print(result)
+
+zeros = find_zero(coefficients)
+for zero in zeros:
+    print(zero)
