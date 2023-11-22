@@ -6,14 +6,13 @@ def poly(xs: list, x: float) -> float:
 
 
 def find_zero(xs: list) -> float:
-    for x in xs:
-        if x == 0:
-            return x
+    if 0 in xs:
+        return 0
     return None
 
 
-xs = [float(num) for num in input("Enter the list of coefficients (space-separated values): ").split()]
-x = float(input("Enter the value of x: ").strip())
+xs = [float(num) for num in input("Enter the coefficients of the polynomial separated by spaces: ").split()]
+x = float(input("Enter the value of x: "))
 
 result_poly = poly(xs, x)
 result_zero = find_zero(xs)

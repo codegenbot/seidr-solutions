@@ -1,18 +1,13 @@
 from typing import List, Optional
 
-
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
     return max(strings, key=len)
 
-
 input_list = []
-while True:
-    input_str = input()
-    if input_str == "":
-        break
-    input_list.append(input_str)
+for line in iter(input, ''):
+    input_list.append(line)
 
 result = longest(input_list)
 print(result)
