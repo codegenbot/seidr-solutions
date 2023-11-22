@@ -8,7 +8,6 @@ def cut_vector(vector):
             return vector[: i + 1], vector[i + 1 :]
     return vector, [0]
 
-
 vector = list(map(int, input().split()))
 
 result1, result2 = cut_vector(vector)
