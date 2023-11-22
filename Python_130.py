@@ -8,6 +8,6 @@ def tri(n):
         return sequence
     else:
         for i in range(1, n):
-            sequence.append(sequence[i-1] + sequence[i-2])
+            sequence.append(sequence[i-1] + sequence[i] // 2)
 
-    return sequence[:n+1]
+    return sequence[:n]
