@@ -1,19 +1,25 @@
 def cut_vector(vector):
-    n = len(vector)
-    if n < 2:
+    if len(vector) == 1:
         return vector, [0]
 
     total_sum = sum(vector)
     left_sum = 0
     right_sum = total_sum
 
-    for i in range(0, n - 1):
+    for i in range(len(vector)):
         left_sum += vector[i]
         right_sum -= vector[i]
 
-        if left_sum == right_sum or abs(left_sum - right_sum) <= abs(
-            left_sum - right_sum - vector[i + 1]
-        ):
+        if left_sum == right_sum or abs(left_sum - right_sum) == 1:
             return vector[: i + 1], vector[i + 1 :]
 
     return vector, [0]
+
+
+# read input vector from user
+vector = list(map(int, input().split()))
+
+# call the function and print the result
+left_subvector, right_subvector = cut_vector(vector)
+print(*left_subvector)
+print(*right_subvector)
