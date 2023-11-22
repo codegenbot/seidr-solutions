@@ -1,2 +1,2 @@
-expr = input().replace("t", "T").replace("f", "F")
+expr = input().upper()
 print(eval(expr))
