@@ -1,12 +1,10 @@
 from typing import List
 
-
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [string for string in strings if substring.lower() in string.lower()]
 
-
-strings = input().split()
-substring = input()
+strings = input("Enter a list of strings separated by spaces: ").split()
+substring = input("Enter the substring: ")
 
 filtered_strings = filter_by_substring(strings, substring)
 print(filtered_strings)
