@@ -1,11 +1,11 @@
-def decode_shift(s: str):
+def decode_shift(s: str) -> str:
     return "".join(
         [
-            chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() else ch
+            chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() else ch
             for ch in s
         ]
     )
 
-s = input()
+s = "gdkknvqkc"
 decoded_string = decode_shift(s)
-print(decoded_string)
+decoded_string
