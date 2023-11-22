@@ -1,4 +1,4 @@
-def parse_nested_parens(paren_string: str) -> int:
+def get_max_nesting(paren_string: str) -> int:
     stack = []
     max_nesting = -1
 
@@ -16,3 +16,5 @@ def parse_nested_parens(paren_string: str) -> int:
         return -1
 
     return max_nesting
+
+check(get_max_nesting)
