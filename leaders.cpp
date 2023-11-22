@@ -27,7 +27,6 @@ int main() {
     }
 
     std::vector<int> result = findLeaders(nums);
-
     std::cout << result.size() << std::endl;
     for (int i = 0; i < result.size(); i++) {
         std::cout << result[i] << " ";
