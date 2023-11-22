@@ -1,45 +1,35 @@
-def calculate_score(bowls):
-    score = 0
-    frame = 1
-    bowl_index = 0
-
-    while frame <= 10:
-        if bowls[bowl_index] == 'X':
-            score += 10
-            if frame < 10:
-                score += get_strike_bonus(bowls, bowl_index)
-            bowl_index += 1
-        elif bowls[bowl_index+1] == '/':
-            score += 10
-            if frame < 10:
-                score += get_spare_bonus(bowls, bowl_index)
-            bowl_index += 2
+def bowling(score):
+    frames = []
+    frame = []
+    for char in score:
+        if char == "X":
+            frame.append(10)
+            frames.append(frame)
+            frame = []
+        elif char == "/":
+            frame.append(10 - frame[0])
+            frames.append(frame)
+            frame = []
+        elif char == "-":
+            frame.append(0)
         else:
-            score += int(bowls[bowl_index]) + int(bowls[bowl_index+1])
-            bowl_index += 2
-
-        frame += 1
-
-    return score
-
-
-def get_strike_bonus(bowls, bowl_index):
-    if bowls[bowl_index+2] == 'X':
-        return 10
-    elif bowls[bowl_index+2] == '/':
-        return 10 - int(bowls[bowl_index+1])
-    else:
-        return int(bowls[bowl_index+2])
-
-
-def get_spare_bonus(bowls, bowl_index):
-    if bowls[bowl_index+2] == 'X':
-        return 10
-    else:
-        return int(bowls[bowl_index+2])
-
-
-# Read input from user
-bowls = input("Enter the individual bowls: ")
-score = calculate_score(bowls)
-print("The score of the round is:", score)
+            frame.append(int(char))
+            if len(frame) == 2:
+                frames.append(frame)
+                frame = []
+    
+    total_score = 0
+    for i in range(len(frames)):
+        frame = frames[i]
+        total_score += sum(frame)
+        
+        if i < 9:
+            if frame[0] == 10:
+                if frames[i+1][0] == 10:
+                    total_score += frames[i+1][0] + frames[i+2][0]
+                else:
+                    total_score += sum(frames[i+1])
+            elif sum(frame) == 10:
+                total_score += frames[i+1][0]
+    
+    return total_score
