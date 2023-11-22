@@ -1,18 +1,17 @@
-def find_leaders(nums):
+def find_leaders(numbers):
     leaders = []
-    max_num = float('-inf')
-    for num in nums[::-1]:
-        if num >= max_num:
-            leaders.append(num)
-            max_num = num
+    max_num = -1
+    for i in range(len(numbers)-1, -1, -1):
+        if numbers[i] >= max_num:
+            leaders.append(numbers[i])
+            max_num = numbers[i]
     return leaders
 
 n = int(input())
-nums = []
+numbers = []
 for _ in range(n):
-    nums.append(int(input()))
+    numbers.append(int(input()))
 
-result = find_leaders(nums)
-print(len(result))
+result = find_leaders(numbers)
 for num in result:
     print(num)
