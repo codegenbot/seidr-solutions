@@ -20,7 +20,7 @@ pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
 
         int diff = abs(leftSum - rightSum);
 
-        if (diff < minDiff) { // Changed the condition to diff < minDiff
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i + 1;
         }
