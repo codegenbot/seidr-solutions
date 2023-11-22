@@ -2,7 +2,7 @@ def encode(message):
     encoded_message = ""
     for char in message:
         if char.isalpha() or char.isspace():
-            if char.lower() not in ['a', 'e', 'i', 'o', 'u']:
+            if char.lower() in ['a', 'e', 'i', 'o', 'u'] or char.upper() in ['A', 'E', 'I', 'O', 'U']:
                 encoded_message += char.upper()
             else:
                 encoded_message += char.lower()
