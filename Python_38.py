@@ -1,3 +1,5 @@
+import sys
+
 def decode_cyclic(s):
     groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
     groups = [
@@ -5,6 +7,5 @@ def decode_cyclic(s):
     ]
     return "".join(groups)
 
-
-output_string = decode_cyclic("1234567890")
+output_string = decode_cyclic(sys.stdin.readline().strip())
 print(output_string)
