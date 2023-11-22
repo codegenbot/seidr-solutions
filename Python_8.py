@@ -8,7 +8,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product *= num
     return (sum_val, product)
 
-input_numbers = input("Enter numbers separated by commas: ")
-numbers = [int(num) for num in input_numbers.split(",")]
+input_numbers = input("Enter numbers separated by space: ")
+numbers = [int(num) for num in input_numbers.split()]
 result = sum_product(numbers)
 print(result)
