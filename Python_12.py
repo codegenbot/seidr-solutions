@@ -1,5 +1,3 @@
-strings = input().split()
-
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -7,4 +5,12 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-longest(strings)
+input_list = []
+while True:
+    input_str = input()
+    if not input_str:
+        break
+    input_list.append(input_str)
+
+result = longest(input_list)
+print(result)
