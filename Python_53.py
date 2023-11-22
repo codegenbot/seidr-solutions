@@ -1,8 +1,7 @@
 def add(x: int, y: int):
     return x + y
 
-input_values = input()
-x, y = map(int, input_values.split())
+x, y = map(int, input().split())
 
 result = add(x, y)
 print(result)
