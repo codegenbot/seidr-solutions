@@ -6,8 +6,9 @@ def poly(xs: list, x: float) -> float:
 
 
 def find_zero(xs: list) -> float:
-    if 0 in xs:
-        return 0
+    for x in xs:
+        if math.isclose(x, 0):
+            return x
     return None
 
 
