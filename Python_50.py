@@ -1,6 +1,5 @@
 import sys
 
-
 def decode_shift(s: str) -> str:
     return "".join(
         [
@@ -10,7 +9,6 @@ def decode_shift(s: str) -> str:
             for ch in s
         ]
     )
-
 
 input_str = sys.stdin.readline().strip()
 decoded_str = decode_shift(input_str)
