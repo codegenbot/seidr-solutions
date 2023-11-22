@@ -1,21 +1,26 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-using namespace std;
 
-string squareDigits(int num) {
-    string result = "";
-    while (num > 0) {
-        int digit = num % 10;
-        result = to_string(pow(digit, 2)) + result;
-        num /= 10;
+std::string squareDigits(int num) {
+    std::string result = "";
+    std::string numStr = std::to_string(num);
+    
+    for (char digit : numStr) {
+        int square = pow(digit - '0', 2);
+        result += std::to_string(square);
     }
+    
     return result;
 }
 
 int main() {
     int num;
-    cin >> num;
-    cout << squareDigits(num) << endl;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> num;
+    
+    std::string result = squareDigits(num);
+    std::cout << "Output: " << result << std::endl;
+    
     return 0;
 }
