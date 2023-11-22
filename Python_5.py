@@ -5,12 +5,12 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     result = []
     for i in range(len(numbers)):
         result.append(numbers[i])
-        if i != len(numbers) - 1:
-            result.append(delimiter)
-    return result
+        result.append(delimiter)
+    return result[:-1]
 
 
-numbers = [1, 2, 3, 4]
-delimiter = 0
+numbers = input().split()
+numbers = [int(num) for num in numbers]
+delimiter = int(input())
 
 print(intersperse(numbers, delimiter))
