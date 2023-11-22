@@ -1,5 +1,7 @@
 def minPath(grid, k):
     def dfs(i, j, path):
+        if len(path) == k:
+            return path
         if len(path) > k:
             return None
         path.append(grid[i][j])
