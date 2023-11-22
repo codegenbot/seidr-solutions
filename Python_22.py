@@ -1,14 +1,6 @@
 from typing import List, Any
 
 
-def filter_integers(values: List[Any]) -> List[int]:
-    return [x for x in values if isinstance(x, int)]
-
-
-values = input("Enter the values separated by space: ").split()
-
-values = [int(x) for x in values]
-
-result = filter_integers(values)
-
-print(result)
+def filter_integers() -> List[int]:
+    values = input().split()
+    return [int(x) for x in values if x.isdigit()]
