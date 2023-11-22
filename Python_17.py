@@ -1,22 +1,17 @@
-def parse_music(music_string: str) -> List[int]:
-    notes = music_string.split(":")
-    parsed_notes = []
-    for note in notes:
-        if "o|" in note:
-            parsed_notes.append(4)
-        elif "o" in note:
-            parsed_notes.append(2)
-        else:
-            return []
-    return parsed_notes
+from typing import List
 
-music_input = input()
-while not music_input:
+
+def parse_music(music_string: str) -> List[int]:
+    return [
+        4 if "o|" in note else 2 if "o" in note else 1
+        for note in music_string.split(":")
+    ]
+
+
+music_input = input("Enter a music string: ")
+while ":" not in music_input:
     print("Invalid input. Please enter a valid music string.")
-    music_input = input()
+    music_input = input("Enter a music string: ")
 
 result = parse_music(music_input)
-if result:
-    print(result)
-else:
-    print("Invalid music string.")
+print(result)
