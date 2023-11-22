@@ -1,24 +1,22 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string substitutionCipher(string cipher1, string cipher2, string message) {
-    string decipheredMessage = "";
-    
+std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::string decipheredMessage;
     for (char c : message) {
-        int index = cipher2.find(c);
-        decipheredMessage += cipher1[index];
+        size_t index = cipher1.find(c);
+        if (index != std::string::npos) {
+            decipheredMessage += cipher2[index];
+        } else {
+            decipheredMessage += c;
+        }
     }
-    
     return decipheredMessage;
 }
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    
-    string decipheredMessage = substitutionCipher(cipher1, cipher2, message);
-    cout << decipheredMessage << endl;
-    
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }
