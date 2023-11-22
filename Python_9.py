@@ -1,7 +1,8 @@
 from typing import List
 
 def find_max(n: int, nums: List[int]) -> int:
-    return max(nums)
+    # Your code here
+    pass
 
 n = int(input())
 nums = list(map(int, input().split()))
