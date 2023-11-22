@@ -1,8 +1,8 @@
-def fuel_cost(vector):
-    return sum([(x//3)-2 for x in vector])
+import math
 
-input_list = []
-for line in sys.stdin:
-    input_list.append(int(line))
-    
-print(fuel_cost(input_list))
+def fuel_cost(vector):
+    result = 0
+    for num in vector:
+        new_num = math.floor(num/3) - 2
+        result += new_num
+    return result
