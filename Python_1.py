@@ -10,3 +10,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             result.append(group)
             group = ""
     return result
+
+input_string = input()
+output = separate_paren_groups(input_string)
+print(output)
