@@ -1,4 +1,4 @@
-import sys
+import sys 
 
 def cut_vector(vector):
     n = len(vector)
@@ -22,6 +22,7 @@ def cut_vector(vector):
     return vector[: cut_index + 1], vector[cut_index + 1 :]
 
 lines = sys.stdin.readlines()
+
 vector = [int(line.strip()) for line in lines]
 
 if len(vector) == 1:
@@ -33,5 +34,6 @@ left_subvector, right_subvector = cut_vector(vector)
 
 for num in left_subvector:
     print(num)
+
 for num in right_subvector:
     print(num)
