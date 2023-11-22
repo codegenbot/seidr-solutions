@@ -8,6 +8,6 @@ def fib4(n: int):
     fib_sum = total
     for _ in range(2, n + 1):
         a, b = b, a + b
-        fib_sum += b
         total += b
+        fib_sum += total
     return fib_sum
