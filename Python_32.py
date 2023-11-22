@@ -8,7 +8,7 @@ def find_zero(xs: list):
         if x == 0:
             return x
     return None
-  
+
 n = int(input())
 coefficients = list(map(float, input().split()))
 x_value = float(input())
@@ -16,5 +16,5 @@ x_value = float(input())
 result_poly = poly(coefficients, x_value)
 result_zero = find_zero(coefficients)
 
-print("Result of poly:", result_poly)
-print("Result of find_zero:", result_zero)
+print(result_poly)
+print(result_zero)
