@@ -10,6 +10,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return (sum_val, product)
 
 
-numbers = list(map(int, input().split()))
+input_numbers = input().split()
+numbers = list(map(int, input_numbers))
 result = sum_product(numbers)
 print(result)
