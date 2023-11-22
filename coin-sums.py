@@ -7,7 +7,3 @@ def coin_sums(cents):
     cents %= 5
     pennies = cents
     return quarters, dimes, nickels, pennies
-
-cents = int(input())
-result = coin_sums(cents)
-print(*result)
