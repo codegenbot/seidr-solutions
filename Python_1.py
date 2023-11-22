@@ -1,4 +1,4 @@
-def separate_paren_groups(paren_string: str):
+def separate_paren_groups(paren_string: str) -> List[str]:
     open_count = close_count = 0
     result = []
     curr_string = ""
