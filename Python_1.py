@@ -1,16 +1,23 @@
 from typing import List
 
-def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = paren_string.replace(" ", "")
-    result = []
-    group = ""
-    for char in paren_string:
-        group += char
-        if char == ")":
-            result.append(group)
-            group = ""
-    return result
 
-input_string = "((a(b(c)))(d)e)"
+def separate_paren_groups(paren_string: str) -> List[str]:
+    groups = []
+    stack = []
+    group_start = 0
+
+    for i, char in enumerate(paren_string):
+        if char == "(":
+            stack.append(i)
+        elif char == ")":
+            if stack:
+                start = stack.pop()
+                groups.append(paren_string[start : i + 1])
+
+    return groups
+
+
+input_string = "()((()))()"  # Hardcoded test input string
+
 output = separate_paren_groups(input_string)
 print(output)
