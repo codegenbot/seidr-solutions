@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 def below_zero(operations: List[int]) -> bool:
@@ -8,12 +9,6 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-operations = []
-
-try:
-    operations = list(map(int, input("Enter space-separated integers: ").split()))
-except ValueError:
-    print("Invalid input. Please enter integers only.")
-    exit(1)
+operations = list(map(int, sys.argv[1:]))
 
 print(below_zero(operations))
