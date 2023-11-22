@@ -3,21 +3,19 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    counter = 0
+    stack = []
     max_nesting = 0
 
     for char in paren_string:
         if char == "(":
-            counter += 1
-            max_nesting = max(max_nesting, counter)
+            stack.append(char)
+            max_nesting = max(max_nesting, len(stack))
         elif char == ")":
-            if counter > 0:
-                counter -= 1
+            if stack:
+                stack.pop()
             else:
                 return []
-    
-    if counter > 0:
-        return []
 
-    result.append(max_nesting)
+        result.append(max_nesting)
+
     return result
