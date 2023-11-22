@@ -1,3 +1,6 @@
+from typing import List
+
+
 def get_input() -> (List[int], int):
     numbers = list(map(int, input().split()))
     delimiter = int(input())
