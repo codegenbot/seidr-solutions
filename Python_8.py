@@ -7,6 +7,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return (sum_val, product)
 
 
-numbers = [1, 2, 3, 4, 5]  # Example input, modify as per your requirements
+numbers = [5, 8, 13, 21, 34]  # Modify the numbers as per your requirements
 result = sum_product(numbers)
 print(result)
