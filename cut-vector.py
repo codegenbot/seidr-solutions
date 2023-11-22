@@ -1,6 +1,6 @@
 def cut_vector(vector):
     if len(vector) == 1:
-        return vector[:1], vector[1:]
+        return vector, []
 
     total_sum = sum(vector)
     left_sum = 0
@@ -13,10 +13,10 @@ def cut_vector(vector):
         if left_sum == right_sum or abs(left_sum - right_sum) == 1:
             return vector[: i + 1], vector[i + 1 :]
 
-    return vector[:1], vector[1:]
+    return vector, []
+
 
 vector = list(map(int, input().split()))
-
 left_subvector, right_subvector = cut_vector(vector)
 print(*left_subvector)
-print(*right_subvector)
+print(*right_subvector, sep="\n")
