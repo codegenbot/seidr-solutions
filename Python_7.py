@@ -1,7 +1,9 @@
 from typing import List
 
+
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [string for string in strings if substring in string]
+
 
 num_strings = int(input("Enter the number of strings: "))
 strings_input = [input("Enter a string: ") for _ in range(num_strings)]
