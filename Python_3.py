@@ -2,8 +2,7 @@ def below_zero() -> bool:
     n = int(input())
     operations = []
     for _ in range(n):
-        operation = int(input())
-        operations.append(operation)
+        operations.append(int(input()))
 
     balance = 0
     for operation in operations:
