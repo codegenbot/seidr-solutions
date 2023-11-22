@@ -40,7 +40,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-
+    
     pair<int, pair<vector<int>, vector<int>>> result = cutVector(nums);
 
     cout << result.first << endl;
