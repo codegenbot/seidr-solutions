@@ -15,6 +15,15 @@ def factorize(n: int) -> List[int]:
     return factors
 
 
-n = int(input())
+while True:
+    input_line = input("Enter an integer: ")
+    try:
+        n = int(input_line)
+        if n <= 0:
+            raise ValueError
+        break
+    except ValueError:
+        print("Please input a valid positive integer value!")
+
 result = factorize(n)
 print(result)
