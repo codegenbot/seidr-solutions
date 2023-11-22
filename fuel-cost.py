@@ -1,10 +1,9 @@
-def fuel_cost():
-    n = int(input())
-    cost = 0
-    for _ in range(n):
-        num = int(input())
-        new_num = num // 3 - 2
-        cost += new_num
-    return cost
+def fuel_cost(nums):
+    return sum([x // 3 - 2 for x in nums])
 
-print(fuel_cost())
+
+# Read input from user
+nums = [int(input()) for _ in range(int(input()))]
+
+# Call the function and print the result
+print(fuel_cost(nums))
