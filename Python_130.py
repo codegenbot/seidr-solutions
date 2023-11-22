@@ -6,6 +6,7 @@ def tri(n):
         sequence.append(1 + sequence[0] // 2)
         return sequence
     else:
-        for i in range(1, n):
-            sequence.append(sequence[i] + sequence[i - 1] // 2)
+        for i in range(2, n+1):
+            term = 1 + sequence[i-1] // 2
+            sequence.append(term)
         return sequence
