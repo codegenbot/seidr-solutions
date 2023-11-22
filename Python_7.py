@@ -1,12 +1,10 @@
 from typing import List
 
-
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [string for string in strings if substring in string]
 
-
-strings_input = input().split(",") if input() else []
-strings = strings_input
+strings_input = input("Enter a list of strings (separated by space): ").split()
+strings = strings_input if strings_input else []
 substring = input().strip()
 
 if not strings or not substring:
