@@ -1,2 +1,2 @@
-def solve_boolean(expr):
-    return eval(expr.replace('T', 'True').replace('F', 'False'))
+def solve_boolean(expression):
+    return eval(expression)
