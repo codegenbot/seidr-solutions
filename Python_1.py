@@ -1,7 +1,6 @@
-from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
-    result = [paren_string]
-    while any("(" in group and ")" in group for group in result):
-        result = [group.replace(")(", ") (") for group in result]
+    result = paren_string.split(")(")
+    if len(result) > 1:
+        result[0] += ")"
+        result[-1] = "(" + result[-1]
     return result
