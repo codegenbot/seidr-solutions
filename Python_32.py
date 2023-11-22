@@ -11,7 +11,6 @@ def find_zero(xs: list) -> float:
     return None
 
 
-# Fix the code to read input from the user
 xs = [float(num) for num in input("Enter the coefficients of the polynomial separated by spaces: ").split()]
 x = float(input("Enter the value of x: "))
 
