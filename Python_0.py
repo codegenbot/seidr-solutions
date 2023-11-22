@@ -7,8 +7,12 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
             if abs(numbers[i] - numbers[j]) < threshold:
                 return True
     return False
+              
+def solve():
+    numbers = list(map(float, input().split()))
+    threshold = float(input())
+    result = has_close_elements(numbers, threshold)
+    print(result)
 
 
-numbers = list(map(float, input().split()))
-threshold = float(input())
-print(has_close_elements(numbers, threshold))
+solve()
