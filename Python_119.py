@@ -3,8 +3,10 @@ def match_parens(lst):
     for char in lst:
         if char == "(":
             stack.append(char)
-        else:
-            if not stack or stack.pop() != "(":
+        elif char == ")":
+            if stack and stack[-1] == "(":
+                stack.pop()
+            else:
                 return "No"
     if not stack:
         return "Yes"
