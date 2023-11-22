@@ -1,16 +1,21 @@
-target = int(input())
-n = int(input())
-arr = list(map(int, input().split()))
-
-def find_pair(arr, target):
+def find_pair(nums, target):
     seen = {}
-    for num in arr:
+    for num in nums:
         complement = target - num
         if complement in seen:
             return complement, num
         seen[num] = True
     return None
 
-result = find_pair(arr, target)
-print(result[0])
-print(result[1])
+
+# Read the input
+n = int(input())
+nums = list(map(int, input().split()))
+target = int(input())
+
+# Find the pair
+pair = find_pair(nums, target)
+
+# Print the result
+print(pair[0])
+print(pair[1])
