@@ -10,15 +10,12 @@ def find_zero(xs: list) -> float:
     else:
         return None
 
-# Read input from user
 n = int(input())
 coefficients = list(map(float, input().split()))
 x = float(input())
 
-# Call the functions with the input
 result_poly = poly(coefficients, x)
 result_find_zero = find_zero(coefficients)
 
-# Print the results
 print(result_poly)
 print(result_find_zero)
