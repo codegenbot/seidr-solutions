@@ -7,11 +7,9 @@ def basement(arr):
     return -1
 
 
-# Read input from user
 n = int(input())
 arr = []
 for _ in range(n):
     arr.append(int(input()))
 
-# Call the basement function and print the result
 print(basement(arr))
