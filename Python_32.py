@@ -23,4 +23,4 @@ if __name__ == "__main__":
         result = find_zero(input_list)
         print(result)
     except ValueError:
-        print("Invalid input")
+        print("Invalid input.")
