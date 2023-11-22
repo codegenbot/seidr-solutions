@@ -6,6 +6,8 @@ def calculate_bowling_score(bowls):
             frames.append(10)
         elif bowls[i] == '/':
             frames.append(10 - frames[-1])
+        elif bowls[i] == '-':
+            frames.append(0)
         else:
             frames.append(int(bowls[i]))
         i += 1
