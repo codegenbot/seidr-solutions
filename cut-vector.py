@@ -5,6 +5,9 @@ def cut_vector(vector):
     min_diff = float("inf")
     cut_index = -1
 
+    if n == 1:
+        return [vector[0]], [vector[0]]
+
     for i in range(n):
         left_sum += vector[i]
         right_sum = total_sum - left_sum
@@ -18,14 +21,21 @@ def cut_vector(vector):
 
 
 vector = []
-while True:
-    try:
+try:
+    while True:
         num = int(input())
         vector.append(num)
-    except:
-        break
+except EOFError:
+    pass
+
+if len(vector) <= 2:
+    for num in vector:
+        print(num)
+        print(num)
+    exit()
 
 left_subvector, right_subvector = cut_vector(vector)
-
-print(*left_subvector, sep="\n")
-print(*right_subvector, sep="\n")
+for num in left_subvector:
+    print(num)
+for num in right_subvector:
+    print(num)
