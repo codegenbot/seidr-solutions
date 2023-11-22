@@ -1,33 +1,31 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <climits>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
-    int n = input.size();
-    int minDiff = INT_MAX;
+std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>& nums) {
+    int n = nums.size();
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
+
+    int target = sum / 2;
+    int currSum = 0;
+    int diff = INT_MAX;
     int cutIndex = -1;
 
-    // Calculate the sum of all elements in the vector
-    int totalSum = 0;
     for (int i = 0; i < n; i++) {
-        totalSum += input[i];
-    }
+        currSum += nums[i];
+        int currDiff = abs(target - currSum);
 
-    // Calculate the difference between the sum of elements on the left and right side of the cut
-    int leftSum = 0;
-    for (int i = 0; i < n; i++) {
-        int rightSum = totalSum - leftSum;
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
+        if (currDiff < diff) {
+            diff = currDiff;
             cutIndex = i;
         }
-        leftSum += input[i];
     }
 
-    // Create the two resulting subvectors
-    std::vector<int> subvector1(input.begin(), input.begin() + cutIndex + 1);
-    std::vector<int> subvector2(input.begin() + cutIndex + 1, input.end());
+    std::vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
+    std::vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
 
     return std::make_pair(subvector1, subvector2);
 }
@@ -36,18 +34,18 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> input(n);
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> input[i];
+        std::cin >> nums[i];
     }
 
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(input);
+    std::pair<std::vector<int>, std::vector<int>> result = cut_vector(nums);
 
-    for (int i = 0; i < result.first.size(); i++) {
-        std::cout << result.first[i] << std::endl;
+    for (int num : result.first) {
+        std::cout << num << std::endl;
     }
-    for (int i = 0; i < result.second.size(); i++) {
-        std::cout << result.second[i] << std::endl;
+    for (int num : result.second) {
+        std::cout << num << std::endl;
     }
 
     return 0;
