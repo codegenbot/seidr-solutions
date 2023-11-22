@@ -1,4 +1,5 @@
 from typing import List
+import sys
 
 
 def below_zero(operations: List[int]) -> bool:
