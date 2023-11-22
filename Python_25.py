@@ -1,5 +1,6 @@
 from typing import List
 
+
 def factorize(n: int) -> List[int]:
     factors = []
     d = 2
@@ -13,11 +14,7 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-# Prompt user for input
-n = int(input("Enter a number to factorize: "))
 
-# Call the factorize function with user input
+n = int(input())
 result = factorize(n)
-
-# Print the factors
-print("Factors:", result)
+print(result)
