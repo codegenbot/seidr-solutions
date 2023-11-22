@@ -7,7 +7,7 @@ pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     int leftSum = nums[0];
     int rightSum = 0;
 
-    for (int i = 1; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         rightSum += nums[i];
     }
 
@@ -20,7 +20,7 @@ pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
 
         int diff = abs(leftSum - rightSum);
 
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i + 1;
         }
