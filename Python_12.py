@@ -7,12 +7,7 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 
-input_list = []
-while True:
-    input_str = input()
-    if input_str == "":
-        break
-    input_list.append(input_str)
+input_list = list(iter(input, ""))
 
 result = longest(input_list)
 print(result)
