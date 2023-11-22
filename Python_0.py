@@ -7,9 +7,13 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
                 return True
     return False
 
-if __name__ == "__main__":
-    numbers = list(map(float, input().split()))
-    threshold = float(input())
-    
-    result = has_close_elements(numbers, threshold)
-    print(result)
+n = int(input())
+numbers = []
+for _ in range(n):
+    num = float(input())
+    numbers.append(num)
+threshold = float(input())
+
+result = has_close_elements(numbers, threshold)
+
+print(result)
