@@ -3,12 +3,13 @@ from typing import List
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [string for string in strings if substring in string]
 
-num_strings = int(input("Please enter the number of strings: "))
+num_strings = int(input("Enter the number of strings: "))
 strings = []
 for _ in range(num_strings):
-    strings.append(input("Please enter a string: "))
+    string = input("Enter a string: ")
+    strings.append(string)
 
-substring = input("Please enter the substring to filter by: ")
+substring = input("Enter the substring: ")
 
 if not strings or not substring:
     print("Incorrect input. Please provide both a list of strings and a substring.")
