@@ -10,7 +10,7 @@ def parse_music(music_string: str) -> List[int]:
 
 music_input = input()
 while not music_input or not any(c.isalpha() for c in music_input):
-    print("Invalid input. Please enter a valid music string.")
+    print("Invalid input.")
     music_input = input()
 
 result = parse_music(music_input)
