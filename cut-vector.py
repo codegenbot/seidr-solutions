@@ -1,37 +1,22 @@
-def cut_vector(vector):
-    n = len(vector)
-    total_sum = sum(vector)
-    prefix_sum = 0
-    min_diff = float("inf")
-    cut_index = -1
-
-    for i in range(n):
-        prefix_sum += vector[i]
-        suffix_sum = total_sum - prefix_sum
-        diff = abs(suffix_sum - prefix_sum)
-
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
-
-    subvector1 = vector[: cut_index + 1]
-    subvector2 = vector[cut_index + 1 :]
-
-    return subvector1, subvector2
-
-
-# Read input from user
+n = int(input())
 vector = []
-while True:
-    try:
-        num = int(input())
-        vector.append(num)
-    except:
-        break
+for _ in range(n):
+    vector.append(int(input()))
 
-# Call the function and print the outputs
-output1, output2 = cut_vector(vector)
-for num in output1:
-    print(num)
-for num in output2:
-    print(num)
+min_diff = float('inf')
+cut_index = -1
+for i in range(1, n):
+    diff = abs(sum(vector[:i]) - sum(vector[i:]))
+    if diff == 0:
+        cut_index = i
+        break
+    elif diff < min_diff:
+        min_diff = diff
+        cut_index = i
+
+left_subvector = vector[:cut_index]
+right_subvector = vector[cut_index:]
+
+print(*left_subvector)
+print(*right_subvector)
+print(0)
