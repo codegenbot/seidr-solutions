@@ -1,9 +1,8 @@
-n = int(input())
-m = int(input())
+import sys
 
-if n <= 1 or m <= 1:
-    print(0.0)
-elif n > m:
-    print(1.0)
-else:
-    print(round((m - n + 1) / (m * 1.0), 2))
+def probability_of_higher(n, m):
+    return (n-1) / (n+m-2)
+
+n = int(sys.stdin.readline().strip())
+m = int(sys.stdin.readline().strip())
+print(probability_of_higher(n, m))
