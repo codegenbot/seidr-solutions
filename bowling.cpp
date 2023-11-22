@@ -1,47 +1,47 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int calculateScore(const std::string& rounds) {
+int getScore(string s) {
     int score = 0;
     int frame = 1;
-    int roundIndex = 0;
-
-    while (frame <= 10 && roundIndex + 1 < rounds.length()) {
-        if (rounds[roundIndex] == 'X') {
+    int i = 0;
+    
+    while (frame <= 10 && i < s.length() - 1) {
+        if (s[i] == 'X') {
             score += 10;
-            if (rounds[roundIndex + 2] == 'X' || rounds[roundIndex + 2] == '/')
-                score += 10;
-            else
-                score += rounds[roundIndex + 2] - '0';
-            
-            if (rounds[roundIndex + 4] == 'X' || rounds[roundIndex + 4] == '/')
-                score += 10;
-            else
-                score += rounds[roundIndex + 4] - '0';
-        } else if (rounds[roundIndex] == '/') {
-            score += 10;
-            if (rounds[roundIndex + 2] == 'X' || rounds[roundIndex + 2] == '/')
-                score += 10;
-            else
-                score += rounds[roundIndex + 2] - '0';
+            if (i + 2 < s.length()) {
+                if (s[i + 1] == 'X') {
+                    score += 10 + 10;
+                } else {
+                    score += (s[i + 1] - '0') + (s[i + 2] - '0');
+                }
+            }
+            frame++;
+            i++;
+        } else if (s[i] == '/') {
+            score += (10 - (s[i - 1] - '0'));
+            if (i + 1 < s.length()) {
+                score += (s[i + 1] - '0');
+            }
+            frame++;
+            i++;
         } else {
-            score += rounds[roundIndex] - '0';
+            score += (s[i] - '0');
+            frame++;
         }
-
-        frame++;
-        roundIndex++;
+        i++;
     }
-
+    
     return score;
 }
 
 int main() {
-    std::string rounds;
-    std::cout << "Enter the rounds: ";
-    std::cin >> rounds;
-
-    int score = calculateScore(rounds);
-    std::cout << "Score: " << score << std::endl;
-
+    string s;
+    cin >> s;
+    
+    int score = getScore(s);
+    cout << score << endl;
+    
     return 0;
 }

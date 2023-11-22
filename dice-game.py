@@ -1,6 +1,9 @@
 n = int(input())
 m = int(input())
 
-probability = (n - 1) / n * (m / (n * m))
+total_outcomes = n * m
+higher_outcomes = (n - 1) * m
+
+probability = higher_outcomes / total_outcomes
 
 print(probability)
