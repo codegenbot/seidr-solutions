@@ -9,14 +9,12 @@ def find_zero(xs: list):
             return x
     return None
 
-# Read input from user
-xs = list(map(float, input().split()))
+input_list = input().strip().split()
+xs = [float(x) for x in input_list]
 x = float(input())
 
-# Call the functions
 result_poly = poly(xs, x)
 result_zero = find_zero(xs)
 
-# Print the results
 print(result_poly)
 print(result_zero)
