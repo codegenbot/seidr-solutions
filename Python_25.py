@@ -15,10 +15,12 @@ def factorize(n: int) -> List[int]:
     return factors
 
 
-input_line = input("Enter an integer number: ")
-try:
-    n = int(input_line)
-    result = factorize(n)
-    print(result)
-except ValueError:
-    print("Invalid input. Please enter a valid integer value.")
+while True:
+    try:
+        input_line = input("Enter an integer number: ")
+        n = int(input_line)
+        result = factorize(n)
+        print(result)
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer value.")
