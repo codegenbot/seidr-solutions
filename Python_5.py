@@ -1,5 +1,4 @@
 from typing import List
-import sys
 
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
@@ -11,12 +10,7 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     return result
 
 
-def main():
-    numbers = [int(num) for num in sys.argv[1].split()]
-    delimiter = int(sys.argv[2])
-    result = intersperse(numbers, delimiter)
-    print(result)
+numbers = list(map(int, input().split()))
+delimiter = int(input())
 
-
-if __name__ == "__main__":
-    main()
+print(intersperse(numbers, delimiter))
