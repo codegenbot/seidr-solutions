@@ -1,26 +1,25 @@
-def cut_vector(vector):
-    sum_vector = sum(vector)
-    left_sum = 0
-    for i, num in enumerate(vector):
-        left_sum += num
-        right_sum = sum_vector - left_sum
-        if left_sum == right_sum or abs(left_sum - right_sum) == 1:
-            return vector[: i + 1], vector[i + 1 :]
-    return vector, [0]
+def cut_vector(vec):
+    total = sum(vec)
+    current_sum = 0
+    for i, num in enumerate(vec[:-1]):
+        current_sum += num
+        if current_sum * 2 == total or current_sum * 2 + vec[i + 1] == total:
+            return vec[: i + 1], vec[i + 1 :]
+    return vec, [0]
 
 
 # Read input from user
-vector = []
+input_vec = []
 while True:
     try:
         num = int(input())
-        vector.append(num)
-    except EOFError:
+        input_vec.append(num)
+    except:
         break
 
-# Call the function and print the results
-left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
+# Call the function and print results
+subvec1, subvec2 = cut_vector(input_vec)
+for num in subvec1:
     print(num)
-for num in right_subvector:
+for num in subvec2:
     print(num)
