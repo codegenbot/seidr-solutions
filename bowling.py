@@ -1,42 +1,65 @@
-import re
-
-
-def bowling_score(frames):
-    frames = re.sub("-", "0", frames)
-    frames = list(frames)
-
+def bowling(input_str):
     score = 0
-    frame = 0
-    frame_scores = []
-
-    while frame < 10:
-        if frames[0] == "X":
-            score += 10 + get_frame_score(frames[1:])
-            frames.pop(0)
-        elif frames[1] == "/":
-            score += 10 + int(frames[0])
-            frames.pop(0)
-            frames.pop(0)
+    frames = list(input_str)
+    i = 0
+    frame = 1
+    
+    while i < len(frames) and frame <= 10:
+        if frames[i] == 'X':
+            score += 10
+            if i+2 < len(frames):
+                if frames[i+2] == 'X':
+                    score += 10
+                elif frames[i+2] == '/':
+                    score += 10
+                elif frames[i+2] != '-':
+                    score += int(frames[i+2])
+                    
+            if i+3 < len(frames) and frames[i+2] == 'X':
+                if frames[i+3] == 'X':
+                    score += 10
+                elif frames[i+3] == '/':
+                    score += 10
+                elif frames[i+3] != '-':
+                    score += int(frames[i+3])
+                    
+            frame += 1
+        elif frames[i] == '/':
+            score += 10 - int(frames[i-1])
+            
+            if i+1 < len(frames):
+                if frames[i+1] == 'X':
+                    score += 10
+                elif frames[i+1] != '-':
+                    score += int(frames[i+1])
+                    
+            if i+2 < len(frames) and frames[i+1] == 'X':
+                if frames[i+2] == 'X':
+                    score += 10
+                elif frames[i+2] == '/':
+                    score += 10
+                elif frames[i+2] != '-':
+                    score += int(frames[i+2])
+                    
+            frame += 1
+        elif frames[i] == '-':
+            score += 0
+            frame += 1
         else:
-            score += int(frames[0]) + int(frames[1])
-            frames.pop(0)
-            frames.pop(0)
-
-        frame_scores.append(score)
-        frame += 1
-
+            score += int(frames[i])
+            
+            if i+1 < len(frames):
+                if frames[i+1] == '/':
+                    score += 10 - int(frames[i])
+                elif frames[i+1] == 'X':
+                    score += 10
+                    
+            frame += 1
+            
+        i += 1
+        
     return score
 
 
-def get_frame_score(frames):
-    if frames[0] == "X":
-        return 10
-    elif frames[1] == "/":
-        return 10
-    else:
-        return int(frames[0]) + int(frames[1])
-
-
-frames = input()
-score = bowling_score(frames)
-print(score)
+input_str = input()
+print(bowling(input_str))
