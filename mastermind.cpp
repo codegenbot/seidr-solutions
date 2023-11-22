@@ -1,40 +1,60 @@
 #include <iostream>
 #include <string>
+#include <unordered_map>
 using namespace std;
 
-pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
-    int count[6] = {0};
-
-    for (int i = 0; i < code.length(); i++) {
+int blackPegs(string code, string guess) {
+    int count = 0;
+    unordered_map<char, int> frequency;
+    
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            count[code[i] - 'A']++;
-            count[guess[i] - 'A']--;
+            count++;
+        }
+        else {
+            frequency[code[i]]++;
         }
     }
-
-    for (int i = 0; i < 6; i++) {
-        if (count[i] > 0) {
-            whitePegs += count[i];
+    
+    for (int i = 0; i < 4; i++) {
+        if (code[i] != guess[i] && frequency[guess[i]] > 0) {
+            count++;
+            frequency[guess[i]]--;
         }
     }
+    
+    return count;
+}
 
-    return make_pair(whitePegs, blackPegs);
+int whitePegs(string code, string guess) {
+    int count = 0;
+    unordered_map<char, int> frequency;
+    
+    for (int i = 0; i < 4; i++) {
+        if (code[i] != guess[i]) {
+            frequency[code[i]]++;
+        }
+    }
+    
+    for (int i = 0; i < 4; i++) {
+        if (code[i] != guess[i] && frequency[guess[i]] > 0) {
+            count++;
+            frequency[guess[i]]--;
+        }
+    }
+    
+    return count;
 }
 
 int main() {
-    string code;
-    string guess;
-
+    string code, guess;
     cin >> code >> guess;
-
-    pair<int, int> result = mastermind(code, guess);
-
-    cout << result.first << endl;
-    cout << result.second << endl;
-
+    
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
+    
+    cout << white << endl;
+    cout << black << endl;
+    
     return 0;
 }
