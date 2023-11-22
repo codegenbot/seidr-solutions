@@ -2,24 +2,22 @@ def minPath(grid, k):
     m, n = len(grid), len(grid[0])
     total_elements = m * n
 
-    if k >= total_elements:
-        repeats = (k - 1) // total_elements
+    if k > total_elements:
+        repeats = k // total_elements
         remainder = k % total_elements
         path = []
         for _ in range(repeats):
             path.extend(grid[i][j] for i in range(m) for j in range(n))
         if remainder > 0:
             path.extend(
-                grid[i][j]
-                for i in range((remainder - 1) // n + 1)
-                for j in range((remainder - 1) % n + 1)
+                grid[i][j] for i in range(remainder // n) for j in range(remainder % n)
             )
-        return path
+        return path[:-1]
 
-    def dfs(i, j, path, visited):
-        if len(path) == k:
+    def dfs(i, j, path, visited, path_len):
+        if path_len == k:
             return path
-        if len(path) > k:
+        if path_len > k:
             return None
         path.append(grid[i][j])
         neighbors = []
@@ -36,7 +34,7 @@ def minPath(grid, k):
             ni, nj = neighbor
             if (ni, nj) not in visited:
                 visited.add((ni, nj))
-                res = dfs(ni, nj, path, visited)
+                res = dfs(ni, nj, path, visited, path_len + 1)
                 if res is not None:
                     return res
                 visited.remove((ni, nj))
@@ -46,7 +44,7 @@ def minPath(grid, k):
     for i in range(m):
         for j in range(n):
             visited = set([(i, j)])
-            res = dfs(i, j, [grid[i][j]], visited)
-            if res is not None and len(res) == k:
+            res = dfs(i, j, [grid[i][j]], visited, 1)
+            if res is not None and len(res) == k - 1:
                 return res
     return []

@@ -13,6 +13,6 @@ if not strings_input or not substring:
 else:
     result = filter_by_substring(strings_input, substring)
     if result:
-        print(f"The strings that contain '{substring}' are: {result}")
+        print(f"The strings that contain '{substring}' are: {', '.join(result)}")
     else:
         print(f"No strings contain the substring '{substring}'.")

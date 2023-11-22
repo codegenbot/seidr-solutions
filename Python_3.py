@@ -1,6 +1,4 @@
-import sys
 from typing import List
-
 
 def below_zero(operations: List[int]) -> bool:
     balance = 0
@@ -10,7 +8,6 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-
-operations = list(map(int, sys.stdin.readline().strip().split()))
+operations = list(map(int, input().split()))
 
 print(below_zero(operations))
