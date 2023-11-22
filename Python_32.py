@@ -9,7 +9,7 @@ def find_zero(xs: list):
             return x
     return None
 
-input_list = input().strip().split(',')
+input_list = input().split(',')
 xs = [float(x) for x in input_list]
 x = float(input())
 
