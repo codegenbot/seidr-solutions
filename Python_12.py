@@ -1,3 +1,4 @@
+import sys
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -5,6 +6,8 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-input_data = input().strip().split()
-result = longest(input_data)
+# Read the input until end of file (EOF)
+input_data = sys.stdin.read().strip()
+lines = input_data.split('\n')
+result = longest(lines)
 print(result)
