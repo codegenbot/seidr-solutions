@@ -1,9 +1,8 @@
-def fuel_cost(nums):
-    return sum([x // 3 - 2 for x in nums])
+def fuel_cost(vector):
+    return sum([(x//3)-2 for x in vector])
 
-
-# Read input from user
-nums = [int(input()) for _ in range(int(input()))]
-
-# Call the function and print the result
-print(fuel_cost(nums))
+input_list = []
+for line in sys.stdin:
+    input_list.append(int(line))
+    
+print(fuel_cost(input_list))
