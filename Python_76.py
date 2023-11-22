@@ -1,2 +1,2 @@
 def is_simple_power(x, n):
-    return x ** int(n ** (1/x)) == n
+    return n**(1/x) % 1 == 0
