@@ -4,7 +4,4 @@ def make_palindrome(string: str) -> str:
         if string[:i] == string[:i][::-1]:
             suffix = string[i:]
             break
-    if string == string[::-1]:
-        return string
-    else:
-        return string + suffix[::-1]
+    return string + suffix[::-1]
