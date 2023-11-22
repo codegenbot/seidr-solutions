@@ -18,8 +18,3 @@ def cut_vector(vector):
             cut_idx = i
 
     return vector[:cut_idx], vector[cut_idx:]
-
-vector = list(map(int, input().split()))
-left_subvector, right_subvector = cut_vector(vector)
-print(*left_subvector)
-print(*right_subvector)
