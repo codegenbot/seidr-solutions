@@ -1,2 +1,5 @@
-def solve_boolean(expr):
-    return eval(expr.replace('|', ' or ').replace('&', ' and ').replace('T', 'True').replace('F', 'False'))
+import ast
+
+def solve_boolean(expression):
+    expression_ast = ast.parse(expression, mode='eval')
+    return bool(ast.literal_eval(expression_ast.body))
