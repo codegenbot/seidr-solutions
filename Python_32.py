@@ -6,17 +6,16 @@ def poly(xs: list, x: float) -> float:
 
 
 def find_zero(xs: list) -> float:
-    for x in xs:
-        if math.isclose(x, 0):
-            return x
+    if 0 in xs:
+        return 0
     return None
 
 
-xs = list(map(float, input().split()))
-x = float(input().strip())
+xs = [float(num) for num in input("Enter the coefficients of the polynomial: ").split()]
+x = float(input("Enter the value of x: "))
 
 result_poly = poly(xs, x)
 result_zero = find_zero(xs)
 
-print(result_poly)
-print(result_zero)
+print("Result of polynomial evaluation:", result_poly)
+print("Zero found in polynomial:", result_zero)
