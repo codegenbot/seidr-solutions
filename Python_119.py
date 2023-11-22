@@ -1,5 +1,4 @@
 def match_parens(lst):
-
     stack = []
 
     for char in lst:
@@ -10,7 +9,4 @@ def match_parens(lst):
                 return "No"
             stack.pop()
 
-    if stack:
-        return "No"
-    else:
-        return "Yes"
+    return "Yes" if not stack else "No"
