@@ -1,2 +1,4 @@
-def find_unique_elements(input_param: List[int]) -> List[int]:
-    return list(set(input_param))
+def your_function_name(input_param: input_type) -> output_type:
+    # Add necessary logic here
+
+your_function_name(input_param)
