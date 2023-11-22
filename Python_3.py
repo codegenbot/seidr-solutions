@@ -10,6 +10,6 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 
-operations = [-1, -2, 3, 4, -5]  # Replace this line with your sample test input
+operations = list(map(int, input().strip().split()))
 
 print(below_zero(operations))
