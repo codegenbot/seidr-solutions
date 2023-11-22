@@ -6,6 +6,6 @@ def middle_character(s):
         elif length == 2:
             return s
         else:
-            return s[length // 2 : length // 2 + 2]
+            return s[length//2:length//2+2]
     else:
-        return s[length // 2]
+        return s[length//2]
