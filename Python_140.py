@@ -1,5 +1,5 @@
 import re
 
 def fix_spaces():
-    text = input("Enter the input text: ")
+    text = input()
     return re.sub(r'\s+', '_', text)
