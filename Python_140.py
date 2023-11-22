@@ -1,6 +1,7 @@
 import re
 
 def fix_spaces(text):
-    return re.sub(r'\s+', '_', text)
+    text = re.sub(r'\s+', '_', text)
+    return text
 
-print(fix_spaces(input("Enter your text: ").strip()))
+print(fix_spaces("Hello     World!"))
