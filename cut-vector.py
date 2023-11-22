@@ -1,20 +1,16 @@
-def cut_vector(numbers):
-    half_sum = sum(numbers) / 2
-    current_sum = 0
-    for i, num in enumerate(numbers):
-        current_sum += num
-        if current_sum == half_sum or current_sum - num == half_sum:
-            return numbers[: i + 1], numbers[i + 1 :]
-    return numbers, [0]
+def cut_vector(vector):
+    if len(vector) == 1:
+        return vector[:1], vector[1:]
 
+    total_sum = sum(vector)
+    left_sum = 0
+    right_sum = total_sum
 
-# Read input from user
-input_numbers = []
-num_inputs = int(input())
-for _ in range(num_inputs):
-    input_numbers.append(int(input()))
+    for i in range(len(vector)):
+        left_sum += vector[i]
+        right_sum -= vector[i]
 
-# Call the function and print the output
-output_vectors = cut_vector(input_numbers)
-for vector in output_vectors:
-    print(vector)
+        if left_sum == right_sum or abs(left_sum - right_sum) == 1:
+            return vector[: i + 1], vector[i + 1 :]
+
+    return vector[:1], vector[1:]
