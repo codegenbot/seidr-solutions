@@ -1,21 +1,21 @@
 import math
 
 
-def poly(xs: list, x: float) -> float:
+def poly(xs: list, x: float):
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
 
-def find_zero(xs: list) -> float:
+def find_zero(xs: list):
     return -xs[0] / xs[1]
 
 
-if __name__ == "__main__":
-    xs = list(map(float, input().split()))
-    x = float(input())
+# Read the input
+xs = [float(x) for x in input().split()]
 
-    polynomial_result = poly(xs, x)
-    print(round(polynomial_result, 2))
+# Call the functions
+result = poly(xs, 2.5)
+zero = find_zero(xs)
 
-    if xs[1] != 0:
-        zero_result = find_zero(xs)
-        print(round(zero_result, 2))
+# Print the results
+print(result)
+print(zero)
