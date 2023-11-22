@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int getScore(std::string s) {
+int getScore(string s) {
     int score = 0;
     int frame = 1;
     int i = 0;
-
+    
     while (frame <= 10 && i < s.length()) {
         if (s[i] == 'X') {
             score += 10;
@@ -31,16 +32,16 @@ int getScore(std::string s) {
         }
         i++;
     }
-
+    
     return score;
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
-
+    string s;
+    cin >> s;
+    
     int score = getScore(s);
-    std::cout << score << std::endl;
-
+    cout << score << endl;
+    
     return 0;
 }
