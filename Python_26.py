@@ -1,11 +1,8 @@
 from typing import List
-import sys
-
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
     return list(dict.fromkeys(numbers))
 
-
-input_numbers = list(map(int, sys.argv[1].split(",")))
+input_numbers = [1, 2, 3, 2, 1]  # replace with your own list of numbers
 result = remove_duplicates(input_numbers)
 print(result)

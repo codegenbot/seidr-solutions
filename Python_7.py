@@ -6,7 +6,7 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 strings = input().split() or []
-substring = input().rstrip('\r\n')
+substring = input().rstrip("\r\n")
 
 if not strings or not substring:
     print("Incorrect input. Please provide both a list of strings and a substring.")
