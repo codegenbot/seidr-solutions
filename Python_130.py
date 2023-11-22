@@ -1,6 +1,5 @@
 def tri(n):
     sequence = [3]
-
     if n == 0:
         return sequence
     elif n == 1:
