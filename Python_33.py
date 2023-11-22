@@ -1,2 +1,8 @@
 def sort_third(l: list):
-    return sorted(l, key=lambda x: x[2] if isinstance(x, tuple) and len(x) >= 3 else x)
+    new_list = []
+    for element in l:
+        if isinstance(element, list) or isinstance(element, tuple):
+            new_list.append(element)
+        else:
+            new_list.append([element])
+    return sorted(new_list, key=lambda x: x[2])
