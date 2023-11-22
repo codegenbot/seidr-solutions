@@ -7,5 +7,5 @@ def decode_cyclic(s):
     ]
     return "".join(groups)
 
-output_string = decode_cyclic(sys.stdin.readline().rstrip())
+output_string = decode_cyclic(sys.stdin.readline().strip())
 print(output_string)
