@@ -1,34 +1,55 @@
-def calculate_bowling_score(round):
+def calculate_score(bowls):
     score = 0
     frame = 1
-    i = 0
-    while frame <= 10:
-        if round[i] == 'X':
+    frame_score = 0
+    frame_bowls = []
+    for bowl in bowls:
+        if bowl == 'X':
             score += 10
-            if round[i+2] == 'X':
-                score += 10
-                if round[i+4] == 'X':
-                    score += 10
-                else:
-                    score += int(round[i+4])
+            if frame < 10:
+                frame_score += 10
+                frame_bowls.append('X')
             else:
-                if round[i+3] == '/':
+                frame_score += 10
+                frame_bowls.append('X')
+                if len(frame_bowls) == 3:
                     score += 10
-                else:
-                    score += int(round[i+2]) + int(round[i+3])
-            i += 1
-        elif round[i+1] == '/':
-            score += 10
-            if round[i+3] == 'X':
-                score += 10
+                    frame_score += 10
+        elif bowl == '/':
+            score += 10 - int(frame_bowls[-1])
+            if frame < 10:
+                frame_score += 10 - int(frame_bowls[-1])
+                frame_bowls.append('/')
             else:
-                score += int(round[i+3])
-            i += 2
+                frame_score += 10 - int(frame_bowls[-1])
+                frame_bowls.append('/')
+                if len(frame_bowls) == 3:
+                    score += 10 - int(frame_bowls[-2])
+                    frame_score += 10 - int(frame_bowls[-2])
+        elif bowl == '-':
+            if frame < 10:
+                frame_bowls.append('-')
+            else:
+                frame_bowls.append('-')
+                if len(frame_bowls) == 3:
+                    frame_score += 0
         else:
-            score += int(round[i]) + int(round[i+1])
-            i += 2
-        frame += 1
+            score += int(bowl)
+            if frame < 10:
+                frame_score += int(bowl)
+                frame_bowls.append(bowl)
+            else:
+                frame_score += int(bowl)
+                frame_bowls.append(bowl)
+                if len(frame_bowls) == 3:
+                    score += int(bowl)
+                    frame_score += int(bowl)
+        if frame < 10 and (bowl == 'X' or len(frame_bowls) == 2):
+            score += frame_score
+            frame += 1
+            frame_score = 0
+            frame_bowls = []
     return score
 
-round = input()
-print(calculate_bowling_score(round))
+bowls = input().strip()
+print(calculate_score(bowls))
