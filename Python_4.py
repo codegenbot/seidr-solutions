@@ -10,3 +10,5 @@ input_numbers = list(map(float, input_numbers))
 result = mean_absolute_deviation(input_numbers)
 
 print(result)
+
+
