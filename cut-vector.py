@@ -6,3 +6,16 @@ def cut_vector(vector):
         if current_sum * 2 == total_sum or current_sum * 2 == total_sum - num:
             return vector[: i + 1], vector[i + 1 :]
     return vector, []
+
+
+vector = []
+while True:
+    try:
+        num = int(input())
+        vector.append(num)
+    except ValueError:
+        break
+
+subvector1, subvector2 = cut_vector(vector)
+print(*subvector1, sep="\n")
+print(*subvector2, sep="\n")
