@@ -48,6 +48,7 @@ def calculate_score(bowls):
                     score += int(bowls[i])
                     strike = False
                 
+    # Handle final frame
     if frame == 10:
         if spare or strike:
             if bowls[-1] == 'X':
