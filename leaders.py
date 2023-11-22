@@ -5,5 +5,5 @@ def find_leaders(arr):
         if arr[i] >= max_right:
             leaders.append(arr[i])
             max_right = arr[i]
-    leaders.append(arr[-1])
+    leaders.append(arr[-1]) 
     return leaders
