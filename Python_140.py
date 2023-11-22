@@ -4,4 +4,6 @@ def fix_spaces(text):
     text = re.sub(r'\s+', '_', text)
     return text
 
-print(fix_spaces(input().strip()))
+text = input().strip()
+result = fix_spaces(text)
+print(result)
