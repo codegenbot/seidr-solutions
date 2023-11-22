@@ -1,4 +1,7 @@
-import ast
-expression = input().replace('T', 'True').replace('F', 'False')
-result = ast.literal_eval(expression)
+expression = input()
+
+expression = expression.replace("T", "True").replace("F", "False")
+
+result = eval(expression)
+
 print(result)
