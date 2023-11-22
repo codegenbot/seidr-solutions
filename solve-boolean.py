@@ -1,4 +1,4 @@
 expression = input()
-expression = expression.replace('T', '"True"').replace('F', '"False"')
-result = eval(expression, {'True': 'True', 'False': 'False'})
+expression = expression.replace('T', 'True').replace('F', 'False').replace('|', ' or ').replace('&', ' and ')
+result = eval(expression)
 print(result)
