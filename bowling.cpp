@@ -1,58 +1,46 @@
 #include <iostream>
 #include <string>
 
-int getScore(const std::string& input) {
+int scoreOfRound(const std::string& round) {
     int score = 0;
     int frame = 1;
-    int frameScore = 0;
-    bool isSpare = false;
-    bool isStrike = false;
-
-    for (char c : input) {
+    int rolls = 0;
+    
+    for (char c : round) {
         if (c == 'X') {
             score += 10;
             if (frame < 10) {
                 score += 10;
-                isStrike = true;
+                rolls++;
             }
+            frame++;
         } else if (c == '/') {
-            score += 10 - frameScore;
+            score += 10 - (round[rolls - 1] - '0');
             if (frame < 10) {
-                isSpare = true;
+                score += 10 - (round[rolls - 1] - '0');
+                rolls++;
             }
+            frame++;
         } else if (c == '-') {
-            // do nothing, skip the character
+            rolls++;
         } else {
             score += c - '0';
-            frameScore += c - '0';
-        }
-
-        if (isSpare) {
-            score += c - '0';
-            isSpare = false;
-        }
-
-        if (isStrike) {
-            score += c - '0';
-            frameScore += c - '0';
-            isStrike = false;
-        }
-
-        if (frameScore == 10) {
-            frameScore = 0;
-            frame++;
+            rolls++;
+            if (rolls % 2 == 0) {
+                frame++;
+            }
         }
     }
-
+    
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    int score = getScore(input);
+    std::string round;
+    std::cin >> round;
+    
+    int score = scoreOfRound(round);
     std::cout << score << std::endl;
-
+    
     return 0;
 }
