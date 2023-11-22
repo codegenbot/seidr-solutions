@@ -1,50 +1,69 @@
-def calculate_score(bowls):
+def calculate_bowling_score(bowls):
     score = 0
     frame = 1
-    frame_score = 0
-    spare = False
-    strike = False
-    for i in range(len(bowls)):
-        if bowls[i] == 'X':
+    bowl_index = 0
+
+    while frame <= 10:
+        bowl = bowls[bowl_index]
+
+        if bowl == 'X':
             score += 10
             if frame < 10:
-                if bowls[i+2] == '/':
+                next_bowl = bowls[bowl_index + 1]
+                next_next_bowl = bowls[bowl_index + 2]
+
+                if next_bowl == 'X':
                     score += 10
-                else:
-                    score += int(bowls[i+1]) + int(bowls[i+2])
-            frame_score = 0
-            strike = True
-            frame += 1
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i-1])
-            if frame < 10:
-                score += int(bowls[i+1])
-            frame_score = 0
-            spare = True
-            frame += 1
-        elif bowls[i] == '-':
-            frame_score += 0
-        else:
-            frame_score += int(bowls[i])
-            if frame_score == 10:
-                if frame < 10:
-                    if bowls[i+1] == '/':
+                    if next_next_bowl == 'X':
                         score += 10
                     else:
-                        score += int(bowls[i+1])
-                if spare:
-                    score += int(bowls[i])
-                    spare = False
-                if strike:
-                    score += int(bowls[i])
-                    strike = False
-                frame += 1
-                frame_score = 0
-            elif frame_score < 10:
-                if spare:
-                    score += int(bowls[i])
-                    spare = False
-                if strike:
-                    score += int(bowls[i])
-                    strike = False
+                        score += int(next_next_bowl)
+                elif next_bowl == '/':
+                    score += 10
+                else:
+                    score += int(next_bowl)
+
+                bowl_index += 1
+            else:
+                next_bowl = bowls[bowl_index + 1]
+                next_next_bowl = bowls[bowl_index + 2]
+
+                if next_bowl == 'X':
+                    score += 10
+                elif next_bowl == '/':
+                    score += 10
+                else:
+                    score += int(next_bowl)
+
+                if next_next_bowl == 'X':
+                    score += 10
+                elif next_next_bowl == '/':
+                    score += 10
+                else:
+                    score += int(next_next_bowl)
+
+                bowl_index += 1
+
+        elif bowl == '/':
+            score += 10 - int(bowls[bowl_index - 1])
+
+            if frame < 10:
+                next_bowl = bowls[bowl_index + 1]
+                if next_bowl == 'X':
+                    score += 10
+                else:
+                    score += int(next_bowl)
+
+            bowl_index += 1
+
+        else:
+            score += int(bowl)
+
+        bowl_index += 1
+        frame += 1
+
     return score
+
+
+bowls = input()
+print(calculate_bowling_score(bowls))
