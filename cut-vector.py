@@ -19,8 +19,8 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i
 
-    print(*vector[: cut_index + 1], sep='\n')
-    print(*vector[cut_index + 1 :], sep='\n')
+    print(*vector[: cut_index + 1], sep="\n")
+    print(*vector[cut_index + 1 :], sep="\n")
 
 
 vector = []
