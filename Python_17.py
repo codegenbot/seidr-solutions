@@ -8,5 +8,7 @@ def parse_music(music_string: str) -> List[int]:
     ]
 
 
-input_string = input()
-print(parse_music(input_string))
+# Code below is added to get the input in the correct format
+music_input = input()
+result = parse_music(music_input)
+print(result)

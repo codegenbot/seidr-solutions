@@ -13,8 +13,10 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     
     return closest_pair
 
+# Prompt the user to enter the numbers
 numbers_input = input("Enter the numbers (separated by spaces): ").strip().split()
 numbers = [float(x) for x in numbers_input]
 
+# Call the function and print the result
 result = find_closest_elements(numbers)
-print("Closest pair:", result)
+print("Closest pair: ", result)
