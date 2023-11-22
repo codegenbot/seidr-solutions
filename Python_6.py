@@ -17,4 +17,5 @@ def get_max_nesting(paren_string: str) -> int:
 
     return max_nesting
 
+
 check(get_max_nesting)
