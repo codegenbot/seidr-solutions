@@ -2,7 +2,7 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    for group in paren_string:        
+    for group in paren_string:
         max_nesting = 0
         current_nesting = 0
         for char in group:
