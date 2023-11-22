@@ -7,7 +7,5 @@ def encode(message):
             else:
                 encoded_message += char.lower()
         else:
-            encoded_message += (
-                char  # Include non-alphabetic and non-space characters as is
-            )
+            encoded_message += char
     return encoded_message
