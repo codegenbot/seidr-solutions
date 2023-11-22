@@ -7,7 +7,5 @@ def decode_shift(s: str):
     )
 
 
-print("Enter the string:")
-s = input()
-decoded_string = decode_shift(s)
-print(decoded_string)
+s = input("Enter the string to be decoded: ")
+print(decode_shift(s))
