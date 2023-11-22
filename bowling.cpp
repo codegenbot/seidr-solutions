@@ -3,39 +3,44 @@
 
 int getScore(const std::string& input) {
     int score = 0;
-    int frame = 0;
-    int roll = 0;
-    int rolls[21] = {0};
+    int frame = 1;
+    int frameScore = 0;
+    bool isSpare = false;
+    bool isStrike = false;
 
     for (char c : input) {
         if (c == 'X') {
-            rolls[frame] = 10;
-            frame++;
-        } else if (c == '/') {
-            rolls[frame] = 10 - rolls[frame-1];
-            frame++;
-            roll = 0;
-        } else if (c == '-') {
-            rolls[frame] = 0;
-            frame++;
-            roll = 0;
-        } else {
-            rolls[frame] += c - '0';
-            roll++;
-            if (roll == 2) {
-                frame++;
-                roll = 0;
+            score += 10;
+            if (frame < 10) {
+                score += 10;
+                isStrike = true;
             }
-        }
-    }
-
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i] == 10) {
-            score += 10 + rolls[i+1] + rolls[i+2];
-        } else if (rolls[i] + rolls[i+1] == 10) {
-            score += 10 + rolls[i+2];
+        } else if (c == '/') {
+            score += 10 - frameScore;
+            if (frame < 10) {
+                isSpare = true;
+            }
+        } else if (c == '-') {
+            // do nothing, skip the character
         } else {
-            score += rolls[i] + rolls[i+1];
+            score += c - '0';
+            frameScore += c - '0';
+        }
+
+        if (isSpare) {
+            score += c - '0';
+            isSpare = false;
+        }
+
+        if (isStrike) {
+            score += c - '0';
+            frameScore += c - '0';
+            isStrike = false;
+        }
+
+        if (frameScore == 10) {
+            frameScore = 0;
+            frame++;
         }
     }
 
@@ -45,7 +50,9 @@ int getScore(const std::string& input) {
 int main() {
     std::string input;
     std::cin >> input;
+
     int score = getScore(input);
     std::cout << score << std::endl;
+
     return 0;
 }
