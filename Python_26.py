@@ -6,7 +6,6 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 
 input_numbers = list(map(int, input("Enter numbers separated by commas: ").split(",")))
-numbers = list(input_numbers)
 
-result = remove_duplicates(numbers)
+result = remove_duplicates(input_numbers)
 print(result)
