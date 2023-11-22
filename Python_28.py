@@ -1,10 +1,11 @@
 from typing import List
+import sys
 
 
 def concatenate(strings: List[str]) -> str:
     return "".join(strings)
 
 
-strings = input("Enter a comma-separated list of strings: ").split(",")
+strings = sys.stdin.readline().rstrip().split(",")
 result = concatenate(strings)
 print(result)
