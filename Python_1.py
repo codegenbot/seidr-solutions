@@ -12,9 +12,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack:
                 start = stack.pop()
                 groups.append(paren_string[start:i+1])
+            else:
+                continue
     
     return groups
-
-paren_string = input()
-result = separate_paren_groups(paren_string)
-print(result)
