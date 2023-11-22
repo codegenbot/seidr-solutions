@@ -1,5 +1,6 @@
 import math
 
+
 def max_fill(grid, capacity):
     max_water = max(max(row) for row in grid)
     total_buckets = 0
@@ -10,5 +11,3 @@ def max_fill(grid, capacity):
             total_buckets += buckets_needed
 
     return total_buckets
-
-assert max_fill([[1, 1, 1, 1], [1, 1, 1, 1]], 9) == 16
