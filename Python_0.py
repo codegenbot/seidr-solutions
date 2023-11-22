@@ -10,9 +10,9 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
 n = int(input())
 numbers = []
 for _ in range(n):
-    numbers.append(float(input()))
+    num = float(input())
+    numbers.append(num)
 threshold = float(input())
 
 result = has_close_elements(numbers, threshold)
-
 print(result)
