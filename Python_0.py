@@ -15,4 +15,5 @@ for _ in range(n):
 threshold = float(input())
 
 result = has_close_elements(numbers, threshold)
+
 print(result)
