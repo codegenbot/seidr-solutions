@@ -1,31 +1,42 @@
-def calc_score(round_bowls):
-    score = 0
-    frames = [0] * 10
-    i = 0
-    for frame in range(10):
-        if round_bowls[i] == 'X':
-            score += 10 + get_bonus(round_bowls[i+1:])[:2]
-            i += 1
-        elif round_bowls[i+1] == '/':
-            score += 10 + get_bonus(round_bowls[i+2])
-            i += 2
-        else:
-            score += int(round_bowls[i]) + int(round_bowls[i+1])
-            if score == 10:
-                score += get_bonus(round_bowls[i+2])
-            i += 2
-    return score
-    
-def get_bonus(bowls):
-    result = []
-    for bowl in bowls:
-        if bowl == 'X':
-            result.extend([10, 10])
-        elif bowl == '/':
-            result.append(10 - result[-1])
-        else:
-            result.append(int(bowl))
-    return result
+import re
 
-round_bowls = input()
-print(calc_score(round_bowls))
+
+def bowling_score(frames):
+    frames = re.sub("-", "0", frames)
+    frames = list(frames)
+
+    score = 0
+    frame = 0
+    frame_scores = []
+
+    while frame < 10:
+        if frames[0] == "X":
+            score += 10 + get_frame_score(frames[1:])
+            frames.pop(0)
+        elif frames[1] == "/":
+            score += 10 + int(frames[0])
+            frames.pop(0)
+            frames.pop(0)
+        else:
+            score += int(frames[0]) + int(frames[1])
+            frames.pop(0)
+            frames.pop(0)
+
+        frame_scores.append(score)
+        frame += 1
+
+    return score
+
+
+def get_frame_score(frames):
+    if frames[0] == "X":
+        return 10
+    elif frames[1] == "/":
+        return 10
+    else:
+        return int(frames[0]) + int(frames[1])
+
+
+frames = input()
+score = bowling_score(frames)
+print(score)
