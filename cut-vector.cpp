@@ -1,15 +1,12 @@
 #include <vector>
+#include <numeric> // To include the std::accumulate function
 #include <iostream>
 using namespace std;
 
 pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int leftSum = 0;
-    int rightSum = 0;
-
-    for (int i = 0; i < n; i++) {
-        rightSum += nums[i];
-    }
+    int leftSum = nums[0];
+    int rightSum = accumulate(nums.begin(), nums.end(), 0); // Change initialization here
 
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
