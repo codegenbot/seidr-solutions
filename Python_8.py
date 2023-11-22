@@ -14,4 +14,4 @@ input_str = input()
 numbers = list(map(int, input_str.split()))
 
 result = sum_product(numbers)
-print(f"{result[0]} {result[1]}")
+print(f"{result[0]}, {result[1]}")
