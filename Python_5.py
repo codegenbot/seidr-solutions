@@ -2,9 +2,4 @@ from typing import List
 
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    return [x for num in numbers for x in [num, delimiter]]
-
-numbers = list(map(int, input().split()))
-delimiter = int(input())
-result = intersperse(numbers, delimiter)
-print(result)
+    return [x for i, num in enumerate(numbers) for x in [num, delimiter] if i != len(numbers) - 1]

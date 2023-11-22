@@ -1,8 +1,3 @@
-from typing import List
-
-def all_prefixes(string: str) -> List[str]:
-    return [string[:i+1] for i in range(len(string))]
-
-string = input()
-result = all_prefixes(string)
-print(result)
+def all_prefixes():
+    string = input()
+    return [string[: i + 1] for i in range(len(string))]
