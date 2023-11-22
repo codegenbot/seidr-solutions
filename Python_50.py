@@ -6,6 +6,6 @@ def decode_shift(s: str):
         ]
     )
 
-s = "gdkknvqkc"
+s = input("Enter the string:")
 decoded_string = decode_shift(s)
-decoded_string
+print(decoded_string)
