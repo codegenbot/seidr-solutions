@@ -9,12 +9,14 @@ def parse_music(music_string: str) -> List[int]:
 
 
 def main():
-    music_input = input()
+    music_input = input("Enter the music string: ")
     if music_input and music_input[0].isalpha() and music_input[-1].isdigit():
         result = parse_music(music_input)
         print(result)
     else:
-        print("Invalid input.")
+        print(
+            "Invalid input. Music string should start with a letter and end with a digit."
+        )
 
 
 main()
