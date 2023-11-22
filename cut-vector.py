@@ -17,6 +17,7 @@ def cut_vector(vector):
     return vector[: cut_index + 1], vector[cut_index + 1 :]
 
 
+# Read input from user
 vector = []
 while True:
     num = input().strip()
@@ -24,7 +25,8 @@ while True:
         break
     vector.append(int(num))
 
+# Call the function and print the result
 result = cut_vector(vector)
-print(len(result[0]))
+print(len(result[0]))  # Print the number of elements in the first subvector
 for subvector in result:
     print(*subvector)
