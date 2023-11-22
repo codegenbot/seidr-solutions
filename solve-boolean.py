@@ -1,7 +1,1 @@
-import re
-
-expression = input()
-expression = re.sub(r'\bT\b', 'True', expression)
-expression = re.sub(r'\bF\b', 'False', expression)
-result = eval(expression)
-print(result)
+import ast\n\nexpression = input().replace('T', 'True').replace('F', 'False')\n\nresult = ast.literal_eval(expression)\n\nprint(result)
