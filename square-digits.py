@@ -1,2 +1,5 @@
-def square_digits(n):
-    return ''.join(str(int(d)**2) for d in str(n))
+def square_digits(num):
+    return ''.join(str(int(digit)**2) for digit in str(num))
+
+num = int(input())
+print(square_digits(num))
