@@ -1,10 +1,6 @@
-from typing import List
-
-
-def parse_nested_parens(paren_string: str) -> List[int]:
-    result = []
+def get_max_nesting(paren_string: str) -> int:
     stack = []
-    max_nesting = 0
+    max_nesting = -1
 
     for char in paren_string:
         if char == "(":
@@ -14,8 +10,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             if stack:
                 stack.pop()
             else:
-                return []
+                return -1
 
-        result.append(max_nesting)
+    if stack:
+        return -1
 
-    return result
+    return max_nesting
