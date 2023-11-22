@@ -51,3 +51,7 @@ def calculate_score(bowls):
                     score += int(bowls[i])
                     strike = False
     return score
+
+
+score = calculate_score(input())
+print(score)
