@@ -1,13 +1,20 @@
-from typing import List
-
-
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    nesting = 0
+    stack = []
+    max_nesting = 0
+
     for char in paren_string:
         if char == "(":
-            nesting += 1
+            stack.append(char)
+            max_nesting = max(max_nesting, len(stack))
         elif char == ")":
-            nesting -= 1
-    result.append(nesting)
+            if stack:
+                stack.pop()
+            else:
+                return []
+
+    if stack:
+        return []
+
+    result.append(max_nesting)
     return result
