@@ -1,12 +1,11 @@
 def encode(message):
-    encoded_message = []
+    encoded_message = ""
     for char in message:
         if char.isalpha() or char.isspace():
-            char = char.lower()
-            if char in ['a', 'e', 'i', 'o', 'u']:
-                encoded_message.append(char.upper())
+            if char.lower() not in ['a', 'e', 'i', 'o', 'u']:
+                encoded_message += char.upper()
             else:
-                encoded_message.append(char)
+                encoded_message += char.lower()
         else:
-            encoded_message.append(char)
-    return "".join(encoded_message)
+            encoded_message += char
+    return encoded_message
