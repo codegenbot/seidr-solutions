@@ -1,8 +1,11 @@
-n = int(input())
-m = int(input())
+import sys
 
-if n <= 1 or m <= 1:
+n = int(sys.stdin.readline().strip())
+m = int(sys.stdin.readline().strip())
+
+if n > m:
+    print(1.0)
+elif n < m:
     print(0.0)
 else:
-    probability = (n-1) / (n * m)
-    print(probability)
+    print(0.5)
