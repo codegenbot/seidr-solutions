@@ -1,17 +1,17 @@
 def luhn_algorithm(digits):
-    total_sum = 0
-    for i, digit in enumerate(digits):
-        if i % 2 == 1:
-            temp = digit * 2
-            if temp > 9:
-                temp -= 9
-            total_sum += temp
-        else:
-            total_sum += digit
-    return total_sum
+    # Double every other digit starting with the second digit
+    for i in range(1, len(digits), 2):
+        digits[i] *= 2
+        # Subtract 9 if the result is over 9
+        if digits[i] > 9:
+            digits[i] -= 9
+    # Return the sum of all the new digits
+    return sum(digits)
 
 
+# Read input from user
 n = int(input())
 digits = list(map(int, input().split()))
-result = luhn_algorithm(digits)
-print(result)
+
+# Call the function and print the output
+print(luhn_algorithm(digits))
