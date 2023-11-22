@@ -9,11 +9,9 @@ def find_zero(xs: list):
             return x
     return None
 
-input_list = input().strip().split()
-xs = [float(x) for x in input_list]
-x = float(input())
+xs = list(map(float, input().split()))
 
-result_poly = poly(xs, x)
+result_poly = poly(xs, float(input()))
 result_zero = find_zero(xs)
 
 print(result_poly)
