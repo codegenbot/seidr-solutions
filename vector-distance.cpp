@@ -13,7 +13,6 @@ double calculateEuclideanDistance(const std::vector<double>& vector1, const std:
 
 int main() {
     int n = 2;
-
     std::vector<double> vector1 = {-94.802465398614, -57.34609541230324};
     std::vector<double> vector2 = {84.69220359553012, 83.03946628884364};
 
