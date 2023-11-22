@@ -7,11 +7,13 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int minDiff = INT_MAX;
     int cutIndex = -1;
 
+    // Calculate the sum of all elements in the vector
     int totalSum = 0;
     for (int i = 0; i < n; i++) {
         totalSum += input[i];
     }
 
+    // Calculate the difference between the sum of elements on the left and right side of the cut
     int leftSum = 0;
     for (int i = 0; i < n; i++) {
         int rightSum = totalSum - leftSum;
@@ -23,6 +25,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         leftSum += input[i];
     }
 
+    // Create the two resulting subvectors
     std::vector<int> subvector1(input.begin(), input.begin() + cutIndex + 1);
     std::vector<int> subvector2(input.begin() + cutIndex + 1, input.end());
 
