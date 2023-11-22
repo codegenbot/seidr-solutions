@@ -2,14 +2,13 @@ from typing import List
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     result = []
-    for number in numbers:
-        result.append(number)
+    for i in range(len(numbers)-1):
+        result.append(numbers[i])
         result.append(delimiter)
+    result.append(numbers[-1])
     return result
 
-numbers = input("Enter numbers separated by space: ").split()
-delimiter = int(input("Enter delimiter: "))
-numbers = [int(number) for number in numbers]
-
+numbers = [1, 2, 3, 4]
+delimiter = 0
 output = intersperse(numbers, delimiter)
 print(output)
