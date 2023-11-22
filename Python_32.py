@@ -1,10 +1,20 @@
 import math
 
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
-def poly(xs: list, x: float) -> float:
-    return sum([coeff * (x**i) for i, coeff in enumerate(xs)])
+def find_zero(xs: list):
+    for x in xs:
+        if x == 0:
+            return x
+    return None
 
+input_list = input().split()
+xs = [float(x) for x in input_list[1:]]
+x = float(input())
 
-def find_zero(xs: list) -> float or None:
-    zero_xs = [x for x in xs if math.isclose(x, 0)]
-    return zero_xs[0] if zero_xs else None
+result_poly = poly(xs, x)
+result_zero = find_zero(xs)
+
+print(result_poly)
+print(result_zero)
