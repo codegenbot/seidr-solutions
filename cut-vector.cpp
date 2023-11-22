@@ -7,14 +7,14 @@ pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     int leftSum = nums[0];
     int rightSum = 0;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         rightSum += nums[i];
     }
 
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
 
-    for (int i = 1; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
 
@@ -40,7 +40,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    
+
     pair<int, pair<vector<int>, vector<int>>> result = cutVector(nums);
 
     cout << result.first << endl;
