@@ -1,9 +1,13 @@
-nums = []
-while True:
-    try:
+def fuel_cost():
+    n = int(input())
+    nums = []
+    for _ in range(n):
         nums.append(int(input()))
-    except EOFError:
-        break
+    
+    total = 0
+    for num in nums:
+        total += (num // 3) - 2
+    
+    return total
 
-result = sum([(num // 3) - 2 for num in nums])
-print(result)
+print(fuel_cost())
