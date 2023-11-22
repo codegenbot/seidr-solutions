@@ -1,10 +1,11 @@
-from typing import Optional
+import sys
+from typing import List, Optional
 
-def longest(strings: str) -> Optional[str]:
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    return max(strings.split(), key=len)
+    return max(strings, key=len)
 
-input_str = input()
-result = longest(input_str)
+input_data = sys.stdin.readline().strip()
+result = longest(input_data.split())
 print(result)
