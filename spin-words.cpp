@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <algorithm>  // Include the algorithm library for the reverse() function
 
 std::string spinWords(const std::string& sentence) {
     std::string result;
