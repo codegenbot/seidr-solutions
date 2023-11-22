@@ -17,3 +17,5 @@ def mastermind(code, guess):
 
     white_pegs -= black_pegs
     return white_pegs, black_pegs
+
+print(mastermind("OBRW", "YOGY"))
