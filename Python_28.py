@@ -5,6 +5,6 @@ def concatenate(strings: List[str]) -> str:
     return "".join(strings)
 
 
-strings = input("Enter a list of comma-separated strings: ").strip().split(",")
+strings = eval(input().strip())
 result = concatenate(strings)
 print(result)

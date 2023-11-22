@@ -13,6 +13,9 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-n = int(input())
-result = factorize(n)
-print(result)
+data = list(map(int, input().split()))
+results = []
+for n in data:
+    result = factorize(n)
+    results.append(result)
+print(results)
