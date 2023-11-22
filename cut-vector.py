@@ -15,3 +15,12 @@ def cut_vector(vector):
             cut_index = i
 
     return vector[: cut_index + 1], vector[cut_index + 1 :]
+
+
+vector = []
+for num in map(int, input().strip().split()):
+    vector.append(num)
+
+result = cut_vector(vector)
+for subvector in result:
+    print(*subvector)
