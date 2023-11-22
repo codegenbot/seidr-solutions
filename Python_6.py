@@ -1,18 +1,13 @@
-from typing import List
-
 def parse_nested_parens(paren_string: str) -> List[int]:
-    stack = []
+    count = 0
     result = []
-    for char in paren_string:
-        if char == '(':
-            stack.append('(')
-        elif char == ')':
-            if stack:
-                stack.pop()
-            else:
-                result.append(-1)
-        else:
-            continue
-    for _ in stack:
-        result.append(1)
+    
+    for paren in paren_string:
+        if paren == '(':
+            count += 1
+        elif paren == ')':
+            count -= 1
+        
+        result.append(count)
+    
     return result
