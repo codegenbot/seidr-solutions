@@ -4,3 +4,6 @@ def middle_character(string):
         return string[length // 2]
     else:
         return string[length // 2 - 1:length // 2 + 1]
+
+input_string = input()
+print(middle_character(input_string))
