@@ -7,6 +7,5 @@ def fuel_cost(numbers):
 
 
 numbers = input().split()
-
 result = fuel_cost(numbers)
 print(result)
