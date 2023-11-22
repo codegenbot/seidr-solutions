@@ -5,3 +5,7 @@ def decode_shift(s: str) -> str:
             for ch in s
         ]
     )
+
+input_str = input("Enter a string: ")
+result = decode_shift(input_str)
+print("Decoded string:", result)
