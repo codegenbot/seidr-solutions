@@ -23,12 +23,9 @@ def calculate_bowling_score(bowls):
                     score += int(bowls[bowl_index + 1])
             frame += 1
             bowl_index += 1
-        elif bowls[bowl_index] == "-":  # Handle "-" case
-            score += 0  # Assign 0 to the score
-            frame += 1
-            bowl_index += 1
         else:
-            score += int(bowls[bowl_index])
+            if bowls[bowl_index] != "-":
+                score += int(bowls[bowl_index])
             frame += 1
             bowl_index += 1
         if frame == 10 and bowls[bowl_index] == "X":
