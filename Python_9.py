@@ -1,4 +1,7 @@
 def your_function_name(input_param: input_type) -> output_type:
-    # Add necessary logic here
+    # Add your logic here
+    # Return the result
 
-your_function_name(input_param)
+def function_name(input_param: List[int]) -> int:
+    # Add your logic here
+    # Return the result
