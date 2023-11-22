@@ -1,6 +1,6 @@
 def separate_paren_groups(paren_string: str) -> List[str]:
-    return [
-        group
-        for group in paren_string.replace(" ", "").split(")(")
-        if group.strip() != ""
-    ]
+    result = paren_string.split(")(")
+    if len(result) > 1:
+        result[0] += ")"
+        result[-1] = "(" + result[-1]
+    return result
