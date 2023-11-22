@@ -1,6 +1,12 @@
 n = int(input())
 m = int(input())
 
-probability = (n-1) / (n * m)
+def probability_of_higher_roll(n, m):
+    if n <= 1 or m <= 1:
+        return 0.0
+    elif n > m:
+        return 1.0
+    else:
+        return (m - n + 1) / m
 
-print(probability)
+print(probability_of_higher_roll(n, m))
