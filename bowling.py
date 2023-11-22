@@ -21,8 +21,7 @@ def calculate_bowling_score(bowls):
                 elif next_bowl == '/':
                     score += 10
                 else:
-                    if next_bowl != '-':
-                        score += int(next_bowl)
+                    score += int(next_bowl)
 
                 bowl_index += 1
             else:
@@ -34,16 +33,14 @@ def calculate_bowling_score(bowls):
                 elif next_bowl == '/':
                     score += 10
                 else:
-                    if next_bowl != '-':
-                        score += int(next_bowl)
+                    score += int(next_bowl)
 
                 if next_next_bowl == 'X':
                     score += 10
                 elif next_next_bowl == '/':
                     score += 10
                 else:
-                    if next_next_bowl != '-':
-                        score += int(next_next_bowl)
+                    score += int(next_next_bowl)
 
                 bowl_index += 1
 
@@ -55,8 +52,7 @@ def calculate_bowling_score(bowls):
                 if next_bowl == 'X':
                     score += 10
                 else:
-                    if next_bowl != '-':
-                        score += int(next_bowl)
+                    score += int(next_bowl)
 
             bowl_index += 1
 
@@ -68,7 +64,6 @@ def calculate_bowling_score(bowls):
         frame += 1
 
     return score
-
 
 bowls = input()
 print(calculate_bowling_score(bowls))
