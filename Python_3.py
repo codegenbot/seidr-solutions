@@ -11,6 +11,7 @@ def below_zero(operations: List[int]) -> bool:
 
 
 n = int(input())
+
 operations = list(map(int, input().split()))
 
 print(below_zero(operations))
