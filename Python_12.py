@@ -1,6 +1,5 @@
 from typing import Optional
 
-
 def longest(strings: str) -> Optional[str]:
     if not strings:
         return None
