@@ -1,8 +1,11 @@
-n = int(input())
-m = int(input())
+import sys
 
-if n <= 1 or m <= 1:
-    print(0.0)
-else:
-    probability = (n-(m-1)) / (n * m)
-    print(probability)
+n = int(sys.stdin.readline().strip())
+m = int(sys.stdin.readline().strip())
+
+total_outcomes = n * m
+higher_outcomes = (n - 1) * m
+
+probability = higher_outcomes / total_outcomes
+
+print(round(probability, 6))
