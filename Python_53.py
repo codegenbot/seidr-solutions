@@ -1,9 +1,9 @@
-def add(x: int, y: int) -> int:
+def add(x: int, y: int):
     return x + y
 
 
-x = int(input())
-y = int(input())
+input_values = input()
+x, y = map(int, input_values.split())
 
 result = add(x, y)
 print(result)
