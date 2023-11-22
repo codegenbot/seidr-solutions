@@ -1,5 +1,5 @@
 def fib4(n: int):
-    a, b, c, d = 0, 1, 2, 2
+    a, b, c, d = 0, 1, 2, 2  
     if n == 0:
         return a
     if n == 1:
