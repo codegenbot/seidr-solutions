@@ -15,3 +15,16 @@ def cut_vector(vector):
             cut_index = i
 
     return vector[: cut_index + 1], vector[cut_index + 1 :]
+
+
+vector = []
+while True:
+    num = input().strip()
+    if num == "":
+        break
+    vector.append(int(num))
+
+result = cut_vector(vector)
+print(len(result[0]))
+for subvector in result:
+    print(*subvector)
