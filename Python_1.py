@@ -1,3 +1,3 @@
 def separate_paren_groups():
     paren_string = input()
-    return re.split("\)\(", paren_string.replace(' ', ''))
+    return paren_string.replace(" ", "").split(")(")
