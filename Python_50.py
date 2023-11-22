@@ -1,5 +1,5 @@
 def decode_shift() -> str:
-    s = input("Enter the encoded string: ")
+    s = input("Enter the string to decode: ")
     return "".join(
         [
             chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a"))
@@ -8,3 +8,7 @@ def decode_shift() -> str:
             for ch in s
         ]
     )
+
+
+result = decode_shift()
+print(result)
