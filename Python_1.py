@@ -1,10 +1,23 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
-    # Check if input string contains matching parentheses
-    if paren_string.count("(") != paren_string.count(")"):
-        return []
+    if paren_string.count('(') != paren_string.count(')'):
+        return "Invalid input string"
+    
+    stack = []
+    result = []
+    group = ""
 
-    # Split input string by the closing )( pattern and remove any spaces in each resulting group
-    return [group.replace(" ", "") for group in paren_string.split(")(")]
+    for char in paren_string:
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            stack.pop()
+        
+        group += char
+        
+        if not stack:
+            result.append(group.strip())
+            group = ""
+    
+    return result
