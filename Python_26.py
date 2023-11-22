@@ -6,14 +6,10 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 
 def get_input_numbers() -> List[int]:
-    # modify here
-    multiline_input = """3,
-    2,
-    5,
-    2"""
-    return list(map(int, multiline_input.strip().split(",")))
+    return list(map(int, input().split()))
 
 
+print("Enter a list of numbers separated by space:")
 input_numbers = get_input_numbers()
 result = remove_duplicates(input_numbers)
 print(result)
