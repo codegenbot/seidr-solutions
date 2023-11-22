@@ -3,9 +3,9 @@ def cut_vector(vector):
     current_sum = 0
     for i, num in enumerate(vector):
         current_sum += num
-        if current_sum * 2 == total_sum or current_sum * 2 == total_sum - num:
+        if current_sum == total_sum - current_sum or current_sum == total_sum - current_sum - num:
             return vector[: i + 1], vector[i + 1 :]
-    return vector, []
+    return vector[: i + 1], vector[i + 1 :]
 
 
 vector = []
@@ -17,5 +17,5 @@ while True:
         break
 
 subvector1, subvector2 = cut_vector(vector)
-print(*subvector1, sep="\n")
-print(*subvector2, sep="\n")
+print(*subvector1, sep='\n')
+print(*subvector2, sep='\n')
