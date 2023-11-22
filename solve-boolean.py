@@ -1,2 +1,2 @@
-expression = input()
-print(eval(expression))
+def solve_boolean(expression):
+    return eval(expression.lower())
