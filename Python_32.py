@@ -12,8 +12,8 @@ def find_zero(xs: list) -> float:
     return None
 
 
-xs = [float(num) for num in input("Enter the list of coefficients (space-separated values): ").split()]
-x = float(input("Enter the value of x: ").strip())
+xs = [float(num) for num in input().split()]
+x = float(input().strip())
 
 result_poly = poly(xs, x)
 result_zero = find_zero(xs)
