@@ -1,2 +1,2 @@
 def sorted_list_sum(lst):
-  return sum(sorted([int(item) for item in lst]))
+  return sorted(filter(lambda x: x.isdigit(), map(str, lst)))
