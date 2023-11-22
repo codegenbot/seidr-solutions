@@ -1,26 +1,29 @@
-def calculate_score(frames):
+def calculate_score(bowls):
+    frames = []
     score = 0
-    frame_index = 0
-    for frame in range(10):
-        if frames[frame_index] == 'X':
-            score += 10 + bonus(frames, frame_index)
-            frame_index += 1
-        elif frames[frame_index+1] == '/':
-            score += 10 + int(frames[frame_index+2])
-            frame_index += 2
+    i = 0
+    
+    while i < len(bowls):
+        if bowls[i] == 'X':
+            frames.append(10)
+            i += 1
+        elif bowls[i] == '/':
+            frames.append(10 - frames[-1])
+            i += 1
         else:
-            score += int(frames[frame_index]) + int(frames[frame_index+1])
-            frame_index += 2
+            if bowls[i].isdigit() or bowls[i] == '-':
+                frames.append(int(bowls[i]))
+        i += 1
+    
+    for i in range(10):
+        if bowls[i] == 'X':
+            score += 10 + frames[i+1] + frames[i+2]
+        elif bowls[i] == '/':
+            score += 10 + frames[i+1]
+        else:
+            score += frames[i]
+    
     return score
 
-def bonus(frames, frame_index):
-    if frames[frame_index+1] == 'X':
-        if frames[frame_index+2] == 'X':
-            return 20
-        else:
-            return 10 + int(frames[frame_index+2])
-    else:
-        return int(frames[frame_index+1]) + int(frames[frame_index+2])
-    
-frames = input().strip()
-print(calculate_score(frames))
+bowls = input()
+print(calculate_score(bowls))
