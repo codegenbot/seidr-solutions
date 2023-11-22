@@ -3,7 +3,7 @@ def tri(n):
     if n == 0:
         return sequence
     elif n == 1:
-        return sequence + [1 + tri(n-1)[0] / 2]
+        return sequence + [1 + sequence[0] / 2]
     else:
         sequence.append(1 + n / 2)
         for i in range(2, n + 1):
