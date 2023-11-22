@@ -1,6 +1,3 @@
-#include <vector>
-#include <iostream>
-
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> nums) {
     int n = nums.size();
     int leftSum = 0;
@@ -32,26 +29,4 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> nums) {
     std::vector<int> rightVector(nums.begin() + cutIndex + 1, nums.end());
     
     return std::make_pair(leftVector, rightVector);
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
-    }
-    
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-    
-    for (int num : result.first) {
-        std::cout << num << std::endl;
-    }
-    
-    for (int num : result.second) {
-        std::cout << num << std::endl;
-    }
-    
-    return 0;
 }
