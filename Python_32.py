@@ -12,7 +12,7 @@ def find_zero(xs: list) -> float:
     return None
 
 
-xs = [float(num) for num in input().strip().split()]
+xs = list(map(float, input().strip().split()))
 x = float(input().strip())
 
 result_poly = poly(xs, x)
