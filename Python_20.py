@@ -16,10 +16,6 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     return closest_pair
 
 
-if len(sys.argv) <= 1:
-    print("Please provide numbers as command-line arguments.")
-    sys.exit()
-
 numbers = [float(x) for x in sys.argv[1:]]
 
 result = find_closest_elements(numbers)
