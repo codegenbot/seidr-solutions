@@ -1,7 +1,7 @@
 def minPath(grid, k):
     m, n = len(grid), len(grid[0])
     total_elements = m * n
-    
+
     if k >= total_elements:
         repeats = k // total_elements
         remainder = k % total_elements
@@ -13,7 +13,7 @@ def minPath(grid, k):
                 grid[i][j] for i in range(remainder // n) for j in range(remainder % n)
             )
         return path[:k]
-    
+
     def dfs(i, j, path, visited):
         if len(path) == k:
             return path.copy()
