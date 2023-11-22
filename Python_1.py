@@ -1,5 +1,6 @@
-from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
-    result = paren_string.split(")(")
-    return ["(" + group + ")" for group in result]
+    return [
+        group
+        for group in paren_string.replace(" ", "").split(")(")
+        if group.strip() != ""
+    ]
