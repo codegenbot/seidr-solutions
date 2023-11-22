@@ -1,16 +1,18 @@
-#include <vector>
 #include <iostream>
 #include <cmath>
+#include <vector>
 
-double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
-    double sumOfSquares = 0.0;
-
-    for (int i = 0; i < vector1.size(); ++i) {
-        double diff = vector1[i] - vector2[i];
-        sumOfSquares += diff * diff;
+double euclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
+    if (vector1.size() != vector2.size()) {
+        return -1; // Return -1 if vectors have different dimensions
     }
 
-    return std::sqrt(sumOfSquares);
+    double sum = 0.0;
+    for (int i = 0; i < vector1.size(); ++i) {
+        sum += pow(vector1[i] - vector2[i], 2);
+    }
+
+    return sqrt(sum);
 }
 
 int main() {
@@ -29,9 +31,8 @@ int main() {
         std::cin >> vector2[i];
     }
 
-    double euclideanDistance = calculateEuclideanDistance(vector1, vector2);
-
-    std::cout << euclideanDistance << std::endl;
+    double distance = euclideanDistance(vector1, vector2);
+    std::cout << distance << std::endl;
 
     return 0;
 }
