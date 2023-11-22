@@ -6,6 +6,8 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     max_num = max(numbers)
     return [(x - min_num) / (max_num - min_num) for x in numbers]
 
-numbers = [float(num) for num in input().split(',')]
+
+input_str = input("Enter a list of numbers separated by commas: ")
+numbers = [float(num) for num in input_str.split(',')]
 result = rescale_to_unit(numbers)
 print(result)
