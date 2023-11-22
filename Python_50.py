@@ -8,6 +8,6 @@ def decode_shift(s: str) -> str:
         ]
     )
 
-input_str = input("Enter a string to decode: ")  # Add a prompt message here
+input_str = input("Enter a string to decode: ")
 decoded_str = decode_shift(input_str)
 print(decoded_str)
