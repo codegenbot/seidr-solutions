@@ -9,6 +9,7 @@ def find_zero(xs: list):
     try:
         xs = list(map(float, input().split()))
         x = float(input())
+
         return poly(xs, x)
 
     except ValueError:
