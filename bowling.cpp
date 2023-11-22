@@ -1,59 +1,58 @@
 #include <iostream>
 #include <string>
 
-int getScore(std::string bowls) {
+int calculateScore(const std::string& rounds) {
     int score = 0;
-    int frame = 0;
-    int frameScore[10] = {0};
+    int frame = 1;
+    int roundIndex = 0;
 
-    for (int i = 0; i < bowls.size(); i++) {
-        if (frame == 10) {
-            break;
-        }
-
-        if (bowls[i] == 'X') {
-            frameScore[frame] += 10;
-            if (frame < 9) {
-                frameScore[frame] += frameScore[frame + 1];
-                if (bowls[i + 2] == 'X') {
-                    frameScore[frame] += 10;
-                } else if (bowls[i + 2] == '/') {
-                    frameScore[frame] += 10 - (bowls[i + 1] - '0');
+    while (frame <= 10 && roundIndex < rounds.length()) {
+        if (rounds[roundIndex] == 'X') {
+            score += 10;
+            if (roundIndex + 1 < rounds.length()) {
+                if (rounds[roundIndex + 1] == 'X') {
+                    score += 10;
+                } else if (rounds[roundIndex + 1] == '/') {
+                    score += 10;
                 } else {
-                    frameScore[frame] += bowls[i + 2] - '0';
+                    score += rounds[roundIndex + 1] - '0';
                 }
             }
-            frame++;
-        } else if (bowls[i] == '/') {
-            frameScore[frame] += 10 - (bowls[i - 1] - '0');
-            if (frame < 9) {
-                frameScore[frame] += frameScore[frame + 1];
-                if (bowls[i + 1] == 'X') {
-                    frameScore[frame] += 10;
+            if (roundIndex + 2 < rounds.length()) {
+                if (rounds[roundIndex + 2] == 'X') {
+                    score += 10;
+                } else if (rounds[roundIndex + 2] == '/') {
+                    score += 10;
                 } else {
-                    frameScore[frame] += bowls[i + 1] - '0';
+                    score += rounds[roundIndex + 2] - '0';
                 }
             }
-            frame++;
+        } else if (rounds[roundIndex] == '/') {
+            score += 10;
+            if (roundIndex + 1 < rounds.length()) {
+                if (rounds[roundIndex + 1] == 'X') {
+                    score += 10;
+                } else {
+                    score += rounds[roundIndex + 1] - '0';
+                }
+            }
         } else {
-            frameScore[frame] += bowls[i] - '0';
-            if (frame < 9 && (bowls[i] - '0') + (bowls[i + 1] - '0') == 10) {
-                frameScore[frame] += frameScore[frame + 1];
-            }
-            i++;
+            score += rounds[roundIndex] - '0';
         }
-    }
 
-    for (int i = 0; i < 10; i++) {
-        score += frameScore[i];
+        frame++;
+        roundIndex++;
     }
 
     return score;
 }
 
 int main() {
-    std::string bowls;
-    std::cin >> bowls;
-    std::cout << getScore(bowls) << std::endl;
+    std::string rounds;
+    std::cin >> rounds;
+
+    int score = calculateScore(rounds);
+    std::cout << score << std::endl;
+
     return 0;
 }
