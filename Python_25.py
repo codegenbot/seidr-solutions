@@ -17,10 +17,11 @@ def factorize(n: int) -> List[int]:
 
 while True:
     try:
-        input_line = input()
+        input_line = input("Enter an integer: ")
         n = int(input_line)
-        result = factorize(n)
-        print(result)
         break
     except ValueError:
-        print("Invalid input. Please enter a valid integer value.")
+        print("Please input a valid integer value!")
+
+result = factorize(n)
+print(result)
