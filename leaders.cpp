@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -8,8 +8,8 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
 
     for (int i = nums.size() - 2; i >= 0; i--) {
         if (nums[i] >= maxRight) {
+            leaders.push_back(nums[i]);
             maxRight = nums[i];
-            leaders.push_back(maxRight);
         }
     }
 
@@ -27,6 +27,7 @@ int main() {
     }
 
     std::vector<int> result = findLeaders(nums);
+
     std::cout << result.size() << std::endl;
     for (int i = 0; i < result.size(); i++) {
         std::cout << result[i] << " ";
