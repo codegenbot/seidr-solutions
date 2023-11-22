@@ -13,12 +13,10 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
+input_line = input("Enter an integer number: ")
 try:
-    input_line = input("Enter an integer number: ")
     n = int(input_line)
     result = factorize(n)
     print(result)
 except ValueError:
     print("Invalid input. Please enter a valid integer value.")
-except EOFError:
-    print("No input provided. Exiting...")
