@@ -33,5 +33,4 @@ def minPath(grid, k):
             if res is not None and len(res) == k:
                 return res
     
-    # If the loop ends without finding a valid path, return an empty list
     return []
