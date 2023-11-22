@@ -10,7 +10,7 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     return result
 
 
-numbers = [1, 2, 3, 4, 5]
-delimiter = 0
+numbers = [int(num) for num in input().split()]
+delimiter = int(input().strip())
 
 print(intersperse(numbers, delimiter))
