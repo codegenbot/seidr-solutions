@@ -23,9 +23,9 @@ def cut_vector(vector):
 vector = []
 while True:
     num = input()
-    if num == "":
+    if num == '':
         break
-    vector.append(int(num))
+    vector.appenda(int(num))
 
 if len(vector) == 1:
     print(vector[0])
