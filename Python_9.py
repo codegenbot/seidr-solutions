@@ -8,7 +8,7 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return max_numbers
 
 
-user_input = input("Enter a list of numbers, separated by spaces: ")
+user_input = input()
 numbers = list(map(int, user_input.split()))
 
 result = rolling_max(numbers)
