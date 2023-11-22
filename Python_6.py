@@ -15,7 +15,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 counter -= 1
             else:
                 return []
-
+    
     if counter > 0:
         return []
 
