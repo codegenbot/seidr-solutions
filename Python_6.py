@@ -1,24 +1,18 @@
-def parse_nested_parens(paren_string: str) -> List[int]:
-    result = []
+def get_max_nesting(paren_string: str) -> int:
     stack = []
-    nesting_count = 0
+    max_nesting = -1
 
     for char in paren_string:
         if char == "(":
-            stack.append(nesting_count)
-            nesting_count += 1
+            stack.append(char)
+            max_nesting = max(max_nesting, len(stack))
         elif char == ")":
             if stack:
                 stack.pop()
-                nesting_count -= 1
             else:
-                return []
+                return -1
 
     if stack:
-        return []
+        return -1
 
-    result = [0] * (max(stack) + 1)
-    for level in stack:
-        result[level] += 1
-
-    return result
+    return max_nesting
