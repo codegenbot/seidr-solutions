@@ -1,11 +1,10 @@
 from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return list(dict.fromkeys(numbers))
+    return list(set(numbers))
 
-def get_input_numbers() -> List[int]:
-    return list(map(int, input().strip().split(",")))
+# Read input from user
+input_numbers = list(map(int, input().split()))  # Fix: read the input as a single line of space-separated numbers
 
-input_numbers = get_input_numbers()
 result = remove_duplicates(input_numbers)
 print(result)
