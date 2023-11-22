@@ -1,10 +1,18 @@
-def dice_game():
-    n = int(input())
-    m = int(input())
-    total_outcomes = n * m
-    desired_outcomes = (n-1) * m
-    probability = desired_outcomes / total_outcomes
-    return probability
+import os
+import sys
+import numpy as np
+import math
+import datetime
+import collections
+import itertools
+import queue
+import re
 
-result = dice_game()
-print(result)
+n = int(input())
+m = int(input())
+
+total_possibilities = n * m
+successful_possibilities = (n-1) * m
+probability = successful_possibilities / total_possibilities
+
+print(probability)
