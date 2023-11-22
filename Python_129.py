@@ -1,9 +1,7 @@
 def minPath(grid, k):
     def dfs(i, j, path):
-        if len(path) == k:
+        if len(path) >= k:
             return path
-        if len(path) > k:
-            return None
         path.append(grid[i][j])
         neighbors = []
         if i > 0:
@@ -30,6 +28,6 @@ def minPath(grid, k):
         for j in range(len(grid[i])):
             visited.add((i, j))
             res = dfs(i, j, [grid[i][j]])
-            if res is not None and len(res) == k:
+            if res is not None and len(res) >= k:
                 return res
     return []
