@@ -1,10 +1,14 @@
 from typing import List
 
+
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return list(set(numbers))
+    unique_numbers = []
+    for number in numbers:
+        if number not in unique_numbers:
+            unique_numbers.append(number)
+    return unique_numbers
 
-# Read input from user
-input_numbers = list(map(int, input().split()))  # Fix: read the input as a single line of space-separated numbers
 
+input_numbers = list(map(int, input().split()))
 result = remove_duplicates(input_numbers)
 print(result)
