@@ -8,11 +8,16 @@ def parse_music(music_string: str) -> List[int]:
     ]
 
 
-def main():
-    music_input = input("Enter the music string: ")
-    if music_input[0].isalpha() and music_input[-1].isdigit():
-        result = parse_music(music_input)
-        print(result)
+music_input = "|oo:||::"
 
-
-main()
+try:
+    if (
+        not isinstance(music_input, str)
+        or len(music_input) < 1
+        or any(char not in "|o:" for char in music_input)
+    ):
+        raise ValueError
+    result = parse_music(music_input)
+    print(result)
+except ValueError:
+    print("Invalid input")
