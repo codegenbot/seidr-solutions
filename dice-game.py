@@ -1,10 +1,11 @@
-n = int(input())
-m = int(input())
+import sys
 
-def dice_game(n, m):
-    total_outcomes = n * m
-    favorable_outcomes = (n - 1) * m
-    probability = favorable_outcomes / total_outcomes
-    return probability
+# Read input values
+n = int(sys.stdin.readline().strip())
+m = int(sys.stdin.readline().strip())
 
-print(dice_game(n, m))
+# Calculate the probability
+probability = (n - 1) / (n * m)
+
+# Print the result
+print(probability)
