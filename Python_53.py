@@ -1,12 +1,9 @@
-import sys
-
-
 def add(x: int, y: int):
     return x + y
 
 
-# Read input from user
-x, y = map(int, input("Enter two numbers: ").split())
+x = int(input("Enter the first number: "))
+y = int(input("Enter the second number: "))
 
 result = add(x, y)
 print(result)
