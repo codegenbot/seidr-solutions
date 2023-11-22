@@ -1,9 +1,8 @@
 def encode(message):
-    vowels = ["a", "e", "i", "o", "u"]
     encoded_message = ""
     for index, char in enumerate(message):
         if char.isalpha() or char.isspace():
-            if char.lower() not in vowels:
+            if char.lower() not in ["a", "e", "i", "o", "u"]:
                 if index % 2 == 0:
                     encoded_message += char.lower()
                 else:
@@ -13,3 +12,6 @@ def encode(message):
         else:
             encoded_message += char
     return encoded_message
+
+
+assert encode("I DoNt KnOw WhAt tO WrItE") == "k dQt kNw wHt t wrT"
