@@ -1,6 +1,4 @@
-expression = input()
-
-expression = expression.replace('T', 'True').replace('F', 'False')
+expression = input().upper()
 
 result = eval(expression)
 
