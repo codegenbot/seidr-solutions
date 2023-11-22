@@ -5,8 +5,8 @@ using namespace std;
 
 pair<int, pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int leftSum = nums[0];
-    int rightSum = accumulate(nums.begin(), nums.end(), 0);
+    int leftSum = 0;
+    int rightSum = accumulate(nums.begin() + 1, nums.end(), 0);
 
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
