@@ -7,5 +7,5 @@ def encode(message):
             else:
                 encoded_message += char.lower()
         else:
-            encoded_message += char
+            encoded_message += char.upper()
     return encoded_message
