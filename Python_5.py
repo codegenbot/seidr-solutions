@@ -8,7 +8,7 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
             result.append(delimiter)
     return result
 
-numbers = list(map(int, input("Enter the numbers: ").split()))
-delimiter = int(input("Enter the delimiter: "))
+numbers = list(map(int, input().split()))
+delimiter = int(input())
 
 print(intersperse(numbers, delimiter))
