@@ -21,5 +21,5 @@ def calculate_bowling_score(bowls):
             bowl_index += 2
         frame += 1
     return score
-
-# Rest of the code...
+bowls = input()
+print(calculate_bowling_score(bowls))
