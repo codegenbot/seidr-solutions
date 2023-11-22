@@ -25,6 +25,5 @@ while True:
     vector.append(int(num))
 
 result = cut_vector(vector)
-print(len(result[0]))
 for subvector in result:
     print(*subvector)
