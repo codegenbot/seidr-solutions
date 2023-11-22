@@ -4,13 +4,10 @@ def filter_integers(values: List[Any]) -> List[int]:
     return [x for x in values if isinstance(x, int)]
 
 # Read input from user
-values = input().split()
+input_values = input().split()
 
-# Convert each value to an integer
-values = [int(x) for x in values]
+# Convert input values to integers
+values = [int(x) for x in input_values]
 
-# Call the function with the updated values
-result = filter_integers(values)
-
-# Print the result
-print(result)
+# Call the filter_integers function and print the result
+print(filter_integers(values))
