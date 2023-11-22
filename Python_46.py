@@ -1,5 +1,5 @@
 def fib4(n: int):
-    a, b, c = 0, 1, 2
+    a, b, c, d = 0, 1, 2, 3
     if n == 0:
         return a
     if n == 1:
@@ -7,5 +7,6 @@ def fib4(n: int):
     if n == 2:
         return c
     for i in range(3, n + 1):
-        a, b, c = b, c, a + b + c
-    return c
+        d = a + b + c
+        a, b, c = b, c, d
+    return d
