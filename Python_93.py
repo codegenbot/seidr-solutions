@@ -1,4 +1,5 @@
 def encode(message):
+
     encoded_message = ""
     for char in message:
         if char.isalpha():
