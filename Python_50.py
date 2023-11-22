@@ -7,7 +7,3 @@ def decode_shift(s: str) -> str:
             for ch in s
         ]
     )
-
-input_str = "xli xmrk erh sj xli wmsr ri tae afpfajsvq sj xlmw jmxxshyi tistpi"
-decoded_str = decode_shift(input_str)
-print(decoded_str)
