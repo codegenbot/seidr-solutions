@@ -4,4 +4,5 @@ def fix_spaces(text):
     text = re.sub(r'\s+', '_', text)
     return text
 
-print(fix_spaces("Hello     World!"))
+# Replace input().strip() with a test input string
+print(fix_spaces(input().strip()))
