@@ -1,7 +1,10 @@
 import hashlib
 
 def string_to_md5(text):
-    if isinstance(text, str):
-        return hashlib.md5(text.encode()).hexdigest()
-    else:
+    if text == "":
         return None
+    else:
+        return hashlib.md5(text.encode()).hexdigest()
+
+text = input()
+print(string_to_md5(text))
