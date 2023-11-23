@@ -1,5 +1,12 @@
+import sys
 from typing import List
 
+numbers = []
+while True:
+    try:
+        numbers.append(float(sys.stdin.readline().strip()))
+    except EOFError:
+        break
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     for i in range(len(numbers)):
@@ -8,16 +15,4 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
                 return True
     return False
 
-
-try:
-    numbers = []
-    while True:
-        try:
-            numbers.append(float(input()))
-        except EOFError:
-            break
-
-    print(has_close_elements(numbers, 1.0))
-
-except Exception as e:
-    print("Error:", str(e))
+print(has_close_elements(numbers, 1.0))
