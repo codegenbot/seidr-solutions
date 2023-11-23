@@ -3,9 +3,9 @@ def fix_spaces(text):
     count = 0
     result = ""
     for char in text:
-        if char == " ":
+        if char == "_":
             count += 1
-            if count > 1:
+            if count > 2:
                 result += "-"
         else:
             count = 0
