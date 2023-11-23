@@ -1,18 +1,24 @@
-import collections
 def mastermind(code, guess):
     black_pegs = 0
     white_pegs = 0
-    
-    code_freq = collections.Counter(code)
-    guess_freq = collections.Counter(guess)
-    
-    for i in range(len(code)):
+    code_count = [0] * 26
+    guess_count = [0] * 26
+
+    for i in range(4):
         if code[i] == guess[i]:
             black_pegs += 1
-            code_freq[code[i]] -= 1
-            guess_freq[guess[i]] -= 1
-    
-    for color in code_freq:
-        white_pegs += min(code_freq[color], guess_freq[color])
-    
+        else:
+            code_count[ord(code[i]) - ord("A")] += 1
+            guess_count[ord(guess[i]) - ord("A")] += 1
+
+    for i in range(26):
+        white_pegs += min(code_count[i], guess_count[i])
+
     return white_pegs, black_pegs
+
+
+code = input()
+guess = input()
+white_pegs, black_pegs = mastermind(code, guess)
+print(white_pegs)
+print(black_pegs)
