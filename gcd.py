@@ -12,10 +12,10 @@ def indices_of_substring(text, target):
     return indices
 
 
-a, b = map(int, input("Enter two integers: ").split())
+a, b = map(int, input().split())
 result = gcd(a, b)
 print(result)
 
-text, target = input("Enter the text and target string: ").split()
+text, target = input(), input()
 indices_result = indices_of_substring(text, target)
 print(indices_result)
