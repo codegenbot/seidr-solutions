@@ -12,18 +12,12 @@ def indices_of_substring(text, target):
     return indices
 
 
-try:
-    a, b = map(int, input().split())
+a, b = map(int, input().split())
 
-    result = gcd(a, b)
-    print(result)
-except ValueError:
-    print("ValueError: not enough values to unpack (expected 2, got 1)")
+result = gcd(a, b)
+print(result)
 
-try:
-    text, target = input().split()
+text, target = input().split()
 
-    indices_result = indices_of_substring(text, target)
-    print(indices_result)
-except ValueError:
-    print("ValueError: not enough values to unpack (expected 2, got 1)")
+indices_result = indices_of_substring(text, target)
+print(indices_result)
