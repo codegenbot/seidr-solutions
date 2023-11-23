@@ -11,6 +11,6 @@ def main():
     numbers = [float(num) for num in numbers]
     scaled_numbers = rescale_to_unit(numbers)
     print(scaled_numbers)
-    
+
 if __name__ == "__main__":
     main()
