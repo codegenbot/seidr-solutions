@@ -6,7 +6,7 @@ def find_leaders(arr):
         if arr[i] > max_right:
             max_right = arr[i]
             leaders.append(max_right)
-            
+    
     return leaders
 
 arr = list(map(int, input().split()))
