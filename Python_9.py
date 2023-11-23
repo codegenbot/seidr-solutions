@@ -7,16 +7,3 @@ def rolling_max(numbers: List[int]) -> List[int]:
         current_max = max(current_max, num)
         max_numbers.append(current_max)
     return max_numbers
-
-def main():
-    n = int(input())
-    numbers = []
-    for _ in range(n):
-        num = int(input())
-        numbers.append(num)
-    result = rolling_max(numbers)
-    for res in result:
-        print(res)
-
-if __name__ == '__main__':
-    main()
