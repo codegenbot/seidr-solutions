@@ -10,7 +10,11 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             closest_pair = (numbers[i], numbers[i+1])
     return closest_pair
 
-input_numbers = list(map(float, input().split()))
+try:
+    input_numbers = list(map(float, input().split()))
+except ValueError:
+    print("Invalid input. Please enter numbers separated by spaces.")
+    exit()
 
 result = find_closest_elements(input_numbers)
 print(result[0], result[1])
