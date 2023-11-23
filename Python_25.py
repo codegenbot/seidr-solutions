@@ -1,4 +1,4 @@
-import itertools
+import sys
 
 def factorize(n):
     factors = []
@@ -7,19 +7,17 @@ def factorize(n):
             factors.append(i)
     return factors
 
-
 def main():
-    user_input = int(input().strip())
+    user_input = list(map(int, input().strip().split()))
     if not user_input:
         print("No input provided")
         return
 
     try:
-        result = factorize(user_input)
-        output = ' '.join(str(f) for f in result)
+        result = [factorize(n) for n in user_input]
+        output = ' '.join(str(f) for sublist in result for f in sublist)
         print(output.strip())
     except ValueError:
         print("Invalid input")
-
 
 main()
