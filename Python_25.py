@@ -1,3 +1,5 @@
+import sys
+
 def factorize(n):
     factors = []
     for i in range(1, n+1):
