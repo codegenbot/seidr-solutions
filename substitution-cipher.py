@@ -2,13 +2,6 @@ cipher = input()
 mapping = input()
 message = input()
 
-deciphered_message = ""
-
-for char in message:
-    index = mapping.find(char)
-    if index != -1:
-        deciphered_message += cipher[index]
-    else:
-        deciphered_message += char
+deciphered_message = "".join(mapping[cipher.find(char)] if char in mapping else char for char in message)
 
 print(deciphered_message)
