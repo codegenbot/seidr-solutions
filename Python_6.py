@@ -13,6 +13,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         counts.append(open_count)
     return counts, max_count
 
-paren_string = "(((())(())))"
+paren_string = "((()))((())())(()())" # Replace with the provided parentheses string
 result = parse_nested_parens(paren_string)
 print(*result)
