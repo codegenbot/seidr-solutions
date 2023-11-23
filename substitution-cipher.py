@@ -2,13 +2,7 @@ cipher = input()
 mapping = input()
 message = input()
 
-deciphered_message = ""
-
-for char in message:
-    try:
-        index = mapping.index(char)
-        deciphered_message += cipher[index]
-    except ValueError:
-        deciphered_message += char
+mapping_dict = {cipher[i]: mapping[i] for i in range(len(cipher))}
+deciphered_message = "".join(mapping_dict.get(char, char) for char in message)
 
 print(deciphered_message)
