@@ -5,5 +5,5 @@ def tri(n):
     if n % 2 == 0:
         sequence.append(1 + n // 2)
     else:
-        sequence.append(tri(n - 1)[-1] + tri(n - 2)[-1] + tri(n + 1)[-1])
+        sequence.append(tri(n-1)[-1] + tri(n-2)[-1] + tri(n+1)[-1])
     return sequence
