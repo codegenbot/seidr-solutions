@@ -6,7 +6,7 @@ def poly(xs: list, x: float) -> float:
 
 
 n = int(input().strip())
-coeffs = [float(input().strip()) for _ in range(n)]
+coeffs = [float(input()) for _ in range(n)]
 
 result = poly(coeffs, 0)
 print(result)
