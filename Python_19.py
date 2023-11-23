@@ -22,5 +22,11 @@ def sort_numbers(numbers: str) -> str:
     return " ".join(sorted_numbers)
 
 
-sorted_numbers_output = sort_numbers("Enter the numbers: ")
+while True:
+    numbers_input = input("Enter the numbers: ")
+    if all(number in number_mapping for number in numbers_input.lower().split()):
+        break
+    print("Invalid input. Please enter valid numbers.")
+
+sorted_numbers_output = sort_numbers(numbers_input)
 print(sorted_numbers_output)
