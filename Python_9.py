@@ -2,8 +2,8 @@ from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
     max_numbers = []
-    current_max = float('-inf')
+    max_number = float('-inf')
     for number in numbers:
-        current_max = max(current_max, number)
-        max_numbers.append(current_max)
+        max_number = max(max_number, number)
+        max_numbers.append(max_number)
     return max_numbers
