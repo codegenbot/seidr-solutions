@@ -8,7 +8,7 @@ def calculate_bowling_score(bowls):
         if bowl == 'X':
             score += 10
             if frame < 10:
-                score += 10 - last_bowl
+                score += 10 - frame_score
                 if is_strike:
                     score += 10
                 if is_spare:
