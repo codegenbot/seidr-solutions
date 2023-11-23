@@ -1,5 +1,4 @@
 def longest(strings: List[str]) -> Optional[str]:
-    if len(strings) == 0:
+    if not strings:
         return None
-    else:
-        return max(strings, key=len)
+    return max(strings, key=len)
