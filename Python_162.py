@@ -11,7 +11,7 @@ result_list = []
 
 for text in sys.stdin:
     result = string_to_md5(text.strip())
-    if result is not None:
+    if result != None:
         result_list.append(result)
 
 for result in result_list:
