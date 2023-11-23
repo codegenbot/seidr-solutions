@@ -1,4 +1,5 @@
 from typing import List, Tuple
+import sys
 
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
@@ -11,9 +12,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 if __name__ == "__main__":
     try:
-        numbers = [2, 4, 6, 8]  # Replace with actual input values
+        numbers = list(map(int, sys.stdin.readline().strip().split()))
         result = sum_product(numbers)
         print(*result)
-        
-    except ValueError:
+    except (ValueError, TypeError, IndexError):
         print("Invalid input. Please enter space-separated numbers.")
