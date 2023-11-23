@@ -15,4 +15,4 @@ def factorize(n: int) -> List[int]:
 
 n = int(input())
 result = factorize(n)
-print(result)
+print("Factors:", result)
