@@ -7,7 +7,7 @@ def concatenate(strings: List[str]) -> str:
 
 if __name__ == "__main__":
     num_strings = int(input())
-    input_strings = [input() for _ in range(num_strings)]
+    input_strings = input().split()
 
     output = concatenate(input_strings)
     print(output)
