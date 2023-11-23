@@ -1,5 +1,3 @@
-import sys
-
 def prime_fib(n: int):
     def is_prime(num):
         if num < 2:
@@ -13,7 +11,9 @@ def prime_fib(n: int):
         return int(num**0.5) ** 2 == num
 
     def is_fibonacci(num):
-        return is_perfect_square(5 * num * num + 4) or is_perfect_square(5 * num * num - 4)
+        return is_perfect_square(5 * num * num + 4) or is_perfect_square(
+            5 * num * num - 4
+        )
 
     count = 0
     i = 0
@@ -27,6 +27,7 @@ def prime_fib(n: int):
 
     return last_prime_fib
 
-n = int(sys.argv[1])
+
+n = int(input("Enter a number: "))
 result = prime_fib(n)
 print(result)
