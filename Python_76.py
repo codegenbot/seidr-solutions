@@ -1,2 +1,2 @@
 def is_simple_power(x, n):
-    return x == n**round(x**(1/n))
+    return abs(x - n**(1/x)) < 0.000001
