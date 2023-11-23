@@ -3,9 +3,9 @@ from typing import List
 def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
     return [s for s in strings if s.startswith(prefix)]
 
-strings = input().rstrip().split(",")
-prefix = input().rstrip()
+strings = input().split()  # Replace with actual input provided by the code contest platform
+prefix = input()  # Replace with actual input provided by the code contest platform
 
-filtered_strings = filter_by_prefix(strings[0], prefix)
+filtered_strings = filter_by_prefix(strings, prefix)
 
-print(",".join(filtered_strings))
+print(filtered_strings)
