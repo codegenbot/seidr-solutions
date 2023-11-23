@@ -1,9 +1,7 @@
 import math
 
-
 def poly(xs: list, x: float):
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
-
 
 def find_zero(xs: list):
     zeros = []
@@ -11,9 +9,9 @@ def find_zero(xs: list):
         zeros.append(-xs[i] / xs[i+1])
     return zeros
 
+# Proper input format
+n = int(input())
+xs = list(map(int, input().split()))
 
-xs = list(map(float, input().split()))
-output1 = poly(xs, 3.5)
-output2 = find_zero(xs)
-print(output1)
-print(output2)
+print(poly(xs, x))
+print(find_zero(xs))
