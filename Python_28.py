@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 
@@ -8,10 +7,10 @@ def concatenate(strings: List[str]) -> str:
 
 
 if __name__ == "__main__":
-    num_strings = int(sys.stdin.readline().strip())
+    num_strings = int(input("Enter the number of strings: "))
     input_strings = []
     for _ in range(num_strings):
-        input_strings.append(sys.stdin.readline().strip())
+        input_strings.append(input("Enter a string: "))
 
     output = concatenate(input_strings)
     print(output)
