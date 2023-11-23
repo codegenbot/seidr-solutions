@@ -3,8 +3,8 @@ def minPath(grid, k):
 
     def dfs(i, j, path, visited, min_path):
         if len(path) == k:
-            if not min_path or len(path) < len(min_path):
-                min_path[:] = path
+            if len(path) < len(min_path) or not min_path:
+                min_path.extend(path)
             return
 
         if (i, j) not in visited:
@@ -33,4 +33,4 @@ def minPath(grid, k):
         for j in range(len(grid[0])):
             dfs(i, j, [], set(), min_path)
 
-    return min_path or []
+    return min_path
