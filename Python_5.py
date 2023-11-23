@@ -3,5 +3,6 @@ def intersperse(numbers: List[int], delimeter: int) -> List[int]:
     for num in numbers:
         result.append(num)
         result.append(delimeter)
-    result.pop()
+    if result:
+        result.pop()
     return result
