@@ -20,8 +20,13 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
-    user_input = list(map(int, input().split(",")))
+    user_input = input().strip().split(",") if input() else []
+    if not user_input:
+        print("No input provided")
+        return
+
     try:
+        user_input = [int(n) for n in user_input if n.isdigit()]
         if any(n <= 0 for n in user_input):
             print("Input values must be positive integers")
         else:
