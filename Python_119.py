@@ -9,4 +9,4 @@ def match_parens(lst):
             if not stack or parentheses[stack.pop()] != c:
                 return 'No'
 
-    return 'No' if stack else 'Yes'
+    return 'Yes' if stack else 'No'
