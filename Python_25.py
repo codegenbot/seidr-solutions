@@ -1,5 +1,5 @@
+import sys
 from typing import List
-
 
 def factorize(n: int) -> List[int]:
     if n <= 1:
@@ -17,14 +17,17 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-
-try:
-    user_input = input()
-    user_input = int(user_input)
-    if user_input <= 0:
-        print("Input must be a positive integer")
-    else:
-        result = factorize(user_input)
-        print(result)
-except ValueError:
+if len(sys.argv) != 2:
     print("Invalid input")
+else:
+    try:
+        user_input = int(sys.argv[1])
+
+        if user_input <= 0:
+            print("Input must be a positive integer")
+        else:
+            result = factorize(user_input)
+            print(result)
+
+    except ValueError:
+        print("Invalid input")
