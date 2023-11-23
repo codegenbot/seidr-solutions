@@ -1,4 +1,4 @@
-import itertools
+import sys
 
 def factorize(n):
     factors = []
@@ -9,9 +9,8 @@ def factorize(n):
 
 def main():
     user_input = list(map(int, input().strip().split()))
-
     result = [factorize(n) for n in user_input]
-    output = ' '.join(map(str, itertools.chain.from_iterable(result)))
+    output = ' '.join(str(f) for sublist in result for f in sublist)
     print(output.strip())
 
 main()
