@@ -5,9 +5,8 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     deviation = [abs(x - mean) for x in numbers]
     return sum(deviation) / len(deviation)
 
-def main():
-    numbers = list(map(float, input().split()))
-    result = mean_absolute_deviation(numbers)
-    print(result)
+numbers = input().split()
+numbers = [float(num) for num in numbers]
 
-main()
+result = mean_absolute_deviation(numbers)
+print(result)
