@@ -18,4 +18,4 @@ def cut_vector(vector):
     if left_index == len(vector) - 1:
         return vector, []
     else:
-        return vector[:left_index + 1], vector[right_index:]
+        return vector[: left_index + 1], vector[right_index:]
