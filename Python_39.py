@@ -26,8 +26,3 @@ def prime_fib(n):
         i += 1
 
     return last_prime_fib
-
-
-# Replace n with the desired input value
-n = 10
-print(prime_fib(n))
