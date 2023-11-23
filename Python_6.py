@@ -1,6 +1,9 @@
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
+    if not paren_string:
+        return []
+
     counts = []
     open_count = 0  
     for paren in paren_string:

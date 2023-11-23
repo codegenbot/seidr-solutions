@@ -1,8 +1,10 @@
+import sys
 from typing import List
 
+
 def intersperse() -> List[int]:
-    numbers = list(map(int, input().strip().split()))
-    delimiter = int(input().strip())
+    numbers = list(map(int, sys.stdin.readline().strip().split()))
+    delimiter = int(sys.stdin.readline().strip())
 
     result = []
     for i in range(len(numbers)):
