@@ -3,9 +3,6 @@ import hashlib
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
-try:
-    text = input()
-    result = string_to_md5(text)
-    print(result)
-except EOFError:
-    pass
+text = "Enter the text here"
+result = string_to_md5(text)
+print(result)
