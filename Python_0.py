@@ -12,9 +12,9 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
 if __name__ == "__main__":
     try:
         n = int(input())
-        numbers = list(map(float, input().split()))
+        numbers = [float(input()) for _ in range(n)]
         threshold = float(input())
 
         print(has_close_elements(numbers, threshold))
     except ValueError:
-        print("Invalid input. Please enter valid numbers.")
+        print("Invalid input.")

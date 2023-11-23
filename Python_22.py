@@ -1,3 +1,13 @@
-def filter_integers() -> List[int]:
+from typing import List, Union
+
+def filter_integers(values: List[Union[int, str]]) -> List[int]:
+    return [value for value in values if isinstance(value, int)]
+
+def main():
     values = input().split()
-    return [int(value) for value in values if value.isdigit()]
+    values = [int(value) for value in values]
+    result = filter_integers(values)
+    print(result)
+
+if __name__ == '__main__':
+    main()
