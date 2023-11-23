@@ -4,8 +4,8 @@ def cut_vector(vector):
     right_sum = total_sum
 
     for i in range(1, len(vector)):
-        left_sum += vector[i - 1]
-        right_sum -= vector[i - 1]
+        left_sum += vector[i-1]
+        right_sum -= vector[i-1]
 
         if left_sum == right_sum or abs(left_sum - right_sum) == 1:
             return vector[:i], vector[i:]
