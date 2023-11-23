@@ -1,15 +1,13 @@
-from typing import List
-
-
-def factorize(n: int) -> List[int]:
+def factorize(n):
     factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
+    for i in range(2, n + 1):
+        while n % i == 0:
             factors.append(i)
-    if n > 1:
-        factors.append(n)
+            n //= i
     return factors
+
+
+def main(user_input):
+    result = [factorize(n) for n in user_input]
+    output = " ".join(str(f) for sublist in result for f in sublist)
+    return output.strip()
