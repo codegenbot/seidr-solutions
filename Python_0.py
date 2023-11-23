@@ -1,5 +1,6 @@
-from typing import List
-
+n = int(input())
+numbers = list(map(float, input().split()))
+threshold = float(input())
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     for i in range(len(numbers)):
@@ -8,15 +9,4 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
                 return True
     return False
 
-
-if __name__ == "__main__":
-    try:
-        n = int(input("Enter the number of elements: "))
-        numbers = []
-        for i in range(n):
-            numbers.append(float(input("Enter element {}: ".format(i + 1))))
-        threshold = float(input("Enter the threshold value: "))
-
-        print(has_close_elements(numbers, threshold))
-    except ValueError:
-        print("Invalid input.")
+print(has_close_elements(numbers, threshold))
