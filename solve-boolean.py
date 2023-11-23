@@ -1,20 +1,17 @@
+from ast import literal_eval
+
 def solve_boolean(expression):
     translation_dict = {
         "T": "True",
         "F": "False",
         "|": " or ",
         "&": " and ",
-        "!": "not ",
+        "!": " not ",
     }
+    modified_expression = expression.translate(str.maketrans(translation_dict))
 
-    for key, value in translation_dict.items():
-        expression = expression.replace(key, value)
+    modified_expression = modified_expression.replace("|", " | ").replace("&", " & ")
+    modified_expression = modified_expression.replace(" and and", " and").replace(" or or", " or")
 
-    expression = expression.replace(" or or", " or False or").replace(
-        " and and", " and False and"
-    )
-
-    expression = expression.replace("!True", "False")
-    expression = expression.replace("!False", "True")
-
-    return eval(expression) or False
+    result = literal_eval(modified_expression)
+    return result if result is not None else False
