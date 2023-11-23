@@ -1,5 +1,6 @@
-from typing import List
-
-
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    return any(abs(num1 - num2) < threshold for i, num1 in enumerate(numbers) for num2 in numbers[i+1:])
+    for i in range(len(numbers)):
+        for j in range(i+1, len(numbers)):
+            if abs(numbers[i] - numbers[j]) <= threshold:
+                return True
+    return False
