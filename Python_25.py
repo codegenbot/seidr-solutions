@@ -1,5 +1,3 @@
-import itertools
-
 def factorize(n):
     factors = []
     for i in range(1, n+1):
@@ -9,15 +7,14 @@ def factorize(n):
 
 
 def main():
-    user_input = input().strip().split()
+    user_input = input("Enter numbers separated by spaces: ").strip().split()
     if not user_input:
         print("No input provided")
         return
 
     try:
-        user_input = list(map(int, user_input))
-        result = [factorize(n) for n in user_input]
-        output = ' '.join(str(f) for sublist in itertools.chain.from_iterable(result) for f in sublist)
+        result = [factorize(int(n)) for n in user_input]
+        output = ' '.join(str(f) for sublist in result for f in sublist)
         print(output.strip())
     except ValueError:
         print("Invalid input")
