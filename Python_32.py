@@ -8,10 +8,10 @@ def poly(xs: list, x: float) -> float:
 n = int(input())
 coeffs = []
 for i in range(n):
-    coeff = float(input())  # Convert input to float
+    coeff = float(input())
     coeffs.append(coeff)
 
-x = float(input())  # Convert input to float
+x = float(input())
 
 if n == 0:
     result = 0.0
