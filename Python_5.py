@@ -1,10 +1,13 @@
+import the typing module
+
 from typing import List
 
+fix the type hint from "List[int]" to "list[int]"
 
 def intersperse(numbers: list[int], delimiter: int) -> list[int]:
-    result = []
-    for i in range(len(numbers)):
-        result.append(numbers[i])
-        if i < len(numbers) - 1:
-            result.append(delimiter)
-    return result
+    create an empty list named result
+    iterate through the numbers list using a for loop
+        append the current number to the result list
+        check if we are not at the last index of the numbers list
+            append the delimiter to the result list
+    return the result list
