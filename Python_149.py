@@ -1,5 +1,2 @@
 def sorted_list_sum(lst):
-    try:
-        return sorted(lst, key=int)
-    except ValueError:
-        return sorted(lst, key=str)
+    return sorted(lst, key=len)
