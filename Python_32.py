@@ -1,14 +1,24 @@
-from typing import List
+import math
 
-def poly(xs: List[float], x: float) -> float:
-    return sum([coeff * x ** i for i, coeff in enumerate(xs)])
 
-def find_zero(xs: List[float]) -> float:
-    a, b, c = xs
-    discriminant = b ** 2 - 4 * a * c
-    if discriminant >= 0:
-        root1 = (-b + math.sqrt(discriminant)) / (2 * a)
-        root2 = (-b - math.sqrt(discriminant)) / (2 * a)
-        return root1 if root1 >= 0 else root2
-    else:
-        return float('inf')
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
+
+def find_zero(xs: list):
+    return -xs[0] / xs[1]
+
+
+def main():
+    xs = list(map(float, input().split()))
+    x = float(input())
+
+    result_1 = poly(xs, x)
+    print(result_1)
+
+    result_2 = find_zero(xs)
+    print(result_2)
+
+
+if __name__ == "__main__":
+    main()
