@@ -1,2 +1,5 @@
 def solve(s):
-    return s[::-1] if not s or not any(c.isalpha() for c in s) else ''.join([c.lower() if c.isupper() and c.isalpha() else c.upper() if c.islower() and c.isalpha() else c for c in s])[::-1]
+    if all(not c.isalpha() for c in s):
+        return s[::-1]
+    else:
+        return ''.join([c.lower() if c.isupper() and c.isalpha() else c.upper() if c.islower() and c.isalpha() else c for c in s[::-1]])
