@@ -14,7 +14,6 @@ def cut_vector(vector):
 
     return vector[: left_index + 1], vector[right_index:]
 
-
 vector = list(map(int, input().split()))
 subvector1, subvector2 = cut_vector(vector)
 
