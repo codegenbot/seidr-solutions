@@ -1,2 +1,6 @@
 def cycpattern_check(a, b):
-    return len(a) == len(b) and (b in (a + a) or b[::-1] in (a + a))
+    temp = a + a
+    if len(a) != len(b):
+        return False
+
+    return b in temp[:len(a)]
