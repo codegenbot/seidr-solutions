@@ -8,17 +8,16 @@ def find_zero(xs: list) -> float:
         return None
     return -xs[0] / xs[1]
 
-def main():
-    xs = []
-    while True:
-        try:
-            x = input()
-            if x == "":
-                break
-            xs.append(float(x))
-        except EOFError:
-            break
-    
-    print(find_zero(xs))
+# Main code logic
+if __name__ == "__main__":
+    # Read input
+    xs = list(map(float, input().split()))
+    x = float(input())
 
-main()
+    # Call functions
+    result_poly = poly(xs, x)
+    result_find_zero = find_zero(xs)
+
+    # Print output
+    print(result_poly)
+    print(result_find_zero)
