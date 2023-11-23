@@ -11,9 +11,7 @@ def prime_fib(n):
         return int(num**0.5) ** 2 == num
 
     def is_fibonacci(num):
-        return is_perfect_square(5 * num * num + 4) or is_perfect_square(
-            5 * num * num - 4
-        )
+        return is_perfect_square(5 * num * num + 4) or is_perfect_square(5 * num * num - 4)
 
     count = 0
     i = 0
@@ -27,5 +25,6 @@ def prime_fib(n):
 
     return last_prime_fib
 
-n = int(input("Enter a number: "))
+
+n = 10  # Set the value of n directly instead of taking input from the user
 print(prime_fib(n))
