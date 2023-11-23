@@ -17,10 +17,20 @@ def cut_vector(vector):
 
     return vector[: min_diff_idx + 1], vector[min_diff_idx + 1 :]
 
-
-vector = list(map(int, input().split()))
+vector = []
+while True:
+    try:
+        line = input()
+        if line.strip() == "":
+            break
+        num = int(line)
+        vector.append(num)
+    except EOFError:
+        break
 
 subvector1, subvector2 = cut_vector(vector)
-print(*subvector1, sep="\n")
+for num in subvector1:
+    print(num)
 print()
-print(*subvector2, sep="\n")
+for num in subvector2:
+    print(num)
