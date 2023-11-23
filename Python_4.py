@@ -6,12 +6,14 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return deviation
 
 while True:
-    user_input = input("Enter the numbers: ")
-    if user_input:
-        numbers = user_input.split()
+    numbers = input("Enter the numbers: ").split()
+    if numbers:
         try:
             numbers = list(map(float, numbers))
-            break
+            if len(numbers) > 1:
+                break
+            else:
+                print("At least two numbers should be entered.")
         except ValueError:
             print("Invalid input. Please enter numbers separated by spaces.")
     else:
