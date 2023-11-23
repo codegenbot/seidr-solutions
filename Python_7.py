@@ -1,2 +1,2 @@
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    return [x for x in strings if substring in x]
+    return [s for s in strings if substring in s]
