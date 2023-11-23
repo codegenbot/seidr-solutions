@@ -19,7 +19,7 @@ while True:
         vector.append(num)
     except:
         break
-
+        
 result1, result2 = cut_vector(vector)
 for num in result1:
     print(num)
