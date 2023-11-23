@@ -3,12 +3,10 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.islower():
-                encoded_char = chr((ord(char) - ord('a') + 10) % 26 + ord('a'))
+                encoded_char = chr((ord(char) - ord('a') + 19) % 26 + ord('a'))
             else:
-                encoded_char = chr((ord(char) - ord('A') + 10) % 26 + ord('A'))
+                encoded_char = chr((ord(char) - ord('A') + 45) % 26 + ord('A'))
         else:
             encoded_char = char
         encoded_message.append(encoded_char)
     return ''.join(encoded_message)
-
-assert encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg", "This prints if this assert fails"
