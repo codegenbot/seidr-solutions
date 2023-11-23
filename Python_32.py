@@ -1,18 +1,19 @@
 import math
-import sys
 
-def poly(xs: list, x: float):
+def poly(xs: list, x: float) -> float:
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
-def find_zero(xs: list):
+def find_zero(xs: list) -> float:
     return -xs[0] / xs[1]
 
-num_coeffs = int(sys.stdin.readline().strip())
-xs = list(map(float, sys.stdin.readline().strip().split()))
-x = float(sys.stdin.readline().strip())
+coeffs = []
+for i in range(num_coeffs):
+    coeffs.append(float(input()))
 
-result = poly(xs, x)
+x = float(input("Enter the value of x: "))
+
+result = poly(coeffs, x)
 print(result)
 
-zero = find_zero(xs)
+zero = find_zero(coeffs)
 print(zero)
