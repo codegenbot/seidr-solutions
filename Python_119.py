@@ -13,4 +13,4 @@ def match_parens(lst):
             stack.pop()
             count -= 1
     
-    return 'No' if count != 0 else 'Yes'
+    return 'No' if count != 0 or stack else 'Yes' if not stack else 'No'
