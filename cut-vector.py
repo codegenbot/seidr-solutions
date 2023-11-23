@@ -1,10 +1,10 @@
 def cut_vector(vector):
     total_sum = sum(vector)
     min_diff = abs(total_sum)
-    left_index = right_index = -1
+    left_index = right_index = None
 
     current_sum = 0
-    for i, num in enumerate(vector):
+    for i, num in enumerate(vector[1:], 1):
         current_sum += num
         diff = abs((total_sum - current_sum) - current_sum)
 
