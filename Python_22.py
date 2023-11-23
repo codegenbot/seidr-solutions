@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 
@@ -7,9 +6,12 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    values = sys.stdin.readline().strip().split(',')
-    result = filter_integers(values)
-    print(result if result else "No integers found.")
+    values = input("Enter a comma-separated list of values: ")
+    if not values:
+        print("No input provided.")
+        return
+    result = filter_integers([value.strip() for value in values.split(",")])
+    print(result or "No integers found.")
 
 
 if __name__ == "__main__":
