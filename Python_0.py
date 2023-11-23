@@ -1,9 +1,4 @@
-numbers = []
-while True:
-    try:
-        numbers.append(float(input()))
-    except EOFError:
-        break
+numbers = list(map(float, input().split()))
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     for i in range(len(numbers)):
