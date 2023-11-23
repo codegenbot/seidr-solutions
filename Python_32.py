@@ -12,8 +12,8 @@ def find_zero(xs: list):
 # Read input from user
 xs = list(map(float, input().split()))
 
-# Call the functions with user input
-result1 = poly(xs, xs[0])
+# Call the respective functions with the user input
+result1 = poly(xs, 2.5)
 result2 = find_zero(xs)
 
 # Print the results
