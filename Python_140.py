@@ -1,6 +1,5 @@
 def fix_spaces(text):
     return text.replace(' ', '_')
 
-text = input().rstrip()
-result = fix_spaces(text)
+result = fix_spaces(input("Enter the text: ").strip())
 print(result)
