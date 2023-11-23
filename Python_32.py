@@ -4,15 +4,14 @@ def poly(xs: list, x: float) -> float:
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
 try:
-    n = int(input().strip())
-    coeffs = list(map(float, input().strip().split()))
-    x = float(input().strip())
+    n = int(input())
+    coeffs = list(map(float, input().split()))
+    x = float(input())
 
-    if n == 0:
-        result = 0.0
+    if len(coeffs) != n+1:
+        print("Invalid input!")
     else:
         result = poly(coeffs, x)
-
-    print(f"{result:.2f}")
+        print(f"{result:.2f}")
 except ValueError:
     print("Invalid input!")
