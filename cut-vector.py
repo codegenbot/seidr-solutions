@@ -1,4 +1,3 @@
-```python
 def cut_vector(vector):
     total_sum = sum(vector)
     min_diff = abs(total_sum)
@@ -15,9 +14,9 @@ def cut_vector(vector):
             right_index = i + 1
         elif (total_sum - current_sum) == current_sum or diff <= min_diff:
             right_index = i + 1
-    
+
     if left_index is None or right_index is None:
         left_index = len(vector) - 1
         right_index = 0
 
-    return vector[:left_index+1], vector[right_index:]
+    return vector[: left_index + 1], vector[right_index:]
