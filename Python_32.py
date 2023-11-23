@@ -13,6 +13,7 @@ def find_zero():
     return zeros
 
 
+# Read input from user
 task_type = input()
 
 if task_type == "poly":
@@ -24,4 +25,5 @@ elif task_type == "find_zero":
     xs = list(map(float, input().split()))
     result = find_zero()
 
+# Print the result
 print(result)
