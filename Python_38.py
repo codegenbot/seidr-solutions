@@ -1,8 +1,7 @@
-def decode_cyclic(s: str) -> str:
-    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
-    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
+def decode_cyclic():
+    s = input().strip()
+    if len(s) % 3 != 0:
+        s += " " * (3 - len(s) % 3)
+    groups = [s[(3 * i) : (3 * (i + 1))] for i in range(len(s) // 3)]
+    groups = [group[-1] + group[:-1] for group in groups]
     return "".join(groups)
-
-input_str = input()
-result = decode_cyclic(input_str)
-print(result)
