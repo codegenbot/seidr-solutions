@@ -6,4 +6,4 @@ if n <= 1 or m <= 1:
 elif n >= m:
     print(1 - ((m - 1) / (n + m - 1)))
 else:
-    print((m - n + 1) / (m + n - 1))
+    print(round((m - n) / (m + n - 1), 8))
