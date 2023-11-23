@@ -6,8 +6,8 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    input_values = input().strip().split()  # read space-separated input values
-    if input_values:
+    input_values = input().split()
+    if len(input_values) > 0:
         result = filter_integers(input_values)
         print(result)
     else:
