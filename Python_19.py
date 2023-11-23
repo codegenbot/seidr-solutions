@@ -15,7 +15,7 @@ def sort_numbers() -> str:
         "nine": 9,
     }
 
-    numbers = input("Enter numbers: ")
+    numbers = input().strip()
     numbers_list = numbers.lower().split()
     sorted_numbers = sorted(
         numbers_list, key=lambda x: number_mapping.get(x, float("inf"))
