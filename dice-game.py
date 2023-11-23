@@ -6,4 +6,4 @@ if n <= 1 or m <= 1:
 elif n >= m:
     print((n - (m-1)) / (n * m))
 else:
-    print((m - n + 1) / (m + n - 1))
+    print((m - n + 1) / (n * m))
