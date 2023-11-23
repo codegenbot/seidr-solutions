@@ -7,7 +7,3 @@ def rolling_max(numbers: List[int]) -> List[int]:
         current_max = max(current_max, num)
         max_numbers.append(current_max)
     return max_numbers
-
-numbers = [1, 2, 3, 4, 5]
-result = rolling_max(numbers)
-print(result)
