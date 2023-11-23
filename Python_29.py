@@ -1,9 +1,12 @@
+import sys
+
+
 def filter_by_prefix(strings, prefix):
     return sorted({string for string in strings if string.startswith(prefix)})
 
 
-strings = input().strip().split()
-prefix = input().strip()
+strings = sys.stdin.readline().strip().split()
+prefix = sys.stdin.readline().strip()
 
 filtered_strings = filter_by_prefix(strings, prefix)
 
