@@ -1,11 +1,17 @@
+from typing import List
+
+numbers = []
+try:
+    while True:
+        numbers.append(float(input()))
+except EOFError:
+    pass
+    
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
             if abs(numbers[i] - numbers[j]) < threshold:
                 return True
     return False
-
-
-numbers = [float(x) for x in input().split()]
 
 print(has_close_elements(numbers, 1.0))
