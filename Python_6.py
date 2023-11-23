@@ -6,10 +6,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     for paren in paren_string:
         if paren == '(':
             open_count += 1
-            counts.append(open_count)
         elif paren == ')' and open_count > 0:
             open_count -= 1
-            counts.append(open_count)
-    if open_count != 0:
-        return []
+        counts.append(open_count)
     return counts
