@@ -28,4 +28,7 @@ def prime_fib(n):
     return last_prime_fib
 
 n = int(input())
-print(prime_fib(n))
+if n >= 0:
+    print(prime_fib(n))
+else:
+    print("Invalid input. Please enter a non-negative number.")
