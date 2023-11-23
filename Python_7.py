@@ -8,17 +8,13 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 # Read substring input
 substring = input().strip()
 
-# Read strings input
+# Read strings input until empty line is entered
 strings = []
 while True:
-    try:
-        string = input().strip()
-        if string:
-            strings.append(string)
-        else:
-            break
-    except EOFError:
+    string = input().strip()
+    if not string:
         break
+    strings.append(string)
 
 result = filter_by_substring(strings, substring)
 print(result)
