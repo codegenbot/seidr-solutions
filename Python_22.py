@@ -8,7 +8,7 @@ def filter_integers(values: List[str]) -> List[int]:
 def main():
     input_values = input().split(",")
 
-    if len(input_values) > 0:
+    if input_values:
         result = filter_integers(input_values)
         print(result)
     else:
