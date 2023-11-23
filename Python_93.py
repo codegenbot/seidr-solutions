@@ -5,5 +5,6 @@ def encode(message):
             encoded_char = chr((ord(char.lower()) - 97 + 20) % 26 + 97)
             encoded_message += encoded_char
         else:
-            encoded_message += char.upper()
+            encoded_message += char
+    encoded_message = encoded_message[::-1]
     return encoded_message
