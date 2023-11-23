@@ -1,2 +1,4 @@
+from typing import List
+
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return [number for index, number in enumerate(numbers) if numbers.index(number) == index]
+    return list(dict.fromkeys(numbers))
