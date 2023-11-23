@@ -1,11 +1,12 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
-    nested_levels = []
-    count = 0
+    depths = []
+    stack = []
+    
     for char in paren_string:
-        if char == '(':
-            count += 1
-        elif char == ')':
-            count -= 1
-        if char == ' ':
-            nested_levels.append(count)
-    return nested_levels
+        if char == "(":
+            stack.append(char)
+        elif char == ")":
+            depths.append(len(stack))
+            stack.pop()
+    
+    return depths
