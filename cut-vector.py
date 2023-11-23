@@ -17,6 +17,8 @@ def cut_vector(numbers):
 
 
 numbers = [int(input()) for _ in range(int(input()))]
+
 left_subvector, right_subvector = cut_vector(numbers)
+
 print(*left_subvector, sep="\n")
 print(*right_subvector, sep="\n")
