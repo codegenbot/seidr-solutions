@@ -1,8 +1,7 @@
 from typing import List, Tuple
 
-
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
-    numbers = [float(num) for num in numbers]
+    numbers = list(map(float, numbers))
     numbers.sort()
     min_diff = float("inf")
     closest_pair = ()
