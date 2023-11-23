@@ -2,11 +2,11 @@ def make_palindrome(string: str) -> str:
     if string == string[::-1]:
         return string
 
-    prefix = ""
+    suffix = ""
     while string != string[::-1]:
         if string:
-            prefix = string[0] + prefix
+            suffix = string[0] + suffix
             string = string[1:]
         else:
             break
-    return string + prefix + string[::-1]
+    return string + suffix + string[::-1]
