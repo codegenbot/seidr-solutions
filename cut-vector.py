@@ -9,6 +9,7 @@ def cut_vector(vector):
 
 
 vector = [int(input()) for _ in range(int(input()))]
+
 subvector1, subvector2 = cut_vector(vector)
 for num in subvector1:
     print(num)
