@@ -15,7 +15,9 @@ def main():
         else:
             print("No integers found.")
     else:
-        print("Invalid input. Please enter only integers separated by commas (\",\")")
+        print(
+            'Invalid input. Please enter only integers separated by commas without space (",")'
+        )
 
 
 if __name__ == "__main__":
