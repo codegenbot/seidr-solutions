@@ -1,5 +1,4 @@
 from typing import List
-import sys
 
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
@@ -10,6 +9,9 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     return False
 
 
-numbers = [float(num) for num in sys.argv[1].strip().split()]
-threshold = float(sys.argv[2])
-print(has_close_elements(numbers, threshold))
+try:
+    numbers = list(map(float, input("Enter space-separated numbers: ").split()))
+    threshold = float(input("Enter the threshold: "))
+    print(has_close_elements(numbers, threshold))
+except Exception as e:
+    print("Error:", str(e))
