@@ -1,3 +1,5 @@
+import sys
+
 def encode_shift(s: str) -> str:
     return "".join(
         [
