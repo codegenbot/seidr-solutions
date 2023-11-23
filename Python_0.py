@@ -11,8 +11,9 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
 
 def main():
     try:
-        numbers = list(map(float, input().split()))
-        threshold = float(input())
+        inputs = input().strip().split()
+        numbers = list(map(float, inputs[0:-1]))
+        threshold = float(inputs[-1])
         print(has_close_elements(numbers, threshold))
     except Exception as e:
         print("Error:", str(e))
