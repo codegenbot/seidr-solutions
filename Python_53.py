@@ -1,6 +1,6 @@
 def add(x, y):
     return x + y
 
-x = int(input("Enter x: \n"))
-y = int(input("Enter y: \n"))
+x = int(input("Enter the value of x: "))
+y = int(input("Enter the value of y: "))
 print(add(x, y))
