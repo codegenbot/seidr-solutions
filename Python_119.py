@@ -1,14 +1,12 @@
 def match_parens(lst):
     stack = []
-    for s in lst:
-        for c in s:
-            if c == '(':
-                stack.append(c)
-            elif c == ')':
-                if len(stack) == 0:
-                    return 'No'
-                stack.pop()
-    if len(stack) == 0:
-        return 'Yes'
-    else:
-        return 'No'
+    parentheses = {')': '(', ']': '[', '}': '{'}
+
+    for c in lst:
+        if c in parentheses:
+            stack.append(c)
+        elif c in parentheses.values():
+            if not stack or parentheses[stack.pop()] != c:
+                return 'No'
+
+    return 'No' if stack else 'Yes'
