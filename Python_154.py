@@ -1,2 +1,4 @@
+from itertools import permutations
+
 def cycpattern_check(a, b):
-    return b in a + a
+    return ''.join(permutation) in [''.join(p) for p in permutations(a, len(a))]
