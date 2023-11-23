@@ -16,6 +16,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return counts, max_count
 
 
-paren_string = input().strip()
+paren_string = input().strip('\n')
 result = parse_nested_parens(paren_string)
 print(*result)
