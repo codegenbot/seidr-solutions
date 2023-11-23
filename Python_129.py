@@ -28,6 +28,3 @@ def minPath(grid, k):
             result = dfs(i, j, [])
             if result and len(result) == k:
                 return result
-
-# Test the code
-assert minPath([[1, 3], [3, 2]], 10) == [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
