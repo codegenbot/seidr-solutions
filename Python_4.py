@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
@@ -16,12 +15,9 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return deviation
 
 numbers = []
-sys.stdout.write("Enter numbers (press enter to finish input):\n")
-while True:
-    num = sys.stdin.readline().strip()
-    if num == '':
-        break
+while num != '':
+    num = input().strip()
     numbers.append(float(num))
 
 result = mean_absolute_deviation(numbers)
-sys.stdout.write(str(result))
+print(result)
