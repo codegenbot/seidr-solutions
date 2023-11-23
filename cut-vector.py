@@ -16,6 +16,7 @@ def cut_vector(numbers):
 
     return numbers[: cut_index + 1], numbers[cut_index + 1 :]
 
+
 numbers = list(map(int, input().split()))
 
 left_subvector, right_subvector = cut_vector(numbers)
