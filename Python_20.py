@@ -10,7 +10,8 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             closest_pair = (numbers[i], numbers[i + 1])
     return closest_pair
 
-input_numbers = list(map(float, input().strip().split(",")))
+input_str = input("Enter a list of numbers separated by commas: ")
+input_numbers = list(map(float, input_str.split(", ")))
 
 result = find_closest_elements(input_numbers)
 print("{:.2f}, {:.2f}".format(result[0], result[1]))
