@@ -8,15 +8,15 @@ def find_zero(xs: list) -> float:
         return None
     return -xs[0] / xs[1]
 
-def main():
+# Main code logic
+if __name__ == "__main__":
     xs = input().split()
     xs = [float(x) for x in xs]
+    
     x = float(input())
-
-    result1 = poly(xs, x)
-    result2 = find_zero(xs)
-
-    print(result1)
-    print(result2)
-
-main()
+    
+    result_poly = poly(xs, x)
+    result_find_zero = find_zero(xs)
+    
+    print(result_poly)
+    print(result_find_zero)
