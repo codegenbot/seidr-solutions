@@ -15,5 +15,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return counts, max_count
 
 
-result = parse_nested_parens("()(())((())")
+result = parse_nested_parens("()(())((()))")
 print(result)
