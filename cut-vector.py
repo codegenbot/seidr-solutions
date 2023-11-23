@@ -12,6 +12,7 @@ def cut_vector(vector):
             left_index = i
             right_index = i
         elif (total_sum - current_sum) == current_sum:
-            right_index = i + 1
+            if right_index == len(vector):
+                right_index = i + 1
 
     return vector[:left_index], vector[right_index:]
