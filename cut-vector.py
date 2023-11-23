@@ -15,7 +15,6 @@ def cut_vector(vector):
 
     return vector, [0]
 
-
 line = input()
 vector = [int(num) for num in line.split()]
 
