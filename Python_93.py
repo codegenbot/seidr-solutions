@@ -3,9 +3,9 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in 'aeiou':
-                encoded_message += chr(ord(char) + 2).upper()
+                encoded_message += chr(ord(char.lower()) + 2).upper()
             else:
-                encoded_message += char.swapcase()
+                encoded_message += chr(ord(char.lower()) + 2).swapcase()
         else:
             encoded_message += char
     return encoded_message
