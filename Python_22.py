@@ -1,10 +1,10 @@
 from typing import List, Union
 
 def filter_integers(values: List[Union[int, str]]) -> List[int]:
-    return [value for value in values if isinstance(value, int) or (isinstance(value, str) and value.isdigit())]
+    return [value for value in values if isinstance(value, int)]
 
 def main():
-    values = [eval(value) for value in input().split()]
+    values = input().split()
     result = filter_integers(values)
     print(result)
 
