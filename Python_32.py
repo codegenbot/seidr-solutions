@@ -5,7 +5,8 @@ def poly(xs: list, x: float) -> float:
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
 
-xs = list(coeffs)
+n = int(input())
+coeffs = [float(input()) for _ in range(n)]
 
-result = poly(xs, 0)
+result = poly(coeffs, 0)
 print(result)
