@@ -7,11 +7,11 @@ def cut_vector(vector):
     for i, num in enumerate(vector):
         current_sum += num
         diff = abs((total_sum - current_sum) - current_sum)
-        if diff < min_diff and (total_sum - current_sum) == current_sum:
+        if diff < min_diff:
             min_diff = diff
             left_index = i + 1
             right_index = i + 1
-        if (total_sum - current_sum) == current_sum:
+        if (total_sum - current_sum) == current_sum or diff < min_diff:
             right_index = i + 1
 
     return vector[:left_index], vector[right_index:]
