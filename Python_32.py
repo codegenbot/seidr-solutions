@@ -12,6 +12,7 @@ def find_zero(xs: list) -> list:
     return zeros
 
 
+# Read input from user
 task_type = input()
 
 if task_type == "poly":
@@ -22,4 +23,5 @@ elif task_type == "find_zero":
     xs = list(map(float, input().split()))
     result = find_zero(xs)
 
+# Print the result
 print(result)
