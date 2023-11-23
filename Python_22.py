@@ -2,23 +2,15 @@ from typing import List
 
 
 def filter_integers(values: List[str]) -> List[int]:
-    try:
-        return [int(value) for value in values]
-    except ValueError:
-        raise ValueError(
-            "Invalid input. Please enter only integers separated by a comma and a space (', ')."
-        )
+    return [int(value) for value in values]
 
 
 def main():
-    input_values = input().strip().split(", ")
+    input_values = input().split(",")
 
-    if input_values:
-        try:
-            result = filter_integers(input_values)
-            print(result)
-        except ValueError as e:
-            print(str(e))
+    if len(input_values) > 0:
+        result = filter_integers(input_values)
+        print(result)
     else:
         print("No input provided.")
 
