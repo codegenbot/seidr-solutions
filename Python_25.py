@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 
@@ -19,17 +20,22 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
-    user_input = input().split(",")
+    user_input = []
+    while True:
+        try:
+            line = input().strip()
+            if line == "":
+                break
+            user_input.append(int(line))
+        except EOFError:
+            break
+
     if not user_input:
         print("No input provided")
         return
 
-    try:
-        user_input = list(map(int, user_input))
-        result = [factorize(n) for n in user_input]
-        print(" ".join(str(f) for sublist in result for f in sublist))
-    except ValueError:
-        print("Invalid input")
+    result = [factorize(n) for n in user_input]
+    print(" ".join(str(f) for sublist in result for f in sublist))
 
 
 if __name__ == "__main__":
