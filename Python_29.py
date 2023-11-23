@@ -1,8 +1,10 @@
-def filter_by_prefix(strings, prefix):
-    return [string for string in strings if string.startswith(prefix)]
+import sys
 
-strings = raw_input().split(",")
-prefix = raw_input()
+def filter_by_prefix(strings, prefix):
+    return sorted({string for string in strings if string.startswith(prefix)})
+
+strings = sys.argv[1:]
+prefix = sys.argv[2]
 
 filtered_strings = filter_by_prefix(strings, prefix)
 
