@@ -1,10 +1,5 @@
 def add():
-    while True:
-        try:
-            x, y = map(int, input("Enter two integers separated by space: ").split())
-            break
-        except ValueError:
-            print("Invalid input. Please enter two integers separated by space.")
+    x, y = map(int, input("Enter two integers separated by space: ").split())
     return x + y
 
 print(add())
