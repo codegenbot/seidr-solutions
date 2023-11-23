@@ -14,9 +14,9 @@ def find_zero():
 
 
 # Read input from user
-task_type = input().strip() # replace this line
+task_type = input().strip()
 
-result = None # move this line outside of if statement
+result = None
 
 if task_type == "poly":
     xs = list(map(float, input().split()))
