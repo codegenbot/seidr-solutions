@@ -1,7 +1,7 @@
 def luhn_algorithm(digits):
     new_digits = []
-    for i in range(len(digits)):
-        if i % 2 == 1:
+    for i in range(len(digits)-1, -1, -1):
+        if i % 2 == 0:
             doubled_digit = digits[i] * 2
             if doubled_digit > 9:
                 doubled_digit -= 9
@@ -13,4 +13,6 @@ def luhn_algorithm(digits):
 
 n = int(input())
 digits = list(map(int, input().split()))
-print(luhn_algorithm(digits))
+
+result = luhn_algorithm(digits)
+print(result)
