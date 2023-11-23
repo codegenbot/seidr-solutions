@@ -6,7 +6,9 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    values = input("Enter a comma-separated list of values: ").strip().split(",")
+    values = input("Enter a comma-separated list of values: ").split(",")
+    values = [value.strip() for value in values]
+
     if all(value.isdigit() for value in values):
         result = filter_integers(values)
         if result:
