@@ -18,6 +18,6 @@ def sort_numbers(numbers: str) -> str:
     sorted_numbers = sorted(numbers_list, key=lambda x: number_mapping[x])
     return " ".join(sorted_numbers)
 
-numbers_input = input("Enter numbers as words: ").strip()
+numbers_input = numbers_input.strip()
 sorted_numbers_output = sort_numbers(numbers_input)
 print(sorted_numbers_output)
