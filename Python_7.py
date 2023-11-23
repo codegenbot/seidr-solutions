@@ -5,6 +5,7 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [s for s in strings if substring in s]
 
 
-substring, *strings = input().split("\n")
-result = filter_by_substring(strings, substring)
+strings = input().split("\n")
+substring = strings[0]
+result = filter_by_substring(strings[1:], substring)
 print(result)
