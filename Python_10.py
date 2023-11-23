@@ -1,7 +1,7 @@
 def make_palindrome(string: str) -> str:
-    suffix = ''
-    for i in range(len(string)-1, -1, -1):
+    i = len(string) - 1
+    while i >= 0:
         if is_palindrome(string[i:]):
-            suffix = string[i:]
-            break
-    return string + suffix[::-1]
+            return string + string[:i][::-1]
+        i -= 1
+    return string
