@@ -1,7 +1,4 @@
-# Read input from user
 task_type = input()
-
-# Initialize result
 result = []
 
 if task_type == "poly":
@@ -13,5 +10,4 @@ elif task_type == "find_zero":
 else:
     result = None
 
-# Print the result
 print(str(result))
