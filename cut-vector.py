@@ -15,3 +15,9 @@ def cut_vector(vector):
             right_index = i + 1
 
     return vector[:left_index], vector[right_index:]
+
+vector = [int(num) for num in input().split()]
+
+subvector1, subvector2 = cut_vector(vector)
+print(*subvector1, sep='\n')
+print(*subvector2, sep='\n')
