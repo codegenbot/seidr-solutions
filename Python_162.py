@@ -1,13 +1,13 @@
 import hashlib
+import sys
 
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest() if text != "" else ""
 
-# Read input from user
-text = input().strip()
+text = ""
+for line in sys.stdin:
+    text += line.strip() + "\n"
 
-# Call the function with the input
 result = string_to_md5(text)
 
-# Print the result
 print(result)
