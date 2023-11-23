@@ -10,6 +10,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 
 if __name__ == "__main__":
-    numbers = list(map(int, input("Enter space-separated numbers: ").split(" ")))
+    numbers = input().split()
+    numbers = [int(num) for num in numbers]
     result = sum_product(numbers)
-    print(*result)
+    print(result)
