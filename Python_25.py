@@ -19,7 +19,7 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
-    user_input = input().strip().split(",")
+    user_input = input().split(",")
     if not user_input:
         print("No input provided")
         return
@@ -27,7 +27,8 @@ def main():
     try:
         user_input = list(map(int, user_input))
         result = [factorize(n) for n in user_input]
-        print(" ".join(str(f) for sublist in result for f in sublist))
+        output = " ".join(str(f) for sublist in result for f in sublist)
+        print(output)
     except ValueError:
         print("Invalid input")
 
