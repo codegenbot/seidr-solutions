@@ -1,12 +1,5 @@
 def calculate_sum():
-    while True:
-        try:
-            x = int(input("Enter the first integer: "))
-            y = int(input("Enter the second integer: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter two integers.")
-
+    x, y = map(int, input().split())
     return x + y
 
 result = calculate_sum()
