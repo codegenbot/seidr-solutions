@@ -1,5 +1,3 @@
-import sys
-
 def encode_shift(s: str) -> str:
     return "".join(
         [
@@ -8,6 +6,7 @@ def encode_shift(s: str) -> str:
             if ch.isalpha() or ch.isspace()
         ]
     )
+
 
 def decode_shift(s: str) -> str:
     return "".join(
@@ -18,13 +17,10 @@ def decode_shift(s: str) -> str:
         ]
     )
 
-if len(sys.argv) != 2:
-    print("Usage: python problem.py <input_string>")
-    sys.exit(1)
 
-input_string = sys.argv[1]
+user_input = input("Enter input: ")
 
-encoded = encode_shift(input_string)
+encoded = encode_shift(user_input)
 print("Encoded string:", encoded)
 
 decoded = decode_shift(encoded)
