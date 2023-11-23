@@ -19,5 +19,6 @@ if ' ' not in input_str:
   print("Invalid input. Please enter both the length and the string separated by a space.")
 else:
   input_length, input_str = input_str.split()
+  input_length = int(input_length)
   result = decode_cyclic(input_length, input_str)
   print(result)
