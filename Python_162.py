@@ -1,4 +1,5 @@
 import hashlib
+import sys
 
 def string_to_md5(text):
     if text == "":
@@ -8,16 +9,10 @@ def string_to_md5(text):
 
 result_list = []
 
-while True:
-    try:
-        text = input().rstrip()
-        if not text:
-            break
-        result = string_to_md5(text)
-        if result != None:
-            result_list.append(result)
-    except EOFError:
-        break
+for text in sys.stdin:
+    result = string_to_md5(text.strip())
+    if result is not None:
+        result_list.append(result)
 
 for result in result_list:
     print(result)
