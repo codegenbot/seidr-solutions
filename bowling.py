@@ -2,7 +2,7 @@ def calculate_spare_bonus(bowls, bowl_index):
     bonus = 0
     next_bowl = bowls[bowl_index + 1]
     if next_bowl.isdigit() or next_bowl == "-":
-        bonus += int(next_bowl)
+        bonus += 10
     return bonus
 
 
@@ -16,8 +16,8 @@ def calculate_score(bowls):
         elif bowl == "X":
             score += 10
             if i + 2 < len(bowls):
-                if bowls[i + 1] == "-":
-                    score += int(bowls[i + 2])
+                if bowls[i + 2] == "-":
+                    score += 0
                 elif bowls[i + 2] == "/":
                     score += 10
                 else:
