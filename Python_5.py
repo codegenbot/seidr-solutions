@@ -1,19 +1,16 @@
 from typing import List
-import sys
 
-
-def intersperse() -> List[int]:
-    numbers = list(map(int, sys.argv[1].strip().split()))
-    delimiter = int(sys.argv[2])
-
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     result = []
     for i in range(len(numbers)):
         result.append(numbers[i])
         if i < len(numbers) - 1:
             result.append(delimiter)
-
+    
     return result
 
+numbers = list(map(int, input().strip().split()))
+delimiter = int(input().strip())
 
-output = intersperse()
+output = intersperse(numbers, delimiter)
 print(*output)
