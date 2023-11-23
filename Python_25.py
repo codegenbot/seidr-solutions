@@ -20,6 +20,6 @@ try:
     result = factorize(n)
     print(result)
 except ValueError:
-    print("Invalid input. Please enter a valid integer value.")
+    print("Invalid input.")
 except EOFError:
-    print("No input provided. Program terminated.")
+    print("No input provided.")
