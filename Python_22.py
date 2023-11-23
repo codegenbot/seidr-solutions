@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 
@@ -6,7 +7,7 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    input_values = input("Enter a comma-separated list of integers: ").strip().split(",")
+    input_values = sys.stdin.readline().strip().split(",")
 
     if all(value.isdigit() for value in input_values):
         if input_values:
