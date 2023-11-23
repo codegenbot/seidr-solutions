@@ -13,7 +13,7 @@ def decode_cyclic(s_list: list):
 
 strings = []
 while True:
-    s = input("Enter a string (press enter to stop): ")
+    s = input()
     if not s:
         break
     strings.append(s)
@@ -21,4 +21,4 @@ while True:
 decoded_strings = decode_cyclic(strings)
 
 for i, s in enumerate(decoded_strings):
-    print("Decoded String", i + 1, ":", s)
+    print(s)
