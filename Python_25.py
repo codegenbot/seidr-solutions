@@ -1,4 +1,3 @@
-import sys
 import itertools
 
 def factorize(n):
@@ -10,14 +9,14 @@ def factorize(n):
 
 
 def main():
-    user_input = list(map(int, sys.stdin.readline().strip().split()))
+    user_input = int(input().strip())
     if not user_input:
         print("No input provided")
         return
 
     try:
-        result = [factorize(n) for n in user_input]
-        output = ' '.join(str(f) for sublist in itertools.chain.from_iterable(result) for f in sublist)
+        result = factorize(user_input)
+        output = ' '.join(str(f) for f in result)
         print(output.strip())
     except ValueError:
         print("Invalid input")
