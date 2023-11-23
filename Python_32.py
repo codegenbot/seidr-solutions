@@ -6,6 +6,4 @@ def poly(xs: list, x: float) -> float:
 
 
 def find_zero(xs: list) -> float:
-    if xs[1] == 0:
-        return None
     return -xs[0] / xs[1]
