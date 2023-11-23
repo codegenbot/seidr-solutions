@@ -13,7 +13,6 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-
 try:
     n = int(input())
     result = factorize(n)
