@@ -12,14 +12,21 @@ def find_zero(xs: list) -> list:
     return zeros
 
 
-task_type = input()
+# Read input from user
+xs = list(map(float, input().split()))
 
-if task_type == "poly":
-    xs = list(map(float, input().split()))
-    x = float(input())
-    result = poly(xs, x)
-elif task_type == "find_zero":
-    xs = list(map(float, input().split()))
-    result = find_zero(xs)
+# Perform the task based on the input
+if len(xs) == 1:
+    result = xs[0]
+elif len(xs) == 2:
+    result = -xs[0] / xs[1]
+else:
+    task_type = input()
+    if task_type == "poly":
+        x = float(input())
+        result = poly(xs, x)
+    elif task_type == "find_zero":
+        result = find_zero(xs)
 
+# Print the result
 print(result)
