@@ -9,12 +9,16 @@ def find_zero(xs: list) -> float:
     return -xs[0] / xs[1]
 
 def main():
-    xs = input().split()
-    xs = [float(x) for x in xs]
-    x = float(input())
-    result_poly = poly(xs, x)
-    result_find_zero = find_zero(xs)
-    print(result_poly)
-    print(result_find_zero)
+    xs = []
+    while True:
+        try:
+            x = input()
+            if x == "":
+                break
+            xs.append(float(x))
+        except EOFError:
+            break
+    
+    print(find_zero(xs))
 
 main()
