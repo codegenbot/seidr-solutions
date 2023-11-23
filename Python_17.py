@@ -1,7 +1,6 @@
 def parse_music(music_string: str) -> List[int]:
-    music_notes = music_string.split()
     beats = []
-    for note in music_notes:
+    for note in music_string.split():
         if note == 'o':
             beats.append(4)
         elif note == 'o|':
