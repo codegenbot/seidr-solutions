@@ -9,7 +9,11 @@ def main():
     input_values = []
     try:
         while True:
-            input_values.append(input())
+            value = input()
+            if value:
+                input_values.append(value)
+            else:
+                break
     except EOFError:
         pass
 

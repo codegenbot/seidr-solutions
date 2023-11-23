@@ -1,8 +1,8 @@
 def filter_by_prefix(strings, prefix):
-    return [string for string in strings if string.startswith(prefix)]
+    return sorted({string for string in strings if string.startswith(prefix)})
 
-strings = input().strip().split(",")
-prefix = input().strip()
+strings = input().split()
+prefix = input()
 
 filtered_strings = filter_by_prefix(strings, prefix)
 
