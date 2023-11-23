@@ -7,7 +7,18 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 def main():
     substring = input().strip()
-    strings = input().strip().split(',')
+    strings = []
+
+    try:
+        strings = input().strip().split()
+    except EOFError:
+        while True:
+            try:
+                s = input().strip()
+                strings.append(s)
+            except EOFError:
+                break
+
     result = filter_by_substring(strings, substring)
     print(result)
 
