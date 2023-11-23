@@ -3,9 +3,6 @@ import hashlib
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
-while True:
-    text = input()
-    if not text:
-        break
+for text in iter(input, None):
     result = string_to_md5(text)
     print(result)
