@@ -1,2 +1,2 @@
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return sorted(list(set(numbers)))
+    return [number for index, number in enumerate(numbers) if numbers.index(number) == index]
