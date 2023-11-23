@@ -5,6 +5,10 @@ def decode_cyclic(s: str):
     groups = [(group[-1] + group[:-1]) for group in groups]
     return "".join(groups)
 
-s = input().strip()
-result = decode_cyclic(s)
-print("Decoded String:", result)
+
+try:
+    s = input("Enter a string (length should be a multiple of 3): ")
+    result = decode_cyclic(s)
+    print("Decoded String:", result)
+except:
+    print("Invalid input. Please enter a valid string.")
