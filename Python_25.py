@@ -1,9 +1,6 @@
 from typing import List
 
 def factorize(n: int) -> List[int]:
-    if n <= 1:
-        return []
-
     factors = []
     i = 2
     while i * i <= n:
@@ -21,7 +18,7 @@ while True:
         user_input = int(input())
         break
     except ValueError:
-        print("Invalid input. Please enter a valid number.")
+        print("Invalid input. Please enter a valid integer number.")
 
 result = factorize(user_input)
 print(result)
