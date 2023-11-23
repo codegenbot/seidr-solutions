@@ -1,9 +1,11 @@
+import sys
+
 def encode_shift(s: str) -> str:
     return "".join(
         [
             chr(((ord(ch.lower()) + 5 - ord("a")) % 26) + ord("a"))
             for ch in s
-            if ch.isalpha() or ch.isspace()
+            if ch.isalpha()
         ]
     )
 
@@ -13,12 +15,12 @@ def decode_shift(s: str) -> str:
         [
             chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a"))
             for ch in s
-            if ch.isalpha() or ch.isspace()
+            if ch.isalpha()
         ]
     )
 
 
-input_string = input("Enter a string: ").strip()
+input_string = sys.stdin.readline().strip()
 
 if input_string:
     encoded_string = encode_shift(input_string)
