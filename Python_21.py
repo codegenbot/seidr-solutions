@@ -7,6 +7,6 @@ def rescale_to_unit(numbers):
     return [(num - min_num) / rescaling_factor for num in numbers]
 
 
-n = int(input())
-numbers = [float(input()) for _ in range(n)]
+n = 5
+numbers = [1.0, 2.0, 3.0, 4.0, 5.0]
 print(rescale_to_unit(numbers))

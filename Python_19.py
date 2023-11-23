@@ -20,6 +20,6 @@ def sort_numbers(numbers: str) -> str:
     return " ".join(sorted_numbers)
 
 
-numbers_input = input().strip().lower()
+numbers_input = input().lower().strip()
 sorted_numbers_output = sort_numbers(numbers_input)
 print(sorted_numbers_output)
