@@ -3,5 +3,6 @@ def sort_third(lst: list):
     remaining = lst[(len(lst)//3) * 3:]
     if remaining:
         groups.append(remaining)
-    sorted_groups = sorted(groups, key=lambda x: (-len(x), x[-1], x))
+    sorted_groups = sorted(groups, key=lambda x: (-len(x), x[-1]))
+    sorted_groups = [sorted(group, key=lambda x: (len(x), x[-1])) for group in sorted_groups]
     return [num for group in sorted_groups for num in group]
