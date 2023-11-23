@@ -13,3 +13,12 @@ def cut_vector(vector):
         return vector[: split_index + 1], vector[split_index + 1 :]
     else:
         return vector, []
+
+
+vector = list(map(int, input().split()))
+
+subvector1, subvector2 = cut_vector(vector)
+for num in subvector1:
+    print(num)
+for num in subvector2:
+    print(num)
