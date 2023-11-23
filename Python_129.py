@@ -2,15 +2,12 @@ grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 k = 3
 
 def find_min_path(grid, k):
-    nonlocal minPath
-
-    minPath = float("inf")
+    minPath = [float("inf")]
 
     def dfs(i, j, path, visited):
-        nonlocal minPath
         if len(path) >= k:
-            if sum(path) < minPath:
-                minPath = sum(path)
+            if sum(path) < minPath[0]:
+                minPath[0] = sum(path)
             return
 
         if (i, j) not in visited:
@@ -39,7 +36,7 @@ def find_min_path(grid, k):
         for j in range(len(grid[0])):
             dfs(i, j, [], set())
 
-    return minPath
+    return minPath[0]
 
 result = find_min_path(grid, k)
 print(result)
