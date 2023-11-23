@@ -1,5 +1,6 @@
 def by_length(arr):
-    arr = [x for x in arr if 1 <= x <= 9]
-    arr.sort()
-    arr.reverse()
-    return ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'][x-1 for x in arr]
+    return [num_to_name(num) for num in sorted(arr) if 1 <= num <= 9][::-1]
+
+def num_to_name(num):
+    names = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+    return names[num-1]
