@@ -13,5 +13,6 @@ def decode_cyclic(input_length, input_str):
 
 input_length = input().strip()
 input_string = input().strip()
+
 result = decode_cyclic(input_length, input_string)
-return result
+print(result)
