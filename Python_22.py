@@ -6,8 +6,11 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    values = input().split()
-    result = filter_integers([value.strip() for value in values])
+    values = input("Enter a comma-separated list of values: ").split(",")
+    if not values:
+        print("No input provided.")
+        return
+    result = filter_integers(values)
     print(result or "No integers found.")
 
 
