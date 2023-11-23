@@ -1,9 +1,11 @@
 from typing import List
 
+
 def parse_music(music_string: str) -> List[int]:
-    durations = {'4': 4, '2': 2, '1': 1}
+    durations = {"4": 4, "2": 2, "1": 1}
     return [durations[note] for note in music_string.split()]
 
-music_string = "..."  # Enter the music string here
+
+music_string = "4 2 1"
 output = parse_music(music_string)
 print(output)
