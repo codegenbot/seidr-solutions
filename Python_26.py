@@ -7,7 +7,8 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
             nums.append(num)
     return nums
 
-input_list = list(map(int, input().split()))
+line = input().split(',')
+input_list = list(map(int, line))
 
 result = remove_duplicates(input_list)
 print(*result, sep=',')
