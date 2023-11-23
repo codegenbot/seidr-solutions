@@ -7,11 +7,11 @@ def decode_shift(s: str) -> str:
 
 
 def main():
-    s = input()
+    s = input("Enter string: ")
     encoded = encode_shift(s)
-    print(encoded)
+    print("Encoded string:", encoded)
     decoded = decode_shift(encoded)
-    print(decoded)
+    print("Decoded string:", decoded)
 
 
 if __name__ == "__main__":
