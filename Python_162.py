@@ -1,18 +1,22 @@
 import hashlib
-
+ 
 def string_to_md5(text):
     if text == "":
         return None
     else:
         return hashlib.md5(text.encode()).hexdigest()
+ 
+    
+result_list = []
 
-# get the input from the user in multiple lines
-text = ""
 while True:
-    line = input()
-    if line == "":
+    try:
+        text = input()
+        result = string_to_md5(text)
+        if result != None:
+            result_list.append(result)
+    except:
         break
-    text += line + "\n"
 
-result = string_to_md5(text.strip())
-print(result)
+for result in result_list:
+    print(result)
