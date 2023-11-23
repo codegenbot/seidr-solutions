@@ -5,8 +5,9 @@ def find_min_path(grid, k):
     minPath = float("inf")
 
     def dfs(i, j, path, visited):
+        nonlocal minPath
+
         if len(path) >= k:
-            nonlocal minPath
             if sum(path) < minPath:
                 minPath = sum(path)
             return
