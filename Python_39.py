@@ -27,6 +27,6 @@ def prime_fib(n: int):
 
     return last_prime_fib
 
-n = int(input())
+n = int(sys.argv[1])
 result = prime_fib(n)
 print(result)
