@@ -1,4 +1,5 @@
 import math
+
 def poly(xs: list, x: float) -> float:
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
@@ -7,7 +8,7 @@ def find_zero():
     zeros = []
     for i in range(len(xs) - 1):
         zeros.append(-xs[i] / xs[i+1])
-    return zeros
+    return zeros if zeros else "No zeros found"
 
 task_type = input()
 
