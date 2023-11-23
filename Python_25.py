@@ -15,6 +15,12 @@ def factorize(n: int) -> List[int]:
     return factors
 
 
-result = factorize(25)
+try:
+    n = int(input())
 
-print(result)
+    result = factorize(n)
+
+    print(result)
+
+except ValueError:
+    print("Invalid input! Please enter a valid integer.")
