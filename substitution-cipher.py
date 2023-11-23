@@ -4,9 +4,11 @@ message = input()
 
 deciphered_message = ""
 
-char_map = dict(zip(cipher, mapping))
-
 for char in message:
-    deciphered_message += char_map.get(char, char)
+    index = mapping.find(char)
+    if index != -1:
+        deciphered_message += cipher[index]
+    else:
+        deciphered_message += char
 
 print(deciphered_message)
