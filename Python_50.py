@@ -4,7 +4,8 @@ def encode_shift(s: str) -> str:
 def decode_shift(s: str) -> str:
     return "".join([chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a")) for ch in s if ch.isalpha()])
 
-input_string = input().strip().lower()
+# Example input
+input_string = "Hello, World!"
 
 encoded_string = encode_shift(input_string)
 print(encoded_string)
