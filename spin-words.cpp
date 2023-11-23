@@ -2,19 +2,18 @@
 #include <string>
 #include <sstream>
 
-std::string reverseLongWords(const std::string& input) {
-    std::istringstream iss(input);
-    std::ostringstream oss;
+std::string reverseWords(const std::string& input) {
+    std::stringstream ss(input);
     std::string word;
+    std::string result;
 
-    while (iss >> word) {
+    while (ss >> word) {
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
         }
-        oss << word << " ";
+        result += word + " ";
     }
 
-    std::string result = oss.str();
     result.pop_back(); // remove the trailing space
     return result;
 }
@@ -23,7 +22,7 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
 
-    std::string output = reverseLongWords(input);
+    std::string output = reverseWords(input);
     std::cout << output << std::endl;
 
     return 0;
