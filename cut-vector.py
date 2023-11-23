@@ -21,6 +21,6 @@ def cut_vector(vector):
 vector = list(map(int, input().split()))
 
 subvector1, subvector2 = cut_vector(vector)
-print(*subvector1, sep='\n')
+print(*subvector1, sep="\n")
 print()
-print(*subvector2, sep='\n')
+print(*subvector2, sep="\n")
