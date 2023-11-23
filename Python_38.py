@@ -1,10 +1,8 @@
-import sys
-
 def decode_cyclic():
     s = ''
-    for line in sys.stdin:
-        line = line.strip()
-        if not line:
+    while True:
+        line = input().strip()
+        if line == '':
             break
         s += line
     groups = [s[i:i + 3] for i in range(0, len(s), 3)]
