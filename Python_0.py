@@ -1,10 +1,11 @@
+import sys
 from typing import List
 
 numbers = []
 try:
     while True:
         try:
-            numbers.append(float(input()))
+            numbers.append(float(sys.stdin.readline().strip()))
         except EOFError:
             break
     
