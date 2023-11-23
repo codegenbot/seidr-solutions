@@ -11,12 +11,6 @@ def longest(strings: List[str]) -> str:
     return longest_string
 
 
-strings = []
-while True:
-    string = input().strip()
-    if string == "":
-        break
-    strings.append(string)
-
+strings = input().strip().split(",")
 result = longest(strings)
 print(result)
