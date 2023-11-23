@@ -1,5 +1,4 @@
 from typing import List
-import sys
 
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -17,6 +16,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return counts, max_count
 
 
-paren_string = sys.argv[1]  # Read input from command line argument
+paren_string = input("Enter a string of parentheses: ").strip()
 result = parse_nested_parens(paren_string)
 print(*result)
