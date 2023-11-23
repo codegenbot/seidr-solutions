@@ -13,9 +13,9 @@ def sort_numbers(numbers: List[str]) -> str:
         'eight': 8,
         'nine': 9
     }
-    sorted_numbers = sorted(numbers, key=lambda x: number_mapping[x])
+    sorted_numbers = sorted(numbers.split(), key=lambda x: number_mapping[x])
     return ' '.join(sorted_numbers)
 
-numbers_input = input("Enter a list of numbers in words: ").split()
+numbers_input = input().lower()
 sorted_numbers_output = sort_numbers(numbers_input)
 print(sorted_numbers_output)
