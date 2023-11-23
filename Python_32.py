@@ -8,14 +8,14 @@ def find_zero(xs: list) -> list:
         zeros.append(-xs[i] / xs[i+1])
     return zeros
 
-input_data = input().split('\n')
-task_type = input_data[0]
-values = list(map(float, input_data[1].split()))
+task_type = input().strip()
 
 if task_type == "poly":
-    x = values.pop(-1)
-    result = poly(values, x)
+    xs = list(map(float, input().split()))
+    x = float(input())
+    result = poly(xs, x)
 elif task_type == "find_zero":
-    result = find_zero(values)
+    xs = list(map(float, input().split()))
+    result = find_zero(xs)
 
 print(result)
