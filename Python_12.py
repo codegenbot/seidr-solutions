@@ -1,8 +1,13 @@
-def longest(strings: List[str]) -> Optional[str]:
+import sys
+
+
+def longest(strings):
     if not strings:
-        return None
-    longest_string = strings[0]
-    for string in strings:
-        if len(string) > len(longest_string):
-            longest_string = string
+        return ""
+    longest_string = max(strings, key=len)
     return longest_string
+
+
+strings = sys.argv[1:]
+result = longest(strings)
+print(result)
