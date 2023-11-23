@@ -1,6 +1,3 @@
-grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-k = 3
-
 def find_min_path(grid, k):
     min_path = float("inf")
 
@@ -39,5 +36,16 @@ def find_min_path(grid, k):
 
     return min_path
 
+# Define the input grid
+grid = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Define the value of k
+k = 3
+
+# Call the find_min_path function with the grid and k parameters
 result = find_min_path(grid, k)
 result
