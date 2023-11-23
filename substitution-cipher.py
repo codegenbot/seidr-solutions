@@ -1,5 +1,6 @@
 cipher = input()
 mapping = input()
 message = input()
-deciphered_message = "".join(mapping[cipher.find(char)] if char in cipher else char for char in message)
+decipher_dict = {c: mapping[i] for i, c in enumerate(cipher)}
+deciphered_message = "".join(decipher_dict.get(char, char) for char in message)
 print(deciphered_message)
