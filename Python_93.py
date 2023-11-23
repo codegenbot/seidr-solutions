@@ -1,12 +1,14 @@
 def encode(message):
-    vowels = 'aeiouAEIOU'
-    encoded_message = ''
+    vowels = {'a', 'e', 'i', 'o', 'u'}
+    encoded_message = []
+    
     for char in message:
         if char.isalpha():
-            if char.lower() in vowels.lower():
-                encoded_message += chr(ord(char) + 1).lower()
+            if char.lower() in vowels:
+                encoded_message.append(chr(ord(char) + 1))
             else:
-                encoded_message += char.swapcase()
+                encoded_message.append(char.swapcase())
         else:
-            encoded_message += char
-    return encoded_message
+            encoded_message.append(char)
+    
+    return ''.join(encoded_message)
