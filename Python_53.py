@@ -1,7 +1,4 @@
-def add(x: int, y: int):
+def add(x: int, y: int) -> int:
+    x = int(input())
+    y = int(input())
     return x + y
-
-input_str = input()
-x, y = map(int, input_str.split())
-result = add(x, y)
-print(result)
