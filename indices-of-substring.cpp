@@ -16,7 +16,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
             }
         }
         
-        if (found && j == targetLen - 1) {
+        if (found) {
             indices.push_back(i);
         }
     }
@@ -30,7 +30,7 @@ int main() {
     
     std::vector<int> result = indicesOfSubstring(text, target);
     
-    for (int i = 0; i < result.size(); i++) {
+    for (int i = 0; i <= result.size() - 1; i++) {
         std::cout << result[i] << " ";
     }
     
