@@ -1,3 +1,5 @@
+import sys
+
 def encode_shift(s: str) -> str:
     return "".join(
         [
@@ -18,16 +20,13 @@ def decode_shift(s: str) -> str:
     )
 
 
-input_string = input().strip()
-
-if len(input_string) > 0:
-    encoded_string = encode_shift(input_string)
-    print(encoded_string)
-
-    decoded_string = decode_shift(encoded_string)
-    print(decoded_string)
+if len(sys.argv) > 1:
+    input_string = " ".join(sys.argv[1:])
 else:
-    encoded_string = ""
-    decoded_string = ""
-    print(encoded_string)
-    print(decoded_string)
+    input_string = ""
+
+encoded_string = encode_shift(input_string)
+print(encoded_string)
+
+decoded_string = decode_shift(encoded_string)
+print(decoded_string)
