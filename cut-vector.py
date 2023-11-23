@@ -5,19 +5,8 @@ def cut_vector(vector):
     subvector2 = []
     for i, num in enumerate(vector):
         current_sum += num
-        if abs(current_sum - total_sum / 2) <= abs(
-            (total_sum - current_sum) - current_sum
-        ):
-            subvector1 = vector[: i + 1]
-            subvector2 = vector[i + 1 :]
-
+        if abs(current_sum - total_sum / 2) <= abs((total_sum - current_sum) - current_sum):
+            subvector1 = vector[:i+1]
+            subvector2 = vector[i+1:]
+    
     return subvector1, subvector2
-
-
-vector = list(map(int, input().split()))
-subvector1, subvector2 = cut_vector(vector)
-for num in subvector1:
-    print(num)
-print()
-for num in subvector2:
-    print(num)
