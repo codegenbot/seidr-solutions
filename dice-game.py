@@ -1,9 +1,13 @@
 n = int(input())
 m = int(input())
 
+probability = 0.0
+
 if n <= 1 or m <= 1:
-    print(0.0)
+    probability = 0.0
 elif n <= m:
-    print((n - 1) / (n + m - 1))
+    probability = (m - n + 1) / m
 else:
-    print((n - m + 1) / (n + m))
+    probability = (n - m + 1) / n
+
+print(probability)
