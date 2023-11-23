@@ -1,5 +1,10 @@
-strings = input("Enter a list of strings separated by comma: ").split(",")
-prefix = input("Enter a prefix: ")
+from typing import List
+
+def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+    return [s for s in strings if s.startswith(prefix)]
+
+strings = input().split(", ")
+prefix = input()
 
 filtered_strings = filter_by_prefix(strings, prefix)
 
