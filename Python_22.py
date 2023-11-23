@@ -6,7 +6,7 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    values = [input() for _ in range(5)]
+    values = input().split()
     result = filter_integers(values)
     print(result)
 
