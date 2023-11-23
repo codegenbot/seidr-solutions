@@ -4,10 +4,11 @@ def calculate_spare_bonus(bowls, bowl_index):
         next_bowl = bowls[bowl_index + 2]
         if next_bowl.isdigit():
             bonus += int(next_bowl)
-        if next_bowl == "/":
-            bonus += 10
-        if bowl_index + 3 < len(bowls) and next_bowl == "/":
-            bonus += int(bowls[bowl_index + 3])
+            if bowl_index + 3 < len(bowls):
+                if bowls[bowl_index + 3].isdigit():
+                    bonus += int(bowls[bowl_index + 3])
+        else:
+            bonus += int(bowls[bowl_index + 1])
     return bonus
 
 
