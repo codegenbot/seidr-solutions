@@ -1,8 +1,8 @@
 import hashlib
+import sys
 
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
-text = input("Enter the text: ")
-result = string_to_md5(text)
+result = string_to_md5(sys.argv[1])
 print(result)
