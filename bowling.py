@@ -1,9 +1,10 @@
 def calculate_spare_bonus(bowls, bowl_index):
     bonus = 10
+    next_bowl = bowls[bowl_index + 2]
 
-    if bowls[bowl_index] == '/' and bowls[bowl_index + 1] == 'X':
+    if next_bowl == "/":
         bonus += 10
-    elif bowls[bowl_index] == '/':
-        bonus += int(bowls[bowl_index + 1])
+    else:
+        bonus += int(next_bowl)
 
     return bonus
