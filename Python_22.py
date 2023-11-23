@@ -6,9 +6,12 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    values = input("Enter values separated by commas: ").split(",")
+    values = input("Enter values separated by commas: ").strip().split(",")
     result = filter_integers(values)
-    print(result if result else "No integers found.")
+    if result:
+        print(result)
+    else:
+        print("No integers found.")
 
 
 if __name__ == "__main__":
