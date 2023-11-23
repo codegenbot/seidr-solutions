@@ -6,11 +6,9 @@ def poly(xs: list, x: float) -> float:
 def find_zero(xs: list) -> float:
     return -xs[0] / xs[1]
 
-coeffs = []
-for i in range(num_coeffs):
-    coeffs.append(float(input()))
-
-x = float(input("Enter the value of x: "))
+num_coeffs = int(input())
+coeffs = list(map(float, input().split()))
+x = float(input())
 
 result = poly(coeffs, x)
 print(result)
