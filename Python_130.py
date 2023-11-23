@@ -4,6 +4,7 @@ def tri(n):
         return sequence
     elif n == 1:
         sequence.append(3)
+        sequence.append(1)
         return sequence
     elif n == 2:
         sequence.append(1)
