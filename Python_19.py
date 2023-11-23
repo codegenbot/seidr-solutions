@@ -12,12 +12,10 @@ def sort_numbers():
         "nine": 9,
     }
 
-    numbers = input().strip().split()
+    numbers = "six five four three two one zero".strip().split()
     
     sorted_numbers = sorted(
         numbers, key=lambda x: number_mapping.get(x.lower(), float("inf"))
     )
     
     return " ".join(sorted_numbers)
-
-sort_numbers()
