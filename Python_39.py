@@ -1,6 +1,4 @@
-def prime_fib():
-    n = int(input("Enter the value of n: "))
-    
+def prime_fib(n):
     def is_prime(num):
         if num < 2:
             return False
@@ -30,4 +28,5 @@ def prime_fib():
     return last_prime_fib
 
 
-result = prime_fib()
+n = int(input())
+result = prime_fib(n)
