@@ -3,8 +3,8 @@ from typing import List
 def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
     return [s for s in strings if s.startswith(prefix)]
 
-strings = ['string1', 'string2', 'string3']  # Replace with actual input provided by the code contest platform
-prefix = 'prefix'  # Replace with actual input provided by the code contest platform
+strings = input("Enter strings separated by comma: ").rstrip().split(",")
+prefix = input("Enter prefix: ").rstrip()
 
 filtered_strings = filter_by_prefix(strings, prefix)
 
