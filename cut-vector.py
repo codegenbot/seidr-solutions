@@ -3,23 +3,17 @@ def cut_vector(vector):
     left_sum = 0
     right_sum = total_sum
 
-    for i in range(1, len(vector)):
-        left_sum += vector[i-1]
-        right_sum -= vector[i-1]
+    for i in range(len(vector)):
+        left_sum += vector[i]
+        right_sum -= vector[i]
 
         if left_sum == right_sum or abs(left_sum - right_sum) == 1:
-            return vector[:i], vector[i:]
+            return vector[: i + 1], vector[i + 1 :]
 
-    return vector, []
+    return vector[: len(vector) - 1], vector[-1:]
 
 
-vector = []
-while True:
-    try:
-        num = int(input())
-        vector.append(num)
-    except:
-        break
+vector = list(map(int, input().split()))
 
 result1, result2 = cut_vector(vector)
 for num in result1:
