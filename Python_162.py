@@ -1,10 +1,9 @@
 import hashlib
-import sys
 
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest() if text != "" else ""
 
-text = sys.argv[1].strip()
+text = input("Enter a string to convert to MD5: ")
 
 result = string_to_md5(text)
 
