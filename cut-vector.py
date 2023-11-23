@@ -16,14 +16,7 @@ def cut_vector(vector):
 
     return vector[:cut_index], vector[cut_index:]
 
-vector = []
-while True:
-    try:
-        line = input().split()
-        for num in line:
-            vector.append(int(num))
-    except EOFError:
-        break
+vector = list(map(int, input().split()))
 
 subvector1, subvector2 = cut_vector(vector)
 for num in subvector1:
