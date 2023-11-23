@@ -7,6 +7,5 @@ def decode_shift(s: str) -> str:
 input_string = input()
 encoded_string = encode_shift(input_string)
 decoded_string = decode_shift(input_string)
-
 print(encoded_string)
 print(decoded_string)
