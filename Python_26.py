@@ -1,6 +1,5 @@
 from typing import List
 
-
 def remove_duplicates(numbers: List[int]) -> List[int]:
     nums = []
     for num in numbers:
@@ -8,8 +7,8 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
             nums.append(num)
     return nums
 
-
-input_list = list(map(int, input().split()))
+line = input().strip().split(",")
+input_list = [int(num) for num in line]
 
 result = remove_duplicates(input_list)
 print(*result)
