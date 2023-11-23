@@ -1,7 +1,9 @@
+import sys
 from typing import List
 
 
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens() -> List[int]:
+    paren_string = sys.stdin.readline().strip()
     counts = []
     open_count = 0
     max_count = 0
@@ -15,5 +17,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return counts, max_count
 
 
-result = parse_nested_parens("()(())((())")
+result = parse_nested_parens()
 print(result)
