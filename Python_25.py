@@ -1,6 +1,7 @@
 import sys
 from typing import List
 
+
 def factorize(n: int) -> List[int]:
     if n <= 1:
         return []
@@ -17,6 +18,7 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
+
 def main():
     user_input = input().strip().split(",")
     try:
@@ -28,6 +30,7 @@ def main():
             print(result)
     except ValueError:
         print("Invalid input")
+
 
 if __name__ == "__main__":
     main()
