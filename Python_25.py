@@ -18,13 +18,17 @@ def factorize(n: int) -> List[int]:
     return factors
 
 
-try:
-    user_input = input("Enter a positive integer: ")
-    user_input = int(user_input)
-    if user_input <= 0:
-        print("Input must be a positive integer")
-    else:
-        result = factorize(user_input)
-        print(result)
-except ValueError:
-    print("Invalid input")
+def main():
+    try:
+        user_input = int(input())
+        if user_input <= 0:
+            print("Input must be a positive integer")
+        else:
+            result = factorize(user_input)
+            print(result)
+    except ValueError:
+        print("Invalid input")
+
+
+if __name__ == "__main__":
+    main()

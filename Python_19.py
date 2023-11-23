@@ -23,6 +23,7 @@ def sort_numbers(numbers: List[str]) -> str:
     return " ".join(sorted_numbers)
 
 
-numbers = input().strip().split(',')
+sys.stdin.readline()
+numbers = sys.stdin.readline().strip().split(',')
 sorted_numbers_output = sort_numbers(numbers)
-print(",".join(sorted_numbers_output))
+print(sorted_numbers_output)
