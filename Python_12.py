@@ -4,15 +4,10 @@ from typing import List
 def longest(strings: List[str]) -> str:
     if not strings:
         return ""
-    longest_string = strings[0]
-    for string in strings:
-        if len(string) > len(longest_string):
-            longest_string = string
+    longest_string = max(strings, key=len)
     return longest_string
 
 
-input_line = input()
-strings = input_line.split()
-
+strings = [input().strip() for _ in range(int(input()))]
 result = longest(strings)
 print(result)
