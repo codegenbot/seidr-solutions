@@ -1,5 +1,5 @@
-def decode_cyclic(input_str):
-    s = input_str.strip()
+def decode_cyclic():
+    s = input().strip()
 
     groups = [s[i : i + 3] for i in range(0, len(s), 3)]
     groups = [
