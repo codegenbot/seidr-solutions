@@ -1,5 +1,7 @@
+import sys
+
 def fix_spaces():
-    text = "Hello World"
+    text = sys.stdin.readline().rstrip()
     return text.replace(' ', '_')
 
 result = fix_spaces()
