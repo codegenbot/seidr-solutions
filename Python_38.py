@@ -14,6 +14,6 @@ def decode_cyclic(input_length, input_str):
         return f"An error occurred: {e}"
 
 
-input_length, input_str = input().split(maxsplit=1)
-result = decode_cyclic(input_length, input_str)
+input_length, input_string = map(str, input().split())
+result = decode_cyclic(input_length, input_string)
 print(result)
