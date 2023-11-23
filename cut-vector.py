@@ -7,11 +7,8 @@ def cut_vector(vector):
             return vector[: i + 1], vector[i + 1 :]
     return vector, [0]
 
-
-# Read input from user
 vector = list(map(int, input().split()))
 
-# Call the function and print the results
 subvector1, subvector2 = cut_vector(vector)
 for num in subvector1:
     print(num)
