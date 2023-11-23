@@ -1,6 +1,3 @@
-from typing import List
-
-
 def sort_numbers(numbers: str) -> str:
     number_mapping = {
         'zero': 0,
@@ -14,5 +11,6 @@ def sort_numbers(numbers: str) -> str:
         'eight': 8,
         'nine': 9
     }
-    sorted_numbers = sorted(numbers.split(), key=lambda x: number_mapping[x])
-    return ' '.join(sorted_numbers)
+    numbers_list = numbers.split()
+    numbers_list.sort(key=lambda x: number_mapping[x])
+    return ' '.join(numbers_list)
