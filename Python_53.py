@@ -1,10 +1,11 @@
 def calculate_sum():
     while True:
-        x, y = map(int, input().split())
-        if isinstance(x, int) and isinstance(y, int):
+        try:
+            x = int(input("Enter the first integer: "))
+            y = int(input("Enter the second integer: "))
             break
-        else:
-            print("Invalid input. Please enter two integers separated by a space.")
+        except ValueError:
+            print("Invalid input. Please enter two integers.")
 
     return x + y
 
