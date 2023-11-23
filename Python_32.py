@@ -8,13 +8,13 @@ def find_zero(xs: list) -> float:
         return None
     return -xs[0] / xs[1]
 
-# Main code logic
-if __name__ == "__main__":
-    # Read input from user
-    xs = list(map(float, input().split()))
+def main():
+    xs = input().split()
+    xs = [float(x) for x in xs]
+    x = float(input())
+    result_poly = poly(xs, x)
+    result_find_zero = find_zero(xs)
+    print(result_poly)
+    print(result_find_zero)
 
-    # Call the find_zero function
-    zero = find_zero(xs)
-
-    # Print the result
-    print(zero)
+main()
