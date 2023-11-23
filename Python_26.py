@@ -7,7 +7,7 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return list(set(numbers))
 
 
-input_list = list(map(int, input().strip().split()))
+numbers = list(map(int, input().split()))
 
-result = remove_duplicates(input_list)
+result = remove_duplicates(numbers)
 print(*result)
