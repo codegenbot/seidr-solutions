@@ -1,16 +1,16 @@
+import sys
 from typing import List
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
     mean = sum(numbers) / len(numbers)
-    deviation = [abs(x - mean) for x in numbers]
-    return sum(deviation) / len(deviation)
+    deviation = sum(abs(num - mean) for num in numbers) / len(numbers)
+    return deviation
 
 numbers = []
-while True:
-    num = input().strip()
-    if not num:
+for line in sys.stdin:
+    if line.strip() == '':
         break
-    numbers.append(float(num))
+    numbers.append(float(line))
 
 result = mean_absolute_deviation(numbers)
 print(result)

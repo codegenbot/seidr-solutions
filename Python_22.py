@@ -1,10 +1,10 @@
-from typing import List, Any
+from typing import List, Union
 
-def filter_integers(values: List[Any]) -> List[int]:
+def filter_integers(values: List[Union[int, str]]) -> List[int]:
     return [value for value in values if isinstance(value, int)]
 
 def main():
-    values = list(map(int, input().split()))
+    values = [int(value) for value in input().split()]
     result = filter_integers(values)
     print(result)
 
