@@ -1,5 +1,5 @@
-import sys
 from typing import List, Union
+
 
 def below_zero(operations: List[Union[int, float]]) -> bool:
     balance = 0
@@ -9,8 +9,12 @@ def below_zero(operations: List[Union[int, float]]) -> bool:
             return True
     return False
 
-n = int(sys.stdin.readline().strip())
-operations = [float(sys.stdin.readline().strip()) for _ in range(n)]
+
+n = int(input())
+operations = []
+for _ in range(n):
+    operation = float(input())
+    operations.append(operation)
 
 result = below_zero(operations)
 
