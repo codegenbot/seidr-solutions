@@ -9,6 +9,7 @@ def find_zero(xs: list):
     x = float(input("Enter x value: "))
     return -xs[0] / xs[1]
 
+
 # Additional code to test the functions
 xs = [1, 2, 3]
 x = 2.5
