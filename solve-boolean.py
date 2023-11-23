@@ -1,19 +1,20 @@
 def solve_boolean(expression):
     translation_dict = {
-    "T": "True",
-    "F": "False",
-    "|": " or ",
-    "&": " and ",
-    "!": "not ",
+        "T": "True",
+        "F": "False",
+        "|": " or ",
+        "&": " and ",
+        "!": "not ",
     }
 
-    modified_expression = expression.translate(str.maketrans(translation_dict))
+    for key, value in translation_dict.items():
+        expression = expression.replace(key, value)
 
-    modified_expression = modified_expression.replace(" or or", " or False or").replace(
+    expression = expression.replace(" or or", " or False or").replace(
         " and and", " and False and"
     )
 
-    modified_expression = modified_expression.replace("!True", "False")
-    modified_expression = modified_expression.replace("!False", "True")
+    expression = expression.replace("!True", "False")
+    expression = expression.replace("!False", "True")
 
-    return eval(modified_expression) if eval(modified_expression) is not None else False
+    return eval(expression) or False
