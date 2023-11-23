@@ -8,8 +8,16 @@ def below_zero(operations: List[Union[int, float]]) -> bool:
             return True
     return False
 
-n = int(input("Enter the number of operations: "))
-operations = [float(input("Enter the operation value: ")) for _ in range(n)]
+n = int(input())
+operations = []
+for _ in range(n):
+    operation = input()
+    try:
+        operation = float(operation)
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+        exit()
+    operations.append(operation)
 
 result = below_zero(operations)
 
