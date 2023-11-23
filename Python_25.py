@@ -8,7 +8,7 @@ def factorize(n: int) -> List[int]:
 
     factors = []
     i = 2
-    while i <= n:
+    while i * i <= n:
         if n % i == 0:
             n //= i
             factors.append(i)
@@ -20,8 +20,13 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
-    user_input = list(map(int, sys.stdin.readline().strip().split(",")))
+    user_input = input().strip().split(",")
+    if len(user_input) == 0:
+        print("No input provided")
+        return
+
     try:
+        user_input = list(map(int, user_input))
         if any(n <= 0 for n in user_input):
             print("Input values must be positive integers")
         else:
