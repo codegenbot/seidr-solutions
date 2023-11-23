@@ -2,7 +2,7 @@ def tri(n):
     if n == 0:
         return [0]
     elif n == 1:
-        return [3]
+        return [1, 3]
     elif n == 2:
         return [3, 1]
     else:
