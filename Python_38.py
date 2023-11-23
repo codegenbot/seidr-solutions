@@ -14,10 +14,6 @@ def decode_cyclic(input_length, input_str):
         return f"An error occurred: {e}"
 
 
-input_str = input("Enter the length and the string separated by a space: ").strip()
-if ' ' not in input_str:
-  print("Invalid input. Please enter both the length and the string separated by a space.")
-else:
-  input_length, input_str = input_str.split(maxsplit=1)
-  result = decode_cyclic(input_length, input_str)
-  print(result)
+input_length, input_str = input().strip().split()
+result = decode_cyclic(input_length, input_str)
+print(result)
