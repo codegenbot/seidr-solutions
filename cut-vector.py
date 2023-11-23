@@ -1,6 +1,6 @@
 def cut_vector(vector):
     total_sum = sum(vector)
-    min_diff = float("inf")
+    min_diff = float('inf')
     left_index = right_index = 0
 
     current_sum = 0
