@@ -16,3 +16,12 @@ def decode_shift(s: str) -> str:
             if ch.isalpha() or ch.isspace()
         ]
     )
+
+
+input_string = input("Enter a string: ")
+
+encoded_string = encode_shift(input_string)
+print(encoded_string)
+
+decoded_string = decode_shift(encoded_string)
+print(decoded_string)
