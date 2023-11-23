@@ -19,7 +19,8 @@ def factorize(n: int) -> List[int]:
 
 
 try:
-    user_input = int(input())
+    user_input = input()
+    user_input = int(user_input)
     if user_input <= 0:
         print("Input must be a positive integer")
     else:
