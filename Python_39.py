@@ -1,5 +1,3 @@
-import sys
-
 def prime_fib(n: int):
     def is_prime(num):
         if num < 2:
@@ -30,5 +28,5 @@ def prime_fib(n: int):
     return last_prime_fib
 
 
-n = int(sys.argv[1])
+n = 10
 result = prime_fib(n)
