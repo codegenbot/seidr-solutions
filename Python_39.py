@@ -27,5 +27,12 @@ def prime_fib(n):
 
     return last_prime_fib
 
-n = int(input())
+
+while True:
+    try:
+        n = int(input("Enter the value of n: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
 print(prime_fib(n))
