@@ -10,12 +10,8 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
 
 
 try:
-    numbers = []
-    while True:
-        try:
-            numbers.append(float(input()))
-        except EOFError:
-            break
+    numbers = input().split()
+    numbers = [float(num) for num in numbers]
 
     print(has_close_elements(numbers, 1.0))
 
