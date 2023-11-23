@@ -9,13 +9,11 @@ def find_zero():
     xs = list(map(float, input().split()))
     zeros = []
     for i in range(len(xs) - 1):
-        zeros.append(-xs[i] / xs[i+1])
+        zeros.append(-xs[i] / xs[i + 1])
     return zeros
 
 
-# Read input from user
-task_type = input().strip()
-result = None
+task_type = input()
 
 if task_type == "poly":
     xs = list(map(float, input().split()))
@@ -24,5 +22,4 @@ if task_type == "poly":
 elif task_type == "find_zero":
     result = find_zero()
 
-# Print the result
 print(result)
