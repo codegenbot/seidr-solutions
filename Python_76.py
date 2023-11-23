@@ -1,2 +1,2 @@
 def is_simple_power(x, n):
-    return x == n**(x**(1/n))
+    return x > 1 and (x**(1/n)).is_integer()
