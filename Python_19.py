@@ -1,7 +1,7 @@
 from typing import List
 
 
-def sort_numbers(numbers: List[str]) -> str:
+def sort_numbers(numbers: str) -> str:
     number_mapping = {
         "zero": 0,
         "one": 1,
