@@ -4,4 +4,4 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     for num in numbers:
         sum += num
         product *= num
-    return sum, product
+    return (sum, product)
