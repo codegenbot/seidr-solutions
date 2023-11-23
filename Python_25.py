@@ -1,3 +1,6 @@
+from typing import List
+
+
 def factorize(n: int) -> List[int]:
     if n <= 1:
         return []
@@ -16,7 +19,7 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
-    user_input = input().split(",")
+    user_input = input().strip().split(",")
     if not user_input:
         print("No input provided")
         return
@@ -24,8 +27,7 @@ def main():
     try:
         user_input = list(map(int, user_input))
         result = [factorize(n) for n in user_input]
-        output = " ".join(str(f) for sublist in result for f in sublist)
-        print(output)
+        print(" ".join(str(f) for sublist in result for f in sublist))
     except ValueError:
         print("Invalid input")
 
