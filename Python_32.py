@@ -8,17 +8,9 @@ def find_zero(xs: list) -> float:
         return None
     return -xs[0] / xs[1]
 
-def main():
-    xs = []
-    while True:
-        try:
-            x = input()
-            if x == "":
-                break
-            xs.append(float(x))
-        except EOFError:
-            break
+if __name__ == "__main__":
+    xs = input().split()
+    xs = [float(coeff) for coeff in xs]
     
-    print(find_zero(xs))
-
-main()
+    zero = find_zero(xs)
+    print(zero)
