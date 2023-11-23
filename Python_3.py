@@ -1,9 +1,15 @@
-from typing import List
+from typing import List, Union
 
-def below_zero(operations: List[int]) -> bool:
-    balance = 0
-    for operation in operations:
-        balance -= int(operation)
-        if balance < 0:
-            return True
-    return False
+def below_zero(operations: List[Union[int, float]]) -> bool:
+    try:
+        if not operations:
+            return False
+        
+        balance = 0
+        for operation in operations:
+            balance -= operation
+            if balance < 0:
+                return True
+        return False
+    except:
+        return False
