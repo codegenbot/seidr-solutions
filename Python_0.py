@@ -10,10 +10,8 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
 
 
 try:
-    inputs = input("Enter space-separated numbers for numbers and threshold: ")
-    numbers, threshold = inputs.split()[:-1], inputs.split()[-1]
-    numbers = list(map(float, numbers))
-    threshold = float(threshold)
+    numbers = list(map(float, input().split()))
+    threshold = float(input())
     print(has_close_elements(numbers, threshold))
 except Exception as e:
     print("Error:", str(e))
