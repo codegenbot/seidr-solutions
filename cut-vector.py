@@ -16,14 +16,11 @@ def cut_vector(vector):
     return vector, [0]
 
 
-# Read input from user
 line = input()
 vector = [int(num) for num in line.split()]
 
-# Call the cut_vector function
 result1, result2 = cut_vector(vector)
 
-# Print the results
 for num in result1:
     print(num)
 
