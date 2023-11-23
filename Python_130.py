@@ -9,15 +9,11 @@ def tri(n):
         sequence.append(1)
         sequence.append(2)
         return sequence
-    elif n == 3:
-        sequence.append(1)
-        sequence.append(2)
-        sequence.append(4)
-        return sequence
     else:
         sequence.append(1)
         sequence.append(2)
-        for i in range(3, n+1):
+        sequence.append(4)
+        for i in range(4, n+1):
             if i % 2 == 0:
                 sequence.append(1 + i // 2)
             else:
