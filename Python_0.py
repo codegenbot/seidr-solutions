@@ -9,13 +9,16 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     return False
 
 
+def solve(input_str: str) -> bool:
+    inputs = input_str.strip().split()
+    numbers = list(map(float, inputs[:-1]))
+    threshold = float(inputs[-1])
+    return has_close_elements(numbers, threshold)
+
+
 def main():
-    try:
-        numbers = list(map(float, input().strip().split()))
-        threshold = float(input())
-        print(has_close_elements(numbers, threshold))
-    except Exception as e:
-        print("Error:", str(e))
+    input_str = input()
+    print(solve(input_str))
 
 
 if __name__ == "__main__":
