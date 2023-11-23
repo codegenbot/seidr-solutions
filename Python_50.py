@@ -18,10 +18,13 @@ def decode_shift(s: str) -> str:
     )
 
 
-input_string = input("Enter a string: ")
+# Read input from user
+user_input = input("Enter a string: ")
 
-encoded_string = encode_shift(input_string)
-print(encoded_string)
+# Call the encode_shift function
+encoded = encode_shift(user_input)
+print("Encoded string:", encoded)
 
-decoded_string = decode_shift(encoded_string)
-print(decoded_string)
+# Call the decode_shift function
+decoded = decode_shift(encoded)
+print("Decoded string:", decoded)
