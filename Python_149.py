@@ -1,2 +1,2 @@
 def sorted_list_sum(lst):
-    return sorted(lst, key=str.casefold)
+    return list(sorted(lst, key=str.casefold))
