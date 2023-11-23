@@ -2,24 +2,25 @@ from typing import List
 
 
 def filter_integers(values: List[str]) -> List[int]:
-    return [int(value) for value in values if value.isdigit()]
+    try:
+        return [int(value) for value in values]
+    except ValueError:
+        raise ValueError(
+            "Invalid input. Please enter only integers separated by a comma and a space (', ')."
+        )
 
 
 def main():
-    input_values = input("Enter a comma-separated list of integers: ").split(",")
+    input_values = input().split(", ")
 
-    if all(value.isdigit() for value in input_values):
-        if input_values:
+    if input_values:
+        try:
             result = filter_integers(input_values)
-            if result:
-                print(result)
-            else:
-                print("No integers found.")
-        else:
-            print("No input provided.")
+            print(result)
+        except ValueError as e:
+            print(str(e))
     else:
-        print("Invalid input. Please enter only integers separated by commas (',').")
-        print("Example: 1,2,3")
+        print("No input provided.")
 
 
 if __name__ == "__main__":
