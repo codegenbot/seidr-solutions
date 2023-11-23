@@ -1,4 +1,2 @@
-from itertools import permutations
-
 def cycpattern_check(a, b):
-    return b in permutations(a, len(a))
+    return len(a) == len(b) and (b in (a*2) or b[::-1] in (a[::-1]*2))
