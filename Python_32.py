@@ -8,12 +8,20 @@ def poly(xs: list, x: float):
 def find_zero(xs: list):
     zeros = []
     for i in range(len(xs) - 1):
-        zeros.append(-xs[i] / xs[i+1])
+        zeros.append(-xs[i] / xs[i + 1])
     return zeros
 
 
-xs = list(map(float, input().split()))
-output1 = poly(xs, 3.5)
-output2 = find_zero(xs)
-print(output1)
-print(output2)
+# Proper input format:
+"""
+input_lines = input().split('\n')
+xs = list(map(float, input_lines[0].split()))
+x = float(input_lines[1])
+"""
+
+input_lines = input().split("\n")
+xs = list(map(float, input_lines[0].split()))
+x = float(input_lines[1])
+
+print(find_zero(xs))
+print(poly(xs, x))
