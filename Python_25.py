@@ -20,8 +20,14 @@ def factorize(n: int) -> List[int]:
 
 
 try:
-    user_input = int(sys.stdin.readline().rstrip())
-    result = factorize(user_input)
+    if len(sys.argv) != 2:
+        raise ValueError("Input must be an integer")
+
+    n = int(sys.argv[1])
+    if n <= 0:
+        raise ValueError("Input must be a positive integer")
+
+    result = factorize(n)
     print(result)
-except ValueError:
-    pass
+except ValueError as e:
+    print(str(e))
