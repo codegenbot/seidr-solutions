@@ -1,5 +1,6 @@
 from typing import List, Union
 
+
 def below_zero(operations: List[Union[int, float]]) -> bool:
     balance = 0
     for operation in operations:
@@ -8,16 +9,20 @@ def below_zero(operations: List[Union[int, float]]) -> bool:
             return True
     return False
 
-n = int(input("Enter the number of operations: "))
-operations = []
-for _ in range(n):
-    try:
-        operation = float(input("Enter the operation: "))
-    except ValueError:
-        print("Invalid input. Please enter a number.")
-        exit()
-    operations.append(operation)
 
-result = below_zero(list(map(float, operations)))
+operations = []
+while True:
+    try:
+        operation = float(input().strip())
+        if not operation:
+            break
+        operations.append(operation)
+    except ValueError:
+        break
+
+if not operations:
+    result = False
+else:
+    result = below_zero(operations)
 
 print(result)
