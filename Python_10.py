@@ -3,7 +3,7 @@ def make_palindrome(string: str) -> str:
         return string
 
     suffix = ""
-    while string != string[::-1]:
+    while (string + suffix) != (string + suffix)[::-1]:
         if string:
             suffix = string[0] + suffix
             string = string[1:]
