@@ -25,7 +25,7 @@ def minPath(grid, k):
         if col < N - 1 and not visited[row][col + 1]:
             if dfs(row, col + 1, steps + 1):
                 return True
-        
+
         path.pop()
 
         return False
