@@ -12,7 +12,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return sum_result, product_result
 
 
-numbers = list(map(int, input().split()))
+input_str = input().strip()
+numbers = list(map(int, input_str.split()))
 
 result = sum_product(numbers)
-print(f"{result[0]} {result[1]}")
+print(result[0], result[1])
