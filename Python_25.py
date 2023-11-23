@@ -7,16 +7,12 @@ def factorize(n):
 
 
 def main():
-    user_input = input().strip().split()
-    if not user_input:
-        print("No input provided")
-        return
-
+    user_input = input().strip().split(',') if input() else []
     try:
         user_input = list(map(int, user_input))
         result = [factorize(int(n)) for n in user_input]
         output = ' '.join(str(f) for sublist in result for f in sublist)
-        print(output.strip())
+        print(output)
     except ValueError:
         print("Invalid input")
 
