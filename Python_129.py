@@ -1,11 +1,12 @@
-def find_min_path(grid, k):
-    min_path = float("inf")
+def minPath(grid, k):
+    min_path = []
 
     def dfs(i, j, path, visited):
-        if len(path) >= k:
-            nonlocal min_path
-            if path < min_path:
-                min_path = path
+        nonlocal min_path
+
+        if len(path) > k:
+            if not min_path or len(path) < len(min_path):
+                min_path = path[:]
             return
 
         if (i, j) not in visited:
