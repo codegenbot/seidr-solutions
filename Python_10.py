@@ -1,6 +1,9 @@
 def make_palindrome(string: str) -> str:
-    prefix = ""
-    while string != string[::-1]:
-        prefix += string[-1]
-        string = string[:-1]
-    return string + prefix + string[::-1]
+    if string == string[::-1]:
+        return string
+
+    suffix = ""
+    while (string + suffix) != (string + suffix)[::-1]:
+        suffix = string[0] + suffix
+        string = string[1:]
+    return string + suffix
