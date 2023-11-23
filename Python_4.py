@@ -1,24 +1,14 @@
-from typing import List
+import sys
 
+def mean_absolute_deviation(numbers):
+    mean = sum(numbers) / len(numbers)
+    deviation = sum(abs(num - mean) for num in numbers) / len(numbers)
+    return round(deviation, 2)
 
-def mean_absolute_deviation(numbers: List[float]) -> float:
-    try:
-        mean = sum(numbers) / len(numbers)
-        deviation = sum(abs(num - mean) for num in numbers) / len(numbers)
-        return round(deviation, 2)
-    except ZeroDivisionError:
-        return 0
+inputs = sys.stdin.read().splitlines()
+num_test_cases = int(inputs[0])
 
-
-user_input = input().strip().split()
-
-if not user_input:
-    print("No numbers provided")
-    exit()
-
-try:
-    numbers = list(map(float, user_input)) if len(user_input) >= 1 else list(map(float, user_input[0].split()))
-    result = mean_absolute_deviation(numbers)
+for i in range(num_test_cases):
+    user_input = list(map(float, inputs[i+1].split()))
+    result = mean_absolute_deviation(user_input)
     print(result)
-except ValueError:
-    print("Invalid input")
