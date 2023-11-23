@@ -9,6 +9,7 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
 
 try:
     numbers = [float(num) for num in input().strip().split()]
-    print(has_close_elements(numbers, 1.0))
+    threshold = float(input())
+    print(has_close_elements(numbers, threshold))
 except Exception as e:
     print("Error:", str(e))
