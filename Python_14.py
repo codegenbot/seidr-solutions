@@ -1,5 +1,4 @@
 from typing import List
-import sys
 
 
 def all_prefixes(string: str) -> List[str]:
@@ -9,6 +8,6 @@ def all_prefixes(string: str) -> List[str]:
     return prefixes
 
 
-input_string = sys.argv[1]
+input_string = input().strip()
 result = all_prefixes(input_string)
 print(result)

@@ -8,6 +8,6 @@ def longest(strings: List[str]) -> str:
     return longest_string
 
 
-strings = input().split(', ')
+strings = input().split(',')
 result = longest(strings)
 print(result)
