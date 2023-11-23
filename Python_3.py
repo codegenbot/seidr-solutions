@@ -1,3 +1,4 @@
+import sys
 from typing import List, Union
 
 def below_zero(operations: List[Union[int, float]]) -> bool:
@@ -8,16 +9,8 @@ def below_zero(operations: List[Union[int, float]]) -> bool:
             return True
     return False
 
-n = int(input())
-operations = []
-for _ in range(n):
-    operation = input()
-    try:
-        operation = float(operation)
-    except ValueError:
-        print("Invalid input. Please enter a number.")
-        exit()
-    operations.append(operation)
+n = int(sys.stdin.readline().strip())
+operations = [float(sys.stdin.readline().strip()) for _ in range(n)]
 
 result = below_zero(operations)
 
