@@ -9,9 +9,8 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     return [(num - min_num) / rescaling_factor for num in numbers]
 
 n = int(input())
-numbers = []
-for _ in range(n):
-    num = float(input())
-    numbers.append(num)
+numbers = list(map(float, input().strip().split()))
+
+assert len(numbers) == n
 
 print(rescale_to_unit(numbers))
