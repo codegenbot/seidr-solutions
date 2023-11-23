@@ -1,6 +1,4 @@
 def encode_shift(s: str) -> str:
-    if not s:
-        return "Input string is empty"
     try:
         return "".join(
             [
@@ -9,13 +7,11 @@ def encode_shift(s: str) -> str:
                 if ch.isalpha() or ch.isspace()
             ]
         )
-    except:
+    except Exception:
         return "Invalid input"
 
 
 def decode_shift(s: str) -> str:
-    if not s:
-        return "Input string is empty"
     try:
         return "".join(
             [
@@ -24,11 +20,13 @@ def decode_shift(s: str) -> str:
                 if ch.isalpha() or ch.isspace()
             ]
         )
-    except:
+    except Exception:
         return "Invalid input"
 
 
-encoded = encode_shift(input("Enter a string: "))
+user_input = input().strip()
+
+encoded = encode_shift(user_input)
 print(encoded)
 
 decoded = decode_shift(encoded)
