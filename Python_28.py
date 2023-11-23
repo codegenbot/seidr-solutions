@@ -1,5 +1,5 @@
 from typing import List
 
-def concatenate() -> str:
-    strings = input().split()
-    return ''.join(strings)
+def concatenate(strings: List[str]) -> str:
+    result = ''.join(strings)
+    return result
