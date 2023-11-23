@@ -7,6 +7,6 @@ def dice_game(n, m):
         for j in range(1, m+1):
             if i > j:
                 count += 1
-    return count / (n * m)
+    return "{:.7f}".format(count / (n * m))
 
 print(dice_game(n, m))
