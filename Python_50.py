@@ -28,10 +28,10 @@ def decode_shift(s: str) -> str:
         return "Invalid input"
 
 
-user_input = input(str).strip()
+user_input = input("Enter a string: ").strip()
 
 encoded = encode_shift(user_input)
-print("Encoded string:", encoded)
+print(encoded)
 
 decoded = decode_shift(encoded)
-print("Decoded string:", decoded)
+print(decoded)
