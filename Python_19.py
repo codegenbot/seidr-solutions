@@ -15,13 +15,12 @@ def sort_numbers(numbers: str) -> str:
         "nine": 9,
     }
 
-    numbers_list = numbers.split()
+    numbers_list = numbers.lower().split()
     sorted_numbers = sorted(
         numbers_list, key=lambda x: number_mapping.get(x, float("inf"))
     )
     return " ".join(sorted_numbers)
 
 
-numbers_input = "one two three four"  # Assign a value to numbers_input variable
-sorted_numbers_output = sort_numbers(numbers_input)
+sorted_numbers_output = sort_numbers("Enter the numbers: ")
 print(sorted_numbers_output)
