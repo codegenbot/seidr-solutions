@@ -15,12 +15,13 @@ def cut_vector(vector):
 
     return vector, [0]
 
+
 line = input()
 vector = [int(num) for num in line.split()]
-
 result1, result2 = cut_vector(vector)
 
 for num in result1:
     print(num)
+
 for num in result2:
     print(num)
