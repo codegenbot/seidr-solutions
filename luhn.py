@@ -3,7 +3,7 @@ def luhn_algorithm(digits):
     for i in range(len(digits)):
         if i % 2 == 1:
             doubled_digit = digits[i] * 2
-            if doubled_digit > 9:
+            if doubled_digit >= 10:
                 doubled_digit -= 9
             new_digits.append(doubled_digit)
         else:
