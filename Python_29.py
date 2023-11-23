@@ -2,8 +2,7 @@ from typing import List
 
 
 def filter_by_prefix() -> List[str]:
-    # First line should be an integer n
-    n = int(input())
-    strings = [input() for _ in range(n)]
-    prefix = input()
+    n = int(input("Enter the number of strings: "))
+    strings = [input(f"Enter string {i+1}: ") for i in range(n)]
+    prefix = input("Enter the prefix: ")
     return [s for s in strings if s.startswith(prefix)]
