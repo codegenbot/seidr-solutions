@@ -1,5 +1,5 @@
-import sys
 from typing import List
+import sys
 
 def factorize(n: int) -> List[int]:
     factors = []
