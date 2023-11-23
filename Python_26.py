@@ -1,8 +1,19 @@
 from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return list(set(numbers))
+    nums = []
+    for num in numbers:
+        if num not in nums:
+            nums.append(num)
+    return nums
 
-input_list = list(map(int, input("Enter space-separated numbers: ").split()))
+input_list = []
+while True:
+    try:
+        line = int(input())
+        input_list.append(line)
+    except ValueError:
+        break
+
 result = remove_duplicates(input_list)
 print(*result)
