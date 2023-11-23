@@ -4,7 +4,8 @@ def string_to_md5(text):
     return md5(text.encode()).hexdigest()
 
 try:
-    result = string_to_md5(input().rstrip())
+    text = input("Enter a string: ").strip()
+    result = string_to_md5(text)
     print(result)
 except EOFError:
     print("No input received.")
