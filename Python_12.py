@@ -1,6 +1,6 @@
-from typing import List, Optional
+from typing import List
 
-def longest(strings: List[str]) -> Optional[str]:
+def longest(strings: List[str]) -> str:
     if not strings:
         return None
     longest_string = strings[0]
@@ -9,6 +9,6 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_string = string
     return longest_string
 
-strings = input("Enter a list of strings separated by commas: ").split(",")
+strings = input().split()
 result = longest(strings)
 print(result)
