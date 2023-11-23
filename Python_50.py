@@ -6,8 +6,14 @@ def decode_shift(s: str) -> str:
 
 input_string = input().strip()
 
-encoded_string = encode_shift(input_string)
-print(encoded_string)
+if input_string:
+    encoded_string = encode_shift(input_string)
+    print(encoded_string)
 
-decoded_string = decode_shift(encoded_string)
-print(decoded_string)
+    decoded_string = decode_shift(encoded_string)
+    print(decoded_string)
+else:
+    encoded_string = ""
+    decoded_string = ""
+    print(encoded_string)
+    print(decoded_string)
