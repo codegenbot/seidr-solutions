@@ -16,15 +16,3 @@ def decode_shift(s: str) -> str:
             if ch.isalpha() or ch.isspace()
         ]
     )
-
-
-# Read input from user
-user_input = input("Enter a string: ")
-
-# Call the encode_shift function
-encoded = encode_shift(user_input)
-print("Encoded string:", encoded)
-
-# Call the decode_shift function
-decoded = decode_shift(encoded)
-print("Decoded string:", decoded)
