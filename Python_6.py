@@ -9,13 +9,11 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         if paren == "(":
             open_count += 1
             max_count = max(max_count, open_count)
-        elif paren == ")" and open_count > 0:
-            open_count -= 1
+        elif paren == ")":
+            if open_count > 0:
+                open_count -= 1
+            else:
+                return [], max_count
         if open_count > 0:
             counts.append(open_count)
     return counts, max_count
-
-
-paren_string = input()
-result = parse_nested_parens(paren_string)
-print(*result)
