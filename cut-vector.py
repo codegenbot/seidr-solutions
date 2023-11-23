@@ -12,7 +12,6 @@ def cut_vector(vector):
 
     return vector, []
 
-
 vector = []
 while True:
     try:
