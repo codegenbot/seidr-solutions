@@ -1,9 +1,9 @@
 def calculate_sum():
     while True:
-        try:
-            x, y = map(int, input().split())
+        x, y = map(int, input().split())
+        if isinstance(x, int) and isinstance(y, int):
             break
-        except ValueError:
+        else:
             print("Invalid input. Please enter two integers separated by a space.")
 
     return x + y
