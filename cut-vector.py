@@ -17,6 +17,8 @@ def cut_vector(vector):
 
     return vector[: min_diff_idx + 1], vector[min_diff_idx + 1 :]
 
+
+# Read input from user
 vector = []
 while True:
     try:
@@ -28,6 +30,7 @@ while True:
     except EOFError:
         break
 
+# Call the function and print the output
 subvector1, subvector2 = cut_vector(vector)
 for num in subvector1:
     print(num)
