@@ -1,12 +1,10 @@
 import math
 
-
 def poly(xs: list, x: float) -> float:
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
-
 n = int(input())
-coeffs = [float(input()) for _ in range(n)]
+coeffs = list(map(float, input().split()))
 x = float(input())
 
 if n == 0:
