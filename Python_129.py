@@ -35,6 +35,3 @@ def find_min_path(grid, k):
             dfs(i, j, [], set())
 
     return min_path
-
-result = find_min_path(grid, k)
-check(result)
