@@ -1,4 +1,2 @@
 def car_race_collision(n: int) -> int:
-    pairs = n * (n - 1) // 2
-    collisions = pairs * (pairs + 1) // 2
-    return collisions
+    return ((n + 1) // 2) ** 2 if n % 2 != 0 else (n // 2) ** 2
