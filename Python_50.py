@@ -1,3 +1,5 @@
+import sys
+
 def encode_shift(s: str) -> str:
     return "".join(
         [
@@ -16,3 +18,12 @@ def decode_shift(s: str) -> str:
             if ch.isalpha() or ch.isspace()
         ]
     )
+
+
+user_input = sys.stdin.readline().strip()
+
+encoded = encode_shift(user_input)
+print("Encoded string:", encoded)
+
+decoded = decode_shift(encoded)
+print("Decoded string:", decoded)
