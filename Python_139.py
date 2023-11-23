@@ -1,5 +1,8 @@
 def special_factorial(n):
-    if n == 0:
-        return 1
-    else:
-        return n * special_factorial(n-1) * special_factorial(n-1) * special_factorial(n-1) * ... * special_factorial(1)
+    result = 1
+    for i in range(n, 0, -1):
+        temp = 1
+        for j in range(i, 0, -1):
+            temp *= j
+        result *= temp
+    return result
