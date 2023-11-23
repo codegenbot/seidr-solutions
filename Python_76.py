@@ -1,2 +1,2 @@
 def is_simple_power(x, n):
-    return n ** x == x
+    return x**(1/n) == round(x**(1/n))
