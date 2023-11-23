@@ -6,6 +6,9 @@ deciphered_message = ""
 
 for char in cipher:
     index = mapping.find(char)
-    deciphered_message += message[index] if index != -1 and index < len(message) else char
+    if index != -1:
+        deciphered_message += message[index]
+    else:
+        deciphered_message += char
 
 print(deciphered_message)
