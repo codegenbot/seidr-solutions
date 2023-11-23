@@ -11,7 +11,7 @@ def longest(strings: List[str]) -> Optional[str]:
     return longest_string
 
 
-strings = input().split(",")
+strings = input().strip().split(",")
 strings = [s.strip() for s in strings]
 result = longest(strings)
 print(result)
