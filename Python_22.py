@@ -6,6 +6,5 @@ def filter_integers(values: List[Any]) -> List[int]:
 input_str = input()
 values_str = input_str.split()
 values = [int(x) for x in values_str]
-
 result = filter_integers(values)
 print(result)
