@@ -9,9 +9,11 @@ def decode_cyclic(s: str):
     groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
+# Read input from user and call the functions
 original = input()
 encoded = encode_cyclic(original)
 decoded = decode_cyclic(encoded)
 
+# Print the results
 print(encoded)
 print(decoded)
