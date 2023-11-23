@@ -6,7 +6,7 @@ def decode_cyclic(input_length, input_str):
 
         groups = [
             (input_str[(i - 1) % len(input_str)] + input_str[(i - 2) % len(input_str)] + input_str[i])
-            for i in range(n)
+            for i in range(n + 1)
         ]
         return "".join(groups)
 
@@ -14,7 +14,7 @@ def decode_cyclic(input_length, input_str):
         return f"An error occurred: {e}"
 
 
-input_length = int(input().strip())
-input_str = input().strip()
+input_length = int(input().strip())  # Read the length of the input string
+input_str = input().strip()  # Read the input string itself
 result = decode_cyclic(input_length, input_str)
 print(result)
