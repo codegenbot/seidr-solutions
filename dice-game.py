@@ -3,7 +3,8 @@ m = int(input())
 
 if n <= 1 or m <= 1:
     print(0.0)
-elif n >= m:
-    print((n - 1 + (m - n + 1) / (m * 1.0)) / n)
+elif n > m:
+    print(1.0)
 else:
-    print((m - n + 1) / (m * 1.0))
+    probability = (m - n + 1) / m
+    print(round(probability, 8))
