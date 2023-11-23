@@ -1,5 +1,6 @@
-from typing import List
+import sys
 
+from typing import List
 
 def all_prefixes(string: str) -> List[str]:
     prefixes = []
@@ -7,7 +8,8 @@ def all_prefixes(string: str) -> List[str]:
         prefixes.append(string[:i])
     return prefixes
 
-
-input_string = input().strip()
-result = all_prefixes(input_string)
-print(result)
+if __name__ == '__main__':
+    input_string = sys.stdin.readline().strip()
+    result = all_prefixes(input_string)
+    for prefix in result:
+        print(prefix)
