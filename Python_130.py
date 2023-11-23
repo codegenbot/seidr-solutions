@@ -1,6 +1,8 @@
 def tri(n):
-    sequence = [3]
-    if n == 0:
-        return sequence
-    sequence.append(1 + n / 2) if n % 2 == 0 else sequence.append(tri(n - 1)[-1] + tri(n - 2)[-1] + tri(n + 1)[-1])
-    return sequence[:n + 1]
+    seq = [3]
+    for i in range(1, n+1):
+        if i % 2 == 0:
+            seq.append(1 + i // 2)
+        else:
+            seq.append(seq[i-1] + seq[i-2] + seq[i+1])
+    return seq
