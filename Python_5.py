@@ -9,5 +9,4 @@ def intersperse() -> List[int]:
         result.append(numbers[i])
         if i < len(numbers) - 1:
             result.append(delimiter)
-    
     return result
