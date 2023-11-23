@@ -1,5 +1,5 @@
 def fix_spaces(text):
-    return text.replace(' ', '_')
+    return '_'.join(text.split())
 
-result = fix_spaces("Hello World")
+result = fix_spaces("   Exa 1 2 2 mple")
 print(result)
