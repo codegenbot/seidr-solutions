@@ -12,13 +12,8 @@ def find_zero(xs: list):
     return zeros
 
 
-# Read input
 xs = list(map(float, input().split()))
-
-# Call the functions with the input
 output1 = poly(xs, 3.5)
 output2 = find_zero(xs)
-
-# Print the output
 print(output1)
 print(output2)
