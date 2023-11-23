@@ -5,7 +5,7 @@ def solve_boolean(expression):
         "|": " or ",
         "&": " and ",
     }
-    
+
     modified_expression = expression.translate(str.maketrans(translation_dict))
 
     modified_expression = modified_expression.replace(" or or", " or ").replace(
