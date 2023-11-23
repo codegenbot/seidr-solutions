@@ -1,14 +1,18 @@
 from typing import List
 
 
-def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    return [s for s in strings if substring in s]
+def filter_by_substring(strings: List[str], pattern: str) -> List[str]:
+    return [s for s in strings if s.startswith(pattern)]
 
 
 def main():
-    substring = input().strip()
-    strings = input().strip()[1:-1].split(", ")
-    result = filter_by_substring(strings, substring)
+    while True:
+        pattern = input().strip()
+        if pattern:
+            break
+
+    strings = input().split(", ")
+    result = filter_by_substring(strings, pattern)
     print(result)
 
 
