@@ -11,13 +11,13 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
 
 def solve(input_str: str) -> bool:
     inputs = input_str.strip().split()
-    numbers = list(map(float, inputs[:-1]))
+    numbers = list(map(float, inputs[0:-1]))
     threshold = float(inputs[-1])
     return has_close_elements(numbers, threshold)
 
 
 def main():
-    input_str = input()
+    input_str = "1.5 2.5 3.5 0.5"
     print(solve(input_str))
 
 
