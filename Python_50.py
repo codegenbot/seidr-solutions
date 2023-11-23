@@ -9,7 +9,6 @@ def encode_shift(s: str) -> str:
         ]
     )
 
-
 def decode_shift(s: str) -> str:
     return "".join(
         [
@@ -19,10 +18,13 @@ def decode_shift(s: str) -> str:
         ]
     )
 
+if len(sys.argv) != 2:
+    print("Usage: python problem.py <input_string>")
+    sys.exit(1)
 
-user_input = sys.stdin.readline().rstrip()
+input_string = sys.argv[1]
 
-encoded = encode_shift(user_input)
+encoded = encode_shift(input_string)
 print("Encoded string:", encoded)
 
 decoded = decode_shift(encoded)
