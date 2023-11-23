@@ -6,7 +6,8 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 def main():
-    substring, *strings = input().strip().split()
+    substring = input().strip()
+    strings = input().strip().split(',')
     result = filter_by_substring(strings, substring)
     print(result)
 
