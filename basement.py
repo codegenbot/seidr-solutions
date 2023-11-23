@@ -6,6 +6,10 @@ def basement(nums):
             return i
     return -1
 
+
+# Read input from user
 nums = list(map(int, input().split()))
+
+# Call the basement function and print the result
 result = basement(nums)
 print(result)
