@@ -23,6 +23,3 @@ def minPath(grid, k):
             res = dfs(grid, i, j, k - 1, [])
             if res:
                 return res
-
-
-print(minPath([[1, 3], [3, 2]], 10))
