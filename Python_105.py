@@ -1,3 +1,5 @@
 def by_length(arr):
-    arr = sorted([x for x in arr if 1 <= x <= 9], reverse=True)
-    return ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'][x-1 for x in arr]
+    arr = [num for num in arr if 1 <= num <= 9]
+    arr.sort()
+    arr.reverse()
+    return ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"][num - 1 for num in arr]
