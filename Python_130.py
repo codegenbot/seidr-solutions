@@ -1,8 +1,11 @@
 def tri(n):
-    seq = [3]
+    if n <= 0:
+        return []
+    
+    sequence = [3]
     for i in range(1, n):
         if i % 2 == 0:
-            seq.append(1 + i // 2)
+            sequence.append(1 + i // 2)
         else:
-            seq.append(seq[i - 1] + seq[i - 2] + seq[i])
-    return seq
+            sequence.append(sequence[i-1] + sequence[i-2] + sequence[i-4])
+    return sequence
