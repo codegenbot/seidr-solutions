@@ -8,3 +8,7 @@ def longest(strings: List[str]) -> Optional[str]:
         if len(string) > len(longest_string):
             longest_string = string
     return longest_string
+
+strings = input().split()
+result = longest(strings)
+print(result)
