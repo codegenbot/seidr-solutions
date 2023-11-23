@@ -5,7 +5,16 @@ def concatenate(strings: List[str]) -> str:
     return result
 
 if __name__ == '__main__':
-    n = int(input())
-    input_strings = [input() for _ in range(n)]
+    input_strings = []
+    while True:
+        try:
+            input_string = input().strip()
+            if input_string:
+                input_strings.append(input_string)
+            else:
+                break
+        except EOFError:
+            break
+    
     output = concatenate(input_strings)
     print(output)

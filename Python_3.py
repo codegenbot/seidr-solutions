@@ -1,21 +1,17 @@
-from typing import List, Union
-
-
-def below_zero(operations: List[Union[int, float]]) -> bool:
-    balance = 0
-    for operation in operations:
-        balance -= operation
-        if balance < 0:
-            return True
-    return False
-
-
-n = int(input())
 operations = []
-for _ in range(n):
-    operation = float(input())
-    operations.append(operation)
+while True:
+    try:
+        operation = input().strip()
+        if not operation:
+            break
+        operation = float(operation)
+        operations.append(operation)
+    except ValueError:
+        break
 
-result = below_zero(operations)
+if not operations:
+    result = False
+else:
+    result = below_zero(operations)
 
 print(result)

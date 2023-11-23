@@ -5,5 +5,6 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
         return []
     return list(set(numbers))
 
-result = remove_duplicates(list(map(int, input().strip().split())))
+input_str = input("Enter space-separated integers: ")
+result = remove_duplicates(list(map(int, input_str.strip().split())))
 print(*result)

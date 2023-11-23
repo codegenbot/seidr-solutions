@@ -6,4 +6,4 @@ def parse_music(music_string: str) -> List[int]:
     return [durations[note] for note in music_string.split() if note in durations]
 
 
-parse_music(input("Enter the music string: ").strip())
+parse_music("<test case>")
