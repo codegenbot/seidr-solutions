@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 
@@ -5,6 +6,9 @@ def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
     return [s for s in strings if s.startswith(prefix)]
 
 
-filtered_strings = filter_by_prefix(input().split(), input())
+strings = sys.stdin.readline().rstrip().split()
+prefix = sys.stdin.readline().rstrip()
 
-print(*filtered_strings)
+filtered_strings = filter_by_prefix(strings, prefix)
+
+print(filtered_strings)
