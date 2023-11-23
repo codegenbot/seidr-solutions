@@ -1,5 +1,6 @@
 from typing import List
 
+
 def factorize(n: int) -> List[int]:
     if n <= 1:
         return []
@@ -16,9 +17,13 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-user_input = int(input().strip())
-if user_input <= 0:
-    print("Input must be a positive integer")
-else:
-    result = factorize(user_input)
-    print(result)
+
+try:
+    user_input = int(input())
+    if user_input <= 0:
+        print("Input must be a positive integer")
+    else:
+        result = factorize(user_input)
+        print(result)
+except ValueError:
+    print("Invalid input")
