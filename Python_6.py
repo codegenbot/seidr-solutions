@@ -1,21 +1,11 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    max_depth = 0
-    current_depth = 0
-    
+    depth = 0
     for char in paren_string:
         if char == '(':
-            current_depth += 1
-            max_depth = max(max_depth, current_depth)
+            depth += 1
         elif char == ')':
-            current_depth -= 1
-        
-        if char == ' ':
-            result.append(max_depth)
-            max_depth = 0
-            current_depth = 0
-    
-    if current_depth > 0:
-        result.append(max_depth)
-    
+            depth -= 1
+        elif char == ' ':
+            result.append(depth)
     return result
