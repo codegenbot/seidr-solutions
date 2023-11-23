@@ -6,7 +6,7 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    input_values = input().split(",")
+    input_values = input("Enter values separated by commas: ").split(",")
 
     if len(input_values) > 0:
         result = filter_integers(input_values)
