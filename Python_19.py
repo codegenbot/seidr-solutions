@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 
@@ -22,6 +23,6 @@ def sort_numbers(numbers: List[str]) -> str:
     return " ".join(sorted_numbers)
 
 
-numbers = input().strip().split(',')
+numbers = sys.stdin.readline().strip().split(',')
 sorted_numbers_output = sort_numbers(numbers)
 print(sorted_numbers_output)
