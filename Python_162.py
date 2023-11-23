@@ -1,8 +1,7 @@
 import hashlib
 
-
 def string_to_md5(text):
-    if text is None or text == "":
-        return None
-    else:
+    if isinstance(text, str):
         return hashlib.md5(text.encode()).hexdigest()
+    else:
+        return None
