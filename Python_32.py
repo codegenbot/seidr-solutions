@@ -9,7 +9,7 @@ def find_zero(xs: list):
     return -xs[0] / xs[1]
 
 
-xs = list(map(float, input("Enter the coefficients of the polynomial (separated by spaces): ").split()))
+xs = [float(coeff) for coeff in input("Enter the coefficients of the polynomial (separated by spaces): ").split()]
 
 x = float(input("Enter the value of x: "))
 
