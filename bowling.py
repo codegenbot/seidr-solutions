@@ -28,7 +28,9 @@ def calculate_score(bowls):
                     break
 
     for i in range(10):
-        frame_score = sum(int(b) for b in frames[i])
+        frame_score = sum(
+            int(b) for b in frames[i]
+        )  # Convert bowls to integers before summing
         if len(frames[i]) == 2 and frame_score == 10:
             if frames[i][0] == "X" or frames[i][1] == "/":
                 score += int(frames[i + 1][0])
