@@ -11,7 +11,7 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 
 user_input = (
-    input().strip().split()
+    input("Enter a list of numbers separated by spaces: ").strip().split()
     if user_input
     else []
 )
@@ -21,7 +21,7 @@ if not user_input:
     exit()
 
 try:
-    numbers = list(map(float, user_input)) if len(user_input) > 1 else list(map(float, user_input[0].split()))
+    numbers = list(map(float, user_input))
     result = mean_absolute_deviation(numbers)
     print(result)
 except ValueError:

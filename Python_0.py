@@ -1,4 +1,4 @@
-numbers = [1.5, 2.3, 3.7, 4.2]
+numbers = list(map(float, input().strip().split()))
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     for i in range(len(numbers)):
@@ -7,4 +7,4 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
                 return True
     return False
 
-print(has_close_elements(numbers, 0.5))
+print(has_close_elements(numbers, 1.0))
