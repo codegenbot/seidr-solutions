@@ -6,10 +6,10 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 def main():
-    substring = input()
-    strings = input().split(', ')
+    substring = input().strip().split(',')
+    strings = input().strip().split(':')[1].split(',')
     result = filter_by_substring(strings, substring)
-    return result
+    print(result)
 
 
 if __name__ == "__main__":
