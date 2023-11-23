@@ -12,5 +12,5 @@ elif operation == "decode":
     result = decode_shift(s)
 else:
     result = "Invalid operation"
-
+    
 print(result)
