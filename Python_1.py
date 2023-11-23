@@ -1,7 +1,4 @@
 def separate_paren_groups(paren_string):
-    groups = paren_string.split(' ')
+    groups = paren_string.replace(")(", ") (").split()
+    groups = [group.strip() for group in groups]
     return groups
-
-paren_string = "(a) (b)(c)"
-result = separate_paren_groups(paren_string)
-print(result)
