@@ -39,4 +39,8 @@ def find_min_path(grid, k):
 
     return min_path
 
+def check(result):
+    print(result)
+
 result = find_min_path(grid, k)
+check(result)
