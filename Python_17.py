@@ -6,8 +6,8 @@ def parse_music(music_string: str) -> List[int]:
     if not music_string:
         return []
 
-    return [durations[note] for note in music_string.split(",") if note in durations]
+    return [durations[note] for note in music_string.split(",") if note.strip() in durations.keys()]
 
-music_notes = input("Enter the music notes comma-separated (e.g., 4,2,1): ")
+music_notes = input()
 result = parse_music(music_notes)
 print(result)
