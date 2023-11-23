@@ -5,6 +5,7 @@ def poly(xs: list, x: float) -> float:
 
 coeffs = []
 
+print("Enter the number of coefficients:")
 n = int(input())
 
 for _ in range(n):
@@ -17,4 +18,4 @@ if len(coeffs) == 0:
 else:
     result = poly(coeffs, x)
 
-print(f"{result:.2f}")
+print(f"Result: {result:.2f}")
