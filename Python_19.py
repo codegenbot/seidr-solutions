@@ -22,6 +22,6 @@ def sort_numbers(numbers: str) -> str:
     return " ".join(sorted_numbers)
 
 
-test_case_input = "two three one five four"
-sorted_numbers_output = sort_numbers(test_case_input)
+numbers_input = input().strip()
+sorted_numbers_output = sort_numbers(numbers_input)
 print(sorted_numbers_output)
