@@ -1,11 +1,6 @@
 def middle_character(string):
     length = len(string)
-    middle_index = length // 2
-
     if length % 2 == 1:
-        return string[middle_index]
+        return string[length // 2]
     else:
-        if string[middle_index].isalpha():
-            return string[middle_index-1: middle_index+1]
-        else:
-            return string[middle_index]
+        return string[length // 2 - 1 : length // 2 + 1] + string[length // 2]
