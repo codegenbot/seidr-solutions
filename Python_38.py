@@ -1,20 +1,11 @@
 def decode_cyclic(input_length, input_str):
-    try:
-        n = input_length
-        if n <= 0:
-            raise ValueError("Invalid input. Please enter a positive number for the length.")
-
-        groups = [
-            (input_str[(i - 1) % len(input_str)] + input_str[(i - 2) % len(input_str)] + input_str[i])
-            for i in range(n)
-        ]
-        return "".join(groups)
-
-    except ValueError as e:
-        return f"An error occurred: {e}"
+    groups = [
+        (input_str[(i - 1) % len(input_str)] + input_str[(i - 2) % len(input_str)] + input_str[i])
+        for i in range(len(input_str))
+    ]
+    return "".join(groups)
 
 
-input_length = int(input().strip())
-input_str = input().strip()
+input_str = input().strip()[:input_length]
 result = decode_cyclic(input_length, input_str)
 print(result)
