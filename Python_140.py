@@ -1,2 +1,3 @@
-def fix_spaces(text):
-    return "_".join(text.split())
+def fix_spaces():
+    text = input()
+    return text.replace(" ", "_")
