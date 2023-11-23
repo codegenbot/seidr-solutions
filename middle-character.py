@@ -1,5 +1,6 @@
 import math
 
+
 def middle_character(s):
     length = len(s)
     if length % 2 == 1:
