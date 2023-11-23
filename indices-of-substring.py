@@ -1,9 +1,1 @@
-text = input()
-target = input()
-
-if target == "":
-    indices = []
-else:
-    indices = [i for i in range(len(text)-len(target)+1) if text[i:i+len(target)] == target]
-
-print(len(indices))
+text=input();target=input();indices=[];if target=="":indices=[];else:indices=[i for i in range(len(text)-len(target)+1) if text[i:i+len(target)]==target];print(len(indices))
