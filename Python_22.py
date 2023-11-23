@@ -6,17 +6,18 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    values = input("Enter a comma-separated list of integers: ").split(",")
+    values = input().split(",")
 
-    if all(value.isdigit() or value == "" for value in values):
+    if all(
+        value.isdigit() or value == "" or value.strip().isdigit() for value in values
+    ):
         result = filter_integers(values)
-        if result and any(isinstance(val, int) for val in result):
+        if result:
             print(result)
         else:
             print("No integers found.")
     else:
-        print("Invalid input. Please enter only integers separated by commas (',').")
-        print("Example: 1,2,3")
+        print('Invalid input. Please enter only integers separated by commas (",")')
 
 
 if __name__ == "__main__":
