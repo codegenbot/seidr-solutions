@@ -5,7 +5,7 @@ def encode(message):
             if char.lower() in 'aeiou':
                 encoded_message += chr(ord(char.lower()) + 2).upper()
             else:
-                encoded_message += chr(ord(char) ^ 32)
+                encoded_message += chr(ord(char.lower()) + 2)
         else:
             encoded_message += char
     return encoded_message
