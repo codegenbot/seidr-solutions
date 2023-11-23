@@ -20,13 +20,13 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
-    user_input = input().strip().split(",") if input() else []
-    if not user_input:
+    args = sys.argv[1:]  # Exclude the script name from command-line arguments
+    if len(args) == 0:
         print("No input provided")
         return
 
     try:
-        user_input = [int(n) for n in user_input if n.isdigit()]
+        user_input = list(map(int, args))
         if any(n <= 0 for n in user_input):
             print("Input values must be positive integers")
         else:
