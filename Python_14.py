@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 
@@ -8,6 +9,6 @@ def all_prefixes(string: str) -> List[str]:
     return prefixes
 
 
-input_string = input().strip()
+input_string = sys.stdin.readline().strip()
 result = all_prefixes(input_string)
 print(result)
