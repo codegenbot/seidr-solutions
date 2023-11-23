@@ -1,5 +1,3 @@
-import sys
-
 def encode_shift(s: str) -> str:
     return "".join(
         [
@@ -20,7 +18,7 @@ def decode_shift(s: str) -> str:
     )
 
 
-user_input = sys.stdin.readline().rstrip("\n")
+user_input = input("Enter input: ")
 
 encoded = encode_shift(user_input)
 print("Encoded string:", encoded)
