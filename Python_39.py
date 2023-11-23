@@ -18,8 +18,8 @@ def prime_fib(n: int):
             fib_sequence = [0, 1]
             while len(fib_sequence) < n:
                 fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
-            return fib_sequence
+            return fib_sequence[:n]
 
-    fib_sequence = fibonacci(n)
+    fib_sequence = fibonacci(n+1)
     prime_fib_numbers = [num for num in fib_sequence if is_prime(num)]
     return prime_fib_numbers[-1]
