@@ -1,6 +1,8 @@
 def separate_paren_groups(paren_string):
-    groups = paren_string.split(')(')
-    return groups
+    if paren_string.startswith('(') and paren_string.endswith(')'):
+        groups = paren_string[1:-1].split(')(')
+        return groups
+    return []
 
 paren_string = input().replace(" ", "")
 result = separate_paren_groups(paren_string)
