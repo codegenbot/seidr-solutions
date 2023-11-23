@@ -20,14 +20,14 @@ def factorize(n: int) -> List[int]:
 
 def main():
     try:
-        user_input = int(input())
+        user_input = int(input("Enter a positive integer: "))
         if user_input <= 0:
             print("Input must be a positive integer")
         else:
             result = factorize(user_input)
             print(result)
     except ValueError:
-        print("Invalid input")
+        print("Invalid input. Input must be an integer.")
 
 
 if __name__ == "__main__":
