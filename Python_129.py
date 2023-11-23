@@ -4,7 +4,7 @@ def minPath(grid, k):
     def dfs(i, j, path, visited):
         nonlocal min_path
 
-        if len(path) >= k + 1:
+        if len(path) == k + 1:
             if min_path is None or len(path) < len(min_path):
                 min_path = path.copy()
             return
@@ -36,5 +36,4 @@ def minPath(grid, k):
     return min_path
 
 
-assert minPath([[1, 3], [3, 2]], 4) == [1, 3, 2]
-assert minPath([[1, 3], [3, 2]], 4) == [1, 3, 2]
+assert minPath([[1, 3], [3, 2]], 2) == [1, 3, 2]
