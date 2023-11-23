@@ -5,7 +5,7 @@ def calculate_bowling_score(bowls):
     is_spare = False
 
     for bowl in bowls:
-        if bowl == 'X':
+        if bowl == "X":
             score += 10
             if frame < 10:
                 score += 10
@@ -15,7 +15,7 @@ def calculate_bowling_score(bowls):
                     score += 10
                     is_spare = False
                 is_strike = True
-        elif bowl == '/':
+        elif bowl == "/":
             score += 10 - frame_score
             if frame < 10:
                 score += 10 - frame_score
@@ -23,7 +23,7 @@ def calculate_bowling_score(bowls):
                     score += 10
                 is_spare = True
                 is_strike = False
-        elif bowl == '-':
+        elif bowl == "-":
             pass
         else:
             score += int(bowl)
@@ -45,6 +45,7 @@ def calculate_bowling_score(bowls):
                         frame += 1
 
     return score
+
 
 bowls = input()
 print(calculate_bowling_score(bowls))
