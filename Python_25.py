@@ -3,11 +3,11 @@ from typing import List
 
 def factorize(n: int) -> List[int]:
     factors = []
-    i = 2
-    while i <= n:
-        if n % i == 0:
-            factors.append(i)
-            n = n // i
+    divisor = 2
+    while divisor <= n:
+        if n % divisor == 0:
+            factors.append(divisor)
+            n = n // divisor
         else:
-            i += 1
+            divisor += 1
     return factors
