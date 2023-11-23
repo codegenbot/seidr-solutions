@@ -6,6 +6,7 @@ def decode_cyclic(input_length, input_str):
     return "".join(groups)
 
 
-input_str = input().strip()[:input_length]
+input_length, input_str = map(str.strip, input().split('\n'))
+input_length = int(input_length)
 result = decode_cyclic(input_length, input_str)
 print(result)
