@@ -1,12 +1,15 @@
+from typing import List
+
+
 def factorize(n: int) -> List[int]:
     factors = []
-    d = 2
-    while d * d <= n:
-        if n % d == 0:
-            factors.append(d)
-            n //= d
+    div = 2
+
+    while n > 1:
+        if n % div == 0:
+            factors.append(div)
+            n = n // div
         else:
-            d += 1
-    if n > 1:
-        factors.append(n)
+            div += 1
+
     return factors
