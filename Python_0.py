@@ -1,6 +1,4 @@
-from typing import List
-
-numbers = [float(x) for x in input().split()]
+numbers = list(map(float, input().split()))
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     for i in range(len(numbers)):
