@@ -1,2 +1,2 @@
 def separate_paren_groups(paren_string: str) -> List[str]:
-    return paren_string.replace(' ', '').split(')')[:-1]
+    return [group.replace(" ", "") for group in paren_string.split(")")]
