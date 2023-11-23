@@ -3,7 +3,9 @@ import math
 def poly(xs: list, x: float) -> float:
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
-coeffs = list(map(float, input().split()))
+coeff_str = input()
+coeffs = list(map(float, coeff_str.split()))
+
 x = float(input())
 
 if len(coeffs) == 0:
