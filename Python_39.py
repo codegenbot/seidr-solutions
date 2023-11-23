@@ -19,13 +19,16 @@ def prime_fib(n):
     i = 0
     last_prime_fib = None
     while count <= n:
-        if is_fibonacci(i):
-            if is_prime(i):
-                count += 1
-                last_prime_fib = i
+        if is_fibonacci(i) and is_prime(i):
+            count += 1
+            last_prime_fib = i
         i += 1
 
     return last_prime_fib
 
-n = int(input("Enter the value of n: "))
-print(prime_fib(n))
+
+try:
+    n = int(input("Enter the value of n: "))
+    print(prime_fib(n))
+except ValueError:
+    print("Invalid input.")
