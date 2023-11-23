@@ -6,7 +6,19 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 def main():
-    substring, *strings = input().split(maxsplit=1)
+    substring = input().strip()
+    strings = []
+
+    try:
+        strings = input().strip().split()
+    except EOFError:
+        while True:
+            try:
+                s = input().strip()
+                strings.append(s)
+            except EOFError:
+                break
+
     result = filter_by_substring(strings, substring)
     print(result)
 

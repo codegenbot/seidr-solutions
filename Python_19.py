@@ -14,12 +14,10 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9,
     }
-
-    numbers_list = numbers.split()
-    sorted_numbers = sorted(numbers_list, key=lambda x: number_mapping[x])
+    sorted_numbers = sorted(numbers, key=lambda x: number_mapping[x])
     return " ".join(sorted_numbers)
 
 
-numbers_input = input().strip()
+numbers_input = input().strip().split()
 sorted_numbers_output = sort_numbers(numbers_input)
 print(sorted_numbers_output)
