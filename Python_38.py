@@ -5,7 +5,6 @@ def decode_cyclic(s: str):
     groups = [(group[-1] + group[:-1]) for group in groups]
     return "".join(groups)
 
-
 s = "<input string>"
 result = decode_cyclic(s)
 print("Decoded String:", result)
