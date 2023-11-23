@@ -7,7 +7,7 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 def main():
     substring = input().strip()
-    strings = input().strip()[1:-1].split(", ")
+    strings = input().strip().split(",")
     result = filter_by_substring(strings, substring)
     print(result)
 
