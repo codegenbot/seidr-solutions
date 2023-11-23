@@ -15,4 +15,4 @@ def cut_vector(vector):
         elif diff <= min_diff:
             right_index = i + 1
 
-    return vector[:left_index+1], vector[right_index:]
+    return vector[: left_index + 1], vector[right_index:]
