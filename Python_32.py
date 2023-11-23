@@ -7,11 +7,11 @@ def find_zero(xs: list):
     return -xs[0] / xs[1]
 
 num_coeffs = int(input("Enter the number of coefficients: "))
-xs = [float(input(f"Enter coefficient {i+1}: ")) for i in range(num_coeffs)]
-x = float(input("Enter a value for x: "))
+xs = list(map(float, input("Enter the coefficients: ").split()))
+x = float(input("Enter the value of x: "))
 
 result = poly(xs, x)
-print("Result:", result)
+print(result)
 
 zero = find_zero(xs)
-print("Zero:", zero)
+print(zero)
