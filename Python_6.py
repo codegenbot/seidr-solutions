@@ -15,5 +15,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return counts, max_count
 
 
-result = parse_nested_parens("()(())((()))")
+paren_string = input("Enter the string of parentheses: ")
+result = parse_nested_parens(paren_string)
 print(result)
