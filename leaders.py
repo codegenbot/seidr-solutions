@@ -9,7 +9,6 @@ def find_leaders(arr):
             leaders.append(arr[i])
 
     return leaders
-
 n = int(input())
 arr = list(map(int, input().split()))
 
