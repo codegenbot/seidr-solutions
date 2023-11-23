@@ -10,4 +10,5 @@ def encode(message):
             encoded_message += char
     return encoded_message
 
+# Test case
 assert encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg"
