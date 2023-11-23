@@ -7,11 +7,11 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
             nums.append(num)
     return nums
 
-num_tests = int(raw_input())
+num_tests = int(input())
 
 for _ in range(num_tests):
-    line = raw_input().strip().split(",")
-    input_list = [int(num) for num in line]
+    line = input().strip()
+    input_list = [int(num) for num in line.split(',')]
 
     result = remove_duplicates(input_list)
     print(*result)
