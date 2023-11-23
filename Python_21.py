@@ -8,7 +8,6 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     return scaled_numbers
 
 
-numbers = input("Enter a list of numbers: ")
-numbers = [float(num) for num in numbers.split()]
+numbers = list(map(float, input().split()))
 scaled_numbers = rescale_to_unit(numbers)
 print(scaled_numbers)
