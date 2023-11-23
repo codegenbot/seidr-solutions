@@ -41,5 +41,6 @@ def calculate_bowling_score(bowls):
 
     return score
 
+
 bowls = input()
 print(calculate_bowling_score(bowls))
