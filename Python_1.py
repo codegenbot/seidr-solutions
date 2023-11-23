@@ -1,8 +1,9 @@
 import re
 
-def separate_paren_groups():
-    paren_string = input().strip()
+def separate_paren_groups(paren_string):
     return re.findall(r'\([^()]+\)', paren_string)
 
-result = separate_paren_groups()
+paren_string = input().strip()
+
+result = separate_paren_groups(paren_string)
 print(result)
