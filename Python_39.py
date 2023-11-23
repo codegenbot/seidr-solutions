@@ -26,8 +26,3 @@ def prime_fib(n: int):
         i += 1
 
     return last_prime_fib
-
-
-n = int(input())
-result = prime_fib(n)
-print(result)
