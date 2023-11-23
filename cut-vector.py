@@ -14,7 +14,6 @@ def cut_vector(vector):
 
 
 vector = list(map(int, input().split()))
-
 result1, result2 = cut_vector(vector)
 for num in result1:
     print(num)
