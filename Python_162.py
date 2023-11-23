@@ -1,9 +1,11 @@
+from hashlib import md5
+
 def string_to_md5(text):
-    return hashlib.md5(text.encode()).hexdigest()
+    return md5(text.encode()).hexdigest()
 
 while True:
     text = input()
-    if text == "":
+    if not text:
         break
     result = string_to_md5(text)
     print(result)
