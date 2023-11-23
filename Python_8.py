@@ -1,4 +1,3 @@
-import sys
 from typing import List, Tuple
 
 
@@ -11,6 +10,9 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 
 if __name__ == "__main__":
-    numbers = list(map(int, sys.stdin.readline().strip().split(" ")))
-    result = sum_product(numbers)
-    print(*result)
+    try:
+        numbers = list(map(int, input("Enter space-separated numbers: ").split()))
+        result = sum_product(numbers)
+        print(*result)
+    except ValueError:
+        print("Invalid input. Please enter space-separated numbers.")
