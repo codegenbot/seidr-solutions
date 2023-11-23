@@ -5,8 +5,13 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     deviation = [abs(x - mean) for x in numbers]
     return sum(deviation) / len(deviation)
 
-numbers = input().split()
-numbers = [float(num) for num in numbers]
+numbers = []
+while True:
+    try:
+        num = float(input())
+    except EOFError:
+        break
+    numbers.append(num)
 
 result = mean_absolute_deviation(numbers)
 print(result)
