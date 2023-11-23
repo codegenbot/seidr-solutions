@@ -1,17 +1,25 @@
-def decode_cyclic():
+import sys
+
+
+def decode_cyclic(input_str):
     try:
-        n = int(input("Enter the length: ").strip())
+        n = int(input_str)
         if n <= 0:
-            raise ValueError("Invalid input. Please enter a positive number for the length.")
+            raise ValueError(
+                "Invalid input. Please enter a positive number for the length."
+            )
 
-        input_str = input("Enter the string: ").strip()
-
-        groups = [(input_str[i - 1] + input_str[i - 2] + input_str[i]) for i in range(n - 1, -1, -1)]
+        groups = [
+            (input_str[i - 1] + input_str[i - 2] + input_str[i])
+            for i in range(n - 1, -1, -1)
+        ]
         return "".join(groups)
 
     except ValueError as e:
         return f"An error occurred: {e}"
 
 
-result = decode_cyclic()
+input_length = sys.argv[1]
+input_string = sys.argv[2]
+result = decode_cyclic(input_string)
 print(result)
