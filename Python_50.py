@@ -14,4 +14,4 @@ elif choice.lower() == "d":
     result = decode_shift(s)
     print(result)
 else:
-    print("Invalid choice.")
+    print("Invalid choice. Please choose E or D.")
