@@ -1,9 +1,9 @@
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    sum = 0
-    product = 1
-    
-    for num in numbers:
-        sum += num
-        product *= num
-    
-    return sum, product
+    if len(numbers) == 0:
+        return (0, 1)
+    else:
+        sum_val = sum(numbers)
+        product_val = 1
+        for num in numbers:
+            product_val *= num
+        return (sum_val, product_val)
