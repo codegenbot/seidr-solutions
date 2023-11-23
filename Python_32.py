@@ -3,19 +3,10 @@ import math
 def poly(xs: list, x: float) -> float:
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
-coeffs = []
+coeff_str = input("Enter the coefficients (space-separated): ").strip()
+coeffs = [] if not coeff_str.strip() else list(map(float, coeff_str.split()))
 
-print("Enter the number of coefficients:")
-n = int(input())
+x = float(input("Enter the value of x: "))
 
-for _ in range(n):
-    coeffs.append(float(input()))
-
-x = float(input())
-
-if len(coeffs) == 0:
-    result = 0.0
-else:
-    result = poly(coeffs, x)
-
-print(f"Result: {result:.2f}")
+result = poly(coeffs, x)
+print(f"{result:.2f}")
