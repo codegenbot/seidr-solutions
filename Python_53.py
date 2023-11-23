@@ -1,6 +1,5 @@
 def add(x: int, y: int) -> int:
     return x + y
 
-x, y = int(input()), int(input())
-result = add(x, y)
+result = add(5, 3)
 print(result)
