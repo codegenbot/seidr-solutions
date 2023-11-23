@@ -13,6 +13,5 @@ def main():
     print("Encoded string:", encoded)
     print("Decoded string:", decoded)
 
-
 if __name__ == "__main__":
     main()
