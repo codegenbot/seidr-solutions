@@ -1,6 +1,6 @@
 def match_parens(lst):
     stack = []
-    parentheses = {'(': ')', '[': ']', '{': '}'}
+    parentheses = {')': '(', ']': '[', '}': '{'}
 
     for c in lst:
         if c in parentheses:
@@ -9,4 +9,4 @@ def match_parens(lst):
             if not stack or parentheses[stack.pop()] != c:
                 return 'No'
 
-    return 'Yes' if stack else 'No'
+    return 'No' if stack else 'Yes'
