@@ -4,7 +4,6 @@ def filter_integers(values: List[str]) -> List[int]:
     return [int(value) for value in values if value.isdigit()]
 
 def main():
-    n = int(input())
     values = input().split()
     result = filter_integers(values)
     print(result)
