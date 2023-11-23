@@ -1,6 +1,4 @@
 def encode_shift(s: str) -> str:
-    if not s:
-        return "Input string is empty"
     try:
         return "".join(
             [
@@ -14,8 +12,6 @@ def encode_shift(s: str) -> str:
 
 
 def decode_shift(s: str) -> str:
-    if not s:
-        return "Input string is empty"
     try:
         return "".join(
             [
