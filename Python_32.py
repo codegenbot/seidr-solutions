@@ -6,4 +6,4 @@ def poly(xs: list, x: float):
 
 
 def find_zero(xs: list):
-    return round(xs.index(max(xs)) / 2, 2)
+    return round(xs[0] / xs[-1], 2)
