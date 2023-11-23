@@ -11,8 +11,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 if __name__ == "__main__":
     try:
-        numbers = list(map(int, input().strip().split()))
+        numbers = list(map(int, input("Enter space-separated numbers: ").strip().split()))
         result = sum_product(numbers)
         print(*result)
-    except ValueError:
+    except (ValueError, TypeError, IndexError):
         print("Invalid input. Please enter space-separated numbers.")
