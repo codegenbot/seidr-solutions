@@ -2,7 +2,7 @@ def factorize(n: int) -> List[int]:
     factors = []
     d = 2
     while d * d <= n:
-        if n % d == 0:
+        if (n % d) == 0:
             factors.append(d)
             n //= d
         else:
