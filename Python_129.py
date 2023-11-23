@@ -2,9 +2,7 @@ def minPath(grid, k):
     min_path = []
     
     def dfs(i, j, path, visited, min_path):
-        if len(path) == k:
-            if not min_path or len(path) < len(min_path):
-                min_path[:] = path
+        if len(path) >= k:
             return
         
         if (i, j) in visited:
@@ -12,6 +10,10 @@ def minPath(grid, k):
         
         path.append(grid[i][j])
         visited.add((i, j))
+        
+        if len(path) < k:
+            if not min_path or len(path) < len(min_path):
+                min_path[:] = path
         
         neighbors = []
         if i > 0:
@@ -22,7 +24,7 @@ def minPath(grid, k):
             neighbors.append((i, j - 1))
         if j < len(grid[0]) - 1:
             neighbors.append((i, j + 1))
-        neighbors.sort(key=lambda x: abs(grid[x[0]][x[1]] - grid[i][j]))
+        neighbors.sort(key=lambda x: grid[x[0]][x[1]])
         
         for neighbor in neighbors:
             ni, nj = neighbor
