@@ -6,5 +6,3 @@ def add():
         except ValueError:
             print("Invalid input. Please enter two integers separated by space.")
     return x + y
-
-print(add())
