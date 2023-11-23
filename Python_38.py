@@ -19,7 +19,6 @@ def decode_cyclic(input_str):
         return f"An error occurred: {e}"
 
 
-input_length = input()
-input_string = input()
+input_string = input("Enter the input string: ")
 result = decode_cyclic(input_string)
 print(result)
