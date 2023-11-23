@@ -8,7 +8,7 @@ def cut_vector(vector):
         current_sum += num
         diff_left = abs((total_sum - current_sum) - current_sum)
         diff_right = abs(current_sum - (total_sum - current_sum))
-        
+
         if diff_left < min_diff:
             min_diff = diff_left
             left_index = i + 1
@@ -19,8 +19,9 @@ def cut_vector(vector):
 
     return vector[:left_index], vector[right_index:]
 
+
 vector = [int(num) for num in input().split()]
 
 subvector1, subvector2 = cut_vector(vector)
-print(*subvector1, sep='\n')
-print(*subvector2, sep='\n')
+print(*subvector1, sep="\n")
+print(*subvector2, sep="\n")
