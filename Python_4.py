@@ -1,10 +1,19 @@
-def mean_absolute_deviation(numbers):
-    mean = sum(numbers) / len(numbers)
-    deviation = sum(abs(num - mean) for num in numbers) / len(numbers)
-    return round(deviation, 2)
+from typing import List
 
 
-user_input = list(map(float, input().split()))
+def mean_absolute_deviation(numbers: List[float]) -> float:
+    try:
+        mean = sum(numbers) / len(numbers)
+        deviation = sum(abs(num - mean) for num in numbers) / len(numbers)
+        return round(deviation, 2)
+    except ZeroDivisionError:
+        return 0
 
-result = mean_absolute_deviation(user_input)
-print("{:.2f}".format(result))
+
+user_input = input()
+try:
+    numbers = list(map(float, user_input.strip().split()))
+    result = mean_absolute_deviation(numbers)
+    print(result)
+except ValueError:
+    print("Invalid input")
