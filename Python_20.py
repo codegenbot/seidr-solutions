@@ -14,4 +14,4 @@ input_numbers = input().strip().split()
 input_numbers = [float(num) for num in input_numbers]
 
 result = find_closest_elements(input_numbers)
-print(result[0], result[1])
+print("{:.2f}, {:.2f}".format(result[0], result[1]))
