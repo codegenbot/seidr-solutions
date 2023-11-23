@@ -7,13 +7,8 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
             nums.append(num)
     return nums
 
-input_list = []
-while True:
-    try:
-        line = int(input())
-        input_list.append(line)
-    except ValueError:
-        break
+line = input().strip().split()
+input_list = [int(num) for num in line]
 
 result = remove_duplicates(input_list)
 print(*result)

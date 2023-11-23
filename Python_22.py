@@ -6,10 +6,13 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    input_values = input().split()
+    input_values = input("Enter values separated by spaces: ").split()
 
-    result = filter_integers(input_values)
-    print(result)
+    if len(input_values) > 0:
+        result = filter_integers(input_values)
+        print(result)
+    else:
+        print("No input provided.")
 
 
 if __name__ == "__main__":
