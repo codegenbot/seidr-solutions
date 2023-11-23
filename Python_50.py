@@ -18,10 +18,10 @@ def decode_shift(s: str) -> str:
     )
 
 
-user_input = input("Enter a string: ").strip()
+user_input = input().strip()
 
 encoded = encode_shift(user_input)
-print("Encoded string:", encoded)
+print(encoded)
 
 decoded = decode_shift(encoded)
-print("Decoded string:", decoded)
+print(decoded)
