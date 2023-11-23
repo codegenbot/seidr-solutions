@@ -3,12 +3,14 @@
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
-    int max = INT_MIN;
+    int n = nums.size();
+    int maxSoFar = nums[n - 1];
+    leaders.push_back(maxSoFar);
 
-    for (int i = nums.size() - 1; i >= 0; i--) {
-        if (nums[i] >= max) {
-            leaders.push_back(nums[i]);
-            max = nums[i];
+    for (int i = n - 2; i >= 0; i--) {
+        if (nums[i] >= maxSoFar) {
+            maxSoFar = nums[i];
+            leaders.push_back(maxSoFar);
         }
     }
 
