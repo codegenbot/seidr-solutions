@@ -1,5 +1,6 @@
 from typing import List
 
+
 def sort_numbers(numbers: str) -> str:
     number_mapping = {
         "zero": 0,
@@ -15,9 +16,12 @@ def sort_numbers(numbers: str) -> str:
     }
 
     numbers_list = numbers.split()
-    sorted_numbers = sorted(numbers_list, key=lambda x: number_mapping[x.lower()])
+    sorted_numbers = sorted(
+        numbers_list, key=lambda x: number_mapping.get(x, float("inf"))
+    )
     return " ".join(sorted_numbers)
 
-numbers_input = input().lower().strip()
+
+numbers_input = input("Enter the numbers: ").strip()
 sorted_numbers_output = sort_numbers(numbers_input)
 print(sorted_numbers_output)
