@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 
@@ -7,11 +6,9 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    input_values = []
-    for line in sys.stdin:
-        input_values.append(line.strip())
+    input_values = [value for value in iter(input, '')]
 
-    if len(input_values) > 0:
+    if input_values:
         result = filter_integers(input_values)
         print(result)
     else:
