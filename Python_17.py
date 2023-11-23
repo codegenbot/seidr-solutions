@@ -8,5 +8,9 @@ def parse_music(music_string: str) -> List[int]:
 
     return [durations[note] for note in music_string.split(",") if note in durations.keys()]
 
-result = parse_music("2,4,1")
+# Read input from the user
+music_notes = input("Enter the music notes (comma-separated numbers): ")
+
+# Call the function with the user input
+result = parse_music(music_notes)
 print(result)
