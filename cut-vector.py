@@ -13,4 +13,4 @@ def cut_vector(vector):
             left_index = i
             right_index = i + 1
 
-    return vector[:left_index+1], vector[right_index:]
+    return vector[: left_index + 1], vector[right_index:]
