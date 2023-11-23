@@ -1,7 +1,8 @@
 import hashlib
 
 def string_to_md5(text):
-    if text == '':
+    if not text:
         return None
     
-    return hashlib.md5(text.encode()).hexdigest()
+    md5_hash = hashlib.md5(text.encode())
+    return md5_hash.hexdigest()
