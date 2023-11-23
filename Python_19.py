@@ -25,4 +25,4 @@ def sort_numbers(numbers: List[str]) -> str:
 
 numbers = input().strip().split(',')
 sorted_numbers_output = sort_numbers(numbers)
-print(sorted_numbers_output)
+print(",".join(sorted_numbers_output))
