@@ -1,7 +1,7 @@
 from typing import List
 
 
-def sort_numbers() -> str:
+def sort_numbers(numbers: List[str]) -> str:
     number_mapping = {
         "zero": 0,
         "one": 1,
@@ -15,12 +15,16 @@ def sort_numbers() -> str:
         "nine": 9,
     }
 
-    numbers = input().split()
     sorted_numbers = sorted(
         numbers, key=lambda x: number_mapping.get(x.lower(), float("inf"))
     )
     return " ".join(sorted_numbers)
 
 
-sorted_numbers_output = sort_numbers()
-print(sorted_numbers_output)
+def main():
+    numbers = input().split()
+    sorted_numbers_output = sort_numbers(numbers)
+    print(sorted_numbers_output)
+
+
+main()
