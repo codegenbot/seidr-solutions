@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 
@@ -16,12 +15,12 @@ def sort_numbers(numbers: List[str]) -> str:
         "nine": 9,
     }
 
-    sorted_numbers = sorted(numbers, key=lambda x: number_mapping.get(x, float("inf")))
+    sorted_numbers = sorted(numbers.split(), key=lambda x: number_mapping.get(x, float("inf")))
     return " ".join(sorted_numbers)
 
 
 def main():
-    numbers = sys.stdin.readline().strip().split(' ')
+    numbers = input().strip()
     sorted_numbers_output = sort_numbers(numbers)
     print(sorted_numbers_output)
 
