@@ -16,8 +16,8 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 numbers = []
 while True:
-    num = input()
-    if not num:
+    num = input().strip()
+    if num == '':
         break
     numbers.append(float(num))
 
