@@ -3,7 +3,7 @@ def make_palindrome(string: str) -> str:
         return s == s[::-1]
     
     suffix = ""
-    for i in range(len(string), 0, -1):
+    for i in range(len(string), -1, -1):
         if is_palindrome(string[:i]):
             suffix = string[i:]
             break
