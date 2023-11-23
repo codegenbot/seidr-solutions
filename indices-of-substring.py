@@ -1,11 +1,8 @@
 text = input()
 target = input()
 
-if len(target) > len(text):
+indices = [i for i in range(len(text)) if text[i:i+len(target)] == target]
+if len(indices) == 0:
     print(0)
 else:
-    indices = [i for i in range(len(text)) if text[i : i + len(target)] == target]
-    if not indices:
-        print(0)
-    else:
-        print(" ".join(map(str, indices)))
+    print(*indices)
