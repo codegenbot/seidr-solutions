@@ -10,7 +10,11 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             closest_pair = (numbers[i], numbers[i+1])
     return closest_pair
 
-input_numbers = [1.5, 2.8, 3.9, 4.2, 5.1]
+input_numbers = []
+num_count = int(input())
+for _ in range(num_count):
+    number = float(input())
+    input_numbers.append(number)
 
 result = find_closest_elements(input_numbers)
 print(result)
