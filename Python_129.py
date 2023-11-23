@@ -1,43 +1,40 @@
 def minPath(grid, k):
-    def dfs(i, j, path):
-        if len(path) > k:
-            return None
-
-        path.append(grid[i][j])
-        if len(path) == k:
-            return path
-
-        if i > 0 and (i - 1, j) not in visited:
-            visited.add((i - 1, j))
-            result = dfs(i - 1, j, path)
-            if result:
-                return result
-            visited.remove((i - 1, j))
-        if i < len(grid) - 1 and (i + 1, j) not in visited:
-            visited.add((i + 1, j))
-            result = dfs(i + 1, j, path)
-            if result:
-                return result
-            visited.remove((i + 1, j))
-        if j > 0 and (i, j - 1) not in visited:
-            visited.add((i, j - 1))
-            result = dfs(i, j - 1, path)
-            if result:
-                return result
-            visited.remove((i, j - 1))
-        if j < len(grid[0]) - 1 and (i, j + 1) not in visited:
-            visited.add((i, j + 1))
-            result = dfs(i, j + 1, path)
-            if result:
-                return result
-            visited.remove((i, j + 1))
-
+    N = len(grid)
+    visited = [[False] * N for _ in range(N)]
+    path = []
+    
+    def dfs(row, col, steps):
+        if steps > k:
+            return True
+        
+        visited[row][col] = True
+        path.append(grid[row][col])
+        
+        if row > 0 and not visited[row-1][col]:
+            if dfs(row-1, col, steps+1):
+                return True
+        
+        if row < N-1 and not visited[row+1][col]:
+            if dfs(row+1, col, steps+1):
+                return True
+        
+        if col > 0 and not visited[row][col-1]:
+            if dfs(row, col-1, steps+1):
+                return True
+        
+        if col < N-1 and not visited[row][col+1]:
+            if dfs(row, col+1, steps+1):
+                return True
+        
+        visited[row][col] = False
         path.pop()
-
-    visited = set()
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            visited.add((i, j))
-            result = dfs(i, j, [])
-            if result:
-                return result
+        
+        return False
+    
+    for i in range(N):
+        for j in range(N):
+            res = list(path)
+            if dfs(i, j, 1):
+                return res
+        
+    return None
