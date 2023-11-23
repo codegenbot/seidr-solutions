@@ -5,7 +5,10 @@ def concatenate(strings: List[str]) -> str:
 
 if __name__ == "__main__":
     num_strings = int(input().strip())
-    input_strings = input().strip().split(' ')[:num_strings]
+    input_strings = []
+
+    for _ in range(num_strings):
+        input_strings.append(input().strip())
 
     output = concatenate(input_strings)
     print(output.strip())
