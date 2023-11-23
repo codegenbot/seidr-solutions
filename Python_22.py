@@ -6,7 +6,16 @@ def filter_integers(values: List[str]) -> List[int]:
 
 
 def main():
-    input_values = input().split(",")
+    input_values = []
+    try:
+        while True:
+            value = input()
+            if value:
+                input_values.append(value)
+            else:
+                break
+    except EOFError:
+        pass
 
     if len(input_values) > 0:
         result = filter_integers(input_values)
