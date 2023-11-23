@@ -15,9 +15,17 @@ def sort_numbers(numbers: str) -> str:
         "nine": 9,
     }
 
-    numbers_list = numbers.split()
-    sorted_numbers = sorted(numbers_list, key=lambda x: number_mapping[x])
-    return " ".join(sorted_numbers)
+    valid_words = set(number_mapping.keys())
+    words_list = numbers.split()
+    if not set(words_list).issubset(valid_words):
+        return "Invalid input"
+
+    numbers_list = [number_mapping[word] for word in words_list]
+    sorted_numbers = sorted(numbers_list)
+
+    sorted_words = [list(number_mapping.keys())[list(number_mapping.values()).index(num)] for num in sorted_numbers]
+
+    return " ".join(sorted_words)
 
 
 numbers_input = input().strip().lower()
