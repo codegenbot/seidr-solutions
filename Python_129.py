@@ -20,7 +20,6 @@ def minPath(grid, k):
                 if len(result) == k:
                     return result
         path.pop()
-    
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             result = dfs(i, j)
