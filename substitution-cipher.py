@@ -7,7 +7,7 @@ deciphered_message = ""
 for char in cipher:
     index = mapping.find(char)
     if index != -1:
-        deciphered_message += message[index]
+        deciphered_message += mapping[index]
     else:
         deciphered_message += char
 
