@@ -11,9 +11,9 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
 
 if __name__ == "__main__":
     try:
-        n = int(input())
-        numbers = [float(input()) for _ in range(n)]
-        threshold = float(input())
+        n = int(input("Enter the number of elements: "))
+        numbers = [float(input(f"Enter element #{i+1}: ")) for i in range(n)]
+        threshold = float(input("Enter the threshold: "))
 
         print(has_close_elements(numbers, threshold))
     except ValueError:
