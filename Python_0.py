@@ -1,12 +1,8 @@
+import sys
 from typing import List
 
-numbers = []
-try:
-    while True:
-        numbers.append(float(input()))
-except EOFError:
-    pass
-    
+numbers = [float(num) for num in sys.stdin]
+
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
