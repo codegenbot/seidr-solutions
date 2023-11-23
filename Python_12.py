@@ -1,12 +1,13 @@
-from typing import List
+import sys
 
-def longest(strings: List[str]) -> str:
+
+def longest(strings):
     if not strings:
         return ""
     longest_string = max(strings, key=len)
     return longest_string
 
-input_str = input().strip()
-strings = input_str.split(",")
+
+strings = sys.argv[1:]
 result = longest(strings)
 print(result)
