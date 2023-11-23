@@ -27,5 +27,6 @@ def prime_fib(n):
 
     return last_prime_fib
 
-n = int(input().strip())
+print("Enter a number:")
+n = int(input())
 print(prime_fib(n))
