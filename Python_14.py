@@ -8,7 +8,6 @@ def all_prefixes(string: str) -> List[str]:
     return prefixes
 
 
-print("Enter a string:")
-input_string = input().strip()
+input_string = input("Enter a string:").strip()
 result = all_prefixes(input_string)
 print(result)
