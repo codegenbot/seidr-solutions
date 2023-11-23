@@ -11,7 +11,9 @@ def find_zero(xs: list):
 
 # Read input from user
 try:
-    coefficients = list(map(int, input("Enter the coefficients (space-separated): ").split()))
+    coefficients = list(
+        map(int, input("Enter the coefficients (space-separated): ").split())
+    )
     x_value = float(input("Enter the value of x: "))
 
     # Call the functions with user input
@@ -21,5 +23,6 @@ try:
     # Print the results
     print("Result of poly function:", result)
     print("Zero of find_zero function:", zero)
+
 except ValueError:
     print("Invalid input. Please enter valid coefficients and value of x.")
