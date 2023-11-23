@@ -10,9 +10,11 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 
+# Read input from user
 input_string = input()
 s, task = map(str, input_string.split())
 
+# Call respective functions based on the task
 if task == "E":
     result = encode_cyclic(s)
 elif task == "D":
@@ -20,4 +22,5 @@ elif task == "D":
 else:
     result = "Invalid task"
 
+# Print the result
 print(result)
