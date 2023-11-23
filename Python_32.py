@@ -1,13 +1,25 @@
-import math
+import numpy as np
 
 
 def poly(xs: list, x: float) -> float:
-    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+    return np.polyval(xs, x)
 
 
+def solve_equation(xs: list) -> float:
+    equation = np.poly1d(xs)
+    zero = np.roots(equation)
+    return zero[0]
+    
+
+num_coeffs = int(input())
 coeffs = []
-xs = coeffs
-coeffs = [float(input()) for _ in range(len(xs))]
+for i in range(num_coeffs):
+    coeffs.append(float(input()))
 
-result = poly(coeffs, 0)
+x = float(input())
+
+result = poly(coeffs, x)
 print(result)
+
+zero = solve_equation(coeffs)
+print(zero)
