@@ -1,4 +1,5 @@
 import collections
+
 def mastermind(code, guess):
     black_pegs = 0
     white_pegs = 0
@@ -18,4 +19,4 @@ def mastermind(code, guess):
             white_pegs += min(count, code_count[color])
             code_count[color] -= min(count, code_count[color])
 
-    return (white_pegs, black_pegs)
+    return white_pegs, black_pegs
