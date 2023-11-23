@@ -14,5 +14,6 @@ try:
         result = poly(coeffs, x)
 
     print(f"{result:.2f}")
+
 except ValueError:
     print("Invalid input!")
