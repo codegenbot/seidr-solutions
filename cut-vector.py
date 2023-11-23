@@ -14,4 +14,4 @@ def cut_vector(vector):
         if (total_sum - current_sum) == current_sum:
             right_index = i + 1
 
-    return vector[:left_index], vector[right_index:]
+    return vector[: left_index + 1], vector[right_index:]
