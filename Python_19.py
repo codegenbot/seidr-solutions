@@ -19,6 +19,10 @@ def sort_numbers(numbers: List[str]) -> str:
     return " ".join(sorted_numbers)
 
 
-numbers = input().split(",")
-sorted_numbers_output = sort_numbers(numbers)
-print(sorted_numbers_output)
+def main():
+    numbers = input().split()
+    sorted_numbers_output = sort_numbers(numbers)
+    print(sorted_numbers_output)
+
+
+main()
