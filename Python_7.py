@@ -9,7 +9,6 @@ def main():
     num_strings = int(input().rstrip())
     strings = [input().rstrip() for _ in range(num_strings)]
     substring = input().rstrip()
-    
     result = filter_by_substring(strings, substring)
     print(result)
 
