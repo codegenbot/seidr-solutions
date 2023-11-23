@@ -13,11 +13,10 @@ def cut_vector(numbers):
             min_diff = diff
             cut_index = i
 
-    return numbers[:cut_index+1], numbers[cut_index+1:]
+    return numbers[: cut_index + 1], numbers[cut_index + 1 :]
+
 
 numbers = [int(input()) for _ in range(int(input()))]
-
 left_subvector, right_subvector = cut_vector(numbers)
-
 print(*left_subvector, sep="\n")
 print(*right_subvector, sep="\n")
