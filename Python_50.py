@@ -1,5 +1,3 @@
-import sys
-
 def encode_shift(s: str) -> str:
     if not s:
         return "Input string is empty"
@@ -30,7 +28,7 @@ def decode_shift(s: str) -> str:
         return "Invalid input"
 
 
-user_input = sys.stdin.readline().strip()
+user_input = input().strip()
 
 encoded = encode_shift(user_input)
 print(encoded)
