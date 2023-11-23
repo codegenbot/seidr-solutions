@@ -6,5 +6,4 @@ if n <= 1 or m <= 1:
 elif n > m:
     print(1.0)
 else:
-    probability = (m - n) / (m * 1.0)
-    print(round(probability, 8))
+    print(round((m - n + 1) / (m * 1.0), 8))
