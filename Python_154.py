@@ -1,8 +1,6 @@
-import itertools
-
 def cycpattern_check(a, b):
-    rotations = itertools.cycle(a)
-    for i in range(len(a)):
-        if b in "".join(next(rotations) for _ in range(len(a))):
-            return True
-    return False
+    temp = a + a
+    if len(a) != len(b):
+        return False
+
+    return b in temp[:len(a)]
