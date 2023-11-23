@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 
@@ -19,9 +18,9 @@ def factorize(n: int) -> List[int]:
     return factors
 
 
-try:
-    user_input = int(sys.stdin.readline().rstrip())
+user_input = int(input("Enter a positive integer: "))
+if user_input <= 0:
+    print("Input must be a positive integer")
+else:
     result = factorize(user_input)
     print(result)
-except ValueError:
-    pass
