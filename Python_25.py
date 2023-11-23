@@ -23,3 +23,5 @@ except ValueError:
     print("Invalid input. Please enter a valid integer value.")
 except EOFError:
     print("No input provided. Program terminated.")
+except KeyboardInterrupt:
+    print("\nKeyboard interrupt detected. Program terminated.")
