@@ -8,6 +8,9 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-operations = list(map(int, input().strip().split()))
+# Read input as a string and split it by whitespace
+input_str = input()
+operations = list(map(int, input_str.split()))
+
 result = below_zero(operations)
 print(result)
