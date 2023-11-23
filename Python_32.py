@@ -3,17 +3,11 @@ import math
 def poly(xs: list, x: float) -> float:
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
-coeffs = []
-
-while True:
-    line = input().strip()
-    if line == "":
-        break
-    coeffs.append(float(line))
-
+n = int(input())
+coeffs = list(map(float, input().split()))
 x = float(input())
 
-if len(coeffs) == 0:
+if n == 0:
     result = 0.0
 else:
     result = poly(coeffs, x)
