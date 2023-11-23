@@ -12,14 +12,12 @@ def indices_of_substring(text, target):
     return indices
 
 
-a = int(input("Enter the first integer: "))
-b = int(input("Enter the second integer: "))
+a, b = map(int, input().split())
 
 result = gcd(a, b)
-print("Largest common divisor:", result)
+print(result)
 
-text = input("Enter the text string: ")
-target = input("Enter the target string: ")
+text, target = input().split()
 
 indices_result = indices_of_substring(text, target)
-print("Indices of target in text:", indices_result)
+print(indices_result)
