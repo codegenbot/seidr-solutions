@@ -2,12 +2,6 @@ cipher = input()
 message = input()
 encrypted_message = input()
 
-deciphered_message = ''
-for char in encrypted_message:
-    if char in message:
-        index = message.index(char)
-        deciphered_message += cipher[index]
-    else:
-        deciphered_message += char
+deciphered_message = ''.join([message[cipher.index(char)] if char in cipher else char for char in encrypted_message])
 
 print(deciphered_message)
