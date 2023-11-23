@@ -1,5 +1,6 @@
 from typing import List
 
+
 def mean_absolute_deviation(numbers: List[float]) -> float:
     try:
         mean = sum(numbers) / len(numbers)
@@ -8,11 +9,9 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     except ZeroDivisionError:
         return 0
 
-user_input = input("Enter the numbers separated by spaces: ").split()
-try:
-    numbers = [float(num) for num in user_input]
-except ValueError:
-    print("Invalid input. Please enter numbers separated by spaces.")
-else:
-    result = mean_absolute_deviation(numbers)
-    print(result)
+
+# Read the input
+user_input = input("Enter numbers separated by spaces: ")
+numbers = [float(num) for num in user_input.split()]
+result = mean_absolute_deviation(numbers)
+print(result)
