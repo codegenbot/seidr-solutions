@@ -1,6 +1,3 @@
 def solve_boolean(expression):
-    translation_dict = {'T': True, 'F': False, '|': or, '&': and}
-    for key, value in translation_dict.items():
-        expression = expression.replace(key, str(value))
-        
-    return eval(expression.strip())
+    modified_expression = expression.replace('|', ' or ').replace('&', ' and ')
+    return eval(modified_expression.strip())
