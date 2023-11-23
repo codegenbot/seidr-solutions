@@ -1,11 +1,16 @@
-numbers = list(map(float, input().split()))
-threshold = float(input())
+try:
+    n = int(input())
+    numbers = list(map(float, input().split()))
+    threshold = float(input())
+    
+    def has_close_elements(numbers: List[float], threshold: float) -> bool:
+        for i in range(len(numbers)):
+            for j in range(i + 1, len(numbers)):
+                if abs(numbers[i] - numbers[j]) < threshold:
+                    return True
+        return False
+    
+    print(has_close_elements(numbers, threshold))
 
-def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            if abs(numbers[i] - numbers[j]) < threshold:
-                return True
-    return False
-
-print(has_close_elements(numbers, threshold))
+except ValueError:
+    print("Invalid input. Please enter valid numeric values.")
