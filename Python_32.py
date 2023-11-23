@@ -3,8 +3,13 @@ import math
 def poly(xs: list, x: float) -> float:
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
-coeff_str = input()
-coeffs = list(map(float, coeff_str.split()))
+coeffs = []
+
+print("Enter the number of coefficients:")
+n = int(input())
+
+for _ in range(n):
+    coeffs.append(float(input()))
 
 x = float(input())
 
@@ -13,4 +18,4 @@ if len(coeffs) == 0:
 else:
     result = poly(coeffs, x)
 
-print(f"{result:.2f}")
+print(f"Result: {result:.2f}")
