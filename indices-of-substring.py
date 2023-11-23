@@ -1,4 +1,5 @@
-text=input()
-target=input()
-indices=[i for i in range(len(text)) if text.find(target,i)!=-1]
-print(*[i+1 for i in indices])
+text = input()
+target = input()
+
+indices = [i + 1 for i in range(len(text)-len(target)+1) if target in text[i:i+len(target)]]
+print(*indices)
