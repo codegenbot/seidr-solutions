@@ -1,12 +1,13 @@
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string
-
     suffix = ""
-    while (string + suffix) != (string + suffix)[::-1]:
-        if string:
-            suffix = suffix + string[-1]
-            string = string[:-1]
+    prefix = ""
+    remaining = string
+
+    while (prefix + remaining + suffix) != (suffix + remaining + prefix)[::-1]:
+        if remaining:
+            prefix = remaining[0]
+            remaining = remaining[1:]
         else:
             break
-    return string + suffix
+
+    return prefix + remaining + suffix
