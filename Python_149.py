@@ -1,2 +1,5 @@
 def sorted_list_sum(lst):
-    return sum(sorted(int(x) for x in lst))
+    try:
+        return sorted([x for x in lst if isinstance(x, int)])
+    except ValueError:
+        return None
