@@ -19,7 +19,7 @@ def cut_vector(vector):
 vector = []
 while True:
     try:
-        line = input().split()
+        line = input().split()  
         for num in line:
             vector.append(int(num))
     except EOFError:
