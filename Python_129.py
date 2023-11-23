@@ -1,6 +1,6 @@
 def minPath(grid, k):
     if k > len(grid) * len(grid[0]):
-        return []
+        return []  
 
     def dfs(i, j, path):
         if len(path) == k:
