@@ -1,10 +1,7 @@
 def decode_cyclic():
-    s = ''
-    while True:
-        line = input().strip()
-        if not line:
-            break
-        s += line
+    s = input().strip()
+    if len(s) % 3 != 0:
+        s += '0' * (3 - len(s) % 3)
     groups = [s[i:i + 3] for i in range(0, len(s), 3)]
-    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
+    groups = [(group[-1] + group[:-1]) for group in groups]
     return ''.join(groups)
