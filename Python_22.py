@@ -1,21 +1,21 @@
 from typing import List
 
 
-def filter_integers(values: List[str]) -> List[int]:
-    return [int(value) for value in values if value.isdigit()]
+def filter_integers(values: List[int]) -> List[int]:
+    return [value for value in values if isinstance(value, int)]
 
 
 def main():
-    values = input("Enter a comma-separated list of values: ").strip().split(",")
-    if all(value.isdigit() for value in values):
+    try:
+        values = [int(value) for value in input("Enter a comma-separated list of values: ").strip().split(",")]
         result = filter_integers(values)
         if result:
             print(result)
         else:
             print("No integers found.")
-    else:
+    except ValueError:
         print("Invalid input. Please enter comma-separated integers only.")
-
+        
 
 if __name__ == "__main__":
     main()

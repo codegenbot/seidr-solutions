@@ -11,9 +11,11 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     return closest_pair
 
 input_numbers = []
-while input_numbers == [] or input_numbers[-1] != "":
-    num = float(input())
-    input_numbers.append(num)
+while True:
+    num = input()
+    if num == "":
+        break
+    input_numbers.append(float(num))
 
 result = find_closest_elements(input_numbers)
 print(result[0], result[1])

@@ -7,8 +7,12 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return list(set(numbers))
 
 
-input_str = input().strip()
-input_list = list(map(int, input_str.split()))
+input_list = []
+while True:
+    input_str = input().strip()
+    if input_str == '':
+        break
+    input_list.append(int(input_str))
 
 result = remove_duplicates(input_list)
 print(*result)
