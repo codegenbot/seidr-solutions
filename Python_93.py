@@ -5,7 +5,7 @@ def encode(message):
             if char.lower() in ['a', 'e', 'i', 'o']:
                 encoded_message += chr(ord(char.lower()) + 2)
             else:
-                encoded_message += chr(ord(char.upper()) + 2)
+                encoded_message += char.upper()
         else:
             encoded_message += char
     return encoded_message
