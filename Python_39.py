@@ -1,3 +1,5 @@
+import sys
+
 def prime_fib(n):
     def is_prime(num):
         if num < 2:
@@ -27,6 +29,5 @@ def prime_fib(n):
 
     return last_prime_fib
 
-print("Enter the value of n:")
-n = int(input())
+n = int(sys.stdin.readline().strip())
 print(prime_fib(n))
