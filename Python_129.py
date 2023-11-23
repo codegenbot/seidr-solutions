@@ -1,3 +1,6 @@
+grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+k = 3
+
 def find_min_path(grid, k):
     min_path = float("inf")
 
@@ -35,3 +38,6 @@ def find_min_path(grid, k):
             dfs(i, j, [], set())
 
     return min_path
+
+result = find_min_path(grid, k)
+result
