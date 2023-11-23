@@ -12,10 +12,10 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
 input_numbers = []
 while True:
-    num = input()
+    num = float(input())
     if num == "":
         break
-    input_numbers.append(float(num))
+    input_numbers.append(num)
 
 result = find_closest_elements(input_numbers)
 print(result[0], result[1])
