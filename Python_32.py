@@ -8,20 +8,25 @@ def poly(xs: list, x: float) -> float:
 def find_zero(xs: list) -> list:
     zeros = []
     for i in range(len(xs) - 1):
-        zeros.append(-xs[i] / xs[i+1])
+        zeros.append(-xs[i] / xs[i + 1])
     return zeros
 
 
 # Read input from user
-task_type = input()
+xs = list(map(float, input().split()))
 
-if task_type == "poly":
-    xs = list(map(float, input().split()))
-    x = float(input())
-    result = poly(xs, x)
-elif task_type == "find_zero":
-    xs = list(map(float, input().split()))
-    result = find_zero(xs)
+# Perform the task based on the input
+if len(xs) == 1:
+    result = xs[0]
+elif len(xs) == 2:
+    result = -xs[0] / xs[1]
+else:
+    task_type = input()
+    if task_type == "poly":
+        x = float(input())
+        result = poly(xs, x)
+    elif task_type == "find_zero":
+        result = find_zero(xs)
 
 # Print the result
 print(result)
