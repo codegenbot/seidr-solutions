@@ -10,8 +10,8 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 num_tests = int(input())
 
 for _ in range(num_tests):
-    line = input().strip().split(',')
-    input_list = [int(num) for num in line]
+    line = input().rstrip().lstrip()
+    input_list = [int(num) for num in line.split(',')]
 
     result = remove_duplicates(input_list)
     print(*result)
