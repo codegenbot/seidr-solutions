@@ -1,14 +1,11 @@
 def add():
     while True:
         try:
-            input_string = input()
-            if input_string.strip() == "":
-                print()
-                continue
-            x, y = map(int, input_string.split())
+            x, y = map(int, input().split())
             break
         except ValueError:
-            print()
+            print("Invalid input. Please enter two integers separated by space.")
     return x + y
+
 
 print(add())
