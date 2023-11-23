@@ -1,3 +1,5 @@
+from typing import List
+
 def parse_music(music_string: str) -> List[int]:
     notes = music_string.split()
     durations = []
@@ -7,9 +9,17 @@ def parse_music(music_string: str) -> List[int]:
             durations.append(4)
         elif note == 'o|':
             durations.append(2)
-        elif note == '.||':
+        elif note == '.|':
             durations.append(1)
-        else:
-            durations.append(0)
-    
+
     return durations
+
+
+# Read input from user
+music_string = input()
+
+# Call the function with the input
+result = parse_music(music_string)
+
+# Print the result
+print(result)
