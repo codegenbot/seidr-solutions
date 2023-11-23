@@ -1,5 +1,4 @@
 from typing import List, Tuple
-import sys
 
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
@@ -16,7 +15,8 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     return closest_pair
 
 
-numbers = [float(num) for num in sys.argv[1:]]
+input_str = input("Enter numbers separated by spaces: ")
+numbers = [float(num) for num in input_str.split()]
 
 result = find_closest_elements(numbers)
 
