@@ -7,16 +7,16 @@ def factorize(n):
 
 
 def main():
-    user_input = input("Enter comma-separated numbers: ").strip()
+    user_input = input().strip().split()
     if not user_input:
         print("No input provided")
         return
 
     try:
-        user_input = list(map(int, user_input.split(",")))
-        result = [factorize(n) for n in user_input]
-        output = " ".join(str(f) for sublist in result for f in sublist)
-        print(output)
+        user_input = list(map(int, user_input))
+        result = [factorize(int(n)) for n in user_input]
+        output = ' '.join(str(f) for sublist in result for f in sublist)
+        print(output.strip())
     except ValueError:
         print("Invalid input")
 
