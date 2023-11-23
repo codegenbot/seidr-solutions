@@ -1,4 +1,5 @@
 from typing import List
+import sys
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -13,6 +14,8 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-n = int(input().strip())
+n = int(sys.stdin.readline())
+
 result = factorize(n)
+
 print(result)
