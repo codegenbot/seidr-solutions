@@ -7,5 +7,5 @@ if __name__ == "__main__":
     num_strings = int(input())
     input_strings = input().split()
 
-    output = concatenate(input_strings.split())
+    output = concatenate(input_strings)
     print(output)
