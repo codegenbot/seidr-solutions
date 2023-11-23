@@ -5,7 +5,6 @@ def factorize(n):
             factors.append(i)
     return factors
 
-
 def main():
     user_input = input().strip()
     if not user_input:
@@ -19,6 +18,5 @@ def main():
         print(output)
     except ValueError:
         print("Invalid input")
-
 
 main()
