@@ -1,21 +1,31 @@
 def encode_shift(s: str) -> str:
-    return "".join(
-        [
-            chr(((ord(ch.lower()) + 5 - ord("a")) % 26) + ord("a"))
-            for ch in s
-            if ch.isalpha() or ch.isspace()
-        ]
-    )
+    if not s:
+        return "Input string is empty"
+    try:
+        return "".join(
+            [
+                chr(((ord(ch.lower()) + 5 - ord("a")) % 26) + ord("a"))
+                for ch in s
+                if ch.isalpha() or ch.isspace()
+            ]
+        )
+    except:
+        return "Invalid input"
 
 
 def decode_shift(s: str) -> str:
-    return "".join(
-        [
-            chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a"))
-            for ch in s
-            if ch.isalpha() or ch.isspace()
-        ]
-    )
+    if not s:
+        return "Input string is empty"
+    try:
+        return "".join(
+            [
+                chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a"))
+                for ch in s
+                if ch.isalpha() or ch.isspace()
+            ]
+        )
+    except:
+        return "Invalid input"
 
 
 user_input = input().strip()
