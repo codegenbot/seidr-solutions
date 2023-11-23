@@ -13,9 +13,7 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     
     return closest_pair
 
-numbers = []
-for _ in range(2):
-    numbers.append(float(input()))
+numbers = [float(num) for num in input("Enter the numbers: ").split()]
 
 result = find_closest_elements(numbers)
 
