@@ -12,8 +12,3 @@ def decode_cyclic(input_length, input_str):
 
     except ValueError as e:
         return f"An error occurred: {e}"
-
-
-input_length, input_str = input().strip().split()
-result = decode_cyclic(input_length, input_str)
-print(result)

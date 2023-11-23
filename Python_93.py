@@ -3,14 +3,7 @@ def encode(message):
     for char in message:
         if char.isalpha():
             char_lower = char.lower()
-            if char_lower in ['a', 'e']:
-                encoded_message += chr(ord(char_lower) + 4)
-            elif char_lower in ['i', 'o']:
-                encoded_message += chr(ord(char_lower) + 5)
-            elif char_lower == 'u':
-                encoded_message += chr(ord(char_lower) + 6)
-            else:
-                encoded_message += chr(ord(char_lower) + 2)
+            encoded_message += chr((ord(char_lower) - 97 + 2) % 26 + 97).upper() if char.isupper() else chr((ord(char_lower) - 97 + 2) % 26 + 97)
         else:
             encoded_message += char
     return encoded_message
