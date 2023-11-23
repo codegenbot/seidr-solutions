@@ -6,7 +6,7 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return list(set(numbers))
 
 try:
-    input_list = list(map(int, input().strip().split()))
+    input_list = list(map(int, input().split()))
     result = remove_duplicates(input_list)
     print(*result)
 except ValueError:
