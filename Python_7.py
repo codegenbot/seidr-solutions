@@ -6,15 +6,10 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 def main():
-    strings = []
-    while True:
-        string = input().rstrip()
-        if string == 'q':
-            break
-        strings.append(string)
-    
+    num_strings = int(input().rstrip())
+    strings = [input().rstrip() for _ in range(num_strings)]
     substring = input().rstrip()
-    
+
     result = filter_by_substring(strings, substring)
     print(result)
 
