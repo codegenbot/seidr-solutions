@@ -16,6 +16,7 @@ def find_zero():
 # Read input from user
 task_type = input().strip()
 
+# Initialize result variable
 result = None
 
 if task_type == "poly":
