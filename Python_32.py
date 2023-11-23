@@ -1,20 +1,20 @@
 import math
 
-
 def poly(xs: list, x: float):
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
-
 
 def find_zero(xs: list):
     return -xs[0] / xs[1]
 
+num_coeffs = int(input())
+xs = []
+for _ in range(num_coeffs):
+    xs.append(float(input()))
 
-xs = [float(coeff) for coeff in input("Enter the coefficients of the polynomial (separated by spaces): ").split()]
-
-x = float(input("Enter the value of x: "))
+x = float(input())
 
 result = poly(xs, x)
-print("Result of polynomial evaluation:", result)
+print(result)
 
 zero = find_zero(xs)
-print("Zero of the polynomial:", zero)
+print(zero)
