@@ -1,10 +1,4 @@
-def add(x: int, y: int):
+def add():
+    x = int(input())
+    y = int(input())
     return x + y
-
-# read input
-x = int(input())
-y = int(input())
-
-# calculate and return the result
-result = add(x, y)
-print(result)
