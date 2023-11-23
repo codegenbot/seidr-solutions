@@ -13,13 +13,3 @@ def cut_vector(vector):
             right_index = i
 
     return vector[: left_index + 1], vector[right_index:]
-
-
-vector = list(map(int, input().split()))
-subvector1, subvector2 = cut_vector(vector)
-
-for num in subvector1:
-    print(num)
-print()
-for num in subvector2:
-    print(num)
