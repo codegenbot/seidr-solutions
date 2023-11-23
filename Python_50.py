@@ -1,10 +1,6 @@
-def encode_shift():
-    s = input()
+def encode_shift(s):
     return "".join([chr(((ord(ch) + 5 - ord("a")) % 26) + ord("a")) for ch in s])
 
-def decode_shift():
-    s = input()
-    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
 
-print(encode_shift())
-print(decode_shift())
+def decode_shift(s):
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])

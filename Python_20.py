@@ -14,7 +14,10 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     return closest_pair
 
 
-if __name__ == '__main__':
-    numbers = list(map(float, input().split()))
-    result = find_closest_elements(numbers)
-    print(f"{result[0]} {result[1]}")
+if __name__ == "__main__":
+    num_list = input().split()
+    num_list = [float(num) for num in num_list]
+
+    result = find_closest_elements(num_list)
+
+    print(result)
