@@ -1,12 +1,10 @@
-def filter_by_prefix(strings, prefix):
-    filtered_strings = []
-    for string in strings:
-        if string.startswith(prefix):
-            filtered_strings.append(string)
-    return filtered_strings
+import sys
 
-strings = input("Enter a list of strings separated by comma: ").split(",")
-prefix = input("Enter a prefix: ")
+def filter_by_prefix(strings, prefix):
+    return sorted({string for string in strings if string.startswith(prefix)})
+
+strings = sys.argv[1:]
+prefix = sys.argv[2]
 
 filtered_strings = filter_by_prefix(strings, prefix)
 
