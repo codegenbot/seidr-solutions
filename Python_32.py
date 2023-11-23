@@ -6,22 +6,24 @@ def poly(xs: list, x: float) -> float:
 
 
 def find_zero():
+    xs = list(map(float, input().split()))
     zeros = []
     for i in range(len(xs) - 1):
         zeros.append(-xs[i] / xs[i+1])
     return zeros
 
 
-# Read task type from user
-task_type = input("Enter task type ('poly' or 'find_zero'): ")
+# Read input from user
+task_type = input().strip() # replace this line
+
+result = None # move this line outside of if statement
 
 if task_type == "poly":
-    xs = list(map(float, input("Enter the coefficients: ").split()))
-    x = float(input("Enter the value of x: "))
+    xs = list(map(float, input().split()))
+    x = float(input())
     result = poly(xs, x)
 elif task_type == "find_zero":
-    xs = list(map(float, input("Enter the coefficients: ").split()))
-    result = find_zero(xs)
+    result = find_zero()
 
 # Print the result
 print(result)
