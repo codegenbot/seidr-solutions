@@ -1,7 +1,7 @@
-from typing import List, Union
+from typing import List
 
-def filter_integers(values: List[Union[int, str]]) -> List[int]:
-    return [value for value in values if isinstance(value, int) or (isinstance(value, str) and value.isdigit())]
+def filter_integers(values: List[str]) -> List[int]:
+    return [int(value) for value in values if value.isdigit()]
 
 def main():
     values = input().split()
