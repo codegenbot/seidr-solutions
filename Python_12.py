@@ -8,5 +8,6 @@ def longest(strings: List[str]) -> str:
     return longest_string
 
 
-def solve_problem(n: int, strings: List[str]) -> str:
-    return longest(strings)
+strings = input().split()
+result = longest(strings)
+print(result)
