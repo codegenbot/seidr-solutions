@@ -1,4 +1,4 @@
-def prime_fib(n):
+def prime_fib():
     def is_prime(num):
         if num < 2:
             return False
@@ -15,6 +15,7 @@ def prime_fib(n):
             5 * num * num - 4
         )
 
+    n = int(input())
     count = 0
     i = 0
     last_prime_fib = None
@@ -27,6 +28,6 @@ def prime_fib(n):
 
     return last_prime_fib
 
-n = int(input().strip())
-result = prime_fib(n)
-result
+
+result = prime_fib()
+print(result)
