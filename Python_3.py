@@ -1,14 +1,6 @@
-operations = []
-
-while True:
-    try:
-        operation = float(input().strip())
-        if not operation:
-            break
-        operations.append(operation)
-    except ValueError:
-        break
-
-result = any(num < 0 for num in operations)
-
-print(result)
+def below_zero(operations):
+    count = 0
+    for operation in operations:
+        if operation < 0:
+            count += 1
+    return count > 0
