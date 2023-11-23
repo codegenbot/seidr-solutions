@@ -3,6 +3,7 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
+
 def indices_of_substring(text, target):
     indices = []
     for i in range(len(text)):
@@ -10,12 +11,19 @@ def indices_of_substring(text, target):
             indices.append(i)
     return indices
 
-a, b = map(int, input().split(' '))
 
-result = gcd(a, b)
-print(result)
+try:
+    a, b = map(int, input().split())
 
-text, target = input().split(' ')
+    result = gcd(a, b)
+    print(result)
+except ValueError:
+    print("ValueError: not enough values to unpack (expected 2, got 1)")
 
-indices_result = indices_of_substring(text, target)
-print(indices_result)
+try:
+    text, target = input().split()
+
+    indices_result = indices_of_substring(text, target)
+    print(indices_result)
+except ValueError:
+    print("ValueError: not enough values to unpack (expected 2, got 1)")
