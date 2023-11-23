@@ -11,3 +11,6 @@ def intersperse() -> List[int]:
             result.append(delimiter)
     
     return result
+
+output = intersperse()
+print(*output)
