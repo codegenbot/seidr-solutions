@@ -1,7 +1,14 @@
 cipher = input()
+mapping = input()
 message = input()
-encrypted_message = input()
 
-deciphered_message = ''.join([message[cipher.index(char)] if char in cipher else char for char in encrypted_message])
+deciphered_message = ""
+
+for char in cipher:
+    try:
+        index = mapping.index(char)
+        deciphered_message += message[index]
+    except ValueError:
+        deciphered_message += char
 
 print(deciphered_message)
