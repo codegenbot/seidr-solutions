@@ -6,8 +6,7 @@ def match_parens(lst):
         if c in parentheses:
             stack.append(c)
         elif c in parentheses.values():
-            opening_paren = next((key for key, value in parentheses.items() if value == c), None)
-            if not stack or stack.pop() != opening_paren:
+            if not stack or parentheses[stack.pop()] != c:
                 return 'No'
 
     return 'Yes' if not stack else 'No'
