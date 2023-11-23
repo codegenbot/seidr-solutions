@@ -10,12 +10,6 @@ def cut_vector(vector):
             min_diff = current_diff
             split_index = i
     if split_index != -1:
-        return [vector[split_index]], vector[split_index+1:]
+        return vector[:split_index+1], vector[split_index+1:]
     else:
-        return vector, [0]
-
-vector = list(map(int, input().split()))
-
-subvector1, subvector2 = cut_vector(vector)
-print(*subvector1)
-print(*subvector2)
+        return vector, []
