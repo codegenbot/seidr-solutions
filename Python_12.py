@@ -1,17 +1,16 @@
-from typing import List, Optional
+from typing import List
 
 
-def longest(strings: List[str]) -> Optional[str]:
+def longest(strings: List[str]) -> str:
     if not strings:
-        return None
-    longest_string = strings[0].strip()
+        return ""
+    longest_string = strings[0]
     for string in strings:
-        if len(string.strip()) > len(longest_string):
-            longest_string = string.strip()
+        if len(string) > len(longest_string):
+            longest_string = string
     return longest_string
 
 
-strings = input().strip().split(", ")
-strings = [s.strip() for s in strings]
+strings = input().strip().split(",")
 result = longest(strings)
 print(result)
