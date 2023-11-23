@@ -5,5 +5,9 @@ def is_simple_power(x, n):
         return n == 0
     elif x == 1:
         return n == 1
+    elif x < 0:
+        return False
+    elif n < 0:
+        return False
     else:
         return n != 0 and math.isclose(x ** (1 / n), int(x ** (1 / n)), rel_tol=1e-9)
