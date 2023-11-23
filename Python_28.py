@@ -1,11 +1,12 @@
-from typing import List
+import sys
 
 def concatenate(strings: List[str]) -> str:
     return " ".join(strings)
 
 if __name__ == "__main__":
-    num_strings = int(input().strip())
-    input_strings = (input().strip().split())[:num_strings]
+    input = sys.stdin.read().splitlines()
+    num_strings = int(input[0])
+    input_strings = input[1].split(' ')[:num_strings]
 
     output = concatenate(input_strings)
     print(output.strip())
