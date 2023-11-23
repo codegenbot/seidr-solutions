@@ -12,8 +12,10 @@ def find_zero(xs: list) -> list:
     return zeros
 
 
+# Read input from user
 xs = list(map(float, input().split()))
 
+# Perform the task based on the input
 if len(xs) == 1:
     result = xs[0]
 elif len(xs) == 2:
@@ -26,4 +28,5 @@ else:
     elif task_type == "find_zero":
         result = find_zero(xs)
 
+# Print the result
 print(result)
