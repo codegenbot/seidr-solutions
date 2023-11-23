@@ -8,6 +8,5 @@ def longest(strings: List[str]) -> str:
     return longest_string
 
 
-strings = ['apple', 'banana', 'cherry']
-result = longest(strings)
-print(result)
+def solve_problem(n: int, strings: List[str]) -> str:
+    return longest(strings)
