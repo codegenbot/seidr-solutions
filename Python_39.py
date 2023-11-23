@@ -28,4 +28,4 @@ def prime_fib(n: int):
     return last_prime_fib
 
 
-result = prime_fib(n)
+result = prime_fib(10)
