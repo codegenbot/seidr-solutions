@@ -1,4 +1,4 @@
-def sort_numbers() -> str:
+def sort_numbers():
     number_mapping = {
         "zero": 0,
         "one": 1,
@@ -12,6 +12,12 @@ def sort_numbers() -> str:
         "nine": 9,
     }
 
-    numbers = input().split()
-    sorted_numbers = sorted(numbers, key=lambda x: number_mapping.get(x.lower(), float("inf")))
+    numbers = input().strip().split()
+    
+    sorted_numbers = sorted(
+        numbers, key=lambda x: number_mapping.get(x.lower(), float("inf"))
+    )
+    
     return " ".join(sorted_numbers)
+
+sort_numbers()
