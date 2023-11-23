@@ -6,6 +6,6 @@ def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
 strings = input().rstrip().split(",")
 prefix = input().rstrip()
 
-filtered_strings = filter_by_prefix(strings, prefix)
+filtered_strings = filter_by_prefix(strings[0], prefix)
 
-print(filtered_strings)
+print(",".join(filtered_strings))
