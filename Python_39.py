@@ -28,5 +28,5 @@ def prime_fib(n: int):
     return last_prime_fib
 
 
-n = 10
+n = int(input())
 result = prime_fib(n)
