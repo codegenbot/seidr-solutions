@@ -5,4 +5,4 @@ while True:
     except ValueError:
         print("Invalid input. Please enter two integers separated by a space.")
 
-return x + y
+print(x + y)
