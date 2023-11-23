@@ -5,7 +5,6 @@ def concatenate(strings: List[str]) -> str:
     return result
 
 if __name__ == '__main__':
-    n = int(input())
-    input_strings = [input() for _ in range(n)]
+    input_strings = input("Enter a list of strings separated by commas: ").strip().split(',')
     output = concatenate(input_strings)
     print(output)
