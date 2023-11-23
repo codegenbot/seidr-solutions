@@ -3,4 +3,4 @@ def middle_character(string):
     if length % 2 == 1:
         return string[length / 2]
     else:
-        return string[length / 2 - 1:length / 2 + 1]
+        return string[length // 2 - 1 : length // 2 + 1]
