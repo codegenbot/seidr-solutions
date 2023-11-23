@@ -1,3 +1,5 @@
+import sys
+
 def encode_shift(s: str) -> str:
     if not s:
         return "Input string is empty"
