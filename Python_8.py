@@ -10,7 +10,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     
     return sum_result, product_result
 
-input_str = input("Enter numbers separated by commas: ")
-numbers = [int(num) for num in input_str.split(",")]
+numbers = list(map(int, input().split()))
+
 result = sum_product(numbers)
 print(f"{result[0]} {result[1]}")
