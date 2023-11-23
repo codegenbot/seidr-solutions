@@ -1,8 +1,7 @@
 def add(x: int, y: int):
     return x + y
 
-
-x = int(input("Enter the first number: "))
-y = int(input("Enter the second number: "))
+x = int(input().strip())
+y = int(input().strip())
 result = add(x, y)
-print("The sum is:", result)
+print(result)
