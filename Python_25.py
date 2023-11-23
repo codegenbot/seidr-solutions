@@ -1,6 +1,8 @@
 from typing import List
 
-def factorize(n: int) -> List[int]:
+
+def factorize() -> List[int]:
+    n = int(input("Enter a number: "))
     factors = []
     i = 2
     while i * i <= n:
@@ -13,6 +15,6 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-n = int(input())
-result = factorize(n)
+
+result = factorize()
 print(result)
