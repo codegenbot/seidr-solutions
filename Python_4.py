@@ -6,8 +6,9 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return deviation
 
 while True:
-    numbers = input("Enter the numbers: ").split()
-    if numbers:
+    user_input = input("Enter the numbers: ")
+    if user_input:
+        numbers = user_input.split()
         try:
             numbers = list(map(float, numbers))
             break
