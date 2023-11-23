@@ -10,7 +10,10 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
         return 0
 
 
-# Read the input
-numbers = list(map(float, input().split()))
-result = mean_absolute_deviation(numbers)
-print(result)
+user_input = input().strip()
+try:
+    numbers = list(map(float, user_input.split()))
+    result = mean_absolute_deviation(numbers)
+    print(result)
+except ValueError:
+    print("Invalid input")
