@@ -1,8 +1,10 @@
 from typing import List
+import sys
 
 def parse_music(music_string: str) -> List[int]:
-    return [4 if note == '4' else 2 if note == '2' else 1 for note in music_string.split()]
+    durations = {'4': 4, '2': 2, '1': 1}
+    return [durations[note] for note in music_string.split()]
 
-music_string = input("Enter the music string: ")
+music_string = sys.stdin.readline().rstrip()
 output = parse_music(music_string)
 print(output)
