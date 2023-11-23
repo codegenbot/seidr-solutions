@@ -8,5 +8,6 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     rescaling_factor = max_num - min_num
     return [(num - min_num) / rescaling_factor for num in numbers]
 
-numbers = list(map(float, input("Enter a list of numbers separated by spaces: ").strip().split()))
-rescale_to_unit(numbers)
+numbers = list(map(float, input().split()))
+result = rescale_to_unit(numbers)
+print(result)
