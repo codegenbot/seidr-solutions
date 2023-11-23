@@ -1,5 +1,8 @@
 def rolling_max(numbers: List[int]) -> List[int]:
-    max_numbers = []
-    for i in range(len(numbers)):
-        max_numbers.append(max(numbers[:i+1]))
-    return max_numbers
+    result = []
+    maximum = None
+    for number in numbers:
+        if maximum is None or number > maximum:
+            maximum = number
+        result.append(maximum)
+    return result
