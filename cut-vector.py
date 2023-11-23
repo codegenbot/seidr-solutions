@@ -5,7 +5,7 @@ def cut_vector(vector):
         current_sum += num
         if current_sum == total_sum - current_sum:
             return vector[: i + 1], vector[i + 1 :]
-    return vector, [0]
+    return vector[:1], vector[1:]
 
 vector = list(map(int, input().split()))
 subvector1, subvector2 = cut_vector(vector)
