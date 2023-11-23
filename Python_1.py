@@ -2,6 +2,7 @@ import re
 
 def separate_paren_groups():
     paren_string = input()
-    return re.findall(r'\([^()]*\)', paren_string)
+    return re.findall(r'\([^()]+\)', paren_string)
 
-print(separate_paren_groups())
+result = separate_paren_groups()
+print(result)
