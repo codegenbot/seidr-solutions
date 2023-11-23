@@ -9,11 +9,6 @@ coeffs = []
 xs = coeffs
 coeffs = [float(input()) for _ in range(len(xs))]
 
-result = poly(coeffs, 0)
-print(result)
-
-
-def find_zero():
-    pass
-
-check(find_zero)
+x = 0
+result = poly(xs, x)
+result
