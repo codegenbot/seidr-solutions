@@ -16,7 +16,10 @@ def sort_numbers(numbers: List[str]) -> str:
         "nine": 9,
     }
 
-    sorted_numbers = sorted(numbers, key=lambda x: number_mapping.get(x, float("inf")))
+    numbers_list = [num.lower() for num in numbers]
+    sorted_numbers = sorted(
+        numbers_list, key=lambda x: number_mapping.get(x, float("inf"))
+    )
     return " ".join(sorted_numbers)
 
 
