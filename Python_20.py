@@ -1,7 +1,5 @@
-from typing import Tuple
-
 def find_closest_elements() -> Tuple[float, float]:
-    numbers = list(map(float, input().split()))
+    numbers = list(map(float, input("Enter space-separated numbers: ").split()))
     min_diff = float('inf')
     closest_pair = ()
     for i in range(len(numbers) - 1):

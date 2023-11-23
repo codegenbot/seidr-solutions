@@ -1,13 +1,18 @@
 from typing import List
-import sys
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
     mean = sum(numbers) / len(numbers)
     deviation = [abs(x - mean) for x in numbers]
     return sum(deviation) / len(deviation)
 
-def main(numbers: List[float]):
+def main(numbers_str: str):
+    if not numbers_str.strip():
+        print("Input is empty.")
+        return
+    
+    numbers = list(map(float, numbers_str.split()))
     result = mean_absolute_deviation(numbers)
     print(result)
 
-main(list(map(float, sys.argv[1:])))
+numbers_str = input("Enter the numbers separated by space: ")
+main(numbers_str)
