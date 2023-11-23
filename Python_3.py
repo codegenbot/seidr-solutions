@@ -10,10 +10,8 @@ def below_zero(operations: List[Union[int, float]]) -> bool:
 
 operations = []
 
-n = int(input("Enter the number of operations: "))
-for _ in range(n):
-    operation = float(input("Enter the operation: "))
-    operations.append(operation)
+n = int(input())
+operations = [float(input()) for _ in range(n)]
 
 result = below_zero(operations)
 
