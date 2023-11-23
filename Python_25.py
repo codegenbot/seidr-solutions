@@ -18,7 +18,7 @@ def factorize(n: int) -> List[int]:
     return factors
 
 def main():
-    user_input = input().strip()
+    user_input = raw_input().strip()
     try:
         user_input = int(user_input)
         if user_input <= 0:
