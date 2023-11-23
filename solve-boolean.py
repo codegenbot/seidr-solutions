@@ -1,15 +1,3 @@
 def solve_boolean(expression):
-    translation_dict = {
-        "T": "True",
-        "F": "False",
-        "|": " or ",
-        "&": " and ",
-        "!": "not",
-    }
-    modified_expression = expression.translate(str.maketrans(translation_dict))
-
-    modified_expression = modified_expression.replace(" or or", " or False or").replace(
-        " and and", " and False and"
-    )
-
-    return modified_expression
+    expression = expression.replace("|", " or ").replace("&", " and ")
+    return eval(expression) or False
