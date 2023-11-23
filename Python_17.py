@@ -8,6 +8,6 @@ def parse_music(music_string: str) -> List[int]:
 
     return [durations[note] for note in music_string.split(",") if note in durations.keys()]
 
-music_string = input()
-result = parse_music(music_string)
+music_notes = input().strip()
+result = parse_music(music_notes)
 print(result)
