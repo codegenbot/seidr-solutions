@@ -1,7 +1,7 @@
 def minPath(grid, k):
     if k > len(grid) * len(grid[0]):
         return []
-    
+
     def dfs(i, j, path):
         if len(path) == k:
             return path
@@ -29,5 +29,5 @@ def minPath(grid, k):
             result = dfs(i, j, [])
             if result and len(result) == k:
                 return result[:k]
-    
+
     return []
