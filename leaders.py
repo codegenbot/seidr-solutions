@@ -1,5 +1,4 @@
 numbers = list(map(int, input().split())) 
-
 def find_leaders(numbers):
     leaders = []
     max_right = numbers[-1]
