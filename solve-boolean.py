@@ -1,6 +1,14 @@
-import ast
-
 def solve_boolean(expression):
-    translation_dict = {'T': 'True', 'F': 'False', '|': ' or ', '&': ' and '}
-    modified_expression = expression.translate(str.maketrans(translation_dict))
-    return ast.literal_eval(modified_expression)
+    stack = []
+
+    for char in expression:
+        if char == 'T' or char == 'F':
+            stack.append(char)
+        elif char == '|':
+            last = stack.pop()
+            stack.append(last or stack.pop())
+        elif char == '&':
+            last = stack.pop()
+            stack.append(last and stack.pop())
+
+    return stack[0] == 'T'
