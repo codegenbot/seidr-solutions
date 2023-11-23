@@ -2,7 +2,7 @@ from typing import List
 
 
 def factorize() -> List[int]:
-    n = int(input("Enter a number: "))
+    n = int(input())
     factors = []
     i = 2
     while i * i <= n:
