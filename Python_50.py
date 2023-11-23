@@ -24,7 +24,7 @@ def decode_shift(s: str) -> str:
         return "Invalid input"
 
 
-user_input = input()
+user_input = input().rstrip()
 
 encoded = encode_shift(user_input)
 print(encoded)
