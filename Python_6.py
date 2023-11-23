@@ -1,12 +1,10 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
-    depths = []
-    current_depth = 0
-
+    levels = []
+    count = 0
     for char in paren_string:
         if char == '(':
-            current_depth += 1
+            count += 1
         elif char == ')':
-            depths.append(current_depth)
-            current_depth -= 1
-
-    return depths
+            levels.append(count)
+            count -= 1
+    return levels
