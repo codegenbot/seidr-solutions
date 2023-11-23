@@ -1,17 +1,21 @@
 from typing import List
 
-def sort_numbers(numbers: List[int]) -> str:
+def sort_numbers(numbers: List[str]) -> str:
     number_mapping = {
-        0: 'zero',
-        1: 'one',
-        2: 'two',
-        3: 'three',
-        4: 'four',
-        5: 'five',
-        6: 'six',
-        7: 'seven',
-        8: 'eight',
-        9: 'nine'
+        'zero': 0,
+        'one': 1,
+        'two': 2,
+        'three': 3,
+        'four': 4,
+        'five': 5,
+        'six': 6,
+        'seven': 7,
+        'eight': 8,
+        'nine': 9
     }
     sorted_numbers = sorted(numbers, key=lambda x: number_mapping[x])
-    return ' '.join([number_mapping[num] for num in sorted_numbers])
+    return ' '.join(sorted_numbers)
+
+numbers_input = input().split()
+sorted_numbers_output = sort_numbers(numbers_input)
+print(sorted_numbers_output)
