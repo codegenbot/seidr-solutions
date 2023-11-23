@@ -15,11 +15,10 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return deviation
 
 numbers = []
-while True:
-    num = input().strip()
-    if num == '':
-        break
+num = input().strip()
+while num != '':
     numbers.append(float(num))
+    num = input().strip()
 
 result = mean_absolute_deviation(numbers)
 print(result)
