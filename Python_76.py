@@ -1,2 +1,2 @@
 def is_simple_power(x, n):
-    return x > 1 and (x**(1/n)).is_integer()
+    return abs(x - n**(x**(1/n))) < 0.000001
