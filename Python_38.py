@@ -19,6 +19,7 @@ def decode_cyclic(input_str):
         return f"An error occurred: {e}"
 
 
-input_string = input("Enter the input string: ")
+input_length = sys.stdin.readline().strip()
+input_string = sys.stdin.readline().strip()
 result = decode_cyclic(input_string)
 print(result)
