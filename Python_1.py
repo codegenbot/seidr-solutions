@@ -1,10 +1,9 @@
 import re
-import sys
 
 def separate_paren_groups(paren_string):
-    groups = re.findall(r'\(.*?\)', paren_string)
+    groups = [match.group() for match in re.finditer(r'\(.*?\)', paren_string)]
     return groups
 
-paren_string = sys.stdin.readline().strip()
-result = separate_paren_groups(paren_string)
+input_string = input()
+result = separate_paren_groups(input_string)
 print(result)
