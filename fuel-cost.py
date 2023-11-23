@@ -1,7 +1,5 @@
-def fuel_cost(nums):
-    return sum((num // 3) - 2 for num in nums)
+def fuel_cost(arr):
+    return sum((x // 3 - 2) for x in arr)
 
-input_values = input().split()
-nums = list(map(int, input_values))
-
-print(fuel_cost(nums))
+arr = list(map(int, input().split()))
+print(fuel_cost(arr))
