@@ -8,9 +8,14 @@ def factorize(n):
     return factors
 
 def main():
-    user_input = list(map(int, input().strip().split()))
-    result = [factorize(n) for n in user_input]
-    output = ' '.join(str(f) for sublist in result for f in sublist)
-    print(output.strip())
+    try:
+        user_input = int(input().strip())
+        if user_input <= 0:
+            raise ValueError
+        result = factorize(user_input)
+        output = ' '.join(str(f) for f in result)
+        print(output)
+    except ValueError:
+        print("Invalid input")
 
 main()
