@@ -1,6 +1,4 @@
-import sys
 from typing import List
-
 
 def factorize(n: int) -> List[int]:
     if n <= 1:
@@ -18,8 +16,7 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-
-user_input = int(sys.stdin.readline().strip())
+user_input = int(input().strip())
 if user_input <= 0:
     print("Input must be a positive integer")
 else:
