@@ -10,7 +10,12 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
         return 0
 
 
-user_input = input("Enter a list of numbers separated by spaces: ").strip().split(" ")
+user_input = list(input("Enter a list of numbers separated by spaces: ").strip().split())
+
+if not user_input:
+    print("No numbers provided")
+    return
+
 try:
     numbers = list(map(float, user_input))
     result = mean_absolute_deviation(numbers)
