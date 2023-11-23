@@ -8,7 +8,9 @@ def find_leaders(numbers):
             leaders.append(max_right)
     return leaders
 
+
 numbers = list(map(int, input().split()))
+
 result = find_leaders(numbers)
 for leader in result:
     print(leader)
