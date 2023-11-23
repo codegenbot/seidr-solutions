@@ -1,14 +1,15 @@
 def find_leaders(arr):
     leaders = []
-    max_right = arr[-1]
+    max_right = arr[0]
     leaders.append(max_right)
-    
-    for i in range(len(arr)-2, -1, -1):
+
+    for i in range(1, len(arr)):
         if arr[i] >= max_right:
             max_right = arr[i]
-            leaders.append(max_right)
-            
+            leaders.append(arr[i])
+
     return leaders
+
 
 n = int(input())
 arr = list(map(int, input().split()))
