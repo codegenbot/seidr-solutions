@@ -1,10 +1,10 @@
 def calculate_bowling_score(input_string):
     score = 0
     frames = input_string.split("-")
-
+    
     for frame_index in range(len(frames)):
         frame = frames[frame_index]
-
+        
         if frame == "X":
             score += 10
             if frame_index < len(frames) - 3:
@@ -31,5 +31,5 @@ def calculate_bowling_score(input_string):
             score += int(frame[0])
             if len(frame) > 1:
                 score += int(frame[1])
-
+    
     return score
