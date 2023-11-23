@@ -9,5 +9,4 @@ def encode(message):
                 encoded_message += char.swapcase()
         else:
             encoded_message += char
-    
     return encoded_message
