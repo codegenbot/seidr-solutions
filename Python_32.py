@@ -9,13 +9,12 @@ def find_zero(xs: list):
     return -xs[0] / xs[1]
 
 
-# Read input from user
-xs = list(map(float, input().split()))
-
-# Call the functions with the input
-result1 = poly(xs, xs[0])
-result2 = find_zero(xs)
-
-# Print the results
-print(result1)
-print(result2)
+if __name__ == "__main__":
+    xs = list(map(float, input().split()))
+    x = float(input())
+    
+    result1 = poly(xs, x)
+    result2 = find_zero(xs)
+    
+    print(result1)
+    print(result2)
