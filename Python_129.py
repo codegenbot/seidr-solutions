@@ -1,28 +1,32 @@
 def minPath(grid, k):
-    def dfs(i, j, path):
-        if len(path) == k:
-            return path
-        path.append(grid[i][j])
+    grid_size = len(grid)
+    path = [grid[0][0]]
+    current_cell = (0, 0)
+    
+    while len(path) < k:
         neighbors = []
-        if i > 0:
-            neighbors.append((i-1, j))
-        if i < len(grid)-1:
-            neighbors.append((i+1, j))
-        if j > 0:
-            neighbors.append((i, j-1))
-        if j < len(grid[0])-1:
-            neighbors.append((i, j+1))
-        neighbors.sort(key=lambda x: grid[x[0]][x[1]])
+        row, col = current_cell
+        if row > 0:
+            neighbors.append((row-1, col))
+        if row < grid_size-1:
+            neighbors.append((row+1, col))
+        if col > 0:
+            neighbors.append((row, col-1))
+        if col < grid_size-1:
+            neighbors.append((row, col+1))
+        
+        min_value = float('inf')
+        next_cell = None
+        
         for neighbor in neighbors:
-            ni, nj = neighbor
-            if grid[ni][nj] not in path:
-                result = dfs(ni, nj, path)
-                if result:
-                    return result
-        path.pop()
-
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            result = dfs(i, j, [])
-            if result:
-                return result
+            neighbor_row, neighbor_col = neighbor
+            neighbor_value = grid[neighbor_row][neighbor_col]
+            
+            if neighbor_value < min_value:
+                min_value = neighbor_value
+                next_cell = neighbor
+        
+        current_cell = next_cell
+        path.append(grid[current_cell[0]][current_cell[1]])
+    
+    return path
