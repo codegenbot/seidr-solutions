@@ -1,15 +1,17 @@
+# Read input from user
 task_type = input()
+
+# Initialize result
 result = []
+
 if task_type == "poly":
     xs = list(map(float, input().split()))
     x = float(input())
-    result = sum([coeff * x**i for i, coeff in enumerate(xs)])
+    result = poly(xs, x)
 elif task_type == "find_zero":
-    xs = list(map(float, input().split()))
-    zeros = []
-    for i in range(len(xs) - 1):
-        zeros.append(-xs[i] / xs[i + 1])
-    result = zeros
+    result = find_zero()
 else:
     result = None
+
+# Print the result
 print(str(result))
