@@ -3,10 +3,10 @@ from typing import List
 def remove_duplicates(numbers: List[int]) -> List[int]:
     return list(set(numbers))
 
-input_str = input()
-if input_str:
-    input_list = [int(num) for num in input_str.split()]
+try:
+    input_list = list(map(int, input().split()))
+except ValueError:
+    print("Invalid input. Please enter space-separated numbers only.")
+else:
     result = remove_duplicates(input_list)
     print(*result)
-else:
-    print("No input provided.")
