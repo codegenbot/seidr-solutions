@@ -11,9 +11,15 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
 
 def main():
     try:
-        inputs = list(map(float, input().split()))
-        numbers = inputs[:-1]
-        threshold = inputs[-1]
+        numbers = [float(num) for num in input().strip().split()]
+        threshold = float(input().strip())
+
+        if not numbers:
+            raise ValueError("Empty input for numbers")
+
+        if not isinstance(threshold, float):
+            raise ValueError("Invalid input for threshold")
+
         print(has_close_elements(numbers, threshold))
     except Exception as e:
         print("Error:", str(e))
