@@ -15,7 +15,7 @@ int main() {
     int diff = INT_MAX;
     int index = -1;
 
-    for (int i = 0; i < n-1; i++) {
+    for (int i = 0; i < n; i++) {
         int leftSum = 0;
         int rightSum = 0;
 
@@ -27,7 +27,7 @@ int main() {
             rightSum += nums[j];
         }
 
-        if (std::abs(leftSum - rightSum) < diff) {
+        if (leftSum == rightSum || std::abs(leftSum - rightSum) < diff) {
             diff = std::abs(leftSum - rightSum);
             index = i;
         }
@@ -39,7 +39,7 @@ int main() {
         }
     } else {
         std::vector<int> result1(nums.begin(), nums.begin() + index + 1);
-        std::vector<int> result2(nums.begin() + index + 1, nums.begin() + n + 1);
+        std::vector<int> result2(nums.begin() + index + 1, nums.begin() + n);
 
         for (int num : result1) {
             std::cout << num << std::endl;
