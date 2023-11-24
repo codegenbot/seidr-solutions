@@ -1,16 +1,16 @@
-def find_negative_sum_index(nums):
-    total = 0
+def find_negative_index(nums):
+    cum_sum = 0
     for i in range(len(nums)):
-        total += nums[i]
-        if total < 0:
+        cum_sum += nums[i]
+        if cum_sum < 0:
             return i
-    return None
+    return -1
 
 
+# Read input from user
 n = int(input())
-nums = []
-for _ in range(n):
-    nums.append(int(input()))
+nums = list(map(int, input().split()))
 
-result = find_negative_sum_index(nums)
+# Call the function and print the result
+result = find_negative_index(nums)
 print(result)
