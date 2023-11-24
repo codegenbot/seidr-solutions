@@ -1,2 +1,2 @@
-def solve_boolean(expression):
-    return eval(expression.replace('t', 'True').replace('f', 'False'))
+expr = input()
+print(eval(expr))
