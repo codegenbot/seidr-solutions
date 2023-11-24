@@ -19,3 +19,6 @@ def calculate_score(bowls):
         score += frame_score
 
     return score
+
+bowls = input().replace(" ", "")
+print(calculate_score(bowls))
