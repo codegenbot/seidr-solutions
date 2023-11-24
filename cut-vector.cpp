@@ -14,7 +14,7 @@ int main() {
     int diff = INT_MAX;
     int index = -1;
 
-    for (int i = 0; i <= n-1; i++) {
+    for (int i = 0; i < n-1; i++) {
         int leftSum = 0;
         int rightSum = 0;
 
@@ -38,6 +38,8 @@ int main() {
     for (int num : result1) {
         std::cout << num << std::endl;
     }
+
+    std::cout << std::endl;
 
     for (int num : result2) {
         std::cout << num << std::endl;
