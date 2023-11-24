@@ -6,4 +6,4 @@ indices = [i for i in range(len(text)-len(target)+1) if target.lower() == text[i
 if len(indices) == 0:
     print("-1")
 else:
-    print("\n".join(map(str, indices)))
+    print(" ".join(map(str, indices)))
