@@ -1,11 +1,6 @@
 text = input()
 target = input()
 
-indices = []
+indices = [i for i in range(len(text)) if text[i:i+len(target)] == target]
 
-index = text.find(target)
-while index != -1:
-    indices.append(index)
-    index = text.find(target, index + 1)
-
-print(" ".join(map(str, indices)))
+print(" ".join(map(lambda x: str(x+1), indices)))
