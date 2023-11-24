@@ -1,8 +1,3 @@
 def paired_digits(digits):
-    digits_sum = 0
-    previous_digit = ''
-    for current_digit in digits:
-        if current_digit == previous_digit:
-            digits_sum += int(current_digit)
-        previous_digit = current_digit
-    return digits_sum
+    digits = digits + digits[0]
+    return sum(int(a) for a, b in zip(digits, digits[1:]) if a == b)
