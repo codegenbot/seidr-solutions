@@ -1,3 +1,5 @@
+from itertools import zip_longest
+
 prices = list(map(float, input().split()))
 discounts = list(map(float, input().split()))
 
