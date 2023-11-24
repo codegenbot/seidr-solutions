@@ -9,7 +9,6 @@ def cut_vector(vector):
     for i in range(n):
         left_sum += vector[i]
         right_sum -= vector[i]
-        right_sum -= vector[i + 1]  # Add this line
         diff = abs(left_sum - right_sum)
 
         if diff < min_diff:
