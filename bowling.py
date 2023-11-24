@@ -1,10 +1,10 @@
 def calculate_score(bowls):
     score = 0
-    rolls = list(bowls.replace("-", "0"))
+    rolls = list(bowls.replace("-", "0").replace("/", ""))
 
     frame = 0
     while frame < 10:
-        if rolls[frame] == "X":
+        if rolls[frame] == "X" or rolls[frame] == "x":
             score += 10 + bonus_score(rolls, frame + 1, 2)
             frame += 1
         elif rolls[frame] == "/":
@@ -14,12 +14,9 @@ def calculate_score(bowls):
             score += int(rolls[frame]) + int(rolls[frame + 1])
             frame += 2
 
-    if rolls[-1] == "X" or rolls[-1] == "/":
-        score += int(rolls[-2])
-
     return score
 
 
 def bonus_score(rolls, start, num_rolls):
-    bonus = sum([int(roll) for roll in rolls[start : start + num_rolls + 1]])
+    bonus = sum([int(roll) for roll in rolls[start : start + num_rolls]])
     return bonus
