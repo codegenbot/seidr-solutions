@@ -6,7 +6,3 @@ def find_leaders(arr):
             max_right = arr[i]
             leaders.insert(0, max_right)
     return leaders
-
-arr = list(map(int, input().split()))
-result = find_leaders(arr)
-print(*result)
