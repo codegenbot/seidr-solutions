@@ -9,7 +9,7 @@ current_height = first_bounce_height
 
 for _ in range(num_bounces):
     current_height = current_height * bounciness_index
-    total_distance += current_height
+    total_distance += current_height * 2
 
-final_distance = total_distance - (2 * starting_height)
-print(round(final_distance, 2))
+final_distance = total_distance - starting_height
+print(round(final_distance, 14))
