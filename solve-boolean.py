@@ -3,8 +3,8 @@ def solve_boolean(expression):
     expression = expression.replace('T', 'True').replace('F', 'False')
 
     stack = []
-    operators = set(['and', 'or', 'True', 'False', '|', '&'])
-    precedence = {'and': 0, 'or': 1, 'True': 2, 'False': 2, '|': 2, '&': 0}
+    operators = set(['and', 'or', 'True', 'False', '|', '&', '('])
+    precedence = {'and': 0, 'or': 1, 'True': 2, 'False': 2, '|': 1, '&': 0}
 
     i = 0
     while i < len(expression):
@@ -21,6 +21,16 @@ def solve_boolean(expression):
                 result = f'({operand1} {operator} {operand2})'
                 stack.append(result)
             stack.append(operator)
+            
+            # Check if the operator is '|' to handle multiple 'or' operators correctly
+            if operator == '|':
+                while stack[-2:] == ['True', '|']:
+                    operand2 = stack.pop()[:-1]
+                    operator = stack.pop()
+                    operand1 = stack.pop()
+                    result = f'({operand1} {operator} {operand2})'
+                    stack.append(result)
+                    
             i += 1
         else:
             j = i
