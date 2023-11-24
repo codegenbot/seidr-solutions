@@ -1,20 +1,27 @@
-def calculate_bowling_score(round_str):
+import re
+
+def calculate_score(rounds):
     score = 0
-    frames = round_str.split("/")
+    bonus = 0
+    frame = 0
 
-    for frame in frames:
-        if frame == "X":
-            score += 10
+    # Remove all non-numeric characters from the rounds string
+    rounds = re.sub(r'[^0-9X-]', '', rounds)
+
+    for i in range(len(rounds)):
+        if frame == 10:
+            break
+        elif rounds[i] == 'X':
+            score += 10 + bonus
+            bonus += 10
+            frame += 1
+        elif rounds[i] == '/':
+            score += 10 - int(rounds[i-1]) + bonus
+            bonus += int(rounds[i+1])
+            frame += 1
+        elif rounds[i] == '-':
+            frame += 1
         else:
-            for i in range(len(frame)):
-                if frame[i] == "-":
-                    score += 0
-                elif frame[i] == "X":
-                    score += 10
-                else:
-                    score += int(frame[i])
-    
-    return score
+            score += int(rounds[i])
 
-round_str = input()
-print(calculate_bowling_score(round_str))
+    return score
