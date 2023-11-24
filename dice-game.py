@@ -1,7 +1,8 @@
+def dice_game(n, m):
+    return min(n, m) / max(n, m)
+
+
 n = int(input())
 m = int(input())
 
-if n >= m:
-    print(round(1 - (n / (n + m)), 2))
-else:
-    print(round(1 - (m / (n + m)), 2))
+print(dice_game(n, m))
