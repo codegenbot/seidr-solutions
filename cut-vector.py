@@ -3,7 +3,7 @@ def cut_vector(vector):
     total_sum = sum(vector)
     left_sum = 0
     right_sum = total_sum - vector[0]
-    min_diff = float("inf")
+    min_diff = float('inf')
     cut_index = 0
 
     for i in range(1, n):
@@ -15,7 +15,7 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i
 
-    if cut_index == 0 or cut_index == n-1:
-        return vector[:], []
+    if cut_index == 0 or cut_index == n - 1:
+        return [vector[:cut_index+1], []]
     else:
-        return vector[:cut_index+1], vector[cut_index+1:]
+        return [vector[:cut_index+1], vector[cut_index+1:]]
