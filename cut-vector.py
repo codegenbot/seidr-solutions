@@ -1,20 +1,14 @@
 def cut_vector(vector):
     total_sum = sum(vector)
     left_sum = 0
-    right_sum = total_sum
-    min_diff = float("inf")
-    cut_index = 0
-
     for i in range(len(vector)):
         left_sum += vector[i]
-        right_sum -= vector[i]
-        diff = abs(left_sum - right_sum)
-
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
-
-    return vector[: cut_index + 1], vector[cut_index + 1 :]
+        right_sum = total_sum - left_sum
+        if left_sum == right_sum or abs(left_sum - right_sum) < abs(
+            left_sum - right_sum - vector[i + 1]
+        ):
+            return vector[: i + 1], vector[i + 1 :]
+    return vector, [0]
 
 
 # Read input from user
@@ -22,13 +16,16 @@ vector = []
 while True:
     try:
         line = input()
-        vector.append(int(line))
+        if line:
+            vector.append(int(line))
+        else:
+            break
     except EOFError:
         break
 
-# Call the function and print the output
-left, right = cut_vector(vector)
-for num in left:
+# Call the function and print the results
+result1, result2 = cut_vector(vector)
+for num in result1:
     print(num)
-for num in right:
+for num in result2:
     print(num)
