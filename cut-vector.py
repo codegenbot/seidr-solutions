@@ -17,14 +17,12 @@ def cut_vector(vector):
     return vector[: cut_index + 1], vector[cut_index + 1 :]
 
 
-# Read input from user
 vector = []
 num = int(input())
 while num != -1:
     vector.append(num)
     num = int(input())
 
-# Call the function and print the output
 left_subvector, right_subvector = cut_vector(vector)
 for num in left_subvector:
     print(num)
