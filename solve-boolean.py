@@ -1,4 +1,6 @@
 def solve_boolean(expression):
     expression = expression.replace("&", " and ").replace("|", " or ")
-    result = eval("(" + expression + ")")
+    import ast
+    tree = ast.parse("(" + expression + ")", mode='eval')
+    result = ast.literal_eval(tree.body)
     return result
