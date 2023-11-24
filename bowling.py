@@ -10,8 +10,8 @@ def calculate_score(bowls):
         elif bowl.isdigit():
             rolls.append(int(bowl))
             roll_index += 1
-        elif bowl == "-":
-            rolls.append(0)
+        elif bowl == "/":
+            rolls.append(10 - rolls[roll_index - 1])
             roll_index += 1
 
     frame = 0
