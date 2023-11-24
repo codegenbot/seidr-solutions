@@ -7,7 +7,11 @@ def calculate_score(bowls):
     index = 0
 
     while frame < 10:
-        bowl = bowls[index]
+        if index < len(bowls):
+            bowl = bowls[index]
+        else:
+            break
+
         if bowl == "X":
             score += 10
             frame_score += 10
@@ -65,6 +69,5 @@ def calculate_score(bowls):
 
     return score
 
-
-bowls = input().strip().replace(" ", "")
+bowls = input().replace(" ", "")
 print(calculate_score(bowls))
