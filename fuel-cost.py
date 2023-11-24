@@ -1,6 +1,15 @@
-nums = []
-for _ in range(int(input())):
-    nums.append(int(input()))
+def fuel_cost(arr):
+    return sum((x // 3) - 2 for x in arr)
 
-fuel_cost = sum([(num // 3) - 2 for num in nums])
-print(fuel_cost)
+
+# Read input from user
+arr = []
+while True:
+    try:
+        arr.append(int(input()))
+    except EOFError:
+        break
+
+# Call the fuel_cost function and print the result
+result = fuel_cost(arr)
+print(result)
