@@ -1,33 +1,43 @@
-def bowling(bowls):
+def calculate_score(bowls):
     score = 0
     frame = 1
-    i = 0
-
-    for i in range(len(bowls)):
-        if bowls[i] == 'X':
+    bowl_index = 0
+    while frame <= 10:
+        if bowls[bowl_index] == "X":
             score += 10
-            if i + 2 < len(bowls):
-                if bowls[i + 2] == 'X':
-                    score += 10
-                elif bowls[i + 2] == '/':
-                    score += 10 - int(bowls[i+1])
-                else:
-                    score += int(bowls[i + 1]) + int(bowls[i + 2])
+            if bowl_index + 2 < len(bowls):
+                score += calculate_bonus(bowls[bowl_index + 1], bowls[bowl_index + 2])
             frame += 1
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i - 1])
-            if i + 1 < len(bowls):
-                if bowls[i + 1] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[i + 1])
+            bowl_index += 1
+        elif bowls[bowl_index] == "/":
+            score += (
+                10 - int(bowls[bowl_index - 1]) if bowls[bowl_index - 1] != "-" else 0
+            )
+            if bowl_index + 1 < len(bowls):
+                score += calculate_bonus(bowls[bowl_index + 1])
             frame += 1
+            bowl_index += 1
         else:
-            score += int(bowls[i])
-            if i < len(bowls) and bowls[i] != '/':
-                score += int(bowls[i])
-
-        if frame == 10:
-            break
-
+            score += int(bowls[bowl_index]) if bowls[bowl_index] != "-" else 0
+            frame += 1
+        bowl_index += 1
     return score
+
+
+def calculate_bonus(bonus1, bonus2="0"):
+    bonus_score = 0
+    if bonus1 == "X":
+        bonus_score += 10
+    else:
+        bonus_score += 0 if bonus1 == "-" else int(bonus1)
+    if bonus2 == "X":
+        bonus_score += 10
+    elif bonus2 == "/":
+        bonus_score += 10 - int(bonus1) if bonus1 != "-" else 0
+    else:
+        bonus_score += int(bonus2) if bonus2 != "-" else 0
+    return bonus_score
+
+
+bowls = input().strip()
+print(calculate_score(bowls))

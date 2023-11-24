@@ -1,7 +1,4 @@
-def fuel_cost(fuel_values):
-    return sum([x // 3 - 2 for x in fuel_values])
+nums = [int(num) for num in input().split()]
 
-arr = list(map(int, input().split()))
-
-result = fuel_cost(arr)
+result = sum([num//3 - 2 for num in nums])
 print(result)
