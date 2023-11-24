@@ -17,16 +17,11 @@ def cut_vector(vector):
 
     return vector[: index + 1], vector[index + 1 :]
 
-
-# Read input from user
 vector = []
 while True:
-    num = input().strip()
-    if num == "":
+    num = input()
+    if not num:
         break
     vector.append(int(num))
 
-# Call the function and print the result
-result = cut_vector(vector)
-for subvector in result:
-    print(*subvector)
+print(*cut_vector(vector), sep='\n')
