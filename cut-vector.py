@@ -1,5 +1,4 @@
 def cut_vector(vector):
-    vector = list(map(int, vector.split()))
     n = len(vector)
     total_sum = sum(vector)
     left_sum = 0
@@ -19,4 +18,4 @@ def cut_vector(vector):
             if diff == 0:
                 break
 
-    return vector[:cut_index+1], vector[cut_index+1:]
+    return cut_index, cut_index + 1
