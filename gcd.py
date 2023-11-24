@@ -10,10 +10,12 @@ def indices_of_substring(text, target):
             indices.append(i)
     return indices
 
+# Read input from user
 a = int(input())
 b = int(input())
-print(gcd(a, b))
-
 text = input()
 target = input()
+
+# Call the functions and print the output
+print(gcd(a, b))
 print(indices_of_substring(text, target))
