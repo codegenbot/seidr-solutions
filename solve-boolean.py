@@ -1,6 +1,5 @@
 from ast import literal_eval
 
-
 def solve_boolean(expression):
     translation_dict = {
         "T": "True",
@@ -11,11 +10,8 @@ def solve_boolean(expression):
     }
     modified_expression = expression.translate(str.maketrans(translation_dict))
 
-    modified_expression = modified_expression.replace("|", " or ").replace("&", " and ")
-    modified_expression = modified_expression.replace(" and and", " and").replace(
-        " or or", " or"
-    )
-    modified_expression = modified_expression.replace(" not not", " not")
+    modified_expression = modified_expression.replace("|", " | ").replace("&", " & ")
+    modified_expression = modified_expression.replace(" and and", " and").replace(" or or", " or")
 
-    result = literal_eval(modified_expression)
-    return result if result is not None else False
+    result = eval(modified_expression)
+    return result
