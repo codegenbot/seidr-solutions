@@ -1,6 +1,8 @@
+import re
+
 text = input()
 target = input()
 
-indices = [i for i in range(len(text)-len(target)+1) if text[i:i+len(target)] == target or text[i:i+len(target)].count(target) > 0]
+indices = [match.start() for match in re.finditer(f'(?={target})', text)]
 
 print(" ".join(map(str, indices)))
