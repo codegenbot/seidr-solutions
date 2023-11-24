@@ -3,8 +3,11 @@ def find_leaders(arr):
         return []
 
     leaders = [arr[-1]]
-    for i in range(len(arr) - 1, -1, -1):
-        if arr[i] > leaders[-1]:
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= leaders[-1]:
             leaders.append(arr[i])
+
+    if arr[0] > leaders[-1]:
+        leaders.append(arr[0])
 
     return leaders[::-1]
