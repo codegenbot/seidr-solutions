@@ -5,24 +5,24 @@ def bowling_score(bowls):
     for i in range(len(bowls)):
         if frame > 10:
             break
-        if bowls[i] == 'X':
+        if bowls[i] == "X":
             score += 10
             if frame < 10:
-                if i + 2 < len(bowls) and bowls[i+2] == '/':
+                if i + 2 < len(bowls) and bowls[i + 2] == "/":
                     score += 10
                 else:
-                    score += int(bowls[i+1])
-                    score += int(bowls[i+2])
+                    score += int(bowls[i + 1])
+                    score += int(bowls[i + 2])
             frame += 1
             frame_score = 0
-        elif bowls[i] == '/':
+        elif bowls[i] == "/":
             score += 10 - frame_score
             if frame < 10:
                 if i + 1 < len(bowls):
-                    score += int(bowls[i+1])
+                    score += int(bowls[i + 1])
             frame += 1
             frame_score = 0
-        elif bowls[i] == '-':
+        elif bowls[i] == "-":
             frame_score += 0
         else:
             score += int(bowls[i])
