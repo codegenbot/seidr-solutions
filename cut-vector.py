@@ -1,5 +1,6 @@
-def cut_vector(vector):
-    vector = list(map(int, vector.split(' ')))
+def cut_vector():
+    vector = input().split(" ")
+    vector = list(map(int, vector))
     n = len(vector)
     total_sum = sum(vector)
     left_sum = 0
@@ -19,4 +20,4 @@ def cut_vector(vector):
     if cut_index == -1:
         return [], []
 
-    return vector[:cut_index+1], vector[cut_index+1:]
+    return vector[: cut_index + 1], vector[cut_index + 1 :]
