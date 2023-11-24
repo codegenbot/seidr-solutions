@@ -8,17 +8,12 @@ def calculate_score(bowls):
             rolls.append(10)
             rolls.append(0)
             frame += 1
-        elif bowl.isdigit():
+        elif bowl.isdigit() or bowl == "/":
             rolls.append(int(bowl))
-        elif bowl == "/":
-            rolls.append(10 - rolls[-1])
-            rolls.append(0)
-
-    for i in range(10):
-        frame_score = sum(rolls[i * 2 : i * 2 + 2])
-        score += frame_score
+            
+        if len(rolls) >= frame * 2 + 2:
+            frame_score = sum(rolls[frame * 2 : frame * 2 + 2])
+            score += frame_score
+            frame += 1
 
     return score
-
-bowls = input().replace(" ", "")
-print(calculate_score(bowls))
