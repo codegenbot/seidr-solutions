@@ -15,9 +15,14 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i
 
-    return vector[: cut_index + 1], vector[cut_index + 1 :]
+    return vector[:cut_index+1], vector[cut_index+1:]
+
 
 vector = list(map(int, input().split()))
+
 left_subvector, right_subvector = cut_vector(vector)
-print(*left_subvector, sep='\n')
-print(*right_subvector, sep='\n')
+for num in left_subvector:
+    print(num)
+print("-----")
+for num in right_subvector:
+    print(num)
