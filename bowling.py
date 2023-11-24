@@ -1,29 +1,29 @@
 def calculate_score(bowls):
     score = 0
-    rolls = [0] * 21
-    roll_index = 0
-
+    rolls = []
+    frame = 1
+    
     for bowl in bowls:
         if bowl == "X":
-            rolls[roll_index] = 10
-            roll_index += 1
-        elif bowl.isdigit():
-            rolls[roll_index] = int(bowl)
-            roll_index += 1
-        elif bowl == "/":
-            rolls[roll_index] = 10 - rolls[roll_index - 1]
-            roll_index += 1
-
-    frame = 0
-    for i in range(10):
-        if rolls[frame] == 10:
-            score += 10 + rolls[frame + 1] + rolls[frame + 2]
+            rolls.append(10)
+            rolls.append(0)
             frame += 1
-        elif rolls[frame] + rolls[frame + 1] == 10:
-            score += 10 + rolls[frame + 2]
-            frame += 2
-        else:
-            score += rolls[frame] + rolls[frame + 1]
-            frame += 2
+        elif bowl.isdigit():
+            rolls.append(int(bowl))
+        elif bowl == "/":
+            rolls.append(10 - rolls[-1])
 
-    return score
+    for i in range(9):
+        frame_score = sum(rolls[i * 2 : i * 2 + 2])
+
+        if rolls[i * 2] == 10 and rolls[i * 2 + 2] != "/":
+            next_roll = rolls[i * 2 + 2]
+            next_next_roll = rolls[i * 2 + 3]
+            frame_score += next_roll + next_next_roll
+        elif rolls[i * 2] + rolls[i * 2 + 1] == 10 and rolls[i * 2 + 2] != "/":
+            next_roll = rolls[i * 2 + 2]
+            frame_score += next_roll
+
+        score += frame_score
+
+    return score + sum(rolls[-3:])
