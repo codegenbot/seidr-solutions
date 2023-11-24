@@ -1,5 +1,6 @@
 def solve_boolean(expression):
     stack = []
+    operators = set(["&", "|", "T", "F", "(", ")"])
 
     i = 0
     while i < len(expression):
@@ -7,23 +8,28 @@ def solve_boolean(expression):
             i += 1
             continue
 
-        if expression[i] in ["&", "|"]:
-            if len(stack) < 3:
-                return False
-            operator = expression[i]
-            operand2 = stack.pop()
-            operand1 = stack.pop()
+        if expression[i] in operators:
+            if expression[i] == "(":
+                stack.append(expression[i])
+            elif expression[i] == ")":
+                while stack and stack[-1] != "(":
+                    result = stack.pop()
+                    stack.pop()
+                    stack.append(result)
+            elif len(stack) >= 2:
+                operator = expression[i]
+                operand2 = stack.pop()
+                operand1 = stack.pop()
 
-            result = {
-                "&": (operand1 == "T" and operand2 == "T"),
-                "|": (operand1 == "T" or operand2 == "T")
-            }.get(operator, False)
+                result = {
+                    "&": (operand1 and operand2),
+                    "|": (operand1 or operand2)
+                }.get(operator, False)
 
-            stack.append("T" if result else "F")
+                stack.append("T" if result else "F")
+
         elif expression[i] in ["T", "F"]:
             stack.append(expression[i])
-        else:
-            return False
 
         i += 1
 
