@@ -1,5 +1,5 @@
 def find_leaders(arr):
-    leaders = [arr[-1]]
+    leaders = [arr[-1]] + arr[:-1]
     for i in range(len(arr)-2, -1, -1):
         if arr[i] >= leaders[-1]:
             leaders.append(arr[i])
