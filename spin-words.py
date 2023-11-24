@@ -1,5 +1,2 @@
 def spin_words(sentence):
-    if len(sentence) >= 5:
-        return sentence[::-1]
-    else:
-        return sentence
+    return ' '.join([word[::-1] if len(word) >= 5 else word for word in sentence.split()])
