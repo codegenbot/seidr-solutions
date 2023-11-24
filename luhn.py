@@ -6,11 +6,11 @@ def luhn_algorithm(digits):
             if new_digit > 9:
                 new_digit -= 9
             new_digits.append(new_digit)
+        else:
+            new_digits.append(digits[i])
     return sum(new_digits)
 
 
-num_digits = int(input())
+n = int(input())
 digits = list(map(int, input().split()))
-
-result = luhn_algorithm(digits)
-print(result)
+print(luhn_algorithm(digits))
