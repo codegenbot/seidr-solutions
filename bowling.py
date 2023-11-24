@@ -1,45 +1,42 @@
-def calculate_score(bowls):
+def calculate_bowling_score(input_string):
     score = 0
     frame = 1
     frame_score = 0
-    i = 0
-    while i < len(bowls):
-        if bowls[i] == 'X':
+    strike = False
+    bonus_rolls = []
+
+    for char in input_string:
+        if char == 'X':
             score += 10
             if frame < 10:
-                if i + 2 < len(bowls):
-                    if bowls[i+2] == 'X':
-                        score += 10
-                    else:
-                        score += int(bowls[i+2])
-                if i + 3 < len(bowls):
-                    if bowls[i+3] == '/':
-                        score += 10
-                    elif bowls[i+3] == 'X':
-                        score += 10
-                    else:
-                        score += int(bowls[i+3])
-            frame += 1
-            i += 1
-        elif bowls[i] == '/':
+                strike = True
+                frame += 1
+            else:
+                strike = False
+        elif char == '/':
             score += 10 - frame_score
             if frame < 10:
-                if i + 1 < len(bowls):
-                    if bowls[i+1] == 'X':
-                        score += 10
-                    else:
-                        score += int(bowls[i+1])
-            frame_score = 0
-            frame += 1
+                frame += 1
+        elif char == '-':
+            frame_score += 0
         else:
-            score += int(bowls[i])
-            frame_score = int(bowls[i])
-            if frame_score == 10 and frame < 10:
-                score += int(bowls[i+1])
+            frame_score += int(char)
+
+        if frame_score == 10 and not strike:
             frame_score = 0
-            frame += 1
-        i += 1
+            if frame < 10:
+                frame += 1
+
+        while bonus_rolls and bonus_rolls_count > 0:
+            score += bonus_rolls.pop(0)
+            bonus_rolls_count -= 1
+
+        if char == 'X' and frame < 10:
+            bonus_rolls.extend([10, 10])
+        elif char == '/':
+            bonus_rolls.append(10 - int(input_string[-1]) if input_string[-1] != 'X' else 10)
+
     return score
 
-bowls = input().strip()
-print(calculate_score(bowls))
+input_string = input()
+print(calculate_bowling_score(input_string))
