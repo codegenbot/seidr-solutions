@@ -1,6 +1,6 @@
 def solve_boolean(expression):
     stack = []
-    operators = set(["&", "|", "!", "~"])
+    operators = set(["&", "|", "!"])  # Change ~ to !
 
     i = 0
     while i < len(expression):
@@ -10,9 +10,9 @@ def solve_boolean(expression):
 
         if expression[i] in operators:
             operator = expression[i]
-            if operator in ["!", "~"]:
+            if operator == "!":
                 operand = stack.pop()
-                result = eval(f"{operator}({operand})")
+                result = eval(f"{operator}{operand}")
             else:
                 operand2 = stack.pop()
                 operand1 = stack.pop()
