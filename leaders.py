@@ -7,7 +7,4 @@ def find_leaders(arr):
         if arr[i] >= leaders[-1]:
             leaders.append(arr[i])
 
-    if arr[0] > leaders[-1]:
-        leaders.append(arr[0])
-
     return leaders[::-1]
