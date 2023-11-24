@@ -1,6 +1,4 @@
 def spin_words(sentence):
-    if not sentence:
-        return ""
     words = sentence.split()
     for i in range(len(words)):
         if len(words[i]) > 4:
