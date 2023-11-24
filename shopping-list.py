@@ -1,5 +1,5 @@
 prices = list(map(float, input().split()))
 discounts = list(map(float, input().split()))
 
-total_price = sum((round(price - price * discount/100, 2) for price, discount in zip(prices, discounts)))
+total_price = round(sum(price * (1 - discount/100) for price, discount in zip(prices, discounts)), 2)
 print(total_price)
