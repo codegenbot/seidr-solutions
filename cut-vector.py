@@ -1,8 +1,4 @@
-import sys
-
-def cut_vector():
-    vector = sys.stdin.readline().strip().split(" ")
-    vector = list(map(int, vector))
+def cut_vector(vector):
     n = len(vector)
     total_sum = sum(vector)
     left_sum = 0
@@ -20,8 +16,6 @@ def cut_vector():
             cut_index = i
 
     if cut_index == -1:
-        print([], [])
+        return [], []
     else:
-        print(vector[:cut_index + 1], vector[cut_index + 1:] if cut_index < n-1 else [])
-
-cut_vector()
+        return vector[:cut_index + 1], vector[cut_index + 1:]
