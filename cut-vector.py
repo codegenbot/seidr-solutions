@@ -2,16 +2,20 @@ def cut_vector(vector):
     n = len(vector)
     total_sum = sum(vector)
     left_sum = 0
-    min_diff = float("inf")
+    right_sum = total_sum
+    min_diff = 1000000000
     cut_index = -1
 
     for i in range(n):
         left_sum += vector[i]
-        right_sum = total_sum - left_sum
+        right_sum -= vector[i]
         diff = abs(left_sum - right_sum)
 
         if diff < min_diff:
             min_diff = diff
             cut_index = i
 
-    return vector[:cut_index], vector[cut_index:]
+    if cut_index == n - 1:
+        return [], []
+    else:
+        return vector[: cut_index + 1], vector[cut_index + 1 :]
