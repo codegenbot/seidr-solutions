@@ -1,20 +1,22 @@
 #include <iostream>
 #include <vector>
 
-int luhnAlgorithm(std::vector<int> digits) {
+int luhnAlgorithm(const std::vector<int>& digits) {
     int sum = 0;
-    int size = digits.size();
+    bool doubleDigit = false;
 
-    for (int i = 0; i < size; i++) {
-        if (i % 2 == 1) {
-            int doubledDigit = digits[i] * 2;
-            if (doubledDigit > 9) {
-                doubledDigit -= 9;
+    for (int i = digits.size() - 1; i >= 0; i--) {
+        int num = digits[i];
+
+        if (doubleDigit) {
+            num *= 2;
+            if (num > 9) {
+                num -= 9;
             }
-            sum += doubledDigit;
-        } else {
-            sum += digits[i];
         }
+
+        sum += num;
+        doubleDigit = !doubleDigit;
     }
 
     return sum;
