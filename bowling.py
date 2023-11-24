@@ -2,57 +2,68 @@ def calculate_score(bowls):
     score = 0
     frame = 1
     frame_score = 0
-    consecutive_strikes = 0
-    consecutive_spares = 0
+    prev_frame_score = 0
+    is_strike = False
+    is_spare = False
+    prev_bowl = ""
 
     for bowl in bowls:
+        if bowl == "/":
+            continue
+
         if bowl == "X":
             score += 10
-            frame_score += 10
-            if consecutive_strikes:
+            frame_score = 10
+            is_strike = True
+            if prev_bowl.isdigit() and prev_bowl != "0":
+                score += int(prev_bowl)
+                frame_score += int(prev_bowl)
+
+            if prev_bowl == "X":
                 score += 10
                 frame_score += 10
-                if consecutive_strikes == 2:
-                    score += 10
-                    frame_score += 10
-                consecutive_strikes = 0
-            if consecutive_spares:
+        elif bowl == "-":
+            frame_score = 0
+        elif prev_bowl.isdigit() and prev_bowl != "0":
+            if prev_bowl == "X":
                 score += 10 - int(bowls[-1])
-                frame_score += 10 - int(bowls[-1])
-                consecutive_spares = 0
+            else:
+                score += 10 - int(prev_bowl)
+            frame_score = 10
+            is_spare = True
         elif bowl.isdigit():
             score += int(bowl)
             frame_score += int(bowl)
-            if consecutive_spares:
+
+        if is_strike and bowl.isdigit():
+            score += int(bowl)
+            frame_score += int(bowl)
+            if prev_bowl == "X":
                 score += int(bowl)
                 frame_score += int(bowl)
-                consecutive_spares = 0
+            is_strike = False
 
-        if bowl == "/":
-            score += 10 - int(bowls[-1])
-            frame_score += 10 - int(bowls[-1])
-            if consecutive_strikes:
-                score += 10
-                frame_score += 10
-                consecutive_strikes = 0
-            consecutive_spares += 1
+        if is_spare:
+            score += int(bowl)
+            frame_score += int(bowl)
+            is_spare = False
 
-        if bowl != "X":
-            consecutive_strikes = 0
-        elif consecutive_strikes < 2:
-            consecutive_strikes += 1
+        prev_bowl = bowl
 
-        if frame == 10:
-            if consecutive_spares:
-                score += int(bowls[-1])
-            elif consecutive_strikes and len(bowls) > 1:
-                score += int(bowls[-2]) + int(bowls[-1])
+        if frame > 1:
+            score += prev_frame_score
 
-        frame_score %= 10
-        if frame_score == 0:
-            frame += 1
+        prev_frame_score = frame_score
+        frame += 1
+
+    if frame == 10:
+        if is_spare:
+            score += int(bowls[-1])
+        elif is_strike and len(bowls) > 1:
+            score += int(bowls[-2]) + int(bowls[-1])
 
     return score
+
 
 bowls = input().strip().replace(" ", "")
 print(calculate_score(bowls))
