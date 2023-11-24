@@ -1,12 +1,13 @@
-import re
-
-def kebab_to_camel(kebab_str):
-    words = kebab_str.split(' ')
-    camel_words = []
-    for word in words:
-        if '-' in word:
-            camel_word = ''.join(x.capitalize() or '-' for x in word.split('-'))
-            camel_words.append(camel_word)
+def kebab_to_camel_case(string):
+    words = string.split("-")
+    camel_case = ""
+    for i in range(len(words)):
+        if i == 0:
+            camel_case += words[i]
         else:
-            camel_words.append(word)
-    return ' '.join(camel_words)
+            camel_case += words[i].capitalize()
+    return camel_case
+
+string = input()
+result = kebab_to_camel_case(string)
+print(result)
