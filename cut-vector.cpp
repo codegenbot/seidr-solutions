@@ -5,26 +5,26 @@
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
-    int index = 0;
+    int index = -1;
 
     for (int i = 0; i < n; i++) {
-        int leftSum = nums[0];
+        int leftSum = 0;
         int rightSum = 0;
 
-        if (i != 0) {
-            leftSum += nums[i];
+        for (int j = 0; j < i; j++) {
+            leftSum += nums[j];
         }
 
-        for (int j = i + 1; j < n; j++) {
+        for (int j = i; j < n; j++) {
             rightSum += nums[j];
         }
 
-        int currentDiff = abs(leftSum - rightSum);
-
-        if (currentDiff == 0) {
-            index = i;
-            break;
+        if (leftSum == rightSum) {
+            return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + i),
+                                  std::vector<int>(nums.begin() + i, nums.end()));
         }
+
+        int currentDiff = abs(leftSum - rightSum);
 
         if (currentDiff < diff) {
             diff = currentDiff;
@@ -32,10 +32,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
-
-    return std::make_pair(leftSubvector, rightSubvector);
+    return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + index),
+                          std::vector<int>(nums.begin() + index, nums.end()));
 }
 
 int main() {
