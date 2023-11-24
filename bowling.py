@@ -34,15 +34,15 @@ def calculate_score(bowls):
             if is_spare and frame < 10:
                 score += int(bowl)
 
-        if frame_score == 10 and frame < 10:
-            is_spare = True
-        else:
-            is_spare = False
+            if frame_score == 10 and frame < 10 and not is_strike:
+                is_spare = True
+            else:
+                is_spare = False
 
-        if frame_score == 0 and frame < 10:
-            is_strike = True
-        else:
-            is_strike = False
+            if frame_score == 0 and frame < 10:
+                is_strike = True
+            else:
+                is_strike = False
 
         if frame == 10:
             break
@@ -52,7 +52,7 @@ def calculate_score(bowls):
 
 def calculate_strike_bonus(bowls, frame):
     bonus = 0
-    next_two_bowls = bowls[frame : frame + 2]
+    next_two_bowls = bowls[frame + 1 : frame + 3].replace("X", "")
     for bowl in next_two_bowls:
         if bowl == "/":
             bonus += 10
@@ -65,7 +65,7 @@ def calculate_strike_bonus(bowls, frame):
 
 def calculate_spare_bonus(bowls, frame):
     bonus = 0
-    next_bowl = bowls[frame]
+    next_bowl = bowls[frame + 1 :].replace("/", "")[0]
     if next_bowl == "X":
         bonus += 10
     elif next_bowl == "-":
