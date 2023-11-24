@@ -1,66 +1,46 @@
-import re
-
-def calculate_score(bowls):
+def bowling_score(input_string):
     score = 0
-    frame = 1
-    i = 0
+    frames = []
+    frame = ""
     
-    while frame <= 10:
-        if bowls[i] == 'X':
+    for char in input_string:
+        frame += char
+        
+        if char == "X" or len(frame) == 2:
+            frames.append(frame)
+            frame = ""
+    
+    for i in range(len(frames)):
+        frame = frames[i]
+        
+        if frame == "X":
             score += 10
-            if i + 2 < len(bowls):
-                if bowls[i+2] == 'X':
+            if i < len(frames) - 2:
+                next_frame = frames[i+1]
+                next_next_frame = frames[i+2]
+                
+                if next_frame == "X":
                     score += 10
+                    if next_next_frame == "X":
+                        score += 10
+                    else:
+                        score += int(next_next_frame[0])
                 else:
-                    score += int(bowls[i+2])
+                    score += int(next_frame[0])
                     
-            if i + 3 < len(bowls):
-                if bowls[i+3] == '/':
-                    score += 10
-                elif bowls[i+3] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[i+3])
-                    
-            i += 1
-            frame += 1
-            
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i-1])
-            
-            if i + 1 < len(bowls):
-                if bowls[i+1] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[i+1])
-                    
-            if i + 2 < len(bowls):
-                if bowls[i+2] == '/':
-                    score += 10
-                elif bowls[i+2] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[i+2])
-                    
-            i += 1
-            frame += 1
-            
+                    if next_frame[1] == "/":
+                        score += 10 - int(next_frame[0])
+        
+        elif frame[1] == "/":
+            score += 10
+            if i < len(frames) - 1:
+                next_frame = frames[i+1]
+                score += int(next_frame[0])
+        
         else:
-            score += int(bowls[i])
-            
-            if i + 1 < len(bowls):
-                if bowls[i+1] == '/':
-                    score += 10 - int(bowls[i])
-                elif bowls[i+1] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[i+1])
-                    
-            i += 2
-            frame += 1
-            
+            score += int(frame[0]) + int(frame[1])
+    
     return score
 
-bowls = input()
-score = calculate_score(bowls)
-print(score)
+input_string = input()
+print(bowling_score(input_string))
