@@ -17,7 +17,6 @@ def cut_vector(vector):
 
     return vector[: index + 1], vector[index + 1 :]
 
-
 vector = []
 while True:
     num = input()
@@ -25,4 +24,4 @@ while True:
         break
     vector.append(int(num))
 
-print(*cut_vector(vector), sep="\n")
+print(*cut_vector(vector), sep='\n')
