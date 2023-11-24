@@ -1,46 +1,42 @@
-def bowling_score(input_string):
+def bowling_score(frames):
     score = 0
-    frames = []
-    frame = ""
-    
-    for char in input_string:
-        frame += char
-        
-        if char == "X" or len(frame) == 2:
-            frames.append(frame)
-            frame = ""
-    
-    for i in range(len(frames)):
-        frame = frames[i]
-        
-        if frame == "X":
-            score += 10
-            if i < len(frames) - 2:
-                next_frame = frames[i+1]
-                next_next_frame = frames[i+2]
-                
-                if next_frame == "X":
-                    score += 10
-                    if next_next_frame == "X":
-                        score += 10
-                    else:
-                        score += int(next_next_frame[0])
-                else:
-                    score += int(next_frame[0])
-                    
-                    if next_frame[1] == "/":
-                        score += 10 - int(next_frame[0])
-        
-        elif frame[1] == "/":
-            score += 10
-            if i < len(frames) - 1:
-                next_frame = frames[i+1]
-                score += int(next_frame[0])
-        
+    frame_index = 0
+
+    for frame in range(10):
+        if frames[frame_index] == 'X':
+            score += 10 + get_strike_bonus(frames, frame_index)
+            frame_index += 1
+        elif frames[frame_index+1] == '/':
+            score += 10 + get_spare_bonus(frames, frame_index)
+            frame_index += 2
         else:
-            score += int(frame[0]) + int(frame[1])
-    
+            score += get_frame_score(frames, frame_index)
+            frame_index += 2
+
     return score
 
-input_string = input()
-print(bowling_score(input_string))
+
+def get_strike_bonus(frames, frame_index):
+    bonus = 0
+    if frames[frame_index+2] == '/':
+        bonus = 10
+    else:
+        bonus = get_frame_score(frames, frame_index+1)
+    return bonus
+
+
+def get_spare_bonus(frames, frame_index):
+    return 10 - get_frame_score(frames, frame_index)
+
+
+def get_frame_score(frames, frame_index):
+    score = 0
+    if frames[frame_index] != '-':
+        score += int(frames[frame_index])
+    if frames[frame_index+1] != '-':
+        score += int(frames[frame_index+1])
+    return score
+
+
+frames = input()
+print(bowling_score(frames))
