@@ -9,10 +9,7 @@ def cut_vector(vector):
         if current_diff < min_diff:
             min_diff = current_diff
             split_index = i
-    if split_index != -1:
-        return vector[:split_index+1], vector[split_index+1:]
-    else:
-        return [0], vector
+    return vector[:split_index+1], vector[split_index+1:] if vector[split_index] != 1 else vector[:split_index+1], vector[split_index+1:] + [0]
 
 vector = list(map(int, input().split()))
 
