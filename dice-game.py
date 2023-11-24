@@ -1,3 +1,7 @@
 n = int(input())
 m = int(input())
-print((n-1) / (n+m-2))
+
+if n <= m:
+    print(0.0)
+else:
+    print(round((n - 1) / n, 2))
