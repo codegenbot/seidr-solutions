@@ -1,27 +1,41 @@
-import numpy as np
+def cut_vector(vector):
+    n = len(vector)
+    prefix_sum = [0] * (n + 1)
 
-def cut_vector(nums):
-    total_sum = sum(nums)
-    half_sum = total_sum // 2
-    
-    current_sum = 0
-    for i, num in enumerate(nums):
-        current_sum += num
-        if current_sum == half_sum or current_sum == half_sum + num:
-            return nums[:i+1], nums[i+1:]
-    
-    return nums, [0]
+    for i in range(n):
+        prefix_sum[i + 1] = prefix_sum[i] + vector[i]
 
-# Read the input from the user
-nums = []
+    total_sum = prefix_sum[n]
+    min_diff = float("inf")
+    index = -1
+
+    for i in range(1, n):
+        diff = abs(total_sum - 2 * prefix_sum[i])
+        if diff < min_diff:
+            min_diff = diff
+            index = i
+
+    subvector1 = vector[:index]
+    subvector2 = vector[index:]
+
+    return subvector1, subvector2
+
+
+# Read input from the user
+vector = []
 while True:
     try:
-        num = int(input())
-        nums.append(num)
-    except:
+        line = input()
+        if not line:
+            break
+        vector.append(int(line))
+    except EOFError:
         break
 
 # Call the function and print the results
-subvector1, subvector2 = cut_vector(nums)
-print('\n'.join(map(str, subvector1)))
-print('\n'.join(map(str, subvector2)))
+result1, result2 = cut_vector(vector)
+for num in result1:
+    print(num)
+print(0)
+for num in result2:
+    print(num)
