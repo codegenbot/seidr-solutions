@@ -1,6 +1,10 @@
-nums = []
-for _ in range(2):
-    nums.append(int(input()))
+def fuel_cost():
+    n = int(input())
+    total = 0
+    for _ in range(n):
+        num = int(input())
+        new_num = num // 3 - 2
+        total += new_num
+    return total
 
-result = sum([math.floor(num/3) - 2 for num in nums])
-print(result)
+print(fuel_cost())
