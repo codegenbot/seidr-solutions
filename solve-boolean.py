@@ -8,8 +8,8 @@ def solve_boolean(expression):
         "&": " and ",
         "!": " not ",
     }
-    modified_expression = expression.translate(str.maketrans(translation_dict))
-    modified_expression = modified_expression.replace("|", " | ").replace("&", " & ").replace("!", " ! ")
+    modified_expression = expression.translate({ord(x): y for x, y in translation_dict.items()})
+    modified_expression = modified_expression.replace("|", " or ").replace("&", " and ")
 
     try:
         result = eval(modified_expression)
