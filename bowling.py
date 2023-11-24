@@ -12,17 +12,29 @@ def calculate_score(bowls):
         
         if bowl == "X":
             score += 10
-            frame_score = 10
-            is_strike = True
+            if frame < 10:
+                frame_score = 10
+                is_strike = True
+            else:
+                frame_score += 10
         elif bowl == "-":
-            frame_score = 0
-        elif prev_bowl.isdigit() and prev_bowl != "0":
+            if frame < 10:
+                frame_score = 0
+            else:
+                frame_score += 0
+        elif prev_bowl.isdigit() and prev_bowl != "0" and frame < 10:
             score += 10 - int(prev_bowl)
-            frame_score = 10
+            if frame == 10:
+                frame_score += 10 - int(prev_bowl)
+            else:
+                frame_score = 10
             is_spare = True
         elif bowl.isdigit():
             score += int(bowl)
-            frame_score += int(bowl)
+            if frame < 10:
+                frame_score += int(bowl)
+            else:
+                frame_score += int(bowl)
 
         if is_strike:
             if bowl != "X":
@@ -36,13 +48,14 @@ def calculate_score(bowls):
             frame_score += int(bowl)
             is_spare = False
 
-        if bowl == "X" or bowl == "/":
+        if frame < 10 and (bowl == "X" or bowl == "/"):
             frame += 1
 
         prev_bowl = bowl
 
-    if frame == 10:
-        frame_score = 0
+    if frame == 10 and is_spare:
+        score += int(bowl)
+        frame_score += int(bowl)
 
     return score
 
