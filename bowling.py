@@ -65,5 +65,6 @@ def calculate_score(bowls):
 
     return score
 
-bowls = input().replace(" ", "")
+
+bowls = input().strip().replace(" ", "")
 print(calculate_score(bowls))
