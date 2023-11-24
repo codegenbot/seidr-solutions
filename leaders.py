@@ -1,24 +1,17 @@
-def find_leaders(vector):
+def find_leaders(numbers):
     leaders = []
-    n = len(vector)
-    max_right = vector[n-1]
-    leaders.append(max_right)
-    
-    for i in range(n-2, -1, -1):
-        if vector[i] >= max_right:
-            leaders.append(vector[i])
-            max_right = vector[i]
-    
-    leaders.reverse()
+    max_num = float('-inf')
+    for num in numbers[::-1]:
+        if num >= max_num:
+            leaders.append(num)
+            max_num = num
     return leaders
 
-# Read input from user
 n = int(input())
-vector = []
+numbers = []
 for _ in range(n):
-    vector.append(int(input()))
+    numbers.append(int(input()))
 
-# Call the function and print the result
-result = find_leaders(vector)
+result = find_leaders(numbers)
 for num in result:
     print(num)
