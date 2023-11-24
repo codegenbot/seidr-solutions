@@ -1,4 +1,5 @@
 import collections
+
 def mastermind(code, guess):
     black_pegs = 0
     white_pegs = 0
