@@ -1,3 +1,8 @@
 n = int(input())
 m = int(input())
-print(round((n - m + 1) / n, 8))
+
+def probability_of_higher(n, m):
+    return n / (n + m)
+
+result = probability_of_higher(n, m)
+print(result)
