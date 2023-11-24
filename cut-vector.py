@@ -16,6 +16,15 @@ def cut_vector(vector):
             cut_index = i
 
     if cut_index == n - 1:
-        return vector[:cut_index], vector[cut_index:]
+        return [], []
     else:
         return vector[:cut_index+1], vector[cut_index+1:]
+
+def main():
+    vector = list(map(int, input().split()))
+    
+    result1, result2 = cut_vector(vector)
+    print(result1)
+    print(result2)
+
+main()
