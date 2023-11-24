@@ -4,7 +4,7 @@ def solve_boolean(expression):
 
     stack = []
     operators = set(['and', 'or', 'True', 'False', '|', '&'])
-    precedence = {'and': 0, 'or': 1, 'True': 2, 'False': 2, '|': 1, '&': 0}
+    precedence = {'and': 0, 'or': 1, 'True': 2, 'False': 2, '|': 2, '&': 0}
 
     i = 0
     while i < len(expression):
