@@ -27,29 +27,23 @@ int main() {
             rightSum += nums[j];
         }
 
-        if (leftSum == rightSum || std::abs(leftSum - rightSum) < diff) {
+        if (std::abs(leftSum - rightSum) < diff) {
             diff = std::abs(leftSum - rightSum);
             index = i;
         }
     }
 
-    if (index == -1) {
-        for (int num : nums) {
-            std::cout << num << std::endl;
-        }
-    } else {
-        std::vector<int> result1(nums.begin(), nums.begin() + index + 1);
-        std::vector<int> result2(nums.begin() + index + 1, nums.begin() + n);
+    std::vector<int> result1(nums.begin(), nums.begin() + index + 1);
+    std::vector<int> result2(nums.begin() + index + 1, nums.begin() + n);
 
-        for (int num : result1) {
-            std::cout << num << std::endl;
-        }
+    for (int num : result1) {
+        std::cout << num << std::endl;
+    }
 
-        std::cout << std::endl;
+    std::cout << std::endl;
 
-        for (int num : result2) {
-            std::cout << num << std::endl;
-        }
+    for (int num : result2) {
+        std::cout << num << std::endl;
     }
 
     return 0;
