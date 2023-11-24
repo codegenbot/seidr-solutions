@@ -1,34 +1,38 @@
-#include <vector>
 #include <iostream>
-using namespace std;
+#include <vector>
 
-vector<int> leaders(vector<int> nums) {
-    vector<int> result;
-    int n = nums.size();
-    int maxLeader = nums[n-1];
-    result.push_back(maxLeader);
-    for(int i = n-2; i >= 0; i--) {
-        if(nums[i] >= maxLeader) {
-            maxLeader = nums[i];
-            result.push_back(maxLeader);
+std::vector<int> findLeaders(const std::vector<int>& nums) {
+    std::vector<int> leaders;
+    int maxRight = nums.back();
+    leaders.push_back(maxRight);
+
+    for (int i = nums.size() - 2; i >= 0; i--) {
+        if (nums[i] >= maxRight) {
+            maxRight = nums[i];
+            leaders.push_back(maxRight);
         }
     }
-    reverse(result.begin(), result.end());
-    return result;
+
+    std::reverse(leaders.begin(), leaders.end());
+    return leaders;
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
-    for(int i = 0; i < n; i++) {
-        cin >> nums[i];
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
     }
-    vector<int> result = leaders(nums);
-    cout << result.size() << endl;
-    for(int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
+
+    std::vector<int> result = findLeaders(nums);
+
+    std::cout << result.size() << std::endl;
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
+
     return 0;
 }
