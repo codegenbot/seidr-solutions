@@ -8,8 +8,9 @@ def calculate_score(round_string):
         if round_string[i] == "X":
             score += 10
             if frame < 10:
-                score += 10
                 if strike:
+                    score += 10
+                if spare:
                     score += 10
                 strike = True
                 spare = False
@@ -18,8 +19,9 @@ def calculate_score(round_string):
         elif round_string[i] == "/":
             score += 10 - frame_score
             if frame < 10:
-                score += 10
                 if strike:
+                    score += 10
+                if spare:
                     score += 10
                 strike = False
                 spare = True
