@@ -12,20 +12,21 @@ def solve_boolean(expression):
             operator = expression[i]
             operand2 = stack.pop()
             operand1 = stack.pop()
-
+            
             if operator == "&":
-                result = operand1 and operand2
-            else:
-                result = operand1 or operand2
-
-            stack.append(result)
+                result = operand1 == "T" and operand2 == "T"
+            elif operator == "|":
+                result = operand1 == "T" or operand2 == "T"
+            
+            stack.append("T" if result else "F")
+            
             i += 1
         else:
             j = i
             while j < len(expression) and expression[j] != " ":
                 j += 1
             operand = expression[i:j]
-            stack.append(operand == "T")
+            stack.append(operand)
             i = j
 
-    return stack[0]
+    return stack[0] == "T"
