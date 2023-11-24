@@ -6,7 +6,7 @@ def cut_vector(vector):
     min_diff = total_sum
     cut_index = 1
 
-    for i in range(1, n+1):
+    for i in range(1, n):
         left_sum += vector[i - 1]
         right_sum -= vector[i - 1]
         diff = abs(left_sum - right_sum)
@@ -18,6 +18,6 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i
 
-    if cut_index >= n:
+    if cut_index >= n - 1:
         return [], []
     return vector[:cut_index], vector[cut_index:]
