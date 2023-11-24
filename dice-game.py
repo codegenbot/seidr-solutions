@@ -1,8 +1,15 @@
 n = int(input())
 m = int(input())
 
-if n <= 1 or m <= 1:
-    print(0.0)
-else:
-    probability = (n - 1) / (n * m - 1)
-    print(probability)
+def probability_of_higher(n, m):
+    count = 0
+    total = n * m
+
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            if i > j:
+                count += 1
+
+    return count / total
+
+print(probability_of_higher(n, m))
