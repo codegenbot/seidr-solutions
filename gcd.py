@@ -1,19 +1,25 @@
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return a
+from math import gcd
 
 def indices_of_substring(text, target):
     indices = []
-    for i in range(len(text) - len(target) + 1):
-        if text[i:i+len(target)] == target:
-            indices.append(i)
+    start = 0
+    while True:
+        index = text.find(target, start)
+        if index == -1:
+            break
+        indices.append(index)
+        start = index + 1
     return indices
 
 inputs = input().split()
+
 if len(inputs) >= 2:
-    a, b = map(int, inputs)
-    print(gcd(a, b))
+    try:
+        a = int(inputs[0])
+        b = int(inputs[1])
+        print(gcd(a, b))
+    except ValueError:
+        print("Please provide two integers as input.")
 else:
     print("Please provide two integers as input.")
 
