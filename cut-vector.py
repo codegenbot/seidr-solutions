@@ -18,15 +18,14 @@ def cut_vector(vector):
     return vector[: cut_index + 1], vector[cut_index + 1 :]
 
 
-# Read input from user
 vector = []
-while True:
-    num = int(input())
-    vector.append(num)
-    if len(vector) >= 20:
-        break
+try:
+    while True:
+        num = int(input())
+        vector.append(num)
+except ValueError:
+    pass
 
-# Call the function and print the output
 left_subvector, right_subvector = cut_vector(vector)
 for num in left_subvector:
     print(num)
