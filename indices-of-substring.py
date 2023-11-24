@@ -1,5 +1,11 @@
 text = input()
 target = input()
 
-indices = [i for i in range(len(text)) if text[i:i+len(target)] == target or text[i:i+len(target)+1] == target + ',']
+indices = []
+
+index = text.find(target)
+while index != -1:
+    indices.append(index)
+    index = text.find(target, index + 1)
+
 print(" ".join(map(str, indices)))
