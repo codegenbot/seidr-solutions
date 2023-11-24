@@ -3,7 +3,7 @@ def basement(nums):
     min_index = None
     for i in range(len(nums)):
         total += nums[i]
-        if total <= 0 and i != len(nums)-1:
+        if total < 0:
             min_index = i
             break
     if min_index is None:
