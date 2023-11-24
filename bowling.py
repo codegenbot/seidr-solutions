@@ -1,35 +1,39 @@
-def calculate_bowling_score(input_string):
+def calculate_score(bowls):
     score = 0
     frame = 1
-    frame_score = 0
-    bonus = 0
-
-    for char in input_string:
-        if char == 'X':
+    bowl_index = 0
+    
+    while frame <= 10:
+        if bowls[bowl_index] == 'X':
             score += 10
-            if frame < 10:
-                bonus = 2
-                frame += 1
-        elif char == '/':
-            score += 10 - frame_score
-            if frame < 10:
-                bonus = 1
-                frame += 1
-        elif char == '-':
+            if bowls[bowl_index + 2] == 'X':
+                score += 10
+                if bowls[bowl_index + 4] == 'X':
+                    score += 10
+                else:
+                    score += int(bowls[bowl_index + 4])
+            else:
+                if bowls[bowl_index + 3] == '/':
+                    score += 10
+                else:
+                    score += int(bowls[bowl_index + 2]) + int(bowls[bowl_index + 3])
+            bowl_index += 1
+        elif bowls[bowl_index + 1] == '/':
+            score += 10
+            if bowls[bowl_index + 2] == 'X':
+                score += 10
+            else:
+                score += int(bowls[bowl_index + 2])
+            bowl_index += 2
+        elif bowls[bowl_index] == '-':
             score += 0
+            if bowls[bowl_index + 1] != '-':
+                score += int(bowls[bowl_index + 1])
+            bowl_index += 2
         else:
-            score += int(char)
-            frame_score += int(char)
-            if bonus > 0:
-                score += int(char)
-                bonus -= 1
-
-        if frame_score == 10 and bonus == 0:
-            frame_score = 0
-            if frame < 10:
-                frame += 1
-
+            score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
+            bowl_index += 2
+        
+        frame += 1
+    
     return score
-
-input_string = input()
-print(calculate_bowling_score(input_string))
