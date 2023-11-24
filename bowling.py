@@ -1,23 +1,35 @@
-def bowling_score(bowls):
+def bowling(string):
     score = 0
-    frames = bowls.split('-')
-    for frame in frames:
-        if 'X' in frame: # Strike
-            score += 10
-            if frame == 'XXX':
-                score += 10
-            elif frame[1] == 'X':
-                score += 10
-            else:
-                score += int(frame[1])
-                if frame[2] == '/':
-                    score += 10 - int(frame[1])
-                else:
-                    score += int(frame[2])
-        elif '/' in frame: # Spare
-            score += 10
-            score += int(frame[0])
-        else: # Normal frame
-            score += int(frame[0])
-            score += int(frame[1])
+    frames = [0]*10
+    frame_index = 0
+    frame_count = 0
+
+    for char in string:
+        if char == 'X':
+            frames[frame_index] += 10
+            frame_count += 1
+            if frame_count == 2:
+                frame_index += 1
+                frame_count = 0
+        elif char == '/':
+            frames[frame_index] += 10 - frames[frame_index-1]
+            frame_index += 1
+            frame_count = 0
+        elif char == '-':
+            frame_count += 1
+            if frame_count == 2:
+                frame_index += 1
+                frame_count = 0
+        else:
+            frames[frame_index] += int(char)
+
+            if frame_count == 1 and (frames[frame_index] == 10 or frames[frame_index] + frames[frame_index-1] == 10):
+                frame_index += 1
+                frame_count = 0
+            elif frame_count == 0:
+                frame_count = 1
+
+    for i in range(10):
+        score += frames[i]
+
     return score
