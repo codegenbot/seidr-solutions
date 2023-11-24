@@ -1,49 +1,34 @@
-def calculate_bowling_score(input_string):
+def calculate_score(bowls):
     score = 0
     frame = 1
-    frame_score = 0
-    spare = False
-    strike = False
-    bonus = False
-
-    for char in input_string:
-        if char == 'X':
+    bowl_index = 0
+    
+    while frame <= 10:
+        if bowls[bowl_index] == 'X':
             score += 10
-            if frame < 10:
-                bonus = True
-                strike = True
-                frame += 1
+            if bowls[bowl_index + 2] == 'X':
+                score += 10
+                if bowls[bowl_index + 4] == 'X':
+                    score += 10
+                else:
+                    score += int(bowls[bowl_index + 4])
             else:
-                bonus = False
-        elif char == '/':
-            score += 10 - frame_score
-            if frame < 10:
-                bonus = True
-                spare = True
-                frame += 1
+                if bowls[bowl_index + 3] == '/':
+                    score += 10
+                else:
+                    score += int(bowls[bowl_index + 2]) + int(bowls[bowl_index + 3])
+            bowl_index += 1
+        elif bowls[bowl_index + 1] == '/':
+            score += 10
+            if bowls[bowl_index + 2] == 'X':
+                score += 10
             else:
-                bonus = False
-        elif char == '-':
-            if bonus:
-                score += 0
-            else:
-                frame_score += 0
+                score += int(bowls[bowl_index + 2])
+            bowl_index += 2
         else:
-            score += int(char)
-            frame_score += int(char)
-            if spare:
-                score += int(char)
-                spare = False
-            if strike:
-                score += int(char)
-                strike = False
-
-        if frame_score == 10 and not bonus:
-            frame_score = 0
-            if frame < 10:
-                frame += 1
-
+            score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
+            bowl_index += 2
+        
+        frame += 1
+    
     return score
-
-input_string = input()
-print(calculate_bowling_score(input_string))
