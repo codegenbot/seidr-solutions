@@ -1,18 +1,24 @@
 from ast import literal_eval
 
+
 def solve_boolean(expression):
     translation_dict = {
         "T": "True",
         "F": "False",
-        "|": " or ",
-        "&": " and ",
-        "!": " not ",
+        "|": "or",
+        "&": "and",
+        "!": "not",
     }
-    modified_expression = expression.translate({ord(x): y for x, y in translation_dict.items()})
-    modified_expression = modified_expression.replace("|", " or ").replace("&", " and ")
+    modified_expression = expression.translate(str.maketrans(translation_dict))
+    modified_expression = modified_expression.replace("|", " | ").replace("&", " & ")
 
     try:
         result = eval(modified_expression)
-        return result
+
+        if isinstance(result, bool):
+            return result
+        else:
+            return False
+
     except NameError:
         return False
