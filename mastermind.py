@@ -12,9 +12,8 @@ def mastermind(code: str, guess: str) -> tuple:
             black_pegs += 1
             code_counts[code[i]] -= 1
             guess_counts[guess[i]] -= 1
-    
-    for color, count in guess_counts.items():
-        if count > 0:
-            white_pegs += min(count, code_counts[color])
+        elif guess[i] in code_counts and code_counts[guess[i]] > 0:
+            white_pegs += 1
+            code_counts[guess[i]] -= 1
     
     return (black_pegs, white_pegs)
