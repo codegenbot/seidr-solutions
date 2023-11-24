@@ -21,10 +21,9 @@ def cut_vector(vector):
 # Read input from user
 vector = []
 while True:
-    try:
-        num = int(input())
-        vector.append(num)
-    except:
+    num = int(input())
+    vector.append(num)
+    if len(vector) >= 20:
         break
 
 # Call the function and print the output
