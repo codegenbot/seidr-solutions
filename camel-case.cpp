@@ -22,7 +22,7 @@ std::string convertToCamelCase(const std::string& input) {
         if (i == 0) {
             result += words[i];
         } else {
-            result += words[i][0] - 'a' + 'A';
+            result += std::toupper(words[i][0]);
             result += words[i].substr(1);
         }
     }
@@ -32,7 +32,7 @@ std::string convertToCamelCase(const std::string& input) {
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    std::cin >> input;
 
     std::string output = convertToCamelCase(input);
     std::cout << output << std::endl;
