@@ -17,18 +17,10 @@ def calculate_score(bowls):
     frame = 0
     for i in range(10):
         if rolls[frame] == 10:
-            score += 10
-            if rolls[frame + 1] == 10:
-                score += 10
-                if rolls[frame + 2] == 10:
-                    score += 10
-                else:
-                    score += rolls[frame + 2]
-            else:
-                score += rolls[frame + 1] + rolls[frame + 2]
+            score += 10 + rolls[frame + 1] + rolls[frame + 2]
             frame += 1
         elif rolls[frame] + rolls[frame + 1] == 10:
-            score += 10 + rolls[frame + 2]
+            score += 10 + rolls[frame] + rolls[frame + 2]
             frame += 2
         else:
             score += rolls[frame] + rolls[frame + 1]
