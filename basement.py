@@ -4,10 +4,10 @@ def basement(nums):
     min_index = None
     for i in range(len(nums)):
         total += nums[i]
-        if total < min_total:
+        if total <= min_total:
             min_total = total
             min_index = i
-    return min_index if min_index is not None else -1
+    return min_index
 
 nums = list(map(int, input().split()))
 result = basement(nums)
