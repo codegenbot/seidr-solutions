@@ -1,5 +1,8 @@
-text = input()
-target = input()
+import re
 
-indices = [str(i) for i in range(len(text)) if text[i:i+len(target)] == target]
-print(" ".join(indices))
+text = input().strip()
+target = input().strip()
+
+indices = [m.start() for m in re.finditer(f'(?={target})', text)]
+
+print(*indices)
