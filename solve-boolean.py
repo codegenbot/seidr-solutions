@@ -1,6 +1,6 @@
 def solve_boolean(expression):
     stack = []
-    operators = set(["&", "|", "T", "F", "t"])
+    operators = set(["&", "|", "T", "F"])
 
     i = 0
     while i < len(expression):
@@ -19,6 +19,9 @@ def solve_boolean(expression):
             }.get(operator, False)
 
             stack.append("T" if result else "F")
+
+        elif expression[i] in ["T", "F"]:
+            stack.append(expression[i])
 
         i += 1
 
