@@ -10,17 +10,10 @@ def indices_of_substring(text, target):
             indices.append(i)
     return indices
 
-def solve():
-    t = int(input())
-    for _ in range(t):
-        problem = input()
-        if problem == "gcd":
-            a = int(input())
-            b = int(input())
-            print(gcd(a, b))
-        elif problem == "indices_of_substring":
-            text = input()
-            target = input()
-            print(indices_of_substring(text, target))
+a = int(input())
+b = int(input())
+print(gcd(a, b))
 
-solve()
+text = input()
+target = input()
+print(indices_of_substring(text, target))
