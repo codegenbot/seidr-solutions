@@ -1,4 +1,4 @@
 def solve_boolean(expression):
     expression = expression.replace('&', ' and ').replace('|', ' or ')
-    expression = expression.replace('t', 'T').replace('f', 'F')
+    expression = expression.replace('t', 'True').replace('f', 'False').lower()
     return eval(expression)
