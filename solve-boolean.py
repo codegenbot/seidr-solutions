@@ -1,6 +1,5 @@
 def solve_boolean(expression):
-    expression = expression.replace("|", " or ").replace("&", " and ")
-    expression = expression.replace("T", "True").replace("F", "False")
+    expression = expression.replace("|", " or ").replace("&", " and ").replace("T", "True").replace("F", "False")
 
     stack = []
     operators = set(["and", "or", "True", "False", "|", "&"])
@@ -22,7 +21,7 @@ def solve_boolean(expression):
                 operand2 = stack.pop()[:-1]
                 operator = stack.pop()
                 operand1 = stack.pop()
-                result = f"({operand1} {operator} {operand2})"
+                result = f"{operand1} {operator} {operand2}"
                 stack.append(result)
             stack.append(operator)
             i += 1
@@ -38,7 +37,7 @@ def solve_boolean(expression):
         operand2 = stack.pop()[:-1]
         operator = stack.pop()
         operand1 = stack.pop()
-        result = f"({operand1} {operator} {operand2})"
+        result = f"{operand1} {operator} {operand2}"
         stack.append(result)
 
-    return eval(stack[0].replace("False", "F").replace("True", "T"))
+    return eval(stack[0], {"True": True, "False": False})
