@@ -16,7 +16,6 @@ def cut_vector(vector):
 
     return vector[: cut_index + 1], vector[cut_index + 1 :]
 
-
 vector = []
 num = int(input())
 while num != -1:
