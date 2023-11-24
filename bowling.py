@@ -1,34 +1,36 @@
 def calculate_score(bowls):
     score = 0
     frame = 1
-    bowl_index = 0
+    i = 0
     
     while frame <= 10:
-        if bowls[bowl_index] == 'X':
+        if bowls[i] == 'X':
             score += 10
-            if bowls[bowl_index + 2] == 'X':
-                score += 10
-                if bowls[bowl_index + 4] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[bowl_index + 4])
-            else:
-                if bowls[bowl_index + 3] == '/':
-                    score += 10
-                else:
-                    score += int(bowls[bowl_index + 2]) + int(bowls[bowl_index + 3])
-            bowl_index += 1
-        elif bowls[bowl_index + 1] == '/':
-            score += 10
-            if bowls[bowl_index + 2] == 'X':
-                score += 10
-            else:
-                score += int(bowls[bowl_index + 2])
-            bowl_index += 2
+            if i + 2 < len(bowls):
+                score += get_bowl_value(bowls[i+1])
+                score += get_bowl_value(bowls[i+2])
+            frame += 1
+            i += 1
+        elif bowls[i] == '/':
+            score += 10 - get_bowl_value(bowls[i-1])
+            if i + 1 < len(bowls):
+                score += get_bowl_value(bowls[i+1])
+            frame += 1
+            i += 1
         else:
-            score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
-            bowl_index += 2
-        
-        frame += 1
-    
+            score += get_bowl_value(bowls[i])
+            frame += 1
+        i += 1
+
     return score
+
+def get_bowl_value(bowl):
+    if bowl == 'X' or bowl == '/':
+        return 10
+    elif bowl == '-':
+        return 0
+    else:
+        return int(bowl)
+
+bowls = input()
+print(calculate_score(bowls))
