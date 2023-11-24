@@ -18,12 +18,12 @@ std::string convertToCamelCase(const std::string& input) {
 
     words.push_back(word);
 
-    for (int i = 0; i < words.size(); i++) {
-        if (i == 0) {
-            result += words[i];
+    for (const std::string& word : words) {
+        if (result.empty()) {
+            result += word;
         } else {
-            result += words[i][0] - 'a' + 'A';
-            result += words[i].substr(1);
+            result += std::toupper(word[0]);
+            result += word.substr(1);
         }
     }
 
