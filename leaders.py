@@ -1,13 +1,6 @@
 def find_leaders(arr):
-    if not all(isinstance(x, int) and x >= 0 for x in arr):
-        return []
-
-    leaders = [arr[-1]]
-    for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= leaders[-1]:
-            leaders.append(arr[i])
-
-    if arr[0] > leaders[-1]:
-        leaders.append(arr[0])
-
-    return leaders[::-1]
+    leaders = []
+    for i in range(1, len(arr)):
+        if arr[i] >= arr[-1]:
+            leaders.insert(0, arr[i])
+    return leaders
