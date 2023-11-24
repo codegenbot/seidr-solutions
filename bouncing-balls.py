@@ -7,9 +7,9 @@ total_distance = starting_height
 
 current_height = first_bounce_height
 
-for _ in range(num_bounces):
+for _ in range(num_bounces - 1):
     current_height = current_height * bounciness_index
     total_distance += 2 * current_height
 
-final_distance = total_distance - starting_height
+final_distance = total_distance
 print(round(final_distance, 2))
