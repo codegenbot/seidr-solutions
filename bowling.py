@@ -7,11 +7,10 @@ def calculate_score(bowls):
     index = 0
 
     while frame < 10:
-        if index < len(bowls):
-            bowl = bowls[index]
-        else:
+        if index >= len(bowls):
             break
 
+        bowl = bowls[index]
         if bowl == "X":
             score += 10
             frame_score += 10
