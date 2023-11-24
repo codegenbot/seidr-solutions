@@ -1,5 +1,3 @@
-import math
-
-
-def fuel_cost(vector):
-    return sum([int(math.floor(x / 3)) - 2 for x in vector])
+nums = list(map(int, input().split()))
+result = sum([max(0, num // 3 - 2) for num in nums])
+print(result)
