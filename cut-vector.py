@@ -1,7 +1,7 @@
 def cut_vector(vector):
     total_sum = sum(vector)
     current_sum = 0
-    min_diff = float('inf')
+    min_diff = float("inf")
     split_index = -1
     for i, num in enumerate(vector):
         current_sum += num
@@ -12,4 +12,4 @@ def cut_vector(vector):
     if split_index != -1:
         return vector[:split_index], vector[split_index:]
     else:
-        return vector, []
+        return vector, [0]
