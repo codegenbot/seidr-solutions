@@ -1,11 +1,19 @@
-inputs = input().split()
+import math
 
-if len(inputs) >= 2:
-    a = int(inputs[0])
-    b = int(inputs[1])
-    print(gcd(a, b))
-else:
-    print("Please provide two integers as input.")
+def gcd(a, b):
+    return math.gcd(a, b)
+
+def indices_of_substring(text, target):
+    indices = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            indices.append(i)
+    return indices
+
+inputs = input().split()
+a = int(inputs[0])
+b = int(inputs[1]) if len(inputs) > 1 else 0
+print(gcd(a, b))
 
 text = input()
 target = input()
