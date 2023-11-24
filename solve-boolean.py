@@ -1,6 +1,5 @@
 from ast import literal_eval
 
-
 def solve_boolean(expression):
     translation_dict = {
         "T": "True",
