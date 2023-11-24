@@ -1,14 +1,10 @@
-import math
+import numpy as np
 
-def vector_distance():
-    n = int(input())
-    vector1 = list(map(float, input().split()))
-    n = int(input())
-    vector2 = list(map(float, input().split()))
-    
-    distance = 0
-    for i in range(n):
-        distance += (vector1[i] - vector2[i]) ** 2
-    
-    distance = math.sqrt(distance)
-    return distance
+n = int(input())
+vector1 = np.array(list(map(float, input().split())))
+
+m = int(input())
+vector2 = np.array(list(map(float, input().split())))
+
+distance = np.linalg.norm(vector1 - vector2)
+print(distance)
