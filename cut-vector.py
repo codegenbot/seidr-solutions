@@ -16,11 +16,7 @@ def cut_vector(vector):
 
     return vector[: cut_index + 1], vector[cut_index + 1 :]
 
-vector = []
-num = int(input())
-while num != -1:
-    vector.append(num)
-    num = int(input())
+vector = [int(x) for x in input().split()]
 
 left_subvector, right_subvector = cut_vector(vector)
 for num in left_subvector:
