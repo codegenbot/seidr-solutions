@@ -6,3 +6,6 @@ def middle_character(s):
         return s[length // 2]
     else:
         return s[length // 2 - 1: length // 2 + 1]
+
+result = middle_character(input().strip())
+print(result)
