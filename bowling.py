@@ -9,53 +9,43 @@ def calculate_score(bowls):
     for bowl in bowls:
         if bowl == "/":
             continue
-        
+
         if bowl == "X":
             score += 10
-            if frame < 10:
-                frame_score = 10
-                is_strike = True
-            else:
-                frame_score += 10
+            frame_score = 10
+            is_strike = True
         elif bowl == "-":
-            if frame < 10:
-                frame_score = 0
+            frame_score = 0
+        elif prev_bowl.isdigit() and prev_bowl != "0":
+            if prev_bowl == "X":
+                score += 10 - int(bowls[-1])
             else:
-                frame_score += 0
-        elif prev_bowl.isdigit() and prev_bowl != "0" and frame < 10:
-            score += 10 - int(prev_bowl)
-            if frame == 10:
-                frame_score += 10 - int(prev_bowl)
-            else:
-                frame_score = 10
+                score += 10 - int(prev_bowl)
+            frame_score = 10
             is_spare = True
         elif bowl.isdigit():
             score += int(bowl)
-            if frame < 10:
-                frame_score += int(bowl)
-            else:
-                frame_score += int(bowl)
+            frame_score += int(bowl)
 
         if is_strike:
-            if bowl != "X":
+            score += int(bowl)
+            frame_score += int(bowl)
+            if prev_bowl == "X":
                 score += int(bowl)
                 frame_score += int(bowl)
-            else:
-                frame_score += 10
             is_strike = False
         if is_spare:
             score += int(bowl)
             frame_score += int(bowl)
             is_spare = False
 
-        if frame < 10 and (bowl == "X" or bowl == "/"):
-            frame += 1
-
         prev_bowl = bowl
 
-    if frame == 10 and is_spare:
-        score += int(bowl)
-        frame_score += int(bowl)
+    if frame == 10:
+        if is_spare:
+            score += int(bowls[-1])
+        elif is_strike and len(bowls) > 1:
+            score += int(bowls[-2]) + int(bowls[-1])
 
     return score
 
