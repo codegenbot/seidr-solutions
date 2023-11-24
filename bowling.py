@@ -39,8 +39,11 @@ def calculate_score(round_string):
             score += int(round_string[i])
             frame_score = int(round_string[i])
             if frame < 10:
-                strike = frame_score == 10
+                strike = False
                 spare = False
+                if frame_score == 10:
+                    strike = True
+                    spare = False
                 frame += 1
     return score
 
