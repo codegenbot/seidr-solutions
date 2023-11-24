@@ -1,6 +1,6 @@
 def mastermind(code, guess):
-    black_pegs = 0
     white_pegs = 0
+    black_pegs = 0
     code_count = collections.Counter(code)
     guess_count = collections.Counter(guess)
     
