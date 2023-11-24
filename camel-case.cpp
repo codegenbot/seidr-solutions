@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 std::string convertToCamelCase(const std::string& input) {
     std::string result;
     std::vector<std::string> words;
@@ -14,15 +18,24 @@ std::string convertToCamelCase(const std::string& input) {
 
     words.push_back(word);
 
-    for (int i = 0; i < words.size(); i++) {
-        for (int j = 0; j < words[i].size(); j++) {
-            if (j == 0 && i != 0) {
-                result += words[i][j] - 'a' + 'A';
-            } else {
-                result += words[i][j];
-            }
+    for (const std::string& word : words) {
+        if (result.empty()) {
+            result += word;
+        } else {
+            result += std::toupper(word[0]);
+            result += word.substr(1);
         }
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::string output = convertToCamelCase(input);
+    std::cout << output << std::endl;
+
+    return 0;
 }
