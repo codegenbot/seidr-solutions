@@ -9,9 +9,10 @@ def solve_boolean(expression):
         "!": " not ",
     }
     modified_expression = expression.translate(str.maketrans(translation_dict))
+    modified_expression = modified_expression.replace("|", " | ").replace("&", " & ").replace("!", " ! ")
 
-    modified_expression = modified_expression.replace("|", " | ").replace("&", " & ")
-    modified_expression = modified_expression.replace(" and and", " and").replace(" or or", " or")
-
-    result = eval(modified_expression)
-    return result
+    try:
+        result = eval(modified_expression)
+        return result
+    except NameError:
+        return False
