@@ -1,7 +1,7 @@
 def cut_vector(vector):
     total_sum = sum(vector)
     current_sum = 0
-    min_diff = float("inf")
+    min_diff = float('inf')
     split_index = -1
     for i, num in enumerate(vector):
         current_sum += num
@@ -9,14 +9,10 @@ def cut_vector(vector):
         if current_diff < min_diff:
             min_diff = current_diff
             split_index = i
-    return (
-        vector[: split_index + 1],
-        vector[split_index + 1 :]
-        if vector[split_index] != 1
-        else vector[: split_index + 1],
-        vector[split_index + 1 :] + [0],
-    )
-
+    if split_index != -1:
+        return vector[:split_index], vector[split_index:]
+    else:
+        return vector[:split_index+1], vector[split_index+1:]
 
 vector = list(map(int, input().split()))
 
