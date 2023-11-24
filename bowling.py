@@ -1,35 +1,50 @@
-def bowling(string):
+def bowling_score(frames):
     score = 0
-    frames = [0]*10
-    frame_index = 0
-    frame_count = 0
+    frame = 1
+    i = 0
 
-    for char in string:
-        if char == 'X':
-            frames[frame_index] += 10
-            frame_count += 1
-            if frame_count == 2:
-                frame_index += 1
-                frame_count = 0
-        elif char == '/':
-            frames[frame_index] += 10 - frames[frame_index-1]
-            frame_index += 1
-            frame_count = 0
-        elif char == '-':
-            frame_count += 1
-            if frame_count == 2:
-                frame_index += 1
-                frame_count = 0
+    while frame <= 10:
+        if frames[i] == "X":
+            score += 10
+
+            if i < len(frames) - 2:
+                if frames[i + 2] == "X":
+                    score += 10
+                elif frames[i + 2] == "/":
+                    score += 10 - int(frames[i + 1])
+                else:
+                    score += int(frames[i + 1]) + int(frames[i + 2])
+
+            if i < len(frames) - 1:
+                if frames[i + 1] == "X":
+                    score += 10
+                elif frames[i + 1] == "/":
+                    score += 10
+                else:
+                    score += int(frames[i + 1])
+
+            frame += 1
+            i += 1
+        elif frames[i + 1] == "/":
+            score += 10
+
+            if i < len(frames) - 2:
+                if frames[i + 2] == "X":
+                    score += 10
+                elif frames[i + 2] == "/":
+                    score += 10 - int(frames[i + 2 - 1])
+                else:
+                    score += int(frames[i + 2])
+
+            frame += 1
+            i += 2
         else:
-            frames[frame_index] += int(char)
-
-            if frame_count == 1 and (frames[frame_index] == 10 or frames[frame_index] + frames[frame_index-1] == 10):
-                frame_index += 1
-                frame_count = 0
-            elif frame_count == 0:
-                frame_count = 1
-
-    for i in range(10):
-        score += frames[i]
+            score += int(frames[i]) + int(frames[i + 1])
+            frame += 1
+            i += 2
 
     return score
+
+
+frames = input().strip()
+print(bowling_score(frames))
