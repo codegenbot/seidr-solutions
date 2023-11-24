@@ -1,9 +1,9 @@
 text = input().strip()
 target = input().strip()
 
-indices = [i for i in range(len(text)-len(target)+1) if target in text[i:i+len(target)]]
+indices = [i for i in range(len(text)-len(target)+2) if text[i:i+len(target)] == target]
 
-if not indices:
-    print("-1")
-else:
+if indices:
     print(" ".join(map(str, indices)))
+else:
+    print("-1")
