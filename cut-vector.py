@@ -22,7 +22,7 @@ def cut_vector(vector):
 
 def main():
     vector = list(map(int, input().split()))
-    
+
     result1, result2 = cut_vector(vector)
     print(result1)
     print(result2)
