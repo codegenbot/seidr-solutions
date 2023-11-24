@@ -12,14 +12,8 @@ def solve_boolean(expression):
             operator = expression[i]
             operand2 = stack.pop()
             operand1 = stack.pop()
-            
-            if operator == "&":
-                result = operand1 == "T" and operand2 == "T"
-            elif operator == "|":
-                result = operand1 == "T" or operand2 == "T"
-            
-            stack.append("T" if result else "F")
-            
+            result = eval(f"{operand1} {operator} {operand2}")
+            stack.append(result)
             i += 1
         else:
             j = i
@@ -29,4 +23,4 @@ def solve_boolean(expression):
             stack.append(operand)
             i = j
 
-    return stack[0] == "T"
+    return stack[0]
