@@ -19,7 +19,7 @@ def calculate_score(bowls):
                 frame_score = 0
             else:
                 frame_score += 0
-        elif bowl == "/" and prev_bowl.isdigit() and prev_bowl != "0":
+        elif bowl == "/" and prev_bowl.isdigit() and prev_bowl != "0" and frame < 10:
             score += 10 - int(prev_bowl)
             if frame == 10:
                 frame_score += 10 - int(prev_bowl)
