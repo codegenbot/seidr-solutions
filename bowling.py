@@ -1,34 +1,27 @@
 def calculate_score(bowls):
     score = 0
-    rolls = list(bowls)
+    rolls = list(bowls.replace("-", "0"))
 
     frame = 0
     while frame < 10:
         if rolls[frame] == "X":
-            score += 10 + get_strike_bonus(rolls, frame)
+            score += 10 + bonus_score(rolls, frame + 1, 2)
             frame += 1
-        elif rolls[frame + 1] == "/":
-            score += 10 + get_spare_bonus(rolls, frame)
+        elif rolls[frame] == "/":
+            score += 10 - int(rolls[frame - 1]) + bonus_score(rolls, frame + 1, 1)
             frame += 2
         else:
-            score += get_frame_score(rolls, frame)
+            score += int(rolls[frame]) + int(rolls[frame + 1])
             frame += 2
 
     return score
 
 
-def get_strike_bonus(rolls, frame):
-    next_roll = int(rolls[frame + 1])
-    next_next_roll = int(rolls[frame + 2])
-    return next_roll + next_next_roll
-
-
-def get_spare_bonus(rolls, frame):
-    next_roll = int(rolls[frame + 2])
-    return next_roll
-
-
-def get_frame_score(rolls, frame):
-    roll_1 = int(rolls[frame])
-    roll_2 = int(rolls[frame + 1])
-    return roll_1 + roll_2
+def bonus_score(rolls, start, num_rolls):
+    bonus = sum([int(roll) for roll in rolls[start : start + num_rolls]])
+    if rolls[start - 1] == "/":
+        return 10 - int(rolls[start - 2]) + bonus
+    elif rolls[start - 2] == "X":
+        return 10 + bonus
+    else:
+        return bonus
