@@ -1,9 +1,6 @@
-def fuel_cost(arr):
-    return sum([(x // 3) - 2 for x in arr])
+nums = []
+for _ in range(2):
+    nums.append(int(input()))
 
-
-# Read input from user
-arr = list(map(int, input().split()))
-
-# Call the function and print the result
-print(fuel_cost(arr))
+result = sum([math.floor(num/3) - 2 for num in nums])
+print(result)
