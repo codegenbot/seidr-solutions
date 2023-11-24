@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <cmath>
 
 int main() {
     int n;
@@ -22,27 +23,33 @@ int main() {
             leftSum += nums[j];
         }
 
-        for (int j = i; j < n; j++) {
+        for (int j = i+1; j < n; j++) {
             rightSum += nums[j];
         }
 
-        if (leftSum == rightSum || abs(leftSum - rightSum) < diff) {
-            diff = abs(leftSum - rightSum);
+        if (std::abs(leftSum - rightSum) < diff) {
+            diff = std::abs(leftSum - rightSum);
             index = i;
         }
     }
 
-    std::vector<int> result1(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> result2(nums.begin() + index + 1, nums.end());
+    if (index == -1) {
+        for (int num : nums) {
+            std::cout << num << std::endl;
+        }
+    } else {
+        std::vector<int> result1(nums.begin(), nums.begin() + index + 1);
+        std::vector<int> result2(nums.begin() + index + 1, nums.begin() + n + 1);
 
-    for (int num : result1) {
-        std::cout << num << std::endl;
-    }
+        for (int num : result1) {
+            std::cout << num << std::endl;
+        }
 
-    std::cout << std::endl;
+        std::cout << std::endl;
 
-    for (int num : result2) {
-        std::cout << num << std::endl;
+        for (int num : result2) {
+            std::cout << num << std::endl;
+        }
     }
 
     return 0;
