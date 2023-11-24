@@ -1,31 +1,62 @@
-import re
-
-def bowling_score(bowls):
+def calculate_score(round):
     score = 0
-    frames = re.findall(r'X|/\d|-|\d', bowls)
-    for i in range(len(frames)):
-        if frames[i] == 'X':
+    frame = 0
+    is_strike = False
+    is_spare = False
+    previous_is_strike = False
+    previous_is_spare = False
+    for i in range(len(round)):
+        if round[i] == 'X':
             score += 10
-            if i < len(frames) - 2:
-                if frames[i+1] == 'X':
-                    score += 10
-                    if frames[i+2] == 'X':
-                        score += 10
-                    else:
-                        score += int(frames[i+2])
-                elif frames[i+1] == '/':
-                    score += 10
-                else:
-                    score += int(frames[i+1][0]) + int(frames[i+1][1])
-        elif '/' in frames[i]:
-            score += 10
-            if i < len(frames) - 1:
-                if frames[i+1] == 'X':
-                    score += 10
-                else:
-                    score += int(frames[i+1][0])
-        elif '-' in frames[i]:
-            score += int(frames[i][0])
+            if previous_is_strike:
+                score += 10
+            if previous_is_spare:
+                score += 10
+            previous_is_strike = True
+            previous_is_spare = False
+            if frame == 9:
+                is_strike = True
+            else:
+                frame += 1
+        elif round[i] == '/':
+            score += 10 - int(round[i-1])
+            if previous_is_strike:
+                score += 10
+            if previous_is_spare:
+                score += 10
+            previous_is_strike = False
+            previous_is_spare = True
+            if frame == 9:
+                is_spare = True
+            else:
+                frame += 1
+        elif round[i] == '-':
+            if previous_is_strike:
+                score += 10
+            if previous_is_spare:
+                score += 10
+            previous_is_strike = False
+            previous_is_spare = False
+            if frame == 9:
+                is_strike = True
+            else:
+                frame += 1
         else:
-            score += int(frames[i])
+            score += int(round[i])
+            if previous_is_strike:
+                score += int(round[i])
+            if previous_is_spare:
+                score += int(round[i])
+            previous_is_strike = False
+            previous_is_spare = False
+            if frame == 9:
+                is_strike = True
+            else:
+                frame += 1
+
+    if is_strike:
+        score += int(round[-2]) + int(round[-1])
+    elif is_spare:
+        score += int(round[-1])
+    
     return score
