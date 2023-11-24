@@ -26,7 +26,7 @@ def calculate_score(bowls):
             else:
                 frame_score = 10
             is_spare = True
-        elif bowl.isnumeric():
+        elif bowl.isdigit():
             score += int(bowl)
             if frame < 10:
                 frame_score += int(bowl)
@@ -51,5 +51,6 @@ def calculate_score(bowls):
 
     return score
 
-bowls = input().strip()
+
+bowls = input().strip().replace(' ', '')
 print(calculate_score(bowls))
