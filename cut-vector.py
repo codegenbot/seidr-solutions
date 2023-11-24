@@ -4,7 +4,7 @@ def cut_vector(vector):
     left_sum = 0
     right_sum = total_sum
     min_diff = float("inf")
-    cut_index = 0
+    cut_index = None
 
     for i in range(n):
         left_sum += vector[i]
@@ -14,5 +14,8 @@ def cut_vector(vector):
         if diff <= min_diff:
             min_diff = diff
             cut_index = i
+
+            if diff == 0:
+                break
 
     return vector[:cut_index+1], vector[cut_index+1:]
