@@ -15,8 +15,7 @@ def calculate_score(bowls):
                 if consecutive_strikes == 2:
                     score += 10
                     frame_score += 10
-                    if len(bowls) > 3:
-                        score += int(bowls[-3])
+                consecutive_strikes = 0
             if consecutive_spares:
                 score += 10 - int(bowls[-1])
                 frame_score += 10 - int(bowls[-1])
@@ -28,6 +27,7 @@ def calculate_score(bowls):
                 score += int(bowl)
                 frame_score += int(bowl)
                 consecutive_spares = 0
+
         if bowl == "/":
             score += 10 - int(bowls[-1])
             frame_score += 10 - int(bowls[-1])
@@ -43,7 +43,10 @@ def calculate_score(bowls):
             consecutive_strikes += 1
 
         frame_score %= 10
-        if frame_score == 0:
+        if frame_score == 10:
+            frame += 1
+            frame_score = 0
+        elif frame_score == 0:
             frame += 1
 
     return score
