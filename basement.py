@@ -13,6 +13,3 @@ def basement(nums):
             return len(nums)
     else:
         return min_index
-
-nums = list(map(int, input().split()))
-print(basement(nums))
