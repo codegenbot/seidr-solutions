@@ -1,12 +1,5 @@
-import math
+import numpy as np
 
-def fuel_cost(vector):
-    return sum([math.floor(x/3) - 2 for x in vector])
-
-vector = []
-n = int(input())
-for i in range(n):
-    vector.append(int(input()))
-
-result = fuel_cost(vector)
-print(result)
+def fuel_cost(numbers):
+    new_numbers = np.floor_divide(numbers, 3) - 2
+    return np.sum(new_numbers)
