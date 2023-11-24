@@ -1,8 +1,8 @@
 def basement(arr):
-    sum = 0
+    prefix_sum = 0
     for i in range(len(arr)):
-        sum += arr[i]
-        if sum < 0:
+        prefix_sum += arr[i]
+        if prefix_sum < 0:
             return i
     return -1
 
@@ -12,4 +12,5 @@ arr = []
 for _ in range(n):
     arr.append(int(input()))
 
-print(basement(arr))
+result = basement(arr)
+print(result)
