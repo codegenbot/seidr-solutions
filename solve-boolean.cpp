@@ -1,14 +1,16 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-bool evaluateBooleanExpression(const std::string& expression) {
+bool evaluateBoolean(string expression) {
     if (expression == "t") {
         return true;
     } else if (expression == "f") {
         return false;
     } else {
-        bool left = evaluateBooleanExpression(expression.substr(0, expression.find_first_of("&|")));
-        bool right = evaluateBooleanExpression(expression.substr(expression.find_first_of("&|") + 1));
+        bool left = evaluateBoolean(expression.substr(0, expression.find_first_of("&|")));
+        bool right = evaluateBoolean(expression.substr(expression.find_first_of("&|") + 1));
+        
         if (expression[expression.find_first_of("&|")] == '&') {
             return left && right;
         } else {
@@ -18,8 +20,10 @@ bool evaluateBooleanExpression(const std::string& expression) {
 }
 
 int main() {
-    std::string expression;
-    std::cin >> expression;
-    std::cout << (evaluateBooleanExpression(expression) ? "True" : "False") << std::endl;
+    string expression;
+    cin >> expression;
+    
+    cout << (evaluateBoolean(expression) ? "True" : "False") << endl;
+    
     return 0;
 }
