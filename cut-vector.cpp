@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <cstdlib>
 
 int main() {
     int n;
@@ -30,20 +31,26 @@ int main() {
             diff = abs(leftSum - rightSum);
             index = i;
         }
+
+        if (diff == 0) {
+            break;
+        }
     }
 
     std::vector<int> result1(nums.begin(), nums.begin() + index + 1);
     std::vector<int> result2(nums.begin() + index + 1, nums.end());
 
     for (int num : result1) {
-        std::cout << num << std::endl;
+        std::cout << num << " ";
     }
 
     std::cout << std::endl;
 
     for (int num : result2) {
-        std::cout << num << std::endl;
+        std::cout << num << " ";
     }
+
+    std::cout << std::endl;
 
     return 0;
 }
