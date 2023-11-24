@@ -1,10 +1,10 @@
 def solve_boolean(expression):
     expression = expression.replace('T', 'True').replace('F', 'False')
-    expression = expression.replace('|', 'or').replace('&', 'and')
+    expression = expression.replace('|', ' or ').replace('&', ' and ')
     
     stack = []
-    operators = set([' and ', ' or '])
-    precedence = {' and ': 0, ' or ': 1}
+    operators = set(['|', '&'])
+    precedence = {'|': 0, '&': 1}
     
     i = 0
     while i < len(expression):
