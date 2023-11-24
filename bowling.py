@@ -4,7 +4,7 @@ def calculate_score(bowls):
     frame_score = 0
     is_strike = False
     is_spare = False
-    
+
     for bowl in bowls:
         if bowl == 'X':
             score += 10
@@ -27,26 +27,26 @@ def calculate_score(bowls):
         else:
             frame_score += int(bowl)
             score += int(bowl)
-            
+
             if is_strike and frame < 10:
                 score += int(bowl)
-            
+
             if is_spare and frame < 10:
                 score += int(bowl)
-            
+
             if frame_score == 10 and frame < 10 and not is_strike:
                 is_spare = True
             else:
                 is_spare = False
-            
+
             if frame_score == 0 and frame < 10:
                 is_strike = True
             else:
                 is_strike = False
-        
+
         if frame == 10:
             break
-    
+
     return score
 
 def calculate_strike_bonus(bowls, frame):
