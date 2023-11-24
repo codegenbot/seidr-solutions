@@ -15,13 +15,7 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i + 1
 
-    if cut_index == n and left_sum != right_sum:
-        cut_index = 0
-
-    return vector[: cut_index + 1], vector[cut_index + 1 :]
-
-
-vector = list(map(int, input().split()))
-subvector1, subvector2 = cut_vector(vector)
-print(subvector1)
-print(subvector2)
+    if cut_index == n or cut_index == 0:
+        return vector[:], []
+    else:
+        return vector[:cut_index], vector[cut_index:]
