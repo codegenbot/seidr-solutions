@@ -1,10 +1,9 @@
 def solve_boolean(expression):
-    expression = expression.replace('T', 'True').replace('F', 'False')
-    expression = expression.replace('|', 'or').replace('&', 'and')
+    expression = expression.replace('|', ' or ').replace('&', ' and ')
     
     stack = []
     operators = set([' and ', ' or '])
-    precedence = {' and ': 1, ' or ': 0}
+    precedence = {' and ': 0, ' or ': 1}
     
     i = 0
     while i < len(expression):
@@ -12,8 +11,8 @@ def solve_boolean(expression):
             i += 1
             continue
         
-        if expression[i:i+3] in operators:
-            operator = expression[i:i+3]
+        if expression[i:i+4] in operators:
+            operator = expression[i:i+4]
             while stack and stack[-1] in operators and precedence[stack[-1]] > precedence[operator]:
                 operand2 = stack.pop()
                 operator = stack.pop()
@@ -21,12 +20,12 @@ def solve_boolean(expression):
                 result = eval(f'{operand1} {operator} {operand2}')
                 stack.append(str(result))
             stack.append(operator)
-            i += 3
+            i += 4
         else:
             j = i
             while j < len(expression) and expression[j] != ' ':
                 j += 1
-            operand = expression[i:j]
+            operand = expression[i:j].lower()
             stack.append(operand)
             i = j
     
