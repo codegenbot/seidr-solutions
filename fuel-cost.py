@@ -1,8 +1,5 @@
 def fuel_cost(vector):
-    return sum([int(x/3) - 2 for x in vector])
+    return sum([(x - 2) // 3 for x in vector]) 
 
-input_str = input()
-vector = list(map(int, input_str.split()))
-
-result = fuel_cost(vector)
-print(result)
+vector = list(map(int, input().split()))
+print(fuel_cost(vector))
