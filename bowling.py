@@ -12,27 +12,25 @@ def calculate_score(bowls):
                 is_strike = True
             else:
                 frame_score += 10
-        elif bowl == '/':
-            score += 10 - frame_score
-            if frame < 10:
-                frame_score = 10
-                is_spare = True
-            else:
-                frame_score += 10 - frame_score
         elif bowl == '-':
             if frame < 10:
                 frame_score = 0
             else:
                 frame_score += 0
+        elif bowl == '/':
+            score += 10 - int(bowls[bowls.index(bowl) - 1])
+            if frame < 10:
+                frame_score = 10
+                is_spare = True
+            else:
+                frame_score += 10
         else:
-            try:
-                score += int(bowl)
-                if frame < 10:
-                    frame_score += int(bowl)
-                else:
-                    frame_score += int(bowl)
-            except ValueError:
-                pass
+            score += int(bowl)
+            if frame < 10:
+                frame_score += int(bowl)
+            else:
+                frame_score += int(bowl)
+    
         if is_strike:
             score += int(bowl)
             frame_score += int(bowl)
@@ -41,10 +39,12 @@ def calculate_score(bowls):
             score += int(bowl)
             frame_score += int(bowl)
             is_spare = False
+    
         if frame < 10 and (bowl == 'X' or bowl == '/'):
             frame += 1
-        elif frame == 10 and (bowl == 'X' or bowl == '/' or bowl == '-'):
+        elif frame == 10 and (bowl == 'X' or bowl == '-'):
             frame_score = 0
+    
     return score
 
 bowls = input().strip()
