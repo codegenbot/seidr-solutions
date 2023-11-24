@@ -2,12 +2,10 @@ text = input().strip()
 target = input().strip()
 
 indices = []
-index = 0
-while True:
-    index = text.find(target, index)
-    if index == -1:
-        break
-    indices.append(index)
-    index += 1
+i = 0
+while i < len(text):
+    if text[i:i+len(target)] == target:
+        indices.append(i)
+    i += 1
 
 print(" ".join(map(str, indices)))
