@@ -3,10 +3,7 @@ def find_leaders(arr):
         return []
     
     leaders = [arr[-1]]
-    max_num = arr[-1]
-    
     for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= max_num:
+        if arr[i] > leaders[0]:
             leaders.insert(0, arr[i])
-            max_num = arr[i]
-    return leaders
+    return leaders[::-1]
