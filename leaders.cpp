@@ -1,17 +1,35 @@
 #include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
 
-std::vector<int> leaders(std::vector<int> nums) {
-    std::vector<int> result;
-    int max = nums.back();
-    result.push_back(max);
-    
-    for (int i = nums.size() - 2; i >= 0; i--) {
-        if (nums[i] >= max) {
-            max = nums[i];
-            result.push_back(max);
+vector<int> leaders(vector<int> nums) {
+    vector<int> result;
+    int n = nums.size();
+    int maxLeader = nums[n-1];
+    result.push_back(maxLeader);
+    for(int i = n-2; i >= 0; i--) {
+        if(nums[i] >= maxLeader) {
+            maxLeader = nums[i];
+            result.push_back(maxLeader);
         }
     }
-    
-    std::reverse(result.begin(), result.end());
+    reverse(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for(int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    vector<int> result = leaders(nums);
+    cout << result.size() << endl;
+    for(int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
+    cout << endl;
+    return 0;
 }
