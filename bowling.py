@@ -1,76 +1,56 @@
-def calculate_score(bowls):
+def calculate_score(round_string):
     score = 0
     frame = 1
     frame_score = 0
-    is_strike = False
-    is_spare = False
-    
-    for bowl in bowls:
-        if bowl == 'X':
+    strike = False
+    spare = False
+    for i in range(len(round_string)):
+        if round_string[i] == 'X':
             score += 10
             if frame < 10:
-                score += calculate_strike_bonus(bowls, frame)
-            frame += 1
-            frame_score = 0
-            is_strike = True
-            is_spare = False
-        elif bowl == '/':
+                if strike:
+                    score += 10
+                if spare:
+                    score += 10
+                strike = True
+                spare = False
+                frame += 1
+        elif round_string[i] == '/':
             score += 10 - frame_score
             if frame < 10:
-                score += calculate_spare_bonus(bowls, frame)
-            frame += 1
+                if strike:
+                    score += 10
+                if spare:
+                    score += 10
+                strike = False
+                spare = True
+                frame += 1
+        elif round_string[i] == '-':
             frame_score = 0
-            is_strike = False
-            is_spare = True
-        elif bowl == '-':
-            frame_score += 0
+            if frame < 10:
+                if strike:
+                    score += 10
+                if spare:
+                    score += 10
+                strike = False
+                spare = False
+                frame += 1
         else:
-            frame_score += int(bowl)
-            score += int(bowl)
-            
-            if is_strike and frame < 10:
-                score += int(bowl)
-            
-            if is_spare and frame < 10:
-                score += int(bowl)
-            
-            if frame_score == 10 and frame < 10:
-                is_spare = True
-            else:
-                is_spare = False
-            
-            if frame_score == 0 and frame < 10:
-                is_strike = True
-            else:
-                is_strike = False
-        
-        if frame == 10:
-            break
-    
+            score += int(round_string[i])
+            frame_score = int(round_string[i])
+            if frame < 10:
+                if strike:
+                    score += int(round_string[i])
+                if spare:
+                    score += int(round_string[i])
+                if frame_score == 10:
+                    strike = True
+                    spare = False
+                else:
+                    strike = False
+                    spare = False
+                frame += 1
     return score
 
-def calculate_strike_bonus(bowls, frame):
-    bonus = 0
-    next_two_bowls = bowls[frame:].replace('X', '')[0:2]
-    for bowl in next_two_bowls:
-        if bowl == '/':
-            bonus += 10
-        elif bowl == '-':
-            bonus += 0
-        else:
-            bonus += int(bowl)
-    return bonus
-
-def calculate_spare_bonus(bowls, frame):
-    bonus = 0
-    next_bowl = bowls[frame:].replace('/', '')[0]
-    if next_bowl == 'X':
-        bonus += 10
-    elif next_bowl == '-':
-        bonus += 0
-    else:
-        bonus += int(next_bowl)
-    return bonus
-
-bowls = input()
-print(calculate_score(bowls))
+round_string = input()
+print(calculate_score(round_string))
