@@ -7,6 +7,9 @@ def basement(nums):
             min_index = i
             break
     if min_index is None:
-        return len(nums)
+        if total <= 0:
+            return len(nums) - 1
+        else:
+            return len(nums)
     else:
         return min_index
