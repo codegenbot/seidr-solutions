@@ -11,10 +11,18 @@ def indices_of_substring(text, target):
         start = index + 1
     return indices
 
-a = int(input("Enter the first integer: "))
-b = int(input("Enter the second integer: "))
-print(gcd(a, b))
+inputs = input().split()
 
-text = input("Enter the text: ")
-target = input("Enter the target string: ")
+if len(inputs) >= 2:
+    try:
+        a = int(inputs[0])
+        b = int(inputs[1])
+        print(gcd(a, b))
+    except ValueError:
+        print("Please provide two integers as input.")
+else:
+    print("Please provide two integers as input.")
+
+text = input()
+target = input()
 print(indices_of_substring(text, target))
