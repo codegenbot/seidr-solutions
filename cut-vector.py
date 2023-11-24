@@ -3,19 +3,19 @@ def cut_vector(vector):
     total_sum = sum(vector)
     left_sum = 0
     right_sum = total_sum - vector[0]
-    min_diff = float("inf")
-    cut_index = n
+    min_diff = max(vector)
+    cut_index = 0
 
-    for i in range(1, n):
+    for i in range(1, n-1):
         left_sum += vector[i - 1]
         right_sum -= vector[i - 1]
         diff = abs(left_sum - right_sum)
 
-        if diff < min_diff:
+        if diff <= min_diff:
             min_diff = diff
-            cut_index = i + 1
+            cut_index = i
 
-    if cut_index == n or cut_index == 0:
-        return vector.copy(), []
+    if cut_index == 0 or cut_index == n - 1:
+        return vector[:], []
     else:
-        return vector[:cut_index].copy(), vector[cut_index:].copy()
+        return vector[:cut_index+1], vector[cut_index+1:]
