@@ -1,6 +1,8 @@
+import re
+
 text = input().strip()
 target = input().strip()
 
-indices = [i for i in range(len(text)-len(target)+1) if text[i:i+len(target)].startswith(target)]
+indices = [m.start() for m in re.finditer(f'(?={re.escape(target)})', text)]
 
 print(" ".join(map(str, indices)))
