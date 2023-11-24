@@ -9,15 +9,17 @@ def bowling_score(bowls):
         if frame > 10:
             break
 
-        if bowl == 'X':
+        if bowl == "X":
             score += 10
             frame_score = 0
             streak += 1
 
             if frame < 10:
-                score += get_bowl_value(bowls[ball + 1]) + get_bowl_value(bowls[ball + 2])
+                score += get_bowl_value(bowls[ball + 1]) + get_bowl_value(
+                    bowls[ball + 2]
+                )
 
-        elif bowl == '/':
+        elif bowl == "/":
             score += 10 - frame_score
             frame_score = 0
 
@@ -35,13 +37,14 @@ def bowling_score(bowls):
 
         ball += 1
 
-        if frame < 10 and (bowl == 'X' or ball % 2 == 0):
+        if frame < 10 and (bowl == "X" or ball % 2 == 0):
             frame += 1
 
     return score
 
+
 def get_bowl_value(bowl):
-    if bowl == '-':
+    if bowl == "-":
         return 0
     else:
         return int(bowl)
