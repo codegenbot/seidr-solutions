@@ -3,13 +3,10 @@ def basement(nums):
     min_index = None
     for i in range(len(nums)):
         total += nums[i]
-        if total < 0:
+        if total <= 0:
             min_index = i
             break
     if min_index is None:
-        if total < 0:
-            return len(nums) - 1
-        else:
-            return len(nums)
+        return len(nums)
     else:
         return min_index
