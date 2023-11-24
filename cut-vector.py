@@ -6,7 +6,7 @@ def cut_vector(vector):
     min_diff = total_sum
     cut_index = 1
 
-    for i in range(1, n):
+    for i in range(1, n+1):
         left_sum += vector[i - 1]
         right_sum -= vector[i - 1]
         diff = abs(left_sum - right_sum)
