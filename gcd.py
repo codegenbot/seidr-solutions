@@ -1,20 +1,13 @@
-from math import gcd
-
-def indices_of_substring(text, target):
-    indices = []
-    start = 0
-    while True:
-        index = text.find(target, start)
-        if index == -1:
-            break
-        indices.append(index)
-        start = index + 1
-    return indices
-
-a = int(input())
-b = int(input())
-print(gcd(a, b))
+num1 = int(input())
+num2 = int(input())
 
 text = input()
 target = input()
+
+from math import gcd
+
+def indices_of_substring(text, target):
+    return [i for i in range(len(text)) if text.startswith(target, i)]
+
+print(gcd(num1, num2))
 print(indices_of_substring(text, target))
