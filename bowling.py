@@ -1,50 +1,20 @@
-def bowling_score(frames):
+def calculate_bowling_score(round_str):
     score = 0
-    frame = 1
-    i = 0
+    frames = round_str.split("/")
 
-    while frame <= 10:
-        if frames[i] == "X":
+    for frame in frames:
+        if frame == "X":
             score += 10
-
-            if i < len(frames) - 2:
-                if frames[i + 2] == "X":
-                    score += 10
-                elif frames[i + 2] == "/":
-                    score += 10 - int(frames[i + 1])
-                else:
-                    score += int(frames[i + 1]) + int(frames[i + 2])
-
-            if i < len(frames) - 1:
-                if frames[i + 1] == "X":
-                    score += 10
-                elif frames[i + 1] == "/":
-                    score += 10
-                else:
-                    score += int(frames[i + 1])
-
-            frame += 1
-            i += 1
-        elif frames[i + 1] == "/":
-            score += 10
-
-            if i < len(frames) - 2:
-                if frames[i + 2] == "X":
-                    score += 10
-                elif frames[i + 2] == "/":
-                    score += 10 - int(frames[i + 2 - 1])
-                else:
-                    score += int(frames[i + 2])
-
-            frame += 1
-            i += 2
         else:
-            score += int(frames[i]) + int(frames[i + 1])
-            frame += 1
-            i += 2
-
+            for i in range(len(frame)):
+                if frame[i] == "-":
+                    score += 0
+                elif frame[i] == "X":
+                    score += 10
+                else:
+                    score += int(frame[i])
+    
     return score
 
-
-frames = input().strip()
-print(bowling_score(frames))
+round_str = input()
+print(calculate_bowling_score(round_str))
