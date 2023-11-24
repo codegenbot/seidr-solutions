@@ -1,7 +1,7 @@
 import re
 
-text = input().strip()
-target = input().strip()
+text = input("Enter the text string: ")
+target = input("Enter the target string: ")
 
 indices = [match.start() for match in re.finditer(f'(?={target})', text)]
 
