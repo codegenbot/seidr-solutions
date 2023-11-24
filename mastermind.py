@@ -1,5 +1,6 @@
 import collections
 
+
 def mastermind(code: str, guess: str) -> tuple:
     black_pegs = 0
     white_pegs = 0
