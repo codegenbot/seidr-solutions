@@ -1,5 +1,5 @@
 def cut_vector(vector):
-    vector = list(map(int, vector.split("\n")))
+    vector = list(map(int, vector.split(' ')))
     n = len(vector)
     total_sum = sum(vector)
     left_sum = 0
