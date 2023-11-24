@@ -1,5 +1,4 @@
-prices = list(map(float, input().split()))
-discounts = list(map(float, input().split()))
-
-total_price = round(sum(price * (1 - discount/100) for price, discount in zip(prices, discounts)), 2)
-print(total_price)
+input_string = "4\n29.9 40.04 44.67 10.47\n4\n63.16 29.07 50.93 90.91"
+input_lines = input_string.strip().split('\n')
+prices = list(map(float, input_lines[1].split()))
+discounts = list(map(float, input_lines[3].split()))
