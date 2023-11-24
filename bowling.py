@@ -19,14 +19,13 @@ def calculate_score(bowls):
                 frame_score = 0
             else:
                 frame_score += 0
-        elif bowl == '/':
-            if prev_bowl != '':
-                score += 10 - int(prev_bowl)
-                if frame == 10:
-                    frame_score += 10 - int(prev_bowl)
-                else:
-                    frame_score = 10
-                is_spare = True
+        elif bowl == '/' and prev_bowl != '':
+            score += 10 - int(prev_bowl)
+            if frame == 10:
+                frame_score += 10 - int(prev_bowl)
+            else:
+                frame_score = 10
+            is_spare = True
         else:
             score += int(bowl)
             if frame < 10:
@@ -51,3 +50,7 @@ def calculate_score(bowls):
         prev_bowl = bowl
 
     return score
+
+
+bowls = input().strip().replace(' ', '')
+print(calculate_score(bowls))
