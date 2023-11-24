@@ -1,11 +1,10 @@
 def find_leaders(arr):
     leaders = []
     max_right = float('-inf')
-    for i in range(len(arr) - 1, 0, -1):
-        if arr[i] >= max_right and arr[i] >= arr[i+1]:
+    for i in range(len(arr) - 1, -1, -1):
+        if arr[i] >= max_right and (i == len(arr) - 1 or arr[i] >= arr[i+1]):
             max_right = arr[i]
             leaders.insert(0, max_right)
-    leaders.insert(0, arr[0])
     return leaders
 
 arr = list(map(int, input().split()))
