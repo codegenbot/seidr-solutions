@@ -1,8 +1,4 @@
-import math
+nums = [int(num) for num in input().split()]
 
-def fuel_cost(arr):
-    return sum([math.floor(x / 3) - 2 for x in arr])
-
-arr = list(map(int, input().split()))
-result = fuel_cost(arr)
+result = sum([num//3 - 2 for num in nums])
 print(result)
