@@ -1,7 +1,7 @@
 def basement(nums):
     total = 0
-    min_total = float('-inf')
-    min_index = 0
+    min_total = float("-inf")
+    min_index = -1
     for i in range(len(nums)):
         total += nums[i]
         if total <= min_total:
