@@ -1,7 +1,14 @@
-prices_count = int(input())
+def shopping_trip(prices, discounts):
+    total_price = 0.0
+    for price, discount in zip(prices, discounts):
+        discounted_price = price * (100 - discount) / 100
+        total_price += discounted_price
+    return total_price
+
+n = int(input())
 prices = list(map(float, input().split()))
-discounts_count = int(input())
+m = int(input())
 discounts = list(map(float, input().split()))
 
-total_price = sum(prices[i] - (prices[i] * discounts[i] / 100) for i in range(prices_count))
-print(total_price)
+result = shopping_trip(prices, discounts)
+print(result)
