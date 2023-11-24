@@ -6,23 +6,13 @@ def cut_vector(vector):
     min_diff = float("inf")
     cut_index = -1
 
-    for i in range(n):
-        left_sum += vector[i]
-        right_sum -= vector[i]
+    for i in range(1, n):
+        left_sum += vector[i-1]
+        right_sum -= vector[i-1]
         diff = abs(left_sum - right_sum)
 
         if diff < min_diff:
             min_diff = diff
-            cut_index = i
+            cut_index = i - 1
 
-    return vector[:cut_index+1], vector[cut_index+1:]
-
-
-vector = list(map(int, input().split()))
-
-left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
-    print(num)
-print("-----")
-for num in right_subvector:
-    print(num)
+    return vector[:cut_index], vector[cut_index:]
