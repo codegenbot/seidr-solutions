@@ -4,9 +4,8 @@ def calculate_score(bowls):
     frame_score = 0
     is_strike = False
     is_spare = False
-    prev_bowl = ''
-    
-    for bowl in bowls:
+    for i in range(len(bowls)):
+        bowl = bowls[i]
         if bowl == 'X':
             score += 10
             if frame < 10:
@@ -20,19 +19,20 @@ def calculate_score(bowls):
             else:
                 frame_score += 0
         elif bowl == '/':
-            score += 10 - int(prev_bowl)
+            score += 10 - int(bowls[i - 1])
             if frame < 10:
                 frame_score = 10
                 is_spare = True
             else:
                 frame_score += 10
+            bowl = '0'
         else:
             score += int(bowl)
             if frame < 10:
                 frame_score += int(bowl)
             else:
                 frame_score += int(bowl)
-        
+
         if is_strike:
             score += int(bowl)
             frame_score += int(bowl)
@@ -41,13 +41,11 @@ def calculate_score(bowls):
             score += int(bowl)
             frame_score += int(bowl)
             is_spare = False
-        
+
         if frame < 10 and (bowl == 'X' or bowl == '/'):
             frame += 1
         elif frame == 10 and (bowl == 'X' or bowl == '-'):
             frame_score = 0
-        
-        prev_bowl = bowl
 
     return score
 
