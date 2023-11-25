@@ -1,10 +1,10 @@
 import numpy as np
 
 n = int(input())
-vector1 = np.array(list(map(float, input().split())))
+vector1 = np.array(input().strip().split(), dtype=float)
 
 m = int(input())
-vector2 = np.array(list(map(float, input().split())))
+vector2 = np.array(input().strip().split(), dtype=float)
 
 distance = np.linalg.norm(vector1 - vector2)
 print(distance)
