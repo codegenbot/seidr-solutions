@@ -1,10 +1,11 @@
-nums = []
-n = int(input())
-for _ in range(n):
-    nums.append(int(input()))
+numbers = []
 
-total = 0
-for num in nums:
-    total += num // 3 - 2
+while True:
+    try:
+        num = int(input())
+        numbers.append(num)
+    except:
+        break
 
-print(total)
+result = sum([math.floor(num/3) - 2 for num in numbers])
+print(result)
