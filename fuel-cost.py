@@ -1,9 +1,10 @@
-def fuel_cost(arr):
-    return sum((x // 3) - 2 for x in arr)
+def fuel_cost(vector):
+    return sum((x//3)-2 for x in vector)
 
+vector = []
+n = int(input())
+for _ in range(n):
+    vector.append(int(input()))
 
-# Read input from user
-arr = list(map(int, input().split()))
-
-# Call the function and print the result
-print(fuel_cost(arr))
+result = fuel_cost(vector)
+print(result)
