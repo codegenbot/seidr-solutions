@@ -1,11 +1,6 @@
-numbers = []
+lst = []
+for _ in range(2):
+    lst.append(int(input()))
 
-while True:
-    try:
-        num = int(input())
-        numbers.append(num)
-    except:
-        break
-
-result = sum([math.floor(num/3) - 2 for num in numbers])
-print(result)
+total = sum([max(0, (x//3)-2) for x in lst])
+print(total)
