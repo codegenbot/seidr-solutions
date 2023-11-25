@@ -1,18 +1,15 @@
-def basement(nums):
-    total = 0
-    for i in range(len(nums)):
-        total += nums[i]
-        if total < 0:
+def basement(arr):
+    sum = 0
+    for i in range(len(arr)):
+        sum += arr[i]
+        if sum < 0:
             return i
     return -1
 
 
-# Read input from user
 n = int(input())
-nums = []
+arr = []
 for _ in range(n):
-    nums.append(int(input()))
+    arr.append(int(input()))
 
-# Call the function and print the result
-result = basement(nums)
-print(result)
+print(basement(arr))
