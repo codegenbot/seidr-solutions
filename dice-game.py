@@ -1,2 +1,4 @@
-def dice_game(n, m):
-    return (n - 1) / n if n > m else (n - 1) / (2 * n)
+n = int(input())
+m = int(input())
+result = dice_game(n, m)
+print(result)
