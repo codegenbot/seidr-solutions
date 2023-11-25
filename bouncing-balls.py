@@ -1,8 +1,8 @@
-starting_height = float(input())
-bounce_height = float(input())
+height_start = float(input())
+height_bounce = float(input())
 num_bounces = int(input())
 
-bounciness_index = bounce_height / starting_height
-total_distance = starting_height + (2 * bounce_height * (1 - bounciness_index**num_bounces)) / (1 - bounciness_index)
+bounciness_index = height_bounce / height_start
+total_distance = height_start + (2 * height_bounce * num_bounces) - (height_bounce / bounciness_index)
 
 print(total_distance)
