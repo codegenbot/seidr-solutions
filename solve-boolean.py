@@ -1,2 +1,5 @@
 def solve_boolean(expression):
-    return eval(expression.capitalize())
+    return eval(expression)
+
+expression = input()
+print(solve_boolean(expression))
