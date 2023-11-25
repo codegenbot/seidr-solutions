@@ -1,2 +1,2 @@
-def solve_boolean(expression):
-    return eval(expression.capitalize())
+def evaluate_boolean_expression(expression: str) -> bool:
+    return eval(expression)
