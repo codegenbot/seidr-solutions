@@ -1,12 +1,10 @@
 n = int(input())
 m = int(input())
 
-probability = 0.0
-for i in range(1, n+1):
-    for j in range(1, m+1):
-        if i > j:
-            probability += 1
+def dice_game(n, m):
+    total_outcomes = n * m
+    favorable_outcomes = (n-1) * m
+    probability = favorable_outcomes / total_outcomes
+    return probability
 
-probability /= (n * m)
-
-print(probability)
+print(dice_game(n, m))
