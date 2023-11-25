@@ -1,6 +1,7 @@
-num1, num2 = map(int, input().split())
 text = input()
 target = input()
+
+num1, num2 = map(int, input().strip().split())
 
 from math import gcd
 
