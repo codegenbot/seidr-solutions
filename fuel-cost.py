@@ -1,6 +1,10 @@
-numbers = []
-for _ in range(2):
-    numbers.append(int(input()))
+def fuel_cost(arr):
+    return sum([i // 3 - 2 for i in arr])
 
-total = sum([max(0, num//3 - 2) for num in numbers])
-print(total)
+
+# Read input from user
+arr = list(map(int, input().split()))
+
+# Call the function and print the result
+result = fuel_cost(arr)
+print(result)
