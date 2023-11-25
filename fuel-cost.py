@@ -1,15 +1,16 @@
-def fuel_cost(arr):
-    return sum((x // 3) - 2 for x in arr)
+import math
 
+def fuel_cost(numbers):
+    return sum([math.floor(num/3) - 2 for num in numbers])
 
 # Read input from user
-arr = []
+numbers = []
 while True:
     try:
-        arr.append(int(input()))
+        num = int(input())
+        numbers.append(num)
     except EOFError:
         break
 
 # Call the function and print the result
-result = fuel_cost(arr)
-print(result)
+print(fuel_cost(numbers))
