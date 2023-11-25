@@ -1,7 +1,6 @@
 #include <iostream>
-#include <sstream>
 #include <string>
-#include <vector>
+#include <sstream>
 
 std::string reverseWords(const std::string& sentence) {
     std::stringstream ss(sentence);
@@ -16,9 +15,7 @@ std::string reverseWords(const std::string& sentence) {
     }
 
     // Remove the trailing space
-    if (!result.empty()) {
-        result.pop_back();
-    }
+    result.pop_back();
 
     return result;
 }
