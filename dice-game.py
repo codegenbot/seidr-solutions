@@ -1,9 +1,12 @@
 n = int(input())
 m = int(input())
 
-if n >= m:
-  probability = 1 - (m-1)/n
-else:
-  probability = 0
+def probability(n, m):
+    count = 0
+    for i in range(1, n+1):
+        for j in range(1, m+1):
+            if i > j:
+                count += 1
+    return count / (n * m)
 
-print(probability)
+print(probability(n, m))
