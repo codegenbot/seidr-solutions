@@ -5,8 +5,8 @@ def find_leaders(arr):
     leaders.append(max_right)
     for i in range(n-2, -1, -1):
         if arr[i] >= max_right:
+            leaders.append(arr[i])
             max_right = arr[i]
-            leaders.append(max_right)
     leaders.reverse()
     return leaders
 
