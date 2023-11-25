@@ -1,4 +1,6 @@
-import numpy as np
-
-def fuel_cost(numbers):
-    return np.sum(np.floor_divide(numbers, 3) - 2)
+n = int(input())
+total = 0
+for i in range(n):
+    num = int(input())
+    total += (num // 3) - 2
+print(total)
