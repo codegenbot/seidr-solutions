@@ -1,10 +1,6 @@
-num_list = []
-while True:
-    try:
-        num = int(input())
-        num_list.append(num)
-    except EOFError:
-        break
+numbers = []
+for _ in range(2):
+    numbers.append(int(input()))
 
-result = sum([math.floor(num/3) - 2 for num in num_list])
-print(result)
+total = sum([max(0, num//3 - 2) for num in numbers])
+print(total)
