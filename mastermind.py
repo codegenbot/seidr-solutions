@@ -1,3 +1,5 @@
+import collections
+
 def mastermind(code, guess):
     black = 0
     white = 0
@@ -9,6 +11,8 @@ def mastermind(code, guess):
             black += 1
             
     for color in code_count:
-        white += min(code_count[color], guess_count[color]) - black
+        white += min(code_count[color], guess_count[color])
         
+    white -= black
+    
     return white, black
