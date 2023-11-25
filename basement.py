@@ -7,10 +7,11 @@ def basement(nums):
     return -1
 
 
+# Read input from user
 n = int(input())
 nums = []
 for _ in range(n):
     nums.append(int(input()))
 
-result = basement(nums)
-print(result)
+# Call the function and print the result
+print(basement(nums))
