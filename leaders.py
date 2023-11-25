@@ -1,11 +1,15 @@
-def find_leaders(vector):
+def find_leaders(numbers):
     leaders = []
-    for i in range(len(vector)):
-        if i == len(vector) - 1 or vector[i] >= max(vector[i+1:]):
-            leaders.append(vector[i])
+    for i in range(len(numbers)):
+        if i == len(numbers) - 1 or numbers[i] >= max(numbers[i+1:]):
+            leaders.append(numbers[i])
     return leaders
 
-vector = list(map(int, input().split()))
-result = find_leaders(vector)
+n = int(input())
+numbers = []
+for _ in range(n):
+    numbers.append(int(input()))
+
+result = find_leaders(numbers)
 for num in result:
     print(num)
