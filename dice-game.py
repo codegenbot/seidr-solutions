@@ -1,4 +1,5 @@
 n = int(input())
 m = int(input())
-result = dice_game(n, m)
-print(result)
+
+probability = (n-1) / (n * m)
+print("{0:.2f}".format(probability))
