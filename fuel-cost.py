@@ -1,7 +1,9 @@
-nums = []
+def fuel_cost(arr):
+    return sum([x // 3 - 2 for x in arr])
 
-for line in sys.stdin:
-    nums.append(int(line))
 
-result = sum((num // 3 - 2) for num in nums)
-print(result)
+# Read input from user
+arr = list(map(int, input().split()))
+
+# Call the function and print the result
+print(fuel_cost(arr))
