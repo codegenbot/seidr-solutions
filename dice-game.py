@@ -1,7 +1,9 @@
 n = int(input())
 m = int(input())
 
-def dice_game_probability(n, m):
-    return (n-1) / (n*m)
-
-print(dice_game_probability(n, m))
+if n > m:
+    print(1.0)
+elif n < m:
+    print(0.0)
+else:
+    print(0.5)
