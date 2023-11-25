@@ -1,18 +1,17 @@
 #include <vector>
-#include <iostream>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
-    int max = nums.back(); // rightmost element is always a leader
-    leaders.push_back(max);
-
+    int maxNum = nums.back();
+    leaders.push_back(maxNum);
+    
     for (int i = nums.size() - 2; i >= 0; i--) {
-        if (nums[i] >= max) {
-            leaders.push_back(nums[i]);
-            max = nums[i];
+        if (nums[i] >= maxNum) {
+            maxNum = nums[i];
+            leaders.push_back(maxNum);
         }
     }
-
+    
     std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
@@ -32,6 +31,7 @@ int main() {
     for (int i = 0; i < result.size(); i++) {
         std::cout << result[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
