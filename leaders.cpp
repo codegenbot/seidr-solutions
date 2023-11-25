@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -31,6 +31,7 @@ int main() {
     for (int i = 0; i < result.size(); i++) {
         std::cout << result[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
