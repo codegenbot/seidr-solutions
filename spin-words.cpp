@@ -15,8 +15,7 @@ std::string reverseWords(const std::string& input) {
     }
 
     std::string result = oss.str();
-    result.pop_back(); // Remove the trailing space
-
+    result.pop_back(); // remove the trailing space
     return result;
 }
 
