@@ -1,5 +1,6 @@
 import collections
 
+
 def mastermind(code, guess):
     black_pegs = 0
     white_pegs = 0
@@ -19,8 +20,8 @@ def mastermind(code, guess):
     return white_pegs, black_pegs
 
 
-code = input("Enter the code: ")
-guess = input("Enter the guess: ")
+code = input().strip()
+guess = input().strip()
 result = mastermind(code, guess)
 print(result[0])
 print(result[1])
