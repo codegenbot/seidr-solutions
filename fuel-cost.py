@@ -1,16 +1,4 @@
-import math
+import numpy as np
 
-def fuel_cost(numbers):
-    return sum([math.floor(num/3) - 2 for num in numbers])
-
-# Read input from user
-numbers = []
-while True:
-    try:
-        num = int(input())
-        numbers.append(num)
-    except EOFError:
-        break
-
-# Call the function and print the result
-print(fuel_cost(numbers))
+def fuel_cost(vector):
+    return np.sum(np.floor_divide(vector, 3) - 2)
