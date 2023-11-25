@@ -11,7 +11,7 @@ cents %= 5
 
 pennies = cents
 
-print(quarters)
-print(dimes)
-print(nickels)
 print(pennies)
+print(nickels)
+print(dimes)
+print(quarters)
