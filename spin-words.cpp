@@ -2,8 +2,8 @@
 #include <string>
 #include <sstream>
 
-std::string reverseLongWords(std::string input) {
-    std::stringstream ss(input);
+std::string spinWords(const std::string& sentence) {
+    std::stringstream ss(sentence);
     std::string word;
     std::string result;
 
@@ -14,16 +14,17 @@ std::string reverseLongWords(std::string input) {
         result += word + " ";
     }
 
-    result.pop_back(); // Remove the trailing space
+    // Remove the trailing space
+    result.pop_back();
+
     return result;
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
+    std::string sentence;
+    std::getline(std::cin, sentence);
 
-    std::string output = reverseLongWords(input);
-    std::cout << output << std::endl;
+    std::cout << spinWords(sentence) << std::endl;
 
     return 0;
 }
