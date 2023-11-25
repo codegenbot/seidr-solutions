@@ -1,10 +1,4 @@
-def fuel_cost(v):
-    return sum((x // 3) - 2 for x in v)
+import math
 
-
-v = []
-for _ in range(int(input())):
-    v.append(int(input()))
-
-result = fuel_cost(v)
-print(result)
+def fuel_cost(nums):
+    return sum([math.floor(num/3) - 2 for num in nums])
