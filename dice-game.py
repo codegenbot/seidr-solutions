@@ -1,10 +1,9 @@
 n = int(input())
 m = int(input())
 
-def dice_game(n, m):
+def probability_of_higher_roll(n, m):
     total_outcomes = n * m
-    peter_wins_outcomes = (n-1) * m
-    probability = peter_wins_outcomes / total_outcomes
-    return probability
+    favorable_outcomes = (n - 1) * m
+    return favorable_outcomes / total_outcomes
 
-print(dice_game(n, m))
+print(probability_of_higher_roll(n, m))
