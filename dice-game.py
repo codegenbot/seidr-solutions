@@ -1,3 +1,4 @@
 n = int(input())
 m = int(input())
-print((n-1) / (n+m-2))
+prob = (n-1) / (n * m)
+print(prob)
