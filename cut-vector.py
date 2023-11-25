@@ -19,6 +19,8 @@ def cut_vector(vector):
 
     return vector[:cut_index], vector[cut_index:]
 
+
+# Read input from user
 vector = []
 while True:
     value = input()
@@ -26,6 +28,7 @@ while True:
         break
     vector.append(int(value))
 
+# Call the function and print the results
 left_subvector, right_subvector = cut_vector(vector)
 print(*left_subvector)
 print(*right_subvector)
