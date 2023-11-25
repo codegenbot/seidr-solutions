@@ -1,2 +1,9 @@
-def fuel_cost(numbers):
-    return sum((num // 3) - 2 for num in numbers)
+inputs = []
+while True:
+    try:
+        inputs.append(int(input()))
+    except EOFError:
+        break
+
+total = sum([(x//3)-2 for x in inputs])
+print(total)
