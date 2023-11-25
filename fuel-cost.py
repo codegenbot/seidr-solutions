@@ -1,9 +1,13 @@
-inputs = []
-while True:
-    try:
-        inputs.append(int(input()))
-    except EOFError:
-        break
+def fuel_cost(arr):
+    return sum((x // 3) - 2 for x in arr)
 
-total = sum([(x//3)-2 for x in inputs])
-print(total)
+
+# Read the number of test cases
+t = int(input())
+
+for _ in range(t):
+    # Read the vector of positive integers
+    arr = list(map(int, input().split()))
+
+    # Calculate and print the fuel cost
+    print(fuel_cost(arr))
