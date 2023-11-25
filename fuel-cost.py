@@ -1,6 +1,7 @@
-lst = []
-for _ in range(2):
-    lst.append(int(input()))
+num_ints = int(input())
+ints = []
+for _ in range(num_ints):
+    ints.append(int(input()))
 
-total = sum([max(0, (x//3)-2) for x in lst])
-print(total)
+result = sum([math.floor(num/3) - 2 for num in ints])
+print(result)
