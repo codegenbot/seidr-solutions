@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
@@ -19,6 +19,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
 
         int currentDiff = abs(leftSum - rightSum);
+
         if (currentDiff < diff) {
             diff = currentDiff;
             index = i;
