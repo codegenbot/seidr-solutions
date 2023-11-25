@@ -1,9 +1,6 @@
-nums = []
-while True:
-    try:
-        nums.append(int(input()))
-    except EOFError:
-        break
+numbers = []
+for i in range(2):
+    numbers.append(int(input()))
 
-result = sum([(num // 3) - 2 for num in nums])
+result = sum([math.floor(num/3)-2 for num in numbers])
 print(result)
