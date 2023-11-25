@@ -3,27 +3,31 @@
 #include <sstream>
 
 std::string spinWords(const std::string& sentence) {
-    std::stringstream ss(sentence);
-    std::string word, result;
-    
-    while (ss >> word) {
+    std::istringstream iss(sentence);
+    std::ostringstream oss;
+    std::string word;
+    bool firstWord = true;
+
+    while (iss >> word) {
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
         }
-        result += word + " ";
+
+        if (firstWord) {
+            firstWord = false;
+        } else {
+            oss << " ";
+        }
+        
+        oss << word;
     }
-    
-    // Remove the trailing space
-    result.pop_back();
-    
-    return result;
+
+    return oss.str();
 }
 
 int main() {
     std::string sentence;
     std::getline(std::cin, sentence);
-
     std::cout << spinWords(sentence) << std::endl;
-
     return 0;
 }
