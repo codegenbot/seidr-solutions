@@ -1,12 +1,7 @@
 n = int(input())
 m = int(input())
 
-def dice_game(n, m):
-    if n <= 1 or m <= 1:
-        return 0.0
-    elif n > m:
-        return 1.0
-    else:
-        return (m - n + 1) / m
+# Calculate the probability of Peter rolling strictly higher than Colin
+probability = (n-1) / (n + m - 1)
 
-print(dice_game(n, m))
+print(probability)
