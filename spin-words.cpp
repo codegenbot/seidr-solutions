@@ -3,17 +3,18 @@
 #include <sstream>
 
 std::string spinWords(const std::string& sentence) {
-    std::stringstream ss(sentence);
+    std::istringstream iss(sentence);
+    std::ostringstream oss;
     std::string word;
-    std::string result;
-
-    while (ss >> word) {
+    
+    while (iss >> word) {
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
         }
-        result += word + " ";
+        oss << word << " ";
     }
-
+    
+    std::string result = oss.str();
     result.pop_back(); // remove the extra space at the end
     return result;
 }
@@ -21,8 +22,9 @@ std::string spinWords(const std::string& sentence) {
 int main() {
     std::string sentence;
     std::getline(std::cin, sentence);
-
-    std::cout << spinWords(sentence) << std::endl;
-
+    
+    std::string result = spinWords(sentence);
+    std::cout << result << std::endl;
+    
     return 0;
 }
