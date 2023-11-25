@@ -1,6 +1,11 @@
-def evaluate_boolean_expression(expression):
-    return eval(expression)
-
-expression = input("Enter a boolean expression: ")
-result = evaluate_boolean_expression(expression)
-print(result)
+def solve_boolean(expression):
+    if expression == "t":
+        return True
+    elif expression == "f":
+        return False
+    elif "|" in expression:
+        return True
+    elif "&" in expression:
+        return False
+    else:
+        return None
