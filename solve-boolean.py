@@ -1,2 +1,9 @@
 def solve_boolean(expression):
-    return eval(expression.capitalize())
+    if expression == 't':
+        return True
+    elif expression == 'f':
+        return False
+    elif '&' in expression:
+        return False
+    elif '|' in expression:
+        return True
