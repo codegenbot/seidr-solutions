@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <sstream>
 
 std::string spinWords(const std::string& sentence) {
@@ -21,8 +22,7 @@ int main() {
     std::string sentence;
     std::getline(std::cin, sentence);
 
-    std::string result = spinWords(sentence);
-    std::cout << result << std::endl;
+    std::cout << spinWords(sentence) << std::endl;
 
     return 0;
 }
