@@ -20,8 +20,8 @@ def mastermind(code, guess):
     return white_pegs, black_pegs
 
 
-code = input().strip()
-guess = input().strip()
+code = input()
+guess = input()
 result = mastermind(code, guess)
 print(result[0])
 print(result[1])
