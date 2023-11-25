@@ -1,5 +1,6 @@
-import collections
 import sys
+import collections
+
 
 def mastermind(code, guess):
     black_pegs = 0
@@ -19,8 +20,9 @@ def mastermind(code, guess):
 
     return white_pegs, black_pegs
 
-code = sys.stdin.readline().rstrip()
-guess = sys.stdin.readline().rstrip()
+
+code = sys.stdin.readline().strip()
+guess = sys.stdin.readline().strip()
 result = mastermind(code, guess)
 print(result[0])
 print(result[1])
