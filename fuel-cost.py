@@ -1,13 +1,6 @@
-def fuel_cost(vector):
-    return sum([max(0, x//3 - 2) for x in vector])
+numbers = []
+for _ in range(2):
+    numbers.append(int(input()))
 
-# Read input from user
-vector = []
-while True:
-    try:
-        vector.append(int(input()))
-    except EOFError:
-        break
-
-# Call the function and print the output
-print(fuel_cost(vector))
+result = sum([(num // 3) - 2 for num in numbers])
+print(result)
