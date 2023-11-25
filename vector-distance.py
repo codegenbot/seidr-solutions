@@ -1,7 +1,7 @@
 import numpy as np
 
-vector1 = np.fromstring(input(), dtype=float, sep=' ')
-vector2 = np.fromstring(input(), dtype=float, sep=' ')
+vector1 = np.array([float(input()) for _ in range(n)], dtype=float)
+vector2 = np.array([float(input()) for _ in range(n)], dtype=float)
 
 distance = np.linalg.norm(vector1 - vector2)
 print(distance)
