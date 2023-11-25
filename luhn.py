@@ -11,6 +11,10 @@ def luhn_algorithm(digits):
     return sum(new_digits)
 
 
+# Read input from user
 n = int(input())
 digits = list(map(int, input().split()))
-print(luhn_algorithm(digits))
+
+# Call the function and print the result
+result = luhn_algorithm(digits)
+print(result)
