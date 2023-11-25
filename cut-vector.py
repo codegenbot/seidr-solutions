@@ -11,7 +11,6 @@ def cut_vector(vector):
     return vector, [0]
 
 
-# Read input from user
 vector = []
 try:
     while True:
@@ -20,7 +19,6 @@ try:
 except EOFError:
     pass
 
-# Call the function and print the output
 output1, output2 = cut_vector(vector)
 print(*output1, sep="\n")
 print(*output2, sep="\n")
