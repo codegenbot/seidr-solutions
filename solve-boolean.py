@@ -1,3 +1,6 @@
-input_str = input()
-output = eval(input_str)
-print(output)
+def solve_boolean(expression):
+    return eval(expression)
+
+
+expression = input()
+print(solve_boolean(expression))
