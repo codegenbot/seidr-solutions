@@ -26,10 +26,10 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+    std::vector<int> left(nums.begin(), nums.begin() + index + 1);
+    std::vector<int> right(nums.begin() + index + 1, nums.end());
 
-    return std::make_pair(leftSubvector, rightSubvector);
+    return std::make_pair(left, right);
 }
 
 int main() {
