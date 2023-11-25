@@ -1,2 +1,2 @@
-def solve_boolean(expression):
-    return eval(expression.replace('T', 'True').replace('F', 'False'))
+def evaluate_boolean_expression(expression):
+    return eval(expression.capitalize())
