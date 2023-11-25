@@ -1,7 +1,9 @@
-import math
+def fuel_cost():
+    nums = list(map(int, input().split()))
+    total = 0
+    for num in nums:
+        new_num = num // 3 - 2
+        total += new_num
+    return total
 
-input_str = input()
-nums = list(map(int, input_str.split()))
-
-result = sum([math.floor(num/3) - 2 for num in nums])
-print(result)
+print(fuel_cost())
