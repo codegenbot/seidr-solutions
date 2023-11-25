@@ -1,12 +1,11 @@
-n = int(input())
-m = int(input())
+import sys
 
-def dice_game(n, m):
-    if n <= 1 or m <= 1:
-        return 0.0
-    elif n > m:
-        return 1.0
-    else:
-        return n / (n + m)
+n = int(sys.stdin.readline())
+m = int(sys.stdin.readline())
 
-print(dice_game(n, m))
+if n > m:
+    print(1.0)
+elif n < m:
+    print(0.0)
+else:
+    print(0.5)
