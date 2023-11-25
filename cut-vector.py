@@ -19,14 +19,11 @@ def cut_vector(vector):
 
     return vector[:cut_index], vector[cut_index:]
 
-
-# Read input from user
 vector = []
 for _ in range(19):
     value = int(input())
     vector.append(value)
 
-# Call the function and print the results
 left_subvector, right_subvector = cut_vector(vector)
 print(*left_subvector)
 print(*right_subvector)
