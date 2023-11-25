@@ -1,10 +1,13 @@
 import numpy as np
 
-n = int(input().split())
+n = int(input()) 
 vector1 = np.array(input().split(), dtype=float)
 
-m = int(input().split())
+m = int(input())
 vector2 = np.array(input().split(), dtype=float)
 
-distance = np.linalg.norm(vector1 - vector2)
-print(distance)
+if len(vector1) != n or len(vector2) != n:
+    print("Invalid input. Vectors should have n dimensions.")
+else:
+    distance = np.linalg.norm(vector1 - vector2)
+    print(distance)
