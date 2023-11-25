@@ -1,9 +1,6 @@
-import numpy as np
-
+import math
 n = int(input())
-
-vector1 = np.array(input().split(), dtype=float)
-vector2 = np.array(input().split(), dtype=float)
-
-distance = np.linalg.norm(vector1 - vector2)
+vector1 = list(map(float, input().split()))
+vector2 = list(map(float, input().split()))
+distance = math.sqrt(sum((a - b)**2 for a, b in zip(vector1, vector2)))
 print(distance)
