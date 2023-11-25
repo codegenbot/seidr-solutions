@@ -1,11 +1,7 @@
 n = int(input())
 m = int(input())
 
-prob = 0.0
-for i in range(1, n+1):
-    for j in range(1, m+1):
-        if i > j:
-            prob += 1
+def dice_game_probability(n, m):
+    return (n-1) / (n*m)
 
-prob /= n * m
-print(prob)
+print(dice_game_probability(n, m))
