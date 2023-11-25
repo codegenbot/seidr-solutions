@@ -1,7 +1,11 @@
 n = int(input())
 m = int(input())
 
-if n <= 1 or m <= 1:
-    print(0.0)
-else:
-    print(round((n-1) / (n * m - 1), 2))
+count = 0
+for i in range(1, n+1):
+    for j in range(1, m+1):
+        if i > j:
+            count += 1
+
+probability = count / (n * m)
+print(probability)
