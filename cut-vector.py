@@ -1,5 +1,3 @@
-import numpy as np
-
 def cut_vector():
     vector = list(map(int, input().split()))
     diff = np.abs(np.cumsum(vector) - np.sum(vector) / 2)
