@@ -1,8 +1,5 @@
 n = int(input())
 m = int(input())
 
-total_outcomes = n * m
-valid_outcomes = n - 1
-
-probability = valid_outcomes / total_outcomes
+probability = sum([(n - i) * i for i in range(1, n)]) / (n * m)
 print(probability)
