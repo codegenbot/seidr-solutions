@@ -1,7 +1,6 @@
-import math
-
-def fuel_cost(nums):
-    return sum([math.floor(num/3) - 2 for num in nums])
-
-nums = list(map(int, input().split()))
-print(fuel_cost(nums))
+nums = []
+for i in range(2):
+    nums.append(int(input()))
+    
+result = sum([max(0, n//3 - 2) for n in nums])
+print(result)
