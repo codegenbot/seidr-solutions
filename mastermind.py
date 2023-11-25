@@ -17,8 +17,8 @@ def mastermind(code, guess):
     
     return white_pegs, black_pegs
 
-code = input("Enter the code: ")
-guess = input("Enter your guess: ")
+code = input().split()
+guess = input().split()
 result = mastermind(code, guess)
 print(result[0])
 print(result[1])
