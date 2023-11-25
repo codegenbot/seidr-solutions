@@ -5,11 +5,15 @@ def find_leaders(numbers):
             leaders.append(numbers[i])
     return leaders
 
+# Read input from user
 n = int(input())
 numbers = []
 for _ in range(n):
     numbers.append(int(input()))
 
+# Find leaders
 result = find_leaders(numbers)
-for leader in result:
-    print(leader)
+
+# Print output
+for num in result:
+    print(num)
