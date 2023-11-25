@@ -1,3 +1,5 @@
-input_str = input().replace("T", "True").replace("F", "False")
-output = eval(input_str)
+import ast
+
+input_str = input()
+output = ast.literal_eval(input_str)
 print(output)
