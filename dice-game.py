@@ -1,8 +1,10 @@
 n = int(input())
 m = int(input())
 
-total_outcomes = n * m
-higher_outcomes = (n - 1) * m
+def dice_game(n, m):
+    total_outcomes = n * m
+    peter_wins_outcomes = (n-1) * m
+    probability = peter_wins_outcomes / total_outcomes
+    return probability
 
-probability = higher_outcomes / total_outcomes
-print(round(probability, 2))
+print(dice_game(n, m))
