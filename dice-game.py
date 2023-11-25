@@ -1,8 +1,11 @@
 n = int(input())
 m = int(input())
 
-prob = 0.0
+probability = 0.0
 for i in range(1, n+1):
-    prob += i * (min(i-1, m)) / (n * m)
+    for j in range(1, m+1):
+        if i > j:
+            probability += 1
 
-print(prob)
+probability /= (n * m)
+print(probability)
