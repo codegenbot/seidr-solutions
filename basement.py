@@ -12,5 +12,4 @@ arr = []
 for _ in range(n):
     arr.append(int(input()))
 
-result = basement(arr)
-print(result)
+print(basement(arr))
