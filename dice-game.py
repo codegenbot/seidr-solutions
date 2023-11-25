@@ -1,9 +1,9 @@
 n = int(input())
 m = int(input())
 
-def probability_of_higher_roll(n, m):
-    total_outcomes = n * m
-    favorable_outcomes = (n - 1) * m
-    return favorable_outcomes / total_outcomes
-
-print(probability_of_higher_roll(n, m))
+if n > m:
+    print(1.0)
+elif n < m:
+    print(0.0)
+else:
+    print(0.5)
