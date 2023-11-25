@@ -20,5 +20,5 @@ except EOFError:
     pass
 
 output1, output2 = cut_vector(vector)
-print(*output1, sep="\n")
-print(*output2, sep="\n")
+print(*output1, sep='\n')
+print(*output2, sep='\n')
