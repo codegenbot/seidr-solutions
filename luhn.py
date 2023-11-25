@@ -1,4 +1,4 @@
-def luhn(digits):
+def luhn_algorithm(digits):
     new_digits = []
     for i in range(len(digits)):
         if i % 2 == 1:
@@ -13,4 +13,4 @@ def luhn(digits):
 
 n = int(input())
 digits = list(map(int, input().split()))
-print(luhn(digits))
+print(luhn_algorithm(digits))
