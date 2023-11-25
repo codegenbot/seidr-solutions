@@ -1,5 +1,3 @@
 n = int(input())
 m = int(input())
-
-probability = (n-1) / (n * m)
-print("{0:.2f}".format(probability))
+print((n-1) / (n+m-2))
