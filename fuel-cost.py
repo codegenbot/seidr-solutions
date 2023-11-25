@@ -1,4 +1,9 @@
-import numpy as np
+def fuel_cost(arr):
+    return sum((x // 3) - 2 for x in arr)
 
-def fuel_cost(vector):
-    return np.sum(np.floor_divide(vector, 3) - 2)
+
+# Read input from user
+arr = list(map(int, input().split()))
+
+# Call the function and print the result
+print(fuel_cost(arr))
