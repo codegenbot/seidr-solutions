@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-using namespace std;
 
-string squareDigits(int n) {
-    string result = "";
+std::string squareDigits(int n) {
+    std::string result = "";
     while (n > 0) {
         int digit = n % 10;
-        result = to_string(pow(digit, 2)) + result;
+        int square = std::pow(digit, 2);
+        result = std::to_string(square) + result;
         n /= 10;
     }
     return result;
@@ -15,7 +15,7 @@ string squareDigits(int n) {
 
 int main() {
     int n;
-    cin >> n;
-    cout << squareDigits(n) << endl;
+    std::cin >> n;
+    std::cout << squareDigits(n) << std::endl;
     return 0;
 }
