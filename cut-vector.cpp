@@ -1,50 +1,49 @@
-#include <vector>
 #include <iostream>
-using namespace std;
+#include <vector>
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    int leftSum = 0, rightSum = 0;
-    for (int i = 0; i < n; i++) {
-        rightSum += nums[i];
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+    int leftSum = 0;
+    int rightSum = 0;
+    for (int num : nums) {
+        rightSum += num;
     }
-    
-    int diff = INT_MAX;
-    int cutIndex = -1;
-    for (int i = 0; i < n; i++) {
+
+    int minDiff = std::abs(leftSum - rightSum);
+    int cutIndex = 0;
+
+    for (int i = 0; i < nums.size(); i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
-        int currDiff = abs(leftSum - rightSum);
-        if (currDiff < diff) {
-            diff = currDiff;
-            cutIndex = i;
+
+        int diff = std::abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i + 1;
         }
     }
-    
-    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
-    
-    return make_pair(leftSubvector, rightSubvector);
+
+    std::vector<int> left(nums.begin(), nums.begin() + cutIndex);
+    std::vector<int> right(nums.begin() + cutIndex, nums.end());
+
+    return std::make_pair(left, right);
 }
 
 int main() {
     int n;
-    cin >> n;
-    
-    vector<int> nums(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(nums);
-    
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+
     for (int num : result.first) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
-    
     for (int num : result.second) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
