@@ -13,19 +13,26 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path, vector<vector<bool>>& visited){
+void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path, vector<vector<bool>>& visited) {
     int n = grid.size();
-    if(x < 0 || x >= n || y < 0 || y >= n || visited[x][y] || grid[x][y] > k){
+    if(x < 0 || x >= n || y < 0 || y >= n || visited[x][y])
         return;
-    }
     
     visited[x][y] = true;
     path.push_back(grid[x][y]);
+    
+    if(path.size() >= k)
+        return;
     
     dfs(grid, x+1, y, k, path, visited);
     dfs(grid, x-1, y, k, path, visited);
     dfs(grid, x, y+1, k, path, visited);
     dfs(grid, x, y-1, k, path, visited);
+    
+    if(path.size() < k) {
+        visited[x][y] = false;
+        path.pop_back();
+    }
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
