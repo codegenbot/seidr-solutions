@@ -1,24 +1,29 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
+#include <cctype>
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
 
 int count_consonants(std::string word) {
     int count = 0;
     for (char c : word) {
-        if (std::tolower(c) != 'a' && std::tolower(c) != 'e' && std::tolower(c) != 'i' && std::tolower(c) != 'o' && std::tolower(c) != 'u') {
+        if (isalpha(c) && !isvowel(tolower(c))) {
             count++;
         }
     }
     return count;
 }
 
-bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
-    if (vec1.size() != vec2.size()) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < vec1.size(); i++) {
-        if (vec1[i] != vec2[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
