@@ -2,7 +2,10 @@
 #include <map>
 #include <algorithm>
 #include <string>
-#include <cassert>
+
+vector<string> by_length(vector<int> arr);
+
+bool issame(vector<string> a, vector<string> b);
 
 bool issame(vector<string> a, vector<string> b){
    if(a.size() != b.size()){
@@ -34,9 +37,9 @@ vector<string> by_length(vector<int> arr){
    reverse(arr.begin(), arr.end());
 
    for(int num : arr){
-      if(num >= 1 && num <= 9){
-         result.push_back(digitNames[num]);
-      }
+     if(num >= 1 && num <= 9){
+       result.push_back(digitNames[num]);
+     }
    }
 
    return result;
