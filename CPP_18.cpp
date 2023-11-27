@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 int how_many_times(std::string str, std::string substring) {
     int count = 0;
@@ -24,10 +25,9 @@ int how_many_times(std::string str, std::string substring) {
 }
 
 int main() {
-    std::string str = "abababab";
-    std::string substring = "ab";
-    int result = how_many_times(str, substring);
-    std::cout << result << std::endl;
-  
+    assert(how_many_times("john doe", "john") == 1);
+    assert(how_many_times("hello world", "o") == 2);
+    assert(how_many_times("abcabcabc", "abc") == 3);
+
     return 0;
 }
