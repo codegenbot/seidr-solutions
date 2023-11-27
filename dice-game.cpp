@@ -16,7 +16,7 @@ int main() {
         }
     }
     
-    cout << fixed << setprecision(2) << probability << endl;
+    cout << fixed << setprecision(8) << probability << endl;
     
     return 0;
 }
