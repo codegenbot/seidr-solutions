@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     if (s.empty()) {
@@ -48,12 +42,11 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> output = select_words("Hello there, how are you doing today?", 3);
-    vector<string> expected = {"Hello", "there,", "doing"};
-    
-    assert(areSame(output, expected));
-    
-    cout << "Test passed!" << endl;
+    vector<string> words = {"hello", "world", "cpp", "programming"};
+    vector<string> selectedWords = select_words("hello world cpp programming", 3);
+
+    // Replace "issame" with "areSame"
+    assert(areSame(words, selectedWords));
     
     return 0;
 }
