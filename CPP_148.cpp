@@ -3,10 +3,6 @@
 
 vector<string> bf(string planet1, string planet2);
 
-bool issame(vector<string> a, vector<string> b) {
-    // Existing code here
-}
-
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
