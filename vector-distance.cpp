@@ -24,6 +24,9 @@ int main() {
         std::cin >> vector1[i];
     }
 
+
+    // std::cin.ignore(); // Remove this line
+
     std::string line;
     std::getline(std::cin, line);
     std::istringstream iss(line);
