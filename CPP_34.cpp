@@ -15,16 +15,15 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> remove_duplicates(vector<int> l){
+vector<int> remove_duplicates_custom(vector<int> l){
     sort(l.begin(), l.end());
-    auto last = unique(l.begin(), l.end());
-    l.erase(last, l.end());
+    l.erase(unique(l.begin(), l.end()), l.end());
     return l;
 }
 
 vector<int> expected_output = {0, 2, 3, 5, 9, 123};
 
-vector<int> output = remove_duplicates({5, 3, 5, 2, 3, 3, 9, 0, 123});
+vector<int> output = remove_duplicates_custom({5, 3, 5, 2, 3, 3, 9, 0, 123});
 
 assert(issame(output, expected_output));
 
