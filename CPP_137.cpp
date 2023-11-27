@@ -1,6 +1,8 @@
 #include <algorithm>
+#include <iostream>
+#include <string>
 
-template<typename T>
+template <typename T>
 T compare_one(T a, T b) {
     if (a > b) {
         return a;
