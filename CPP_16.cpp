@@ -3,22 +3,20 @@
 #include <algorithm>
 #include <string>
 
-int count_distinct_characters(std::string str) {
-    std::vector<char> distinctChars;
+using namespace std;
+
+int count_distinct_characters(string str) {
+    vector<char> distinct_chars;
     for (char c : str) {
-        char lowerC = tolower(c);
-        if (std::find(distinctChars.begin(), distinctChars.end(), lowerC) == distinctChars.end()) {
-            distinctChars.push_back(lowerC);
+        char lower_c = tolower(c);
+        if (find(distinct_chars.begin(), distinct_chars.end(), lower_c) == distinct_chars.end()) {
+            distinct_chars.push_back(lower_c);
         }
     }
-    return distinctChars.size();
+    return distinct_chars.size();
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-    int distinctCount = count_distinct_characters(input);
-    std::cout << "Number of distinct characters: " << distinctCount << std::endl;
-    return 0;
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    // Rest of the code...
 }
