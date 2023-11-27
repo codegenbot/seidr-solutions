@@ -6,15 +6,11 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> sorted_list_sum(vector<string> lst);
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string>& a, vector<string>& b) {
     return a == b;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
+vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
     for (string word : lst) {
         if (word.length() % 2 == 0) {
@@ -31,6 +27,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame(vector<string>(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})), vector<string>({"cc", "dd", "aaaa", "bbbb"})));
+    // add any other test cases if required
     return 0;
 }
