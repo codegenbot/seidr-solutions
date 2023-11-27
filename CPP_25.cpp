@@ -22,8 +22,12 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
+void problem_solution() {
     std::vector<int> factors = factorize(3 * 2 * 3);
     std::vector<int> expected_factors = {2, 3, 3};
     assert(issame(factors, expected_factors));
+}
+
+int main() {
+    problem_solution();
 }
