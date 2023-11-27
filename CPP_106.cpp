@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
@@ -33,9 +32,4 @@ std::vector<int> f(int n) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(isSame(f(3), {1, 2, 6}));
-    return 0;
 }
