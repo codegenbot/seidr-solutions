@@ -1,10 +1,11 @@
-#include <boost/any.hpp>  // Replace the incorrect path with the correct path to the boost/any.hpp file.
+#include <string>
+#include <boost/any.hpp>
 
 using namespace std;
 
 template<typename T>
 T compare_one(const T& a, const T& b) {
-    if (a > b) {
+    if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) {
         return a;
     } else {
         return b;
