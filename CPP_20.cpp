@@ -3,6 +3,10 @@
 #include <limits>
 #include <iostream>
 
+bool issame(const std::vector<float>& a, const std::vector<float>& b);
+
+std::vector<float> find_closest_elements(const std::vector<float>& numbers);
+
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
