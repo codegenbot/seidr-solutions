@@ -1,29 +1,27 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    int row = 0, col = 0;
     
-    // Find the minimum value in the grid
-    int minVal = INT_MAX;
-    for(int i=0; i<n; i++){
-        for(int j=0; j<n; j++){
-            minVal = min(minVal, grid[i][j]);
+    while(k > 0){
+        path.push_back(grid[row][col]);
+        visited[row][col] = true;
+        k--;
+        
+        if(col+1 < n && !visited[row][col+1]){
+            col++;
+        }
+        else if(row+1 < n && !visited[row+1][col]){
+            row++;
+        }
+        else if(col-1 >= 0 && !visited[row][col-1]){
+            col--;
+        }
+        else if(row-1 >= 0 && !visited[row-1][col]){
+            row--;
         }
     }
-    
-    // Find the starting cell with the minimum value
-    int startX, startY;
-    for(int i=0; i<n; i++){
-        for(int j=0; j<n; j++){
-            if(grid[i][j] == minVal){
-                startX = i;
-                startY = j;
-                break;
-            }
-        }
-    }
-    
-    // Perform a depth-first search to find the minimum path
-    dfs(grid, startX, startY, k, path);
     
     return path;
 }
