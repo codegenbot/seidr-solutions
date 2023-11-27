@@ -1,5 +1,7 @@
 #include <boost/any.hpp>
 #include <boost/lexical_cast.hpp>
+#include <iostream>
+#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -26,13 +28,13 @@ boost::any compare_one(boost::any a, boost::any b) {
             floatA = boost::lexical_cast<float>(stringA);
             floatB = boost::lexical_cast<float>(stringB);
         } catch (const boost::bad_lexical_cast&) {
-            return std::string("None");
+            return boost::any(std::string("None"));
         }
         if (floatA > floatB) {
-            return stringA;
+            return boost::any(stringA);
         } else if (floatA < floatB) {
-            return stringB;
+            return boost::any(stringB);
         }
     }
-    return std::string("None");
+    return boost::any(std::string("None"));
 }
