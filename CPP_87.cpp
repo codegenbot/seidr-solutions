@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-    return a == b;
-}
-
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
