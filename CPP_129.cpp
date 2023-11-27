@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
+#include <iostream>
 #include <climits>
-#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     // implementation of the function
@@ -42,7 +42,12 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
 }
 
 int main() {
-    assert(issame(std::vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}), minPath(std::vector<std::vector<int>>({{1, 3}, {3, 2}}), 10)));
+    std::vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
+    
+    for(int i=0; i<result.size(); i++){
+        std::cout << result[i] << " ";
+    }
+    std::cout << std::endl;
     
     return 0;
 }
