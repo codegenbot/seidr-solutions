@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +14,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> sum_product(const std::vector<int>& numbers) {
+std::vector<int> sum_product(std::vector<int> numbers) {
     int sum = 0;
     int product = 1;
 
@@ -31,7 +31,7 @@ std::vector<int> sum_product(const std::vector<int>& numbers) {
 }
 
 int main() {
-    std::vector<int> input = {10, 20, 30};
+    std::vector<int> input = {10};
     std::vector<int> result = sum_product(input);
 
     if (issame(result, input)) {
