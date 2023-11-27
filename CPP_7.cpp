@@ -30,7 +30,10 @@ bool is_same_contents(vector<string> a, vector<string> b) {
 int main() {
     assert(is_same_contents(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
 
-    // more test cases...
+    // additional test cases
+    assert(is_same_contents(filter_by_substring({"apple", "banana", "cherry", "date"}, "a"), {"apple", "banana"}));
+    assert(is_same_contents(filter_by_substring({"hello", "world", "cpp", "code"}, "o"), {"hello", "world", "code"}));
+    assert(is_same_contents(filter_by_substring({"cat", "dog", "elephant", "giraffe"}, "e"), {"elephant", "giraffe"}));
 
     cout << "All test cases passed!" << endl;
 
