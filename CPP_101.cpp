@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -44,6 +43,8 @@ int main() {
     vector<string> b = {"ahmed", "gamal"};
     bool same = issame(a, b);
     cout << boolalpha << same << endl;
+
+    // Add more test cases if needed
 
     return 0;
 }
