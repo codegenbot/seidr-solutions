@@ -1,10 +1,10 @@
-#include <vector>
+#include <vector> 
 
 using namespace std;
 
-vector<int> intersperse(vector<int> numbers, int delimeter);
+vector<int> intersperse(vector<int> numbers, int delimeter); 
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b); 
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
