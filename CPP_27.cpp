@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 string flip_case(string str){
     string result = "";
