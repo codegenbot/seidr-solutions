@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -23,8 +24,8 @@ int is_bored(string S){
 
 int main() {
     assert(is_bored("You and I are going for a walk") == 0);
- 
-    // Add more test cases if needed
+    assert(is_bored("I am bored. Are you? Maybe! I don't know.") == 2);
+    assert(is_bored("No sense of excitement here.") == 0);
 
     return 0;
 }
