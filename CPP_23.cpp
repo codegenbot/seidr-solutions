@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 int strlen(const string& str){
