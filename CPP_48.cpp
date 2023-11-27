@@ -11,6 +11,13 @@ bool is_palindrome(std::string text){
 }
 
 int main() {
-    // Your test cases here
+    std::string test1 = "racecar";
+    std::string test2 = "hello";
+    std::string test3 = "level";
+
+    bool result1 = is_palindrome(test1);
+    bool result2 = is_palindrome(test2);
+    bool result3 = is_palindrome(test3);
+
     return 0;
 }
