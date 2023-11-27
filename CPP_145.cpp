@@ -1,26 +1,42 @@
-vector<int> order_by_points(vector<int> nums){
-  if(nums.empty()) return nums;
-  
-  vector<pair<int, int>> sumDigits;
-  for(int i=0; i<nums.size(); i++){
-    int sum = 0;
-    int num = nums[i];
-    while(num != 0){
-      sum += abs(num % 10);
-      num /= 10;
+#include <algorithm>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+bool compare(int a, int b) {
+    int sumA = 0, sumB = 0;
+    int tempA = abs(a), tempB = abs(b);
+    
+    while (tempA > 0) {
+        sumA += tempA % 10;
+        tempA /= 10;
     }
-    sumDigits.push_back(make_pair(i, sum));
-  }
-  
-  sort(sumDigits.begin(), sumDigits.end(), [](pair<int, int>& a, pair<int, int>& b){
-    if(a.second == b.second) return a.first < b.first;
-    return a.second < b.second;
-  });
-  
-  vector<int> result;
-  for(auto& item : sumDigits){
-    result.push_back(nums[item.first]);
-  }
-  
-  return result;
+    
+    while (tempB > 0) {
+        sumB += tempB % 10;
+        tempB /= 10;
+    }
+    
+    if (sumA == sumB)
+        return a < b;
+    
+    return sumA < sumB;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
+    return nums;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
+    vector<int> expected = {-76, -21, 0, 4, 23, 6, 6};
+
+    bool same = issame(result, expected);
+    return 0;
 }
