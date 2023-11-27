@@ -1,7 +1,13 @@
-string make_palindrome(string str){
+#include <iostream>
+#include <algorithm>
+#include <cassert>
+
+std::string make_palindrome(std::string str);
+
+std::string make_palindrome(std::string str){
     int n = str.length();
-    string rev_str = str;
-    reverse(rev_str.begin(), rev_str.end());
-    string palindrome = str + rev_str.substr(1, n);
+    std::string rev_str = str;
+    std::reverse(rev_str.begin(), rev_str.end());
+    std::string palindrome = str + rev_str.substr(1, n-1);
     return palindrome;
 }
