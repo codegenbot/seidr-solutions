@@ -1,27 +1,25 @@
 int do_algebra(vector<string> operato, vector<int> operand){
-    int result = operand[0];
-    int i = 0;
-    int j = 1;
+    int result = operand[0]; // initialize result with first operand
 
-    while(i < operato.size() && j < operand.size()){
-        if(operato[i] == "+"){
-            result = result + operand[j];
-        }
-        else if(operato[i] == "-"){
-            result = result - operand[j];
-        }
-        else if(operato[i] == "*"){
-            result = result * operand[j];
-        }
-        else if(operato[i] == "//"){
-            result = result / operand[j];
-        }
-        else if(operato[i] == "**"){
-            result = pow(result, operand[j]);
-        }
+    for(int i = 0; i < operato.size(); i++){
+        string operation = operato[i];
+        int value = operand[i+1];
 
-        i++;
-        j++;
+        if(operation == "+"){
+            result += value;
+        }
+        else if(operation == "-"){
+            result -= value;
+        }
+        else if(operation == "*"){
+            result *= value;
+        }
+        else if(operation == "//"){
+            result /= value;
+        }
+        else if(operation == "**"){
+            result = pow(result, value);
+        }
     }
 
     return result;
