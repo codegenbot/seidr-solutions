@@ -1,36 +1,70 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> letter_grades;
-    for (float gpa : grades) {
-        if (gpa >= 4.0) {
+using namespace std;
+
+vector<string> numerical_letter_grade(vector<float> grades){
+    vector<string> letter_grades;
+    for(int i=0; i<grades.size(); i++){
+        if(grades[i] == 4.0){
             letter_grades.push_back("A+");
-        } else if (gpa > 3.7) {
+        }
+        else if(grades[i] > 3.7){
             letter_grades.push_back("A");
-        } else if (gpa > 3.3) {
+        }
+        else if(grades[i] > 3.3){
             letter_grades.push_back("A-");
-        } else if (gpa > 3.0) {
+        }
+        else if(grades[i] > 3.0){
             letter_grades.push_back("B+");
-        } else if (gpa > 2.7) {
+        }
+        else if(grades[i] > 2.7){
             letter_grades.push_back("B");
-        } else if (gpa > 2.3) {
+        }
+        else if(grades[i] > 2.3){
             letter_grades.push_back("B-");
-        } else if (gpa > 2.0) {
+        }
+        else if(grades[i] > 2.0){
             letter_grades.push_back("C+");
-        } else if (gpa > 1.7) {
+        }
+        else if(grades[i] > 1.7){
             letter_grades.push_back("C");
-        } else if (gpa > 1.3) {
+        }
+        else if(grades[i] > 1.3){
             letter_grades.push_back("C-");
-        } else if (gpa > 1.0) {
+        }
+        else if(grades[i] > 1.0){
             letter_grades.push_back("D+");
-        } else if (gpa > 0.7) {
+        }
+        else if(grades[i] > 0.7){
             letter_grades.push_back("D");
-        } else if (gpa > 0.0) {
+        }
+        else if(grades[i] > 0.0){
             letter_grades.push_back("D-");
-        } else {
+        }
+        else{
             letter_grades.push_back("E");
         }
     }
     return letter_grades;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main(){
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    assert(issame(numerical_letter_grade({3.9, 2.5, 1.0, 4.0, 3.3}), {"A+", "C+", "D+", "A+", "C-"}));
+    return 0;
 }
