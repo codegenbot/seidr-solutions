@@ -1,3 +1,5 @@
+vector<int> incr_list(vector<int> l);
+
 vector<int> incr_list(vector<int> l) {
     vector<int> result;
     for (int i = 0; i < l.size(); i++) {
