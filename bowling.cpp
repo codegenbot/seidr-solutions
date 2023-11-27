@@ -1,24 +1,33 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(const std::string& round) {
+int getScore(std::string input) {
     int score = 0;
     int frame = 1;
     int roll = 0;
     int rolls[21] = {0};
 
-    for (char c : round) {
+    for (char c : input) {
         if (c == 'X') {
-            rolls[roll++] = 10;
+            rolls[roll] = 10;
+            roll++;
             if (frame < 10) {
-                rolls[roll++] = 0;
+                rolls[roll] = 0;
+                roll++;
             }
         } else if (c == '/') {
-            rolls[roll++] = 10 - rolls[roll - 2];
+            rolls[roll] = 10 - rolls[roll - 1];
+            roll++;
         } else if (c == '-') {
-            rolls[roll++] = 0;
+            rolls[roll] = 0;
+            roll++;
         } else {
-            rolls[roll++] = c - '0';
+            rolls[roll] = c - '0';
+            roll++;
+        }
+
+        if (frame < 10 && (c == 'X' || roll % 2 == 0)) {
+            frame++;
         }
     }
 
@@ -39,10 +48,10 @@ int calculateScore(const std::string& round) {
 }
 
 int main() {
-    std::string round;
-    std::getline(std::cin, round);
+    std::string input;
+    std::cin >> input;
 
-    int score = calculateScore(round);
+    int score = getScore(input);
     std::cout << score << std::endl;
 
     return 0;
