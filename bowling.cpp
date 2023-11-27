@@ -41,3 +41,13 @@ int calculateScore(std::string input) {
 
     return score;
 }
+
+int main() {
+    std::string input;
+    std::cin >> input;
+
+    int score = calculateScore(input);
+    std::cout << score << std::endl;
+
+    return 0;
+}
