@@ -1,21 +1,13 @@
-bool isEqual(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
     
-    for(int i=0; i<lst.size(); i++){
+    for(int i = 0; i < lst.size(); i++){
         if(lst[i].length() % 2 == 0){
             result.push_back(lst[i]);
         }
@@ -31,8 +23,8 @@ vector<string> sorted_list_sum(vector<string> lst){
     return result;
 }
 
-int main() {
-    assert(isEqual(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+int main(){
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>{"cc", "dd", "aaaa", "bbbb"});
     
     return 0;
 }
