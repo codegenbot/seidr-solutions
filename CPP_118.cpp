@@ -1,7 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <string>
-#include <cassert>
-
 using namespace std;
 
 bool isVowel(char c) {
