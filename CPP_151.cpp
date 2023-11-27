@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(const std::vector<float>& lst) {
     long long sum = 0;
     for (int i = 0; i < lst.size(); i++) {
         if (lst[i] > 0 && lst[i] == (int)lst[i] && (int)lst[i] % 2 != 0) {
@@ -13,12 +12,7 @@ long long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-int solve(std::vector<float>& lst) {
-    long long odd_sum = double_the_difference(lst);
-    return odd_sum;
-}
-
-int main() {
+long long solve() {
     int n;
     std::cin >> n;
     std::vector<float> lst;
@@ -28,8 +22,13 @@ int main() {
         lst.push_back(num);
     }
 
-    int result = solve(lst);
-    assert(double_the_difference(lst) == result);
+    long long odd_sum = double_the_difference(lst);
+
+    return odd_sum;
+}
+
+int main() {
+    long long result = solve();
     std::cout << result << std::endl;
 
     return 0;
