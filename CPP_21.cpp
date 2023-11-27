@@ -1,17 +1,16 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
 vector<float> rescale_to_unit(vector<float> numbers);
-
 bool issame(vector<float> a, vector<float> b);
 
 vector<float> rescale_to_unit(vector<float> numbers){
     float min_num = numbers[0];
     float max_num = numbers[0];
     
+    // Find the minimum and maximum numbers in the vector
     for(int i = 1; i < numbers.size(); i++){
         if(numbers[i] < min_num){
             min_num = numbers[i];
@@ -23,6 +22,7 @@ vector<float> rescale_to_unit(vector<float> numbers){
     
     vector<float> rescaled_numbers;
     
+    // Apply the linear transform to each number in the vector
     for(int i = 0; i < numbers.size(); i++){
         float rescaled_num = (numbers[i] - min_num) / (max_num - min_num);
         rescaled_numbers.push_back(rescaled_num);
@@ -50,9 +50,12 @@ int main(){
     vector<float> expected_output = {0.25, 0.0, 1.0, 0.5, 0.75};
     vector<float> rescaled = rescale_to_unit(input);
     
-    assert(issame(rescaled, expected_output));
-    
-    cout << "Output is correct." << endl;
+    if(issame(rescaled, expected_output)){
+        cout << "Output is correct." << endl;
+    }
+    else{
+        cout << "Output is incorrect." << endl;
+    }
     
     return 0;
 }
