@@ -1,21 +1,22 @@
-#include <vector>
-
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int count = 0;
     int rows = grid.size();
     int cols = grid[0].size();
+    int max_count = 0;
     
     for (int i = 0; i < rows; i++) {
+        int count = 0;
         for (int j = 0; j < cols; j++) {
             if (grid[i][j] == 1) {
-                int buckets_needed = grid[i][j] / capacity;
-                if (grid[i][j] % capacity != 0) {
-                    buckets_needed++;
-                }
-                count += buckets_needed;
+                count++;
             }
         }
+        max_count = max(max_count, count);
     }
     
-    return count;
+    int num_buckets = max_count / capacity;
+    if (max_count % capacity != 0) {
+        num_buckets++;
+    }
+    
+    return num_buckets;
 }
