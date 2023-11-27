@@ -1,58 +1,38 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
+string sort_numbers(string numbers){
+    // Create a map to store the numberals and their corresponding values
+    map<string, int> numberals;
+    numberals["zero"] = 0;
+    numberals["one"] = 1;
+    numberals["two"] = 2;
+    numberals["three"] = 3;
+    numberals["four"] = 4;
+    numberals["five"] = 5;
+    numberals["six"] = 6;
+    numberals["seven"] = 7;
+    numberals["eight"] = 8;
+    numberals["nine"] = 9;
 
-std::string sort_numbers(std::string numbers) {
-    std::vector<std::string> numberals = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    std::vector<std::string> sorted_numbers;
-
-    // Split the input string by space delimiter
-    std::string delimiter = " ";
-    size_t pos = 0;
-    std::string number;
-    while ((pos = numbers.find(delimiter)) != std::string::npos) {
-        number = numbers.substr(0, pos);
-        numbers.erase(0, pos + delimiter.length());
-
-        // Find the corresponding numberal and add it to the sorted_numbers vector
-        for (int i = 0; i < numberals.size(); i++) {
-            if (numberals[i] == number) {
-                sorted_numbers.push_back(number);
-                break;
-            }
-        }
+    // Convert the input string to a vector of numberals
+    vector<string> nums;
+    stringstream ss(numbers);
+    string num;
+    while (ss >> num) {
+        nums.push_back(num);
     }
 
-    // Add the last number to the sorted_numbers vector
-    for (int i = 0; i < numberals.size(); i++) {
-        if (numberals[i] == numbers) {
-            sorted_numbers.push_back(numbers);
-            break;
-        }
+    // Sort the numberals based on their values
+    sort(nums.begin(), nums.end(), [&](const string& a, const string& b) {
+        return numberals[a] < numberals[b];
+    });
+
+    // Convert the sorted numberals back to a string
+    string sortedNumbers;
+    for (const string& num : nums) {
+        sortedNumbers += num + " ";
     }
 
-    // Sort the sorted_numbers vector
-    std::sort(sorted_numbers.begin(), sorted_numbers.end());
+    // Remove the trailing space
+    sortedNumbers.pop_back();
 
-    // Create the result string by joining the sorted numbers with space delimiter
-    std::string result;
-    for (int i = 0; i < sorted_numbers.size(); i++) {
-        result += sorted_numbers[i];
-        if (i < sorted_numbers.size() - 1) {
-            result += " ";
-        }
-    }
-
-    return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter space-delimited string of numberals: ";
-    std::getline(std::cin, input);
-    std::string sorted = sort_numbers(input);
-    std::cout << "Sorted numbers: " << sorted << std::endl;
-
-    return 0;
+    return sortedNumbers;
 }
