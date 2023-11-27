@@ -21,19 +21,21 @@ int main() {
     std::vector<double> vector2(n);
 
     std::string input;
-    std::cin >> input;
+    std::getline(std::cin, input);
     std::stringstream ss(input);
     for (int i = 0; i < n; i++) {
         ss >> vector1[i];
     }
 
-    std::cin >> input;
+    std::getline(std::cin, input);
+    std::replace(input.begin(), input.end(), ',', ' ');
     std::stringstream ss2(input);
     for (int i = 0; i < n; i++) {
         ss2 >> vector2[i];
     }
 
     double distance = calculateEuclideanDistance(vector1, vector2);
+    std::cout.precision(15);
     std::cout << distance << std::endl;
 
     return 0;
