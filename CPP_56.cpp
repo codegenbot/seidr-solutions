@@ -17,8 +17,11 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-  std::string input;
-  std::cin >> input;
-  std::cout << correct_bracketing(input) << std::endl;
+  std::string brackets;
+  std::cin >> brackets;
+  
+  bool result = correct_bracketing(brackets);
+  std::cout << std::boolalpha << result << std::endl;
+  
   return 0;
 }
