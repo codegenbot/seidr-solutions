@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<int> incr_list(vector<int> l);  // Forward declaration
+vector<int> incr_list(vector<int> l);
 
 bool issame(vector<int> a, vector<int> b){
     // Implementation of the issame function
