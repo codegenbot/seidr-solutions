@@ -1,15 +1,8 @@
 #include <iostream>
 
-std::string int_to_mini_roman(int number);
-
-int main() {
-    int number;
-    std::cin >> number;
-    
-    std::cout << int_to_mini_roman(number);
-    
-    return 0;
-}
+/* Given code */
+#include <vector>
+#include <string>
 
 std::string int_to_mini_roman(int number) {
     std::vector<int> nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
@@ -24,4 +17,17 @@ std::string int_to_mini_roman(int number) {
     }
 
     return result;
+}
+
+int main() {
+    int number;
+    std::cout << "Enter a number: ";
+    std::cin >> number;
+  
+    // Fix the function call
+    std::string roman = int_to_mini_roman(number);
+  
+    std::cout << roman << std::endl;
+
+    return 0;
 }
