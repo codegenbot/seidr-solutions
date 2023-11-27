@@ -1,12 +1,17 @@
+#include <iostream>
+#include <stack>
+
 bool correct_bracketing(string brackets) {
-   int count = 0;
-   for (int i = 0; i < brackets.length(); i++) {
-      if (brackets[i] == '(')
-         count++;
-      else if (brackets[i] == ')')
-         count--;
-      if (count < 0)
-         return false;
-   }
-   return count == 0;
+    stack<char> st;
+    for (char bracket : brackets) {
+        if (bracket == '(') {
+            st.push(bracket);
+        } else if (bracket == ')') {
+            if (st.empty()) {
+                return false;
+            }
+            st.pop();
+        }
+    }
+    return st.empty();
 }
