@@ -1,16 +1,19 @@
-string string_to_md5(string text){
-    if(text.empty()){
+#include <stdio.h>
+#include <string>
+#include <openssl/md5.h>
+
+string string_to_md5(string text) {
+    if (text.empty()) {
         return "None";
     }
 
-    unsigned char md5_hash[MD5_DIGEST_LENGTH];
-    char md5_string[33];
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5((unsigned char*)text.c_str(), text.length(), digest);
 
-    MD5(reinterpret_cast<const unsigned char*>(text.c_str()), text.length(), md5_hash);
-
-    for(int i = 0; i < 16; i++){
-        sprintf(&md5_string[i*2], "%02x", (unsigned int)md5_hash[i]);
+    char hexDigest[MD5_DIGEST_LENGTH * 2 + 1];
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        sprintf(&hexDigest[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return md5_string;
+    return hexDigest;
 }
