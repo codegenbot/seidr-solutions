@@ -27,11 +27,13 @@ std::string string_to_md5(const std::string& text) {
     return std::string(md5String);
 }
 
-std::string solve() {
+int main() {
     std::string text;
     std::cout << "Enter text: ";
     std::getline(std::cin, text); // Read the entire line
 
     std::string md5 = string_to_md5(text);
-    return "MD5: " + md5;
+    std::cout << "MD5: " << md5 << std::endl;
+
+    return 0;
 }
