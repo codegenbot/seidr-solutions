@@ -1,14 +1,7 @@
 #include <string>
-
 using namespace std;
 
 string longest(vector<string> strings);
-
-int main() {
-    // Code for getting input and calling the longest function
-
-    return 0;
-}
 
 string longest(vector<string> strings){
     if(strings.empty()){
