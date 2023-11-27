@@ -24,4 +24,23 @@ std::vector<std::string> words_string(const std::string& s) {
 
 bool issame(const std::vector<std::string>&, const std::vector<std::string>&);
 
-bool issame(const std::vector<std::string>&, const std::vector<std::string>&);
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    bool result = true;
+    if (a.size() != b.size()) {
+        result = false;
+    } else {
+        for (int i = 0; i < a.size(); i++) {
+            if (a[i] != b[i]) {
+                result = false;
+                break;
+            }
+        }
+    }
+    return result;
+}
+
+int main() {
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+
+    return 0;
+}
