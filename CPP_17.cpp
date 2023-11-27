@@ -1,18 +1,20 @@
-#include <vector>
-#include <string>
-
-vector<int> parse_music(string music_string) {
+vector<int> parse_music(string music_string){
     vector<int> beats;
-    int i = 0;
-    while (i < music_string.size()) {
-        if (music_string[i] == 'o') {
+    string note = "";
+    for(int i=0; i<music_string.length(); i++){
+        if(music_string[i] == 'o'){
+            if(note == "o|"){
+                beats.push_back(2);
+            }
+            else if(note == ".|"){
+                beats.push_back(1);
+            }
             beats.push_back(4);
-        } else if (music_string[i] == ' ') {
-            // Skip spaces
-        } else {
-            beats.push_back(1);
+            note = "";
         }
-        i++;
+        else if(music_string[i] == '|'){
+            note = music_string[i-1] + music_string[i];
+        }
     }
     return beats;
 }
