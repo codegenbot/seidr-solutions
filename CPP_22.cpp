@@ -10,7 +10,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> filter_integers(const std::vector<int>& values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (std::is_same_v<decltype(value), int>) {
+        if (std::is_same_v<std::decay_t<decltype(value)>, int>) {
             result.push_back(value);
         }
     }
