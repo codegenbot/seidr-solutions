@@ -45,12 +45,12 @@ int main() {
 
     vector<int> result = cutVector(nums);
 
-    for (auto it = result[0].begin(); it != result[0].end(); it++) {
-        cout << *it << endl;
+    for (int i = 0; i < result[0].size(); i++) {
+        cout << result[0][i] << endl;
     }
 
-    for (auto it = result[1].begin(); it != result[1].end(); it++) {
-        cout << *it << endl;
+    for (int i = 0; i < result[1].size(); i++) {
+        cout << result[1][i] << endl;
     }
 
     return 0;
