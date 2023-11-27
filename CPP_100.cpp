@@ -20,10 +20,20 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    // Test the code
-    std::vector<int> a = {1, 3, 5};
-    std::vector<int> b = make_a_pile(3);
-    std::cout << "issame(a, b): " << std::boolalpha << issame(a, b) << std::endl;
+    // Read input from user
+    int n;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+
+    // Call make_a_pile function
+    std::vector<int> result = make_a_pile(n);
+
+    // Print the result
+    std::cout << "Result: ";
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
