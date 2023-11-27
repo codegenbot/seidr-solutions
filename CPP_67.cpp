@@ -1,19 +1,23 @@
 int fruit_distribution(string s, int n) {
     int apples = 0;
     int oranges = 0;
-    int mangoes = 0;
 
-    // Count the number of apples and oranges in the string
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'a' || s[i] == 'A') {
-            apples++;
-        } else if (s[i] == 'o' || s[i] == 'O') {
-            oranges++;
-        }
+    // Extract the number of apples and oranges from the string
+    size_t applesPos = s.find("apples");
+    size_t orangesPos = s.find("oranges");
+
+    if (applesPos != string::npos) {
+        string applesStr = s.substr(0, applesPos);
+        apples = stoi(applesStr);
     }
 
-    // Calculate the number of mangoes
-    mangoes = n - apples - oranges;
+    if (orangesPos != string::npos) {
+        string orangesStr = s.substr(applesPos + 7, orangesPos - applesPos - 7);
+        oranges = stoi(orangesStr);
+    }
+
+    // Calculate the number of mango fruits
+    int mangoes = n - apples - oranges;
 
     return mangoes;
 }
