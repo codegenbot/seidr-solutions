@@ -1,29 +1,36 @@
-vector<int> even_odd_palindrome(int n){
+#include <stdio.h>
+#include <vector>
+#include <string>
+using namespace std;
 
-    vector<int> result(2, 0); // Initialize the result vector with 0 for even and odd palindromes
+vector<int> even_odd_palindrome(int n) {
+    vector<int> result;
+    int evenCount = 0;
+    int oddCount = 0;
 
     for (int i = 1; i <= n; i++) {
-        string s = to_string(i); // Convert the integer to a string
+        string str = to_string(i);
+        int length = str.length();
+        bool isPalindrome = true;
 
-        bool isPalindrome = true; // Initialize the palindrome flag as true
-
-        // Check if the string is a palindrome (check each character from both ends)
-        for (int j = 0; j < s.length() / 2; j++) {
-            if (s[j] != s[s.length() - 1 - j]) {
-                isPalindrome = false; // If characters are not equal, set the flag to false
+        for (int j = 0; j < length / 2; j++) {
+            if (str[j] != str[length - j - 1]) {
+                isPalindrome = false;
                 break;
             }
         }
 
-        // Increment the count in the result vector based on the palindrome type
         if (isPalindrome) {
             if (i % 2 == 0) {
-                result[0]++; // Even palindrome
+                evenCount++;
             } else {
-                result[1]++; // Odd palindrome
+                oddCount++;
             }
         }
     }
+
+    result.push_back(evenCount);
+    result.push_back(oddCount);
 
     return result;
 }
