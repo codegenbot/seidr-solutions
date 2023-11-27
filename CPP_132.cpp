@@ -4,12 +4,9 @@ bool is_nested(string str){
         if(str[i] == '['){
             count++;
         }
-        else if(str[i] == ']'){
+        else if(str[i] == ']' && count > 0){
             count--;
         }
-        if(count < 0){
-            return true;
-        }
     }
-    return false;
+    return count > 0;
 }
