@@ -1,8 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
+#include<iostream>
+#include<vector>
+#include<cassert>
 
 using namespace std;
+
+vector<float> get_positive(vector<float> l);
 
 vector<float> get_positive(vector<float> l) {
     vector<float> result;
@@ -15,6 +17,6 @@ vector<float> get_positive(vector<float> l) {
 }
 
 int main() {
-    assert(get_positive({}) == vector<float>{});
+    assert (get_positive({}) == vector<float>{});
     return 0;
 }
