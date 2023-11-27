@@ -3,11 +3,11 @@
 #include <cmath>
 
 double euclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
-    long double sum = 0.0;
+    double sum = 0.0;
     for (int i = 0; i < vector1.size(); i++) {
         sum += pow(vector1[i] - vector2[i], 2);
     }
-    return static_cast<double>(sqrt(sum));
+    return sqrt(sum);
 }
 
 int main() {
@@ -24,7 +24,7 @@ int main() {
         std::cin >> vector2[i];
     }
 
-    double distance = euclideanDistance(vector1, vector2);
+    double distance = round(euclideanDistance(vector1, vector2) * 100) / 100;
     std::cout << distance << std::endl;
 
     return 0;
