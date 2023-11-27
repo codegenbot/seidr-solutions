@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
-using namespace std;
+#include <algorithm>
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
