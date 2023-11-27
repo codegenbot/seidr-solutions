@@ -1,18 +1,25 @@
-int closest_integer(string value){
-    float num = stof(value);
-    int rounded = round(num);
-    int floor_num = floor(num);
-    int ceil_num = ceil(num);
+#include <iostream>
+#include <string>
+#include <cmath>
 
-    if (num - floor_num == ceil_num - num) {
+int closest_integer(std::string value){
+    float num = std::stof(value); 
+    int rounded_num = std::round(num); 
+
+    if (num - rounded_num == 0.5) {
         if (num > 0) {
-            return ceil_num;
+            return std::ceil(num);
         } else {
-            return floor_num;
+            return std::floor(num);
         }
-    } else if (num - floor_num < ceil_num - num) {
-        return floor_num;
     } else {
-        return ceil_num;
+        return rounded_num;
     }
+}
+
+int main() {
+    assert (closest_integer("0") == 0);
+    // more test cases...
+
+    return 0;
 }
