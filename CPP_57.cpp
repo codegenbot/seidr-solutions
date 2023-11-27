@@ -17,6 +17,7 @@ bool monotonic(std::vector<float> l){
 }
 
 int main(){
+    // Test cases
     std::vector<float> test1 = {1.0, 2.0, 3.0, 4.0, 5.0};
     std::vector<float> test2 = {5.0, 4.0, 3.0, 2.0, 1.0};
     std::vector<float> test3 = {1.0, 2.0, 3.0, 2.0, 1.0};
