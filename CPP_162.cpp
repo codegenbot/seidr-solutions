@@ -37,7 +37,7 @@ std::string solve() {
     return "MD5: " + md5;
 }
 
-int main() {
-    std::cout << solve() << std::endl;
-    return 0;
-}
+// int main() {
+//     std::cout << solve() << std::endl;
+//     return 0;
+// }
