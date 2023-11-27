@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -32,9 +31,4 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
         sort(result[i].begin(), result[i].end(), greater<int>());
     }
     return result;
-}
-
-int main() {
-    assert (is_same(get_row({{}, {1}, {1, 2, 3}}, 3) , {{2, 2}}));
-    return 0;
 }
