@@ -1,23 +1,23 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<assert.h>
+#include <iostream>
+#include <vector>
+#include <string> 
+
 using namespace std;
 
+string exchange(vector<int> lst1, vector<int> lst2);
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
+    int count = 0;
     for (int i = 0; i < lst1.size(); i++) {
         if (lst1[i] % 2 != 0) {
-            oddCount++;
+            count++;
         }
     }
-    if (oddCount == 0) {
-        return "YES";
-    }
-    return "NO";
+    return (count <= lst2.size()) ? "YES" : "NO";
 }
 
 int main() {
-    assert (exchange({100, 200}, {200, 200}) == "YES");
+    assert(exchange({100, 200}, {200, 200}) == "YES");
+
     return 0;
 }
