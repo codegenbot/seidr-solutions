@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 vector<int> tri(int n){
     vector<int> sequence;
     sequence.push_back(3);
@@ -6,27 +10,24 @@ vector<int> tri(int n){
         return sequence;
     }
     
-    sequence.push_back(1);
+    sequence.push_back(1 + n/2);
     
     if(n == 1){
         return sequence;
     }
     
-    sequence.push_back(2);
+    int prev1 = 3;
+    int prev2 = 2;
+    int prev3 = 1 + n/2;
     
-    if(n == 2){
-        return sequence;
+    for(int i = 3; i <= n; i++){
+        int current = prev1 + prev2 + prev3; 
+        sequence.push_back(current);
+        
+        prev1 = prev2; 
+        prev2 = prev3; 
+        prev3 = current; 
     }
     
-    int i = 3;
-    while(i <= n){
-        if(i % 2 == 0){
-            sequence.push_back(1 + i / 2);
-        }else{
-            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i + 1]);
-        }
-        i++;
-    }
-    
-    return sequence;
+    return sequence; 
 }
