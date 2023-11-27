@@ -1,17 +1,17 @@
 #include <vector>
 #include <algorithm>
 #include <climits>
-#include <cassert> // Added header for assert
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     // implementation of the function
 }
 
-void dfs(std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path){
+void dfs(std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path) {
     // implementation of the dfs function
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
     std::vector<int> path;
     
@@ -19,7 +19,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     int minVal = INT_MAX;
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
-            minVal = std::min(minVal, grid[i][j]); // Added std::
+            minVal = std::min(minVal, grid[i][j]);
         }
     }
     
