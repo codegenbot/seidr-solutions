@@ -16,6 +16,5 @@ int prod_signs(vector<int> arr){
 
 int main() {
     // Your test cases here
-    
     return 0;
 }
