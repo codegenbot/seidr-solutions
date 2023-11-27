@@ -24,5 +24,3 @@ string string_to_md5(string text) {
 
     return string(md5Hash);
 }
-
-g++ -o output_file source_file.cpp -lcrypto
