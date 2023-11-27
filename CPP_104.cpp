@@ -15,17 +15,6 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> unique_digits(vector<int> x);
-
-int main() {
-    vector<int> x = {123, 456, 789};
-    vector<int> result = unique_digits(x);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
-    }
-    return 0;
-}
-
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for(int i=0; i<x.size(); i++){
