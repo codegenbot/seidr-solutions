@@ -1,5 +1,6 @@
 #include <cassert>
 #include <vector>
+#include <string>
 
 std::vector<int> even_odd_palindrome(int n){
     std::vector<int> result(2, 0);
@@ -16,7 +17,7 @@ std::vector<int> even_odd_palindrome(int n){
         if(isPalindrome){
             if(i % 2 == 0){
                 result[0]++;
-            } else {
+            }else{
                 result[1]++;
             }
         }
