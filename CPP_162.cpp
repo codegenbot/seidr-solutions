@@ -25,3 +25,11 @@ string string_to_md5(string text) {
 
     return string(md5Hash);
 }
+
+int main() {
+    string text;
+    getline(cin, text);
+    string md5Hash = string_to_md5(text);
+    cout << md5Hash << endl;
+    return 0;
+}
