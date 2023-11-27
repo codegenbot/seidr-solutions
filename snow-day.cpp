@@ -4,7 +4,7 @@ float calculateSnow(float hours, float initialSnow, float snowFallRate, float sn
     float snowOnGround = initialSnow;
     
     for (int i = 0; i < hours; i++) {
-        snowOnGround = (snowOnGround + snowFallRate) * (1 - snowMeltRate);
+        snowOnGround = snowOnGround + (snowFallRate - snowMeltRate * snowOnGround);
     }
     
     return snowOnGround;
