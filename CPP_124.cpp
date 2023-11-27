@@ -3,17 +3,8 @@ bool valid_date(string date){
         return false;
     }
     
-    if(date.length() != 10){
-        return false;
-    }
-    
-    if(date[2] != '-' || date[5] != '-'){
-        return false;
-    }
-    
-    int month = stoi(date.substr(0, 2));
-    int day = stoi(date.substr(3, 2));
-    int year = stoi(date.substr(6, 4));
+    int month, day, year;
+    sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year);
     
     if(month < 1 || month > 12){
         return false;
@@ -28,11 +19,10 @@ bool valid_date(string date){
     }
     
     if(month == 2){
-        bool leapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-        if(leapYear && day > 29){
+        if(day > 29){
             return false;
         }
-        if(!leapYear && day > 28){
+        if(day == 29 && (year % 4 != 0 || (year % 100 == 0 && year % 400 != 0))){
             return false;
         }
     }
