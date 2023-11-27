@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> incr_list(vector<int> l){
@@ -18,4 +23,17 @@ bool issame(vector<int> a, vector<int> b) {
         }
     }
     return true;
+}
+
+int main() {
+    vector<int> l = {1, 2, 3, 4, 5};
+    vector<int> result = incr_list(l);
+    vector<int> expected = {2, 3, 4, 5, 6};
+    bool same = issame(result, expected);
+    if(same) {
+        cout << "The result is correct." << endl;
+    } else {
+        cout << "The result is incorrect." << endl;
+    }
+    return 0;
 }
