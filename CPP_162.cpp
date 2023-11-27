@@ -15,7 +15,7 @@ std::string string_to_md5(std::string text) {
     EVP_DigestFinal_ex(md5Context, digest, nullptr);
     EVP_MD_CTX_free(md5Context);
 
-    std::array<char, 33> md5Hash;
+    std::array<char, 32> md5Hash;
     for (int i = 0; i < EVP_MD_size(EVP_md5()); ++i) {
         sprintf(&md5Hash[i * 2], "%02x", (unsigned int)digest[i]);
     }
