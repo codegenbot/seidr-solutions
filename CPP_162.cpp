@@ -1,24 +1,37 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
+#include <openssl/evp.h>
 
-std::string string_to_md5(std::string text){
+using namespace std;
+
+string string_to_md5(string text) {
     if (text.empty()) {
         return "None";
     }
 
-    unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* mdContext = EVP_MD_CTX_new();
-    EVP_MD_CTX_init(mdContext);
-    EVP_DigestInit_ex(mdContext, EVP_md5(), NULL);
-    EVP_DigestUpdate(mdContext, (unsigned char*)text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdContext, digest, NULL);
-    EVP_MD_CTX_free(mdContext);
+    EVP_MD_CTX *mdctx;
+    const EVP_MD *md;
+    unsigned char digest[EVP_MAX_MD_SIZE];
+    unsigned int digest_len;
 
-    char md5String[33];
-    for(int i = 0; i < 16; i++) {
-        sprintf(&md5String[i*2], "%02x", (unsigned int)digest[i]);
+    md = EVP_md5();
+    mdctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(mdctx, md, NULL);
+    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
+    EVP_DigestFinal_ex(mdctx, digest, &digest_len);
+    EVP_MD_CTX_free(mdctx);
+
+    char md5hash[33];
+    for (unsigned int i = 0; i < digest_len; i++) {
+        sprintf(&md5hash[i * 2], "%02x", digest[i]);
     }
 
-    return std::string(md5String);
+    return string(md5hash);
+}
+
+int main() {
+    string text;
+    getline(cin, text);
+    cout << string_to_md5(text) << endl;
+    return 0;
 }
