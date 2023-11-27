@@ -1,6 +1,6 @@
-#include<iostream>
-#include<algorithm>
-#include<cassert>
+#include <iostream>
+#include <algorithm>
+#include <cassert>
 using namespace std;
 
 string circular_shift(int x, int shift);
