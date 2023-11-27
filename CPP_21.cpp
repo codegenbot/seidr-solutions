@@ -1,22 +1,28 @@
-vector<float> rescale_to_unit(vector<float> numbers){
-    float min_num = numbers[0];
-    float max_num = numbers[0];
-    
-    // find the minimum and maximum numbers in the vector
-    for(int i=1; i<numbers.size(); i++){
-        if(numbers[i] < min_num){
-            min_num = numbers[i];
-        }
-        if(numbers[i] > max_num){
-            max_num = numbers[i];
-        }
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+vector<float> rescale_to_unit(vector<float> numbers) {
+    float min_num = *min_element(numbers.begin(), numbers.end());
+    float max_num = *max_element(numbers.begin(), numbers.end());
+
+    vector<float> rescaled_numbers;
+    for (float num : numbers) {
+        float rescaled_num = (num - min_num) / (max_num - min_num);
+        rescaled_numbers.push_back(rescaled_num);
     }
-    
-    // apply linear transform to rescale the vector
-    float range = max_num - min_num;
-    for(int i=0; i<numbers.size(); i++){
-        numbers[i] = (numbers[i] - min_num) / range;
+
+    return rescaled_numbers;
+}
+
+int main() {
+    vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+    vector<float> rescaled_numbers = rescale_to_unit(numbers);
+
+    for (float num : rescaled_numbers) {
+        cout << num << " ";
     }
-    
-    return numbers;
+    cout << endl;
+
+    return 0;
 }
