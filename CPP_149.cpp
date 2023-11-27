@@ -10,10 +10,9 @@ bool issame(vector<string> a, vector<string> b);
 
 vector<string> sorted_list_sum(vector<string> lst);
 
-// Remove duplicate function definition
-// bool issame(vector<string> a, vector<string> b) {
-//     return a == b;
-// }
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
@@ -31,13 +30,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return result;
 }
 
-// Remove duplicate main function definition
-// int main() {
-//     assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-//     return 0;
-// }
-
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "dddd", "ff", "gggg"}), {"ff", "gggg", "aaaa", "dddd"}));
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
