@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
-#include <cassert>
-
 using namespace std;
+
+string make_palindrome(string str);
+int main();
 
 string make_palindrome(string str){
     string palindrome = str;
@@ -16,8 +17,7 @@ string make_palindrome(string str){
     return palindrome;
 }
 
-int main()
-{
+int main() {
     assert (make_palindrome("jerry") == "jerryrrej");
     return 0;
 }
