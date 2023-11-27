@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -19,10 +19,10 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
+vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
-    for (int i = 0; i < numbers.size(); i++) {
-        if (count(numbers.begin(), numbers.end(), numbers[i]) == 1) {
+    for(int i=0; i<numbers.size(); i++){
+        if(count(numbers.begin(), numbers.end(), numbers[i]) == 1){
             result.push_back(numbers[i]);
         }
     }
