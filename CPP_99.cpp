@@ -1,5 +1,7 @@
-#include <cmath>
+#include <iostream>
 #include <string>
+#include <cmath>
+#include <cassert>
 using namespace std;
 
 int closest_integer(string value){
@@ -18,8 +20,6 @@ int closest_integer(string value){
 }
 
 int main() {
-    assert(closest_integer("0") == 0);
-    // Add more test cases here
-    
+    assert (closest_integer("0") == 0);
     return 0;
 }
