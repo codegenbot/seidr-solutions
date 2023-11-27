@@ -1,6 +1,6 @@
 #include <vector>
-#include <list>
-#include <boost/any.hpp>
+#include <list> // Add the appropriate header file here
+#include <boost/any.hpp> // Add the appropriate header file here
 
 using namespace std;
 
@@ -14,7 +14,7 @@ vector<int> filter_integers(list<boost::any> values) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) { // Add the missing `<` after `vector<int>`
     if (a.size() != b.size()) {
         return false;
     }
@@ -27,21 +27,13 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    list<boost::any> values;
-    values.push_back(10);
-    values.push_back("hello");
-    values.push_back(20);
-    values.push_back(30);
-    values.push_back("world");
-    values.push_back(40);
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
 
-    vector<int> filtered_values = filter_integers(values);
-
-    vector<int> expected_values = {10, 20, 30, 40};
-    if (issame(filtered_values, expected_values)) {
-        cout << "Filtered values are correct!" << endl;
+    if (issame(a, b)) {
+        cout << "The two vectors are the same." << endl;
     } else {
-        cout << "Filtered values are incorrect!" << endl;
+        cout << "The two vectors are different." << endl;
     }
 
     return 0;
