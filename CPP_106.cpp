@@ -22,3 +22,9 @@ std::vector<int> f(int n){
     }
     return result;
 }
+
+int main(){
+    assert (f(3) == std::vector<int>{1, 2, 6});
+    std::cout << "Test case passed!" << std::endl;
+    return 0;
+}
