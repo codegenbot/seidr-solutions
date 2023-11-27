@@ -4,14 +4,15 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
 vector<int> sort_third(vector<int> l);
+bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b)
+{
     if(a.size() != b.size()){
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -34,16 +35,22 @@ vector<int> sort_third(vector<int> l){
     return l_prime;
 }
 
-int main(){
-    vector<int> l = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    vector<int> l_sorted_third = sort_third(l);
-    
-    if(issame(l_sorted_third, {1, 2, 3, 4, 5, 6, 7, 8, 9})){
-        cout << "Test case 1 passed!" << endl;
+int main()
+{
+    vector<int> values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    vector<int> sorted = sort_third(values);
+
+    for(int i=0; i<sorted.size(); i++){
+        cout << sorted[i] << " ";
+    }
+    cout << endl;
+
+    if(issame(values, sorted)){
+        cout << "The original and sorted vectors are the same." << endl;
     }
     else{
-        cout << "Test case 1 failed!" << endl;
+        cout << "The original and sorted vectors are different." << endl;
     }
-    
+
     return 0;
 }
