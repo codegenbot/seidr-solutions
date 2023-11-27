@@ -1,4 +1,3 @@
-\```cpp
 #include <vector>
 #include <cassert>
 
@@ -36,4 +35,3 @@ int main() {
     // more test cases
     return 0;
 }
-\```
