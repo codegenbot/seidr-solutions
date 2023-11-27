@@ -1,19 +1,16 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
 
-namespace std {
-    bool issame(std::vector<float> a, std::vector<float> b) {
-        if (a.size() != b.size()) {
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
-        for (int i = 0; i < a.size(); i++) {
-            if (a[i] != b[i]) {
-                return false;
-            }
-        }
-        return true;
     }
+    return true;
 }
 
 std::vector<float> derivative(std::vector<float> xs) {
@@ -25,7 +22,7 @@ std::vector<float> derivative(std::vector<float> xs) {
 }
 
 int main() {
-    assert(std::issame(std::vector<float>({1}), std::vector<float>({})));
+    assert(issame(std::vector<float>({1}), std::vector<float>({})));
     // Add more test cases here if needed
     return 0;
 }
