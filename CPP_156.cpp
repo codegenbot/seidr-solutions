@@ -1,17 +1,33 @@
-#include <string>
+#include <iostream>
+
+/* Given code */
 #include <vector>
+#include <string>
 
 std::string int_to_mini_roman(int number) {
-    std::string roman = "";
     std::vector<int> nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
     std::vector<std::string> romans = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+    std::string result = "";
 
-    for (int i = 0; i < nums.size(); i++) {
-        while (number >= nums[i]) {
-            roman += romans[i];
+    for(int i = 0; i < nums.size(); i++) {
+        while(number >= nums[i]) {
+            result += romans[i];
             number -= nums[i];
         }
     }
 
-    return roman;
+    return result;
+}
+
+int main() {
+    int number;
+    std::cout << "Enter a number: ";
+    std::cin >> number;
+  
+    // Fix the function call
+    std::string roman = int_to_mini_roman(number);
+  
+    std::cout << roman << std::endl;
+
+    return 0;
 }

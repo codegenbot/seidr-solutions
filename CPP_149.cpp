@@ -4,7 +4,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+using namespace std;
+
+bool is_same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,8 +17,6 @@ bool issame(vector<string> a, vector<string> b) {
     }
     return true;
 }
-
-vector<string> sorted_list_sum(vector<string> lst);
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
@@ -35,6 +35,10 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({ "aaaa", "bbbb", "dd", "cc" }), { "cc", "dd", "aaaa", "bbbb" }));
+    vector<string> expected = { "cc", "dd", "aaaa", "bbbb" };
+    vector<string> actual = sorted_list_sum({ "aaaa", "bbbb", "dd", "cc" });
+
+    assert(is_same(expected, actual));
+
     return 0;
 }
