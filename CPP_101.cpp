@@ -9,6 +9,12 @@ vector<string> words_string(const string& s);
 
 bool issame(const vector<string>& a, const initializer_list<string>& b);
 
+int main() {
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    // Add more test cases if needed
+    return 0;
+}
+
 vector<string> words_string(const string& s) {
     vector<string> words;
     string word = "";
@@ -41,10 +47,4 @@ bool issame(const vector<string>& a, const initializer_list<string>& b) {
         }
     }
     return true;
-}
-
-int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    // Add more test cases if needed
-    return 0;
 }
