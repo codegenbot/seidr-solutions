@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 std::vector<float> derivative(std::vector<float> xs) {
     std::vector<float> result;
@@ -21,8 +20,20 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
+#include <iostream>
+
 int main() {
-    assert(issame(std::vector<float>({1}), std::vector<float>({})));
-    // Add more test cases here if needed
+    std::vector<float> xs;
+    float input;
+    while (std::cin >> input) {
+        xs.push_back(input);
+    }
+
+    std::vector<float> result = derivative(xs);
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
