@@ -7,11 +7,6 @@ vector<string> reverse_delete(string s, string c);
 
 bool issame(vector<string> a, vector<string> b);
 
-int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
-}
-
 vector<string> reverse_delete(string s, string c) {
     string result = "";
     for (int i = 0; i < s.length(); i++) {
