@@ -36,5 +36,6 @@ std::vector<int> f(int n) {
 
 int main() {
     assert(is_same(f(3), {1, 2, 6}));
+    std::cout << "Assertion Passed" << std::endl;
     return 0;
 }
