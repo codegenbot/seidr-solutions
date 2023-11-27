@@ -1,8 +1,7 @@
 #include <string>
-#include <algorithm>
+#include <boost/algorithm/string.hpp>
 #include <boost/any.hpp>
 #include <cassert>
-#include <locale>
 
 boost::any compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -16,10 +15,9 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string str1 = boost::any_cast<std::string>(a);
         std::string str2 = boost::any_cast<std::string>(b);
-        std::transform(str1.begin(), str1.end(), str1.begin(), [](unsigned char c){ return std::tolower(c); });
-        std::transform(str2.begin(), str2.end(), str2.begin(), [](unsigned char c){ return std::tolower(c); });
-        auto max_str = std::max_element({str1, str2});
-        return *max_str;
+        boost::algorithm::to_lower(str1);
+        boost::algorithm::to_lower(str2);
+        return std::max(str1, str2, [](const std::string& s1, const std::string& s2) { return s1 < s2; });
     }
     return boost::any();
 }
