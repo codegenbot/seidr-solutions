@@ -1,9 +1,9 @@
-#include <vector>
+vector<float> result;
 
-vector<float> derivative(vector<float> xs) {
-    vector<float> derivative;
-    for (int i = 1; i < xs.size(); i++) {
-        derivative.push_back(xs[i] * i);
-    }
-    return derivative;
+for(int i=1;i<xs.size();i++)
+{
+    float derivativeTerm = xs[i]*i;
+    result.push_back(derivativeTerm);
 }
+
+return result;
