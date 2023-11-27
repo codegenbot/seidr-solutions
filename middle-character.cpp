@@ -3,16 +3,20 @@
 
 std::string getMiddleCharacter(const std::string& str) {
     int length = str.length();
-    if (length % 2 == 1) {
-        return std::string(1, str[length / 2]);
+    int middleIndex = length / 2;
+
+    if (length % 2 == 0) {
+        return str.substr(middleIndex - 1, 2);
     } else {
-        return str.substr(length / 2 - 1, 2);
+        return str.substr(middleIndex, 1);
     }
 }
 
 int main() {
     std::string input;
     std::cin >> input;
+
     std::cout << getMiddleCharacter(input) << std::endl;
+
     return 0;
 }
