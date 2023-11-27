@@ -1,10 +1,10 @@
 vector<string> words_string(string s){
-    vector<string> words;
+    vector<string> result;
     string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
             if(word != ""){
-                words.push_back(word);
+                result.push_back(word);
                 word = "";
             }
         }
@@ -13,7 +13,7 @@ vector<string> words_string(string s){
         }
     }
     if(word != ""){
-        words.push_back(word);
+        result.push_back(word);
     }
-    return words;
+    return result;
 }
