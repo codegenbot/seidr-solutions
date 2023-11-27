@@ -6,10 +6,15 @@ bool correct_bracketing(string brackets){
         }
         else if(brackets[i] == ')'){
             count--;
-        }
-        if(count < 0){
-            return false;
+            if(count < 0){
+                return false;
+            }
         }
     }
-    return count == 0;
+    if(count == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
