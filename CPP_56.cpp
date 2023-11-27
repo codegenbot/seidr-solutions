@@ -1,6 +1,9 @@
+#include <iostream>
 #include <string>
 
-bool correct_bracketing(std::string brackets) {
+using namespace std;
+
+bool correct_bracketing(string brackets) {
   int count = 0;
   for (int i = 0; i < brackets.length(); i++) {
     if (brackets[i] == '<') {
@@ -16,6 +19,8 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-  // Test the function here
-  return 0;
+    string brackets;
+    cin >> brackets;
+    cout << correct_bracketing(brackets);
+    return 0;
 }
