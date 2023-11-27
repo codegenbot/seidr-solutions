@@ -1,9 +1,21 @@
-bool cycpattern_check(string a, string b) {
-    if (a.length() < b.length()) {
+#include <string>
+
+bool cycpattern_check(std::string a, std::string b) {
+    int n = a.length();
+    int m = b.length();
+
+    if (m > n) {
         return false;
     }
 
-    string concatenated = a + a;
+    std::string temp = b + b;
 
-    return concatenated.find(b) != string::npos;
+    for (int i = 0; i <= n - m; i++) {
+        std::string sub = temp.substr(i, m);
+        if (sub == a) {
+            return true;
+        }
+    }
+
+    return false;
 }

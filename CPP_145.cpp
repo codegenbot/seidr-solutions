@@ -1,5 +1,9 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+#include <cmath>
+
+using std::vector;
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
@@ -17,7 +21,9 @@ bool compare(int a, int b) {
     return sumA < sumB;
 }
 
+vector<int> order_by_points(vector<int> nums);
+
 vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), compare);
+    std::sort(nums.begin(), nums.end(), compare);
     return nums;
 }
