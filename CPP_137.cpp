@@ -48,5 +48,6 @@ int main() {
     assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
     assert(any_cast<int>(compare_one(3, 5)) == 5);
     assert(any_cast<float>(compare_one(3.14f, 2.718f)) == 3.14f);
+
     return 0;
 }
