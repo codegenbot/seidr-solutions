@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
 string exchange(vector<int> lst1, vector<int> lst2) {
     int count = 0;
     for (int i = 0; i < lst1.size(); i++) {
@@ -14,4 +19,10 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         }
     }
     return "NO";
+}
+
+int main() {
+    assert(exchange({100, 200}, {200, 200}) == "YES");
+
+    return 0;
 }
