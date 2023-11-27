@@ -1,8 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
 
+vector<string> words_string(string s);
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> words_string(string s){
@@ -24,7 +24,7 @@ vector<string> words_string(string s){
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -37,19 +37,15 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    string s;
-    cout << "Enter a string: ";
-    getline(cin, s);
-    vector<string> words = words_string(s);
-    vector<string> b;
-    for (int i = 0; i < words.size(); i++) {
-        if (!issame(b, words_string(words[i]))) {
-            b.push_back(words[i]);
-        }
+    // Sample test case
+    vector<string> a = words_string("Hello, world! How are you?");
+    vector<string> b = words_string("Hello world How are you");
+    
+    if (issame(a, b)) {
+        cout << "Same" << endl;
+    } else {
+        cout << "Not same" << endl;
     }
-    cout << "Output: ";
-    for (int i = 0; i < b.size(); i++) {
-        cout << b[i] << " ";
-    }
+    
     return 0;
 }
