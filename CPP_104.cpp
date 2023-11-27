@@ -1,36 +1,26 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
-using namespace std;
+#include<algorithm>
+#include<cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+bool hasEvenDigit(int num) {
+    while(num > 0){
+        int digit = num % 10;
+        if(digit % 2 == 0){
+            return true;
         }
+        num /= 10;
     }
-    return true;
+    return false;
 }
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for(int i=0; i<x.size(); i++){
-        int num = x[i];
-        bool hasEvenDigit = false;
-        while(num > 0){
-            int digit = num % 10;
-            if(digit % 2 == 0){
-                hasEvenDigit = true;
-                break;
-            }
-            num /= 10;
-        }
-        if(!hasEvenDigit){
+        if(!hasEvenDigit(x[i])){
             result.push_back(x[i]);
         }
     }
