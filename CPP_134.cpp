@@ -1,21 +1,17 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if(txt.empty()) {
+#include <string>
+#include <cctype>
+#include <cassert>
+
+bool check_if_last_char_is_a_letter(std::string txt){
+    if(txt.empty()){
         return false;
     }
-
-    int lastCharIndex = txt.size() - 1;
-    char lastChar = txt[lastCharIndex];
-
-    if(isalpha(lastChar)) {
-        if (lastChar == ' ') {
-            return true;
-        }
-        
-        int spaceIndex = txt.find_last_of(' ');
-        if (spaceIndex == string::npos || spaceIndex < lastCharIndex) {
+    int n = txt.size();
+    char lastChar = txt[n-1];
+    if(std::isalpha(lastChar)){
+        if(txt[n-2] == ' '){
             return true;
         }
     }
-
     return false;
 }
