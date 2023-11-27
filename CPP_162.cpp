@@ -16,12 +16,12 @@ string string_to_md5(string text) {
 
     md = EVP_md5();
     mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, md, nullptr);
-    EVP_DigestUpdate(mdctx, reinterpret_cast<const unsigned char *>(text.c_str()), text.length());
+    EVP_DigestInit_ex(mdctx, md, NULL);
+    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
     EVP_DigestFinal_ex(mdctx, digest, &digest_len);
     EVP_MD_CTX_free(mdctx);
 
-    char md5hash[33] = {};
+    char md5hash[33];
     for (unsigned int i = 0; i < digest_len; i++) {
         sprintf(&md5hash[i * 2], "%02x", digest[i]);
     }
