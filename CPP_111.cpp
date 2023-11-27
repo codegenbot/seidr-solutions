@@ -1,10 +1,9 @@
 #include <map>
-#include <cassert>
 
 std::map<char,int> histogram(const std::string& test) {
     std::map<char, int> result;
     std::string word = "";
-
+    
     for (int i = 0; i < test.length(); i++) {
         if (test[i] != ' ') {
             word += test[i];
@@ -16,11 +15,11 @@ std::map<char,int> histogram(const std::string& test) {
             }
         }
     }
-
+    
     if (!word.empty()) {
         result[word]++;
     }
-
+    
     return result;
 }
 
