@@ -11,6 +11,5 @@ int add(vector<int> lst){
 }
 
 int main() {
-    // Your test cases or logic can be added here if needed
     return 0;
 }
