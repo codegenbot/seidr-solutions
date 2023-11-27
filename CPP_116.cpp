@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
+}
+
 std::vector<int> sort_array(const std::vector<int>& arr) {
     std::vector<int> sorted_arr = arr;
     std::sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
@@ -14,10 +18,4 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
         return countA < countB;
     });
     return sorted_arr;
-}
-
-int main() {
-    std::vector<int> expected = {2, 4, 8, 16, 32};
-    assert(std::equal(sort_array({2, 4, 8, 16, 32}).begin(), sort_array({2, 4, 8, 16, 32}).end(), expected.begin()));
-    return 0;
 }
