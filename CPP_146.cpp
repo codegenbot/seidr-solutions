@@ -1,4 +1,5 @@
 #include <vector>
+using namespace std;
 
 int specialFilter(vector<int> nums){
     int count = 0;
