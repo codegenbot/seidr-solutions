@@ -6,6 +6,8 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
+    // Implement the logic to compare the vectors a and b here
+    // and return true if they are the same, false otherwise
     if (a.size() != b.size()) {
         return false;
     }
