@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 std::vector<int> tri(int n){
     std::vector<int> sequence;
@@ -37,7 +36,8 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    assert(std::equal(tri(1).begin(), tri(1).end(), {3, 2}));
-
+    assert(issame(tri(1), {3, 2}));
+    assert(issame(tri(2), {3, 2, 2}));
+    assert(issame(tri(5), {3, 2, 2, 2, 4, 6}));
     return 0;
 }
