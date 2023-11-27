@@ -2,7 +2,10 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(std::vector<float> a, std::vector<float> b);
+std::vector<float> sort_even(std::vector<float> l);
+
+bool issame(std::vector<float> a, std::vector<float> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -14,9 +17,9 @@ bool issame(vector<float> a, vector<float> b){
     return true;
 }
 
-vector<float> sort_even(vector<float> l){
-    vector<float> l_prime(l.size());
-    vector<float> even_values;
+std::vector<float> sort_even(std::vector<float> l){
+    std::vector<float> l_prime(l.size());
+    std::vector<float> even_values;
     
     for(int i=0; i<l.size(); i++){
         if(i%2 == 0){
@@ -25,7 +28,7 @@ vector<float> sort_even(vector<float> l){
         l_prime[i] = l[i];
     }
     
-    sort(even_values.begin(), even_values.end());
+    std::sort(even_values.begin(), even_values.end());
     
     int even_index = 0;
     for(int i=0; i<l_prime.size(); i++){
@@ -39,12 +42,10 @@ vector<float> sort_even(vector<float> l){
 }
 
 int main(){
-    vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    vector<float> expected_output = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    std::vector<float> expected = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    std::vector<float> result = sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
     
-    vector<float> result = sort_even(input);
-    
-    assert(issame(result, expected_output));
+    assert(issame(result, expected));
     
     return 0;
 }
