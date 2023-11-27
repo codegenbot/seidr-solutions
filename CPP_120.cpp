@@ -9,9 +9,13 @@ vector<int> maximum(vector<int> arr, int k) {
     return vector<int>(arr.begin(), arr.begin() + k);
 }
 
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 int main() {
-    vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0}, 0);
-    assert(result == vector<int>{});
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
+    // other test cases
 
     return 0;
 }
