@@ -1,6 +1,6 @@
 #include <vector>
 #include <cmath>
-#include <numeric>
+#include <algorithm>
 #include <cassert>
 
 float findMaxElement(const std::vector<float>& l) {
