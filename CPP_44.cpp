@@ -16,10 +16,6 @@ string change_base(int x, int base) {
 int main() {
     int x;
     cin >> x;
-    assert(change_base(x, x + 1) == to_string(x));
+    cout << change_base(x, x + 1) << endl;
     return 0;
 }
-
-'''
-// Comment out the second definition of the main function at line 24
-'''
