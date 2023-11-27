@@ -6,10 +6,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    // implementation of issame function
-}
-
 vector<int> filter_integers(list<boost::any> values){
     vector<int> result;
     for(auto value : values){
@@ -18,6 +14,10 @@ vector<int> filter_integers(list<boost::any> values){
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    // implementation of issame function
 }
 
 int main(){
