@@ -39,9 +39,3 @@ bool issame(vector<string> a, vector<string> b) {
     
     return true;
 }
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    cout << "Test case passed!" << endl;
-    return 0;
-}
