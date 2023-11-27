@@ -1,36 +1,27 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
+#include <climits>
 
 using namespace std;
 
-vector<int> rolling_max(vector<int> numbers){
-    vector<int> result;
-    int maxNum = numbers[0];
-    result.push_back(maxNum);
-    for(int i=1; i<numbers.size(); i++){
-        if(numbers[i] > maxNum){
-            maxNum = numbers[i];
-        }
-        result.push_back(maxNum);
-    }
-    return result;
+bool isSame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
+vector<int> rolling_max(vector<int> numbers) {
+    vector<int> rollingMax;
+    int maxElement = INT_MIN;
+
+    for (int i = 0; i < numbers.size(); i++) {
+        maxElement = max(maxElement, numbers[i]);
+        rollingMax.push_back(maxElement);
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+
+    return rollingMax;
 }
 
-int main(){
-    assert (issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    
+int main() {
+    assert(isSame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     return 0;
 }

@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 vector<float> get_positive(vector<float> l){
     vector<float> positive_nums;
     for(int i=0; i<l.size(); i++){
@@ -6,4 +10,9 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return positive_nums;
+}
+
+int main(){
+    assert(get_positive({}) == {});
+    return 0;
 }
