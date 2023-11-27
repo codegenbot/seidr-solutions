@@ -37,7 +37,7 @@ bool is_multiply_prime(int a) {
     return false;
 }
 
-int main() {
+bool main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
