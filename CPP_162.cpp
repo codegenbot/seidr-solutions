@@ -9,15 +9,12 @@ string string_to_md5(string text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5_CTX context;
-    MD5_Init(&context);
-    MD5_Update(&context, (unsigned char*)text.c_str(), text.length());
-    MD5_Final(digest, &context);
+    MD5((const unsigned char*)text.c_str(), text.length(), digest);
 
-    char md5Hash[33];
-    for (int i = 0; i < 16; i++) {
-        sprintf(&md5Hash[i * 2], "%02x", (unsigned int)digest[i]);
+    char md5String[33];
+    for (int i = 0; i < MD5_DIGEST_LENGTH / 2; i++) {
+        sprintf(&md5String[i*2], "%02x", (unsigned int)digest[i]);
     }
 
-    return string(md5Hash);
+    return string(md5String);
 }
