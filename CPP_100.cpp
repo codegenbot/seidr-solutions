@@ -1,13 +1,9 @@
 #include <iostream>
 #include <vector>
 
-namespace std {
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
-
-} // namespace std
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> levels;
