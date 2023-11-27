@@ -16,11 +16,18 @@ std::string string_to_md5(std::string text) {
 
     std::array<char, 33> md5Hash;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        sprintf(&md5Hash[i * 2], "%02x", (unsigned int)digest[i]);
+        sprintf(&md5Hash[i * 2], "%02x", static_cast<unsigned int>(digest[i]));
     }
 
     return std::string(md5Hash.data(), md5Hash.size());
 }
 
-// add this line at the top of the code
-#include <openssl/md5.h>
+int main() {
+    std::string text;
+    std::cout << "Enter the text to be converted to MD5: ";
+    std::getline(std::cin, text);
+
+    std::cout << "MD5 hash: " << string_to_md5(text) << std::endl;
+
+    return 0;
+}
