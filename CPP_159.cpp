@@ -1,24 +1,31 @@
 #include <vector>
+#include <cassert>
 
-using namespace std;
+int issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> eat(int number, int need, int remaining){
+std::vector<int> eat(int number, int need, int remaining){
     int totalEaten = number + need;
     int carrotsLeft = remaining - need;
     if(carrotsLeft < 0){
         carrotsLeft = 0;
     }
-    vector<int> result = {totalEaten, carrotsLeft};
+    std::vector<int> result = {totalEaten, carrotsLeft};
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+int issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return 0;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return 0;
+        }
+    }
+    return 1;
 }
 
 int main(){
-    assert(issame(eat(4, 5, 1), {5, 0}));
-    // other test cases
-
+    assert (issame(eat(4, 5, 1), {5, 0}));
     return 0;
 }
