@@ -1,8 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
-
-using namespace std;
 
 vector<float> derivative(vector<float> xs){
     vector<float> result;
@@ -12,12 +9,21 @@ vector<float> derivative(vector<float> xs){
     return result;
 }
 
-bool is_same(vector<float> a, vector<float> b){
-    return a == b;
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
-int main() {
-    assert(is_same(derivative({ 1 }), {}));
-    
+int main(){
+    assert(issame(derivative({1}), {}));
+    assert(issame(derivative({1,2,3,4}), {2,4,6}));
+    assert(issame(derivative({5,10,15,20}), {10,20,30}));
     return 0;
 }
