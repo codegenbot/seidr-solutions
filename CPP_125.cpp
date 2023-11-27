@@ -2,9 +2,22 @@
 #include <string>
 #include <sstream>
 
+using namespace std;
+
 vector<string> split_words(string txt);
 int count_odd_letters(string txt);
-bool issame(vector<string> a, vector<string> b);
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -56,16 +69,7 @@ int count_odd_letters(string txt){
     return count;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
+int main() {
+    // Add test cases here
+    return 0;
 }
