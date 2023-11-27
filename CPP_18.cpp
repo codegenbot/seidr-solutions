@@ -1,24 +1,21 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 int how_many_times(string str, string substring) {
     int count = 0;
-    int subLen = substring.length();
-    int strLen = str.length();
-
-    if (subLen == 0) {
-        return 0;
-    }
-
-    for (int i = 0; i <= strLen - subLen; i++) {
-        bool found = true;
-        for (int j = 0; j < subLen; j++) {
-            if (str[i + j] != substring[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
+    for (size_t i = 0; i < str.length(); i++) {
+        if (str.substr(i, substring.length()) == substring) {
             count++;
         }
     }
-
     return count;
+}
+
+int main() {
+    string str, substring;
+    cin >> str >> substring;
+    cout << how_many_times(str, substring) << endl;
+    return 0;
 }
