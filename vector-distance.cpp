@@ -1,11 +1,11 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <stdexcept>
+#include <sstream>
 
 double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     if (vector1.size() != vector2.size()) {
-        throw std::logic_error("Vector sizes don't match");
+        return -1;
     }
     double sum = 0.0;
     for (int i = 0; i < vector1.size(); i++) {
@@ -23,19 +23,18 @@ int main() {
         std::cin >> vector1[i];
     }
 
-    std::vector<double> vector2(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> vector2[i];
+    std::string line;
+    std::getline(std::cin, line);
+    std::replace(line.begin(), line.end(), ',', ' ');
+
+    std::istringstream iss(line);
+    std::vector<double> vector2;
+    double val;
+    while (iss >> val) {
+        vector2.push_back(val);
     }
 
-    double distance;
-    try {
-        distance = calculateEuclideanDistance(vector1, vector2);
-    } catch (const std::logic_error& e) {
-        std::cerr << e.what() << std::endl;
-        return 1;
-    }
-
+    double distance = calculateEuclideanDistance(vector1, vector2);
     std::cout << distance << std::endl;
 
     return 0;
