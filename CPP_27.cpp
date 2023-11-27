@@ -18,7 +18,6 @@ string flip_case(string str) {
 int main() {
     string input;
     cin >> input;
-    string flipped_input = flip_case(input);
-    cout << flipped_input << endl;
+    cout << flip_case(input) << endl;
     return 0;
 }
