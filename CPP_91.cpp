@@ -19,7 +19,7 @@ int is_bored(string S){
 
 int main() {
     string input;
-    getline(cin, input);
+    cin >> input;
     int result = is_bored(input);
     cout << result;
     return 0;
