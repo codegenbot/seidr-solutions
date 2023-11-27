@@ -27,6 +27,6 @@ string match_parens(vector<string> lst){
 }
 
 int main() {
-    // test your code here
+    // code for testing match_parens function
     return 0;
 }
