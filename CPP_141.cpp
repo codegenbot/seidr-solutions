@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -15,5 +14,6 @@ string file_name_check(string file_name){
 int main() {
     assert(file_name_check("file.txt") == "Yes");
     assert(file_name_check("myfile") == "No");
+
     return 0;
 }
