@@ -2,7 +2,7 @@
 #include <string>
 #include <algorithm>
 
-std::string get_closest_vowel(const std::string& word) {
+std::string get_closest_vowel(std::string word) {
     std::string vowels = "aeiouAEIOU";
     int n = word.size();
     for (int i = n - 3; i >= 1; i--) {
