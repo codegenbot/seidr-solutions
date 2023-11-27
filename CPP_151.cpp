@@ -28,5 +28,3 @@ int solve(){
 
     return odd_sum;
 }
-
-int solve();
