@@ -1,7 +1,7 @@
 #include <iostream>
-#include <string>
+#include <string> // Include the string header
 
-using namespace std;
+using namespace std; // Declare the std namespace
 
 int count_upper(string s){
     int count = 0;
