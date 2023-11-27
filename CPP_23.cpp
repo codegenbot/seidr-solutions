@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int stringLength(const string& str){
+int stringLength(const std::string& str){
     return str.length();
 }
 
