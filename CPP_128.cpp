@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 #include <cmath>
 
 int prod_signs(vector<int> arr){
