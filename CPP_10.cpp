@@ -1,3 +1,5 @@
+#include <string>
+
 string make_palindrome(string str){
     int n = str.length();
     string rev_str = str;
