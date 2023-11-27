@@ -2,17 +2,16 @@
 
 vector<int> generate_integers(int a, int b);
 
-bool issame(vector<int> a, vector<int> b);
-
-int main() {
-    int a, b;
-    cin >> a >> b;
-    vector<int> result = generate_integers(a, b);
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    cout << endl;
-    return 0;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> generate_integers(int a, int b) {
@@ -25,14 +24,18 @@ vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
+int main() {
+    // Test the generate_integers function
+    vector<int> res = generate_integers(1, 10);
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    cout << endl;
+
+    // Test the issame function
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+    cout << issame(a, b) << endl;
+    
+    return 0;
 }
