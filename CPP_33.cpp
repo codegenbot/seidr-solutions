@@ -1,11 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> sort_third(vector<int> l);
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> sort_third(vector<int> l){
+vector<int> sortThird(vector<int> l){
     vector<int> result = l;
     vector<int> sorted_values;
 
@@ -26,23 +26,4 @@ vector<int> sort_third(vector<int> l){
     }
 
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
-    return true;
-}
-
-int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
-    return 0;
 }
