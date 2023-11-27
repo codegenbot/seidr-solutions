@@ -14,19 +14,15 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main(){
-    // Read input from user and populate 'lst' vector
     int n;
     std::cin >> n;
-    std::vector<float> lst;
+    std::vector<float> lst(n);
     for(int i=0; i<n; i++){
-        float num;
-        std::cin >> num;
-        lst.push_back(num);
+        std::cin >> lst[i];
     }
     
     long long odd_sum = double_the_difference(lst);
     
-    // Assert that the function returns the correct value
     assert(double_the_difference(lst) == odd_sum);
     
     std::cout << odd_sum << std::endl;
