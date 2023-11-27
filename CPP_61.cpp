@@ -20,6 +20,8 @@ bool correct_bracketing(string brackets){
     return count == 0;
 }
 
-assert(!correct_bracketing("()()(()())()))()"));
-cout << "All test cases passed!" << endl;
-return 0;
+int main() {
+    assert(!correct_bracketing("()()(()())()))()"));
+    cout << "All test cases passed!" << endl;
+    return 0;
+}
