@@ -1,19 +1,26 @@
-string encrypt(string s){
-    string encrypted = "";
+#include <string>
+#include <cassert>
+
+std::string encrypt(std::string s){
+    std::string encrypted = "";
     for(int i=0; i<s.length(); i++){
-        if(s[i] >= 'a' && s[i] <= 'z'){
-            int ascii = s[i] - 'a';
-            int encryptedAscii = (ascii + (2 * 2)) % 26;
-            encrypted += char(encryptedAscii + 'a');
+        char c = s[i];
+        if(c >= 'a' && c <= 'z'){
+            c = (c - 'a' + 2 * 2) % 26 + 'a';
         }
-        else if(s[i] >= 'A' && s[i] <= 'Z'){
-            int ascii = s[i] - 'A';
-            int encryptedAscii = (ascii + (2 * 2)) % 26;
-            encrypted += char(encryptedAscii + 'A');
+        else if(c >= 'A' && c <= 'Z'){
+            c = (c - 'A' + 2 * 2) % 26 + 'A';
         }
-        else{
-            encrypted += s[i];
-        }
+        encrypted += c;
     }
     return encrypted;
+}
+
+int main() {
+    assert (encrypt("a")=="e");
+    assert (encrypt("Hello, World!")=="Jgnnq, Yqtnf!");
+    assert (encrypt("XYZ")=="BCD");
+    assert (encrypt("abc123")=="cde123");
+    assert (encrypt("zZz")=="bBb");
+    return 0;
 }
