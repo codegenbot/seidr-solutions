@@ -9,10 +9,10 @@ vector<int> incr_list(vector<int> l){
 bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b){
-    // implementation of issame function goes here
+    // implementation of the function
 }
 
 int main(){
-    // main function code goes here
+    // main function code
     return 0;
 }
