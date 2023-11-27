@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <cassert> // Add this line
 
 vector<int> compare(vector<int> game, vector<int> guess){
     vector<int> result;
@@ -26,7 +26,7 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-bool issame2(vector<int> a, vector<int> b){
+bool issame2(vector<int> a, vector<int> b){ // Change the function name
     if(a.size() != b.size()){
         return false;
     }
