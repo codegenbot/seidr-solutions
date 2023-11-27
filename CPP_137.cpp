@@ -1,6 +1,7 @@
+#include <iostream>
 #include <boost/algorithm/string.hpp>
 #include <boost/any.hpp>
-#include <iostream> // Added to compile successfully
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -32,5 +33,5 @@ boost::any compare_one(boost::any a, boost::any b) {
             return str_b;
         }
     }
-    return boost::any("None"); // Changed "None" to boost::any("None") to match the function signature
+    return boost::any("None");
 }
