@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return equal(a.begin(), a.end(), b.begin());
-}
-
 vector<int> sort_array(const vector<int>& arr) {
     vector<int> sorted_arr = arr;
     sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
@@ -20,4 +16,10 @@ vector<int> sort_array(const vector<int>& arr) {
         return countA < countB;
     });
     return sorted_arr;
+}
+
+int main() {
+    assert(sort_array({2,4,8,16,32}) == vector<int>({2, 4, 8, 16, 32}));
+    
+    return 0;
 }
