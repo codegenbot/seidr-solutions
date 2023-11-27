@@ -8,9 +8,9 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int halfSum = sum / 2;
     int currSum = 0;
     int diff = std::abs(sum - 2 * currSum);
-    int index = -1; // Initialize index to -1
+    int index = -1;
     
-    for (int i = 0; i < n-1; i++) { // Update condition to i < n-1
+    for (int i = 0; i < n-1; i++) {
         currSum += input[i];
         int newDiff = std::abs(sum - 2 * currSum);
         if (newDiff < diff) {
@@ -26,7 +26,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     }
     else {
         subvector1 = std::vector<int>();
-        subvector2 = input; // Whole vector as subvector2
+        subvector2 = input;
     }
     
     return std::make_pair(subvector1, subvector2);
