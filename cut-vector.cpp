@@ -1,51 +1,33 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    int leftSum = 0;
-    int rightSum = 0;
-    for (int i = 0; i < n; i++) {
-        rightSum += nums[i];
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
+    int n = input.size();
+    int sum = 0;
+    for (int num : input) {
+        sum += num;
     }
-    int minDiff = abs(leftSum - rightSum);
-    int cutIndex = 0;
-
-    for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i + 1;
+    
+    int halfSum = sum / 2;
+    int currSum = 0;
+    int diff = std::abs(sum - 2 * currSum);
+    int index = -1; // Initialize index to -1
+    
+    for (int i = 0; i < n-1; i++) { // Update condition to i < n-1
+        currSum += input[i];
+        int newDiff = std::abs(sum - 2 * currSum);
+        if (newDiff < diff) {
+            diff = newDiff;
+            index = i;
         }
     }
-
-    vector<int> left(nums.begin(), nums.begin() + cutIndex);
-    vector<int> right(nums.begin() + cutIndex, nums.end());
-
-    return make_pair(left, right);
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    
+    std::vector<int> subvector1, subvector2;
+    if (index >= 0) {
+        subvector1 = std::vector<int>(input.begin(), input.begin() + index + 1);
+        subvector2 = std::vector<int>(input.begin() + index + 1, input.end());
     }
-
-    pair<vector<int>, vector<int>> result = cutVector(nums);
-
-    for (int num : result.first) {
-        cout << num << " ";
+    else {
+        subvector1 = std::vector<int>();
+        subvector2 = input; // Whole vector as subvector2
     }
-    cout << endl;
-    for (int num : result.second) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    return 0;
+    
+    return std::make_pair(subvector1, subvector2);
 }
