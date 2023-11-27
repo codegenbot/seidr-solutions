@@ -2,11 +2,6 @@
 #include <map>
 #include <algorithm>
 #include <string>
-#include <cassert>
-
-vector<string> by_length(vector<int> arr);
-
-bool issame(vector<string> a, vector<string> b);
 
 bool issame(vector<string> a, vector<string> b){
   if(a.size() != b.size()){
