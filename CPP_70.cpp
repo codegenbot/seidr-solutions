@@ -2,6 +2,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(vector<int> a, vector<int> b) {
+    // TODO: Implement the comparison logic
+}
+
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     sort(lst.begin(), lst.end());
@@ -19,11 +23,6 @@ vector<int> strange_sort_list(vector<int> lst) {
         isLeft = !isLeft;
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    // TODO: Implement the comparison logic
-    return a == b;
 }
 
 int main() {
