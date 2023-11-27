@@ -1,6 +1,7 @@
 #include <vector>
 
 vector<int> eat(int number, int need, int remaining);
+
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> eat(int number, int need, int remaining) {
