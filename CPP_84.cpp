@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
+
 string solve(int N) {
     int sum = 0;
     while (N > 0) {
@@ -9,6 +11,7 @@ string solve(int N) {
     }
     return to_string(sum);
 }
+
 int main() {
     cout << solve(963) << endl;
     return 0;
