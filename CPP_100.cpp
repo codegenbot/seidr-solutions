@@ -2,7 +2,7 @@
 #include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return std::vector<int>(a) == std::vector<int>(b);
 }
 
 std::vector<int> make_a_pile(int n) {
@@ -19,10 +19,9 @@ std::vector<int> make_a_pile(int n) {
     return levels;
 }
 
-std::vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
-
 int main() {
     std::vector<int> result = make_a_pile(8);
+    std::vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
     if (issame(result, expected)) {
         std::cout << "Test case passed!" << std::endl;
     } else {
