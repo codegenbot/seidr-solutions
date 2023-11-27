@@ -5,8 +5,6 @@
 
 using namespace std;
 
-vector<string> odd_count(const vector<string>& lst);
-
 vector<string> odd_count(const vector<string>& lst){
     vector<string> result;
     for(int i=0; i<lst.size(); i++){
@@ -20,6 +18,10 @@ vector<string> odd_count(const vector<string>& lst){
         result.push_back(str);
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
 int main(){
