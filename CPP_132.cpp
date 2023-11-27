@@ -1,15 +1,17 @@
+#include <iostream>
 #include <string>
 
-bool is_nested(std::string str){
+using namespace std;
+
+bool is_nested(string str) {
     int count = 0;
-    for(int i=0; i<str.length(); i++){
-        if(str[i] == '['){
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '[') {
             count++;
-        }
-        else if(str[i] == ']'){
+        } else if (str[i] == ']') {
             count--;
         }
-        if(count < 0){
+        if (count > 1) {
             return true;
         }
     }
@@ -17,9 +19,9 @@ bool is_nested(std::string str){
 }
 
 int main() {
-    // Test cases
-    bool result1 = is_nested("[[[]]]");
-    bool result2 = is_nested("]]]]]]]]");
-    
+    cout << boolalpha << is_nested("[[[]]]") << endl;
+    cout << boolalpha << is_nested("[[]]]]") << endl;
+    cout << boolalpha << is_nested("[]") << endl;
+
     return 0;
 }
