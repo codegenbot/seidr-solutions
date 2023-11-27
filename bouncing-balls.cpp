@@ -1,6 +1,6 @@
-#include <iostream>
-#include <iomanip>
-#include <cmath>
+#include<iostream>
+#include<cmath>
+#include <iomanip> // for setprecision
 
 int main() {
     double starting_height, first_bounce_height;
