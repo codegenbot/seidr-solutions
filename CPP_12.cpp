@@ -1,18 +1,12 @@
-#include <string>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 string longest(vector<string> strings){
     if(strings.empty()){
         return "None";
     }
-    string longestStr = strings[0];
+    string longestString = strings[0];
     for(int i = 1; i < strings.size(); i++){
-        if(strings[i].length() > longestStr.length()){
-            longestStr = strings[i];
+        if(strings[i].length() > longestString.length()){
+            longestString = strings[i];
         }
     }
-    return longestStr;
+    return longestString;
 }
