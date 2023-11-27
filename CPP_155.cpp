@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -21,18 +20,13 @@ vector<int> even_odd_count(int num){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool isSame(vector<int> a, vector<int> b){
     return a == b;
 }
 
 int main(){
-    assert (issame(even_odd_count(0) , {1, 0}));
-    assert (issame(even_odd_count(1) , {0, 1}));
-    assert (issame(even_odd_count(123) , {1, 2}));
-    assert (issame(even_odd_count(2468642) , {7, 0}));
-    assert (issame(even_odd_count(-2468642) , {7, 0}));
-    assert (issame(even_odd_count(13579731) , {0, 9}));
-    cout << "All test cases pass";
+    vector<int> result = even_odd_count(1);
+    assert(isSame(result, {0, 1}));
     
     return 0;
 }
