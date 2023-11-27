@@ -2,7 +2,7 @@
 using namespace std;
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
-    return 2 * firstBounceHeight / startingHeight;
+    return firstBounceHeight / startingHeight;
 }
 
 double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
@@ -10,7 +10,7 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, i
     double totalDistance = startingHeight;
     
     for (int i = 0; i < numBounces; i++) {
-        totalDistance += 2 * bouncinessIndex * totalDistance;
+        totalDistance += 2 * bouncinessIndex * (startingHeight - totalDistance);
     }
     
     return totalDistance;
