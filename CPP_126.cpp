@@ -1,21 +1,23 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-bool is_sorted(vector<int> lst){
-    int n = lst.size();
-    if(n <= 1)
+bool my_is_sorted(vector<int> lst){
+    if(lst.size() <= 1) {
         return true;
+    }
     
-    for(int i = 1; i < n; i++){
-        if(lst[i] <= lst[i-1])
+    for(int i = 1; i < lst.size(); i++) {
+        if(lst[i] <= lst[i-1]) {
             return false;
+        }
     }
     
     return true;
 }
 
 int main() {
-    vector<int> lst = {1, 2, 3, 4};  
-    bool sorted = is_sorted(lst);
+    assert (my_is_sorted({1, 2, 3, 4}) == true);
     
     return 0;
 }
