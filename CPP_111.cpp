@@ -1,9 +1,8 @@
+#include <iostream>
 #include <map>
-#include <string>
+#include <cassert>
 
-map<char,int> histogram(string test);
-
-bool isSame(const map<char,int>& a, const map<char,int>& b);
+using namespace std;
 
 map<char,int> histogram(string test){
     map<char, int> result;
@@ -21,11 +20,15 @@ map<char,int> histogram(string test){
     return result;
 }
 
-bool isSame(const map<char,int>& a, const map<char,int>& b){
+bool issame(const map<char, int>& a, const map<char, int>& b){
     return a == b;
 }
 
-int main() {
-    assert (isSame(histogram("a") , {{'a', 1}}));
+int main(){
+    map<char,int> result = histogram("a");
+    assert(issame(result, {{'a', 1}}));
+
+    cout << "All tests passed!" << endl;
+
     return 0;
 }
