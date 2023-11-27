@@ -1,34 +1,24 @@
 #include <iostream>
 #include <string>
-#include <stack>
+#include <cassert>
 
-using namespace std;
-
-bool is_nested(string str) {
-    stack<char> st;
-
-    for (char c : str) {
-        if (c == '[') {
-            st.push(c);
-        } else if (c == ']') {
-            if (!st.empty() && st.top() == '[') {
-                st.pop();
-            } else {
-                return true;
-            }
+bool is_nested(std::string str){
+    int count = 0;
+    for(int i=0; i<str.length(); i++){
+        if(str[i] == '['){
+            count++;
+        }
+        else if(str[i] == ']'){
+            count--;
+        }
+        if(count < 0){
+            return true;
         }
     }
-
     return false;
 }
 
-int main() {
-    cout << is_nested("[[]]") << endl;
-    cout << is_nested("[]]]]]]][[[[[]") << endl;
-    cout << is_nested("[][]") << endl;
-    cout << is_nested("[]") << endl;
-    cout << is_nested("[[][]]") << endl;
-    cout << is_nested("[[]][[") << endl;
-
+int main(){
+    assert(is_nested("]]]]]]]]") == false);
     return 0;
 }
