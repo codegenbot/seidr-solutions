@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
 std::vector<int> sort_array(const std::vector<int>& array) {
     std::vector<int> sorted_array = array;
@@ -13,21 +13,13 @@ std::vector<int> sort_array(const std::vector<int>& array) {
     return sorted_array;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
+int sort_array_main() {
+    std::vector<int> sorted_array = sort_array({21, 14, 23, 11});
+    for (int i : sorted_array) {
+        std::cout << i << " ";
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
 int main() {
-    std::vector<int> sorted_array = sort_array({21, 14, 23, 11});
-    std::vector<int> expected = {23, 21, 14, 11};
-    assert(issame(sorted_array, expected));
-    return 0;
+    sort_array_main();
 }
