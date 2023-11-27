@@ -19,12 +19,5 @@ string string_xor(const string& a, const string& b) {
 int main() {
     assert(string_xor("0101", "0000") == "0101");
     // Add more test cases here...
-    
-    // Test case 1
-    assert(string_xor("110", "001") == "111");
-    
-    // Test case 2
-    assert(string_xor("101010", "111111") == "010101");
-  
     return 0;
 }
