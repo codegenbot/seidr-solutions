@@ -1,20 +1,25 @@
+#include <string>
+#include <cmath>
+#include <cassert>
+
 int closest_integer(string value){
-    float num = stof(value);
+    double num = stod(value);
+    int rounded = round(num);
     int floor_num = floor(num);
     int ceil_num = ceil(num);
     
-    if(abs(num - floor_num) < abs(num - ceil_num)){
+    if (rounded == floor_num || rounded == ceil_num) {
+        return rounded;
+    } else if (num - floor_num < ceil_num - num) {
         return floor_num;
-    }
-    else if(abs(num - floor_num) > abs(num - ceil_num)){
+    } else {
         return ceil_num;
     }
-    else{
-        if(num > 0){
-            return ceil_num;
-        }
-        else{
-            return floor_num;
-        }
-    }
+}
+
+int main() {
+    assert(closest_integer("0") == 0);
+    // Add more test cases here
+    
+    return 0;
 }
