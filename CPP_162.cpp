@@ -3,6 +3,9 @@
 #include <openssl/evp.h>
 using namespace std;
 
+#pragma comment(lib, "crypto")
+#pragma comment(lib, "ssl")
+
 string string_to_md5(string text) {
     if (text.empty()) {
         return "None";
@@ -23,12 +26,4 @@ string string_to_md5(string text) {
     }
 
     return string(md5Hash);
-}
-
-int main() {
-    string input = "Hello World";
-    string output = string_to_md5(input);
-    printf("%s\n", output.c_str());
-  
-    return 0;
 }
