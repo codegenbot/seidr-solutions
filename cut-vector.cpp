@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <limits>
 #include <iterator>
 
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
+vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
 
@@ -31,7 +32,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    return vector<vector<int>>{leftSubvector, rightSubvector};
+    return {leftSubvector.begin(), leftSubvector.end(), rightSubvector.begin(), rightSubvector.end()};
 }
 
 int main() {
@@ -42,10 +43,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-
+  
     auto result = cutVector(nums);
 
-    for (const auto& subvector : result) {
+    for (const auto& subvector : {result[0], result[1]}) {
         for (const auto& element : subvector) {
             cout << element << " ";
         }
