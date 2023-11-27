@@ -18,7 +18,6 @@ vector<int> filter_integers(list<any> values){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    // Compare the two vectors and return true if they are the same, false otherwise
     return a == b;
 }
 
