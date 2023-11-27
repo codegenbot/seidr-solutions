@@ -1,16 +1,13 @@
 bool check_if_last_char_is_a_letter(string txt){
-    if(txt.length() == 0){
+    if(txt.empty()){
         return false;
     }
-    char lastChar = txt.back();
-    if(isalpha(lastChar)){
-        int i = txt.length() - 2;
-        while(i >= 0 && txt[i] != ' '){
-            i--;
+    int length = txt.length();
+    if(isalpha(txt[length-1])){
+        if(length > 1 && isalpha(txt[length-2])){
+            return false;
         }
-        if(i < 0){
-            return true;
-        }
+        return true;
     }
     return false;
 }
