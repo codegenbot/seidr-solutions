@@ -1,8 +1,5 @@
 #include <vector>
-#include <iostream>
-
 using namespace std;
-
 int sum_squares(vector<int>& lst) {
     int sum = 0;
     for (int i = 0; i < lst.size(); i++) {
@@ -16,7 +13,6 @@ int sum_squares(vector<int>& lst) {
     }
     return sum;
 }
-
 int main() {
     cout << sum_squares({-1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5, 14, -14, 6, 13, 11, 16, 16, 4, 10}) << endl;
     return 0;
