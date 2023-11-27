@@ -1,7 +1,7 @@
 vector<int> make_a_pile(int n){
     vector<int> levels;
-    levels.push_back(n);
     int stones = n;
+    levels.push_back(stones);
     
     for(int i = 1; i < n; i++){
         if(stones % 2 == 0){
