@@ -7,7 +7,7 @@ bool is_same_vector(std::vector<int> a, std::vector<int> b);
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result(2, 0);
     for (int i = 1; i <= n; i++) {
-        std::string s = std::to_string(i);
+        std::string s = to_string(i);
         int len = s.length();
         bool isPalindrome = true;
         for (int j = 0; j < len / 2; j++) {
@@ -19,7 +19,8 @@ std::vector<int> even_odd_palindrome(int n) {
         if (isPalindrome) {
             if (i % 2 == 0) {
                 result[0]++;
-            } else {
+            }
+            else {
                 result[1]++;
             }
         }
@@ -44,7 +45,8 @@ int main() {
     std::vector<int> result = even_odd_palindrome(1);
     if (is_same_vector(result, expected)) {
         std::cout << "Test case passed." << std::endl;
-    } else {
+    }
+    else {
         std::cout << "Test case failed." << std::endl;
     }
     return 0;
