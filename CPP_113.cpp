@@ -3,6 +3,8 @@
 #include <string>
 #include <cassert>
 
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
@@ -36,6 +38,8 @@ int main(){
         "the number of odd elements 3 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
     }));
+    
+    cout << "Test passed!" << endl;
     
     return 0;
 }
