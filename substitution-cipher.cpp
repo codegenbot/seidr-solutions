@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
 
-std::string decipherMessage(const std::string& cipher, const std::string& mapping, const std::string& message) {
-    std::string decipheredMessage;
+std::string decipherMessage(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::string decipheredMessage = "";
     for (char c : message) {
-        size_t index = cipher.find(c);
+        size_t index = cipher2.find(c);
         if (index != std::string::npos) {
-            decipheredMessage += mapping[index];
+            decipheredMessage += cipher1[index];
         } else {
             decipheredMessage += c;
         }
@@ -15,8 +15,8 @@ std::string decipherMessage(const std::string& cipher, const std::string& mappin
 }
 
 int main() {
-    std::string cipher, mapping, message;
-    std::cin >> cipher >> mapping >> message;
-    std::cout << decipherMessage(cipher, mapping, message) << std::endl;
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << decipherMessage(cipher1, cipher2, message) << std::endl;
     return 0;
 }
