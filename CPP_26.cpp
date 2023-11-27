@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -28,7 +29,13 @@ vector<int> remove_duplicates(vector<int> numbers){
     return result;
 }
 
-int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+int main(int argc, char* argv[]) {
+    vector<int> expected_result = {1, 4, 5};
+    vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
+
+    vector<int> result = remove_duplicates(numbers);
+    assert(result == expected_result);
+
+    cout << "Test passed!" << endl;
     return 0;
 }
