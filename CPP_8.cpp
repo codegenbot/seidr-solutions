@@ -16,14 +16,11 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> input1 = {1, 2, 3};
-    std::vector<int> input2 = {1, 2, 3};
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {1, 2, 3};
+    bool result = issame(a, b);
 
-    if (issame(input1, input2)) {
-        std::cout << "Same" << std::endl;
-    } else {
-        std::cout << "Not same" << std::endl;
-    }
+    std::cout << result << std::endl;
 
     return 0;
 }
