@@ -11,14 +11,12 @@ vector<int> incr_list(vector<int> l) {
     return result;
 }
 
-int main() {
-    vector<int> input = {1, 2, 3, 4, 5};
-    vector<int> output = incr_list(input);
+vector<int> input = {1, 2, 3, 4, 5};
+vector<int> output = incr_list(input);
 
-    for(int i = 0; i < output.size(); i++) {
-        cout << output[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
+for(int i = 0; i < output.size(); i++) {
+    cout << output[i] << " ";
 }
+cout << endl;
+
+return 0;
