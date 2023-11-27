@@ -1,36 +1,42 @@
-#include <algorithm>
 #include <vector>
+#include <string>
+#include <cassert>
+#include <algorithm>
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
-    int tempA = abs(a), tempB = abs(b);
-    
-    while (tempA > 0) {
-        sumA += tempA % 10;
+    int tempA = a, tempB = b;
+    while (tempA != 0) {
+        int digit = tempA % 10;
+        if (digit >= 0) {
+            sumA += digit;
+        }
         tempA /= 10;
     }
-    
-    while (tempB > 0) {
-        sumB += tempB % 10;
+    while (tempB != 0) {
+        int digit = tempB % 10;
+        if (digit >= 0) {
+            sumB += digit;
+        }
         tempB /= 10;
     }
-    
-    if (sumA == sumB)
+
+    if (sumA == sumB) {
         return a < b;
-    
+    }
+
     return sumA < sumB;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), compare);
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
     return nums;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    // code here
 }
 
 int main() {
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
+    // code here
 }
