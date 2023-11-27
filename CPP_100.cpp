@@ -14,14 +14,16 @@ bool issame(vector<int> a, vector<int> b) {
   return true;
 }
 
+vector<int> make_a_pile(int n);
+
 vector<int> make_a_pile(int n) {
   vector<int> stones;
   int level = n;
   int stonesInLevel = n;
   stones.push_back(stonesInLevel);
   
-  while (level > 1) {
-    if (level % 2 == 0) {
+  while(level > 1){
+    if(level % 2 == 0){
       stonesInLevel += 2;
     } else {
       stonesInLevel += 1;
@@ -33,8 +35,4 @@ vector<int> make_a_pile(int n) {
   return stones;
 }
 
-int main() {
-  assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-  
-  return 0;
-}
+assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
