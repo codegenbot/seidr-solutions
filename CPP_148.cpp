@@ -1,5 +1,6 @@
-#include <vector>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -31,10 +32,10 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Existing code here
+    return a == b;
 }
 
 int main() {
-    bool is_same = issame(bf("Jupiter", "Makemake"), {});
+    issame(bf("Jupiter", "Makemake"), {});
     return 0;
 }
