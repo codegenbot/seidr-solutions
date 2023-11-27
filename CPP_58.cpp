@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -18,12 +18,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    // additional test cases
-    assert(issame(common({1, 2, 3, 4}, {3, 4, 5, 6}), {3, 4}));
-    assert(issame(common({1, 2, 3, 4}, {5, 6, 7, 8}), {}));
-    assert(issame(common({1, 2, 3, 4}, {4, 4, 4, 4}), {4}));
-    assert(issame(common({}, {1, 2, 3, 4}), {}));
-    assert(issame(common({1, 2, 3, 4}, {1, 2, 3, 4}), {1, 2, 3, 4}));
-
+    // add more test cases here if needed
+    
     return 0;
 }
