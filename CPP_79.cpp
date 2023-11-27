@@ -1,10 +1,18 @@
-string decimal_to_binary(int decimal){
-    string binary = "db";
-    int quotient = decimal;
-    while(quotient > 0){
-        int remainder = quotient % 2;
-        binary = to_string(remainder) + binary;
-        quotient = quotient / 2;
+#include <iostream>
+#include <cassert>
+
+std::string decimal_to_binary(int decimal){
+    std::string binary = "";
+    while(decimal > 0){
+        binary = (decimal % 2 == 0 ? "0" : "1") + binary;
+        decimal /= 2;
     }
-    return binary + "db";
+    return binary;
+}
+
+int main() {
+    assert(decimal_to_binary(15) == "1111");
+    std::cout << "Test passed!" << std::endl;
+
+    return 0;
 }
