@@ -14,6 +14,6 @@ int main() {
     int hours;
     double initialSnow, snowFallRate, snowMeltRate;
     std::cin >> hours >> initialSnow >> snowFallRate >> snowMeltRate;
-    std::cout << std::fixed << std::setprecision(17) << calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate) << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate) << std::endl;
     return 0;
 }
