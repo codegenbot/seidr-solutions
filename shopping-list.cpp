@@ -13,22 +13,16 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
 int main() {
     std::vector<float> prices;
     std::vector<float> discounts;
-    int numItems;
 
-    std::cout << "Enter the number of items: ";
-    std::cin >> numItems;
-
-    std::cout << "Enter the prices of the items: ";
-    for (int i = 0; i < numItems; i++) {
-        float price;
-        std::cin >> price;
+    std::cout << "Enter prices of shopping goods (separated by spaces): ";
+    float price;
+    while (std::cin >> price) {
         prices.push_back(price);
     }
 
-    std::cout << "Enter the discounts for the items: ";
-    for (int i = 0; i < numItems; i++) {
-        float discount;
-        std::cin >> discount;
+    std::cout << "Enter discounts of shopping goods (separated by spaces): ";
+    float discount;
+    while (std::cin >> discount) {
         discounts.push_back(discount);
     }
 
