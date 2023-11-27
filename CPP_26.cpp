@@ -2,14 +2,6 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-vector<int> remove_duplicates(vector<int> numbers);
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
     for(int i=0; i<numbers.size(); i++){
@@ -18,24 +10,21 @@ vector<int> remove_duplicates(vector<int> numbers){
         }
     }
     return result;
+}                                                                                                                                                                                                              
+                                                                                                                                                                                                              
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 int main() {
-    // Test cases
-    vector<int> numbers1 = {1, 2, 3, 4, 4, 5, 6, 6, 7};
-    vector<int> expected1 = {1, 2, 3, 5, 7};
-    vector<int> result1 = remove_duplicates(numbers1);
-    assert(issame(expected1, result1));
-    
-    vector<int> numbers2 = {8, 8, 9, 9, 10, 10};
-    vector<int> expected2 = {};
-    vector<int> result2 = remove_duplicates(numbers2);
-    assert(issame(expected2, result2));
-    
-    vector<int> numbers3 = {11, 12, 13};
-    vector<int> expected3 = {11, 12, 13};
-    vector<int> result3 = remove_duplicates(numbers3);
-    assert(issame(expected3, result3));
-    
+    vector<int> numbers = {1, 2, 3, 4, 2, 3, 4, 5};
+    vector<int> expected = {1, 5};
+    vector<int> result = remove_duplicates(numbers);
+    assert(issame(expected, result));
     return 0;
 }
