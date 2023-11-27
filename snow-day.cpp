@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> 
+#include <iomanip> // for setprecision
 using namespace std;
 
 float calculateSnow(float hours, float initialSnow, float rateOfSnowfall, float proportionOfMelting) {
