@@ -1,10 +1,5 @@
-#include <iostream>
 #include <string>
-
 using namespace std;
-
-string encrypt(string s); 
-
 string encrypt(string s){
     string result = "";
     for(int i=0; i<s.length(); i++){
@@ -21,11 +16,4 @@ string encrypt(string s){
         }
     }
     return result;
-}
-
-int main(){
-    assert(encrypt("a")=="e");
-    // Add more test cases here to verify the correctness of your code
-    
-    return 0;
 }
