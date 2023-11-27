@@ -20,12 +20,18 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     std::string text, target;
-    std::cin >> text >> target;
+    std::cout << "Enter the text: ";
+    std::cin >> text;
+    std::cout << "Enter the target: ";
+    std::cin >> target;
 
     std::vector<int> result = indicesOfSubstring(text, target);
-    for (int index : result) {
-        std::cout << index << " ";
+
+    std::cout << "Indices of target in text: ";
+    for (int i : result) {
+        std::cout << i << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
