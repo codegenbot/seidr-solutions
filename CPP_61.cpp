@@ -1,14 +1,21 @@
-bool correct_bracketing(string brackets) {
+#include <string>
+bool correct_bracketing(string brackets){
     int count = 0;
-    for (char c : brackets) {
-        if (c == '(') {
+    for(char c : brackets){
+        if(c == '('){
             count++;
-        } else if (c == ')') {
+        }
+        else if(c == ')'){
             count--;
         }
-        if (count < 0) {
+        if(count < 0){
             return false;
         }
     }
     return count == 0;
+}
+
+int main() {
+    assert(!correct_bracketing("()()(()())()))()"));
+    return 0;
 }
