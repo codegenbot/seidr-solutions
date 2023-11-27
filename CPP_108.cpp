@@ -17,6 +17,6 @@ int count_nums(vector<int> n) {
 }
 
 int main() {
-    // Provide necessary implementation for the main() function and any other requirements according to the task description
+    // Add your implementation for the main() function and any other requirements according to the task description
     return 0;
 }
