@@ -3,17 +3,15 @@
 #include <cassert>
 #include <climits>
 
-using namespace std;
+bool issame(std::vector<float> a, std::vector<float> b);
 
-bool issame(vector<float> a, vector<float> b);
-
-vector<float> find_closest_elements(vector<float> numbers){
-    sort(numbers.begin(), numbers.end());
-    vector<float> result;
+std::vector<float> find_closest_elements(std::vector<float> numbers){
+    std::sort(numbers.begin(), numbers.end());
+    std::vector<float> result;
     float minDiff = INT_MAX;
-
+    
     for(int i = 0; i < numbers.size() - 1; i++){
-        float diff = abs(numbers[i] - numbers[i+1]);
+        float diff = std::abs(numbers[i] - numbers[i+1]);
         if(diff < minDiff){
             minDiff = diff;
             result.clear();
@@ -21,21 +19,21 @@ vector<float> find_closest_elements(vector<float> numbers){
             result.push_back(numbers[i+1]);
         }
     }
-
+    
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(std::vector<float> a, std::vector<float> b){
     if(a.size() != b.size()){
         return false;
     }
-
+    
     for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
     }
-
+    
     return true;
 }
 
