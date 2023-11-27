@@ -1,9 +1,20 @@
-vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> result;
-    for(int i=0; i<numbers.size(); i++){
-        if(count(numbers.begin(), numbers.end(), numbers[i]) == 1){
-            result.push_back(numbers[i]);
-        }
-    }
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<int> remove_duplicates(const vector<int>& numbers){
+    vector<int> result = numbers;
+    result.erase(unique(result.begin(), result.end()), result.end());
     return result;
 }
+
+// int main() {
+//     assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == vector<int>({1, 2, 3, 4, 5}));
+
+//     cout << "Code is correct." << endl;
+
+//     return 0;
+// }
