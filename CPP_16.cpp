@@ -8,7 +8,7 @@ using namespace std;
 int count_distinct_characters(string str);
 
 int main() {
-    cout << count_distinct_characters("Jerry jERRY JeRRRY") << endl;
+    assert (count_distinct_characters("Jerry jERRY JeRRRY") == 5);
     return 0;
 }
 
