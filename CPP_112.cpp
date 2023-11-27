@@ -1,46 +1,55 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
-#include <iostream>
+using namespace std;
 
-std::vector<std::string> reverse_delete(std::string s, std::string c);
+vector<string> reverse_delete(string s, string c);
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
+bool issame(vector<string> a, vector<string> b) {
+  if (a.size() != b.size()) {
+    return false;
+  }
+  for (int i = 0; i < a.size(); i++) {
+    if (a[i] != b[i]) {
+      return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+  }
+  return true;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (c.find(s[i]) == std::string::npos) {
-            result += s[i];
-        }
+vector<string> reverse_delete(string s, string c) {
+  string result = "";
+  for (int i = 0; i < s.length(); i++) {
+    if (c.find(s[i]) == string::npos) {
+      result += s[i];
     }
-    std::string reversed = result;
-    std::reverse(reversed.begin(), reversed.end());
-    bool isPalindrome = (result == reversed);
-    std::vector<std::string> output;
-    output.push_back(result);
-    output.push_back(isPalindrome ? "True" : "False");
-    return output;
+  }
+  string reversed = result;
+  reverse(reversed.begin(), reversed.end());
+  bool isPalindrome = (result == reversed);
+  vector<string> output;
+  output.push_back(result);
+  output.push_back(isPalindrome ? "True" : "False");
+  return output;
+}
+
+vector<string> reverse_delete(string s, string c) {
+  string result = "";
+  for (int i = 0; i < s.length(); i++) {
+    if (c.find(s[i]) == string::npos) {
+      result += s[i];
+    }
+  }
+  string reversed = result;
+  reverse(reversed.begin(), reversed.end());
+  bool isPalindrome = (result == reversed);
+  vector<string> output;
+  output.push_back(result);
+  output.push_back(isPalindrome ? "True" : "False");
+  return output;
 }
 
 int main() {
-    std::vector<std::string> expected = {"", "True"};
-    std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if (issame(result, expected)) {
-        std::cout << "Test case passed." << std::endl;
-    } else {
-        std::cout << "Test case failed." << std::endl;
-    }
-    return 0;
+  assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+  return 0;
 }
