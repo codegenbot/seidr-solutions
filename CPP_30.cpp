@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
+#include<iostream>
+#include<vector>
+#include<cassert>
 
 using namespace std;
 
@@ -17,6 +17,6 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main(){
-    assert (issame(get_positive({}) , {}));
+    assert (get_positive({}) == {});
     return 0;
 }
