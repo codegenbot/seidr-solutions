@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> sort_array(std::vector<int>& array) {
+std::vector<int> sort_array(const std::vector<int>& array) {
     std::vector<int> sorted_array = array;
     int sum = array[0] + array[array.size() - 1];
     if (sum % 2 == 0) {
@@ -27,6 +27,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    std::vector<int> sorted_array = sort_array({21, 14, 23, 11});
+    std::vector<int> expected = {23, 21, 14, 11};
+    assert(issame(sorted_array, expected));
     return 0;
 }
