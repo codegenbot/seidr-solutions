@@ -14,9 +14,7 @@ int main() {
     int hours;
     float initialSnow, snowFallRate, meltingRate;
     std::cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
-
     float finalSnow = calculateSnow(hours, initialSnow, snowFallRate, meltingRate);
     std::cout << std::fixed << std::setprecision(6) << finalSnow << std::endl;
-
     return 0;
 }
