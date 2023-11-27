@@ -13,3 +13,11 @@ long double double_the_difference(std::vector<float> lst) {
     
     return sum;
 }
+
+int main() {
+    std::vector<float> lst = {1.5, 2.0, 3.5, 4.0, 5.5};
+    long double odd_sum = 1 * 1 + 3 * 3 + 5 * 5; // Example odd_sum for testing
+    assert(double_the_difference(lst) == odd_sum);
+    
+    return 0;
+}
