@@ -11,19 +11,19 @@ vector<int> sum_product(vector<int> numbers){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    int n = a.size();
-    if (n != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
-    for (int i = 0; i < n; i++) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
 }
 
+
 int main() {
-    // your code here
+    // Code for testing above functions
     return 0;
 }
