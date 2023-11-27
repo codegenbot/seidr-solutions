@@ -37,8 +37,7 @@ std::string solve() {
     return "MD5: " + md5;
 }
 
-// Remove or comment out one of the main function definitions
-// int main() {
-//     std::cout << solve() << std::endl;
-//     return 0;
-// }
+int main() {
+    std::cout << solve() << std::endl;
+    return 0;
+}
