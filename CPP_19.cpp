@@ -35,13 +35,3 @@ std::string sort_numbers(std::string numbers) {
 
     return result;
 }
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-
-    std::string sortedNumbers = sort_numbers(input);
-    std::cout << sortedNumbers << std::endl;
-
-    return 0;
-}
