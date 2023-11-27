@@ -1,9 +1,13 @@
 int vowels_count(string s){
     int count = 0;
-    transform(s.begin(), s.end(), s.begin(), ::tolower);
+    transform(s.begin(), s.end(), s.begin(), ::tolower); // convert the string to lowercase
     
-    for(int i=0; i<s.size(); i++){
-        if((s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') || (i == s.size()-1 && s[i] == 'y')){
+    if(s.back() == 'y' || s.back() == 'Y') { // check if the last character is 'y' or 'Y'
+        count++;
+    }
+    
+    for(char c : s) { // iterate through each character in the string
+        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') { // check if the character is a vowel
             count++;
         }
     }
