@@ -1,7 +1,5 @@
-#include<cassert>
-#include<vector>
-#include<cmath>
-using namespace std;
+#include <vector>
+#include <cmath>
 
 long long double_the_difference(vector<float> lst){
     long long sum = 0;
