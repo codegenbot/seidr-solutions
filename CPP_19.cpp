@@ -1,35 +1,38 @@
 string sort_numbers(string numbers){
     // Create a map to store the numberals and their corresponding values
-    map<string, int> numMap;
-    numMap["zero"] = 0;
-    numMap["one"] = 1;
-    numMap["two"] = 2;
-    numMap["three"] = 3;
-    numMap["four"] = 4;
-    numMap["five"] = 5;
-    numMap["six"] = 6;
-    numMap["seven"] = 7;
-    numMap["eight"] = 8;
-    numMap["nine"] = 9;
+    map<string, int> numberals;
+    numberals["zero"] = 0;
+    numberals["one"] = 1;
+    numberals["two"] = 2;
+    numberals["three"] = 3;
+    numberals["four"] = 4;
+    numberals["five"] = 5;
+    numberals["six"] = 6;
+    numberals["seven"] = 7;
+    numberals["eight"] = 8;
+    numberals["nine"] = 9;
 
-    // Split the input string into individual numberals
-    vector<string> numberals;
+    // Convert the input string to a vector of numberals
+    vector<string> nums;
     stringstream ss(numbers);
     string num;
     while (ss >> num) {
-        numberals.push_back(num);
+        nums.push_back(num);
     }
 
-    // Sort the numberals based on their corresponding values
-    sort(numberals.begin(), numberals.end(), [&](const string& a, const string& b) {
-        return numMap[a] < numMap[b];
+    // Sort the numberals based on their values
+    sort(nums.begin(), nums.end(), [&](const string& a, const string& b) {
+        return numberals[a] < numberals[b];
     });
 
-    // Combine the sorted numberals into a string
+    // Convert the sorted numberals back to a string
     string sortedNumbers;
-    for (const string& numberal : numberals) {
-        sortedNumbers += numberal + " ";
+    for (const string& num : nums) {
+        sortedNumbers += num + " ";
     }
+
+    // Remove the trailing space
+    sortedNumbers.pop_back();
 
     return sortedNumbers;
 }
