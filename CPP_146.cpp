@@ -10,5 +10,5 @@ int specialFilter(std::vector<int> nums){
             count++;
         }
     }
-    return count;
+return count; 
 }
