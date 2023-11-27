@@ -1,5 +1,7 @@
-#include<iostream>
-#include<vector>
+#include <vector>
+#include <iostream>
+#include <cassert>
+
 using namespace std;
 
 vector<int> parse_music(string music_string) {
