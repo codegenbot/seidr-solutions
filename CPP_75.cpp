@@ -37,6 +37,8 @@ bool is_multiply_prime(int a) {
     return false;
 }
 
+// Remove or comment out the duplicate main function
+/*
 int main() {
     int num;
     cout << "Enter a number: ";
@@ -48,3 +50,4 @@ int main() {
     }
     return 0;
 }
+*/
