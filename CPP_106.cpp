@@ -2,6 +2,10 @@
 #include <vector>
 #include <cassert>
 
+std::vector<int> f(int n);
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
+
 std::vector<int> f(int n){
     std::vector<int> result;
     for(int i=1; i<=n; i++){
@@ -35,8 +39,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return true;
 }
 
-int main(){
-    assert(issame(f(3), {2, 4, 6}));
+int main() {
+    assert(issame(f(3), {1, 2, 6}));
     std::cout << "Test Passed!" << std::endl;
     return 0;
 }
