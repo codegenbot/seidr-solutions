@@ -1,5 +1,4 @@
 #include <vector>
-#include <climits>
 
 int next_smallest(vector<int> lst){
     if(lst.size() < 2) {
@@ -13,4 +12,16 @@ int next_smallest(vector<int> lst){
         }
     }
     return INT_MIN;
+}
+
+int main() {
+    // Test cases
+    vector<int> lst1 = {3, 5, 2, 8, 1};
+    vector<int> lst2 = {10, 7, 6, 4, 0};
+    
+    // Call the next_smallest function and print the result
+    cout << next_smallest(lst1) << endl;  // Output: 2
+    cout << next_smallest(lst2) << endl;  // Output: 4
+
+    return 0;
 }
