@@ -17,11 +17,11 @@ bool correct_bracketing(const std::string& brackets) {
     return count == 0;
 }
 
-int main() {
-    if (!correct_bracketing("()()(()())()))()")) {
-        std::cout << "Test case failed!" << std::endl;
-    }
-    else {
-        std::cout << "All test cases passed!" << std::endl;
-    }
-}
+// int main() {
+//     if (!correct_bracketing("()()(()())()))()")) {
+//         std::cout << "Test case failed!" << std::endl;
+//     }
+//     else {
+//         std::cout << "All test cases passed!" << std::endl;
+//     }
+// }
