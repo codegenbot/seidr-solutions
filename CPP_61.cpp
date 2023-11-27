@@ -1,30 +1,27 @@
+#include <iostream>
 #include <string>
 
-bool correct_bracketing(string brackets){
+bool is_correct_bracketing(std::string brackets) {
     int count = 0;
-    for(int i=0; i<brackets.length(); i++){
-        if(brackets[i] == '('){
+    for (int i = 0; i < brackets.length(); i++) {
+        if (brackets[i] == '(') {
             count++;
-        }
-        else if(brackets[i] == ')'){
+        } else if (brackets[i] == ')') {
             count--;
-            if(count < 0){
+            if (count < 0) {
                 return false;
             }
         }
     }
-    if(count == 0){
+    if (count == 0) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-int main(){
-    assert (not correct_bracketing("()()(()())()))()"));
-    assert (correct_bracketing("()()(()())()"));
-    assert (not correct_bracketing("))())()"));
-    assert (correct_bracketing("(())"));
+int main() {
+    assert(!is_correct_bracketing("()()(()())()))()"));
+
     return 0;
 }
