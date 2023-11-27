@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <string>
 using namespace std;
 
 bool is_vowel(char c) {
@@ -8,33 +8,15 @@ bool is_vowel(char c) {
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-bool issame(string s1, string s2) {
-    return (s1 == s2);
-}
-
-vector<string> select_words(string s, int n);
-
-int main() {
-    string s;
-    int n;
-    
-    getline(cin, s);
-    cin >> n;
-    
-    vector<string> words = select_words(s, n);
-    
-    for (string word : words) {
-        cout << word << " ";
-    }
-    
-    return 0;
+bool issame(char a, char b) {
+    return tolower(a) == tolower(b);
 }
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
     int count = 0;
     string word = "";
-    
+
     for (int i = 0; i <= s.length(); i++) {
         if (i == s.length() || s[i] == ' ') {
             if (count == n) {
@@ -42,7 +24,7 @@ vector<string> select_words(string s, int n) {
             }
             count = 0;
             word = "";
-        } 
+        }
         else {
             if (isalpha(s[i]) && !is_vowel(s[i])) {
                 count++;
@@ -50,6 +32,24 @@ vector<string> select_words(string s, int n) {
             word += s[i];
         }
     }
-    
+
     return result;
+}
+
+int main() {
+    string sentence;
+    int targetCount;
+    cout << "Enter a sentence: ";
+    getline(cin, sentence);
+    cout << "Enter the target count: ";
+    cin >> targetCount;
+
+    vector<string> words = select_words(sentence, targetCount);
+
+    cout << "Selected words: ";
+    for (auto word : words) {
+        cout << word << " ";
+    }
+
+    return 0;
 }
