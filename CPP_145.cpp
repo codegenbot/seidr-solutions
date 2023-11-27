@@ -32,11 +32,3 @@ vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), compare);
     return nums;
 }
-
-bool issame(vector<int> a, vector<int> b) {
-    // code here
-}
-
-int main() {
-    // code here
-}
