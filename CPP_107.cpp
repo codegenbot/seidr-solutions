@@ -44,5 +44,6 @@ int main() {
     std::vector<int> result = even_odd_palindrome(1);
     assert(is_same_vector(result, expected));
     std::cout << "Test case passed." << std::endl;
+    
     return 0;
 }
