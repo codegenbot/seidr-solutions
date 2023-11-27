@@ -15,6 +15,6 @@ int main() {
     string s0, s1;
     cin >> s0 >> s1;
     cout << same_chars(s0, s1) << endl;
-    
+
     return 0;
 }
