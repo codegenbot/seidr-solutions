@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+#include <climits>
+
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0;
@@ -41,11 +45,13 @@ int main() {
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
     for (int i = 0; i < result.first.size(); i++) {
-        std::cout << result.first[i] << " ";
+        std::cout << result.first[i] << " "; // Changed to print numbers with a space separator
     }
 
+    std::cout << std::endl; // Added a new line to separate the two subvectors
+
     for (int i = 0; i < result.second.size(); i++) {
-        std::cout << result.second[i] << " ";
+        std::cout << result.second[i] << " "; // Changed to print numbers with a space separator
     }
 
     return 0;
