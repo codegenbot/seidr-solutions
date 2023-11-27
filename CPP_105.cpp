@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> digitMap = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
