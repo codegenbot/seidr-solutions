@@ -1,40 +1,40 @@
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
+#include <any>
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
-boost::any compare_one(boost::any a, boost::any b) {
+std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int intA = boost::any_cast<int>(a);
-        int intB = boost::any_cast<int>(b);
+        int intA = std::any_cast<int>(a);
+        int intB = std::any_cast<int>(b);
         if (intA > intB) {
             return intA;
         } else if (intA < intB) {
             return intB;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float floatA = boost::any_cast<float>(a);
-        float floatB = boost::any_cast<float>(b);
+        float floatA = std::any_cast<float>(a);
+        float floatB = std::any_cast<float>(b);
         if (floatA > floatB) {
             return floatA;
         } else if (floatA < floatB) {
             return floatB;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string stringA = boost::any_cast<std::string>(a);
-        std::string stringB = boost::any_cast<std::string>(b);
+        std::string stringA = std::any_cast<std::string>(a);
+        std::string stringB = std::any_cast<std::string>(b);
         float floatA, floatB;
         try {
-            floatA = boost::lexical_cast<float>(stringA);
-            floatB = boost::lexical_cast<float>(stringB);
-        } catch (const boost::bad_lexical_cast&) {
-            return boost::any(std::string("None"));
+            floatA = std::stof(stringA);
+            floatB = std::stof(stringB);
+        } catch (const std::exception&) {
+            return std::any(std::string("None"));
         }
         if (floatA > floatB) {
-            return boost::any(stringA);
+            return std::any(stringA);
         } else if (floatA < floatB) {
-            return boost::any(stringB);
+            return std::any(stringB);
         }
     }
-    return boost::any(std::string("None"));
+    return std::any(std::string("None"));
 }
