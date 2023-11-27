@@ -1,9 +1,19 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
-vector<float> get_positive(const vector<float>& l){
+vector<float> get_positive(vector<float> l){
     vector<float> positive_numbers;
     for(float num : l){
         if(num > 0){
@@ -13,22 +23,9 @@ vector<float> get_positive(const vector<float>& l){
     return positive_numbers;
 }
 
-bool issame(const vector<float>& a, const vector<float>& b){
-    if(a.size() != b.size()){
-        return false;
-    }
-
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
-    return true;
-}
-
-int main() {
-    assert (issame(get_positive({}), {}));
+int main(){
+    assert(issame(get_positive({}), {}));
+    // Add more test cases if needed
 
     return 0;
 }
