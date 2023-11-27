@@ -16,7 +16,8 @@ int count_nums(vector<int> n){
     return count;
 }
 
-int main(){
-    // Code for testing the count_nums function
+int main() {
+    // Enter your code here
+
     return 0;
 }
