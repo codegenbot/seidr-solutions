@@ -25,7 +25,12 @@ vector<string> words_string(string s){
 }
 
 int main(){
-    assert(issame(words_string("ahmed     , gamal") , {"ahmed", "gamal"}));
-    cout << "Test case passed!" << endl;
-    return 0;
+    vector<string> result = words_string("ahmed     , gamal");
+    vector<string> expected = {"ahmed", "gamal"};
+    if(result == expected){
+        cout << "Test case passed!" << endl;
+    }
+    else{
+        cout << "Test case failed!" << endl;
+    }
 }
