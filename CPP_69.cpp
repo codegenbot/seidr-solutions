@@ -1,23 +1,17 @@
-int search(vector<int> lst) {
-    int maxFreq = -1;
-    int maxValue = -1;
-    
-    // Iterate through the vector
-    for (int i = 0; i < lst.size(); i++) {
+int search(vector<int> lst){
+    int maxFreq = 0;
+    int result = -1;
+    for(int i = 0; i < lst.size(); i++){
         int freq = 0;
-        
-        // Count the frequency of the current element
-        for (int j = 0; j < lst.size(); j++) {
-            if (lst[j] == lst[i]) {
+        for(int j = 0; j < lst.size(); j++){
+            if(lst[j] == lst[i]){
                 freq++;
             }
         }
-        
-        // Check if the frequency is greater than or equal to the value of the element
-        if (freq >= lst[i] && lst[i] > maxValue) {
-            maxValue = lst[i];
+        if(freq >= lst[i] && lst[i] > maxFreq){
+            maxFreq = lst[i];
+            result = lst[i];
         }
     }
-    
-    return maxValue;
+    return result;
 }
