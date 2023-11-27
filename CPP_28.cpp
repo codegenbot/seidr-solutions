@@ -1,10 +1,11 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
-string concatenate(vector<string> strings){
+string concatenate(vector<string> strings) {
     string result;
     for (const string& str : strings) {
         result += str;
@@ -12,7 +13,7 @@ string concatenate(vector<string> strings){
     return result;
 }
 
-int main(){
-    assert (concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+int main() {
+    assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
     return 0;
 }
