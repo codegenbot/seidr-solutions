@@ -4,6 +4,8 @@
 
 vector<int> get_odd_collatz(int n);
 
+bool is_same(vector<int> a, vector<int> b);
+
 bool is_same(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
