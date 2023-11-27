@@ -14,8 +14,8 @@ bool is_palindrome(string text){
 }
 
 int main() {
-    cout << is_palindrome("abcba") << endl;
-    cout << is_palindrome("xywzx") << endl;
+    cout << is_palindrome("abcba") << endl;   
+    cout << is_palindrome("xywzx") << endl;   
 
     return 0;
 }
