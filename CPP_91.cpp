@@ -20,7 +20,6 @@ int is_bored(string S){
 
 int main() {
     assert(is_bored("You and I are going for a walk") == 0);
-    // Add more test cases if needed
 
     return 0;
 }
