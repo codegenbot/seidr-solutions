@@ -1,5 +1,4 @@
 #include <boost/any.hpp>
-#include <iostream>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() != b.type()) {
@@ -33,17 +32,4 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
 
     return boost::any();
-}
-
-int main() {
-    boost::any a = 10;
-    boost::any b = 20;
-    boost::any result = compare_one(a, b);
-    if (!result.empty()) {
-        std::cout << "Comparison result: " << boost::any_cast<int>(result) << std::endl;
-    } else {
-        std::cout << "Comparison failed due to different types." << std::endl;
-    }
-
-    return 0;
 }
