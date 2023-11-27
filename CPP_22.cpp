@@ -5,6 +5,9 @@ using namespace std;
 using boost::any;
 using boost::any_cast;
 
+vector<int> filter_integers(list_any values);
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> filter_integers(list_any values){
     vector<int> result;
     for(auto value : values){
