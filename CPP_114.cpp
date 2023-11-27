@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+long long minSubArraySum(vector<long long> nums);
+
 long long minSubArraySum(vector<long long> nums){
     long long minSum = nums[0];
     long long currSum = nums[0];
@@ -8,4 +14,9 @@ long long minSubArraySum(vector<long long> nums){
     }
     
     return minSum;
+}
+
+int main(){
+    assert (minSubArraySum({1, -1}) == -1);
+    return 0;
 }
