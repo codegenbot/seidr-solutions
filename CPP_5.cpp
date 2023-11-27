@@ -14,7 +14,7 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    // implementation of issame function
+    return a == b;
 }
 
 int main() {
