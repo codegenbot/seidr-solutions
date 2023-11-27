@@ -21,10 +21,3 @@ std::vector<int> generate_integers(int start, int end)
     }
     return result;
 }
-
-int main() {
-    std::vector<int> emptyVector;
-    bool same = issame(generate_integers(17, 89), emptyVector);
-    std::cout << same << std::endl;
-    return 0;
-}

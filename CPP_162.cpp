@@ -36,14 +36,3 @@ std::string solve() {
     std::string md5 = string_to_md5(text);
     return "MD5: " + md5;
 }
-
-// Remove or comment out the duplicate main() function
-// int main() {
-//     std::cout << solve() << std::endl;
-//     return 0;
-// }
-
-int main() {
-    std::cout << solve() << std::endl;
-    return 0;
-}
