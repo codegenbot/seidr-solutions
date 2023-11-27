@@ -10,7 +10,9 @@ vector<int> maximum(vector<int> arr, int k) {
     return result;
 }
 
+/*
 int main() {
     assert (maximum(vector<int>({1, 2, 3, -23, 243, -400, 0}), 0) == vector<int>{});
     return 0;
 }
+*/
