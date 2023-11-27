@@ -18,6 +18,7 @@ string circular_shift(int x, int shift) {
 int main() {
     int x, shift;
     cin >> x >> shift;
-    cout << circular_shift(x, shift) << endl;
+    string result = circular_shift(x, shift);
+    cout << result << endl;
     return 0;
 }
