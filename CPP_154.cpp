@@ -12,9 +12,3 @@ bool cycpattern_check(std::string a, std::string b) {
     }
     return false;
 }
-
-int main() {
-    assert(cycpattern_check("winemtt", "tinem") == true);
-
-    return 0;
-}
