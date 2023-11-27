@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
-    // implementation of the function
+  // implementation of the function
 }
 
 vector<int> rolling_max(vector<int> numbers){
