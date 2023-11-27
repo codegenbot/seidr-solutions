@@ -1,19 +1,29 @@
-vector<string> words_string(string s){
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+
+vector<string> words_string(string s) {
     vector<string> words;
-    string word = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' ' || s[i] == ','){
-            if(word != ""){
-                words.push_back(word);
-                word = "";
-            }
-        }
-        else{
-            word += s[i];
-        }
-    }
-    if(word != ""){
+    stringstream ss(s);
+    string word;
+    
+    while (getline(ss, word, ' ')) {
         words.push_back(word);
     }
+    
     return words;
+}
+
+int main() {
+    string input;
+    getline(cin, input);
+
+    vector<string> result = words_string(input);
+
+    for (string word : result) {
+        cout << word << " ";
+    }
+
+    return 0;
 }
