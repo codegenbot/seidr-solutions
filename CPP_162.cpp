@@ -8,10 +8,11 @@ std::string string_to_md5(std::string text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* md5Context = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(md5Context, EVP_md5(), nullptr);
-    EVP_DigestUpdate(md5Context, text.c_str(), text.size());
-    EVP_DigestFinal_ex(md5Context, digest, nullptr);
+    EVP_MD_CTX *md5Context = EVP_MD_CTX_new();
+    EVP_MD_CTX_init(md5Context);
+    EVP_DigestInit_ex(md5Context, EVP_md5(), NULL);
+    EVP_DigestUpdate(md5Context, text.data(), text.size());
+    EVP_DigestFinal_ex(md5Context, digest, NULL);
     EVP_MD_CTX_free(md5Context);
 
     char md5Hash[33];
