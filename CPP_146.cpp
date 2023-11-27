@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-int specialFilter(vector<int> nums){
+int specialFilter(std::vector<int> nums){
     int count = 0;
     for(int num : nums){
         std::string numStr = std::to_string(num);
