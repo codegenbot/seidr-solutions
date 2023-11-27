@@ -11,25 +11,24 @@ string sort_numbers(string numbers){
     numMap["eight"] = 8;
     numMap["nine"] = 9;
 
-    string result = "";
-    string currentNum = "";
-    for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
-            result += currentNum + " ";
-            currentNum = "";
-        } else {
-            currentNum += numbers[i];
-        }
+    vector<int> sortedNumbers;
+    stringstream ss(numbers);
+    string num;
+    while (ss >> num) {
+        sortedNumbers.push_back(numMap[num]);
     }
-    result += currentNum;
 
-    for (int i = 0; i < result.length(); i += 2) {
-        for (int j = i + 2; j < result.length(); j += 2) {
-            if (numMap[result[i]] > numMap[result[j]]) {
-                swap(result[i], result[j]);
+    sort(sortedNumbers.begin(), sortedNumbers.end());
+
+    string sortedString;
+    for (int i = 0; i < sortedNumbers.size(); i++) {
+        for (auto it = numMap.begin(); it != numMap.end(); it++) {
+            if (it->second == sortedNumbers[i]) {
+                sortedString += it->first + " ";
+                break;
             }
         }
     }
 
-    return result;
+    return sortedString;
 }
