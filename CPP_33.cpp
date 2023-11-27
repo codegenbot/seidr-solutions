@@ -1,4 +1,3 @@
-"""
 #include <algorithm>
 #include <assert.h>
 #include <vector>
@@ -24,4 +23,3 @@ vector<int> sort_third(vector<int>& l){
     }
     return l_prime;
 }
-"""
