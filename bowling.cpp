@@ -57,11 +57,10 @@ int getRoundScore(const std::string& bowls) {
 
 int main() {
     std::string bowls;
-    std::cout << "Enter the string representing the individual bowls: ";
     std::getline(std::cin, bowls);
 
     int roundScore = getRoundScore(bowls);
-    std::cout << "Round score: " << roundScore << std::endl;
+    std::cout << roundScore << std::endl;
 
     return 0;
 }
