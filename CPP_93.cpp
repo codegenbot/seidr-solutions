@@ -1,17 +1,21 @@
-string encode(string message){
-    for(int i=0; i<message.length(); i++){
-        if(isalpha(message[i])){
-            if(islower(message[i])){
-                message[i] = toupper(message[i]);
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+std::string encode(std::string message) {
+    std::transform(message.begin(), message.end(), message.begin(), [](char c) {
+        if (std::isalpha(c)) {
+            if (std::islower(c)) {
+                return std::toupper(c);
+            } else {
+                return std::tolower(c);
             }
-            else{
-                message[i] = tolower(message[i]);
-            }
-            
-            if(message[i] == 'a' || message[i] == 'e' || message[i] == 'i' || message[i] == 'o' || message[i] == 'u'){
-                message[i] = message[i] + 2;
-            }
+        } else if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || std::tolower(c) == 'i' ||
+                   std::tolower(c) == 'o' || std::tolower(c) == 'u') {
+            return (c + 2 > 'z') ? c + 2 - 26 : c + 2;
         }
-    }
+        return c;
+    });
+
     return message;
 }
