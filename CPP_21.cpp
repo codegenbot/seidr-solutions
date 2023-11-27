@@ -6,8 +6,6 @@ using namespace std;
 
 vector<float> rescale_to_unit(vector<float> numbers);
 
-bool issame(vector<float> a, vector<float> b);
-
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_val = numbers[0];
     float max_val = numbers[0];
@@ -36,7 +34,7 @@ bool issame(vector<float> a, vector<float> b) {
     }
 
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-4) {
+        if (abs(a[i] - b[i]) > 1e-4) {
             return false;
         }
     }
