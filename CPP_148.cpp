@@ -3,6 +3,8 @@
 
 std::vector<std::string> bf(std::string planet1, std::string planet2);
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
@@ -38,5 +40,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     issame(bf("Jupiter", "Makemake"), {});
+
     return 0;
 }
