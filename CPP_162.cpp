@@ -9,7 +9,7 @@ string string_to_md5(string text) {
     }
 
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
+    EVP_DigestInit_ex(ctx, EVP_md5(), nullptr);
     EVP_DigestUpdate(ctx, text.c_str(), text.size());
 
     unsigned char digest[EVP_MAX_MD_SIZE];
@@ -24,5 +24,3 @@ string string_to_md5(string text) {
 
     return string(md5Hash);
 }
-
-g++ -o output_file source_file.cpp -lcrypto
