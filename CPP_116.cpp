@@ -3,9 +3,11 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> sort_array(const std::vector<int>& arr) {
-    std::vector<int> sorted_arr = arr;
-    std::sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
+using namespace std;
+
+vector<int> sort_array(const vector<int>& arr) {
+    vector<int> sorted_arr = arr;
+    sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
         int countA = __builtin_popcount(a);
         int countB = __builtin_popcount(b);
         if (countA == countB) {
@@ -17,7 +19,7 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> expected = {2, 4, 8, 16, 32};
-    assert(std::equal(sort_array({2, 4, 8, 16, 32}).begin(), sort_array({2, 4, 8, 16, 32}).end(), expected.begin()));
+    assert(sort_array({2,4,8,16,32}) == vector<int>({2, 4, 8, 16, 32}));
+    
     return 0;
 }
