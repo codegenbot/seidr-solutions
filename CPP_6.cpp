@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <memory_resource>
+#include <cassert>
 
-std::pmr::vector<int> parse_nested_parens(std::string paren_string) {
-    std::pmr::vector<int> levels;
+std::vector<int> parse_nested_parens(std::string paren_string) {
+    std::vector<int> levels;
     int max_level = 0;
     int current_level = 0;
 
@@ -28,22 +28,11 @@ std::pmr::vector<int> parse_nested_parens(std::string paren_string) {
     return levels;
 }
 
-bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (std::pmr::vector<int>::size_type i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())(()))"), {4}));
-    
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
     return 0;
 }
