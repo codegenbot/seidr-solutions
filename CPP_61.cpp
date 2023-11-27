@@ -1,5 +1,5 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 bool correct_bracketing(std::string brackets){
     int count = 0;
@@ -20,13 +20,11 @@ bool correct_bracketing(std::string brackets){
 int main() {
     std::string brackets;
     std::cin >> brackets;
-    
     if(correct_bracketing(brackets)){
-        std::cout << "The brackets are correctly balanced." << std::endl;
+        std::cout << "Brackets are correctly balanced." << std::endl;
     }
     else{
-        std::cout << "The brackets are not correctly balanced." << std::endl;
+        std::cout << "Brackets are not correctly balanced." << std::endl;
     }
-    
     return 0;
 }
