@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> sort_array(std::vector<int>& arr) {
+std::vector<int> sort_vector(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
         int countA = __builtin_popcount(a);
         int countB = __builtin_popcount(b);
@@ -16,6 +16,6 @@ std::vector<int> sort_array(std::vector<int>& arr) {
 }
 
 int main() {
-    assert(std::equal(sort_array({2, 4, 8, 16, 32}).begin(), sort_array({2, 4, 8, 16, 32}).end(), {2, 4, 8, 16, 32}.begin()));
+    assert(sort_vector({2, 4, 8, 16, 32}) == std::vector<int>({2, 4, 8, 16, 32}));
     return 0;
 }
