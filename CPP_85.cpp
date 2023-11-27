@@ -1,6 +1,7 @@
 #include <iostream>
-#include <cassert>
 #include <vector>
+
+using namespace std;
 
 int add(vector<int> lst){
     int sum = 0;
