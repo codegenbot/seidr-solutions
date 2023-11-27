@@ -1,10 +1,10 @@
 #include <iostream>
 #include <iomanip>
 
-double calculateSnow(int hours, double initialSnow, double snowFallRate, double snowMeltRate) {
-    double snow = initialSnow;
+long double calculateSnow(int hours, double initialSnow, double snowFallRate, double snowMeltRate) {
+    long double snow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        double snowChange = snowFallRate - (snow * snowMeltRate);
+        long double snowChange = snowFallRate - (initialSnow * snowMeltRate);
         snow += snowChange;
     }
     return snow;
