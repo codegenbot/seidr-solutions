@@ -2,8 +2,13 @@
 
 string circular_shift(int x, int shift);
 
+#include <iostream>
+using namespace std;
+
 int main() {
-    // code here
+    int x, shift;
+    cin >> x >> shift;
+    cout << circular_shift(x, shift);
     return 0;
 }
 
