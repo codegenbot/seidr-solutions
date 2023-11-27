@@ -11,11 +11,3 @@ bool pairs_sum_to_zero(std::vector<int> l) {
     }
     return false;
 }
-
-int main() {
-    std::vector<int> nums = {1, -2, 3, -4, 5};
-    bool hasPairSumZero = pairs_sum_to_zero(nums);
-    assert(hasPairSumZero == true);
-
-    return 0;
-}
