@@ -1,6 +1,6 @@
 #include <vector>
 #include <list>
-#include <boost_1_75_0/boost/any.hpp>
+#include <boost/any.hpp>
 #include <cassert>
 
 std::vector<int> filter_integers(std::list<boost::any> values) {
