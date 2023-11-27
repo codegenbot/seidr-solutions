@@ -26,7 +26,7 @@ bool isSame(vector<float> a, vector<float> b) {
 
 int main() {
     assert(isSame(derivative({1}), {}));
-    assert(isSame(derivative({2, 3, 4}), {2, 6, 12}));
-
+    assert(isSame(derivative({2,3,4}), {2,6,12}));
+    
     return 0;
 }
