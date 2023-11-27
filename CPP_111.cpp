@@ -26,6 +26,6 @@ bool isSame(const map<char,int>& a, const map<char,int>& b){
 }
 
 int main() {
-    assert (isSame(histogram("a") , {{'a', 1}}));
+    assert(isSame(histogram("a"), {{'a', 1}}));
     return 0;
 }
