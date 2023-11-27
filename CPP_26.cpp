@@ -1,11 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+vector<int> remove_duplicates(vector<int> numbers);
+bool issame(vector<int> a, vector<int> b);
 
-using namespace std;
+vector<int> remove_duplicates(vector<int> numbers){
+    vector<int> result;
+    for(int i=0; i<numbers.size(); i++){
+        if(count(numbers.begin(), numbers.end(), numbers[i]) == 1){
+            result.push_back(numbers[i]);
+        }
+    }
+    return result;
+}
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+    if(a.size() != b.size()) {
         return false;
     }
     sort(a.begin(), a.end());
@@ -18,24 +25,27 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> remove_duplicates(vector<int> numbers);
-
-int main(){
-    vector<int> numbers = {1, 2, 3, 4, 1, 2, 5};
-    vector<int> result = remove_duplicates(numbers);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
+int main() {
+    int n;
+    cin >> n;
+    vector<int> numbers(n);
+    for(int i=0; i<n; i++){
+        cin >> numbers[i];
+    }
+    
+    vector<int> unique_numbers = remove_duplicates(numbers);
+    for(int i=0; i<unique_numbers.size(); i++){
+        cout << unique_numbers[i] << " ";
     }
     cout << endl;
-    return 0;
-}
-
-vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> result;
-    for(int i=0; i<numbers.size(); i++){
-        if(count(numbers.begin(), numbers.end(), numbers[i]) == 1){
-            result.push_back(numbers[i]);
-        }
+    
+    vector<int> numbers_copy(numbers.begin(), numbers.end());
+    sort(numbers_copy.begin(), numbers_copy.end());
+    if(issame(numbers, numbers_copy)){
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
     }
-    return result;
+    
+    return 0;
 }
