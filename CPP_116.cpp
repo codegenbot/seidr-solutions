@@ -4,7 +4,7 @@
 using namespace std;
 
 vector<int> sort_array(vector<int> arr);
-bool issame(vector<int> a,vector<int>b);
+bool issame(vector<int> a, vector<int>b);
 
 vector<int> sort_array(vector<int> arr){
     sort(arr.begin(), arr.end(), [](int a, int b) {
