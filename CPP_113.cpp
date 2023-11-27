@@ -1,20 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
 using namespace std;
 
 vector<string> odd_count(vector<string> lst);
-
-int main() {
-    assert(odd_count({"271", "137", "314"}) == vector<string> {
-        "the number of odd elements 2\n the string 271 of the input.",
-        "the number of odd elements 3\n the string 137 of the input.",
-        "the number of odd elements 2\n the string 314 of the input."
-    });
-
-    return 0;
-}
 
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
@@ -28,4 +17,14 @@ vector<string> odd_count(vector<string> lst){
         result.push_back("the number of odd elements " + to_string(oddCount) + "\n the string " + str + " of the input.");
     }
     return result;
+}
+
+int main() {
+    assert(odd_count({"271", "137", "314"}) == vector<string> {
+        "the number of odd elements 2\n the string 271 of the input.",
+        "the number of odd elements 3\n the string 137 of the input.",
+        "the number of odd elements 2\n the string 314 of the input."
+    });
+
+    return 0;
 }
