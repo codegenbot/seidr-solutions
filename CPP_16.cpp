@@ -1,24 +1,24 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <string>
 
-using namespace std;
-
-int count_distinct_characters(string str);
-
-int main() {
-    cout << count_distinct_characters("Jerry jERRY JeRRRY") << endl;
-    return 0;
-}
-
-int count_distinct_characters(string str) {
-    vector<char> distinctChars;
+int count_distinct_characters(std::string str) {
+    std::vector<char> distinctChars;
     for (char c : str) {
-        char lowerC = tolower(c);
-        if (find(distinctChars.begin(), distinctChars.end(), lowerC) == distinctChars.end()) {
+        char lowerC = std::tolower(c);
+        if (std::find(distinctChars.begin(), distinctChars.end(), lowerC) == distinctChars.end()) {
             distinctChars.push_back(lowerC);
         }
     }
     return distinctChars.size();
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    int result = count_distinct_characters(input);
+    std::cout << "Number of distinct characters: " << result << std::endl;
+    return 0;
 }
