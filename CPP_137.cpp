@@ -1,38 +1,52 @@
 #include <boost/any.hpp>
 #include <boost/lexical_cast.hpp>
+#include <cassert>
+#include <string>
 
-boost::any compare_one(boost::any a, boost::any b) {
+using boost::any;
+using boost::any_cast;
+using boost::bad_lexical_cast;
+using std::string;
+
+any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int intA = boost::any_cast<int>(a);
-        int intB = boost::any_cast<int>(b);
+        int intA = any_cast<int>(a);
+        int intB = any_cast<int>(b);
         if (intA > intB) {
-            return intA;
+            return any(intA);
         } else if (intA < intB) {
-            return intB;
+            return any(intB);
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float floatA = boost::any_cast<float>(a);
-        float floatB = boost::any_cast<float>(b);
+        float floatA = any_cast<float>(a);
+        float floatB = any_cast<float>(b);
         if (floatA > floatB) {
-            return floatA;
+            return any(floatA);
         } else if (floatA < floatB) {
-            return floatB;
+            return any(floatB);
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string stringA = boost::any_cast<std::string>(a);
-        std::string stringB = boost::any_cast<std::string>(b);
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string stringA = any_cast<string>(a);
+        string stringB = any_cast<string>(b);
         float floatA, floatB;
         try {
             floatA = boost::lexical_cast<float>(stringA);
             floatB = boost::lexical_cast<float>(stringB);
-        } catch (const boost::bad_lexical_cast&) {
-            return std::string("None");
+        } catch (const bad_lexical_cast&) {
+            return any(string("None"));
         }
         if (floatA > floatB) {
-            return stringA;
+            return any(stringA);
         } else if (floatA < floatB) {
-            return stringB;
+            return any(stringB);
         }
     }
-    return std::string("None");
+    return any(string("None"));
+}
+
+int main() {
+    assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
+    assert(any_cast<int>(compare_one(3, 5)) == 5);
+    assert(any_cast<float>(compare_one(3.14f, 2.718f)) == 3.14f);
+    return 0;
 }
