@@ -20,12 +20,12 @@ bool issame(int a, int b){
 }
 
 int main() {
-    list<boost::any> values = {1, 2, "three", 4.5, 6};
-    vector<int> filtered_values = filter_integers(values);
-    for (int value : filtered_values) {
-        cout << value << " ";
+    list<boost::any> values = {1, 2, 3, "hello", 4.5};
+    vector<int> filtered = filter_integers(values);
+    for (auto num : filtered) {
+        cout << num << " ";
     }
     cout << endl;
-    cout << issame(5, 5) << endl;
+    cout << issame(3, 3) << endl;
     return 0;
 }
