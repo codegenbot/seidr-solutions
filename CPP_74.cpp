@@ -4,65 +4,57 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    int totalChars1 = 0;
-    int totalChars2 = 0;
-
-    for (string str : a) {
-        totalChars1 += str.length();
-    }
-
-    for (string str : b) {
-        totalChars2 += str.length();
-    }
-
-    if (totalChars1 < totalChars2) {
-        return true;
-    }
-    else {
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
         return false;
     }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+vector<string> total_match(vector<string> lst1,vector<string> lst2){
     int totalChars1 = 0;
     int totalChars2 = 0;
-
-    for (string str : lst1) {
+    
+    for(string str : lst1){
         totalChars1 += str.length();
     }
-
-    for (string str : lst2) {
+    
+    for(string str : lst2){
         totalChars2 += str.length();
     }
-
-    if (totalChars1 < totalChars2) {
+    
+    if(totalChars1 < totalChars2){
         return lst1;
     }
-    else {
+    else{
         return lst2;
     }
 }
 
 int main() {
-    // Test cases
-    vector<string> lst1 = {"abc", "def", "ghi"};
-    vector<string> lst2 = {"jkl", "mno", "pqr"};
-
-    if (issame(lst1, lst2)) {
-        cout << "The total characters in lst1 are less than lst2" << endl;
+    vector<string> list1 = {"apple", "banana", "cherry"};
+    vector<string> list2 = {"apple", "banana", "cherry"};
+    
+    if(issame(list1, list2)){
+        cout << "Lists are same" << endl;
     }
-    else {
-        cout << "The total characters in lst2 are less than lst1" << endl;
+    else{
+        cout << "Lists are different" << endl;
     }
-
-    vector<string> result = total_match(lst1, lst2);
-
-    cout << "The result is: ";
-    for (string str : result) {
+    
+    vector<string> result = total_match(list1, list2);
+    
+    cout << "Total Match: ";
+    for(string str : result){
         cout << str << " ";
     }
-    cout << endl;
-
+    
     return 0;
 }
