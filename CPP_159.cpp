@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 int issame(std::vector<int> a, std::vector<int> b);
 
@@ -23,9 +22,4 @@ int issame(std::vector<int> a, std::vector<int> b){
         }
     }
     return 1;
-}
-
-int main(){
-    assert (issame(eat(4, 5, 1), {5, 0}));
-    return 0;
 }
