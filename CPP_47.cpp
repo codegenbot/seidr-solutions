@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cmath>
 
-float findMedian(std::vector<float> l){
+float getMedian(std::vector<float> l){
     std::sort(l.begin(), l.end());
     int n = l.size();
     if (n % 2 == 0){
@@ -15,8 +15,8 @@ float findMedian(std::vector<float> l){
 }
 
 int main(){
-    // Test the findMedian function
-    assert(std::abs(findMedian({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
+    // Test the getMedian function
+    assert(std::abs(getMedian({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
 
     return 0;
 }
