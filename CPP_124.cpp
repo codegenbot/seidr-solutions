@@ -3,14 +3,14 @@
 #include <cstdio>
 
 bool valid_date(std::string date){
-    /* Existing code */
-
+    // Add appropriate implementation code here
     return true;
 }
 
 std::string get_date_input(){
-    /* Existing code */
-    return ""; // replace this with the actual return value
+    std::string date;
+    // Add appropriate implementation code here
+    return date;
 }
 
 int main(){
