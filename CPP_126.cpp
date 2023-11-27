@@ -13,9 +13,8 @@ bool is_sorted(vector<int> lst){
     return true;
 }
 
-int main(){
-    // Test the is_sorted function
-    bool sorted = is_sorted(vector<int>{1, 2, 3, 4});
-
+int main() {
+    vector<int> lst = {1, 2, 3, 4};
+    bool result = is_sorted(lst);
     return 0;
 }
