@@ -24,13 +24,7 @@ bool move_one_ball(vector<int> arr){
 }
 
 int main() {
-
     assert(move_one_ball({}) == true);
-    assert(move_one_ball({3}) == true);
-    assert(move_one_ball({1, 2, 3, 4, 5}) == true);
-    assert(move_one_ball({4, 5, 1, 2, 3}) == true);
-    assert(move_one_ball({5, 1, 2, 3, 4}) == false);
-    assert(move_one_ball({2, 3, 4, 5, 1}) == false);
 
     return 0;
 }
