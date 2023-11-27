@@ -1,20 +1,33 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
+bool issame(vector<float> a, vector<float> b);
+
 vector<float> sort_even(vector<float> l);
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> sorted_l;
-    for(int i = 0; i < l.size(); i += 2) {
-        sorted_l.push_back(l[i]);
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<float> sort_even(vector<float> l){
+    vector<float> sorted_l = l;
+    for(int i=0; i<l.size(); i+=2){
+        sorted_l[i] = l[i];
     }
     sort(sorted_l.begin(), sorted_l.end());
     return sorted_l;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
 }
 
 int main() {
