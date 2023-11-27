@@ -3,22 +3,25 @@
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int black = 0, white = 0;
-    int freq[6] = {0};
+    int whitePegs = 0;
+    int blackPegs = 0;
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
+
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            black++;
+            blackPegs++;
         } else {
-            freq[code[i] - 'A']++;
-            freq[guess[i] - 'A']--;
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
+
     for (int i = 0; i < 6; i++) {
-        if (freq[i] > 0) {
-            white += freq[i];
-        }
+        whitePegs += min(codeCount[i], guessCount[i]);
     }
-    return make_pair(white, black);
+
+    return make_pair(whitePegs, blackPegs);
 }
 
 int main() {
