@@ -2,10 +2,15 @@
 #include <cassert>
 
 float truncate_number(float number){
-    return number - floor(number);
+    return number - std::floor(number);
 }
 
-int main(){
-    assert (fabs(truncate_number(123.456) - 0.456) < 1e-4);
+int test() {
+    assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
+
     return 0;
+}
+
+int main() {
+    return test();
 }
