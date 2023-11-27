@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include <cassert>
+#include <utility>
 
 using namespace std;
 
@@ -23,13 +24,13 @@ map<string, int> histogram(string test) {
     return result;
 }
 
-bool issame(const map<string, int>& a, const map<string, int>& b) {
+bool issame(map<string, int> a, map<string, int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(histogram("a"), map<string, int>{{"a", 1}}));
-    assert(issame(histogram("hello world"), map<string, int>{{"hello", 1}, {"world", 1}}));
+    assert(issame(histogram("a"), make_pair("a", 1)));
+    assert(issame(histogram("hello world"), make_pair("hello", 1), make_pair("world", 1)));
     
     cout << "All tests passed!" << endl;
     
