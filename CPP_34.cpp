@@ -21,7 +21,6 @@ std::vector<int> unique(std::vector<int> l) {
 }
 
 int main() {
-    // Test cases
     std::vector<int> input1 = {1, 2, 1, 3, 2, 4, 3, 5};
     std::vector<int> output1 = {1, 2, 3, 4, 5};
     assert(std::equal(unique(input1).begin(), unique(input1).end(), output1.begin()));
