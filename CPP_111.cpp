@@ -30,7 +30,7 @@ bool issame(const map<string, int>& a, const map<string, int>& b) {
 int main() {
     map<string, int> expected1 = {{"a", 1}};
     assert(issame(histogram("a"), expected1));
-
+    
     map<string, int> expected2 = {{"hello", 1}, {"world", 1}};
     assert(issame(histogram("hello world"), expected2));
 
