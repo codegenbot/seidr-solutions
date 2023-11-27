@@ -1,16 +1,27 @@
-int next_smallest(vector<int> lst){
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int next_smallest(std::vector<int> lst){
     if(lst.size() < 2){
-        return -1;
+        return 0;
     }
-    
-    sort(lst.begin(), lst.end());
-    
-    int smallest = lst[0];
-    int second_smallest = lst[1];
-    
-    if(smallest == second_smallest){
-        return -1;
+    std::sort(lst.begin(), lst.end());
+    return lst[1];
+}
+
+int main() {
+    std::vector<int> lst;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter the elements: ";
+    for(int i=0; i<n; i++){
+        int element;
+        std::cin >> element;
+        lst.push_back(element);
     }
-    
-    return second_smallest;
+    int result = next_smallest(lst);
+    std::cout << "The next smallest element is: " << result << std::endl;
+    return 0;
 }
