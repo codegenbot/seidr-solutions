@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 #include <cmath>
@@ -15,18 +14,11 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    // implementation here
 }
 
 int main() {
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    assert(issame(compare({1,2,3,5}, {-1,2,3,4}), {2,0,0,1}));
+    // more test cases
     return 0;
 }
