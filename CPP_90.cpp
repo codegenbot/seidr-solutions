@@ -1,32 +1,24 @@
 #include <vector>
-#include <algorithm>
-#include <climits>
 
 int next_smallest(vector<int> lst){
-    if(lst.size() < 2) {
-        return INT_MIN;
+    if(lst.size() < 2){
+        return -1;
     }
+    
     sort(lst.begin(), lst.end());
+    
     int smallest = lst[0];
-    for(int i = 1; i < lst.size(); i++) {
-        if(lst[i] > smallest) {
-            return lst[i];
-        }
+    int next_smallest_num = lst[1];
+    
+    if(smallest == next_smallest_num){
+        return -1;
     }
-    return INT_MIN;
+    
+    return next_smallest_num;
 }
 
-int main() {
-    // Testing the next_smallest function
-    vector<int> lst1 = {1, 3, 2, 4, 5};
-    int result1 = next_smallest(lst1);
-    
-    vector<int> lst2 = {5, 4, 3, 2, 1};
-    int result2 = next_smallest(lst2);
-    
-    // Print the results
-    cout << "Result 1: " << result1 << endl;
-    cout << "Result 2: " << result2 << endl;
+int main(){
+    assert (next_smallest({-35, 34, 12, -45}) == -35);
     
     return 0;
 }
