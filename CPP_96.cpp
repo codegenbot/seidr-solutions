@@ -1,8 +1,20 @@
 #include <vector>
 #include <cassert>
 
-vector<int> count_up_to(int n){
-    vector<int> primes;
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<int> count_up_to(int n){
+    std::vector<int> primes;
     if(n <= 1){
         return primes;
     }
@@ -20,18 +32,6 @@ vector<int> count_up_to(int n){
         }
     }
     return primes;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
 }
 
 int main(){
