@@ -5,7 +5,6 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l);
-
 bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b){
@@ -35,17 +34,11 @@ vector<int> sort_third(vector<int> l){
     return l_prime;
 }
 
-int main(){
-    int n;
-    cin >> n;
-    vector<int> l(n);
-    for(int i = 0; i < n; i++){
-        cin >> l[i];
-    }
+int main() {
+    vector<int> l = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     vector<int> sorted_l = sort_third(l);
     for(int i = 0; i < sorted_l.size(); i++){
         cout << sorted_l[i] << " ";
     }
-    cout << endl;
     return 0;
 }
