@@ -12,7 +12,7 @@ std::vector<int> filter_integers(std::list<boost::any> values){
     }
     return result;
 }
-
+    
 bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
