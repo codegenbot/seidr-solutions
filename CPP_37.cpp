@@ -28,7 +28,7 @@ vector<float> sort_even(vector<float> l){
     return l_prime;
 }
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()){
         return false;
     }
