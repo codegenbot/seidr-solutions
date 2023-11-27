@@ -14,9 +14,9 @@ int countDistinctCharacters(string str) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    int result = countDistinctCharacters(input);
+    string str;
+    cin >> str;
+    int result = countDistinctCharacters(str);
     cout << result << endl;
     return 0;
 }
