@@ -21,3 +21,34 @@ vector<float> rescale_to_unit(vector<float> numbers){
     
     return rescaled_numbers;
 }
+
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+    vector<float> rescaled_numbers = rescale_to_unit(numbers);
+    
+    vector<float> expected_result = {0.0, 0.25, 0.5, 0.75, 1.0};
+    
+    bool result = issame(rescaled_numbers, expected_result);
+    
+    if(result){
+        cout << "The rescaled numbers are correct." << endl;
+    } else {
+        cout << "The rescaled numbers are incorrect." << endl;
+    }
+    
+    return 0;
+}
