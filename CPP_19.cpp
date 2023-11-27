@@ -13,22 +13,22 @@ string sort_numbers(string numbers){
 
     vector<int> sortedNumbers;
     stringstream ss(numbers);
-    string number;
-    while (ss >> number) {
-        sortedNumbers.push_back(numMap[number]);
+    string num;
+    while (ss >> num) {
+        sortedNumbers.push_back(numMap[num]);
     }
+
     sort(sortedNumbers.begin(), sortedNumbers.end());
 
-    string result;
+    string sortedString;
     for (int i = 0; i < sortedNumbers.size(); i++) {
         for (auto it = numMap.begin(); it != numMap.end(); it++) {
             if (it->second == sortedNumbers[i]) {
-                result += it->first + " ";
+                sortedString += it->first + " ";
                 break;
             }
         }
     }
-    result.pop_back(); // Remove the trailing space
 
-    return result;
+    return sortedString;
 }
