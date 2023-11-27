@@ -1,6 +1,5 @@
 #include <iostream>
-#include <iomanip> // Include the <iomanip> library
-
+#include <iomanip>
 using namespace std;
 
 double probability(int n, int m) {
@@ -23,7 +22,7 @@ int main() {
     cin >> n >> m;
 
     double result = probability(n, m);
-    cout << fixed << setprecision(8) << result << endl; // Change this line to set the precision to 8 decimal places
+    cout << fixed << setprecision(8) << result << endl;
 
     return 0;
 }
