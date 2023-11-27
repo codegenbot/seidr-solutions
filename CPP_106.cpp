@@ -37,7 +37,7 @@ bool issame(const vector<int>& a, const vector<int>& b){
 }
 
 int main() {
-    assert(issame(f(3), {1, 2, 6}));
+    assert(issame(f(3), vector<int>{1, 2, 6}));
     cout << "Test Passed!" << endl;
     return 0;
 }
