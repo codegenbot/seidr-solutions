@@ -18,16 +18,27 @@ vector<float> sort_even(vector<float> l){
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     
     return true;
+}
+
+int main() {
+    vector<float> l = {4.5, 2.3, 6.7, 1.2, 3.4};
+    vector<float> expected = {2.3, 4.5, 1.2, 6.7, 3.4};
+    
+    vector<float> sorted = sort_even(l);
+    
+    assert(issame(sorted, expected));
+    
+    return 0;
 }
