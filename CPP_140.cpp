@@ -1,12 +1,14 @@
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 string fix_spaces(string text);
 
-int main(){
-    string input_text;
-    getline(cin, input_text);
-    string fixed_text = fix_spaces(input_text);
-    cout << fixed_text << endl;
+int main() {
+    string text;
+    getline(cin, text);
+    cout << fix_spaces(text) << endl;
     return 0;
 }
 
