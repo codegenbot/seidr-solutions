@@ -1,6 +1,6 @@
 #include <vector>
 
-bool is_sorted(std::vector<int> lst){
+bool is_sorted(vector<int> lst){
     int n = lst.size();
     if(n <= 1)
         return true;
@@ -14,8 +14,8 @@ bool is_sorted(std::vector<int> lst){
 }
 
 int main(){
-    std::vector<int> lst = {1, 2, 3, 4};
-    bool result = is_sorted(lst);
-    
+    // Test the is_sorted function
+    bool sorted = is_sorted(vector<int>{1, 2, 3, 4});
+
     return 0;
 }
