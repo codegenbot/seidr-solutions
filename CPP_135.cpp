@@ -11,13 +11,9 @@ int can_arrange(std::vector<int> arr){
     return -1;
 }
 
-int solve() {
-    assert (can_arrange({}) == -1);
-    // Add more test cases here
+int main() {
+    // Test the can_arrange function
+    assert(can_arrange({}) == -1);
     
     return 0;
-}
-
-int main() {
-    return solve();
 }
