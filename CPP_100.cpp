@@ -11,9 +11,9 @@ std::vector<int> make_a_pile(int n) {
     for (int i = 0; i < n; i++) {
         levels.push_back(stones);
         if (n % 2 == 0) {
-           stones += 2;
+            stones += 2;
         } else {
-           stones += 1;
+            stones += 1;
         }
     }
     return levels;
