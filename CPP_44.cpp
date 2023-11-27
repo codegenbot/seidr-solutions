@@ -13,7 +13,6 @@ string change_base(int x, int base) {
 }
 
 int main() {
-    // Add your test cases here
     int x = 5;
     assert(change_base(x, x + 1) == to_string(x));
 
