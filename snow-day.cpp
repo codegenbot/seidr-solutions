@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip>
+#include <cmath>
 
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float snowMeltRate) {
     float snow = initialSnow;
@@ -7,12 +7,12 @@ float calculateSnow(float hours, float initialSnow, float snowFallRate, float sn
         float snowChange = snowFallRate - (snow * snowMeltRate);
         snow += snowChange;
     }
-    return std::setprecision(15) << snow;
+    return round(snow * 10000000) / 10000000;
 }
 
 int main() {
     float hours, initialSnow, snowFallRate, snowMeltRate;
     std::cin >> hours >> initialSnow >> snowFallRate >> snowMeltRate;
-    std::cout << std::fixed << calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate) << std::endl;
+    std::cout << calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate) << std::endl;
     return 0;
 }
