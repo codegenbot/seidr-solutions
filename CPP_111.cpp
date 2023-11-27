@@ -1,17 +1,19 @@
 #include <map>
 
-map<char, int> histogram(string test);
+map<char,int> histogram(string test);
 
-bool issame(const map<char, int>& a, const map<char, int>& b);
+bool issame(const map<char,int>& a, const map<char,int>& b) {
+    return a == b;
+}
 
-map<char, int> histogram(string test) {
+map<char,int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) {
+    if(test.empty()) {
         return result;
     }
     string word;
-    for (int i = 0; i < test.length(); i++) {
-        if (test[i] != ' ') {
+    for(int i=0; i<test.length(); i++) {
+        if(test[i] != ' ') {
             word += test[i];
         }
         else {
@@ -21,8 +23,4 @@ map<char, int> histogram(string test) {
     }
     result[word]++;
     return result;
-}
-
-bool issame(const map<char, int>& a, const map<char, int>& b) {
-    return a == b;
 }
