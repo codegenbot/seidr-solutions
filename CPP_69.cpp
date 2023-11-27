@@ -1,9 +1,10 @@
+#include <iostream>
 #include <vector>
 
-int search(std::vector<int> lst){
+int search(const std::vector<int>& lst) {
     int maxFreq = -1;
     int result = -1;
-    for(int i = 0; i < lst.size(); i++){
+    for(int i = 0; i < lst.size(); i++) {
         int freq = 0;
         for(int j = 0; j < lst.size(); j++){
             if(lst[j] == lst[i]){
@@ -19,6 +20,8 @@ int search(std::vector<int> lst){
 }
 
 int main() {
-    int result = search({3, 10, 10, 9, 2});
+    std::cout << search({3, 10, 10, 9, 2}) << std::endl;
+    std::cout << search({1, 2, 3, 3, 3, 4, 5, 6}) << std::endl;
+
     return 0;
 }
