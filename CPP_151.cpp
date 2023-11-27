@@ -12,10 +12,11 @@ long long double_the_difference(std::vector<float> lst){
     return sum;
 }
 
-int solve(){
+int main(){
+    std::vector<float> lst;
+    
     int n;
     std::cin >> n;
-    std::vector<float> lst;
     for(int i=0; i<n; i++){
         float num;
         std::cin >> num;
@@ -24,12 +25,7 @@ int solve(){
     
     long long odd_sum = double_the_difference(lst);
 
-    return odd_sum;
-}
-
-int main(){
-    int result = solve();
-    std::cout << result << std::endl;
+    std::cout << odd_sum << std::endl;
 
     return 0;
 }
