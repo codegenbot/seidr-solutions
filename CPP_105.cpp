@@ -1,28 +1,47 @@
-vector<string> by_length(vector<int> arr) {
-    vector<string> result;
-    map<int, string> digitMap;
-    digitMap[1] = "One";
-    digitMap[2] = "Two";
-    digitMap[3] = "Three";
-    digitMap[4] = "Four";
-    digitMap[5] = "Five";
-    digitMap[6] = "Six";
-    digitMap[7] = "Seven";
-    digitMap[8] = "Eight";
-    digitMap[9] = "Nine";
-    
+vector<string> by_length(vector<int> arr){
     vector<int> sortedArr;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] >= 1 && arr[i] <= 9) {
+    vector<string> result;
+
+    // Sort the integers between 1 and 9 inclusive
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i]>=1 && arr[i]<=9){
             sortedArr.push_back(arr[i]);
         }
     }
     sort(sortedArr.begin(), sortedArr.end());
-    reverse(sortedArr.begin(), sortedArr.end());
-    
-    for (int i = 0; i < sortedArr.size(); i++) {
-        result.push_back(digitMap[sortedArr[i]]);
+
+    // Reverse the sorted array and replace each digit by its corresponding name
+    for(int i=sortedArr.size()-1; i>=0; i--){
+        switch(sortedArr[i]){
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
+        }
     }
-    
+
     return result;
 }
