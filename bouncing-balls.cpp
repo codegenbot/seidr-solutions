@@ -18,6 +18,6 @@ int main() {
 
     std::cout.precision(15);
     std::cout << total_distance << std::endl;
-    
+
     return 0;
 }
