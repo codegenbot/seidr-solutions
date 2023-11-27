@@ -3,7 +3,7 @@
 #include <cassert>
 using namespace std;
 
-vector<string> words_string(string s); 
+vector<string> words_string(string s); // Forward declaration
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
