@@ -1,7 +1,7 @@
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
-int smallest_change(vector<int> arr) {
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     int count = 0;
     
