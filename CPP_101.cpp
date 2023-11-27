@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 vector<string> words_string(string s){
     vector<string> words;
     string word = "";
@@ -17,3 +23,14 @@ vector<string> words_string(string s){
     }
     return words;
 }
+
+// int main(){
+//     vector<string> result = words_string("ahmed     , gamal");
+//     vector<string> expected = {"ahmed", "gamal"};
+//     if(result == expected){
+//         cout << "Test case passed!" << endl;
+//     }
+//     else{
+//         cout << "Test case failed!" << endl;
+//     }
+// }
