@@ -1,4 +1,3 @@
-#include <cassert>
 #include <string>
 
 int calculateLength(const std::string& str){
@@ -6,6 +5,6 @@ int calculateLength(const std::string& str){
 }
 
 int main() {
-    assert (calculateLength("asdasnakj") == 9);
+    assert(calculateLength("asdasnakj") == 9);
     return 0;
 }
