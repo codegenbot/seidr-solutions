@@ -16,6 +16,8 @@ bool issame(vector<float> a, vector<float> b){
     return true;
 }
 
+vector<float> rescale_to_unit(vector<float> numbers);
+
 vector<float> rescale_to_unit(vector<float> numbers){
     float min_num = numbers[0];
     float max_num = numbers[0];
