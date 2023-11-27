@@ -3,18 +3,11 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-bool issame(vector<string> a, vector<string> b);
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring);
 
-vector<string> filter_by_substring(vector<string> strings, string substring);
-
-int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    return 0;
-}
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -26,12 +19,17 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
-    vector<string> result;
-    for (string str : strings) {
-        if (str.find(substring) != string::npos) {
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
+    std::vector<std::string> result;
+    for (std::string str : strings) {
+        if (str.find(substring) != std::string::npos) {
             result.push_back(str);
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    return 0;
 }
