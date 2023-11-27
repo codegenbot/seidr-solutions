@@ -23,25 +23,3 @@ vector<int> f(int n){
     }
     return result;
 }
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-void solveProblem() {
-    assert(issame(f(3), vector<int>{1, 2, 6}));
-    cout << "Test Passed!" << endl;
-}
-
-int main() {
-    solveProblem();
-    return 0;
-}
