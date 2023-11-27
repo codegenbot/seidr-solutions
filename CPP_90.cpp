@@ -1,24 +1,28 @@
 #include <vector>
 #include <algorithm>
-#include <climits>
 #include <cassert>
+#include <climits>
 
-int next_smallest(const std::vector<int>& lst){
+using namespace std;
+
+int next_smallest(vector<int> lst){
     if(lst.size() < 2){
         return INT_MIN;
     }
-    std::vector<int> sorted_lst = lst;  // Create a copy of the vector
-    std::sort(sorted_lst.begin(), sorted_lst.end());
-    int smallest = sorted_lst[0];
-    for(int i = 1; i < sorted_lst.size(); i++){
-        if(sorted_lst[i] > smallest){
-            return sorted_lst[i];
+    int smallest = lst[0];
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] > smallest){
+            return lst[i];
         }
     }
     return INT_MIN;
 }
 
-int main() {
-    assert (next_smallest({-35, 34, 12, -45}) == -35);
+int main(){
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    assert(next_smallest({100, 200, 300, 400}) == 200);
+    assert(next_smallest({-1, -2, -3, -4}) == -2);
+    assert(next_smallest({1, 1, 1, 1}) == INT_MIN);
+    
     return 0;
 }
