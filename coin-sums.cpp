@@ -5,14 +5,14 @@ int main() {
     int cents;
     cin >> cents;
 
-    int quarters = cents / 25;
-    cents %= 25;
+    int nickels = cents / 5;
+    cents %= 5;
 
     int dimes = cents / 10;
     cents %= 10;
 
-    int nickels = cents / 5;
-    cents %= 5;
+    int quarters = cents / 25;
+    cents %= 25;
 
     int pennies = cents;
 
