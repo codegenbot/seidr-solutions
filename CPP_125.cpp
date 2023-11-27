@@ -56,10 +56,10 @@ bool issame(vector<string> a, vector<string> b){
 
 int main(){
     assert(issame(split_words(""), {"0"}));
-    assert(issame(split_words("Hello, World!"), {"Hello", "World!"}));
-    assert(issame(split_words("Apple, Banana, Cherry"), {"Apple", "Banana", "Cherry"}));
-    assert(issame(split_words("The quick brown fox jumps over the lazy dog"), {"The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"}));
-    assert(issame(split_words(",, , ,,"), {}));
+    assert(issame(split_words("Hello world"), {"Hello", "world"}));
+    assert(issame(split_words("Programming, is, fun"), {"Programming", "is", "fun"}));
+    assert(issame(split_words(",Commas,are,great,"), {"Commas", "are", "great"}));
+    assert(issame(split_words("Mr. John Smith"), {"Mr.", "John", "Smith"}));
     
     return 0;
 }
