@@ -12,13 +12,13 @@ vector<int> parse_music(string music_string){
         if(music_string[i] == 'o'){
             beats.push_back(4);
         }
-        else if(music_string[i] == '|'){
-            if(music_string[i-2] == 'o'){
-                beats.push_back(2);
-            }
-            else if(music_string[i-2] == '.'){
-                beats.push_back(1);
-            }
+        else if(music_string[i] == '|' && music_string[i+1] == 'o'){
+            beats.push_back(2);
+            i++;
+        }
+        else if(music_string[i] == '|' && music_string[i+1] == '.'){
+            beats.push_back(1);
+            i++;
         }
     }
     return beats;
@@ -37,7 +37,7 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(){
-    assert (issame(parse_music("o| .| o| .| o o| o o|"), {4, 2, 1, 4, 2, 4, 2}));
+    assert (issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     cout << "Test case passed!" << endl;
    
     return 0;
