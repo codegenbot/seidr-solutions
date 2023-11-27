@@ -1,9 +1,8 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
-#include <iostream>
 
-long double double_the_difference(std::vector<float> lst) {
+long double double_the_difference(const std::vector<float>& lst) {
     long double sum = 0;
 
     for (int i = 0; i < lst.size(); i++) {
