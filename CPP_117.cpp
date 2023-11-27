@@ -7,7 +7,8 @@ using namespace std;
 
 bool isvowel(char c) {
     // implementation of isvowel function
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    string vowels = "aeiouAEIOU";
+    return (vowels.find(c) != string::npos);
 }
 
 vector<string> select_words(string s, int n) {
