@@ -3,8 +3,9 @@
 #include <cmath>
 
 double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
+    int size = std::min(v1.size(), v2.size());
     double sum = 0.0;
-    for (int i = 0; i < v1.size(); i++) {
+    for (int i = 0; i < size; i++) {
         double diff = v1[i] - v2[i];
         sum += diff * diff;
     }
@@ -12,7 +13,7 @@ double euclideanDistance(const std::vector<double>& v1, const std::vector<double
 }
 
 int main() {
-    int n;
+    int n, m;
     std::cin >> n;
 
     std::vector<double> v1(n);
@@ -20,7 +21,7 @@ int main() {
         std::cin >> v1[i];
     }
 
-    int m = n;
+    std::cin >> m;
 
     std::vector<double> v2(m);
     for (int i = 0; i < m; i++) {
