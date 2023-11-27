@@ -41,14 +41,14 @@ vector<int> even_odd_palindrome(int n) {
 int main() {
     vector<int> expected = { 0, 0 };
     int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
+    cout << "Enter the value of n: ";
+    cin >> n;
     vector<int> result = even_odd_palindrome(n);
     if (is_same(result, expected)) {
-        std::cout << "Test case passed." << std::endl;
+        cout << "Test case passed." << endl;
     }
     else {
-        std::cout << "Test case failed." << std::endl;
+        cout << "Test case failed." << endl;
     }
     return 0;
 }
