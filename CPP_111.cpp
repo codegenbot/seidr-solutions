@@ -1,5 +1,21 @@
-bool issame(map<char,int> a, map<char,int> b){
-    return a == b;
+#include<iostream>
+#include<map>
+#include<sstream>
+#include<cmath>
+#include<cassert>
+using namespace std;
+
+map<char,int> histogram(string test);
+bool issame(map<char,int> a, map<char,int> b);
+
+int main(){
+    assert(issame(histogram("a"), {{'a', 1}}));
+    assert(issame(histogram("hello world"), {{'l', 3}, {'o', 2}}));
+    assert(issame(histogram("banana"), {{'a', 3}, {'n', 2}}));
+  
+    cout << "All test cases passed!" << endl;
+    
+    return 0;
 }
 
 map<char,int> histogram(string test){
@@ -31,10 +47,17 @@ map<char,int> histogram(string test){
     return maxLetters;
 }
 
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+bool issame(map<char,int> a, map<char,int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
     
-    // Add more test cases here
+    for(auto it = a.begin(); it != a.end(); it++){
+        char c = it->first;
+        if(b.find(c) == b.end() || b[c] != a[c]){
+            return false;
+        }
+    }
     
-    return 0;
+    return true;
 }
