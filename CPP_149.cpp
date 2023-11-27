@@ -3,7 +3,11 @@
 #include <algorithm>
 #include <string>
 #include <cassert>
+
 using namespace std;
+
+vector<string> sorted_list_sum(vector<string> lst);
+
 vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
     for (string word : lst) {
@@ -19,6 +23,7 @@ vector<string> sorted_list_sum(vector<string> lst){
     });
     return result;
 }
+
 int main() {
     assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
