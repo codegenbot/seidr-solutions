@@ -21,7 +21,7 @@ int main() {
     std::cin >> n >> m;
 
     double result = probability(n, m);
-    std::cout << std::fixed << std::setprecision(2) << result << std::endl;
+    std::cout << std::fixed << std::setprecision(7) << result << std::endl;
 
     return 0;
 }
