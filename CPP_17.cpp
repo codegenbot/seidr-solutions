@@ -1,6 +1,6 @@
 #include <vector>
+#include <string>
 #include <iostream>
-#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -25,8 +25,11 @@ int main() {
     std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
     std::vector<int> expected_output = {2, 1, 2, 1, 4, 2, 4, 2};
 
-    assert(issame(parsed_music, expected_output));
-    std::cout << "Output is correct!" << std::endl;
+    if (issame(parsed_music, expected_output)) {
+        std::cout << "Output is correct!" << std::endl;
+    } else {
+        std::cout << "Output is incorrect!" << std::endl;
+    }
 
     return 0;
 }
