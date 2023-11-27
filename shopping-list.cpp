@@ -1,7 +1,7 @@
-#include <vector>
 #include <stdexcept>
+#include <vector>
 
-float calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
+float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     if (prices.size() != discounts.size()) {
         throw std::invalid_argument("Input vectors must have the same number of elements.");
     }
