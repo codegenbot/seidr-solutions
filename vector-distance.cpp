@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-double calculateSquaredEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
+double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     double sum = 0.0;
 
     for (size_t i = 0; i < vector1.size(); i++) {
@@ -10,7 +10,7 @@ double calculateSquaredEuclideanDistance(const std::vector<double>& vector1, con
         sum += diff * diff;
     }
 
-    return sum;
+    return std::sqrt(sum);
 }
 
 int main() {
@@ -29,10 +29,10 @@ int main() {
         std::cin >> vector2[i];
     }
 
-    double squaredDistance = calculateSquaredEuclideanDistance(vector1, vector2);
+    double distance = calculateEuclideanDistance(vector1, vector2);
 
     std::cout.precision(15);
-    std::cout << squaredDistance << std::endl;
+    std::cout << std::fixed << distance << std::endl;
 
     return 0;
 }
