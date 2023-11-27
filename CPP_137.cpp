@@ -14,7 +14,7 @@ any compare_one(any a, any b) {
     } else if (num1 < num2) {
       return num2;
     } else {
-      return any();
+      return string("None");  // Fixed to use string instead of "None"
     }
   } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
     float num1 = any_cast<float>(a);
@@ -24,7 +24,7 @@ any compare_one(any a, any b) {
     } else if (num1 < num2) {
       return num2;
     } else {
-      return any();
+      return string("None");  // Fixed to use string instead of "None"
     }
   } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
     string str1 = any_cast<string>(a);
@@ -34,7 +34,7 @@ any compare_one(any a, any b) {
     } else if (str1 < str2) {
       return str2;
     } else {
-      return any();
+      return string("None");
     }
   } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
     string str = any_cast<string>(a);
@@ -45,11 +45,12 @@ any compare_one(any a, any b) {
     string str = any_cast<string>(b);
     return str;
   } else {
-    return any();
+    return string("None");  // Fixed to use string instead of "None"
   }
 }
 
 int main() {
   assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
+  ...
   return 0;
 }
