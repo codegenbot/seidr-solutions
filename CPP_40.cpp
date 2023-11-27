@@ -1,6 +1,6 @@
 #include <vector>
 
-bool triples_sum_to_zero(vector<int> l){
+bool triples_sum_to_zero(std::vector<int>& l){
     int n = l.size();
     for(int i=0; i<n-2; i++){
         for(int j=i+1; j<n-1; j++){
@@ -12,12 +12,4 @@ bool triples_sum_to_zero(vector<int> l){
         }
     }
     return false;
-}
-
-int main(){
-    if (triples_sum_to_zero({100, 3, 5, -100}) == false) {
-        // Handle the case when the function returns false
-        // Add your code here
-    }
-    return 0;
 }
