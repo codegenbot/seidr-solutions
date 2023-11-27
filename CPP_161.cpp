@@ -31,6 +31,8 @@ string solve(string s){
 
 int main(){
     assert (solve("#ccc") == "#CCC");
+    assert (solve("AbC12#") == "aBc12#");
+    assert (solve("hello World") == "HELLO wORLD");
     // Add more test cases here
     
     return 0;
