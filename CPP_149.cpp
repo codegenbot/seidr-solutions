@@ -28,7 +28,7 @@ int main() {
 
     vector<string> output = sorted_list_sum(input);
 
-    assert(issame(output, expected_output));
+    assert(output == expected_output);
 
     return 0;
 }
