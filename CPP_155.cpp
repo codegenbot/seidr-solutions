@@ -1,7 +1,13 @@
-vector<int> even_odd_count(int num){
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+std::vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
-    string numStr = to_string(abs(num));
+    std::string numStr = std::to_string(std::abs(num));
     
     for(char c : numStr){
         int digit = c - '0';
@@ -13,4 +19,9 @@ vector<int> even_odd_count(int num){
     }
     
     return {evenCount, oddCount};
+}
+
+int main(){
+    assert (issame(even_odd_count(0) , {1, 0}));
+    return 0;
 }
