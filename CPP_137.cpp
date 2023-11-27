@@ -1,37 +1,35 @@
+#include <boost/algorithm/string.hpp>
 #include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int intA = boost::any_cast<int>(a);
-        int intB = boost::any_cast<int>(b);
-        if (intA > intB) {
-            return intA;
-        } else if (intA < intB) {
-            return intB;
+        int int_a = boost::any_cast<int>(a);
+        int int_b = boost::any_cast<int>(b);
+        if (int_a > int_b) {
+            return int_a;
+        } else if (int_b > int_a) {
+            return int_b;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float floatA = boost::any_cast<float>(a);
-        float floatB = boost::any_cast<float>(b);
-        if (floatA > floatB) {
-            return floatA;
-        } else if (floatA < floatB) {
-            return floatB;
+        float float_a = boost::any_cast<float>(a);
+        float float_b = boost::any_cast<float>(b);
+        if (float_a > float_b) {
+            return float_a;
+        } else if (float_b > float_a) {
+            return float_b;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string stringA = boost::any_cast<std::string>(a);
-        std::string stringB = boost::any_cast<std::string>(b);
-        float floatA, floatB;
-        try {
-            floatA = std::stof(stringA);
-            floatB = std::stof(stringB);
-        } catch (...) {
-            return "None";
-        }
-        if (floatA > floatB) {
-            return stringA;
-        } else if (floatA < floatB) {
-            return stringB;
+        std::string str_a = boost::any_cast<std::string>(a);
+        std::string str_b = boost::any_cast<std::string>(b);
+        boost::algorithm::replace_all(str_a, ",", ".");
+        boost::algorithm::replace_all(str_b, ",", ".");
+        float float_a = std::stof(str_a);
+        float float_b = std::stof(str_b);
+        if (float_a > float_b) {
+            return str_a;
+        } else if (float_b > float_a) {
+            return str_b;
         }
     }
-    return "None";
+    return boost::any();
 }
