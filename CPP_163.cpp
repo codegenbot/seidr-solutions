@@ -2,13 +2,8 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> generate_integers(int a, int b) {
-    std::vector<int> integers;
-    for (int num = a; num <= b; num++) {
-        integers.push_back(num);
-    }
-    return integers;
-}
+std::vector<int> generate_integers(int a, int b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -20,6 +15,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
+}
+
+std::vector<int> generate_integers(int a, int b) {
+    std::vector<int> result;
+    for (int i = a; i <= b; i++) {
+        result.push_back(i);
+    }
+    return result;
 }
 
 int main() {
