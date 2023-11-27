@@ -1,5 +1,5 @@
 string anti_shuffle(string s){
-    string result = "";
+    string orderedString = "";
     string word = "";
     
     for(int i=0; i<s.length(); i++){
@@ -8,13 +8,13 @@ string anti_shuffle(string s){
         }
         else{
             sort(word.begin(), word.end());
-            result += word + ' ';
+            orderedString += word + ' ';
             word = "";
         }
     }
     
     sort(word.begin(), word.end());
-    result += word;
+    orderedString += word;
     
-    return result;
+    return orderedString;
 }
