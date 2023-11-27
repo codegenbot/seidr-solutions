@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<string> sort_even_length_strings(vector<string> lst) {
+vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         if (lst[i].length() % 2 == 0) {
@@ -26,7 +26,7 @@ int main() {
     vector<string> input = { "aaaa", "bbbb", "dd", "cc" };
     vector<string> expected_output = { "cc", "dd", "aaaa", "bbbb" };
 
-    vector<string> output = sort_even_length_strings(input);
+    vector<string> output = sorted_list_sum(input);
 
     assert(issame(output, expected_output));
 
