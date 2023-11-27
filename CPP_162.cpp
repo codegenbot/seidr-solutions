@@ -29,7 +29,11 @@ std::string string_to_md5(std::string text) {
 
 int main() {
     std::string text;
+    std::cout << "Enter a string: ";
     std::cin >> text;
-    std::cout << string_to_md5(text) << std::endl;
+
+    std::string md5 = string_to_md5(text);
+    std::cout << "MD5: " << md5 << std::endl;
+
     return 0;
 }
