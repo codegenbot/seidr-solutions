@@ -16,11 +16,3 @@ int is_bored(string S){
 
     return boredomCount;
 }
-
-int main() {
-    string input;
-    cin >> input;
-    int result = is_bored(input);
-    cout << result << endl;
-    return 0;
-}
