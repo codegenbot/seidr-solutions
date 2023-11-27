@@ -2,34 +2,26 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     int m = grid[0].size();
     vector<int> path;
-    int x = 0, y = 0;
-    int dx = 1, dy = 0;
-    
-    for(int i = 0; i < k; i++){
-        path.push_back(grid[x][y]);
-        
-        if(x + dx < 0 || x + dx >= n || y + dy < 0 || y + dy >= m || grid[x + dx][y + dy] == -1){
-            if(dx == 1 && dy == 0){
-                dx = 0;
-                dy = 1;
-            }
-            else if(dx == 0 && dy == 1){
-                dx = -1;
-                dy = 0;
-            }
-            else if(dx == -1 && dy == 0){
-                dx = 0;
-                dy = -1;
-            }
-            else if(dx == 0 && dy == -1){
-                dx = 1;
-                dy = 0;
-            }
+    vector<vector<bool>> visited(n, vector<bool>(m, false));
+    int curRow = 0;
+    int curCol = 0;
+    while (k > 0) {
+        path.push_back(grid[curRow][curCol]);
+        visited[curRow][curCol] = true;
+        int nextRow = curRow;
+        int nextCol = curCol;
+        if (curCol + 1 < m && !visited[curRow][curCol + 1]) {
+            nextCol = curCol + 1;
+        } else if (curRow + 1 < n && !visited[curRow + 1][curCol]) {
+            nextRow = curRow + 1;
+        } else if (curCol - 1 >= 0 && !visited[curRow][curCol - 1]) {
+            nextCol = curCol - 1;
+        } else if (curRow - 1 >= 0 && !visited[curRow - 1][curCol]) {
+            nextRow = curRow - 1;
         }
-        
-        x += dx;
-        y += dy;
+        curRow = nextRow;
+        curCol = nextCol;
+        k--;
     }
-    
     return path;
 }
