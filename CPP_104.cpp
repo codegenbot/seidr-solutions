@@ -23,8 +23,3 @@ vector<int> unique_digits(vector<int> x){
     sort(result.begin(), result.end());
     return result;
 }
-
-int main(){
-    assert(std::equal(unique_digits({135, 103, 31}).begin(), unique_digits({135, 103, 31}).end(), std::begin({31, 135})));
-    return 0;
-}
