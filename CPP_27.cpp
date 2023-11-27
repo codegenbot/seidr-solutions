@@ -2,6 +2,8 @@
 #include <string>
 #include <cassert>
 
+std::string flip_case(std::string str);
+
 std::string flip_case(std::string str){
     std::string result = "";
     for(int i=0; i<str.length(); i++){
@@ -16,10 +18,4 @@ std::string flip_case(std::string str){
         }
     }
     return result;
-}
-
-int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-
-    return 0;
 }
