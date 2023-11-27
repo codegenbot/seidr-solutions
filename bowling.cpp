@@ -1,41 +1,58 @@
 #include <iostream>
 #include <string>
 
-int getScore(const std::string& bowls) {
+int getScore(const std::string& input) {
     int score = 0;
     int frame = 1;
-    int bowlIndex = 0;
+    int bowl = 0;
+    int bonus = 0;
 
-    while (frame <= 10 && bowlIndex < bowls.length()) {
-        if (bowls[bowlIndex] == 'X') {
+    for (char c : input) {
+        if (c == 'X') {
             score += 10;
             if (frame < 10) {
-                if (bowls[bowlIndex + 2] == '/')
-                    score += 10;
-                else
-                    score += (bowls[bowlIndex + 1] - '0') + (bowls[bowlIndex + 2] - '0');
+                bonus += 2;
             }
-            bowlIndex++;
-        } else if (bowls[bowlIndex] == '/') {
-            score += 10 - (bowls[bowlIndex - 1] - '0');
-            if (frame < 10)
-                score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
-            bowlIndex += 2;
+            bowl = 0;
+            frame++;
+        } else if (c == '/') {
+            score += (10 - bowl);
+            if (frame < 10) {
+                bonus += 1;
+            }
+            bowl = 0;
+            frame++;
+        } else if (c == '-') {
+            bowl = 0;
+            frame++;
         } else {
-            score += (bowls[bowlIndex] - '0');
-            bowlIndex++;
+            score += (c - '0');
+            bowl++;
+            if (bowl == 2 || c == '9') {
+                bowl = 0;
+                frame++;
+            }
         }
-        frame++;
+
+        if (bonus > 0) {
+            score += (c - '0');
+            bonus--;
+        }
+        
+        if (bonus > 0 && c == '/') {
+            score += (c - '0');
+            bonus--;
+        }
     }
 
     return score;
 }
 
 int main() {
-    std::string bowls;
-    std::cin >> bowls;
-    
-    int score = getScore(bowls);
+    std::string input;
+    std::cin >> input;
+
+    int score = getScore(input);
     std::cout << score << std::endl;
 
     return 0;
