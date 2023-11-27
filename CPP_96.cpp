@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
@@ -31,4 +32,8 @@ std::vector<int> count_up_to(int n){
         }
     }
     return primes;
+}
+
+int main(){
+    return 0;
 }
