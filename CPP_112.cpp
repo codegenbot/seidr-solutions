@@ -5,6 +5,8 @@
 
 bool issame(vector<string> a, vector<string> b);
 
+vector<string> reverse_delete(string s, string c);
+
 bool issame(vector<string> a, vector<string> b) {
     // ... function code ...
 }
