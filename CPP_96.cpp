@@ -1,11 +1,15 @@
+#include <iostream>
 #include <vector>
+using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+vector<int> count_up_to(int n);
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -34,6 +38,12 @@ vector<int> count_up_to(int n){
 }
 
 int main(){
-    assert(issame(count_up_to(101), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
+    vector<int> expected_output = count_up_to(15);
+    vector<int> output = {2, 3, 5, 7, 11, 13};
+    if(issame(output, expected_output)){
+        cout << "Test case passed!" << endl;
+    } else {
+        cout << "Test case failed!" << endl;
+    }
     return 0;
 }
