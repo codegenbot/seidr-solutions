@@ -1,6 +1,4 @@
 #include <boost/any.hpp>
-#include <iostream>
-#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() != b.type()) {
@@ -11,48 +9,27 @@ boost::any compare_one(boost::any a, boost::any b) {
         int intA = boost::any_cast<int>(a);
         int intB = boost::any_cast<int>(b);
         if (intA > intB) {
-            return intA;
+            return boost::any(intA);
         } else if (intB > intA) {
-            return intB;
+            return boost::any(intB);
         }
     } else if (a.type() == typeid(float)) {
         float floatA = boost::any_cast<float>(a);
         float floatB = boost::any_cast<float>(b);
         if (floatA > floatB) {
-            return floatA;
+            return boost::any(floatA);
         } else if (floatB > floatA) {
-            return floatB;
+            return boost::any(floatB);
         }
     } else if (a.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
         std::string strB = boost::any_cast<std::string>(b);
         if (strA > strB) {
-            return strA;
+            return boost::any(strA);
         } else if (strB > strA) {
-            return strB;
+            return boost::any(strB);
         }
     }
 
     return boost::any();
-}
-
-int main() {
-    boost::any a = 3;
-    boost::any b = 5;
-    
-    boost::any result = compare_one(a, b);
-    
-    if (result.empty()) {
-        std::cout << "Invalid comparison" << std::endl;
-    } else {
-        if (result.type() == typeid(int)) {
-            std::cout << "Larger value: " << boost::any_cast<int>(result) << std::endl;
-        } else if (result.type() == typeid(float)) {
-            std::cout << "Larger value: " << boost::any_cast<float>(result) << std::endl;
-        } else if (result.type() == typeid(std::string)) {
-            std::cout << "Larger value: " << boost::any_cast<std::string>(result) << std::endl;
-        }
-    }
-    
-    return 0;
 }
