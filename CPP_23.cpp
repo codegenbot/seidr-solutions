@@ -1,4 +1,11 @@
 #include <string>
-int myStrlen(string str){
-    return str.length();
+#include <cassert>
+
+int stringLength(const string& str){
+    return str.size();
+}
+
+int main(){
+    assert(stringLength("asdasnakj") == 9);
+    return 0;
 }
