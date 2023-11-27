@@ -1,4 +1,4 @@
-#include <string>
+#include <string> // Include the <string> header
 
 int count_distinct_characters(string str) {
     vector<char> distinctCharacters;
@@ -9,4 +9,4 @@ int count_distinct_characters(string str) {
         }
     }
     return distinctCharacters.size();
-}
+} // Close the function definition with a closing brace
