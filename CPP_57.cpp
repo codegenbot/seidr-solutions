@@ -16,9 +16,16 @@ bool monotonic(vector<float> l){
     return increasing || decreasing;
 }
 
-int main() {
-    assert (monotonic({9, 9, 9, 9}) == true);
-    // ...
+int main(){
+    vector<float> nums = {1.2, 3.4, 5.6, 7.8};
+    bool result = monotonic(nums);
+    if(result){
+        std::cout << "The vector is monotonic." << std::endl;
+    }else{
+        std::cout << "The vector is not monotonic." << std::endl;
+    }
+
+    // Add more test cases and print results here
 
     return 0;
 }
