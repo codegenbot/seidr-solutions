@@ -1,25 +1,19 @@
 bool cycpattern_check(string a, string b) {
-  int n = a.length();
-  int m = b.length();
+    int n = a.length();
+    int m = b.length();
 
-  if (m > n) {
+    if (n < m) {
+        return false;
+    }
+
+    string concat = a + a;
+    
+    for (int i = 0; i <= n - m; i++) {
+        string substring = concat.substr(i, m);
+        if (substring == b) {
+            return true;
+        }
+    }
+    
     return false;
-  }
-
-  for (int i = 0; i <= n - m; i++) {
-    bool match = true;
-
-    for (int j = 0; j < m; j++) {
-      if (a[i + j] != b[j]) {
-        match = false;
-        break;
-      }
-    }
-
-    if (match) {
-      return true;
-    }
-  }
-
-  return false;
 }

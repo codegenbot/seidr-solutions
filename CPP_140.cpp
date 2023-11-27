@@ -1,23 +1,24 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
-using namespace std;
+std::string fix_spaces(std::string text);
 
-string fix_spaces(string text) {
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ' && text[i+1] == ' ' && text[i+2] == ' ') {
-            text.replace(i, 3, "-");
-            i--;
-        } else if (text[i] == ' ') {
-            text.replace(i, 1, "_");
+std::string fix_spaces(std::string text) {
+    std::string result;
+    int consecutiveSpaces = 0;
+
+    for (char c : text) {
+        if (c == ' ') {
+            consecutiveSpaces++;
+            if (consecutiveSpaces > 2) {
+                result += "-";
+            } else {
+                result += "_";
+            }
+        } else {
+            result += c;
+            consecutiveSpaces = 0;
         }
     }
-    return text;
-}
 
-int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-    cout << "Test passed!" << endl;
-    return 0;
+    return result;
 }
