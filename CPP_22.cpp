@@ -1,5 +1,6 @@
 #include <vector>
 #include <list>
+#include <iostream>
 #include <type_traits>
 
 using namespace std;
@@ -14,7 +15,11 @@ vector<int> filter_integers(list<int> values) {
     return result;
 }
 
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
 int main() {
-    vector<int> result = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-    return 0;
+    auto filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
+    return issame(filtered, {3, 3, 3});
 }
