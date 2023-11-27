@@ -5,28 +5,14 @@ bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
     }
     return true;
-}
-
-vector<int> unique_digits(vector<int> x);
-
-int main(){
-    vector<int> a = {123, 456, 789};
-    vector<int> b = {123, 456, 789};
-    vector<int> c = {123, 456, 789, 246};
-    
-    bool result1 = issame(a, b);
-    bool result2 = issame(a, c);
-    
-    vector<int> nums = {123, 456, 789, 246, 135, 802};
-    vector<int> uniqueNums = unique_digits(nums);
-    
-    return 0;
 }
 
 vector<int> unique_digits(vector<int> x){
