@@ -1,27 +1,13 @@
 #include <iostream>
-
-double diceGame(int n, int m) {
-    int peterCount = 0;
-    int totalCount = n * m;
-
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                peterCount++;
-            }
-        }
-    }
-
-    return (double)peterCount / totalCount;
-}
+using namespace std;
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-
-    double probability = diceGame(n, m);
-
-    std::cout << probability << std::endl;
-
+    cin >> n >> m;
+    double probability = 0.0;
+    for (int i = 1; i <= n; i++) {
+        probability += double(n - i + 1) / (n * m);
+    }
+    cout << probability << endl;
     return 0;
 }
