@@ -1,16 +1,17 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-using namespace std;
+vector<int> sort_array(vector<int> array);
 
-vector<int> sort_array(vector<int> array) {
+bool is_same(vector<int> a, vector<int> b);
+
+vector<int> sort_array(vector<int> array){
     vector<int> sorted_array = array;
-    if (sorted_array.empty()) {
+    if(sorted_array.empty()){
         return sorted_array;
     }
-    int sum = sorted_array[0] + sorted_array[sorted_array.size() - 1];
-    if (sum % 2 == 0) {
+    int sum = sorted_array[0] + sorted_array[sorted_array.size()-1];
+    if(sum % 2 == 0){
         sort(sorted_array.begin(), sorted_array.end(), greater<int>());
     } else {
         sort(sorted_array.begin(), sorted_array.end());
@@ -18,23 +19,21 @@ vector<int> sort_array(vector<int> array) {
     return sorted_array;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    // Compare a and b
+bool is_same(vector<int> a, vector<int> b){
+    /** Implementation of the is_same function **/
     if(a.size() != b.size()){
         return false;
     }
-
-    for(int i = 0; i < a.size(); i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
     }
-
     return true;
 }
 
-int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    // Other test cases
+int main(){
+    assert (is_same(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
+    // Rest of the code
     return 0;
 }
