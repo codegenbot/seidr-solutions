@@ -1,6 +1,4 @@
 bool issame(vector<string> a, vector<string> b) {
-    // Check if vectors a and b have the same elements
-    // Return true if they are the same, false otherwise
     if (a.size() != b.size()) {
         return false;
     }
