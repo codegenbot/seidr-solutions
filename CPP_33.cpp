@@ -28,7 +28,8 @@ vector<int> sort_third(vector<int> l) {
     return l_prime;
 }
 
-int main() {
-    assert(sort_third(vector<int>({5, 6, 3, 4, 8, 9, 2, 1})) == vector<int>({2, 6, 3, 4, 8, 9, 5, 1}));
-    return 0;
-}
+// Remove or comment out the conflicting main() function
+// int main() {
+//     assert(sort_third(vector<int>({5, 6, 3, 4, 8, 9, 2, 1})) == vector<int>({2, 6, 3, 4, 8, 9, 5, 1}));
+//     return 0;
+// }
