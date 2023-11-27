@@ -21,3 +21,9 @@ bool issame(vector<float> a, vector<float> b){
     }
     return true;
 }
+
+int main(){
+    assert(issame(get_positive({}), {}));
+    
+    return 0;
+}
