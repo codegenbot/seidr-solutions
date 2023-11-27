@@ -2,9 +2,7 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-int count_consonants(basic_string<char> word) {
+int count_consonants(std::basic_string<char> word) {
     int count = 0;
     for (char c : word) {
         if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
@@ -26,12 +24,12 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> select_words(string s, int n) {
+vector<string> select_words(std::string s, int n) {
     vector<string> result;
     if (s.empty()) {
         return result;
     }
-    string word;
+    std::string word;
     for (char c : s) {
         if (c == ' ') {
             if (count_consonants(word) == n) {
