@@ -29,9 +29,9 @@ boost::any compare_one(boost::any a, boost::any b) {
             return std::string("None");
         }
         if (floatA > floatB) {
-            return stringA;
+            return std::move(stringA);
         } else if (floatA < floatB) {
-            return stringB;
+            return std::move(stringB);
         }
     }
     return std::string("None");
