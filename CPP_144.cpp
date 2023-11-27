@@ -1,6 +1,5 @@
 #include <string>
-
-bool simplifyFraction(string x, string n){
+bool simplify_fraction(string x, string n){
     int x_num = stoi(x.substr(0, x.find('/')));
     int x_den = stoi(x.substr(x.find('/') + 1));
 
