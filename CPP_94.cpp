@@ -27,9 +27,3 @@ int largestPrimeSum(const std::vector<int>& nums) {
     }
     return sumOfDigits(largestPrime);
 }
-
-int main() {
-    assert(largestPrimeSum({127, 97, 8192}) == 10);
-
-    return 0;
-}
