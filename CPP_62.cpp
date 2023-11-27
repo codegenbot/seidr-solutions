@@ -25,12 +25,27 @@ vector<float> derivative(vector<float> xs){
     return result;
 }
 
-int main(){
-    // Test the derivative function
-    vector<float> input = {1.0, 2.0, 3.0, 4.0};
-    vector<float> expected_output = {2.0, 6.0, 12.0};
-    vector<float> output = derivative(input);
-    assert(issame(output, expected_output));
-    
+int main() {
+    // test cases
+    vector<float> xs = {1, 2, 3, 4, 5};
+    vector<float> expected = {2, 6, 12, 20};
+    vector<float> result = derivative(xs);
+    assert(issame(result, expected));
+
+    xs = {1, 1, 1, 1, 1};
+    expected = {1, 2, 3, 4};
+    result = derivative(xs);
+    assert(issame(result, expected));
+
+    xs = {1};
+    expected = {};
+    result = derivative(xs);
+    assert(issame(result, expected));
+
+    xs = {};
+    expected = {};
+    result = derivative(xs);
+    assert(issame(result, expected));
+
     return 0;
 }
