@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 double probability(int n, int m) {
     double total_outcomes = n * m;
     double peter_wins = 0;
@@ -14,11 +11,4 @@ double probability(int n, int m) {
     }
 
     return peter_wins / total_outcomes;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << probability(n, m) << endl;
-    return 0;
 }
