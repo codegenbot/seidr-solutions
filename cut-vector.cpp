@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
     int n = input.size();
     int sum = 0;
@@ -34,26 +30,4 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     }
     
     return std::make_pair(subvector1, subvector2);
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> input(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> input[i];
-    }
-    
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(input);
-    
-    for (int num : result.first) {
-        std::cout << num << std::endl;
-    }
-    
-    for (int num : result.second) {
-        std::cout << num << std::endl;
-    }
-    
-    return 0;
 }
