@@ -1,14 +1,24 @@
-bool is_nested(string str){
-  
-  int openCount = 0;
-  for(int i = 0; i < str.length(); i++){
-    if(str[i] == '['){
-      openCount++;
+#include <iostream>
+#include <string>
+#include <cassert>
+
+bool is_nested(std::string str){
+    int count = 0;
+    for(int i=0; i<str.length(); i++){
+        if(str[i] == '['){
+            count++;
+        }
+        else if(str[i] == ']'){
+            count--;
+        }
+        if(count < 0){
+            return true;
+        }
     }
-    else if(str[i] == ']' && openCount > 0){
-      openCount--;
-    }
-  }
-  
-  return openCount > 0;
+    return false;
+}
+
+int main(){
+    assert(is_nested("]]]]]]]]") == false);
+    return 0;
 }
