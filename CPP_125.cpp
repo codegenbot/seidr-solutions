@@ -1,9 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-
-vector<string> split_words(string txt) {
+vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
     bool hasWhitespace = false;
@@ -38,7 +36,12 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-int main() {
+bool issame(vector<string> a, vector<string> b) {
+    // Your code here
+}
+
+int main()
+{
     // Your code here
 
     return 0;
