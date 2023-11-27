@@ -20,15 +20,9 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         rightSum -= nums[i];
         int diff = abs(leftSum - rightSum);
 
-        if (diff <= minDiff) {
-            if (leftSum == rightSum) {
-                minDiff = diff;
-                cutIndex = i;
-                break;  // Terminate the loop if we find a spot where left and right sums are equal
-            } else if (diff < minDiff) {
-                minDiff = diff;
-                cutIndex = i;
-            }
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
 
@@ -50,12 +44,13 @@ int main() {
 
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
+    // Print the resulting subvectors
     for (int i = 0; i < result.first.size(); i++) {
-        std::cout << result.first[i] << std::endl;
+        std::cout << result.first[i] << " ";
     }
 
     for (int i = 0; i < result.second.size(); i++) {
-        std::cout << result.second[i] << std::endl;
+        std::cout << result.second[i] << " ";
     }
 
     return 0;
