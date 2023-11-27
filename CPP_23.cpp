@@ -1,3 +1,8 @@
-int strlen(string str){
-    return str.length();
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <cassert>
+
+int myStrlen(std::string str){
+    return str.size();
 }
