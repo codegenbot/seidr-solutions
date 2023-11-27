@@ -15,7 +15,7 @@ double calculateEuclideanDistance(const std::vector<double>& vector1, const std:
 int main() {
     int n;
     std::cin >> n;
-    std::cin.ignore(); 
+    std::cin.ignore(); // Ignore the newline character after n
 
     std::string input;
     std::getline(std::cin, input);
