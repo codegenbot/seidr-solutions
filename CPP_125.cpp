@@ -1,10 +1,13 @@
-#include <vector>
-#include <string>
-#include <cassert>
++#include <vector>
++#include <string>
++#include <iostream>
++#include <cassert>
 
-std::vector<std::string> split_words(std::string txt){
-    std::vector<std::string> result;
-    std::string word = "";
+using namespace std;
+
+vector<string> split_words(string txt){
+    vector<string> result;
+    string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
 
@@ -31,13 +34,14 @@ std::vector<std::string> split_words(std::string txt){
     }
 
     if (!hasWhitespace && !hasComma) {
-        result.push_back(std::to_string(3));
+        result.push_back(to_string(3));
     }
 
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
+    // Your code to compare vectors a and b
     if (a.size() != b.size()) {
         return false;
     }
