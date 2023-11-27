@@ -4,9 +4,7 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b){
-    return a == b;
-}
+vector<int> sort_third(vector<int> l);
 
 vector<int> sort_third(vector<int> l){
     vector<int> l_prime(l);
@@ -18,6 +16,10 @@ vector<int> sort_third(vector<int> l){
     return l_prime;
 }
 
+bool is_equal(const vector<int>& a, const vector<int>& b){
+    return a == b;
+}
+
 int main(){
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    assert(is_equal(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
 }
