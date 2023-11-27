@@ -3,10 +3,6 @@
 #include <openssl/evp.h>
 using namespace std;
 
-// Link with OpenSSL library using pragma directives
-#pragma comment(lib, "crypto")
-#pragma comment(lib, "ssl")
-
 string string_to_md5(string text) {
     if (text.empty()) {
         return "None";
@@ -29,7 +25,5 @@ string string_to_md5(string text) {
     return string(md5Hash);
 }
 
-int main() {
-    // Your main function implementation
-    return 0;
-}
+#pragma comment(lib, "crypto")
+#pragma comment(lib, "ssl")
