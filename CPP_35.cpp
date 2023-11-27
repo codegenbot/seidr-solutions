@@ -3,10 +3,8 @@
 #include <cassert>
 #include <cmath>
 
-using namespace std;
-
-float findMaxElement(const vector<float>& l) {
-    auto max = *max_element(l.begin(), l.end());
+float findMaxElement(const std::vector<float>& l) {
+    auto max = *std::max_element(l.begin(), l.end());
     return max;
 }
 
