@@ -6,7 +6,6 @@ int prod_signs(std::vector<int> arr){
     }
     
     int sign = 1;
-    int product = 1;
     int sum = 0;
     
     for(int i=0; i<arr.size(); i++){
