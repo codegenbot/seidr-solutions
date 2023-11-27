@@ -1,10 +1,13 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <algorithm>
 #include <cassert>
 
 using namespace std;
+
+bool isEqual(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> reverse_delete(string s, string c) {
     string result = "";
@@ -22,21 +25,7 @@ vector<string> reverse_delete(string s, string c) {
     return output;
 }
 
-bool isEqual(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    vector<string> result = reverse_delete("mamma", "mia");
-    assert(isEqual(result, vector<string>{"", "True"}));
-
+    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
     return 0;
 }
