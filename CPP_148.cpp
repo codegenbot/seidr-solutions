@@ -1,13 +1,18 @@
-#include <string>
-#include <vector>
+#include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <vector>
+#include <string>
 
-std::vector<std::string> bf(std::string planet1, std::string planet2);
+using namespace std;
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    std::vector<std::string> result;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string> result;
     
     int start = -1, end = -1;
     for (int i = 0; i < planets.size(); i++) {
@@ -24,7 +29,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     
     if (start > end) {
-        std::swap(start, end);
+        swap(start, end);
     }
     
     for (int i = start + 1; i < end; i++) {
@@ -32,18 +37,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     
     return result;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
 int main() {
