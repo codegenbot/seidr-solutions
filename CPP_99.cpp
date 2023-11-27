@@ -1,13 +1,16 @@
-int closest_integer(string value){
-    float num = stof(value);
-    int closest = round(num);
-    int floor_num = floor(num);
-    int ceil_num = ceil(num);
+#include <string>
+#include <cmath>
+
+int closest_integer(const std::string& value){
+    float num = std::stof(value);
+    int closest = std::round(num);
+    int floor_num = std::floor(num);
+    int ceil_num = std::ceil(num);
     
-    if(abs(num - floor_num) < abs(num - ceil_num)){
+    if(std::abs(num - floor_num) < std::abs(num - ceil_num)){
         closest = floor_num;
     }
-    else if(abs(num - floor_num) > abs(num - ceil_num)){
+    else if(std::abs(num - floor_num) > std::abs(num - ceil_num)){
         closest = ceil_num;
     }
     else{
