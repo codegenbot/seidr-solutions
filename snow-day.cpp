@@ -2,9 +2,9 @@
 using namespace std;
 
 float calculateSnowOnGround(int hours, float currentSnow, float snowFall, float meltRate) {
-    for (int i = 0; i <= hours; i++) {
+    for (int i = 0; i < hours; i++) {
         currentSnow += snowFall;
-        currentSnow -= meltRate * currentSnow;
+        currentSnow -= meltRate;
     }
     return currentSnow;
 }
