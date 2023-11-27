@@ -31,4 +31,8 @@ vector<int> sum_product(vector<int> numbers){
     return result;
 }
 
-assert(issame(sum_product({10}), {10, 10}));
+int main(){
+    assert(issame(sum_product({10}), {10, 10}));
+    
+    return 0;
+}
