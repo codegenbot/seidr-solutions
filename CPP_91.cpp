@@ -1,20 +1,20 @@
 int is_bored(string S){
     int count = 0;
-    string delimiter = ".?!";
-    size_t pos = 0;
-    string token;
-
-    while ((pos = S.find_first_of(delimiter)) != string::npos) {
-        token = S.substr(0, pos);
-        if (token.substr(0, 2) == "I ") {
-            count++;
-        }
-        S.erase(0, pos + 1);
+    int n = S.length();
+    
+    if (n == 0) {
+        return count;
     }
-
-    if (S.substr(0, 2) == "I ") {
+    
+    if (S[0] == 'I') {
         count++;
     }
-
+    
+    for (int i = 1; i < n; i++) {
+        if ((S[i] == '.' || S[i] == '?' || S[i] == '!') && S[i-1] == 'I') {
+            count++;
+        }
+    }
+    
     return count;
 }
