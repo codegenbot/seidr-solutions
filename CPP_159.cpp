@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 int issame(std::vector<int> a, std::vector<int> b);
 
