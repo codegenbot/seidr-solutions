@@ -1,7 +1,10 @@
 #include <iostream>
 #include <string>
 #include <array>
+
+extern "C" {
 #include <openssl/md5.h>
+}
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) {
@@ -9,7 +12,10 @@ std::string string_to_md5(std::string text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.size(), digest);
+    MD5_CTX md5Context;
+    MD5_Init(&md5Context);
+    MD5_Update(&md5Context, text.data(), text.size());
+    MD5_Final(digest, &md5Context);
 
     std::array<char, 33> md5Hash;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
