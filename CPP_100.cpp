@@ -14,12 +14,9 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    vector<int> stones = make_a_pile(a.size());
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b){
+    vector<int> pile = make_a_pile(a.size());
+    // compare the two vectors
+    // return true if they are equal, otherwise false
+    return a == b;
 }
