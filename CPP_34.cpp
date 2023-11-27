@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 std::vector<int> unique(std::vector<int> l);
 
