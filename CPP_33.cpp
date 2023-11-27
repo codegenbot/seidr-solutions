@@ -4,8 +4,8 @@
 
 using namespace std;
 
-vector<int> sort_third(vector<int> l);
 bool issame(vector<int> a, vector<int> b);
+vector<int> sort_third(vector<int> l);
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
@@ -34,11 +34,16 @@ vector<int> sort_third(vector<int> l){
     return l_prime;
 }
 
-int main() {
-    vector<int> l = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    vector<int> sorted_l = sort_third(l);
-    for(int i = 0; i < sorted_l.size(); i++){
-        cout << sorted_l[i] << " ";
+int main(){
+    vector<int> l = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vector<int> l_sorted_third = sort_third(l);
+    
+    if(issame(l_sorted_third, {1, 2, 3, 4, 5, 6, 7, 8, 9})){
+        cout << "Test case 1 passed!" << endl;
     }
+    else{
+        cout << "Test case 1 failed!" << endl;
+    }
+    
     return 0;
 }
