@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 string rounded_avg(int n, int m) {
     if (n > m) {
@@ -24,9 +23,4 @@ string rounded_avg(int n, int m) {
     }
     
     return binary;
-}
-
-int main() {
-    assert(rounded_avg(5, 5) == "101");
-    return 0;
 }

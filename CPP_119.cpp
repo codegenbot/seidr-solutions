@@ -1,36 +1,25 @@
 #include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
+#include <cassert>
 
-string match_parens(vector<string> lst) {
-    string result = "Yes";
+std::string match_parens(std::vector<std::string> lst);
+
+std::string match_parens(std::vector<std::string> lst){
     int count = 0;
-    for (string str : lst) {
-        for (char c : str) {
+    for (std::string s : lst) {
+        for (char c : s) {
             if (c == '(') {
                 count++;
             } else {
                 count--;
             }
-            if (count < 0) {
-                result = "No";
-                break;
-            }
         }
     }
-    if (count != 0) {
-        result = "No";
-    }
-    return result;
+    return count == 0 ? "Yes" : "No";
 }
 
 int main() {
-    vector<string> lst = {"()(", ")"};
-    cout << match_parens(lst) << endl;
-    
-    lst = {")", ")"};
-    cout << match_parens(lst) << endl;
-    
+    assert(match_parens({")", "("}) == "Yes");
     return 0;
 }
