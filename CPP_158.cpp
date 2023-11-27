@@ -12,8 +12,10 @@ string find_max(vector<string> words){
             }
         }
         
-        if (uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)) {
+        if (uniqueChars > maxUniqueChars) {
             maxUniqueChars = uniqueChars;
+            maxWord = word;
+        } else if (uniqueChars == maxUniqueChars && word < maxWord) {
             maxWord = word;
         }
     }
