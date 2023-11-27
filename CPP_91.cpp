@@ -1,24 +1,27 @@
 #include <string>
+
 int is_bored(string S){
-    int count = 0;
-    string sentence;
-    for(int i = 0; i < S.length(); i++){
-        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            if(sentence.length() > 0 && sentence[0] == 'I'){
-                count++;
-            }
-            sentence.clear();
+    int boredomCount = 0;
+    bool isPreviousI = false;
+
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
+            isPreviousI = true;
         }
-        else{
-            sentence += S[i];
+        else if((S[i] == '.' || S[i] == '?' || S[i] == '!') && isPreviousI){
+            boredomCount++;
+            isPreviousI = false;
         }
     }
-    return count;
+
+    return boredomCount;
 }
 
 int main() {
-    // Call the is_bored function and compare the result using assert
-    assert(is_bored("You and I are going for a walk") == 0);
-
+    string input;
+    cin >> input;
+    int result = is_bored(input);
+    cout << result;
+    
     return 0;
 }

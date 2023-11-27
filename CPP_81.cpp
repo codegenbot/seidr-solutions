@@ -1,12 +1,14 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
-    for(int i = 0; i < grades.size(); i++){
-        if(grades[i] >= 4.0){
+    for(int i=0; i<grades.size(); i++){
+        if(grades[i] == 4.0){
             letter_grades.push_back("A+");
         }
         else if(grades[i] > 3.7){
@@ -53,7 +55,7 @@ bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -62,7 +64,7 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    vector<string> result = numerical_letter_grade({0, 0.7});
-    assert(issame(result, {"E", "D-"}));
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    assert(issame(numerical_letter_grade({3.9, 2.5, 1.0, 4.0, 3.3}), {"A+", "C+", "D+", "A+", "C-"}));
     return 0;
 }
