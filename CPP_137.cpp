@@ -1,14 +1,11 @@
-#include<iostream>
-#include<string>
-#include<typeinfo>
-#include<any>
+#include <iostream>
+#include <string>
+#include <boost/any.hpp>
 
-using namespace std;
-
-any compare_one(any a, any b){
+boost::any compare_one(boost::any a, boost::any b){
     if (a.type() == typeid(int) && b.type() == typeid(int)){
-        int num1 = any_cast<int>(a);
-        int num2 = any_cast<int>(b);
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
         if (num1 > num2){
             return num1;
         }
@@ -17,8 +14,8 @@ any compare_one(any a, any b){
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)){
-        float num1 = any_cast<float>(a);
-        float num2 = any_cast<float>(b);
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
         if (num1 > num2){
             return num1;
         }
@@ -26,9 +23,9 @@ any compare_one(any a, any b){
             return num2;
         }
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)){
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)){
+        std::string str1 = boost::any_cast<std::string>(a);
+        std::string str2 = boost::any_cast<std::string>(b);
         if (str1 > str2){
             return str1;
         }
@@ -36,5 +33,5 @@ any compare_one(any a, any b){
             return str2;
         }
     }
-    return any();
+    return boost::any();
 }
