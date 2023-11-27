@@ -7,44 +7,41 @@
 using namespace std;
 
 string sort_numbers(string numbers) {
-    map<string, int> numberMap;
-    numberMap["zero"] = 0;
-    numberMap["one"] = 1;
-    numberMap["two"] = 2;
-    numberMap["three"] = 3;
-    numberMap["four"] = 4;
-    numberMap["five"] = 5;
-    numberMap["six"] = 6;
-    numberMap["seven"] = 7;
-    numberMap["eight"] = 8;
-    numberMap["nine"] = 9;
+    // Create a map to map the numberals to their corresponding numerical value
+    map<string, int> numeral_value{
+        {"zero", 0},
+        {"one", 1},
+        {"two", 2},
+        {"three", 3},
+        {"four", 4},
+        {"five", 5},
+        {"six", 6},
+        {"seven", 7},
+        {"eight", 8},
+        {"nine", 9}
+    };
 
+    // Split the input string by spaces
     stringstream ss(numbers);
-    string number;
-    vector<string> numberList;
-
-    while (ss >> number) {
-        numberList.push_back(number);
+    string numeral;
+    vector<string> numeral_list;
+    while (ss >> numeral) {
+        numeral_list.push_back(numeral);
     }
 
-    sort(numberList.begin(), numberList.end(), [&](const string& a, const string& b) {
-        return numberMap[a] < numberMap[b];
+    // Sort the numerals based on their numerical value
+    sort(numeral_list.begin(), numeral_list.end(), [&](const string& a, const string& b) {
+        return numeral_value[a] < numeral_value[b];
     });
 
-    string result;
-    for (const string& num : numberList) {
-        result += num + " ";
+    // Create the sorted string with numerals
+    string sorted_numbers;
+    for (const auto& numeral : numeral_list) {
+        sorted_numbers += numeral + " ";
     }
 
-    return result;
-}
+    // Remove the trailing space
+    sorted_numbers.pop_back();
 
-int main() {
-    string numbers;
-    getline(cin, numbers);
-
-    string sortedNumbers = sort_numbers(numbers);
-    cout << sortedNumbers << endl;
-
-    return 0;
+    return sorted_numbers;
 }
