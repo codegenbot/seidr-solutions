@@ -1,6 +1,6 @@
-#include<iostream>
-#include<vector>
-#include<cassert>
+#include <iostream>
+#include <vector>
+#include <cassert>
 
 std::string find_max(std::vector<std::string> words) {
     std::string maxWord = "";
