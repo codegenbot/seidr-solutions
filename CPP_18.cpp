@@ -25,6 +25,6 @@ int how_many_times(string str, string substring){
 }
 
 int main(){
-    assert (how_many_times("john doe", "john") == 1);
+    assert(how_many_times("john doe", "john") == 1);
     return 0;
 }
