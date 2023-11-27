@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
-#include <iterator>
 
 using namespace std;
 
@@ -10,12 +9,10 @@ vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
 
-    // Calculate the sum of all elements in the vector
     for (int i = 0; i < n; i++) {
         rightSum += nums[i];
     }
 
-    // Iterate through the vector and find the spot where the difference is minimized
     int diff = numeric_limits<int>::max(), cutIndex = -1;
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
@@ -28,13 +25,12 @@ vector<int> cutVector(vector<int>& nums) {
         }
     }
 
-    // Create the two resulting subvectors
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    vector<int> result;
-    result.insert(result.end(), leftSubvector.begin(), leftSubvector.end());
-    result.insert(result.end(), rightSubvector.begin(), rightSubvector.end());
+    vector<vector<int>> result;
+    result.push_back(leftSubvector);
+    result.push_back(rightSubvector);
     return result;
 }
 
@@ -46,11 +42,11 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-  
+
     auto result = cutVector(nums);
 
-    for (const auto& subvector : result) {
-        for (const auto& num : subvector) {
+    for (const vector<int>& subvector : result) {
+        for (int num : subvector) {
             cout << num << endl;
         }
     }
