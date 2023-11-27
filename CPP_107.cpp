@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool isSameVector(const std::vector<int>& a, const std::vector<int>& b) {
+bool is_same_vectors(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +14,7 @@ bool isSameVector(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> evenOddPalindrome(int n) {
+std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result(2, 0);
     for (int i = 1; i <= n; i++) {
         std::string s = std::to_string(i);
@@ -40,8 +40,8 @@ std::vector<int> evenOddPalindrome(int n) {
 
 int main() {
     std::vector<int> expected = { 0, 1 };
-    std::vector<int> result = evenOddPalindrome(1);
-    if (isSameVector(result, expected)) {
+    std::vector<int> result = even_odd_palindrome(1);
+    if (is_same_vectors(result, expected)) {
         std::cout << "Test case passed." << std::endl;
     }
     else {
