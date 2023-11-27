@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <cassert>
 
 using namespace std;
 
@@ -24,7 +25,7 @@ vector<int> pluck(vector<int> arr){
     return result;
 }
 
-vector<int> issame(vector<int> a, vector<int> b){
+vector<int> isSame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return vector<int>(2, -1);
     }
@@ -39,10 +40,7 @@ vector<int> issame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    vector<int> result = pluck({7, 9, 7, 1});
-    for(int i = 0; i < result.size(); i++){
-        cout << result[i] << " ";
-    }
-    cout << endl;
+    assert(isSame(pluck({7, 9, 7, 1}) , {}).empty());
+    
     return 0;
 }
