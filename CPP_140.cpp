@@ -3,8 +3,9 @@
 string fix_spaces(string text);
 
 int main() {
-    // Your code here
-
+    string text;
+    getline(cin, text);
+    cout << fix_spaces(text) << endl;
     return 0;
 }
 
