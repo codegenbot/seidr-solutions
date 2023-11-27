@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 string get_closest_vowel(string word){
     string vowels = "aeiouAEIOU";
     int n = word.length();
@@ -7,4 +11,11 @@ string get_closest_vowel(string word){
         }
     }
     return "";
+}
+
+int main(){
+    // test the function
+    assert (get_closest_vowel("Above") == "o");
+    
+    return 0;
 }
