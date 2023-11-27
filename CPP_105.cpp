@@ -1,3 +1,10 @@
+#include <vector>   
+#include <string>   
+#include <algorithm>    
+#include <map>  
+
+using namespace std;
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     vector<int> sortedArr;
