@@ -9,60 +9,51 @@ int getFrameScore(const std::string& bowls, int frameIndex) {
         return score;
     }
 
-    if (isdigit(bowls[bowlIndex])) {
-        score += bowls[bowlIndex] - '0';
-    } else {
-        return score;
-    }
-
-    if (bowlIndex + 1 < bowls.length() && bowls[bowlIndex + 1] == '/') {
-        score += 10 - (bowls[bowlIndex] - '0');
-        if (frameIndex < 9) {
-            if (isdigit(bowls[bowlIndex + 2])) {
-                score += bowls[bowlIndex + 2] - '0';
-            }
-        } else {
-            if (isdigit(bowls[bowlIndex + 2])) {
-                score += bowls[bowlIndex + 2] - '0';
-            }
-            if (isdigit(bowls[bowlIndex + 3])) {
-                score += bowls[bowlIndex + 3] - '0';
-            }
-        }
-    } else {
-        if (bowlIndex + 1 < bowls.length() && isdigit(bowls[bowlIndex + 1])) {
-            score += bowls[bowlIndex + 1] - '0';
-        }
-    }
-
     if (bowls[bowlIndex] == 'X') {
         score = 10;
         if (frameIndex < 9) {
-            if (bowlIndex + 2 < bowls.length() && bowls[bowlIndex + 2] == 'X') {
+            if (bowlIndex + 2 < bowls.length() && bowls[bowlIndex + 1] != '/' && bowls[bowlIndex + 2] == 'X') {
                 score += 10;
                 if (bowlIndex + 4 < bowls.length()) {
-                    if (isdigit(bowls[bowlIndex + 4])) {
-                        score += bowls[bowlIndex + 4] - '0';
+                    if (bowls[bowlIndex + 3] == 'X') {
+                        score += 10;
+                    } else {
+                        score += bowls[bowlIndex + 3] - '0';
                     }
                 }
             } else {
-                if (bowlIndex + 2 < bowls.length() && isdigit(bowls[bowlIndex + 2])) {
+                if (bowlIndex + 2 < bowls.length()) {
                     score += bowls[bowlIndex + 2] - '0';
                 }
                 if (bowlIndex + 3 < bowls.length()) {
-                    if (bowls[bowlIndex + 3] == '/' || bowls[bowlIndex + 1] == '/') {
+                    if (bowls[bowlIndex + 3] == '/') {
                         score += 10 - (bowls[bowlIndex + 2] - '0');
-                    } else if (isdigit(bowls[bowlIndex + 3])) {
+                    } else {
                         score += bowls[bowlIndex + 3] - '0';
                     }
                 }
             }
         } else {
-            if (bowlIndex + 2 < bowls.length() && isdigit(bowls[bowlIndex + 2])) {
+            if (bowlIndex + 2 < bowls.length()) {
                 score += bowls[bowlIndex + 2] - '0';
             }
-            if (bowlIndex + 3 < bowls.length() && isdigit(bowls[bowlIndex + 3])) {
+            if (bowlIndex + 3 < bowls.length()) {
                 score += bowls[bowlIndex + 3] - '0';
+            }
+        }
+    } else {
+        score += bowls[bowlIndex] - '0';
+        if (bowlIndex + 1 < bowls.length()) {
+            if (bowls[bowlIndex + 1] == '/') {
+                score += 10 - (bowls[bowlIndex] - '0');
+                if (frameIndex < 9 && bowlIndex + 2 < bowls.length()) {
+                    score += bowls[bowlIndex + 2] - '0';
+                } else if (frameIndex == 9 && bowlIndex + 2 < bowls.length() && bowlIndex + 3 < bowls.length()) {
+                    score += bowls[bowlIndex + 2] - '0';
+                    score += bowls[bowlIndex + 3] - '0';
+                }
+            } else {
+                score += bowls[bowlIndex + 1] - '0';
             }
         }
     }
