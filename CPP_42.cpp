@@ -11,7 +11,7 @@ vector<int> incr_list(vector<int> l){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool is_same_list(vector<int> a, vector<int> b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++){
@@ -22,6 +22,6 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(){
-    assert (issame(incr_list(vector<int>{5, 2, 5, 2, 3, 3, 9, 0, 123}) , vector<int>{6, 3, 6, 3, 4, 4, 10, 1, 124}));
+    assert (is_same_list(incr_list(vector<int>{5, 2, 5, 2, 3, 3, 9, 0, 123}) , vector<int>{6, 3, 6, 3, 4, 4, 10, 1, 124}));
     return 0;
 }
