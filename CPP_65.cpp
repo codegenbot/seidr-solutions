@@ -1,3 +1,10 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 string circular_shift(int x, int shift) {
     string num = to_string(x);
     int n = num.length();
