@@ -1,31 +1,31 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-int calculateBowlingScore(string bowls) {
+int getScore(const std::string& bowls) {
     int score = 0;
-    int frame = 1;
+    int frame = 0;
     int bowlIndex = 0;
 
-    while (frame <= 10 && bowlIndex < bowls.length()) {
-        if (bowls[bowlIndex] == 'X') {
+    while (frame < 10) {
+        char bowl = bowls[bowlIndex];
+
+        if (bowl == 'X') {
             score += 10;
-            if (frame < 10) {
-                score += (bowls[bowlIndex + 1] == 'X') ? 10 : stoi(string(1, bowls[bowlIndex + 1]));
-                score += (bowls[bowlIndex + 2] == 'X') ? 10 : stoi(string(1, bowls[bowlIndex + 2]));
-            } else {
-                score += (bowls[bowlIndex + 1] == 'X') ? 10 : ((bowls[bowlIndex + 1] == '/') ? (10 - stoi(string(1, bowls[bowlIndex + 2]))) : stoi(string(1, bowls[bowlIndex + 1])));
-                score += (bowls[bowlIndex + 2] == 'X') ? 10 : ((bowls[bowlIndex + 2] == '/') ? (10 - stoi(string(1, bowls[bowlIndex + 1]))) : stoi(string(1, bowls[bowlIndex + 2])));
-            }
-            bowlIndex++;
-        } else if (bowls[bowlIndex] == '/') {
-            score += (10 - stoi(string(1, bowls[bowlIndex - 1])));
-            score += (bowls[bowlIndex + 1] == 'X') ? 10 : stoi(string(1, bowls[bowlIndex + 1]));
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            bowlIndex += 1;
+        } else if (bowl == '/') {
+            score += 10;
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
             bowlIndex += 2;
         } else {
-            score += stoi(string(1, bowls[bowlIndex]));
-            bowlIndex++;
+            score += (bowl - '0');
+            if (bowlIndex + 1 < bowls.size()) {
+                score += (bowls[bowlIndex + 1] == '/') ? (10 - (bowl - '0')) : (bowls[bowlIndex + 1] - '0');
+            }
+            bowlIndex += 2;
         }
+
         frame++;
     }
 
@@ -33,9 +33,11 @@ int calculateBowlingScore(string bowls) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    int result = calculateBowlingScore(input);
-    cout << result << endl;
+    std::string bowls;
+    std::cin >> bowls;
+
+    int score = getScore(bowls);
+    std::cout << score << std::endl;
+
     return 0;
 }
