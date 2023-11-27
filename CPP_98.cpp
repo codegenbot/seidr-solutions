@@ -16,6 +16,6 @@ int main() {
     assert(count_upper("EEEE") == 2);
     assert(count_upper("abdEIOU") == 4);
     assert(count_upper("") == 0);
-    
+
     return 0;
 }
