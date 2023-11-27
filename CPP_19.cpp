@@ -1,35 +1,51 @@
+#include <iostream>
+#include <map>
+#include <vector>
+#include <sstream>
+#include <algorithm>
+using namespace std;
+
 string sort_numbers(string numbers){
-    map<string, int> number_map;
-    number_map["zero"] = 0;
-    number_map["one"] = 1;
-    number_map["two"] = 2;
-    number_map["three"] = 3;
-    number_map["four"] = 4;
-    number_map["five"] = 5;
-    number_map["six"] = 6;
-    number_map["seven"] = 7;
-    number_map["eight"] = 8;
-    number_map["nine"] = 9;
+    map<string, int> num_map;
+    num_map["zero"] = 0;
+    num_map["one"] = 1;
+    num_map["two"] = 2;
+    num_map["three"] = 3;
+    num_map["four"] = 4;
+    num_map["five"] = 5;
+    num_map["six"] = 6;
+    num_map["seven"] = 7;
+    num_map["eight"] = 8;
+    num_map["nine"] = 9;
 
-    // Split the input string into individual numbers
-    vector<string> number_list;
+    vector<int> sorted_nums;
     stringstream ss(numbers);
-    string num;
-    while (getline(ss, num, ' ')) {
-        number_list.push_back(num);
+    string num_str;
+    while (ss >> num_str) {
+        sorted_nums.push_back(num_map[num_str]);
     }
-
-    // Sort the numbers using the number_map
-    sort(number_list.begin(), number_list.end(), [&](const string& a, const string& b) {
-        return number_map[a] < number_map[b];
-    });
-
-    // Join the sorted numbers into a string
-    string result;
-    for (const string& number : number_list) {
-        result += number + " ";
+    sort(sorted_nums.begin(), sorted_nums.end());
+    
+    string sorted_str;
+    for (int num : sorted_nums) {
+        for (auto it = num_map.begin(); it != num_map.end(); ++it) {
+            if (it->second == num) {
+                sorted_str += it->first + " ";
+                break;
+            }
+        }
     }
-    result.pop_back(); // Remove the extra space at the end
+    sorted_str.pop_back(); // Remove the trailing space
+    
+    return sorted_str;
+}
 
-    return result;
+int main() {
+    string numbers;
+    getline(cin, numbers);
+    
+    string sorted_numbers = sort_numbers(numbers);
+    cout << sorted_numbers << endl;
+    
+    return 0;
 }
