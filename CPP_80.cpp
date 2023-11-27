@@ -13,22 +13,14 @@ bool is_happy(string s){
 }
 
 int main() {
-    // Add test cases here
+    // Test cases
+    string s1 = "hello";
+    string s2 = "world";
+    string s3 = "happy";
     
-    // Test case 1: Happy string
-    string happyString = "abc";
-    bool isHappyString = is_happy(happyString);
-    cout << "Is '" << happyString << "' a happy string? " << (isHappyString ? "Yes" : "No") << endl;
-    
-    // Test case 2: Unhappy string
-    string unhappyString = "aab";
-    bool isUnhappyString = is_happy(unhappyString);
-    cout << "Is '" << unhappyString << "' a happy string? " << (isUnhappyString ? "Yes" : "No") << endl;
-    
-    // Test case 3: Empty string
-    string emptyString = "";
-    bool isEmptyString = is_happy(emptyString);
-    cout << "Is '" << emptyString << "' a happy string? " << (isEmptyString ? "Yes" : "No") << endl;
+    cout << is_happy(s1) << endl; // Expected output: true
+    cout << is_happy(s2) << endl; // Expected output: false
+    cout << is_happy(s3) << endl; // Expected output: true
     
     return 0;
 }
