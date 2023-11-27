@@ -11,24 +11,25 @@ string sort_numbers(string numbers){
     number_map["eight"] = 8;
     number_map["nine"] = 9;
 
-    vector<int> number_values;
+    // Split the input string into individual numbers
+    vector<string> number_list;
     stringstream ss(numbers);
-    string number;
-    while (ss >> number) {
-        number_values.push_back(number_map[number]);
+    string num;
+    while (getline(ss, num, ' ')) {
+        number_list.push_back(num);
     }
 
-    sort(number_values.begin(), number_values.end());
+    // Sort the numbers using the number_map
+    sort(number_list.begin(), number_list.end(), [&](const string& a, const string& b) {
+        return number_map[a] < number_map[b];
+    });
 
+    // Join the sorted numbers into a string
     string result;
-    for (int i = 0; i < number_values.size(); i++) {
-        for (auto it = number_map.begin(); it != number_map.end(); it++) {
-            if (it->second == number_values[i]) {
-                result += it->first + " ";
-                break;
-            }
-        }
+    for (const string& number : number_list) {
+        result += number + " ";
     }
+    result.pop_back(); // Remove the extra space at the end
 
     return result;
 }
