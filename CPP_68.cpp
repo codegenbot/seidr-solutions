@@ -25,7 +25,7 @@ vector<int> pluck(vector<int> arr){
     return result;
 }
 
-bool isSame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()) return false;
     
     for(int i = 0; i < a.size(); i++){
@@ -36,7 +36,7 @@ bool isSame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    assert(isSame(pluck({7, 9, 7, 1}), {}));
+    assert(issame(pluck({7, 9, 7, 1}), {}));
     
     return 0;
 }
