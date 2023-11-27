@@ -1,8 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
-std::vector<int> generate_integers(int a, int b);
-bool issame(std::vector<int> a, std::vector<int> b);
+std::vector<int> generate_integers(int a, int b) {
+    std::vector<int> integers;
+    for (int num = a; num <= b; num++) {
+        integers.push_back(num);
+    }
+    return integers;
+}
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -17,8 +23,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    if (issame(generate_integers(17, 89), {})) {
-        std::cout << "Generated integers are the same as the empty vector." << std::endl;
-    }
-    return 0;
+    assert(issame(generate_integers(17, 89), {}));
 }
