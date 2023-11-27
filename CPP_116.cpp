@@ -1,8 +1,15 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <numeric>
+using namespace std;
 
-std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
+bool isSame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> sortArray(vector<int> arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
         int countA = __builtin_popcount(a);
         int countB = __builtin_popcount(b);
         if (countA == countB) {
@@ -13,11 +20,8 @@ std::vector<int> sort_array(std::vector<int> arr) {
     return arr;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-  return a == b;
-}
-
 int main() {
-    assert (issame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+    assert(isSame(sortArray({2,4,8,16,32}), {2, 4, 8, 16, 32}));
+
     return 0;
 }

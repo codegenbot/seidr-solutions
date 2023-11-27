@@ -1,22 +1,16 @@
-string fix_spaces(string text){
-    string result;
-    bool consecutive = false;
+#include <string>
 
-    for(char c : text){
-        if(c == ' '){
-            if(consecutive){
-                result += '-';
+string fix_spaces(string text){
+    for(int i=0; i<text.length(); i++){
+        if(text[i] == ' '){
+            text[i] = '_';
+            if(i+1<text.length() && text[i+1] == ' '){
+                text[i] = '-';
+                while(i+1<text.length() && text[i+1] == ' '){
+                    text.erase(i+1, 1);
+                }
             }
-            else{
-                result += '_';
-                consecutive = true;
-            }
-        }
-        else{
-            result += c;
-            consecutive = false;
         }
     }
-
-    return result;
+    return text;
 }
