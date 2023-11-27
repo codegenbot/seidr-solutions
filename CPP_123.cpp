@@ -2,17 +2,7 @@
 
 vector<int> get_odd_collatz(int n);
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> get_odd_collatz(int n){
     vector<int> collatz_seq;
@@ -33,4 +23,16 @@ vector<int> get_odd_collatz(int n){
     }
     sort(odd_nums.begin(), odd_nums.end());
     return odd_nums;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
