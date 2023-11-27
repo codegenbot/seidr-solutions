@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 vector<string> words_string(string s){
     vector<string> words;
     string word = "";
@@ -42,7 +36,9 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert (issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    
+    cout << "Test passed!";
     
     return 0;
 }
