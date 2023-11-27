@@ -23,7 +23,7 @@ int main() {
     for (size_t i = 0; i < numItems; i++) {
         std::cin >> discounts[i];
     }
-
+    
     float totalPrice = calculateTotalPrice(prices, discounts);
     std::cout << totalPrice << std::endl;
 
