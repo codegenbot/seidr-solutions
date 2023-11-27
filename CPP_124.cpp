@@ -1,4 +1,7 @@
-bool valid_date(string date){
+#include <iostream>
+#include <string>
+
+bool valid_date(std::string date){
     if(date.empty()){
         return false;
     }
@@ -32,4 +35,19 @@ bool valid_date(string date){
     }
     
     return true;
+}
+
+int main() {
+    std::string date;
+    std::cout << "Enter a date (YYYY-MM-DD): ";
+    std::cin >> date;
+    
+    if(valid_date(date)){
+        std::cout << "Valid date" << std::endl;
+    }
+    else{
+        std::cout << "Invalid date" << std::endl;
+    }
+    
+    return 0;
 }
