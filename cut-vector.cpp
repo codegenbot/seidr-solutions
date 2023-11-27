@@ -1,52 +1,50 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cut_vector(const vector<int>& nums) {
-    int n = nums.size();
-    vector<int> subvector1, subvector2;
+std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>& nums) {
+    std::pair<std::vector<int>, std::vector<int>> result;
+    int size = nums.size();
     int leftSum = 0;
     int rightSum = 0;
-    
-    // Calculate the sum of all numbers in the input vector
-    for (int i = 0; i < n; i++) {
-        rightSum += nums[i];
+
+    // Calculate the sum of all elements
+    for (int num : nums) {
+        rightSum += num;
     }
-    
-    // Iterate through the vector and find the split point
-    for (int i = 0; i < n; i++) {
+
+    // Iterate through the vector and find the cut spot
+    for (int i = 0; i < size; i++) {
+        // Update the left and right sums
         leftSum += nums[i];
         rightSum -= nums[i];
-        
-        // If the sums on both sides are equal or the difference is smallest so far, update the subvectors
-        if (leftSum == rightSum || abs(leftSum - rightSum) < abs(subvector1.size() - subvector2.size())) {
-            subvector1.assign(nums.begin(), nums.begin() + i + 1);
-            subvector2.assign(nums.begin() + i + 1, nums.end());
+
+        // Check if the difference is smaller than the current smallest difference
+        if (abs(leftSum - rightSum) < abs(result.first.size() - result.second.size())) {
+            result.first.assign(nums.begin(), nums.begin() + i + 1);
+            result.second.assign(nums.begin() + i + 1, nums.end());
         }
     }
-    
-    return make_pair(subvector1, subvector2);
+
+    return result;
 }
 
 int main() {
     int n;
-    cin >> n;
-    
-    vector<int> nums(n);
+    std::cin >> n;
+
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-    
-    pair<vector<int>, vector<int>> result = cut_vector(nums);
-    vector<int> subvector1 = result.first;
-    vector<int> subvector2 = result.second;
-    
-    for (int num : subvector1) {
-        cout << num << endl;
+
+    std::pair<std::vector<int>, std::vector<int>> result = cut_vector(nums);
+
+    for (int num : result.first) {
+        std::cout << num << std::endl;
     }
-    for (int num : subvector2) {
-        cout << num << endl;
+    for (int num : result.second) {
+        std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
