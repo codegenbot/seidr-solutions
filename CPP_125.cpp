@@ -1,36 +1,29 @@
-vector<string> split_words(string txt){
-    vector<string> result;
+vector<string> split_words(string txt) {
+    vector<string> words;
+    int oddCount = 0;
     string word = "";
-    bool hasWhitespace = false;
-    bool hasComma = false;
     
-    for(char c : txt){
-        if(c == ' '){
-            hasWhitespace = true;
-            if(!word.empty()){
-                result.push_back(word);
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
                 word = "";
             }
-        }
-        else if(c == ','){
-            hasComma = true;
-            if(!word.empty()){
-                result.push_back(word);
-                word = "";
-            }
-        }
-        else{
+        } else {
             word += c;
+            if (islower(c) && ((c - 'a') % 2 == 1)) {
+                oddCount++;
+            }
         }
     }
     
-    if(!word.empty()){
-        result.push_back(word);
+    if (!word.empty()) {
+        words.push_back(word);
     }
     
-    if(result.empty()){
-        result.push_back(to_string(3));
+    if (words.empty()) {
+        words.push_back(to_string(oddCount));
     }
     
-    return result;
+    return words;
 }
