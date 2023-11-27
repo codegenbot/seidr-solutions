@@ -15,8 +15,6 @@ double double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-double double_the_difference(std::vector<float> lst);
-
 int main() {
     double result = double_the_difference(lst);
     std::cout << "Result: " << result << std::endl;
