@@ -29,7 +29,7 @@ bool issame(map<string, int> a, map<string, int> b) {
 }
 
 int main() {
-    assert(issame(histogram("a"), make_pair("a", 1)));
+    assert(issame(histogram("a"), make_pair("a", 1));
     assert(issame(histogram("hello world"), make_pair("hello", 1), make_pair("world", 1)));
     
     cout << "All tests passed!" << endl;
