@@ -9,6 +9,8 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
 bool issame(vector<string> a, vector<string> b) {
     // Implementation of issame function
+    // Add your code here
+    return a == b;
 }
 
 int main() {
