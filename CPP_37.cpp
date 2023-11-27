@@ -3,16 +3,16 @@
 #include <algorithm>
 #include <cassert>
 
-bool isEqual(vector<float> a, vector<float> b);
+bool isEqual(std::vector<float> a, std::vector<float> b);
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> l_prime;
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> l_prime;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             l_prime.push_back(l[i]);
         }
     }
-    sort(l_prime.begin(), l_prime.end());
+    std::sort(l_prime.begin(), l_prime.end());
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -23,7 +23,7 @@ vector<float> sort_even(vector<float> l) {
     return l;
 }
 
-bool isEqual(vector<float> a, vector<float> b) {
+bool isEqual(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -37,6 +37,5 @@ bool isEqual(vector<float> a, vector<float> b) {
 
 int main() {
     assert(isEqual(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
-    // Add more test cases if needed
     return 0;
 }
