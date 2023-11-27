@@ -26,13 +26,13 @@ std::vector<int> even_odd_palindrome(int n){
     return result;
 }
 
-bool issame(std::vector<int>& a, std::vector<int>& b){
+bool isSame(std::vector<int>& a, std::vector<int>& b){
     return a == b;
 }
 
 int main(){
     std::vector<int> result = even_odd_palindrome(1);
-    assert(issame(result, std::vector<int>{0, 1}));
+    assert(isSame(result, {0, 1}));
 
     // Add more test cases here
 
