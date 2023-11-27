@@ -27,7 +27,7 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(){
-    assert (issame(sum_product({10}) ,{10, 10}));
+    assert(issame(sum_product({10}), {10, 10}));
     // more test cases...
     
     return 0;
