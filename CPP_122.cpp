@@ -1,4 +1,7 @@
-int add_elements(vector<int> arr, int k) {
+#include <vector>
+#include <cassert>
+
+int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
     int count = 0;
 
