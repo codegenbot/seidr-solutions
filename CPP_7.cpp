@@ -3,8 +3,7 @@
 #include <string>
 #include <cassert>
 
-using std::vector;
-using std::string;
+using namespace std;
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
@@ -17,13 +16,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main() {
-    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
-    string substring = "run";
-    vector<string> result = filter_by_substring(strings, substring);
-    
-    for (string str : result) {
-        std::cout << str << " ";
-    }
-    
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>({"grunt", "prune"}));
     return 0;
 }
