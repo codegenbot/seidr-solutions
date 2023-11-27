@@ -1,11 +1,12 @@
 #include <vector>
+#include <list>
 #include <boost/any.hpp>
+#include <typeinfo>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    // implementation of issame function
-}
+using namespace std;
 
-vector<int> filter_integers(vector<boost::any> values){
+vector<int> filter_integers(list<boost::any> values){
     vector<int> result;
     for(auto value : values){
         if(typeid(value) == typeid(int)){
@@ -15,11 +16,6 @@ vector<int> filter_integers(vector<boost::any> values){
     return result;
 }
 
-int main(){
-    vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-    assert(issame(filtered, {3, 3, 3}));
-
-    // other code
-
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    // implementation goes here
 }
