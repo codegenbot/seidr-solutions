@@ -1,6 +1,44 @@
+#include <iostream>
 #include <vector>
 
+using namespace std;
+
 bool issame(vector<float> a, vector<float> b);
+
+int main() {
+    vector<float> numbers;
+    
+    // Read numbers from user input
+    float num;
+    while(cin >> num){
+        numbers.push_back(num);
+    }
+    
+    // Rescale the numbers to unit interval
+    vector<float> rescaled_numbers = rescale_to_unit(numbers);
+    
+    // Check if the two vectors are the same
+    bool same = issame(numbers, rescaled_numbers);
+    
+    // Print the result
+    cout << (same ? "Yes" : "No") << endl;
+    
+    return 0;
+}
+
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
+}
 
 vector<float> rescale_to_unit(vector<float> numbers){
     float min_num = numbers[0];
@@ -22,22 +60,4 @@ vector<float> rescale_to_unit(vector<float> numbers){
     }
     
     return numbers;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size())
-        return false;
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    
-    return true;
-}
-
-int main() {
-    // Your test code here
-    
-    return 0;
 }
