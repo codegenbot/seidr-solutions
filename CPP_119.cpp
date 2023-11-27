@@ -1,27 +1,20 @@
-string match_parens(vector<string> lst){
-    string result = "Yes";
-    int count = 0;
+#include <stack>
+#include <string>
 
-    for (string str : lst) {
-        for (char c : str) {
-            if (c == '(') {
-                count++;
-            }
-            else {
-                count--;
-            }
+string match_parens(vector<string> lst) {
+    string str = lst[0] + lst[1];
+    stack<char> parentheses;
 
-            if (count < 0) {
-                result = "No";
-                break;
+    for (char c : str) {
+        if (c == '(') {
+            parentheses.push(c);
+        } else {
+            if (parentheses.empty()) {
+                return "No";
             }
-        }
-
-        if (count != 0) {
-            result = "No";
-            break;
+            parentheses.pop();
         }
     }
 
-    return result;
+    return parentheses.empty() ? "Yes" : "No";
 }
