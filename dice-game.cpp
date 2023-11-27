@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 using namespace std;
 
@@ -15,7 +14,7 @@ double probability(int n, int m) {
         }
     }
 
-    return peter_wins / static_cast<double>(total_outcomes);
+    return static_cast<double>(peter_wins) / total_outcomes;
 }
 
 int main() {
@@ -23,7 +22,7 @@ int main() {
     cin >> n >> m;
 
     double result = probability(n, m);
-    cout << setprecision(8) << result << endl;
+    cout << fixed << result << endl;
 
     return 0;
 }
