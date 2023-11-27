@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-bool is_same(vector<string> a, vector<string> b);
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> groups;
     string group;
@@ -29,15 +23,17 @@ vector<string> separate_paren_groups(string paren_string) {
     return groups;
 }
 
-bool is_same(vector<string> a, vector<string> b) {
-    // Implementation code here
-}
+bool issame(vector<string> a, vector<string> b);
 
 int main() {
-    vector<string> a = separate_paren_groups("((()))");
-    vector<string> b = separate_paren_groups("()()()");
+    vector<string> input = separate_paren_groups("((ab)(cd))");
+    vector<string> expected = {"(ab)", "(cd)"};
 
-    assert(is_same(a, b));
-    
+    assert(is_same(input, expected));
+
     return 0;
+}
+
+bool is_same(vector<string> a, vector<string> b) {
+    // Implementation code here
 }
