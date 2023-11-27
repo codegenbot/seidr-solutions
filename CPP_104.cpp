@@ -1,8 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> unique_digits(vector<int> x);
-
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for(int i=0; i<x.size(); i++){
@@ -24,7 +22,7 @@ vector<int> unique_digits(vector<int> x){
     return result;
 }
 
-int main(){
+int main() {
     assert(std::equal(unique_digits({135, 103, 31}).begin(), unique_digits({135, 103, 31}).end(), std::begin({31, 135})));
     return 0;
 }
