@@ -1,16 +1,14 @@
 #include <string>
 #include <vector>
 
-string intersection(vector<int> interval1, vector<int> interval2);
-
-string intersection(vector<int> interval1, vector<int> interval2) {
+std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
     int start1 = interval1[0];
     int end1 = interval1[1];
     int start2 = interval2[0];
     int end2 = interval2[1];
     
-    int intersectionStart = max(start1, start2);
-    int intersectionEnd = min(end1, end2);
+    int intersectionStart = std::max(start1, start2);
+    int intersectionEnd = std::min(end1, end2);
     
     int intersectionLength = intersectionEnd - intersectionStart + 1;
     
