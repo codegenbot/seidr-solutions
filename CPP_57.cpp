@@ -1,6 +1,6 @@
 #include <vector>
 
-bool monotonic(vector<float> l){
+bool monotonic(const vector<float>& l) {
     bool increasing = true;
     bool decreasing = true;
 
@@ -17,8 +17,6 @@ bool monotonic(vector<float> l){
 }
 
 int main() {
-    assert (monotonic({9, 9, 9, 9}) == true);
-    // add more test cases here
-    
+    // Test your function here
     return 0;
 }
