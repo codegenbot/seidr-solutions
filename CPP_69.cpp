@@ -1,4 +1,6 @@
-int search(vector<int> lst){
+#include <vector>
+
+int search(std::vector<int> lst){
     int maxFreq = -1;
     int result = -1;
     for(int i = 0; i < lst.size(); i++){
