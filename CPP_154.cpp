@@ -2,7 +2,7 @@
 #include <cassert>
 #include <string>
 
-bool cycpattern_check(string a, string b) {
+bool cycpattern_check(std::string a, std::string b) {
     if (a.length() < b.length()) {
         return false;
     }
