@@ -17,6 +17,12 @@ std::string flip_case(std::string str) {
     return result;
 }
 
+// Remove the extra main function definition
+
+// Correct the function name spelling mistake
+std::string flip_case(std::string str);
+
+// Add the assert statement inside main function
 int main() {
     assert(flip_case("These violent delights have violent ends") == "tHese VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
