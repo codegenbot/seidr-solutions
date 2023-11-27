@@ -24,22 +24,19 @@ std::vector<std::string> split_words(std::string txt) {
     return result;
 }
 
-bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
-    return a.operator==(b);
+bool is_same(std::vector<std::string>& a, std::vector<std::string>& b) {
+    return a == b;
 }
 
-int contestMain() {
-    if (is_same(split_words(""), std::vector<std::string>{"0"})) {
+void solve() {
+    if (is_same(split_words(""), {"0"})) {
         std::cout << "Test case passed!" << std::endl;
     } else {
         std::cout << "Test case failed!" << std::endl;
     }
-    
-    return 0;
 }
 
 int main() {
-    contestMain();
-    
+    solve();
     return 0;
 }
