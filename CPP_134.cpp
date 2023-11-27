@@ -1,17 +1,16 @@
 bool check_if_last_char_is_a_letter(string txt){
-    if(txt.empty()){
+    if(txt.length() == 0){
         return false;
     }
     char lastChar = txt.back();
     if(isalpha(lastChar)){
-        int spaceIndex = txt.find_last_of(' ');
-        if(spaceIndex == string::npos){
+        int i = txt.length() - 2;
+        while(i >= 0 && txt[i] != ' '){
+            i--;
+        }
+        if(i < 0){
             return true;
         }
-        if(spaceIndex == txt.length()-1){
-            return false;
-        }
-        return true;
     }
     return false;
 }
