@@ -11,20 +11,14 @@ int next_smallest(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> lst;
-    int n, num;
-    
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    std::cout << "Enter the elements: ";
-    for(int i=0; i<n; i++){
-        std::cin >> num;
-        lst.push_back(num);
+    std::vector<int> numbers;
+    int num;
+    while(std::cin >> num){
+        numbers.push_back(num);
     }
     
-    int result = next_smallest(lst);
-    std::cout << "The next smallest element is: " << result << std::endl;
+    int result = next_smallest(numbers);
+    std::cout << result << std::endl;
     
     return 0;
 }
