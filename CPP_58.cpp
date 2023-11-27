@@ -1,10 +1,11 @@
-#include <vector>
+#include <iostream>
 #include <algorithm>
-#include <iterator>
+#include <vector>
+#include <set>
 
 using namespace std;
 
-vector<int> common(vector<int> l1, vector<int> l2){
+vector<int> common(vector<int> l1, vector<int> l2) {
     vector<int> result;
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
@@ -13,12 +14,19 @@ vector<int> common(vector<int> l1, vector<int> l2){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    vector<int> common_elements = common(a, b);
-    return common_elements == b;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
+    assert(issame(common({1, 2, 3, 4}, {3, 4, 5, 6}), {3, 4}));
+    assert(issame(common({1, 2, 3, 4}, {5, 6, 7, 8}), {}));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
