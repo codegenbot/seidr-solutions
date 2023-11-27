@@ -21,11 +21,20 @@ pair<int, int> mastermind(string code, string guess) {
         whitePegs += min(codeCount[i], guessCount[i]);
     }
 
-    // Modify the counting loop to correctly handle white pegs
     for (int i = 0; i < 6; i++) {
-        whitePegs += min(codeCount[i], guessCount[i]);
-        whitePegs -= min(codeCount[i], guessCount[i] - min(codeCount[i], guessCount[i]));
+        if (codeCount[i] > 0 && guessCount[i] > 0) {
+            whitePegs++;
+        }
     }
 
     return make_pair(whitePegs, blackPegs);
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    pair<int, int> result = mastermind(code, guess);
+    cout << result.first << endl;
+    cout << result.second << endl;
+    return 0;
 }
