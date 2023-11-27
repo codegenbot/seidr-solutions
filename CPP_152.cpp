@@ -1,5 +1,4 @@
 #include <vector>
-#include <cstdlib>
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
