@@ -5,7 +5,6 @@
 using namespace std;
 
 vector<string> numerical_letter_grade(vector<float> grades);
-
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> numerical_letter_grade(vector<float> grades){
@@ -67,16 +66,17 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    vector<float> grades = {3.8, 2.5, 4.0, 3.2};
+    vector<float> grades = {3.5, 2.8, 4.0, 1.9, 3.2};
     vector<string> letter_grades = numerical_letter_grade(grades);
-    vector<string> expected_grades = {"A", "C", "A+", "C-"};
-    
+
+    vector<string> expected_grades = {"A-", "B-", "A+", "D-", "C"};
+
     if(issame(letter_grades, expected_grades)){
-        cout << "Test Passed" << endl;
+        cout << "The grades match the expected grades." << endl;
     }
     else{
-        cout << "Test Failed" << endl;
+        cout << "The grades do not match the expected grades." << endl;
     }
-    
+
     return 0;
 }
