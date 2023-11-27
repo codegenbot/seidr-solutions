@@ -1,24 +1,30 @@
 vector<int> filter_integers(list<any> values){
     vector<int> result;
     for (auto value : values) {
-        if (boost::any_cast<int>(&value)) {
+        if (value.type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
 }
 
-bool issame(int a, int b){
-    return a == b;
+bool issame(vector<any> values, any value) {
+    for (auto v : values) {
+        if (v == value) {
+            return true;
+        }
+    }
+    return false;
 }
 
 int main() {
-    int a = 5;
-    int b = 10;
-    if (issame(a, b)) {
-        cout << "a and b are the same" << endl;
-    } else {
-        cout << "a and b are not the same" << endl;
+    list<any> values = {1, 2, 3, "hello", 4.5};
+    vector<int> filtered = filter_integers(values);
+    for (auto num : filtered) {
+        cout << num << " ";
     }
+    cout << endl;
+    cout << issame(filtered, 3) << endl;
+    cout << issame(filtered, "hello") << endl;
     return 0;
 }
