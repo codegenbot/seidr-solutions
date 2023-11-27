@@ -1,5 +1,7 @@
 #include <string>
+
 using namespace std;
+
 int how_many_times(string str, string substring) {
     int count = 0;
     int subLen = substring.length();
@@ -17,6 +19,7 @@ int how_many_times(string str, string substring) {
             count++;
         }
     }
+
     return count;
 }
 
