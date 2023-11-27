@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -29,6 +29,6 @@ std::vector<int> sort_array(const std::vector<int>& array) {
 int main() {
     std::vector<int> sorted_array = sort_array({21, 14, 23, 11});
     std::vector<int> expected = {23, 21, 14, 11};
-    assert(isSame(sorted_array, expected));
+    assert(is_same(sorted_array, expected));
     return 0;
 }
