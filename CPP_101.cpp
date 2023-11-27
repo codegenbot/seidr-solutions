@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <cassert>
 
@@ -22,7 +21,7 @@ std::vector<std::string> words_string(const std::string& s) {
     return words;
 }
 
-bool are_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     bool result = true;
     if (a.size() != b.size()) {
         result = false;
@@ -38,7 +37,7 @@ bool are_same(const std::vector<std::string>& a, const std::vector<std::string>&
 }
 
 int main() {
-    assert(are_same(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
 
     // Add more test cases if needed
 
