@@ -5,7 +5,8 @@
 using namespace std;
 
 bool isVowel(char c) {
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+    string vowels = "aeiouAEIOU";
+    return vowels.find(c) != string::npos;
 }
 
 string get_closest_vowel(string word){
@@ -21,10 +22,11 @@ string get_closest_vowel(string word){
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
-    assert(get_closest_vowel("Input") == "u");
-    assert(get_closest_vowel("Testing") == "i");
-    assert(get_closest_vowel("Today") == "");
-    
+    assert(get_closest_vowel("Hello World") == "o");
+    assert(get_closest_vowel("XYZU") == "");
+    assert(get_closest_vowel("Abcde") == "");
+    // Add more test cases here
+
     cout << "All test cases pass" << endl;
 
     return 0;
