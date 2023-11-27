@@ -2,7 +2,9 @@
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter);
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // function implementation
+}
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     std::vector<int> result;
@@ -15,10 +17,6 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
         result.push_back(numbers[i]);
     }
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // function implementation
 }
 
 int main() {
