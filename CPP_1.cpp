@@ -1,6 +1,6 @@
-#include<vector>
-#include<string>
-#include<assert.h>
+#include <vector>
+#include <string>
+#include <cassert>
 
 bool issame(vector<string> a, vector<string> b);
 
@@ -33,7 +33,7 @@ bool issame(vector<string> a, vector<string> b){
     // ...
 }
 
-int main() {
+int main(){
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
 }
