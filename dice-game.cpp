@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 double probability(int n, int m) {
