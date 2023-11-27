@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <climits>
-#include <cassert>
+#include <cassert> // Added header for assert
 
 bool issame(std::vector<int> a, std::vector<int> b){
     // implementation of the function
@@ -19,7 +19,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     int minVal = INT_MAX;
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
-            minVal = std::min(minVal, grid[i][j]);
+            minVal = std::min(minVal, grid[i][j]); // Added std::
         }
     }
     
