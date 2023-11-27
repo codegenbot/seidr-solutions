@@ -1,21 +1,23 @@
 #include <iostream>
 #include <vector>
-#include <unordered_set>
+using namespace std;
 
-bool triples_sum_to_zero(vector<int> l) {
-    unordered_set<int> nums;
-    int n = l.size();
-    
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            int target = -(l[i] + l[j]);
-            if (nums.count(target)) {
-                return true;
+bool triples_sum_to_zero(vector<int> l){
+    for(int i = 0; i < l.size(); i++){
+        for(int j = i+1; j < l.size(); j++){
+            for(int k = j+1; k < l.size(); k++){
+                if(l[i] + l[j] + l[k] == 0){
+                    return true;
+                }
             }
         }
-        
-        nums.insert(l[i]);
     }
-    
     return false;
+}
+
+int main() {
+    assert (triples_sum_to_zero({100, 3, 5, -100}) == false);
+    // Add more test cases if needed...
+    
+    return 0;
 }
