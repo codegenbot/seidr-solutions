@@ -1,14 +1,13 @@
 int fruit_distribution(string s, int n) {
-    int mangoes = n;
-    int pos = s.find("apples");
-    if (pos != string::npos) {
-        int apples = stoi(s.substr(0, pos));
-        mangoes -= apples;
-    }
-    pos = s.find("oranges");
-    if (pos != string::npos) {
-        int oranges = stoi(s.substr(pos + 8));
-        mangoes -= oranges;
-    }
+    int apples = 0;
+    int oranges = 0;
+    int mangoes = 0;
+
+    // Extract the number of apples and oranges from the string
+    sscanf(s.c_str(), "%d apples and %d oranges", &apples, &oranges);
+
+    // Calculate the number of mangoes
+    mangoes = n - apples - oranges;
+
     return mangoes;
 }
