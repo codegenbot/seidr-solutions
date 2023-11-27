@@ -1,48 +1,39 @@
 #include <iostream>
 #include <cmath>
 
-bool isPrime(int n) {
-    if (n <= 1) {
+bool isPrime(int num) {
+    if (num <= 1) {
         return false;
     }
-    for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0) {
+    
+    int sqrtNum = sqrt(num);
+    for (int i = 2; i <= sqrtNum; i++) {
+        if (num % i == 0) {
             return false;
         }
     }
+    
     return true;
 }
 
 int prime_fib(int n) {
-    if (n == 1) {
-        return 2;
+    if (n <= 0) {
+        return -1;
     }
     
-    int prev = 1;
+    int prev = 0;
     int curr = 1;
+    int count = 1;
     
-    for (int i = 3; i <= n; i++) {
-        int temp = curr;
-        curr = prev + curr;
-        prev = temp;
+    while (count < n) {
+        int next = prev + curr;
+        prev = curr;
+        curr = next;
         
-        while (!isPrime(curr)) {
-            temp = curr;
-            curr = prev + curr;
-            prev = temp;
+        if (isPrime(curr)) {
+            count++;
         }
     }
     
     return curr;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    
-    int result = prime_fib(n);
-    std::cout << "The " << n << "-th number that is a Fibonacci number and prime is: " << result << std::endl;
-    
-    return 0;
 }
