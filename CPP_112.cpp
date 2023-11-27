@@ -1,8 +1,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
 vector<string> reverse_delete(const string& s, const string& c) {
     vector<string> result;
     string temp;
