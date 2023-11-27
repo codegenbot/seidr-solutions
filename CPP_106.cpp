@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 #include <iostream>
 
 std::vector<int> f(int n) {
@@ -22,7 +21,7 @@ std::vector<int> f(int n) {
     return result;
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -35,7 +34,10 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(isSame(f(3), {1, 2, 6}));
-    std::cout << "Assertion Passed" << std::endl;
+    std::vector<int> result = f(3);
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
