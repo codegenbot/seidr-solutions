@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <array>
-
+#include <openssl/md5.h>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) {
@@ -11,7 +11,7 @@ std::string string_to_md5(std::string text) {
     unsigned char digest[MD5_DIGEST_LENGTH];
     MD5_CTX md5Context;
     MD5_Init(&md5Context);
-    MD5_Update(&md5Context, text.c_str(), text.length());
+    MD5_Update(&md5Context, text.data(), text.size());
     MD5_Final(digest, &md5Context);
 
     std::array<char, 33> md5Hash;
@@ -22,18 +22,5 @@ std::string string_to_md5(std::string text) {
     return std::string(md5Hash.data(), md5Hash.size());
 }
 
-int solve() {
-    std::string text;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, text);
-
-    std::string md5Hash = string_to_md5(text);
-    std::cout << md5Hash << std::endl;
-
-    return 0;
-}
-
-int main() {
-    solve();
-    return 0;
-}
+// add this line at the top of the code
+#include <openssl/md5.h>
