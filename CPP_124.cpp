@@ -1,6 +1,6 @@
 #include <string>
 
-bool valid_date(string date){
+bool valid_date(std::string date){
     if(date.empty()){
         return false;
     }
