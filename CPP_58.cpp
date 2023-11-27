@@ -3,8 +3,6 @@
 
 bool issame(vector<int> a, vector<int> b);
 
-vector<int> common(vector<int> l1, vector<int> l2);
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -21,7 +19,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     vector<int> result;
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
-
+    
     int i = 0, j = 0;
     while (i < l1.size() && j < l2.size()) {
         if (l1[i] == l2[j]) {
@@ -36,10 +34,12 @@ vector<int> common(vector<int> l1, vector<int> l2) {
             j++;
         }
     }
-
+    
     return result;
 }
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
+    
+    return 0;
 }
