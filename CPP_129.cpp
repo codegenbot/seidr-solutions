@@ -6,9 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     // implementation of the function
 }
 
-void dfs(std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path){
-    // implementation of the dfs function
-}
+void dfs(std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path);
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     int n = grid.size();
@@ -40,8 +38,8 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     return path;
 }
 
+#include <cassert>
+
 int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
-    return 0;
 }
