@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 #include <cassert>
 
 using namespace std;
@@ -26,7 +25,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(std::equal(total_match({"this"}, {}).begin(), total_match({"this"}, {}).end(), {}.begin()));
-    
+    assert(total_match({"this"}, {}).empty());
+
     return 0;
 }
