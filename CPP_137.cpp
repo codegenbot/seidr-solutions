@@ -5,11 +5,6 @@
 
 boost::any compare_one(boost::any a, boost::any b);
 
-int main() {
-    assert (boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
-    return 0;
-}
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int intA = boost::any_cast<int>(a);
@@ -44,4 +39,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     return boost::any(std::string("None"));
+}
+
+int main() {
+    assert (boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+    return 0;
 }
