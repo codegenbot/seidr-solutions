@@ -49,7 +49,7 @@ int main() {
     std::string date = get_date_input();
     
     if(valid_date(date)){
-        std::cout << "Valid date" << std::endl; 
+        std::cout << "Valid date" << std::endl;
     }
     else{
         std::cout << "Invalid date" << std::endl;
