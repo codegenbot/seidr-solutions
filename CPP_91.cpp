@@ -1,6 +1,7 @@
+#include <iostream>
 #include <string>
 
-int is_bored(string S){
+int is_bored(std::string S){
     int count = 0;
     int i = 0;
     int n = S.length();
@@ -18,7 +19,13 @@ int is_bored(string S){
     return count;
 }
 
-int main() {
-    // Test the is_bored function here
+int main(){
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    int result = is_bored(input);
+    std::cout << "Count: " << result << std::endl;
+    
     return 0;
 }
