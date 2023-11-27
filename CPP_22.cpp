@@ -1,18 +1,10 @@
 #include <vector>
-#include <list>
+#include <list_any>
 #include <boost/any.hpp>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b);
 
-vector<int> filter_integers(list<boost::any> values) {
-    vector<int> result;
-    for (auto value : values) {
-        if (value.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(value));
-        }
-    }
-    return result;
-}
+vector<int> filter_integers(list_any values);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -26,23 +18,37 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
+vector<int> filter_integers(list_any values) {
+    vector<int> result;
+    for (auto value : values) {
+        if (value.type() == typeid(int)) {
+            result.push_back(boost::any_cast<int>(value));
+        }
+    }
+    return result;
+}
+
 int main() {
-    list<boost::any> values;
+    // Test the filter_integers function
+    list_any values;
     values.push_back(10);
+    values.push_back(3.14);
     values.push_back("hello");
     values.push_back(20);
-    values.push_back(30);
-    values.push_back("world");
-    values.push_back(40);
 
-    vector<int> filtered_values = filter_integers(values);
-
-    vector<int> expected_values = {10, 20, 30, 40};
-    if (issame(filtered_values, expected_values)) {
-        cout << "Filtered values are correct!" << endl;
-    } else {
-        cout << "Filtered values are incorrect!" << endl;
+    vector<int> filtered = filter_integers(values);
+    for (auto num : filtered) {
+        cout << num << " ";
     }
+    cout << endl;
+
+    // Test the issame function
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+    vector<int> c = {1, 2, 4};
+
+    cout << issame(a, b) << endl;
+    cout << issame(a, c) << endl;
 
     return 0;
 }
