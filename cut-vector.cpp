@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <limits>
 #include <iterator>
-
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
