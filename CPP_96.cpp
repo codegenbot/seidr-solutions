@@ -1,11 +1,14 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
+
+bool issame(vector<int> a, vector<int> b);
+vector<int> count_up_to(int n);
+
+
 bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()){
+    if(a.size() != b.size()){
         return false;
     }
     for(int i=0; i<a.size(); i++){
@@ -31,12 +34,4 @@ vector<int> count_up_to(int n){
         }
     }
     return primes;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> expected = count_up_to(n);
-    vector<int> result = count_up_to(n);
-    assert(issame(expected, result));
 }
