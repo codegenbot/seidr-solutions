@@ -1,28 +1,25 @@
 #include <string>
 
-int is_bored(string S){
+int is_bored(std::string S){
     int count = 0;
-    bool is_sentence_start = true;
+    int i = 0;
+    int n = S.length();
     
-    for(int i=0; i<S.length(); i++){
-        if(S[i] == 'I' && (i==0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
-            is_sentence_start = true;
-        }
-        else if(is_sentence_start && (S[i] == '.' || S[i] == '?' || S[i] == '!')){
+    while(i < n){
+        if(S[i] == 'I'){
+            while(i < n && S[i] != '.' && S[i] != '?' && S[i] != '!'){
+                i++;
+            }
             count++;
-            is_sentence_start = false;
         }
+        i++;
     }
     
     return count;
 }
 
-int main(){
-    // Test the is_bored function
-    string sentence = "I am bored. Are you bored? Let's do something!"
-    int result = is_bored(sentence);
-    // Print the result
-    cout << "Number of sentences: " << result << endl;
-    
+int main() {
+    assert(is_bored("You and I are going for a walk") == 0);
+
     return 0;
 }
