@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-using namespace std;
 
 vector<int> parse_nested_parens(string paren_string){
     vector<int> levels;
@@ -26,20 +24,19 @@ vector<int> parse_nested_parens(string paren_string){
     return levels;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
 }
 
-int main() {
-    vector<int> parse_nested_parens(string paren_string);
-    cout << issame(parse_nested_parens("(()(())((())))"), {4}) << endl;
+int main(){
+    // Test cases here
     return 0;
 }
