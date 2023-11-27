@@ -24,7 +24,7 @@ vector<int> f(int n){
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -36,8 +36,12 @@ bool issame(const vector<int>& a, const vector<int>& b){
     return true;
 }
 
-int main() {
-    assert(issame(f(3), {1, 2, 6}));
+void solveProblem() {
+    assert(issame(f(3), vector<int>{1, 2, 6}));
     cout << "Test Passed!" << endl;
+}
+
+int main() {
+    solveProblem();
     return 0;
 }

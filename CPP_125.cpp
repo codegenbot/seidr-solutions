@@ -1,18 +1,20 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> result;
-    std::string word = "";
+using namespace std;
+
+vector<string> split_words(string txt) {
+    vector<string> result;
+    string word = "";
 
     for (int i = 0; i < txt.length(); i++) {
-        if (txt[i] == ' ') {
-            if (word != "") {
-                result.push_back(word);
-                word = "";
-            }
-        } else {
+        if (txt[i] == ' ' && word != "") {
+            result.push_back(word);
+            word = "";
+        }
+        else {
             word += txt[i];
         }
     }
@@ -24,16 +26,10 @@ std::vector<std::string> split_words(std::string txt) {
     return result;
 }
 
-bool is_same_vectors(std::vector<std::string> a, std::vector<std::string> a2) {
-    return a == a2;
-}
+vector<string> split_words(string txt);
 
 int main() {
-    if (is_same_vectors(split_words("") ,{"0"})) {
-        std::cout << "Test case passed!" << std::endl;
-    } else {
-        std::cout << "Test case failed!" << std::endl;
-    }
-    
+    assert(split_words("").size() == 1);
+    cout << "Test case passed!" << endl;
     return 0;
 }

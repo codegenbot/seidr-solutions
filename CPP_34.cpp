@@ -3,30 +3,29 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()) return false;
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> l){
-    std::sort(l.begin(), l.end());
-    l.erase(std::unique(l.begin(), l.end()), l.end());
+vector<int> remove_duplicates_custom(vector<int> l){
+    sort(l.begin(), l.end());
     return l;
 }
 
-int main() {
-    std::vector<int> expected_output = {0, 2, 3, 5, 9, 123};
-    
-    std::vector<int> output = remove_duplicates({5, 3, 5, 2, 3, 3, 9, 0, 123});
-    
-    assert(issame(output, expected_output) == true);
-    
-    std::cout << "Output is correct" << std::endl;
-    
-    return 0;
-}
+vector<int> expected_output = {0, 2, 3, 5, 9, 123};
+
+vector<int> output = remove_duplicates_custom({5, 3, 5, 2, 3, 3, 9, 0, 123});
+
+assert(issame(output, expected_output));
+
+cout << "Output is correct" << endl;
+
+return 0;
