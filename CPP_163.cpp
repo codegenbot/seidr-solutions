@@ -1,4 +1,7 @@
+#include <iostream>
 #include <vector>
+
+using namespace std;
 
 vector<int> generate_integers(int a, int b);
 
@@ -11,6 +14,7 @@ int main() {
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
+    cout << endl;
     return 0;
 }
 
