@@ -1,3 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+bool isSame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
