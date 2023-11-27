@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 #include <string>
 #include <openssl/evp.h>
 
@@ -26,12 +26,12 @@ string string_to_md5(string text) {
     return string(md5Hash);
 }
 
-
 int main() {
-    // Add the -lcrypto flag to the compile command
+    string input;
+    getline(cin, input);
+
+    string result = string_to_md5(input);
+    cout << result << endl;
+
     return 0;
 }
-
-/* 
-Remove the duplicate main() function definition starting from line 35.
-*/
