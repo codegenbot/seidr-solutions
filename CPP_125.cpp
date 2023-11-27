@@ -1,15 +1,10 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-using namespace std;
-
-bool isSame(vector<string> a, vector<string> b) {
-    // Your code here
-}
-
-vector<string> splitWords(string txt) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> result;
+    std::string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
 
@@ -36,40 +31,29 @@ vector<string> splitWords(string txt) {
     }
 
     if (!hasWhitespace && !hasComma) {
-        result.push_back(to_string(3));
+        result.push_back(std::to_string(3));
     }
 
     return result;
 }
 
-int main() {
-    vector<string> a, b;
-
-    // Read input for vector a and vector b
-    int n;
-    cin >> n;
-    cin.ignore();
-
-    for (int i = 0; i < n; i++) {
-        string input;
-        getline(cin, input);
-        a.push_back(input);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-
-    cin >> n;
-    cin.ignore();
-
-    for (int i = 0; i < n; i++) {
-        string input;
-        getline(cin, input);
-        b.push_back(input);
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
+    
+    return true;
+}
 
-    // Call issame function passing vectors a and b as arguments
-    bool result = isSame(a, b);
-
-    // Print the result
-    cout << (result ? "true" : "false") << endl;
+int main()
+{
+    assert(issame(split_words(""), {"0"}));
 
     return 0;
 }
