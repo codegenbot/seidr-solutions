@@ -3,7 +3,7 @@
 #include <climits>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int>& a, std::vector<int>& b){
     // implementation of the function
 }
 
@@ -39,4 +39,9 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     dfs(grid, startX, startY, k, path);
     
     return path;
+}
+
+int main(){
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
