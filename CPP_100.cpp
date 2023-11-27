@@ -2,21 +2,31 @@
 
 vector<int> make_a_pile(int n);
 
-bool issame(vector<int> a, vector<int> b){
-    if(a == b){
-        return true;
+bool issame(vector<int> a, vector<int> b);
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> stones = make_a_pile(n);
+    vector<int> b;
+    for(int i=0; i<n; i++) {
+        int stone;
+        cin >> stone;
+        b.push_back(stone);
     }
-    else{
-        return false;
+    if(issame(stones, b)){
+        cout << "SAME";
+    } else {
+        cout << "DIFFERENT";
     }
 }
 
-vector<int> make_a_pile(int n){
+vector<int> make_a_pile(int n) {
     vector<int> stones;
     int stonesInLevel = n;
-    for(int i=0; i<n; i++){
+    for(int i=0; i<n; i++) {
         stones.push_back(stonesInLevel);
-        if(n % 2 == 0){
+        if(n % 2 == 0) {
             stonesInLevel += 2;
         } else {
             stonesInLevel += 1;
@@ -25,12 +35,14 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> pile = make_a_pile(n);
-    for(auto stone : pile){
-        cout << stone << " ";
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()){
+        return false;
     }
-    return 0;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
