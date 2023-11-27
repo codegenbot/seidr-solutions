@@ -6,7 +6,7 @@ using namespace std;
 
 bool isVowel(char c);
 vector<string> select_words(string s, int n);
-bool issame(const vector<string>& a, const vector<string>& b);
+bool issame(vector<string> a, vector<string> b);
 
 bool isVowel(char c) {
     c = tolower(c);
@@ -44,7 +44,7 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -57,7 +57,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    vector<string> expected = {"b", "c", "d", "f"};
-    assert(issame(select_words("a b c d e f", 1), expected));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
