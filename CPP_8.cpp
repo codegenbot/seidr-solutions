@@ -1,6 +1,8 @@
 #include <vector>
 #include <iostream>
 
+using namespace std;
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -27,4 +29,17 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     result.push_back(product);
 
     return result;
+}
+
+int main() {
+    std::vector<int> input = {10};
+    std::vector<int> result = sum_product(input);
+
+    if (!issame(result, input)) {
+        std::cout << "Sum and product are not the same" << std::endl;
+    } else {
+        std::cout << "Sum and product are the same" << std::endl;
+    }
+
+    return 0;
 }
