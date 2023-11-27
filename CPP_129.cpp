@@ -1,33 +1,14 @@
 #include <vector>
 #include <algorithm>
+#include <iostream>
 #include <climits>
-#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    // implementation of the function
 }
 
 void dfs(std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path){
-    if(x < 0 || x >= grid.size() || y < 0 || y >= grid.size()){
-        return;
-    }
-    
-    int currentVal = grid[x][y];
-    
-    if(currentVal > k){
-        return;
-    }
-    
-    path.push_back(currentVal);
-    
-    grid[x][y] = INT_MAX;
-    
-    dfs(grid, x - 1, y, k, path); // go left
-    dfs(grid, x + 1, y, k, path); // go right
-    dfs(grid, x, y - 1, k, path); // go up
-    dfs(grid, x, y + 1, k, path); // go down
-    
-    grid[x][y] = currentVal;
+    // implementation of the function
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
@@ -61,7 +42,12 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
 }
 
 int main() {
-    assert(issame(std::vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}), minPath(std::vector<std::vector<int>>({{1, 3}, {3, 2}}), 10)));
+    std::vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
+    
+    for(int i=0; i<result.size(); i++){
+        std::cout << result[i] << " ";
+    }
+    std::cout << std::endl;
     
     return 0;
 }
