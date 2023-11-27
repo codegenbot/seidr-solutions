@@ -6,8 +6,15 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    // TODO: Implement the issame function
-    return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> reverse_delete(string s, string c) {
