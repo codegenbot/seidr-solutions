@@ -1,5 +1,7 @@
 #include <iostream>
+#include <string>
 #include <vector>
+#include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -32,22 +34,9 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
     }
 
     if (start > end) {
-        std::swap(start, end);
+        std::swap(start, end + 1);
     }
 
-    for (int i = start + 1; i < end; i++) {
-        result.push_back(planets[i]);
-    }
-
+    result = std::vector<std::string>(planets.begin() + start + 1, planets.begin() + end);
     return result;
-}
-
-int main() {
-    std::vector<std::string> result = bf("Jupiter", "Neptune");
-    for (const auto& planet : result) {
-        std::cout << planet << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
