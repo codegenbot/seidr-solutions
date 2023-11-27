@@ -1,26 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <initializer_list>
 
-bool isVowel(char c);
-std::vector<std::string> select_words(const std::string& s, int n);
+using namespace std;
 
 bool isVowel(char c) {
-    c = std::tolower(c);
+    c = tolower(c);
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-std::vector<std::string> select_words(const std::string& s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] != ' ') {
             word += s[i];
         } else {
             int consonantCount = 0;
             for (int j = 0; j < word.length(); j++) {
-                if (std::isalpha(word[j]) && !isVowel(word[j])) {
+                if (isalpha(word[j]) && !isVowel(word[j])) {
                     consonantCount++;
                 }
             }
@@ -32,7 +30,7 @@ std::vector<std::string> select_words(const std::string& s, int n) {
     }
     int consonantCount = 0;
     for (int j = 0; j < word.length(); j++) {
-        if (std::isalpha(word[j]) && !isVowel(word[j])) {
+        if (isalpha(word[j]) && !isVowel(word[j])) {
             consonantCount++;
         }
     }
@@ -40,6 +38,18 @@ std::vector<std::string> select_words(const std::string& s, int n) {
         result.push_back(word);
     }
     return result;
+}
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {

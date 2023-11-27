@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> levels;
+vector<int> make_a_pile(int n) {
+    vector<int> levels;
     int stones = n;
     for (int i = 0; i < n; i++) {
         levels.push_back(stones);
@@ -17,15 +18,4 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return levels;
-}
-
-int main() {
-    std::vector<int> result = make_a_pile(8);
-    std::vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
-    if (issame(result, expected)) {
-        std::cout << "Test case passed!" << std::endl;
-    } else {
-        std::cout << "Test case failed!" << std::endl;
-    }
-    return 0;
 }
