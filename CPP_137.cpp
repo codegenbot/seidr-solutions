@@ -2,19 +2,24 @@
 #include <string>
 #include <boost/any.hpp>
 
-boost::any compare_one(boost::any a, boost::any b) {
+using boost::any;
+using boost::any_cast;
+using boost::max;
+using std::string;
+
+any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        return boost::max(num1, num2);
+        int num1 = any_cast<int>(a);
+        int num2 = any_cast<int>(b);
+        return max(num1, num2);
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        return boost::max(num1, num2);
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
-        return boost::max(str1, str2, [](const std::string& s1, const std::string& s2) { return s1 < s2; });
+        float num1 = any_cast<float>(a);
+        float num2 = any_cast<float>(b);
+        return max(num1, num2);
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+        return max(str1, str2, [](const string& s1, const string& s2) { return s1 < s2; });
     }
-    return boost::any();
+    return any();
 }
