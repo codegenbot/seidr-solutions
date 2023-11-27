@@ -27,7 +27,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     }
 
     // If cutIndex is still -1, set it to n-1
-    if (cutIndex == n-1) {
+    if (cutIndex == n - 1) {
         cutIndex = n - 1;
     }
 
