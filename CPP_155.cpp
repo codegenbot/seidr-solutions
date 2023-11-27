@@ -1,18 +1,21 @@
 #include <vector>
+#include <cmath>
 
-vector<int> even_odd_count(int num) {
-    int even_count = 0;
-    int odd_count = 0;
+std::vector<int> even_odd_count(int num) {
+    int evenCount = 0;
+    int oddCount = 0;
+    int digit;
 
-    string num_str = to_string(abs(num));
-    for (char c : num_str) {
-        int digit = c - '0';
+    while (num != 0) {
+        digit = std::abs(num % 10);
         if (digit % 2 == 0) {
-            even_count++;
+            evenCount++;
         } else {
-            odd_count++;
+            oddCount++;
         }
+        num /= 10;
     }
 
-    return {even_count, odd_count};
+    std::vector<int> result = {evenCount, oddCount};
+    return result;
 }
