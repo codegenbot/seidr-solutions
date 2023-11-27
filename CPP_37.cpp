@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(const vector<float>& a, const vector<float>& b);
+bool areEqual(const vector<float> a, const vector<float> b);
 
 vector<float> sort_even(const vector<float>& l);
 
@@ -14,7 +14,7 @@ int main() {
     
     vector<float> expected = {1.5, 3.2, 2.9, 4.7, 6.1};
     
-    if (issame(sorted_l, expected)) {
+    if (areEqual(sorted_l, expected)) {
         cout << "The list is sorted correctly." << endl;
     } else {
         cout << "The list is not sorted correctly." << endl;
@@ -23,7 +23,7 @@ int main() {
     return 0;
 }
 
-bool issame(const vector<float>& a, const vector<float>& b) {
+bool areEqual(const vector<float> a, const vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
