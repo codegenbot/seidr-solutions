@@ -58,7 +58,7 @@ int main(){
     assert(issame(split_words(""), {"0"}));
     assert(issame(split_words("Hello,World"), {"Hello", "World"}));
     assert(issame(split_words("This is a test"), {"This", "is", "a", "test"}));
-    assert(issame(split_words("One,Two,Three,Four"), {"One", "Two", "Three", "Four"}));
+    assert(issame(split_words("Just, some, random, words"), {"Just", "some", "random", "words"}));
     
     return 0;
 }
