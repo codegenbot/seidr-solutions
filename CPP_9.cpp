@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-using namespace std;
-
 vector<int> rolling_max(vector<int> numbers){
     vector<int> rollingMax;
     int currentMax = numbers[0];
@@ -30,18 +25,4 @@ bool issame(vector<int> a, vector<int> b){
     }
     
     return true;
-}
-
-int main(){
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    
-    vector<int> result = rolling_max({3, 2, 3, 100, 3});
-    
-    for(int i = 0; i < result.size(); i++){
-        cout << result[i] << " ";
-    }
-    
-    cout << endl;
-    
-    return 0;
 }
