@@ -1,8 +1,5 @@
 #include <map>
-
-bool issame(const std::map<char,int>& a, const std::map<char,int>& b) {
-    return a == b;
-}
+#include <cassert>
 
 std::map<char,int> histogram(const std::string& test) {
     std::map<char, int> result;
@@ -25,6 +22,10 @@ std::map<char,int> histogram(const std::string& test) {
     }
 
     return result;
+}
+
+bool issame(const std::map<char,int>& a, const std::map<char,int>& b) {
+    return a == b;
 }
 
 int main() {
