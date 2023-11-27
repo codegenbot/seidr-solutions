@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    // implementation of issame function
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,11 +16,11 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> output = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    output.erase(unique(output.begin(), output.end()), output.end());
+    vector<int> output = remove_duplicates_custom({5, 3, 5, 2, 3, 3, 9, 0, 123});
+    vector<int> expected_output = {0, 2, 3, 5, 9, 123};
 
-    assert(issame(output, {0, 2, 3, 5, 9, 123}));
+    assert(output == expected_output);
 
-    std::cout << "Output is correct" << std::endl;
+    cout << "Output is correct" << endl;
     return 0;
 }
