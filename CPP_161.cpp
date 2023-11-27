@@ -1,6 +1,5 @@
 #include <string>
 #include <algorithm>
-
 using namespace std;
 
 string solve(string s){
@@ -29,4 +28,8 @@ string solve(string s){
 
 int main() {
     // main function code
+    string s;
+    cin >> s;
+    cout << solve(s) << endl;
+    return 0;
 }
