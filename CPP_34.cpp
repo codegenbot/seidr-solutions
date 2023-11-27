@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <numeric>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
@@ -19,7 +19,7 @@ int main() {
     std::vector<int> output = {5, 3, 5, 2, 3, 3, 9, 0, 123};
 
     assert(issame(output, {5, 3, 5, 2, 3, 3, 9, 0, 123}));
-    assert (issame(std::vector<int>(std::unique(output.begin(), output.end())), {0, 2, 3, 5, 9, 123}));
+    assert(issame(std::unique(output.begin(), output.end()), {0, 2, 3, 5, 9, 123}));
 
     std::cout << "Output is correct" << std::endl;
     return 0;
