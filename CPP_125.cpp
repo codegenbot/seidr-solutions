@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
@@ -34,6 +35,4 @@ int main() {
     } else {
         std::cout << "Test case failed!" << std::endl;
     }
-    
-    return 0;
 }
