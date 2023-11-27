@@ -6,21 +6,19 @@ bool issame(std::vector<int> a, std::vector<int> b){
     // implementation of the function
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k);
-
-void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path){
-    // implementation of the function
+void dfs(std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path) {
+    // implementation of the depth-first search function
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k){
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     int n = grid.size();
-    vector<int> path;
+    std::vector<int> path;
     
     // Find the minimum value in the grid
     int minVal = INT_MAX;
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
-            minVal = min(minVal, grid[i][j]);
+            minVal = std::min(minVal, grid[i][j]);
         }
     }
     
