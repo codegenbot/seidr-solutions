@@ -1,23 +1,21 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> filter_by_prefix(vector<string> strings, string prefix);
-
-int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
-    return 0;
-}
 
 bool issame(vector<string> a, vector<string> b){
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     return a == b;
+}
+
+int main() {
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
