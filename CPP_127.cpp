@@ -16,7 +16,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     if (start1 > end2 || start2 > end1) {
         return "NO";
     }
-
+    
     int intersectionLength = min(end1, end2) - max(start1, start2) + 1;
     
     if (isPrime(intersectionLength)) {
