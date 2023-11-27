@@ -1,12 +1,13 @@
+#include <vector>
+
+vector<int> eat(int number, int need, int remaining);
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> eat(int number, int need, int remaining) {
-    int total = number + need;
-    int eaten = 0;
-    if (total <= remaining) {
-        eaten = total;
-        remaining -= total;
-    } else {
-        eaten = remaining;
-        remaining = 0;
+    int totalEaten = number + need;
+    int left = remaining - need;
+    if (left < 0) {
+        left = 0;
     }
-    return {eaten, remaining};
+    return {totalEaten, left};
 }
