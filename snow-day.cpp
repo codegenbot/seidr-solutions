@@ -8,7 +8,7 @@ double calculateSnow(double hours, double initialSnow, double snowFallRate, doub
         double snowChange = snowFallRate - (snow * snowMeltRate);
         snow += snowChange;
     }
-    return std::round(snow * 100000000) / 100000000; // Round to 8 decimal places
+    return round(snow * 100000000) / 100000000; // Round to 8 decimal places
 }
 
 int main() {
