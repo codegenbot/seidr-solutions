@@ -5,7 +5,7 @@
 int count_consonants(std::string word) {
     int count = 0;
     for (char c : word) {
-        if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+        if (isalpha(c) && !isvowel(tolower(c))) {
             count++;
         }
     }
