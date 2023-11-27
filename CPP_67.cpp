@@ -1,36 +1,19 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 int fruit_distribution(string s, int n) {
     int apples = 0;
     int oranges = 0;
-    
-    // Find the number of apples and oranges in the string
-    size_t applePos = s.find("apples");
-    if (applePos != string::npos) {
-        apples = stoi(s.substr(0, applePos));
-    }
-    
-    size_t orangePos = s.find("oranges");
-    if (orangePos != string::npos) {
-        oranges = stoi(s.substr(applePos + 7, orangePos - applePos - 7));
-    }
-    
-    // Calculate the number of mango fruits
-    int mangoes = n - apples - oranges;
-    
-    return mangoes;
-}
+    int mangoes = 0;
 
-int main() {
-    string s;
-    int n;
-    getline(cin, s);
-    cin >> n;
-    
-    int result = fruit_distribution(s, n);
-    cout << result << endl;
-    
-    return 0;
+    // Count the number of apples and oranges in the string
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'a' || s[i] == 'A') {
+            apples++;
+        } else if (s[i] == 'o' || s[i] == 'O') {
+            oranges++;
+        }
+    }
+
+    // Calculate the number of mangoes
+    mangoes = n - apples - oranges;
+
+    return mangoes;
 }
