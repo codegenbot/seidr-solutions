@@ -1,23 +1,22 @@
 bool move_one_ball(vector<int> arr){
-    if(arr.empty()){
-        return true;
-    }
-    
     int n = arr.size();
+    if(n == 0) return true;
+    
     int minIndex = 0;
-    for(int i=1; i<n; i++){
+    for(int i = 1; i < n; i++){
         if(arr[i] < arr[minIndex]){
             minIndex = i;
         }
     }
     
-    int shift = n - minIndex;
-    for(int i=0; i<n; i++){
-        int newIndex = (i + shift) % n;
-        if(arr[newIndex] < arr[i]){
-            return false;
+    int count = 0;
+    for(int i = minIndex; i < n; i++){
+        if(arr[i] < arr[(i+1)%n]){
+            count++;
+        }else{
+            break;
         }
     }
     
-    return true;
+    return count == n-1;
 }
