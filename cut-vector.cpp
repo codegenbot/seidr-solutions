@@ -11,7 +11,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         int leftSum = 0;
         int rightSum = 0;
 
-        for (int j = 0; j < i; j++) {  // Update the condition to j < i
+        for (int j = 0; j < i; j++) {   // Update the condition to j < i
             leftSum += nums[j];
         }
 
@@ -51,6 +51,6 @@ int main() {
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
