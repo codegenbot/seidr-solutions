@@ -1,5 +1,6 @@
 #include <vector>
-int solutions(vector<int> lst) {
+
+int solutions(std::vector<int> lst){
     int sum = 0;
     for (int i = 0; i < lst.size(); i += 2) {
         if (lst[i] % 2 != 0) {
@@ -7,4 +8,10 @@ int solutions(vector<int> lst) {
         }
     }
     return sum;
+}
+
+int main() {
+    int result = solutions({3, 13, 2, 9});
+    
+    return 0;
 }
