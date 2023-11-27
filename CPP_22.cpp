@@ -1,45 +1,40 @@
 #include <iostream>
-#include <list>
 #include <vector>
+#include <list>
 #include <boost/any.hpp>
 
 using namespace std;
 
-vector<int> filter_integers(list<boost::any> values){
+vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (auto value : values) {
-        if (value.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(value));
+        if (auto intValue = boost::any_cast<int>(&value)) {
+            result.push_back(*intValue);
         }
     }
     return result;
 }
 
-bool issame(int a, int b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-int main(){
-    list<boost::any> values;
-    values.push_back(10);
-    values.push_back(20);
-    values.push_back("hello");
-    values.push_back(30);
-    
-    vector<int> integers = filter_integers(values);
-    
-    for (auto i : integers) {
-        cout << i << " ";
-    }
-    cout << endl;
-    
-    int x = 10;
-    int y = 20;
-    if (issame(x, y)) {
-        cout << "x and y are same" << endl;
+int main() {
+    list<boost::any> values = {1, 2, 3, "hello", 4.5};
+    vector<int> result = filter_integers(values);
+    vector<int> expected = {1, 2, 3};
+    if (issame(result, expected)) {
+        cout << "Test case passed" << endl;
     } else {
-        cout << "x and y are different" << endl;
+        cout << "Test case failed" << endl;
     }
-    
     return 0;
 }
