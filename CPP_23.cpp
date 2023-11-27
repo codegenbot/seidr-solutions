@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-int myStrLen(std::string str) {
+int myStrLen(std::string str){
     return str.length();
 }
 
