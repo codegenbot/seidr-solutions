@@ -1,3 +1,8 @@
+#include <iostream>
+#include <cctype>
+#include <string>
+using namespace std;
+
 string flip_case(string str){
     for(int i=0; i<str.length(); i++){
         if(islower(str[i])){
@@ -8,4 +13,10 @@ string flip_case(string str){
         }
     }
     return str;
+}
+
+int main(){
+    assert (flip_case("These violent delights have violent ends") == "tHese VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    
+    return 0;
 }
