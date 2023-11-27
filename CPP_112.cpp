@@ -1,14 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
-#include <cassert>
-
 using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
     string result;
     for (int i = 0; i < s.length(); i++) {
-        if (c.find(s[i]) == std::string::npos) {
+        if (c.find(s[i]) == string::npos) {
             result += s[i];
         }
     }
@@ -21,20 +19,7 @@ vector<string> reverse_delete(string s, string c) {
     return output;
 }
 
-bool is_same(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    assert(is_same(reverse_delete("mamma", "mia"), {"", "True"}));
-    // Add more test cases here
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
