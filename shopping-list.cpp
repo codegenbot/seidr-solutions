@@ -23,7 +23,7 @@ int main() {
 
     float totalPrice = calculateTotalPrice(prices, discounts);
 
-    cout << "Total price after discounts: " << totalPrice << endl;
+    cout << totalPrice << endl;
 
     return 0;
 }
