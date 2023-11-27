@@ -1,10 +1,8 @@
 #include <string>
 #include <vector>
-#include <cassert>
-#include <algorithm>
 #include <map>
-
-using namespace std;
+#include <algorithm>
+#include <cassert>
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
