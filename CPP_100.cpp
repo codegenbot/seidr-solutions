@@ -31,12 +31,3 @@ void test_make_a_pile(){
 void test_issame(){
     assert(issame(vector<int>{1, 2, 3}, vector<int>{1, 2, 3}));
 }
-
-int main(){
-    test_make_a_pile();
-    test_issame();
-    
-    cout << "All tests passed!" << endl;
-    
-    return 0;
-}
