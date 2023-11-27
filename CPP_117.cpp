@@ -1,38 +1,33 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    if (s.empty()) {
-        return result;
-    }
-    
-    string word;
-    for (char c : s) {
-        if (c != ' ') {
-            word += c;
-        } else {
-            int consonantCount = 0;
-            for (char ch : word) {
-                if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
-                    ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
-                    consonantCount++;
-                }
-            }
+    string word = "";
+    int consonantCount = 0;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
             if (consonantCount == n) {
                 result.push_back(word);
             }
             word = "";
+            consonantCount = 0;
+        } else {
+            if (isalpha(s[i])) {
+                if (tolower(s[i]) != 'a' && tolower(s[i]) != 'e' && tolower(s[i]) != 'i' && tolower(s[i]) != 'o' && tolower(s[i]) != 'u') {
+                    consonantCount++;
+                }
+            }
+            word += s[i];
         }
     }
-    
-    int consonantCount = 0;
-    for (char ch : word) {
-        if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
-            ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
-            consonantCount++;
-        }
-    }
+
     if (consonantCount == n) {
         result.push_back(word);
     }
-    
+
     return result;
 }
