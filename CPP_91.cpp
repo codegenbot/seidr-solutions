@@ -1,15 +1,17 @@
-int is_bored(string S){
-    int count = 0;
-    bool is_sentence_start = true;
+#include <string>
 
-    for (int i = 0; i < S.length(); i++) {
-        if (is_sentence_start && S[i] == 'I') {
+int is_bored(std::string S){
+    int count = 0;
+    bool startOfSentence = true;
+
+    for(int i = 0; i < S.length(); i++){
+        if(startOfSentence && S[i] == 'I'){
             count++;
+            startOfSentence = false;
         }
-        if (S[i] == '.' || S[i] == '?' || S[i] == '!') {
-            is_sentence_start = true;
-        } else {
-            is_sentence_start = false;
+
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            startOfSentence = true;
         }
     }
 
