@@ -4,6 +4,8 @@
 #include <cassert>
 using namespace std;
 
+vector<string> sorted_list_sum(vector<string> lst);
+
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
