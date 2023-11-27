@@ -1,7 +1,4 @@
-#include <iostream>
 #include <vector>
-
-using namespace std;
 
 int smallest_change(vector<int> arr){
     int n = arr.size();
@@ -16,11 +13,9 @@ int smallest_change(vector<int> arr){
     return count;
 }
 
-int main() {
-    // Test the function using assertions
-    assert(smallest_change({0, 1}) == 1);
-  
-    // Add more test cases here
-  
+int main(){
+    // Example test cases
+    assert (smallest_change({0, 1}) == 1);
+    
     return 0;
 }
