@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -24,11 +23,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-void solve() {
-    assert(issame(total_match({"this"}, {}), {}));
-}
-
 int main() {
-    solve();
+    assert(total_match({"this"}, {}) == {});
+
     return 0;
 }
