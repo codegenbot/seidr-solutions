@@ -1,7 +1,7 @@
 #include <vector>
 
-bool issame(int num){
-    return num % 2 == 0;
+bool issame(int a, int b){
+    return a == b;
 }
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
