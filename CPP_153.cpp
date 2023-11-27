@@ -1,3 +1,8 @@
+#include <string>
+#include <vector>
+
+string Strongest_Extension(string class_name, vector<string> extensions);
+
 string Strongest_Extension(string class_name, vector<string> extensions) {
     string strongest_extension = extensions[0];
     int strongest_strength = count(strongest_extension.begin(), strongest_extension.end(), toupper(strongest_extension[0])) - count(strongest_extension.begin(), strongest_extension.end(), tolower(strongest_extension[0]));
