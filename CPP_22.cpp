@@ -15,11 +15,13 @@ vector<int> filter_integers(list<int> values) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 int main() {
     auto filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
     return issame(filtered, {3, 3, 3});
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
