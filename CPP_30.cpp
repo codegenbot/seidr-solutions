@@ -22,4 +22,6 @@ int main(){
     assert(issame(get_positive({1, 2, 3, 4, 5}), {1, 2, 3, 4, 5}));
     assert(issame(get_positive({-1, -2, -3, -4, -5}), {}));
     assert(issame(get_positive({0, 0, 0, 0, 0}), {}));
+
+    return 0;
 }
