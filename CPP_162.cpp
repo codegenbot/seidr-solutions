@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <array>
-#include <openssl/md5.h> // Add this line for the OpenSSL library
+#include <openssl/md5.h>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) {
