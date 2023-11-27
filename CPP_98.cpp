@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int count_upper(const string& s){
     int count = 0;
     for(int i = 0; i < s.length(); i+=2){
@@ -16,9 +14,9 @@ int count_upper(const string& s){
 
 int main() {
     // Test cases
-    cout << count_upper("HELLO") << endl; // Expected output: 2
-    cout << count_upper("WORLD") << endl; // Expected output: 1
-    cout << count_upper("C++") << endl; // Expected output: 0
+    std::cout << count_upper("Hello World") << std::endl;  // Expected output: 1
+    std::cout << count_upper("AbCdEfG") << std::endl;     // Expected output: 4
+    std::cout << count_upper("aeiou") << std::endl;       // Expected output: 0
     
     return 0;
 }
