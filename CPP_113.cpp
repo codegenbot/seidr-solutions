@@ -1,32 +1,40 @@
+```cpp
 #include <vector>
 #include <string>
-using namespace std;
+#include <cassert>
 
-vector<string> odd_count(vector<string> lst);
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> odd_count(vector<string> lst) {
-    vector<string> result;
-    for (string str : lst) {
-        int count = 0;
-        for (char c : str) {
-            if ((c - '0') % 2 != 0) {
-                count++;
+std::vector<std::string> odd_count(std::vector<std::string> lst){
+    std::vector<std::string> result;
+    for(std::string str : lst){
+        int oddCount = 0;
+        for(char c : str){
+            if((c - '0') % 2 != 0){
+                oddCount++;
             }
         }
-        result.push_back("the number of odd elements " + to_string(count) + "\n the str" + to_string(result.size()) + "ng " + to_string(result.size()) + " of the " + to_string(result.size()) + "\nput.");
+        result.push_back("the number of odd elements " + std::to_string(oddCount) + "\n the string " + str + " of the \ninput.");
     }
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+bool areSame(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size() != b.size()){
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(unsigned int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
+}
+
+int main(){
+    assert(areSame(odd_count({"271", "137", "314"}), {
+        "the number of odd elements 2\n the string 271 of the \ninput.",
+        "the number of odd elements 3\n the string 137 of the \ninput.",
+        "the number of odd elements 2\n the string 314 of the \ninput."
+    }));
+
+    return 0;
 }
