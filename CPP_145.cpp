@@ -1,19 +1,26 @@
-#include <vector>
 #include <algorithm>
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
-    while (a != 0) {
-        sumA += abs(a % 10);
-        a /= 10;
+    string strA = to_string(a);
+    string strB = to_string(b);
+    
+    for (char c : strA) {
+        if (isdigit(c)) {
+            sumA += c - '0';
+        }
     }
-    while (b != 0) {
-        sumB += abs(b % 10);
-        b /= 10;
+    
+    for (char c : strB) {
+        if (isdigit(c)) {
+            sumB += c - '0';
+        }
     }
+    
     if (sumA == sumB) {
-        return false;
+        return a < b;
     }
+    
     return sumA < sumB;
 }
 
