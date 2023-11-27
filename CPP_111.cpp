@@ -1,34 +1,33 @@
-#include <iostream>
-#include <map>
-#include <string>
-#include <cassert>
+#include<iostream>
+#include<map>
+#include<string>
+#include<cassert>
 
-std::map<std::string, int> histogram(std::string test) {
-  std::map<std::string, int> result;
-  if (test.empty()) {
-    return result;
-  }
-  char letter = '\0';
-  for (char c : test) {
-    if (c == ' ') {
-      result[std::string(1, letter)]++;
-      letter = '\0';
-    } else {
-      letter = c;
+using namespace std;
+
+map<string, int> histogram(string test) {
+    map<string, int> result;
+    if (test.empty()) {
+        return result;
     }
-  }
-  result[std::string(1, letter)]++;
-  return result;
-}
-
-bool issame(std::map<std::string, int> a, std::map<std::string, int> b) {
-  return a == b;
+    string letter;
+    for (char c : test) {
+        if (c == ' ') {
+            result[letter]++;
+            letter = "";
+        } else {
+            letter += c;
+        }
+    }
+    result[letter]++;
+    return result;
 }
 
 int main() {
-  assert(issame(histogram("hello world"), {{"hello", 1}, {"world", 1}}));
+    assert(histogram("a") == map<string, int>{{"a", 1}});
+    assert(histogram("hello world") == map<string, int>{{"hello", 1}, {"world", 1}});
 
-  std::cout << "All tests passed!" << std::endl;
+    cout << "All tests passed!" << endl;
 
-  return 0;
+    return 0;
 }
