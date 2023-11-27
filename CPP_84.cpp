@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 string solve(int N) {
     int sum = 0;
