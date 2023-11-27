@@ -22,12 +22,3 @@ std::string encode(std::string message) {
     }
     return encodedMessage;
 }
-
-int main() {
-    std::string message;
-    std::cout << "Enter a message: ";
-    std::getline(std::cin, message);
-    std::string encodedMessage = encode(message);
-    std::cout << "Encoded message: " << encodedMessage << std::endl;
-    return 0;
-}
