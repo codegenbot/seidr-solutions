@@ -19,6 +19,6 @@ int main() {
     int x, shift;
     cin >> x >> shift;
     string result = circular_shift(x, shift);
-    cout << result << endl;
+    cout << result;
     return 0;
 }
