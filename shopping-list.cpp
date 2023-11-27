@@ -4,14 +4,14 @@
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     float totalPrice = 0.0;
     for (int i = 0; i < prices.size(); i++) {
-        float discountedPrice = prices[i] - (prices[i] * discounts[i]);
+        float discountedPrice = prices[i] - (prices[i] * discounts[i]/100);
         totalPrice += discountedPrice;
     }
     return totalPrice;
 }
 
 int main() {
-    float numItems;
+    int numItems;
     std::cin >> numItems;
     
     std::vector<float> prices(numItems);
