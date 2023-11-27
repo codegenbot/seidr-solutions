@@ -26,10 +26,17 @@ std::vector<int> parse_music(std::string music_string) {
             note += ".";
         }
     }
+    if (note == "o|") {
+        beats.push_back(2);
+    } else if (note == ".|") {
+        beats.push_back(1);
+    } else if (note == "") {
+        beats.push_back(4);
+    }
     return beats;
 }
 
-int main() {
+int contest_main() {
     std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
     assert(issame(parsed_music, {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
