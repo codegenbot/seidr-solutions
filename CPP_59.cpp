@@ -28,10 +28,11 @@ int largest_prime_factor(int n) {
 
 int main() {
     int n;
+    cout << "Enter a number: ";
     cin >> n;
     
     int result = largest_prime_factor(n);
-    cout << result << endl;
+    cout << "Largest prime factor: " << result << endl;
     
     return 0;
 }
