@@ -1,14 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
-bool issame(vector<string> a, vector<string> b){
-    return total_match(a, b) == b;
-}
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2){
     int totalChars1 = 0;
@@ -27,10 +21,4 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2){
     }else{
         return lst2;
     }
-}
-
-int main(){
-    assert (issame(total_match({"this"}, {}) , {}));
-    
-    return 0;
 }

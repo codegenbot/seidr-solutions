@@ -17,10 +17,3 @@ int vowels_count(string s) {
     }
     return count;
 }
-
-int main() {
-    assert(vowels_count("ACEDY") == 3);
-    // Add more test cases
-    
-    return 0;
-}
