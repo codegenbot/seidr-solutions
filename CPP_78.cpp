@@ -19,9 +19,6 @@ int hex_key(string num) {
 int main() {
     string num;
     cin >> num;
-    
-    int result = hex_key(num);
-    cout << result << endl;
-    
+    cout << hex_key(num) << endl;
     return 0;
 }
