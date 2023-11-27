@@ -3,14 +3,10 @@ using namespace std;
 
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
     float snowOnGround = initialSnow;
-    float previousSnowFall = 0;
-
     for (int i = 0; i < hours; i++) {
-        float currentSnowFall = snowFallRate - (previousSnowFall * meltingRate);
-        snowOnGround += currentSnowFall;
-        previousSnowFall = currentSnowFall;
+        snowOnGround += snowFallRate;
+        snowOnGround -= meltingRate;
     }
-
     return snowOnGround;
 }
 
