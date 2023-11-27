@@ -1,6 +1,6 @@
 #include <algorithm>
-#include <assert.h>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
