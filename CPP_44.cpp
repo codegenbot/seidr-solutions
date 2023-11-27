@@ -13,6 +13,7 @@ string change_base(int x, int base) {
     return result;
 }
 
+// main function
 int main() {
     int x;
     cin >> x;
