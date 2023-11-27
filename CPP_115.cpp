@@ -1,7 +1,4 @@
-#include <iostream>
 #include <vector>
-
-using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
     int count = 0;
@@ -11,23 +8,10 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             if (grid[i][j] == 1) {
-                count += (grid[i][j] / capacity);
-                if (grid[i][j] % capacity != 0) {
-                    count++;
-                }
+                count += (grid[i][j] + capacity - 1) / capacity;
             }
         }
     }
 
     return count;
-}
-
-int main() {
-    vector<vector<int>> grid = {{0,0,1,0}, {0,1,0,0}, {1,1,1,1}};
-    int bucket_capacity = 1;
-
-    int result = max_fill(grid, bucket_capacity);
-    cout << result << endl;
-
-    return 0;
 }
