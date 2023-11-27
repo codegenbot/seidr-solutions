@@ -57,11 +57,15 @@ int count_odd_letters(string txt){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // function body
-    // return statement if necessary
-}
-
-int main() {
-    // add code to test the functions if necessary
-    return 0;
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
