@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 bool isEqual(vector<float> a, vector<float> b);
 
 vector<float> sort_even(vector<float> l) {
