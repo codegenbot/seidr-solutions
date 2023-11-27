@@ -4,6 +4,7 @@
 using namespace std;
 
 vector<int> parse_nested_parens(string paren_string);
+
 bool issame(vector<int> a, vector<int> b);
 
 int main() {
