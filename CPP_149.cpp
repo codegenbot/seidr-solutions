@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -24,7 +25,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
             result.push_back(lst[i]);
         }
     }
-    sort(result.begin(), result.end(), [](const std::string& a, const std::string& b) {
+    std::sort(result.begin(), result.end(), [](const std::string& a, const std::string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
@@ -34,6 +35,6 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame(sorted_list_sum({ "aaaa", "bbbb", "dd", "cc" }), { "cc", "dd", "aaaa", "bbbb" }));
     return 0;
 }
