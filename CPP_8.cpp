@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cassert>
 #include <vector>
 
@@ -29,7 +28,7 @@ std::vector<int> sum_product(std::vector<int> numbers){
 }
 
 int main(){
-    assert(issame(sum_product(std::vector<int>{10}), std::vector<int>{10, 10}));
+    assert(issame(sum_product({10}), {10, 10}));
     
     return 0;
 }
