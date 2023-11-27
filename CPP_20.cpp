@@ -1,7 +1,7 @@
 #include <vector>
 #include <cmath>
 #include <limits>
-#include <iostream>
+#include <cassert>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b);
 
@@ -47,10 +47,6 @@ std::vector<float> find_closest_elements(const std::vector<float>& numbers) {
 }
 
 int main() {
-    auto closest_elements = find_closest_elements(std::vector<float>({1.1, 2.2, 3.1, 4.1, 5.1}));
-    for (auto element : closest_elements) {
-        std::cout << element << " ";
-    }
-    std::cout << std::endl;
+    asserts(issame(find_closest_elements(std::vector<float>({1.1, 2.2, 3.1, 4.1, 5.1})), std::vector<float>({2.2, 3.1})));
     return 0;
 }
