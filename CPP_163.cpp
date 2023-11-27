@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     // function implementation
 }
 
@@ -17,4 +17,8 @@ vector<int> generate_integers(int a, int b) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(generate_integers(17, 89), {}));
 }
