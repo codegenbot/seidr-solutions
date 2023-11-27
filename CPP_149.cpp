@@ -18,6 +18,8 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
+vector<string> sorted_list_sum(vector<string> lst);
+
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
@@ -35,6 +37,12 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({ "aaaa", "bbbb", "dd", "cc" }), { "cc", "dd", "aaaa", "bbbb" }));
+
+    vector<string> input = { "aaaa", "bbbb", "dd", "cc" };
+    vector<string> expected = { "cc", "dd", "aaaa", "bbbb" };
+    vector<string> result = sorted_list_sum(input);
+
+    assert(issame(result, expected));
+
     return 0;
 }
