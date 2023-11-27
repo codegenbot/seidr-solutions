@@ -1,3 +1,8 @@
+#include <string>
+#include <vector>
+
+string intersection(vector<int> interval1, vector<int> interval2);
+
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
     int end1 = interval1[1];
