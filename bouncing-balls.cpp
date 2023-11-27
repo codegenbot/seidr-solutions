@@ -17,9 +17,7 @@ int main() {
     int numBounces;
 
     std::cin >> startingHeight >> bounceHeight >> numBounces;
-
     double totalDistance = calculateBounceDistance(startingHeight, bounceHeight, numBounces);
-
     std::cout << totalDistance << std::endl;
 
     return 0;
