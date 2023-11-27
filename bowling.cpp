@@ -27,7 +27,7 @@ int calculateScore(std::string input) {
             }
             roll = (roll + 1) % 2;
         } else if (ch == '-') {
-
+            
         } else {
             frames[frame] += (ch - '0');
             roll = (roll + 1) % 2;
