@@ -3,9 +3,11 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring);
+bool issame(vector<string> a, vector<string> b);
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+vector<string> filter_by_substring(vector<string> strings, string substring);
+
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,10 +19,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
-    std::vector<std::string> result;
-    for (std::string str : strings) {
-        if (str.find(substring) != std::string::npos) {
+vector<string> filter_by_substring(vector<string> strings, string substring) {
+    vector<string> result;
+    for (string str : strings) {
+        if (str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
