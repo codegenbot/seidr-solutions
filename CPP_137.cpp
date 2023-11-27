@@ -2,12 +2,11 @@
 #include <algorithm>
 
 template <typename T>
-T compare(const T& a, const T& b) {
+T compare_one(T a, T b) {
     if (a > b) {
         return a;
     } else if (b > a) {
         return b;
-    } else {
-        return T();
     }
+    return T();
 }
