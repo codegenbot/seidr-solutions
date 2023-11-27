@@ -1,14 +1,13 @@
+#include <string>
 #include <iostream>
 #include <cmath>
 
-using namespace std;
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    int rounded = std::round(num);
+    int floorVal = std::floor(num);
+    int ceilVal = std::ceil(num);
 
-int closest_integer(string value){
-    double num = stod(value);
-    int rounded = round(num);
-    int floorVal = floor(num);
-    int ceilVal = ceil(num);
-    
     if (rounded - num < num - rounded) {
         return rounded;
     } else if (num - floorVal < ceilVal - num) {
@@ -19,8 +18,9 @@ int closest_integer(string value){
 }
 
 int main() {
-    string value;
-    cin >> value;
-    cout << closest_integer(value) << endl;
+    std::string value;
+    std::cout << "Enter a value: ";
+    std::cin >> value;
+    std::cout << "Closest integer: " << closest_integer(value) << std::endl;
     return 0;
 }
