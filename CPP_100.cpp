@@ -1,9 +1,11 @@
-vector<int> make_a_pile(int n){
-    vector<int> stones;
-    int count = n;
-    for(int i=0; i<n; i++){
-        stones.push_back(count);
-        count += (n%2 == 0) ? 2 : 1;
+vector<int> levels;
+levels.push_back(n);
+for(int i=1; i<n; i++){
+    if(n % 2 == 0){
+        levels.push_back(n + 2*i);
     }
-    return stones;
+    else{
+        levels.push_back(n + 2*i - 1);
+    }
 }
+return levels;
