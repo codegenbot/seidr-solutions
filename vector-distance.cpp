@@ -22,6 +22,7 @@ int main() {
 
     std::string input1, input2;
     std::getline(std::cin.ignore(), input1);
+    std::getline(std::cin, input1);
     std::stringstream ss(input1);
     for (int i = 0; i < n; i++) {
         ss >> vector1[i];
