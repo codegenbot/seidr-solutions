@@ -1,7 +1,10 @@
 #include <string>
+#include <cassert>
 
-std::string flip_case(std::string str) {
-    std::string result = "";
+using namespace std;
+
+string flip_case(string str){
+    string result = "";
     for(int i=0; i<str.length(); i++){
         if(islower(str[i])){
             result += toupper(str[i]);
@@ -16,11 +19,6 @@ std::string flip_case(std::string str) {
     return result;
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::string flipped = flip_case(input);
-    std::cout << "Flipped case: " << flipped << std::endl;
-    return 0;
+int main(){
+    assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }
