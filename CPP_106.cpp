@@ -33,9 +33,3 @@ std::vector<int> f(int n) {
     }
     return result;
 }
-
-int main() {
-    assert(isSame(f(3), {1, 2, 6}));
-    std::cout << "Assertion Passed" << std::endl;
-    return 0;
-}
