@@ -1,28 +1,32 @@
-#include <cassert>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+using namespace std;
 
-std::vector<int> make_a_pile(int n){
-    std::vector<int> pile;
+vector<int> make_a_pile(int n){
+    vector<int> pile;
     int stones = n;
     pile.push_back(stones);
-
+    
     for(int i=1; i<n; i++){
-        if(n % 2 == 0){
+        if(n%2 == 0){ // if n is even
             stones += 2;
-        } else {
+        } else { // if n is odd
             stones += 1;
         }
         pile.push_back(stones);
     }
-
+    
     return pile;
 }
 
+bool issame(vector<int> a, vector<int> b){
+    // function implementation
+}
+
 int main() {
+    vector<int> make_a_pile(int n);  // declare make_a_pile function
+
     assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+
     return 0;
 }
