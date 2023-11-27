@@ -26,7 +26,7 @@ bool issame(const map<char, int>& a, const map<char, int>& b){
 }
 
 int main(){
-    map<char,int> (*histogram_ptr)(string) = &histogram;
+    map<char,int> (*histogram_ptr)(string) = histogram;
 
     assert(issame(histogram_ptr("a"), {{'a', 1}}));
 
