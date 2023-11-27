@@ -5,8 +5,8 @@
 
 using namespace std;
 
-map<string, int> histogram(string test) {
-    map<string, int> result;
+map<char, int> histogram(string test) {
+    map<char, int> result;
     if (test.empty()) {
         return result;
     }
@@ -23,15 +23,15 @@ map<string, int> histogram(string test) {
     return result;
 }
 
-bool issame(const map<string, int>& a, const map<string, int>& b) {
+bool issame(const map<char, int>& a, const map<char, int>& b) {
     return a == b;
 }
 
 int main() {
-    map<string, int> expected1 = {{"a", 1}};
+    map<char, int> expected1 = {{'a', 1}};
     assert(issame(histogram("a"), expected1));
-    
-    map<string, int> expected2 = {{"hello", 1}, {"world", 1}};
+
+    map<char, int> expected2 = {{'h', 1}, {'e', 1}, {'l', 2}, {'o', 2}, {'w', 1}, {'r', 1}, {'d', 1}};
     assert(issame(histogram("hello world"), expected2));
 
     cout << "All tests passed!" << endl;

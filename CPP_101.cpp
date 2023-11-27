@@ -24,7 +24,8 @@ vector<string> words_string(const string& s) {
                 words.push_back(word);
                 word = "";
             }
-        } else {
+        }
+        else {
             word += s[i];
         }
     }
