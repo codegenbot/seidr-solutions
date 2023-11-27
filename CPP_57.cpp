@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 bool monotonic(vector<float> l){
     bool increasing = true;
