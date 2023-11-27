@@ -14,14 +14,12 @@ bool is_happy(string s){
 
 int main(){
     string input;
-    cout << "Enter a string: ";
     cin >> input;
-    
-    if(is_happy(input)){
-        cout << "The string is happy." << endl;
+    bool result = is_happy(input);
+    if(result){
+        cout << "Happy" << endl;
     } else {
-        cout << "The string is not happy." << endl;
+        cout << "Not Happy" << endl;
     }
-    
     return 0;
 }
