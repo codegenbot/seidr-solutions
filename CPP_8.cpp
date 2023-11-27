@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -33,10 +34,10 @@ int main() {
     std::vector<int> input = {10};
     std::vector<int> result = sum_product(input);
 
-    if (!issame(result, input)) {
-        std::cout << "Sum and product are not the same" << std::endl;
-    } else {
+    if (issame(result, input)) {
         std::cout << "Sum and product are the same" << std::endl;
+    } else {
+        std::cout << "Sum and product are not the same" << std::endl;
     }
 
     return 0;
