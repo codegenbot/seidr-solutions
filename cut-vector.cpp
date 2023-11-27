@@ -43,10 +43,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
+  
+    auto result = cutVector(nums);
 
-    vector<int> result = cutVector(nums);
-
-    for (auto it = result.begin(); it != result.end(); it++) {
+    for (auto it = std::begin(result); it != std::end(result); it++) {
         for (auto it2 = it->begin(); it2 != it->end(); it2++) {
             cout << *it2 << endl;
         }
