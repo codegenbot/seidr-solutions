@@ -1,18 +1,16 @@
-vector<int> strange_sort_list(vector<int> lst){
-    // Sort the vector in ascending order
+vector<int> strange_sort_vector(vector<int> lst){
+    vector<int> result;
     sort(lst.begin(), lst.end());
+    int start = 0;
+    int end = lst.size() - 1;
     
-    int n = lst.size();
-    if(n == 0) return lst;
-    
-    vector<int> result(n);
-    int i = 0, j = n-1, k = 0;
-    
-    while(i <= j){
-        result[k++] = lst[i++];
-        if(i <= j){
-            result[k++] = lst[j--];
+    while(start <= end){
+        if(start == end){
+            result.push_back(lst[start]);
+            break;
         }
+        result.push_back(lst[start++]);
+        result.push_back(lst[end--]);
     }
     
     return result;
