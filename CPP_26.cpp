@@ -2,7 +2,12 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()) return false;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
+}
 
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
@@ -12,13 +17,6 @@ vector<int> remove_duplicates(vector<int> numbers){
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
 }
 
 int main(){
