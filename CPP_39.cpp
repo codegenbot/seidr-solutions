@@ -34,11 +34,3 @@ int prime_fib(int n) {
     }
     return fib;
 }
-
-int main() {
-    int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    std::cout << prime_fib(n) << std::endl;
-    return 0;
-}
