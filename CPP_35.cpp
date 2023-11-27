@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
+#include <cassert>
 #include <cmath>
 
 float findMaxElement(const std::vector<float>& l) {
@@ -9,8 +9,6 @@ float findMaxElement(const std::vector<float>& l) {
 }
 
 int main() {
-    std::vector<float> nums = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    assert (std::abs(*std::max_element(nums.begin(), nums.end()) - 124) < 1e-4);
-    std::cout << "Test passed!" << std::endl;
+    assert (std::abs(*std::max_element(l.begin(), l.end()) - 124) < 1e-4);
     return 0;
 }
