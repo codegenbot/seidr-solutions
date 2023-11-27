@@ -1,20 +1,22 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string string_xor(std::string a, std::string b) {
-    std::string result;
-    for (int i = 0; i < a.length(); i++) {
-        if (a[i] != b[i]) {
-            result += "1";
-        } else {
+string string_xor(string a, string b) {
+    string result = "";
+    for(int i=0; i<a.length(); i++){
+        if(a[i] == b[i]){
             result += "0";
+        }else{
+            result += "1";
         }
     }
     return result;
 }
 
 int main() {
-    std::cout << string_xor("0101", "0000") << std::endl;
-
+    assert (string_xor("0101", "0000") == "0101");
+    // ... add more test cases if desired
+    
     return 0;
 }
