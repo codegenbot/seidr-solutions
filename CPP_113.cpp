@@ -1,6 +1,6 @@
-#include <vector>
-#include <string>
-#include <map>
+vector<string> odd_count(vector<string> lst);
+
+bool issame(vector<string> a, vector<string> b) {}
 
 vector<string> odd_count(vector<string> lst) {
     vector<string> result;
@@ -11,8 +11,7 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string res = "the number of odd elements " + to_string(count) + "n the str" + to_string(count) + "ng " + s + " of the " + to_string(count) + "nput.";
-        result.push_back(res);
+        result.push_back("the number of odd elements " + to_string(count) + "n the str" + to_string(count) + "ng " + s + " of the " + to_string(count) + "nput.");
     }
     return result;
 }
