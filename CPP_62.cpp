@@ -20,7 +20,7 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main(){
-    // implementation of the main function
+   // rest of the code
    
-    return 0;
+   return 0;
 }
