@@ -21,7 +21,8 @@ int main(){
     assert (count_nums({1}) == 1);
     assert (count_nums({-123, 456, -789}) == 3);
     assert (count_nums({0, 0, 0, 0}) == 0);
-    assert (count_nums({12345, -67890, 0, 9876}) == 4);
+    assert (count_nums({-1, -2, -3, -4, -5}) == 5);
+    assert (count_nums({1234, 5678, 9101112}) == 3);
     // Add more test cases here
     return 0;
 }
