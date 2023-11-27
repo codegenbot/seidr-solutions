@@ -1,4 +1,9 @@
-vector<string> split_words(string txt){
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
     bool hasWhitespace = false;
