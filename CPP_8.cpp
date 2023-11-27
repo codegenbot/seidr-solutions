@@ -28,7 +28,6 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    vector<int> result = sum_product({10});
-    assert(issame(result, {10, 10}));
-    return 0;
+    assert(issame(sum_product({10}), {10, 10}));
+    // ... more code ...
 }
