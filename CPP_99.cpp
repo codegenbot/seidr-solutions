@@ -1,24 +1,21 @@
-#include <iostream>
-#include <cmath>
-#include <cassert>
 #include <string>
+#include <cmath>
 
 int closest_integer(const std::string& value){
-    double num = stod(value);
-    int rounded = round(num);
-    int floorVal = floor(num);
-    int ceilVal = ceil(num);
+    float num = std::stof(value);
+    int closest = std::round(num);
+    int floor_num = std::floor(num);
+    int ceil_num = std::ceil(num);
     
-    if (rounded - num < num - rounded) {
-        return rounded;
-    } else if (num - floorVal < ceilVal - num) {
-        return floorVal;
-    } else {
-        return ceilVal;
+    if(std::abs(num - floor_num) < std::abs(num - ceil_num)){
+        closest = floor_num;
     }
-}
-
-int main() {
-    assert (closest_integer("0"s) == 0);
-    return 0;
+    else if(std::abs(num - floor_num) > std::abs(num - ceil_num)){
+        closest = ceil_num;
+    }
+    else{
+        closest = (num > 0) ? ceil_num : floor_num;
+    }
+    
+    return closest;
 }
