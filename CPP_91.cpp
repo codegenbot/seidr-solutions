@@ -18,9 +18,10 @@ int is_bored(string S){
 }
 
 int main() {
-    string sentence;
-    getline(cin, sentence);
-    int result = is_bored(sentence);
-    cout << result;
+    string S;
+    getline(cin, S);
+    int result = is_bored(S);
+    cout << result << endl;
+    
     return 0;
 }
