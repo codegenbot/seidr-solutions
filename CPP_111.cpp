@@ -23,8 +23,18 @@ map<string, int> histogram(string test) {
     return result;
 }
 
-bool issame(const std::map<string, int>& a, const std::map<string, int>& b) {
-    return a == b;
+bool issame(const map<string, int>& a, const map<string, int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (auto it = a.begin(); it != a.end(); ++it) {
+        if (b.find(it->first) == b.end() || b[it->first] != it->second) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
