@@ -1,6 +1,7 @@
 #include <string>
+#include <cassert>
 
-bool is_happy(string s){
+bool is_happy(std::string s){
     if(s.length() < 3){
         return false;
     }
@@ -13,15 +14,10 @@ bool is_happy(string s){
 }
 
 int main(){
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    
-    if(is_happy(input)){
-        cout << "The string is happy." << endl;
-    } else {
-        cout << "The string is not happy." << endl;
-    }
-    
+    // Test cases
+    assert(is_happy("abc") == true);
+    assert(is_happy("aab") == false);
+    assert(is_happy("iopaxioi") == false);
+
     return 0;
 }
