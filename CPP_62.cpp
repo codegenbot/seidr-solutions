@@ -20,3 +20,9 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     }
     return true;
 }
+
+int main() {
+    assert(issame(derivative({1}), {}));
+    // Add more test cases here if needed
+    return 0;
+}
