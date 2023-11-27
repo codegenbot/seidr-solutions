@@ -2,9 +2,11 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    std::vector<std::string> result;
-    for (const std::string& str : strings) {
+using namespace std;
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+    vector<string> result;
+    for (const string& str : strings) {
         if (str.substr(0, prefix.size()) == prefix) {
             result.push_back(str);
         }
@@ -14,4 +16,5 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 
 int main() {
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
