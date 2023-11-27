@@ -1,15 +1,11 @@
-#include <iostream>
-#include <string>
-
-std::string flip_case(std::string str){
-    std::string result = "";
-    for(int i = 0; i < str.length(); i++){
-        if(std::islower(str[i])){
-            result += std::toupper(str[i]);
+string flip_case(string str){
+    for(int i=0; i<str.length(); i++){
+        if(islower(str[i])){
+            str[i] = toupper(str[i]);
         }
-        else if(std::isupper(str[i])){
-            result += std::tolower(str[i]);
+        else if(isupper(str[i])){
+            str[i] = tolower(str[i]);
         }
     }
-    return result;
+    return str;
 }
