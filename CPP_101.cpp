@@ -1,12 +1,11 @@
 #include <iostream>
+#include <vector>
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-vector<string> words_string(const string& s) {
-    vector<string> words;
-    string word = "";
+std::vector<std::string> words_string(const std::string& s) {
+    std::vector<std::string> words;
+    std::string word = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ' || s[i] == ',') {
             if (word != "") {
@@ -23,13 +22,13 @@ vector<string> words_string(const string& s) {
     return words;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b_words) {
     bool result = true;
-    if (a.size() != b.size()) {
+    if (a.size() != b_words.size()) {
         result = false;
     } else {
         for (int i = 0; i < a.size(); i++) {
-            if (a[i] != b[i]) {
+            if (a[i] != b_words[i]) {
                 result = false;
                 break;
             }
