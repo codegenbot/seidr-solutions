@@ -32,8 +32,7 @@ vector<int> cutVector(vector<int>& nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    return leftSubvector;
-    return rightSubvector;
+    return vector<int>(leftSubvector.begin(), leftSubvector.end());
 }
 
 int main() {
@@ -45,16 +44,9 @@ int main() {
         cin >> nums[i];
     }
   
-    auto leftResult = cutVector(nums);
-    auto rightResult = cutVector(nums);
+    auto result = cutVector(nums);
 
-    for (const auto& element : leftResult) {
-        cout << element << " ";
-    }
-
-    cout << endl;
-
-    for (const auto& element : rightResult) {
+    for (const auto& element : result) {
         cout << element << " ";
     }
 
