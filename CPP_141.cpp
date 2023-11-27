@@ -3,7 +3,8 @@
 string file_name_check(string file_name);
 
 int main() {
-    // your code
+    string file = "example.txt";
+    string result = file_name_check(file);
     return 0;
 }
 
