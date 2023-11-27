@@ -1,6 +1,6 @@
-#include <cassert>
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -9,6 +9,6 @@ int strlen(const string& str){
 }
 
 int main(){
-    assert(strlen("asdasnakj") == 9);
+    assert (strlen("asdasnakj") == 9);
     return 0;
 }
