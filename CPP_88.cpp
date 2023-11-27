@@ -27,6 +27,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    std::vector<int> sorted_array = sort_array({21, 14, 23, 11});
+    std::vector<int> expected = {23, 21, 14, 11};
+    assert(issame(sorted_array, expected));
     return 0;
 }
