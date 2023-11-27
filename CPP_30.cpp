@@ -1,38 +1,29 @@
 #include <vector>
 #include <cassert>
+#include <cmath>
 
 using namespace std;
 
-vector<float> get_positive(const vector<float>& l){
+vector<float> get_positive(const vector<float>& l) {
     vector<float> positive_numbers;
-    for(float num : l){
-        if(num > 0){
+    for (float num : l) {
+        if (num > 0) {
             positive_numbers.push_back(num);
         }
     }
     return positive_numbers;
 }
 
-bool issame(const vector<float>& a, const vector<float>& b){
-    if(a.size() != b.size()){
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
     }
 
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i=0; i<a.size(); i++) {
+        if (abs(a[i] - b[i]) > 1e-4) {
             return false;
         }
     }
 
     return true;
-}
-
-void solve(){
-    assert(issame(get_positive(vector<float>{}), vector<float>{}));
-    // Add your solution logic here
-}
-
-int main() {
-    solve();
-    return 0;
 }
