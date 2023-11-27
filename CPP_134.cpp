@@ -1,7 +1,8 @@
-#include <string>
 #include <iostream>
+#include <string>
+using namespace std;
 
-bool check_if_last_char_is_a_letter(std::string txt){
+bool check_if_last_char_is_a_letter(string txt){
     int len = txt.length();
     if(len == 0)
         return false;
@@ -13,6 +14,6 @@ bool check_if_last_char_is_a_letter(std::string txt){
 }
 
 int main() {
-    std::cout << check_if_last_char_is_a_letter("apple pie ") << std::endl;
+    cout << check_if_last_char_is_a_letter("apple pi e ") << endl;
     return 0;
 }
