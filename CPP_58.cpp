@@ -1,18 +1,26 @@
 #include <vector>
 #include <algorithm>
-
-using namespace std;
+#include <iterator>
 
 bool issame(vector<int> a, vector<int> b) {
-    vector<int> result;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    set_intersection(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
-    result.erase(unique(result.begin(), result.end()), result.end());
-    return result.size() == 0;
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
-int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
-    return 0;
+vector<int> common(vector<int> l1, vector<int> l2) {
+    vector<int> result;
+    sort(l1.begin(), l1.end());
+    sort(l2.begin(), l2.end());
+    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
+    result.erase(unique(result.begin(), result.end()), result.end());
+    return result;
 }
