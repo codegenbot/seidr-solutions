@@ -1,29 +1,52 @@
+#include <vector>
+
+vector<int> tri(int n);
+
+bool issame(vector<int> list1, vector<int> list2);
+
 vector<int> tri(int n){
     vector<int> sequence;
-    sequence.push_back(3); // add the first element of the sequence
+    sequence.push_back(3);
     
     if(n == 0){
-        return sequence; // return the sequence with only the first element
+        return sequence;
     }
     
-    sequence.push_back(1 + n/2); // add the second element of the sequence
+    sequence.push_back(1);
     
     if(n == 1){
-        return sequence; // return the sequence with the first two elements
+        return sequence;
     }
     
-    int prev1 = 3; // initialize the previous element 1
-    int prev2 = 2; // initialize the previous element 2
-    int prev3 = 1 + n/2; // initialize the previous element 3
+    sequence.push_back(2);
     
-    for(int i = 3; i <= n; i++){
-        int current = prev1 + prev2 + prev3; // calculate the current element
-        sequence.push_back(current); // add the current element to the sequence
-        
-        prev1 = prev2; // update the previous element 1
-        prev2 = prev3; // update the previous element 2
-        prev3 = current; // update the previous element 3
+    if(n == 2){
+        return sequence;
     }
     
-    return sequence; // return the complete sequence
+    int i = 3;
+    while(i <= n){
+        if(i % 2 == 0){
+            sequence.push_back(1 + i / 2);
+        }else{
+            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i + 1]);
+        }
+        i++;
+    }
+    
+    return sequence;
+}
+
+bool issame(vector<int> list1, vector<int> list2){
+    if(list1.size() != list2.size()){
+        return false;
+    }
+    
+    for(int i = 0; i < list1.size(); i++){
+        if(list1[i] != list2[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
