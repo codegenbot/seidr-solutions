@@ -1,32 +1,26 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-bool is_sorted(vector<int> lst) {
-    // Sort the vector in ascending order
-    sort(lst.begin(), lst.end());
+bool is_sorted(vector<int> lst){
+    if(lst.size() <= 1) {
+        return true;
+    }
     
-    // Check if there are more than 1 duplicate of the same number
-    for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] == lst[i+1]) {
+    int prev_num = lst[0];
+    int duplicate_count = 0;
+    
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] < prev_num) {
             return false;
         }
+        
+        if(lst[i] == prev_num) {
+            duplicate_count++;
+        }
+        
+        if(duplicate_count > 1) {
+            return false;
+        }
+        
+        prev_num = lst[i];
     }
     
     return true;
-}
-
-int main() {
-    // Test the function
-    cout << is_sorted({5}) << endl; // true
-    cout << is_sorted({1, 2, 3, 4, 5}) << endl; // true
-    cout << is_sorted({1, 3, 2, 4, 5}) << endl; // false
-    cout << is_sorted({1, 2, 3, 4, 5, 6}) << endl; // true
-    cout << is_sorted({1, 2, 3, 4, 5, 6, 7}) << endl; // true
-    cout << is_sorted({1, 3, 2, 4, 5, 6, 7}) << endl; // false
-    cout << is_sorted({1, 2, 2, 3, 3, 4}) << endl; // true
-    cout << is_sorted({1, 2, 2, 2, 3, 4}) << endl; // false
-    
-    return 0;
 }
