@@ -11,8 +11,7 @@ string rounded_avg(int n, int m) {
         count++;
     }
     
-    int average = round(sum / count);
-    
+    int average = sum / count;
     string binary = "";
     
     while (average > 0) {
