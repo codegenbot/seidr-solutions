@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int how_many_times(std::string str, std::string substring){
+int how_many_times(string str, string substring){
     int count = 0;
     int sub_len = substring.length();
     int str_len = str.length();
