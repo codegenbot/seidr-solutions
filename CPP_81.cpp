@@ -67,16 +67,15 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    vector<float> grades = {3.5, 2.8, 4.0, 1.9};
+    vector<float> grades = {3.8, 2.5, 4.0, 1.2, 3.5};
     vector<string> letter_grades = numerical_letter_grade(grades);
-
-    vector<string> expected_grades = {"B+", "B-", "A+", "D-"};
-    if(issame(letter_grades, expected_grades)){
-        cout << "Test case passed!" << endl;
+    vector<string> expected_result = {"A", "C", "A+", "D-", "B"};
+    bool result = issame(letter_grades, expected_result);
+    if(result){
+        cout << "The letter grades are correct." << endl;
     }
     else{
-        cout << "Test case failed!" << endl;
+        cout << "The letter grades are incorrect." << endl;
     }
-
     return 0;
 }
