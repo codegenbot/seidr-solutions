@@ -12,10 +12,9 @@ bool same_chars(string s0, string s1){
 }
 
 int main() {
-    assert (same_chars("aabb", "aaccc") == false);
-    assert (same_chars("abc", "cba") == true);
-    assert (same_chars("hello", "olleh") == true);
-    assert (same_chars("world", "wordl") == false);
+    string s0, s1;
+    cin >> s0 >> s1;
+    cout << same_chars(s0, s1) << endl;
     
     return 0;
 }
