@@ -7,6 +7,7 @@ using namespace std;
 vector<string> select_words(string s, int n);
 
 bool issame(vector<string> a, vector<string> b) {
+    // Compare the two vectors
     if (a.size() != b.size()) {
         return false;
     }
