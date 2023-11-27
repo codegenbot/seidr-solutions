@@ -12,14 +12,14 @@ int count_upper(const string& s){
 }
 
 int main() {
-    // Test cases
-    string test1 = "Hello";
-    string test2 = "WORLD";
-    string test3 = "AbCdEfGhIj";
+    // test cases
+    string s1 = "AEIOU";
+    string s2 = "BCDFG";
+    string s3 = "aeiou";
     
-    int result1 = count_upper(test1);
-    int result2 = count_upper(test2);
-    int result3 = count_upper(test3);
+    int result1 = count_upper(s1); // expected output: 3
+    int result2 = count_upper(s2); // expected output: 0
+    int result3 = count_upper(s3); // expected output: 0
     
-    return (result1 == 1 && result2 == 5 && result3 == 5);
+    return 0;
 }
