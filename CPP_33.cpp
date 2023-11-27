@@ -1,24 +1,23 @@
+#include <algorithm>
+#include <assert.h>
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+vector<int> sort_third(vector<int> l);
+
+int main(){
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+}
+
 vector<int> sort_third(vector<int> l){
-    vector<int> result;
-    vector<int> sorted;
-    
-    for(int i=0; i<l.size(); i++){
+    vector<int> l_prime(l);
+    for(int i=0; i<l_prime.size(); i++){
         if(i%3 == 0){
-            sorted.push_back(l[i]);
-        } else {
-            result.push_back(l[i]);
+            sort(l_prime.begin()+i, l_prime.begin()+i+3);
         }
     }
-    
-    sort(sorted.begin(), sorted.end());
-    
-    int j = 0;
-    for(int i=0; i<l.size(); i++){
-        if(i%3 == 0){
-            result.push_back(sorted[j]);
-            j++;
-        }
-    }
-    
-    return result;
+    return l_prime;
 }
