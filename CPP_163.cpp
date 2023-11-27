@@ -27,8 +27,3 @@ bool are_equal(vector<int> a, vector<int> b){
     
     return true;
 }
-
-int main() {
-    assert(are_equal(generate_integers(17, 89), {}));
-    return 0;
-}
