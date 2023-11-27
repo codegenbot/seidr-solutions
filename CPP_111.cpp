@@ -13,17 +13,13 @@ map<char, int> histogram(string test) {
     string word;
     for (char c : test) {
         if (c == ' ') {
-            for (char w : word) {
-                result[w]++;
-            }
+            result[word]++;
             word = "";
         } else {
             word += c;
         }
     }
-    for (char w : word) {
-        result[w]++;
-    }
+    result[word]++;
     return result;
 }
 
