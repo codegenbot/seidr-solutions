@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 using namespace std;
 
 vector<string> split_words(string txt) {
@@ -16,13 +16,15 @@ vector<string> split_words(string txt) {
                 result.push_back(word);
                 word = "";
             }
-        } else if (txt[i] == ',') {
+        }
+        else if (txt[i] == ',') {
             hasComma = true;
             if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
-        } else {
+        }
+        else {
             word += txt[i];
         }
     }
@@ -39,6 +41,7 @@ vector<string> split_words(string txt) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
+    // Your code here
     if (a.size() != b.size()) {
         return false;
     }
