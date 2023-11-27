@@ -1,10 +1,5 @@
 #include <string>
 
-int calculateLength(const std::string& str){
-    return str.length();
-}
-
-int main() {
-    assert(calculateLength("asdasnakj") == 9);
-    return 0;
+int getLength(const std::string& str) {
+    return str.size();
 }
