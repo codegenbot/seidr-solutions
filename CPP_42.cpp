@@ -1,12 +1,15 @@
-#include <vector>
-#include <cassert>
+#include<vector>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
+vector<int> incr_list(vector<int> l);
+
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
         return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
+    }
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
+        }
     }
     return true;
 }
@@ -19,7 +22,10 @@ vector<int> incr_list(vector<int> l){
     return result;
 }
 
-int main(){
-    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));  
+int main() {
+    vector<int> input = {1, 2, 3, 4, 5};
+    vector<int> expected_output = {2, 3, 4, 5, 6};
+    vector<int> output = incr_list(input);
+    assert(issame(output, expected_output));
     return 0;
 }
