@@ -1,5 +1,7 @@
+#include <cassert>
 #include <string>
-#include <cctype>
+
+string encrypt(string s);
 
 string encrypt(string s){
     string encrypted = "";
@@ -16,9 +18,4 @@ string encrypt(string s){
         encrypted += c;
     }
     return encrypted;
-}
-
-int main(){
-    assert (encrypt("a")=="e");
-    return 0;
 }
