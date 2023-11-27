@@ -1,8 +1,20 @@
 #include <vector>
+#include <iostream>
+#include <cassert>
+
 using namespace std;
 
-vector<int> unique_digits(vector<int> x);
-bool issame_set(vector<int> a, vector<int> b);
+bool isSame(vector<int> a, vector<int> b){
+    if(a.size() != b.size())
+        return false;
+
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+
+    return true;
+}
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
@@ -15,33 +27,17 @@ vector<int> unique_digits(vector<int> x){
                 hasEvenDigit = true;
                 break;
             }
-            num = num / 10;
+            num /= 10;
         }
         if(!hasEvenDigit){
             result.push_back(x[i]);
         }
     }
-    sort(result.begin(), result.end());
     return result;
 }
 
-bool issame_set(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+int main(){
+    assert(isSame(unique_digits({135, 103, 31}), {31, 135}));
 
-int main() {
-    assert(issame_set(unique_digits({135, 103, 31}), {31, 135}));
     return 0;
 }
