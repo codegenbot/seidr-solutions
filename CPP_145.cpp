@@ -23,21 +23,13 @@ bool compare(int a, int b) {
 
 vector<int> order_by_points(vector<int> nums);
 
-bool issame(vector<int> a, vector<int> b);
-
-int main();
-
-vector<int> order_by_points(vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), compare);
-    return nums;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
 int main() {
     assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
 
     return 0;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), compare);
+    return nums;
 }
