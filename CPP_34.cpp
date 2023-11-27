@@ -15,9 +15,9 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> unique(vector<int> l){
-    sort(l.begin(), l.end());
-    l.erase(unique(l.begin(), l.end()), l.end());
+std::vector<int> unique(std::vector<int> l){
+    std::sort(l.begin(), l.end());
+    l.erase(std::unique(l.begin(), l.end()), l.end());
     return l;
 }
 
