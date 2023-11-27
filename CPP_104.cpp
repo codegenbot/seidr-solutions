@@ -3,15 +3,7 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    // Implementation of the function
 }
 
 vector<int> unique_digits(vector<int> x){
