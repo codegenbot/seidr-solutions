@@ -1,28 +1,9 @@
-#include <vector>
-#include <functional>
-#include <cassert>
-
-using namespace std;
-
 vector<int> minPath(vector<vector<int>> grid, int k);
 
-bool isSame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-int main(){
-    assert (isSame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
-    return 0;
+bool isSame(vector<int> a, vector<int> b) {
+    // Implementation of the function
+    // ...
+    return result;
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
@@ -30,10 +11,12 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> path;
     vector<vector<bool>> visited(n, vector<bool>(n, false));
     
+    // Helper function to check if a cell is valid
     auto isValid = [&](int x, int y){
         return (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]);
     };
     
+    // Helper function to get neighbors of a cell
     auto getNeighbors = [&](int x, int y){
         vector<pair<int, int>> neighbors;
         neighbors.push_back({x-1, y});
@@ -43,6 +26,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         return neighbors;
     };
     
+    // Helper function to compare two paths
     auto comparePaths = [&](const vector<int>& pathA, const vector<int>& pathB){
         int len = min(pathA.size(), pathB.size());
         for(int i=0; i<len; i++){
@@ -56,6 +40,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         return pathA.size() < pathB.size();
     };
     
+    // Helper function to backtrack and find the minimum path
     function<void(int, int, int, vector<int>&)> backtrack = [&](int x, int y, int steps, vector<int>& currPath){
         visited[x][y] = true;
         currPath.push_back(grid[x][y]);
@@ -80,6 +65,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         currPath.pop_back();
     };
     
+    // Start from each cell and find the minimum path
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
             vector<int> currPath;
@@ -88,4 +74,10 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     }
     
     return path;
+}
+
+int main(){
+    assert (isSame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    
+    return 0;
 }
