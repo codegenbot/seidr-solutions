@@ -1,4 +1,6 @@
-int search(vector<int> lst){
+#include <vector>
+
+int search(std::vector<int> lst){
     int maxFreq = -1;
     int result = -1;
     for(int i = 0; i < lst.size(); i++){
@@ -14,4 +16,9 @@ int search(vector<int> lst){
         }
     }
     return result;
+}
+
+int main() {
+    int result = search({3, 10, 10, 9, 2});
+    return 0;
 }
