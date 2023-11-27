@@ -2,20 +2,6 @@
 
 vector<int> tri(int n);
 
-bool issame(vector<int> seq1, vector<int> seq2){
-    if(seq1.size() != seq2.size()){
-        return false;
-    }
-    
-    for(int i = 0; i < seq1.size(); i++){
-        if(seq1[i] != seq2[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
-
 vector<int> tri(int n){
     vector<int> sequence;
     sequence.push_back(3);
