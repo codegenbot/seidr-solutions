@@ -1,19 +1,34 @@
-if (str.length() < 3) {
+#include <iostream>
+#include <string>
+#include <stack>
+
+using namespace std;
+
+bool is_nested(string str) {
+    stack<char> st;
+
+    for (char c : str) {
+        if (c == '[') {
+            st.push(c);
+        } else if (c == ']') {
+            if (!st.empty() && st.top() == '[') {
+                st.pop();
+            } else {
+                return true;
+            }
+        }
+    }
+
     return false;
 }
 
-int nesting = 0;
+int main() {
+    cout << is_nested("[[]]") << endl;
+    cout << is_nested("[]]]]]]][[[[[]") << endl;
+    cout << is_nested("[][]") << endl;
+    cout << is_nested("[]") << endl;
+    cout << is_nested("[[][]]") << endl;
+    cout << is_nested("[[]][[") << endl;
 
-for (int i = 0; i < str.length(); i++) {
-    if (str[i] == '[') {
-        nesting++;
-    } else if (str[i] == ']') {
-        nesting--;
-    }
-
-    if (nesting >= 2) {
-        return true;
-    }
+    return 0;
 }
-
-return false;
