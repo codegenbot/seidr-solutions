@@ -3,14 +3,16 @@ vector<int> even_odd_count(int num){
     int oddCount = 0;
     int digit;
     
-    while(num != 0){
-        digit = abs(num % 10);
+    num = abs(num); // convert negative number to positive
+    
+    while(num > 0){
+        digit = num % 10;
         if(digit % 2 == 0){
             evenCount++;
         } else {
             oddCount++;
         }
-        num /= 10;
+        num = num / 10;
     }
     
     vector<int> result = {evenCount, oddCount};
