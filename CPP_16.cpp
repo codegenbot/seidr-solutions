@@ -1,11 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
 #include <string>
-
+#include <vector>
 using namespace std;
 
-int count_distinct_characters(string str) {
+int countDistinctCharacters(string str) {
     vector<char> distinct_chars;
     for (char c : str) {
         char lower_c = tolower(c);
@@ -17,6 +14,9 @@ int count_distinct_characters(string str) {
 }
 
 int main() {
-    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
-    // Rest of the code...
+    string str;
+    cin >> str;
+    int result = countDistinctCharacters(str);
+    cout << result << endl;
+    return 0;
 }
