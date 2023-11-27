@@ -2,14 +2,12 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<float>& a, const vector<float>& b){
+bool issame(const std::vector<float>& a, const std::vector<float>& b){
     return a == b;
 }
 
-vector<float> get_positive(const vector<float>& l){
-    vector<float> positive_nums;
+std::vector<float> get_positive(const std::vector<float>& l){
+    std::vector<float> positive_nums;
     for(int i=0; i<l.size(); i++){
         if(l[i] > 0){
             positive_nums.push_back(l[i]);
