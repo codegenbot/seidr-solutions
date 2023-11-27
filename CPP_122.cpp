@@ -13,6 +13,5 @@ int add_elements(vector<int> arr, int k) {
 
 int main() {
     assert(add_elements({1}, 1) == 1);
-  
     return 0;
 }
