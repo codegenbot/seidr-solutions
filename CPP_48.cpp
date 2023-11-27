@@ -1,4 +1,8 @@
+#include <iostream>
 #include <string>
+#include <cassert>
+
+using namespace std;
 
 bool is_palindrome(string text){
     int n = text.length();
@@ -15,6 +19,6 @@ int main() {
     assert (is_palindrome("hello") == false);
     assert (is_palindrome("xywzx") == false);
     // add more test cases if needed
-
+    
     return 0;
 }
