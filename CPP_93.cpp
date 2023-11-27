@@ -1,18 +1,31 @@
-#include <string>
-#include <algorithm>
-
-string encode(string message) {
-    for (int i = 0; i < message.length(); i++) {
-        if (isalpha(message[i])) {
-            if (islower(message[i])) {
-                message[i] = toupper(message[i]);
-            } else {
-                message[i] = tolower(message[i]);
+string encode(string message){
+    string encodedMessage = "";
+    for(int i = 0; i < message.length(); i++){
+        char c = message[i];
+        if(isalpha(c)){
+            if(islower(c)){
+                c = toupper(c);
             }
-            if (message[i] == 'a' || message[i] == 'e' || message[i] == 'i' || message[i] == 'o' || message[i] == 'u') {
-                message[i] = message[i] + 2;
+            else{
+                c = tolower(c);
+            }
+            if(c == 'A'){
+                c = 'C';
+            }
+            else if(c == 'E'){
+                c = 'G';
+            }
+            else if(c == 'I'){
+                c = 'K';
+            }
+            else if(c == 'O'){
+                c = 'Q';
+            }
+            else if(c == 'U'){
+                c = 'W';
             }
         }
+        encodedMessage += c;
     }
-    return message;
+    return encodedMessage;
 }
