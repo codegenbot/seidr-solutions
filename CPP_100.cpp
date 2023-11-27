@@ -1,7 +1,6 @@
-#include <vector>
-#include <cassert>
+#include <vector> 
 
-using namespace std;
+using namespace std; 
 
 vector<int> make_a_pile(int n){
     vector<int> stones;
@@ -19,17 +18,17 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b){ 
     if (a.size() != b.size()) {
         return false;
     }
-
+ 
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
+ 
     return true;
 }
 
