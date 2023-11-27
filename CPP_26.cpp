@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> remove_duplicates(vector<int> numbers);
-
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -22,6 +18,18 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
+vector<int> remove_duplicates(vector<int> numbers);
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5, 1, 2, 3, 4};
+    vector<int> result = remove_duplicates(numbers);
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
     for(int i=0; i<numbers.size(); i++){
@@ -30,14 +38,4 @@ vector<int> remove_duplicates(vector<int> numbers){
         }
     }
     return result;
-}
-
-int main(){
-    vector<int> numbers = {1, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9};
-    vector<int> unique_numbers = remove_duplicates(numbers);
-    for(int i=0; i<unique_numbers.size(); i++){
-        cout << unique_numbers[i] << " ";
-    }
-    cout << endl;
-    return 0;
 }
