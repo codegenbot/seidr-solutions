@@ -41,12 +41,3 @@ std::vector<float> find_closest_elements(const std::vector<float>& numbers) {
 
     return result;
 }
-
-int main() {
-    std::vector<float> closest_elements = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
-    for (auto element : closest_elements) {
-        std::cout << element << " ";
-    }
-    std::cout << std::endl;
-    return 0;
-}
