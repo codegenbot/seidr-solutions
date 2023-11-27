@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
@@ -39,6 +38,7 @@ vector<string> split_words(string txt) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
+    // Your code here
     if (a.size() != b.size()) {
         return false;
     }
