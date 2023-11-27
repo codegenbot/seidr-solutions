@@ -17,7 +17,9 @@ int main() {
     vector<int> a = {4, 3, 2, 8};
     vector<int> b = {};
 
-    cout << equal(common(a, b).begin(), common(a, b).end(), b.begin()) << endl;
+    vector<int> result = common(a, b);
+
+    cout << equal(result.begin(), result.end(), b.begin()) << endl;
 
     return 0;
 }
