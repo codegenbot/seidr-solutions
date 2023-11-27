@@ -1,3 +1,4 @@
 float triangle_area(float a, float h) {
-    return (0.5 * a * h);
+    float area = (a * h) / 2;
+    return area;
 }
