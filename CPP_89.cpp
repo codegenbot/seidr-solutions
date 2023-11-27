@@ -1,6 +1,6 @@
-```cpp
 #include <cassert>
 #include <string>
+using namespace std;
 
 string encrypt(string s);
 
@@ -19,4 +19,12 @@ string encrypt(string s){
         encrypted += c;
     }
     return encrypted;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    string encrypted = encrypt(input);
+    cout << encrypted;
+    return 0;
 }
