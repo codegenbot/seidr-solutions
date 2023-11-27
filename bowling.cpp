@@ -1,66 +1,34 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
-int calculateScore(string input) {
+int calculateScore(const std::string& bowls) {
     int score = 0;
-    int frame = 0;
-    int roll = 0;
-    int rolls[21];
-
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == 'X') {
-            rolls[roll++] = 10;
-            if (frame < 9) {
-                rolls[roll++] = 0;
-            }
-            if (frame < 8) {
-                rolls[roll++] = 0;
-            }
-            frame++;
-        } else if (input[i] == '/') {
-            rolls[roll++] = 10 - rolls[roll - 1];
-            if (frame < 9) {
-                rolls[roll++] = 0;
-            }
-            frame++;
-        } else if (input[i] == '-') {
-            rolls[roll++] = 0;
+    int frame = 1;
+    int bowlIndex = 0;
+    int bowlCount = 0;
+    
+    while (frame <= 10) {
+        char bowl = bowls[bowlIndex];
+        
+        if (bowl == 'X') {
+            score += 10;
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] == '/' ? (10 - '0') : (bowls[bowlIndex + 1] - '0'));
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] == '/' ? (10 - '0') : (bowls[bowlIndex + 2] - '0'));
+            bowlIndex++;
+        } else if (bowl == '/') {
+            score += (10 - (bowls[bowlIndex - 1] - '0'));
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+            bowlIndex += 2;
         } else {
-            rolls[roll++] = input[i] - '0';
-            if (roll % 2 == 0 || input[i] == '0') {
-                frame++;
+            score += (bowl - '0');
+            if (bowlIndex > 0 && bowls[bowlIndex - 1] == '/') {
+                score += (bowl - '0');
             }
+            bowlIndex++;
         }
-    }
-
-    frame = 0;
-    roll = 0;
-
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == 'X') {
-            score += 10 + rolls[roll + 1] + rolls[roll + 2];
-            roll++;
-        } else if (input[i] == '/') {
-            score += 10 + rolls[roll + 1];
-            roll += 2;
-        } else if (input[i] == '-') {
-            roll++;
-        } else {
-            score += rolls[roll++];
-        }
-
-        if (frame < 9 && (input[i] == 'X' || input[i] == '/')) {
+        
+        bowlCount++;
+        if (bowlCount % 2 == 0) {
             frame++;
         }
     }
-
+    
     return score;
-}
-
-int main() {
-    string input;
-    cin >> input;
-    cout << calculateScore(input) << endl;
-    return 0;
 }
