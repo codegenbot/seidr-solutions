@@ -3,11 +3,11 @@
 
 double calculateSnow(double hours, double initialSnow, double snowFallRate, double snowMeltRate) {
     double snow = initialSnow;
-    for (double i = 0; i < hours; i++) {
+    for (double i = 0.0; i < hours; i++) {
         double snowChange = snowFallRate - (snow * snowMeltRate);
         snow += snowChange;
     }
-    return std::round(snow * 1000000000000000) / 1000000000000000;
+    return std::round(snow * 1e15) / 1e15;
 }
 
 int main() {
