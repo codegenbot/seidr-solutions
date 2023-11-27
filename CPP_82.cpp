@@ -1,6 +1,8 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
-bool is_prime_length(string str) {
+bool prime_length(std::string str) {
     int len = str.length();
     if (len <= 1) {
         return false;
@@ -11,4 +13,12 @@ bool is_prime_length(string str) {
         }
     }
     return true;
+}
+
+int main() {
+    // Test cases
+    assert(prime_length("0") == false);
+    // Add more test cases here
+
+    return 0;
 }
