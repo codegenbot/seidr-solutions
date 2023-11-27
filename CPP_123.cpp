@@ -1,25 +1,28 @@
 vector<int> get_odd_collatz(int n){
-    vector<int> collatzSeq;
-    collatzSeq.push_back(n);
+    vector<int> result;
     
     while(n != 1){
+        result.push_back(n);
+        
         if(n % 2 == 0){
             n = n / 2;
-        } else {
+        }else{
             n = (3 * n) + 1;
         }
-        collatzSeq.push_back(n);
     }
     
-    vector<int> oddCollatzSeq;
+    result.push_back(1);
     
-    for(int i = 0; i < collatzSeq.size(); i++){
-        if(collatzSeq[i] % 2 != 0){
-            oddCollatzSeq.push_back(collatzSeq[i]);
+    // Sort the vector in increasing order
+    sort(result.begin(), result.end());
+    
+    // Filter out the even numbers
+    vector<int> oddCollatz;
+    for(int i=0; i<result.size(); i++){
+        if(result[i] % 2 != 0){
+            oddCollatz.push_back(result[i]);
         }
     }
     
-    sort(oddCollatzSeq.begin(), oddCollatzSeq.end());
-    
-    return oddCollatzSeq;
+    return oddCollatz;
 }
