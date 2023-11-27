@@ -13,10 +13,9 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(vector<float> a,vector<float> b){
     for (int i = 0; i < a.size(); i++){
-        if (abs(a[i]-b[i]) > 1e-4) 
-            return false;
+        if (abs(a[i]-b[i])>1e-4) return false;
     }
     return true;
 }
