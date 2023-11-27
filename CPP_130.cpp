@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
@@ -32,4 +33,10 @@ std::vector<int> tri(int n){
     }
     
     return sequence;
+}
+
+int solve() {
+    assert(issame(tri(1), std::vector<int>{3, 2}));
+
+    return 0;
 }
