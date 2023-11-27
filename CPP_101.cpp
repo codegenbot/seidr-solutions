@@ -1,33 +1,35 @@
 #include <vector>
 #include <string>
-#include <cassert>
-
 using namespace std;
 
-vector<string> words_string(string s){
+vector<string> words_strings(string s) {
     vector<string> words;
-    string word;
-    for (char c : s) {
-        if (c == ',' || c == ' ') {
-            if (!word.empty()) {
+    string word = "";
+    
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ' || s[i] == ',') {
+            if (word != "") {
                 words.push_back(word);
-                word.clear();
+                word = "";
             }
         } else {
-            word += c;
+            word += s[i];
         }
     }
-    if (!word.empty()) {
+    
+    if (word != "") {
         words.push_back(word);
     }
+    
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    // ... implementation of issame function ...
+bool issame(vector<string> a, vector<string> b) {
+    // Implementation
 }
 
 int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert(issame(words_strings("ahmed     , gamal"), {"ahmed", "gamal"}));
+    
     return 0;
 }
