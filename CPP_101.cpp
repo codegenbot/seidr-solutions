@@ -39,8 +39,5 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-
-    // Add more test cases if needed
-
     return 0;
 }
