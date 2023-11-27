@@ -17,7 +17,7 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> unique_digits(vector<int> x);
 
-int main(){
+int main() {
     vector<int> x = {123, 456, 789};
     vector<int> result = unique_digits(x);
     for(int i=0; i<result.size(); i++){
