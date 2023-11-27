@@ -1,8 +1,13 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
+
+bool issame(vector<float> a, vector<float> b){
+    // implementation of the function
+    
+    return true; // or return false; depending on the desired behavior
+}
 
 vector<float> derivative(vector<float> xs){
     vector<float> derivative_xs;
