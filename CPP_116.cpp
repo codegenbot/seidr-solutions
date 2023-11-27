@@ -19,7 +19,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
     return arr;
 }
 
-void main() {
+int main() {
     assert(is_same(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    return;
+    return 0;
 }
