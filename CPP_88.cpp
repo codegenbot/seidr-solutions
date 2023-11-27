@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> sort_array(vector<int> array){
     if(array.empty()){
         return array;
@@ -18,8 +11,4 @@ vector<int> sort_array(vector<int> array){
     }
     
     return array;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
 }
