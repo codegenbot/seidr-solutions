@@ -1,5 +1,5 @@
-\#include <vector>
-\#include <cassert>
+#include <vector>
+#include <cassert>
 
 bool triples_sum_to_zero(std::vector<int> l) {
     int n = l.size();
