@@ -14,7 +14,7 @@ std::vector<int> tri(int n){
             sequence.push_back(1 + i / 2);
         }
         else{
-            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i]);
+            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i + 1]);
         }
     }
     
@@ -36,7 +36,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int solve() {
-    assert(issame(tri(1), {3, 2}));
+    assert(std::issame(tri(1), {3, 2}));
 
     return 0;
 }
