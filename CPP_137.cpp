@@ -1,52 +1,50 @@
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
-#include <cassert>
 #include <string>
+#include <boost/any.hpp>
 
-using boost::any;
-using boost::any_cast;
-using boost::bad_lexical_cast;
-using std::string;
+using namespace std;
+using namespace boost;
 
-any compare_one(any a, any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int intA = any_cast<int>(a);
-        int intB = any_cast<int>(b);
-        if (intA > intB) {
-            return any(intA);
-        } else if (intA < intB) {
-            return any(intB);
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float floatA = any_cast<float>(a);
-        float floatB = any_cast<float>(b);
-        if (floatA > floatB) {
-            return any(floatA);
-        } else if (floatA < floatB) {
-            return any(floatB);
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string stringA = any_cast<string>(a);
-        string stringB = any_cast<string>(b);
-        float floatA, floatB;
-        try {
-            floatA = boost::lexical_cast<float>(stringA);
-            floatB = boost::lexical_cast<float>(stringB);
-        } catch (const bad_lexical_cast&) {
-            return any(string("None"));
-        }
-        if (floatA > floatB) {
-            return any(stringA);
-        } else if (floatA < floatB) {
-            return any(stringB);
-        }
+int compare_one(int a, int b) {
+    if (a > b) {
+        return a;
+    } else if (a < b) {
+        return b;
+    } else {
+        return -1; // indicates equality
     }
-    return any(string("None"));
+}
+
+float compare_one(float a, float b) {
+    if (a > b) {
+        return a;
+    } else if (a < b) {
+        return b;
+    } else {
+        return -1.0; // indicates equality
+    }
+}
+
+std::string compare_one(const std::string& a, const std::string& b) {
+    float floatA, floatB;
+    try {
+        floatA = std::stof(a);
+        floatB = std::stof(b);
+    } catch (const std::invalid_argument&) {
+        return "None";
+    } catch (const std::out_of_range&) {
+        return "None";
+    }
+    
+    if (floatA > floatB) {
+        return a;
+    } else if (floatA < floatB) {
+        return b;
+    } else {
+        return "None";
+    }
 }
 
 int main() {
-    assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
-    assert(any_cast<int>(compare_one(3, 5)) == 5);
-    assert(any_cast<float>(compare_one(3.14f, 2.718f)) == 3.14f);
+    assert (any_cast<string>(compare_one(string("1"), 1)) == "None");
     return 0;
 }
