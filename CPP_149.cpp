@@ -4,8 +4,6 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 vector<string> sort_even_length_strings(vector<string> lst) {
     vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
@@ -26,9 +24,9 @@ int main() {
     vector<string> input = { "aaaa", "bbbb", "dd", "cc" };
     vector<string> expected_output = { "cc", "dd", "aaaa", "bbbb" };
 
-    vector<string> output = sort_even_length_strings(input);
+    vector<string> sorted_list = sort_even_length_strings(input);
 
-    assert(output == expected_output);
+    assert(sorted_list == expected_output);
 
     return 0;
 }
