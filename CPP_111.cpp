@@ -4,7 +4,7 @@
 map<char,int> histogram(string test){
     map<char, int> result;
     string word = "";
-
+    
     for(int i = 0; i < test.length(); i++){
         if(test[i] != ' '){
             word += test[i];
@@ -14,9 +14,9 @@ map<char,int> histogram(string test){
             word = "";
         }
     }
-
+    
     result[word]++;
-
+    
     return result;
 }
 
@@ -26,6 +26,6 @@ bool issame(map<char,int>& a, map<char,int>& b){
 
 int main(){
     assert (issame(histogram("a") , {{'a', 1}}));
-
+    
     return 0;
 }
