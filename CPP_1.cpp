@@ -7,9 +7,6 @@ std::vector<std::string> separate_paren_groups(std::string paren_string);
 int main() {
     std::vector<std::string> result = separate_paren_groups("( ) (( )) (( )( ))");
     assert(result == std::vector<std::string>{"()", "(())", "(()())"});
-
-    std::cout << "Test passed!" << std::endl;
-
     return 0;
 }
 
