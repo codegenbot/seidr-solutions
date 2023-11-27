@@ -23,6 +23,6 @@ string encode(string message) {
 
 int main() {
     assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT TqwRkTg");
-
+    
     return 0;
 }
