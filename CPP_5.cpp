@@ -3,7 +3,6 @@
 using namespace std;
 
 vector<int> intersperse(vector<int> numbers, int delimeter);
-
 bool issame(vector<int> a, vector<int> b);
 
 int main() {
