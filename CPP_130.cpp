@@ -51,9 +51,5 @@ bool issame(vector<int> a, vector<int> b) {
 int main() {
     assert(issame(tri(1), {1, 3}));
 
-    // Additional test cases
-
-    cout << "All test cases passed successfully!" << endl;
-
     return 0;
 }
