@@ -7,6 +7,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
+std::vector<int> order_by_points(std::vector<int> nums); 
+
 std::vector<int> order_by_points(std::vector<int> nums) {
     if (nums.empty()) {
         return nums;
