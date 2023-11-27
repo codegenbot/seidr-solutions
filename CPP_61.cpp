@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 bool is_correct_bracketing(std::string brackets) {
@@ -18,10 +17,4 @@ bool is_correct_bracketing(std::string brackets) {
     } else {
         return false;
     }
-}
-
-int main() {
-    assert(!is_correct_bracketing("()()(()())()))()"));
-
-    return 0;
 }
