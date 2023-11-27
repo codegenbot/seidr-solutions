@@ -17,7 +17,7 @@ bool compare(int a, int b) {
     
     if (sumA == sumB)
         return a < b;
-    
+
     return sumA < sumB;
 }
 
