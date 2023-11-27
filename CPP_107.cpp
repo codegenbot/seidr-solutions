@@ -39,10 +39,6 @@ std::vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-int main() {
-    std::vector<int> expected = { 0, 1 };
-    std::vector<int> result = even_odd_palindrome(1);
-    assert(is_same_vector(result, expected));
-    std::cout << "Test case passed." << std::endl;
-    return 0;
-}
+std::vector<int> expected = { 0, 1 };
+std::vector<int> result = even_odd_palindrome(1);
+assert(is_same_vector(result, expected));
