@@ -7,7 +7,7 @@ using namespace std;
 
 bool isvowel(char c) {
     // implementation of isvowel function
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
 vector<string> select_words(string s, int n) {
@@ -23,7 +23,7 @@ vector<string> select_words(string s, int n) {
             }
             int consonantCount = 0;
             for (int j = 0; j < word.length(); j++) {
-                if (isalpha(word[j]) && !isvowel(word[j])) {
+                if (isalpha(word[j]) && !isvowel(tolower(word[j]))) {
                     consonantCount++;
                 }
             }
@@ -54,5 +54,8 @@ bool issame(vector<string> a, vector<string> b) {
 int main() {
     assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     // additional test cases
+    assert(issame(select_words("hello world", 2), {"hello"}));
+    assert(issame(select_words("this is a sentence", 3), {"sentence"}));
+    assert(issame(select_words("programming is fun", 4), {}));
     return 0;
 }
