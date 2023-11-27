@@ -7,7 +7,6 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
     if (nums.empty()) {
         return nums;
     }
-    
     std::vector<std::pair<int, int>> sums;
     for (const int& num : nums) {
         int sum = 0;
@@ -18,7 +17,6 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
         }
         sums.push_back(std::make_pair(sum, num));
     }
-    
     std::sort(sums.begin(), sums.end());
     std::vector<int> result;
     for (const auto& pair : sums) {
@@ -28,7 +26,7 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(order_by_points({0, 6, 6, -76, -21, 23, 4}) == std::vector<int>({-76, -21, 0, 4, 23, 6, 6}));
+    assert(order_by_points({0, 6, 6, -76, -21, 23, 4}) == std::vector<int>{-76, -21, 0, 4, 23, 6, 6});
 
     return 0;
 }
