@@ -1,53 +1,48 @@
-#include <iostream>
-#include <string>
-
 int calculateScore(std::string input) {
     int score = 0;
     int frame = 0;
-    int rolls = 0;
-    int frames[10] = {0};
+    bool isSpare = false;
+    bool isStrike = false;
 
     for (char ch : input) {
         if (ch == 'X') {
-            frames[frame] += 10;
+            score += 10;
             if (frame < 9) {
-                frames[frame+1] += 10;
-                if (frame < 8) {
-                    frames[frame+2] += 10;
+                score += 10;
+                if (input[frame + 1] == 'X') {
+                    score += 10;
+                } else {
+                    score += input[frame + 1] - '0';
                 }
             }
-            rolls++;
+            isStrike = true;
         } else if (ch == '/') {
-            frames[frame] += (10 - frames[frame]);
-            if (rolls % 2 == 0 && frame < 9) {
-                frames[frame+1] += (10 - frames[frame]);
+            score += 10 - (input[frame - 1] - '0');
+            if (frame < 9) {
+                if (input[frame + 1] == 'X') {
+                    score += 10;
+                } else {
+                    score += input[frame + 1] - '0';
+                }
             }
-            rolls++;
+            isSpare = true;
         } else if (ch == '-') {
-            rolls++;
+            
         } else {
-            frames[frame] += (ch - '0');
-            rolls++;
+            score += ch - '0';
         }
 
-        if (rolls % 2 == 0) {
-            frame++;
+        if (isSpare) {
+            score += ch - '0';
+            isSpare = false;
         }
-    }
+        if (isStrike && input[frame] != 'X') {
+            score += ch - '0';
+            isStrike = false;
+        }
 
-    for (int i = 0; i < 10; i++) {
-        score += frames[i];
+        frame += (ch != '-');
     }
 
     return score;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-
-    int score = calculateScore(input);
-    std::cout << score << std::endl;
-
-    return 0;
 }
