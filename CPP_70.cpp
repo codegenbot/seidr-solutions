@@ -1,23 +1,16 @@
-vector<int> strange_sort_list(vector<int> lst){
-    vector<int> result;
+vector<int> strange_sort_vector(vector<int> lst){
+    if(lst.empty())
+        return lst;
+    sort(lst.begin(), lst.end());
+    int n = lst.size();
+    int i = 0, j = n - 1;
+    vector<int> result(n);
     
-    sort(lst.begin(), lst.end()); // sort the input vector in ascending order
-    
-    int start = 0;
-    int end = lst.size() - 1;
-    bool isMinTurn = true;
-    
-    while (start <= end){
-        if (isMinTurn){
-            result.push_back(lst[start]); // add minimum value to the result vector
-            start++;
-        }
-        else{
-            result.push_back(lst[end]); // add maximum value to the result vector
-            end--;
-        }
-        
-        isMinTurn = !isMinTurn; // switch turn between minimum and maximum
+    for(int k = 0; k < n; k++){
+        if(k % 2 == 0)
+            result[k] = lst[i++];
+        else
+            result[k] = lst[j--];
     }
     
     return result;
