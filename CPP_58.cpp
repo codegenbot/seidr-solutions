@@ -1,10 +1,8 @@
 #include <vector>
 #include <algorithm>
-#include <iterator>
+#include <set>
 
-bool is_same(vector<int> a, vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     vector<int> result;
@@ -16,7 +14,17 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 int main() {
-    assert(is_same(common({4, 3, 2, 8}, {}), {}));
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    assert(issame(common({1, 2, 3, 4}, {3, 4, 5, 6}), {3, 4}));
+    assert(issame(common({1, 2, 3, 4, 4, 5}, {3, 4, 4, 5, 6}), {3, 4, 4, 5}));
+    assert(issame(common({1, 2, 3, 4, 5}, {6, 7, 8, 9}), {}));
+    assert(issame(common({4, 2, 3, 1}, {}), {}));
+    assert(issame(common({}, {4, 3, 2, 1}), {}));
+    assert(issame(common({}, {}), {}));
     return 0;
 }
