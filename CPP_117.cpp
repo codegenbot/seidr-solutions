@@ -6,8 +6,8 @@
 using namespace std;
 
 bool isvowel(char c) {
-    string vowels = "aeiouAEIOU";
-    return vowels.find(c) != string::npos;
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
 
 vector<string> select_words(string s, int n) {
