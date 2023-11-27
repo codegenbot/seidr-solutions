@@ -3,18 +3,9 @@
 #include <map>
 #include <algorithm>
 
-using namespace std;
-
 vector<string> by_length(vector<int> arr);
 
-int main() {
-    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    vector<string> result = by_length(arr);
-    for (const string& str : result) {
-        cout << str << endl;
-    }
-    return 0;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -45,4 +36,18 @@ vector<string> by_length(vector<int> arr){
     }
     
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
