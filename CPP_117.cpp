@@ -1,38 +1,54 @@
-vector<string> select_words(string s,int n){
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<string> select_words(string s, int n) {
     vector<string> result;
-    if(s.empty()){
+    if (s.empty()) {
         return result;
     }
+    
     string word;
-    for(int i=0; i<s.length(); i++){
-        if(s[i] != ' '){
-            word += s[i];
-        }
-        else if(!word.empty()){
-            int count = 0;
-            for(int j=0; j<word.length(); j++){
-                char ch = tolower(word[j]);
-                if(ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u'){
-                    count++;
+    for (char c : s) {
+        if (c != ' ') {
+            word += c;
+        } else {
+            int consonantCount = 0;
+            for (char ch : word) {
+                if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
+                    ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
+                    consonantCount++;
                 }
             }
-            if(count == n){
+            if (consonantCount == n) {
                 result.push_back(word);
             }
             word = "";
         }
     }
-    if(!word.empty()){
-        int count = 0;
-        for(int j=0; j<word.length(); j++){
-            char ch = tolower(word[j]);
-            if(ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u'){
-                count++;
-            }
-        }
-        if(count == n){
-            result.push_back(word);
+    
+    int consonantCount = 0;
+    for (char ch : word) {
+        if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
+            ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
+            consonantCount++;
         }
     }
+    if (consonantCount == n) {
+        result.push_back(word);
+    }
+    
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    
+    return 0;
 }
