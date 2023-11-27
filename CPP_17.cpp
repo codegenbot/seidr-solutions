@@ -38,6 +38,6 @@ std::vector<int> parse_music(std::string music_string) {
 
 int contest_main() {
     std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
-    assert(issame(parsed_music, {2, 1, 2, 1, 4, 2, 4, 2}));
+    assert(std::issame(parsed_music, {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
 }
