@@ -26,10 +26,21 @@ int how_many_times(string str, string substring) {
 }
 
 int main() {
-    string str = "abababa";
-    string substring = "aba";
-    
+    // Test cases
+    string str = "abababab";
+    string substring = "ab";
     int result = how_many_times(str, substring);
+    cout << result << endl;
+    
+    str = "hello world";
+    substring = "lo";
+    result = how_many_times(str, substring);
+    cout << result << endl;
+    
+    str = "programming";
+    substring = "gram";
+    result = how_many_times(str, substring);
+    cout << result << endl;
     
     return 0;
 }
