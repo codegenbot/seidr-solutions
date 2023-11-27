@@ -22,7 +22,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    assert(issame(std::vector<float>({1}), std::vector<float>({})));
+    assert(issame(derivative({1}), {}));
     // Add more test cases here if needed
     return 0;
 }
