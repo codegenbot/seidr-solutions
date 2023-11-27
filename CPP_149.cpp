@@ -1,16 +1,15 @@
 vector<string> vector_sort(vector<string> lst){
     vector<string> result;
-    for (string word : lst) {
-        if (word.length() % 2 == 0) {
+    for(auto word : lst){
+        if(word.length() % 2 == 0){
             result.push_back(word);
         }
     }
-    sort(result.begin(), result.end(), [](const string& a, const string& b) {
-        if (a.length() == b.length()) {
+    sort(result.begin(), result.end(), [](const string& a, const string& b){
+        if(a.length() == b.length()){
             return a < b;
-        } else {
-            return a.length() < b.length();
         }
+        return a.length() < b.length();
     });
     return result;
 }
