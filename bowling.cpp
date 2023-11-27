@@ -11,15 +11,15 @@ int calculateScore(std::string input) {
         if (ch == 'X') {
             frames[frame] += 10;
             if (frame < 9) {
-                frames[frame+1] += (ch - '0');
+                frames[frame+1] += 10;
                 if (frame < 8) {
-                    frames[frame+2] += (ch - '0');
+                    frames[frame+2] += 10;
                 }
             }
         } else if (ch == '/') {
-            frames[frame] += (10 - (ch - '0'));
+            frames[frame] += 10;
             if (frame < 9) {
-                frames[frame+1] += (10 - (ch - '0'));
+                frames[frame+1] += 10;
             }
         } else if (ch == '-') {
             rolls++;
