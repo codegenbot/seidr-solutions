@@ -1,31 +1,27 @@
-#include <iostream>
 #include <string>
 
-int is_bored(std::string S){
-    int count = 0;
-    int i = 0;
-    int n = S.length();
-    
-    while(i < n){
-        if(S[i] == 'I'){
-            while(i < n && S[i] != '.' && S[i] != '?' && S[i] != '!'){
-                i++;
-            }
-            count++;
+int is_bored(string S){
+    int boredomCount = 0;
+    bool isPreviousI = false;
+
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
+            isPreviousI = true;
         }
-        i++;
+        else if((S[i] == '.' || S[i] == '?' || S[i] == '!') && isPreviousI){
+            boredomCount++;
+            isPreviousI = false;
+        }
     }
-    
-    return count;
+
+    return boredomCount;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    
+    string input;
+    cin >> input;
     int result = is_bored(input);
-    std::cout << "Count: " << result << std::endl;
-    
+    cout << result;
+
     return 0;
 }
