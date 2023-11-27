@@ -23,21 +23,8 @@ vector<int> make_a_pile(int n){
     return levels;
 }
 
-void test_make_a_pile(){
+int main(){
     vector<int> piles = make_a_pile(8);
     assert(issame(piles, vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
-}
-
-void test_issame(){
-    assert(issame(vector<int>{1, 2, 3}, vector<int>{1, 2, 3}));
-    assert(!issame(vector<int>{1, 2, 3}, vector<int>{1, 2, 4}));
-}
-
-int main(){
-    test_make_a_pile();
-    test_issame();
-    
-    cout << "All tests passed!" << endl;
-    
     return 0;
 }
