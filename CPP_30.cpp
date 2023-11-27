@@ -11,8 +11,3 @@ vector<float> get_positive(vector<float> l){
     }
     return positive_nums;
 }
-
-int main(){
-    assert(get_positive({}) == {});
-    return 0;
-}
