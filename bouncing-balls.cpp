@@ -6,9 +6,8 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
     double totalDistance = startingHeight + firstBounceHeight;
 
     for (int i = 2; i <= numBounces; i++) {
-        bouncinessIndex /= 2;
-        firstBounceHeight *= 2 * bouncinessIndex;
-        totalDistance += 2 * firstBounceHeight;
+        firstBounceHeight /= bouncinessIndex;
+        totalDistance += firstBounceHeight;
     }
 
     return totalDistance;
@@ -17,14 +16,14 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
 int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
-
+   
     cin >> startingHeight;
     cin >> firstBounceHeight;
     cin >> numBounces;
-
+   
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
-
+   
     cout << distance << endl;
-
+   
     return 0;
 }
