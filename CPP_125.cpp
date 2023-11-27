@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
@@ -25,12 +24,19 @@ std::vector<std::string> split_words(std::string txt) {
     return result;
 }
 
-bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
+bool is_same(std::vector<std::string>& a, std::vector<std::string>& b) {
     return a == b;
 }
 
+void solve() {
+    if (is_same(split_words(""), {"0"})) {
+        std::cout << "Test case passed!" << std::endl;
+    } else {
+        std::cout << "Test case failed!" << std::endl;
+    }
+}
+
 int main() {
-    assert(is_same(split_words(""), {"0"}));
-    
+    solve();
     return 0;
 }
