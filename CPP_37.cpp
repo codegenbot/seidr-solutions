@@ -18,7 +18,7 @@ vector<float> sort_even(vector<float> l){
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a, vector<float> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -33,12 +33,10 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    vector<float> l = {4.5, 2.3, 6.7, 1.2, 3.4};
-    vector<float> expected = {2.3, 4.5, 1.2, 6.7, 3.4};
-    
-    vector<float> sorted = sort_even(l);
-    
-    assert(issame(sorted, expected));
-    
+    vector<float> input = {3.2, 1.5, 2.1, 4.7, 0.9, 2.3};
+    vector<float> expected_output = {0.9, 1.5, 2.1, 2.3, 3.2, 4.7};
+    vector<float> sorted_input = sort_even(input);
+    assert(issame(sorted_input, expected_output));
+
     return 0;
 }
