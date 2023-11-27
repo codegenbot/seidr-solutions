@@ -1,5 +1,5 @@
-#include <vector>
 #include <string>
+#include <vector>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
@@ -10,7 +10,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         if (pos == std::string::npos) {
             break;
         }
-        indices.push_back(static_cast<int>(pos));
+        indices.push_back(pos);
         pos += 1;
     }
     
