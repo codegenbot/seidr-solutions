@@ -6,18 +6,11 @@ using namespace std;
 
 vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
-    return vector<int>(arr.begin(), arr.begin() + k);
-}
-
-bool issame(vector<int> a, vector<int> b){
-    // your code here
-    return a == b;
+    vector<int> result(arr.begin(), arr.begin() + k);
+    return result;
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
-
-    // other test cases
-
+    assert(maximum(vector<int>({1, 2, 3, -23, 243, -400, 0}), 0) == vector<int>{});
     return 0;
 }
