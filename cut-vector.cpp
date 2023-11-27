@@ -29,10 +29,10 @@ vector<int> cutVector(vector<int>& nums) {
     }
 
     // Create the two resulting subvectors
-    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+    vector<int> leftSubvector(std::begin(nums), std::begin(nums) + cutIndex + 1);
+    vector<int> rightSubvector(std::begin(nums) + cutIndex + 1, std::end(nums));
 
-    return vector<int>(leftSubvector.begin(), leftSubvector.end());
+    return vector<int>{std::begin(leftSubvector), std::end(leftSubvector), std::begin(rightSubvector), std::end(rightSubvector)};
 }
 
 int main() {
@@ -46,8 +46,10 @@ int main() {
   
     auto result = cutVector(nums);
 
-    for (const auto& element : result) {
-        cout << element << " ";
+    for (const auto& subvector : result) {
+        for (const auto& element : subvector) {
+            cout << element << " ";
+        }
     }
 
     return 0;
