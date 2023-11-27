@@ -1,7 +1,7 @@
-<pre>#include &lt;iostream&gt;
-#include &lt;string&gt;
-#include &lt;cassert&gt;
-#include &lt;cstdlib&gt;
+#include <iostream>
+#include <string>
+#include <cassert>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,6 +20,6 @@ int main(){
     int x;
     cin >> x;
     assert(change_base(x, x + 1) == std::to_string(x));
-    
+
     return 0;
-}</pre>
+}
