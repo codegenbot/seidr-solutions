@@ -9,25 +9,12 @@ std::string string_to_md5(std::string text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5_CTX md5Context;
-    MD5_Init(&md5Context);
-    MD5_Update(&md5Context, text.data(), text.size());
-    MD5_Final(digest, &md5Context);
+    MD5((const unsigned char*)text.c_str(), text.size(), digest);
 
     std::array<char, 33> md5Hash;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        sprintf(&md5Hash[i * 2], "%02x", static_cast<unsigned int>(digest[i]));
+        sprintf(&md5Hash[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
     return std::string(md5Hash.data(), md5Hash.size());
-}
-
-int main() {
-    std::string text;
-    std::cout << "Enter the text to be converted to MD5: ";
-    std::getline(std::cin, text);
-
-    std::cout << "MD5 hash: " << string_to_md5(text) << std::endl;
-
-    return 0;
 }
