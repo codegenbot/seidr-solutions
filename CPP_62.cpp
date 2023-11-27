@@ -1,6 +1,6 @@
 #include <vector>
 
-using namespace std;
+vector<float> derivative(vector<float> xs);
 
 vector<float> derivative(vector<float> xs){
     vector<float> derivative_xs;
@@ -10,14 +10,7 @@ vector<float> derivative(vector<float> xs){
     return derivative_xs;
 }
 
-bool issame(vector<float> a, vector<float> b){
-   // implementation of the function
-}
-
-int main(){
-   vector<float> derivative(vector<float> xs);
-   
-   // rest of the code
-   
-   return 0;
+int main() {
+    // code for testing the derivative function
+    return 0;
 }
