@@ -28,9 +28,5 @@ long long solve(){
     return odd_sum;
 }
 
-int main(){
-    long long result = solve();
-    std::cout << result << std::endl;
-
-    return 0;
-}
+long long result = solve();
+std::cout << result << std::endl;
