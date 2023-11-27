@@ -1,16 +1,14 @@
-bool is_sorted(vector<int> lst){
-    vector<int> unique_lst(lst.begin(), lst.end());
-    sort(unique_lst.begin(), unique_lst.end());
-    
-    if (unique_lst.size() != lst.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] != unique_lst[i]) {
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool is_sorted(const vector<int>& lst){
+    vector<int> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end());
+    for(int i = 1; i < sorted_lst.size(); i++){
+        if(sorted_lst[i] == sorted_lst[i-1]){
             return false;
         }
     }
-    
     return true;
 }
