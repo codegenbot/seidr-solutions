@@ -4,6 +4,8 @@
 
 using namespace std;
 
+vector<int> parse_music(string music_string);
+
 vector<int> parse_music(string music_string) {
     vector<int> beats;
     int i = 0;
@@ -18,9 +20,4 @@ vector<int> parse_music(string music_string) {
         i++;
     }
     return beats;
-}
-
-int main() {
-    assert(parse_music("o| .| o| .| o o| o o|") == vector<int>({2, 1, 2, 1, 4, 2, 4, 2}));
-    return 0;
 }
