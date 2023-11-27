@@ -4,13 +4,10 @@
 
 using namespace std;
 
-vector<string> numerical_letter_grade(vector<float> grades);
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
-    for(int i=0; i<grades.size(); i++){
-        if(grades[i] == 4.0){
+    for(int i = 0; i < grades.size(); i++){
+        if(grades[i] >= 4.0){
             letter_grades.push_back("A+");
         }
         else if(grades[i] > 3.7){
@@ -54,11 +51,11 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+    if (a.size() != b.size()){
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++){
+        if (a[i] != b[i]){
             return false;
         }
     }
@@ -66,17 +63,10 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    vector<float> grades = {3.5, 2.8, 4.0, 1.9, 3.2};
-    vector<string> letter_grades = numerical_letter_grade(grades);
-
-    vector<string> expected_grades = {"A-", "B-", "A+", "D-", "C"};
-
-    if(issame(letter_grades, expected_grades)){
-        cout << "The grades match the expected grades." << endl;
-    }
-    else{
-        cout << "The grades do not match the expected grades." << endl;
-    }
-
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    assert(issame(numerical_letter_grade({1.4, 2.9, 3.6, 4.2}), {"D", "C-", "B", "A+"}));
+    assert(issame(numerical_letter_grade({3.9, 2.1, 3.3}), {"A", "C+", "A-"}));
+    assert(issame(numerical_letter_grade({2.5}), {"C"}));
+    assert(issame(numerical_letter_grade({}), {}));
     return 0;
 }
