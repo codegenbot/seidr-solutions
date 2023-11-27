@@ -1,5 +1,5 @@
 #include <string>
-#include <boost/algorithm/string/case_conv.hpp>
+#include <boost/algorithm/string.hpp>
 #include <boost/any.hpp>
 #include <cassert>
 
