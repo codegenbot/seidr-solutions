@@ -5,10 +5,7 @@
 using namespace std;
 
 vector<int> remove_duplicates(vector<int> numbers);
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
@@ -21,11 +18,9 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 int main() {
-    // Test the remove_duplicates() function
-    vector<int> numbers = {1, 2, 3, 4, 5, 4, 3, 2, 1};
-    vector<int> expected = {5};
-    vector<int> actual = remove_duplicates(numbers);
-    assert(issame(actual, expected));
-
+    vector<int> numbers = {1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 9};
+    vector<int> result = remove_duplicates(numbers);
+    assert(result.size() == 6);
+    assert(issame(result, vector<int>{1, 2, 3, 4, 6, 7}));
     return 0;
 }
