@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 int specialFilter(vector<int> nums){
     int count = 0;
     for(int num : nums){
