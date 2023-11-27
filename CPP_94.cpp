@@ -14,11 +14,15 @@ int largestPrimeSum(vector<int> lst) {
     int largestPrime = 0;
     for (int num : lst) {
         bool isPrime = true;
-        for (int i = 2; i * i <= num; i++) {
-            if (num % i == 0) {
-                isPrime = false;
-                break;
+        if (num > 1) {
+            for (int i = 2; i * i <= num; i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
             }
+        } else {
+            isPrime = false;
         }
         if (isPrime && num > largestPrime) {
             largestPrime = num;
