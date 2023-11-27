@@ -25,11 +25,3 @@ string solve(string s){
     
     return result;
 }
-
-int main() {
-    // main function code
-    string s;
-    cin >> s;
-    cout << solve(s) << endl;
-    return 0;
-}
