@@ -5,7 +5,6 @@
 
 std::pmr::vector<int> parse_nested_parens(std::string paren_string) {
     std::pmr::vector<int> levels;
-
     int max_level = 0;
     int current_level = 0;
 
