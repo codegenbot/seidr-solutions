@@ -3,6 +3,8 @@
 #include <typeinfo>
 #include <boost/any.hpp>
 
+using namespace std;
+
 vector<int> filter_integers(vector<any> values) {
     vector<int> result;
     for (auto value : values) {
