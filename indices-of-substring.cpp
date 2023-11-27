@@ -12,21 +12,29 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
             break;
         }
         indices.push_back(pos);
-        pos += 1; // Fix for handling overlapping targets
+        pos += target.length();
     }
 
     return indices;
 }
 
 int main() {
-    std::string text, target;
-    std::cin >> text >> target;
+    std::string text;
+    std::string target;
+
+    std::cout << "Enter the text: ";
+    std::getline(std::cin, text);
+
+    std::cout << "Enter the target string: ";
+    std::getline(std::cin, target);
 
     std::vector<int> result = indicesOfSubstring(text, target);
 
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+    std::cout << "Indices at which the target appears in the text: ";
+    for (int index : result) {
+        std::cout << index << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
