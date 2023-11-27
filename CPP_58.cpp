@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iterator>
 
-std::vector<int> common(std::vector<int> l1, std::vector<int> l2){
+std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::vector<int> result;
     std::sort(l1.begin(), l1.end());
     std::sort(l2.begin(), l2.end());
