@@ -1,34 +1,37 @@
-#include <algorithm>
 #include <vector>
-#include <cassert>
-#include <string>
+#include <algorithm>
 
-using namespace std;
-
-bool compare(int a, int b) {
-    int sumA = 0, sumB = 0;
-    string strA = to_string(a);
-    string strB = to_string(b);
-
-    for (char c : strA) {
-        if (isdigit(c)) {
-            sumA += c - '0';
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
         }
     }
-
-    for (char c : strB) {
-        if (isdigit(c)) {
-            sumB += c - '0';
-        }
-    }
-
-    if (sumA == sumB) {
-        return a < b;
-    }
-
-    return sumA < sumB;
+    return true;
 }
 
-void order_by_points(vector<int>& nums) {
-    sort(nums.begin(), nums.end(), compare);
+vector<int> order_by_points(vector<int> nums){
+    vector<int> result;
+    vector<pair<int, int>> sums;
+    
+    for(int i=0; i<nums.size(); i++){
+        int sum = 0;
+        int num = nums[i];
+        while(num != 0){
+            sum += abs(num % 10);
+            num /= 10;
+        }
+        sums.push_back(make_pair(sum, i));
+    }
+    
+    sort(sums.begin(), sums.end());
+    
+    for(int i=0; i<sums.size(); i++){
+        result.push_back(nums[sums[i].second]);
+    }
+    
+    return result;
 }
