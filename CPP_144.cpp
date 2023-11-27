@@ -1,11 +1,14 @@
-bool simplify(string x,string n){
-    int numeratorX = stoi(x.substr(0, x.find('/')));
-    int denominatorX = stoi(x.substr(x.find('/') + 1));
+bool simplify(string x, string n) {
+    int num1 = stoi(x.substr(0, x.find("/")));
+    int den1 = stoi(x.substr(x.find("/") + 1));
+    int num2 = stoi(n.substr(0, n.find("/")));
+    int den2 = stoi(n.substr(n.find("/") + 1));
 
-    int numeratorN = stoi(n.substr(0, n.find('/')));
-    int denominatorN = stoi(n.substr(n.find('/') + 1));
+    int numerator = num1 * num2;
+    int denominator = den1 * den2;
 
-    double result = numeratorX * n / denominatorN;
-
-    return result == (int)result;
+    if (numerator % denominator == 0) {
+        return true;
+    }
+    return false;
 }
