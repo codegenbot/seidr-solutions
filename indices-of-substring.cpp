@@ -1,14 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     std::vector<int> indices;
     int targetLength = target.length();
     int textLength = text.length();
 
     for (int i = 0; i <= textLength - targetLength; i++) {
-        if (text.substr(i, targetLength) == target) {
+        if (text.substr(i, targetLength).find(target) != std::string::npos) {
             indices.push_back(i);
-            i += targetLength - 1; // Advance i to skip overlapping substrings
         }
     }
 
     return indices;
+}
+
+int main() {
+    std::string text, target;
+    std::cin >> text;
+    std::cin >> target;
+
+    std::vector<int> result = indicesOfSubstring(text, target);
+
+    for (int index : result) {
+        std::cout << index + 1 << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
