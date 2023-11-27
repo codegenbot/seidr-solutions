@@ -43,9 +43,6 @@ string sort_numbers(string numbers){
 int main() {
     string numbers;
     getline(cin, numbers);
-    
-    string sorted_numbers = sort_numbers(numbers);
-    cout << sorted_numbers << endl;
-    
+    cout << sort_numbers(numbers) << endl;
     return 0;
 }
