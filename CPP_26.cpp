@@ -2,11 +2,21 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 vector<int> remove_duplicates(vector<int> numbers);
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
@@ -19,18 +29,10 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 int main() {
-    // Test cases
-    vector<int> test1 = {1, 2, 3, 4, 5};
-    vector<int> test2 = {1, 2, 2, 3, 4, 4, 5};
-    vector<int> test3 = {1, 1, 1, 1, 1};
-
-    vector<int> result1 = remove_duplicates(test1);
-    vector<int> result2 = remove_duplicates(test2);
-    vector<int> result3 = remove_duplicates(test3);
-
-    assert(result1 == test1);
-    assert(result2 == vector<int>({3, 5}));
-    assert(result3.empty());
-
+    assert(issame(remove_duplicates({1, 2, 2, 3, 4, 4, 5}), {1, 3, 5}));
+    assert(issame(remove_duplicates({1, 1, 2, 2, 3, 3, 4, 4, 5, 5}), {}));
+    assert(issame(remove_duplicates({1, 2, 3, 4, 5}), {1, 2, 3, 4, 5}));
+    assert(issame(remove_duplicates({}), {}));
+    
     return 0;
 }
