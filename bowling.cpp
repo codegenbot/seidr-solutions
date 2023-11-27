@@ -1,68 +1,45 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int calculateScore(const std::string& bowls) {
+int calculateScore(string s) {
     int score = 0;
     int frame = 1;
-    int bowlIndex = 0;
+    int ball = 0;
+    int rolls[21];
 
-    while (frame <= 10 && bowlIndex < bowls.length()) {
-        char currentBowl = bowls[bowlIndex];
+    for (int i = 0; i < s.length(); i++) {
+        char c = s[i];
 
-        if (currentBowl == 'X') {
-            score += 10;
-
+        if (c == 'X') {
+            rolls[ball++] = 10;
             if (frame < 10) {
-                char nextBowl = bowls[bowlIndex + 1];
-                char nextNextBowl = bowls[bowlIndex + 2];
-
-                if (nextBowl == 'X') {
-                    score += 10;
-                    if (nextNextBowl == 'X') {
-                        score += 10;
-                    } else {
-                        score += (nextNextBowl - '0');
-                    }
-                } else if (nextBowl == '/') {
-                    score += 10;
-                } else {
-                    score += (nextBowl - '0');
-                    if (nextNextBowl == '/') {
-                        score += (10 - (nextBowl - '0'));
-                    }
-                }
-            } else {
-                char nextBowl = bowls[bowlIndex + 1];
-                char nextNextBowl = bowls[bowlIndex + 2];
-
-                if (nextBowl == 'X') {
-                    score += 10;
-                } else if (nextBowl == '/') {
-                    score += 10;
-                } else {
-                    score += (nextBowl - '0');
-                    if (nextNextBowl == '/') {
-                        score += (10 - (nextBowl - '0'));
-                    }
-                }
+                rolls[ball++] = 0;
             }
-
+            if (frame < 9) {
+                rolls[ball++] = 0;
+            }
             frame++;
-            bowlIndex++;
-        } else if (currentBowl == '/') {
-            score += (10 - (bowls[bowlIndex - 1] - '0'));
-
+        } else if (c == '/') {
+            rolls[ball++] = 10 - rolls[ball - 1];
             if (frame < 10) {
-                char nextBowl = bowls[bowlIndex + 1];
-                score += (nextBowl - '0');
+                rolls[ball++] = 0;
             }
-
             frame++;
-            bowlIndex++;
+        } else if (c == '-') {
+            rolls[ball++] = 0;
         } else {
-            score += (currentBowl - '0');
-            frame++;
-            bowlIndex++;
+            rolls[ball++] = c - '0';
+        }
+    }
+
+    for (int i = 0; i < 10; i++) {
+        if (rolls[i * 2] == 10) {
+            score += 10 + rolls[(i + 1) * 2] + rolls[(i + 1) * 2 + 1];
+        } else if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
+            score += 10 + rolls[(i + 1) * 2];
+        } else {
+            score += rolls[i * 2] + rolls[i * 2 + 1];
         }
     }
 
@@ -70,11 +47,11 @@ int calculateScore(const std::string& bowls) {
 }
 
 int main() {
-    std::string bowls;
-    std::cin >> bowls;
+    string input;
+    cin >> input;
 
-    int score = calculateScore(bowls);
-    std::cout << score << std::endl;
+    int score = calculateScore(input);
+    cout << score << endl;
 
     return 0;
 }
