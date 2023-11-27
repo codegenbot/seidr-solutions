@@ -1,21 +1,46 @@
 #include <iostream>
 #include <string>
 
-int getFrameScore(const std::string& frame) {
+int calculateScore(std::string input) {
     int score = 0;
-    int frameIndex = 0;
+    int frame = 1;
+    int roll = 0;
+    bool spare = false;
+    bool strike = false;
 
-    for (int i = 0; i < 10; i++) {
-        if (frame[frameIndex] == 'X') {
+    for (char c : input) {
+        if (c == 'X') {
             score += 10;
-            frameIndex++;
-        } else if (frame[frameIndex + 1] == '/') {
-            score += 10;
-            frameIndex += 2;
+            if (frame < 10) {
+                strike = true;
+            }
+        } else if (c == '/') {
+            score += 10 - roll;
+            if (frame < 10) {
+                spare = true;
+            }
+        } else if (c == '-') {
+            // do nothing
         } else {
-            score += frame[frameIndex] - '0';
-            score += frame[frameIndex + 1] - '0';
-            frameIndex += 2;
+            score += c - '0';
+            if (spare) {
+                score += c - '0';
+                spare = false;
+            }
+            if (strike) {
+                score += c - '0';
+                strike = false;
+            }
+        }
+
+        if (strike) {
+            roll++; // additional roll for strike
+        }
+        roll++;
+        
+        if (roll == 2 || strike) {
+            frame++;
+            roll = 0;
         }
     }
 
@@ -23,10 +48,10 @@ int getFrameScore(const std::string& frame) {
 }
 
 int main() {
-    std::string frame;
-    std::cin >> frame;
+    std::string input;
+    std::cin >> input;
 
-    int score = getFrameScore(frame);
+    int score = calculateScore(input);
     std::cout << score << std::endl;
 
     return 0;
