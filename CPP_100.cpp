@@ -1,28 +1,33 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-void make_a_pile(vector<int>& a) {
-    int n = a.size();
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> levels;
     int stones = n;
     for (int i = 0; i < n; i++) {
-        a[i] = stones;
+        levels.push_back(stones);
         if (n % 2 == 0) {
             stones += 2;
         } else {
             stones += 1;
         }
     }
+    return levels;
 }
 
+std::vector<int> expected_result = {8, 10, 12, 14, 16, 18, 20, 22};
+
 int main() {
-    vector<int> result(8);
-    make_a_pile(result);
-    cout << "Test case passed!" << endl;
+    std::vector<int> result = make_a_pile(8);
+    if (std::equal(result.begin(), result.end(), expected_result.begin())) {
+        std::cout << "Test case passed!" << std::endl;
+    } else {
+        std::cout << "Test case failed!" << std::endl;
+    }
     return 0;
 }
