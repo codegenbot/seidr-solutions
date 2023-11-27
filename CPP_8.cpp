@@ -13,16 +13,16 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<long long> sum_product(std::vector<int> numbers) {
-    long long sum = 0;
-    long long product = 1;
+std::vector<int> sum_product(std::vector<int> numbers) {
+    int sum = 0;
+    int product = 1;
 
     for (int i = 0; i < numbers.size(); i++) {
         sum += numbers[i];
         product *= numbers[i];
     }
 
-    std::vector<long long> result;
+    std::vector<int> result;
     result.push_back(sum);
     result.push_back(product);
 
@@ -30,8 +30,8 @@ std::vector<long long> sum_product(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> input = {10, 20, 30};
-    std::vector<long long> result = sum_product(input);
+    std::vector<int> input = {10};
+    std::vector<int> result = sum_product(input);
 
     if (!issame(result, input)) {
         std::cout << "Sum and product are not the same" << std::endl;
