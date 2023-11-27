@@ -1,10 +1,6 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<float> a, vector<float> b);
-
-vector<float> derivative(vector<float> xs);
-
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
@@ -25,12 +21,15 @@ vector<float> derivative(vector<float> xs){
     return result;
 }
 
-int main(){
-    // Test the derivative function
-    vector<float> xs = {1, 2, 3, 4};
-    vector<float> expected = {2, 6, 12};
-    vector<float> output = derivative(xs);
-    assert(issame(output, expected));
+int main() {
+    // Test issame function
+    assert(issame({1, 2, 3}, {1, 2, 3}));
+    assert(!issame({1, 2, 3}, {1, 2, 4}));
     
+    // Test derivative function
+    vector<float> xs = {1, 2, 3, 4};
+    vector<float> expected_result = {2, 6, 12};
+    assert(issame(derivative(xs), expected_result));
+
     return 0;
 }
