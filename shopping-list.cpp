@@ -6,7 +6,7 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
     float totalPrice = 0.0;
     for (int i = 0; i < prices.size(); i++) {
         float discountedPrice = prices[i] - (prices[i] * discounts[i] / 100);
-        discountedPrice = std::round(discountedPrice * 100) / 100;
+        discountedPrice = std::round(discountedPrice * 100) / 100; // Round to two decimal places
         totalPrice += discountedPrice;
     }
     return totalPrice;
