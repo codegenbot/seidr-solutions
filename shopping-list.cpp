@@ -12,6 +12,9 @@ float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    // Test your code here
+    vector<float> prices = {10.0, 20.0, 30.0};
+    vector<float> discounts = {5.0, 10.0, 15.0};
+    float totalPrice = calculateTotalPrice(prices, discounts);
+    cout << "Total Price: $" << totalPrice << endl;
     return 0;
 }
