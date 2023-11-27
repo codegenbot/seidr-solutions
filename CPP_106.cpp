@@ -39,8 +39,8 @@ bool issame(vector<int> a, vector<int> b){
 
 int main(){
     assert(issame(f(3), {1, 2, 6}));
-
+    
     cout << "Test passed!" << endl;
-
+    
     return 0;
 }
