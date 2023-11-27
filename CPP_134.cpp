@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool check_if_last_char_is_a_letter(std::string txt){
     int len = txt.length();
