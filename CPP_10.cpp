@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-using namespace std;
+#include <cassert>
 
-string make_palindrome(string str);
-int main();
+using namespace std;
 
 string make_palindrome(string str){
     string palindrome = str;
