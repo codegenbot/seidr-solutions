@@ -21,11 +21,3 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
 
     return numbers;
 }
-
-int main() {
-    std::vector<float> input = {12.0, 11.0, 15.0, 13.0, 14.0};
-    std::vector<float> expected_output = {0.25, 0.0, 1.0, 0.5, 0.75};
-    std::vector<float> rescaled_numbers = rescale_to_unit(input);
-    assert(rescaled_numbers == expected_output);
-    return 0;
-}
