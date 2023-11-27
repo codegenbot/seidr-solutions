@@ -38,7 +38,6 @@ bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(is_same(split_words(""), {"0"}));
+    assert(is_same(split_words("") ,{"0"}));
     std::cout << "Test case passed!" << std::endl;
-    return 0;
 }
