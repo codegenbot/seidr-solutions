@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 int is_bored(std::string S){
     int count = 0;
@@ -21,7 +20,12 @@ int is_bored(std::string S){
 }
 
 int main() {
-    assert(is_bored("You and I are going for a walk") == 0);
-
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    int result = is_bored(input);
+    std::cout << "Count: " << result << std::endl;
+    
     return 0;
 }
