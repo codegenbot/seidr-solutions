@@ -25,6 +25,8 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main(){
-    // Code to call the rescale_to_unit function and test the issame function
+    // Function calls
+    vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+    vector<float> rescaled_numbers = rescale_to_unit(numbers);
     return 0;
 }
