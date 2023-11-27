@@ -1,5 +1,5 @@
-#include <cassert>
 #include <string>
+#include <cassert>
 
 bool prime_length(std::string str){
     int length = str.length();
