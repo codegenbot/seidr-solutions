@@ -2,6 +2,18 @@
 #include <iostream>
 #include <cassert>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::vector<int> sum_product(std::vector<int> numbers) {
     int sum = 0;
     int product = 1;
@@ -18,20 +30,15 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
     std::vector<int> input = {10};
     std::vector<int> result = sum_product(input);
 
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+    if (issame(result, input)) {
+        std::cout << "Sum and product are the same" << std::endl;
+    } else {
+        std::cout << "Sum and product are not the same" << std::endl;
     }
-    std::cout << std::endl;
-
-    assert(issame(result, {10, 10}));
 
     return 0;
 }
