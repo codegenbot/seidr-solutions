@@ -1,17 +1,21 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <assert.h>
 
-using namespace std;
+std::vector<std::string> separate_paren_groups(std::string paren_string);
 
-bool is_same(vector<string> a, vector<string> b) {
-    // Implementation code here
-    return a == b;
+int main() {
+    std::vector<std::string> result = separate_paren_groups("( ) (( )) (( )( ))");
+    assert(result == std::vector<std::string>{"()", "(())", "(()())"});
+
+    std::cout << "Test passed!" << std::endl;
+
+    return 0;
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> groups;
-    string group;
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> groups;
+    std::string group;
     int count = 0;
 
     for (char c : paren_string) {
@@ -32,13 +36,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return groups;
-}
-
-int main() {
-    vector<string> a = separate_paren_groups("((abc)(def))");
-    vector<string> b = separate_paren_groups("((abc)(def))");
-
-    assert(is_same(a, b));
-
-    return 0;
 }
