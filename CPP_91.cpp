@@ -1,6 +1,6 @@
 #include <string>
 
-int is_bored(std::string S){
+int is_bored(string S){
     int count = 0;
     bool is_sentence_start = true;
     
@@ -18,12 +18,9 @@ int is_bored(std::string S){
 }
 
 int main() {
-    std::string sentence;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, sentence);
-    
+    string sentence;
+    getline(cin, sentence);
     int result = is_bored(sentence);
-    std::cout << "Number of bored sentences: " << result << std::endl;
-    
+    cout << result;
     return 0;
 }
