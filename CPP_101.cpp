@@ -1,4 +1,5 @@
 vector<string> words_string(string s);
+bool issame(vector<string> a, vector<string> b);
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
@@ -10,6 +11,15 @@ bool issame(vector<string> a, vector<string> b){
         }
     }
     return true;
+}
+
+void assertEquals(vector<string> a, vector<string> b){
+    if(issame(a, b)){
+        cout << "Test Passed" << endl;
+    }
+    else{
+        cout << "Test Failed" << endl;
+    }
 }
 
 int main() {
