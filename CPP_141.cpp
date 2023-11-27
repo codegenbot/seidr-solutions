@@ -1,22 +1,19 @@
-#include <iostream>
 #include <string>
 
-std::string file_name_check(std::string file_name);
+string file_name_check(string file_name);
 
 int main() {
-    std::string file_name;
-    std::cin >> file_name;
-    std::cout << file_name_check(file_name);
+    // your code
     return 0;
 }
 
-std::string file_name_check(std::string file_name){
+string file_name_check(string file_name){
     int dot_index = file_name.find(".");
-    if(dot_index == std::string::npos){
+    if(dot_index == string::npos){
         return "No";
     }
-    std::string name_before_dot = file_name.substr(0, dot_index);
-    std::string extension = file_name.substr(dot_index + 1);
+    string name_before_dot = file_name.substr(0, dot_index);
+    string extension = file_name.substr(dot_index + 1);
 
     if(name_before_dot.empty() || !isalpha(name_before_dot[0])){
         return "No";
