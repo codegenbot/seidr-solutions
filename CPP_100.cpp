@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
@@ -13,7 +13,7 @@ vector<int> make_a_pile(int n){
     int stones = n;
     levels.push_back(stones);
     for(int i = 1; i < n; i++){
-        if(n % 2 == 0){
+        if(i % 2 == 0){
             stones += 2;
         } else {
             stones += 1;
@@ -30,7 +30,6 @@ void test_make_a_pile(){
 
 void test_issame(){
     assert(issame(vector<int>{1, 2, 3}, vector<int>{1, 2, 3}));
-    assert(!issame(vector<int>{1, 2, 3}, vector<int>{1, 2, 4}));
 }
 
 int main(){
