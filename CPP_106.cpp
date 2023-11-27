@@ -1,20 +1,21 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+using namespace std;
 
-std::vector<int> f(int n) {
-    std::vector<int> result;
-    for (int i = 1; i <= n; i++) {
-        if (i % 2 == 0) {
+vector<int> f(int n){
+    vector<int> result;
+    for(int i=1; i<=n; i++){
+        if(i%2 == 0){
             int factorial = 1;
-            for (int j = 1; j <= i; j++) {
+            for(int j=1; j<=i; j++){
                 factorial *= j;
             }
             result.push_back(factorial);
         }
-        else {
+        else{
             int sum = 0;
-            for (int j = 1; j <= i; j++) {
+            for(int j=1; j<=i; j++){
                 sum += j;
             }
             result.push_back(sum);
@@ -23,20 +24,20 @@ std::vector<int> f(int n) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
+bool issame(const vector<int>& a, const vector<int>& b){
+    if(a.size() != b.size()){
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
 }
 
-int contestMain() {
-    assert(issame(f(3), { 1, 2, 6 }));
-    std::cout << "Test Passed!" << std::endl;
+int main() {
+    assert(issame(f(3), (1, 2, 6)));
+    cout << "Test Passed!" << endl;
     return 0;
 }
