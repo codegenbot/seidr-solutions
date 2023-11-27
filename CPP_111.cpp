@@ -23,15 +23,15 @@ map<string, int> histogram(string test) {
     return result;
 }
 
-bool issame(const map<char, int>& a, const map<char, int>& b) {
+bool issame(const map<string, int>& a, const map<string, int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(histogram("a"), map<char, int>{{'a', 1}}));
-    assert(issame(histogram("hello world"), map<char, int>{{'h', 1}, {'e', 1}, {'l', 3}, {'o', 2}, {'w', 1}, {'r', 1}, {'d', 1}}));
-    
+    assert(issame(histogram("a"), map<string, int>{{"a", 1}}));
+    assert(issame(histogram("hello world"), map<string, int>{{"hello", 1}, {"world", 1}}));
+
     cout << "All tests passed!" << endl;
-    
+
     return 0;
 }
