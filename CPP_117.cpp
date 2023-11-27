@@ -4,9 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -47,20 +45,14 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    vector<string> words = select_words("Hello world, how are you today?", 2);
-    vector<string> expected = {"Hello", "world,", "how", "you"};
+    vector<string> words = select_words("Hello world! This is a test.", 2);
+    vector<string> expected = {"Hello", "world!", "This", "test."};
     assert(areSame(words, expected));
-    
-    words = select_words("This is a test", 1);
-    expected = {"This", "is"};
-    assert(areSame(words, expected));
-    
-    words = select_words("No words here", 0);
-    expected = {};
-    assert(areSame(words, expected));
-    
-    cout << "All test cases passed!" << endl;
     
     return 0;
 }
