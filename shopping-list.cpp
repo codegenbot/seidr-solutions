@@ -4,14 +4,9 @@
 using namespace std;
 
 float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
-    if (prices.size() != discounts.size()) {
-        cout << "Input vectors must have the same number of elements." << endl;
-        return 0.0;
-    }
-
     float totalPrice = 0.0;
     for (int i = 0; i < prices.size(); i++) {
-        float discountedPrice = prices[i] - (prices[i] * discounts[i] / 100);
+        float discountedPrice = prices[i] - discounts[i];
         totalPrice += discountedPrice;
     }
     return totalPrice;
@@ -19,11 +14,11 @@ float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
 
 int main() {
     vector<float> prices = {10.0, 20.0, 30.0};
-    vector<float> discounts = {10.0, 15.0, 20.0};
+    vector<float> discounts = {1.0, 1.5, 2.0};
 
     float totalPrice = calculateTotalPrice(prices, discounts);
 
-    cout << "Total price after discounts: " << totalPrice << endl;
+    cout << totalPrice << endl;
 
     return 0;
 }
