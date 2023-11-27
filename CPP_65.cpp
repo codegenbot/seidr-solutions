@@ -3,7 +3,7 @@
 string circular_shift(int x, int shift);
 
 int main() {
-    // code for main function
+    // code here
     return 0;
 }
 
