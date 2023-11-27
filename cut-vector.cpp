@@ -42,8 +42,8 @@ int main() {
 
     vector<int> result = cutVector(nums);
 
-    for (auto it = std::begin(result); it != std::end(result); ++it) {
-        for (auto it2 = std::begin(*it); it2 != std::end(*it); ++it2) {
+    for (auto it = result.begin(); it != result.end(); it++) {
+        for (auto it2 = it->begin(); it2 != it->end(); it2++) {
             cout << *it2 << endl;
         }
     }
