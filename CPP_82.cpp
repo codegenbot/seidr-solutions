@@ -16,6 +16,11 @@ bool prime_length(std::string str){
 
 int main() {
     assert(prime_length("0") == false);
-    // additional test cases...
+    assert(prime_length("hello") == true);
+    assert(prime_length("programming") == false);
+    assert(prime_length("") == false);
+    assert(prime_length(" ") == false);
+    assert(prime_length("C++") == true);
+    std::cout << "All test cases passed!" << std::endl;
     return 0;
 }
