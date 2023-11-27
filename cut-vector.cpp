@@ -4,6 +4,7 @@
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int leftSum = 0;
     int rightSum = 0;
+    
     for (int num : nums) {
         rightSum += num;
     }
