@@ -1,19 +1,19 @@
 #include <iostream>
-#include <cassert>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
-int vowels_count(string s);
+int count_vowels(string s);
 
 int main() {
-    assert(vowels_count("ACEDY") == 3);
+    assert(count_vowels("ACEDY") == 3);
     // Add more test cases
     
     return 0;
 }
 
-int vowels_count(string s) {
+int count_vowels(string s) {
     int count = 0;
     for(int i = 0; i < s.length(); i++){
         if(tolower(s[i]) == 'a' || tolower(s[i]) == 'e' || 
