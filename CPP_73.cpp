@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 int smallest_change(std::vector<int> arr) {
@@ -15,7 +16,6 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    assert(smallest_change({0, 1}) == 1);
-
+    assert (smallest_change(std::vector<int>({0, 1})) == 1);
     return 0;
 }
