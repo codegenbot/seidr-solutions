@@ -3,12 +3,31 @@
 #include <climits>
 #include <cassert>
 
-bool issame(std::vector<int>& a, std::vector<int>& b){
-    // implementation of the function
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 void dfs(std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path){
-    // implementation of the function
+    if(x < 0 || x >= grid.size() || y < 0 || y >= grid.size()){
+        return;
+    }
+    
+    int currentVal = grid[x][y];
+    
+    if(currentVal > k){
+        return;
+    }
+    
+    path.push_back(currentVal);
+    
+    grid[x][y] = INT_MAX;
+    
+    dfs(grid, x - 1, y, k, path); // go left
+    dfs(grid, x + 1, y, k, path); // go right
+    dfs(grid, x, y - 1, k, path); // go up
+    dfs(grid, x, y + 1, k, path); // go down
+    
+    grid[x][y] = currentVal;
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
@@ -41,7 +60,8 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     return path;
 }
 
-int main(){
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+int main() {
+    assert(issame(std::vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}), minPath(std::vector<std::vector<int>>({{1, 3}, {3, 2}}), 10)));
+    
     return 0;
 }
