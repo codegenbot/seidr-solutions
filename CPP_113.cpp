@@ -1,4 +1,10 @@
-vector<string> odd_count(vector<string> lst){
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+vector<string> odd_count(const vector<string>& lst){
     vector<string> result;
     for(int i=0; i<lst.size(); i++){
         int count = 0;
