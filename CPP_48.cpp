@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool is_palindrome(std::string text){
     int n = text.length();
@@ -11,11 +12,12 @@ bool is_palindrome(std::string text){
     return true;
 }
 
-int main() {
-    std::cout << is_palindrome("hello") << std::endl;
-    std::cout << is_palindrome("madam") << std::endl;
-    std::cout << is_palindrome("racecar") << std::endl;
-    std::cout << is_palindrome("xywzx") << std::endl;
-
+int main(){
+    assert(is_palindrome("racecar") == true);
+    assert(is_palindrome("hello") == false);
+    assert(is_palindrome("xywzx") == false);
+    
+    std::cout << "All tests passed!";
+    
     return 0;
 }
