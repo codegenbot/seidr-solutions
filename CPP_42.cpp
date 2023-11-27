@@ -1,5 +1,8 @@
 #include <vector>
 
+vector<int> incr_list(vector<int> l);
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> incr_list(vector<int> l){
     vector<int> result;
     for(int i = 0; i < l.size(); i++){
@@ -7,8 +10,6 @@ vector<int> incr_list(vector<int> l){
     }
     return result;
 }
-
-vector<int> incr_list(vector<int> l);
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
@@ -21,5 +22,3 @@ bool issame(vector<int> a, vector<int> b){
     }
     return true;
 }
-
-bool issame(vector<int> a, vector<int> b);
