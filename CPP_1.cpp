@@ -2,7 +2,12 @@
 #include <vector>
 #include <cassert>
 
-bool is_same(vector<string> a, vector<string> b);
+using namespace std;
+
+bool is_same(vector<string> a, vector<string> b) {
+    // Implementation code here
+    return a == b;
+}
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> groups;
@@ -29,15 +34,11 @@ vector<string> separate_paren_groups(string paren_string) {
     return groups;
 }
 
-bool is_same(vector<string> a, vector<string> b) {
-    // Implementation code here
-}
-
 int main() {
-    vector<string> a = separate_paren_groups("((()))");
-    vector<string> b = separate_paren_groups("()()()");
+    vector<string> a = separate_paren_groups("((abc)(def))");
+    vector<string> b = separate_paren_groups("((abc)(def))");
 
     assert(is_same(a, b));
-    
+
     return 0;
 }
