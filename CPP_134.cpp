@@ -1,6 +1,6 @@
 #include <string>
 
-bool isLastCharALetter(std::string txt){
+bool isLastCharALetter(string txt){
     int len = txt.length();
     if(len == 0)
         return false;
