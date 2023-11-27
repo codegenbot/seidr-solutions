@@ -1,12 +1,13 @@
 #include <algorithm>
 #include <string>
 #include <any>
-#include <cassert>
+#include <iostream>
 
 using std::any;
 using std::any_cast;
 using std::max;
 using std::string;
+using std::cout;
 
 any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -26,6 +27,6 @@ any compare_one(any a, any b) {
 }
 
 int main() {
-    assert (any_cast<string>(compare_one(string("1"), string("None"))) == "None");
+    cout << any_cast<string>(compare_one(string("1"), 1)) << std::endl;
     return 0;
 }
