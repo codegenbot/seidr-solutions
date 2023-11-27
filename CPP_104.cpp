@@ -1,8 +1,8 @@
 #include <vector>
-
-bool issame(vector<int> a, vector<int> b);
+using namespace std;
 
 vector<int> unique_digits(vector<int> x);
+bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
