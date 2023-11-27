@@ -1,21 +1,20 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2);
 
 bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+int main() {
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    assert(issame(common({1, 2, 3, 4}, {3, 4, 5, 6}), {3, 4}));
+    assert(issame(common({1, 1, 2, 3, 3}, {3, 3, 4, 4, 5}), {3}));
+    assert(issame(common({1, 2, 3, 4}, {5, 6, 7, 8}), {}));
+    
+    return 0;
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -41,8 +40,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
-    
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
