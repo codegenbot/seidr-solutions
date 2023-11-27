@@ -37,18 +37,3 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 
     return rescaled_numbers;
 }
-
-int main() {
-    vector<float> input = {12.0, 11.0, 15.0, 13.0, 14.0};
-    vector<float> expected_output = {0.25, 0.0, 1.0, 0.5, 0.75};
-    vector<float> rescaled = rescale_to_unit(input);
-
-    if(issame(rescaled, expected_output)) {
-        cout << "Output is correct." << endl;
-    }
-    else{
-        cout << "Output is incorrect." << endl;
-    }
-
-    return 0;
-}
