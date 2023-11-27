@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iterator>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
@@ -25,7 +24,7 @@ int main() {
     
     std::vector<int> output = remove_duplicates({5, 3, 5, 2, 3, 3, 9, 0, 123});
     
-    assert (issame(std::unique(output.begin(), output.end()), expected_output));
+    assert (issame(remove_duplicates(output), expected_output));
     
     std::cout << "Output is correct" << std::endl;
     
