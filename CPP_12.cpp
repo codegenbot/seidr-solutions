@@ -1,4 +1,8 @@
+#include <iostream>
+#include <vector>
 #include <string>
+
+using namespace std;
 
 string longest(vector<string> strings){
     if(strings.empty()){
@@ -11,4 +15,11 @@ string longest(vector<string> strings){
         }
     }
     return longestString;
+}
+
+int main() {
+    // Test the longest function
+    cout << longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) << endl;
+    
+    return 0;
 }
