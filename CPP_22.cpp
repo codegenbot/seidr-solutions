@@ -1,10 +1,7 @@
 #include <vector>
 #include <list>
-#include <boost/any.hpp>
-#include <boost/optional.hpp>
 
 using namespace std;
-using namespace boost;
 
 vector<int> filter_integers(list<int> values);
 bool issame(vector<int> a, vector<int> b);
