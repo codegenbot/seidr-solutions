@@ -4,6 +4,7 @@
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
+
     int pos = 0;
     while (pos < int(text.length())) {
         pos = text.find(target, pos);
@@ -11,19 +12,25 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
             break;
         }
         indices.push_back(pos);
-        pos += target.length();
+        pos += 1;
     }
+
     return indices;
 }
 
 int main() {
     std::string text;
     std::string target;
-    std::cin >> text >> target;
+
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
+
     std::vector<int> result = indicesOfSubstring(text, target);
+
     for (int index : result) {
         std::cout << index << " ";
     }
     std::cout << std::endl;
+
     return 0;
 }
