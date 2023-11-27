@@ -2,6 +2,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
     for (int i = a; i <= b; i++) {
@@ -12,7 +14,7 @@ vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool is_same(const vector<int>& a, const vector<int>& b){
+bool are_equal(vector<int> a, vector<int> b){
     if(a.size() != b.size()) {
         return false;
     }
@@ -26,7 +28,7 @@ bool is_same(const vector<int>& a, const vector<int>& b){
     return true;
 }
 
-int test() {
-    assert(is_same(generate_integers(17, 88), {}));
+int main() {
+    assert(are_equal(generate_integers(17, 89), {}));
     return 0;
 }
