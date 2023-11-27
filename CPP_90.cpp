@@ -1,4 +1,5 @@
 #include <vector>
+#include <climits>
 
 int findNextSmallest(const std::vector<int>& lst) {
     if(lst.size() < 2) {
