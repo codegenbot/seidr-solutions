@@ -1,9 +1,17 @@
 #include <iostream>
-#include <algorithm>
+#include <algorithm> // for reverse and rotate
 #include <string>
+
 using namespace std;
 
 string circular_shift(int x, int shift);
+
+int main() {
+    assert(circular_shift(11, 101) == "11");
+    // add more test cases here
+
+    return 0;
+}
 
 string circular_shift(int x, int shift) {
     string num = to_string(x);
@@ -18,9 +26,4 @@ string circular_shift(int x, int shift) {
     rotate(num.rbegin(), num.rbegin() + shift, num.rend());
     
     return num;
-}
-
-int main() {
-    assert(circular_shift(11, 101) == "11");
-    return 0;
 }
