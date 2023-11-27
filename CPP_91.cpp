@@ -19,12 +19,6 @@ int is_bored(string S){
 }
 
 int main() {
-    // Test the is_bored function
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    int result = is_bored(input);
-    cout << "Count: " << result << endl;
-    
+    // Test the is_bored function here
     return 0;
 }
