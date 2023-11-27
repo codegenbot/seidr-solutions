@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
-
-string exchange(vector<int> lst1, vector<int> lst2);
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     int count = 0;
