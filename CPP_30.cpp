@@ -1,12 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
-
-bool issame(vector<float> a, vector<float> b){
-    return a == b;
-}
 
 vector<float> get_positive(const vector<float>& l){
     vector<float> positive_nums;
@@ -16,4 +13,14 @@ vector<float> get_positive(const vector<float>& l){
         }
     }
     return positive_nums;
+}
+
+int main() {
+    vector<float> expected_output = {};
+    vector<float> result = get_positive({});
+    assert(equal(result.begin(), result.end(), expected_output.begin(), expected_output.end()));
+
+    cout << "Test case passed!" << endl;
+
+    return 0;
 }
