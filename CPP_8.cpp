@@ -10,11 +10,12 @@ vector<int> sum_product(vector<int> numbers){
     return {sum, product};
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b){
+    int n = a.size();
+    if (n != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < n; i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -23,16 +24,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    // Test the sum_product function
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    vector<int> result = sum_product(numbers);
-    cout << "Sum: " << result[0] << endl;
-    cout << "Product: " << result[1] << endl;
-
-    // Test the issame function
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
-    cout << "a and b are " << (issame(a, b) ? "same" : "different") << endl;
-
+    // your code here
     return 0;
 }
