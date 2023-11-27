@@ -1,44 +1,23 @@
-#include <vector>
-
+#include <vector> 
 vector<int> make_a_pile(int n);
-
 bool issame(vector<int> a, vector<int> b);
-
-vector<int> make_a_pile(int n){
-    vector<int> stones;
-    int stonesInLevel = n;
-    for(int i=0; i<n; i++){
-        stones.push_back(stonesInLevel);
-        if(n % 2 == 0){
-            stonesInLevel += 2;
-        } else {
-            stonesInLevel += 1;
-        }
-    }
-    return stones;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    int n = a.size();
-    for(int i=0; i<n; i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-  int n;
-  cin >> n;
-  vector<int> pileA = make_a_pile(n);
-  vector<int> pileB = make_a_pile(n);
-  
-  if(issame(pileA, pileB)){
-    cout << "Same" << endl;
-  } else {
-    cout << "Different" << endl;
-  }
-  
-  return 0;
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    return 0;
+}
+vector<int> make_a_pile(int n) {
+    vector<int> levels;
+    int stones = n;
+    for (int i = 0; i < n; i++) {
+        levels.push_back(stones);
+        if (n % 2 == 0) {
+            stones += 2;
+        } else {
+            stones += 1;
+        }
+    }
+    return levels;
+}
+bool issame(vector<int> a, vector<int> b) {
+    // Implementation of issame function
 }
