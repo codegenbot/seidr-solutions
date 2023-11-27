@@ -29,7 +29,5 @@ bool are_same(vector<int> a, vector<int> b){
     return true;
 }
 
-int main(){
-    assert(are_same(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
-    return 0;
-}
+assert(are_same(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+return 0;
