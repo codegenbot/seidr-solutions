@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     if(a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -13,10 +13,11 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> l){
-    std::sort(l.begin(), l.end());
-    l.erase(std::unique(l.begin(), l.end()), l.end());
-    return l;
+std::vector<int> remove_duplicates(const std::vector<int>& l){
+    std::vector<int> result = l;
+    std::sort(result.begin(), result.end());
+    result.erase(std::unique(result.begin(), result.end()), result.end());
+    return result;
 }
 
 int main() {
