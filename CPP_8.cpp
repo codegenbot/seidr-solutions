@@ -30,16 +30,3 @@ vector<int> sum_product(vector<int> numbers) {
 
     return result;
 }
-
-int main() {
-    vector<int> input = {10};
-    vector<int> result = sum_product(input);
-
-    if (!issame(result, input)) {
-        cout << "Sum and product are not the same" << endl;
-    } else {
-        cout << "Sum and product are the same" << endl;
-    }
-
-    return 0;
-}
