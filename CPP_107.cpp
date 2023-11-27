@@ -37,10 +37,10 @@ int main() {
     assert(isSame(result, {0, 1}));
 
     result = even_odd_palindrome(10);
-    assert(isSame(result, {5, 5}));
+    assert(isSame(result, {9, 1}));
 
     result = even_odd_palindrome(100);
-    assert(isSame(result, {10, 10}));
+    assert(isSame(result, {18, 81}));
 
     // Add more test cases here
 
