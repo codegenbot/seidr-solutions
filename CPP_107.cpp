@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 
+bool is_same_vector(std::vector<int> a, std::vector<int> b);
+
 bool is_same_vector(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
