@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 bool is_palindrome(std::string text){
@@ -12,14 +11,26 @@ bool is_palindrome(std::string text){
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
+    std::string test1 = "radar";
+    std::string test2 = "hello";
+    std::string test3 = "level";
     
-    if(is_palindrome(input)){
-        std::cout << "The string is a palindrome." << std::endl;
+    if(is_palindrome(test1)){
+        std::cout << test1 << " is a palindrome.\n";
     } else {
-        std::cout << "The string is not a palindrome." << std::endl;
+        std::cout << test1 << " is not a palindrome.\n";
+    }
+    
+    if(is_palindrome(test2)){
+        std::cout << test2 << " is a palindrome.\n";
+    } else {
+        std::cout << test2 << " is not a palindrome.\n";
+    }
+    
+    if(is_palindrome(test3)){
+        std::cout << test3 << " is a palindrome.\n";
+    } else {
+        std::cout << test3 << " is not a palindrome.\n";
     }
     
     return 0;
