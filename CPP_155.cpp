@@ -17,6 +17,7 @@ std::vector<int> even_odd_count(int num){
             oddCount++;
         }
     }
+
     return {evenCount, oddCount};
 }
 
@@ -28,6 +29,8 @@ int main(){
     assert(issame(even_odd_count(0) , {1, 0}));
     assert(issame(even_odd_count(-12345), {2, 3}));
     assert(issame(even_odd_count(987654321), {0, 9}));
+
     std::cout << "All test cases passed!\n";
+
     return 0;
 }
