@@ -17,8 +17,3 @@ int next_smallest(vector<int> lst){
     }
     return INT_MIN;
 }
-
-assert(next_smallest({-35, 34, 12, -45}) == -35);
-// Add more test cases here
-
-return 0;
