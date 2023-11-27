@@ -16,7 +16,9 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
 int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
-    std::cin >> startingHeight >> firstBounceHeight >> numBounces;
+    std::cin >> startingHeight;
+    std::cin >> firstBounceHeight;
+    std::cin >> numBounces;
 
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
 
