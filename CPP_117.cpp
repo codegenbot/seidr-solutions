@@ -50,8 +50,8 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> a = {"apple", "banana", "orange"};
-    vector<string> b = {"apple", "banana", "orange"};
+    vector<string> a = {"apple", "banana", "cherry"};
+    vector<string> b = {"apple", "banana", "cherry"};
     
     assert(areSame(a, b));
     
