@@ -21,6 +21,6 @@ int main() {
     string input;
     cin >> input;
     int result = is_bored(input);
-    cout << result;
+    cout << result << endl;
     return 0;
 }
