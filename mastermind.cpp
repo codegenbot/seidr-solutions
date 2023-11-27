@@ -20,7 +20,7 @@ pair<int, int> mastermind(string code, string guess) {
     for (int i = 0; i < 6; i++) {
         whitePegs += min(codeCount[i], guessCount[i]);
     }
-    
+
     for (int i = 0; i < 6; i++) {
         whitePegs += min(codeCount[i], guessCount[i]);
         whitePegs -= min(codeCount[i], guessCount[i] - min(codeCount[i], guessCount[i]));
