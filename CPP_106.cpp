@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 vector<int> f(int n){
     vector<int> result(n);
@@ -19,4 +20,11 @@ vector<int> f(int n){
         }
     }
     return result;
+}
+
+int main() {
+    vector<int> expected = f(3);
+    vector<int> actual = {1, 2, 6};
+    assert(expected == actual);
+    return 0;
 }
