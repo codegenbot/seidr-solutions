@@ -1,4 +1,8 @@
-int specialFilter(vector<int> nums){
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int specialFilter(const vector<int>& nums){
     int count = 0;
     for(int num : nums){
         string numStr = to_string(num);
@@ -9,4 +13,11 @@ int specialFilter(vector<int> nums){
         }
     }
     return count;
+}
+
+int main() {
+    assert (specialFilter({}) == 0);
+    // Add more test cases if needed
+
+    return 0;
 }
