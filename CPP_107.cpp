@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-
-bool is_same_vector(std::vector<int> a, std::vector<int> b);
+#include <cassert>
 
 bool is_same_vector(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -41,13 +40,7 @@ std::vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    std::vector<int> expected = { 0, 1 };
-    std::vector<int> result = even_odd_palindrome(1);
-    if (is_same_vector(result, expected)) {
-        std::cout << "Test case passed." << std::endl;
-    }
-    else {
-        std::cout << "Test case failed." << std::endl;
-    }
+    assert(is_same_vector(even_odd_palindrome(1), { 0, 1 }));
+    std::cout << "Test case passed." << std::endl;
     return 0;
 }
