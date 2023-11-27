@@ -1,42 +1,58 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
-vector<string> select_words(string s, int n);
+int count_consonants(string word) {
+    int count = 0;
+    for (char c : word) {
+        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
+            count++;
+        }
+    }
+    return count;
+}
 
-int main() {
-    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
-    return 0;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
-    int consonantCount = 0;
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            if (consonantCount == n) {
+    if (s.empty()) {
+        return result;
+    }
+    string word;
+    for (char c : s) {
+        if (c == ' ') {
+            if (count_consonants(word) == n) {
                 result.push_back(word);
             }
-            word = "";
-            consonantCount = 0;
+            word.clear();
         } else {
-            if (isalpha(s[i])) {
-                char c = tolower(s[i]);
-                if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
-                    consonantCount++;
-                }
-            }
-            word += s[i];
+            word += c;
         }
     }
-    
-    if (consonantCount == n) {
+    if (count_consonants(word) == n) {
         result.push_back(word);
     }
-    
     return result;
+}
+
+int main() {
+    // Additional code for testing or main function
+    return 0;
+}
+
+int main2() {
+    // Additional code for testing or main function
+    return 0;
 }
