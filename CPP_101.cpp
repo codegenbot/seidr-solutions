@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-#include <string> // Add this line
+#include <string>
 
 std::vector<std::string> words_string(const std::string& s) {
     std::vector<std::string> words;
@@ -40,7 +39,10 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 int main() {
     assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
 
-    // Add more test cases if needed
+    // Additional test cases
+    assert(issame(words_string(""), {}));  // Empty string, expect empty vector
+    assert(issame(words_string("apple,orange,banana"), {"apple", "orange", "banana"}));  // Multiple words separated by commas
+    assert(issame(words_string("   hello, world   ,   how , are , you   "), {"hello", "world", "how", "are", "you"}));  // Extra spaces before and after words
 
     return 0;
 }
