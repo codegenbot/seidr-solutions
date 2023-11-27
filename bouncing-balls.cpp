@@ -12,8 +12,7 @@ int main() {
     double total_distance = starting_height;
     
     for (int i = 0; i < num_bounces; i++) {
-        bounciness_index = std::sqrt(bounciness_index);
-        total_distance += 2 * bounciness_index * starting_height;
+        total_distance += 2 * bounciness_index * total_distance;
     }
     
     std::cout.precision(15);
