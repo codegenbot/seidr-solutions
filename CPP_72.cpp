@@ -3,12 +3,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i = 0; i < q.size(); i++) {
         sum += q[i];
     }
-    if (sum <= w) {
-        for (int i = 0, j = q.size() - 1; i < j; i++, j--) {
-            if (q[i] != q[j]) {
-                return false;
-            }
-        }
+    if (sum <= w && q == vector<int>(q.rbegin(), q.rend())) {
         return true;
     }
     return false;
