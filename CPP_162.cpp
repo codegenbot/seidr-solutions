@@ -27,9 +27,4 @@ std::string string_to_md5(std::string text) {
     return std::string(md5String);
 }
 
-// int main() {
-//     std::string text;
-//     std::cin >> text;
-//     std::cout << string_to_md5(text) << std::endl;
-//     return 0;
-// }
+int main();
