@@ -1,3 +1,18 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> get_odd_collatz(int n);
+
+bool is_same(vector<int> a, vector<int> b);
+
+bool is_same(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return (a == b);
+}
+
 vector<int> get_odd_collatz(int n){
     vector<int> collatz;
     collatz.push_back(n);
