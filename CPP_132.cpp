@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool isNested(std::string str){
     int count = 0;
@@ -19,6 +20,11 @@ bool isNested(std::string str){
 
 int main() {
     assert (isNested("]]]]]]]]") == false);
-    // Additional test cases can be added
+    assert (isNested("[[[[") == true);
+    assert (isNested("]][[[") == false);
+    assert (isNested("]]][[") == false);
+    assert (isNested("") == false);
+    assert (isNested("[]") == false);
+    
     return 0;
 }
