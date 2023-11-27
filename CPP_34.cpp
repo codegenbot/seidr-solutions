@@ -17,6 +17,7 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> remove_duplicates_custom(vector<int> l){
     sort(l.begin(), l.end());
+    l.erase(unique(l.begin(), l.end()), l.end());
     return l;
 }
 
