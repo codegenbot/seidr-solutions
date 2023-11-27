@@ -1,9 +1,8 @@
 #include <map>
 
-using namespace std;
-
 bool issame(map<char, int> a, map<char, int> b);
 
+map<char, int> histogram(string test);
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) {
@@ -31,19 +30,18 @@ bool issame(map<char, int> a, map<char, int> b) {
 }
 
 int main() {
-    /* Uncomment the test cases below to test the code */
-    
-    // Test case 1
-    // string test1 = "hello world";
-    // map<char, int> result1 = histogram(test1);
-    // map<char, int> expected1 = {{'h', 1}, {'e', 1}, {'l', 3}, {'o', 2}, {'w', 1}, {'r', 1}, {'d', 1}};
-    // cout << (issame(result1, expected1) ? "Test case 1 passed" : "Test case 1 failed") << endl;
+    // Test cases
+    map<char, int> a = histogram("hello world");
+    map<char, int> b = {{'h', 1}, {'e', 1}, {'l', 3}, {'o', 2}, {'w', 1}, {'r', 1}, {'d', 1}};
+    assert(issame(a, b));
 
-    // Test case 2
-    // string test2 = "programming is fun";
-    // map<char, int> result2 = histogram(test2);
-    // map<char, int> expected2 = {{'p', 1}, {'r', 2}, {'o', 1}, {'g', 2}, {'a', 1}, {'m', 2}, {'i', 2}, {'n', 2}, {'s', 1}, {'f', 1}, {'u', 1}};
-    // cout << (issame(result2, expected2) ? "Test case 2 passed" : "Test case 2 failed") << endl;
+    map<char, int> c = histogram("this is a test");
+    map<char, int> d = {{'t', 3}, {'h', 1}, {'i', 2}, {'s', 3}, {'a', 1}, {'e', 1}};
+    assert(issame(c, d));
+
+    map<char, int> e = histogram("");
+    map<char, int> f = {};
+    assert(issame(e, f));
 
     return 0;
 }
