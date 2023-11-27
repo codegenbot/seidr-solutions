@@ -18,6 +18,6 @@ int specialFilter(const vector<int>& nums){
 int main() {
     assert (specialFilter({}) == 0);
     // Add more test cases if needed
-    
+
     return 0;
 }
