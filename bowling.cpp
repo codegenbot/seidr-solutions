@@ -4,40 +4,44 @@
 int calculateScore(std::string input) {
     int score = 0;
     int frame = 0;
-    int rolls = 0;
     int frames[10] = {0};
 
-    for (char ch : input) {
+    for (int i = 0; i < input.length(); i++) {
+        char ch = input[i];
+        
         if (ch == 'X') {
             frames[frame] += 10;
-            if (frame < 9) {
-                frames[frame+1] += 10 - (10 - rolls % 10);
-                if (frame < 8 && input[rolls+2] != '/')
-                    frames[frame+2] += 10 - (10 - rolls % 10);
-                else if (frame < 8 && input[rolls+2] == '/')
-                    frames[frame+2] += 10 - (10 - rolls % 10) + (10 - frames[frame+1]);
+            if (frame < 8) {
+                frames[frame+1] += 10;
+                frames[frame+2] += 10;
+            } else if (frame == 8) {
+                frames[frame+1] += 10;
             }
-            rolls++;
+            
+            if ((i < input.length() - 2) && (input[i+2] == '/')) {
+                frames[frame+1] += (10 - frames[frame+1]);
+            }
+            
+            frame++;
         } else if (ch == '/') {
             frames[frame] += (10 - frames[frame]);
-            if (frame < 9) {
-                frames[frame+1] += 10 - frames[frame];
+            if (frame < 8) {
+                frames[frame+1] += (10 - frames[frame]);
             }
-            rolls++;
+            
+            frame++;
         } else if (ch == '-') {
-            rolls++;
+            
         } else {
             frames[frame] += (ch - '0');
-            rolls++;
-        }
-
-        if (rolls % 2 == 0) {
-            frame++;
+            if (((i+1) % 2 == 0) && (frame < 9)) {
+                frame++;
+            }
         }
     }
 
-    for (int i = 2; i < 10; i++) {
-        score += frames[i - 2];
+    for (int i = 0; i < 10; i++) {
+        score += frames[i];
     }
 
     return score;
