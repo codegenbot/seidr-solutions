@@ -1,10 +1,8 @@
-#include <stdio.h>
+#include <iostream>
 #include <string>
 #include <openssl/evp.h>
 
-using namespace std;
-
-string string_to_md5(string text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";
     }
@@ -23,10 +21,16 @@ string string_to_md5(string text) {
         sprintf(&md5Hash[i * 2], "%02x", digest[i]);
     }
 
-    return string(md5Hash);
+    return std::string(md5Hash);
 }
 
 int main() {
-    // Add the -lcrypto flag to the compile command
+    std::string text;
+    std::cout << "Enter text: ";
+    std::getline(std::cin, text);
+
+    std::string result = string_to_md5(text);
+    std::cout << "MD5 Hash: " << result << std::endl;
+
     return 0;
 }
