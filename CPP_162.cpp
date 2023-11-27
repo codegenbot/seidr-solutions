@@ -9,10 +9,17 @@ string string_to_md5(string text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-
+    
+    // Create an instance of MD5_CTX
     MD5_CTX ctx;
+    
+    // Initialize the MD5 context
     MD5_Init(&ctx);
+    
+    // Update the MD5 context with the input text
     MD5_Update(&ctx, text.c_str(), text.length());
+    
+    // Generate the MD5 hash
     MD5_Final(digest, &ctx);
 
     char md5Hash[2 * MD5_DIGEST_LENGTH + 1];
