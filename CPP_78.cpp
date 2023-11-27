@@ -1,4 +1,6 @@
-int hex_key(string num){
+#include <string>
+
+int hex_key(std::string num){
     int count = 0;
     for (int i = 0; i < num.length(); i++) {
         char c = num[i];
