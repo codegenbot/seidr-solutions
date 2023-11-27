@@ -1,5 +1,7 @@
-\#include <string>
-\#include <vector>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
 std::vector<std::string> bf(std::string planet1, std::string planet2);
 
@@ -30,4 +32,22 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     
     return result;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {}));
+    
+    return 0;
 }
