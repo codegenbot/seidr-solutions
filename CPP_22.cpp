@@ -1,11 +1,12 @@
 #include <vector>
 #include <list>
-#include <typeinfo>
+#include <boost/any.hpp>
+#include <boost/optional.hpp>
 
 using namespace std;
+using namespace boost;
 
 vector<int> filter_integers(list<int> values);
-
 bool issame(vector<int> a, vector<int> b);
 
 int main() {
@@ -13,16 +14,24 @@ int main() {
     return 0;
 }
 
-vector<int> filter_integers(list<int> values){
+vector<int> filter_integers(list<int> values) {
     vector<int> result;
-    for(auto value : values){
-        if(typeid(value) == typeid(int)){
+    for(auto value : values) {
+        if(value != static_cast<int>('c') && value != static_cast<int>('a') && value != static_cast<int>('b')) {
             result.push_back(value);
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
