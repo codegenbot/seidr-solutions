@@ -23,7 +23,6 @@ int main() {
     std::vector<double> vector2(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vector2[i];
-
         if (i < n - 1) {
             char comma;
             std::cin >> comma;
