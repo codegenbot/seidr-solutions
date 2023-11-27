@@ -1,53 +1,61 @@
 #include <vector>
 #include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>& nums) {
+vector<int> cut_vector(vector<int> nums) {
     int n = nums.size();
     int diff = INT_MAX;
-    int index = -1;
+    int cutIndex = -1;
     
+    // Find the spot where the difference is smallest
     for (int i = 1; i < n; i++) {
-        int left_sum = 0;
-        int right_sum = 0;
+        int leftSum = 0;
+        int rightSum = 0;
         
+        // Calculate sum of elements on left and right side of cut index
         for (int j = 0; j < i; j++) {
-            left_sum += nums[j];
+            leftSum += nums[j];
         }
-        
         for (int j = i; j < n; j++) {
-            right_sum += nums[j];
+            rightSum += nums[j];
         }
         
-        int current_diff = abs(left_sum - right_sum);
-        if (current_diff < diff) {
-            diff = current_diff;
-            index = i;
+        // Update cut index and difference if current difference is smaller
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            cutIndex = i;
         }
     }
     
-    std::vector<int> left(nums.begin(), nums.begin() + index);
-    std::vector<int> right(nums.begin() + index, nums.end());
+    // Create subvectors based on cut index
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex);
+    vector<int> rightSubvector(nums.begin() + cutIndex, nums.end());
     
-    return std::make_pair(left, right);
+    // Add 0 to the end of right subvector
+    rightSubvector.push_back(0);
+    
+    // Return the two resulting subvectors
+    return {leftSubvector, rightSubvector};
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
     
-    std::pair<std::vector<int>, std::vector<int>> result = cut_vector(nums);
+    vector<int> result = cut_vector(nums);
     
-    for (int num : result.first) {
-        std::cout << num << std::endl;
+    for (int i = 0; i < result[0].size(); i++) {
+        cout << result[0][i] << endl;
     }
     
-    for (int num : result.second) {
-        std::cout << num << std::endl;
+    for (int i = 0; i < result[1].size(); i++) {
+        cout << result[1][i] << endl;
     }
     
     return 0;
