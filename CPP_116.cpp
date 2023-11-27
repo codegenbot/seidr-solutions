@@ -18,7 +18,7 @@ vector<int> sort_array(vector<int> arr) {
     return arr;
 }
 
-bool is_array_equal(vector<int> a, vector<int> b) {
+bool are_same(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
         return false;
 
@@ -30,6 +30,6 @@ bool is_array_equal(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(is_array_equal(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+    assert(are_same(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
     return 0;
 }
