@@ -17,7 +17,7 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> sorted_arr = sort_array({2, 4, 8, 16, 32});
-    assert(std::equal(sorted_arr.begin(), sorted_arr.end(), {2, 4, 8, 16, 32}.begin()));
+    std::vector<int> expected = {2, 4, 8, 16, 32};
+    assert(std::equal(sort_array({2, 4, 8, 16, 32}).begin(), sort_array({2, 4, 8, 16, 32}).end(), expected.begin()));
     return 0;
 }
