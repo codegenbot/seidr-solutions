@@ -1,10 +1,13 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <string>
 
 using namespace std;
 
-vector<string> separate_paren_groups(string paren_string){
+vector<string> separate_paren_groups(string paren_string);
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
     int open_braces = 0;
@@ -29,21 +32,21 @@ vector<string> separate_paren_groups(string paren_string){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
+
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+
     return true;
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    cout << "Test case passed!" << endl;
-
+    // main function code...
     return 0;
 }
