@@ -3,34 +3,35 @@ vector<string> split_words(string txt){
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-    
-    for(int i=0; i<txt.length(); i++){
-        if(txt[i] == ' '){
+
+    for(char c : txt){
+        if(c == ' '){
             hasWhitespace = true;
-            if(word.length() > 0){
+            if(word != ""){
                 words.push_back(word);
                 word = "";
             }
         }
-        else if(txt[i] == ','){
+        else if(c == ','){
             hasComma = true;
-            if(word.length() > 0){
+            if(word != ""){
                 words.push_back(word);
                 word = "";
             }
         }
         else{
-            word += txt[i];
+            word += c;
         }
     }
-    
-    if(word.length() > 0){
+
+    if(word != ""){
         words.push_back(word);
     }
-    
-    if(words.size() == 0){
-        words.push_back(to_string('z' - 'a' + 1));
+
+    if(!hasWhitespace && !hasComma){
+        string num = to_string(count_if(txt.begin(), txt.end(), [](char c){ return islower(c); }));
+        words.push_back(num);
     }
-    
+
     return words;
 }
