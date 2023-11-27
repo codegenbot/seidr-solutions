@@ -1,10 +1,7 @@
 #include <algorithm>
 #include <string>
-#include <boost/any.hpp>
 #include <cassert>
 
-using boost::any;
-using boost::any_cast;
 using std::max;
 using std::string;
 
