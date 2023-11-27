@@ -11,21 +11,20 @@ int calculateScore(std::string input) {
         if (ch == 'X') {
             frames[frame] += 10;
             if (frame < 9) {
-                frames[frame+1] += (input[rolls+1] - '0');
+                frames[frame+1] += 10;
                 if (frame < 8) {
-                    frames[frame+2] += (input[rolls+2] - '0');
+                    frames[frame+2] += 10;
                 }
             }
-            rolls++;
         } else if (ch == '/') {
-            frames[frame] += (10 - (input[rolls-1] - '0'));
+            frames[frame] += (10 - (ch - '0'));
             if (frame < 9) {
-                frames[frame+1] += (10 - (input[rolls-1] - '0'));
+                frames[frame+1] += (10 - (ch - '0'));
             }
+        } else if (ch == '-') {
+            
         } else {
-            if (ch != '-') {
-                frames[frame] += (ch - '0');
-            }
+            frames[frame] += (ch - '0');
         }
 
         rolls++;
