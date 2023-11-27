@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iterator>
-#include <memory>
+#include <numeric>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
