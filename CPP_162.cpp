@@ -1,3 +1,7 @@
+extern "C" {
+#include <openssl/md5.h>
+}
+
 #include <iostream>
 #include <string>
 #include <array>
@@ -16,7 +20,7 @@ std::string string_to_md5(std::string text) {
 
     std::array<char, 33> md5Hash;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        sprintf_s(&md5Hash[i * 2], sizeof(md5Hash) - (i * 2), "%02x", (unsigned int)digest[i]);
+        sprintf(&md5Hash[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
     return std::string(md5Hash.data(), md5Hash.size());
