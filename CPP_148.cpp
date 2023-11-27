@@ -33,7 +33,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 
 int main() {
     std::vector<std::string> result = bf("Jupiter", "Makemake");
-    // Output the result
     for (const auto& planet : result) {
         std::cout << planet << " ";
     }
