@@ -1,17 +1,10 @@
-#include <string>
+#include <iostream>
+#include <algorithm>
 
-std::string solve(std::string s);
+using namespace std;
 
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::string output = solve(input);
-    std::cout << output << std::endl;
-    return 0;
-}
-
-std::string solve(std::string s){
-    std::string result = "";
+string solve(string s){
+    string result = "";
     bool hasLetter = false;
     
     for(int i=0; i<s.length(); i++){
@@ -30,8 +23,15 @@ std::string solve(std::string s){
     }
     
     if(!hasLetter){
-        std::reverse(result.begin(), result.end());
+        reverse(result.begin(), result.end());
     }
     
     return result;
+}
+
+int main(){
+    assert (solve("#ccc") == "#CCC");
+    // Add more test cases here
+    
+    return 0;
 }
