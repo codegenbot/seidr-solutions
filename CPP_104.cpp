@@ -1,7 +1,9 @@
 #include <vector>
-using namespace std;
+#include <algorithm>
+#include <cassert>
 
 vector<int> unique_digits(vector<int> x);
+
 bool issame_set(vector<int> a, vector<int> b);
 
 vector<int> unique_digits(vector<int> x){
@@ -29,19 +31,11 @@ bool issame_set(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
-    
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
-int main() {
+int main(){
     assert(issame_set(unique_digits({135, 103, 31}), {31, 135}));
-    return 0;
 }
