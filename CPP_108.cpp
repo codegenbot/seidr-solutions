@@ -1,13 +1,13 @@
 #include <vector>
-#include <cmath>
+using namespace std;
 
 int count_nums(vector<int> n){
     int count = 0;
     for(int num : n){
         int sum = 0;
-        int temp = abs(num);
+        int temp = num;
         while(temp != 0){
-            sum += temp % 10;
+            sum += abs(temp % 10);
             temp /= 10;
         }
         if(sum > 0){
@@ -18,8 +18,6 @@ int count_nums(vector<int> n){
 }
 
 int main() {
-    // Test cases
-    // assert(count_nums({1}) == 1);
-    
+    assert (count_nums({1}) == 1);
     return 0;
 }
