@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 bool correct_bracketing(std::string brackets) {
@@ -17,11 +16,6 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-  std::string brackets;
-  std::cin >> brackets;
-  
-  bool result = correct_bracketing(brackets);
-  std::cout << std::boolalpha << result << std::endl;
-  
+  // Test the function here
   return 0;
 }
