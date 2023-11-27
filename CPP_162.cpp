@@ -27,7 +27,6 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    // Your code here
-
+    // Add the -lcrypto flag to the compile command
     return 0;
 }
