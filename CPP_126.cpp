@@ -1,8 +1,6 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
 bool is_sorted(vector<int> lst){
     vector<int> sorted_lst = lst;
     sort(sorted_lst.begin(), sorted_lst.end());
