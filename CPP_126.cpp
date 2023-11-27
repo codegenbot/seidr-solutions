@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
-bool my_is_sorted(vector<int> lst){
+bool my_is_sorted(std::vector<int> lst){
     if(lst.size() <= 1) {
         return true;
     }
