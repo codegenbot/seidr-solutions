@@ -1,14 +1,9 @@
-#include <vector>   
-
-#include <string>   
-
-#include <algorithm>    
-
-#include <map>  
-
-#include <cassert>  
-
-#include <iostream> 
+#include <vector>   // for vector
+#include <string>   // for string
+#include <algorithm>    // for sort, reverse
+#include <map>  // for map
+#include <cassert>  // for assert
+#include <iostream> // for cout
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
