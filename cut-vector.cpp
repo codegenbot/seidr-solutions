@@ -34,7 +34,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 int main() {
     int n;
     std::cin >> n;
-
+    
     std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
