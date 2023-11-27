@@ -1,18 +1,35 @@
+#include <iostream>
 #include <string>
 #include <algorithm>
 
-string encode(string message) {
-    for (int i = 0; i < message.length(); i++) {
-        if (isalpha(message[i])) {
-            if (islower(message[i])) {
-                message[i] = toupper(message[i]);
+std::string encode(std::string message) {
+    std::string encodedMessage = "";
+
+    for (char c : message) {
+        if (isalpha(c)) {
+            if (islower(c)) {
+                encodedMessage += toupper(c);
             } else {
-                message[i] = tolower(message[i]);
+                encodedMessage += tolower(c);
             }
-            if (message[i] == 'a' || message[i] == 'e' || message[i] == 'i' || message[i] == 'o' || message[i] == 'u') {
-                message[i] = message[i] + 2;
+
+            if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u') {
+                encodedMessage += c + 2;
             }
+        } else {
+            encodedMessage += c;
         }
     }
-    return message;
+
+    return encodedMessage;
+}
+
+int main() {
+    std::string message;
+    std::cout << "Enter a message: ";
+    std::getline(std::cin, message);
+
+    std::cout << "Encoded message: " << encode(message) << std::endl;
+
+    return 0;
 }
