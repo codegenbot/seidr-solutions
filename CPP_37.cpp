@@ -4,26 +4,11 @@
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b);
+bool areEqual(const vector<float> a, const vector<float> b);
 
-vector<float> sort_even(vector<float> l);
+vector<float> sort_even(const vector<float>& l);
 
-int main() {
-    vector<float> l = {3.2, 1.5, 4.7, 2.9, 6.1};
-    vector<float> sorted_l = sort_even(l);
-    
-    vector<float> expected = {1.5, 3.2, 2.9, 4.7, 6.1};
-    
-    if (issame(sorted_l, expected)) {
-        cout << "The list is sorted correctly." << endl;
-    } else {
-        cout << "The list is not sorted correctly." << endl;
-    }
-    
-    return 0;
-}
-
-bool issame(vector<float> a, vector<float> b) {
+bool areEqual(const vector<float> a, const vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -37,7 +22,7 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> sort_even(vector<float> l) {
+vector<float> sort_even(const vector<float>& l) {
     vector<float> l_prime = l;
     vector<float> even_values;
     
@@ -56,4 +41,19 @@ vector<float> sort_even(vector<float> l) {
     }
     
     return l_prime;
+}
+
+int main() {
+    vector<float> l = {3.2, 1.5, 4.7, 2.9, 6.1};
+    vector<float> sorted_l = sort_even(l);
+    
+    vector<float> expected = {1.5, 3.2, 2.9, 4.7, 6.1};
+    
+    if (areEqual(sorted_l, expected)) {
+        cout << "The list is sorted correctly." << endl;
+    } else {
+        cout << "The list is not sorted correctly." << endl;
+    }
+    
+    return 0;
 }
