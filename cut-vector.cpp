@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
 
@@ -29,10 +29,10 @@ vector<int> cutVector(vector<int>& nums) {
     }
 
     // Create the two resulting subvectors
-    vector<int> leftSubvector{ std::begin(nums), std::begin(nums) + cutIndex + 1 };
-    vector<int> rightSubvector{ std::begin(nums) + cutIndex + 1, std::end(nums) };
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    return vector<int>{ std::begin(leftSubvector), std::end(leftSubvector), std::begin(rightSubvector), std::end(rightSubvector) };
+    return make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
@@ -45,11 +45,17 @@ int main() {
     }
 
     auto result = cutVector(nums);
+    auto& leftResult = result.first;
+    auto& rightResult = result.second;
 
-    for (const auto& subvector : result) {
-        for (const auto& element : subvector) {
-            cout << element << " ";
-        }
+    for (const auto& element : leftResult) {
+        cout << element << " ";
+    }
+
+    cout << endl;
+
+    for (const auto& element : rightResult) {
+        cout << element << " ";
     }
 
     return 0;
