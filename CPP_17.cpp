@@ -39,10 +39,6 @@ std::vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
-std::vector<int> parse_music(std::string music_string);
-
-bool is_same_beats(std::vector<int> a, std::vector<int> b);
-
 int main() {
     std::vector<int> expected = {2, 1, 2, 1, 4, 2, 4, 2};
     std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
