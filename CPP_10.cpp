@@ -1,5 +1,11 @@
 #include <string>
-#include <cassert>
+
+string make_palindrome(string str);
+
+int main() {
+    // code here
+    return 0;
+}
 
 string make_palindrome(string str){
     int n = str.length();
