@@ -1,5 +1,4 @@
-#include <boost/any.hpp>
-#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -10,4 +9,15 @@ T compare_one(const T& a, const T& b) {
     } else {
         return b;
     }
+}
+
+void solve() {
+    int num1, num2;
+    cin >> num1 >> num2;
+    cout << compare_one(num1, num2) << endl;
+}
+
+int main() {
+    solve();
+    return 0;
 }
