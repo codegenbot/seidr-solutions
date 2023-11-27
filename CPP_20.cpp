@@ -38,6 +38,6 @@ std::vector<float> find_closest_elements(const std::vector<float>& numbers) {
             }
         }
     }
-
+    
     return result;
 }
