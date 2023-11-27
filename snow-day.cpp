@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <cmath>
 
 double calculateSnow(double hours, double initialSnow, double snowFallRate, double snowMeltRate) {
@@ -8,7 +7,7 @@ double calculateSnow(double hours, double initialSnow, double snowFallRate, doub
         double snowChange = snowFallRate - (snow * snowMeltRate);
         snow += snowChange;
     }
-    return round(snow * 100000000) / 100000000; // Round to 8 decimal places
+    return round(snow * 100000000) / 100000000;
 }
 
 int main() {
