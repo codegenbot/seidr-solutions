@@ -1,25 +1,36 @@
-vector<int> filter_integers(list<any> values) {
+#include <iostream>
+#include <vector>
+#include <list>
+#include <boost/any.hpp>
+#include <cassert>
+
+using namespace std;
+
+vector<int> filter_integers(list<any> values){
     vector<int> result;
-    for (auto value : values) {
-        if (boost::any_cast<int>(&value)) {
-            result.push_back(boost::any_cast<int>(value));
+    for(auto value : values){
+        if(auto intValue = any_cast<int>(&value)){
+            result.push_back(*intValue);
         }
     }
     return result;
 }
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
-int main() {
-    list<any> values {1, 2, "hello", 3, "world"};
-
-    vector<int> filtered_integers = filter_integers(values);
-
-    for (int i : filtered_integers) {
-        cout << i << " ";
-    }
-
+int main(){
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    
+    cout << "Test Passed" << endl;
     return 0;
 }
