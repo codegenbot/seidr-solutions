@@ -1,7 +1,7 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-bool correct_bracketing(std::string brackets) {
+bool correct_bracketing(string brackets) {
   int count = 0;
   for (int i = 0; i < brackets.length(); i++) {
     if (brackets[i] == '<') {
@@ -17,8 +17,7 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-  std::string brackets;
-  std::getline(std::cin, brackets);
-  std::cout << correct_bracketing(brackets) << std::endl;
+  // Your code here
+
   return 0;
 }
