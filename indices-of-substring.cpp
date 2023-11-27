@@ -7,7 +7,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     int pos = 0;
     while (pos < int(text.length())) {
-        pos = text.find(target, pos + target.length() - 1);
+        pos = text.find(target, pos);
         if (pos == std::string::npos) {
             break;
         }
