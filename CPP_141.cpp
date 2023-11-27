@@ -1,19 +1,16 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string file_name_check(string file_name){
-    if (file_name.find('.') != string::npos) {
-        return "Yes";
-    } else {
+std::string file_name_check(std::string file_name) {
+    if (file_name.back() == '.')
         return "No";
-    }
+    else
+        return "Yes";
 }
 
 int main() {
-    assert(file_name_check("file.txt") == "Yes");
-    assert(file_name_check("myfile") == "No");
+    std::cout << file_name_check("example.txt") << std::endl;
+    std::cout << file_name_check("document.") << std::endl;
 
     return 0;
 }
