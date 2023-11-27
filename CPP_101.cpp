@@ -1,8 +1,9 @@
 #include <iostream>
+#include <vector>
 #include <string>
 #include <cassert>
 
-std::vector<std::string> words_string(const std::string& s) {
+std::vector<std::string> words_string(std::string s) {
     std::vector<std::string> words;
     std::string word = "";
     for (int i = 0; i < s.length(); i++) {
@@ -21,7 +22,7 @@ std::vector<std::string> words_string(const std::string& s) {
     return words;
 }
 
-bool are_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     bool result = true;
     if (a.size() != b.size()) {
         result = false;
@@ -37,7 +38,7 @@ bool are_same(const std::vector<std::string>& a, const std::vector<std::string>&
 }
 
 int main() {
-    assert(are_same(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
 
     // Add more test cases if needed
 
