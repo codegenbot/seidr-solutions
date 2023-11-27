@@ -14,7 +14,7 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
+vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
     for (string word : lst) {
         if (word.length() % 2 == 0) {
