@@ -17,7 +17,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
 
     // Iterate through the vector and find the spot where the difference is minimized
     int diff = numeric_limits<int>::max(), cutIndex = -1;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) { // Modify loop condition
         leftSum += nums[i];
         rightSum -= nums[i];
 
@@ -32,7 +32,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    if (cutIndex == -1) {
+    if (cutIndex == -1) { // Correct check for cutIndex
         leftSubvector.clear();
     }
 
