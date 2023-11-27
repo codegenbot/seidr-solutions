@@ -27,7 +27,3 @@ vector<int> sortThird(vector<int> l){
 
     return result;
 }
-
-int main(){
-    return 0;
-}
