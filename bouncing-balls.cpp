@@ -3,11 +3,11 @@ using namespace std;
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
-    double totalDistance = startingHeight + firstBounceHeight;
+    double totalDistance = startingHeight;
 
-    for (int i = 2; i <= numBounces; i++) {
+    for (int i = 0; i < numBounces; i++) {
+        totalDistance += 2 * firstBounceHeight - startingHeight;
         firstBounceHeight *= bouncinessIndex;
-        totalDistance += 2 * firstBounceHeight;
     }
 
     return totalDistance;
