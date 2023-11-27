@@ -21,8 +21,6 @@ int count_distinct_characters(string str) {
 }
 
 int main() {
-    // Call the count_distinct_characters function with the provided string
     count_distinct_characters("Jerry jERRY JeRRRY");
-
     return 0;
 }
