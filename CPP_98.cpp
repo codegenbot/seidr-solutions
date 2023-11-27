@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int count_upper(const string& s){
     int count = 0;
     for(int i = 0; i < s.length(); i+=2){
@@ -14,11 +12,26 @@ int count_upper(const string& s){
     return count;
 }
 
-int main(){
+int main() {
     // Test cases
-    cout << count_upper("Hello") << endl; // Expected output: 2
-    cout << count_upper("WORLD") << endl; // Expected output: 3
-    cout << count_upper("cOuNt") << endl; // Expected output: 1
+    string test1 = "Hello";
+    string test2 = "WORLD";
+    string test3 = "AbCdEfG";
     
-    return 0;
+    // Expected outputs
+    int expected1 = 2;
+    int expected2 = 2;
+    int expected3 = 4;
+    
+    // Test the count_upper function
+    int result1 = count_upper(test1);
+    int result2 = count_upper(test2);
+    int result3 = count_upper(test3);
+    
+    // Check if the results match the expected outputs
+    if(result1 == expected1 && result2 == expected2 && result3 == expected3) {
+        return 0; // Return 0 if all test cases pass
+    } else {
+        return 1; // Return 1 if any test case fails
+    }
 }
