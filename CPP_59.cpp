@@ -1,7 +1,8 @@
 #include <iostream>
+using namespace std;
 
 int largest_prime_factor(int n) {
-    int largest_prime = 2;
+    int largestFactor = 2;
     
     while (n % 2 == 0) {
         n /= 2;
@@ -9,21 +10,17 @@ int largest_prime_factor(int n) {
     
     for (int i = 3; i <= n; i += 2) {
         while (n % i == 0) {
-            largest_prime = i;
+            largestFactor = i;
             n /= i;
         }
     }
     
-    return largest_prime;
+    return largestFactor;
 }
 
 int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    
-    int result = largest_prime_factor(n);
-    std::cout << "Largest prime factor: " << result << std::endl;
+    cout << largest_prime_factor(13195) << endl;
+    cout << largest_prime_factor(2048) << endl;
     
     return 0;
 }
