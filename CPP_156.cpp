@@ -1,30 +1,73 @@
-#include<iostream>
-#include<vector>
-#include<string>
-using namespace std;
+#include <string>
+
 string int_to_mini_roman(int number) {
-    vector<int> nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    vector<string> roman = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+    string romanNumeral;
+    int num = number;
 
-    string result = "";
-    int i = 0;
-    while (number > 0) {
-        int count = number / nums[i];
-        number = number % nums[i];
-        while (count > 0) {
-            result += roman[i];
-            count--;
-        }
-        i++;
+    while (num >= 1000) {
+        romanNumeral += "m";
+        num -= 1000;
     }
-    return result;
-}
 
-int main() {
-    int number;
-    cout << "Enter a positive integer: ";
-    cin >> number;
-    string roman = int_to_mini_roman(number);
-    cout << roman << endl;
-    return 0;
+    while (num >= 900) {
+        romanNumeral += "cm";
+        num -= 900;
+    }
+
+    while (num >= 500) {
+        romanNumeral += "d";
+        num -= 500;
+    }
+
+    while (num >= 400) {
+        romanNumeral += "cd";
+        num -= 400;
+    }
+
+    while (num >= 100) {
+        romanNumeral += "c";
+        num -= 100;
+    }
+
+    while (num >= 90) {
+        romanNumeral += "xc";
+        num -= 90;
+    }
+
+    while (num >= 50) {
+        romanNumeral += "l";
+        num -= 50;
+    }
+
+    while (num >= 40) {
+        romanNumeral += "xl";
+        num -= 40;
+    }
+
+    while (num >= 10) {
+        romanNumeral += "x";
+        num -= 10;
+    }
+
+    while (num >= 9) {
+        romanNumeral += "ix";
+        num -= 9;
+    }
+
+    while (num >= 5) {
+        romanNumeral += "v";
+        num -= 5;
+    }
+
+    while (num >= 4) {
+        romanNumeral += "iv";
+        num -= 4;
+    }
+
+    while (num >= 1) {
+        romanNumeral += "i";
+        num -= 1;
+    }
+
+    return romanNumeral;
 }
