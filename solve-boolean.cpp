@@ -1,37 +1,27 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-bool evaluateBooleanExpression(const std::string& expression) {
+bool evaluateBooleanExpression(string expression) {
     if (expression == "t") {
         return true;
     } else if (expression == "f") {
         return false;
     } else {
-        char op = expression[1];
-        bool left = expression[0] == 't';
-        bool right = expression[2] == 't';
-        
-        if (op == '&') {
+        bool left = evaluateBooleanExpression(expression.substr(0, expression.find_first_of("&|")));
+        bool right = evaluateBooleanExpression(expression.substr(expression.find_first_of("&|") + 1));
+        if (expression[expression.find_first_of("&|")] == '&') {
             return left && right;
-        } else if (op == '|') {
+        } else {
             return left || right;
         }
     }
-    
-    return false;
 }
 
 int main() {
-    std::string expression;
-    std::cin >> expression;
-    
+    string expression;
+    cin >> expression;
     bool result = evaluateBooleanExpression(expression);
-    
-    if (result) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
-    
+    cout << (result ? "True" : "False") << endl;
     return 0;
 }

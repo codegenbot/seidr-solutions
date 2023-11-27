@@ -15,7 +15,7 @@ double probability(int n, int m) {
         }
     }
 
-    return peter_wins / (double)total_outcomes;
+    return peter_wins / static_cast<double>(total_outcomes);
 }
 
 int main() {
