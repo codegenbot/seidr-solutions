@@ -1,3 +1,12 @@
+#include <vector>
+#include <algorithm>
+#include <cassert>
+#include <climits>
+
+using namespace std;
+
+bool issame(vector<float> a, vector<float> b);
+
 vector<float> find_closest_elements(vector<float> numbers){
     sort(numbers.begin(), numbers.end());
     vector<float> result;
