@@ -19,16 +19,3 @@ vector<int> parse_nested_parens(string paren_string) {
     
     return levels;
 }
-
-int main() {
-    string input;
-    getline(cin, input);
-    
-    vector<int> result = parse_nested_parens(input);
-    
-    for (int level : result) {
-        cout << level << " ";
-    }
-    
-    return 0;
-}
