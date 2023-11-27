@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 vector<float> sort_even(vector<float> l){
     vector<float> l_prime(l.size());
     vector<float> even_values;
