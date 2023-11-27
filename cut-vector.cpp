@@ -24,7 +24,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             if (leftSum == rightSum) {
                 minDiff = diff;
                 cutIndex = i;
-                break;
+                break;  // Terminate the loop if we find a spot where left and right sums are equal
             } else if (diff < minDiff) {
                 minDiff = diff;
                 cutIndex = i;
