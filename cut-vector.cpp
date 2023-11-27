@@ -2,10 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
-#include <iterator>
-using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+std::vector<int> cutVector(std::vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
 
@@ -15,12 +13,12 @@ vector<int> cutVector(vector<int>& nums) {
     }
 
     // Iterate through the vector and find the spot where the difference is minimized
-    int diff = numeric_limits<int>::max(), cutIndex = -1;
+    int diff = std::numeric_limits<int>::max(), cutIndex = -1;
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
 
-        int currentDiff = abs(leftSum - rightSum);
+        int currentDiff = std::abs(leftSum - rightSum);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
@@ -28,29 +26,29 @@ vector<int> cutVector(vector<int>& nums) {
     }
 
     // Create the two resulting subvectors
-    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+    std::vector<int> leftSubvector(std::begin(nums), std::begin(nums) + cutIndex + 1);
+    std::vector<int> rightSubvector(std::begin(nums) + cutIndex + 1, std::end(nums));
 
     return {leftSubvector, rightSubvector};
 }
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
 
-    vector<int> nums(n);
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
 
-    vector<int> result = cutVector(nums);
+    std::vector<int> result = cutVector(nums);
 
     for (auto it = std::begin(result[0]); it != std::end(result[0]); it++) {
-        cout << *it << endl;
+        std::cout << *it << std::endl;
     }
 
-    for (auto it = std::begin(result[1]); it != std::end(result[1]); it++) {
-        cout << *it << endl;
+    for (auto num : result[1]) {
+        std::cout << num << std::endl;
     }
 
     return 0;
