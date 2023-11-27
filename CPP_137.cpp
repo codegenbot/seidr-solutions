@@ -1,4 +1,3 @@
-#include <boost/any.hpp>
 #include <string>
 
 using namespace std;
