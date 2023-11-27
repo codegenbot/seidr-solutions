@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 bool will_it_fly(vector<int> q, int w) {
     int sum = 0;
@@ -14,4 +15,12 @@ bool will_it_fly(vector<int> q, int w) {
         return true;
     }
     return false;
+}
+
+int main() {
+    assert(will_it_fly({5}, 5) == true);
+    
+    // Additional test cases here
+    
+    return 0;
 }
