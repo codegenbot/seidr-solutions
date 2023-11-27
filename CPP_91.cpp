@@ -1,4 +1,7 @@
-int is_bored(string S){
+#include <string>
+#include <cassert>
+
+int is_bored(std::string S){
     int count = 0;
     bool is_sentence_start = true;
     
@@ -17,3 +20,10 @@ int is_bored(string S){
     
     return count;
 }
+
+// int main(){
+//     assert(is_bored("You and I are going for a walk") == 0);
+//     // Add your additional test cases here
+    
+//     return 0;
+// }
