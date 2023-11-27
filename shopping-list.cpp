@@ -18,7 +18,7 @@ int main() {
 
     float totalPrice = calculateTotalPrice(prices, discounts);
 
-    cout << totalPrice << endl;
+    cout << "Total price after discounts: " << totalPrice << endl;
 
     return 0;
 }
