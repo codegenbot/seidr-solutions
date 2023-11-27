@@ -1,15 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    return equal(a.begin(), a.end(), b.begin());
-}
 
 vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
@@ -18,5 +10,6 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+    assert (maximum({1, 2, 3, -23, 243, -400, 0}, 0) == {});
+    return 0;
 }
