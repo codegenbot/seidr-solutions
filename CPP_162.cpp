@@ -27,10 +27,3 @@ string string_to_md5(string text) {
 
     return string(md5String);
 }
-
-int main() {
-    string input;
-    getline(cin, input);
-    cout << string_to_md5(input) << endl;
-    return 0;
-}
