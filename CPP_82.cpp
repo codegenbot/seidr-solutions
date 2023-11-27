@@ -1,6 +1,6 @@
 #include <cmath>
 #include <string>
-#include <cassert> // Include cassert header
+#include <cassert>
 
 bool is_prime(int n) {
     if (n <= 1) {
@@ -20,7 +20,7 @@ bool prime_length(std::string str) {
 }
 
 int main() {
-    assert(prime_length("0") == false);
+    assert (prime_length("0") == false);
 
     return 0;
 }
