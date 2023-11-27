@@ -7,7 +7,7 @@ double calculateSnow(float hours, float snowOnGround, float snowFallRate, float 
         snowOnGround += snowFallRate;
         snowOnGround -= snowOnGround * snowMeltRate;
     }
-    return round(snowOnGround * 100000) / 100000;
+    return round(snowOnGround * 100000) / 100000; // Return rounded value with 5 decimal places
 }
 
 int main() {
