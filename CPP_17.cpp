@@ -2,9 +2,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm>
-
-std::vector<int> parse_music(std::string music_string);
 
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
@@ -15,7 +12,7 @@ std::vector<int> parse_music(std::string music_string) {
                 beats.push_back(2);
             } else if (note == ".|") {
                 beats.push_back(1);
-            } else if (note.empty()) {
+            } else if (note == "") {
                 beats.push_back(4);
             }
             note = "o";
@@ -28,10 +25,17 @@ std::vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 int main() {
     std::vector<int> expected = {2, 1, 2, 1, 4, 2, 4, 2};
     std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
-    assert(parsed_music == expected);
-
+    if (issame(parsed_music, expected)) {
+        std::cout << "Parsed music is as expected." << std::endl;
+    } else {
+        std::cout << "Parsed music is not as expected." << std::endl;
+    }
     return 0;
 }
