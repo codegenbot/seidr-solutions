@@ -11,13 +11,13 @@ int getScore(const std::string& input) {
         
         if (bowl == 'X') {
             score += 10;
-            score += (input[bowlIndex + 1] == 'X') ? 10 : (input[bowlIndex + 1] - '0');
-            score += (input[bowlIndex + 2] == 'X') ? 10 : (input[bowlIndex + 2] - '0');
-            bowlIndex += 2;
+            score += (input[bowlIndex + 1] == 'X' || input[bowlIndex + 1] == '/') ? 10 : (input[bowlIndex + 1] - '0');
+            score += (input[bowlIndex + 1] == 'X' && input[bowlIndex + 2] == 'X') ? 10 : (input[bowlIndex + 2] == 'X' ? 10 : (input[bowlIndex + 2] - '0'));
+            bowlIndex += 1;
         } else if (bowl == '/') {
-            score += (10 - (input[bowlIndex - 1] - '0'));
-            score += (input[bowlIndex + 1] == 'X') ? 10 : (input[bowlIndex + 1] - '0');
-            bowlIndex += 2;
+            score += 10;
+            score += (input[bowlIndex + 1] == 'X' || input[bowlIndex + 1] == '/') ? 10 : (input[bowlIndex + 1] - '0');
+            bowlIndex += 1;
         } else {
             score += (bowl - '0');
         }
