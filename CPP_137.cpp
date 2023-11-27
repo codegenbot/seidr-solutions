@@ -5,7 +5,7 @@
 using boost::any;
 using boost::any_cast;
 using boost::max;
-using std::string;
+using boost::string;
 
 any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
