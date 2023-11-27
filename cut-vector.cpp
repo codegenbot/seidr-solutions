@@ -19,7 +19,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             rightSum += nums[j];
         }
 
-        int currDiff = std::abs(leftSum - rightSum);
+        int currDiff = abs(leftSum - rightSum);
 
         if (currDiff < diff) {
             diff = currDiff;
