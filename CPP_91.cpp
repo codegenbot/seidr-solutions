@@ -1,6 +1,7 @@
+#include <cassert>
 #include <string>
 
-int is_bored(string S){
+int is_bored(std::string S){
     int count = 0;
     bool is_sentence_start = true;
 
