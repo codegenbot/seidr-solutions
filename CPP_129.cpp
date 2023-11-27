@@ -1,6 +1,5 @@
 #include <vector>
-#include <functional> // Add this line
-
+#include <functional>
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
@@ -29,7 +28,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     };
 
     // DFS function to find the minimum path
-    std::function<bool(int, int, int)> dfs = [&](int x, int y, int len) { // Update this line
+    function<bool(int, int, int)> dfs = [&](int x, int y, int len) {
         path.push_back(grid[x][y]);
         visited[x][y] = true;
 
@@ -65,7 +64,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     // Start DFS from each cell in the grid
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (std::dfs(i, j, 1)) { // Update this line
+            if (dfs(i, j, 1)) {
                 return path;
             }
         }
