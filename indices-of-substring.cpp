@@ -5,14 +5,17 @@
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     
-    size_t pos = 0;
-    while (pos <= text.length() - target.length()) {
-        pos = text.find(target, pos);
-        if (pos == std::string::npos) {
-            break;
+    for (int i = 0; i <= text.length() - target.length(); i++) {
+        bool match = true;
+        for (int j = 0; j < target.length(); j++) {
+            if (text[i + j] != target[j]) {
+                match = false;
+                break;
+            }
         }
-        indices.push_back(pos);
-        pos += target.length();
+        if (match) {
+            indices.push_back(i);
+        }
     }
     
     return indices;
