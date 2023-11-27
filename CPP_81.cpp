@@ -1,4 +1,10 @@
-vector<string> numerical_letter_grade(vector<float> grades) {
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+using namespace std;
+
+vector<string> numerical_letter_grade(const vector<float>& grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
         if (gpa >= 4.0) {
