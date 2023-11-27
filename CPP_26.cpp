@@ -2,14 +2,12 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> remove_duplicates(vector<int> numbers);
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5, 3, 2, 1};
+    vector<int> numbers = {1, 2, 3, 4, 2, 3, 5};
     vector<int> result = remove_duplicates(numbers);
     for(int i=0; i<result.size(); i++){
         cout << result[i] << " ";
