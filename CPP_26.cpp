@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -29,18 +30,25 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 int main() {
-    // Test cases
+    // Test case 1
     vector<int> numbers1 = {1, 2, 3, 4, 5};
     vector<int> expected1 = {1, 2, 3, 4, 5};
-    assert(issame(remove_duplicates(numbers1), expected1));
+    vector<int> output1 = remove_duplicates(numbers1);
+    assert(issame(output1, expected1));
 
-    vector<int> numbers2 = {1, 2, 2, 3, 4, 5};
-    vector<int> expected2 = {1, 3, 4, 5};
-    assert(issame(remove_duplicates(numbers2), expected2));
+    // Test case 2
+    vector<int> numbers2 = {1, 2, 2, 3, 4, 4, 5};
+    vector<int> expected2 = {1, 3, 5};
+    vector<int> output2 = remove_duplicates(numbers2);
+    assert(issame(output2, expected2));
 
+    // Test case 3
     vector<int> numbers3 = {1, 1, 1, 1, 1};
     vector<int> expected3 = {};
-    assert(issame(remove_duplicates(numbers3), expected3));
+    vector<int> output3 = remove_duplicates(numbers3);
+    assert(issame(output3, expected3));
+
+    cout << "All test cases passed." << endl;
 
     return 0;
 }
