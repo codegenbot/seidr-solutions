@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 bool triples_sum_to_zero(vector<int> l){
@@ -15,10 +14,10 @@ bool triples_sum_to_zero(vector<int> l){
 }
 
 int main() {
-    // Test the triples_sum_to_zero function
-    vector<int> nums = {1, 2, 3, -4, -1, -2};
+    // Test the function
+    vector<int> nums = {1, 2, -3, 4, -1, -2, -4};
     bool result = triples_sum_to_zero(nums);
-    std::cout << "Result: " << result << std::endl;
+    cout << "Result: " << result << endl;
     
     return 0;
 }
