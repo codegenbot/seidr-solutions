@@ -6,17 +6,7 @@ using namespace std;
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
-bool is_same(vector<vector<int>> a, vector<vector<int>> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+bool is_same(vector<vector<int>> a, vector<vector<int>> b);
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
@@ -38,6 +28,18 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     }
     
     return result;
+}
+
+bool is_same(vector<vector<int>> a, vector<vector<int>> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
