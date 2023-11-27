@@ -3,6 +3,15 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> unique(vector<int> l);
+
+int main(){
+    // Test your code here
+    return 0;
+}
+
 bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
