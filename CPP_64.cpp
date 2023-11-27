@@ -4,16 +4,9 @@
 
 using namespace std;
 
-int count_vowels(string s);
+int vowels_count(string s);
 
-int main() {
-    assert(count_vowels("ACEDY") == 3);
-    // Add more test cases
-    
-    return 0;
-}
-
-int count_vowels(string s) {
+int vowels_count(string s) {
     int count = 0;
     for(int i = 0; i < s.length(); i++){
         if(tolower(s[i]) == 'a' || tolower(s[i]) == 'e' || 
@@ -23,4 +16,11 @@ int count_vowels(string s) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(vowels_count("ACEDY") == 3);
+    // Add more test cases
+    
+    return 0;
 }
