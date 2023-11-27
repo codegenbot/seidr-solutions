@@ -1,11 +1,12 @@
 #include <string>
 
-using namespace std;
-
 string file_name_check(string file_name);
 
 int main() {
-
+    string file_name;
+    getline(cin, file_name);
+    cout << file_name_check(file_name) << endl;
+    return 0;
 }
 
 string file_name_check(string file_name){
