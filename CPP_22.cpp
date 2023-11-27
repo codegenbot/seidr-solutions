@@ -2,16 +2,14 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> filter_integers(const vector<int>& values) {
-    vector<int> result;
+std::vector<int> filter_integers(const std::vector<int>& values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (std::is_same_v<decltype(value), int>) {
+        if (std::is_same<std::decay_t<decltype(value)>, int>::value) {
             result.push_back(value);
         }
     }
@@ -19,7 +17,7 @@ vector<int> filter_integers(const vector<int>& values) {
 }
 
 int main() {
-    vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
+    filter_integers({3, 'c', 3, 3, 'a', 'b'});
     
     return 0;
 }
