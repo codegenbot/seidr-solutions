@@ -1,6 +1,5 @@
-#include <iostream>
-#include <string>
 #include <map>
+#include <string>
 
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> counts;
