@@ -8,9 +8,9 @@ int prod_signs(std::vector<int> arr) {
     int product = 1;
     int sum = 0;
     
-    for(int i=0; i<arr.size(); i++){
+    for(int i=0; i<arr.size(); i++) {
         product *= arr[i] >= 0 ? 1 : -1;
-        sum += abs(arr[i]);
+        sum += std::abs(arr[i]);
     }
     
     return product * sum;
@@ -18,5 +18,6 @@ int prod_signs(std::vector<int> arr) {
 
 int main() {
     int result = prod_signs({-1, 1, 1, 0});
+    // Do something with the result (print, store, etc.)
     return 0;
 }
