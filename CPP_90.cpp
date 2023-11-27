@@ -1,3 +1,9 @@
+#include <vector>
+#include <algorithm>
+#include <climits>
+
+const int None = INT_MIN;
+
 int next_smallest(vector<int> lst){
     if(lst.size() < 2){
         return None;
