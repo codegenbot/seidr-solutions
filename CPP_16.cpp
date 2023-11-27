@@ -1,7 +1,7 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 int count_distinct_characters(std::string str) {
     std::vector<char> distinctChars;
@@ -18,7 +18,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
-    int result = count_distinct_characters(input);
-    std::cout << "Number of distinct characters: " << result << std::endl;
+    std::cout << "Number of distinct characters: " << count_distinct_characters(input) << std::endl;
     return 0;
 }
