@@ -24,8 +24,7 @@ vector<int> f(int n) {
         if (i % 2 == 0) {
             factorial *= i;
             result.push_back(factorial);
-        } 
-        else {
+        } else {
             sum += i;
             result.push_back(sum);
         }
