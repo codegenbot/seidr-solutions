@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
+#include <iterator>
 
 using namespace std;
 
@@ -28,10 +29,7 @@ vector<int> cutVector(vector<int>& nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    vector<vector<int>> result;
-    result.push_back(leftSubvector);
-    result.push_back(rightSubvector);
-    return result;
+    return vector<int>{leftSubvector, rightSubvector};
 }
 
 int main() {
@@ -45,9 +43,9 @@ int main() {
 
     auto result = cutVector(nums);
 
-    for (const vector<int>& subvector : result) {
-        for (int num : subvector) {
-            cout << num << endl;
+    for (auto it = begin(result); it != end(result); it++) {
+        for (auto it2 = begin(*it); it2 != end(*it); it2++) {
+            cout << *it2 << endl;
         }
     }
 
