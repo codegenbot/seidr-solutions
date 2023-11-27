@@ -1,6 +1,8 @@
 #include <vector>
 #include <string>
 
+vector<string> all_prefixes(string str);
+
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
     string prefix = "";
