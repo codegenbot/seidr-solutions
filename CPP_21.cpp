@@ -15,6 +15,7 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
+
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = numbers[0];
     float max_num = numbers[0];
@@ -28,16 +29,16 @@ vector<float> rescale_to_unit(vector<float> numbers) {
         }
     }
 
-    vector<float> rescaled_numbers;
+    vector<float> rescaled_numbers(numbers.size());
 
     for(int i = 0; i < numbers.size(); i++) {
         float rescaled_num = (numbers[i] - min_num) / (max_num - min_num);
-        rescaled_numbers.push_back(rescaled_num);
+        rescaled_numbers[i] = rescaled_num;
     }
 
     return rescaled_numbers;
 }
-
+   
 int main() {
     vector<float> input = {12.0, 11.0, 15.0, 13.0, 14.0};
     vector<float> expected_output = {0.25, 0.0, 1.0, 0.5, 0.75};
@@ -46,7 +47,7 @@ int main() {
     if(issame(rescaled, expected_output)) {
         cout << "Output is correct." << endl;
     }
-    else{
+    else {
         cout << "Output is incorrect." << endl;
     }
 
