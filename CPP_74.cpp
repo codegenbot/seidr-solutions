@@ -23,9 +23,3 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         return lst2;
     }
 }
-
-int main() {
-    assert(total_match({"this"}, {}).empty());
-
-    return 0;
-}
