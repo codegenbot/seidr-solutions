@@ -3,8 +3,6 @@
 
 using namespace std;
 
-vector<float> rescale_to_unit(vector<float> numbers);
-
 vector<float> rescale_to_unit(vector<float> numbers){
     float min_val = numbers[0];
     float max_val = numbers[0];
