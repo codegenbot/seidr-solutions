@@ -16,6 +16,9 @@ string string_xor(string a, string b) {
 
 int main() {
     assert (string_xor("0101", "0000") == "0101");
-    // more test cases
+    // additional test cases
+    assert (string_xor("1010", "1111") == "0101");
+    assert (string_xor("1111", "0000") == "1111");
+    assert (string_xor("010101", "101010") == "111111");
     return 0;
 }
