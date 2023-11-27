@@ -26,10 +26,9 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    // Test your function here
     string input = "Hello World";
     string output = string_to_md5(input);
     printf("%s\n", output.c_str());
-
+  
     return 0;
 }
