@@ -1,17 +1,14 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <cassert>
+#include <cctype>
 
-using namespace std;
-
-string encode(string message) {
+std::string encode(std::string message) {
     for (int i = 0; i < message.length(); i++) {
-        if (isalpha(message[i])) {
-            if (islower(message[i])) {
-                message[i] = toupper(message[i]);
+        if (std::isalpha(message[i])) {
+            if (std::islower(message[i])) {
+                message[i] = std::toupper(message[i]);
             } else {
-                message[i] = tolower(message[i]);
+                message[i] = std::tolower(message[i]);
             }
             if (message[i] == 'a' || message[i] == 'e' || message[i] == 'i' || message[i] == 'o' || message[i] == 'u') {
                 message[i] = message[i] + 2;
@@ -22,7 +19,6 @@ string encode(string message) {
 }
 
 int main() {
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT TqwRkTg");
-    
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg");
     return 0;
 }
