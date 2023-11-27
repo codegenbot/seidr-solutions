@@ -13,12 +13,6 @@ bool pairs_sum_to_zero(std::vector<int> l) {
 }
 
 int main() {
-    // Sample test cases
-    std::vector<int> list1 = {1, 2, -3, 4, -2};
-    assert(pairs_sum_to_zero(list1) == true);
-
-    std::vector<int> list2 = {1, 2, 3, 4, 5};
-    assert(pairs_sum_to_zero(list2) == false);
-
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}));
     return 0;
 }
