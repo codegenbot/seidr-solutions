@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <list>
-#include <boost/any.hpp>
+#include "<BOOST_DIR>/boost/any.hpp"
 
 using namespace std;
 
@@ -15,12 +14,11 @@ vector<int> filter_integers(list<int> values) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3});
-
+    issame(filter_integers({ 3, 'c', 3, 3, 'a', 'b' }), { 3, 3, 3 });
     return 0;
 }
