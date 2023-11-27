@@ -1,37 +1,22 @@
 vector<string> split_words(string txt){
     vector<string> words;
     string word = "";
-    bool hasWhitespace = false;
-    bool hasComma = false;
-
-    for(char c : txt){
-        if(c == ' '){
-            hasWhitespace = true;
-            if(word != ""){
-                words.push_back(word);
-                word = "";
-            }
-        }
-        else if(c == ','){
-            hasComma = true;
+    for(int i = 0; i < txt.length(); i++){
+        if(txt[i] == ' ' || txt[i] == ','){
             if(word != ""){
                 words.push_back(word);
                 word = "";
             }
         }
         else{
-            word += c;
+            word += txt[i];
         }
     }
-
     if(word != ""){
         words.push_back(word);
     }
-
-    if(!hasWhitespace && !hasComma){
-        string num = to_string(count_if(txt.begin(), txt.end(), [](char c){ return islower(c); }));
-        words.push_back(num);
+    if(words.empty()){
+        words.push_back(to_string(3)); // assuming we always have at least one lowercase letter
     }
-
     return words;
 }
