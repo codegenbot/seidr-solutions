@@ -1,8 +1,9 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool isSame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,8 +15,8 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> f(int n) {
-    std::vector<int> result;
+vector<int> f(int n) {
+    vector<int> result;
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
             int factorial = 1;
