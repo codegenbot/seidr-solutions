@@ -1,23 +1,16 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 bool cycpattern_check(string a, string b) {
-    if (a.length() < b.length()) {
+    int len_a = a.length();
+    int len_b = b.length();
+    
+    if (len_a < len_b) {
         return false;
     }
     
-    string temp = b + b;
-    return temp.find(a) != string::npos;
-}
-
-int main() {
-    string word1, word2;
-    cin >> word1 >> word2;
+    string temp = a + a;
     
-    bool result = cycpattern_check(word1, word2);
-    cout << boolalpha << result << endl;
+    if (temp.find(b) != string::npos) {
+        return true;
+    }
     
-    return 0;
+    return false;
 }
