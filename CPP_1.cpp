@@ -1,23 +1,45 @@
-vector<string> separate_paren_groups(string paren_string){
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string group;
+    string group = "";
     int count = 0;
 
-    for(int i=0; i<paren_string.length(); i++){
-        if(paren_string[i] == '('){
+    for (char c : paren_string) {
+        if (c == '(') {
+            if (count > 0) {
+                group += c;
+            }
             count++;
-        }
-        else if(paren_string[i] == ')'){
+        } else if (c == ')') {
             count--;
-        }
-
-        group += paren_string[i];
-
-        if(count == 0){
-            result.push_back(group);
-            group = "";
+            if (count == 0) {
+                result.push_back(group + c);
+                group = "";
+            } else {
+                group += c;
+            }
         }
     }
 
     return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter the string containing multiple groups of nested parentheses: ";
+    getline(cin, input);
+
+    vector<string> groups = separate_paren_groups(input);
+
+    cout << "Separated groups: ";
+    for (string group : groups) {
+        cout << group << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
