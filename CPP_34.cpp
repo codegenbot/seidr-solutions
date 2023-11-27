@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,14 +16,14 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> unique(vector<int> l) {
+vector<int> unique(vector<int> l){
     sort(l.begin(), l.end());
     l.erase(unique(l.begin(), l.end()), l.end());
     return l;
 }
 
-int main() {
-    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+int main(){
+    assert (issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
     // Additional test cases can be added here
     
     return 0;
