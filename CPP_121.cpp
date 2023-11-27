@@ -17,6 +17,5 @@ long long solution(vector<int> lst) {
 int main() {
     assert(solution({3, 13, 2, 9}) == 3);
     cout << "Test case passed" << endl;
-    
     return 0;
 }
