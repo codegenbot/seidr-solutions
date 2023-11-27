@@ -18,7 +18,11 @@ int search(std::vector<int> lst){
     return result;
 }
 
-int main() {
+void solve() {
     int result = search({3, 10, 10, 9, 2});
+}
+
+int main() {
+    solve();
     return 0;
 }
