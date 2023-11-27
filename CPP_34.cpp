@@ -1,7 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,8 +15,13 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> unique(vector<int> l) {
+vector<int> unique(vector<int> l){
     sort(l.begin(), l.end());
     l.erase(unique(l.begin(), l.end()), l.end());
     return l;
+}
+
+int main(){
+    // Test your code here
+    return 0;
 }
