@@ -1,14 +1,25 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-using namespace std;
+bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-int count_odd_letters(string txt) {
+int count_odd_letters(std::string txt) {
     int count = 0;
     for (int i = 0; i < txt.length(); i++) {
-        if (islower(txt[i])) {
+        if (std::islower(txt[i])) {
             int letterOrder = txt[i] - 'a';
             if (letterOrder % 2 != 0) {
                 count++;
@@ -18,23 +29,9 @@ int count_odd_letters(string txt) {
     return count;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
-
-vector<string> split_words(string txt) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
+    std::string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
     
@@ -43,34 +40,4 @@ vector<string> split_words(string txt) {
             hasWhitespace = true;
             if (word != "") {
                 result.push_back(word);
-                word = "";
-            }
-        }
-        else if (txt[i] == ',') {
-            hasComma = true;
-            if (word != "") {
-                result.push_back(word);
-                word = "";
-            }
-        }
-        else {
-            word += txt[i];
-        }
-    }
-    
-    if (word != "") {
-        result.push_back(word);
-    }
-    
-    if (!hasWhitespace && !hasComma) {
-        result.push_back(to_string(count_odd_letters(txt)));
-    }
-    
-    return result;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    // Add more test cases here...
-    return 0;
-}
+                word
