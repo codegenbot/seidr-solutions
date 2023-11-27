@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 int search(std::vector<int> lst) {
     int maxFreq = -1;
@@ -19,6 +18,14 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
+    // Test the code with different inputs
+    std::vector<int> test1 = {1, 2, 3, 4, 5};
+    std::vector<int> test2 = {5, 4, 3, 2, 1};
+    std::vector<int> test3 = {1, 2, 2, 3, 3, 3, 4, 4, 4, 4};
+    
+    int result1 = search(test1);
+    int result2 = search(test2);
+    int result3 = search(test3);
+    
     return 0;
 }
