@@ -1,6 +1,17 @@
+#include <iostream>
 #include <vector>
 
-vector<int> generate_integers(int a, int b);
+using namespace std;
+
+vector<int> generate_integers(int a, int b) {
+    vector<int> result;
+    for (int i = a; i <= b; i++) {
+        if (i % 2 == 0) {
+            result.push_back(i);
+        }
+    }
+    return result;
+}
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -14,28 +25,26 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> generate_integers(int a, int b) {
-    vector<int> result;
-    for (int i = a; i <= b; i++) {
-        if (i % 2 == 0) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
-
 int main() {
-    // Test the generate_integers function
-    vector<int> res = generate_integers(1, 10);
-    for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
+    int a, b;
+    cin >> a >> b;
+    
+    vector<int> result = generate_integers(a, b);
+    
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
+    
     cout << endl;
-
-    // Test the issame function
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
-    cout << issame(a, b) << endl;
+    
+    vector<int> a_values = {1, 2, 3};
+    vector<int> b_values = {1, 2, 3};
+    
+    if (issame(a_values, b_values)) {
+        cout << "The vectors are the same" << endl;
+    } else {
+        cout << "The vectors are different" << endl;
+    }
     
     return 0;
 }
