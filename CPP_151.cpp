@@ -3,6 +3,8 @@
 #include <cmath>
 #include <cassert>
 
+std::vector<float> lst = {1.5, 2.5, 3.0, 4.5, 5.0, 6.5};
+
 double double_the_difference(std::vector<float> lst) {
     double sum = 0;
     for(int i=0; i<lst.size(); i++) {
@@ -14,11 +16,11 @@ double double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 2.5, 3.0, 4.5, 5.0, 6.5};
-    double result = 2 * double_the_difference(lst);
+    double odd_sum = double_the_difference(lst);
+    double result = 2 * odd_sum;
     std::cout << "Result: " << result << std::endl;
     
-    assert(double_the_difference(lst) * 2 == result);
+    assert(double_the_difference(lst) == odd_sum);
     
     return 0;
 }
