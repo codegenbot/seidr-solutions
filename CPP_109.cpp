@@ -22,10 +22,3 @@ bool move_one_ball(vector<int> arr){
     
     return count == n-1;
 }
-
-int main(){
-    assert (move_one_ball({})==true);
-    // Add more test cases here
-    
-    return 0;
-}
