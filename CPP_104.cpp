@@ -5,20 +5,20 @@ bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-vector<int> unique_digits(vector<int> x){
+vector<int> unique_digits(vector<int> x) {
     vector<int> result;
-    for(int i=0; i<x.size(); i++){
+    for (int i = 0; i < x.size(); i++) {
         int num = x[i];
         int flag = 1;
-        while(num>0){
-            int digit = num%10;
-            if(digit%2 == 0){
+        while (num > 0) {
+            int digit = num % 10;
+            if (digit % 2 == 0) {
                 flag = 0;
                 break;
             }
             num /= 10;
         }
-        if(flag == 1){
+        if (flag == 1) {
             result.push_back(x[i]);
         }
     }
