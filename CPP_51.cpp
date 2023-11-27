@@ -1,25 +1,18 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 std::string remove_vowels(std::string text) {
     std::string result = "";
-    std::string vowels = "aeiouAEIOU";
-
     for (char c : text) {
-        if (vowels.find(c) == std::string::npos) {
+        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' &&
+            c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
             result += c;
         }
     }
-
     return result;
 }
 
 int main() {
-    std::string text;
-    std::getline(std::cin, text);
-
-    std::cout << remove_vowels(text) << std::endl;
-
+    std::cout << remove_vowels("ybcd") << std::endl;
     return 0;
 }
