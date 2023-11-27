@@ -1,8 +1,10 @@
-#include <cassert>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool isSame(vector<int> a, vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,13 +16,13 @@ bool isSame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> unique(vector<int> l) {
+vector<int> myUnique(vector<int> l) {
     sort(l.begin(), l.end());
-    l.erase(std::unique(l.begin(), l.end()), l.end());
+    l.erase(unique(l.begin(), l.end()), l.end());
     return l;
 }
 
 int main() {
-    assert(isSame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    assert (issame(myUnique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
     return 0;
 }
