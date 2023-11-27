@@ -11,7 +11,7 @@ int sumOfDigits(int num) {
     return sum;
 }
 
-int largestPrimeSum(std::vector<int> lst) {
+int largestPrimeSum(vector<int> lst) {
     int largestPrime = 0;
     for (int num : lst) {
         bool isPrime = true;
@@ -29,7 +29,7 @@ int largestPrimeSum(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {0,3,2,1,3,5,7,4,5,5,5,2,181,32,4,32,3,2,32,324,4,3};
+    vector<int> lst = {0,3,2,1,3,5,7,4,5,5,5,2,181,32,4,32,3,2,32,324,4,3};
     cout << largestPrimeSum(lst) << endl;
 
     lst = {1,0,1,8,2,4597,2,1,3,40,1,2,1,2,4,2,5,1};
@@ -46,6 +46,8 @@ int main() {
 
     lst = {0,8,1,2,1,7};
     cout << largestPrimeSum(lst) << endl;
+
+    assert(largestPrimeSum({127, 97, 8192}) == 10);
 
     return 0;
 }
