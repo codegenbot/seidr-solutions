@@ -4,6 +4,12 @@
 
 using namespace std;
 
+string longest(vector<string> strings);
+
+int main() {
+    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+}
+
 string longest(vector<string> strings) {
     if (strings.empty()) {
         return "None";
@@ -17,8 +23,4 @@ string longest(vector<string> strings) {
     }
     
     return longestString;
-}
-
-int main() {
-    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
 }
