@@ -12,20 +12,10 @@ bool is_palindrome(std::string text){
 
 int main() {
     // Test cases
-    std::string text1 = "racecar";
-    std::string text2 = "hello";
-    
-    if(is_palindrome(text1)){
-        std::cout << "Text1 is a palindrome" << std::endl;
-    } else {
-        std::cout << "Text1 is not a palindrome" << std::endl;
-    }
-    
-    if(is_palindrome(text2)){
-        std::cout << "Text2 is a palindrome" << std::endl;
-    } else {
-        std::cout << "Text2 is not a palindrome" << std::endl;
-    }
-    
+    std::cout << is_palindrome("racecar") << std::endl;  // Expected output: 1 (true)
+    std::cout << is_palindrome("hello") << std::endl;    // Expected output: 0 (false)
+    std::cout << is_palindrome("level") << std::endl;    // Expected output: 1 (true)
+    std::cout << is_palindrome("world") << std::endl;    // Expected output: 0 (false)
+
     return 0;
 }
