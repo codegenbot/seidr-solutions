@@ -1,43 +1,35 @@
 string sort_numbers(string numbers){
-    map<string, int> numberMap;
-    numberMap["zero"] = 0;
-    numberMap["one"] = 1;
-    numberMap["two"] = 2;
-    numberMap["three"] = 3;
-    numberMap["four"] = 4;
-    numberMap["five"] = 5;
-    numberMap["six"] = 6;
-    numberMap["seven"] = 7;
-    numberMap["eight"] = 8;
-    numberMap["nine"] = 9;
+    // Create a map to store the numberals and their corresponding values
+    map<string, int> numMap;
+    numMap["zero"] = 0;
+    numMap["one"] = 1;
+    numMap["two"] = 2;
+    numMap["three"] = 3;
+    numMap["four"] = 4;
+    numMap["five"] = 5;
+    numMap["six"] = 6;
+    numMap["seven"] = 7;
+    numMap["eight"] = 8;
+    numMap["nine"] = 9;
 
-    vector<int> sortedNumbers;
-    string result = "";
-
-    // Split the input string into individual numbers
+    // Split the input string into individual numberals
+    vector<string> numberals;
     stringstream ss(numbers);
-    string number;
-    while (getline(ss, number, ' ')) {
-        sortedNumbers.push_back(numberMap[number]);
+    string num;
+    while (ss >> num) {
+        numberals.push_back(num);
     }
 
-    // Sort the numbers
-    sort(sortedNumbers.begin(), sortedNumbers.end());
+    // Sort the numberals based on their corresponding values
+    sort(numberals.begin(), numberals.end(), [&](const string& a, const string& b) {
+        return numMap[a] < numMap[b];
+    });
 
-    // Convert the sorted numbers back to string representation
-    for (int i = 0; i < sortedNumbers.size(); i++) {
-        for (auto it = numberMap.begin(); it != numberMap.end(); it++) {
-            if (it->second == sortedNumbers[i]) {
-                result += it->first + " ";
-                break;
-            }
-        }
+    // Combine the sorted numberals into a string
+    string sortedNumbers;
+    for (const string& numberal : numberals) {
+        sortedNumbers += numberal + " ";
     }
 
-    // Remove the trailing space
-    if (!result.empty()) {
-        result.pop_back();
-    }
-
-    return result;
+    return sortedNumbers;
 }
