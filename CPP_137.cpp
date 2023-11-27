@@ -1,6 +1,7 @@
 #include <any>
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -26,7 +27,7 @@ std::any compare_one(std::any a, std::any b) {
         try {
             floatA = std::stof(stringA);
             floatB = std::stof(stringB);
-        } catch (const std::invalid_argument&) {
+        } catch (const std::exception&) {
             return std::any(std::string("None"));
         }
         if (floatA > floatB) {
