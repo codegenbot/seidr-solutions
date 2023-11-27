@@ -1,9 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
-#include <iostream>
 
-std::vector<int> f(int n){
-    std::vector<int> result;
+using namespace std;
+
+vector<int> f(int n){
+    vector<int> result;
     for(int i=1; i<=n; i++){
         if(i%2 == 0){
             int factorial = 1;
@@ -23,8 +25,11 @@ std::vector<int> f(int n){
     return result;
 }
 
-int main(){
-    assert (f(3) == std::vector<int>{1, 2, 6});
-    std::cout << "Test case passed!" << std::endl;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(f(3), {1, 2, 6}));
     return 0;
 }
