@@ -2,10 +2,10 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
+#include <iterator>
+#include <valarray>
 
-using namespace std;
-
-vector<int> cutVector(vector<int>& nums) {
+vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
 
@@ -28,7 +28,7 @@ vector<int> cutVector(vector<int>& nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    return {leftSubvector, rightSubvector};
+    return vector<vector<int>>{leftSubvector, rightSubvector};
 }
 
 int main() {
@@ -39,14 +39,13 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-
+  
     auto result = cutVector(nums);
 
-    for (const auto& subvector : result) {
-        for (const auto& num : subvector) {
-            cout << num << " ";
+    for (auto& subvector : result) {
+        for (auto& it2 : subvector) {
+            cout << it2 << " ";
         }
-        cout << endl;
     }
 
     return 0;
