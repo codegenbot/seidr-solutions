@@ -25,9 +25,7 @@ vector<int> filter_integers(const vector<int>& values){
 
 int main(){
     vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-    assert(issame(filtered, {3, 3, 3}));
-
-    // other code
+    assert(issame(filtered, vector<int>{3, 3, 3}));
 
     return 0;
 }
