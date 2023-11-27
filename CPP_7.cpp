@@ -9,5 +9,5 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // implementation of issame function
+    // code for checking if a and b are the same
 }
