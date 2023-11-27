@@ -13,11 +13,9 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    // Test cases
     int result1 = count_upper("EEEE");
     int result2 = count_upper("HIJKLMNOPQRSTUVWXYZ");
 
-    // Print the results
     std::cout << "Result 1: " << result1 << std::endl;
     std::cout << "Result 2: " << result2 << std::endl;
 
