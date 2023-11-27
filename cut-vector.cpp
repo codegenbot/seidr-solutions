@@ -44,14 +44,12 @@ int main() {
         cin >> nums[i];
     }
 
-    vector<int> result = cutVector(nums);
+    auto result = cutVector(nums);
 
-    for (auto it = result[0].begin(); it != result[0].end(); it++) {
-        cout << *it << endl;
-    }
-
-    for (auto it = result[1].begin(); it != result[1].end(); it++) {
-        cout << *it << endl;
+    for (auto it = std::begin(result); it != std::end(result); it++) {
+        for (auto it2 = std::begin(*it); it2 != std::end(*it); it2++) {
+            cout << *it2 << endl;
+        }
     }
 
     return 0;
