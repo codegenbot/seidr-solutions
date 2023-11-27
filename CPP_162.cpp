@@ -1,19 +1,37 @@
-#include <stdio.h>
+#include <iostream>
+#include <sstream>
 #include <string>
-#include <openssl/md5.h>
+#include <openssl/evp.h>
 
-string string_to_md5(string text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) {
-        return "None";
+        return "";
     }
 
-    unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.length(), digest);
+    EVP_MD_CTX* context = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(context, EVP_md5(), nullptr);
+    EVP_DigestUpdate(context, text.c_str(), text.length());
 
-    char hexDigest[MD5_DIGEST_LENGTH * 2 + 1];
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        sprintf(&hexDigest[i * 2], "%02x", (unsigned int)digest[i]);
+    unsigned char digest[EVP_MAX_MD_SIZE];
+    unsigned int digestLength;
+    EVP_DigestFinal_ex(context, digest, &digestLength);
+    EVP_MD_CTX_free(context);
+
+    std::ostringstream oss;
+    for (int i = 0; i < digestLength; i++) {
+        oss << std::hex << (int)digest[i];
     }
 
-    return hexDigest;
+    return oss.str();
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    std::string md5Hash = string_to_md5(input);
+    std::cout << "MD5 Hash: " << md5Hash << std::endl;
+
+    return 0;
 }
