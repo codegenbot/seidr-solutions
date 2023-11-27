@@ -1,51 +1,53 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& numbers) {
-    int totalSum = 0;
-    for (int num : numbers) {
-        totalSum += num;
+vector<int> cutVector(vector<int> nums) {
+    int n = nums.size();
+    int leftSum = 0, rightSum = 0;
+    for (int i = 0; i < n; i++) {
+        rightSum += nums[i];
     }
-    
-    int leftSum = 0;
-    int rightSum = totalSum;
+
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
-    
-    for (int i = 0; i < numbers.size(); i++) {
-        leftSum += numbers[i];
-        rightSum -= numbers[i];
+
+    for (int i = 0; i < n; i++) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
         int diff = abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
-            cutIndex = i + 1;
+            cutIndex = i;
         }
     }
-    
-    std::vector<int> leftVector(numbers.begin(), numbers.begin() + cutIndex);
-    std::vector<int> rightVector(numbers.begin() + cutIndex, numbers.end());
-    
-    return std::make_pair(leftVector, rightVector);
+
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+    leftSubvector.push_back(0);
+    return leftSubvector;
+    rightSubvector.push_back(0);
+    return rightSubvector;
 }
 
 int main() {
     int n;
-    std::cin >> n;
-    
-    std::vector<int> numbers(n);
+    cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> numbers[i];
+        cin >> nums[i];
     }
-    
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(numbers);
-    
-    for (int num : result.first) {
-        std::cout << num << std::endl;
+
+    vector<int> leftSubvector, rightSubvector;
+    leftSubvector = cutVector(nums);
+    rightSubvector = cutVector(nums);
+
+    for (int i = 0; i < leftSubvector.size(); i++) {
+        cout << leftSubvector[i] << endl;
     }
-    
-    for (int num : result.second) {
-        std::cout << num << std::endl;
+    for (int i = 0; i < rightSubvector.size(); i++) {
+        cout << rightSubvector[i] << endl;
     }
-    
+
     return 0;
 }
