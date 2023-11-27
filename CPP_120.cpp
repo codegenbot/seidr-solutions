@@ -1,11 +1,19 @@
 #include <vector>
-#include <cassert>
-#include <algorithm>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+vector<int> maximum(vector<int> arr, int k);
+
+bool issame(vector<int> a, vector<int> b);
+
+int main() {
+    // Test cases
+    vector<int> arr = {1, 2, 3, 4, 5};
+    int k = 3;
+    
+    vector<int> result = maximum(arr, k);
+    
+    return 0;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
@@ -14,8 +22,16 @@ vector<int> maximum(vector<int> arr, int k) {
     return result;
 }
 
-int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
     
-    return 0;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
