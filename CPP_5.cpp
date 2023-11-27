@@ -1,12 +1,12 @@
 #include <vector>
 #include <cassert>
 
-vector<int> intersperse(vector<int> numbers, int delimiter);
+std::vector<int> intersperse(std::vector<int> numbers, int delimiter);
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> intersperse(vector<int> numbers, int delimiter) {
-    vector<int> result;
+std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
+    std::vector<int> result;
     if (numbers.empty()) {
         return result;
     }
@@ -18,7 +18,7 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -31,7 +31,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(intersperse({2, 2, 2}, 2),{2, 2, 2, 2, 2}));
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     // more test cases
     return 0;
 }
