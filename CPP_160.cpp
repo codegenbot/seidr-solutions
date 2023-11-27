@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
 
 int do_algebra(vector<string> operato, vector<int> operand) {
@@ -14,9 +15,9 @@ int do_algebra(vector<string> operato, vector<int> operand) {
         } else if (operato[i] == "*") {
             result *= operand[i + 1]; // Multiply the result by the next operand
         } else if (operato[i] == "//") {
-            result /= operand[i + 1]; // Perform floor division with the next operand
+            result /= operand[i + 1]; // Perform floor division on the result and the next operand
         } else if (operato[i] == "**") {
-            result = pow(result, operand[i + 1]); // Perform exponentiation with the next operand
+            result = pow(result, operand[i + 1]); // Perform exponentiation on the result and the next operand
         }
     }
 
