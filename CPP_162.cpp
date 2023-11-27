@@ -23,9 +23,11 @@ std::string string_to_md5(std::string text) {
 }
 
 int main() {
+    OPENSSL_config(NULL);
+
     std::string input;
     std::cout << "Enter the text: ";
-    std::getline(std::cin, input);
+    std::cin >> input;
     std::cout << "MD5 hash: " << string_to_md5(input) << std::endl;
     return 0;
 }
