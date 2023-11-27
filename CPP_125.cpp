@@ -1,32 +1,64 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 vector<string> split_words(string txt){
     vector<string> words;
-    string word;
-    for (int i = 0; i < txt.size(); i++) {
-        if (txt[i] == ' ' || txt[i] == ',') {
-            if (!word.empty()) {
+    string word = "";
+    bool hasWhitespace = false;
+    bool hasComma = false;
+    
+    for(int i=0; i<txt.length(); i++){
+        if(txt[i] == ' '){
+            hasWhitespace = true;
+            if(word.length() > 0){
                 words.push_back(word);
-                word.clear();
+                word = "";
             }
-        } else {
+        }
+        else if(txt[i] == ','){
+            hasComma = true;
+            if(word.length() > 0){
+                words.push_back(word);
+                word = "";
+            }
+        }
+        else{
             word += txt[i];
         }
     }
-    if (!word.empty()) {
+    
+    if(word.length() > 0){
         words.push_back(word);
     }
-
-    if (words.empty()) {
-        words.push_back(to_string(CountOddLowerLetters(txt)));
+    
+    if(words.size() == 0){
+        words.push_back(to_string('z' - 'a' + 1));
     }
+    
     return words;
 }
 
-int CountOddLowerLetters(string txt) {
-    int count = 0;
-    for (int i = 0; i < txt.size(); i++) {
-        if (islower(txt[i]) && (txt[i] - 'a') % 2 == 1) {
-            count++;
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() == b.size()){
+        for(int i=0; i<a.size(); i++){
+            if(a[i] != b[i]){
+                return false;
+            }
         }
+        return true;
     }
-    return count;
+    return false;
+}
+
+int main(){
+    assert(issame(split_words(""), {"0"}));
+    assert(issame(split_words("Hello,World"), {"Hello", "World"}));
+    assert(issame(split_words("This is a test"), {"This", "is", "a", "test"}));
+    assert(issame(split_words("C++,Programming,Contest"), {"C++", "Programming", "Contest"}));
+    
+    return 0;
 }

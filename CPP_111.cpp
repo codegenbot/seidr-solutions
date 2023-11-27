@@ -1,34 +1,36 @@
 #include <map>
 
-bool issame(const std::map<char,int>& a, const std::map<char,int>& b) {
-    return a == b;
-}
+map<char,int> histogram(string test);
 
-std::map<char,int> histogram(const std::string& test) {
-    std::map<char, int> result;
-    std::string word = "";
+bool issame(const map<char,int>& a, const map<char,int>& b);
 
-    for (int i = 0; i < test.length(); i++) {
-        if (test[i] != ' ') {
+map<char,int> histogram(string test){
+    map<char, int> result;
+    if(test.empty()){
+        return result;
+    }
+    string word;
+    for(int i=0; i<test.length(); i++){
+        if(test[i] != ' '){
             word += test[i];
         }
-        else {
-            if (!word.empty()) {
-                result[word]++;
-                word = "";
-            }
+        else{
+            result[word]++;
+            word = "";
         }
     }
-
-    if (!word.empty()) {
-        result[word]++;
-    }
-
+    result[word]++;
     return result;
 }
 
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    // Add more test cases here
-    return 0;
+bool issame(const map<char,int>& a, const map<char,int>& b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(auto it = a.begin(); it != a.end(); ++it){
+        if(b.find(it->first) == b.end() || it->second != b.at(it->first)){
+            return false;
+        }
+    }
+    return true;
 }
