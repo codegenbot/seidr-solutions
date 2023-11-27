@@ -22,7 +22,7 @@ int main() {
     cin >> numBounces;
 
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
-
+    
     cout << distance << endl;
 
     return 0;
