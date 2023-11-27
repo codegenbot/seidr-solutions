@@ -5,11 +5,11 @@ bool is_nested(string str){
             count++;
         }
         else if(str[i] == ']'){
-            if(count == 0){
-                return false;
-            }
             count--;
         }
+        if(count > 0 && count < str.length()){
+            return true;
+        }
     }
-    return count > 0;
+    return false;
 }
