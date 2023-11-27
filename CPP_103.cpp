@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 std::string rounded_avg(int n, int m);
 
@@ -26,8 +27,6 @@ std::string rounded_avg(int n, int m) {
     
     return binary;
 }
-
-#include <iostream>
 
 int main() {
     std::cout << rounded_avg(5, 5) << std::endl;
