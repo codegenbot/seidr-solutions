@@ -24,8 +24,3 @@ int how_many_times(string str, string substring) {
 
     return count;
 }
-
-int main() {
-    cout << how_many_times("john doe", "john") << endl;
-    return 0;
-}
