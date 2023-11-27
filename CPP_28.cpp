@@ -1,7 +1,7 @@
-string concatenate(vector<string> strings) {
-    string result = "";
-    for (const string& str : strings) {
-        result += str;
-    }
-    return result;
+string concatenate(vector<string> strings){
+  string result;
+  for(int i = 0; i < strings.size(); i++){
+    result += strings[i];
+  }
+  return result;
 }
