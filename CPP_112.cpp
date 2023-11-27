@@ -1,10 +1,16 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
+
+vector<string> reverse_delete(string s, string c);
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    return 0;
+}
 
 vector<string> reverse_delete(string s, string c) {
     string result = "";
@@ -20,14 +26,4 @@ vector<string> reverse_delete(string s, string c) {
     output.push_back(result);
     output.push_back(isPalindrome ? "True" : "False");
     return output;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
-
-    return 0;
 }
