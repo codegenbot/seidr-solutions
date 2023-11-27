@@ -39,6 +39,5 @@ bool isEqual(vector<float> a, vector<float> b) {
 
 int main() {
     assert(isEqual(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
-    // Add more test cases if needed
     return 0;
 }
