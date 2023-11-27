@@ -12,7 +12,7 @@ std::string change_base(int x, int base) {
     return result;
 }
 
-int main() {
+int contest_code() {
     int x;
     std::cin >> x;
     assert(change_base(x, x + 1) == std::to_string(x));
