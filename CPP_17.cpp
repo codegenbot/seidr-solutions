@@ -3,25 +3,23 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+std::vector<int> parse_music(std::string music_string);
 
-vector<int> parse_music(string music_string);
-
-bool is_same_beats(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+bool is_same(std::vector<int> vec1, std::vector<int> vec2) {
+    if (vec1.size() != vec2.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < vec1.size(); i++) {
+        if (vec1[i] != vec2[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<int> parse_music(string music_string) {
-    vector<int> beats;
-    string note = "";
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
+    std::string note = "";
     for (int i = 0; i < music_string.length(); i++) {
         if (music_string[i] == 'o') {
             if (note == "o|") {
@@ -42,9 +40,9 @@ vector<int> parse_music(string music_string) {
 }
 
 int main() {
-    vector<int> expected = {2, 1, 2, 1, 4, 2, 4, 2};
-    vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
-    assert(is_same_beats(parsed_music, expected));
+    std::vector<int> expected = {2, 1, 2, 1, 4, 2, 4, 2};
+    std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
+    assert(is_same(parsed_music, expected));
 
     return 0;
 }
