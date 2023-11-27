@@ -1,19 +1,24 @@
 int search(vector<int> lst){
-    int maxFreq = -1;
+    int result = -1;
+    int maxFrequency = 0;
     
-    for(int i = 0; i < lst.size(); i++){
-        int freq = 0;
-        
-        for(int j = 0; j < lst.size(); j++){
-            if(lst[j] == lst[i]){
-                freq++;
+    for (int i = 0; i < lst.size(); i++) {
+        int frequency = 0;
+        for (int j = 0; j < lst.size(); j++) {
+            if (lst[j] == lst[i]) {
+                frequency++;
             }
         }
         
-        if(freq >= lst[i] && lst[i] > maxFreq){
-            maxFreq = lst[i];
+        if (frequency >= lst[i] && lst[i] > result) {
+            result = lst[i];
+            maxFrequency = frequency;
         }
     }
     
-    return maxFreq;
+    if (maxFrequency == 0) {
+        return -1;
+    }
+    
+    return result;
 }
