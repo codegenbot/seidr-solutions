@@ -1,4 +1,5 @@
 #include <boost/any.hpp>
+#include <iostream>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -26,5 +27,21 @@ boost::any compare_one(boost::any a, boost::any b) {
             return str2;
         }
     }
-    return boost::any();
+    return boost::any("None");
+}
+
+int main() {
+    boost::any a = 10;
+    boost::any b = 20;
+    boost::any result = compare_one(a, b);
+
+    if (result.type() == typeid(int)) {
+        std::cout << boost::any_cast<int>(result) << std::endl;
+    } else if (result.type() == typeid(float)) {
+        std::cout << boost::any_cast<float>(result) << std::endl;
+    } else if (result.type() == typeid(std::string)) {
+        std::cout << boost::any_cast<std::string>(result) << std::endl;
+    }
+
+    return 0;
 }
