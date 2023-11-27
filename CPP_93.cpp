@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <cassert>
 
 std::string encode(std::string message) {
     for (int i = 0; i < message.length(); i++) {
