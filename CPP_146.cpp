@@ -16,10 +16,9 @@ int specialFilter(vector<int> nums){
 }
 
 int main() {
-    // Testing the specialFilter function
-    vector<int> nums = {12, 23, 56, 71, 357};
-    int result = specialFilter(nums);
-    cout << "Count: " << result << endl;
+    // Test the specialFilter function
+    vector<int> nums = {12, 35, 48, 27, 91};
+    cout << specialFilter(nums) << endl;
     
     return 0;
 }
