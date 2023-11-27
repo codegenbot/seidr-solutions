@@ -1,48 +1,68 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
-vector<string> split_words(string txt){
+vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-    
-    for(char c : txt){
-        if(c == ' '){
+
+    for (int i = 0; i < txt.length(); i++) {
+        if (txt[i] == ' ') {
             hasWhitespace = true;
-            if(word != ""){
+            if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
-        }else if(c == ','){
+        } else if (txt[i] == ',') {
             hasComma = true;
-            if(word != ""){
+            if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
-        }else{
-            word += c;
+        } else {
+            word += txt[i];
         }
     }
-    
-    if(word != ""){
+
+    if (!word.empty()) {
         result.push_back(word);
     }
-    
-    if(!hasWhitespace && !hasComma){
-        result.clear();
-        result.push_back(to_string(0));
+
+    if (!hasWhitespace && !hasComma) {
+        result.push_back(to_string(3));
     }
-    
+
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 int main() {
-    assert(issame(split_words(""), {"0"}));
+    string input1, input2;
+    getline(cin, input1);
+    getline(cin, input2);
+
+    vector<string> words1 = split_words(input1);
+    vector<string> words2 = split_words(input2);
+
+    bool result = issame(words1, words2);
+
+    cout << (result ? "Same" : "Different") << endl;
+
     return 0;
 }
