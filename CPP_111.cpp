@@ -3,32 +3,35 @@
 #include <string>
 #include <cassert>
 
-std::map<std::string, int> histogram(std::string test) {
-  std::map<std::string, int> result;
-  if (test.empty()) {
-    return result;
-  }
-  char letter = '\0';
-  for (char c : test) {
-    if (c == ' ') {
-      result[std::string(1, letter)]++;
-      letter = '\0';
-    } else {
-      letter = c;
+using namespace std;
+
+map<string, int> histogram(string test) {
+    map<string, int> result;
+    if (test.empty()) {
+        return result;
     }
-  }
-  result[std::string(1, letter)]++;
-  return result;
+    string word;
+    for (char c : test) {
+        if (c == ' ') {
+            result[word]++;
+            word = "";
+        } else {
+            word += c;
+        }
+    }
+    result[word]++;
+    return result;
 }
 
-bool issame(std::map<std::string, int> a, std::map<std::string, int> b) {
-  return a == b;
+bool issame(const map<string, int>& a, const map<string, int>& b) {
+    return a == b;
 }
 
 int main() {
-  assert(issame(histogram("hello world"), {{"hello", 1}, {"world", 1}}));
-
-  std::cout << "All tests passed!" << std::endl;
-
-  return 0;
+    assert(issame(histogram("a"), map<string, int>{{"a", 1}}));
+    assert(issame(histogram("hello world"), map<string, int>{{"hello", 1}, {"world", 1}}));
+    
+    cout << "All tests passed!" << endl;
+    
+    return 0;
 }
