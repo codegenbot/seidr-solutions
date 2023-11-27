@@ -4,7 +4,6 @@
 bool isVowel(char c);
 
 bool issame_vectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    // Compare the vectors
     if (a.size() != b.size()) {
         return false;
     }
@@ -55,7 +54,6 @@ bool isVowel(char c) {
 }
 
 int main() {
-    // Test the select_words function using issame_vectors function
     assert(issame_vectors(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
