@@ -1,16 +1,9 @@
 vector<int> make_a_pile(int n){
-    vector<int> pile;
-    int stones = n;
-    pile.push_back(stones);
-    
-    for(int i=1; i<n; i++){
-        if(n%2 == 0){ // if n is even
-            stones += 2;
-        } else { // if n is odd
-            stones += 1;
-        }
-        pile.push_back(stones);
+    vector<int> stones;
+    int count = n;
+    for(int i=0; i<n; i++){
+        stones.push_back(count);
+        count += (n%2 == 0) ? 2 : 1;
     }
-    
-    return pile;
+    return stones;
 }
