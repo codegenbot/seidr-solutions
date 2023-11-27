@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-
-typedef std::basic_string<char> std::string;
+#include <string>
+#include <cassert>
 
 std::vector<std::string> words_string(const std::string& s) {
     std::vector<std::string> words;
@@ -22,8 +22,6 @@ std::vector<std::string> words_string(const std::string& s) {
     return words;
 }
 
-bool issame(const std::vector<std::string>&, const std::vector<std::string>&);
-
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     bool result = true;
     if (a.size() != b.size()) {
@@ -41,6 +39,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 int main() {
     assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+
+    // Add more test cases if needed
 
     return 0;
 }
