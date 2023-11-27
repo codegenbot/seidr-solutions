@@ -2,9 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-vector<int> cutVector(vector<int> nums) {
+std::vector<int> cutVector(std::vector<int> nums) {
     int n = nums.size();
     int diff = INT_MAX;
     int idx = -1;
@@ -21,15 +19,15 @@ vector<int> cutVector(vector<int> nums) {
             rightSum += nums[j];
         }
         
-        int currDiff = abs(leftSum - rightSum);
+        int currDiff = std::abs(leftSum - rightSum);
         if (currDiff < diff) {
             diff = currDiff;
             idx = i;
         }
     }
     
-    vector<int> left(nums.begin(), nums.begin() + idx);
-    vector<int> right(nums.begin() + idx, nums.end());
+    std::vector<int> left(std::begin(nums), std::begin(nums) + idx);
+    std::vector<int> right(std::begin(nums) + idx, std::end(nums));
     
     left.push_back(0);
     right.push_back(0);
@@ -39,19 +37,19 @@ vector<int> cutVector(vector<int> nums) {
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
     
-    vector<int> nums(n);
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
     
-    vector<int> result = cutVector(nums);
-    for (int num : std::begin(result[0])) {
-        cout << num << endl;
+    std::vector<int> result = cutVector(nums);
+    for (int num : result[0]) {
+        std::cout << num << std::endl;
     }
-    for (int num : std::begin(result[1])) {
-        cout << num << endl;
+    for (int num : result[1]) {
+        std::cout << num << std::endl;
     }
     
     return 0;
