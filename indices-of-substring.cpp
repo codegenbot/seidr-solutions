@@ -22,11 +22,15 @@ int main() {
     std::string text;
     std::string target;
 
+    std::cout << "Enter the text: ";
     std::getline(std::cin, text);
+
+    std::cout << "Enter the target string: ";
     std::getline(std::cin, target);
 
     std::vector<int> result = indicesOfSubstring(text, target);
 
+    std::cout << "Indices where the target appears: ";
     for (int index : result) {
         std::cout << index << " ";
     }
