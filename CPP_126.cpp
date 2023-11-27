@@ -1,8 +1,8 @@
 #include <vector>
 
-bool is_sorted(std::vector<int> lst){
-    std::vector<int> unique_lst(lst.begin(), lst.end());
-    std::sort(unique_lst.begin(), unique_lst.end());
+bool is_sorted(vector<int> lst){
+    vector<int> unique_lst(lst.begin(), lst.end());
+    sort(unique_lst.begin(), unique_lst.end());
     
     if (unique_lst.size() != lst.size()) {
         return false;
