@@ -15,6 +15,5 @@ int main() {
     vector<float> discounts {5.0, 10.0, 15.0};
     float totalPrice = calculateTotalPrice(prices, discounts);
     cout << "Total Price: " << totalPrice << endl;
-    
     return 0;
 }
