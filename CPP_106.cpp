@@ -1,8 +1,10 @@
-#include <cassert>
 #include <iostream>
 #include <vector>
+#include <cassert> // Added header file for assert function
 
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b); // Remove the redefinition
 
 vector<int> f(int n) {
     vector<int> result;
