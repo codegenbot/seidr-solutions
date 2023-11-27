@@ -1,17 +1,16 @@
 #include <vector>
 #include <algorithm>
 
-int next_smallest(std::vector<int> lst){
+int next_smallest(vector<int> lst){
     if(lst.size() < 2){
         return 0;
     }
-    std::sort(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
     return lst[1];
 }
 
 int main() {
-    // Example usage
-    std::vector<int> numbers = {5, 2, 8, 3, 1};
-    int result = next_smallest(numbers);
+    vector<int> lst = {5, 3, 7, 2, 8};
+    int result = next_smallest(lst);
     return 0;
 }
