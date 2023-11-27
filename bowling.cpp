@@ -1,35 +1,45 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int getScore(const std::string& bowls) {
+int getScore(string frames) {
     int score = 0;
-    int frame = 1;
-    int roll = 0;
+    int frameIndex = 0;
 
-    for (char c : bowls) {
-        if (frame > 10) break;
-
-        if (c == 'X') {
+    for (int i = 0; i < 10; i++) {
+        if (frames[frameIndex] == 'X') {
             score += 10;
-            if (frame <= 9) {
-                score += (bowls[roll + 1] == 'X') ? 10 + ((bowls[roll + 2] == 'X') ? 10 : (bowls[roll + 2] - '0')) : (bowls[roll + 1] == '/') ? 10 : (bowls[roll + 1] - '0');
-                roll++;
-            }
-            roll++;
-            frame++;
-        } else if (c == '/') {
-            score += (10 - (bowls[roll - 1] - '0')) + ((bowls[roll + 1] == 'X') ? 10 : (bowls[roll + 1] - '0'));
-            roll++;
-            frame++;
-        } else {
-            score += c - '0';
-            roll++;
-            if (frame <= 9 && roll % 2 == 0) {
-                if (bowls[roll - 1] == '/') {
-                    score += (10 - (bowls[roll - 2] - '0'));
+
+            if (frames[frameIndex + 2] == 'X') {
+                score += 10;
+
+                if (frames[frameIndex + 4] == 'X') {
+                    score += 10;
+                } else {
+                    score += frames[frameIndex + 4] - '0';
                 }
-                frame++;
+            } else if (frames[frameIndex + 4] == '/') {
+                score += 10;
+            } else {
+                score += frames[frameIndex + 2] - '0';
+                score += frames[frameIndex + 4] - '0';
             }
+
+            frameIndex++;
+        } else if (frames[frameIndex + 1] == '/') {
+            score += 10;
+
+            if (frames[frameIndex + 2] == 'X') {
+                score += 10;
+            } else {
+                score += frames[frameIndex + 2] - '0';
+            }
+
+            frameIndex += 2;
+        } else {
+            score += frames[frameIndex] - '0' + frames[frameIndex + 1] - '0';
+
+            frameIndex += 2;
         }
     }
 
@@ -37,11 +47,11 @@ int getScore(const std::string& bowls) {
 }
 
 int main() {
-    std::string bowls;
-    std::getline(std::cin, bowls);
+    string frames;
+    getline(cin, frames);
 
-    int score = getScore(bowls);
-    std::cout << score << std::endl;
+    int score = getScore(frames);
+    cout << score << endl;
 
     return 0;
 }
