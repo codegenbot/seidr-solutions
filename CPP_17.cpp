@@ -42,7 +42,7 @@ std::vector<int> parse_music(std::string music_string) {
 int main() {
     std::vector<int> expected = {2, 1, 2, 1, 4, 2, 4, 2};
     std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
-    assert(std::is_same(parsed_music, expected));
+    assert(is_same(parsed_music, expected));
 
     return 0;
 }
