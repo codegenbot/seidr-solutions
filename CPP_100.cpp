@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b){
-    return a == b;
-}
-
 vector<int> make_a_pile(int n){
     vector<int> levels;
     int stones = n;
@@ -25,18 +21,18 @@ vector<int> make_a_pile(int n){
 
 void test_make_a_pile(){
     vector<int> piles = make_a_pile(8);
-    assert(issame(piles, vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(piles == vector<int>{8, 10, 12, 14, 16, 18, 20, 22});
 }
 
 void test_issame(){
-    assert(issame(vector<int>{1, 2, 3}, vector<int>{1, 2, 3}));
+    assert(vector<int>{1, 2, 3} == vector<int>{1, 2, 3});
 }
 
 int main(){
     test_make_a_pile();
     test_issame();
-    
+
     cout << "All tests passed!" << endl;
-    
+
     return 0;
 }
