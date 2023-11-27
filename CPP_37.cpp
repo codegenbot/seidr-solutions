@@ -4,9 +4,9 @@
 
 using namespace std;
 
-bool areEqual(const vector<float> a, const vector<float> b);
+bool issame(vector<float> a, vector<float> b);
 
-vector<float> sort_even(const vector<float>& l);
+vector<float> sort_even(vector<float> l);
 
 int main() {
     vector<float> l = {3.2, 1.5, 4.7, 2.9, 6.1};
@@ -14,7 +14,7 @@ int main() {
     
     vector<float> expected = {1.5, 3.2, 2.9, 4.7, 6.1};
     
-    if (areEqual(sorted_l, expected)) {
+    if (issame(sorted_l, expected)) {
         cout << "The list is sorted correctly." << endl;
     } else {
         cout << "The list is not sorted correctly." << endl;
@@ -23,7 +23,7 @@ int main() {
     return 0;
 }
 
-bool areEqual(const vector<float> a, const vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -37,7 +37,7 @@ bool areEqual(const vector<float> a, const vector<float> b) {
     return true;
 }
 
-vector<float> sort_even(const vector<float>& l) {
+vector<float> sort_even(vector<float> l) {
     vector<float> l_prime = l;
     vector<float> even_values;
     
