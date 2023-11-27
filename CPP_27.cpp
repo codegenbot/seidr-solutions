@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 string flip_case(string str){
@@ -17,6 +16,5 @@ string flip_case(string str){
 
 int main() {
     assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-
     return 0;
 }
