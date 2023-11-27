@@ -6,11 +6,11 @@ bool issame(std::vector<int> a, std::vector<int> b){
     // implementation of the function
 }
 
-std::vector<int> dfs(std::vector<std::vector<int>>& grid, int x, int y, int k) {
-    std::vector<int> result;
-    // implementation of the dfs function
-    return result;
+std::vector<int> dfs(std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path) {
+    // implementation of the function
 }
+
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     int n = grid.size();
@@ -37,7 +37,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     }
     
     // Perform a depth-first search to find the minimum path
-    path = dfs(grid, startX, startY, k);
+    dfs(grid, startX, startY, k, path);
     
     return path;
 }
