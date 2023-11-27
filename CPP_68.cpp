@@ -1,14 +1,26 @@
 #include <vector>
 
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> pluck(vector<int> arr);
 
+int main() {
+    vector<int> arr = {1, 3, 2, 5, 4};
+    vector<int> result = pluck(arr);
+    
+    cout << "Smallest even number: " << result[0] << endl;
+    cout << "Index of smallest even number: " << result[1] << endl;
+    
+    return 0;
+}
+
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+    if(a.size() != b.size()) {
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
