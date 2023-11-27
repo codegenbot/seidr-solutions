@@ -34,18 +34,22 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     return "NO";
 }
 
-int main() {
+vector<int> solve() {
     vector<int> interval1 = {1, 2};
     vector<int> interval2 = {2, 3};
-    cout << intersection(interval1, interval2) << endl;
+    vector<int> output;
+    
+    output.push_back(intersection(interval1, interval2) == "YES");
     
     interval1 = {-1, 1};
     interval2 = {0, 4};
-    cout << intersection(interval1, interval2) << endl;
+    
+    output.push_back(intersection(interval1, interval2) == "YES");
     
     interval1 = {-3, -1};
     interval2 = {-5, 5};
-    cout << intersection(interval1, interval2) << endl;
     
-    return 0;
+    output.push_back(intersection(interval1, interval2) == "YES");
+    
+    return output;
 }
