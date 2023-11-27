@@ -1,18 +1,30 @@
 #include <vector>
+#include <cassert>
 #include <iostream>
+#include <algorithm>
 
-std::vector<int> f(int n) {
-    std::vector<int> result;
-    for (int i = 1; i <= n; i++) {
-        if (i % 2 == 0) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    return std::equal(a.begin(), a.end(), b.begin());
+}
+
+vector<int> f(int n){
+    vector<int> result;
+    for(int i=1; i<=n; i++){
+        if(i%2 == 0){
             int factorial = 1;
-            for (int j = 1; j <= i; j++) {
+            for(int j=1; j<=i; j++){
                 factorial *= j;
             }
             result.push_back(factorial);
-        } else {
+        }
+        else{
             int sum = 0;
-            for (int j = 1; j <= i; j++) {
+            for(int j=1; j<=i; j++){
                 sum += j;
             }
             result.push_back(sum);
@@ -21,23 +33,8 @@ std::vector<int> f(int n) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    std::vector<int> result = f(3);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+int main(){
+    assert(std::equal(f(3).begin(), f(3).end(), {1, 2, 6}));
+    
     return 0;
 }
