@@ -14,15 +14,10 @@ int getScore(const std::string& bowls) {
             bowlIndex += 1;
         } else if (bowls[bowlIndex + 1] == '/') {
             score += 10;
-            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (10 - (bowls[bowlIndex] - '0'));
             bowlIndex += 2;
         } else {
             score += (bowls[bowlIndex] - '0') + (bowls[bowlIndex + 1] - '0');
-            if (bowls[bowlIndex + 2] == 'X') {
-                score += 10;
-            } else {
-                score += bowls[bowlIndex + 2] - '0';
-            }
             bowlIndex += 2;
         }
         frame++;
