@@ -1,5 +1,15 @@
-#include <vector>
-#include <string>
+#include <iostream>
+
+std::string int_to_mini_roman(int number);
+
+int main() {
+    int number;
+    std::cin >> number;
+    
+    std::cout << int_to_mini_roman(number);
+    
+    return 0;
+}
 
 std::string int_to_mini_roman(int number) {
     std::vector<int> nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
