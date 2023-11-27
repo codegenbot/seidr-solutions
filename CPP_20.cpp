@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <cassert>
+
+using namespace std;
+
 vector<float> find_closest_elements(vector<float> numbers){
     vector<float> closest_elements;
     float min_diff = INFINITY;
