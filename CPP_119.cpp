@@ -21,6 +21,9 @@ string match_parens(vector<string> lst) {
 int main() {
     vector<string> lst = {"()(", ")"};
     cout << match_parens(lst) << endl;
-    
+
+    lst = {")", ")"};
+    cout << match_parens(lst) << endl;
+
     return 0;
 }
