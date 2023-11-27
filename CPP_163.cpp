@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
@@ -12,6 +13,7 @@ vector<int> generate_integers(int a, int b) {
 
 bool issame(vector<int> a, vector<int> b) {
     // Code for checking if the two vectors are the same
+    return a == b;
 }
 
 int main() {
