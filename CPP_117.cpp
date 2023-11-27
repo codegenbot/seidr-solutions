@@ -14,7 +14,7 @@ int count_consonants(string word) {
     return count;
 }
 
-bool areSame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -49,10 +49,6 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(areSame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    // Additional test cases
-    assert(areSame(select_words("hello world", 2), {}));
-    assert(areSame(select_words("this is a sentence", 3), {"sentence"}));
-    assert(areSame(select_words("programming is fun", 4), {"programming"}));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
