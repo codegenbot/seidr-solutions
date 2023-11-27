@@ -41,8 +41,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // ... your code ...
-    return true;  // Placeholder return statement
+    return a == b;
 }
 
 int main() {
