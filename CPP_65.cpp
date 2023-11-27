@@ -16,11 +16,5 @@ string circular_shift(int x, int shift) {
 }
 
 int main() {
-    int x, shift;
-    cin >> x >> shift;
-  
-    string shiftedNum = circular_shift(x, shift);
-    cout << shiftedNum;
-  
-    return 0;
+    // Function usage goes here
 }
