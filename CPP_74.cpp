@@ -4,8 +4,11 @@
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     // Implement the issame function logic here
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -33,7 +36,7 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert (issame(total_match({"this"}, {}), {}));
     
     // Add more test cases to validate the code
     
