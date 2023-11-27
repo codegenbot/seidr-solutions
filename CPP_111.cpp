@@ -1,6 +1,6 @@
 #include <map>
 
-map<char, int> histogram(string test);
+map<char,int> histogram(string test);
 
 bool issame(const map<char,int>& a, const map<char,int>& b);
 
@@ -24,5 +24,13 @@ map<char,int> histogram(string test){
 }
 
 bool issame(const map<char,int>& a, const map<char,int>& b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(auto it = a.begin(); it != a.end(); it++){
+        if(b.find(it->first) == b.end() || b[it->first] != it->second){
+            return false;
+        }
+    }
+    return true;
 }
