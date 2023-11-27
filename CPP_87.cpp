@@ -1,4 +1,4 @@
-#include <vector> 
+#include <vector>
 
 bool issame(vector<vector<int>> a,vector<vector<int>> b){
     // Implementation of the issame function
