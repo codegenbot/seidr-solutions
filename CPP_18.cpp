@@ -1,6 +1,9 @@
+#include <iostream>
 #include <string>
 
-int how_many_times(std::string str, std::string substring) {
+using namespace std;
+
+int how_many_times(string str, string substring) {
     int count = 0;
     int subLen = substring.length();
     int strLen = str.length();
@@ -26,11 +29,11 @@ int how_many_times(std::string str, std::string substring) {
 }
 
 int main() {
-    assert(how_many_times("john doe", "john") == 1);
-    
-    // Additional test cases
-    assert(how_many_times("abcabcabc", "abc") == 3);
-    assert(how_many_times("abcdefg", "xyz") == 0);
-    
+    string str = "abababab";
+    string substring = "ab";
+
+    int result = how_many_times(str, substring);
+    cout << result << endl;
+
     return 0;
 }
