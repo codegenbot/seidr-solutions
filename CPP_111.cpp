@@ -34,9 +34,8 @@ bool issame(std::map<char,int> a, std::map<char, int> b){
 }
 
 int main() {
+    // Add test cases and assertions here
     assert(issame(histogram("a"), {{'a', 1}}));
-
-    // Add more test cases and assertions here
 
     return 0;
 }
