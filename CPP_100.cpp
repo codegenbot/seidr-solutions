@@ -1,10 +1,16 @@
-#include <vector> 
+#include <vector>
+
+using namespace std;
+
 vector<int> make_a_pile(int n);
+
 bool issame(vector<int> a, vector<int> b);
+
 int main() {
     assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
+
 vector<int> make_a_pile(int n) {
     vector<int> levels;
     int stones = n;
@@ -18,6 +24,7 @@ vector<int> make_a_pile(int n) {
     }
     return levels;
 }
+
 bool issame(vector<int> a, vector<int> b) {
     // Implementation of issame function
 }
