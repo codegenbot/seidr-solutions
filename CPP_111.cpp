@@ -23,7 +23,7 @@ map<string, int> histogram(string test) {
     return result;
 }
 
-bool issame(map<string, int> a, map<string, int> b) {
+bool issame(const map<string, int>& a, const map<string, int>& b) {
     return a == b;
 }
 
