@@ -1,37 +1,43 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
-
-vector<int> order_by_points(vector<int> nums);
+#include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-int main(){
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
+    // Implementation of issame function
 }
 
 vector<int> order_by_points(vector<int> nums){
     if(nums.empty()){
         return nums;
     }
-    vector<pair<int, int>> sums;
+    
+    vector<pair<int, int>> sumDigits;
+    
     for(int i=0; i<nums.size(); i++){
+        int num = nums[i];
         int sum = 0;
-        int num = abs(nums[i]);
-        while(num > 0){
-            sum += num % 10;
+        
+        while(num != 0){
+            sum += abs(num % 10);
             num /= 10;
         }
-        sums.push_back(make_pair(sum, i));
+        
+        sumDigits.push_back(make_pair(sum, i));
     }
-    sort(sums.begin(), sums.end());
+    
+    sort(sumDigits.begin(), sumDigits.end());
+    
     vector<int> result;
-    for(int i=0; i<sums.size(); i++){
-        result.push_back(nums[sums[i].second]);
+    
+    for(auto pair : sumDigits){
+        result.push_back(nums[pair.second]);
     }
+    
     return result;
+}
+
+int main() {
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+
+    return 0;
 }
