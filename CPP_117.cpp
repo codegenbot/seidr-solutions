@@ -1,12 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
-vector<string> select_words(string s, int n);
+bool isConsonant(char c) {
+    c = tolower(c);
+    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
 
-bool vectorCompare(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -20,32 +22,34 @@ bool vectorCompare(vector<string> a, vector<string> b) {
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    if (s.empty()) {
-        return result;
-    }
     string word = "";
     int consonantCount = 0;
-    for (char c : s) {
-        if (c == ' ') {
+    
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] != ' ') {
+            word += s[i];
+            if (isConsonant(s[i])) {
+                consonantCount++;
+            }
+        } else {
             if (consonantCount == n) {
                 result.push_back(word);
             }
             word = "";
             consonantCount = 0;
-        } else {
-            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
-                consonantCount++;
-            }
-            word += c;
         }
     }
+    
     if (consonantCount == n) {
         result.push_back(word);
     }
+    
     return result;
 }
 
 int main() {
-    assert(vectorCompare(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    cout << "Test cases pass." << endl;
+    
     return 0;
 }
