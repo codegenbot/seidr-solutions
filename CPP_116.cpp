@@ -2,12 +2,6 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> sort_array(std::vector<int> arr);
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
 std::vector<int> sort_array(std::vector<int> arr){
     std::sort(arr.begin(), arr.end(), [](int a, int b){
         int countA = __builtin_popcount(a);
@@ -18,6 +12,10 @@ std::vector<int> sort_array(std::vector<int> arr){
         return countA < countB;
     });
     return arr;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 int main(){
