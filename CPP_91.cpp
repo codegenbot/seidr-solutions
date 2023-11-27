@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 int is_bored(std::string S){
@@ -19,14 +20,12 @@ int is_bored(std::string S){
 }
 
 int main() {
-    // Test cases
-    std::string test1 = "I am bored.";
-    std::string test2 = "Are you bored?";
-    std::string test3 = "No, I'm not bored!";
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
     
-    int result1 = is_bored(test1);
-    int result2 = is_bored(test2);
-    int result3 = is_bored(test3);
+    int result = is_bored(input);
+    std::cout << "Count: " << result << std::endl;
     
     return 0;
 }
