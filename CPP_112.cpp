@@ -12,7 +12,7 @@ vector<string> reverse_delete(const string& s, const string& c) {
             temp += s[i];
         }
     }
-  
+    
     string reversed = temp;
     reverse(reversed.begin(), reversed.end());
     
