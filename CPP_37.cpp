@@ -4,6 +4,10 @@
 
 using namespace std;
 
+bool issame(vector<float> a, vector<float> b);
+
+vector<float> sort_even(vector<float> l);
+
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
