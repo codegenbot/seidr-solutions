@@ -18,6 +18,6 @@ bool correct_bracketing(std::string brackets){
 }
 
 int main() {
-    assert(!correct_bracketing("()()(()())()))()"));
+    assert(correct_bracketing("()()(()())()))()") == false);
     return 0;
 }
