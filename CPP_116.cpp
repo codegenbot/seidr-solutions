@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool issame(const vector<int>& a, const vector<int>& b){
+    return a == b;
+}
+
 vector<int> sort_array(vector<int> arr){
     sort(arr.begin(), arr.end(), [](int a, int b){
         int countA = __builtin_popcount(a);
@@ -11,10 +15,6 @@ vector<int> sort_array(vector<int> arr){
         return countA < countB;
     });
     return arr;
-}
-
-bool issame(const vector<int>& a, const vector<int>& b){
-    return a == b;
 }
 
 int main(){
