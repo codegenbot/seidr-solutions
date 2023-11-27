@@ -6,12 +6,12 @@
 bool issame(std::vector<float> a, std::vector<float> b);
 
 std::vector<float> find_closest_elements(std::vector<float> numbers){
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     std::vector<float> result;
     float minDiff = INT_MAX;
     
     for(int i = 0; i < numbers.size() - 1; i++){
-        float diff = std::abs(numbers[i] - numbers[i+1]);
+        float diff = abs(numbers[i] - numbers[i+1]);
         if(diff < minDiff){
             minDiff = diff;
             result.clear();
