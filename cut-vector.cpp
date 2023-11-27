@@ -45,13 +45,11 @@ int main() {
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
     for (int i = 0; i < result.first.size(); i++) {
-        std::cout << result.first[i] << " "; // Changed to print numbers with a space separator
+        std::cout << result.first[i] << " ";
     }
 
-    std::cout << std::endl; // Added a new line to separate the two subvectors
-
     for (int i = 0; i < result.second.size(); i++) {
-        std::cout << result.second[i] << " "; // Changed to print numbers with a space separator
+        std::cout << result.second[i] << " ";
     }
 
     return 0;
