@@ -4,10 +4,13 @@
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     // Implement the issame function logic here
+    
+    // Check if the sizes of the vectors are equal
     if (a.size() != b.size()) {
         return false;
     }
     
+    // Check if each element in the vectors are the same
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
