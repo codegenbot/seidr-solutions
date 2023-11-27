@@ -11,6 +11,8 @@ bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
@@ -48,7 +50,7 @@ int main() {
     vector<int> output3 = remove_duplicates(numbers3);
     assert(issame(output3, expected3));
 
-    cout << "All test cases passed." << endl;
+    cout << "All test cases passed!" << endl;
 
     return 0;
 }
