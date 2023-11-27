@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 #include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
@@ -24,4 +23,6 @@ std::vector<float> derivative(std::vector<float> xs) {
 
 int main() {
     assert(issame(derivative({1}), {}));
+    // Add more test cases here if needed
+    return 0;
 }
