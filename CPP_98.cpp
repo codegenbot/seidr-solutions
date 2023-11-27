@@ -14,6 +14,7 @@ int count_upper(string s){
 }
 
 int main() {
+    // test cases and assertions
     assert (count_upper("EEEE") == 2);
 
     return 0;
