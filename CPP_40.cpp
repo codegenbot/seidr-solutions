@@ -16,8 +16,6 @@ bool triples_sum_to_zero(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> numbers{100, 3, 5, -100};
-    bool result = triples_sum_to_zero(numbers);
-    assert(result == false);
+    assert(triples_sum_to_zero(std::vector<int>{100, 3, 5, -100}) == false);
     return 0;
 }
