@@ -7,7 +7,6 @@ string circular_shift(int x, int shift) {
         return num;
     }
     
-    shift %= n;
     string result = num.substr(n - shift) + num.substr(0, n - shift);
     return result;
 }
