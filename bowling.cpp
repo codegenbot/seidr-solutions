@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 int calculateScore(std::string input) {
     int score = 0;
     int frame = 0;
