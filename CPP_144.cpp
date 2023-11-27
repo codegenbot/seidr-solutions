@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-bool simplify(std::string x, std::string n){
+bool simplify(std::string x, std::string n) {
     int x_num = std::stoi(x.substr(0, x.find('/')));
     int x_den = std::stoi(x.substr(x.find('/') + 1));
 
@@ -15,7 +15,6 @@ bool simplify(std::string x, std::string n){
 }
 
 int main() {
-    // Test the simplify function
     std::cout << simplify("1/5", "1/5") << std::endl;
 
     return 0;
