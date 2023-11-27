@@ -8,7 +8,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     int textSize = text.size();
 
     for (int i = 0; i <= textSize - targetSize; i++) {
-        int j = 0; // initialize j outside the loop
+        int j = 0;
         for (; j < targetSize; j++) {
             if (text[i + j] != target[j]) {
                 break;
