@@ -1,13 +1,17 @@
 #include <iostream>
+using namespace std;
 
 int largest_prime_factor(int n) {
     int largestFactor = 2;
     
-    while (n > largestFactor) {
-        if (n % largestFactor == 0) {
-            n /= largestFactor;
-        } else {
-            largestFactor++;
+    while(n % 2 == 0) {
+        n /= 2;
+    }
+    
+    for(int i = 3; i <= n; i += 2) {
+        while(n % i == 0) {
+            largestFactor = i;
+            n /= i;
         }
     }
     
@@ -15,11 +19,8 @@ int largest_prime_factor(int n) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    
-    std::cout << "Largest prime factor: " << largest_prime_factor(n) << std::endl;
+    cout << largest_prime_factor(13195) << endl;
+    cout << largest_prime_factor(2048) << endl;
     
     return 0;
 }
