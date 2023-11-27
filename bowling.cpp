@@ -1,54 +1,54 @@
+#include <iostream>
+#include <string>
+
 int calculateScore(std::string input) {
     int score = 0;
     int frame = 0;
-    bool isSpare = false;
-    bool isStrike = false;
+    int rolls = 0;
+    int frames[10] = {0};
 
     for (char ch : input) {
         if (ch == 'X') {
-            score += 10;
-            
+            frames[frame] += 10;
             if (frame < 9) {
-                score += 10;
-                
-                if (input[frame + 1] == 'X') {
-                    score += 10;
-                } else {
-                    score += input[frame + 1] - '0';
-                }
+                frames[frame+1] += 10 - (10 - rolls % 10);
+                if (frame < 8 && input[rolls+2] != '/')
+                    frames[frame+2] += 10 - (10 - rolls % 10);
+                else if (frame < 8 && input[rolls+2] == '/')
+                    frames[frame+2] += 10 - (10 - rolls % 10) + (10 - frames[frame+1]);
             }
-            
-            isStrike = true;
+            rolls++;
         } else if (ch == '/') {
-            score += 10 - (input[frame - 1] - '0');
-            
+            frames[frame] += (10 - frames[frame]);
             if (frame < 9) {
-                if (input[frame + 1] == 'X') {
-                    score += 10;
-                } else {
-                    score += input[frame + 1] - '0';
-                }
+                frames[frame+1] += 10 - frames[frame];
             }
-            
-            isSpare = true;
+            rolls++;
         } else if (ch == '-') {
-            // No need to handle '-' separately
+            rolls++;
         } else {
-            score += ch - '0';
+            frames[frame] += (ch - '0');
+            rolls++;
         }
 
-        if (isSpare) {
-            score += ch - '0';
-            isSpare = false;
+        if (rolls % 2 == 0) {
+            frame++;
         }
-        
-        if (isStrike && input[frame] != 'X') {
-            score += ch - '0';
-            isStrike = false;
-        }
+    }
 
-        frame += (ch != '-');
+    for (int i = 2; i < 10; i++) {
+        score += frames[i];
     }
 
     return score;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+
+    int score = calculateScore(input);
+    std::cout << score << std::endl;
+
+    return 0;
 }

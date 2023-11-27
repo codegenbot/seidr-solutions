@@ -2,19 +2,20 @@
 #include <string>
 using namespace std;
 
-string squareDigits(int num) {
+string squareDigits(int n) {
     string result = "";
-    while (num > 0) {
-        int digit = num % 10;
-        result = to_string(digit * digit) + result;
-        num /= 10;
+    string num = to_string(n);
+    for (char c : num) {
+        int digit = c - '0';
+        int square = digit * digit;
+        result += to_string(square);
     }
     return result;
 }
 
 int main() {
-    int num;
-    cin >> num;
-    cout << squareDigits(num) << endl;
+    int n;
+    cin >> n;
+    cout << squareDigits(n) << endl;
     return 0;
 }
