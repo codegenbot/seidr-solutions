@@ -9,7 +9,8 @@ float findMaxElement(const std::vector<float>& l) {
 }
 
 int main() {
-    assert(std::abs(*std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}.begin(),
-                                     {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}.end()) - 124) < 1e-4);
+    std::vector<float> numbers = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    assert(std::abs(findMaxElement(numbers) - 124) < 1e-4);
+
     return 0;
 }
