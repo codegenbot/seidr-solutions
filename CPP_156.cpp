@@ -4,14 +4,14 @@
 using namespace std;
 
 string int_to_mini_roman(int number) {
-    vector<int> nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    vector<string> romans = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
-    string result = "";
+    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    vector<string> symbols = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
 
-    for (int i = 0; i < nums.size(); i++) {
-        while (number >= nums[i]) {
-            result += romans[i];
-            number -= nums[i];
+    string result = "";
+    for (int i = 0; i < values.size(); i++) {
+        while (number >= values[i]) {
+            result += symbols[i];
+            number -= values[i];
         }
     }
 
@@ -20,8 +20,11 @@ string int_to_mini_roman(int number) {
 
 int main() {
     int num;
-    cout << "Enter a positive integer: ";
+    cout << "Enter a number between 1 and 1000: ";
     cin >> num;
-    cout << "Roman numeral equivalent: " << int_to_mini_roman(num) << endl;
+
+    string roman = int_to_mini_roman(num);
+    cout << "Roman numeral equivalent: " << roman << endl;
+
     return 0;
 }
