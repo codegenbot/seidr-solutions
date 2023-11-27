@@ -22,6 +22,7 @@ vector<string> sort_even_length_strings(vector<string> lst) {
     return result;
 }
 
+// Rename the existing main function to avoid redefinition issue
 int sort_even_length_strings() {
     vector<string> input = { "aaaa", "bbbb", "dd", "cc" };
     vector<string> expected_output = { "cc", "dd", "aaaa", "bbbb" };
