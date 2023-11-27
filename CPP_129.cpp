@@ -1,61 +1,66 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
+void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path, vector<vector<bool>>& visited){
+    int n = grid.size();
+    if(x < 0 || x >= n || y < 0 || y >= n || visited[x][y] || grid[x][y] > k){
+        return;
+    }
+    
+    visited[x][y] = true;
+    path.push_back(grid[x][y]);
+    
+    dfs(grid, x+1, y, k, path, visited);
+    dfs(grid, x-1, y, k, path, visited);
+    dfs(grid, x, y+1, k, path, visited);
+    dfs(grid, x, y-1, k, path, visited);
+}
+
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
-    
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+
+    // Find the minimum value in the grid
+    int minValue = grid[0][0];
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            minValue = min(minValue, grid[i][j]);
+        }
+    }
+
     // Find the starting cell with the minimum value
-    int minVal = INT_MAX;
-    int startRow, startCol;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(grid[i][j] < minVal){
-                minVal = grid[i][j];
-                startRow = i;
-                startCol = j;
+    int startX, startY;
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            if(grid[i][j] == minValue){
+                startX = i;
+                startY = j;
+                break;
             }
         }
     }
-    
-    // Add the starting cell value to the path
-    path.push_back(minVal);
-    
-    // Keep track of the current cell position
-    int currRow = startRow;
-    int currCol = startCol;
-    
-    // Move to the neighbor cell with the minimum value until the path length is k
-    while(path.size() < k){
-        int minNeighbor = INT_MAX;
-        int nextRow, nextCol;
-        
-        // Check the neighbor cells
-        if(currRow > 0 && grid[currRow-1][currCol] < minNeighbor){
-            minNeighbor = grid[currRow-1][currCol];
-            nextRow = currRow-1;
-            nextCol = currCol;
-        }
-        if(currRow < n-1 && grid[currRow+1][currCol] < minNeighbor){
-            minNeighbor = grid[currRow+1][currCol];
-            nextRow = currRow+1;
-            nextCol = currCol;
-        }
-        if(currCol > 0 && grid[currRow][currCol-1] < minNeighbor){
-            minNeighbor = grid[currRow][currCol-1];
-            nextRow = currRow;
-            nextCol = currCol-1;
-        }
-        if(currCol < n-1 && grid[currRow][currCol+1] < minNeighbor){
-            minNeighbor = grid[currRow][currCol+1];
-            nextRow = currRow;
-            nextCol = currCol+1;
-        }
-        
-        // Move to the neighbor cell with the minimum value
-        currRow = nextRow;
-        currCol = nextCol;
-        
-        // Add the value of the new cell to the path
-        path.push_back(minNeighbor);
-    }
-    
+
+    // Perform DFS to find the minimum path
+    dfs(grid, startX, startY, k, path, visited);
+
     return path;
+}
+
+int main(){
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    
+    return 0;
 }

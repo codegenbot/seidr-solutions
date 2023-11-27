@@ -1,29 +1,29 @@
 #include <vector>
 #include <string>
-#include <sstream>
+#include <cassert>
 
-vector<string> split_words(string txt);
-int count_odd_letters(string txt);
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt){
-    vector<string> result;
+    vector<string> words;
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
     
-    for(int i = 0; i < txt.size(); i++){
+    for(int i=0; i<txt.length(); i++){
         if(txt[i] == ' '){
             hasWhitespace = true;
-            if(word != ""){
-                result.push_back(word);
+            if(word.length() > 0){
+                words.push_back(word);
                 word = "";
             }
         }
         else if(txt[i] == ','){
             hasComma = true;
-            if(word != ""){
-                result.push_back(word);
+            if(word.length() > 0){
+                words.push_back(word);
                 word = "";
             }
         }
@@ -32,36 +32,33 @@ vector<string> split_words(string txt){
         }
     }
     
-    if(word != ""){
-        result.push_back(word);
+    if(word.length() > 0){
+        words.push_back(word);
     }
     
-    if(!hasWhitespace && !hasComma){
-        result.push_back(to_string(count_odd_letters(txt)));
+    if(words.size() == 0){
+        words.push_back(to_string('z' - 'a' + 1));
     }
     
-    return result;
-}
-
-int count_odd_letters(string txt){
-    int count = 0;
-    for(int i = 0; i < txt.size(); i++){
-        if(islower(txt[i])){
-            int letterOrder = txt[i] - 'a';
-            if(letterOrder % 2 != 0){
-                count++;
-            }
-        }
-    }
-    return count;
+    return words;
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // function body
-    // return statement if necessary
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
-int main() {
-    // Add test cases or remove main() function if not needed
+int main(){
+    assert(split_words("") == vector<string>{"0"});
+    
     return 0;
 }

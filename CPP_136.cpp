@@ -1,19 +1,35 @@
-vector<int> largest_smallest_integers(vector<int> lst){
-    vector<int> result;
-    int largest_neg = 0;
-    int smallest_pos = 0;
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <climits>
+
+using namespace std;
+
+vector<int> largest_smallest_integers(vector<int> lst);
+
+int main() {
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-3, 1});
     
-    for(int num : lst){
-        if(num < 0 && num < largest_neg){
-            largest_neg = num;
+    return 0;
+}
+
+vector<int> largest_smallest_integers(vector<int> lst){
+    vector<int> result = {0, 0};
+    int largest_negative = INT_MIN;
+    int smallest_positive = INT_MAX;
+    
+    for(int i = 0; i < lst.size(); i++){
+        if(lst[i] < 0 && lst[i] > largest_negative){
+            largest_negative = lst[i];
         }
-        if(num > 0 && (num < smallest_pos || smallest_pos == 0)){
-            smallest_pos = num;
+        
+        if(lst[i] > 0 && lst[i] < smallest_positive){
+            smallest_positive = lst[i];
         }
     }
     
-    result.push_back(largest_neg);
-    result.push_back(smallest_pos);
+    result[0] = largest_negative == INT_MIN ? 0 : largest_negative;
+    result[1] = smallest_positive == INT_MAX ? 0 : smallest_positive;
     
     return result;
 }
