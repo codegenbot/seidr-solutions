@@ -37,6 +37,6 @@ int main() {
         "the number of odd elements 2 in the string 2 of the input.",
         "the number of odd elements 2 in the string 3 of the input."
     }));
-
+    
     return 0;
 }
