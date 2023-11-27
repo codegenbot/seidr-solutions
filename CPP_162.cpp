@@ -10,9 +10,8 @@ std::string string_to_md5(std::string text) {
     unsigned char digest[MD5_DIGEST_LENGTH];
     MD5_CTX md5Context;
     MD5_Init(&md5Context);
-    MD5_Update(&md5Context, text.c_str(), text.size());
-
-    MD5_Final(digest, &md5Context);
+    MD5_Update(&md5Context, text.data(), text.size());
+    MD5_Final(digest, &md5Context); // Updated function call
 
     char md5Hash[33];
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
