@@ -1,16 +1,13 @@
-#include <iostream>
 #include <string>
 #include <map>
-#include <cctype>
 
-using namespace std;
-
-bool check_map_case(map<string, string>& dict){
+bool check_dict_case(map<string,string> dict){
     if(dict.empty()){
         return false;
     }
     
-    bool upper = false;
+    bool isLower = true;
+    bool isUpper = true;
     
     for(auto it = dict.begin(); it != dict.end(); ++it){
         string key = it->first;
@@ -19,23 +16,18 @@ bool check_map_case(map<string, string>& dict){
             return false;
         }
         
-        if(islower(key[0])){
-            return false;
-        }
-        else if(isupper(key[0])){
-            upper = true;
+        if(key != toLowerCase(key)){
+            isLower = false;
         }
         
-        if(upper){
+        if(key != toUpperCase(key)){
+            isUpper = false;
+        }
+        
+        if(!isLower && !isUpper){
             return false;
         }
     }
     
     return true;
-}
-
-int main() {
-    assert(check_map_case({}) == false);
-    
-    return 0;
 }
