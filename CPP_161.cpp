@@ -30,6 +30,6 @@ string solve(string s){
 
 int main() {
     assert (solve("#ccc") == "#CCC");
-
+    
     return 0;
 }
