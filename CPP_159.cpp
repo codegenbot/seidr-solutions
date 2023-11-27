@@ -1,4 +1,4 @@
-#include <vector>
+#include <vector> 
 
 std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
@@ -12,6 +12,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::assert(issame(eat(4, 5, 1), {5, 0}));
+    assert(issame(eat(4, 5, 1), {5, 0}));
     return 0;
 }
