@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 bool is_nested(string str){
     int count = 0;
     for(int i = 0; i < str.length(); i++){
@@ -12,4 +17,9 @@ bool is_nested(string str){
         }
     }
     return false;
+}
+
+int main() {
+    assert (is_nested("]]]]]]]]") == false);
+    return 0;
 }
