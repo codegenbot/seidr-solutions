@@ -7,7 +7,7 @@ using namespace std;
 
 bool issame(const vector<float>& a, const vector<float>& b);
 
-vector<float> find_closest_elements(const vector<float>& numbers);
+vector<float> find_closest_elements(vector<float> numbers);
 
 bool issame(const vector<float>& a, const vector<float>& b) {
     if (a.size() != b.size()) {
@@ -21,7 +21,7 @@ bool issame(const vector<float>& a, const vector<float>& b) {
     return true;
 }
 
-vector<float> find_closest_elements(const vector<float>& numbers) {
+vector<float> find_closest_elements(vector<float> numbers) {
     float min_diff = numeric_limits<float>::infinity();
 
     for(int i=0; i<numbers.size(); i++){
@@ -49,6 +49,6 @@ vector<float> find_closest_elements(const vector<float>& numbers) {
 }
 
 int main() {
-    assert(::issame(find_closest_elements(vector<float>({1.1, 2.2, 3.1, 4.1, 5.1})), vector<float>({2.2, 3.1})));
+    assert(issame(find_closest_elements(vector<float>({1.1, 2.2, 3.1, 4.1, 5.1})), vector<float>({2.2, 3.1})));
     return 0;
 }
