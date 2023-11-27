@@ -1,11 +1,10 @@
 #include <vector>
-#include <list>
 #include <boost/any.hpp>
 #include <cassert>
 
 using namespace std;
 
-vector<int> filter_integers(list<boost::any> values){
+vector<int> filter_integers(list_any values){
     vector<int> result;
     for(auto value : values){
         if(typeid(value) == typeid(int)){
