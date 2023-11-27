@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -32,23 +33,25 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> numbers = {1, 3, 2, 5, 4};
-    vector<int> expected = {1, 3, 3, 5, 5};
+    vector<int> numbers = {1, 3, 2, 4, 5};
+    vector<int> expected = {1, 3, 3, 4, 5};
     vector<int> result = rolling_max(numbers);
 
     assert(issame(result, expected));
 
-    numbers = {9, 5, 7, 1, 2, 6};
-    expected = {9, 9, 9, 9, 9, 9};
+    numbers = {5, 4, 3, 2, 1};
+    expected = {5, 5, 5, 5, 5};
     result = rolling_max(numbers);
 
     assert(issame(result, expected));
 
-    numbers = {1, 2, 3, 4, 5, 6};
-    expected = {1, 2, 3, 4, 5, 6};
+    numbers = {1, 2, 3, 4, 5};
+    expected = {1, 2, 3, 4, 5};
     result = rolling_max(numbers);
 
     assert(issame(result, expected));
+
+    // Add more test cases and assertions here
 
     return 0;
 }
