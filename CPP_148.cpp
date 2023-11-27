@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cassert>
 
 std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -16,7 +17,7 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
         }
     }
     
-    if (start == -1 || end == -1 || start == end) {
+    if (start == -1 || end == -1) {
         return result;
     }
     
@@ -33,5 +34,6 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
 
 int main() {
     assert(bf("Jupiter", "Makemake").empty());
+    
     return 0;
 }
