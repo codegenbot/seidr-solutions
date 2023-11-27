@@ -1,9 +1,6 @@
-#include <iostream>
 #include <string>
 
-using namespace std;
-
-bool valid_date(string date){
+bool valid_date(std::string date){
     if(date.empty()){
         return false;
     }
@@ -32,10 +29,4 @@ bool valid_date(string date){
     }
     
     return true;
-}
-
-int main() {
-    cout << valid_date("02-01-2021") << endl;
-    cout << valid_date("04-2003") << endl;
-    return 0;
 }
