@@ -4,7 +4,8 @@ using namespace std;
 
 string decipherMessage(string cipher1, string cipher2, string message) {
     string decipheredMessage = "";
-    for (char c : message) {
+    for (int i = 0; i < message.length(); i++) {
+        char c = message[i];
         int index = cipher2.find(c);
         decipheredMessage += cipher1[index];
     }
