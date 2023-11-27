@@ -1,6 +1,22 @@
+#include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 vector<string> split_words(string txt) {
     vector<string> result;
@@ -37,32 +53,37 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    // Your code here
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 int main() {
-    string input1, input2;
-    getline(cin, input1);
-    getline(cin, input2);
+    vector<string> a, b;
 
-    vector<string> words1 = split_words(input1);
-    vector<string> words2 = split_words(input2);
+    // Read input for vector a
+    int size;
+    string temp;
 
-    bool result = issame(words1, words2);
+    cout << "Enter the size of vector A: ";
+    cin >> size;
 
-    cout << (result ? "Same" : "Different") << endl;
+    cout << "Enter the elements of vector A separated by space or comma: ";
+    for (int i = 0; i < size; i++) {
+        cin >> temp;
+        a.push_back(temp);
+    }
+    
+    // Read input for vector b
+    cout << "Enter the size of vector B: ";
+    cin >> size;
+
+    cout << "Enter the elements of vector B separated by space or comma: ";
+    for (int i = 0; i < size; i++) {
+        cin >> temp;
+        b.push_back(temp);
+    }
+    
+    // Call issame function passing vectors a and b as arguments
+    bool result = issame(a, b);
+
+    // Print the result
+    cout << "Result: " << (result ? "True" : "False") << endl;
 
     return 0;
 }
