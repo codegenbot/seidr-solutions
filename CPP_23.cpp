@@ -1,11 +1,11 @@
+#include <iostream>
 #include <string>
-#include <cassert>
 
-int stringLength(string str){
+int stringLength(const string& str){
     return str.length();
 }
 
 int main(){
-    assert(stringLength("asdasnakj") == 9);
+    assert (stringLength("asdasnakj") == 9);
     return 0;
 }
