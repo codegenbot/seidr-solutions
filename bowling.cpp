@@ -38,7 +38,7 @@ int main() {
     std::cin >> bowls;
 
     int score = getScore(bowls);
-    std::cout << score;
+    std::cout << score << std::endl;
 
     return 0;
 }
