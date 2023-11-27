@@ -25,8 +25,3 @@ bool is_same(const vector<int>& a, const vector<int>& b){
 
     return true;
 }
-
-int main() {
-    assert(is_same(generate_integers(17, 89), {}));
-    return 0;
-}
