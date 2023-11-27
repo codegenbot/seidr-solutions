@@ -14,9 +14,10 @@ vector<int> factorize(int n) {
     return factors;
 }
 
+vector<int> expected_factors = {2, 3, 3};
+
 int main() {
     vector<int> factors = factorize(3 * 2 * 3);
-    vector<int> expected_factors = {2, 3, 3};
     for (int i = 0; i < factors.size(); i++) {
         cout << factors[i] << " ";
     }
