@@ -17,9 +17,11 @@ void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path){
         return;
     
     path.push_back(grid[x][y]);
+    
     grid[x][y] = -1;
     
     dfs(grid, x, y+1, k-path.back(), path);
+    
     dfs(grid, x+1, y, k-path.back(), path);
     
     grid[x][y] = path.back();
