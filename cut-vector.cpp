@@ -29,12 +29,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     }
 
     // Create the two resulting subvectors
-    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
-
-    if (cutIndex == -1) {
-        leftSubvector.clear();
-    }
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 2);
+    vector<int> rightSubvector(nums.begin() + cutIndex + 2, nums.end());
 
     return make_pair(leftSubvector, rightSubvector);
 }
