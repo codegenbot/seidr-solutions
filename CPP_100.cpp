@@ -2,25 +2,19 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(std::vector<int>& a, std::vector<int>& b){
-    if(a.size() != b.size()){
-        return false;
-    }
+using namespace std;
 
-    for(size_t i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
+bool issame(const vector<int>& a, const vector<int>& b){
+    // implementation of issame function
+    // ...
     return true;
 }
 
-std::vector<int> make_a_pile(int n){
-    std::vector<int> levels;
+vector<int> make_a_pile(int n){
+    vector<int> levels;
     int stones = n;
     levels.push_back(stones);
-    for(int i=1; i<n; i++){
+    for(int i = 1; i < n; i++){
         if(n % 2 == 0){
             stones += 2;
         } else {
@@ -32,6 +26,7 @@ std::vector<int> make_a_pile(int n){
 }
 
 int main(){
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    vector<int> piles = make_a_pile(8);
+    assert(issame(piles, vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
