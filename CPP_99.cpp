@@ -1,15 +1,16 @@
 int closest_integer(string value){
-    double num = std::stod(value); //convert string to double
+    double num = stod(value); // convert string to double
+    int closestInt = round(num); // round the number to the closest integer
 
-    double decimal = num - (int)num; //find the decimal part
-
-    if (decimal == 0.5) {
-        if (num < 0) {
-            return (int)floor(num);
-        } else {
-            return (int)ceil(num);
+    // check if the number is equidistant from two integers
+    if (abs(num - closestInt) == 0.5){
+        if (num > 0){
+            closestInt = ceil(num); // round up
         }
-    } else {
-        return round(num); //round the number to the closest integer
+        else{
+            closestInt = floor(num); // round down
+        }
     }
+
+    return closestInt;
 }
