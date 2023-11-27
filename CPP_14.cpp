@@ -2,7 +2,15 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+vector<string> all_prefixes(string str){
+    vector<string> result;
+    string prefix = "";
+    for(int i = 0; i < str.length(); i++){
+        prefix += str[i];
+        result.push_back(prefix);
+    }
+    return result;
+}
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
@@ -14,17 +22,7 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<string> allPrefixes(string str){
-    vector<string> result;
-    string prefix = "";
-    for(int i = 0; i < str.length(); i++){
-        prefix += str[i];
-        result.push_back(prefix);
-    }
-    return result;
-}
-
 int main(){
-    assert(issame(allPrefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(issame(all_prefixes("WWW"), vector<string>{"W", "WW", "WWW"}));
     return 0;
 }
