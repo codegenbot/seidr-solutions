@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 bool move_one_ball(vector<int> arr){
     int n = arr.size();
