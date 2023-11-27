@@ -33,14 +33,3 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     output.push_back(isPalindrome ? "True" : "False");
     return output;
 }
-
-int main() {
-    std::vector<std::string> expected = {"", "True"};
-    std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if (issame(result, expected)) {
-        std::cout << "Test case passed." << std::endl;
-    } else {
-        std::cout << "Test case failed." << std::endl;
-    }
-    return 0;
-}
