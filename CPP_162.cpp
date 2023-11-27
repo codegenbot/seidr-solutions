@@ -26,10 +26,12 @@ string string_to_md5(string text) {
     return string(md5Hash);
 }
 
-// Just adding this line to fix the undefined reference error
-// This links the OpenSSL library during the compilation process
-// Add -lcrypto flag to the compilation command
-// For example: g++ -o output_file your_file.cpp -lcrypto
 int main() {
+    string input;
+    cout << "Enter text to convert to MD5: ";
+    getline(cin, input);
+    string md5 = string_to_md5(input);
+    cout << "MD5 Hash: " << md5 << endl;
+
     return 0;
 }
