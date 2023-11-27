@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <iomanip>
 
 float calculateTotalPrice(std::vector<float>& prices, std::vector<float>& discounts) {
     float total = 0.0;
@@ -24,7 +25,7 @@ int main() {
     }
 
     float totalPrice = calculateTotalPrice(prices, discounts);
-    std::cout << totalPrice << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << totalPrice << std::endl;
 
     return 0;
 }
