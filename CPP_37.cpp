@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(std::vector<float> a, std::vector<float> b){
     // Compare vectors for equality
     if(a.size() != b.size()){
         return false;
@@ -16,9 +16,9 @@ bool issame(vector<float> a, vector<float> b){
     return true;
 }
 
-vector<float> sort_even(vector<float> l){
-    vector<float> result;
-    vector<float> even_values;
+std::vector<float> sort_even(std::vector<float> l){
+    std::vector<float> result;
+    std::vector<float> even_values;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -27,7 +27,7 @@ vector<float> sort_even(vector<float> l){
         result.push_back(l[i]);
     }
 
-    sort(even_values.begin(), even_values.end());
+    std::sort(even_values.begin(), even_values.end());
 
     for (int i = 0, j = 0; i < result.size(); i += 2, j++) {
         result[i] = even_values[j];
