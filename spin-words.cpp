@@ -1,35 +1,28 @@
 #include <iostream>
 #include <sstream>
 
-std::string reverseWords(const std::string& sentence) {
-    std::istringstream iss(sentence);
-    std::ostringstream oss;
+std::string reverseWords(std::string str) {
+    std::istringstream iss(str);
     std::string word;
-    bool firstWord = true;
-    
+    std::string result;
+
     while (iss >> word) {
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
         }
-        
-        if (!firstWord) {
-            oss << " ";
-        } else {
-            firstWord = false;
-        }
-        
-        oss << word;
+        result += word + " ";
     }
-    
-    return oss.str();
+
+    result.pop_back(); // remove the extra space at the end
+    return result;
 }
 
 int main() {
-    std::string sentence;
-    std::getline(std::cin, sentence);
-    
-    std::string reversedSentence = reverseWords(sentence);
-    std::cout << reversedSentence << std::endl;
-    
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::string output = reverseWords(input);
+    std::cout << output << std::endl;
+
     return 0;
 }
