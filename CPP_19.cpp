@@ -1,10 +1,9 @@
-#include <iostream>
-#include <sstream>
-#include <map>
-#include <vector>
 #include <algorithm>
-#include <cassert>
-
+#include <iostream>
+#include <map>
+#include <sstream>
+#include <string>
+#include <vector>
 using namespace std;
 
 string sort_numbers(string numbers){
@@ -42,8 +41,7 @@ string sort_numbers(string numbers){
     return sorted_numbers;
 }
 
-int main(){
+int main() {
     assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
-
     return 0;
 }

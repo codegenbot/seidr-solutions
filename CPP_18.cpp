@@ -28,12 +28,12 @@ int how_many_times(string str, string substring) {
     return count;
 }
 
-int main() {
-    string str = "abababab";
-    string substring = "ab";
+// int main() {
+//     string str = "abababab";
+//     string substring = "ab";
 
-    int result = how_many_times(str, substring);
-    cout << result << endl;
+//     int result = how_many_times(str, substring);
+//     cout << result << endl;
 
-    return 0;
-}
+//     return 0;
+// }
