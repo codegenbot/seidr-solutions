@@ -35,7 +35,7 @@ std::vector<int> tri(int n){
     return sequence;
 }
 
-int solve() {
+int main() {
     assert(issame(tri(1), std::vector<int>{3, 2}));
 
     return 0;
