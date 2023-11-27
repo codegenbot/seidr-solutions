@@ -4,19 +4,19 @@
 
 using namespace std;
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+vector<string> total_match(vector<string> lst1,vector<string> lst2){
     int totalChars1 = 0;
     int totalChars2 = 0;
     
-    for (string s : lst1) {
+    for(string s : lst1){
         totalChars1 += s.length();
     }
     
-    for (string s : lst2) {
+    for(string s : lst2){
         totalChars2 += s.length();
     }
     
-    if (totalChars1 < totalChars2) {
+    if(totalChars1 < totalChars2){
         return lst1;
     }
     else{
@@ -24,22 +24,24 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    // Implementation code goes here
-    if (a.size() != b.size()) {
+bool issame(vector<string> a,vector<string> b){
+    if(a.size() != b.size()){
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
+    
     return true;
 }
 
-int main() {
+int main(){
     assert(issame(total_match({"this"}, {}), {}));
-    // TODO: Add more test cases here
+    assert(issame(total_match({"hello", "world"}, {"hello", "world"}), {"hello", "world"}));
+    assert(issame(total_match({"apple", "banana"}, {"apple", "banana", "cherry"}), {"apple", "banana"}));
     
     return 0;
 }
