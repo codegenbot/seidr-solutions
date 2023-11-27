@@ -1,15 +1,21 @@
-#include <string>
 #include <algorithm>
+#include <cassert>
+#include <string>
+#include <vector>
 
-int count_distinct_characters(string str) {
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<char> distinctChars;
+int main() {
+    std::string str = "Jerry jERRY JeRRRY";
+    
+    std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+    std::vector<char> distinctChars;
     
     for (char c : str) {
-        if (find(distinctChars.begin(), distinctChars.end(), c) == distinctChars.end()) {
+        if (std::find(distinctChars.begin(), distinctChars.end(), c) == distinctChars.end()) {
             distinctChars.push_back(c);
         }
     }
     
-    return distinctChars.size();
+    assert(distinctChars.size() == 5);
+    
+    return 0;
 }
