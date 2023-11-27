@@ -1,22 +1,21 @@
-#include <iostream>
-#include <cassert>
 #include <string>
 
-bool cycpattern_check(std::string a, std::string b) {
-    if (a.length() < b.length()) {
+bool cycpattern_check(string a, string b) {
+    int n = a.length();
+    int m = b.length();
+
+    if (m > n) {
         return false;
     }
 
-    std::string concatenated = a + a;
+    string temp = b + b;
 
-    return concatenated.find(b) != std::string::npos;
-}
+    for (int i = 0; i <= n - m; i++) {
+        string sub = temp.substr(i, m);
+        if (sub == a) {
+            return true;
+        }
+    }
 
-int main() {
-    // test cases
-    assert(cycpattern_check("winemtt", "tinem") == true);
-    assert(cycpattern_check("abcdefg", "cdefg") == true);
-    assert(cycpattern_check("hello", "world") == false);
-
-    return 0;
+    return false;
 }
