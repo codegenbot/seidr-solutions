@@ -1,12 +1,9 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int evenCount = 0;
+    int count = 0;
     for (int i = 0; i < lst1.size(); i++) {
-        if (lst1[i] % 2 == 0) {
-            evenCount++;
+        if (lst1[i] % 2 != 0) {
+            count++;
         }
     }
-    if (evenCount == lst1.size()) {
-        return "YES";
-    }
-    return "NO";
+    return (count <= lst2.size()) ? "YES" : "NO";
 }
