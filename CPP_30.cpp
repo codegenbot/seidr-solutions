@@ -23,7 +23,7 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main(){
-    assert(issame(get_positive({}) , {}));
-    // add more assertions if needed
+    assert(issame(get_positive({}), {}));
+    
     return 0;
 }
