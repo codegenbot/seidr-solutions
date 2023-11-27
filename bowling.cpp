@@ -20,7 +20,7 @@ int getScore(const std::string& bowls) {
         } else {
             frames[frame] += c - '0';
             if (bowl == 1 && frames[frame] + frames[frame - 1] == 10) {
-                score += frames[frame + 2];
+                score += frames[i + 2];
             }
             if (bowl == 1) {
                 frame++;
