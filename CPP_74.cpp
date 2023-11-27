@@ -1,30 +1,25 @@
 #include <vector>
 #include <string>
-#include <cassert>
-
 using namespace std;
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+bool issame(vector<string> a, vector<string> b) {
     int totalChars1 = 0;
     int totalChars2 = 0;
-    
-    for (string s : lst1) {
+
+    for(string s : a){
         totalChars1 += s.length();
     }
-    
-    for (string s : lst2) {
+
+    for(string s : b){
         totalChars2 += s.length();
     }
-    
-    if (totalChars1 < totalChars2) {
-        return lst1;
-    } else {
-        return lst2;
-    }
-}
 
-bool issame(vector<string> a, vector<string> b) {
-    return total_match(a, b) == b;
+    if(totalChars1 < totalChars2){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 int main() {
