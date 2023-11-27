@@ -27,6 +27,8 @@ int how_many_times(std::string str, std::string substring) {
 int main() {
     assert(how_many_times("john doe", "john") == 1);
     assert(how_many_times("hello world", "o") == 2);
+    assert(how_many_times("mississippi", "ss") == 2);
+    assert(how_many_times("banana", "ana") == 2);
     assert(how_many_times("abcabcabc", "abc") == 3);
 
     return 0;
