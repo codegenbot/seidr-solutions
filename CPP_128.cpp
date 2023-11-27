@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
+using namespace std;
 
 int prod_signs(vector<int> arr){
     if(arr.empty()){
@@ -14,7 +15,18 @@ int prod_signs(vector<int> arr){
     return product * sum;
 }
 
-int main() {
-    // Your test cases here
+int main(){
+    vector<int> arr;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    cout << "Enter the elements: ";
+    for(int i=0; i<n; i++){
+        int num;
+        cin >> num;
+        arr.push_back(num);
+    }
+    cout << "Result: " << prod_signs(arr) << endl;
+    
     return 0;
 }
