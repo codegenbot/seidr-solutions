@@ -1,31 +1,31 @@
 #include <iostream>
 #include <vector>
 #include <unordered_set>
+using namespace std;
 
-std::vector<int> findPair(const std::vector<int>& nums, int target) {
-    std::unordered_set<int> complements;
+vector<int> findPair(vector<int>& nums, int target) {
+    unordered_set<int> seen;
     for (int num : nums) {
         int complement = target - num;
-        if (complements.count(complement)) {
+        if (seen.count(complement)) {
             return {complement, num};
         }
-        complements.insert(num);
+        seen.insert(num);
     }
     return {};
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+    int n, target;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
-    int target;
-    std::cin >> target;
-    std::vector<int> result = findPair(nums, target);
+    cin >> target;
+    vector<int> result = findPair(nums, target);
     for (int num : result) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     return 0;
 }
