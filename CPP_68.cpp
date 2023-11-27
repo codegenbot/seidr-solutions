@@ -7,8 +7,6 @@
 using namespace std;
 using std::vector;
 
-vector<int> pluck(vector<int> arr);
-
 bool issame(vector<int>& a, vector<int>& b) {
     assert(a.size() == b.size());
     for (int i = 0; i < a.size(); i++) {
@@ -40,7 +38,7 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert (issame(pluck({7, 9, 7, 1}), {}) == true);
-
+    assert (issame(pluck({7, 9, 7, 1}) , {}) == true);
+    
     return 0;
 }
