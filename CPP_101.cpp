@@ -18,7 +18,12 @@ vector<string> words_string(string s){
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b); 
+
+int main(){
+    assert (issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    return 0;
+}
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
@@ -30,9 +35,4 @@ bool issame(vector<string> a, vector<string> b){
         }
     }
     return true;
-}
-
-int main(){
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    return 0;
 }
