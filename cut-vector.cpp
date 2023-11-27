@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <limits>
+
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
@@ -35,14 +40,14 @@ int main() {
         cin >> nums[i];
     }
 
-    vector<int> result = cutVector(nums);
+    auto result = cutVector(nums);
 
     for (auto it = result[0].begin(); it != result[0].end(); it++) {
         cout << *it << endl;
     }
 
-    for (auto num : result[1]) {
-        cout << num << endl;
+    for (auto it = result[1].begin(); it != result[1].end(); it++) {
+        cout << *it << endl;
     }
 
     return 0;
