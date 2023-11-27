@@ -6,11 +6,6 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    // Compare two vectors of strings
-    return a == b;
-}
-
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string res = "";
@@ -33,6 +28,11 @@ vector<string> reverse_delete(string s, string c) {
     }
     
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // Compare two vectors of strings
+    return a == b;
 }
 
 int main() {
