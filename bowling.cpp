@@ -4,39 +4,34 @@
 int calculateScore(std::string input) {
     int score = 0;
     int frame = 0;
+    int rolls = 0;
     int frames[10] = {0};
 
-    for (int i = 0; i < input.length(); i++) {
-        char ch = input[i];
-        
+    for (char ch : input) {
         if (ch == 'X') {
             frames[frame] += 10;
-            if (frame < 8) {
+            if (frame < 9) {
                 frames[frame+1] += 10;
-                frames[frame+2] += 10;
-            } else if (frame == 8) {
-                frames[frame+1] += 10;
+                if (frame < 8) {
+                    frames[frame+2] += (10 - frames[frame+1]);
+                }
             }
-            
-            if ((i < input.length() - 2) && (input[i+2] == '/')) {
-                frames[frame+1] += (10 - frames[frame+1]);
-            }
-            
-            frame++;
+            rolls++;
         } else if (ch == '/') {
             frames[frame] += (10 - frames[frame]);
-            if (frame < 8) {
-                frames[frame+1] += (10 - frames[frame]);
+            if (frame < 9) {
+                frames[frame+1] += (10 - frames[frame+1]);
             }
-            
-            frame++;
+            rolls++;
         } else if (ch == '-') {
-            
+            rolls++;
         } else {
             frames[frame] += (ch - '0');
-            if (((i+1) % 2 == 0) && (frame < 9)) {
-                frame++;
-            }
+            rolls++;
+        }
+
+        if (rolls % 2 == 0) {
+            frame++;
         }
     }
 
