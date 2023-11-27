@@ -1,6 +1,6 @@
 #include <cassert>
-#include <vector>
 #include <string>
+#include <vector>
 
 std::vector<int> even_odd_palindrome(int n){
     std::vector<int> result(2, 0);
@@ -17,7 +17,7 @@ std::vector<int> even_odd_palindrome(int n){
         if(isPalindrome){
             if(i % 2 == 0){
                 result[0]++;
-            }else{
+            } else {
                 result[1]++;
             }
         }
@@ -30,6 +30,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main(){
+    // Add appropriate test cases here
     assert (issame(even_odd_palindrome(1) , {0, 1}));
     return 0;
 }
