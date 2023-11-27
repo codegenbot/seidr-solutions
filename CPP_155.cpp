@@ -21,9 +21,9 @@ vector<int> even_odd_count(int num){
 }
 
 int main() {
-    assert(even_odd_count(0) == vector<int>({1, 0}));
-    assert(even_odd_count(12345) == vector<int>({2, 3}));
-    assert(even_odd_count(-987654321) == vector<int>({5, 4}));
+    assert (even_odd_count(0) == vector<int>({1, 0}));
+    assert (even_odd_count(12345) == vector<int>({2, 3}));
+    assert (even_odd_count(-987654321) == vector<int>({5, 4}));
 
     cout << "All tests passed!" << endl;
 
