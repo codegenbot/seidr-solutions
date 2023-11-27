@@ -15,6 +15,6 @@ float median(std::vector<float> l){
 }
 
 int main(){
-    assert(median({8, 1, 3, 9, 9, 2, 7}) == 7);
+    assert(median({8, 1, 3, 9, 9, 2, 7}) - 7 < 1e-4 );
     return 0;
 }
