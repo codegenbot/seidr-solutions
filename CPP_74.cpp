@@ -19,24 +19,21 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     if (totalChars1 < totalChars2) {
         return lst1;
     }
-    else {
+    else{
         return lst2;
     }
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // TODO: Add implementation code here
-    
+    // Implementation code goes here
     if (a.size() != b.size()) {
         return false;
     }
-    
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-    
     return true;
 }
 
