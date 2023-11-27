@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
+double calculateSquaredEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     double sum = 0.0;
 
     for (size_t i = 0; i < vector1.size(); i++) {
@@ -10,29 +10,29 @@ double calculateEuclideanDistance(const std::vector<double>& vector1, const std:
         sum += diff * diff;
     }
 
-    return std::sqrt(sum);
+    return sum;
 }
 
 int main() {
-    size_t n1;
-    std::cin >> n1;
+    size_t n;
+    std::cin >> n;
 
-    std::vector<double> vector1(n1);
-    for (size_t i = 0; i < n1; i++) {
+    std::vector<double> vector1(n);
+    for (size_t i = 0; i < n; i++) {
         std::cin >> vector1[i];
     }
 
-    size_t n2;
-    std::cin >> n2;
+    std::cin >> n;
 
-    std::vector<double> vector2(n2);
-    for (size_t i = 0; i < n2; i++) {
+    std::vector<double> vector2(n);
+    for (size_t i = 0; i < n; i++) {
         std::cin >> vector2[i];
     }
 
-    double distance = calculateEuclideanDistance(vector1, vector2);
+    double squaredDistance = calculateSquaredEuclideanDistance(vector1, vector2);
 
-    std::cout << distance << std::endl;
+    std::cout.precision(15);
+    std::cout << squaredDistance << std::endl;
 
     return 0;
 }
