@@ -1,17 +1,20 @@
 string find_max(vector<string> words){
     string result = "";
-    int max_unique_chars = 0;
+    int maxUniqueChars = 0;
     
     for(string word : words){
-        int unique_chars = 0;
-        sort(word.begin(), word.end());
-        for(int i=0; i<word.length(); i++){
-            if(i==0 || word[i] != word[i-1]){
-                unique_chars++;
+        int uniqueChars = 0;
+        bool visited[26] = {false};
+        
+        for(char c : word){
+            if(!visited[c - 'a']){
+                visited[c - 'a'] = true;
+                uniqueChars++;
             }
         }
-        if(unique_chars > max_unique_chars){
-            max_unique_chars = unique_chars;
+        
+        if(uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < result)){
+            maxUniqueChars = uniqueChars;
             result = word;
         }
     }
