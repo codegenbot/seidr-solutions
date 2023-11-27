@@ -13,12 +13,12 @@ vector<int> eat(int number, int need, int remaining){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    return a == b; // Compares if vectors a and b are equal
+    return a == b;
 }
 
 int main(){
     assert(issame(eat(4, 5, 1), {5, 0}));
     // other test cases
-    
+
     return 0;
 }
