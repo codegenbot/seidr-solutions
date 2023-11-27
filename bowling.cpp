@@ -13,16 +13,14 @@ int scoreOfRound(const std::string& bowls) {
             score += (bowls[bowlIndex + 2] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 0);
             bowlIndex += 1;
         } else if (isdigit(bowls[bowlIndex]) && isdigit(bowls[bowlIndex + 1]) && bowls[bowlIndex + 1] == '/') {
-            score += 10 - (bowls[bowlIndex] - '0');
-            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 0);
+            score += 10 + (bowls[bowlIndex + 2] == 'X' ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 0));
+            bowlIndex += 2;
+        } else if (isdigit(bowls[bowlIndex]) && isdigit(bowls[bowlIndex + 1])) {
+            score += (bowls[bowlIndex] - '0') + (bowls[bowlIndex + 1] - '0');
             bowlIndex += 2;
         } else if (isdigit(bowls[bowlIndex]) && bowls[bowlIndex + 1] == '/') {
-            score += 10 - (bowls[bowlIndex] - '0');
-            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 0);
+            score += 10 + (bowls[bowlIndex + 2] == 'X' ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 0));
             bowlIndex += 2;
-        } else if (isdigit(bowls[bowlIndex])) {
-            score += (bowls[bowlIndex] - '0');
-            bowlIndex += 1;
         }
 
         frame += 1;
