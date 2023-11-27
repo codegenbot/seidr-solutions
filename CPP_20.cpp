@@ -1,16 +1,19 @@
 vector<float> find_closest_elements(vector<float> numbers){
-    float min_diff = INFINITY;
-    pair<float, float> closest_pair;
-
-    for(int i = 0; i < numbers.size(); i++){
-        for(int j = i+1; j < numbers.size(); j++){
-            float diff = fabs(numbers[i] - numbers[j]);
-            if(diff < min_diff){
+    float min_diff = abs(numbers[0] - numbers[1]);
+    float elem1 = numbers[0];
+    float elem2 = numbers[1];
+    for (int i = 0; i < numbers.size()-1; i++){
+        for (int j = i+1; j < numbers.size(); j++){
+            float diff = abs(numbers[i] - numbers[j]);
+            if (diff < min_diff){
                 min_diff = diff;
-                closest_pair = {numbers[i], numbers[j]};
+                elem1 = numbers[i];
+                elem2 = numbers[j];
             }
         }
     }
-    vector<float> result = {closest_pair.first, closest_pair.second};
+    vector<float> result;
+    result.push_back(elem1);
+    result.push_back(elem2);
     return result;
 }
