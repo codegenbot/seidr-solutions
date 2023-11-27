@@ -1,12 +1,4 @@
-#include <iostream>
-#include <sstream>
-#include <vector>
-#include <algorithm>
-#include <map>
-
-using namespace std;
-
-string sort_numbers(string numbers) {
+string sort_numbers(string numbers){
     map<string, int> numberMap;
     numberMap["zero"] = 0;
     numberMap["one"] = 1;
@@ -19,32 +11,24 @@ string sort_numbers(string numbers) {
     numberMap["eight"] = 8;
     numberMap["nine"] = 9;
 
+    vector<int> numberList;
     stringstream ss(numbers);
     string number;
-    vector<string> numberList;
-
-    while (ss >> number) {
-        numberList.push_back(number);
+    while (getline(ss, number, ' ')){
+        numberList.push_back(numberMap[number]);
     }
 
-    sort(numberList.begin(), numberList.end(), [&](const string& a, const string& b) {
-        return numberMap[a] < numberMap[b];
-    });
+    sort(numberList.begin(), numberList.end());
 
     string result;
-    for (const string& num : numberList) {
-        result += num + " ";
+    for (int i = 0; i < numberList.size(); i++){
+        for (auto it = numberMap.begin(); it != numberMap.end(); it++){
+            if (it->second == numberList[i]){
+                result += it->first + " ";
+                break;
+            }
+        }
     }
-
+    result.pop_back(); // Remove trailing space
     return result;
-}
-
-int main() {
-    string numbers;
-    getline(cin, numbers);
-
-    string sortedNumbers = sort_numbers(numbers);
-    cout << sortedNumbers << endl;
-
-    return 0;
 }
