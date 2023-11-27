@@ -18,9 +18,9 @@ int calculateScore(std::string input) {
             }
             rolls++;
         } else if (ch == '/') {
-            frames[frame] += (10 - (input[rolls-1] - '0'));
+            frames[frame] += (10 - (ch - '0'));
             if (frame < 9) {
-                frames[frame+1] += (10 - (input[rolls-1] - '0'));
+                frames[frame+1] += (10 - (ch - '0'));
             }
             rolls++;
         } else if (ch == '-') {
