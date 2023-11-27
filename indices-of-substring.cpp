@@ -8,7 +8,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
             break;
         }
         indices.push_back(pos);
-        pos += 1;
+        pos += 1; // Update here
     }
     
     return indices;
