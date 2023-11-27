@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool valid_date(std::string date) {
     if (date.empty()) {
