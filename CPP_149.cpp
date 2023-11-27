@@ -23,12 +23,12 @@ vector<string> sort_even_length_strings(vector<string> lst) {
 }
 
 int main() {
-    vector<string> input = { "aaaa", "bbbb", "dd", "cc" };
+    vector<string> input = { "aaaa", "bbbb", "cc", "dd" };
     vector<string> expected_output = { "cc", "dd", "aaaa", "bbbb" };
 
     vector<string> output = sort_even_length_strings(input);
 
-    assert(output == expected_output);
+    assert(issame(output, expected_output));
 
     return 0;
 }
