@@ -3,17 +3,9 @@
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    // Implement the issame function logic here
+    // Use the std::equal function to check if the vectors are the same
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
