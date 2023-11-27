@@ -29,7 +29,7 @@ vector<int> remove_duplicates(vector<int> numbers){
     return result;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     vector<int> expected_result = {1, 4, 5};
     vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
 
