@@ -7,7 +7,7 @@ using namespace std;
 
 vector<string> words_string(const string& s);
 
-bool issame(const vector<string>& a, const initializer_list<string>& b);
+bool issame(const vector<string>& a, const vector<string>& b);
 
 int main() {
     assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
@@ -35,16 +35,18 @@ vector<string> words_string(const string& s) {
     return words;
 }
 
-bool issame(const vector<string>& a, const initializer_list<string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
+    bool result = true;
     if (a.size() != b.size()) {
-        return false;
+        result = false;
     }
-    auto it1 = a.begin();
-    auto it2 = b.begin();
-    for (; it1 != a.end(); ++it1, ++it2) {
-        if (*it1 != *it2) {
-            return false;
+    else {
+        for (int i = 0; i < a.size(); i++) {
+            if (a[i] != b[i]) {
+                result = false;
+                break;
+            }
         }
     }
-    return true;
+    return result;
 }
