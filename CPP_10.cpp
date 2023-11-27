@@ -16,8 +16,7 @@ string make_palindrome(string str){
     return palindrome;
 }
 
-int main()
-{
+int main() {
     assert (make_palindrome("jerry") == "jerryrrej");
     return 0;
 }
