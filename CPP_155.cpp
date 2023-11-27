@@ -5,6 +5,10 @@
 
 using namespace std;
 
+vector<int> even_odd_count(int num);
+
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> even_odd_count(int num){
     int even_count = 0;
     int odd_count = 0;
