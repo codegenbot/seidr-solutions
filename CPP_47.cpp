@@ -16,5 +16,6 @@ float median(vector<float>& l){
 int main(){
     vector<float> numbers = {8, 1, 3, 9, 9, 2, 7};
     float result = median(numbers);
+    // do something with the result
     return 0;
 }
