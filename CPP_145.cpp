@@ -2,25 +2,23 @@
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
-    string strA = to_string(a);
-    string strB = to_string(b);
+    if (a < 0)
+        a = -a;
+    if (b < 0)
+        b = -b;
     
-    for (char c : strA) {
-        if (c != '-') {
-            sumA += c - '0';
-        }
+    while (a > 0) {
+        sumA += a % 10;
+        a /= 10;
     }
     
-    for (char c : strB) {
-        if (c != '-') {
-            sumB += c - '0';
-        }
+    while (b > 0) {
+        sumB += b % 10;
+        b /= 10;
     }
     
-    if (sumA == sumB) {
-        return a < b;
-    }
-    
+    if (sumA == sumB)
+        return false;
     return sumA < sumB;
 }
 
