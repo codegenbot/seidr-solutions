@@ -3,16 +3,15 @@
 
 using namespace std;
 
-bool is_nested(string str){
+bool is_nested(string str) {
     int count = 0;
-    for(int i=0; i<str.length(); i++){
-        if(str[i] == '['){
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '[') {
             count++;
-        }
-        else if(str[i] == ']'){
+        } else if (str[i] == ']') {
             count--;
         }
-        if(count > 1){
+        if (count > 1) {
             return true;
         }
     }
@@ -23,6 +22,6 @@ int main() {
     cout << boolalpha << is_nested("[[[]]]") << endl;
     cout << boolalpha << is_nested("[[]]]]") << endl;
     cout << boolalpha << is_nested("[]") << endl;
-    
+
     return 0;
 }
