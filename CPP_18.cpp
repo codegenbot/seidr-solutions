@@ -1,4 +1,6 @@
 #include <string>
+#include <cassert>
+#include <iostream>
 
 int how_many_times(std::string str, std::string substring) {
     int count = 0;
@@ -6,16 +8,14 @@ int how_many_times(std::string str, std::string substring) {
     int strLen = str.length();
 
     for (int i = 0; i <= strLen - subLen; i++) {
-        bool found = true;
-
+        bool match = true;
         for (int j = 0; j < subLen; j++) {
             if (str[i + j] != substring[j]) {
-                found = false;
+                match = false;
                 break;
             }
         }
-
-        if (found) {
+        if (match) {
             count++;
         }
     }
@@ -24,10 +24,9 @@ int how_many_times(std::string str, std::string substring) {
 }
 
 int main() {
-    std::string str = "abababab";
-    std::string substring = "ab";
-    int result = how_many_times(str, substring);
-    std::cout << result << std::endl;
-  
+    assert(how_many_times("john doe", "john") == 1);
+    
+    std::cout << "Test cases passed successfully!" << std::endl;
+    
     return 0;
 }
