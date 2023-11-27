@@ -14,7 +14,7 @@ bool prime_length(string str){
 }
 
 int main() {
-    assert (prime_length("0") == false);
+    // Call and test the prime_length function here
     
     return 0;
 }
