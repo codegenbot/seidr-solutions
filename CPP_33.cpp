@@ -1,5 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> sort_third(vector<int> l);
 bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<int> sort_third(vector<int> l){
     vector<int> l_prime = l;
@@ -16,14 +34,11 @@ vector<int> sort_third(vector<int> l){
     return l_prime;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
+int main() {
+    vector<int> l = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    vector<int> sorted_l = sort_third(l);
+    for(int i = 0; i < sorted_l.size(); i++){
+        cout << sorted_l[i] << " ";
     }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return 0;
 }
