@@ -22,7 +22,9 @@ string encrypt(string s){
     return encrypted;
 }
 
-string encrypt(string s) {
+string encrypt(string s); // Function declaration
+
+string encrypt(string s){
     string encrypted = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
@@ -39,5 +41,7 @@ string encrypt(string s) {
     return encrypted;
 }
 
-assert (encrypt("a") == "e");
-// Rest of the code...
+int main() {
+    assert (encrypt("a") == "e");
+    // Rest of the code...
+}
