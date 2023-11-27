@@ -18,6 +18,12 @@ std::string encrypt(std::string s){
 
 int main() {
     assert (encrypt("a")=="e");
-    // Add more test cases here...
+    assert (encrypt("z")=="d");
+    assert (encrypt("A")=="E");
+    assert (encrypt("Z")=="D");
+    assert (encrypt("abc")=="efg");
+    assert (encrypt("ABC")=="EFG");
+    assert (encrypt("xyz")=="bcd");
+    assert (encrypt("XYZ")=="BCD");
     return 0;
 }
