@@ -1,27 +1,23 @@
 #include <vector>
 #include <list>
 #include <iostream>
-#include <type_traits>
+#include <variant>
 
-using namespace std;
-
-vector<int> filter_integers(list<int> values) {
-    vector<int> result;
-    for(auto value : values) {
-        if(std::is_same<decltype(value), int>::value){
-            result.push_back(static_cast<int>(value));
+std::vector<int> filter_integers(std::list<int> values) {
+    std::vector<int> result;
+    for (auto value : values) {
+        if (auto* intValue = std::get_if<int>(&value)) {
+            result.push_back(*intValue);
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b);
-
-int main() {
-    auto filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-    return issame(filtered, {3, 3, 3});
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+int main() {
+    std::vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
+    return isSame(filtered, {3, 3, 3});
 }
