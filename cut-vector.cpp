@@ -43,7 +43,7 @@ int main() {
 
     std::vector<int> result = cutVector(nums);
 
-    for (auto it = std::begin(result[0]); it != std::end(result[0]); it++) {
+    for (auto it = result[0].begin(); it != result[0].end(); it++) {
         std::cout << *it << std::endl;
     }
 
