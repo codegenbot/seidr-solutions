@@ -1,43 +1,34 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
-bool is_same(vector<string> a, vector<string> b);
+using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
-    vector<string> groups;
-    string group;
+    vector<string> result;
+    string current_group = "";
     int count = 0;
 
-    for (char c : paren_string) {
-        if (c == '(') {
+    for (int i = 0; i < paren_string.length(); i++) {
+        if (paren_string[i] == '(') {
             count++;
-            if (count > 1) {
-                group += c;
-            }
-        } else if (c == ')') {
+        } else if (paren_string[i] == ')') {
             count--;
-            if (count > 0) {
-                group += c;
-            } else if (count == 0) {
-                groups.push_back(group);
-                group = "";
-            }
+        }
+
+        current_group += paren_string[i];
+
+        if (count == 0 && current_group != "") {
+            result.push_back(current_group);
+            current_group = "";
         }
     }
 
-    return groups;
-}
-
-bool is_same(vector<string> a, vector<string> b) {
-    // Implementation code here
+    return result;
 }
 
 int main() {
-    vector<string> a = separate_paren_groups("((()))");
-    vector<string> b = separate_paren_groups("()()()");
+    assert (separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
 
-    assert(is_same(a, b));
-    
     return 0;
 }
