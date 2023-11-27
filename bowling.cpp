@@ -1,72 +1,42 @@
 #include <iostream>
 #include <string>
 
-int getScore(const std::string& round) {
-    int score = 0;
-    int frame = 1;
-    int bowl = 0;
-    int bonus = 0;
-    
-    for (char c : round) {
-        if (frame > 10) {
-            break;
-        }
-        
+int score(const std::string& frames) {
+    int totalScore = 0;
+    int frame = 0;
+    int rolls = 0;
+
+    for (char c : frames) {
         if (c == 'X') {
-            score += 10;
-            if (frame < 10) {
-                bonus += 2;
+            totalScore += 10;
+            if (frame < 9) {
+                totalScore += (frames[rolls + 1] == 'X') ? 10 : (frames[rolls + 1] - '0');
+                totalScore += (frames[rolls + 2] == 'X') ? 10 : (frames[rolls + 2] == '/' ? (10 - (frames[rolls + 1] - '0')) : (frames[rolls + 2] - '0'));
             }
-            else {
-                bonus += 1;
+            rolls++;
+        } else if (c == '/') {
+            totalScore += (10 - (frames[rolls - 1] - '0'));
+            if (frame < 9) {
+                totalScore += (frames[rolls + 1] == 'X') ? 10 : (frames[rolls + 1] - '0');
             }
-            bowl++;
-            if (bowl == 1) {
-                frame++;
-                bowl = 0;
-            }
+            rolls++;
+        } else {
+            totalScore += (c - '0');
         }
-        else if (c == '/') {
-            score += 10 - (round[bowl - 1] - '0');
-            if (frame < 10) {
-                bonus += 1;
-            }
-            bowl++;
-            if (bowl == 1) {
-                frame++;
-                bowl = 0;
-            }
-        }
-        else if (c == '-') {
-            // do nothing
-        }
-        else {
-            score += c - '0';
-            if (frame < 10) {
-                bonus += 1;
-            }
-            bowl++;
-            if (bowl == 2) {
-                frame++;
-                bowl = 0;
-            }
-        }
-        
-        if (bonus > 0) {
-            score += c - '0';
-            bonus--;
-        }
+
+        rolls++;
+        frame++;
     }
-    
-    return score;
+
+    return totalScore;
 }
 
 int main() {
-    std::string round;
-    std::cin >> round;
-    
-    int score = getScore(round);
-    std::cout << score << std::endl;
-    
+    std::string frames;
+    std::cin >> frames;
+
+    int result = score(frames);
+    std::cout << result << std::endl;
+
     return 0;
 }
