@@ -4,17 +4,17 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int start2 = interval2[0];
     int end2 = interval2[1];
     
-    int start = max(start1, start2);
-    int end = min(end1, end2);
+    int intersectionStart = max(start1, start2);
+    int intersectionEnd = min(end1, end2);
     
-    int length = end - start + 1;
+    int intersectionLength = intersectionEnd - intersectionStart + 1;
     
-    if (length <= 1) {
+    if (intersectionLength <= 0) {
         return "NO";
     }
     
-    for (int i = 2; i * i <= length; i++) {
-        if (length % i == 0) {
+    for (int i = 2; i * i <= intersectionLength; i++) {
+        if (intersectionLength % i == 0) {
             return "NO";
         }
     }
