@@ -1,19 +1,32 @@
+#include <string>
+
+string fix_spaces(string text);
+
+int main(){
+    string input_text;
+    getline(cin, input_text);
+    string fixed_text = fix_spaces(input_text);
+    cout << fixed_text << endl;
+    return 0;
+}
+
 string fix_spaces(string text){
+    int consecutiveSpaces = 0;
     string result = "";
-    int consecutive_spaces = 0;
-    for(int i=0; i<text.length(); i++){
+
+    for(int i = 0; i < text.length(); i++){
         if(text[i] == ' '){
-            if(consecutive_spaces >= 2){
+            consecutiveSpaces++;
+            if(consecutiveSpaces > 2){
                 result += "-";
-                consecutive_spaces = 0;
+            }else{
+                result += "_";
             }
-            result += "_";
-            consecutive_spaces++;
-        }
-        else{
+        }else{
+            consecutiveSpaces = 0;
             result += text[i];
-            consecutive_spaces = 0;
         }
     }
+
     return result;
 }
