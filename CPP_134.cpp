@@ -1,21 +1,13 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if(txt.empty()) {
-        return false;
-    }
-
-    int lastCharIndex = txt.size() - 1;
-    char lastChar = txt[lastCharIndex];
-
-    if(isalpha(lastChar)) {
-        if (lastChar == ' ') {
-            return true;
+bool check_if_last_char_is_a_letter(string txt){
+    int n = txt.length();
+    if(n == 0) return false;
+    if(!isalpha(txt[n - 1])) return false;
+    int i = n - 2;
+    while(i >= 0 && txt[i] != ' '){
+        if(isalpha(txt[i])){
+            return false;
         }
-        
-        int spaceIndex = txt.find_last_of(' ');
-        if (spaceIndex == string::npos || spaceIndex < lastCharIndex) {
-            return true;
-        }
+        i--;
     }
-
-    return false;
+    return true;
 }
