@@ -27,9 +27,7 @@ std::any compare_one(std::any a, std::any b) {
         try {
             floatA = std::stof(stringA);
             floatB = std::stof(stringB);
-        } catch (const std::invalid_argument& e) {
-            return std::any(std::string("None"));
-        } catch (const std::out_of_range& e) {
+        } catch (const std::exception&) {
             return std::any(std::string("None"));
         }
         if (floatA > floatB) {
