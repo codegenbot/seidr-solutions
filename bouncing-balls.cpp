@@ -1,6 +1,6 @@
 #include <iostream>
+#include <iomanip> // Add this line to include the <iomanip> library
 #include <cmath>
-#include <iomanip>
 
 int main() {
     double starting_height, first_bounce_height;
@@ -16,8 +16,7 @@ int main() {
         total_distance += 2 * (bounciness_index * total_distance);
     }
     
-    std::cout.precision(15);
-    std::cout << total_distance << std::endl;
+    std::cout << std::setprecision(15) << total_distance << std::endl;
     
     return 0;
 }
