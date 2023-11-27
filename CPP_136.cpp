@@ -1,10 +1,6 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
     std::vector<int> result(2, 0);
     int largestNegative = 0;
@@ -25,7 +21,12 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
     return result;
 }
 
-int main(){
-    // Add test cases here
+bool is_same(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+int main() {
+    assert(is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+
     return 0;
 }
