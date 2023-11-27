@@ -7,6 +7,7 @@ using namespace std;
 map<char,int> histogram(string test){
     map<char, int> result;
     string letter;
+    int count = 0;
     for(int i=0; i<test.length(); i++){
         if(test[i] != ' '){
             letter += test[i];
@@ -25,8 +26,7 @@ bool issame(const map<char, int>& a, const map<char, int>& b){
 }
 
 int main(){
-    map<char,int> result = histogram("a");
-    assert(issame(result, {{'a', 1}}));
+    assert(issame(histogram("a"), {{'a', 1}}));
 
     cout << "All tests passed!" << endl;
 
