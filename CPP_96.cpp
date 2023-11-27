@@ -1,7 +1,8 @@
 #include <cassert>
+#include <iostream>
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -13,8 +14,8 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> count_up_to(int n){
-    vector<int> primes;
+std::vector<int> count_up_to(int n){
+    std::vector<int> primes;
     if(n <= 1){
         return primes;
     }
