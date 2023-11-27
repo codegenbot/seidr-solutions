@@ -16,7 +16,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> taskFunction(int n) {
+vector<int> f(int n) {
     vector<int> result;
     int factorial = 1;
     int sum = 0;
@@ -33,6 +33,6 @@ vector<int> taskFunction(int n) {
 }
 
 int main() {
-    assert(issame(taskFunction(3), {1, 2, 6}));
+    assert(issame(f(3), {1, 2, 6}));
     return 0;
 }
