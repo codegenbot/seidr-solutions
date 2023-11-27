@@ -1,18 +1,15 @@
 #include <vector>
 #include <iostream>
+#include <numeric>
 
 std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>& input) {
     int left_sum = 0;
-    int right_sum = 0;
-
-    for (int num : input) {
-        right_sum += num;
-    }
+    int right_sum = std::accumulate(input.begin(), input.end(), 0);
 
     int min_diff = std::abs(left_sum - right_sum);
     int cut_index = 0;
 
-    for (int i = 0; i < input.size() - 1; i++) {
+    for (int i = 0; i < input.size(); i++) {
         left_sum += input[i];
         right_sum -= input[i];
 
