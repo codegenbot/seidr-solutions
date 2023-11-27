@@ -1,12 +1,13 @@
 #include <iostream>
+#include <string>
 #include <map>
 #include <vector>
 #include <sstream>
 #include <algorithm>
-using namespace std;
+#include <cassert>
 
-string sort_numbers(string numbers){
-    map<string, int> num_map;
+std::string sort_numbers(std::string numbers){
+    std::map<std::string, int> num_map;
     num_map["zero"] = 0;
     num_map["one"] = 1;
     num_map["two"] = 2;
@@ -18,15 +19,15 @@ string sort_numbers(string numbers){
     num_map["eight"] = 8;
     num_map["nine"] = 9;
 
-    vector<int> sorted_nums;
-    stringstream ss(numbers);
-    string num_str;
+    std::vector<int> sorted_nums;
+    std::stringstream ss(numbers);
+    std::string num_str;
     while (ss >> num_str) {
         sorted_nums.push_back(num_map[num_str]);
     }
-    sort(sorted_nums.begin(), sorted_nums.end());
+    std::sort(sorted_nums.begin(), sorted_nums.end());
     
-    string sorted_str;
+    std::string sorted_str;
     for (int num : sorted_nums) {
         for (auto it = num_map.begin(); it != num_map.end(); ++it) {
             if (it->second == num) {
@@ -41,12 +42,7 @@ string sort_numbers(string numbers){
 }
 
 int main() {
-    string numbers;
-    cout << "Enter space-separated numbers in words: ";
-    getline(cin, numbers);
-    
-    string sorted_numbers = sort_numbers(numbers);
-    cout << "Sorted numbers: " << sorted_numbers << endl;
-    
+    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+
     return 0;
 }
