@@ -4,7 +4,19 @@
 
 using namespace std;
 
-vector<int> f(int n) {
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> taskFunction(int n) {
     vector<int> result;
     int factorial = 1;
     int sum = 0;
@@ -12,8 +24,7 @@ vector<int> f(int n) {
         if (i % 2 == 0) {
             factorial *= i;
             result.push_back(factorial);
-        }
-        else {
+        } else {
             sum += i;
             result.push_back(sum);
         }
@@ -22,6 +33,6 @@ vector<int> f(int n) {
 }
 
 int main() {
-    assert(issame(f(3), {1, 2, 6}));
+    assert(issame(taskFunction(3), {1, 2, 6}));
     return 0;
 }
