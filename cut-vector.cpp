@@ -32,11 +32,7 @@ vector<int> cutVector(vector<int>& nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    vector<int> result;
-    result.insert(result.end(), leftSubvector.begin(), leftSubvector.end());
-    result.insert(result.end(), rightSubvector.begin(), rightSubvector.end());
-
-    return result;
+    return vector<int>(leftSubvector.begin(), leftSubvector.end()).insert(leftSubvector.end(), rightSubvector.begin(), rightSubvector.end());
 }
 
 int main() {
