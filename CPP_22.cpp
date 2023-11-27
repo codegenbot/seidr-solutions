@@ -1,6 +1,5 @@
 #include <vector>
 #include <list>
-#include <boost/any.hpp>
 #include <typeinfo>
 
 using namespace std;
@@ -8,16 +7,25 @@ using namespace std;
 vector<int> filter_integers(list<int> values){
     vector<int> result;
     for(auto value : values){
-        if(typeid(value) == typeid(int)){
-            result.push_back(boost::any_cast<int>(value));
+        if (std::is_same<decltype(value), int>::value){
+            result.push_back(value);
         }
     }
     return result;
 }
 
 bool issame(vector<int> a, vector<int> b){
-    // code here
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main() {
