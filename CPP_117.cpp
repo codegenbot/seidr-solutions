@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 int count_consonants(string word) {
@@ -48,7 +47,7 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main2() {
-    // Additional code for testing or main function
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
