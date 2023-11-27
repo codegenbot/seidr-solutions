@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <stdexcept>
-#include <iostream>
 
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     if (prices.size() != discounts.size()) {
@@ -16,11 +16,16 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
 }
 
 int main() {
-    std::vector<float> prices = {10.20, 15.40, 20.30};
-    std::vector<float> discounts = {10.0, 20.0, 30.0};
+    std::vector<float> prices = {10.0, 20.0, 30.0};
+    std::vector<float> discounts = {10.0, 15.0, 20.0};
 
-    float total = calculateTotalPrice(prices, discounts);
-    std::cout << "Total price after discount: " << total << std::endl;
+    try {
+        float totalPrice = calculateTotalPrice(prices, discounts);
+        std::cout << "Total Price: " << totalPrice << std::endl;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1;
+    }
 
     return 0;
 }
