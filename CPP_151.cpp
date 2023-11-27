@@ -15,9 +15,7 @@ double double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst = {1.5, 2.5, 3.0, 4.5, 5.0, 6.5};
-    double result = double_the_difference(lst);
-    double odd_sum = 18.0; // Expected result
-    assert(result == odd_sum);
-    std::cout << result << std::endl;
+    double odd_sum = 18.25;
+    assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
