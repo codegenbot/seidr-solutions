@@ -15,11 +15,9 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string strA = boost::any_cast<std::string>(a);
-        std::string strB = boost::any_cast<std::string>(b);
-        if (strA > strB) {
+        if (boost::any_cast<std::string>(a) > boost::any_cast<std::string>(b)) {
             return a;
-        } else if (strA < strB) {
+        } else if (boost::any_cast<std::string>(a) < boost::any_cast<std::string>(b)) {
             return b;
         }
     }
