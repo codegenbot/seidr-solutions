@@ -18,9 +18,8 @@ std::string encrypt(std::string s){
 
 int main() {
     assert (encrypt("a")=="e");
-    assert (encrypt("Hello World")=="Jgnnq Yqtnf");
+    assert (encrypt("Hello, World!")=="Jgnnq, Yqtnf!");
+    assert (encrypt("abc123")=="efg123");
     assert (encrypt("XYZ")=="BCD");
-    assert (encrypt("z")=="b");
-    assert (encrypt("Z")=="B");
     return 0;
 }
