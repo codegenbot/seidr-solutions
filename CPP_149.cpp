@@ -1,8 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 #include <cassert>
+
 using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
@@ -18,10 +24,6 @@ vector<string> sorted_list_sum(vector<string> lst){
         return a.length() < b.length();
     });
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
 }
 
 int main() {
