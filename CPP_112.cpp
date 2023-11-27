@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -25,6 +26,6 @@ vector<string> reverse_delete(string s, string c) {
 
 int main() {
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-
+  
     return 0;
 }
