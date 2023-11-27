@@ -15,7 +15,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int diff = std::abs(sum - 2 * currSum);
     int index = 0;
     
-    for (int i = 1; i < n; i++) { // Start from i = 1
+    for (int i = 1; i < n; i++) {
         currSum += input[i];
         int newDiff = std::abs(sum - 2 * currSum);
         if (newDiff < diff) {
@@ -24,8 +24,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
     
-    std::vector<int> subvector1(input.begin(), input.begin() + index); // Exclude index element
-    std::vector<int> subvector2(input.begin() + index, input.end()); // Change range to input.begin() + index
+    std::vector<int> subvector1(input.begin(), input.begin() + index);
+    std::vector<int> subvector2(input.begin() + index, input.end());
     
     return std::make_pair(subvector1, subvector2);
 }
