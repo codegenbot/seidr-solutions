@@ -24,14 +24,8 @@ vector<int> largest_smallest_integers(vector<int> lst){
     return result;
 }
 
-int contest_main() {
-    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>({-3, 1}));
-
-    return 0;
-}
-
 int main() {
-    contest_main();
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>({-3, 1}));
 
     return 0;
 }
