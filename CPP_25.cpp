@@ -15,7 +15,8 @@ std::vector<int> factorize(int n){
     }
     
     std::vector<int> correct_factors = {2, 3, 3};
-    assert(issame(factors, correct_factors));    
+    assert(issame(factors, correct_factors));
+    
     return factors;
 }
 
