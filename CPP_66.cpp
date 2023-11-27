@@ -11,10 +11,3 @@ int digitSum(const std::string& s){
     }
     return sum;
 }
-
-int main(){
-    int result = digitSum("You arE Very Smart");
-    std::cout << result << std::endl;
-    
-    return 0;
-}
