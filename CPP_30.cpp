@@ -13,7 +13,7 @@ vector<float> get_positive(const vector<float>& l){
     return positive_numbers;
 }
 
-bool issame(const vector<float>& a, const vector<float>& b){
+bool are_same(const vector<float>& a, const vector<float>& b){
     if(a.size() != b.size()){
         return false;
     }
@@ -28,7 +28,7 @@ bool issame(const vector<float>& a, const vector<float>& b){
 }
 
 int main() {
-    assert (issame(get_positive({}) , {}));
-
+    assert (are_same(get_positive({}) , {}));
+    
     return 0;
 }
