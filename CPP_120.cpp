@@ -1,14 +1,15 @@
 #include <vector>
 
-vector<int> maximum(vector<int> arr, int k);
+using namespace std;
 
-bool issame(vector<int> a,vector<int> b) {
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+vector<int> maximum(vector<int> arr, int k);
+bool issame(vector<int> a, vector<int> b);
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4, 5};
+    int k = 3;
+    vector<int> result = maximum(arr, k);
+    return 0;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
@@ -17,7 +18,14 @@ vector<int> maximum(vector<int> arr, int k) {
     return result;
 }
 
-int main() {
-    // Code not provided as it is not part of the modification.
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
