@@ -3,7 +3,7 @@
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int leftSum = nums[0]; // Initialize leftSum to the first element of nums
+    int leftSum = nums[0];
     int rightSum = 0;
 
     // Calculate the sum of all elements in the vector
