@@ -1,3 +1,8 @@
+#include <map>
+#include <string>
+
+using namespace std;
+
 map<char,int> histogram(string test){
     map<char,int> result;
     string letter;
@@ -29,4 +34,16 @@ map<char,int> histogram(string test){
     }
     
     return output;
+}
+
+bool issame(const map<char,int>& a, const map<char,int>& b){
+    return a == b;
+}
+
+int main() {
+    assert(issame(histogram("a") , {{'a', 1}}));
+    assert(issame(histogram("ab ab ab") , {{'a', 3}}));
+    assert(issame(histogram("hello world") , {{'l', 3}, {'o', 2}}));
+    
+    return 0;
 }
