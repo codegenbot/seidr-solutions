@@ -1,30 +1,14 @@
-#include <iostream>
 #include <string>
 
-using namespace std;
-
-bool is_happy(string s);
-
-int main() {
-    string input;
-    cin >> input;
-
-    if (is_happy(input)) {
-        cout << "Happy" << endl;
-    } else {
-        cout << "Not Happy" << endl;
-    }
-
-    return 0;
-}
-
-bool is_happy(string s){
-    if(s.length() < 3)
+bool is_happy(std::string s){
+    if(s.length() < 3){
         return false;
+    }
     
-    for(int i = 0; i < s.length() - 2; i++){
-        if(s[i] == s[i+1] || s[i] == s[i+2] || s[i+1] == s[i+2])
+    for(int i=0; i<s.length()-2; i++){
+        if(s[i] == s[i+1] || s[i] == s[i+2] || s[i+1] == s[i+2]){
             return false;
+        }
     }
     
     return true;
