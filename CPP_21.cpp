@@ -3,18 +3,6 @@
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = numbers[0];
     float max_num = numbers[0];
@@ -43,7 +31,7 @@ int main() {
     vector<float> expected_output = {0.25, 0.0, 1.0, 0.5, 0.75};
     vector<float> rescaled = rescale_to_unit(input);
 
-    if(issame(rescaled, expected_output)) {
+    if(rescaled == expected_output) {
         cout << "Output is correct." << endl;
     }
     else{
