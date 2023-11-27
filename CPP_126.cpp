@@ -1,18 +1,19 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
 bool is_sorted(vector<int> lst){
-    vector<int> unique_lst(lst.begin(), lst.end());
-    sort(unique_lst.begin(), unique_lst.end());
-    
-    if (unique_lst.size() != lst.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] != unique_lst[i]) {
+    sort(lst.begin(), lst.end());
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] == lst[i-1]){
             return false;
         }
     }
-    
     return true;
+}
+
+int main() {
+    assert (is_sorted({1, 2, 3, 4}) == true);
+
+    return 0;
 }
