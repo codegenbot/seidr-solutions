@@ -4,12 +4,12 @@ string find_max(vector<string> words){
 
     for (string word : words) {
         int uniqueChars = 0;
-        vector<bool> charSet(26, false);
+        int charCount[26] = {0};
 
         for (char c : word) {
-            if (!charSet[c - 'a']) {
+            if (charCount[c - 'a'] == 0) {
                 uniqueChars++;
-                charSet[c - 'a'] = true;
+                charCount[c - 'a']++;
             }
         }
 
