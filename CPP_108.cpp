@@ -18,10 +18,11 @@ int count_nums(vector<int> n) {
 }
 
 int main() {
+    // Add test cases here using assert
     assert(count_nums({1}) == 1);
-    assert(count_nums({-123, 456, 789}) == 3);
-    assert(count_nums({0, 0, 0, 0}) == 0);
-    assert(count_nums({-123, 0, 456, 0, 789}) == 3);
+    assert(count_nums({123, -456, 789}) == 3);
+    assert(count_nums({0, 0, 0}) == 0);
+    assert(count_nums({-123, -456, -789}) == 3);
 
     return 0;
 }
