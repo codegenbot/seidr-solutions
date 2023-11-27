@@ -15,12 +15,10 @@ bool triples_sum_to_zero(std::vector<int> l){
 }
 
 int main() {
-    // Test the function with some sample inputs
-    std::vector<int> nums1 = {1, 2, 3, -4, -1};
-    std::cout << triples_sum_to_zero(nums1) << std::endl;  // Output: true
-
-    std::vector<int> nums2 = {1, 2, 3, 4, 5};
-    std::cout << triples_sum_to_zero(nums2) << std::endl;  // Output: false
-
+    // Test the function
+    std::vector<int> nums = {1, 2, -3, 4, -1};
+    bool result = triples_sum_to_zero(nums);
+    std::cout << std::boolalpha << result << std::endl;
+    
     return 0;
 }
