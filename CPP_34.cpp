@@ -19,15 +19,11 @@ std::vector<int> remove_duplicates(std::vector<int> l){
     return l;
 }
 
-int main() {
-    std::vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    std::vector<int> expected_output = {0, 2, 3, 5, 9, 123};
-    
-    std::vector<int> output = remove_duplicates(input);
-    
-    assert(issame(output, expected_output));
-    
-    std::cout << "Output is correct" << std::endl;
-    
-    return 0;
-}
+std::vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+std::vector<int> expected_output = {0, 2, 3, 5, 9, 123};
+
+std::vector<int> output = remove_duplicates(input);
+
+assert(issame(output, expected_output));
+
+std::cout << "Output is correct" << std::endl;
