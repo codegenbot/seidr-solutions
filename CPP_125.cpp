@@ -58,7 +58,7 @@ int main(){
     assert(issame(split_words(""), {"0"}));
     assert(issame(split_words("Hello,World"), {"Hello", "World"}));
     assert(issame(split_words("This is a test"), {"This", "is", "a", "test"}));
-    assert(issame(split_words("C++,Programming,Contest"), {"C++", "Programming", "Contest"}));
+    assert(issame(split_words("One,Two,Three,Four"), {"One", "Two", "Three", "Four"}));
     
     return 0;
 }
