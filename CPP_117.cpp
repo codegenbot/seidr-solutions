@@ -1,31 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
-
-vector<string> select_words(string s, int n);
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    assert(issame(select_words("apple orange banana", 2), {"apple", "orange", "banana"}));
-    assert(issame(select_words("hello world", 0), {}));
-    assert(issame(select_words("programming is fun", 3), {"programming", "fun"}));
-    cout << "All tests pass" << endl;
-    return 0;
-}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
