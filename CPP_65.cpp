@@ -1,3 +1,10 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 string circular_shift(int x, int shift) {
     string num = to_string(x);
     int n = num.length();
@@ -10,4 +17,10 @@ string circular_shift(int x, int shift) {
     shift %= n;
     string result = num.substr(n - shift) + num.substr(0, n - shift);
     return result;
+}
+
+int main() {
+    assert(circular_shift(11, 101) == "11");
+    
+    return 0;
 }
