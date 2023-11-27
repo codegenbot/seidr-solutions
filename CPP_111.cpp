@@ -30,8 +30,8 @@ bool issame(const map<string, int>& a, const map<string, int>& b) {
 int main() {
     assert(issame(histogram("a"), map<string, int>{{"a", 1}}));
     assert(issame(histogram("hello world"), map<string, int>{{"hello", 1}, {"world", 1}}));
-    
+
     cout << "All tests passed!" << endl;
-    
+
     return 0;
 }
