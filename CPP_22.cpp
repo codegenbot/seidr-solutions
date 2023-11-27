@@ -8,7 +8,7 @@ using namespace std;
 vector<int> filter_integers(list<int> values) {
     vector<int> result;
     for(auto value : values) {
-        if(is_same<decltype(value), int>::value){
+        if(std::is_same<decltype(value), int>::value){
             result.push_back(static_cast<int>(value));
         }
     }
