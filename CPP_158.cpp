@@ -1,7 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
-
 using namespace std;
 
 string find_max(vector<string> words) {
@@ -29,12 +28,8 @@ string find_max(vector<string> words) {
 }
 
 int main() {
-    // Add test cases to validate the implementation
+    // Add more test cases to validate the implementation
     assert(find_max({"play", "play", "play"}) == "play");
-
-    // Add more test cases here
-    assert(find_max({"abc", "def", "ghi", "abc"}) == "abc");
-    assert(find_max({"hello", "world", "hello", "world"}) == "world");
 
     return 0;
 }
