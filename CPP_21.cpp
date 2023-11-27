@@ -1,18 +1,13 @@
 vector<float> rescale_to_unit(vector<float> numbers){
-    float min_val = numbers[0];
-    float max_val = numbers[0];
-    
-    for(int i = 1; i < numbers.size(); i++){
-        min_val = min(min_val, numbers[i]);
-        max_val = max(max_val, numbers[i]);
-    }
-    
+    float min_val = *min_element(numbers.begin(), numbers.end());
+    float max_val = *max_element(numbers.begin(), numbers.end());
+
     vector<float> rescaled;
-    
-    for(int i = 0; i < numbers.size(); i++){
-        float rescaled_val = (numbers[i] - min_val) / (max_val - min_val);
-        rescaled.push_back(rescaled_val);
+
+    for (float num : numbers) {
+        float rescaled_num = (num - min_val) / (max_val - min_val);
+        rescaled.push_back(rescaled_num);
     }
-    
+
     return rescaled;
 }
