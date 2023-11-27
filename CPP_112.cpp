@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -5,23 +6,40 @@
 
 using namespace std;
 
-vector<string> reverse_delete(string s, string c) {
-    string result;
-    for (int i = 0; i < s.length(); i++) {
-        if (c.find(s[i]) == std::string::npos) {
-            result += s[i];
-        }
-    }
-    string reversed_result = result;
-    reverse(reversed_result.begin(), reversed_result.end());
-    bool is_palindrome = (result == reversed_result);
-    vector<string> output;
-    output.push_back(result);
-    output.push_back(is_palindrome ? "True" : "False");
-    return output;
+vector<string> reverse_delete(string s, string c);
+
+bool issame(vector<string> a, vector<string> b);
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    return 0;
 }
 
-bool is_same(vector<string> a, vector<string> b) {
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    string res = "";
+
+    for (int i = 0; i < s.length(); i++) {
+        if (c.find(s[i]) == string::npos) {
+            res += s[i];
+        }
+    }
+
+    result.push_back(res);
+
+    string rev = res;
+    reverse(rev.begin(), rev.end());
+
+    if (res == rev) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+
+    return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -31,10 +49,4 @@ bool is_same(vector<string> a, vector<string> b) {
         }
     }
     return true;
-}
-
-int main() {
-    assert(is_same(reverse_delete("mamma", "mia"), {"", "True"}));
-    /* your code here */
-    return 0;
 }
