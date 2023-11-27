@@ -1,37 +1,35 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-pair<int, int> mastermind(string code, string guess) {
-    int whitePegs = 0;
+std::pair<int, int> getClue(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
-    int count[6] = {0};
+    int whitePegs = 0;
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            count[code[i] - 'A']++;
-            count[guess[i] - 'A']--;
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
 
     for (int i = 0; i < 6; i++) {
-        if (count[i] > 0) {
-            whitePegs += count[i];
-        }
+        whitePegs += std::min(codeCount[i], guessCount[i]);
     }
 
-    return make_pair(whitePegs, blackPegs);
+    return std::make_pair(whitePegs, blackPegs);
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
+    std::string code, guess;
+    std::cin >> code >> guess;
 
-    pair<int, int> result = mastermind(code, guess);
-    cout << result.first << endl;
-    cout << result.second << endl;
+    std::pair<int, int> clue = getClue(code, guess);
+    std::cout << clue.first << std::endl;
+    std::cout << clue.second << std::endl;
 
     return 0;
 }
