@@ -1,7 +1,5 @@
-#include <iostream>
 #include <vector>
-
-using namespace std;
+#include <cassert>
 
 bool triples_sum_to_zero(vector<int> l){
     int n = l.size();
@@ -15,10 +13,4 @@ bool triples_sum_to_zero(vector<int> l){
         }
     }
     return false;
-}
-
-int main() {
-    assert (triples_sum_to_zero({100, 3, 5, -100}) == false);
-    // Add more test cases here
-    return 0;
 }
