@@ -1,24 +1,13 @@
-bool simplify(string x, string n){
-  int xNumerator, xDenominator, nNumerator, nDenominator;
+bool simplify(string x,string n){
+    int x_num = stoi(x.substr(0, x.find("/")));
+    int x_den = stoi(x.substr(x.find("/") + 1));
 
-  // Extract numerator and denominator from x
-  size_t xDelimiterPos = x.find("/");
-  xNumerator = stoi(x.substr(0, xDelimiterPos));
-  xDenominator = stoi(x.substr(xDelimiterPos + 1));
+    int n_num = stoi(n.substr(0, n.find("/")));
+    int n_den = stoi(n.substr(n.find("/") + 1));
 
-  // Extract numerator and denominator from n
-  size_t nDelimiterPos = n.find("/");
-  nNumerator = stoi(n.substr(0, nDelimiterPos));
-  nDenominator = stoi(n.substr(nDelimiterPos + 1));
-
-  // Calculate the product of x * n
-  int productNumerator = xNumerator * nNumerator;
-  int productDenominator = xDenominator * nDenominator;
-
-  // Check if the product evaluates to a whole number
-  if (productNumerator % productDenominator == 0) {
-    return true;
-  } else {
-    return false;
-  }
+    if ((x_num * n_den) % (x_den * n_num) == 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
