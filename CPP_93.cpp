@@ -1,5 +1,9 @@
-string encode(string message){
-    string encodedMessage = "";
+#include <iostream>
+#include <string>
+#include <cassert>
+
+std::string encode(std::string message){
+    std::string encodedMessage = "";
     for(int i=0; i<message.length(); i++){
         char c = message[i];
         if(isalpha(c)){
@@ -17,3 +21,9 @@ string encode(string message){
     }
     return encodedMessage;
 }
+
+// int main(){
+//     assert (encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg");
+//     std::cout << encode("I DoNt KnOw WhAt tO WrItE") << std::endl;
+//     return 0;
+// }
