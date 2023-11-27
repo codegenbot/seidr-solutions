@@ -11,7 +11,7 @@ std::vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool are_same(std::vector<int> a, std::vector<int> b){
+bool are_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -26,12 +26,15 @@ bool are_same(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    std::vector<int> result = generate_integers(17, 89);
-    std::vector<int> expected_result;
-    if (are_same(result, expected_result)) {
-        std::cout << "Result is as expected." << std::endl;
-    } else {
-        std::cout << "Result is not as expected." << std::endl;
+    std::vector<int> emptyVector;
+    std::vector<int> generatedVector = generate_integers(17, 89);
+
+    if (are_same(generatedVector, emptyVector)) {
+        std::cout << "The vectors are same." << std::endl;
     }
+    else {
+        std::cout << "The vectors are different." << std::endl;
+    }
+
     return 0;
 }
