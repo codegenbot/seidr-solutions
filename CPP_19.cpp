@@ -1,34 +1,39 @@
-string sort_numbers(string numbers){
-    map<string, int> numMap;
-    numMap["zero"] = 0;
-    numMap["one"] = 1;
-    numMap["two"] = 2;
-    numMap["three"] = 3;
-    numMap["four"] = 4;
-    numMap["five"] = 5;
-    numMap["six"] = 6;
-    numMap["seven"] = 7;
-    numMap["eight"] = 8;
-    numMap["nine"] = 9;
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <algorithm>
 
-    vector<int> sortedNumbers;
-    stringstream ss(numbers);
-    string num;
-    while (ss >> num) {
-        sortedNumbers.push_back(numMap[num]);
+std::string sort_numbers(std::string numbers) {
+    std::map<std::string, int> numberMap = {
+        {"zero", 0},
+        {"one", 1},
+        {"two", 2},
+        {"three", 3},
+        {"four", 4},
+        {"five", 5},
+        {"six", 6},
+        {"seven", 7},
+        {"eight", 8},
+        {"nine", 9}
+    };
+
+    std::stringstream ss(numbers);
+    std::string number;
+    std::vector<int> numberList;
+
+    while (ss >> number) {
+        numberList.push_back(numberMap[number]);
     }
 
-    sort(sortedNumbers.begin(), sortedNumbers.end());
+    std::sort(numberList.begin(), numberList.end());
 
-    string sortedString;
-    for (int i = 0; i < sortedNumbers.size(); i++) {
-        for (auto it = numMap.begin(); it != numMap.end(); it++) {
-            if (it->second == sortedNumbers[i]) {
-                sortedString += it->first + " ";
-                break;
-            }
+    std::stringstream result;
+    for (int i = 0; i < numberList.size(); i++) {
+        result << numberList[i];
+        if (i != numberList.size() - 1) {
+            result << " ";
         }
     }
 
-    return sortedString;
+    return result.str();
 }
