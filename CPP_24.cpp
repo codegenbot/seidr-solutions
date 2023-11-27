@@ -1,9 +1,8 @@
-int largest_divisor(int n){
-    int largest = 0;
-    for(int i = 1; i < n; i++){
-        if(n % i == 0){
-            largest = i;
+int largest_divisor(int n) {
+    for (int i = n - 1; i >= 1; i--) {
+        if (n % i == 0) {
+            return i;
         }
     }
-    return largest;
+    return -1; // If no divisor is found
 }
