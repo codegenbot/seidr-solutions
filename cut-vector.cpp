@@ -4,33 +4,31 @@ using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int sum = 0;
+    int leftSum = 0, rightSum = 0;
+    
+    // Calculate the sum of all elements in the vector
     for (int i = 0; i < n; i++) {
-        sum += nums[i];
+        rightSum += nums[i];
     }
     
-    int leftSum = 0;
-    int rightSum = sum;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
+    // Iterate through the vector and find the spot where the difference is minimized
+    int diff = INT_MAX, cutIndex = -1;
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
+        
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
             cutIndex = i;
         }
     }
     
-    vector<int> left(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> right(nums.begin() + cutIndex + 1, nums.end());
+    // Create the two resulting subvectors
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
     
-    left.push_back(0);
-    right.push_back(0);
-    
-    return {left, right};
+    return {leftSubvector, rightSubvector};
 }
 
 int main() {
@@ -42,14 +40,13 @@ int main() {
         cin >> nums[i];
     }
     
-    vector<int> left, right;
-    tie(left, right) = cutVector(nums);
+    vector<int> result = cutVector(nums);
     
-    for (int num : left) {
+    for (int num : result[0]) {
         cout << num << endl;
     }
     
-    for (int num : right) {
+    for (int num : result[1]) {
         cout << num << endl;
     }
     
