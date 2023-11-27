@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 int getScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
@@ -29,14 +26,4 @@ int getScore(const std::string& bowls) {
     }
 
     return score;
-}
-
-int main() {
-    std::string bowls;
-    std::cin >> bowls;
-
-    int score = getScore(bowls);
-    std::cout << score << std::endl;
-
-    return 0;
 }
