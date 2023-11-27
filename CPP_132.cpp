@@ -24,6 +24,6 @@ int main() {
     cout << boolalpha << is_nested("[[[]]]") << endl;
     cout << boolalpha << is_nested("[[]]]]") << endl;
     cout << boolalpha << is_nested("[]") << endl;
-
+    
     return 0;
 }
