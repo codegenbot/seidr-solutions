@@ -9,8 +9,6 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> reverse_delete(string s, string c);
-
 vector<string> reverse_delete(string s, string c) {
     for (int i = 0; i < c.length(); i++) {
         s.erase(remove(s.begin(), s.end(), c[i]), s.end());
