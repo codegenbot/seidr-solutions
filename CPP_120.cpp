@@ -1,4 +1,5 @@
 vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
-    return vector<int>(arr.begin(), arr.begin() + k);
+    vector<int> result(arr.begin(), arr.begin() + k);
+    return result;
 }
