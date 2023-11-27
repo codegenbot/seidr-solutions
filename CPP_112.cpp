@@ -4,11 +4,9 @@
 #include <cassert>
 #include <iostream>
 
-using namespace std;
+std::vector<std::string> reverse_delete(std::string s, std::string c);
 
-vector<string> reverse_delete(string s, string c);
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -20,29 +18,18 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    string result = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::string result = "";
     for (int i = 0; i < s.length(); i++) {
-        if (c.find(s[i]) == -1) {
+        if (c.find(s[i]) == std::string::npos) {
             result += s[i];
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
+    std::string reversed = result;
+    std::reverse(reversed.begin(), reversed.end());
     bool isPalindrome = (result == reversed);
-    vector<string> output;
+    std::vector<std::string> output;
     output.push_back(result);
     output.push_back(isPalindrome ? "True" : "False");
     return output;
-}
-
-int main() {
-    vector<string> expected = {"ma", "False"};
-    vector<string> result = reverse_delete("mamma", "mia");
-    if (issame(result, expected)) {
-        cout << "Test case passed." << endl;
-    } else {
-        cout << "Test case failed." << endl;
-    }
-    return 0;
 }
