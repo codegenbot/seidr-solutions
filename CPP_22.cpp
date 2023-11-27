@@ -8,6 +8,7 @@
 bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b) {
+    // Compare the elements of a and b
     if (a.size() != b.size()) {
         return false;
     }
