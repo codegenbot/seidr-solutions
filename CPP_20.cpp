@@ -1,22 +1,24 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
-using namespace std;
+bool issame(std::vector<float> a, std::vector<float> b);
 
-bool issame(vector<float> a, vector<float> b){
-    if(a.size()!=b.size()){
+std::vector<float> find_closest_elements(std::vector<float> numbers);
+
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(abs(a[i]-b[i]) > 1e-5){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<float> find_closest_elements(vector<float> numbers){
+std::vector<float> find_closest_elements(std::vector<float> numbers) {
     float min_diff = INFINITY;
     float num1, num2;
     
@@ -31,13 +33,14 @@ vector<float> find_closest_elements(vector<float> numbers){
         }
     }
     
-    vector<float> result;
+    std::vector<float> result;
     result.push_back(num1);
     result.push_back(num2);
     
     return result;
 }
 
-int main(){
+int main() {
     assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    return 0;
 }
