@@ -1,5 +1,7 @@
 #include <string>
 #include <vector>
+#include <cassert>
+#include <algorithm>
 
 int count_distinct_characters(string str){
     vector<char> distinct_chars;
