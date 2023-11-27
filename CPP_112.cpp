@@ -5,10 +5,6 @@
 
 bool issame(vector<string> a, vector<string> b);
 
-bool issame(vector<string> a, vector<string> b) {
-    // ... function code ...
-}
-
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string res = "";
@@ -29,6 +25,10 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back((isPalindrome) ? "True" : "False");
     
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // ... function code ...
 }
 
 int main() {
