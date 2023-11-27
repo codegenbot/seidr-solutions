@@ -39,6 +39,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 
 int main() {
     // Add test cases here
-
+    
     return 0;
 }
