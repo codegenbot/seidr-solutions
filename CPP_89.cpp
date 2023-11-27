@@ -1,6 +1,15 @@
 #include <string>
 
-string encrypt(string s){
+string encrypt(string s);
+
+int main()
+{
+    assert(encrypt("a")=="e");
+    return 0;
+}
+
+string encrypt(string s)
+{
     string encrypted = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
@@ -15,9 +24,4 @@ string encrypt(string s){
         encrypted += c;
     }
     return encrypted;
-}
-
-int main() {
-    assert (encrypt("a") == "e");
-    // Rest of the code...
 }
