@@ -14,7 +14,7 @@ any compare_one(any a, any b) {
     } else if (num1 < num2) {
       return num2;
     } else {
-      return any();
+      return "None";
     }
   } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
     float num1 = any_cast<float>(a);
@@ -24,7 +24,7 @@ any compare_one(any a, any b) {
     } else if (num1 < num2) {
       return num2;
     } else {
-      return any();
+      return "None";
     }
   } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
     string str1 = any_cast<string>(a);
@@ -34,18 +34,18 @@ any compare_one(any a, any b) {
     } else if (str1 < str2) {
       return str2;
     } else {
-      return any();
+      return "None";
     }
   } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
     string str = any_cast<string>(a);
     int num = any_cast<int>(b);
-    return any(str);
+    return str;
   } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
     int num = any_cast<int>(a);
     string str = any_cast<string>(b);
-    return any(str);
+    return str;
   } else {
-    return any();
+    return "None";
   }
 }
 
