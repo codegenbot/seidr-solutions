@@ -1,14 +1,25 @@
-vector<int> sort_third(vector<int> l){
+#include <vector>
+#include <algorithm>
+
+vector<int> sort_third(vector<int> l) {
     vector<int> l_prime = l;
-    vector<int> divisible_by_three_indices;
+    vector<int> indices;
+
+    // Find indices divisible by three
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            divisible_by_three_indices.push_back(i);
+            indices.push_back(i);
         }
     }
-    sort(divisible_by_three_indices.begin(), divisible_by_three_indices.end());
-    for (int i = 0; i < divisible_by_three_indices.size(); i++) {
-        l_prime[divisible_by_three_indices[i]] = l[divisible_by_three_indices[i]];
+
+    // Sort values at indices divisible by three
+    for (int i = 0; i < indices.size(); i++) {
+        for (int j = i + 1; j < indices.size(); j++) {
+            if (l_prime[indices[i]] > l_prime[indices[j]]) {
+                swap(l_prime[indices[i]], l_prime[indices[j]]);
+            }
+        }
     }
+
     return l_prime;
 }
