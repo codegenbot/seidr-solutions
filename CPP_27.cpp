@@ -1,15 +1,8 @@
+#include <iostream>
 #include <string>
 #include <cctype>
 
-string flip_case(string str);
-
-int main() {
-    string input;
-    getline(cin, input);
-    string result = flip_case(input);
-    cout << result << endl;
-    return 0;
-}
+using namespace std;
 
 string flip_case(string str){
     string result = "";
@@ -23,4 +16,16 @@ string flip_case(string str){
         }
     }
     return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    
+    string flipped = flip_case(input);
+    
+    cout << "Flipped case: " << flipped << endl;
+    
+    return 0;
 }
