@@ -1,5 +1,6 @@
-#include<iostream>
-#include<algorithm>
+#include <iostream>
+#include <algorithm>
+
 using namespace std;
 
 string solve(string s){
