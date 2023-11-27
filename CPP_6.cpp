@@ -1,7 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> levels;
-    int current_level = 0;
     int max_level = 0;
+    int current_level = 0;
 
     for (int i = 0; i < paren_string.length(); i++) {
         if (paren_string[i] == '(') {
@@ -19,4 +25,17 @@ vector<int> parse_nested_parens(string paren_string) {
     levels.push_back(max_level);
 
     return levels;
+}
+
+int main() {
+    string paren_string;
+    getline(cin, paren_string);
+
+    vector<int> levels = parse_nested_parens(paren_string);
+
+    for (int i = 0; i < levels.size(); i++) {
+        cout << levels[i] << " ";
+    }
+
+    return 0;
 }
