@@ -1,36 +1,40 @@
-#include <boost/algorithm/string.hpp>
-#include <boost/any.hpp>
-#include <iostream> // Added to compile successfully
+#include<iostream>
+#include<string>
+#include<typeinfo>
+#include<any>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int int_a = boost::any_cast<int>(a);
-        int int_b = boost::any_cast<int>(b);
-        if (int_a > int_b) {
-            return int_a;
-        } else if (int_b > int_a) {
-            return int_b;
+using namespace std;
+
+any compare_one(any a, any b){
+    if (a.type() == typeid(int) && b.type() == typeid(int)){
+        int num1 = any_cast<int>(a);
+        int num2 = any_cast<int>(b);
+        if (num1 > num2){
+            return num1;
         }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float float_a = boost::any_cast<float>(a);
-        float float_b = boost::any_cast<float>(b);
-        if (float_a > float_b) {
-            return float_a;
-        } else if (float_b > float_a) {
-            return float_b;
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str_a = boost::any_cast<std::string>(a);
-        std::string str_b = boost::any_cast<std::string>(b);
-        boost::algorithm::replace_all(str_a, ",", ".");
-        boost::algorithm::replace_all(str_b, ",", ".");
-        float float_a = std::stof(str_a);
-        float float_b = std::stof(str_b);
-        if (float_a > float_b) {
-            return str_a;
-        } else if (float_b > float_a) {
-            return str_b;
+        else if (num1 < num2){
+            return num2;
         }
     }
-    return boost::any("None"); // Changed "None" to boost::any("None") to match the function signature
+    else if (a.type() == typeid(float) && b.type() == typeid(float)){
+        float num1 = any_cast<float>(a);
+        float num2 = any_cast<float>(b);
+        if (num1 > num2){
+            return num1;
+        }
+        else if (num1 < num2){
+            return num2;
+        }
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)){
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+        if (str1 > str2){
+            return str1;
+        }
+        else if (str1 < str2){
+            return str2;
+        }
+    }
+    return any();
 }
