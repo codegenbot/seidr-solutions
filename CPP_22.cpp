@@ -12,14 +12,14 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 vector<int> filter_integers(const vector<int>& values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (std::is_same<decltype(value), int>::value) {
+        if (std::is_same_v<decltype(value), int>) {
             result.push_back(value);
         }
     }
     return result;
 }
 
-int contest_main() {
+int main() {
     vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
     assert(issame(filtered, {3, 3, 3}));
     
