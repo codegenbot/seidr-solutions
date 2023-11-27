@@ -1,5 +1,4 @@
 #include <string>
-
 int count_distinct_characters(string str) {
     vector<char> distinct_chars;
     for (int i = 0; i < str.length(); i++) {
