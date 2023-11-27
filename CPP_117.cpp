@@ -1,9 +1,5 @@
 bool issame(vector<string> a, vector<string> b);
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     if (s.empty()) {
@@ -41,4 +37,8 @@ vector<string> select_words(string s, int n) {
     }
     
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
