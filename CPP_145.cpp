@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <utility>
+#include <cassert>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -42,10 +43,7 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
 }
 
 int main() {
-    if (is_same(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
-        std::cout << "Test Passed!" << std::endl;
-    } else {
-        std::cout << "Test Failed!" << std::endl;
-    }
+    assert(is_same(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+
     return 0;
 }
