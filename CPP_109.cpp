@@ -1,9 +1,7 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
 
-using std::vector;
-
-bool move_one_ball(vector<int> arr){
+bool move_one_ball(const vector<int>& arr){
     if(arr.empty()){
         return true;
     }
