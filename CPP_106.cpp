@@ -12,13 +12,6 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> f(int n);
-
-int main(){
-    assert(issame(f(3), {1, 2, 6}));
-    return 0;
-}
-
 vector<int> f(int n){
     vector<int> result;
     for(int i = 1; i <= n; i++){
@@ -38,4 +31,9 @@ vector<int> f(int n){
         }
     }
     return result;
+}
+
+int main(){
+    assert(issame(f(3), {1, 2, 6}));
+    return 0;
 }
