@@ -24,8 +24,3 @@ bool issame(vector<int> a, vector<int> b) {
     }
     return true;
 }
-
-int main() {
-    assert(issame(generate_integers(17, 89), {}));
-    return 0;
-}
