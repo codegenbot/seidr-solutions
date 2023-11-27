@@ -1,8 +1,9 @@
-#include <iostream>
+#include <stdio.h>
 #include <string>
 #include <openssl/evp.h>
+using namespace std;
 
-std::string string_to_md5(const std::string& text) {
+string string_to_md5(string text) {
     if (text.empty()) {
         return "None";
     }
@@ -21,16 +22,15 @@ std::string string_to_md5(const std::string& text) {
         sprintf(&md5Hash[i * 2], "%02x", digest[i]);
     }
 
-    return std::string(md5Hash);
+    return string(md5Hash);
 }
 
 int main() {
-    std::string text;
-    std::cout << "Enter text: ";
-    std::getline(std::cin, text);
-
-    std::string result = string_to_md5(text);
-    std::cout << "MD5 Hash: " << result << std::endl;
-
+    // Test your function here
+    string input;
+    cin >> input;
+    string output = string_to_md5(input);
+    printf("%s\n", output.c_str());
+  
     return 0;
 }
