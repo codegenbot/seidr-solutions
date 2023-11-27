@@ -8,14 +8,7 @@ int how_many_times(string str, string substring) {
     }
     
     for (int i = 0; i <= strLen - subLen; i++) {
-        bool match = true;
-        for (int j = 0; j < subLen; j++) {
-            if (str[i + j] != substring[j]) {
-                match = false;
-                break;
-            }
-        }
-        if (match) {
+        if (str.substr(i, subLen) == substring) {
             count++;
         }
     }
