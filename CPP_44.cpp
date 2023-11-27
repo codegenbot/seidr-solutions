@@ -19,7 +19,3 @@ int main() {
     assert(change_base(x, x + 1) == to_string(x));
     return 0;
 }
-
-'''
-// Comment out the second definition of the main function at line 24
-'''
