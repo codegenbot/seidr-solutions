@@ -1,5 +1,4 @@
 #include <map>
-#include <cassert>
 
 std::map<char,int> histogram(const std::string& test) {
     std::map<char, int> result;
