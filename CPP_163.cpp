@@ -1,7 +1,4 @@
-#include <iostream>
 #include <vector>
-
-using namespace std;
 
 vector<int> generate_integers(int a, int b);
 
@@ -15,16 +12,6 @@ int main() {
 
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
-    }
-    cout << endl;
-
-    vector<int> vec1 = {1, 2, 3};
-    vector<int> vec2 = {1, 2, 3};
-
-    if (issame(vec1, vec2)) {
-        cout << "Vectors are the same" << endl;
-    } else {
-        cout << "Vectors are different" << endl;
     }
 
     return 0;
