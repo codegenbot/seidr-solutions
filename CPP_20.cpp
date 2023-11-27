@@ -27,7 +27,7 @@ bool issame(vector<float> a, vector<float> b){
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -36,7 +36,8 @@ bool issame(vector<float> a, vector<float> b){
     return true;
 }
 
-int main(){
+int main(){  
     assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+
     return 0;
 }
