@@ -3,9 +3,7 @@
 #include <iostream>
 #include <cassert>
 
-using namespace std;
-
-bool is_same_vector(vector<int> a, vector<int> b) {
+bool is_same_vector(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,10 +15,10 @@ bool is_same_vector(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2, 0);
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> result(2, 0);
     for (int i = 1; i <= n; i++) {
-        string s = to_string(i);
+        std::string s = std::to_string(i);
         int len = s.length();
         bool isPalindrome = true;
         for (int j = 0; j < len / 2; j++) {
@@ -42,9 +40,9 @@ vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    vector<int> expected = { 0, 1 };
-    vector<int> result = even_odd_palindrome(1);
+    std::vector<int> expected = { 0, 1 };
+    std::vector<int> result = even_odd_palindrome(1);
     assert(is_same_vector(result, expected));
-    cout << "Test case passed." << endl;
+    std::cout << "Test case passed." << std::endl;
     return 0;
 }
