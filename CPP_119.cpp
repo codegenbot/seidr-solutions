@@ -1,3 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+string match_parens(vector<string> lst);
+
+int main() {
+    // Test input
+    vector<string> lst = {"()", "(())", "((()))", "())", "((", ")))"};
+    
+    // Call the match_parens function and print the result
+    cout << match_parens(lst) << endl;
+    
+    return 0;
+}
+
 string match_parens(vector<string> lst){
     int count = 0;
     for (string s : lst) {
