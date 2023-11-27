@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cassert> // Add this line to include the assert library
 
 std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -53,7 +52,7 @@ int main() {
     }
     std::cout << std::endl;
     
-    assert (is_same(bf("Jupiter", "Makemake"), {})); // Replace 'issame' with 'is_same'
+    assert(is_same(bf("Jupiter", "Makemake"), {}));
     
     return 0;
 }
