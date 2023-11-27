@@ -7,8 +7,8 @@ std::string make_palindrome(std::string str);
 int main() {
     std::string input = "jerry";
     std::string output = make_palindrome(input);
-    assert(output == "jerryrrej");
-    return 0;
+    if(output == "jerryrrej") return 0;
+    return 1;
 }
 
 std::string make_palindrome(std::string str){
