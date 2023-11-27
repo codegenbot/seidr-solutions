@@ -1,15 +1,15 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    // Code to compare the two vectors and return true or false
-    // ...
-    return true; // Example code, replace with your implementation
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+   // Code to compare the two vectors and return true or false
+   // ...
+   return true; // Example code, replace with your implementation
 }
 
-vector<string> words_string(string s){
-    vector<string> words;
-    string word = "";
+std::vector<std::string> words_string(std::string s){
+    std::vector<std::string> words;
+    std::string word = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ' || s[i] == ',') {
             if (word != "") {
@@ -27,6 +27,6 @@ vector<string> words_string(string s){
 }
 
 int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    return 0;
+   assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+   return 0;
 }
