@@ -4,11 +4,11 @@
 
 using namespace std;
 
-vector<int> sort_third(vector<int> l);
-
-bool operator==(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
+
+vector<int> sort_third(vector<int> l);
 
 vector<int> sort_third(vector<int> l){
     vector<int> l_prime(l);
@@ -21,5 +21,5 @@ vector<int> sort_third(vector<int> l){
 }
 
 int main(){
-    assert(sort_third({5, 6, 3, 4, 8, 9, 2, 1}) == vector<int>({2, 6, 3, 4, 8, 9, 5, 1}));
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
 }
