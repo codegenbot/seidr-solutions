@@ -1,27 +1,27 @@
 #include <vector>
 
-vector<int> tri(int n);
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> tri(int n){
     vector<int> sequence;
     sequence.push_back(3);
-    
+
     if(n == 0){
         return sequence;
     }
-    
+
     sequence.push_back(1);
-    
+
     if(n == 1){
         return sequence;
     }
-    
+
     sequence.push_back(2);
-    
+
     if(n == 2){
         return sequence;
     }
-    
+
     int i = 3;
     while(i <= n){
         if(i % 2 == 0){
@@ -31,6 +31,6 @@ vector<int> tri(int n){
         }
         i++;
     }
-    
+
     return sequence;
 }
