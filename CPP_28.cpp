@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <cassert>
 
 std::string concatenate(std::vector<std::string> strings){
     std::string result = "";
