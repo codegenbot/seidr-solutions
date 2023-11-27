@@ -5,10 +5,7 @@ string match_parens(vector<string> lst){
             if(c == '('){
                 count++;
             }
-            else{
-                if(count == 0){
-                    return "No";
-                }
+            else if(c == ')'){
                 count--;
             }
         }
