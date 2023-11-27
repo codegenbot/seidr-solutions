@@ -6,7 +6,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     for (int i = 0; i <= textLength - targetLength; i++) {
         if (text.substr(i, targetLength) == target) {
             indices.push_back(i);
-            i += targetLength - 1;
+            i += targetLength - 1; // Advance i to skip overlapping substrings
         }
     }
 
