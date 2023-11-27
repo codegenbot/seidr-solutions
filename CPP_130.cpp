@@ -7,7 +7,7 @@ using namespace std;
 vector<int> tri(int n) {
     vector<int> sequence;
     sequence.push_back(3);
-    
+
     if (n == 0) {
         return sequence;
     }
