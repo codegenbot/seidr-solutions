@@ -12,7 +12,7 @@ bool is_palindrome(std::string text){
 
 int main() {
     // Test cases
-    std::string text1 = "level";
+    std::string text1 = "racecar";
     std::string text2 = "hello";
     
     bool result1 = is_palindrome(text1);
