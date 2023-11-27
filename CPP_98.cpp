@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 int count_upper(const string& s){
@@ -12,14 +13,14 @@ int count_upper(const string& s){
 }
 
 int main() {
-    // test cases
-    string s1 = "AEIOU";
-    string s2 = "BCDFG";
-    string s3 = "aeiou";
-    
-    int result1 = count_upper(s1); // expected output: 3
-    int result2 = count_upper(s2); // expected output: 0
-    int result3 = count_upper(s3); // expected output: 0
-    
+    // Test cases
+    string test1 = "Hello World";
+    string test2 = "AEIOU";
+    string test3 = "";
+
+    std::cout << count_upper(test1) << std::endl; // Expected output: 1
+    std::cout << count_upper(test2) << std::endl; // Expected output: 5
+    std::cout << count_upper(test3) << std::endl; // Expected output: 0
+
     return 0;
 }
