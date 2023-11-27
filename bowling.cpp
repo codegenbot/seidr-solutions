@@ -1,36 +1,26 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(const std::string& bowls) {
+int scoreOfRound(const std::string& bowls) {
     int score = 0;
-    int frame = 1;
-    int ballIndex = 0;
+    int frame = 0;
+    int bowlIndex = 0;
 
-    for (int i = 0; i < bowls.length(); i++) {
-        if (frame > 10) {
-            break;
-        }
-
-        if (bowls[i] == 'X') {
+    while (frame < 10) {
+        if (bowls[bowlIndex] == 'X') {
             score += 10;
-            if (frame < 10) {
-                score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
-                score += (bowls[i + 2] == 'X') ? 10 : (bowls[i + 2] - '0');
-            }
-            frame++;
-        } else if (bowls[i] == '/') {
-            score += (10 - (bowls[i - 1] - '0'));
-            score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
-            frame++;
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            bowlIndex += 1;
+        } else if (bowls[bowlIndex + 1] == '/') {
+            score += 10;
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            bowlIndex += 2;
         } else {
-            score += (bowls[i] - '0');
-            if (ballIndex == 0) {
-                ballIndex = 1;
-            } else {
-                ballIndex = 0;
-                frame++;
-            }
+            score += (bowls[bowlIndex] - '0') + (bowls[bowlIndex + 1] - '0');
+            bowlIndex += 2;
         }
+        frame++;
     }
 
     return score;
@@ -38,11 +28,10 @@ int calculateScore(const std::string& bowls) {
 
 int main() {
     std::string bowls;
-    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
     std::cin >> bowls;
 
-    int score = calculateScore(bowls);
-    std::cout << "Score: " << score << std::endl;
+    int score = scoreOfRound(bowls);
+    std::cout << score << std::endl;
 
     return 0;
 }
