@@ -26,10 +26,9 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    // Create the two resulting subvectors
     std::vector<int> subvector1;
     std::vector<int> subvector2;
-  
+
     if (cutIndex >= 0 && cutIndex < n-1) {
         subvector1 = std::vector<int>(nums.begin(), nums.begin() + cutIndex + 1);
         subvector2 = std::vector<int>(nums.begin() + cutIndex + 1, nums.end());
