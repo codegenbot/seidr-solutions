@@ -1,6 +1,6 @@
-#include <cassert>
 #include <iostream>
 #include <string>
+#include <cassert>
 using namespace std;
 
 bool isVowel(char c) {
@@ -25,6 +25,5 @@ int main() {
     assert(get_closest_vowel("Test") == "e");
     assert(get_closest_vowel("Mississippi") == "i");
     assert(get_closest_vowel("Machine") == "i");
-
     return 0;
 }

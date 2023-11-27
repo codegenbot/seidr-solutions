@@ -1,40 +1,47 @@
 #include <vector>
+#include <algorithm>
+#include <climits>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    // implementation of the function
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
+void dfs(const std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path) {
+    // implementation of the function
+}
+
+std::vector<int> minPath(const std::vector<std::vector<int>>& grid, int k) {
     int n = grid.size();
     std::vector<int> path;
-    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n, false));
-    int row = 0, col = 0;
-    
-    while(k > 0){
-        path.push_back(grid[row][col]);
-        visited[row][col] = true;
-        k--;
-        
-        if(col+1 < n && !visited[row][col+1]){
-            col++;
-        }
-        else if(row+1 < n && !visited[row+1][col]){
-            row++;
-        }
-        else if(col-1 >= 0 && !visited[row][col-1]){
-            col--;
-        }
-        else if(row-1 >= 0 && !visited[row-1][col]){
-            row--;
+
+    // Find the minimum value in the grid
+    int minVal = INT_MAX;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            minVal = std::min(minVal, grid[i][j]);
         }
     }
-    
+
+    // Find the starting cell with the minimum value
+    int startX, startY;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (grid[i][j] == minVal) {
+                startX = i;
+                startY = j;
+                break;
+            }
+        }
+    }
+
+    // Perform a depth-first search to find the minimum path
+    dfs(grid, startX, startY, k, path);
+
     return path;
 }
 
-int main(){
+int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-
     return 0;
 }
