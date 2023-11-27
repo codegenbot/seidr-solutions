@@ -1,6 +1,8 @@
 #include <vector>
 
-vector<int> compare(vector<int> game, vector<int> guess){
+using namespace std;
+
+vector<int> compare(vector<int> game,vector<int> guess){
     vector<int> result;
     for(int i=0; i<game.size(); i++){
         if(game[i] == guess[i]){
@@ -14,13 +16,10 @@ vector<int> compare(vector<int> game, vector<int> guess){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+    if(a == b){
+        return true;
+    }
+    else{
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
 }
