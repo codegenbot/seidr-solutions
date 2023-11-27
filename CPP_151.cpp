@@ -21,7 +21,7 @@ int solve(){
         std::cin >> num;
         lst.push_back(num);
     }
-    
+
     int odd_sum = double_the_difference(lst);
 
     return odd_sum;
