@@ -19,8 +19,11 @@ int is_bored(string S){
 
 int main() {
     string input;
-    getline(cin, input);
+    cout << "Enter a string: ";
+    cin >> input;
+    
     int result = is_bored(input);
-    cout << result << endl;
+    cout << "Boredom count: " << result << endl;
+    
     return 0;
 }
