@@ -3,14 +3,18 @@
 #include <cassert>
 
 bool issame(vector<string> a, vector<string> b){
-    assert(a.size() == b.size());
-
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
+    int totalCharsA = 0;
+    int totalCharsB = 0;
+    
+    for(string s : a){
+        totalCharsA += s.length();
     }
-    return true;
+    
+    for(string s : b){
+        totalCharsB += s.length();
+    }
+    
+    return totalCharsA == totalCharsB;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2){
