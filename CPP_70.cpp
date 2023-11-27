@@ -23,6 +23,7 @@ vector<int> strange_sort_list(vector<int> lst) {
 
 bool issame(vector<int> a, vector<int> b) {
     // TODO: Implement the comparison logic
+    return a == b;
 }
 
 int main() {
