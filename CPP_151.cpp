@@ -14,7 +14,7 @@ long long double_the_difference(std::vector<float> lst){
 
 int main(){
     std::vector<float> lst;
-    
+
     int n;
     std::cin >> n;
     
