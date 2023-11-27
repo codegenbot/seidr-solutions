@@ -1,8 +1,7 @@
 #include <vector>
-#include <cassert>
 
-std::vector<int> rolling_max(std::vector<int> numbers) {
-    std::vector<int> rollingMax;
+vector<int> rolling_max(vector<int> numbers) {
+    vector<int> rollingMax;
     int maxNum = numbers[0];
     rollingMax.push_back(maxNum);
 
@@ -16,7 +15,7 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
     return rollingMax;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     // Compare the vectors a and b to check if they are the same
     // Implement this function or use a library function for vector comparison
 
