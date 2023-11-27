@@ -15,8 +15,6 @@ vector<int> filter_integers(list<int> values) {
 }
 
 int main() {
-    vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-    vector<int> expected = {3, 3, 3};
-    bool same = (filtered == expected);
+    vector<int> result = filter_integers({3, 'c', 3, 3, 'a', 'b'});
     return 0;
 }
