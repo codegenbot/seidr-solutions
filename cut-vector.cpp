@@ -6,6 +6,7 @@ std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>&
     int left_sum = 0;
     int right_sum = std::accumulate(input.begin(), input.end(), 0);
 
+    // Iterate through the vector and find the spot where the difference is smallest
     int min_diff = std::abs(left_sum - right_sum);
     int cut_index = 0;
 
@@ -20,6 +21,7 @@ std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>&
         }
     }
 
+    // Create the two resulting subvectors
     std::vector<int> subvector1(input.begin(), input.begin() + cut_index);
     std::vector<int> subvector2(input.begin() + cut_index, input.end());
 
