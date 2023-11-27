@@ -3,12 +3,7 @@
 string circular_shift(int x, int shift);
 
 int main() {
-    int x, shift;
-    cin >> x >> shift;
-    
-    string result = circular_shift(x, shift);
-    cout << result << endl;
-    
+    // code for main function
     return 0;
 }
 
