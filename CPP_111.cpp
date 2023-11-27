@@ -1,27 +1,23 @@
-#include <iostream>
-#include <string>
-#include <map>
-
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
-    std::map<char, int> counts;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    map<char, int> count;
 
     for (char c : test) {
         if (c != ' ') {
-            counts[c]++;
+            count[c]++;
         }
     }
 
     int maxCount = 0;
-    for (auto it = counts.begin(); it != counts.end(); ++it) {
-        if (it->second > maxCount) {
-            maxCount = it->second;
+    for (auto it : count) {
+        if (it.second > maxCount) {
+            maxCount = it.second;
         }
     }
 
-    for (auto it = counts.begin(); it != counts.end(); ++it) {
-        if (it->second == maxCount) {
-            result[it->first] = it->second;
+    for (auto it : count) {
+        if (it.second == maxCount) {
+            result[it.first] = it.second;
         }
     }
 
