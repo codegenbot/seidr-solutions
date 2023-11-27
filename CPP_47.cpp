@@ -5,7 +5,7 @@
 #include <cmath>
 
 float median(const std::vector<float>& l){
-    std::vector<float> sortedList = l;
+    std::vector<float> sortedList = l; // Make a copy of the list
     std::sort(sortedList.begin(), sortedList.end());
     int size = sortedList.size();
     if (size % 2 == 0){
