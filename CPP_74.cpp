@@ -2,23 +2,16 @@
 #include <cassert>
 #include <string>
 
-// Implement the issame function logic here
-
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // If the sizes of both vectors are not equal,
-    // they can't be the same
-    if (a.size() != b.size()) {
+    // Implement the issame function logic here
+    if(a.size() != b.size()){
         return false;
     }
-
-    // Check if corresponding strings are different
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
-
-    // The vectors are the same
     return true;
 }
 
@@ -43,7 +36,7 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert (issame(total_match({"this"}, {}), {}));
     
     // Add more test cases to validate the code
     
