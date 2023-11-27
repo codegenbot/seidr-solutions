@@ -1,12 +1,15 @@
 #include <vector>
+#include <cassert>
+
+using namespace std;
 
 int count_nums(vector<int> n){
     int count = 0;
     for(int num : n){
         int sum = 0;
-        int temp = num;
+        int temp = abs(num);
         while(temp != 0){
-            sum += abs(temp % 10);
+            sum += temp % 10;
             temp /= 10;
         }
         if(sum > 0){
@@ -17,11 +20,11 @@ int count_nums(vector<int> n){
 }
 
 int main(){
-    // Code for testing the count_nums function
-    vector<int> nums = {123, -456, 789};
-    int result = count_nums(nums);
-    // Print the result
-    cout << "Number of numbers with non-zero digit sums: " << result << endl;
-    
+    assert (count_nums({1}) == 1);
+    assert (count_nums({0}) == 0);
+    assert (count_nums({-123}) == 6);
+    assert (count_nums({-5, 0, 10, -25, 100}) == 5);
+    assert (count_nums({-1, 2, -3, 4, -5, 6}) == 6);
+
     return 0;
 }
