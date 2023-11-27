@@ -3,9 +3,7 @@
 
 using namespace std;
 
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
-}
+bool issame(vector<float> a, vector<float> b);
 
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = numbers[0];
@@ -43,4 +41,16 @@ int main() {
     }
 
     return 0;
+}
+
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
