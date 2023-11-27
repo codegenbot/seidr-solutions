@@ -2,38 +2,55 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+#include <map>
 
-std::string sort_numbers(std::string numbers) {
-    std::map<std::string, int> numberMap = {
-        {"zero", 0},
-        {"one", 1},
-        {"two", 2},
-        {"three", 3},
-        {"four", 4},
-        {"five", 5},
-        {"six", 6},
-        {"seven", 7},
-        {"eight", 8},
-        {"nine", 9}
-    };
+using namespace std;
 
-    std::stringstream ss(numbers);
-    std::string number;
-    std::vector<int> numberList;
+string sort_numbers(string numbers) {
+    // Create a map to store the numerical value of each word
+    map<string, int> numberMap;
+    numberMap["zero"] = 0;
+    numberMap["one"] = 1;
+    numberMap["two"] = 2;
+    numberMap["three"] = 3;
+    numberMap["four"] = 4;
+    numberMap["five"] = 5;
+    numberMap["six"] = 6;
+    numberMap["seven"] = 7;
+    numberMap["eight"] = 8;
+    numberMap["nine"] = 9;
 
-    while (ss >> number) {
-        numberList.push_back(numberMap[number]);
+    // Split the input string into individual words
+    stringstream ss(numbers);
+    string word;
+    vector<string> words;
+    while (ss >> word) {
+        words.push_back(word);
     }
 
-    std::sort(numberList.begin(), numberList.end());
+    // Sort the words based on their numerical value
+    sort(words.begin(), words.end(), [&](const string& a, const string& b) {
+        return numberMap[a] < numberMap[b];
+    });
 
-    std::stringstream result;
-    for (int i = 0; i < numberList.size(); i++) {
-        result << numberList[i];
-        if (i != numberList.size() - 1) {
-            result << " ";
-        }
+    // Join the sorted words into a string
+    string result;
+    for (const string& word : words) {
+        result += word + " ";
     }
 
-    return result.str();
+    // Remove the trailing space
+    result.pop_back();
+
+    return result;
+}
+
+int main() {
+    string numbers;
+    getline(cin, numbers);
+
+    string sortedNumbers = sort_numbers(numbers);
+    cout << sortedNumbers << endl;
+
+    return 0;
 }
