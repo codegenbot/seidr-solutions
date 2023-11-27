@@ -1,10 +1,8 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-vector<int> tri(int n){
-    vector<int> sequence;
+std::vector<int> tri(int n){
+    std::vector<int> sequence;
     sequence.push_back(3);
     
     if(n >= 1){
@@ -16,14 +14,14 @@ vector<int> tri(int n){
             sequence.push_back(1 + i / 2);
         }
         else{
-            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i + 1]);
+            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i]);
         }
     }
     
     return sequence;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
