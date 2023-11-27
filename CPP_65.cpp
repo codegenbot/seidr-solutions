@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 std::string circular_shift(int x, int shift) {
     std::string num = std::to_string(x);
