@@ -18,22 +18,3 @@ std::vector<int> make_a_pile(int n) {
     }
     return levels;
 }
-
-int main() {
-    // Read input from user
-    int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-
-    // Call make_a_pile function
-    std::vector<int> result = make_a_pile(n);
-
-    // Print the result
-    std::cout << "Result: ";
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
-}
