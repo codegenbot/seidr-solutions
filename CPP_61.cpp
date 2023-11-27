@@ -19,9 +19,3 @@ bool is_correct_bracketing(std::string brackets) {
         return false;
     }
 }
-
-int main() {
-    assert(!is_correct_bracketing("()()(()())()))()"));
-
-    return 0;
-}
