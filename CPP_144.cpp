@@ -1,5 +1,4 @@
 #include <string>
-
 bool simplify(string x, string n) {
     // Extract numerator and denominator of x and n
     int x_num = stoi(x.substr(0, x.find('/')));
