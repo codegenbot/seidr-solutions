@@ -34,11 +34,12 @@ int main() {
     std::vector<int> input = {10};
     std::vector<int> result = sum_product(input);
 
-    if (issame(result, input)) {
-        std::cout << "Sum and product are the same" << std::endl;
-    } else {
-        std::cout << "Sum and product are not the same" << std::endl;
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
     }
+    std::cout << std::endl;
+
+    assert(result == std::vector<int>({10, 10}));
 
     return 0;
 }
