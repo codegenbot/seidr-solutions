@@ -11,7 +11,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int minDiff = std::abs(leftSum - rightSum);
     int cutIndex = 0;
     
-    for (int i = 0; i < nums.size()-1; i++) {
+    for (int i = 0; i < nums.size() - 1; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
         int diff = std::abs(leftSum - rightSum);
