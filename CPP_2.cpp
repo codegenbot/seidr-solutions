@@ -1,5 +1,5 @@
-#include <cmath>    // For floor function
-#include <cassert>  // For assert function
+#include <cmath>
+#include <cassert>
 
 float truncate_number(float number) {
     return number - std::floor(number);
