@@ -10,16 +10,8 @@ std::vector<int> eat(int number, int need, int remaining) {
     return result;
 }
 
-bool issame(std::vector<int> v1, std::vector<int> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
 }
 
 int main() {
