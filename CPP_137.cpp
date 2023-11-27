@@ -1,12 +1,9 @@
 #include <algorithm>
 #include <string>
-#include <boost/any.hpp>
+#include <any>
 #include <cassert>
 
-using boost::any;
-using boost::any_cast;
-using std::max;
-using std::string;
+using namespace std;
 
 any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -23,4 +20,9 @@ any compare_one(any a, any b) {
         return max(str1, str2, [](const string& s1, const string& s2) { return s1 < s2; });
     }
     return any();
+}
+
+int main() {
+    assert (any_cast<string&>(compare_one(string("1"), string("None"))) == "None");
+    return 0;
 }
