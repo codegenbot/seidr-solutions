@@ -1,13 +1,24 @@
-vector<float> rescale_to_unit(vector<float> numbers){
-    float min_val = *min_element(numbers.begin(), numbers.end());
-    float max_val = *max_element(numbers.begin(), numbers.end());
+vector<float> rescale_to_unit(vector<float> numbers) {
+    float minNum = numbers[0];
+    float maxNum = numbers[0];
 
-    vector<float> rescaled;
-
-    for (float num : numbers) {
-        float rescaled_num = (num - min_val) / (max_val - min_val);
-        rescaled.push_back(rescaled_num);
+    // Find the minimum and maximum numbers in the vector
+    for (int i = 1; i < numbers.size(); i++) {
+        if (numbers[i] < minNum) {
+            minNum = numbers[i];
+        }
+        if (numbers[i] > maxNum) {
+            maxNum = numbers[i];
+        }
     }
 
-    return rescaled;
+    // Calculate the range
+    float range = maxNum - minNum;
+
+    // Apply the linear transformation to each number in the vector
+    for (int i = 0; i < numbers.size(); i++) {
+        numbers[i] = (numbers[i] - minNum) / range;
+    }
+
+    return numbers;
 }
