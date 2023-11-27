@@ -3,7 +3,6 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     // function implementation
-    // return true if a and b are the same, false otherwise
 }
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
