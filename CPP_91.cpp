@@ -1,17 +1,15 @@
 int is_bored(string S){
     int count = 0;
-    int n = S.length();
+    bool bored = true;
     
-    if (n == 0) {
-        return count;
-    }
-    
-    if (S[0] == 'I') {
-        count++;
-    }
-    
-    for (int i = 1; i < n; i++) {
-        if ((S[i] == '.' || S[i] == '?' || S[i] == '!') && S[i-1] == 'I') {
+    for (int i = 0; i < S.length(); i++) {
+        if (S[i] == 'I' && (i == 0 || S[i - 1] == '.' || S[i - 1] == '?' || S[i - 1] == '!')) {
+            bored = true;
+        } else if (S[i] == '.' || S[i] == '?' || S[i] == '!') {
+            bored = false;
+        }
+        
+        if (bored) {
             count++;
         }
     }
