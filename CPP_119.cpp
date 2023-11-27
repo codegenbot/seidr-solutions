@@ -7,11 +7,13 @@ using namespace std;
 string match_parens(vector<string> lst) {
     string result = "Yes";
     int count = 0;
+
     for (string s : lst) {
         for (char c : s) {
             if (c == '(') {
                 count++;
-            } else if (c == ')') {
+            }
+            else if (c == ')') {
                 count--;
             }
             if (count < 0) {
@@ -23,13 +25,16 @@ string match_parens(vector<string> lst) {
             break;
         }
     }
+    
     if (count != 0) {
         result = "No";
     }
+    
     return result;
 }
 
 int main() {
+    // Test the match_parens function
     assert(match_parens({")", "("}) == "Yes");
 
     return 0;
