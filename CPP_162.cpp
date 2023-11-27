@@ -27,8 +27,6 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    string text;
-    cin >> text;
-    cout << string_to_md5(text) << endl;
+    // Your code here
     return 0;
 }
