@@ -1,5 +1,3 @@
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
     for(int i = 0; i < lst.size(); i++){
