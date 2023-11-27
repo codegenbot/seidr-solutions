@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cassert>
 
-bool is_same_vector(std::vector<int> a, std::vector<int> b) {
+bool is_same_vector(std::vector<int>& a, std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -20,14 +20,14 @@ std::vector<int> even_odd_palindrome(int n) {
     for (int i = 1; i <= n; i++) {
         std::string s = std::to_string(i);
         int len = s.length();
-        bool is_palindrome = true;
+        bool isPalindrome = true;
         for (int j = 0; j < len / 2; j++) {
             if (s[j] != s[len - j - 1]) {
-                is_palindrome = false;
+                isPalindrome = false;
                 break;
             }
         }
-        if (is_palindrome) {
+        if (isPalindrome) {
             if (i % 2 == 0) {
                 result[0]++;
             }
