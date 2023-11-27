@@ -1,8 +1,8 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
-bool is_happy(std::string s){
+bool is_happy(string s); // Function declaration
+
+bool is_happy(string s){
     if(s.length() < 3)
         return false;
     
@@ -15,7 +15,7 @@ bool is_happy(std::string s){
 }
 
 int main() {
-    assert (is_happy("iopaxioi") == false );
-    
+    // Enter your code here
+
     return 0;
 }
