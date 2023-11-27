@@ -1,3 +1,11 @@
+vector<int> minPath(vector<vector<int>> grid, int k);
+
+bool isSame(vector<int> a, vector<int> b) {
+    // Implementation of the function
+    // ...
+    return result;
+}
+
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
