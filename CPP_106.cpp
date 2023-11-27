@@ -1,7 +1,8 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -35,7 +36,7 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    assert(is_same(f(3), {1, 2, 6}));
+    assert(isSame(f(3), {1, 2, 6}));
 
     return 0;
 }
