@@ -3,20 +3,27 @@ bool check_dict_case(map<string,string> dict){
         return false;
     }
     
-    bool allLowerCase = true;
-    bool allUpperCase = true;
+    bool allLower = true;
+    bool allUpper = true;
     
-    for(auto const& pair : dict){
-        string key = pair.first;
-        
-        if(key.empty() || key.find_first_not_of("abcdefghijklmnopqrstuvwxyz") != string::npos){
-            allLowerCase = false;
+    for(auto it = dict.begin(); it != dict.end(); ++it){
+        string key = it->first;
+        if(key.empty()){
+            return false;
         }
         
-        if(key.empty() || key.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos){
-            allUpperCase = false;
+        if(!islower(key[0])){
+            allLower = false;
+        }
+        
+        if(!isupper(key[0])){
+            allUpper = false;
+        }
+        
+        if(!allLower && !allUpper){
+            return false;
         }
     }
     
-    return allLowerCase || allUpperCase;
+    return true;
 }
