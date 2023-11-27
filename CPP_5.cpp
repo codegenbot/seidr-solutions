@@ -5,12 +5,6 @@ using namespace std;
 
 bool issame(vector<int>& a, vector<int>& b);
 
-vector<int> intersperse(vector<int> numbers, int delimiter);
-
-bool issame(vector<int>& a, vector<int>& b) {
-    // function implementation
-}
-
 vector<int> intersperse(vector<int> numbers, int delimiter) {
     vector<int> result;
     if (numbers.empty()) {
@@ -22,6 +16,10 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
         result.push_back(numbers[i]);
     }
     return result;
+}
+
+bool issame(vector<int>& a, vector<int>& b) {
+    // function implementation
 }
 
 int main() {
