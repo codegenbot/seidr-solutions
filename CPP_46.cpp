@@ -1,31 +1,31 @@
 #include <iostream>
+using namespace std;
 
 int fib4(int n) {
-    if (n == 0 || n == 1) {
+    if (n == 0 || n == 1)
         return 0;
-    }
-
-    int fib0 = 0;
-    int fib1 = 0;
-    int fib2 = 2;
-    int fib3 = 0;
-    int fib4 = 0;
-
+    else if (n == 2)
+        return 2;
+    
+    int a = 0, b = 0, c = 2, d = 0;
+    
     for (int i = 3; i <= n; i++) {
-        fib4 = fib3 + fib2 + fib1 + fib0;
-        fib0 = fib1;
-        fib1 = fib2;
-        fib2 = fib3;
-        fib3 = fib4;
+        d = a + b + c;
+        a = b;
+        b = c;
+        c = d;
     }
-
-    return fib4;
+    
+    return d;
 }
 
 int main() {
     int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    std::cout << "fib4(" << n << ") = " << fib4(n) << std::endl;
+    cout << "Enter the value of n: ";
+    cin >> n;
+    
+    int result = fib4(n);
+    cout << "fib4(" << n << ") = " << result << endl;
+    
     return 0;
 }
