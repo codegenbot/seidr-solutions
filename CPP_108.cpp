@@ -1,11 +1,11 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
 
-int count_nums(vector<int> n) {
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         int sum = 0;
-        int temp = std::abs(num);
+        int temp = abs(num);
         while (temp > 0) {
             sum += temp % 10;
             temp /= 10;
@@ -15,4 +15,12 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
+}
+
+int main() {
+    // Test the count_nums function
+    std::vector<int> numbers = {1, 2, 3, -10, -15, 0};
+    int result = count_nums(numbers);
+    std::cout << "Count: " << result << std::endl;
+    return 0;
 }
