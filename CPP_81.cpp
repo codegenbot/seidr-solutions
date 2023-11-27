@@ -1,5 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -62,7 +64,7 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    vector<string> result = numerical_letter_grade({0, 0.7});
-    assert(issame(result, {"E", "D-"}));
+    assert (issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
+    // Rest of the test cases
     return 0;
 }
