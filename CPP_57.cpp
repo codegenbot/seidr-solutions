@@ -4,11 +4,11 @@ bool monotonic(vector<float> l){
     bool increasing = true;
     bool decreasing = true;
 
-    for(int i=1; i<l.size(); i++){
-        if(l[i] < l[i-1]){
+    for (int i = 1; i < l.size(); i++) {
+        if (l[i] < l[i - 1]) {
             increasing = false;
         }
-        if(l[i] > l[i-1]){
+        if (l[i] > l[i - 1]) {
             decreasing = false;
         }
     }
@@ -16,16 +16,9 @@ bool monotonic(vector<float> l){
     return increasing || decreasing;
 }
 
-int main(){
-    vector<float> nums = {1.5, 2.3, 5.2, 8.1};
-    bool result = monotonic(nums);
-
-    if(result){
-        cout << "The list is monotonic" << endl;
-    }
-    else{
-        cout << "The list is not monotonic" << endl;
-    }
-
+int main() {
+    assert (monotonic({9, 9, 9, 9}) == true);
+    // add more test cases here
+    
     return 0;
 }
