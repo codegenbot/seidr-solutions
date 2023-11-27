@@ -51,5 +51,6 @@ any compare_one(any a, any b) {
 
 int main() {
   assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
+  // Add more test cases here if needed
   return 0;
 }
