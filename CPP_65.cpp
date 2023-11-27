@@ -1,12 +1,14 @@
 string circular_shift(int x, int shift) {
-    string str = to_string(x);
-    int n = str.length();
+    string result = to_string(x);
+    int n = result.size();
     
     if (shift > n) {
-        reverse(str.begin(), str.end());
-        return str;
+        // Reverse the digits
+        reverse(result.begin(), result.end());
+    } else {
+        // Circular shift the digits right
+        rotate(result.begin(), result.begin() + (n - shift), result.end());
     }
     
-    rotate(str.rbegin(), str.rbegin() + shift, str.rend());
-    return str;
+    return result;
 }
