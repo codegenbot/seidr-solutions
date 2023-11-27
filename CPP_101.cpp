@@ -1,19 +1,7 @@
 #include <iostream>
+#include <cassert>
 #include <vector>
-#include <assert.h>
 using namespace std;
-
-vector<string> are_same(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
 
 vector<string> words_string(string s){
     vector<string> words;
@@ -35,8 +23,19 @@ vector<string> words_string(string s){
     return words;
 }
 
-int main() {
-    assert(are_same(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    cout << "Test passed!" << endl;
+bool issame(vector<string>& a, vector<string>& b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main(){
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
