@@ -1,8 +1,15 @@
 vector<int> sort_third(vector<int> l){
-    vector<int> l_sorted = l;
-    for (int i = 0; i < l.size(); i += 3) {
-        int end_index = min(i + 3, static_cast<int>(l.size()));
-        sort(l_sorted.begin() + i, l_sorted.begin() + end_index);
+    vector<int> l_prime(l);
+
+    for(int i=0; i<l_prime.size(); i++){
+        if(i%3 == 0){
+            for(int j=i+1; j<l_prime.size(); j++){
+                if(j%3 == 0 && l_prime[j] < l_prime[i]){
+                    swap(l_prime[i], l_prime[j]);
+                }
+            }
+        }
     }
-    return l_sorted;
+
+    return l_prime;
 }
