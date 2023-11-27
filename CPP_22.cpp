@@ -16,7 +16,7 @@ bool is_integer(const T& value){
 vector<int> filter_integers(const vector<int>& values){
     vector<int> result;
     for(const auto& value : values){
-        if(is_integer<decltype(value)>(value)){
+        if(is_integer(value)){
             result.push_back(value);
         }
     }
