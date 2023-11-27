@@ -15,11 +15,3 @@ int sum_squares(vector<float> lst)
     }
     return sum;
 }
-
-int main()
-{
-    // Test cases
-    assert(sum_squares({-1, 1, 0}) == 2);
-
-    return 0;
-}
