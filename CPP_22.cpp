@@ -1,6 +1,7 @@
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
+#include <typeinfo>
 
 using namespace std;
 
