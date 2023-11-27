@@ -29,5 +29,9 @@ int largestPrimeSum(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(largestPrimeSum(std::vector<int>{127, 97, 8192}) == 10);
+    assert(largestPrimeSum({127, 97, 8192}) == 10);
+    
+    std::cout << "Test cases passed!" << std::endl;
+    
+    return 0;
 }
