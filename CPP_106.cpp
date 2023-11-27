@@ -1,17 +1,30 @@
-vector<int> result(n);
-for (int i = 1; i <= n; i++) {
-    if (i % 2 == 0) {
-        int factorial = 1;
-        for (int j = 1; j <= i; j++) {
-            factorial *= j;
+#include <vector>
+#include <cassert>
+#include <iostream>
+
+std::vector<int> f(int n){
+    std::vector<int> result;
+    for(int i=1; i<=n; i++){
+        if(i%2 == 0){
+            int factorial = 1;
+            for(int j=1; j<=i; j++){
+                factorial *= j;
+            }
+            result.push_back(factorial);
         }
-        result[i-1] = factorial;
-    } else {
-        int sum = 0;
-        for (int j = 1; j <= i; j++) {
-            sum += j;
+        else{
+            int sum = 0;
+            for(int j=1; j<=i; j++){
+                sum += j;
+            }
+            result.push_back(sum);
         }
-        result[i-1] = sum;
     }
+    return result;
 }
-return result;
+
+int main(){
+    assert (f(3) == std::vector<int>{1, 2, 6});
+    std::cout << "Test case passed!" << std::endl;
+    return 0;
+}
