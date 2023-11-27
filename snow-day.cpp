@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 
-double calculateSnow(double hours, double initialSnow, double snowFallRate, double snowMeltRate) {
+double calculateSnow(int hours, double initialSnow, double snowFallRate, double snowMeltRate) {
     double snow = initialSnow;
     for (int i = 0; i < hours; i++) {
         double snowChange = snowFallRate - (snow * snowMeltRate);
@@ -11,8 +11,9 @@ double calculateSnow(double hours, double initialSnow, double snowFallRate, doub
 }
 
 int main() {
-    double hours, initialSnow, snowFallRate, snowMeltRate;
+    int hours;
+    double initialSnow, snowFallRate, snowMeltRate;
     std::cin >> hours >> initialSnow >> snowFallRate >> snowMeltRate;
-    std::cout << std::fixed << std::setprecision(15) << calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate) << std::endl;
+    std::cout << std::fixed << std::setprecision(17) << calculateSnow(hours, initialSnow, snowFallRate, snowMeltRate) << std::endl;
     return 0;
 }
