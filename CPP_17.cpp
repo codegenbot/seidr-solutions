@@ -18,7 +18,7 @@ vector<int> parse_music(string music_string) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
         } else if (music_string[i] == ' ') {
-            
+            // Skip spaces
         } else {
             beats.push_back(1);
         }
