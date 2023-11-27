@@ -38,8 +38,10 @@ any compare_one(any a, any b) {
     }
   } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
     string str = any_cast<string>(a);
+    int num = any_cast<int>(b);
     return str;
   } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+    int num = any_cast<int>(a);
     string str = any_cast<string>(b);
     return str;
   } else {
@@ -49,6 +51,5 @@ any compare_one(any a, any b) {
 
 int main() {
   assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
-  // Add more test cases here
   return 0;
 }
