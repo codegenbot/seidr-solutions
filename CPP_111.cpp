@@ -1,25 +1,15 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    map<char, int> count;
-
-    for (char c : test) {
-        if (c != ' ') {
-            count[c]++;
+map<char,int> histogram(string test){
+    map<char,int> counts;
+    string letter;
+    for(int i=0; i<test.length(); i++){
+        if(test[i] != ' '){
+            letter += test[i];
+        }
+        else{
+            counts[letter]++;
+            letter = "";
         }
     }
-
-    int maxCount = 0;
-    for (auto it : count) {
-        if (it.second > maxCount) {
-            maxCount = it.second;
-        }
-    }
-
-    for (auto it : count) {
-        if (it.second == maxCount) {
-            result[it.first] = it.second;
-        }
-    }
-
-    return result;
+    counts[letter]++;
+    return counts;
 }
