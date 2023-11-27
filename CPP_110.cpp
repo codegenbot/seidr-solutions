@@ -19,6 +19,6 @@ string exchange(vector<int> lst1, vector<int> lst2) {
 }
 
 int main() {
-    cout << exchange({100, 200}, {200, 200}) << endl;
+    assert (exchange({100, 200}, {200, 200}) == "YES");
     return 0;
 }
