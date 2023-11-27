@@ -4,36 +4,35 @@ bool move_one_ball(vector<int> arr){
     }
     
     int n = arr.size();
-    int min_index = 0;
+    int minIndex = 0;
+    int minValue = arr[0];
     
-    // Find the index of the minimum element in the vector
-    for(int i = 1; i < n; i++){
-        if(arr[i] < arr[min_index]){
-            min_index = i;
+    // Find the minimum element in the vector
+    for(int i=1; i<n; i++){
+        if(arr[i] < minValue){
+            minValue = arr[i];
+            minIndex = i;
         }
     }
     
     // Check if the vector is already sorted in non-decreasing order
-    bool sorted = true;
-    for(int i = 1; i < n; i++){
+    bool isSorted = true;
+    for(int i=1; i<n; i++){
         if(arr[i] < arr[i-1]){
-            sorted = false;
+            isSorted = false;
             break;
         }
     }
     
-    // If the vector is already sorted or the minimum element is at the start
-    // of the vector, return true
-    if(sorted || min_index == 0){
+    // If the vector is already sorted, return true
+    if(isSorted){
         return true;
     }
     
-    // Otherwise, check if the vector can be sorted by performing right shift
-    // operations
-    for(int i = 0; i < n; i++){
-        int index = (min_index + i) % n;
-        
-        if(arr[index] < arr[(index + n - 1) % n]){
+    // Check if it is possible to get non-decreasing order by performing right shift operations
+    for(int i=0; i<n; i++){
+        int newIndex = (minIndex + i) % n;
+        if(arr[newIndex] < arr[(newIndex-1+n)%n]){
             return false;
         }
     }
