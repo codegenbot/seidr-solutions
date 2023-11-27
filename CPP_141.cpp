@@ -1,24 +1,13 @@
+#include <string>
+
+string file_name_check(string file_name);
+
+int main() {
+    // Code for main function
+    return 0;
+}
+
 string file_name_check(string file_name){
-    int dotIndex = file_name.find(".");
-    if(dotIndex == string::npos){
-        return "No";
-    }
-    string beforeDot = file_name.substr(0, dotIndex);
-    string afterDot = file_name.substr(dotIndex + 1);
-    if(beforeDot.empty() || !isalpha(beforeDot[0])){
-        return "No";
-    }
-    if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll"){
-        return "No";
-    }
-    int digitCount = 0;
-    for(char c : beforeDot){
-        if(isdigit(c)){
-            digitCount++;
-        }
-    }
-    if(digitCount > 3){
-        return "No";
-    }
+    // Code for file_name_check function
     return "Yes";
 }
