@@ -1,62 +1,37 @@
-#include<iostream>
-#include<map>
-#include<sstream>
-#include<cmath>
-#include<cassert>
+#include <iostream>
+#include <map>
+#include <string>
+#include <cassert>
+
 using namespace std;
 
-map<char,int> histogram(string test);
-
-bool issame(map<char,int> a, map<char,int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(auto it = a.begin(); it != a.end(); it++){
-        char c = it->first;
-        if(b.find(c) == b.end() || b[c] != a[c]){
-            return false;
-        }
-    }
-    
-    return true;
-}
-
-map<char,int> histogram(string test){
-    map<char, int> result;
-    if(test.empty()){
+map<string, int> histogram(string test) {
+    map<string, int> result;
+    if (test.empty()) {
         return result;
     }
-    
-    stringstream ss(test);
     string word;
-    while(ss >> word){
-        for(char c : word){
-            result[c]++;
+    for (char c : test) {
+        if (c == ' ') {
+            result[word]++;
+            word = "";
+        } else {
+            word += c;
         }
     }
-    
-    int maxCount = 0;
-    for(auto it = result.begin(); it != result.end(); it++){
-        maxCount = max(maxCount, it->second);
-    }
-    
-    map<char, int> maxLetters;
-    for(auto it = result.begin(); it != result.end(); it++){
-        if(it->second == maxCount){
-            maxLetters[it->first] = it->second;
-        }
-    }
-    
-    return maxLetters;
+    result[word]++;
+    return result;
 }
 
-int main(){
-    assert(issame(histogram("a"), {{'a', 1}}));
-    assert(issame(histogram("hello world"), {{'l', 3}, {'o', 2}}));
-    assert(issame(histogram("banana"), {{'a', 3}, {'n', 2}}));
-  
-    cout << "All test cases passed!" << endl;
+bool issame(map<string, int> a, map<string, int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{"a", 1}}));
+    assert(issame(histogram("hello world"), {{"hello", 1}, {"world", 1}}));
+    
+    cout << "All tests passed!" << endl;
     
     return 0;
 }
