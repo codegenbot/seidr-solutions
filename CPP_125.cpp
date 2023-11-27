@@ -1,32 +1,67 @@
+#include <vector>
+#include <string>
+#include <sstream>
+
+vector<string> split_words(string txt);
+int count_odd_letters(string txt);
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> split_words(string txt){
-    vector<string> words;
-    string word;
-    for (int i = 0; i < txt.size(); i++) {
-        if (txt[i] == ' ' || txt[i] == ',') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
+    vector<string> result;
+    string word = "";
+    bool hasWhitespace = false;
+    bool hasComma = false;
+    
+    for(int i = 0; i < txt.size(); i++){
+        if(txt[i] == ' '){
+            hasWhitespace = true;
+            if(word != ""){
+                result.push_back(word);
+                word = "";
             }
-        } else {
+        }
+        else if(txt[i] == ','){
+            hasComma = true;
+            if(word != ""){
+                result.push_back(word);
+                word = "";
+            }
+        }
+        else{
             word += txt[i];
         }
     }
-    if (!word.empty()) {
-        words.push_back(word);
+    
+    if(word != ""){
+        result.push_back(word);
     }
-
-    if (words.empty()) {
-        words.push_back(to_string(CountOddLowerLetters(txt)));
+    
+    if(!hasWhitespace && !hasComma){
+        result.push_back(to_string(count_odd_letters(txt)));
     }
-    return words;
+    
+    return result;
 }
 
-int CountOddLowerLetters(string txt) {
+int count_odd_letters(string txt){
     int count = 0;
-    for (int i = 0; i < txt.size(); i++) {
-        if (islower(txt[i]) && (txt[i] - 'a') % 2 == 1) {
-            count++;
+    for(int i = 0; i < txt.size(); i++){
+        if(islower(txt[i])){
+            int letterOrder = txt[i] - 'a';
+            if(letterOrder % 2 != 0){
+                count++;
+            }
         }
     }
     return count;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    // function body
+    // return statement if necessary
+}
+
+int main() {
+    // add code to test the functions if necessary
+    return 0;
 }
