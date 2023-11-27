@@ -1,15 +1,6 @@
 #include <vector>
 #include <cassert>
 
-vector<int> sum_product(vector<int> numbers);
-
-bool issame(vector<int> a, vector<int> b);
-
-int main() {
-    assert (issame(sum_product({10}), {10, 10}));
-    // ... more code ...
-}
-
 vector<int> sum_product(vector<int> numbers){
     int sum = 0;
     int product = 1;
@@ -34,4 +25,10 @@ bool issame(vector<int> a, vector<int> b){
     }
     
     return true;
+}
+
+int main() {
+    vector<int> result = sum_product({10});
+    assert(issame(result, {10, 10}));
+    return 0;
 }
