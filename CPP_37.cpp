@@ -23,8 +23,9 @@ vector<float> sort_even(vector<float> l){
 }
 
 bool issame(vector<float> a, vector<float> b){
-    // check if vectors `a` and `b` contain the same elements
-    return true;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 int main() {
