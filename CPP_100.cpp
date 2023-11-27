@@ -1,14 +1,15 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     // implementation of issame function
     // ...
     return true;
 }
 
-vector<int> make_a_pile(int n){
-    vector<int> levels;
+std::vector<int> make_a_pile(int n){
+    std::vector<int> levels;
     int stones = n;
     levels.push_back(stones);
     for(int i=1; i<n; i++){
@@ -23,7 +24,7 @@ vector<int> make_a_pile(int n){
 }
 
 int main(){
-    assert (issame(make_a_pile(8) , {8, 10, 12, 14, 16, 18, 20, 22}));
+    std::assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
     // rest of the main function
     // ...
     return 0;
