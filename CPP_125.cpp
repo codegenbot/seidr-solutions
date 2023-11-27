@@ -3,6 +3,8 @@
 #include <string>
 #include <cassert>
 
+bool is_same(std::vector<std::string> a, std::vector<std::string> b);
+
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
     std::string word = "";
@@ -23,7 +25,7 @@ std::vector<std::string> split_words(std::string txt) {
     return result;
 }
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
+bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -38,7 +40,7 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(isSame(split_words(""), {"0"}));
+    assert(is_same(split_words(""), {"0"}));
     std::cout << "Test case passed!" << std::endl;
     return 0;
 }
