@@ -1,7 +1,7 @@
 #include <string>
 #include <cassert>
 
-int stringLength(string str){
+int stringLength(std::string str){
     return str.length();
 }
 
