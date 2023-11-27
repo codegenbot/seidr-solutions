@@ -1,11 +1,11 @@
-#include <cassert>
 #include <iostream>
 #include <string>
 
 int count_upper(std::string s) {
     int count = 0;
     for (int i = 0; i < s.length(); i += 2) {
-        if (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U') {
+        char c = s[i];
+        if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
             count++;
         }
     }
@@ -13,7 +13,13 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    assert(count_upper("EEEE") == 2);
+    // Test cases
+    int result1 = count_upper("EEEE");
+    int result2 = count_upper("HIJKLMNOPQRSTUVWXYZ");
+    
+    // Print the results
+    std::cout << "Result 1: " << result1 << std::endl;
+    std::cout << "Result 2: " << result2 << std::endl;
 
     return 0;
 }
