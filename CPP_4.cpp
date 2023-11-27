@@ -1,10 +1,9 @@
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
-float mean_absolute_deviation(vector<float> numbers) {
+float mean_absolute_deviation(vector<float> numbers){
     float sum = 0;
     for(int i=0; i<numbers.size(); i++){
         sum += numbers[i];
@@ -20,7 +19,7 @@ float mean_absolute_deviation(vector<float> numbers) {
 }
 
 int main() {
-    assert(abs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0/5.0) < 1e-4);
+    assert (abs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0/5.0) < 1e-4);
     
     return 0;
 }
