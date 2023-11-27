@@ -1,5 +1,26 @@
 #include <vector>
 
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> make_a_pile(int n);
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> levels = make_a_pile(n);
+
+    vector<int> b(levels.begin(), levels.end());
+    sort(b.begin(), b.end(), greater<int>());
+
+    if (issame(levels, b)){
+        cout << "possible" << endl;
+    } else {
+        cout << "impossible" << endl;
+    }
+
+    return 0;
+}
+
 vector<int> make_a_pile(int n){
     vector<int> levels;
     int stones = n;
@@ -15,19 +36,6 @@ vector<int> make_a_pile(int n){
     return levels;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}  
-
-int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
