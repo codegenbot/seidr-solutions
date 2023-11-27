@@ -3,6 +3,8 @@
 #include <string>
 #include <cassert>
 
+bool is_same(std::vector<std::string> a, std::vector<std::string> b);
+
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
     std::string word = "";
