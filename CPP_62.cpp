@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 vector<float> derivative(vector<float> xs){
     vector<float> result;
