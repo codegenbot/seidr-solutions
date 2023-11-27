@@ -1,27 +1,30 @@
 vector<int> order_by_points(vector<int> nums){
-vector<int> result;
-vector<pair<int, int>> sums;
-
-for(int i=0; i<nums.size(); i++){
-    int sum = 0;
-    int num = nums[i];
-    while(num != 0){
-        sum += abs(num % 10);
-        num /= 10;
+    vector<int> result;
+    vector<pair<int, int>> sums;
+    
+    // Calculate the sum of digits for each number in the vector
+    for(int i=0; i<nums.size(); i++){
+        int sum = 0;
+        int num = nums[i];
+        while(num != 0){
+            sum += abs(num % 10);
+            num /= 10;
+        }
+        sums.push_back(make_pair(sum, i));
     }
-    sums.push_back(make_pair(sum, i));
-}
-
-sort(sums.begin(), sums.end());
-
-for(int i=0; i<sums.size(); i++){
-    result.push_back(nums[sums[i].second]);
-}
-
-return result;
+    
+    // Sort the pairs based on the sum of digits
+    sort(sums.begin(), sums.end());
+    
+    // Build the result vector based on the sorted pairs
+    for(int i=0; i<sums.size(); i++){
+        result.push_back(nums[sums[i].second]);
+    }
+    
+    return result;
 }
 
 int main() {
-assert (order_by_points({0,6,6,-76,-21,23,4}) == vector<int>({-76, -21, 0, 4, 23, 6, 6}));
-return 0;
+    assert (order_by_points({0,6,6,-76,-21,23,4}) == vector<int>({-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
