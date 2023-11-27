@@ -1,6 +1,6 @@
 #include <string>
 
-int is_bored(string S){
+int is_bored(std::string S){
     int count = 0;
     bool is_sentence_start = true;
     
@@ -18,10 +18,12 @@ int is_bored(string S){
 }
 
 int main() {
-    string S;
-    getline(cin, S);
-    int result = is_bored(S);
-    cout << result << endl;
+    std::string input;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, input);
+    
+    int result = is_bored(input);
+    std::cout << "Number of sentences starting with 'I': " << result << std::endl;
     
     return 0;
 }
