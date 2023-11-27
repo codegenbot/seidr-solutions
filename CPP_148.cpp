@@ -2,12 +2,12 @@
 #include <string>
 #include <vector>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    // Implementation for comparing vectors a and b
+std::vector<std::string> bf(std::string planet1, std::string planet2);
 
-    // Code here...
-    
-    return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Code for comparing vectors a and b
+    // ...
+    // ...
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
