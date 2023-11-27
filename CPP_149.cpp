@@ -13,8 +13,6 @@ vector<string> sorted_list_sum(vector<string> lst){
     });
     return result;
 }
-
-
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
