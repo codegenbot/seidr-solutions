@@ -20,18 +20,13 @@ int main() {
     std::vector<double> vector1(n);
     std::vector<double> vector2(n);
 
-    std::string input;
-    std::getline(std::cin.ignore(), input);
-    std::stringstream ss(input);
     for (int i = 0; i < n; i++) {
-        ss >> vector1[i];
+        std::cin >> vector1[i];
     }
 
-    std::getline(std::cin.ignore(), input);
-    std::replace(input.begin(), input.end(), ',', '\n');
-    std::stringstream ss2(input);
+    std::cin.ignore();
     for (int i = 0; i < n; i++) {
-        ss2 >> vector2[i];
+        std::cin >> vector2[i];
     }
 
     double distance = calculateEuclideanDistance(vector1, vector2);
