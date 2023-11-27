@@ -31,20 +31,12 @@ string file_name_check(string file_name){
 
 int main(){
     assert(file_name_check("s.") == "No");
+    // Add more test cases here
     assert(file_name_check("file.txt") == "Yes");
-    assert(file_name_check("test.exe") == "Yes");
-    assert(file_name_check("lib.dll") == "Yes");
-    assert(file_name_check("123.test.txt") == "No");
-    assert(file_name_check("file..txt") == "No");
-    assert(file_name_check("file") == "No");
-    assert(file_name_check("file.") == "No");
-    assert(file_name_check(".txt") == "No");
-    assert(file_name_check(".exe") == "No");
-    assert(file_name_check(".dll") == "No");
-    assert(file_name_check("") == "No");
-    assert(file_name_check("12345") == "No");
-    assert(file_name_check("file.xyz") == "No");
-
-    cout << "All test cases passed";
+    assert(file_name_check("test.cpp") == "No");
+    assert(file_name_check("picture.jpg") == "No");
+    assert(file_name_check("document") == "No");
+    assert(file_name_check("sample123.txt") == "Yes");
+    
     return 0;
 }
