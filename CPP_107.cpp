@@ -1,26 +1,30 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
 
-vector<int> even_odd_palindrome(int n){
-    vector<int> result(2, 0);
+std::vector<int> even_odd_palindrome(int n){
+    std::vector<int> result(2, 0);
     for(int i=1; i<=n; i++){
-        string s = to_string(i);
-        int len = s.length();
+        std::string s = std::to_string(i);
         bool isPalindrome = true;
-        for(int j=0; j<len/2; j++){
-            if(s[j] != s[len-j-1]){
+        int left = 0;
+        int right = s.length() - 1;
+        while(left < right){
+            if(s[left] != s[right]){
                 isPalindrome = false;
                 break;
             }
+            left++;
+            right--;
         }
         if(isPalindrome){
-            if(i%2 == 0){
+            if(i % 2 == 0){
                 result[0]++;
-            }
-            else{
+            }else{
                 result[1]++;
             }
         }
@@ -28,12 +32,11 @@ vector<int> even_odd_palindrome(int n){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int main(){
-    assert (issame(even_odd_palindrome(1) , {0, 1}));
-
+    assert(issame(even_odd_palindrome(1), {0, 1}));
+    assert(issame(even_odd_palindrome(5), {2, 3}));
+    assert(issame(even_odd_palindrome(10), {4, 5}));
+    assert(issame(even_odd_palindrome(100), {40, 60}));
+    
     return 0;
 }
