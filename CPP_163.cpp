@@ -1,13 +1,17 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <random>
 
-std::vector<int> generate_integers(int a, int b) {
-    std::vector<int> integers;
-    for (int num = a; num <= b; num++) {
-        integers.push_back(num);
+std::vector<int> generate_integers(int start, int end) {
+    std::random_device rd;
+    std::vector<int> nums;
+
+    for (int i = start; i <= end; i++) {
+        nums.push_back(rd());
     }
-    return integers;
+
+    return nums;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -24,4 +28,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(issame(generate_integers(17, 89), {}));
+    return 0;
 }

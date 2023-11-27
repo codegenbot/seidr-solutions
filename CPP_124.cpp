@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdio>
 
 bool valid_date(std::string date){
     if(date.empty()){
@@ -44,7 +45,7 @@ std::string get_date_input(){
     return date;
 }
 
-int main() {
+int main(){
     std::string date = get_date_input();
     
     if(valid_date(date)){

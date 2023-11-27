@@ -2,6 +2,7 @@
 #include <string>
 #include <openssl/evp.h>
 #include <openssl/md5.h>
+#include <openssl/crypto.h>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
