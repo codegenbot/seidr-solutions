@@ -14,7 +14,7 @@ bool valid_date(std::string date){
         return false;
     }
     
-    if(day < 1 ||day > 31){
+    if(day < 1 || day > 31){
         return false;
     }
     
