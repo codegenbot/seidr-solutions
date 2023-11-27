@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-using namespace std;
 
-int strlen(const string& str){
+int strlen(const std::string& str){
     return str.size();
 }
 
