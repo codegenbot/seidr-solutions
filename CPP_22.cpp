@@ -23,5 +23,9 @@ vector<int> filter_integers(const vector<int>& values){
     return result;
 }
 
-vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-assert(issame(filtered, vector<int>({3, 3, 3})));
+int main(){
+    vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
+    assert(issame(filtered, vector<int>{3, 3, 3}));
+
+    return 0;
+}
