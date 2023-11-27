@@ -1,34 +1,36 @@
 string sort_numbers(string numbers){
-    map<string, int> numMap;
-    numMap["zero"] = 0;
-    numMap["one"] = 1;
-    numMap["two"] = 2;
-    numMap["three"] = 3;
-    numMap["four"] = 4;
-    numMap["five"] = 5;
-    numMap["six"] = 6;
-    numMap["seven"] = 7;
-    numMap["eight"] = 8;
-    numMap["nine"] = 9;
+    map<string, int> number_map;
+    number_map["zero"] = 0;
+    number_map["one"] = 1;
+    number_map["two"] = 2;
+    number_map["three"] = 3;
+    number_map["four"] = 4;
+    number_map["five"] = 5;
+    number_map["six"] = 6;
+    number_map["seven"] = 7;
+    number_map["eight"] = 8;
+    number_map["nine"] = 9;
 
-    // Split the input string into separate numbers
-    vector<string> numList;
+    vector<int> number_values;
     stringstream ss(numbers);
-    string num;
-    while (ss >> num) {
-        numList.push_back(num);
+    string number;
+    while (ss >> number) {
+        number_values.push_back(number_map[number]);
     }
 
-    // Sort the numbers using the map values
-    sort(numList.begin(), numList.end(), [&](const string& a, const string& b) {
-        return numMap[a] < numMap[b];
-    });
+    sort(number_values.begin(), number_values.end());
 
-    // Concatenate the sorted numbers into a string
-    string sortedNumbers;
-    for (const string& num : numList) {
-        sortedNumbers += num + " ";
+    string sorted_numbers;
+    for (int i = 0; i < number_values.size(); i++) {
+        for (auto it = number_map.begin(); it != number_map.end(); it++) {
+            if (it->second == number_values[i]) {
+                sorted_numbers += it->first + " ";
+                break;
+            }
+        }
     }
 
-    return sortedNumbers;
+    sorted_numbers.pop_back(); // Remove the trailing space
+
+    return sorted_numbers;
 }
