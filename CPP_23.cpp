@@ -1,5 +1,14 @@
+#include <cassert>
+#include <iostream>
 #include <string>
 
-int myStrlen(const string& str){
-    return str.length();
+using namespace std;
+
+int strlen(const string& str){
+    return str.size();
+}
+
+int main(){
+    assert(strlen("asdasnakj") == 9);
+    return 0;
 }
