@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 string fix_spaces(string text){
