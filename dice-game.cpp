@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-double probabilityOfPeterWinning(int n, int m) {
+double probabilityOfHigherRoll(int n, int m) {
     double totalOutcomes = n * m;
     double favorableOutcomes = 0;
 
@@ -19,6 +19,9 @@ double probabilityOfPeterWinning(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << probabilityOfPeterWinning(n, m) << endl;
+
+    double result = probabilityOfHigherRoll(n, m);
+    cout << result << endl;
+
     return 0;
 }
