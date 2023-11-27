@@ -4,13 +4,13 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, vector<int> b){
+bool issame(const vector<int>& a, vector<int>& b){
     return a == b;
 }
 
 template<typename T>
 bool is_integer(const T& value){
-    return is_same<T, int>::value || is_same<T, char>::value;
+    return (is_same_v<T, int> || is_same_v<T, char>);
 }
 
 vector<int> filter_integers(const vector<int>& values){
@@ -24,4 +24,4 @@ vector<int> filter_integers(const vector<int>& values){
 }
 
 vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-assert(issame(filtered, vector<int>({3, 3, 3})));
+assert(issame(filtered, vector<int>{3, 3, 3}));
