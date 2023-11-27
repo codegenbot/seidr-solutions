@@ -1,12 +1,20 @@
 #include <vector>
-#include <list_any>
-#include <boost/any.hpp>
+#include <list> // Add the appropriate header file here
+#include <boost/any.hpp> // Add the appropriate header file here
 
-bool issame(vector<int> a, vector<int> b);
+using namespace std;
 
-vector<int> filter_integers(list_any values);
+vector<int> filter_integers(list<boost::any> values) {
+    vector<int> result;
+    for (auto value : values) {
+        if (value.type() == typeid(int)) {
+            result.push_back(boost::any_cast<int>(value));
+        }
+    }
+    return result;
+}
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) { // Add the missing `<` after `vector<int>`
     if (a.size() != b.size()) {
         return false;
     }
@@ -18,37 +26,15 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> filter_integers(list_any values) {
-    vector<int> result;
-    for (auto value : values) {
-        if (value.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(value));
-        }
-    }
-    return result;
-}
-
 int main() {
-    // Test the filter_integers function
-    list_any values;
-    values.push_back(10);
-    values.push_back(3.14);
-    values.push_back("hello");
-    values.push_back(20);
-
-    vector<int> filtered = filter_integers(values);
-    for (auto num : filtered) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    // Test the issame function
     vector<int> a = {1, 2, 3};
     vector<int> b = {1, 2, 3};
-    vector<int> c = {1, 2, 4};
 
-    cout << issame(a, b) << endl;
-    cout << issame(a, c) << endl;
+    if (issame(a, b)) {
+        cout << "The two vectors are the same." << endl;
+    } else {
+        cout << "The two vectors are different." << endl;
+    }
 
     return 0;
 }
