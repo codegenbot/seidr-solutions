@@ -13,16 +13,8 @@ int calculateScore(string input) {
         
         if (c == 'X') {
             frames[frame-1] = 10;
-            
-            if (frame == 10) {
-                bowl++;
-                if (bowl == 2) {
-                    frame++;
-                }
-            } else {
-                frame++;
-                bowl = 0;
-            }
+            frame++;
+            bowl = 0;
         } else if (c == '/') {
             frames[frame-1] = 10 - frames[frame-1];
             frame++;
@@ -34,20 +26,17 @@ int calculateScore(string input) {
             bowl++;
         }
         
-        if (frame > 1 && (bowl == 2 || c == 'X' || c == '/')) {
-            for (int i = 0; i < frame-1; i++) {
-                score += frames[i];
+        if (bowl == 2 || c == 'X' || c == '/') {
+            score += frames[frame-1];
+            
+            if (frame > 1 && c == 'X') {
+                score += frames[frame-2];
                 
-                if (c == 'X' && i < frame-2 && i < 10) {
-                    score += frames[i+1];
-                    if (frames[i+1] == 10) {
-                        score += frames[i+2];
-                    } else {
-                        score += frames[i+2] - frames[i+1];
-                    }
-                } else if (c == '/' && i < 10) {
-                    score += frames[i+1];
+                if (frame > 2 && input[frame-2] == 'X') {
+                    score += frames[frame-3];
                 }
+            } else if (frame > 1 && c == '/') {
+                score += frames[frame-2];
             }
         }
     }
