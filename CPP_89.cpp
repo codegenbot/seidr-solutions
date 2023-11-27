@@ -1,3 +1,5 @@
+#include <string>
+
 string encrypt(string s){
     string encrypted = "";
     for(int i=0; i<s.length(); i++){
@@ -13,4 +15,9 @@ string encrypt(string s){
         encrypted += c;
     }
     return encrypted;
+}
+
+int main() {
+    assert (encrypt("a") == "e");
+    // Rest of the code...
 }
