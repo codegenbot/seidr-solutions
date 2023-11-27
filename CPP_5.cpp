@@ -20,6 +20,5 @@ std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter) {
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    // more test cases
     return 0;
 }
