@@ -1,13 +1,8 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
-string file_name_check(string file_name);
-
-int main() {
-    string file_name;
-    getline(cin, file_name);
-    cout << file_name_check(file_name) << endl;
-    return 0;
-}
+using namespace std;
 
 string file_name_check(string file_name){
     int dotIndex = file_name.find(".");
@@ -32,4 +27,24 @@ string file_name_check(string file_name){
         return "No";
     }
     return "Yes";
+}
+
+int main(){
+    assert(file_name_check("s.") == "No");
+    assert(file_name_check("file.txt") == "Yes");
+    assert(file_name_check("test.exe") == "Yes");
+    assert(file_name_check("lib.dll") == "Yes");
+    assert(file_name_check("123.test.txt") == "No");
+    assert(file_name_check("file..txt") == "No");
+    assert(file_name_check("file") == "No");
+    assert(file_name_check("file.") == "No");
+    assert(file_name_check(".txt") == "No");
+    assert(file_name_check(".exe") == "No");
+    assert(file_name_check(".dll") == "No");
+    assert(file_name_check("") == "No");
+    assert(file_name_check("12345") == "No");
+    assert(file_name_check("file.xyz") == "No");
+
+    cout << "All test cases passed";
+    return 0;
 }
