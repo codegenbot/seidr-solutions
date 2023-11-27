@@ -3,8 +3,6 @@
 #include <cassert>
 #include <climits>
 
-using namespace std;
-
 vector<float> find_closest_elements(vector<float> numbers);
 
 bool issame(vector<float> a, vector<float> b){
