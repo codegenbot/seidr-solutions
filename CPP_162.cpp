@@ -25,10 +25,4 @@ string string_to_md5(string text) {
     return string(md5Hash);
 }
 
-int main() {
-    string input = "Hello World";
-    string output = string_to_md5(input);
-    printf("%s\n", output.c_str());
-  
-    return 0;
-}
+g++ -o output_file source_file.cpp -lcrypto
