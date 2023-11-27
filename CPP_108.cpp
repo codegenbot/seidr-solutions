@@ -1,7 +1,4 @@
-#include <iostream>
 #include <vector>
-
-using namespace std;
 
 int count_nums(vector<int> n) {
     int count = 0;
@@ -20,6 +17,8 @@ int count_nums(vector<int> n) {
 }
 
 int main() {
-    cout << count_nums({1}) << endl;
+    assert(count_nums({1}) == 1);
+    // add more test cases if needed
+
     return 0;
 }
