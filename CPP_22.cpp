@@ -1,11 +1,4 @@
-#include <iostream>
-#include <list>
-#include <vector>
-#include <boost/any.hpp>
-
-using namespace std;
-
-vector<int> filter_integers(list<boost::any> values){
+vector<int> filter_integers(list<any> values){
     vector<int> result;
     for (auto value : values) {
         if (boost::any_cast<int>(&value)) {
@@ -20,12 +13,12 @@ bool issame(int a, int b){
 }
 
 int main() {
-    list<boost::any> values = {1, 2, 3, "hello", 4.5};
-    vector<int> filtered = filter_integers(values);
-    for (auto num : filtered) {
-        cout << num << " ";
+    int a = 5;
+    int b = 10;
+    if (issame(a, b)) {
+        cout << "a and b are the same" << endl;
+    } else {
+        cout << "a and b are not the same" << endl;
     }
-    cout << endl;
-    cout << issame(3, 3) << endl;
     return 0;
 }
