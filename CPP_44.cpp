@@ -9,7 +9,7 @@ int main() {
     int x;
     cin >> x;
 
-    assert(change_base(x, x + 1) == to_string(x));
+    cout << change_base(x, x + 1) << endl;
 }
 
 string change_base(int x, int base) {
