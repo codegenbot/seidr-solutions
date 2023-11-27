@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -26,16 +25,14 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
+int main() {
+    vector<string> words = split_words("");
     
-    return true;
+    cout << "Output: ";
+    for (auto word : words) {
+        cout << word << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
