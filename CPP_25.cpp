@@ -13,13 +13,9 @@ std::vector<int> factorize(int n){
             n /= i;
         }
     }
-    
-    std::vector<int> correct_factors = {2, 3, 3};
-    assert(issame(factors, correct_factors));
-    
     return factors;
 }
 
 int main() {
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    assert(issame(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
 }
