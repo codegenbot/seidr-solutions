@@ -5,31 +5,13 @@ int getFrameScore(const std::string& bowls, int frameIndex) {
     int score = 0;
     int bowlIndex = frameIndex * 2;
 
-    if (bowls[bowlIndex] == 'X') {
-        score = 10;
-        if (frameIndex < 9) {
-            if (bowls[bowlIndex + 2] == 'X') {
-                score += 10;
-                if (bowls[bowlIndex + 4] == 'X') {
-                    score += 10;
-                } else {
-                    score += bowls[bowlIndex + 4] - '0';
-                }
-            } else {
-                score += bowls[bowlIndex + 2] - '0';
-                if (bowls[bowlIndex + 3] == '/') {
-                    score += 10 - (bowls[bowlIndex + 2] - '0');
-                } else {
-                    score += bowls[bowlIndex + 3] - '0';
-                }
-            }
-        } else {
-            score += bowls[bowlIndex + 2] - '0';
-            score += bowls[bowlIndex + 3] - '0';
-        }
-    } else {
+    if (bowlIndex >= bowls.length()) {
+        return score;
+    }
+
+    if (isdigit(bowls[bowlIndex])) {
         score += bowls[bowlIndex] - '0';
-        if (bowls[bowlIndex + 1] == '/' && frameIndex < 9) {
+        if (bowls[bowlIndex + 1] == '/') {
             score += 10 - (bowls[bowlIndex] - '0');
             if (frameIndex < 9) {
                 score += bowls[bowlIndex + 2] - '0';
@@ -39,6 +21,42 @@ int getFrameScore(const std::string& bowls, int frameIndex) {
             }
         } else {
             score += bowls[bowlIndex + 1] - '0';
+        }
+    } else if (bowls[bowlIndex] == 'X') {
+        score = 10;
+        if (frameIndex < 9) {
+            if (bowlIndex + 2 < bowls.length() && bowls[bowlIndex + 2] == 'X') {
+                score += 10;
+                if (bowlIndex + 4 < bowls.length()) {
+                    if (isdigit(bowls[bowlIndex + 4])) {
+                        score += bowls[bowlIndex + 4] - '0';
+                    }
+                }
+            } else {
+                if (bowlIndex + 2 < bowls.length()) {
+                    if (isdigit(bowls[bowlIndex + 2])) {
+                        score += bowls[bowlIndex + 2] - '0';
+                    }
+                }
+                if (bowlIndex + 3 < bowls.length()) {
+                    if (bowls[bowlIndex + 3] == '/' || bowls[bowlIndex + 1] == '/') {
+                        score += 10 - (bowls[bowlIndex + 2] - '0');
+                    } else if (isdigit(bowls[bowlIndex + 3])) {
+                        score += bowls[bowlIndex + 3] - '0';
+                    }
+                }
+            }
+        } else {
+            if (bowlIndex + 2 < bowls.length()) {
+                if (isdigit(bowls[bowlIndex + 2])) {
+                    score += bowls[bowlIndex + 2] - '0';
+                }
+            }
+            if (bowlIndex + 3 < bowls.length()) {
+                if (isdigit(bowls[bowlIndex + 3])) {
+                    score += bowls[bowlIndex + 3] - '0';
+                }
+            }
         }
     }
 
