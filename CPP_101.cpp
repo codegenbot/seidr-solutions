@@ -12,16 +12,7 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-void assertEquals(vector<string> a, vector<string> b){
-    if(issame(a, b)){
-        cout << "Passed" << endl;
-    }
-    else{
-        cout << "Failed" << endl;
-    }
-}
-
-int main(){
+int main() {
     assertEquals(words_string("ahmed     , gamal"), vector<string>{"ahmed", "gamal"});
     return 0;
 }
