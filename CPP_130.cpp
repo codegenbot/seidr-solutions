@@ -26,14 +26,14 @@ vector<int> tri(int n){
     return sequence;
 }
 
-bool areSame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
 int main(){
-    assert(areSame(tri(1), {1, 3}));
-    assert(areSame(tri(2), {1, 2, 3}));
-    assert(areSame(tri(3), {1, 2, 3, 8}));
+    assert(issame(tri(1), {1, 3}));
+    assert(issame(tri(2), {1, 2, 3}));
+    assert(issame(tri(3), {1, 2, 3, 8}));
 
     return 0;
 }
