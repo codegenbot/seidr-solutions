@@ -1,3 +1,13 @@
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(auto str : strings){
+        if(str.find(substring) != string::npos){
+            result.push_back(str);
+        }
+    }
+    return result;
+}
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,16 +25,6 @@ bool issame(vector<string> a, vector<string> b){
         }
     }
     return true;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(auto str : strings){
-        if(str.find(substring) != string::npos){
-            result.push_back(str);
-        }
-    }
-    return result;
 }
 
 int main(){
