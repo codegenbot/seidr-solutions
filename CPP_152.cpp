@@ -16,7 +16,7 @@ vector<int> compare(vector<int> game, vector<int> guess){
     return result;
 }
 
-bool isSame(vector<int> a, vector<int> b){
+bool isSameVectors(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -29,6 +29,6 @@ bool isSame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    assert(isSame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    assert(isSameVectors(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
     return 0;
 }
