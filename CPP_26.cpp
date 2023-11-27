@@ -5,7 +5,6 @@
 
 bool issame(vector<int> a, vector<int> b) {
     // Your implementation of issame function
-    return a == b;
 }
 
 vector<int> remove_duplicates(vector<int> numbers) {
