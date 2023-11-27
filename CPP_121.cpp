@@ -1,9 +1,12 @@
 #include <vector>
 #include <iostream>
+#include <cassert>
 
-long long solution(std::vector<int> lst) {
+using namespace std;
+
+long long solutions(vector<int> lst) {
     long long sum = 0;
-    for (int i = 0; i < lst.size(); i += 2) {
+    for (int i = 0; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
             sum += lst[i];
         }
@@ -11,15 +14,9 @@ long long solution(std::vector<int> lst) {
     return sum;
 }
 
-void solutions() {   
-    if (solution({3, 13, 2, 9}) == 3) {
-        std::cout << "Test case passed" << std::endl;
-    } else {
-        std::cout << "Test case failed" << std::endl;
-    }
-}
-
 int main() {
-    solutions();
+    assert(solutions({3, 13, 2, 9}) == 23);
+    cout << "Test case passed" << endl;
+
     return 0;
 }
