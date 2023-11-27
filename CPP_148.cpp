@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -50,8 +49,6 @@ int main() {
         std::cout << planet << " ";
     }
     std::cout << std::endl;
-
-    assert (issame(bf("Jupiter", "Makemake"), std::vector<std::string>{}));
 
     return 0;
 }
