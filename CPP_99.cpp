@@ -1,15 +1,18 @@
 int closest_integer(string value){
-    double num = stod(value); // convert the string value to double
-    int closest = round(num); // round the double value to the nearest integer
+    float num = stof(value);
+    int rounded = round(num);
+    int floor_num = floor(num);
+    int ceil_num = ceil(num);
 
-    // check if the number is equidistant from two integers
-    if (num - floor(num) == 0.5) {
-        if (num < 0) {
-            closest = floor(num); // round it away from zero
+    if (num - floor_num == ceil_num - num) {
+        if (num > 0) {
+            return ceil_num;
         } else {
-            closest = ceil(num); // round it away from zero
+            return floor_num;
         }
+    } else if (num - floor_num < ceil_num - num) {
+        return floor_num;
+    } else {
+        return ceil_num;
     }
-
-    return closest;
 }
