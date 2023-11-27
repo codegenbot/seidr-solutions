@@ -1,7 +1,6 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
-#include <climits>
+#include <algorithm>
 
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2) {
@@ -13,7 +12,9 @@ int next_smallest(vector<int> lst) {
     int smallest = lst[0];
     int second_smallest = lst[1];
     
-    assert(smallest != second_smallest);
+    if (smallest == second_smallest) {
+        return INT_MIN;
+    }
     
     return second_smallest;
 }
