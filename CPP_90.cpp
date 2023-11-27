@@ -1,4 +1,4 @@
-#include <vector> 
+#include <vector>
 
 int next_smallest(vector<int> lst){
     if(lst.size() < 2){
@@ -18,7 +18,7 @@ int next_smallest(vector<int> lst){
 }
 
 int main(){
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    assert (next_smallest({-35, 34, 12, -45}) == -35);
     
     return 0;
 }
