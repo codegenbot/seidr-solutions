@@ -26,11 +26,13 @@ vector<int> pluck(vector<int> arr) {
 
 bool issame(vector<int> a, vector<int> b) {
     // your implementation of issame function
+    // ...
 }
 
 int main() {
     if (issame(pluck({7, 9, 7, 1}), {})) {
         // your assert code
+        // ...
     }
     
     return 0;
