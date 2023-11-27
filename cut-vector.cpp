@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
-
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
