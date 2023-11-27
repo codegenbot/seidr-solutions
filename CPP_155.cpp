@@ -15,7 +15,7 @@ vector<int> even_odd_count(int num){
             evenCount++;
         }
         else{
-            oddCount++;
+           oddCount++;
         }
         num = num / 10;
     }
