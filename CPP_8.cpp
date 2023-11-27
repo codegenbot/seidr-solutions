@@ -13,22 +13,22 @@ vector<int> sum_product(vector<int> numbers){
 }
 
 bool issame(vector<int> a,vector<int> b){
-  if(a.size() != b.size()){
-    return false;
-  }
-  
-  for(int i=0; i<a.size(); i++){
-    if(a[i] != b[i]){
-      return false;
+    if(a.size() != b.size()){
+        return false;
     }
-  }
-  
-  return true;
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main(){
-  assert (issame(sum_product({10}) ,{10, 10}));
-  // more test cases...
-  
-  return 0;
+    assert (issame(sum_product({10}) ,{10, 10}));
+    // more test cases...
+    
+    return 0;
 }
