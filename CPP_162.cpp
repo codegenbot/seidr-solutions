@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include <openssl/md5.h>
 #include <openssl/evp.h>
 
 std::string string_to_md5(std::string text) {
@@ -8,15 +9,15 @@ std::string string_to_md5(std::string text) {
         return "None";
     }
 
-    unsigned char digest[EVP_MAX_MD_SIZE];
-    EVP_MD_CTX *md5Context = EVP_MD_CTX_new();
-    EVP_DigestInit(md5Context, EVP_md5());
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    EVP_MD_CTX* md5Context = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(md5Context, EVP_md5(), NULL);
     EVP_DigestUpdate(md5Context, text.c_str(), text.length());
-    EVP_DigestFinal_ex(md5Context, digest, nullptr);
+    EVP_DigestFinal_ex(md5Context, digest, NULL);
     EVP_MD_CTX_free(md5Context);
 
     std::array<char, 33> md5Hash;
-    for (int i = 0; i < EVP_MD_size(EVP_md5()); ++i) {
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
         sprintf(&md5Hash[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
