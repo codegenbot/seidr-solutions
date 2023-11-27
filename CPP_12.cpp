@@ -1,28 +1,15 @@
 #include <iostream>
-#include <string>
 #include <vector>
-#include <cassert>
+#include <algorithm>
+#include <string>
 
-using namespace std;
-
-string longest(vector<string> strings) {
+std::string longest(std::vector<std::string> strings) {
     if (strings.empty()) {
         return "None";
     }
-    
-    string longestString = strings[0];
-    for (int i = 1; i < strings.size(); i++) {
-        if (strings[i].length() > longestString.length()) {
-            longestString = strings[i];
-        }
-    }
-    
-    return longestString;
-}
-
-int main() {
-    // Test the function with sample input
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
-
-    return 0;
+    auto longestString = std::max_element(strings.begin(), strings.end(),
+        [](const std::string& a, const std::string& b) {
+            return a.length() < b.length();
+        });
+    return *longestString;
 }
