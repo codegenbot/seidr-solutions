@@ -1,5 +1,4 @@
 #include <vector>
-#include <cstdlib> // for abs()
 
 int prod_signs(vector<int> arr){
     if(arr.empty()){
