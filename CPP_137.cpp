@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <string>
-#include </path/to/boost/any.hpp>
+#include <boost/any.hpp>
 #include <cassert>
 
 using boost::any;
