@@ -2,13 +2,9 @@ bool check_if_last_char_is_a_letter(string txt){
     if(txt.empty()){
         return false;
     }
-    char lastChar = txt.back();
-    if(isalpha(lastChar)){
-        int spaceIndex = txt.find_last_of(' ');
-        if(spaceIndex == string::npos){
-            return true;
-        }
-        if(spaceIndex == txt.length()-1){
+    int length = txt.length();
+    if(isalpha(txt[length-1])){
+        if(length > 1 && isalpha(txt[length-2])){
             return false;
         }
         return true;
