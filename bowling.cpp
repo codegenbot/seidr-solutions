@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 int calculateScore(std::string input) {
     int score = 0;
     int frame = 0;
@@ -12,17 +9,18 @@ int calculateScore(std::string input) {
             frames[frame] += 10;
             if (frame < 9) {
                 frames[frame+1] += 10;
-                if (frame < 8) {
+                if (rolls < 18) {
                     frames[frame+2] += 10;
                 }
             }
             rolls++;
         } else if (ch == '/') {
-            frames[frame] += (10 - frames[frame]);
+            frames[frame] += (10 - frames[frame-1]);
             if (frame < 9) {
-                frames[frame+1] += (10 - frames[frame]);
+                frames[frame+1] += (10 - frames[frame-1]);
             }
             rolls++;
+            frames[frame] += 10;
         } else if (ch == '-') {
             rolls++;
         } else {
@@ -40,14 +38,4 @@ int calculateScore(std::string input) {
     }
 
     return score;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-
-    int score = calculateScore(input);
-    std::cout << score << std::endl;
-
-    return 0;
 }
