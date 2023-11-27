@@ -12,7 +12,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> unique(std::vector<int> l){
+std::vector<int> remove_duplicates(std::vector<int> l){
     std::sort(l.begin(), l.end());
     l.erase(std::unique(l.begin(), l.end()), l.end());
     return l;
@@ -22,12 +22,12 @@ int main() {
     std::vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
     std::vector<int> expected_output = {0, 2, 3, 5, 9, 123};
     
-    std::vector<int> output = unique(input);
+    std::vector<int> output = remove_duplicates(input);
     
     if(issame(output, expected_output)){
-        std::cout << "Output is correct\n";
+        std::cout << "Output is correct" << std::endl;
     } else {
-        std::cout << "Output is incorrect\n";
+        std::cout << "Output is incorrect" << std::endl;
     }
     
     return 0;
