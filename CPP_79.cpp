@@ -1,3 +1,9 @@
+#include <cassert>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 string decimal_to_binary(int decimal){
     string binary = "db";
     
@@ -13,4 +19,10 @@ string decimal_to_binary(int decimal){
     
     binary += "db";
     return binary;
+}
+
+int main() {
+    cout << decimal_to_binary(15) << endl;
+    
+    return 0;
 }
