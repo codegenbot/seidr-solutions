@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
@@ -21,4 +21,11 @@ vector<int> filter_integers(const vector<int>& values){
         }
     }
     return result;
+}
+
+int main(){
+    vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
+    assert(issame(filtered, vector<int>({3, 3, 3})));
+
+    return 0;
 }
