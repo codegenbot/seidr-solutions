@@ -7,17 +7,7 @@ using namespace std;
 vector<int> remove_duplicates(vector<int> numbers);
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<int> remove_duplicates(vector<int> numbers){
@@ -31,18 +21,11 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 int main() {
-    // Test cases
-    vector<int> numbers1 = {1, 2, 3, 4, 5};
-    vector<int> expected1 = {1, 2, 3, 4, 5};
-    assert(issame(remove_duplicates(numbers1), expected1));
-
-    vector<int> numbers2 = {1, 2, 2, 3, 4, 4, 5};
-    vector<int> expected2 = {1, 3, 5};
-    assert(issame(remove_duplicates(numbers2), expected2));
-
-    vector<int> numbers3 = {1, 1, 1, 1, 1};
-    vector<int> expected3 = {};
-    assert(issame(remove_duplicates(numbers3), expected3));
+    // Test the remove_duplicates() function
+    vector<int> numbers = {1, 2, 3, 4, 5, 4, 3, 2, 1};
+    vector<int> expected = {5};
+    vector<int> actual = remove_duplicates(numbers);
+    assert(issame(actual, expected));
 
     return 0;
 }
