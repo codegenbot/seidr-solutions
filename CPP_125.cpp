@@ -1,9 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
 
-vector<string> split_words(string txt) {
+bool isSame(vector<string> a, vector<string> b) {
+    // Your code here
+}
+
+vector<string> splitWords(string txt) {
     vector<string> result;
     string word = "";
     bool hasWhitespace = false;
@@ -38,31 +42,34 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 int main() {
-    string input1, input2;
-    getline(cin, input1);
-    getline(cin, input2);
+    vector<string> a, b;
 
-    vector<string> words1 = split_words(input1);
-    vector<string> words2 = split_words(input2);
+    // Read input for vector a and vector b
+    int n;
+    cin >> n;
+    cin.ignore();
 
-    bool result = issame(words1, words2);
+    for (int i = 0; i < n; i++) {
+        string input;
+        getline(cin, input);
+        a.push_back(input);
+    }
 
-    cout << (result ? "Same" : "Different") << endl;
+    cin >> n;
+    cin.ignore();
+
+    for (int i = 0; i < n; i++) {
+        string input;
+        getline(cin, input);
+        b.push_back(input);
+    }
+
+    // Call issame function passing vectors a and b as arguments
+    bool result = isSame(a, b);
+
+    // Print the result
+    cout << (result ? "true" : "false") << endl;
 
     return 0;
 }
