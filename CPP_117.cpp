@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+vector<string> select_words(string s, int n);
+
+bool vectorCompare(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -45,11 +46,6 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-
-    // more test cases...
-
-    cout << "All test cases passed!" << endl;
-
+    assert(vectorCompare(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
