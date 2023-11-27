@@ -27,9 +27,26 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    list<boost::any> values = {1, 2, "hello", 3.14, 4};
+    // Test the filter_integers function
+    list<boost::any> values;
+    values.push_back(10);
+    values.push_back(3.14);
+    values.push_back("hello");
+    values.push_back(20);
+
     vector<int> filtered = filter_integers(values);
-    vector<int> expected = {1, 2, 4};
-    bool same = issame(filtered, expected);
+    for (auto num : filtered) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    // Test the issame function
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+    vector<int> c = {1, 2, 4};
+
+    cout << issame(a, b) << endl; // Output: 1 (true)
+    cout << issame(a, c) << endl; // Output: 0 (false)
+
     return 0;
 }
