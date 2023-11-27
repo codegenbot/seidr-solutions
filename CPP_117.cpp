@@ -5,7 +5,7 @@
 int count_consonants(std::string word) {
     int count = 0;
     for (char c : word) {
-        if (isalpha(c) && !isvowel(tolower(c))) {
+        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
             count++;
         }
     }
@@ -47,6 +47,6 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), { "b", "c", "d", "f" }));
     return 0;
 }
