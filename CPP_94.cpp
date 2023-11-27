@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 int sumOfDigits(int num) {
     int sum = 0;
@@ -10,6 +11,24 @@ int sumOfDigits(int num) {
     return sum;
 }
 
+int largestPrimeSum(const std::vector<int>& nums) {
+    int largestPrime = 0;
+    for (int num : nums) {
+        bool isPrime = true;
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime && num > largestPrime) {
+            largestPrime = num;
+        }
+    }
+    return sumOfDigits(largestPrime);
+}
+
 int main() {
-    std::cout << sumOfDigits(largestPrimeSum({127, 97, 8192})) << std::endl;
+    assert(largestPrimeSum({127, 97, 8192}) == 10);
+    return 0;
 }
