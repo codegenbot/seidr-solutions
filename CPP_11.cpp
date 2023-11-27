@@ -5,19 +5,19 @@
 using namespace std;
 
 string string_xor(const string& a, const string& b) {
-    string result;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] == b[i]) {
-            result += '0';
+    string result = "";
+    for(int i=0; i<a.length(); i++){
+        if(a[i] == b[i]){
+            result += "0";
         } else {
-            result += '1';
+            result += "1";
         }
     }
     return result;
 }
 
 int main() {
-    assert(string_xor("0101", "0000") == "0101");
-    // Add more test cases here...
+    assert (string_xor("0101", "0000") == "0101");
+    assert (string_xor("101010", "110011") == "011001");
     return 0;
 }
