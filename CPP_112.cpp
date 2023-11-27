@@ -1,9 +1,10 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
-vector<string> reverse_delete(const string& s, const string& c) {
+vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp;
     
@@ -27,8 +28,24 @@ vector<string> reverse_delete(const string& s, const string& c) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
+    assert (issame(reverse_delete("mamma", "mia") , {"", "True"}));
+    assert (issame(reverse_delete("hello", "hi") , {"heo", "False"}));
+    assert (issame(reverse_delete("programming", "rain") , {"pogmmng", "False"}));
     
     return 0;
 }
