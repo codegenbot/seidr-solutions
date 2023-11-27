@@ -20,7 +20,6 @@ bool is_nested(string str){
 }
 
 int main() {
-    // Test the is_nested function
     cout << boolalpha << is_nested("[[[]]]") << endl;
     cout << boolalpha << is_nested("[[]]]]") << endl;
     cout << boolalpha << is_nested("[]") << endl;
