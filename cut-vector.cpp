@@ -1,48 +1,51 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <cmath>
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    int leftSum = 0;
-    int rightSum = 0;
-    for (int i = 0; i < n; i++) {
-        rightSum += nums[i];
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
+    int n = input.size();
+    int sum = 0;
+    for (int num : input) {
+        sum += num;
     }
-    int minDiff = abs(leftSum - rightSum);
-    int cutIndex = 0;
+    
+    int halfSum = sum / 2;
+    int currSum = 0;
+    int diff = std::abs(sum - 2 * currSum);
+    int index = 0;
     
     for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i + 1;
+        currSum += input[i];
+        int newDiff = std::abs(sum - 2 * currSum);
+        if (newDiff < diff) {
+            diff = newDiff;
+            index = i;
         }
     }
     
-    vector<int> left(nums.begin(), nums.begin() + cutIndex);
-    vector<int> right(nums.begin() + cutIndex, nums.end());
+    std::vector<int> subvector1(input.begin(), input.begin() + index + 1);
+    std::vector<int> subvector2(input.begin() + index + 1, input.end());
     
-    return make_pair(left, right);
+    return std::make_pair(subvector1, subvector2);
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+    
+    std::vector<int> input(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> input[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(nums);
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(input);
     
     for (int num : result.first) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
+    
     for (int num : result.second) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
     
     return 0;
