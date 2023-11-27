@@ -4,6 +4,7 @@
 
 std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
+
     int textLength = text.length();
     int targetLength = target.length();
 
