@@ -1,10 +1,14 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
-int stringLength(std::string str){
-    return str.length();
+using namespace std;
+
+int strlen(const string& str){
+    return str.size();
 }
 
-int main() {
-    assert (stringLength("asdasnakj") == 9);
+int main(){
+    assert (strlen("asdasnakj") == 9);
     return 0;
 }
