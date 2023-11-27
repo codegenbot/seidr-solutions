@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
+vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
 
@@ -32,9 +32,10 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    vector<vector<int>> result;
-    result.push_back(vector<int>(leftSubvector.begin(), leftSubvector.end()));
-    result.push_back(vector<int>(rightSubvector.begin(), rightSubvector.end()));
+    vector<int> result;
+    result.insert(result.end(), leftSubvector.begin(), leftSubvector.end());
+    result.insert(result.end(), rightSubvector.begin(), rightSubvector.end());
+
     return result;
 }
 
@@ -50,9 +51,7 @@ int main() {
     auto result = cutVector(nums);
 
     for (auto it = result.begin(); it != result.end(); it++) {
-        for (auto it2 = it->begin(); it2 != it->end(); it2++) {
-            cout << *it2 << endl;
-        }
+        cout << *it << endl;
     }
 
     return 0;
