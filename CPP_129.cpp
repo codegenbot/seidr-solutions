@@ -1,24 +1,51 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    // Initialize variables
-    int n = grid.size();
-    int m = grid[0].size();
-    int startX = 0;
-    int startY = 0;
-    vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(m, false));
+#include <iostream>
+#include <vector>
+#include <cassert>
+using namespace std;
 
-    // Find the minimum value on the grid
-    int minValue = INT_MAX;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
+void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path, vector<vector<bool>>& visited){
+    int n = grid.size();
+    if(x < 0 || x >= n || y < 0 || y >= n || visited[x][y] || k < 0){
+        return;
+    }
+    visited[x][y] = true;
+    path.push_back(grid[x][y]);
+    dfs(grid, x+1, y, k-grid[x][y], path, visited);
+    dfs(grid, x-1, y, k-grid[x][y], path, visited);
+    dfs(grid, x, y+1, k-grid[x][y], path, visited);
+    dfs(grid, x, y-1, k-grid[x][y], path, visited);
+    visited[x][y] = false;
+    path.pop_back();
+}
+
+vector<int> minPath(vector<vector<int>> grid, int k){
+    int n = grid.size();
+    vector<int> path;
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+
+    // Find the minimum value in the grid
+    int minValue = grid[0][0];
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
             minValue = min(minValue, grid[i][j]);
         }
     }
 
-    // Find the starting position for the minimum path
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if (grid[i][j] == minValue) {
+    // Find the starting cell with the minimum value
+    int startX, startY;
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            if(grid[i][j] == minValue){
                 startX = i;
                 startY = j;
                 break;
@@ -30,4 +57,10 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     dfs(grid, startX, startY, k, path, visited);
 
     return path;
+}
+
+int main(){
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    
+    return 0;
 }
