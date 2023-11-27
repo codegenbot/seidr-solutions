@@ -1,11 +1,18 @@
 int closest_integer(string value){
-    double num = stod(value);
+    float num = stof(value);
+    int rounded = round(num);
     int floor_num = floor(num);
     int ceil_num = ceil(num);
     
-    if (abs(num - floor_num) < abs(num - ceil_num)) {
+    if (num - floor_num < ceil_num - num) {
         return floor_num;
-    } else {
+    } else if (num - floor_num > ceil_num - num) {
         return ceil_num;
+    } else {
+        if (num >= 0) {
+            return ceil_num;
+        } else {
+            return floor_num;
+        }
     }
 }
