@@ -24,10 +24,21 @@ map<string, int> histogram(string test) {
 }
 
 bool issame(const map<string, int>& a, const map<string, int>& b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (auto it = a.begin(); it != a.end(); ++it) {
+        if (b.find(it->first) == b.end() || b[it->first] != it->second) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
+
     map<string, int> expected1 = {{"a", 1}};
     assert(issame(histogram("a"), expected1));
 
