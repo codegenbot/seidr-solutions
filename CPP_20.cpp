@@ -1,32 +1,54 @@
 #include <vector>
 #include <cmath>
+#include <limits>
 #include <cassert>
 
-std::vector<float> find_closest_elements(std::vector<float> numbers);
+using namespace std;
 
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    float min_diff = INFINITY;
-    float num1, num2;
-    
-    for(int i=0; i<numbers.size()-1; i++){
+bool issame(const vector<float>& a, const vector<float>& b);
+
+vector<float> find_closest_elements(vector<float> numbers);
+
+bool issame(const vector<float>& a, const vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<float> find_closest_elements(vector<float> numbers) {
+    float min_diff = numeric_limits<float>::infinity();
+
+    for(int i=0; i<numbers.size(); i++){
         for(int j=i+1; j<numbers.size(); j++){
             float diff = abs(numbers[i] - numbers[j]);
             if(diff < min_diff){
                 min_diff = diff;
-                num1 = numbers[i];
-                num2 = numbers[j];
             }
         }
     }
-    
-    std::vector<float> result;
-    result.push_back(num1);
-    result.push_back(num2);
-    
+
+    vector<float> result;
+
+    for(int i=0; i<numbers.size(); i++){
+      for(int j=i+1; j<numbers.size(); j++){
+        float diff = abs(numbers[i] - numbers[j]);
+        if(diff == min_diff) {
+            result.push_back(numbers[i]);
+            result.push_back(numbers[j]);
+        }
+      }
+    }
+
     return result;
 }
 
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::vector<float>({2.2, 3.1}));
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
     return 0;
 }
