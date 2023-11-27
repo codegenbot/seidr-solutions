@@ -42,7 +42,7 @@ bool isPrime(int n) {
 }
 
 int main() {
-    assert (intersection({-2, -2}, {-3, -2}) == "NO");
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
     // add more test cases if needed
     
     return 0;
