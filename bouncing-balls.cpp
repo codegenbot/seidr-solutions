@@ -13,7 +13,7 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, i
 
     for (int i = 1; i <= numBounces; i++) {
         totalDistance += (2 * heightAfterBounces);
-        heightAfterBounces *= pow(bouncinessIndex, (i+1));
+        heightAfterBounces *= std::pow(bouncinessIndex, (i+1));
     }
 
     return totalDistance;
