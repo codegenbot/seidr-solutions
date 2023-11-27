@@ -3,10 +3,7 @@
 #include <cassert>
 
 std::vector<int> sort_array(std::vector<int> arr);
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> sort_array(std::vector<int> arr){
     std::sort(arr.begin(), arr.end(), [](int a, int b){
@@ -18,6 +15,10 @@ std::vector<int> sort_array(std::vector<int> arr){
         return countA < countB;
     });
     return arr;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 int main(){
