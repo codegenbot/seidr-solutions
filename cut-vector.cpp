@@ -1,8 +1,8 @@
 #include <vector>
 #include <iostream>
-#include <climits>
+#include <climits> // Add this line
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
     int idx = 0;
@@ -25,28 +25,28 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& nums) 
         }
     }
     
-    std::vector<int> left(nums.begin(), nums.begin() + idx);
-    std::vector<int> right(nums.begin() + idx, nums.end());
+    vector<int> left(nums.begin(), nums.begin() + idx);
+    vector<int> right(nums.begin() + idx, nums.end());
     
-    return std::make_pair(left, right);
+    return make_pair(left, right);
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
     
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+    pair<vector<int>, vector<int>> result = cutVector(nums);
     for (int num : result.first) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     for (int num : result.second) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     return 0;
