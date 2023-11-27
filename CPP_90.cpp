@@ -1,16 +1,24 @@
-int next_smallest(vector<int> lst){
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int next_smallest(std::vector<int> lst){
     if(lst.size() < 2){
-        return -1;
+        return 0;
+    }
+    std::sort(lst.begin(), lst.end());
+    return lst[1];
+}
+
+int main() {
+    std::vector<int> numbers;
+    int num;
+    while(std::cin >> num){
+        numbers.push_back(num);
     }
     
-    sort(lst.begin(), lst.end());
+    int result = next_smallest(numbers);
+    std::cout << result << std::endl;
     
-    int smallest = lst[0];
-    int second_smallest = lst[1];
-    
-    if(smallest == second_smallest){
-        return -1;
-    }
-    
-    return second_smallest;
+    return 0;
 }
