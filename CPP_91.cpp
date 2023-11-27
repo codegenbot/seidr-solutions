@@ -1,4 +1,7 @@
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 int is_bored(std::string S){
     int count = 0;
@@ -20,9 +23,9 @@ int is_bored(std::string S){
     return count;
 }
 
-int main(){
-    assert(is_bored("You and I are going for a walk") == 0);
-    // Add your additional test cases here
-    
+int main() {
+    assert (is_bored("You and I are going for a walk") == 0);
+    assert (is_bored("I am bored. Are you bored? Let's do something!") == 3);
+
     return 0;
 }
