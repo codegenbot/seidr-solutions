@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
 int count_consonants(string word) {
