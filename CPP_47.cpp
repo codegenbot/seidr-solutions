@@ -10,8 +10,5 @@ float median(vector<float> l){
     }
 }
 
-int main() {
-    vector<float> values = {8, 1, 3, 9, 9, 2, 7};
-    assert(abs(median(values) - 7) < 1e-4);
-    return 0;
-}
+vector<float> values = {8, 1, 3, 9, 9, 2, 7};
+assert(abs(median(values) - 7) < 1e-4);
