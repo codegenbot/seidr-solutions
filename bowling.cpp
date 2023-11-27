@@ -1,37 +1,45 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int getScore(const std::string& bowls) {
+int calculateScore(string input) {
     int score = 0;
-    int frame = 0;
-    int bowlIndex = 0;
-
-    while (frame < 10 && bowlIndex < bowls.length()) {
-        if (bowls[bowlIndex] == 'X') {
-            score += 10;
-            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
-            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
-            bowlIndex += 1;
-        } else if (bowls[bowlIndex + 1] == '/') {
-            score += 10;
-            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
-            bowlIndex += 2;
+    int frame = 1;
+    int bowl = 0;
+    int frames[10] = {0};
+    
+    for (char c : input) {
+        if (frame > 10) break;
+        
+        if (c == 'X') {
+            frames[frame-1] = 10;
+            frame++;
+            bowl = 0;
+        } else if (c == '/') {
+            frames[frame-1] = 10 - frames[frame-1];
+            frame++;
+            bowl = 0;
+        } else if (c == '-') {
+            bowl++;
         } else {
-            score += (bowls[bowlIndex] - '0') + (bowls[bowlIndex + 1] - '0');
-            bowlIndex += 2;
+            frames[frame-1] += c - '0';
+            bowl++;
         }
-        frame++;
+        
+        if (bowl == 2 || c == 'X' || c == '/') {
+            score += frames[frame-1];
+        }
     }
     
     return score;
 }
 
 int main() {
-    std::string bowls;
-    std::cin >> bowls;
+    string input;
+    getline(cin, input);
     
-    int score = getScore(bowls);
-    std::cout << score << std::endl;
+    int score = calculateScore(input);
+    cout << score << endl;
     
     return 0;
 }
