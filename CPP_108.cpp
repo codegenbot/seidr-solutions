@@ -17,12 +17,11 @@ int count_nums(vector<int> n){
 }
 
 int main(){
-
-    // Test the count_nums() function
+    // Code for testing the count_nums function
     vector<int> nums = {123, -456, 789};
     int result = count_nums(nums);
     // Print the result
-    cout << result << endl;
-
+    cout << "Number of numbers with non-zero digit sums: " << result << endl;
+    
     return 0;
 }
