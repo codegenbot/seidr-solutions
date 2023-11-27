@@ -17,15 +17,17 @@ bool monotonic(vector<float> l){
 }
 
 int main(){
-    vector<float> nums = {1.2, 3.4, 5.6, 7.8};
-    bool result = monotonic(nums);
-    if(result){
-        std::cout << "The vector is monotonic." << std::endl;
-    }else{
-        std::cout << "The vector is not monotonic." << std::endl;
-    }
+    vector<float> test1 = {1.0, 2.0, 3.0, 4.0};
+    vector<float> test2 = {4.0, 3.0, 2.0, 1.0};
+    vector<float> test3 = {1.0, 2.0, 3.0, 2.0};
 
-    // Add more test cases and print results here
+    bool result1 = monotonic(test1);
+    bool result2 = monotonic(test2);
+    bool result3 = monotonic(test3);
+
+    cout << result1 << endl;
+    cout << result2 << endl;
+    cout << result3 << endl;
 
     return 0;
 }
