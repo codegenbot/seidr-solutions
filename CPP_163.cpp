@@ -2,8 +2,8 @@
 
 vector<int> generate_integers(int a, int b);  
 
-bool issame(vector<int> a,vector<int> b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;  
 }
 
 int main() {
