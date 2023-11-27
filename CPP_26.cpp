@@ -1,12 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> remove_duplicates(vector<int> numbers);
-
-int main(){
-    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == {1, 4, 5});
-}
-
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
     for(int i=0; i<numbers.size(); i++){
@@ -15,4 +9,8 @@ vector<int> remove_duplicates(vector<int> numbers){
         }
     }
     return result;
+}
+
+int main(){
+    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == {1, 4, 5});
 }
