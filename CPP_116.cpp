@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> sort_vector(vector<int> arr) {
     sort(arr.begin(), arr.end(), [](int a, int b) {
         int count1 = __builtin_popcount(a);
