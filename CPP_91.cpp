@@ -17,10 +17,12 @@ int is_bored(string S){
     return count;
 }
 
-int main() {
-    string sentence;
-    getline(cin, sentence);
+int main(){
+    // Test the is_bored function
+    string sentence = "I am bored. Are you bored? Let's do something!"
     int result = is_bored(sentence);
-    cout << result;
+    // Print the result
+    cout << "Number of sentences: " << result << endl;
+    
     return 0;
 }
