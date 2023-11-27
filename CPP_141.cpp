@@ -1,10 +1,15 @@
-string file_name_check(string file_name){
+#include <iostream>
+#include <string>
+
+std::string file_name_check(std::string file_name);
+
+std::string file_name_check(std::string file_name){
     int dot_index = file_name.find(".");
-    if(dot_index == string::npos){
+    if(dot_index == std::string::npos){
         return "No";
     }
-    string name_before_dot = file_name.substr(0, dot_index);
-    string extension = file_name.substr(dot_index + 1);
+    std::string name_before_dot = file_name.substr(0, dot_index);
+    std::string extension = file_name.substr(dot_index + 1);
 
     if(name_before_dot.empty() || !isalpha(name_before_dot[0])){
         return "No";
