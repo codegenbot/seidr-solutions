@@ -1,7 +1,9 @@
-#include <vector>   // for vector
-#include <string>   // for string
-#include <algorithm>    // for sort, reverse
-#include <map>  // for map
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <map>
+
+using namespace std;
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
