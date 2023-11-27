@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 bool is_palindrome(string text){
     int n = text.length();
