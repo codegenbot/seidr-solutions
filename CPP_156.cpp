@@ -23,8 +23,8 @@ int main() {
     int number;
     cin >> number;
 
-    string roman = int_to_mini_roman(number);
-    cout << roman << endl;
+    string result = int_to_mini_roman(number);
+    cout << result;
 
     return 0;
 }
