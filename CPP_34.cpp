@@ -25,9 +25,9 @@ int main() {
     std::vector<int> output = unique(input);
     
     if(issame(output, expected_output)){
-        std::cout << "Output is correct" << std::endl;
+        std::cout << "Output is correct\n";
     } else {
-        std::cout << "Output is incorrect" << std::endl;
+        std::cout << "Output is incorrect\n";
     }
     
     return 0;
