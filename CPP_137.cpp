@@ -1,35 +1,35 @@
-#include <boost/algorithm/string.hpp>
 #include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int int_a = boost::any_cast<int>(a);
-        int int_b = boost::any_cast<int>(b);
-        if (int_a > int_b) {
-            return int_a;
-        } else if (int_b > int_a) {
-            return int_b;
+    if (a.type() != b.type()) {
+        return boost::any();
+    }
+
+    if (a.type() == typeid(int)) {
+        int intA = boost::any_cast<int>(a);
+        int intB = boost::any_cast<int>(b);
+        if (intA > intB) {
+            return intA;
+        } else if (intB > intA) {
+            return intB;
         }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float float_a = boost::any_cast<float>(a);
-        float float_b = boost::any_cast<float>(b);
-        if (float_a > float_b) {
-            return float_a;
-        } else if (float_b > float_a) {
-            return float_b;
+    } else if (a.type() == typeid(float)) {
+        float floatA = boost::any_cast<float>(a);
+        float floatB = boost::any_cast<float>(b);
+        if (floatA > floatB) {
+            return floatA;
+        } else if (floatB > floatA) {
+            return floatB;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str_a = boost::any_cast<std::string>(a);
-        std::string str_b = boost::any_cast<std::string>(b);
-        boost::algorithm::replace_all(str_a, ",", ".");
-        boost::algorithm::replace_all(str_b, ",", ".");
-        float float_a = std::stof(str_a);
-        float float_b = std::stof(str_b);
-        if (float_a > float_b) {
-            return str_a;
-        } else if (float_b > float_a) {
-            return str_b;
+    } else if (a.type() == typeid(std::string)) {
+        std::string strA = boost::any_cast<std::string>(a);
+        std::string strB = boost::any_cast<std::string>(b);
+        if (strA > strB) {
+            return strA;
+        } else if (strB > strA) {
+            return strB;
         }
     }
-    return "None";
+
+    return boost::any();
 }
