@@ -1,5 +1,9 @@
 #include <vector>
 
+vector<int> intersperse(vector<int> numbers, int delimeter);
+
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> intersperse(vector<int> numbers, int delimeter){
     vector<int> result;
     for(int i = 0; i < numbers.size(); i++){
@@ -21,10 +25,4 @@ bool issame(vector<int> a, vector<int> b){
         }
     }
     return true;
-}
-
-int main(){
-    // Your code here
-
-    return 0;
 }
