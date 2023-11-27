@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 int is_bored(string S){
     int boredomCount = 0;
     string delimiter = ".?!";
