@@ -16,11 +16,22 @@ int main() {
     // Test cases
     string test1 = "abc";
     string test2 = "aab";
-    string test3 = "abb";
+    string test3 = "xyz";
     
-    cout << is_happy(test1) << endl; // Expected output: 1 (true)
-    cout << is_happy(test2) << endl; // Expected output: 0 (false)
-    cout << is_happy(test3) << endl; // Expected output: 0 (false)
+    if(is_happy(test1))
+        cout << test1 << " is happy" << endl;
+    else
+        cout << test1 << " is not happy" << endl;
+    
+    if(is_happy(test2))
+        cout << test2 << " is happy" << endl;
+    else
+        cout << test2 << " is not happy" << endl;
+    
+    if(is_happy(test3))
+        cout << test3 << " is happy" << endl;
+    else
+        cout << test3 << " is not happy" << endl;
     
     return 0;
 }
