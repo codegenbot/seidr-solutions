@@ -2,26 +2,38 @@
 #include <vector>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    int leftSum = 0;
-    int rightSum = 0;
-    for (int num : nums) {
-        rightSum += num;
-    }
+    int n = nums.size();
+    int diff = INT_MAX;
+    int cutIndex = -1;
     
-    int minDiff = std::abs(leftSum - rightSum);
-    int cutIndex = 0;
-    
-    for (int i = 0; i < nums.size(); i++) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        int diff = std::abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i + 1;
+    // Find the spot where the difference is as small as possible
+    for (int i = 1; i < n; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+        
+        // Calculate the sum of elements on the left side of the cut
+        for (int j = 0; j < i; j++) {
+            leftSum += nums[j];
+        }
+        
+        // Calculate the sum of elements on the right side of the cut
+        for (int j = i; j < n; j++) {
+            rightSum += nums[j];
+        }
+        
+        // Update the difference and cut index if necessary
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            cutIndex = i;
         }
     }
     
-    return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex), std::vector<int>(nums.begin() + cutIndex, nums.end()));
+    // Create the two resulting subvectors
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex);
+    std::vector<int> rightSubvector(nums.begin() + cutIndex, nums.end());
+    
+    return std::make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
@@ -35,6 +47,7 @@ int main() {
     
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
     
+    // Print the two resulting subvectors
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
