@@ -1,21 +1,35 @@
-vector<string> reverse_delete(string s,string c){
-    string result = "";
+#include <string>
+#include <vector>
+#include <cassert>
 
-    // Delete characters in s that are equal to any character in c
+using namespace std;
+
+vector<string> reverse_delete(const string& s, const string& c) {
+    vector<string> result;
+    string temp;
+    
     for (int i = 0; i < s.length(); i++) {
         if (c.find(s[i]) == string::npos) {
-            result += s[i];
+            temp += s[i];
         }
     }
+    
+    string reversed = temp;
+    reverse(reversed.begin(), reversed.end());
+    
+    if (temp == reversed) {
+        result.push_back(temp);
+        result.push_back("True");
+    } else {
+        result.push_back(temp);
+        result.push_back("False");
+    }
+    
+    return result;
+}
 
-    // Check if the result string is palindrome
-    string reverse = result;
-    reverse(result.begin(), result.end());
-
-    // Return vector containing the result string and palindrome check
-    vector<string> output;
-    output.push_back(result);
-    output.push_back(result == reverse ? "True" : "False");
-
-    return output;
+int main() {
+    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
+    
+    return 0;
 }
