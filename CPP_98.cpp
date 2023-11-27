@@ -15,12 +15,12 @@ int count_upper(const string& s){
 int main() {
     // Test cases
     string test1 = "Hello";
-    string test2 = "WORLD";
+    string test2 = "WOrld";
     string test3 = "abcde";
     
-    std::cout << count_upper(test1) << std::endl;  // Expected output: 2
-    std::cout << count_upper(test2) << std::endl;  // Expected output: 3
-    std::cout << count_upper(test3) << std::endl;  // Expected output: 0
+    std::cout << count_upper(test1) << std::endl; // Expected output: 2
+    std::cout << count_upper(test2) << std::endl; // Expected output: 1
+    std::cout << count_upper(test3) << std::endl; // Expected output: 0
     
     return 0;
 }
