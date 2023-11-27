@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -10,7 +11,11 @@ int next_smallest(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> numbers = {5, 3, 1, 4, 2};
-    int result = next_smallest(numbers);
+    std::vector<int> lst;
+    int num;
+    while (std::cin >> num) {
+        lst.push_back(num);
+    }
+    std::cout << next_smallest(lst) << std::endl;
     return 0;
 }
