@@ -19,7 +19,8 @@ int main(){
     
     if(is_happy(input)){
         cout << "The string is happy." << endl;
-    } else {
+    }
+    else{
         cout << "The string is not happy." << endl;
     }
     
