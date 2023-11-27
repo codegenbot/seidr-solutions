@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-using namespace std;
+vector<string> odd_count(vector<string> lst);
 
 vector<string> odd_count(vector<string> lst) {
     vector<string> result;
@@ -14,23 +13,15 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        result.push_back("the number of odd elements " + to_string(count) + "n the string " + s + " of the input.");
+        result.push_back("the number of odd elements " + to_string(count) + "n the str" + to_string(count) + "ng " + s + " of the " + to_string(count) + "nput.");
     }
     return result;
 }
 
-bool are_equal(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 int main() {
-    assert(are_equal(odd_count({"271", "137", "314"}), {
-        "the number of odd elements 2 in the string 271 of the input.",
-        "the number of odd elements 3 in the string 137 of the input.",
-        "the number of odd elements 2 in the string 314 of the input."
-    }));
-
-    cout << "Test cases pass" << endl;
-
-    return 0;
+    assert(odd_count({"271", "137", "314"}) == vector<string>{
+        "the number of odd elements 2n the str2ng 271 of the 2nput.",
+        "the number of odd elements 3n the str3ng 137 of the 3nput.",
+        "the number of odd elements 2n the str2ng 314 of the 2nput."
+    });
 }
