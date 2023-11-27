@@ -1,11 +1,11 @@
 vector<int> filter_integers(list_any values){
-    vector<int> result;
+    vector<int> integers;
     
-    for(auto& value : values){
-        if(typeid(value) == typeid(int)){
-            result.push_back(boost::any_cast<int>(value));
+    for (const auto& value : values) {
+        if (auto* integer = boost::any_cast<int>(&value)) {
+            integers.push_back(*integer);
         }
     }
     
-    return result;
+    return integers;
 }
