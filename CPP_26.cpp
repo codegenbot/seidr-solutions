@@ -10,8 +10,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> remove_duplicates(const vector<int>& numbers){
-    vector<int> result = numbers;
-    sort(result.begin(), result.end());
+    vector<int> result = numbers; // Create a copy of the input vector
     result.erase(unique(result.begin(), result.end()), result.end());
     return result;
 }
