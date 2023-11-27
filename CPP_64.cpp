@@ -1,6 +1,12 @@
+#include <algorithm>
+#include <string>
+using namespace std;
+
+int vowels_count(string s);
+
 int vowels_count(string s){
     int count = 0;
-    transform(s.begin(), s.end(), s.begin(), ::tolower); // convert all characters to lowercase
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
     
     for(int i=0; i<s.length(); i++){
         if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u'){
@@ -8,7 +14,7 @@ int vowels_count(string s){
         }
     }
     
-    if(s.length() > 0 && s[s.length()-1] == 'y'){ // check if last character is 'y'
+    if(s.length() > 0 && s[s.length()-1] == 'y'){
         count++;
     }
     
