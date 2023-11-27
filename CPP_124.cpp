@@ -45,7 +45,7 @@ std::string get_date_input(){
     return date;
 }
 
-int main(){
+int main() {
     std::string date = get_date_input();
     
     if(valid_date(date)){
