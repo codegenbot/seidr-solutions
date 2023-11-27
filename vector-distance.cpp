@@ -28,7 +28,7 @@ int main() {
     }
 
     std::getline(std::cin, input);
-    std::replace(input.begin(), input.end(), ',', ' ');
+    std::replace(input.begin(), input.end(), ',', ' '); // Replace comma with space
     std::stringstream ss2(input);
     for (int i = 0; i < n; i++) {
         ss2 >> vector2[i];
