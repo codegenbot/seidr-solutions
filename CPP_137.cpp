@@ -1,37 +1,42 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-using namespace std;
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        if (num1 > num2) {
-            return a;
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        if (x > y) {
+            return x;
+        } else if (x < y) {
+            return y;
         }
-        else if (num1 < num2) {
-            return b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float x = boost::any_cast<float>(a);
+        float y = boost::any_cast<float>(b);
+        if (x > y) {
+            return x;
+        } else if (x < y) {
+            return y;
         }
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        if (num1 > num2) {
-            return a;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string x = boost::any_cast<string>(a);
+        string y = boost::any_cast<string>(b);
+        if (x > y) {
+            return x;
+        } else if (x < y) {
+            return y;
         }
-        else if (num1 < num2) {
-            return b;
+    } else if ((a.type() == typeid(int) && b.type() == typeid(string)) ||
+               (a.type() == typeid(string) && b.type() == typeid(int))) {
+        string x, y;
+        if (a.type() == typeid(int)) {
+            x = to_string(boost::any_cast<int>(a));
+            y = boost::any_cast<string>(b);
+        } else {
+            x = boost::any_cast<string>(a);
+            y = to_string(boost::any_cast<int>(b));
         }
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        if (str1 > str2) {
-            return a;
-        }
-        else if (str1 < str2) {
-            return b;
+        if (x > y) {
+            return x;
+        } else if (x < y) {
+            return y;
         }
     }
     return "None";
