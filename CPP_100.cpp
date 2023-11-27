@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -20,9 +20,9 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    std::vector<int> result = make_a_pile(8);
-    std::vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
-    if (issame(result, expected)) {
+    std::vector<int> res = make_a_pile(10);
+    std::vector<int> exp = {10, 12, 14, 16, 18, 20, 22, 24, 26, 28};
+    if (issame(res, exp)) {
         std::cout << "Test case passed!" << std::endl;
     } else {
         std::cout << "Test case failed!" << std::endl;
