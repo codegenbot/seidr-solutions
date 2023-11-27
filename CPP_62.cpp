@@ -13,14 +13,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> derivative(std::vector<float> xs) {
-    std::vector<float> result;
-    for (int i = 1; i < xs.size(); i++) {
-        result.push_back(xs[i] * i);
-    }
-    return result;
-}
-
 int main() {
     assert(issame(std::vector<float>({1}), std::vector<float>({})));
     // Add more test cases here if needed
