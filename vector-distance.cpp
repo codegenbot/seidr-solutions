@@ -14,7 +14,6 @@ double calculateEuclideanDistance(const std::vector<double>& vector1, const std:
 int main() {
     int n;
     std::cin >> n;
-
     std::vector<double> vector1(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vector1[i];
