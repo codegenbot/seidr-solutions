@@ -1,9 +1,5 @@
 bool issame(vector<string> a, vector<string> b);
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     if (s.empty()) {
@@ -43,14 +39,6 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main() {
-    vector<string> a = {"apple", "banana", "cherry"};
-    vector<string> b = {"apple", "banana", "cherry"};
-    assert(areSame(a, b));
-
-    vector<string> c = {"apple", "banana", "cherry"};
-    vector<string> d = {"apple", "mango", "cherry"};
-    assert(!areSame(c, d));
-
-    return 0;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
