@@ -26,6 +26,6 @@ int main(){
     assert (count_nums({-123}) == 6);
     assert (count_nums({-5, 0, 10, -25, 100}) == 5);
     assert (count_nums({-1, 2, -3, 4, -5, 6}) == 6);
-
+    
     return 0;
 }
