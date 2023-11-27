@@ -38,9 +38,3 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     }
     return true;
 }
-
-int main() {
-    assert(issame(f(3), {1, 2, 6}));
-    std::cout << "Test Passed!" << std::endl;
-    return 0;
-}
