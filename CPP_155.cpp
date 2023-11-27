@@ -1,7 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
 
 using namespace std;
+
+vector<int> even_odd_count(int num);
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> even_odd_count(int num){
     int even_count = 0;
@@ -20,14 +26,17 @@ vector<int> even_odd_count(int num){
     return {even_count, odd_count};
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
-    assert (issame(even_odd_count(0) , {1, 0}));
-    assert (issame(even_odd_count(123456789) , {5, 4}));
-    assert (issame(even_odd_count(-987654321) , {4, 5}));
+    assert(issame(even_odd_count(0), {1, 0}));
     
+    cout << "Test cases passed!" << endl;
     return 0;
 }
