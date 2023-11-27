@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
-long long double_the_difference(std::vector<float> lst){
-    long long sum = 0;
+int double_the_difference(std::vector<float> lst){
+    int sum = 0;
     for(int i=0; i<lst.size(); i++){
         if(lst[i] > 0 && lst[i] == (int)lst[i] && (int)lst[i] % 2 != 0){
             sum += std::pow(lst[i], 2);
@@ -13,19 +12,24 @@ long long double_the_difference(std::vector<float> lst){
     return sum;
 }
 
-int main(){
+int solve(){
     int n;
     std::cin >> n;
-    std::vector<float> lst(n);
+    std::vector<float> lst;
     for(int i=0; i<n; i++){
-        std::cin >> lst[i];
+        float num;
+        std::cin >> num;
+        lst.push_back(num);
     }
     
-    long long odd_sum = double_the_difference(lst);
-    
-    assert(double_the_difference(lst) == odd_sum);
-    
-    std::cout << odd_sum << std::endl;
+    int odd_sum = double_the_difference(lst);
+
+    return odd_sum;
+}
+
+int main(){
+    int result = solve();
+    std::cout << result << std::endl;
 
     return 0;
 }
