@@ -13,8 +13,7 @@ int digitSum(const std::string& s){
 }
 
 int main(){
-    int result = digitSum("You arE Very Smart");
-    std::cout << result << std::endl;
+    assert(digitSum("You arE Very Smart") == 327);
     
     return 0;
 }
