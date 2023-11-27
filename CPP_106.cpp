@@ -28,4 +28,3 @@ bool issame(vector<int> a, vector<int> b){
 int main(){
     assert(f(3) == vector<int>{1, 2, 6});
 }
-
