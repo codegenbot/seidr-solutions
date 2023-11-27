@@ -1,5 +1,8 @@
 #include <string>
 #include <vector>
+#include <cassert>
+
+using namespace std;
 
 vector<string> reverse_delete(const string& s, const string& c) {
     vector<string> result;
