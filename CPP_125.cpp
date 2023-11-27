@@ -1,35 +1,45 @@
-vector<string> split_words(string txt){
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+
+vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-    
-    for(char c : txt){
-        if(c == ' '){
+
+    for (int i = 0; i < txt.length(); i++) {
+        if (txt[i] == ' ') {
             hasWhitespace = true;
-            if(word != ""){
+            if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
-        }else if(c == ','){
+        } else if (txt[i] == ',') {
             hasComma = true;
-            if(word != ""){
+            if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
-        }else{
-            word += c;
+        } else {
+            word += txt[i];
         }
     }
-    
-    if(word != ""){
+
+    if (!word.empty()) {
         result.push_back(word);
     }
-    
-    if(!hasWhitespace && !hasComma){
-        result.clear();
+
+    if (!hasWhitespace && !hasComma) {
         result.push_back(to_string(3));
     }
-    
+
     return result;
+}
+
+int main() {
+    // Your code here
+
+    return 0;
 }
