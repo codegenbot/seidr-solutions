@@ -19,18 +19,18 @@ vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = numbers[0];
     float max_num = numbers[0];
 
-    for(int i = 1; i < numbers.size(); i++) {
-        if(numbers[i] < min_num) {
+    for (int i = 1; i < numbers.size(); i++) {
+        if (numbers[i] < min_num) {
             min_num = numbers[i];
         }
-        if(numbers[i] > max_num) {
+        if (numbers[i] > max_num) {
             max_num = numbers[i];
         }
     }
 
     vector<float> rescaled_numbers(numbers.size());
 
-    for(int i = 0; i < numbers.size(); i++) {
+    for (int i = 0; i < numbers.size(); i++) {
         float rescaled_num = (numbers[i] - min_num) / (max_num - min_num);
         rescaled_numbers[i] = rescaled_num;
     }
@@ -43,7 +43,7 @@ int main() {
     vector<float> expected_output = {0.25, 0.0, 1.0, 0.5, 0.75};
     vector<float> rescaled = rescale_to_unit(input);
 
-    if(issame(rescaled, expected_output)) {
+    if (issame(rescaled, expected_output)) {
         cout << "Output is correct." << endl;
     }
     else {
