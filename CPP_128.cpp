@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
-using namespace std;
 
-int prod_signs(vector<int> arr){
+int prod_signs(std::vector<int> arr){
     if(arr.empty()){
         return -32768;
     }
@@ -16,17 +14,7 @@ int prod_signs(vector<int> arr){
 }
 
 int main(){
-    vector<int> arr;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
-    for(int i=0; i<n; i++){
-        int num;
-        cin >> num;
-        arr.push_back(num);
-    }
-    cout << "Result: " << prod_signs(arr) << endl;
-    
+    assert (prod_signs({-1, 1, 1, 0}) == 0);
+
     return 0;
 }
