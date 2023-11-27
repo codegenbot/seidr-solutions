@@ -1,11 +1,11 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
+    if(a.size() != b.size()) // If sizes are different, vectors are not the same
         return false;
     
     for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
+        if(a[i] != b[i]) // If any corresponding elements are different, vectors are not the same
             return false;
     }
     
