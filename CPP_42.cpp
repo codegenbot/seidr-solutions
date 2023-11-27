@@ -1,6 +1,9 @@
 vector<int> incr_list(vector<int> l){
-    for(int i=0; i<l.size(); i++){
-        l[i]++;
+    vector<int> result;
+    
+    for(auto num : l){
+        result.push_back(num + 1);
     }
-    return l;
+    
+    return result;
 }
