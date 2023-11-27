@@ -11,7 +11,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     }
     int minDiff = abs(leftSum - rightSum);
     int cutIndex = 0;
-    
+
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
@@ -21,10 +21,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
             cutIndex = i + 1;
         }
     }
-    
+
     vector<int> left(nums.begin(), nums.begin() + cutIndex);
     vector<int> right(nums.begin() + cutIndex, nums.end());
-    
+
     return make_pair(left, right);
 }
 
@@ -35,9 +35,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    
+
     pair<vector<int>, vector<int>> result = cutVector(nums);
-    
+
     for (int num : result.first) {
         cout << num << " ";
     }
@@ -46,6 +46,6 @@ int main() {
         cout << num << " ";
     }
     cout << endl;
-    
+
     return 0;
 }
