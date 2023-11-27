@@ -1,13 +1,10 @@
 #include <iostream>
-#include <string>
 #include <vector>
-#include <cassert>
+#include <string>
 
-using namespace std;
-
-vector<string> words_string(const string& s) {
-    vector<string> words;
-    string word = "";
+std::vector<std::string> words_string(const std::string& s) {
+    std::vector<std::string> words;
+    std::string word = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ' || s[i] == ',') {
             if (word != "") {
@@ -24,7 +21,7 @@ vector<string> words_string(const string& s) {
     return words;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     bool result = true;
     if (a.size() != b.size()) {
         result = false;
@@ -42,7 +39,10 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 int main() {
     assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
 
-    // Add more test cases if needed
+    // Additional test cases
+    assert(issame(words_string(""), {}));  // Empty string, expect empty vector
+    assert(issame(words_string("apple,orange,banana"), {"apple", "orange", "banana"}));  // Multiple words separated by commas
+    assert(issame(words_string("   hello, world   ,   how , are , you   "), {"hello", "world", "how", "are", "you"}));  // Extra spaces before and after words
 
     return 0;
 }
