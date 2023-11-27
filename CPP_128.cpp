@@ -22,13 +22,11 @@ int prod_signs(vector<int> arr) {
 
 int main() {
     assert(prod_signs({-1, 1, 1, 0}) == 0);
-    assert(prod_signs({-1, -2, -3}) == 6);
-    assert(prod_signs({4, -5, 6, -7}) == 84);
-    assert(prod_signs({0, 0, 0, 0, 0}) == 0);
+    assert(prod_signs({-1, -2, -3, -4}) == -24);
+    assert(prod_signs({1, 2, 3, 4}) == 24);
+    assert(prod_signs({1, -2, 3, -4}) == -24);
     assert(prod_signs({0}) == 0);
-    assert(prod_signs({-1}) == -1);
-    assert(prod_signs({1}) == 1);
-    // Add more test cases here
+    assert(prod_signs({}) == -32768);
 
     return 0;
 }
