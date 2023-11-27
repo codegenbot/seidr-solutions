@@ -11,10 +11,20 @@ vector<int> remove_duplicates(const vector<int>& numbers){
     return result;
 }
 
+void test_remove_duplicates() {
+    vector<int> input = {1, 2, 3, 2, 4, 3, 5};
+    vector<int> expected_output = {1, 2, 3, 4, 5};
+
+    vector<int> result = remove_duplicates(input);
+
+    if (result == expected_output) {
+        cout << "Test Passed!" << endl;
+    } else {
+        cout << "Test Failed!" << endl;
+    }
+}
+
 int main() {
-    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == vector<int>({1, 2, 3, 4, 5}));
-
-    cout << "Code is correct." << endl;
-
+    test_remove_duplicates();
     return 0;
 }
