@@ -6,7 +6,7 @@
 using namespace std;
 
 bool isvowel(char c) {
-    c = tolower(c);
+    // implementation of isvowel function
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
@@ -39,6 +39,7 @@ vector<string> select_words(string s, int n) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
+    // implementation of issame function
     if (a.size() != b.size()) {
         return false;
     }
