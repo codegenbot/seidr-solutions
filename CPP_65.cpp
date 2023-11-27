@@ -1,13 +1,22 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 string circular_shift(int x, int shift) {
-    string num = to_string(x);
-    int size = num.size();
-    
-    if (shift > size) {
-        reverse(num.begin(), num.end());
-        return num;
+    string str = to_string(x);
+    int len = str.length();
+    if (shift > len) {
+        reverse(str.begin(), str.end());
+    } else {
+        shift = shift % len;
+        rotate(str.begin(), str.begin() + len - shift, str.end());
     }
-    
-    shift %= size;
-    string shiftedNum = num.substr(size - shift) + num.substr(0, size - shift);
-    return shiftedNum;
+    return str;
+}
+
+int main() {
+    assert (circular_shift(11, 101) == "11");
+    return 0;
 }
