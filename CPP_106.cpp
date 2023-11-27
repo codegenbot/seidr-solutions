@@ -1,4 +1,10 @@
-vector<int> f(int n){
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<int> f(int n) {
     vector<int> result;
     int factorial = 1;
     int sum = 0;
