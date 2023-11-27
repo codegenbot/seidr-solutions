@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,8 +13,9 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> generate_integers(int start, int end) {
-    vector<int> result;
+std::vector<int> generate_integers(int start, int end)
+{
+    std::vector<int> result;
     for (int i = start; i <= end; i++) {
         result.push_back(i);
     }
