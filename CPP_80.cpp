@@ -13,5 +13,13 @@ bool is_happy(string s){
 }
 
 int main(){
+    string input;
+    cin >> input;
+    bool result = is_happy(input);
+    if(result){
+        cout << "The string is happy." << endl;
+    } else {
+        cout << "The string is not happy." << endl;
+    }
     return 0;
 }
