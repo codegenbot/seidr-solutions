@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <string>
+
+typedef std::basic_string<char> std::string;
 
 std::vector<std::string> words_string(const std::string& s) {
     std::vector<std::string> words;
@@ -21,28 +22,6 @@ std::vector<std::string> words_string(const std::string& s) {
     return words;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    bool result = true;
-    if (a.size() != b.size()) {
-        result = false;
-    } else {
-        for (int i = 0; i < a.size(); i++) {
-            if (a[i] != b[i]) {
-                result = false;
-                break;
-            }
-        }
-    }
-    return result;
-}
+bool issame(const std::vector<std::string>&, const std::vector<std::string>&);
 
-int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-
-    // Additional test cases
-    assert(issame(words_string(""), {}));  // Empty string, expect empty vector
-    assert(issame(words_string("apple,orange,banana"), {"apple", "orange", "banana"}));  // Multiple words separated by commas
-    assert(issame(words_string("   hello, world   ,   how , are , you   "), {"hello", "world", "how", "are", "you"}));  // Extra spaces before and after words
-
-    return 0;
-}
+bool issame(const std::vector<std::string>&, const std::vector<std::string>&);
