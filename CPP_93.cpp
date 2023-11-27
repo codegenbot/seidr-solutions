@@ -3,13 +3,26 @@ string encode(string message){
     for(int i = 0; i < message.length(); i++){
         char c = message[i];
         if(isalpha(c)){
-            if(isupper(c)){
-                c = tolower(c);
-            }else{
+            if(islower(c)){
                 c = toupper(c);
             }
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c = c + 2;
+            else{
+                c = tolower(c);
+            }
+            if(c == 'A'){
+                c = 'C';
+            }
+            else if(c == 'E'){
+                c = 'G';
+            }
+            else if(c == 'I'){
+                c = 'K';
+            }
+            else if(c == 'O'){
+                c = 'Q';
+            }
+            else if(c == 'U'){
+                c = 'W';
             }
         }
         encodedMessage += c;
