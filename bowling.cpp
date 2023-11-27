@@ -31,7 +31,7 @@ int calculateScore(std::string input) {
             
             frame++;
         } else if (ch == '-') {
-            
+            // do nothing
         } else {
             frames[frame] += (ch - '0');
             if (((i+1) % 2 == 0) && (frame < 9)) {
