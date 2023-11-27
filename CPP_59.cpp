@@ -16,11 +16,3 @@ int largest_prime_factor(int n) {
     }
     return largestFactor;
 }
-
-int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::cout << "Largest prime factor: " << largest_prime_factor(n) << std::endl;
-    return 0;
-}
