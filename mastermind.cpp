@@ -21,7 +21,6 @@ pair<int, int> mastermind(string code, string guess) {
         whitePegs += min(codeCount[i], guessCount[i]);
     }
 
-    // Correct the counting of white pegs
     for (int i = 0; i < 6; i++) {
         if (codeCount[i] > 0 && guessCount[i] > 0) {
             whitePegs++;
