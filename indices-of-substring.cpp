@@ -21,7 +21,11 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 int main() {
     std::string text;
     std::string target;
-    std::cin >> text >> target;
+
+    std::cout << "Enter text: ";
+    std::getline(std::cin, text);
+    std::cout << "Enter target: ";
+    std::getline(std::cin, target);
 
     std::vector<int> result = indicesOfSubstring(text, target);
 
