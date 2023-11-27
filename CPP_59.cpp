@@ -1,17 +1,15 @@
 #include <iostream>
 
 int largest_prime_factor(int n) {
-    int largestFactor = 2;
-    while (n % 2 == 0) {
-        n /= 2;
-    }
-    for (int i = 3; i <= n; i += 2) {
-        while (n % i == 0) {
-            largestFactor = i;
-            n /= i;
+    int factor = 2;
+    while (factor * factor <= n) {
+        if (n % factor == 0) {
+            n /= factor;
+        } else {
+            factor++;
         }
     }
-    return largestFactor;
+    return n;
 }
 
 int main() {
