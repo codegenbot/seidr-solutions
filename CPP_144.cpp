@@ -1,12 +1,16 @@
-bool simplify(string x, string n) {
-    int xNumerator = stoi(x.substr(0, x.find('/')));
-    int xDenominator = stoi(x.substr(x.find('/') + 1));
-    int nNumerator = stoi(n.substr(0, n.find('/')));
-    int nDenominator = stoi(n.substr(n.find('/') + 1));
-    
-    if ((xNumerator * nDenominator) == (xDenominator * nNumerator)) {
+bool simplify(string x, string n){
+    int num1 = stoi(x.substr(0, x.find("/")));
+    int den1 = stoi(x.substr(x.find("/") + 1));
+    int num2 = stoi(n.substr(0, n.find("/")));
+    int den2 = stoi(n.substr(n.find("/") + 1));
+
+    int product = num1 * num2;
+    int divisor = den1 * den2;
+
+    if(product % divisor == 0){
         return true;
-    } else {
+    }
+    else{
         return false;
     }
 }
