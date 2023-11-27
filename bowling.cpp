@@ -38,7 +38,7 @@ int getScore(const std::string& input) {
             score += (c - '0');
             bonus--;
         }
-        
+
         if (bonus > 0 && c == '/') {
             score += (c - '0');
             bonus--;
