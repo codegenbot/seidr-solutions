@@ -16,6 +16,10 @@ int closest_integer(std::string value){
 
 int main() {
     assert(closest_integer("0") == 0);
+    assert(closest_integer("1.5") == 2);
+    assert(closest_integer("-2.5") == -2);
+    assert(closest_integer("3.9") == 4);
+    assert(closest_integer("-4.9") == -5);
     // Add more test cases here
     return 0;
 }
