@@ -1,6 +1,6 @@
 #include <string>
 
-int how_many_times(string str, string substring) {
+int how_many_times(std::string str, std::string substring) {
     int count = 0;
     int subLen = substring.length();
     int strLen = str.length();
@@ -27,20 +27,20 @@ int how_many_times(string str, string substring) {
 
 int main() {
     // Test cases
-    string str = "abababab";
-    string substring = "ab";
-    int result = how_many_times(str, substring);
-    cout << result << endl;
+    std::string str1 = "abcabcabc";
+    std::string substring1 = "abc";
+    int result1 = how_many_times(str1, substring1);
+    // Expected output: 3
     
-    str = "hello world";
-    substring = "lo";
-    result = how_many_times(str, substring);
-    cout << result << endl;
+    std::string str2 = "banana";
+    std::string substring2 = "na";
+    int result2 = how_many_times(str2, substring2);
+    // Expected output: 2
     
-    str = "programming";
-    substring = "gram";
-    result = how_many_times(str, substring);
-    cout << result << endl;
+    std::string str3 = "hello world";
+    std::string substring3 = "foo";
+    int result3 = how_many_times(str3, substring3);
+    // Expected output: 0
     
     return 0;
 }
