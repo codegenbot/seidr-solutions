@@ -1,16 +1,17 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <bitset>
 #include <cassert>
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> sort_array(std::vector<int> arr) {
+std::vector<int> sortVector(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        int countA = __builtin_popcount(a);
-        int countB = __builtin_popcount(b);
+        int countA = std::bitset<32>(a).count();
+        int countB = std::bitset<32>(b).count();
         if (countA == countB) {
             return a < b;
         }
@@ -20,6 +21,6 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    assert(is_same(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+    assert(issame(sortVector({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
     return 0;
 }
