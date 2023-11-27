@@ -1,8 +1,10 @@
 #include <vector>
-#include <list> // Add the appropriate header file here
-#include <boost/any.hpp> // Add the appropriate header file here
+#include <list>
+#include <boost/any.hpp>
 
-vector<int> filter_integers(std::list<boost::any> values) {
+using namespace std;
+
+vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (auto value : values) {
         if (value.type() == typeid(int)) {
@@ -12,11 +14,11 @@ vector<int> filter_integers(std::list<boost::any> values) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) { // Add the missing `<` after `vector<int>`
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -25,21 +27,23 @@ bool issame(vector<int> a, vector<int> b) { // Add the missing `<` after `vector
 }
 
 int main() {
-    list<boost::any> values;
-    values.push_back(1);
-    values.push_back(2.5);
-    values.push_back('a');
-    values.push_back(3);
-    values.push_back(4.7);
-    values.push_back('b');
+    // Sample code to test the modified function
+    list<boost::any> input_values;
+    input_values.push_back(1);
+    input_values.push_back("hello");
+    input_values.push_back(3.14);
+    input_values.push_back(2);
+    input_values.push_back(4);
+    input_values.push_back(6);
     
-    vector<int> filtered = filter_integers(values);
-    vector<int> expected = {1, 3};
+    vector<int> filtered_values = filter_integers(input_values);
     
-    if (issame(filtered, expected)) {
-        cout << "Test passed" << endl;
+    vector<int> expected_output = {1, 2, 4, 6};
+    
+    if (issame(filtered_values, expected_output)) {
+        cout << "Test Passed!" << endl;
     } else {
-        cout << "Test failed" << endl;
+        cout << "Test Failed!" << endl;
     }
     
     return 0;
