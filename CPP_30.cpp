@@ -1,14 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
-using namespace std;
-
-vector<float> get_positive(const vector<float>& l){
-    vector<float> positive_nums;
+std::vector<float> get_positive(const std::vector<float>& l) {
+    std::vector<float> positive_nums;
     for(int i=0; i<l.size(); i++){
-        if(l[i] > 0){
+        if(l[i] > 0) {
             positive_nums.push_back(l[i]);
         }
     }
@@ -16,11 +13,9 @@ vector<float> get_positive(const vector<float>& l){
 }
 
 int main() {
-    vector<float> expected_output = {};
-    vector<float> result = get_positive({});
-    assert(equal(result.begin(), result.end(), expected_output.begin(), expected_output.end()));
+    assert(get_positive({}) == std::vector<float>{});
 
-    cout << "Test case passed!" << endl;
+    std::cout << "Test case passed!" << std::endl;
 
     return 0;
 }
