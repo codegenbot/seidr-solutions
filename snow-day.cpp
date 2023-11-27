@@ -2,7 +2,7 @@
 using namespace std;
 
 int calculateSnow(int hours, int snowOnGround, int snowFallRate, int snowMeltRate) {
-    for (int i = 0; i < hours; i++) {
+    for (int i = 0; i < hours; i += 1) {
         snowOnGround += snowFallRate;
         snowOnGround -= snowOnGround * snowMeltRate;
     }
