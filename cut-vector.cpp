@@ -1,4 +1,5 @@
 #include <utility>
+#include <vector>
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
