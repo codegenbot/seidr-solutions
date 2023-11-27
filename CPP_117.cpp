@@ -1,35 +1,48 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    // code for comparing two vectors
+int count_consonants(std::string word) {
+    int count = 0;
+    for (char c : word) {
+        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
+            count++;
+        }
+    }
+    return count;
 }
 
-vector<string> select_words(string s, int n);
-
-int count_consonants(string word) {
-    // code for counting consonants in a word
+bool issame(std::vector<std::string> a, std::vector<std::string> c) {
+    if (a.size() != c.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != c[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-bool is_consonant(char c) {
-    // code for checking if a character is a consonant
-}
-
-vector<string> select_words(string s, int n) {
-    vector<string> words;
-    string word;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    if (s.empty()) {
+        return result;
+    }
+    std::string word;
+    for (char c : s) {
+        if (c == ' ') {
             if (count_consonants(word) == n) {
-                words.push_back(word);
+                result.push_back(word);
             }
-            word = "";
+            word.clear();
         } else {
-            word += s[i];
+            word += c;
         }
     }
     if (!word.empty() && count_consonants(word) == n) {
-        words.push_back(word);
+        result.push_back(word);
     }
-    return words;
+    return result;
 }
