@@ -1,33 +1,42 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b);
+using namespace std;
 
-vector<int> count_up_to(int n) {
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> count_up_to(int n){
     vector<int> primes;
-    for (int i = 2; i < n; i++) {
+    for(int i=2; i<n; i++){
         bool isPrime = true;
-        for (int j = 2; j * j <= i; j++) {
-            if (i % j == 0) {
+        for(int j=2; j*j<=i; j++){
+            if(i%j == 0){
                 isPrime = false;
                 break;
             }
         }
-        if (isPrime) {
+        if(isPrime){
             primes.push_back(i);
         }
     }
     return primes;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+int main() {
+    int n;
+    cin >> n;
+    vector<int> expected = count_up_to(n);
+    vector<int> result = count_up_to(n);
+    assert(issame(expected, result));
 }
