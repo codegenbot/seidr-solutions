@@ -1,11 +1,11 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <limits>
+#include <climits>
 
 int next_smallest(std::vector<int> lst){
     if(lst.size() < 2){
-        return std::numeric_limits<int>::min();
+        return INT_MAX;
     }
     
     std::sort(lst.begin(), lst.end());
@@ -14,13 +14,14 @@ int next_smallest(std::vector<int> lst){
     int second_smallest = lst[1];
     
     if(smallest == second_smallest){
-        return std::numeric_limits<int>::min();
+        return INT_MAX;
     }
     
     return second_smallest;
 }
 
 int main() {
-    assert (next_smallest({-35, 34, 12, -45}) == -35);
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
+
     return 0;
 }
