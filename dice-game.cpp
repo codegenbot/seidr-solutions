@@ -1,27 +1,26 @@
 #include <iostream>
-#include <iomanip>
 
-double probabilityOfHigherRoll(int n, int m) {
-    double totalOutcomes = n * m;
-    double favorableOutcomes = 0;
+double probability(int n, int m) {
+    int total_outcomes = n * m;
+    int favorable_outcomes = 0;
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
-                favorableOutcomes++;
+                favorable_outcomes++;
             }
         }
     }
 
-    return favorableOutcomes / totalOutcomes;
+    return (double)favorable_outcomes / total_outcomes;
 }
 
 int main() {
     int n, m;
     std::cin >> n >> m;
 
-    double probability = probabilityOfHigherRoll(n, m);
-    std::cout << std::fixed << std::setprecision(2) << probability << std::endl;
+    double result = probability(n, m);
+    std::cout << result << std::endl;
 
     return 0;
 }
