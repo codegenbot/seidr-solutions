@@ -51,5 +51,6 @@ int main() {
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
+
     return 0;
 }
