@@ -1,19 +1,29 @@
 #include <iostream>
 #include <vector>
-#include <cctype>
 #include <cassert>
+#include <string>
 
-size_t count_consonants(std::string word) {
-    size_t count = 0;
+int count_consonants(std::string word) {
+    int count = 0;
     for (char c : word) {
-        if (std::isalpha(c) && !isvowel(std::tolower(c))) {
+        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
             count++;
         }
     }
     return count;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 std::vector<std::string> select_words(std::string s, int n) {
     std::vector<std::string> result;
@@ -37,19 +47,7 @@ std::vector<std::string> select_words(std::string s, int n) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), { "b", "c", "d", "f" }));
     return 0;
 }
