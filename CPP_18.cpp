@@ -1,12 +1,16 @@
+#include <string>
+
 int how_many_times(string str, string substring) {
     int count = 0;
-    int sub_len = substring.length();
-    int str_len = str.length();
+    int subLen = substring.length();
+    int strLen = str.length();
 
-    for (int i = 0; i <= str_len - sub_len; i++) {
-        if (str.substr(i, sub_len) == substring) {
+    if (subLen == 0)
+        return 0;
+
+    for (int i = 0; i <= strLen - subLen; i++) {
+        if (str.substr(i, subLen) == substring)
             count++;
-        }
     }
 
     return count;
