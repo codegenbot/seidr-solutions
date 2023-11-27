@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 std::vector<int> sort_vector(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
