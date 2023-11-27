@@ -1,21 +1,33 @@
-vector<string> total_match(vector<string> lst1,vector<string> lst2){
+#include <cassert>
+#include <vector>
+#include <string>
+
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int totalChars1 = 0;
     int totalChars2 = 0;
     
-    // Calculate the total number of characters in lst1
-    for(const string& str : lst1){
-        totalChars1 += str.size();
+    for (std::string s : lst1) {
+        totalChars1 += s.length();
     }
     
-    // Calculate the total number of characters in lst2
-    for(const string& str : lst2){
-        totalChars2 += str.size();
+    for (std::string s : lst2) {
+        totalChars2 += s.length();
     }
     
-    if(totalChars1 < totalChars2 || (totalChars1 == totalChars2 && lst1.size() > 0)){
+    if (totalChars1 < totalChars2) {
         return lst1;
-    }
-    else{
+    } else {
         return lst2;
     }
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Implement your logic here
+    return false;
+}
+
+int main() {
+    assert(total_match({"this"}, {}).size() == 0);
+    
+    return 0;
 }
