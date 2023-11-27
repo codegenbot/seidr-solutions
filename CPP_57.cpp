@@ -17,17 +17,6 @@ bool monotonic(vector<float> l){
 }
 
 int main(){
-    vector<float> test1 = {1.0, 2.0, 3.0, 4.0};
-    vector<float> test2 = {4.0, 3.0, 2.0, 1.0};
-    vector<float> test3 = {1.0, 2.0, 3.0, 2.0};
-
-    bool result1 = monotonic(test1);
-    bool result2 = monotonic(test2);
-    bool result3 = monotonic(test3);
-
-    cout << result1 << endl;
-    cout << result2 << endl;
-    cout << result3 << endl;
-
+    // Add test cases and print results here
     return 0;
 }
