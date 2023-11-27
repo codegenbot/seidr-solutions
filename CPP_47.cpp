@@ -17,8 +17,7 @@ float median(vector<float> l) {
 
 int main() {
     vector<float> l1 = {3, 1, 2, 4, 5};
-    vector<float> l2;
-    l2 = {-10, 4, 6, 1000, 10, 20};
+    vector<float> l2 = {-10, 4, 6, 1000, 10, 20};
 
     cout << median(l1) << endl;
     cout << median(l2) << endl;
