@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
-using namespace std;
-
-bool is_nested(string str){
+bool is_nested(std::string str){
     int count = 0;
     for(int i = 0; i < str.length(); i++){
         if(str[i] == '['){
