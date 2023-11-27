@@ -33,7 +33,13 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
 }
 
 int main() {
-    assert(bf("Jupiter", "Makemake").empty());
-    
+    std::vector<std::string> result = bf("Jupiter", "Neptune");
+    for (const auto& planet : result) {
+        std::cout << planet << " ";
+    }
+    std::cout << std::endl;
+
+    assert(bf("Jupiter", "Makemake") == std::vector<std::string>{});
+
     return 0;
 }
