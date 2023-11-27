@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 bool is_happy(std::string s){
     if(s.length() < 3){
