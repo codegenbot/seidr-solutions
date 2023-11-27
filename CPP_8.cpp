@@ -1,26 +1,30 @@
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
+std::vector<int> sum_product(const std::vector<int>& numbers) {
+    int sum = 0;
+    int product = 1;
+
+    for (int i = 0; i < numbers.size(); i++) {
+        sum += numbers[i];
+        product *= numbers[i];
     }
 
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
+    std::vector<int> result;
+    result.push_back(sum);
+    result.push_back(product);
 
-    return true;
+    return result;
 }
 
 int main() {
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 2, 3};
-    bool result = issame(a, b);
+    std::vector<int> input = {10};
+    std::vector<int> result = sum_product(input);
 
-    std::cout << result << std::endl;
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
