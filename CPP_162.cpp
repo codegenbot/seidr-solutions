@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string>
-#include <iostream>
 #include <openssl/evp.h>
 
 using namespace std;
@@ -25,14 +24,4 @@ string string_to_md5(string text) {
     }
 
     return string(md5Hash);
-}
-
-int main() {
-    string input;
-    cout << "Enter text to convert to MD5: ";
-    getline(cin, input);
-    string md5 = string_to_md5(input);
-    cout << "MD5 Hash: " << md5 << endl;
-
-    return 0;
 }
