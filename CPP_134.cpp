@@ -1,15 +1,22 @@
-bool check_if_last_char_is_a_letter(string txt){
-    
-    int len = txt.length();
-    
-    if(len == 0) {
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) {
         return false;
     }
-    
-    if(isalpha(txt[len-1]) && (txt[len-1] != ' ')){
+  
+    char lastChar = txt.back();
+    if (!isalpha(lastChar)) {
+        return false;
+    }
+  
+    size_t lastSpacePos = txt.find_last_of(' ');
+    if (lastSpacePos == string::npos) {
         return true;
     }
-    else{
-        return false;
+  
+    size_t lastWordEndPos = txt.find_last_not_of(' ', lastSpacePos);
+    if (lastWordEndPos == string::npos) {
+        return true;
     }
+  
+    return lastWordEndPos < lastSpacePos;
 }
