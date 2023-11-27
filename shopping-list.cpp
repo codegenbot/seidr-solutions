@@ -13,6 +13,7 @@ float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
+    // Input the prices and discounts from the user
     vector<float> prices;
     vector<float> discounts;
     int n;
@@ -28,8 +29,10 @@ int main() {
         discounts.push_back(discount);
     }
 
+    // Calculate the total price using the provided function
     float totalPrice = calculateTotalPrice(prices, discounts);
 
+    // Output the result
     cout << "Total Price: " << totalPrice << endl;
 
     return 0;
