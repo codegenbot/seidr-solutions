@@ -1,6 +1,6 @@
 #include <string>
 
-int how_many_times(string str, string substring) {
+int how_many_times(std::string str, std::string substring) {
     int count = 0;
     int subLen = substring.length();
     int strLen = str.length();
@@ -26,9 +26,6 @@ int how_many_times(string str, string substring) {
 }
 
 int main() {
-    string str, substring;
-    cin >> str >> substring;
-    int result = how_many_times(str, substring);
-    cout << result;
+    // your test cases here
     return 0;
 }
