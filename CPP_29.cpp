@@ -1,5 +1,7 @@
 #include<iostream>
 #include<vector>
+#include<assert.h>
+
 using namespace std;
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix) {
