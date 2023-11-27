@@ -1,23 +1,24 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> make_a_pile(int n);
 
-int main(){
+bool issame(vector<int> a, vector<int> b);
+
+int main() {
     int n;
     cin >> n;
     vector<int> levels = make_a_pile(n);
-
-    vector<int> b(levels.begin(), levels.end());
-    sort(b.begin(), b.end(), greater<int>());
-
-    if (issame(levels, b)){
-        cout << "possible" << endl;
-    } else {
-        cout << "impossible" << endl;
+    vector<int> stones;
+    for(auto level : levels) {
+        stones.push_back(level * level);
     }
-
+    vector<int> sorted_stones = stones;
+    sort(sorted_stones.begin(), sorted_stones.end());
+    if(issame(stones, sorted_stones)) {
+        cout << "Same" << endl;
+    } else {
+        cout << "Different" << endl;
+    }
     return 0;
 }
 
@@ -36,6 +37,14 @@ vector<int> make_a_pile(int n){
     return levels;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
