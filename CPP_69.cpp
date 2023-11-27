@@ -1,17 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
 int search(vector<int> lst) {
-    int maxFreq = -1;
-    int result = -1;
-    for (int i = 0; i < lst.size(); i++) {
-        int freq = 0;
-        for (int j = 0; j < lst.size(); j++) {
-            if (lst[j] == lst[i]) {
-                freq++;
-            }
-        }
-        if (lst[i] > 0 && freq >= lst[i] && freq > maxFreq) {
-            maxFreq = freq;
-            result = lst[i];
+    unordered_map<int, int> freqMap;
+    
+    for (int num : lst) {
+        freqMap[num]++;
+    }
+    
+    int maxNum = -1;
+    for (auto it : freqMap) {
+        if (it.second >= it.first && it.first > maxNum) {
+            maxNum = it.first;
         }
     }
-    return result;
+    
+    return maxNum;
 }
