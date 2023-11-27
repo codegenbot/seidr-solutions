@@ -1,54 +1,10 @@
-vector<int> sort_third(vector<int> l){
-    vector<int> l_prime = l;
-    vector<int> indices;
-    for(int i = 0; i < l.size(); i++){
-        if(i % 3 == 0){
-            indices.push_back(i);
-        }
-    }
-    sort(indices.begin(), indices.end());
-    for(int i = 0; i < indices.size(); i++){
-        l_prime[indices[i]] = l[indices[i]];
-    }
-    return l_prime;
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 
+vector<int> sort_third(vector<int> l);
 bool issame(vector<int> a, vector<int> b);
-
-int main(){
-    vector<int> l = {5, 2, 9, 8, 1, 3, 7, 6, 0, 4};
-    vector<int> sorted = sort_third(l);
-    for(int i = 0; i < sorted.size(); i++){
-        cout << sorted[i] << " ";
-    }
-    cout << endl;
-    
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {4, 5, 6};
-    bool same = issame(a, b);
-    if(same){
-        cout << "Lists are same" << endl;
-    }else{
-        cout << "Lists are not same" << endl;
-    }
-    
-    return 0;
-}
-
-vector<int> sort_third(vector<int> l){
-    vector<int> l_prime = l;
-    vector<int> indices;
-    for(int i = 0; i < l.size(); i++){
-        if(i % 3 == 0){
-            indices.push_back(i);
-        }
-    }
-    sort(indices.begin(), indices.end());
-    for(int i = 0; i < indices.size(); i++){
-        l_prime[indices[i]] = l[indices[i]];
-    }
-    return l_prime;
-}
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
@@ -60,4 +16,39 @@ bool issame(vector<int> a, vector<int> b){
         }
     }
     return true;
+}
+
+vector<int> sort_third(vector<int> l){
+    vector<int> l_prime = l;
+    vector<int> indices;
+    for(int i = 0; i < l.size(); i++){
+        if(i % 3 == 0){
+            indices.push_back(i);
+        }
+    }
+    sort(indices.begin(), indices.end());
+    for(int i = 0; i < indices.size(); i++){
+        l_prime[indices[i]] = l[indices[i]];
+    }
+    return l_prime;
+}
+
+int main(){
+    vector<int> a = {3, 2, 5, 1, 4, 6};
+    vector<int> b = {3, 2, 5, 1, 4, 6};
+    vector<int> c = {3, 2, 1, 5, 4, 6};
+    
+    if(issame(sort_third(a), c)){
+        cout << "Test 1 Passed!" << endl;
+    } else {
+        cout << "Test 1 Failed!" << endl;
+    }
+    
+    if(!issame(sort_third(a), b)){
+        cout << "Test 2 Passed!" << endl;
+    } else {
+        cout << "Test 2 Failed!" << endl;
+    }
+    
+    return 0;
 }
