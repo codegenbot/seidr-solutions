@@ -1,9 +1,6 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/any.hpp>
 
-#include <iostream>
-#include <string>
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int int_a = boost::any_cast<int>(a);
@@ -34,5 +31,5 @@ boost::any compare_one(boost::any a, boost::any b) {
             return str_b;
         }
     }
-    return boost::any();
+    return boost::any("None");
 }
