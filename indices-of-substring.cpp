@@ -14,7 +14,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
                 break;
             }
         }
-
+        
         if (j >= targetLen) {
             indices.push_back(i);
         }
