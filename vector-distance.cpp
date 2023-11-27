@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <iostream>
 #include <ostream>
 
 float euclideanDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
