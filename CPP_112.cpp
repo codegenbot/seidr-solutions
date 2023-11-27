@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -15,7 +15,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> reverse_delete(string s, string c) {
+vector<string> reverse_delete(string s, string c){
     string result = "";
     for(int i=0; i<s.length(); i++){
         if(c.find(s[i]) == string::npos){
