@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string>
-#include <openssl/md5.h>
+#include <openssl/evp.h>
 using namespace std;
 
 string string_to_md5(string text) {
@@ -9,12 +9,12 @@ string string_to_md5(string text) {
     }
     
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5((const unsigned char*)text.c_str(), text.length(), digest);
+    EVP_Digest((unsigned char*)text.c_str(), text.length(), digest, NULL, EVP_md5(), NULL);
     
-    char md5Hash[2 * MD5_DIGEST_LENGTH + 1];
+    string md5Hash;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        sprintf(&md5Hash[i * 2], "%02x", (unsigned int)digest[i]);
+        md5Hash += to_string(digest[i]);
     }
     
-    return string(md5Hash);
+    return md5Hash;
 }
