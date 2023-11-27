@@ -1,35 +1,26 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+int do_algebra(vector<string> operato, vector<int> operand){
+    int result = operand[0]; // initialize result with first operand
 
-int do_algebra(const std::vector<std::string>& operato, const std::vector<int>& operand) {
-    int result = operand[0];  // Initialize the result with the first operand
+    for(int i = 0; i < operato.size(); i++){
+        string operation = operato[i];
+        int value = operand[i+1];
 
-    for (int i = 0; i < operato.size(); i++) {
-        if (operato[i] == "+") {
-            result += operand[i + 1];
-        } else if (operato[i] == "-") {
-            result -= operand[i + 1];
-        } else if (operato[i] == "*") {
-            result *= operand[i + 1];
-        } else if (operato[i] == "//") {
-            result /= operand[i + 1];
-        } else if (operato[i] == "**") {
-            result = std::pow(result, operand[i + 1]);
+        if(operation == "+"){
+            result += value;
+        }
+        else if(operation == "-"){
+            result -= value;
+        }
+        else if(operation == "*"){
+            result *= value;
+        }
+        else if(operation == "//"){
+            result /= value;
+        }
+        else if(operation == "**"){
+            result = pow(result, value);
         }
     }
 
     return result;
-}
-
-int main() {
-    std::vector<std::string> operato{"+", "*", "-"};
-    std::vector<int> operand{2, 3, 4, 5};
-
-    int result = do_algebra(operato, operand);
-
-    std::cout << "Result: " << result << std::endl;
-
-    return 0;
 }
