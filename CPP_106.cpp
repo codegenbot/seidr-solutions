@@ -24,7 +24,7 @@ std::vector<int> f(int n){
 }
 
 int main(){
-    assert (f(3) == std::vector<int>{1, 2, 6});
-    std::cout << "Test case passed!" << std::endl;
+    assert (f(3) == std::vector<int>{1, 2, 6}); // Check if the function returns the expected result
+    std::cout << "Test case passed!" << std::endl; // Output a success message
     return 0;
 }
