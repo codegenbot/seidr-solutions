@@ -1,9 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
-
-using namespace std;
 
 vector<string> split_words(string txt);
 int count_odd_letters(string txt);
@@ -14,7 +11,7 @@ vector<string> split_words(string txt){
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-
+    
     for(int i = 0; i < txt.size(); i++){
         if(txt[i] == ' '){
             hasWhitespace = true;
@@ -34,15 +31,15 @@ vector<string> split_words(string txt){
             word += txt[i];
         }
     }
-
+    
     if(word != ""){
         result.push_back(word);
     }
-
+    
     if(!hasWhitespace && !hasComma){
         result.push_back(to_string(count_odd_letters(txt)));
     }
-
+    
     return result;
 }
 
@@ -60,26 +57,11 @@ int count_odd_letters(string txt){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    // function body
+    // return statement if necessary
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    
-    vector<string> words = split_words(input);
-    
-    for(int i = 0; i < words.size(); i++){
-        cout << words[i] << endl;
-    }
-    
+    // Code goes here
     return 0;
 }
