@@ -30,7 +30,6 @@ int calculateScore(std::string input) {
             }
             isSpare = true;
         } else if (ch == '-') {
-            
         } else {
             score += ch - '0';
         }
