@@ -26,13 +26,10 @@ int how_many_times(string str, string substring) {
 }
 
 int main() {
-    // test cases
-    string str1 = "abcabcabc";
-    string substring1 = "abc";
-    int result1 = how_many_times(str1, substring1);
-    string str2 = "hello world";
-    string substring2 = "o";
-    int result2 = how_many_times(str2, substring2);
+    string str = "abababa";
+    string substring = "aba";
+    
+    int result = how_many_times(str, substring);
     
     return 0;
 }
