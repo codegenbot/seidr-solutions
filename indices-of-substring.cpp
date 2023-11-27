@@ -1,11 +1,10 @@
 #include <vector>
-#include <string>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
 
-    int pos = 0;
-    while (pos < int(text.length())) {
+    std::string::size_type pos = 0;
+    while (pos < text.length()) {
         pos = text.find(target, pos + target.length() - 1);
         if (pos == std::string::npos) {
             break;
