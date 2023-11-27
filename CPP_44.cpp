@@ -20,6 +20,6 @@ int main(){
     int x;
     cin >> x;
     assert(change_base(x, x + 1) == std::to_string(x));
-
+    
     return 0;
 }
