@@ -1,9 +1,18 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-vector<float> sort_even(vector<float> l);
-
-bool issame(vector<float> a, vector<float> b);
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<float> sort_even(vector<float> l){
     vector<float> l_prime(l.size());
@@ -27,18 +36,6 @@ vector<float> sort_even(vector<float> l){
     }
     
     return l_prime;
-}
-
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
 }
 
 int main(){
