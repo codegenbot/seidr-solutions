@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -16,19 +15,4 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     }
     
     return indices;
-}
-
-int main() {
-    std::string text, target;
-    std::cout << "Enter the text: ";
-    std::cin >> text;
-    std::cout << "Enter the target: ";
-    std::cin >> target;
-    std::vector<int> result = indicesOfSubstring(text, target);
-    std::cout << "Indices of target in text: ";
-    for (const auto& index : result) {
-        std::cout << index << " ";
-    }
-    std::cout << std::endl;
-    return 0;
 }
