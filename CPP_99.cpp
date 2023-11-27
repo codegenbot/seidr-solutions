@@ -4,10 +4,10 @@
 #include <string>
 
 int closest_integer(const std::string& value){
-    double num = std::stod(value);
-    int rounded = std::round(num);
-    int floorVal = std::floor(num);
-    int ceilVal = std::ceil(num);
+    double num = stod(value);
+    int rounded = round(num);
+    int floorVal = floor(num);
+    int ceilVal = ceil(num);
     
     if (rounded - num < num - rounded) {
         return rounded;
@@ -19,6 +19,6 @@ int closest_integer(const std::string& value){
 }
 
 int main() {
-    assert(closest_integer("0"s) == 0);
+    assert (closest_integer("0"s) == 0);
     return 0;
 }
