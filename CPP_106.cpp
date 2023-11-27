@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 #include <initializer_list>
 
 using namespace std;
