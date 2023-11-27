@@ -15,9 +15,10 @@ int count_distinct_characters(std::string str) {
 }
 
 int main() {
-    std::string input;
+    std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> input;
-    std::cout << "Number of distinct characters: " << count_distinct_characters(input) << std::endl;
+    std::getline(std::cin, str);
+    int distinctCount = count_distinct_characters(str);
+    std::cout << "Number of distinct characters: " << distinctCount << std::endl;
     return 0;
 }
