@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string> 
-using namespace std; 
+#include <string>  
+using namespace std;  
 
 string change_base(int x, int base) {
     string result = "";
@@ -13,8 +13,8 @@ string change_base(int x, int base) {
 
 int main() {
     int x;
-    cin >> x; 
+    cin >> x;  
     string result = change_base(x, x + 1);
-    cout << result << endl;
+    cout << result << endl;  
     return 0;
 }
