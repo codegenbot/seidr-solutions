@@ -1,14 +1,6 @@
-#include <cmath>
 #include <string>
 
 int closest_integer(std::string value);
-
-int main() {
-    std::string value;
-    std::cin >> value;
-    std::cout << closest_integer(value) << std::endl;
-    return 0;
-}
 
 int closest_integer(std::string value){
     double num = std::stod(value);
