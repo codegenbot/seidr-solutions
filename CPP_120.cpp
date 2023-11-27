@@ -4,9 +4,6 @@
 #include <cassert>
 using namespace std;
 
-vector<int> maximum(vector<int> arr, int k);
-bool issame(vector<int> a, vector<int> b);
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -25,12 +22,12 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {243, 3, 2}));
-    assert (issame(maximum({5, 6, 7, 8, 9}, 2), {9, 8}));
-    assert (issame(maximum({100, 200, 300, 400, 500}, 5), {500, 400, 300, 200, 100}));
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 1), {243}));
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {243, 3, 2}));
+    assert(issame(maximum({-1, -2, -3, -23, -243, -400, 0}, 4), {0, -1, -2, -3}));
     
-    cout << "All test cases passed!" << endl;
+    // More test cases here
     
     return 0;
 }
