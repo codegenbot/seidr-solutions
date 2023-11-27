@@ -1,14 +1,14 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k){
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     int n = grid.size();
-    vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    std::vector<int> path;
+    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n, false));
     int row = 0, col = 0;
     
     while(k > 0){
