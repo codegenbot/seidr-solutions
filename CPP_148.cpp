@@ -1,12 +1,6 @@
+#include <iostream>
 #include <string>
 #include <vector>
-#include <iostream>
-
-std::vector<std::string> bf(std::string planet1, std::string planet2);
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Existing code here
-}
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -38,7 +32,12 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    issame(bf("Jupiter", "Makemake"), {});
-
+    std::vector<std::string> result = bf("Jupiter", "Makemake");
+    // Output the result
+    for (const auto& planet : result) {
+        std::cout << planet << " ";
+    }
+    std::cout << std::endl;
+    
     return 0;
 }
