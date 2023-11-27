@@ -16,13 +16,15 @@ vector<string> split_words(string txt) {
                 result.push_back(word);
                 word = "";
             }
-        } else if (txt[i] == ',') {
+        }
+        else if (txt[i] == ',') {
             hasComma = true;
             if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
-        } else {
+        }
+        else {
             word += txt[i];
         }
     }
@@ -36,6 +38,21 @@ vector<string> split_words(string txt) {
     }
 
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // Your code here
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
