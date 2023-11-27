@@ -1,5 +1,5 @@
-#include<iostream>
-#include<iomanip>
+#include <iostream>
+#include <iomanip> 
 
 using namespace std;
 
@@ -8,7 +8,7 @@ double calculateSnow(float hours, double snowOnGround, double snowFallRate, doub
         snowOnGround += snowFallRate;
         snowOnGround -= snowOnGround * snowMeltRate;
     }
-    return round(snowOnGround * 1e15) / 1e15;
+    return round(snowOnGround * 1e15) / 1e15; 
 }
 
 int main() {
