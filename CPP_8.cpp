@@ -1,8 +1,6 @@
 #include <vector>
-#include <cassert>
-using namespace std;
 
-vector<int> sum_product(vector<int> numbers) {
+std::vector<int> sum_product(std::vector<int> numbers) {
     int sum = 0;
     int product = 1;
 
@@ -11,14 +9,14 @@ vector<int> sum_product(vector<int> numbers) {
         product *= numbers[i];
     }
 
-    vector<int> result;
+    std::vector<int> result;
     result.push_back(sum);
     result.push_back(product);
 
     return result;
 }
 
-bool are_same(vector<int> a, vector<int> b) {
+bool are_equal(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -33,7 +31,9 @@ bool are_same(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(are_same(sum_product({10}), {10, 10}));
+    // Your test cases here
+
+    assert(are_equal(sum_product({10}), {10, 10}));
 
     return 0;
 }
