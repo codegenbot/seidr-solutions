@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
 
@@ -24,12 +23,4 @@ bool is_palindrome(const std::string& str) {
         }
     }
     return true;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    std::string result = make_palindrome(input);
-    std::cout << result << std::endl;
-    return 0;
 }
