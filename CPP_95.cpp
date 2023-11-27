@@ -1,4 +1,5 @@
-#include <map>
+#include <map> 
+
 bool check_map_case(map<string,string> dict){
     if(dict.empty()){
         return false;
@@ -27,4 +28,10 @@ bool check_map_case(map<string,string> dict){
     }
     
     return true;
+}
+
+int main() {
+    bool result = check_map_case({});
+
+    return 0;
 }
