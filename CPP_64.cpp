@@ -7,10 +7,9 @@ using namespace std;
 int vowels_count(string s);
 
 int main() {
-    // Test cases
     assert(vowels_count("ACEDY") == 3);
     // Add more test cases
-
+    
     return 0;
 }
 
