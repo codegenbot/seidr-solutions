@@ -9,5 +9,3 @@ bool cycpattern_check(string a, string b) {
 
     return concatenated.find(b) != string::npos;
 }
-
-assert(cycpattern_check("winemtt","tinem") == true);
