@@ -26,13 +26,13 @@ boost::any compare_one(boost::any a, boost::any b) {
             floatA = boost::lexical_cast<float>(stringA);
             floatB = boost::lexical_cast<float>(stringB);
         } catch (const boost::bad_lexical_cast&) {
-            return std::string("None");
+            return std::string("None");  // Return a std::string object instead of boost::any
         }
         if (floatA > floatB) {
-            return stringA;
+            return std::string(stringA);  // Return a std::string object instead of boost::any
         } else if (floatA < floatB) {
-            return stringB;
+            return std::string(stringB);  // Return a std::string object instead of boost::any
         }
     }
-    return std::string("None");
+    return std::string("None");  // Return a std::string object instead of boost::any
 }
