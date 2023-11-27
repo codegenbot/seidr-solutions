@@ -27,7 +27,7 @@ int main() {
         std::cin >> discounts[i];
     }
 
-    double totalPrice = calculateTotalPrice(prices, discounts);
+    float totalPrice = calculateTotalPrice(prices, discounts);
     std::cout << totalPrice << std::endl;
 
     return 0;
