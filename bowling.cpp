@@ -28,18 +28,13 @@ int getScore(const std::string& input) {
         } else {
             score += (c - '0');
             bowl++;
-            if (bowl == 2 || c == '9') {
+            if (bowl == 2 || (c == '9' && frame >= 10)) {
                 bowl = 0;
                 frame++;
             }
         }
 
         if (bonus > 0) {
-            score += (c - '0');
-            bonus--;
-        }
-
-        if (bonus > 0 && c == '/') {
             score += (c - '0');
             bonus--;
         }
