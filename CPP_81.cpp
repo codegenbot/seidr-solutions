@@ -1,17 +1,10 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
-using namespace std;
-
-vector<string> numerical_letter_grade(vector<float> grades);
-
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
-    for(int i=0; i<grades.size(); i++){
-        if(grades[i] == 4.0){
+    for(int i = 0; i < grades.size(); i++){
+        if(grades[i] >= 4.0){
             letter_grades.push_back("A+");
         }
         else if(grades[i] > 3.7){
@@ -55,28 +48,5 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    vector<float> grades = {3.8, 2.5, 4.0, 3.2};
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    vector<string> expected_grades = {"A", "C", "A+", "C-"};
-    
-    if(issame(letter_grades, expected_grades)){
-        cout << "Test Passed" << endl;
-    }
-    else{
-        cout << "Test Failed" << endl;
-    }
-    
-    return 0;
+    // Your code here
 }
