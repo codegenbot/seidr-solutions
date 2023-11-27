@@ -5,14 +5,10 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> remove_duplicates(const vector<int>& numbers){
-    vector<int> temp = numbers;
-    temp.erase(unique(temp.begin(), temp.end()), temp.end());
-    return temp;
+    vector<int> result = numbers;
+    result.erase(unique(result.begin(), result.end()), result.end());
+    return result;
 }
 
 int main() {
