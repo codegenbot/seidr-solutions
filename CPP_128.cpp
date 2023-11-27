@@ -8,7 +8,6 @@ int prod_signs(const vector<int>& arr){
     }
     
     int sign = 1;
-    int product = 1;
     int sum = 0;
     
     for(int i=0; i<arr.size(); i++){
@@ -27,7 +26,6 @@ int prod_signs(const vector<int>& arr){
 
 int main() {
     assert (prod_signs({-1, 1, 1, 0}) == 0);
-    // Add more test cases if needed
     
     return 0;
 }
