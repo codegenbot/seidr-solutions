@@ -3,8 +3,6 @@
 
 vector<int> common(vector<int> l1, vector<int> l2);
 
-bool issame(vector<int> a, vector<int> b);
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -42,5 +40,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
+    
     return 0;
 }
