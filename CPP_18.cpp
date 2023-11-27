@@ -4,16 +4,14 @@ int how_many_times(string str, string substring) {
     int strLen = str.length();
 
     for (int i = 0; i <= strLen - subLen; i++) {
-        bool found = true;
-
+        bool match = true;
         for (int j = 0; j < subLen; j++) {
             if (str[i + j] != substring[j]) {
-                found = false;
+                match = false;
                 break;
             }
         }
-
-        if (found) {
+        if (match) {
             count++;
         }
     }
