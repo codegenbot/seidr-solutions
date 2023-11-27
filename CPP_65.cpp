@@ -18,10 +18,6 @@ string circular_shift(int x, int shift) {
 int main() {
     int x, shift;
     cin >> x >> shift;
-    assert(x >= 0 && shift >= 0);
-    
-    string shifted_num = circular_shift(x, shift);
-    cout << shifted_num << endl;
-    
+    cout << circular_shift(x, shift);
     return 0;
 }
