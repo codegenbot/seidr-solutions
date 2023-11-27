@@ -1,15 +1,13 @@
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    int m = grid[0].size();
     int count = 0;
+    int rows = grid.size();
+    int cols = grid[0].size();
     
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
             if (grid[i][j] == 1) {
-                count += (grid[i][j] / capacity);
-                if (grid[i][j] % capacity != 0) {
-                    count++;
-                }
+                int buckets_needed = (grid[i][j] + capacity - 1) / capacity;
+                count += buckets_needed;
             }
         }
     }
