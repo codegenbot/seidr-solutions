@@ -6,7 +6,8 @@
 using namespace std;
 
 bool isvowel(char c) {
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
 vector<string> select_words(string s, int n) {
