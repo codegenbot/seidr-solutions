@@ -14,29 +14,29 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    int first = 1;
-    int second = 1;
-    int count = 2;
-    int result = 0;
-
-    while (count < n) {
-        int next = first + second;
-        if (isPrime(next)) {
-            count++;
-            result = next;
-        }
-        first = second;
-        second = next;
+    if (n <= 0) {
+        return -1;
     }
-
-    return result;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    std::cout << "The " << n << "-th number that is a Fibonacci number and prime is: " << prime_fib(n) << std::endl;
-
-    return 0;
+    if (n == 1) {
+        return 2;
+    }
+    if (n == 2) {
+        return 3;
+    }
+    
+    int fib1 = 2;
+    int fib2 = 3;
+    int fibN = 0;
+    
+    for (int i = 3; i <= n; i++) {
+        fibN = fib1 + fib2;
+        fib1 = fib2;
+        fib2 = fibN;
+        
+        while (!isPrime(fibN)) {
+            fibN++;
+        }
+    }
+    
+    return fibN;
 }
