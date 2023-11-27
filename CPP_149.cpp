@@ -6,7 +6,9 @@
 
 using namespace std;
 
-vector<string> sorted_list_sum(vector<string> lst);
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
