@@ -19,21 +19,10 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> arr = {5, 2, 8, 9, 1};
+    vector<int> arr = {5, 2, 8, 3, 1};
     int k = 3;
     vector<int> result = maximum(arr, k);
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
-
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
-    if (issame(a, b)) {
-        cout << "Same" << endl;
-    } else {
-        cout << "Different" << endl;
-    }
-
+    vector<int> expected = {8, 5, 3};
+    bool isEqual = issame(result, expected);
     return 0;
 }
