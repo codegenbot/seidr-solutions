@@ -1,4 +1,19 @@
-vector<string> by_length(vector<int> arr){
+#include <vector>
+#include <string>
+#include <map>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<string> by_length(vector<int> arr);
+
+int main() {
+    assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Eight", "Four"});
+    return 0;
+}
+
+vector<string> by_length(vector<int> arr) {
     vector<string> result;
     map<int, string> digitMap;
     digitMap[1] = "One";
@@ -14,8 +29,8 @@ vector<string> by_length(vector<int> arr){
     sort(arr.begin(), arr.end());
     reverse(arr.begin(), arr.end());
 
-    for(int i=0; i<arr.size(); i++){
-        if(arr[i] >= 1 && arr[i] <= 9){
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] >= 1 && arr[i] <= 9) {
             result.push_back(digitMap[arr[i]]);
         }
     }
