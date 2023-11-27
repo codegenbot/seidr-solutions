@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <cassert>
 
-int closest_integer(std::string value) {
-    float num = std::stof(value);  // convert string to float
-    int rounded_num = std::round(num);  // round the float to the nearest integer
+int closest_integer(std::string value){
+    float num = std::stof(value); // convert string to float
+    int rounded_num = std::round(num); // round the float to the nearest integer
 
     // check if the rounded number is equidistant from two integers
     if (num - rounded_num == 0.5) {
@@ -19,9 +20,10 @@ int closest_integer(std::string value) {
     }
 }
 
-int main() {
+int main(){
     assert(closest_integer("0") == 0);
-    // more test cases...
+
+    // Add more test cases here
 
     return 0;
 }
