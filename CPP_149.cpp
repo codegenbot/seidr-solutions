@@ -28,7 +28,7 @@ int main() {
 
     vector<string> output = sort_even_length_strings(input);
 
-    assert(issame(output, expected_output));
+    assert(output == expected_output);
 
     return 0;
 }
