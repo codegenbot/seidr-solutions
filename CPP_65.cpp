@@ -1,26 +1,27 @@
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 string circular_shift(int x, int shift);
 
 int main() {
     int x, shift;
     cin >> x >> shift;
-    
-    string result = circular_shift(x, shift);
-    cout << result << endl;
-    
+    cout << circular_shift(x, shift) << endl;
+
     return 0;
 }
 
 string circular_shift(int x, int shift) {
     string num = to_string(x);
     int n = num.length();
-    
+
     if (shift > n) {
         reverse(num.begin(), num.end());
         return num;
     }
-    
+
     string result = num.substr(n - shift) + num.substr(0, n - shift);
     return result;
 }
