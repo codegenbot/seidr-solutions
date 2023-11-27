@@ -15,13 +15,18 @@ vector<int> make_a_pile(int n){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    vector<int> stones = make_a_pile(a.size());
-    bool same = true;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            same = false;
-            break;
+    vector<int> pile_a = make_a_pile(a.back());
+    vector<int> pile_b = make_a_pile(b.back());
+    
+    if (pile_a.size() != pile_b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < pile_a.size(); i++) {
+        if (pile_a[i] != pile_b[i]) {
+            return false;
         }
     }
-    return same;
+    
+    return true;
 }
