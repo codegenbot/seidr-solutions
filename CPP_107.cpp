@@ -1,22 +1,29 @@
 vector<int> even_odd_palindrome(int n){
     vector<int> result(2, 0);
+    
     for(int i=1; i<=n; i++){
-        string str = to_string(i);
-        int len = str.length();
+        string num = to_string(i);
+        int left = 0;
+        int right = num.length() - 1;
         bool isPalindrome = true;
-        for(int j=0; j<len/2; j++){
-            if(str[j] != str[len-j-1]){
+        
+        while(left < right){
+            if(num[left] != num[right]){
                 isPalindrome = false;
                 break;
             }
+            left++;
+            right--;
         }
+        
         if(isPalindrome){
             if(i % 2 == 0){
                 result[0]++;
-            } else{
+            }else{
                 result[1]++;
             }
         }
     }
+    
     return result;
 }
