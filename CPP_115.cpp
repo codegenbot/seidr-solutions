@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int count = 0;
