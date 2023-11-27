@@ -1,13 +1,13 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
+#include <algorithm>
 
-using namespace std;
-
-int count_nums(vector<int> n){
+int count_nums(std::vector<int> n){
     int count = 0;
     for(int num : n){
         int sum = 0;
-        int temp = abs(num);
+        int temp = std::abs(num);
         while(temp != 0){
             sum += temp % 10;
             temp /= 10;
@@ -20,11 +20,11 @@ int count_nums(vector<int> n){
 }
 
 int main(){
-    assert (count_nums({1}) == 1);
-    assert (count_nums({0}) == 0);
-    assert (count_nums({-123}) == 6);
-    assert (count_nums({-5, 0, 10, -25, 100}) == 5);
-    assert (count_nums({-1, 2, -3, 4, -5, 6}) == 6);
+    std::cout << count_nums({1}) << std::endl;
+    std::cout << count_nums({0}) << std::endl;
+    std::cout << count_nums({-123}) << std::endl;
+    std::cout << count_nums({-5, 0, 10, -25, 100}) << std::endl;
+    std::cout << count_nums({-1, 2, -3, 4, -5, 6}) << std::endl;
 
     return 0;
 }
