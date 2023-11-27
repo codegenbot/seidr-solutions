@@ -1,13 +1,25 @@
+#include <iostream>
+#include <algorithm>
+#include <cassert>
+using namespace std;
+
+string circular_shift(int x, int shift);
+
+int main() {
+    assert(circular_shift(11, 101) == "11");
+    return 0;
+}
+
 string circular_shift(int x, int shift) {
-    string strX = to_string(x);
-    int len = strX.length();
-    
-    if (shift > len) {
-        reverse(strX.begin(), strX.end());
-        return strX;
+    string num = to_string(x);
+    int n = num.length();
+
+    if (shift > n) {
+        reverse(num.begin(), num.end());
+        return num;
     }
-    
-    string temp = strX.substr(len - shift, shift);
-    strX.erase(len - shift, shift);
-    return temp + strX;
+
+    shift %= n;
+    string result = num.substr(n - shift) + num.substr(0, n - shift);
+    return result;
 }
