@@ -1,7 +1,7 @@
-#include <vector>
+#include <vector> 
 
-std::vector<int> pluck(std::vector<int> arr){
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr){ 
+    vector<int> result;
     int smallest_value = -1;
     int smallest_index = -1;
 
@@ -18,18 +18,4 @@ std::vector<int> pluck(std::vector<int> arr){
     }
 
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
 }
