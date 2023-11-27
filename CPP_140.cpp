@@ -1,28 +1,19 @@
-#include <string>
-
-string fix_spaces(string text){
+string fix_spaces(string text) {
     string result = "";
-    bool consecutive_spaces = false;
-
+    int count = 0;
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == ' ') {
-            if (!consecutive_spaces) {
-                result += '_';
-                consecutive_spaces = true;
+            count++;
+            if (count > 2) {
+                result += "-";
+                count = 0;
+            } else {
+                result += "_";
             }
-        }
-        else {
-            if (consecutive_spaces) {
-                result += '-';
-                consecutive_spaces = false;
-            }
+        } else {
             result += text[i];
+            count = 0;
         }
     }
-
-    if (consecutive_spaces) {
-        result += '-';
-    }
-
     return result;
 }
