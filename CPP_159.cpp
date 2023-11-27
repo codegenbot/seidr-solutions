@@ -23,9 +23,3 @@ vector<int> eat(int number, int need, int remaining) {
     }
     return {totalEaten, carrotsLeft};
 }
-
-int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
-    // add more test cases if needed
-    return 0;
-}
