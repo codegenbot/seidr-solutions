@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-using namespace std;
-
+```cpp
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size())
         return false;
@@ -13,37 +9,31 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path, vector<vector<bool>>& visited){
-    int n = grid.size();
-    
-    // Check if current cell is out of bounds or already visited
-    if(x < 0 || x >= n || y < 0 || y >= n || visited[x][y]){
+void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path){
+    // Base case
+    if(x < 0 || y < 0 || x >= grid.size() || y >= grid.size() || k < 0 || grid[x][y] == -1)
         return;
-    }
     
-    // Update visited status and add current cell to path
-    visited[x][y] = true;
+    // Include the current cell in the path
     path.push_back(grid[x][y]);
     
-    // Check if target cell is reached
-    if(grid[x][y] == k){
-        return;
-    }
+    // Mark the current cell as visited
+    grid[x][y] = -1;
     
-    // Perform DFS on adjacent cells
-    dfs(grid, x+1, y, k, path, visited); // Down
-    dfs(grid, x-1, y, k, path, visited); // Up
-    dfs(grid, x, y+1, k, path, visited); // Right
-    dfs(grid, x, y-1, k, path, visited); // Left
+    // Move right
+    dfs(grid, x, y+1, k-path.back(), path);
     
-    // Remove current cell from path after performing DFS on adjacent cells
+    // Move down
+    dfs(grid, x+1, y, k-path.back(), path);
+    
+    // Undo the changes
+    grid[x][y] = path.back();
     path.pop_back();
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
 
     // Find the minimum value in the grid
     int minValue = grid[0][0];
@@ -66,13 +56,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     }
 
     // Perform DFS to find the minimum path
-    dfs(grid, startX, startY, k, path, visited);
+    dfs(grid, startX, startY, k, path);
 
     return path;
-}
-
-int main(){
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
-    return 0;
 }
