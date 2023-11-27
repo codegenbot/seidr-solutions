@@ -12,7 +12,6 @@ int main() {
     cents %= 5;
     int pennies = cents;
 
-    
     std::cout << quarters << std::endl;
     std::cout << dimes << std::endl;
     std::cout << nickels << std::endl;
