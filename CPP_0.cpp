@@ -1,5 +1,4 @@
 #include <vector>
-
 using namespace std;
 
 bool has_close_elements(vector<float> numbers, float threshold) {
