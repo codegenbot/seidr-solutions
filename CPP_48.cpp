@@ -11,27 +11,10 @@ bool is_palindrome(std::string text){
 }
 
 int main() {
-    std::string test1 = "radar";
-    std::string test2 = "hello";
-    std::string test3 = "level";
-    
-    if(is_palindrome(test1)){
-        std::cout << test1 << " is a palindrome.\n";
-    } else {
-        std::cout << test1 << " is not a palindrome.\n";
-    }
-    
-    if(is_palindrome(test2)){
-        std::cout << test2 << " is a palindrome.\n";
-    } else {
-        std::cout << test2 << " is not a palindrome.\n";
-    }
-    
-    if(is_palindrome(test3)){
-        std::cout << test3 << " is a palindrome.\n";
-    } else {
-        std::cout << test3 << " is not a palindrome.\n";
-    }
-    
+    // Test Cases
+    std::cout << is_palindrome("level") << std::endl; // true
+    std::cout << is_palindrome("hello") << std::endl; // false
+    std::cout << is_palindrome("racecar") << std::endl; // true
+
     return 0;
 }
