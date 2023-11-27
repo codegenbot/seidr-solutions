@@ -47,9 +47,7 @@ int main() {
     auto result = cutVector(nums);
 
     for (auto it = result.begin(); it != result.end(); it++) {
-        for (auto it2 = it->begin(); it2 != it->end(); it2++) {
-            cout << *it2 << endl;
-        }
+        cout << *it << endl;
     }
 
     return 0;
