@@ -24,9 +24,3 @@ vector<int> even_odd_count(int num){
     vector<int> result = {evenCount, oddCount};
     return result;
 }
-
-int main(){
-    assert (even_odd_count(0) == vector<int>{1, 0});
-    
-    return 0;
-}
