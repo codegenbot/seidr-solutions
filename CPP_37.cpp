@@ -1,22 +1,34 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
 #include <cassert>
-#include <vector>
 
-std::vector<float> sort_even(std::vector<float> l);
+using namespace std;
 
-bool is_same(float a, float b){
-    return fabs(a - b) < 1e-9;
+vector<float> sort_even(vector<float> l);
+bool is_same(vector<float> a, vector<float> b);
+
+int main() {
+    vector<float> a = {2.5, 1.5, 3.5, 1.7, 4.5, 2.3};
+    vector<float> b = {1.5, 2.5, 1.7, 3.5, 4.5, 2.3};
+    
+    vector<float> sorted = sort_even(a);
+    bool same = is_same(sorted, b);
+    
+    cout << boolalpha << same;
+    
+    return 0;
 }
 
-std::vector<float> sort_even(std::vector<float> l){
-    std::vector<float> result = l;
-    std::vector<float> even;
+vector<float> sort_even(vector<float> l){
+    vector<float> result = l;
+    vector<float> even;
     
     for(int i=0; i<l.size(); i+=2){
         even.push_back(l[i]);
     }
     
-    std::sort(even.begin(), even.end());
+    sort(even.begin(), even.end());
     
     for(int i=0, j=0; i<l.size(); i+=2, j++){
         result[i] = even[j];
@@ -25,13 +37,14 @@ std::vector<float> sort_even(std::vector<float> l){
     return result;
 }
 
-int main() {
-    std::vector<float> l = {4.5, 2.5, 3.5, 1.5, 6.5};
-    std::vector<float> sorted_even = sort_even(l);
-
-    assert(is_same(sorted_even[0], 1.5));
-    assert(is_same(sorted_even[1], 2.5));
-    assert(is_same(sorted_even[2], 6.5));
+bool is_same(vector<float> a, vector<float> b){
+    assert(a.size() == b.size());
     
-    return 0;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
