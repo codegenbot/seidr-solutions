@@ -1,6 +1,6 @@
+#include <cmath>
 #include <iostream>
 #include <iomanip>
-#include <cmath>
 
 double calculateSnow(double hours, double initialSnow, double snowFallRate, double snowMeltRate) {
     double snow = initialSnow;
