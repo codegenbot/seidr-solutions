@@ -1,9 +1,11 @@
 #include <map>
 #include <string>
 
-bool isSame(const map<char,int>& a, const map<char,int>& b);
+using namespace std;
 
 map<char,int> histogram(string test);
+
+bool isSame(const map<char,int>& a, const map<char,int>& b);
 
 map<char,int> histogram(string test){
     map<char, int> result;
