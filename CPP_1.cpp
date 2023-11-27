@@ -1,8 +1,9 @@
-#include <cassert>
-#include <vector>
+#include <iostream>
 #include <string>
+#include <vector>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
+using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
@@ -32,13 +33,14 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    // TODO: Implement the logic to check if vectors 'a' and 'b' are the same
-    return false;
-}
+bool issame(vector<string> a, vector<string> b);
 
 int main() {
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-
+    
     return 0;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
