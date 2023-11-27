@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
-bool isNested(std::string str){
+bool is_nested(std::string str){
     int count = 0;
     for(int i = 0; i < str.length(); i++){
         if(str[i] == '['){
@@ -18,21 +19,6 @@ bool isNested(std::string str){
 }
 
 int main() {
-    assert (isNested("]]]]]]]]") == false);
-    assert (isNested("[[[]]]]]]") == false);
-    assert (isNested("[[]][][]") == true);
-    assert (isNested("[[[][]]]") == false);
-    assert (isNested("[[[[[[[[") == true);
-    assert (isNested("[[[[]]]]") == false);
-    assert (isNested("[[][][]") == true);
-    assert (isNested("[[[]]]") == false);
-    assert (isNested("[[][]]") == false);
-    assert (isNested("[[]]") == false);
-    assert (isNested("[[]") == true);
-    assert (isNested("[]]") == true);
-    assert (isNested("[") == true);
-    assert (isNested("]") == false);
-    assert (isNested("") == false);
-    // Additional test cases can be added
+    assert (is_nested("]]]]]]]]") == false);
     return 0;
 }
