@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
 
-std::string getMiddleCharacter(const std::string& str) {
-    int len = str.length();
-    if (len % 2 == 1) {
-        return std::string(1, str[len / 2]);
+std::string getMiddleCharacter(std::string input) {
+    int length = input.length();
+    if (length % 2 == 1) {
+        return std::string(1, input[length / 2]);
     } else {
-        return str.substr(len / 2 - 1, 2);
+        return input.substr(length / 2 - 1, 2);
     }
 }
 
