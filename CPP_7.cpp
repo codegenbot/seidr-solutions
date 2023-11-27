@@ -2,11 +2,11 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     // implementation goes here
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
+vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for (string s : strings) {
         if (s.find(substring) != string::npos) {
@@ -19,6 +19,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     // more test cases...
-
+    
     return 0;
 }
