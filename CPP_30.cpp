@@ -1,14 +1,5 @@
 #include <vector>
 
-vector<float> get_positive(vector<float> l);
-
-bool issame(vector<float> a, vector<float> b);
-
-int main() {
-    assert(issame(get_positive({}), {}));
-    return 0;
-}
-
 vector<float> get_positive(vector<float> l){
     vector<float> positive_nums;
     for(int i = 0; i < l.size(); i++){
@@ -17,6 +8,12 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return positive_nums;
+}
+
+bool issame(vector<float> a, vector<float> b);
+
+int main() {
+    assert(issame(get_positive({}), {}));
 }
 
 bool issame(vector<float> a, vector<float> b){
