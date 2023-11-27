@@ -1,10 +1,10 @@
 #include <algorithm>
 #include <string>
-#include <boost/any.hpp>
+#include <any>
 
-using boost::any;
-using boost::any_cast;
-using boost::max;
+using std::any;
+using std::any_cast;
+using std::max;
 using std::string;
 
 any compare_one(any a, any b) {
