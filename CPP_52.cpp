@@ -1,3 +1,6 @@
+#include <vector>
+#include <cassert>
+
 bool below_threshold(vector<int> l, int t) {
     for (int i = 0; i < l.size(); i++) {
         if (l[i] >= t) {
@@ -5,4 +8,10 @@ bool below_threshold(vector<int> l, int t) {
         }
     }
     return true;
+}
+
+int main() {
+    assert (not(below_threshold({1, 8, 4, 10}, 10)));
+    // Additional test cases can be added here
+    return 0;
 }
