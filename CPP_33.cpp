@@ -1,11 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 vector<int> sort_third(vector<int> l);
-
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -31,14 +24,4 @@ vector<int> sort_third(vector<int> l){
         l_prime[indices[i]] = l[indices[i]];
     }
     return l_prime;
-}
-
-int main(){
-    vector<int> l = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    vector<int> sorted = sort_third(l);
-    for(int i = 0; i < sorted.size(); i++){
-        cout << sorted[i] << " ";
-    }
-    cout << endl;
-    return 0;
 }
