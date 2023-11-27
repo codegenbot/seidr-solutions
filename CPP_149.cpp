@@ -22,7 +22,7 @@ vector<string> sort_even_length_strings(vector<string> lst) {
     return result;
 }
 
-int main() {
+int sort_even_length_strings() {
     vector<string> input = { "aaaa", "bbbb", "dd", "cc" };
     vector<string> expected_output = { "cc", "dd", "aaaa", "bbbb" };
 
