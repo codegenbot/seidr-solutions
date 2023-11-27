@@ -1,27 +1,16 @@
-#include <iostream>
 #include <string>
-#include <cmath>
 
 int closest_integer(std::string value){
-    float num = std::stof(value); // convert string to float
-    int rounded_num = std::round(num); // round the float to the nearest integer
-
-    // check if the rounded number is equidistant from two integers
-    if (num - rounded_num == 0.5) {
-        // round away from zero
-        if (num > 0) {
-            return std::ceil(num);
-        } else {
-            return std::floor(num);
-        }
+    double num = std::stod(value);
+    int roundedNum = std::round(num);
+    int floorNum = std::floor(num);
+    int ceilNum = std::ceil(num);
+    
+    if (std::abs(num - roundedNum) < std::abs(num - floorNum) && std::abs(num - roundedNum) < std::abs(num - ceilNum)){
+        return roundedNum;
+    } else if (std::abs(num - floorNum) < std::abs(num - roundedNum) && std::abs(num - floorNum) < std::abs(num - ceilNum)){
+        return floorNum;
     } else {
-        return rounded_num;
+        return ceilNum;
     }
-}
-
-int main() {
-    assert (closest_integer("0") == 0);
-    // more test cases...
-
-    return 0;
 }
