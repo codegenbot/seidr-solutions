@@ -5,7 +5,7 @@
 
 std::vector<int> parse_music(std::string music_string);
 
-bool is_same(const std::vector<int>& vec1, const std::vector<int>& vec2) {
+bool is_same(std::vector<int> vec1, std::vector<int> vec2) {
     if (vec1.size() != vec2.size()) {
         return false;
     }
