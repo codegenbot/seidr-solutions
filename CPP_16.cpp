@@ -1,10 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+int count_distinct_characters(string str);
+
+int main() {
+    cout << count_distinct_characters("Jerry jERRY JeRRRY") << endl;
+    return 0;
+}
+
 int count_distinct_characters(string str) {
-    vector<char> distinct_chars;
+    vector<char> distinctChars;
     for (char c : str) {
-        char lowercase_c = tolower(c);
-        if (find(distinct_chars.begin(), distinct_chars.end(), lowercase_c) == distinct_chars.end()) {
-            distinct_chars.push_back(lowercase_c);
+        char lowerC = tolower(c);
+        if (find(distinctChars.begin(), distinctChars.end(), lowerC) == distinctChars.end()) {
+            distinctChars.push_back(lowerC);
         }
     }
-    return distinct_chars.size();
+    return distinctChars.size();
 }
