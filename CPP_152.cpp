@@ -15,7 +15,7 @@ vector<int> compare(vector<int> game, vector<int> guess){
     return result;
 }
 
-int main(){
+int main() {
     int n;
     cin >> n;
     vector<int> game(n);
