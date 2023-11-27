@@ -47,8 +47,8 @@ int main() {
     auto result = cutVector(nums);
 
     for (auto& subvector : result) {
-        for (auto& element : subvector) {
-            cout << element << " ";
+        for (auto it2 : subvector) {
+            cout << it2 << " ";
         }
     }
 
