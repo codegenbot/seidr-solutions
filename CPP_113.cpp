@@ -5,6 +5,8 @@
 
 using namespace std;
 
+vector<string> odd_count(const vector<string>& lst);
+
 vector<string> odd_count(const vector<string>& lst){
     vector<string> result;
     for(int i=0; i<lst.size(); i++){
@@ -20,16 +22,8 @@ vector<string> odd_count(const vector<string>& lst){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 int main(){
-    assert(issame(odd_count({"271", "137", "314"}), {
-        "the number of odd elements 2 in the string 1 of the input.",
-        "the number of odd elements 2 in the string 2 of the input.",
-        "the number of odd elements 3 in the string 3 of the input."        
-    }));
+    assert(odd_count({"271", "137", "314"}) == vector<string>{"the number of odd elements 2 in the string 1 of the input.", "the number of odd elements 2 in the string 2 of the input.", "the number of odd elements 3 in the string 3 of the input."});
 
     cout << "Test case passed!" << endl;
 
