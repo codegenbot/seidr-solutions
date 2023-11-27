@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <vector>
 #include <cassert>
@@ -25,6 +26,6 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    assert (issame(total_match({"this"}, {}) , {}));
+    assert (issame(total_match({"this"}, {}), {}));
     return 0;
 }
