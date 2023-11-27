@@ -29,3 +29,8 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b){
     }
     return true;
 }
+
+int main(){
+    assert(is_same(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+    return 0;
+}
