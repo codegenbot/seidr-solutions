@@ -24,10 +24,3 @@ bool move_one_ball(std::vector<int> arr) {
 
     return true;
 }
-
-int main() {
-    assert(move_one_ball({}) == true);
-    // Add more test cases...
-
-    return 0;
-}
