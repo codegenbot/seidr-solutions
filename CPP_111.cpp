@@ -1,25 +1,31 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
+map<char,int> histogram(string test){
+    map<char, int> mp;
+
+    // Split the string into individual words
+    stringstream ss(test);
+    string word;
+    while (ss >> word) {
+        // Count the occurrence of each letter in the word
+        for (char c : word) {
+            mp[c]++;
+        }
+    }
+
+    // Find the maximum occurrence
     int maxCount = 0;
-
-    // Count the occurrence of each character in the string
-    for (int i = 0; i < test.length(); i++) {
-        char c = test[i];
-        result[c]++;
-        
-        // Update maxCount if necessary
-        if (result[c] > maxCount) {
-            maxCount = result[c];
+    for (auto it : mp) {
+        if (it.second > maxCount) {
+            maxCount = it.second;
         }
     }
 
-    // Create a new map with characters having maxCount occurrences
-    map<char, int> finalResult;
-    for (auto it = result.begin(); it != result.end(); it++) {
-        if (it->second == maxCount) {
-            finalResult[it->first] = maxCount;
+    // Construct the result map with letters having maximum occurrence
+    map<char, int> res;
+    for (auto it : mp) {
+        if (it.second == maxCount) {
+            res[it.first] = it.second;
         }
     }
 
-    return finalResult;
+    return res;
 }
