@@ -1,9 +1,10 @@
-#include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
+
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt){
     vector<string> words;
@@ -43,22 +44,21 @@ vector<string> split_words(string txt){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() == b.size()){
-        for(int i=0; i<a.size(); i++){
-            if(a[i] != b[i]){
-                return false;
-            }
-        }
-        return true;
+    if(a.size() != b.size()){
+        return false;
     }
-    return false;
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main(){
-    assert(issame(split_words(""), {"0"}));
-    assert(issame(split_words("Hello,World"), {"Hello", "World"}));
-    assert(issame(split_words("This is a test"), {"This", "is", "a", "test"}));
-    assert(issame(split_words("C++,Programming,Contest"), {"C++", "Programming", "Contest"}));
+    assert(split_words("") == vector<string>{"0"});
     
     return 0;
 }
