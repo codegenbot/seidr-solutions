@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <cmath>
-
 using namespace std;
 
 bool compare(int a, int b) {
@@ -38,5 +37,6 @@ int main() {
     vector<int> expected = {-76, -21, 0, 4, 23, 6, 6};
 
     bool same = issame(result, expected);
+    // You can print 'same' if you want to check the result.
     return 0;
 }
