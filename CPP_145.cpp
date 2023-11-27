@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 using namespace std;
 
-vector<int> order_by_points(const vector<int>& nums){
+vector<int> order_by_points(vector<int> nums){
     vector<int> result;
     vector<pair<int, int>> sums;
     
@@ -29,18 +30,7 @@ vector<int> order_by_points(const vector<int>& nums){
 }
 
 int main(){
-    vector<int> expected = {-76, -21, 0, 4, 23, 6, 6};
-    vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
-
-    cout << "Expected: ";
-    for(auto num : expected){
-        cout << num << " ";
-    }
-    
-    cout << endl << "Result: ";
-    for(auto num : result){
-        cout << num << " ";
-    }
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
     
     return 0;
 }
