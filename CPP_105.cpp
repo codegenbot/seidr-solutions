@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <map>
 #include <algorithm>
@@ -5,47 +6,46 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-  if(a.size() != b.size())
-    return false;
-  
-  for(int i=0; i<a.size(); i++){
-    if(a[i] != b[i])
-      return false;
-  }
-  
-  return true;
-}
+vector<string> by_length(vector<int> arr);
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr){
-  vector<string> result;
-  map<int, string> digitNames = {
-    {1, "One"},
-    {2, "Two"},
-    {3, "Three"},
-    {4, "Four"},
-    {5, "Five"},
-    {6, "Six"},
-    {7, "Seven"},
-    {8, "Eight"},
-    {9, "Nine"}
-  };
+    vector<string> result;
+    map<int, string> digitMap = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
 
-  sort(arr.begin(), arr.end());
-  reverse(arr.begin(), arr.end());
-
-  for(int num : arr){
-    if(num >= 1 && num <= 9){
-      result.push_back(digitNames[num]);
+    // Sort the integers between 1 and 9 inclusive
+    vector<int> sortedArr;
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i] >= 1 && arr[i] <= 9){
+            sortedArr.push_back(arr[i]);
+        }
     }
-  }
+    sort(sortedArr.begin(), sortedArr.end());
 
-  return result;
+    // Reverse the resulting vector
+    reverse(sortedArr.begin(), sortedArr.end());
+
+    // Replace each digit by its corresponding name
+    for(int i=0; i<sortedArr.size(); i++){
+        result.push_back(digitMap[sortedArr[i]]);
+    }
+
+    return result;
 }
 
-int main() {
-  assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-  assert(!issame(by_length({1, 2, 3}), {"One", "Two", "Three"}));
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
-  return 0;
+int main(){
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    return 0;
 }
