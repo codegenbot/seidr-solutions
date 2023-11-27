@@ -3,10 +3,5 @@ int next_smallest(vector<int> lst){
         return None;
     }
     sort(lst.begin(), lst.end());
-    int smallest = lst[0];
-    int second_smallest = lst[1];
-    if(smallest == second_smallest){
-        return None;
-    }
-    return second_smallest;
+    return lst[1];
 }
