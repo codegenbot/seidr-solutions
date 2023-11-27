@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <climits>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
-    int cutIndex = -1;
+    int index = -1;
 
     for (int i = 1; i < n; i++) {
         int leftSum = 0;
@@ -23,14 +23,14 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 
         if (currentDiff < diff) {
             diff = currentDiff;
-            cutIndex = i;
+            index = i;
         }
     }
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex);
-    std::vector<int> rightSubvector(nums.begin() + cutIndex, nums.end());
+    std::vector<int> left(nums.begin(), nums.begin() + index);
+    std::vector<int> right(nums.begin() + index, nums.end());
 
-    return std::make_pair(leftSubvector, rightSubvector);
+    return std::make_pair(left, right);
 }
 
 int main() {
@@ -51,6 +51,5 @@ int main() {
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
-
     return 0;
 }
