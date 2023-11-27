@@ -5,10 +5,6 @@
 
 using namespace std;
 
-// Function to split the string into words
-vector<string> words_string(string s); // Forward declaration
-
-// Function to compare two string vectors
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -22,13 +18,13 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-// Main function
+vector<string> words_string(string s);
+
 int main() {
     assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
 
-// Function to split the string into words
 vector<string> words_string(string s) {
     vector<string> words;
     string word = "";
