@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <string>
+#include <string.h>
 
 std::vector<std::string> words_string(const std::string& s) {
     std::vector<std::string> words;
@@ -22,13 +22,13 @@ std::vector<std::string> words_string(const std::string& s) {
     return words;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& bVec) {
     bool result = true;
-    if (a.size() != b.size()) {
+    if (a.size() != bVec.size()) {
         result = false;
     } else {
         for (int i = 0; i < a.size(); i++) {
-            if (a[i] != b[i]) {
+            if (a[i] != bVec[i]) {
                 result = false;
                 break;
             }
