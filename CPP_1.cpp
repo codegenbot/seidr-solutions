@@ -1,54 +1,44 @@
-#include <iostream>
-#include <vector>
 #include <cassert>
+#include <vector>
+#include <string>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string>);  
-vector<string> separate_paren_groups(string paren_string);
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string current_group = "";
-    int open_count = 0;
+    string current_group;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (open_count > 0) {
-                current_group += c;
-            }
-            open_count++;
-        } else if (c == ')') {
-            open_count--;
-            if (open_count > 0) {
-                current_group += c;
-            } else {
+            if (!current_group.empty()) {
                 result.push_back(current_group);
-                current_group = "";
+                current_group.clear();
             }
+        } else if (c == ')') {
+            if (!current_group.empty()) {
+                current_group.push_back(c);
+                result.push_back(current_group);
+                current_group.clear();
+            }
+        } else if (c != ' ') {
+            current_group.push_back(c);
         }
+    }
+
+    if (!current_group.empty()) {
+        result.push_back(current_group);
     }
 
     return result;
 }
 
-bool issame(vector<string> a, vector<string>) {  
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    // TODO: Implement the logic to check if vectors 'a' and 'b' are the same
+    return false;
 }
 
 int main() {
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
 
-    cout << "Test cases passed." << endl;
     return 0;
 }
