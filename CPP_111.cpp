@@ -1,7 +1,8 @@
 #include <map>
 
-using namespace std;
+bool issame(map<char, int> a, map<char, int> b);
 
+map<char, int> histogram(string test);
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) {
@@ -29,12 +30,18 @@ bool issame(map<char, int> a, map<char, int> b) {
 }
 
 int main() {
-    /*map<char, int> a = histogram("hello world");
-    map<char, int> b = histogram("world hello");
-    map<char, int> c = histogram("hello hello");
-    
-    cout << issame(a, b) << endl; // should output 1
-    cout << issame(a, c) << endl; // should output 0*/
-    
+    // Test cases
+    map<char, int> a = histogram("hello world");
+    map<char, int> b = {{'h', 1}, {'e', 1}, {'l', 3}, {'o', 2}, {'w', 1}, {'r', 1}, {'d', 1}};
+    assert(issame(a, b));
+
+    map<char, int> c = histogram("this is a test");
+    map<char, int> d = {{'t', 3}, {'h', 1}, {'i', 2}, {'s', 3}, {'a', 1}, {'e', 1}};
+    assert(issame(c, d));
+
+    map<char, int> e = histogram("");
+    map<char, int> f = {};
+    assert(issame(e, f));
+
     return 0;
 }
