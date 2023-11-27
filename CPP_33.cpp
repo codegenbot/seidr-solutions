@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> sort_third(vector<int> l);
-bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
@@ -34,21 +34,6 @@ vector<int> sort_third(vector<int> l){
 }
 
 int main(){
-    vector<int> a = {3, 2, 5, 1, 4, 6};
-    vector<int> b = {3, 2, 5, 1, 4, 6};
-    vector<int> c = {3, 2, 1, 5, 4, 6};
-    
-    if(issame(sort_third(a), c)){
-        cout << "Test 1 Passed!" << endl;
-    } else {
-        cout << "Test 1 Failed!" << endl;
-    }
-    
-    if(!issame(sort_third(a), b)){
-        cout << "Test 2 Passed!" << endl;
-    } else {
-        cout << "Test 2 Failed!" << endl;
-    }
-    
+    assert (issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
     return 0;
 }
