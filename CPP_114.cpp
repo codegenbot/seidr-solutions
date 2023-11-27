@@ -1,20 +1,22 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
+using namespace std;
 
-long long minSubArraySum(std::vector<long long> nums){
+long long minSubArraySum(vector<long long> nums);
+
+long long minSubArraySum(vector<long long> nums){
     long long minSum = nums[0];
     long long currSum = nums[0];
     
     for(int i = 1; i < nums.size(); i++){
-        currSum = std::min(nums[i], currSum + nums[i]);
-        minSum = std::min(minSum, currSum);
+        currSum = min(nums[i], currSum + nums[i]);
+        minSum = min(minSum, currSum);
     }
     
     return minSum;
 }
 
-int main() {
-    assert(minSubArraySum({1, -1}) == -1);
-
+int main(){
+    assert (minSubArraySum({1, -1}) == -1);
     return 0;
 }
