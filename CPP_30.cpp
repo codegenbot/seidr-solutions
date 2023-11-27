@@ -6,8 +6,6 @@ using namespace std;
 
 vector<float> get_positive(vector<float> l);
 
-bool issame(vector<float> a, vector<float> b);
-
 vector<float> get_positive(vector<float> l){
     vector<float> result;
     for (float num : l){
