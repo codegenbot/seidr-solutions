@@ -19,5 +19,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(issame(filter_integers({boost::any(3), boost::any('c'), boost::any(3), boost::any(3), boost::any('a'), boost::any('b')}), {3, 3, 3}));
+
     return 0;
 }
