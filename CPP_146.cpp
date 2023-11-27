@@ -1,6 +1,7 @@
 #include <vector>
+#include <iostream>
 
-int specialFilter(std::vector<int> nums){
+int specialFilter(vector<int> nums){
     int count = 0;
     for(int num : nums){
         std::string numStr = std::to_string(num);
@@ -10,5 +11,14 @@ int specialFilter(std::vector<int> nums){
             count++;
         }
     }
-return count; 
+    return count;
+}
+
+int main() {
+    // Sample usage of specialFilter function
+    std::vector<int> nums = {12, 23, 35, 48, 52, 67};
+    int result = specialFilter(nums);
+    std::cout << "Count: " << result << std::endl;
+
+    return 0;
 }
