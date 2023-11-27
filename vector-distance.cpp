@@ -1,36 +1,34 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-double euclideanDistance(const std::vector<double>& a, const std::vector<double>& b) {
-    double distance = 0.0;
-    int n = a.size();
-    
-    for (int i = 0; i < n; i++) {
-        double diff = a[i] - b[i];
-        distance += diff * diff;
+using namespace std;
+
+double calculateEuclideanDistance(vector<float>& v1, vector<float>& v2) {
+    double sumOfSquares = 0;
+    for (int i = 0; i < v1.size(); i++) {
+        double difference = v1[i] - v2[i];
+        sumOfSquares += difference * difference;
     }
-    
-    return std::sqrt(distance);
+    return sqrt(sumOfSquares);
 }
 
 int main() {
     int n;
-    std::cin >> n;
-    
-    std::vector<double> a(n);
+    cin >> n;
+    vector<float> v1(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> a[i];
+        cin >> v1[i];
+    }
+
+    cin >> n;
+    vector<float> v2(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v2[i];
     }
     
-    std::cin >> n;
-    
-    std::vector<double> b(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> b[i];
-    }
-    
-    double distance = euclideanDistance(a, b);
-    std::cout << distance << std::endl;
-    
+    double distance = calculateEuclideanDistance(v1, v2);
+    cout << distance << endl;
+
     return 0;
 }
