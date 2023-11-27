@@ -1,24 +1,24 @@
 vector<int> order_by_points(vector<int> nums){
-    if(nums.empty()){
-        return nums;
-    }
+    vector<pair<int, int>> sums;
     
-    vector<pair<int, int>> sumIndexPairs;
-    for(int i = 0; i < nums.size(); i++){
+    for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
         int num = nums[i];
-        while(num != 0){
+        
+        while (num != 0) {
             sum += abs(num % 10);
             num /= 10;
         }
-        sumIndexPairs.push_back(make_pair(sum, i));
+        
+        sums.push_back(make_pair(sum, i));
     }
     
-    sort(sumIndexPairs.begin(), sumIndexPairs.end());
+    sort(sums.begin(), sums.end());
     
     vector<int> result;
-    for(auto pair : sumIndexPairs){
-        result.push_back(nums[pair.second]);
+    
+    for (int i = 0; i < sums.size(); i++) {
+        result.push_back(nums[sums[i].second]);
     }
     
     return result;
