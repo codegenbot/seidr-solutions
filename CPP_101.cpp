@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <cassert>
 
@@ -21,8 +20,6 @@ std::vector<std::string> words_string(const std::string& s) {
     }
     return words;
 }
-
-std::vector<std::string> words_string(const std::string& s);
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     bool result = true;
