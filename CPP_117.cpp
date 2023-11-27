@@ -1,35 +1,25 @@
-vector<string> select_words(string s, int n) {
-    vector<string> words;
-    string word = "";
-
-    for (char c : s) {
-        if (c != ' ') {
-            word += c;
-        } else {
+vector<string> select_words(string s,int n){
+    vector<string> result;
+    string word;
+    for(int i=0;i<s.length();i++){
+        if(s[i]==' ' || i==s.length()-1){
+            if(i==s.length()-1){
+                word+=s[i];
+            }
             int consonants = 0;
-            for (char ch : word) {
-                if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
-                    ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
+            for(int j=0;j<word.length();j++){
+                if(word[j]!='a' && word[j]!='e' && word[j]!='i' && word[j]!='o' && word[j]!='u'){
                     consonants++;
                 }
             }
-            if (consonants == n) {
-                words.push_back(word);
+            if(consonants==n){
+                result.push_back(word);
             }
             word = "";
         }
-    }
-
-    int consonants = 0;
-    for (char ch : word) {
-        if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
-            ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
-            consonants++;
+        else{
+            word+=s[i];
         }
     }
-    if (consonants == n) {
-        words.push_back(word);
-    }
-
-    return words;
+    return result;
 }
