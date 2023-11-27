@@ -2,10 +2,6 @@
 #include <string>
 #include <sstream>
 
-vector<string> split_words(string txt);
-int count_odd_letters(string txt);
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -54,14 +50,4 @@ int count_odd_letters(string txt){
         }
     }
     return count;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    // function body
-    // return statement if necessary
-}
-
-int main() {
-    // add any necessary code here
-    return 0;
 }
