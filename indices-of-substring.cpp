@@ -9,13 +9,15 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     for (int i = 0; i <= textLength - targetLength; i++) {
         bool found = true;
-        for (int j = 0; j < targetLength && i + j < textLength; j++) {
+
+        for (int j = 0; j < targetLength && i + j < textLength; j++) { // Modified inner loop
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
         }
-        if (found && (i == 0 || text[i - 1] != target[0])) {
+
+        if (found && (i == 0 || text[i - 1] != target[0])) { // Additional condition for overlapping targets
             indices.push_back(i);
         }
     }
