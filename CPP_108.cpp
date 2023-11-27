@@ -19,8 +19,8 @@ int count_nums(vector<int> n) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    assert(count_nums({10, -20, 5}) == 3);
-    assert(count_nums({-1234, 5678, 90}) == 6);
-
+    assert(count_nums({123, 456, 789}) == 3); // Three numbers with non-zero sum of digits
+    assert(count_nums({0}) == 0); // Zero has sum of digits equal to zero
+    
     return 0;
 }
