@@ -1,10 +1,6 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    // Implementation of issame function
-}
-
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> filtered_strings;
     for (string s : strings) {
@@ -16,8 +12,5 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 }
 
 int main() {
-    // Test cases
-    // assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    
     return 0;
 }
