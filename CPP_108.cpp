@@ -19,10 +19,9 @@ int count_nums(vector<int> n) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    assert(count_nums({-123, 456}) == 2);
-    assert(count_nums({0, 10, 100}) == 1);
-    assert(count_nums({-9, -99, 999}) == 3);
-    assert(count_nums({1234, -5678, 90}) == 3);
+    assert(count_nums({0, 10, 100, -1000}) == 3);
+    assert(count_nums({-1, -2, -3, -4, -5}) == 5);
+    assert(count_nums({12345, 67890, -54321, 98765}) == 4);
 
     return 0;
 }
