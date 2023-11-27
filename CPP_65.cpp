@@ -1,13 +1,13 @@
 string circular_shift(int x, int shift) {
-    string str = to_string(x);
-    int n = str.length();
+    string strX = to_string(x);
+    int len = strX.length();
     
-    if (shift > n) {
-        reverse(str.begin(), str.end());
-        return str;
+    if (shift > len) {
+        reverse(strX.begin(), strX.end());
+        return strX;
     }
     
-    shift %= n;
-    rotate(str.begin(), str.begin() + n - shift, str.end());
-    return str;
+    string temp = strX.substr(len - shift, shift);
+    strX.erase(len - shift, shift);
+    return temp + strX;
 }
