@@ -30,6 +30,6 @@ bool issame(vector<int> a, vector<int> b){
 
 int main(){
     assert (issame(even_odd_count(0), {1, 0}));
-    
+
     return 0;
 }
