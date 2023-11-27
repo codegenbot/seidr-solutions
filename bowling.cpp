@@ -1,5 +1,5 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
 
 int scoreOfRound(const std::string& bowls) {
     int score = 0;
