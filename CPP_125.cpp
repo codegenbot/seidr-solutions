@@ -27,7 +27,7 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(split_words("").size() == 1);
+    assert(split_words("") == vector<string>{"0"});
     cout << "Test case passed!" << endl;
     return 0;
 }
