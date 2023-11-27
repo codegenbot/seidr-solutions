@@ -1,56 +1,12 @@
-vector<int> sort_third(vector<int> l){
-    vector<int> l_prime = l;
-    vector<int> indices;
-    for(int i = 0; i < l.size(); i++){
-        if(i % 3 == 0){
-            indices.push_back(i);
-        }
-    }
-    sort(indices.begin(), indices.end());
-    for(int i = 0; i < indices.size(); i++){
-        l_prime[indices[i]] = l[indices[i]];
-    }
-    return l_prime;
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-int main(){
-    vector<int> l = {5, 2, 9, 8, 1, 3, 7, 6, 0, 4};
-    vector<int> sorted = sort_third(l);
-    for(int i = 0; i < sorted.size(); i++){
-        cout << sorted[i] << " ";
-    }
-    cout << endl;
-    
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {4, 5, 6};
-    bool same = issame(a, b);
-    if(same){
-        cout << "Lists are same" << endl;
-    }else{
-        cout << "Lists are not same" << endl;
-    }
-    
-    return 0;
-}
+std::vector<int> sort_third(std::vector<int> l);
 
-vector<int> sort_third(vector<int> l){
-    vector<int> l_prime = l;
-    vector<int> indices;
-    for(int i = 0; i < l.size(); i++){
-        if(i % 3 == 0){
-            indices.push_back(i);
-        }
-    }
-    sort(indices.begin(), indices.end());
-    for(int i = 0; i < indices.size(); i++){
-        l_prime[indices[i]] = l[indices[i]];
-    }
-    return l_prime;
-}
-
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -60,4 +16,24 @@ bool issame(vector<int> a, vector<int> b){
         }
     }
     return true;
+}
+
+std::vector<int> sort_third(std::vector<int> l){
+    std::vector<int> l_prime = l;
+    std::vector<int> indices;
+    for(int i = 0; i < l.size(); i++){
+        if(i % 3 == 0){
+            indices.push_back(i);
+        }
+    }
+    std::sort(indices.begin(), indices.end());
+    for(int i = 0; i < indices.size(); i++){
+        l_prime[indices[i]] = l[indices[i]];
+    }
+    return l_prime;
+}
+
+int main(){
+    assert (issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    return 0;
 }
