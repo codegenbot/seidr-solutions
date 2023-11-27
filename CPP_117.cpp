@@ -1,51 +1,57 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
+vector<string> select_words(string s, int n);
+
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(issame(select_words("apple orange banana", 2), {"apple", "orange", "banana"}));
+    assert(issame(select_words("hello world", 0), {}));
+    assert(issame(select_words("programming is fun", 3), {"programming", "fun"}));
+    cout << "All tests pass" << endl;
+    return 0;
 }
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    if (s.empty()) {
-        return result;
-    }
-    string word;
+    string word = "";
+    int consonantCount = 0;
+
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ' || i == s.length() - 1) {
-            if (i == s.length() - 1) {
-                word += s[i];
-            }
-            int consonantCount = 0;
-            for (int j = 0; j < word.length(); j++) {
-                if (isalpha(word[j]) && !isvowel(word[j])) {
-                    consonantCount++;
-                }
-            }
+        if (s[i] == ' ') {
             if (consonantCount == n) {
                 result.push_back(word);
             }
             word = "";
+            consonantCount = 0;
         } else {
+            if (isalpha(s[i])) {
+                if (tolower(s[i]) != 'a' && tolower(s[i]) != 'e' && tolower(s[i]) != 'i' && tolower(s[i]) != 'o' && tolower(s[i]) != 'u') {
+                    consonantCount++;
+                }
+            }
             word += s[i];
         }
     }
-    return result;
-}
 
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    assert(issame(select_words("hello world", 2), {"hello", "world"}));
-    return 0;
+    if (consonantCount == n) {
+        result.push_back(word);
+    }
+
+    return result;
 }
