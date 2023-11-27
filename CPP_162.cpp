@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 #include <string>
 #include <openssl/evp.h>
 using namespace std;
@@ -25,4 +25,12 @@ string string_to_md5(string text) {
     return string(md5Hash);
 }
 
-g++ -o output_file source_file.cpp -lcrypto
+int main() {
+    string input;
+    getline(cin, input);
+
+    string result = string_to_md5(input);
+    cout << result << endl;
+
+    return 0;
+}
