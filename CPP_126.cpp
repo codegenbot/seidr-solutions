@@ -1,22 +1,20 @@
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-bool is_sorted(std::vector<int> lst){
-    std::vector<int> sorted_lst = lst;
-    std::sort(sorted_lst.begin(), sorted_lst.end());
+bool is_sorted(const vector<int>& lst){
+    sort(lst.begin(), lst.end());
     
-    for(int i = 0; i < sorted_lst.size() - 1; i++){
-        if(sorted_lst[i] == sorted_lst[i+1]){
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] == lst[i+1]){
             return false;
         }
     }
     
-    return lst == sorted_lst;
-}
-
-int main() {
-    assert (is_sorted({1, 2, 3, 4}) == true);
-    // Add more test cases here
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] > lst[i+1]){
+            return false;
+        }
+    }
     
-    return 0;
+    return true;
 }
