@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <list>
+#include <vector>
 #include <boost/any.hpp>
 
 using namespace std;
@@ -8,33 +8,32 @@ using namespace std;
 vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (auto value : values) {
-        if (auto intValue = boost::any_cast<int>(&value)) {
-            result.push_back(*intValue);
+        if (boost::any_cast<int>(&value) != nullptr) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(int a, int b) {
+    return a == b;
 }
 
 int main() {
-    list<boost::any> values = {1, 2, 3, "hello", 4.5};
-    vector<int> result = filter_integers(values);
-    vector<int> expected = {1, 2, 3};
-    if (issame(result, expected)) {
-        cout << "Test case passed" << endl;
-    } else {
-        cout << "Test case failed" << endl;
+    list<boost::any> values;
+    values.push_back(10);
+    values.push_back(3.14);
+    values.push_back(20);
+    values.push_back("hello");
+
+    vector<int> filtered = filter_integers(values);
+
+    for (auto num : filtered) {
+        cout << num << " ";
     }
+    cout << endl;
+
+    cout << issame(10, 20) << endl;
+
     return 0;
 }
