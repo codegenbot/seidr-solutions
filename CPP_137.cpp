@@ -1,4 +1,3 @@
-#include <boost/version.hpp>
 #include <boost/any.hpp>
 #include <string>
 
