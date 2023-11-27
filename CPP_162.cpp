@@ -3,9 +3,9 @@
 #include <array>
 #include <openssl/md5.h>
 
-std::string string_to_md5(std::string text) {
-    OPENSSL_config(NULL);
+#pragma comment(lib, "openssl")
 
+std::string string_to_md5(std::string text) {
     if (text.empty()) {
         return "None";
     }
