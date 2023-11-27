@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b);
+bool issame(vector<float> a, vector<float> b); // Declare issame function
 
 vector<float> sort_even(vector<float> l){
     vector<float> l_prime = l;
@@ -28,7 +28,7 @@ vector<float> sort_even(vector<float> l){
     return l_prime;
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a, vector<float> b){ // Add missing ;
     if (a.size() != b.size()){
         return false;
     }
