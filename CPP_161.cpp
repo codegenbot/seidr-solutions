@@ -1,23 +1,15 @@
-#include <iostream>
 #include <string>
+#include <algorithm>
+using namespace std;
 
-std::string solve(std::string s);
-
-int main() {
-    // Test cases
-    assert(solve("#ccc") == "#CCC");
-
-    return 0;
-}
-
-std::string solve(std::string s) {
-    std::string result = "";
+string solve(string s){
+    string result = "";
     bool hasLetter = false;
-
-    for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
+    
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
             hasLetter = true;
-            if (islower(s[i])) {
+            if(islower(s[i])){
                 result += toupper(s[i]);
             } else {
                 result += tolower(s[i]);
@@ -26,10 +18,14 @@ std::string solve(std::string s) {
             result += s[i];
         }
     }
-
-    if (!hasLetter) {
+    
+    if(!hasLetter){
         reverse(result.begin(), result.end());
     }
-
+    
     return result;
+}
+
+int main() {
+    // main function code
 }
