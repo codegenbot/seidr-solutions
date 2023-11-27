@@ -35,3 +35,9 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     }
     return result;
 }
+
+int main() {
+    // Add test cases here
+
+    return 0;
+}
