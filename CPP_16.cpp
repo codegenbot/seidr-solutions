@@ -2,12 +2,13 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+
 using namespace std;
 
 int count_distinct_characters(string str);
 
 int main() {
-    cout << count_distinct_characters("Jerry jERRY JeRRRY") << endl;
+    cout << count_distinct_characters("Jerry jERRY JeRRRY");
     return 0;
 }
 
