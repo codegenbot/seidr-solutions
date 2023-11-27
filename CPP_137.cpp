@@ -23,6 +23,6 @@ any compare_one(any a, any b) {
 }
 
 int main() {
-    assert (any_cast<string&>(compare_one(string("1"), string("None"))) == string("None"));
+    assert (any_cast<string>(compare_one(string("1"), string("None"))) == "None");
     return 0;
 }
