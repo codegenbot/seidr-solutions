@@ -1,31 +1,20 @@
 string encode(string message){
     string encodedMessage = "";
-    
-    for (int i = 0; i < message.length(); i++) {
-        char c = message[i];
-        
-        if (isalpha(c)) {
-            if (islower(c)) {
+    for(int i = 0; i < message.length(); i++){
+        if(isalpha(message[i])){
+            char c = message[i];
+            if(islower(c)){
                 c = toupper(c);
-            } else {
+            }else{
                 c = tolower(c);
             }
-            
-            if (c == 'A') {
-                c = 'C';
-            } else if (c == 'E') {
-                c = 'G';
-            } else if (c == 'I') {
-                c = 'K';
-            } else if (c == 'O') {
-                c = 'Q';
-            } else if (c == 'U') {
-                c = 'W';
+            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                c += 2;
             }
+            encodedMessage += c;
+        }else{
+            encodedMessage += message[i];
         }
-        
-        encodedMessage += c;
     }
-    
     return encodedMessage;
 }
