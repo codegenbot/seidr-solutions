@@ -1,17 +1,18 @@
 vector<int> strange_sort_vector(vector<int> lst){
     vector<int> result;
     sort(lst.begin(), lst.end());
-    int start = 0;
-    int end = lst.size() - 1;
-    
-    while(start <= end){
-        if(start == end){
-            result.push_back(lst[start]);
-            break;
+    int n = lst.size();
+    int left = 0;
+    int right = n - 1;
+    while (left <= right) {
+        if (left == right) {
+            result.push_back(lst[left]);
+        } else {
+            result.push_back(lst[left]);
+            result.push_back(lst[right]);
         }
-        result.push_back(lst[start++]);
-        result.push_back(lst[end--]);
+        left++;
+        right--;
     }
-    
     return result;
 }
