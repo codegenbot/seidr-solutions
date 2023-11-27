@@ -13,6 +13,7 @@ float my_max_element(std::vector<float> l){
 }
 
 int main() {
+    // Test your function
     assert (std::abs(my_max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
     
     // The rest of your code here
