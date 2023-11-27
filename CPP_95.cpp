@@ -1,5 +1,5 @@
-#include <string>
 #include <map>
+#include <string>
 #include <cassert>
 
 bool check_dict_case(map<string,string> dict){
