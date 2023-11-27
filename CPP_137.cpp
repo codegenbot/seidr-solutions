@@ -1,22 +1,26 @@
 #include <boost/any.hpp>
 #include <boost/lexical_cast.hpp>
+#include <string>
+#include <cassert>
+
+boost::any compare_one(boost::any a, boost::any b);
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int intA = boost::any_cast<int>(a);
         int intB = boost::any_cast<int>(b);
         if (intA > intB) {
-            return intA;
+            return boost::any(intA);
         } else if (intA < intB) {
-            return intB;
+            return boost::any(intB);
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float floatA = boost::any_cast<float>(a);
         float floatB = boost::any_cast<float>(b);
         if (floatA > floatB) {
-            return floatA;
+            return boost::any(floatA);
         } else if (floatA < floatB) {
-            return floatB;
+            return boost::any(floatB);
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string stringA = boost::any_cast<std::string>(a);
@@ -26,13 +30,18 @@ boost::any compare_one(boost::any a, boost::any b) {
             floatA = boost::lexical_cast<float>(stringA);
             floatB = boost::lexical_cast<float>(stringB);
         } catch (const boost::bad_lexical_cast&) {
-            return std::string("None");
+            return boost::any(std::string("None"));
         }
         if (floatA > floatB) {
-            return stringA;
+            return boost::any(stringA);
         } else if (floatA < floatB) {
-            return stringB;
+            return boost::any(stringB);
         }
     }
-    return std::string("None");
+    return boost::any(std::string("None"));
+}
+
+int main() {
+    assert (boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+    return 0;
 }
