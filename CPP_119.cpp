@@ -1,19 +1,19 @@
-string match_parens(vector<string> lst){
-    string str = lst[0] + lst[1];
-    int count = 0;
+string match_parens(vector<string> lst) {
+    string s = "";
+    for (string str : lst) {
+        s += str;
+    }
 
-    for(char c : str){
-        if(c == '(')
+    int count = 0;
+    for (char c : s) {
+        if (c == '(') {
             count++;
-        else if(c == ')'){
-            if(count == 0)
-                return "No";
+        } else {
             count--;
+            if (count < 0)
+                return "No";
         }
     }
 
-    if(count == 0)
-        return "Yes";
-    else
-        return "No";
+    return (count == 0) ? "Yes" : "No";
 }
