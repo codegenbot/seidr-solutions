@@ -15,10 +15,6 @@ bool is_consonant(char c) {
     // code for checking if a character is a consonant
 }
 
-int main() {
-    // code for testing the select_words() function
-}
-
 vector<string> select_words(string s, int n) {
     vector<string> words;
     string word;
