@@ -1,53 +1,48 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <tuple>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    int n = nums.size();
-    int diff = INT_MAX;
-    int index = -1;
-
-    for (int i = 0; i < n - 1; i++) {
-        int left_sum = 0;
-        int right_sum = 0;
-
-        for (int j = 0; j <= i; j++) {
-            left_sum += nums[j];
-        }
-
-        for (int j = i + 1; j < n; j++) {
-            right_sum += nums[j];
-        }
-
-        if (std::abs(left_sum - right_sum) < diff) {
-            diff = std::abs(left_sum - right_sum);
-            index = i;
-        }
+vector<int> cutVector(vector<int>& nums) {
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
     }
-
-    std::vector<int> left_subvector(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> right_subvector(nums.begin() + index + 1, nums.end());
-
-    return std::make_pair(left_subvector, right_subvector);
+    
+    int target = sum / 2;
+    int currSum = 0;
+    int idx = 0;
+    
+    while (currSum < target) {
+        currSum += nums[idx];
+        idx++;
+    }
+    
+    vector<int> subvector1(nums.begin(), nums.begin() + idx);
+    vector<int> subvector2(nums.begin() + idx, nums.end());
+    
+    return subvector1, subvector2;
 }
 
 int main() {
     int n;
-    std::cin >> n;
-
-    std::vector<int> nums(n);
+    cin >> n;
+    
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
-
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-
-    for (int num : result.first) {
-        std::cout << num << std::endl;
+    
+    vector<int> result1, result2;
+    tie(result1, result2) = cutVector(nums);
+    
+    for (int num : result1) {
+        cout << num << endl;
     }
-
-    for (int num : result.second) {
-        std::cout << num << std::endl;
+    
+    for (int num : result2) {
+        cout << num << endl;
     }
-
+    
     return 0;
 }
