@@ -1,20 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-int count_consonants(string word) {
-    int count = 0;
-    for (char c : word) {
-        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
-            count++;
-        }
-    }
-    return count;
-}
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string>& a, vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,6 +15,16 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return true;
+}
+
+int count_consonants(string word) {
+    int count = 0;
+    for (char c : word) {
+        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
+            count++;
+        }
+    }
+    return count;
 }
 
 vector<string> select_words(string s, int n) {
