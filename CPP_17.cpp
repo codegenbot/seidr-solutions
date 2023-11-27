@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> parse_music(string music_string) {
     vector<int> beats;
     int length = music_string.length();
@@ -23,18 +19,4 @@ vector<int> parse_music(string music_string) {
         }
     }
     return beats;
-}
-
-int main() {
-    vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
-    vector<int> expected_output = {2, 1, 2, 1, 4, 2, 4, 2};
-
-    if (issame(parsed_music, expected_output)) {
-        cout << "Output is correct!" << endl;
-    }
-    else {
-        cout << "Output is incorrect!" << endl;
-    }
-
-    return 0;
 }
