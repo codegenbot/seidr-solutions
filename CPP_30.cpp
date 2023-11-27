@@ -1,4 +1,7 @@
 #include <vector>
+#include <cassert>
+
+using namespace std;
 
 vector<float> get_positive(vector<float> l){
     vector<float> positive_nums;
@@ -23,7 +26,6 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main(){
-    assert(issame(get_positive({}), {}));
-    
+    assert (issame(get_positive({}), vector<float>{}));
     return 0;
 }
