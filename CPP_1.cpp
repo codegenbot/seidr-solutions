@@ -24,16 +24,15 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 bool issame(vector<string> a, vector<string> b);
+bool is_same(vector<string> a, vector<string> b) {
+    // Implementation code here
+}
 
 int main() {
-    vector<string> a = separate_paren_groups("((abc)(def))");
-    vector<string> b = separate_paren_groups("((abc)(def))");
+    vector<string> a = separate_paren_groups("((a)(b))");
+    vector<string> b = separate_paren_groups("((a)(b))");
 
     assert(is_same(a, b));
 
     return 0;
-}
-
-bool is_same(vector<string> a, vector<string> b) {
-    // Implementation code here
 }
