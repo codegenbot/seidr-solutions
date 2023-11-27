@@ -1,31 +1,23 @@
 #include <iostream>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
-bool is_palindrome(string str){
-    string s(str.rbegin(),str.rend());
-    return s==str;
-}
-
 string make_palindrome(string str){
-    int len = str.length();
-    int i = len - 1;
-    while(i >= 0){
-        if(is_palindrome(str.substr(i))){
-            break;
-        }
+    string palindrome = str;
+    int i = str.length() - 1;
+    while(i >= 0 && str[i] == str[str.length() - i - 1]){
         i--;
     }
-    string prefix = str.substr(0, i);
-    string suffix = str.substr(i);
-    string reversed_prefix(prefix.rbegin(), prefix.rend());
-    return str + reversed_prefix;
+    for(int j = i; j >= 0; j--){
+        palindrome += str[j];
+    }
+    return palindrome;
 }
 
-int main(){
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << "Shortest palindrome: " << make_palindrome(input) << endl;
+int main()
+{
+    assert (make_palindrome("jerry") == "jerryrrej");
     return 0;
 }
