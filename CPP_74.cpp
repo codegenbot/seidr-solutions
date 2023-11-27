@@ -1,27 +1,20 @@
-#include <iostream>
-#include <vector>
 #include <string>
-
-using namespace std;
+#include <vector>
 
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
 int main() {
-    vector<string> list1 = {"apple", "banana", "orange"};
-    vector<string> list2 = {"grape", "kiwi", "melon"};
+    vector<string> lst1 = {"apple", "banana", "cherry"};
+    vector<string> lst2 = {"orange", "grape"};
     
-    vector<string> result = total_match(list1, list2);
-    
-    for(string str : result){
-        cout << str << " ";
-    }
+    vector<string> result = total_match(lst1, lst2);
     
     return 0;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     int totalChars1 = 0;
     int totalChars2 = 0;
     
@@ -33,7 +26,7 @@ bool issame(vector<string> a, vector<string> b){
         totalChars2 += str.length();
     }
     
-    if(totalChars1 == totalChars2){
+    if(totalChars1 < totalChars2){
         return true;
     }
     else{
@@ -41,7 +34,7 @@ bool issame(vector<string> a, vector<string> b){
     }
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2){
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int totalChars1 = 0;
     int totalChars2 = 0;
     
