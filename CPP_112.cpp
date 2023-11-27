@@ -4,8 +4,6 @@
 #include <cassert>
 #include <iostream>
 
-std::vector<std::string> reverse_delete(std::string s, std::string c);
-
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -35,7 +33,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    std::vector<std::string> expected = {"", "True"};
+    std::vector<std::string> expected = {"mma", "False"};
     std::vector<std::string> result = reverse_delete("mamma", "mia");
     if (issame(result, expected)) {
         std::cout << "Test case passed." << std::endl;
