@@ -34,6 +34,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     // Existing code here
 }
 
+#include <vector>
+
 int main() {
     issame(bf("Jupiter", "Makemake"), {});
     return 0;
