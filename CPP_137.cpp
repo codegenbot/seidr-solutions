@@ -15,8 +15,8 @@ any compare_one(any a, any b) {
         float num2 = any_cast<float>(b);
         return max(num1, num2);
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
+        const string& str1 = any_cast<const string&>(a);
+        const string& str2 = any_cast<const string&>(b);
         return max(str1, str2, [](const string& s1, const string& s2) { return s1 < s2; });
     }
     return any();
