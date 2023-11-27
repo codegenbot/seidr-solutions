@@ -1,12 +1,3 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-bool issame(vector<float> a, vector<float> b){
-    // Function implementation
-}
-
 vector<float> rescale_to_unit(vector<float> numbers){ 
     float min_num = numbers[0];
     float max_num = numbers[0];
@@ -29,8 +20,11 @@ vector<float> rescale_to_unit(vector<float> numbers){
     return numbers;
 }
 
+bool issame(vector<float> a, vector<float> b){
+    // Function implementation
+}
+
 int main(){
-    // Main function implementation
-    
+    // Code to call the rescale_to_unit function and test the issame function
     return 0;
 }
