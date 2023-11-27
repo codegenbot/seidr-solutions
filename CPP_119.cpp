@@ -1,19 +1,27 @@
-string match_parens(vector<string> lst) {
-    string s = "";
-    for (string str : lst) {
-        s += str;
-    }
-
+string match_parens(vector<string> lst){
+    string result = "Yes";
     int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            count++;
-        } else {
-            count--;
-            if (count < 0)
-                return "No";
+
+    for (string str : lst) {
+        for (char c : str) {
+            if (c == '(') {
+                count++;
+            }
+            else {
+                count--;
+            }
+
+            if (count < 0) {
+                result = "No";
+                break;
+            }
+        }
+
+        if (count != 0) {
+            result = "No";
+            break;
         }
     }
 
-    return (count == 0) ? "Yes" : "No";
+    return result;
 }
