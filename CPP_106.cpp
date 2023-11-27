@@ -2,7 +2,7 @@
 #include <cassert>
 #include <iostream>
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -36,6 +36,6 @@ std::vector<int> f(int n) {
 
 int main() {
     assert(is_same(f(3), {1, 2, 6}));
-    std::cout << "Assertion Passed" << std::endl;
+
     return 0;
 }
