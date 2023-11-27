@@ -1,14 +1,19 @@
-int count_nums(vector<int> n){
+int count_nums(vector<int> n) {
     int count = 0;
-    for (int i = 0; i < n.size(); i++) {
+    for (int num : n) {
         int sum = 0;
-        int num = abs(n[i]);
-        while (num != 0) {
-            sum += num % 10;
-            num /= 10;
-        }
-        if (sum > 0) {
+        int temp = abs(num);
+
+        if (temp == 0) {
             count++;
+        } else {
+            while (temp > 0) {
+                sum += temp % 10;
+                temp /= 10;
+            }
+            if (sum > 0) {
+                count++;
+            }
         }
     }
     return count;
