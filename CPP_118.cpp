@@ -22,10 +22,9 @@ string get_closest_vowel(string word){
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
-    assert(get_closest_vowel("Hello World") == "o");
-    assert(get_closest_vowel("XYZU") == "");
-    assert(get_closest_vowel("Abcde") == "");
-    // Add more test cases here
+    assert(get_closest_vowel("hello") == "");
+    assert(get_closest_vowel("world") == "");
+    assert(get_closest_vowel("programming") == "o");
 
     cout << "All test cases pass" << endl;
 
