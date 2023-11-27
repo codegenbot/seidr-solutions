@@ -11,11 +11,6 @@ vector<int> incr_list(vector<int> l){
 }
 
 int main() {
-    // Test the incr_list function
-    vector<int> input = {1, 2, 3, 4, 5};
-    vector<int> output = incr_list(input);
-    for(int i=0; i<output.size(); i++){
-        cout << output[i] << " ";
-    }
+    // code logic here
     return 0;
 }
