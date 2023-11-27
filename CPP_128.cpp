@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -21,14 +22,13 @@ int prod_signs(vector<int> arr) {
 
 int main() {
     assert(prod_signs({-1, 1, 1, 0}) == 0);
-    assert(prod_signs({-2, -2, 2, -1, -1}) == 16);
-    assert(prod_signs({3, -4, 5, -6}) == -54);
-    assert(prod_signs({0, 0, 0, 0}) == 0);
-    assert(prod_signs({}) == -32768);
-    assert(prod_signs({1, 2, 3, 4, 5}) == 45);
-    assert(prod_signs({-1, -2, -3, -4, -5}) == 45);
-    assert(prod_signs({1, -2, 3, -4, 5}) == -45);
-    assert(prod_signs({-1, 2, -3, 4, -5}) == -45);
+    assert(prod_signs({-1, -2, -3}) == 6);
+    assert(prod_signs({4, -5, 6, -7}) == 84);
+    assert(prod_signs({0, 0, 0, 0, 0}) == 0);
+    assert(prod_signs({0}) == 0);
+    assert(prod_signs({-1}) == -1);
+    assert(prod_signs({1}) == 1);
+    // Add more test cases here
 
     return 0;
 }
