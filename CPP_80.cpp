@@ -1,7 +1,6 @@
-#include <iostream>
 #include <string>
 
-bool is_happy(std::string s){
+bool is_happy(string s){
     if(s.length() < 3)
         return false;
     
@@ -15,10 +14,13 @@ bool is_happy(std::string s){
 
 int main() {
     // Test cases
-    std::cout << is_happy("abc") << std::endl;  // Expected output: 1 (true)
-    std::cout << is_happy("aab") << std::endl;  // Expected output: 0 (false)
-    std::cout << is_happy("xyz") << std::endl;  // Expected output: 1 (true)
-    std::cout << is_happy("aabbcc") << std::endl;  // Expected output: 0 (false)
+    string test1 = "abc";
+    string test2 = "aab";
+    string test3 = "abb";
+    
+    cout << is_happy(test1) << endl; // Expected output: 1 (true)
+    cout << is_happy(test2) << endl; // Expected output: 0 (false)
+    cout << is_happy(test3) << endl; // Expected output: 0 (false)
     
     return 0;
 }
