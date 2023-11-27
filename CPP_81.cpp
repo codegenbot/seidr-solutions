@@ -39,11 +39,5 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 
 int main() {
     // Test your function here
-    vector<float> grades = {3.2, 4.0, 2.5, 3.8};
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    for (string grade : letter_grades) {
-        cout << grade << " ";
-    }
-    cout << endl;
     return 0;
 }
