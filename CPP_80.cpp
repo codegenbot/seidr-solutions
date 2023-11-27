@@ -17,9 +17,9 @@ int main(){
     cin >> input;
     bool result = is_happy(input);
     if(result){
-        cout << "The string is happy." << endl;
+        cout << "Happy" << endl;
     } else {
-        cout << "The string is not happy." << endl;
+        cout << "Not Happy" << endl;
     }
     return 0;
 }
