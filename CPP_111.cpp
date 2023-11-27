@@ -1,25 +1,47 @@
-map<char,int> histogram(string test){
-    map<char, int> count;
+#include <map>
 
+map<char, int> histogram(string test);
+bool issame(map<char, int> a, map<char, int> b);
+
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    if (test.empty()) {
+        return result;
+    }
+    string letter;
     for (int i = 0; i < test.length(); i++) {
         if (test[i] != ' ') {
-            count[test[i]]++;
+            letter += test[i];
+        } else {
+            if (!letter.empty()) {
+                result[letter]++;
+                letter = "";
+            }
         }
     }
-
-    int maxCount = 0;
-    for (auto it = count.begin(); it != count.end(); it++) {
-        if (it->second > maxCount) {
-            maxCount = it->second;
-        }
+    if (!letter.empty()) {
+        result[letter]++;
     }
-
-    map<char, int> result;
-    for (auto it = count.begin(); it != count.end(); it++) {
-        if (it->second == maxCount) {
-            result[it->first] = it->second;
-        }
-    }
-
     return result;
+}
+
+bool issame(map<char, int> a, map<char, int> b) {
+    return a == b;
+}
+
+int main() {
+    // Test cases
+    map<char, int> a = histogram("hello world");
+    map<char, int> b = histogram("world hello");
+    map<char, int> c = histogram("hello  world");
+    map<char, int> d = histogram("");
+    
+    /* Uncomment to test
+    cout << issame(a, b) << endl;  // 1
+    cout << issame(a, c) << endl;  // 0
+    cout << issame(a, d) << endl;  // 0
+    cout << issame(d, d) << endl;  // 1
+    */
+    
+    return 0;
 }
