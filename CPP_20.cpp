@@ -3,6 +3,12 @@
 #include <limits>
 #include <cassert>
 
+using namespace std;
+
+bool issame(const vector<float>& a, const vector<float>& b);
+
+vector<float> find_closest_elements(vector<float> numbers);
+
 bool issame(const vector<float>& a, const vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -43,6 +49,6 @@ vector<float> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    assert(issame(find_closest_elements(vector<float>({1.1, 2.2, 3.1, 4.1, 5.1})), vector<float>({2.2, 3.1})));
     return 0;
 }
