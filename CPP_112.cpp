@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <algorithm>
 #include <cassert>
 
@@ -22,12 +22,11 @@ vector<string> reverse_delete(string s, string c) {
     return output;
 }
 
-bool isEqual(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
-    
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
