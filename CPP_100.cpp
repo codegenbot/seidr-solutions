@@ -1,8 +1,10 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+namespace custom {
+    bool issame(std::vector<int> a, const std::vector<int>& b){
+        return a == b;
+    }
 }
 
 std::vector<int> make_a_pile(int n) {
@@ -20,12 +22,6 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    std::vector<int> result = make_a_pile(8);
-    std::vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
-    if (issame(result, expected)) {
-        std::cout << "Test case passed!" << std::endl;
-    } else {
-        std::cout << "Test case failed!" << std::endl;
-    }
+    assert(custom::issame(make_a_pile(8), std::vector<int>({8, 10, 12, 14, 16, 18, 20, 22})));
     return 0;
 }
