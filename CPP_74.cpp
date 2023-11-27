@@ -25,7 +25,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2){
     }
 }
 
-bool is_same(vector<string> a, vector<string> b) {
+bool is_same(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         return false;
 
@@ -42,8 +42,8 @@ int main(){
     assert(is_same(total_match({"this", "is", "a", "test"}, {"another", "test"}), {"this", "is", "a", "test"}));
     assert(is_same(total_match({"hello", "world"}, {"goodbye", "world"}), {"hello", "world"}));
     assert(is_same(total_match({"apple", "banana", "cherry"}, {"cherry", "orange"}), {"cherry", "orange"}));
-
+    
     cout << "All assertions passed!";
-
+    
     return 0;
 }
