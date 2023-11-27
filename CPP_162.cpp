@@ -24,6 +24,8 @@ std::string string_to_md5(std::string text) {
     return std::string(md5Hash.data(), md5Hash.size());
 }
 
+std::string string_to_md5(std::string text);
+
 int main() {
     std::string text;
     std::cout << "Enter a string: ";
