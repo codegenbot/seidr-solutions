@@ -1,52 +1,49 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
-    int n = input.size();
-    int sum = 0;
-    for (int num : input) {
-        sum += num;
-    }
-    
-    int halfSum = sum / 2;
-    int currSum = 0;
-    int diff = std::abs(sum - 2 * currSum);
-    int index = 0;
-    
-    for (int i = 0; i < n; i++) {
-        currSum += input[i];
-        int newDiff = std::abs(sum - 2 * currSum);
-        if (newDiff < diff) {
-            diff = newDiff;
-            index = i;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+    int n = nums.size();
+    int diff = INT_MAX;
+    int cutIndex = -1;
+
+    for (int i = 0; i < n - 1; i++) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j <= i; j++) {
+            sum1 += nums[j];
+        }
+        for (int j = i + 1; j < n; j++) {
+            sum2 += nums[j];
+        }
+        int currDiff = abs(sum1 - sum2);
+        if (currDiff < diff) {
+            diff = currDiff;
+            cutIndex = i;
         }
     }
-    
-    std::vector<int> subvector1(input.begin(), input.begin() + index + 1);
-    std::vector<int> subvector2(input.begin() + index + 1, input.end());
-    
+
+    std::vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
+    std::vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
+
     return std::make_pair(subvector1, subvector2);
 }
 
 int main() {
     int n;
     std::cin >> n;
-    
-    std::vector<int> input(n);
+
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> input[i];
+        std::cin >> nums[i];
     }
-    
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(input);
-    
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
-    
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
