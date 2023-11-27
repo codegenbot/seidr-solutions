@@ -5,44 +5,23 @@
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2, 0); // Initialize the result vector with 2 zeros
-
+    vector<int> result(2, 0);
     for (int i = 1; i <= n; i++) {
-        string num = to_string(i); // Convert the integer to string
-
-        // Check if the number is a palindrome
+        string num = to_string(i);
         bool isPalindrome = true;
-        int left = 0, right = num.length() - 1;
-        while (left < right) {
-            if (num[left] != num[right]) {
+        for (int j = 0; j < num.length() / 2; j++) {
+            if (num[j] != num[num.length() - j - 1]) {
                 isPalindrome = false;
                 break;
             }
-            left++;
-            right--;
         }
-
-        // Increment the corresponding count based on the palindrome's parity
         if (isPalindrome) {
             if (i % 2 == 0) {
-                result[0]++; // Even palindrome
+                result[0]++;
             } else {
-                result[1]++; // Odd palindrome
+                result[1]++;
             }
         }
     }
-
     return result;
-}
-
-int main() {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-
-    vector<int> result = even_odd_palindrome(n);
-
-    cout << "Output: (" << result[0] << ", " << result[1] << ")" << endl;
-
-    return 0;
 }
