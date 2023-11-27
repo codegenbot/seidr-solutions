@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
@@ -29,6 +30,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2){
 
 int main(){
     assert(issame(total_match({"this"}, {}), {}));
-
     return 0;
 }
