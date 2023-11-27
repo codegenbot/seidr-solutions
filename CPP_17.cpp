@@ -3,13 +3,15 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> beats;
-    std::string note = "";
+vector<int> parse_music(string music_string) {
+    vector<int> beats;
+    string note = "";
     for (int i = 0; i < music_string.length(); i++) {
         if (music_string[i] == 'o') {
             if (note == "o|") {
@@ -30,7 +32,7 @@ std::vector<int> parse_music(std::string music_string) {
 }
 
 int main() {
-    std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
+    vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
     assert(issame(parsed_music, {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
 }
