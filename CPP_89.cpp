@@ -1,12 +1,8 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-string encrypt(string s); // Function declaration
-
-string encrypt(string s){
-    string encrypted = "";
+std::string encrypt(std::string s){
+    std::string encrypted = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(isalpha(c)){
