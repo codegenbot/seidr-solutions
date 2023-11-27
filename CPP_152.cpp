@@ -1,9 +1,7 @@
 #include <vector>
-#include <cassert>
+#include <cassert> // Add this line
 
-using namespace std;
-
-vector<int> compare(const vector<int>& game, const vector<int>& guess){
+vector<int> compare(vector<int> game, vector<int> guess){
     vector<int> result;
     for(int i=0; i<game.size(); i++){
         if(game[i] == guess[i]){
@@ -16,7 +14,26 @@ vector<int> compare(const vector<int>& game, const vector<int>& guess){
     return result;
 }
 
-int main() {
-    assert(compare({1,2,3,5},{-1,2,3,4}) == vector<int>{2,0,0,1});
-    return 0;
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+bool issame2(vector<int> a, vector<int> b){ // Change the function name
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
