@@ -1,16 +1,18 @@
 bool is_sorted(vector<int> lst){
-    int n = lst.size();
-    bool hasDuplicate = false;
+    // Sort the vector in ascending order
+    sort(lst.begin(), lst.end());
     
-    for(int i = 0; i < n-1; i++){
-        if(lst[i] > lst[i+1]){
+    // Check if the vector has more than 1 duplicate of the same number
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] == lst[i+1]){
             return false;
         }
-        if(lst[i] == lst[i+1]){
-            if(hasDuplicate){
-                return false;
-            }
-            hasDuplicate = true;
+    }
+    
+    // Check if the vector is sorted in ascending order
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] > lst[i+1]){
+            return false;
         }
     }
     
