@@ -22,10 +22,15 @@ vector<string> odd_count(const vector<string>& lst){
     return result;
 }
 
-int main(){
+int contestMain(){
     assert(odd_count({"271", "137", "314"}) == vector<string>{"the number of odd elements 2 in the string 1 of the input.", "the number of odd elements 2 in the string 2 of the input.", "the number of odd elements 3 in the string 3 of the input."});
 
     cout << "Test case passed!" << endl;
 
+    return 0;
+}
+
+int main() {
+    contestMain();
     return 0;
 }
