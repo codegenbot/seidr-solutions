@@ -1,12 +1,10 @@
 int closest_integer(string value){
     float num = stof(value);
-    int closest = round(num);
-    if (num - closest == 0.5) {
-        if (num > 0) {
-            closest++;
-        } else {
-            closest--;
-        }
+    int closestInt = round(num);
+
+    if (closestInt > num) {
+        closestInt--;
     }
-    return closest;
+
+    return closestInt;
 }
