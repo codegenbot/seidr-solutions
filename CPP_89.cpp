@@ -1,14 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
-
-string encrypt(string s);
-
-int main() {
-    assert (encrypt("a")=="e");
-    return 0;
-}
 
 string encrypt(string s){
     string encrypted = "";
@@ -24,4 +18,9 @@ string encrypt(string s){
         encrypted += c;
     }
     return encrypted;
+}
+
+int main() {
+    assert (encrypt("a")=="e");
+    return 0;
 }
