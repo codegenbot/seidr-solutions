@@ -1,29 +1,28 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <cassert>
 
-using namespace std;
+bool issame(std::vector<float> a, std::vector<float> b);
 
-bool issame(const vector<float>& a, const vector<float>& b);
-
-vector<float> sort_even(vector<float>& l);
+std::vector<float> sort_even(std::vector<float> l);
 
 int main() {
-    vector<float> l = {3.2, 1.5, 4.7, 2.9, 6.1};
-    vector<float> sorted_l = sort_even(l);
+    std::vector<float> l = {3.2, 1.5, 4.7, 2.9, 6.1};
+    std::vector<float> sorted_l = sort_even(l);
     
-    vector<float> expected = {1.5, 3.2, 2.9, 4.7, 6.1};
+    std::vector<float> expected = {1.5, 3.2, 2.9, 4.7, 6.1};
     
     if (issame(sorted_l, expected)) {
-        cout << "The list is sorted correctly." << endl;
+        std::cout << "The list is sorted correctly." << std::endl;
     } else {
-        cout << "The list is not sorted correctly." << endl;
+        std::cout << "The list is not sorted correctly." << std::endl;
     }
     
     return 0;
 }
 
-bool issame(const vector<float>& a, const vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -37,9 +36,9 @@ bool issame(const vector<float>& a, const vector<float>& b) {
     return true;
 }
 
-vector<float> sort_even(vector<float>& l) {
-    vector<float> l_prime = l;
-    vector<float> even_values;
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> l_prime = l;
+    std::vector<float> even_values;
     
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -47,7 +46,7 @@ vector<float> sort_even(vector<float>& l) {
         }
     }
     
-    sort(even_values.begin(), even_values.end());
+    std::sort(even_values.begin(), even_values.end());
     
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
