@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int how_many_times(string str, string substring){
+int how_many_times(std::string str, std::string substring){
     int count = 0;
     int sub_len = substring.length();
     int str_len = str.length();
@@ -22,8 +22,9 @@ int how_many_times(string str, string substring){
 }
 
 int main(){
-    std::cout << how_many_times("john doe", "john") << std::endl;
-    std::cout << how_many_times("hello hello", "ello") << std::endl;
+    // Test cases
+    std::cout << how_many_times("john doe", "john") << std::endl; // Output: 1
+    std::cout << how_many_times("hello hello", "ello") << std::endl; // Output: 2
     
     return 0;
 }
