@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
 bool is_vowel(char c) {
-    // Implementation of is_vowel() function
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
 }
 
 vector<string> select_words(string s, int n) {
@@ -32,7 +33,6 @@ vector<string> select_words(string s, int n) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // Implementation of issame() function
     if (a.size() != b.size()) {
         return false;
     }
