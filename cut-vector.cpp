@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <algorithm>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
@@ -56,6 +55,6 @@ int main() {
     }
 
     std::cout << std::endl;
-    
+
     return 0;
 }
