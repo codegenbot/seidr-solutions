@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
