@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 int count_upper(const string& s){
@@ -14,9 +13,24 @@ int count_upper(const string& s){
 
 int main() {
     // Test cases
-    cout << count_upper("Hello") << endl;    // Expected output: 1
-    cout << count_upper("WORLD") << endl;    // Expected output: 2
-    cout << count_upper("abcde") << endl;    // Expected output: 0
+    string test1 = "Hello World";
+    string test2 = "aBcDeFgHiJkLmNoPqRsTuVwXyZ";
+    string test3 = "aeiouAEIOU";
     
-    return 0;
+    // Expected outputs
+    int expected1 = 2;
+    int expected2 = 13;
+    int expected3 = 10;
+    
+    // Test count_upper function
+    int result1 = count_upper(test1);
+    int result2 = count_upper(test2);
+    int result3 = count_upper(test3);
+    
+    // Check if the results match the expected outputs
+    if(result1 == expected1 && result2 == expected2 && result3 == expected3){
+        return 0; // Return 0 if all tests pass
+    } else {
+        return 1; // Return 1 if any test fails
+    }
 }
