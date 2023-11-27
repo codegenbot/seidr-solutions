@@ -1,3 +1,13 @@
+#include <vector>
+#include <cmath>
+#include <cassert>
+
+using namespace std;
+
+vector<float> find_closest_elements(vector<float> numbers);
+
+bool issame(vector<float> a, vector<float> b);
+
 vector<float> find_closest_elements(vector<float> numbers){
     float min_diff = INFINITY;
     pair<float, float> closest_elements;
