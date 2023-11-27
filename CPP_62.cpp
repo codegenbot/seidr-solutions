@@ -1,19 +1,16 @@
 #include <vector>
 
-bool issame(vector<float> xs, vector<float> ys){
-    if(xs.size() != ys.size()){
-        return false;
-    }
-    for(int i = 0; i < xs.size(); i++){
-        if(xs[i] != ys[i]){
+bool issame(const std::vector<float>& xs){
+    for(int i = 1; i < xs.size(); i++){
+        if(xs[i] != xs[0]){
             return false;
         }
     }
     return true;
 }
 
-vector<float> derivative(vector<float> xs){
-    vector<float> result;
+std::vector<float> derivative(const std::vector<float>& xs){
+    std::vector<float> result;
     for(int i = 1; i < xs.size(); i++){
         result.push_back(xs[i] * i);
     }
