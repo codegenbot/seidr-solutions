@@ -1,19 +1,21 @@
 #include <iostream>
 using namespace std;
 
-void calculateSnow(float hours, float snowOnGround, float snowFallRate, float snowMeltRate) {
-    float snowMeltAmount;
+float calculateSnow(float hours, float currentSnow, float snowFallRate, float meltRate) {
     for (int i = 0; i < hours; i++) {
-        snowOnGround += snowFallRate;
-        snowMeltAmount = snowOnGround * snowMeltRate;
-        snowOnGround -= snowMeltAmount;
+        currentSnow += snowFallRate;
+        currentSnow -= currentSnow * meltRate;
     }
-    cout << snowOnGround << endl;
+
+    currentSnow += currentSnow * meltRate * hours;
+
+    return currentSnow;
 }
 
 int main() {
-    float hours, snowOnGround, snowFallRate, snowMeltRate;
-    cin >> hours >> snowOnGround >> snowFallRate >> snowMeltRate;
-    calculateSnow(hours, snowOnGround, snowFallRate, snowMeltRate);
+    float hours, currentSnow, snowFallRate, meltRate;
+    cin >> hours >> currentSnow >> snowFallRate >> meltRate;
+    float finalSnow = calculateSnow(hours, currentSnow, snowFallRate, meltRate);
+    cout << finalSnow << endl;
     return 0;
 }
