@@ -1,16 +1,17 @@
 #include <iostream>
-
-/* Given code */
 #include <vector>
 #include <string>
+#include <cassert>
 
-std::string int_to_mini_roman(int number) {
-    std::vector<int> nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    std::vector<std::string> romans = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
-    std::string result = "";
+using namespace std;
 
-    for(int i = 0; i < nums.size(); i++) {
-        while(number >= nums[i]) {
+string int_to_mini_roman(int number){
+    vector<int> nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    vector<string> romans = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+    string result = "";
+
+    for(int i = 0; i < nums.size(); i++){
+        while(number >= nums[i]){
             result += romans[i];
             number -= nums[i];
         }
@@ -20,14 +21,6 @@ std::string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int number;
-    std::cout << "Enter a number: ";
-    std::cin >> number;
-  
-    // Fix the function call
-    std::string roman = int_to_mini_roman(number);
-  
-    std::cout << roman << std::endl;
-
+    assert(int_to_mini_roman(1000) == "m");
     return 0;
 }
