@@ -1,23 +1,26 @@
-#include <string>
+#include <iostream>
 #include <cmath>
+#include <string>
 
-int closest_integer(std::string value);
+using namespace std;
+
+int closest_integer(string value);
 
 int main() {
-    std::string value;
-    std::cin >> value;
-    std::cout << closest_integer(value) << std::endl;
+    string input;
+    cin >> input;
+    cout << closest_integer(input);
     return 0;
 }
 
-int closest_integer(std::string value){
-    double num = std::stod(value);
-    int rounded = std::round(num);
+int closest_integer(string value){
+    double num = stod(value);
+    int rounded = round(num);
     if (num - rounded == 0.5) {
         if (num > 0) {
-            return std::ceil(num);
+            return ceil(num);
         } else {
-            return std::floor(num);
+            return floor(num);
         }
     } else {
         return rounded;
