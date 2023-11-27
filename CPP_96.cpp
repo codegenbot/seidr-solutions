@@ -1,3 +1,8 @@
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
 vector<int> count_up_to(int n){
     vector<int> primes;
     for(int i=2; i<n; i++){
