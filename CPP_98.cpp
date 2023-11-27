@@ -1,9 +1,7 @@
-#include <iostream>
 #include <string>
+#include <cassert>
 
-using namespace std;
-
-int count_upper(const string& s){
+int count_upper(string s){
     int count = 0;
     for(int i = 0; i < s.length(); i+=2){
         char c = s[i];
@@ -15,18 +13,9 @@ int count_upper(const string& s){
 }
 
 int main() {
-    // Test the count_upper function with various test cases
-    string test1 = "HELLO";
-    string test2 = "WORLD";
-    string test3 = "Cpp Contest";
-    
-    int result1 = count_upper(test1);
-    int result2 = count_upper(test2);
-    int result3 = count_upper(test3);
-    
-    cout << "Result 1: " << result1 << endl;
-    cout << "Result 2: " << result2 << endl;
-    cout << "Result 3: " << result3 << endl;
+    assert(count_upper("EEEE") == 2);
+    assert(count_upper("abdEIOU") == 4);
+    assert(count_upper("") == 0);
     
     return 0;
 }
