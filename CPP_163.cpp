@@ -30,12 +30,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> expected = {};
-    vector<int> result = generate_integers(17, 89);
-    if (issame(result, expected)) {
-        cout << "Result is correct!" << endl;
-    } else {
-        cout << "Result is incorrect!" << endl;
-    }
-    return 0;
+    assert(issame(generate_integers(17, 89), {}));
+    // rest of the code
 }
