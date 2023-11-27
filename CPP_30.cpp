@@ -29,6 +29,6 @@ bool are_same(const vector<float>& a, const vector<float>& b){
 
 int main() {
     assert (are_same(get_positive({}) , {}));
-    
+
     return 0;
 }
