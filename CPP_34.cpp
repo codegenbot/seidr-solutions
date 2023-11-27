@@ -24,7 +24,7 @@ int main() {
     
     std::vector<int> output = remove_duplicates({5, 3, 5, 2, 3, 3, 9, 0, 123});
     
-    assert(issame(output, expected_output) == true);
+    assert(issame(output, expected_output));
     
     std::cout << "Output is correct" << std::endl;
     
