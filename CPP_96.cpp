@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 bool is_same(vector<int> a, vector<int> b){
     return a == b;
