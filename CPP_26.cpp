@@ -2,9 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    // implementation of the issame function
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
@@ -14,6 +12,10 @@ vector<int> remove_duplicates(vector<int> numbers){
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    // implementation of the issame function
 }
 
 int main(){
