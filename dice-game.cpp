@@ -4,8 +4,8 @@
 using namespace std;
 
 double probability(int n, int m) {
-    double total_outcomes = n * m;
-    double peter_wins = 0;
+    int total_outcomes = n * m;
+    int peter_wins = 0;
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
@@ -15,7 +15,7 @@ double probability(int n, int m) {
         }
     }
 
-    return peter_wins / total_outcomes;
+    return (double)peter_wins / total_outcomes;
 }
 
 int main() {
