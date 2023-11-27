@@ -5,9 +5,7 @@
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b){
-    // implementation of issame function
-    // ...
-    return true;
+    return a == b;
 }
 
 vector<int> make_a_pile(int n){
@@ -26,9 +24,7 @@ vector<int> make_a_pile(int n){
 }
 
 int main(){
-    vector<int> a_pile = make_a_pile(8);
-    assert(issame(a_pile, vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
-    // rest of the main function
-    // ...
+    vector<int> piles = make_a_pile(8);
+    assert(issame(piles, vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
