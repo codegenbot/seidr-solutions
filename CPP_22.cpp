@@ -1,8 +1,8 @@
 vector<int> filter_integers(list_any values){
     vector<int> result;
-    for(auto value : values){
-        if(decltype(value)::type() == typeid(int)){
-            result.push_back(boost::any_cast<int>(value));
+    for(auto val : values){
+        if(val.type() == typeid(int)){
+            result.push_back(boost::any_cast<int>(val));
         }
     }
     return result;
