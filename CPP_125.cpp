@@ -3,17 +3,18 @@
 #include <string>
 #include <cassert>
 
-bool is_same(std::vector<std::string> a, std::vector<std::string> b);
+using namespace std;
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> split_words(string txt) {
+    vector<string> result;
+    string word = "";
 
     for (int i = 0; i < txt.length(); i++) {
         if (txt[i] == ' ' && word != "") {
             result.push_back(word);
             word = "";
-        } else {
+        }
+        else {
             word += txt[i];
         }
     }
@@ -25,7 +26,7 @@ std::vector<std::string> split_words(std::string txt) {
     return result;
 }
 
-bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -40,7 +41,7 @@ bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(is_same(split_words(""), {"0"}));
-    std::cout << "Test case passed!" << std::endl;
+    assert(issame(split_words(""), {"0"}));
+    cout << "Test case passed!" << endl;
     return 0;
 }
