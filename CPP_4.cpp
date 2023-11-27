@@ -1,4 +1,5 @@
 #include <vector>
+
 float mean_absolute_deviation(const std::vector<float>& numbers){
     float sum = 0;
     float mean = 0;
