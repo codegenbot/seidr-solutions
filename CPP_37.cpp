@@ -5,17 +5,7 @@ using namespace std;
 
 vector<float> sort_even(vector<float> l);
 
-bool is_same(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+bool is_same(vector<float> a, vector<float> b);
 
 vector<float> sort_even(vector<float> l){
     vector<float> l_prime(l.size());
@@ -39,6 +29,18 @@ vector<float> sort_even(vector<float> l){
     }
     
     return l_prime;
+}
+
+bool is_same(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
