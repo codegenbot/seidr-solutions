@@ -1,3 +1,9 @@
+#include <map>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 map<char,int> histogram(string test){
     map<char,int> result;
     string letter;
@@ -29,4 +35,8 @@ map<char,int> histogram(string test){
     }
     
     return output;
+}
+
+bool isSameMaps(const map<char,int>& a, const map<char,int>& b){
+    return a == b;
 }
