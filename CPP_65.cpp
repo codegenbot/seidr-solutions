@@ -1,5 +1,13 @@
 #include <string>
-#include <cassert>
+
+string circular_shift(int x, int shift);
+
+int main() {
+    int x, shift;
+    cin >> x >> shift;
+    cout << circular_shift(x, shift) << endl;
+    return 0;
+}
 
 string circular_shift(int x, int shift) {
     string num = to_string(x);
@@ -10,14 +18,6 @@ string circular_shift(int x, int shift) {
         return num;
     }
     
-    shift %= n;
     string result = num.substr(n - shift) + num.substr(0, n - shift);
     return result;
-}
-
-int main() {
-    int x, shift;
-    cin >> x >> shift;
-    cout << circular_shift(x, shift);
-    return 0;
 }
