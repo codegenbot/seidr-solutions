@@ -2,10 +2,8 @@
 #include <cassert>
 #include <iostream>
 
-using namespace std;
-
-vector<int> f(int n) {
-    vector<int> result;
+std::vector<int> f(int n) {
+    std::vector<int> result;
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
             int factorial = 1;
@@ -24,7 +22,7 @@ vector<int> f(int n) {
     return result;
 }
 
-bool isSame(vector<int> a, vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -37,7 +35,8 @@ bool isSame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(isSame(f(3), {1, 2, 6}));
-    cout << "Assertion Passed" << endl;
+    std::vector<int> expected = {1, 2, 6};
+    assert(is_same(f(3), expected));
+    std::cout << "Assertion Passed" << std::endl;
     return 0;
 }
