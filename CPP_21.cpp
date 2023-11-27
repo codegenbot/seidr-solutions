@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <limits>
 
 using namespace std;
 
@@ -29,11 +28,11 @@ vector<float> rescale_to_unit(vector<float> numbers) {
         }
     }
 
-    vector<float> rescaled_numbers(numbers.size());
+    vector<float> rescaled_numbers;
 
     for(int i = 0; i < numbers.size(); i++) {
         float rescaled_num = (numbers[i] - min_num) / (max_num - min_num);
-        rescaled_numbers[i] = rescaled_num;
+        rescaled_numbers.push_back(rescaled_num);
     }
 
     return rescaled_numbers;
