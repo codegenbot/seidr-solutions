@@ -1,3 +1,5 @@
 float truncate_number(float number){
-    return number - floor(number);
+    int integerPart = (int)number;
+    float decimalPart = number - integerPart;
+    return decimalPart;
 }
