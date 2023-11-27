@@ -12,3 +12,11 @@ int countDistinctCharacters(string str) {
     }
     return distinct_chars.size();
 }
+
+int main() {
+    string input;
+    cin >> input;
+    int result = countDistinctCharacters(input);
+    cout << result << endl;
+    return 0;
+}
