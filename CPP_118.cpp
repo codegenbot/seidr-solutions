@@ -1,3 +1,13 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool isVowel(char c){
+    string vowels = "aeiouAEIOU";
+    return vowels.find(c) != string::npos;
+}
+
 string get_closest_vowel(string word){
     string vowels = "aeiouAEIOU";
     int n = word.length();
