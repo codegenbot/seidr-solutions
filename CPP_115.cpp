@@ -1,15 +1,18 @@
-#include <vector>
+int max_fill(vector<vector<int>> grid,int capacity){
+    int count = 0;
+    int rows = grid.size();
+    int cols = grid[0].size();
 
-int max_fill(vector<vector<int>> grid, int capacity) {
-    int buckets = 0;
-    for (int i = 0; i < grid.size(); i++) {
-        for (int j = 0; j < grid[i].size(); j++) {
-            int water = grid[i][j];
-            if (water > 0) {
-                int fill = (water + capacity - 1) / capacity; // Calculate number of buckets needed to empty well
-                buckets += fill;
-            }
+    for(int i=0; i<rows; i++){
+        int sum = 0;
+        for(int j=0; j<cols; j++){
+            sum += grid[i][j];
+        }
+        count += (sum/capacity);
+        if(sum % capacity != 0){
+            count++;
         }
     }
-    return buckets;
+
+    return count;
 }
