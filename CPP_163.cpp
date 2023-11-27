@@ -17,12 +17,13 @@ vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b){
+    // implementation of the function
+    if(a.size() != b.size()){
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -30,6 +31,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}));
+    assert(issame(generate_integers(17,89) , {}));
     // rest of the code
 }
