@@ -13,7 +13,7 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst = {1.5, 2.0, 3.5, 4.0, 5.5};
+    vector<float> lst = { 1.5, 2.0, 3.5, 4.0, 5.5 };
     long long expected_output = 30;
     assert(double_the_difference(lst) == expected_output);
 
