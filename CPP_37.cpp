@@ -3,33 +3,48 @@
 #include <algorithm>
 #include <cassert>
 
-bool is_same(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
+using namespace std;
+
+vector<float> sort_even(vector<float> l);
+bool is_same(vector<float> a, vector<float> b);
+
+int main() {
+    vector<float> a = {2.5, 1.5, 3.5, 1.7, 4.5, 2.3};
+    vector<float> b = {1.5, 2.5, 1.7, 3.5, 4.5, 2.3};
+    
+    vector<float> sorted = sort_even(a);
+    bool same = is_same(sorted, b);
+    
+    cout << boolalpha << same;
+    
+    return 0;
+}
+
+vector<float> sort_even(vector<float> l){
+    vector<float> result = l;
+    vector<float> even;
+    
+    for(int i=0; i<l.size(); i+=2){
+        even.push_back(l[i]);
     }
+    
+    sort(even.begin(), even.end());
+    
+    for(int i=0, j=0; i<l.size(); i+=2, j++){
+        result[i] = even[j];
+    }
+    
+    return result;
+}
+
+bool is_same(vector<float> a, vector<float> b){
+    assert(a.size() == b.size());
+    
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
     }
+    
     return true;
-}
-
-vector<float> sort_even(vector<float> l){
-    vector<float> l_prime(l.size());
-    for(int i=0; i<l.size(); i++){
-        if(i%2 == 0){
-            l_prime[i] = l[i];
-        }
-        else{
-            l_prime[i] = l_prime[i-1];
-        }
-    }
-    sort(l_prime.begin(), l_prime.end());
-    return l_prime;
-}
-
-int main() {
-    assert (is_same(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) , {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
-    return 0;
 }
