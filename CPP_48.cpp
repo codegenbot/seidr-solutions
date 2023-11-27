@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-bool is_palindrome(string text){
+bool is_palindrome(std::string text){
     int n = text.length();
     for(int i=0; i<n/2; i++){
         if(text[i] != text[n-i-1]){
@@ -14,8 +12,10 @@ bool is_palindrome(string text){
 }
 
 int main() {
-    cout << is_palindrome("abcba") << endl;   
-    cout << is_palindrome("xywzx") << endl;   
+    std::cout << is_palindrome("hello") << std::endl;
+    std::cout << is_palindrome("madam") << std::endl;
+    std::cout << is_palindrome("racecar") << std::endl;
+    std::cout << is_palindrome("xywzx") << std::endl;
 
     return 0;
 }
