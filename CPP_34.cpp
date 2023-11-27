@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
@@ -24,11 +25,9 @@ int main() {
     
     std::vector<int> output = remove_duplicates(input);
     
-    if(issame(output, expected_output)){
-        std::cout << "Output is correct" << std::endl;
-    } else {
-        std::cout << "Output is incorrect" << std::endl;
-    }
+    assert(issame(output, expected_output));
+    
+    std::cout << "Output is correct" << std::endl;
     
     return 0;
 }
