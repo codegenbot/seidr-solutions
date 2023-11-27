@@ -48,6 +48,6 @@ int getScore(const std::string& bowls) {
 int main() {
     std::string bowls;
     std::cin >> bowls;
-    std::cout << getScore(bowls) << std::endl;
+    std::cout << getScore(bowls);
     return 0;
 }
