@@ -1,22 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+string match_parens(vector<string> lst);
+
 string match_parens(vector<string> lst){
-    int open = 0;
-    int close = 0;
-    for(string str : lst){
-        for(char c : str){
-            if(c == '('){
-                open++;
+    int count = 0;
+    for (string s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                count++;
             } else {
-                if(open > 0){
-                    open--;
-                } else {
-                    close++;
-                }
+                count--;
+            }
+            if (count < 0) {
+                return "No";
             }
         }
     }
-    if(open == 0 && close == 0){
+    if (count == 0) {
         return "Yes";
     } else {
         return "No";
     }
+}
+
+int main() {
+    // test your code here
+    return 0;
 }
