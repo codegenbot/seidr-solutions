@@ -8,18 +8,37 @@ bool issame(vector<string> a, vector<string> b);
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
+int main() {
+    vector<string> list1 = {"apple", "banana", "orange"};
+    vector<string> list2 = {"grape", "kiwi", "melon"};
+    
+    vector<string> result = total_match(list1, list2);
+    
+    for(string str : result){
+        cout << str << " ";
+    }
+    
+    return 0;
+}
+
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+    int totalChars1 = 0;
+    int totalChars2 = 0;
+    
+    for(string str : a){
+        totalChars1 += str.length();
+    }
+    
+    for(string str : b){
+        totalChars2 += str.length();
+    }
+    
+    if(totalChars1 == totalChars2){
+        return true;
+    }
+    else{
         return false;
     }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2){
@@ -40,17 +59,4 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2){
     else{
         return lst2;
     }
-}
-
-int main() {
-    vector<string> lst1 = {"apple", "banana", "cherry"};
-    vector<string> lst2 = {"orange", "strawberry"};
-    
-    vector<string> result = total_match(lst1, lst2);
-    
-    for(string str : result){
-        cout << str << " ";
-    }
-    
-    return 0;
 }
