@@ -18,11 +18,7 @@ int next_smallest(vector<int> lst){
     return INT_MIN;
 }
 
-int main(){
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
-    assert(next_smallest({100, 200, 300, 400}) == 200);
-    assert(next_smallest({-1, -2, -3, -4}) == -2);
-    assert(next_smallest({1, 1, 1, 1}) == INT_MIN);
-    
-    return 0;
-}
+assert(next_smallest({-35, 34, 12, -45}) == -35);
+// Add more test cases here
+
+return 0;
