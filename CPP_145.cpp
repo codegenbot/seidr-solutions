@@ -1,53 +1,41 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
-#include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
-vector<int> order_by_points(vector<int> nums){
+std::vector<int> order_by_points(std::vector<int> nums); // Declare the function
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+std::vector<int> order_by_points(std::vector<int> nums){
     if(nums.empty()){
         return nums;
     }
-    
-    vector<pair<int, int>> sumDigits;
-    
+    std::vector<std::pair<int, int>> sums;
     for(int i=0; i<nums.size(); i++){
-        int num = nums[i];
         int sum = 0;
-        
-        while(num != 0){
-            sum += abs(num % 10);
+        int num = std::abs(nums[i]);
+        while(num > 0){
+            sum += num % 10;
             num /= 10;
         }
-        
-        sumDigits.push_back(make_pair(sum, i));
+        sums.push_back(std::make_pair(sum, i));
     }
-    
-    sort(sumDigits.begin(), sumDigits.end());
-    
-    vector<int> result;
-    
-    for(auto pair : sumDigits){
-        result.push_back(nums[pair.second]);
+    std::sort(sums.begin(), sums.end());
+    std::vector<int> result;
+    for(int i=0; i<sums.size(); i++){
+        result.push_back(nums[sums[i].second]);
     }
-    
     return result;
 }
 
-int main() {
+int main(){
     assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+
     return 0;
 }
