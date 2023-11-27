@@ -5,9 +5,7 @@
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b){
-    // implementation of issame function
-    // ...
-    return true;
+    return a == b;
 }
 
 vector<int> make_a_pile(int n){
