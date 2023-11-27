@@ -1,10 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<float> a, vector<float> b) {
-    // implementation
-}
-
 vector<float> sort_even(vector<float> l) {
     vector<float> l_prime = l;
     vector<float> even_indices;
