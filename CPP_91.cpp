@@ -19,7 +19,7 @@ int is_bored(std::string S){
     return count;
 }
 
-int main(){
+int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
