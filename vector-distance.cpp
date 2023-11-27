@@ -1,10 +1,16 @@
 #include <vector>
+#include <iostream>
 #include <cmath>
+#include <sstream>
 
-float euclideanDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
-    float sum = 0.0;
-    for (int i = 0; i < v1.size(); i++) {
-        float diff = v1[i] - v2[i];
+double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
+    if (vector1.size() != vector2.size()) {
+        return -1;
+    }
+    
+    double sum = 0.0;
+    for (int i = 0; i < vector1.size(); i++) {
+        double diff = vector1[i] - vector2[i];
         sum += diff * diff;
     }
     return std::sqrt(sum);
@@ -13,19 +19,26 @@ float euclideanDistance(const std::vector<float>& v1, const std::vector<float>& 
 int main() {
     int n;
     std::cin >> n;
-    std::vector<float> v1(n);
+    std::vector<double> vector1(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> v1[i];
+        std::cin >> vector1[i];
     }
-    
-    std::cin >> n;
-    std::vector<float> v2(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> v2[i];
+
+    std::cin.ignore();
+
+    std::string line;
+    std::getline(std::cin, line);
+    std::istringstream iss(line);
+
+    std::vector<double> vector2;
+    double val;
+
+    while (iss >> val) {
+        vector2.push_back(val);
     }
-    
-    float distance = euclideanDistance(v1, v2);
+
+    double distance = calculateEuclideanDistance(vector1, vector2);
     std::cout << distance << std::endl;
-    
+
     return 0;
 }
