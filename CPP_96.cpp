@@ -1,17 +1,3 @@
-// Function to compare two vectors and return a boolean value
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-// Function to count prime numbers up to n
 vector<int> count_up_to(int n){
     vector<int> primes;
     if(n <= 1){
@@ -33,14 +19,24 @@ vector<int> count_up_to(int n){
     return primes;
 }
 
-int main() {
-    // Example usage of the count_up_to function
-    vector<int> result = count_up_to(20);
-    vector<int> expected = {2, 3, 5, 7, 11, 13, 17, 19};
-    if (issame(result, expected)) {
-        cout << "Test Passed!" << endl;
-    } else {
-        cout << "Test Failed!" << endl;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> count_up_to(int n);
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> result = count_up_to(n);
+    // Do something with the result
     return 0;
 }
