@@ -3,7 +3,6 @@
 using namespace std;
 
 vector<int> sum_product(vector<int> numbers);
-bool issame(vector<int> a, vector<int> b);
 
 vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
@@ -21,22 +20,11 @@ vector<int> sum_product(vector<int> numbers) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 int main() {
     assert(issame(sum_product({10}), {10, 10}));
+    assert(issame(sum_product({1, 2, 3, 4, 5}), {15, 120}));
+    assert(issame(sum_product({-1, -2, -3, -4}), {-10, -24}));
+    assert(issame(sum_product({0, 0, 0, 0, 0}), {0, 0}));
 
     return 0;
 }
