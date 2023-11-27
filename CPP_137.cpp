@@ -3,10 +3,7 @@
 #include <any>
 #include <cassert>
 
-using std::any;
-using std::any_cast;
-using std::max;
-using std::string;
+using namespace std;
 
 any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -26,6 +23,6 @@ any compare_one(any a, any b) {
 }
 
 int main() {
-    assert (any_cast<string>(compare_one(string("1"), string("None"))) == "None");
+    assert (any_cast<string&>(compare_one(string("1"), string("None"))) == "None");
     return 0;
 }
