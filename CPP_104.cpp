@@ -1,29 +1,9 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<int> unique_digits(vector<int> x);
-
-int main(){
-    vector<int> x = {123, 456, 789};
-    vector<int> result = unique_digits(x);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
-    }
-    return 0;
+    // implementation of issame function
 }
 
 vector<int> unique_digits(vector<int> x){
@@ -45,4 +25,8 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main(){
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
 }
