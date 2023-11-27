@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -11,6 +12,18 @@ int count_consonants(string word) {
         }
     }
     return count;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> select_words(string s, int n) {
@@ -35,7 +48,7 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main() {
+int main2() {
     // Additional code for testing or main function
     return 0;
 }
