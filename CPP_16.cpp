@@ -1,19 +1,14 @@
-int count_distinct_characters(string str) {
-    // Convert the string to lowercase
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
+#include <string>
+#include <vector>
+#include <algorithm>
 
-    // Create a vector to store distinct characters
-    vector<char> distinctChars;
-
-    // Iterate through each character in the string
+int count_distinct_characters(std::string str) {
+    std::vector<char> distinctCharacters;
     for (char c : str) {
-        // Check if the character is already in the vector
-        if (find(distinctChars.begin(), distinctChars.end(), c) == distinctChars.end()) {
-            // If not found, add the character to the vector
-            distinctChars.push_back(c);
+        char lowerCase = tolower(c);
+        if (std::find(distinctCharacters.begin(), distinctCharacters.end(), lowerCase) == distinctCharacters.end()) {
+            distinctCharacters.push_back(lowerCase);
         }
     }
-
-    // Return the number of distinct characters
-    return distinctChars.size();
+    return distinctCharacters.size();
 }
