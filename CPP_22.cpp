@@ -6,7 +6,6 @@ using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b){
     // implementation of issame function
-    return a == b;
 }
 
 vector<int> filter_integers(const vector<boost::any>& values){
