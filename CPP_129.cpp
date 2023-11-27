@@ -4,30 +4,45 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 void dfs(std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path){
-    if(x < 0 || x >= grid.size() || y < 0 || y >= grid.size()){
+    // Check if the current cell is out of bounds or already visited
+    if(x < 0 || x >= grid.size() || y < 0 || y >= grid.size() || grid[x][y] == -1){
         return;
     }
     
-    int currentVal = grid[x][y];
+    // Add the current cell to the path
+    path.push_back(grid[x][y]);
     
-    if(currentVal > k){
+    // Mark the current cell as visited
+    grid[x][y] = -1;
+    
+    // Check if the current cell is the destination
+    if(x == k && y == k){
         return;
     }
     
-    path.push_back(currentVal);
+    // Perform a depth-first search to explore the neighboring cells
+    dfs(grid, x+1, y, k, path);  // Down
+    dfs(grid, x, y+1, k, path);  // Right
+    dfs(grid, x-1, y, k, path);  // Up
+    dfs(grid, x, y-1, k, path);  // Left
     
-    grid[x][y] = INT_MAX;
+    // Remove the current cell from the path
+    path.pop_back();
     
-    dfs(grid, x - 1, y, k, path); // go left
-    dfs(grid, x + 1, y, k, path); // go right
-    dfs(grid, x, y - 1, k, path); // go up
-    dfs(grid, x, y + 1, k, path); // go down
-    
-    grid[x][y] = currentVal;
+    // Mark the current cell as unvisited
+    grid[x][y] = path.back();
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
