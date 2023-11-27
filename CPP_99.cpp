@@ -1,6 +1,6 @@
-#include <string>
 #include <cmath>
-#include <cassert>
+#include <string>
+using namespace std;
 
 int closest_integer(string value){
     double num = stod(value);
