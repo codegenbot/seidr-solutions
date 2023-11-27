@@ -11,7 +11,7 @@ vector<string> all_prefixes(string str){
     return prefixes;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a,vector<string> b){
     // implementation goes here
 }
 
