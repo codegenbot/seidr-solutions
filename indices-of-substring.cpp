@@ -5,7 +5,8 @@
 std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
 
-    int textLength = text.length(); int targetLength = target.length();
+    int textLength = text.length();
+    int targetLength = target.length();
 
     for (int i = 0; i <= textLength - targetLength; i++) {
         bool found = true;
