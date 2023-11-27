@@ -4,8 +4,20 @@
 
 using namespace std;
 
-vector<float> sort_even(vector<float> l);
 bool issame(const vector<float>& a, const vector<float>& b);
+vector<float> sort_even(vector<float> l);
+
+bool issame(const vector<float>& a, const vector<float>& b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<float> sort_even(vector<float> l){
     vector<float> l_prime(l.size());
@@ -31,20 +43,16 @@ vector<float> sort_even(vector<float> l){
     return l_prime;
 }
 
-bool issame(const vector<float>& a, const vector<float>& b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 int main(){
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    vector<float> result = sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+    vector<float> expected = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    
+    if(issame(result, expected)){
+        cout << "The output is correct." << endl;
+    }
+    else{
+        cout << "The output is incorrect." << endl;
+    }
     
     return 0;
 }
