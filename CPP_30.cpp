@@ -1,17 +1,28 @@
-#include <iostream>
 #include <vector>
 
-std::vector<float> get_positive(std::vector<float> l){
-    std::vector<float> positive_nums;
-    for(int i=0; i<l.size(); i++){
-        if(l[i] > 0){
-            positive_nums.push_back(l[i]);
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
         }
     }
-    return positive_nums;
+    return true;
+}
+
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
+    for(int i = 0; i < l.size(); i++){
+        if(l[i] > 0){
+            result.push_back(l[i]);
+        }
+    }
+    return result;
 }
 
 int main(){
-    assert(is_same(get_positive({}) , {}));
+    assert(issame(get_positive({}), {}));
     return 0;
 }
