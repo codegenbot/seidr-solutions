@@ -5,16 +5,6 @@ using namespace std;
 
 string match_parens(vector<string> lst);
 
-int main() {
-    // Test input
-    vector<string> lst = {"()", "(())", "((()))", "())", "((", ")))"};
-    
-    // Call the match_parens function and print the result
-    cout << match_parens(lst) << endl;
-    
-    return 0;
-}
-
 string match_parens(vector<string> lst){
     int count = 0;
     for (string s : lst) {
@@ -34,4 +24,9 @@ string match_parens(vector<string> lst){
     } else {
         return "No";
     }
+}
+
+int main() {
+    // test your code here
+    return 0;
 }

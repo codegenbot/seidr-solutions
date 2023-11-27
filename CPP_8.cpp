@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +15,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> sum_product(vector<int> numbers) {
+std::vector<int> sum_product(std::vector<int> numbers) {
     int sum = 0;
     int product = 1;
 
@@ -24,22 +24,9 @@ vector<int> sum_product(vector<int> numbers) {
         product *= numbers[i];
     }
 
-    vector<int> result;
+    std::vector<int> result;
     result.push_back(sum);
     result.push_back(product);
 
     return result;
-}
-
-int main() {
-    vector<int> input = {10};
-    vector<int> result = sum_product(input);
-
-    if (!issame(result, input)) {
-        cout << "Sum and product are not the same" << endl;
-    } else {
-        cout << "Sum and product are the same" << endl;
-    }
-
-    return 0;
 }
