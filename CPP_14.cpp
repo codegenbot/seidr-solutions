@@ -1,7 +1,13 @@
 #include <vector>
 #include <string>
 
-vector<string> all_prefixes(string str){
+vector<string> all_prefixes(string str);
+
+bool issame(vector<string> a, vector<string> b) {
+    // implementation goes here
+}
+
+vector<string> all_prefixes(string str) {
     vector<string> result;
     string prefix = "";
     for(int i = 0; i < str.length(); i++){
@@ -9,10 +15,6 @@ vector<string> all_prefixes(string str){
         result.push_back(prefix);
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    // implementation goes here
 }
 
 int main() {
