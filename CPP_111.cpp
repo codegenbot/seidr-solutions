@@ -1,5 +1,6 @@
 #include <map>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -40,7 +41,7 @@ bool issame(const map<char,int>& a, const map<char,int>& b){
     return a == b;
 }
 
-int main() {
+int main(){
     assert(issame(histogram("a") , {{'a', 1}}));
     assert(issame(histogram("ab ab ab") , {{'a', 3}}));
     assert(issame(histogram("hello world") , {{'l', 3}, {'o', 2}}));
