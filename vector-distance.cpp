@@ -21,6 +21,7 @@ int main() {
     std::vector<double> vector2(n);
 
     std::string input;
+    std::cin.ignore();
     std::getline(std::cin, input);
     std::stringstream ss(input);
     for (int i = 0; i < n; i++) {
