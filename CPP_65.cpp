@@ -3,11 +3,7 @@
 string circular_shift(int x, int shift);
 
 int main() {
-    // Test cases
-    cout << circular_shift(12345, 2) << endl;  // Expected output: "45123"
-    cout << circular_shift(987654321, 5) << endl;  // Expected output: "543219876"
-    cout << circular_shift(123, 10) << endl;  // Expected output: "321"
-    
+    // code here
     return 0;
 }
 
