@@ -1,20 +1,15 @@
-#include <stack>
-#include <string>
-
 string match_parens(vector<string> lst) {
-    string str = lst[0] + lst[1];
-    stack<char> parentheses;
-
-    for (char c : str) {
+    string s = lst[0] + lst[1];
+    int open = 0;
+    for (char c : s) {
         if (c == '(') {
-            parentheses.push(c);
+            open++;
         } else {
-            if (parentheses.empty()) {
+            if (open <= 0) {
                 return "No";
             }
-            parentheses.pop();
+            open--;
         }
     }
-
-    return parentheses.empty() ? "Yes" : "No";
+    return open == 0 ? "Yes" : "No";
 }
