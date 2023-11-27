@@ -9,6 +9,7 @@ float calculateSnow(float hours, float initialSnow, float snowFallRate, float sn
     }
 
     return snowOnGround;
+
 }
 
 int main() {
