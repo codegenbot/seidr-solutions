@@ -1,3 +1,9 @@
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
@@ -25,4 +31,10 @@ vector<string> bf(string planet1, string planet2) {
     }
     
     return result;
+}
+
+int main() {
+    assert(bf("Jupiter", "Makemake").empty());
+    
+    return 0;
 }
