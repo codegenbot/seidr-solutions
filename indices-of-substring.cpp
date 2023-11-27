@@ -8,7 +8,7 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
     int textLength = text.length();
     int targetLength = target.length();
 
-    for (int i = 0; i <= textLength - targetLength; i++) {
+    for (int i = 0; i < textLength - targetLength + 1; i++) {
         bool found = true;
         for (int j = 0; j < targetLength; j++) {
             if (text[i + j] != target[j]) {
@@ -31,8 +31,11 @@ int main() {
 
     std::vector<int> indices = findIndicesOfSubstring(text, target);
 
-    for (int i = 0; i < indices.size(); i++) {
+    for (int i = 0; i < indices.size() - 1; i++) {
         std::cout << indices[i] << " ";
+    }
+    if (!indices.empty()) {
+        std::cout << indices.back();
     }
 
     return 0;
