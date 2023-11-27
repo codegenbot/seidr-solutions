@@ -12,7 +12,7 @@ double euclideanDistance(const std::vector<double>& v1, const std::vector<double
 }
 
 int main() {
-    int n, m;
+    double n;
     std::cin >> n;
 
     std::vector<double> v1(n);
@@ -20,10 +20,10 @@ int main() {
         std::cin >> v1[i];
     }
 
-    std::cin >> m;
+    std::cin >> n;
 
-    std::vector<double> v2(m);
-    for (int i = 0; i < m; i++) {
+    std::vector<double> v2(n);
+    for (int i = 0; i < n; i++) {
         std::cin >> v2[i];
     }
 
