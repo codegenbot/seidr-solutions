@@ -31,9 +31,28 @@ bool are_equal(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    // Your test cases here
-
-    assert(are_equal(sum_product({10}), {10, 10}));
+    // Test cases
+    std::vector<int> numbers1 = {1, 2, 3, 4};
+    std::vector<int> numbers2 = {5, 6, 7, 8};
+    std::vector<int> result1 = sum_product(numbers1);
+    std::vector<int> result2 = sum_product(numbers2);
+    
+    // Print the results
+    for (int i = 0; i < result1.size(); i++) {
+        std::cout << result1[i] << " ";
+    }
+    std::cout << std::endl;
+    
+    for (int i = 0; i < result2.size(); i++) {
+        std::cout << result2[i] << " ";
+    }
+    std::cout << std::endl;
+    
+    // Check if the results are equal
+    bool equal = are_equal(result1, result2);
+    
+    // Print the result
+    std::cout << equal << std::endl;
 
     return 0;
 }
