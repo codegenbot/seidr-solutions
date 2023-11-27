@@ -26,8 +26,8 @@ vector<string> separate_paren_groups(string paren_string) {
 bool issame(vector<string> a, vector<string> b);
 
 int main() {
-    vector<string> a = separate_paren_groups("((abc)(def))");
-    vector<string> b = separate_paren_groups("((abc)(def))");
+    vector<string> a = separate_paren_groups("((a)(b))(c)");
+    vector<string> b = separate_paren_groups("((a)(b))(c)");
 
     assert(is_same(a, b));
 
@@ -36,4 +36,5 @@ int main() {
 
 bool is_same(vector<string> a, vector<string> b) {
     // Implementation code here
+    return a == b;
 }
