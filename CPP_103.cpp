@@ -1,15 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
-
-using namespace std;
-
-string rounded_avg(int n, int m);
-
-int main() {
-    assert (rounded_avg(5, 5) == "101");
-    return 0;
-}
 
 string rounded_avg(int n, int m) {
     if (n > m) {
@@ -24,7 +13,7 @@ string rounded_avg(int n, int m) {
         count++;
     }
     
-    int avg = sum / count;
+    int avg = round((double)sum / count);
     
     string binary = "";
     

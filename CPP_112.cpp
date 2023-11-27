@@ -1,8 +1,11 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
-
+#include <string>
+#include <vector>
 using namespace std;
+
+vector<string> reverse_delete(string s, string c);
+
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> reverse_delete(string s, string c) {
     string result = "";
@@ -11,20 +14,13 @@ vector<string> reverse_delete(string s, string c) {
             result += s[i];
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    bool isPalindrome = (result == reversed);
-    return vector<string>{result, isPalindrome ? "True" : "False"};
+    string rev_result = result;
+    reverse(rev_result.begin(), rev_result.end());
+    bool is_palindrome = (result == rev_result);
+    vector<string> output = {result, (is_palindrome ? "True" : "False")};
+    return output;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-	// Implement the logic to check if the two vectors are the same
-	// and return true or false accordingly.
+bool areEqual(vector<string> a, vector<string> b) {
     return a == b;
-}
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-
-    return 0;
 }
