@@ -23,11 +23,12 @@ int main() {
         std::cin >> vector1[i];
     }
 
+    std::cin.ignore();
     std::string line;
     std::getline(std::cin, line);
     std::replace(line.begin(), line.end(), ',', ' ');
-
     std::istringstream iss(line);
+
     std::vector<double> vector2;
     double val;
     while (iss >> val) {
