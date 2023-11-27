@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <limits>
 #include <iterator>
 
@@ -32,7 +31,7 @@ vector<int> cutVector(vector<int>& nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    return leftSubvector;
+    return vector<int>{begin(leftSubvector), end(leftSubvector), begin(rightSubvector), end(rightSubvector)};
 }
 
 int main() {
@@ -46,16 +45,8 @@ int main() {
 
     auto result = cutVector(nums);
 
-    // Print the elements of the resulting subvectors separately
-    for (const auto& element : result) {
-        cout << element << " ";
-    }
-
-    cout << endl;
-
-    for (const auto& element : nums) {
-        // Skip the elements of the first subvector
-        if (find(result.begin(), result.end(), element) == result.end()) {
+    for (const auto& subvector : result) {
+        for (const auto& element : subvector) {
             cout << element << " ";
         }
     }

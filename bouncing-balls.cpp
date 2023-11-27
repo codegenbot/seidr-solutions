@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 double calculateDistance(double startingHeight, double firstBounceHeight, int numBounces) {
@@ -8,7 +7,7 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
 
     for (int i = 2; i <= numBounces; i++) {
         firstBounceHeight *= bouncinessIndex;
-        totalDistance += pow(2, i - 1) * firstBounceHeight;
+        totalDistance += 2 * firstBounceHeight * bouncinessIndex;
     }
 
     return totalDistance;
