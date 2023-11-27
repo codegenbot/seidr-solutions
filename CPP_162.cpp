@@ -6,12 +6,12 @@ std::string string_to_md5(std::string text) {
     if (text.empty()) {
         return "None";
     }
-    
+
     unsigned char digest[MD5_DIGEST_LENGTH];
     MD5_CTX md5Context;
     MD5_Init(&md5Context);
     MD5_Update(&md5Context, text.c_str(), text.size());
-   
+
     MD5_Final(digest, &md5Context);
 
     char md5Hash[33];
