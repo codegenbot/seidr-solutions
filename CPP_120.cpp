@@ -10,11 +10,13 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 bool issame(vector<int> a, vector<int> b){
+    // your code here
     return a == b;
 }
 
 int main() {
     assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
+
     // other test cases
 
     return 0;
