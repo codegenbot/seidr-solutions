@@ -3,19 +3,21 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums){
-    if(nums.empty()){
+std::vector<int> order_by_points(std::vector<int> nums); 
+
+std::vector<int> order_by_points(std::vector<int> nums) {
+    if (nums.empty()) {
         return nums;
     }
     std::vector<std::pair<int, int>> sums;
-    for(int i=0; i<nums.size(); i++){
+    for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
         int num = std::abs(nums[i]);
-        while(num > 0){
+        while (num > 0) {
             sum += num % 10;
             num /= 10;
         }
@@ -23,22 +25,14 @@ std::vector<int> order_by_points(std::vector<int> nums){
     }
     std::sort(sums.begin(), sums.end());
     std::vector<int> result;
-    for(int i=0; i<sums.size(); i++){
+    for (int i = 0; i < sums.size(); i++) {
         result.push_back(nums[sums[i].second]);
     }
     return result;
 }
 
-int main(){
-    std::vector<int> expected = {-76, -21, 0, 4, 23, 6, 6};
-    std::vector<int> actual = order_by_points({0,6,6,-76,-21,23,4});
-
-    if(issame(actual, expected)){
-        std::cout << "Test case passed" << std::endl;
-    }
-    else{
-        std::cout << "Test case failed" << std::endl;
-    }
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
 
     return 0;
 }
