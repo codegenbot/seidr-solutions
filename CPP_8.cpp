@@ -1,6 +1,8 @@
 #include <vector>
 #include <cassert>
 
+namespace std {
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -26,3 +28,5 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     
     return {sum, product};
 }
+
+} // end of namespace std
