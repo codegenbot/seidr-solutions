@@ -1,14 +1,18 @@
+#include <stack>
+
 bool correct_bracketing(string brackets) {
-    int count = 0;
+    stack<char> st;
+    
     for (char c : brackets) {
         if (c == '(') {
-            count++;
+            st.push(c);
         } else if (c == ')') {
-            count--;
-        }
-        if (count < 0) {
-            return false;
+            if (st.empty()) {
+                return false;
+            }
+            st.pop();
         }
     }
-    return count == 0;
+    
+    return st.empty();
 }
