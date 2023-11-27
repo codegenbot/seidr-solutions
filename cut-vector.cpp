@@ -7,7 +7,6 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int diff = INT_MAX;
     int index = 0;
     
-    // Calculate the difference between the sum of the elements on the left and right side of each index
     for (int i = 0; i < n; i++) {
         int leftSum = 0;
         int rightSum = 0;
@@ -28,7 +27,6 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
     
-    // Create the two resulting subvectors
     std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
     std::vector<int> rightSubvector(nums.begin() + index, nums.end());
     
@@ -46,7 +44,6 @@ int main() {
     
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
     
-    // Print the two resulting subvectors
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
