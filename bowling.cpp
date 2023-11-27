@@ -1,61 +1,57 @@
 #include <iostream>
 #include <string>
 
-int scoreOfRound(const std::string& round) {
+int calculateScore(const std::string& input) {
     int score = 0;
     int frame = 0;
-    int rolls = 0;
-    int frames[10] = {0};
-
-    for (char c : round) {
+    int bowl = 0;
+    
+    for (char c : input) {
         if (c == 'X') {
-            frames[frame] = 10;
-            frame++;
-            rolls = 0;
+            score += 10;
+            if (frame < 9) {
+                score += 10;
+                if (bowl == 0) {
+                    score += 10;
+                }
+            }
+            bowl++;
         } else if (c == '/') {
-            frames[frame] = 10 - frames[frame - 1];
+            score += 10 - (input[bowl-1] - '0');
+            if (frame < 9) {
+                score += 10 - (input[bowl-1] - '0');
+            }
+            bowl++;
+        } else if (c >= '0' && c <= '9') {
+            score += c - '0';
+            if (frame < 9 && bowl % 2 == 0) {
+                if (input[bowl-1] != '/') {
+                    score += c - '0';
+                }
+            }
+            bowl++;
+        }
+        
+        if (bowl == 2 || c == 'X' || c == '/') {
+            bowl = 0;
             frame++;
-            rolls = 0;
-        } else if (c == '-') {
-            rolls++;
-        } else {
-            if (rolls == 0) {
-                frames[frame] += c - '0';
-            } else {
-                frames[frame] += c - '0';
-                frame++;
-                rolls = 0;
-            }
+        }
+        
+        if (frame == 10) {
+            break;
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        if (round[2*i] == 'X') {
-            if (i < 9 && round[2*i + 2] == 'X') {
-                score += frames[i] + frames[i + 1] + frames[i + 2];
-            } else if (i == 9) {
-                score += frames[i];
-            } else {
-                score += frames[i] + frames[i + 1];
-            }
-        } else if (round[2*i + 1] == '/') {
-            score += frames[i] + frames[i + 1];
-            if (i < 9 && round[2*i + 2] == 'X') {
-                score += frames[i + 2];
-            }
-        } else {
-            score += frames[i];
-        }
-    }
-
+    
     return score;
 }
 
 int main() {
-    std::string round;
+    std::string input;
     std::cout << "Enter the individual bowls in a 10-frame round: ";
-    std::cin >> round;
-    int score = scoreOfRound(round);
-    std::cout << "Score of the round: " << score << std::endl;
+    std::cin >> input;
+    
+    int score = calculateScore(input);
+    std::cout << "Score: " << score << std::endl;
+    
     return 0;
 }
