@@ -1,6 +1,6 @@
 #include <string>
 
-bool cycpattern_check(string a, string b) {
+bool cycpattern_check(std::string a, std::string b) {
     int n = a.length();
     int m = b.length();
 
@@ -8,10 +8,10 @@ bool cycpattern_check(string a, string b) {
         return false;
     }
 
-    string temp = b + b;
+    std::string temp = b + b;
 
     for (int i = 0; i <= n - m; i++) {
-        string sub = temp.substr(i, m);
+        std::string sub = temp.substr(i, m);
         if (sub == a) {
             return true;
         }
