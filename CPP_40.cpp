@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool triples_sum_to_zero(std::vector<int> l){
+bool triples_sum_to_zero(vector<int> l){
     for(int i=0; i<l.size()-2; i++){
         for(int j=i+1; j<l.size()-1; j++){
             for(int k=j+1; k<l.size(); k++){
@@ -15,10 +15,10 @@ bool triples_sum_to_zero(std::vector<int> l){
 }
 
 int main() {
-    // Test the function
-    std::vector<int> nums = {1, 2, -3, 4, -1};
+    // Test the triples_sum_to_zero function
+    vector<int> nums = {1, 2, 3, -4, -1, -2};
     bool result = triples_sum_to_zero(nums);
-    std::cout << std::boolalpha << result << std::endl;
+    std::cout << "Result: " << result << std::endl;
     
     return 0;
 }
