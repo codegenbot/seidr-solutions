@@ -1,20 +1,20 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
     int totalEaten = number + need;
-    int carrotsLeft = remaining - need;
-    if (carrotsLeft < 0) {
-        carrotsLeft = 0;
+    int left = remaining - need;
+    if (left < 0) {
+        left = 0;
     }
-    vector<int> result = {totalEaten, carrotsLeft};
-    return result;
+    return vector<int>{totalEaten, left};
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
