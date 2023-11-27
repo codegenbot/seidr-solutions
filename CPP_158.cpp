@@ -1,8 +1,5 @@
 #include <string>
 #include <vector>
-
-std::string find_max(std::vector<std::string> words);
-
 #include <cassert>
 
 std::string find_max(std::vector<std::string> words){
@@ -20,7 +17,7 @@ std::string find_max(std::vector<std::string> words){
             }
         }
         
-        if(uniqueChars > maxUniqueChars  || (uniqueChars == maxUniqueChars && word < maxWord)){
+        if(uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)){
             maxUniqueChars = uniqueChars;
             maxWord = word;
         }
@@ -31,6 +28,6 @@ std::string find_max(std::vector<std::string> words){
 
 int main(){
     assert ((find_max({"play", "play", "play"}) == "play"));
-    
+
     return 0;
 }
