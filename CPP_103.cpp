@@ -1,16 +1,11 @@
-#include <iostream>
 #include <string>
-#include <cassert>
-
-using namespace std;
 
 string rounded_avg(int n, int m);
 
 int main() {
-    assert (rounded_avg(5, 5) == "101");
-    
-    // Add more test cases here
-    
+    int n, m;
+    cin >> n >> m;
+    cout << rounded_avg(n, m) << endl;
     return 0;
 }
 
