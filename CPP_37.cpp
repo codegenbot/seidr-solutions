@@ -1,13 +1,35 @@
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
+using namespace std;
+
+bool issame(const vector<float>& a, const vector<float>& b);
+
+vector<float> sort_even(vector<float>& l);
+
+int main() {
+    vector<float> l = {3.2, 1.5, 4.7, 2.9, 6.1};
+    vector<float> sorted_l = sort_even(l);
+    
+    vector<float> expected = {1.5, 3.2, 2.9, 4.7, 6.1};
+    
+    if (issame(sorted_l, expected)) {
+        cout << "The list is sorted correctly." << endl;
+    } else {
+        cout << "The list is not sorted correctly." << endl;
+    }
+    
+    return 0;
+}
+
+bool issame(const vector<float>& a, const vector<float>& b) {
+    if (a.size() != b.size()) {
         return false;
     }
     
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -15,38 +37,23 @@ bool issame(vector<float> a, vector<float> b){
     return true;
 }
 
-vector<float> sort_even(vector<float> l){
+vector<float> sort_even(vector<float>& l) {
     vector<float> l_prime = l;
     vector<float> even_values;
     
-    for(int i=0; i<l.size(); i++){
-        if(i%2 == 0){
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
             even_values.push_back(l[i]);
         }
     }
     
     sort(even_values.begin(), even_values.end());
     
-    for(int i=0; i<l.size(); i++){
-        if(i%2 == 0){
-            l_prime[i] = even_values[i/2];
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            l_prime[i] = even_values[i / 2];
         }
     }
     
     return l_prime;
-}
-
-int main() {
-    // Test the sort_even function
-    vector<float> input = {5.6, 2.3, 1.8, 4.2, 3.1};
-    vector<float> expected_output = {1.8, 2.3, 3.1, 4.2, 5.6};
-    vector<float> output = sort_even(input);
-    
-    if(issame(output, expected_output)){
-        cout << "Test Passed" << endl;
-    } else {
-        cout << "Test Failed" << endl;
-    }
-    
-    return 0;
 }
