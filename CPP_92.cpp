@@ -1,8 +1,11 @@
 bool any_int(float a, float b, float c) {
-    if (a == (b + c) || b == (a + c) || c == (a + b)) {
-        if (a == floor(a) && b == floor(b) && c == floor(c)) {
-            return true;
-        }
+    int x = a;
+    int y = b;
+    int z = c;
+    
+    if ((x == y + z) || (y == x + z) || (z == x + y)) {
+        return true;
+    } else {
+        return false;
     }
-    return false;
 }
