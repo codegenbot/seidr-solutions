@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
+
+bool issame(std::vector<float> a, std::vector<float> b){
+    return a == b;
+}
 
 std::vector<float> get_positive(std::vector<float> l){
     std::vector<float> positive_nums;
@@ -14,10 +17,10 @@ std::vector<float> get_positive(std::vector<float> l){
 }
 
 int main(){
-    assert(get_positive({}) == std::vector<float>{});
-    assert(get_positive({-1, 2, -3, 4, -5}) == std::vector<float>{2, 4});
-    assert(get_positive({1, 2, 3, 4, 5}) == std::vector<float>{1, 2, 3, 4, 5});
-    assert(get_positive({-1, -2, -3, -4, -5}) == std::vector<float>{});
-    assert(get_positive({0, 0, 0, 0, 0}) == std::vector<float>{});
+    assert(issame(get_positive({}) , {})); 
+    assert(issame(get_positive({-1, 2, -3, 4, -5}), {2, 4}));
+    assert(issame(get_positive({1, 2, 3, 4, 5}), {1, 2, 3, 4, 5}));
+    assert(issame(get_positive({-1, -2, -3, -4, -5}), {}));
+    assert(issame(get_positive({0, 0, 0, 0, 0}), {}));
     return 0;
 }
