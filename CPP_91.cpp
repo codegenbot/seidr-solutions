@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 int is_bored(std::string S){
@@ -21,11 +20,8 @@ int is_bored(std::string S){
 
 int main() {
     std::string input;
-    std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    
     int result = is_bored(input);
-    std::cout << "Count: " << result << std::endl;
-    
+    std::cout << result << std::endl;
     return 0;
 }
