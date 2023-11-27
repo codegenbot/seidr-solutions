@@ -1,16 +1,10 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool isSame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 vector<int> remove_duplicates(vector<int> numbers){
@@ -24,5 +18,6 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 int main(){
-    assert(isSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    return 0;
 }
