@@ -18,7 +18,7 @@ vector<int> sum_product(vector<int> numbers) {
     return result;
 }
 
-bool is_same(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -33,7 +33,7 @@ bool is_same(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(is_same(sum_product({10}), {10, 10}));
+    assert(issame(sum_product({10}), {10, 10}));
 
     return 0;
 }
