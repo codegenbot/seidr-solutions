@@ -15,7 +15,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     }
 
     // Iterate through each index and find the cut index with minimum difference
-    for (int i = 0; i < n-1; i++) {
+    for (int i = 0; i < n - 1; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
         int diff = abs(leftSum - rightSum);
@@ -26,8 +26,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    // If cutIndex is still -1, set it to n-1
-    if (cutIndex == n-1) {
+    // Check if cutIndex is still 0 and set it to n-1 if it is
+    if (cutIndex == 0) {
         cutIndex = n - 1;
     }
 
