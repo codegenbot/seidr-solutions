@@ -23,3 +23,14 @@ std::vector<std::string> sort_even_length_strings(std::vector<std::string> lst) 
     });
     return result;
 }
+
+int main() {
+    std::vector<std::string> input = { "aaaa", "bbbb", "dd", "cc" };
+    std::vector<std::string> expected_output = { "cc", "dd", "aaaa", "bbbb" };
+
+    std::vector<std::string> sorted_list = sort_even_length_strings(input);
+
+    std::cout << std::boolalpha << issame(sorted_list, expected_output) << std::endl;
+
+    return 0;
+}
