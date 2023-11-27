@@ -7,13 +7,12 @@ using namespace std;
 vector<int> sort_third(vector<int> l);
 bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b)
-{
-    if(a.size() != b.size()){
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()){
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++){
+        if (a[i] != b[i]){
             return false;
         }
     }
@@ -35,22 +34,19 @@ vector<int> sort_third(vector<int> l){
     return l_prime;
 }
 
-int main()
-{
-    vector<int> values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    vector<int> sorted = sort_third(values);
-
-    for(int i=0; i<sorted.size(); i++){
+int main() {
+    vector<int> a {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vector<int> b {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    if(issame(a, b)){
+        cout << "Vectors are the same." << endl;
+    } else {
+        cout << "Vectors are different." << endl;
+    }
+    vector<int> sorted = sort_third(a);
+    for(int i = 0; i < sorted.size(); i++){
         cout << sorted[i] << " ";
     }
     cout << endl;
-
-    if(issame(values, sorted)){
-        cout << "The original and sorted vectors are the same." << endl;
-    }
-    else{
-        cout << "The original and sorted vectors are different." << endl;
-    }
-
+  
     return 0;
 }
