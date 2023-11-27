@@ -1,9 +1,11 @@
-#include <vector>
+#include<vector>
 
 bool move_one_ball(vector<int> arr){
-    int n = arr.size();
-    if(n == 0) return true;
+    if(arr.empty()){
+        return true;
+    }
     
+    int n = arr.size();
     int minIndex = 0;
     for(int i = 1; i < n; i++){
         if(arr[i] < arr[minIndex]){
@@ -11,14 +13,17 @@ bool move_one_ball(vector<int> arr){
         }
     }
     
-    int count = 0;
-    for(int i = minIndex; i < n; i++){
-        if(arr[i] < arr[(i+1)%n]){
-            count++;
-        }else{
-            break;
+    int shiftCount = n - minIndex;
+    for(int i = 0; i < n; i++){
+        if(arr[(i + shiftCount) % n] < arr[(i + shiftCount - 1) % n]){
+            return false;
         }
     }
     
-    return count == n-1;
+    return true;
+}
+
+int main() {
+    assert(move_one_ball(vector<int>{}) == true);
+    return 0;
 }
