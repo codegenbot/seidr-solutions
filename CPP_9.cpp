@@ -1,9 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    // implementation of the function
-}
+using namespace std;
 
 vector<int> rolling_max(vector<int> numbers){
     vector<int> max_nums;
@@ -18,8 +17,20 @@ vector<int> rolling_max(vector<int> numbers){
     return max_nums;
 }
 
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i]!=b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 int main(){
-    assert(issame({3, 3, 3, 100, 100}, rolling_max({3, 2, 3, 100, 3})));
-    // additional test cases...
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    
     return 0;
 }
