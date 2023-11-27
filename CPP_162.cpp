@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <openssl/evp.h>
+#include <openssl/crypto.h>
 #include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& text) {
