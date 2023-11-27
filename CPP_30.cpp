@@ -26,12 +26,11 @@ bool issame(vector<float> a, vector<float> b){
 
 int main(){
     assert(issame(get_positive({}), {}));
-    assert(issame(get_positive({-1, 2, -3, 4, -5}), {2, 4}));
-    assert(issame(get_positive({1.1, 2.2, 3.3, 4.4, 5.5}), {1.1, 2.2, 3.3, 4.4, 5.5}));
-    assert(issame(get_positive({-1.1, 2.2, -3.3, 4.4, -5.5}), {2.2, 4.4}));
-    assert(issame(get_positive({-1, -2, -3, -4, -5}), {}));
-    
+
     // Add more test cases here
+    assert(issame(get_positive({1.2, -3.4, 5.6, -7.8}), {1.2, 5.6}));
+    assert(issame(get_positive({-1.0, -2.0, -3.0}), {}));
+    assert(issame(get_positive({4.5, 6.7, 8.9, 10.11}), {4.5, 6.7, 8.9, 10.11}));
 
     return 0;
 }
