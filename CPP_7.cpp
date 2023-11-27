@@ -3,31 +3,21 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
+using namespace std;
 
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
-    std::vector<std::string> result;
-    for (const std::string& str : strings) {
-        if (str.find(substring) != std::string::npos) {
+vector<string> filter_by_substring(vector<string> strings, string substring);
+
+vector<string> filter_by_substring(vector<string> strings, string substring) {
+    vector<string> result;
+    for (string str : strings) {
+        if (str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
     return 0;
 }
