@@ -1,17 +1,31 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+#include <cassert>
 
-std::vector<std::string> words_string(const std::string& s) {
-    std::vector<std::string> words;
-    std::string word = "";
+using namespace std;
+
+vector<string> words_string(const string& s);
+
+bool issame(const vector<string>& a, const vector<string>& b);
+
+int main() {
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    // Add more test cases if needed
+    return 0;
+}
+
+vector<string> words_string(const string& s) {
+    vector<string> words;
+    string word = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ' || s[i] == ',') {
             if (word != "") {
                 words.push_back(word);
                 word = "";
             }
-        } else {
+        }
+        else {
             word += s[i];
         }
     }
@@ -21,11 +35,12 @@ std::vector<std::string> words_string(const std::string& s) {
     return words;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     bool result = true;
     if (a.size() != b.size()) {
         result = false;
-    } else {
+    }
+    else {
         for (int i = 0; i < a.size(); i++) {
             if (a[i] != b[i]) {
                 result = false;
@@ -34,10 +49,4 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         }
     }
     return result;
-}
-
-int main() {
-    // Add test cases here
-
-    return 0;
 }
