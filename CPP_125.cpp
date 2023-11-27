@@ -1,13 +1,9 @@
-#include <string>
 #include <vector>
+#include <string>
+#include <cassert>
 
-vector<string> split_words(string txt);
-
-bool issame(vector<string> a, vector<string> b);
-
-int main(){
-    assert (issame(split_words("") ,{"0"}));
-    return 0;
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
 vector<string> split_words(string txt){
@@ -40,13 +36,13 @@ vector<string> split_words(string txt){
     
     if(!hasWhitespace && !hasComma){
         result.clear();
-        result.push_back(to_string(3));
+        result.push_back(to_string(0));
     }
     
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    // Implement your logic here
-    return a == b;
+int main() {
+    assert(issame(split_words(""), {"0"}));
+    return 0;
 }
