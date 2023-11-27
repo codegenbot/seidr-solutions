@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
-
 using namespace std;
 
 string match_parens(vector<string> lst);
