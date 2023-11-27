@@ -31,7 +31,7 @@ std::vector<int> sum_product(const std::vector<int>& numbers) {
 }
 
 int main() {
-    std::vector<int> input = {10, 20, 30}; // Change the input values here
+    std::vector<int> input = {10, 20, 30};
     std::vector<int> result = sum_product(input);
 
     if (issame(result, input)) {
