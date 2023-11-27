@@ -3,6 +3,10 @@
 
 using namespace std;
 
+bool issame(vector<string> a,vector<string> b){
+    return a == b;
+}
+
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
     string prefix = "";
@@ -11,10 +15,6 @@ vector<string> all_prefixes(string str){
         prefixes.push_back(prefix);
     }
     return prefixes;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
 }
 
 int main(){
