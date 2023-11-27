@@ -2,8 +2,6 @@
 #include <algorithm>
 #include <iterator>
 
-using namespace std;
-
 bool issame(vector<int> a, vector<int> b){
     vector<int> result;
     sort(a.begin(), a.end());
