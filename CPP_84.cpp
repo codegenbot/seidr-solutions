@@ -1,4 +1,10 @@
+#include <iostream>
+#include <cassert>
 #include <string>
+
+using namespace std;
+
+string solve(int N);
 
 string solve(int N) {
     int sum = 0;
@@ -6,5 +12,12 @@ string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return to_string(sum);
+
+    string result;
+    while (sum > 0) {
+        result = char('0' + sum % 10) + result;
+        sum /= 10;
+    }
+
+    return result;
 }
