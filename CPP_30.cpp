@@ -10,6 +10,12 @@ vector<float> get_positive(vector<float> l){
     return positive_nums;
 }
 
+bool issame(vector<float> a, vector<float> b);
+
+int main(){
+    assert(issame(get_positive({}), {}));
+}
+
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
@@ -20,9 +26,4 @@ bool issame(vector<float> a, vector<float> b){
         }
     }
     return true;
-}
-
-int main() {
-    assert(issame(get_positive({}), {}));
-    return 0;
 }
