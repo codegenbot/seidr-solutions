@@ -33,6 +33,7 @@ int main() {
     values.push_back(3.14);
     values.push_back("hello");
     values.push_back(20);
+    values.push_back(7);
 
     vector<int> filtered = filter_integers(values);
     for (auto num : filtered) {
@@ -45,8 +46,8 @@ int main() {
     vector<int> b = {1, 2, 3};
     vector<int> c = {1, 2, 4};
 
-    cout << issame(a, b) << endl; // Output: 1 (true)
-    cout << issame(a, c) << endl; // Output: 0 (false)
+    cout << issame(a, b) << endl;
+    cout << issame(a, c) << endl;
 
     return 0;
 }
