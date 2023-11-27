@@ -44,8 +44,8 @@ int main() {
 
     assert(issame(result, expected));
 
-    numbers = {1, 3, 2, 4, 5};
-    expected = {1, 3, 3, 4, 5};
+    numbers = {3, 2, 5, 4, 1};
+    expected = {3, 3, 5, 5, 5};
     result = rolling_max(numbers);
 
     assert(issame(result, expected));
