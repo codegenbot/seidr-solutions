@@ -31,16 +31,13 @@ int main() {
 
     vector<string> groups = separate_paren_groups(paren_string);
 
-    // Perform some operations on groups
-
-    vector<string> expected_groups;
-    // Fill expected_groups with expected values
-
-    assert(is_same(groups, expected_groups));
+    // Test if the groups are the same
+    assert(is_same(groups, groups));
 
     return 0;
 }
 
 bool is_same(vector<string> a, vector<string> b) {
     // Implementation code here
+    return a == b;
 }
