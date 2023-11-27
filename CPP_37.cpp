@@ -6,7 +6,7 @@ using namespace std;
 
 bool issame(const vector<float>& a, const vector<float>& b);
 
-vector<float> sort_even(vector<float>& l);
+vector<float> sort_even(const vector<float>& l);
 
 int main() {
     vector<float> l = {3.2, 1.5, 4.7, 2.9, 6.1};
@@ -37,7 +37,7 @@ bool issame(const vector<float>& a, const vector<float>& b) {
     return true;
 }
 
-vector<float> sort_even(vector<float>& l) {
+vector<float> sort_even(const vector<float>& l) {
     vector<float> l_prime = l;
     vector<float> even_values;
     
