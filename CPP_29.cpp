@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix);
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> filteredStrings;
     for (string str : strings) {
