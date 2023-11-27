@@ -1,6 +1,9 @@
-#include <cassert>
-#include <vector>
+#include <iostream>
 #include <string>
+#include <vector>
+#include <cassert>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b);
 
@@ -33,8 +36,7 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // TODO: Implement the logic to check if vectors 'a' and 'b' are the same
-    return false;
+    return a == b;
 }
 
 int main() {
