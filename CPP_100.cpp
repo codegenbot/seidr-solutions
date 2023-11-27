@@ -1,13 +1,41 @@
-vector<int> make_a_pile(int n){
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> make_a_pile(int n) {
     vector<int> stones;
-    int stones_in_level = n;
-    for(int i = 0; i < n; i++){
-        stones.push_back(stones_in_level);
-        if(n % 2 == 0){
-            stones_in_level += 2;
-        }else{
-            stones_in_level += 1;
+    int level = n;
+    int stonesInLevel = n;
+    stones.push_back(stonesInLevel);
+
+    while(level > 1) {
+        if(level % 2 == 0) {
+            stonesInLevel += 2;
+        } else {
+            stonesInLevel += 1;
+        }
+        stones.push_back(stonesInLevel);
+        level--;
+    }
+
+    return stones;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
         }
     }
-    return stones;
+
+    return true;
+}
+
+int main() {
+    assert(issame(make_a_pile(8) , {8, 10, 12, 14, 16, 18, 20, 22}));
+    return 0;
 }
