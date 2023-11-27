@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,7 +16,9 @@ vector<float> get_positive(const vector<float>& l){
 }
 
 int main() {
-    assert (issame(get_positive({}) , {}));
+    vector<float> expected_output = {};
+    vector<float> result = get_positive({});
+    assert(equal(result.begin(), result.end(), expected_output.begin(), expected_output.end()));
 
     cout << "Test case passed!" << endl;
 
