@@ -17,10 +17,3 @@ int largest_prime_factor(int n) {
     
     return largestFactor;
 }
-
-int main() {
-    cout << largest_prime_factor(13195) << endl;
-    cout << largest_prime_factor(2048) << endl;
-    
-    return 0;
-}

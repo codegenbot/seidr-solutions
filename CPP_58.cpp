@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iterator>
 
 using namespace std;
 
@@ -17,9 +16,8 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 int main() {
     vector<int> a = {4, 3, 2, 8};
     vector<int> b = {};
-    vector<int> c = {};
 
-    cout << equal(common(a, b).begin(), common(a, b).end(), c.begin()) << endl;
+    cout << equal(common(a, b).begin(), common(a, b).end(), b.begin()) << endl;
 
     return 0;
 }
