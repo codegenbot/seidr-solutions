@@ -1,5 +1,5 @@
 #include <string>
-#include <boost/algorithm/string.hpp>
+#include <boost/algorithm/string/compare.hpp>
 #include <boost/any.hpp>
 #include <cassert>
 
@@ -17,7 +17,7 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
         std::string str2 = boost::any_cast<std::string>(b);
         boost::algorithm::to_lower(str1);
         boost::algorithm::to_lower(str2);
-        return std::max(str1, str2, [](const std::string& s1, const std::string& s2) { return s1 < s2; });
+        return std::max(str1, str2, boost::is_less());
     }
     return boost::any();
 }
