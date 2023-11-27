@@ -11,16 +11,10 @@ bool is_palindrome(std::string text){
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-    
-    if(is_palindrome(input)){
-        std::cout << "The string is a palindrome";
-    }
-    else{
-        std::cout << "The string is not a palindrome";
-    }
-    
+    // Test cases
+    std::cout << is_palindrome("racecar") << std::endl;   // 1
+    std::cout << is_palindrome("hello") << std::endl;     // 0
+    std::cout << is_palindrome("aabbaa") << std::endl;    // 1
+    std::cout << is_palindrome("") << std::endl;          // 1
     return 0;
 }
