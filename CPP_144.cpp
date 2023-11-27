@@ -16,8 +16,19 @@ bool simplify(string x, string n) {
     return result_num % result_den == 0;
 }
 
-int main() {
+bool test() {
     assert(simplify("1/5", "1/5") == false);
-    
+    // Add more test cases here
+
+    return true;
+}
+
+int main() {
+    if (test()) {
+        cout << "All test cases passed." << endl;
+    } else {
+        cout << "Some test cases failed." << endl;
+    }
+
     return 0;
 }
