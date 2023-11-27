@@ -14,7 +14,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (num1 < num2) {
       return num2;
     } else {
-      return string("None");
+      return "None";
     }
   } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
     float num1 = boost::any_cast<float>(a);
@@ -24,7 +24,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (num1 < num2) {
       return num2;
     } else {
-      return string("None");
+      return "None";
     }
   } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
     string str1 = boost::any_cast<string>(a);
@@ -34,7 +34,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (str1 < str2) {
       return str2;
     } else {
-      return string("None");
+      return "None";
     }
   } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
     string str = boost::any_cast<string>(a);
@@ -45,7 +45,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     string str = boost::any_cast<string>(b);
     return str;
   } else {
-    return string("None");
+    return "None";
   }
 }
 
