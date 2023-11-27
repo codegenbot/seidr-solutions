@@ -27,3 +27,9 @@ string string_to_md5(string text) {
 
     return string(md5String);
 }
+
+int main() {
+    // Your code here
+
+    return 0;
+}
