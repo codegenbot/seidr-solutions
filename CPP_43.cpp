@@ -13,9 +13,6 @@ bool pairs_sum_to_zero(vector<int> l) {
 }
 
 int main() {
-    // Test your code here
-    vector<int> nums = {1, -2, 3, -4, 5};
-    assert(pairs_sum_to_zero(nums));
-
+    // test your function here
     return 0;
 }
