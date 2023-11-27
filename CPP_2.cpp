@@ -1,7 +1,8 @@
 #include <cmath>
+#include <cassert>
 
 float truncate_number(float number){
-    return number - std::floor(number);
+    return number - floor(number);
 }
 
 int main(){
