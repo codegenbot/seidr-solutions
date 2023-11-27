@@ -9,15 +9,3 @@ vector<int> generate_integers(int a, int b) {
     }
     return result;
 }
-
-bool issame(const vector<int>& arr1, const vector<int>& arr2) {
-    if (arr1.size() != arr2.size()) {
-        return false;
-    }
-    for (int i = 0; i < arr1.size(); i++) {
-        if (arr1[i] != arr2[i]) {
-            return false;
-        }
-    }
-    return true;
-}
