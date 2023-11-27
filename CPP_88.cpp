@@ -17,7 +17,7 @@ vector<int> sort_array(vector<int> array){
     return array;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b ){
     return a == b;
 }
 
