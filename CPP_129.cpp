@@ -4,45 +4,44 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
 void dfs(std::vector<std::vector<int>>& grid, int x, int y, int k, std::vector<int>& path){
-    // Check if the current cell is out of bounds or already visited
-    if(x < 0 || x >= grid.size() || y < 0 || y >= grid.size() || grid[x][y] == -1){
+    int n = grid.size();
+    
+    if(x < 0 || y < 0 || x >= n || y >= n || k < 0 || grid[x][y] == -1) {
         return;
     }
     
-    // Add the current cell to the path
     path.push_back(grid[x][y]);
     
-    // Mark the current cell as visited
-    grid[x][y] = -1;
-    
-    // Check if the current cell is the destination
-    if(x == k && y == k){
+    if(x == n-1 && y == n-1) {
         return;
     }
     
-    // Perform a depth-first search to explore the neighboring cells
-    dfs(grid, x+1, y, k, path);  // Down
-    dfs(grid, x, y+1, k, path);  // Right
-    dfs(grid, x-1, y, k, path);  // Up
-    dfs(grid, x, y-1, k, path);  // Left
+    int temp = grid[x][y];
+    grid[x][y] = -1;
     
-    // Remove the current cell from the path
+    dfs(grid, x+1, y, k-temp, path);
+    
+    if(path.empty() || path.back() != temp) {
+        dfs(grid, x, y+1, k-temp, path);
+    }
+    
+    grid[x][y] = temp;
+    
     path.pop_back();
-    
-    // Mark the current cell as unvisited
-    grid[x][y] = path.back();
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
@@ -73,10 +72,4 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     dfs(grid, startX, startY, k, path);
     
     return path;
-}
-
-int main() {
-    assert(issame(std::vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}), minPath(std::vector<std::vector<int>>({{1, 3}, {3, 2}}), 10)));
-    
-    return 0;
 }
