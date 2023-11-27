@@ -21,7 +21,11 @@ bool is_same_list(vector<int> a, vector<int> b){
     return true;
 }
 
+bool test_incr_list(){
+    return is_same_list(incr_list(vector<int>{5, 2, 5, 2, 3, 3, 9, 0, 123}) , vector<int>{6, 3, 6, 3, 4, 4, 10, 1, 124});
+}
+
 int main(){
-    assert (is_same_list(incr_list(vector<int>{5, 2, 5, 2, 3, 3, 9, 0, 123}) , vector<int>{6, 3, 6, 3, 4, 4, 10, 1, 124}));
+    assert(test_incr_list());
     return 0;
 }
