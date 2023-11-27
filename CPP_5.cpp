@@ -1,5 +1,4 @@
-#include <vector>
-
+#include <vector>  
 using namespace std;
 
 vector<int> intersperse(vector<int> numbers, int delimiter) { 
@@ -15,7 +14,7 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
 
 bool issame(vector<int> a, vector<int> b) {
     // Code for comparison here...
-    return true; // Placeholder return value
+    return true; 
 }
 
 int main() {
