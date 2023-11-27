@@ -15,6 +15,7 @@ bool simplify(std::string x, std::string n){
 }
 
 int main() {
+    // Test the simplify function
     std::cout << simplify("1/5", "1/5") << std::endl;
 
     return 0;
