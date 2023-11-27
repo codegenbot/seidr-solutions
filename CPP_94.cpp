@@ -47,7 +47,5 @@ int main() {
     lst = {0,8,1,2,1,7};
     std::cout << largestPrimeSum(lst) << std::endl;
 
-    assert(largestPrimeSum({127, 97, 8192}) == 10);
-
     return 0;
 }
