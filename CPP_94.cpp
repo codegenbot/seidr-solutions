@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 int sumOfDigits(int num) {
     int sum = 0;
@@ -29,9 +28,7 @@ int largestPrimeSum(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(largestPrimeSum({127, 97, 8192}) == 10);
-    
-    std::cout << "Test cases passed!" << std::endl;
+    std::cout << (largestPrimeSum({127, 97, 8192}) == 10) << std::endl;
     
     return 0;
 }
