@@ -1,53 +1,52 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
-    int cutIndex = -1;
+    int index = -1;
 
-    for (int i = 0; i < n - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; j++) {
-            leftSum += nums[j];
+    // Find the index where the difference between the sums of the two subvectors is minimal
+    for (int i = 1; i < n; i++) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j < i; j++) {
+            sum1 += nums[j];
         }
-        for (int j = i + 1; j < n; j++) {
-            rightSum += nums[j];
+        for (int j = i; j < n; j++) {
+            sum2 += nums[j];
         }
-        int currDiff = abs(leftSum - rightSum);
+        int currDiff = abs(sum1 - sum2);
         if (currDiff < diff) {
             diff = currDiff;
-            cutIndex = i;
+            index = i;
         }
     }
 
-    std::vector<int> leftSubvector, rightSubvector;
-    for (int i = 0; i <= cutIndex; i++) {
-        leftSubvector.push_back(nums[i]);
-    }
-    for (int i = cutIndex + 1; i < n; i++) {
-        rightSubvector.push_back(nums[i]);
-    }
+    // Create the two subvectors
+    vector<int> subvector1(nums.begin(), nums.begin() + index);
+    vector<int> subvector2(nums.begin() + index, nums.end());
 
-    return std::make_pair(leftSubvector, rightSubvector);
+    return make_pair(subvector1, subvector2);
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
 
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
 
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+    pair<vector<int>, vector<int>> result = cutVector(nums);
 
     for (int num : result.first) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
+
     for (int num : result.second) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
 
     return 0;
