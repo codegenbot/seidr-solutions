@@ -8,7 +8,7 @@ using namespace std;
 int count_distinct_characters(string str);
 
 int main() {
-    cout << count_distinct_characters("Jerry jERRY JeRRRY");
+    cout << count_distinct_characters("Jerry jERRY JeRRRY") << endl;
     return 0;
 }
 
