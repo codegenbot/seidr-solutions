@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
-  // implementation of the function
+    // implementation of the function
 }
 
 vector<int> rolling_max(vector<int> numbers){
@@ -19,7 +19,7 @@ vector<int> rolling_max(vector<int> numbers){
 }
 
 int main(){
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    assert(issame({3, 3, 3, 100, 100}, rolling_max({3, 2, 3, 100, 3})));
     // additional test cases...
     return 0;
 }
