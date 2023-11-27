@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 int stringLength(string str){
     return str.length();
