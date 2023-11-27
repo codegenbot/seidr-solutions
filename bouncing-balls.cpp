@@ -11,8 +11,8 @@ int main() {
     double totalDistance = startingHeight;
 
     for (int i = 0; i < numBounces; i++) {
-        totalDistance += 2 * bouncinessIndex;
-        bouncinessIndex *= bouncinessIndex;
+        totalDistance += 2 * bouncinessIndex * startingHeight;
+        startingHeight *= bouncinessIndex;
     }
 
     cout << totalDistance << endl;
