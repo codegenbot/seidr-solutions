@@ -1,19 +1,25 @@
 int closest_integer(string value){
-    float num = stof(value); // Convert the string value to float
-    int rounded = round(num); // Round the float to the nearest integer
-    int floorNum = floor(num); // Round the float down to the nearest integer
-    int ceilNum = ceil(num); // Round the float up to the nearest integer
+    float num = std::stof(value); // Convert the string to float
+    int floor_num = floor(num); // Round down to the nearest integer
+    int ceil_num = ceil(num); // Round up to the nearest integer
     
-    // Check if the rounded number is equidistant from floorNum and ceilNum
-    if (abs(rounded - floorNum) == abs(rounded - ceilNum)) {
-        // If equidistant, return the farthest from zero
-        if (rounded > 0) {
-            return ceilNum;
+    // Calculate the difference between the original number and the rounded numbers
+    float diff_floor = abs(num - floor_num);
+    float diff_ceil = abs(num - ceil_num);
+    
+    // If the difference is the same, round away from zero
+    if(diff_floor == diff_ceil){
+        if(num < 0){
+            return ceil_num;
         } else {
-            return floorNum;
+            return floor_num;
         }
+    }
+    
+    // Return the closest integer
+    if(diff_floor < diff_ceil){
+        return floor_num;
     } else {
-        // If not equidistant, return the rounded number
-        return rounded;
+        return ceil_num;
     }
 }
