@@ -1,5 +1,6 @@
 #include <vector>
 using namespace std;
+
 vector<int> eat(int need, int remaining) {
     int totalEaten = need + remaining;
     int left = remaining - need;
