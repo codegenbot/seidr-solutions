@@ -2,11 +2,6 @@
 #include <string>
 #include <algorithm>
 
-using namespace std;
-
-vector<string> reverse_delete(string s, string c);
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> reverse_delete(string s, string c) {
     string result;
     for (int i = 0; i < s.length(); i++) {
