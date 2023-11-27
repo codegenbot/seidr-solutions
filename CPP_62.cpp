@@ -26,11 +26,15 @@ vector<float> derivative(vector<float> xs){
 }
 
 int main() {
-    // Test the derivative function
-    vector<float> input = {1, 2, 3, 4};
-    vector<float> expected_output = {2, 6, 12};
-    vector<float> output = derivative(input);
-    assert(issame(output, expected_output));
+    // Test issame function
+    assert(issame({1, 2, 3}, {1, 2, 3}));
+    assert(!issame({1, 2, 3}, {1, 2, 4}));
+    
+    // Test derivative function
+    vector<float> xs = {1, 2, 3, 4};
+    vector<float> expected = {2, 6, 12};
+    vector<float> result = derivative(xs);
+    assert(issame(result, expected));
     
     return 0;
 }
