@@ -4,7 +4,9 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> sort_even_length_strings(vector<string> lst) {
     vector<string> result;
@@ -28,7 +30,7 @@ int main() {
 
     vector<string> sorted_list = sort_even_length_strings(input);
 
-    assert(sorted_list == expected_output);
+    std::cout << std::boolalpha << issame(sorted_list, expected_output) << std::endl;
 
     return 0;
 }
