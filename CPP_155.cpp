@@ -1,16 +1,38 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 vector<int> even_odd_count(int num){
-    vector<int> counts(2, 0);
-    string numStr = to_string(abs(num));
-    for(int i=0; i<numStr.size(); i++){
-        int digit = numStr[i] - '0';
+    int evenCount = 0;
+    int oddCount = 0;
+    
+    while(num != 0){
+        int digit = abs(num % 10);
         if(digit % 2 == 0){
-            counts[0]++;
-        } else{
-            counts[1]++;
+            evenCount++;
+        } else {
+            oddCount++;
         }
+        num /= 10;
     }
-    if(num < 0){
-        counts[0]++; // increment the count of even digits by 1 because of the negative sign
-    }
-    return counts;
+    
+    vector<int> result = {evenCount, oddCount};
+    return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+int main(){
+    assert (issame(even_odd_count(0) , {1, 0}));
+    assert (issame(even_odd_count(1) , {0, 1}));
+    assert (issame(even_odd_count(123) , {1, 2}));
+    assert (issame(even_odd_count(2468642) , {7, 0}));
+    assert (issame(even_odd_count(-2468642) , {7, 0}));
+    assert (issame(even_odd_count(13579731) , {0, 9}));
+    cout << "All test cases pass";
+    
+    return 0;
 }
