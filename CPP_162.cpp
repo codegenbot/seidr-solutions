@@ -9,6 +9,8 @@ string string_to_md5(string text) {
         return "None";
     }
 
+    OpenSSL_add_all_algorithms(); // Add this line to load all OpenSSL algorithms
+
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
     EVP_DigestUpdate(ctx, text.c_str(), text.size());
