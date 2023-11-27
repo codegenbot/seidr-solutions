@@ -2,9 +2,10 @@
 
 double calculateSnow(double hours, double initialSnow, double snowFallRate, double snowMeltRate) {
     double snow = initialSnow;
-    for (double i = 0; i < hours; i++) {
-        double snowChange = snowFallRate - (snow * snowMeltRate);
+    for (int i = 0; i < hours; i++) {
+        double snowChange = snowFallRate - (initialSnow * snowMeltRate);
         snow += snowChange;
+        initialSnow += snowFallRate;
     }
     return snow;
 }
