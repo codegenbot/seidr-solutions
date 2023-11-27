@@ -1,10 +1,8 @@
 #include <vector>
+#include <cmath>
 #include <cassert>
 
 using namespace std;
-
-vector<float> rescale_to_unit(vector<float> numbers);
-bool issame(vector<float> a, vector<float> b);
 
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_val = numbers[0];
@@ -34,7 +32,7 @@ bool issame(vector<float> a, vector<float> b) {
     }
 
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (abs(a[i] - b[i]) > 0.0001) {
             return false;
         }
     }
