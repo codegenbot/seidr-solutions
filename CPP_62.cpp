@@ -19,21 +19,3 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     }
     return true;
 }
-
-#include <iostream>
-
-int main() {
-    std::vector<float> xs;
-    float input;
-    while (std::cin >> input) {
-        xs.push_back(input);
-    }
-
-    std::vector<float> result = derivative(xs);
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
-}
