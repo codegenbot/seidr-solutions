@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
@@ -16,10 +15,11 @@ long long double_the_difference(std::vector<float> lst){
 long long solve(){
     int n;
     std::cin >> n;
-    
-    std::vector<float> lst(n);
+    std::vector<float> lst;
     for(int i=0; i<n; i++){
-        std::cin >> lst[i];
+        float num;
+        std::cin >> num;
+        lst.push_back(num);
     }
     
     long long odd_sum = double_the_difference(lst);
@@ -27,7 +27,9 @@ long long solve(){
     return odd_sum;
 }
 
-long long result = solve();
-std::cout << result << std::endl;
+int main(){
+    long long result = solve();
+    std::cout << result << std::endl;
 
-return 0;
+    return 0;
+}
