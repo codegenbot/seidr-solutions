@@ -2,20 +2,25 @@
 using namespace std;
 
 int largest_prime_factor(int n) {
-    int largestFactor = 2;
-    while (n > largestFactor) {
-        if (n % largestFactor == 0) {
-            n /= largestFactor;
-        } else {
-            largestFactor++;
+    int largest_factor = 0;
+    while (n % 2 == 0) {
+        largest_factor = 2;
+        n /= 2;
+    }
+    for (int i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            largest_factor = i;
+            n /= i;
         }
     }
-    return largestFactor;
+    if (n > 2) {
+        largest_factor = n;
+    }
+    return largest_factor;
 }
 
 int main() {
     int n;
-    cout << "Enter a number: ";
     cin >> n;
     cout << largest_prime_factor(n) << endl;
     return 0;
