@@ -16,16 +16,23 @@ vector<int> compare(vector<int> game, vector<int> guess){
 }
 
 int main() {
-    // Test the compare function
-    vector<int> game = {1, 2, 3};
-    vector<int> guess = {1, 4, 3};
+    int n;
+    cin >> n;
+    vector<int> game(n);
+    vector<int> guess(n);
+    
+    for(int i=0; i<n; i++){
+        cin >> game[i];
+    }
+    for(int i=0; i<n; i++){
+        cin >> guess[i];
+    }
+    
     vector<int> result = compare(game, guess);
     for(int i=0; i<result.size(); i++){
         cout << result[i] << " ";
     }
     cout << endl;
-    
-    // Add your additional test cases here
     
     return 0;
 }
