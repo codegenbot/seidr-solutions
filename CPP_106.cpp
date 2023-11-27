@@ -2,7 +2,9 @@
 #include <cassert>
 #include <iostream>
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool are_same(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,8 +16,8 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> f(int n) {
-    std::vector<int> result;
+vector<int> f_output(int n) {
+    vector<int> result;
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
             int factorial = 1;
@@ -36,7 +38,7 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    assert(is_same(f(3), {1, 2, 6}));
+    assert(are_same(f_output(3), {1, 2, 6}));
 
     return 0;
 }
