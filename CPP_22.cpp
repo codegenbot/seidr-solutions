@@ -3,8 +3,6 @@
 #include <typeinfo>
 #include <boost/any.hpp>
 
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> filter_integers(vector<any> values) {
     vector<int> result;
     for (auto value : values) {
