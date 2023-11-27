@@ -18,8 +18,19 @@ int is_bored(std::string S){
 }
 
 int main() {
-    // Test the is_bored function
-    std::string sentence = "I am bored. Are you bored? Let's do something!";
-    int result = is_bored(sentence);
+    // Test cases
+    std::string sentence1 = "I am bored.";
+    std::string sentence2 = "Are you bored?";
+    std::string sentence3 = "This is not a sentence.";
+    
+    int result1 = is_bored(sentence1);
+    int result2 = is_bored(sentence2);
+    int result3 = is_bored(sentence3);
+    
+    // Print the results
+    std::cout << "Result 1: " << result1 << std::endl;
+    std::cout << "Result 2: " << result2 << std::endl;
+    std::cout << "Result 3: " << result3 << std::endl;
+    
     return 0;
 }
