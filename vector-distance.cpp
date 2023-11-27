@@ -2,6 +2,7 @@
 #include <vector>
 #include <sstream>
 #include <cmath>
+#include <algorithm>
 
 double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     double sum = 0.0;
