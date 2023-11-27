@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -14,20 +15,17 @@ vector<string> all_prefixes(string str){
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b){
-    if(a.size() != b.size()){
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size())
         return false;
-    }
     for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+        if(a[i] != b[i])
             return false;
-        }
     }
     return true;
 }
 
-int main() {
+int main(){
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    
     return 0;
 }
