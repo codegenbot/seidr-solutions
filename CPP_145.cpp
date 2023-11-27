@@ -3,22 +3,28 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
+vector<int> order_by_points(const vector<int>& nums) {
     if (nums.empty()) {
         return nums;
     }
-    std::vector<std::pair<int, int>> sums;
+    vector<pair<int, int>> sums;
     for (const int& num : nums) {
         int sum = 0;
-        int abs_num = std::abs(num);
+        int abs_num = abs(num);
         while (abs_num > 0) {
             sum += abs_num % 10;
             abs_num /= 10;
         }
-        sums.push_back(std::make_pair(sum, num));
+        sums.push_back(make_pair(sum, num));
     }
-    std::sort(sums.begin(), sums.end());
-    std::vector<int> result;
+    sort(sums.begin(), sums.end());
+    vector<int> result;
     for (const auto& pair : sums) {
         result.push_back(pair.second);
     }
@@ -26,7 +32,7 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(std::equal(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
 
     return 0;
 }
