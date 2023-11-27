@@ -1,17 +1,12 @@
-bool cycpattern_check(string a, string b) {
-    int n = a.length();
-    int m = b.length();
-    
-    if (m > n) {
-        return false;
+bool cycpattern_check(string a,string b) {
+    if (a.find(b) != string::npos) {
+        return true;
     }
-    
-    for (int i = 0; i <= n - m; i++) {
-        string substring = a.substr(i, m);
-        if (substring == b) {
+    for (int i = 1; i < b.length(); i++) {
+        string rotated = b.substr(i) + b.substr(0, i);
+        if (a.find(rotated) != string::npos) {
             return true;
         }
     }
-    
     return false;
 }
