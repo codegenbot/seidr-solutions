@@ -1,17 +1,16 @@
 vector<int> even_odd_count(int num){
-    int evenCount = 0;
-    int oddCount = 0;
-    string numString = to_string(abs(num));
+    vector<int> counts(2, 0);
+    string numStr = to_string(abs(num));
     
-    for(int i = 0; i < numString.length(); i++){
-        int digit = numString[i] - '0';
+    for(int i = 0; i < numStr.length(); i++){
+        int digit = numStr[i] - '0';
         if(digit % 2 == 0){
-            evenCount++;
-        } else {
-            oddCount++;
+            counts[0]++;
+        }
+        else{
+            counts[1]++;
         }
     }
     
-    vector<int> result = {evenCount, oddCount};
-    return result;
+    return counts;
 }
