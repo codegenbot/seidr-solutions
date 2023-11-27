@@ -1,44 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+string find_max(vector<string> words){
+    string maxWord = words[0]; // Assume the first word has the maximum unique characters
+    int maxUniqueChars = countUniqueChars(words[0]); // Count the unique characters in the first word
 
-using namespace std;
+    for(int i = 1; i < words.size(); i++){
+        int uniqueChars = countUniqueChars(words[i]); // Count the unique characters in the current word
 
-string find_max(vector<string> words) {
-    string maxWord = "";
-    int maxCount = 0;
-
-    for (string word : words) {
-        int uniqueChars = 0;
-        
-        // Count unique characters in the current word
-        for (char c : word) {
-            if (count(word.begin(), word.end(), c) == 1) {
-                uniqueChars++;
-            }
+        if(uniqueChars > maxUniqueChars){ // If current word has more unique characters
+            maxWord = words[i]; // Update the maxWord
+            maxUniqueChars = uniqueChars; // Update the maxUniqueChars
         }
-        
-        // Update maxWord if current word has more unique characters
-        // or if it has the same number of unique characters but comes
-        // lexicographically before maxWord
-        if (uniqueChars > maxCount || (uniqueChars == maxCount && word < maxWord)) {
-            maxWord = word;
-            maxCount = uniqueChars;
+        else if(uniqueChars == maxUniqueChars && words[i] < maxWord){ // If current word also has maximum unique characters but comes before in lexicographical order
+            maxWord = words[i]; // Update the maxWord
         }
     }
 
     return maxWord;
-}
-
-int main() {
-    vector<string> words1 = {"name", "of", "string"};
-    vector<string> words2 = {"name", "enam", "game"};
-    vector<string> words3 = {"aaaaaaa", "bb", "cc"};
-
-    cout << find_max(words1) << endl;  // Expected output: "string"
-    cout << find_max(words2) << endl;  // Expected output: "enam"
-    cout << find_max(words3) << endl;  // Expected output: "aaaaaaa"
-
-    return 0;
 }
