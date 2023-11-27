@@ -35,3 +35,14 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     }
     return result;
 }
+
+int main() {
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+
+    // Additional test cases
+    assert(issame(words_string(""), {}));  // Empty string, expect empty vector
+    assert(issame(words_string("apple,orange,banana"), {"apple", "orange", "banana"}));  // Multiple words separated by commas
+    assert(issame(words_string("   hello, world   ,   how , are , you   "), {"hello", "world", "how", "are", "you"}));  // Extra spaces before and after words
+
+    return 0;
+}
