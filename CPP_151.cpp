@@ -15,13 +15,8 @@ long long double_the_difference(std::vector<float> lst){
 int main(){
     std::vector<float> lst;
     // Read input from user and populate 'lst' vector
-    
-    int n;
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++){
-        float value;
-        std::cin >> value;
+    float value;
+    while(std::cin >> value){
         lst.push_back(value);
     }
 
