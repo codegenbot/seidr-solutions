@@ -4,7 +4,7 @@
 #include <cassert>
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(const vector<int>& a, const vector<int>& b){
     if(a.size() != b.size()){
         return false;
     }
@@ -18,7 +18,7 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> order_by_points(vector<int> nums){
+vector<int> order_by_points(const vector<int>& nums){
     vector<int> result;
     vector<pair<int, int>> sums;
     
@@ -36,7 +36,7 @@ vector<int> order_by_points(vector<int> nums){
     
     sort(sums.begin(), sums.end());
     
-    for(auto p : sums){
+    for(const auto& p : sums){
         result.push_back(nums[p.second]);
     }
     
