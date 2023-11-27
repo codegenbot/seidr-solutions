@@ -3,20 +3,6 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-vector<string> words_string(const string& s);
-
-bool issame(const vector<string>& a, const vector<string>& b);
-
-int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-
-    // Add more test cases if needed
-
-    return 0;
-}
-
 vector<string> words_string(const string& s) {
     vector<string> words;
     string word = "";
@@ -26,8 +12,7 @@ vector<string> words_string(const string& s) {
                 words.push_back(word);
                 word = "";
             }
-        }
-        else {
+        } else {
             word += s[i];
         }
     }
@@ -41,8 +26,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     bool result = true;
     if (a.size() != b.size()) {
         result = false;
-    }
-    else {
+    } else {
         for (int i = 0; i < a.size(); i++) {
             if (a[i] != b[i]) {
                 result = false;
@@ -51,4 +35,12 @@ bool issame(const vector<string>& a, const vector<string>& b) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+
+    // Add more test cases if needed
+
+    return 0;
 }
