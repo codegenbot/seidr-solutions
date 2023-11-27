@@ -1,3 +1,17 @@
+vector<int> count_up_to(int n);
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> count_up_to(int n){
     vector<int> primes;
     if(n <= 1){
@@ -19,24 +33,11 @@ vector<int> count_up_to(int n){
     return primes;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<int> count_up_to(int n);
-
-int main() {
+int main(){
     int n;
     cin >> n;
-    vector<int> result = count_up_to(n);
-    // Do something with the result
+    vector<int> output = count_up_to(n);
+    vector<int> expected_output = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+    cout << "Output: " << (issame(output, expected_output) ? "Correct" : "Incorrect") << endl;
     return 0;
 }
