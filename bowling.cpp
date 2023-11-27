@@ -1,76 +1,44 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(std::string input) {
+int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
-    int roll = 0;
-    int prevRoll = 0;
-    bool strike = false;
-    bool spare = false;
-
-    for (char c : input) {
-        if (c == 'X') {
+    int bowlIndex = 0;
+    
+    while (frame <= 10) {
+        char bowl = bowls[bowlIndex];
+        
+        if (bowl == 'X') {
             score += 10;
-            if (frame < 10) {
-                if (strike) {
-                    score += 10;
-                }
-                strike = true;
-                frame++;
-                roll = 0;
-            }
-        } else if (c == '/') {
-            score += 10 - prevRoll;
-            if (frame < 10) {
-                if (strike) {
-                    score += 10 - prevRoll;
-                }
-                spare = true;
-                frame++;
-                roll = 0;
-            }
-        } else if (c == '-') {
-            if (frame < 10) {
-                roll++;
-                if (strike) {
-                    score += 0;
-                }
-                if (spare) {
-                    score += 0;
-                }
-            }
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            bowlIndex++;
+        } else if (bowl == '/') {
+            score += 10;
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
+            bowlIndex += 2;
         } else {
-            int pins = c - '0';
-            score += pins;
-            if (frame < 10) {
-                if (strike) {
-                    score += pins;
-                }
-                if (spare) {
-                    score += pins;
-                }
-                if (roll == 0) {
-                    prevRoll = pins;
-                }
-                roll++;
-                if (roll == 2) {
-                    roll = 0;
-                    frame++;
-                }
-                strike = false;
-                spare = false;
+            score += (bowl - '0');
+            if (bowlIndex > 0 && bowls[bowlIndex - 1] == '/') {
+                score += (bowl - '0');
             }
+            bowlIndex++;
         }
+        
+        frame++;
     }
-
+    
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    int score = calculateScore(input);
-    std::cout << score << std::endl;
+    std::string bowls;
+    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
+    std::cin >> bowls;
+    
+    int score = calculateScore(bowls);
+    std::cout << "Score: " << score << std::endl;
+    
     return 0;
 }
