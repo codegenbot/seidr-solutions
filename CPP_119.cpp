@@ -30,6 +30,7 @@ string match_parens(vector<string> lst) {
 }
 
 int main() {
+    // Test the match_parens function
     assert(match_parens({")", "("}) == "Yes");
 
     return 0;
