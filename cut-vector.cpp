@@ -9,11 +9,13 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int minDiff = INT_MAX;
     int cutIndex = -1;
 
-    for (int i = 0; i < n-1; i++) {
+    // Calculate the sum of all numbers in the vector
+    for (int i = 0; i < n; i++) {
         rightSum += nums[i];
     }
 
-    for (int i = 0; i < n-1; i++) {
+    // Iterate through each index and find the cut index with minimum difference
+    for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
         int diff = abs(leftSum - rightSum);
@@ -24,8 +26,17 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    std::vector<int> subvector1(nums.begin(), nums.begin() + cutIndex);
-    std::vector<int> subvector2(nums.begin() + cutIndex, nums.end());
+    // Create the two resulting subvectors
+    std::vector<int> subvector1;
+    std::vector<int> subvector2;
+      
+    if (cutIndex >= 0 && cutIndex < n-1) {
+        subvector1 = std::vector<int>(nums.begin(), nums.begin() + cutIndex + 1);
+        subvector2 = std::vector<int>(nums.begin() + cutIndex + 1, nums.end());
+    }
+    else {
+        subvector1 = nums;
+    }
 
     return std::make_pair(subvector1, subvector2);
 }
