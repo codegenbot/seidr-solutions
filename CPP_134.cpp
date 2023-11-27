@@ -1,11 +1,15 @@
-bool check_if_last_char_is_a_letter(string txt){
-    int length = txt.length();
-    if (length == 0) {
-        return false;
-    }
-    char lastChar = txt[length - 1];
-    if (isalpha(lastChar) && (length == 1 || txt[length - 2] == ' ')) {
-        return true;
-    }
+bool check_if_last_char_is_a_letter(string txt) {
+  if (txt.empty()) {
     return false;
+  }
+
+  char lastChar = txt.back();
+  if (isalpha(lastChar)) {
+    int spaceIndex = txt.find_last_of(' ');
+    if (spaceIndex != string::npos && spaceIndex + 1 == txt.size()) {
+      return true;
+    }
+  }
+
+  return false;
 }
