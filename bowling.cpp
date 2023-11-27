@@ -3,43 +3,31 @@
 
 int getScore(const std::string& bowls) {
     int score = 0;
-    int frame = 0;
-    int bowl = 0;
-    int frames[10] = { 0 };
+    int frame = 1;
+    int bowlIndex = 0;
 
-    for (char c : bowls) {
-        if (c == 'X') {
-            frames[frame++] = 10;
-            if (frame == 10) break;
-        }
-        else if (c == '/') {
-            frames[frame++] = 10 - frames[frame - 1];
-            if (frame == 10) break;
-            bowl = 0;
-        }
-        else if (c == '-') {
-            bowl++;
-        }
-        else {
-            frames[frame] += c - '0';
-            if (bowl == 1) {
-                frame++;
-                if (frame == 10) break;
+    while (frame <= 10 && bowlIndex < bowls.length()) {
+        if (bowls[bowlIndex] == 'X') {
+            score += 10;
+            if (frame < 10) {
+                if (bowls[bowlIndex + 2] == '/') {
+                    score += 10;
+                } else {
+                    score += (bowls[bowlIndex + 1] - '0') + (bowls[bowlIndex + 2] - '0');
+                }
             }
-            else {
-                bowl++;
+            bowlIndex++;
+        } else if (bowls[bowlIndex + 1] == '/') {
+            score += 10;
+            if (frame < 10) {
+                score += (bowls[bowlIndex + 2] - '0');
             }
+            bowlIndex += 2;
+        } else {
+            score += (bowls[bowlIndex] - '0') + (bowls[bowlIndex + 1] - '0');
+            bowlIndex += 2;
         }
-    }
-
-    for (int i = 0; i < frame - 1; i++) {
-        score += frames[i];
-        if (frames[i] == 10) {
-            score += frames[i + 1] + frames[i + 2];
-        }
-        else if (frames[i] + frames[i + 1] == 10) {
-            score += frames[i + 2];
-        }
+        frame++;
     }
 
     return score;
@@ -48,6 +36,9 @@ int getScore(const std::string& bowls) {
 int main() {
     std::string bowls;
     std::cin >> bowls;
-    std::cout << getScore(bowls);
+
+    int score = getScore(bowls);
+    std::cout << score << std::endl;
+
     return 0;
 }
