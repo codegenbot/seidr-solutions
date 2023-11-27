@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 int count_nums(std::vector<int> n) {
@@ -21,6 +20,5 @@ int main() {
     // Test the count_nums function
     std::vector<int> numbers = {1, 2, 3, -10, -15, 0};
     int result = count_nums(numbers);
-    std::cout << "Count: " << result << std::endl;
     return 0;
 }
