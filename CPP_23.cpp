@@ -1,5 +1,9 @@
-#include <string>
+#include <iostream>
+#include <cstring>
+#include <cassert>
 
-int stringLength(std::string str){
-    return str.length();
+int main() {
+    assert (std::strlen("asdasnakj") == 9);
+
+    return 0;
 }
