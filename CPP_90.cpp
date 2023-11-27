@@ -1,19 +1,24 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 #include <climits>
 
-const int None = INT_MIN;
+using namespace std;
 
 int next_smallest(vector<int> lst){
     if(lst.size() < 2){
-        return None;
+        return INT_MIN;
     }
-    sort(lst.begin(), lst.end());
     int smallest = lst[0];
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] > smallest){
             return lst[i];
         }
     }
-    return None;
+    return INT_MIN;
 }
+
+assert(next_smallest({-35, 34, 12, -45}) == -35);
+// Add more test cases here
+
+return 0;
