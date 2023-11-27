@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 vector<string> split_words(string txt) {
@@ -16,15 +17,13 @@ vector<string> split_words(string txt) {
                 result.push_back(word);
                 word = "";
             }
-        }
-        else if (txt[i] == ',') {
+        } else if (txt[i] == ',') {
             hasComma = true;
             if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
-        }
-        else {
+        } else {
             word += txt[i];
         }
     }
@@ -40,8 +39,7 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    // Your code here
+bool isSameVectors(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -63,7 +61,7 @@ int main() {
     vector<string> words1 = split_words(input1);
     vector<string> words2 = split_words(input2);
 
-    bool result = issame(words1, words2);
+    bool result = isSameVectors(words1, words2);
 
     cout << (result ? "Same" : "Different") << endl;
 
