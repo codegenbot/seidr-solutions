@@ -2,11 +2,6 @@
 
 std::string fix_spaces(std::string text);
 
-int main() {
-    std::string result = fix_spaces("   Exa 1 2 2 mple");
-    return 0;
-}
-
 std::string fix_spaces(std::string text) {
     std::string result;
     int consecutiveSpaces = 0;
