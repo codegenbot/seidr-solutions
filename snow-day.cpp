@@ -1,16 +1,20 @@
 #include <iostream>
 
-float C(float h, float i, float r, float m) {
-    float s = i;
-    for (int j = 0; j <= static_cast<int>(h); j++) {
-        s += r;
-        s *= (1 - m);
+float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
+    float snow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        snow += snowFallRate * (1 - meltingRate);
+        snow *= (1 - meltingRate);
     }
-    return s;
+    return snow;
 }
 
 int main() {
-    float h, i, r, m;
-    std::cin >> h >> i >> r >> m;
-    std::cout << C(h, i, r, m) << std::endl;
+    float hours, initialSnow, snowFallRate, meltingRate;
+    std::cin >> hours >> initialSnow >> snowFallRate >> meltingRate;
+
+    float finalSnow = calculateSnow(hours, initialSnow, snowFallRate, meltingRate);
+    std::cout << finalSnow << std::endl;
+
+    return 0;
 }
