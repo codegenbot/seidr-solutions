@@ -1,6 +1,22 @@
+#include <iostream>
 #include <string>
 
-bool is_happy(string s); // Function declaration
+using namespace std;
+
+bool is_happy(string s);
+
+int main() {
+    string input;
+    cin >> input;
+
+    if (is_happy(input)) {
+        cout << "Happy" << endl;
+    } else {
+        cout << "Not Happy" << endl;
+    }
+
+    return 0;
+}
 
 bool is_happy(string s){
     if(s.length() < 3)
@@ -12,10 +28,4 @@ bool is_happy(string s){
     }
     
     return true;
-}
-
-int main() {
-    // Enter your code here
-
-    return 0;
 }
