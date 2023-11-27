@@ -14,11 +14,3 @@ string circular_shift(int x, int shift) {
     string result = num.substr(n - shift) + num.substr(0, n - shift);
     return result;
 }
-
-int main() {
-    int x, shift;
-    cin >> x >> shift;
-    string result = circular_shift(x, shift);
-    cout << result;
-    return 0;
-}
