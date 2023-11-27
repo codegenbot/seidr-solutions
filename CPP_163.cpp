@@ -17,7 +17,7 @@ vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
