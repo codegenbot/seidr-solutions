@@ -23,13 +23,16 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
+    // Test the sum_product function
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    vector<int> result = sum_product(numbers);
+    cout << "Sum: " << result[0] << endl;
+    cout << "Product: " << result[1] << endl;
+
+    // Test the issame function
     vector<int> a = {1, 2, 3};
     vector<int> b = {1, 2, 3};
-    if (issame(a, b)) {
-        vector<int> result = sum_product(a);
-        for (int num : result) {
-            cout << num << " ";
-        }
-    }
+    cout << "a and b are " << (issame(a, b) ? "same" : "different") << endl;
+
     return 0;
 }
