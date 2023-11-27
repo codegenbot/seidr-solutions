@@ -15,15 +15,14 @@ double probability(int n, int m) {
         }
     }
 
-    return (double)peter_wins / total_outcomes;
+    return peter_wins / (double)total_outcomes;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
 
-    double result = probability(n, m);
-    cout << setprecision(8) << result << endl;
+    cout << fixed << setprecision(8) << probability(n, m) << endl;
 
     return 0;
 }
