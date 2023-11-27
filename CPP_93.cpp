@@ -1,17 +1,28 @@
-string encode(string message){
-    for(int i=0; i<message.length(); i++){
-        if(isalpha(message[i])){
-            if(islower(message[i])){
-                message[i] = toupper(message[i]);
+#include <string>
+#include <cctype>
+#include <cassert>
+
+std::string encode(std::string message) {
+    std::string encodedMessage = "";
+    
+    for (int i = 0; i < message.length(); i++) {
+        char c = message[i];
+        
+        if (std::isalpha(c)) {
+            if (std::islower(c)) {
+                c = std::toupper(c);
             }
-            else{
-                message[i] = tolower(message[i]);
+            else {
+                c = std::tolower(c);
             }
             
-            if(message[i] == 'a' || message[i] == 'e' || message[i] == 'i' || message[i] == 'o' || message[i] == 'u'){
-                message[i] = message[i] + 2;
+            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+                c += 2;
             }
         }
+        
+        encodedMessage += c;
     }
-    return message;
+    
+    return encodedMessage;
 }
