@@ -1,21 +1,23 @@
 #include <vector>
+#include <cassert>
+#include <algorithm>
 
-std::vector<int> eat(int number, int need, int remaining) {
+using namespace std;
+
+vector<int> eat(int number, int need, int remaining) {
     int totalEaten = number + need;
-    int carrotsLeft = remaining - need;
-    if (carrotsLeft < 0) {
-        carrotsLeft = 0;
+    int left = remaining - need;
+    if (left < 0) {
+        left = 0;
     }
-    std::vector<int> result = {totalEaten, carrotsLeft};
-    return result;
+    return vector<int>{totalEaten, left};
 }
 
-bool issame(std::vector<int> vector1, std::vector<int> vector2) {
-    return (vector1 == vector2);
+bool issame(vector<int> a, vector<int> b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
     assert(issame(eat(4, 5, 1), {5, 0}));
-
     return 0;
 }

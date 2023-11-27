@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -10,26 +11,4 @@ long long double_the_difference(std::vector<float> lst){
         }
     }
     return sum;
-}
-
-int solve(){
-    int n;
-    std::cin >> n;
-    std::vector<float> lst;
-    for(int i=0; i<n; i++){
-        float num;
-        std::cin >> num;
-        lst.push_back(num);
-    }
-    
-    long long odd_sum = double_the_difference(lst);
-
-    return odd_sum;
-}
-
-int main(){
-    int result = solve();
-    std::cout << result << std::endl;
-
-    return 0;
 }
