@@ -10,10 +10,12 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
 
+    // Calculate the sum of all elements in the vector
     for (int i = 0; i < n; i++) {
         rightSum += nums[i];
     }
 
+    // Iterate through the vector and find the spot where the difference is minimized
     int diff = numeric_limits<int>::max(), cutIndex = -1;
     for (int i = n-1; i > 0; i--) {
         leftSum += nums[i];
@@ -26,6 +28,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
         }
     }
 
+    // Create the two resulting subvectors
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
