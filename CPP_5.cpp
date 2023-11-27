@@ -1,11 +1,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame(int a, int b){
-    return a == b;
+bool issame(const vector<int>& numbers){
+    // implementation of issame function
 }
 
-vector<int> intersperse(const vector<int>& numbers, int delimiter){
+vector<int> intersperse(const vector<int>& numbers, int delimiter){ 
     vector<int> result;
     if(numbers.empty()){
         return result;
