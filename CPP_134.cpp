@@ -1,22 +1,19 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) {
+#include <string>
+
+bool check_if_last_char_is_a_letter(string txt){
+    int len = txt.length();
+    if(len == 0)
         return false;
-    }
-  
-    char lastChar = txt.back();
-    if (!isalpha(lastChar)) {
+    if(!isalpha(txt[len-1]))
         return false;
+    if(txt[len-1] == ' ')
+        return false;
+    
+    int i = len-2;
+    while(i >= 0 && txt[i] != ' '){
+        if(isalpha(txt[i]))
+            return false;
+        i--;
     }
-  
-    size_t lastSpacePos = txt.find_last_of(' ');
-    if (lastSpacePos == string::npos) {
-        return true;
-    }
-  
-    size_t lastWordEndPos = txt.find_last_not_of(' ', lastSpacePos);
-    if (lastWordEndPos == string::npos) {
-        return true;
-    }
-  
-    return lastWordEndPos < lastSpacePos;
+    return true;
 }
