@@ -1,9 +1,13 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 #include <cmath>
 
-float median(std::vector<float> l){
-    std::sort(l.begin(), l.end());
+using namespace std;
+
+float median(vector<float> l){
+    sort(l.begin(), l.end());
     int size = l.size();
     if(size % 2 == 0){
         return (l[size/2 - 1] + l[size/2]) / 2;
@@ -11,4 +15,9 @@ float median(std::vector<float> l){
     else{
         return l[size/2];
     }
+}
+
+int main(){
+    assert (abs(median({8, 1, 3, 9, 9, 2, 7}) - 7)<1e-4 );
+    return 0;
 }
