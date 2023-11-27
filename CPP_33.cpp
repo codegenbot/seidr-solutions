@@ -6,10 +6,12 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
+    // implementation of issame function
     return a == b;
 }
 
 vector<int> sort_third(vector<int> l){
+    
     vector<int> l_prime = l;
     vector<int> indices;
     
@@ -30,7 +32,6 @@ vector<int> sort_third(vector<int> l){
 
 int main(){
     assert (issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}) , {2, 6, 3, 4, 8, 9, 5, 1}));
-    
     // more test cases
     
     return 0;
