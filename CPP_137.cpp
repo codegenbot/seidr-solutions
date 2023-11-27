@@ -1,5 +1,6 @@
 #include <string>
-#include <boost/algorithm/string.hpp>
+#include <boost/algorithm/string/case_conv.hpp>
+#include <boost/any.hpp>
 #include <cassert>
 
 boost::any compare_one(const boost::any& a, const boost::any& b) {
