@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b);
+vector<int> common(vector<int> l1, vector<int> l2);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
