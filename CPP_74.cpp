@@ -3,15 +3,12 @@
 #include <cassert>
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+    if(a == b){
+        return true;
+    }
+    else{
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2){
