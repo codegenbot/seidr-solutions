@@ -1,7 +1,4 @@
 #include <vector>
-#include <cassert>
-
-using namespace std;
 
 vector<int> even_odd_count(int num){
     int evenCount = 0;
