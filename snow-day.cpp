@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 
 float C(float h, float i, float r, float m) {
     float s = i;
