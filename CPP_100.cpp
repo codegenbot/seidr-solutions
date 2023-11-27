@@ -20,8 +20,8 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    std::vector<int> res = make_a_pile(10);
-    std::vector<int> exp = {10, 12, 14, 16, 18, 20, 22, 24, 26, 28};
+    std::vector<int> res = make_a_pile(8);
+    std::vector<int> exp = {8, 10, 12, 14, 16, 18, 20, 22};
     if (issame(res, exp)) {
         std::cout << "Test case passed!" << std::endl;
     } else {
