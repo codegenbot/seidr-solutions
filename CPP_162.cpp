@@ -1,11 +1,10 @@
-extern "C" {
-#include <openssl/md5.h>
-}
-
 #include <iostream>
 #include <string>
 #include <array>
+
+extern "C" {
 #include <openssl/md5.h>
+}
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) {
