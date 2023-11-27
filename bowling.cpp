@@ -1,44 +1,44 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(const std::string& bowls) {
+int scoreOfRound(const std::string& round) {
     int score = 0;
     int frame = 1;
     int bowlIndex = 0;
-    
-    while (frame <= 10) {
-        char bowl = bowls[bowlIndex];
-        
-        if (bowl == 'X') {
+
+    for (int i = 0; i < round.size(); i++) {
+        char currentBowl = round[i];
+
+        if (currentBowl == 'X') {
             score += 10;
-            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] - '0');
-            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
-            bowlIndex++;
-        } else if (bowl == '/') {
-            score += 10;
-            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] - '0');
-            bowlIndex += 2;
-        } else {
-            score += (bowl - '0');
-            if (bowlIndex > 0 && bowls[bowlIndex - 1] == '/') {
-                score += (bowl - '0');
+            if (frame < 10) {
+                score += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0');
+                score += (round[i + 2] == 'X') ? 10 : (round[i + 2] - '0');
             }
-            bowlIndex++;
+            frame++;
+        } else if (currentBowl == '/') {
+            score += (10 - (round[i - 1] - '0'));
+            score += (round[i + 1] == 'X') ? 10 : (round[i + 1] - '0');
+            frame++;
+        } else if (currentBowl == '-') {
+            continue;
+        } else {
+            score += (currentBowl - '0');
+            if (bowlIndex % 2 == 1) {
+                frame++;
+            }
         }
-        
-        frame++;
+
+        bowlIndex++;
     }
-    
+
     return score;
 }
 
 int main() {
-    std::string bowls;
-    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
-    std::cin >> bowls;
-    
-    int score = calculateScore(bowls);
-    std::cout << "Score: " << score << std::endl;
-    
+    std::string round;
+    std::cin >> round;
+    std::cout << scoreOfRound(round) << std::endl;
+
     return 0;
 }
