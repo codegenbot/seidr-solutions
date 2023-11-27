@@ -22,11 +22,3 @@ string match_parens(vector<string> lst){
         return "No";
     }
 }
-
-int main() {
-    // Test the match_parens function
-    vector<string> lst = {"()", "(())", "((()))", "())", "((())"};
-    cout << match_parens(lst) << endl;
-    
-    return 0;
-}
