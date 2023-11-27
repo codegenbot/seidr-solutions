@@ -3,10 +3,11 @@ bool is_nested(string str){
     for(int i = 0; i < str.length(); i++){
         if(str[i] == '['){
             count++;
-        }else if(str[i] == ']'){
+        }
+        else if(str[i] == ']'){
             count--;
         }
-        if(count < 0){
+        if(count > 0 && count < str.length()){
             return true;
         }
     }
