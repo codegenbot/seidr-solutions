@@ -1,8 +1,8 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> incr_list(vector<int> l);
+
+bool issame(vector<int> a, vector<int> b);
 
 int main() {
     vector<int> l = {1, 2, 3, 4, 5};
@@ -10,6 +10,14 @@ int main() {
     vector<int> expected = {2, 3, 4, 5, 6};
     assert(issame(result, expected));
     return 0;
+}
+
+vector<int> incr_list(vector<int> l) {
+    vector<int> result;
+    for (int i = 0; i < l.size(); i++) {
+        result.push_back(l[i] + 1);
+    }
+    return result;
 }
 
 bool issame(vector<int> a, vector<int> b) {
@@ -22,12 +30,4 @@ bool issame(vector<int> a, vector<int> b) {
         }
     }
     return true;
-}
-
-vector<int> incr_list(vector<int> l) {
-    vector<int> result;
-    for (int i = 0; i < l.size(); i++) {
-        result.push_back(l[i] + 1);
-    }
-    return result;
 }
