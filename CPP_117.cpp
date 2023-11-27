@@ -2,8 +2,6 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
 vector<string> select_words(string s, int n);
 
 vector<string> select_words(string s, int n) {
