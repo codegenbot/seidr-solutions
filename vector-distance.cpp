@@ -7,7 +7,6 @@ double calculateEuclideanDistance(const std::vector<double>& vector1, const std:
     if (vector1.size() != vector2.size()) {
         return -1;
     }
-    
     double sum = 0.0;
     for (int i = 0; i < vector1.size(); i++) {
         double diff = vector1[i] - vector2[i];
@@ -25,14 +24,12 @@ int main() {
     }
 
     std::cin.ignore();
-
     std::string line;
     std::getline(std::cin, line);
     std::istringstream iss(line);
 
     std::vector<double> vector2;
     double val;
-
     while (iss >> val) {
         vector2.push_back(val);
     }
