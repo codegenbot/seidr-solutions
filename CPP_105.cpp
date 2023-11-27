@@ -5,7 +5,9 @@
 
 vector<string> by_length(vector<int> arr);
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -36,18 +38,4 @@ vector<string> by_length(vector<int> arr){
     }
     
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
 }
