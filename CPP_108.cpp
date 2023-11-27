@@ -17,8 +17,5 @@ int count_nums(vector<int> n) {
 }
 
 int main() {
-    // Write code to read input from user and call count_nums function
-    // Return the output
-
     return 0;
 }
