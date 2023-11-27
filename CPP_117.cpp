@@ -1,14 +1,19 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <cassert>
 
 using namespace std;
 
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 bool isvowel(char c) {
-    // implementation of isvowel function
-    string vowels = "aeiouAEIOU";
-    return (vowels.find(c) != string::npos);
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
 vector<string> select_words(string s, int n) {
@@ -39,21 +44,8 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    // implementation of issame function
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
     assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    // additional test cases
+    assert(issame(select_words("hello world", 2), {"hello", "world"}));
     return 0;
 }
