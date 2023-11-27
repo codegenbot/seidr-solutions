@@ -21,7 +21,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string stringA = boost::any_cast<std::string>(a);
         std::string stringB = boost::any_cast<std::string>(b);
-        float floatA{}, floatB{};
+        float floatA, floatB;
         try {
             floatA = boost::lexical_cast<float>(stringA);
             floatB = boost::lexical_cast<float>(stringB);
