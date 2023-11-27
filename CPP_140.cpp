@@ -1,18 +1,28 @@
+#include <string>
+
 string fix_spaces(string text){
     string result = "";
-    int consecutiveSpaces = 0;
+    bool consecutive_spaces = false;
+
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == ' ') {
-            consecutiveSpaces++;
-            if (consecutiveSpaces > 2) {
-                result = result.substr(0, result.length() - 1) + "-";
-            } else {
-                result += "_";
+            if (!consecutive_spaces) {
+                result += '_';
+                consecutive_spaces = true;
             }
-        } else {
+        }
+        else {
+            if (consecutive_spaces) {
+                result += '-';
+                consecutive_spaces = false;
+            }
             result += text[i];
-            consecutiveSpaces = 0;
         }
     }
+
+    if (consecutive_spaces) {
+        result += '-';
+    }
+
     return result;
 }
