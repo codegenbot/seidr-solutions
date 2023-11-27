@@ -1,19 +1,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const vector<int>& v1, const vector<int>& v2){
-    if(v1.size() != v2.size()){
-        return false;
-    }
-    for(int i=0; i<v1.size(); i++){
-        if(v1[i] != v2[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(int a, int b){
+    return a == b;
 }
 
-vector<int> intersperse(const vector<int>& numbers, int delimiter){ 
+vector<int> intersperse(const vector<int>& numbers, int delimiter){
     vector<int> result;
     if(numbers.empty()){
         return result;
