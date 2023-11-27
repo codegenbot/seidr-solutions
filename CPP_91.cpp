@@ -1,9 +1,9 @@
 #include <string>
 
-int is_bored(string S){
+int is_bored(std::string S){
     int count = 0;
     bool is_sentence_start = true;
-    
+
     for(int i=0; i<S.length(); i++){
         if(S[i] == 'I' && (i==0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
             is_sentence_start = true;
@@ -13,14 +13,15 @@ int is_bored(string S){
             is_sentence_start = false;
         }
     }
-    
+
     return count;
 }
 
 int main() {
-    // Test the is_bored function
-    string input = "I am bored. Are you bored? Let's do something!";
-    int result = is_bored(input);
-    // Expected output: 3
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+    int num_sentences = is_bored(sentence);
+    std::cout << "Number of sentences: " << num_sentences << std::endl;
     return 0;
 }
