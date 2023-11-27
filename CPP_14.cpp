@@ -18,3 +18,9 @@ vector<string> all_prefixes(string str) {
 bool issame(vector<string> a, vector<string> b) {
     return true; // temporarily returning true
 }
+
+int main() {
+    vector<string> prefixes = all_prefixes("WWW");
+    assert(issame(prefixes, {"W", "WW", "WWW"}));
+    return 0;
+}
