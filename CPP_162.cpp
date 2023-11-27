@@ -4,8 +4,6 @@
 #include <openssl/md5.h>
 
 std::string string_to_md5(std::string text) {
-    OPENSSL_config(NULL);
-
     if (text.empty()) {
         return "None";
     }
