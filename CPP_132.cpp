@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 bool is_nested(std::string str){
     int count = 0;
