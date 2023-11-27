@@ -1,8 +1,10 @@
-#include <iostream>
 #include <string>
-using namespace std;
 
 string rounded_avg(int n, int m);
+
+int main() {
+    // main function code
+}
 
 string rounded_avg(int n, int m) {
     if (n > m) {
