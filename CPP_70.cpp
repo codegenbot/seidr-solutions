@@ -2,6 +2,17 @@
 #include <algorithm>
 #include <cassert>
 
+vector<int> strange_sort_list(vector<int> lst);
+
+bool issame(vector<int> a, vector<int> b);
+
+int main() {
+    assert(issame(strange_sort_list({111111}), {111111}));
+    // TODO: Add more test cases to validate the solution
+
+    return 0;
+}
+
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     sort(lst.begin(), lst.end());
@@ -22,11 +33,5 @@ vector<int> strange_sort_list(vector<int> lst) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(strange_sort_list({111111}), {111111}));
-    
-    return 0;
+    // TODO: Implement the comparison logic
 }
