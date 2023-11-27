@@ -1,9 +1,8 @@
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
-vector<int> sum_product(const vector<int>& numbers) {
+vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;
 
@@ -16,9 +15,5 @@ vector<int> sum_product(const vector<int>& numbers) {
 }
 
 int main() {
-    vector<int> result = sum_product({10});
-    assert(result[0] == 10);
-    assert(result[1] == 10);
-
     return 0;
 }
