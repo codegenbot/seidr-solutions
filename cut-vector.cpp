@@ -2,10 +2,11 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
+#include <iterator>
 
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
 
@@ -31,7 +32,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
-    return make_pair(leftSubvector, rightSubvector);
+    return leftSubvector;
 }
 
 int main() {
@@ -44,17 +45,19 @@ int main() {
     }
 
     auto result = cutVector(nums);
-    auto& leftResult = result.first;
-    auto& rightResult = result.second;
 
-    for (const auto& element : leftResult) {
+    // Print the elements of the resulting subvectors separately
+    for (const auto& element : result) {
         cout << element << " ";
     }
 
     cout << endl;
 
-    for (const auto& element : rightResult) {
-        cout << element << " ";
+    for (const auto& element : nums) {
+        // Skip the elements of the first subvector
+        if (find(result.begin(), result.end(), element) == result.end()) {
+            cout << element << " ";
+        }
     }
 
     return 0;
