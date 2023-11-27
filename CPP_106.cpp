@@ -26,11 +26,13 @@ vector<int> f(int n){
 }
 
 bool issame(vector<int> a, vector<int> b) {
+    // Implement the issame function here
+    // Compare the contents of vectors a and b and return true if they are the same, otherwise return false
+    // You can use the == operator to compare vectors
     return a == b;
 }
 
 int main() {
-    vector<int> f(int n);
     assert(issame(f(3), {1, 2, 6}));
     return 0;
 }
