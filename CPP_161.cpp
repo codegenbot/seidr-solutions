@@ -1,7 +1,10 @@
-#include <string>
+#include <iostream>
+#include <algorithm>
 
-std::string solve(std::string s){
-    std::string result = "";
+using namespace std;
+
+string solve(string s){
+    string result = "";
     bool hasLetter = false;
     
     for(int i=0; i<s.length(); i++){
@@ -24,4 +27,11 @@ std::string solve(std::string s){
     }
     
     return result;
+}
+
+int main(){
+    assert (solve("#ccc") == "#CCC");
+    // Add more test cases here
+    
+    return 0;
 }
