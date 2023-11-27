@@ -3,7 +3,7 @@
 #include <cassert>
 #include <limits>
 
-int next_smallest(vector<int> lst){
+int next_smallest(std::vector<int> lst){
     if(lst.size() < 2){
         return std::numeric_limits<int>::min();
     }
