@@ -3,6 +3,8 @@
 #include <vector>
 #include <cassert>
 
+#include <vector>
+
 vector<string> words_string(const string& s) {
     vector<string> words;
     string word = "";
