@@ -1,8 +1,8 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <cassert>
+#include <string>
 
-int specialFilter(const vector<int>& nums){
+int specialFilter(vector<int> nums){
     int count = 0;
     for(int num : nums){
         string numStr = to_string(num);
@@ -16,8 +16,8 @@ int specialFilter(const vector<int>& nums){
 }
 
 int main() {
-    assert (specialFilter({}) == 0);
-    // Add more test cases if needed
-
+    assert(specialFilter({}) == 0);
+    // Add more test cases here
+    
     return 0;
 }
