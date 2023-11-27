@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 vector<float> rescale_to_unit(vector<float> numbers){
     float min_num = numbers[0];
     float max_num = numbers[0];
