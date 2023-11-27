@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 std::string int_to_mini_roman(int number){
     std::vector<std::string> symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
