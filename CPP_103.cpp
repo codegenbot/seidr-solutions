@@ -1,11 +1,19 @@
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
+#include <cmath>
+
 using namespace std;
 
 string rounded_avg(int n, int m);
 
 int main() {
-    // code here
+    int n, m;
+    cin >> n >> m;
+    
+    string result = rounded_avg(n, m);
+    cout << result << endl;
+    
+    return 0;
 }
 
 string rounded_avg(int n, int m) {
@@ -21,7 +29,7 @@ string rounded_avg(int n, int m) {
         count++;
     }
     
-    int average = round(sum / count);
+    int average = round((double)sum / count);
     
     string binary = "";
     
