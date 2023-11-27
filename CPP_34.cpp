@@ -1,9 +1,17 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+using namespace std;
+
+bool areSame(vector<int> a, vector<int> b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
 vector<int> unique(vector<int> l){
@@ -13,7 +21,6 @@ vector<int> unique(vector<int> l){
 }
 
 int main(){
-    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
-    
+    assert(areSame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
     return 0;
 }
