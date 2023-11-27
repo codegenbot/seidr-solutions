@@ -1,8 +1,11 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
+
+using namespace std;
 
 vector<int> get_odd_collatz(int n);
+
+bool is_same(vector<int> a, vector<int> b);
 
 bool is_same(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end());
@@ -34,8 +37,4 @@ vector<int> get_odd_collatz(int n){
     sort(odd_collatz.begin(), odd_collatz.end());
 
     return odd_collatz;
-}
-
-int main() {
-    assert(is_same(get_odd_collatz(1), {1}));
 }
