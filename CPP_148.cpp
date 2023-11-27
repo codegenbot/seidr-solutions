@@ -1,10 +1,7 @@
 #include <iostream>
-#include <string>
 #include <vector>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,9 +13,9 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> bf(const string& planet1, const string& planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    vector<string> result;
+std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<std::string> result;
 
     int start = -1, end = -1;
     for (int i = 0; i < planets.size(); i++) {
@@ -35,7 +32,7 @@ vector<string> bf(const string& planet1, const string& planet2) {
     }
 
     if (start > end) {
-        swap(start, end);
+        std::swap(start, end);
     }
 
     for (int i = start + 1; i < end; i++) {
@@ -43,4 +40,14 @@ vector<string> bf(const string& planet1, const string& planet2) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<std::string> result = bf("Jupiter", "Neptune");
+    for (const auto& planet : result) {
+        std::cout << planet << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
