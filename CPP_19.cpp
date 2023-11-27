@@ -1,50 +1,47 @@
 #include <iostream>
-#include <sstream>
+#include <string>
 #include <vector>
-#include <map>
 #include <algorithm>
-#include <cassert>
 
-using namespace std;
+std::string sort_numbers(std::string numbers) {
+    std::vector<std::string> numberals = {
+        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
+    };
 
-string sort_numbers(string numbers){
-    map<string, int> number_map;
-    number_map["zero"] = 0;
-    number_map["one"] = 1;
-    number_map["two"] = 2;
-    number_map["three"] = 3;
-    number_map["four"] = 4;
-    number_map["five"] = 5;
-    number_map["six"] = 6;
-    number_map["seven"] = 7;
-    number_map["eight"] = 8;
-    number_map["nine"] = 9;
-    
-    vector<int> number_values;
-    stringstream ss(numbers);
-    string number;
-    
-    while (ss >> number){
-        number_values.push_back(number_map[number]);
-    }
-    
-    sort(number_values.begin(), number_values.end());
-    
-    string sorted_numbers;
-    for (int i = 0; i < number_values.size(); i++){
-        for (auto it = number_map.begin(); it != number_map.end(); it++){
-            if (it->second == number_values[i]){
-                sorted_numbers += it->first + " ";
-                break;
-            }
+    std::vector<std::string> sortedNumbers;
+    std::string currentNumber;
+
+    for (char c : numbers) {
+        if (c == ' ') {
+            sortedNumbers.push_back(currentNumber);
+            currentNumber.clear();
+        } else {
+            currentNumber += c;
         }
     }
-    
-    return sorted_numbers;
+
+    sortedNumbers.push_back(currentNumber);
+
+    std::sort(sortedNumbers.begin(), sortedNumbers.end(), [&numberals](const std::string& a, const std::string& b) {
+        return std::find(numberals.begin(), numberals.end(), a) < std::find(numberals.begin(), numberals.end(), b);
+    });
+
+    std::string result;
+    for (const std::string& number : sortedNumbers) {
+        result += number + " ";
+    }
+
+    result.pop_back(); // Remove last space
+
+    return result;
 }
 
-int main(){
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::string sortedNumbers = sort_numbers(input);
+    std::cout << sortedNumbers << std::endl;
 
     return 0;
 }
