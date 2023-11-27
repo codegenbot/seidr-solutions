@@ -1,6 +1,6 @@
 int next_smallest(vector<int> lst){
     if(lst.size() < 2){
-        return None;
+        return -1;
     }
     
     sort(lst.begin(), lst.end());
@@ -9,9 +9,8 @@ int next_smallest(vector<int> lst){
     int second_smallest = lst[1];
     
     if(smallest == second_smallest){
-        return None;
+        return -1;
     }
-    else{
-        return second_smallest;
-    }
+    
+    return second_smallest;
 }
