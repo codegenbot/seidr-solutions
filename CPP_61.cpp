@@ -1,12 +1,18 @@
-bool correct_bracketing(string brackets){
-    int count = 0;
-    for(int i = 0; i < brackets.length(); i++){
-        if(brackets[i] == '(')
-            count++;
-        else if(brackets[i] == ')')
-            count--;
-        if(count < 0)
-            return false;
+#include <stack>
+
+bool correct_bracketing(string brackets) {
+    stack<char> st;
+    
+    for (char c : brackets) {
+        if (c == '(') {
+            st.push(c);
+        } else if (c == ')') {
+            if (st.empty()) {
+                return false;
+            }
+            st.pop();
+        }
     }
-    return count == 0;
+    
+    return st.empty();
 }
