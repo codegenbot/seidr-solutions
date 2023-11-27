@@ -18,7 +18,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     return indices;
 }
 
-// Retrieve input values, call the indicesOfSubstring function, and print the result
 int main() {
     std::string text, target;
     std::cin >> text >> target;
