@@ -27,7 +27,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     }
 
     // If cutIndex is still -1, set it to n-1
-    if (cutIndex == -1) {
+    if (cutIndex == n-1) {
         cutIndex = n - 1;
     }
 
@@ -50,11 +50,11 @@ int main() {
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
     for (int i = 0; i < result.first.size(); i++) {
-        std::cout << result.first[i] << " ";
+        std::cout << result.first[i] << std::endl;
     }
 
     for (int i = 0; i < result.second.size(); i++) {
-        std::cout << result.second[i] << " ";
+        std::cout << result.second[i] << std::endl;
     }
 
     return 0;
