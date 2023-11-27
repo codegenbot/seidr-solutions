@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <climits>
 
 using namespace std;
 
@@ -9,7 +8,7 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path){
-    // implementation of the function
+    // implementation of the dfs function
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
