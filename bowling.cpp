@@ -12,7 +12,6 @@ int calculateScore(std::string input) {
         if (c == 'X') {
             score += 10;
             if (frame < 10) {
-                score += 10;
                 strike = true;
             }
         } else if (c == '/') {
@@ -34,8 +33,12 @@ int calculateScore(std::string input) {
             }
         }
 
+        if (strike) {
+            roll++; // additional roll for strike
+        }
         roll++;
-        if (roll == 2 || c == 'X') {
+        
+        if (roll == 2 || strike) {
             frame++;
             roll = 0;
         }
