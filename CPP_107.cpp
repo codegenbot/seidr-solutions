@@ -1,8 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 
-bool is_same_vectors(std::vector<int> a, std::vector<int> b) {
+bool is_same_vector(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -41,7 +41,7 @@ std::vector<int> even_odd_palindrome(int n) {
 int main() {
     std::vector<int> expected = { 0, 1 };
     std::vector<int> result = even_odd_palindrome(1);
-    if (is_same_vectors(result, expected)) {
+    if (is_same_vector(result, expected)) {
         std::cout << "Test case passed." << std::endl;
     }
     else {
