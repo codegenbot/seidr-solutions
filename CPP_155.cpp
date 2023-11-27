@@ -1,15 +1,18 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
-bool isSame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool isSame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> even_odd_count(int num){
+vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
-    std::string numStr = std::to_string(std::abs(num));
+    string numStr = to_string(abs(num));
     
     for(char c : numStr){
         int digit = c - '0';
@@ -26,7 +29,7 @@ std::vector<int> even_odd_count(int num){
 int main(){
     assert(isSame(even_odd_count(0), {1, 0}));
     
-    std::cout << "Test case passed!" << std::endl;
+    cout << "Test case passed!" << endl;
     
     return 0;
 }

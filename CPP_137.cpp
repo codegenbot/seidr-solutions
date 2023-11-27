@@ -1,19 +1,27 @@
-#include <algorithm>
 #include <string>
+#include <boost/any.hpp>
+#include <cassert>
 
-using std::max;
-using std::string;
+using namespace std;
 
-template<typename T>
-T compare_one(T a, T b) {
-    return max(a, b);
-}
-
-string compare_one(string a, string b) {
-    return max(a, b);
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
+        return max(num1, num2);
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
+        return max(num1, num2);
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        return max(str1, str2, [](const string& s1, const string& s2) { return s1 < s2; });
+    }
+    return boost::any();
 }
 
 int main() {
-    assert(compare_one(string("1"), string("None")) == "None");
+    assert (boost::any_cast<string>(compare_one(string("1"), string("None"))) == "None");
     return 0;
 }
