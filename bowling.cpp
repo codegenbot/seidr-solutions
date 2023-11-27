@@ -22,16 +22,15 @@ int calculateScore(std::string input) {
                 frames[frame+1] += (10 - (ch - '0'));
             }
         } else if (ch == '-') {
-            // Do nothing
+            rolls++;
         } else {
             frames[frame] += (ch - '0');
         }
 
-        rolls++;
-
         if (rolls % 2 == 0) {
             frame++;
         }
+        rolls++;
     }
 
     for (int i = 0; i < 10; i++) {
