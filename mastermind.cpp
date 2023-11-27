@@ -4,8 +4,8 @@
 std::pair<int, int> getClue(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
     int whitePegs = 0;
-    int codeCount[6] = {0};
-    int guessCount[6] = {0};
+    int codeCount[26] = {0};
+    int guessCount[26] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
@@ -16,7 +16,7 @@ std::pair<int, int> getClue(const std::string& code, const std::string& guess) {
         }
     }
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 26; i++) {
         whitePegs += std::min(codeCount[i], guessCount[i]);
     }
 
