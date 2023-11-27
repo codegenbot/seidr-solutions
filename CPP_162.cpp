@@ -11,7 +11,7 @@ std::string string_to_md5(std::string text) {
     MD5_CTX md5Context;
     MD5_Init(&md5Context);
     MD5_Update(&md5Context, text.data(), text.size());
-    MD5_Final(digest, &md5Context.get());
+    MD5_Final(digest, md5Context.get());
 
     std::array<char, 33> md5Hash;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
