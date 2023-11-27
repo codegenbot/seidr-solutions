@@ -1,16 +1,26 @@
+#include <iostream>
+#include <algorithm>
 #include <string>
 
-int vowels_count(std::string s){
+using namespace std;
+
+int vowels_count(string s){
     int count = 0;
-    for(int i=0; i<s.length(); i++){
-        if(tolower(s[i]) == 'a' || tolower(s[i]) == 'e' || tolower(s[i]) == 'i' || tolower(s[i]) == 'o' || (tolower(s[i]) == 'u' && i == s.length()-1)){
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
+    for(int i = 0; i < s.size(); i++){
+        if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u'){
             count++;
         }
+    }
+    if(s.back() == 'y'){
+        count--;
     }
     return count;
 }
 
-int main() {
-    int count = vowels_count("ACEDY");
+int main(){
+    assert(vowels_count("ACEDY") == 3);
+    // Add more test cases if needed
+    
     return 0;
 }
