@@ -1,7 +1,6 @@
+#include <cassert>
 #include <string>
 #include <cctype>
-
-using namespace std;
 
 string encrypt(string s){
     string encrypted = "";
