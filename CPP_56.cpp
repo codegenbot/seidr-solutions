@@ -20,7 +20,11 @@ int main() {
   std::string input;
   std::cin >> input;
   
-  std::cout << correct_bracketing(input) << std::endl;
+  if (correct_bracketing(input)) {
+    std::cout << "Brackets are correctly balanced." << std::endl;
+  } else {
+    std::cout << "Brackets are not correctly balanced." << std::endl;
+  }
   
   return 0;
 }
