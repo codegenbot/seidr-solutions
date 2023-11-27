@@ -20,3 +20,5 @@ vector<int> unique_digits(vector<int> x){
     sort(result.begin(), result.end());
     return result;
 }
+
+bool issame(vector<int> a, vector<int> b){
