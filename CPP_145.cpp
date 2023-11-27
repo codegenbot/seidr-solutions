@@ -1,26 +1,23 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
 
+int sumOfDigits(int num) {
+    int sum = 0;
+    num = abs(num);
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
 bool compare(int a, int b) {
-    int sumA = 0, sumB = 0;
-    string strA = to_string(a);
-    string strB = to_string(b);
-    
-    for (char c : strA) {
-        if (isdigit(c)) {
-            sumA += c - '0';
-        }
-    }
-    
-    for (char c : strB) {
-        if (isdigit(c)) {
-            sumB += c - '0';
-        }
-    }
-    
+    int sumA = sumOfDigits(a);
+    int sumB = sumOfDigits(b);
     if (sumA == sumB) {
         return a < b;
     }
-    
     return sumA < sumB;
 }
 
