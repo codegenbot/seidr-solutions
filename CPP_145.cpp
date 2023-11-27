@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <utility>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -42,7 +42,7 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>({-76, -21, 0, 4, 23, 6, 6})));
+    assert(is_same(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>({-76, -21, 0, 4, 23, 6, 6})));
 
     return 0;
 }
