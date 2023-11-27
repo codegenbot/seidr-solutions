@@ -38,4 +38,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 int main() {
     assert(std::equal(tri(1).begin(), tri(1).end(), {3, 2}));
+
+    return 0;
 }
