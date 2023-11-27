@@ -1,7 +1,7 @@
-#include <cassert>
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 std::string remove_vowels(std::string text);
 
