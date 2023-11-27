@@ -25,7 +25,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2){
     }
 }
 
-bool is_same(vector<string> a, vector<string> b){
+bool is_same(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
 
