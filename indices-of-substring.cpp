@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #include <vector>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
@@ -7,34 +5,13 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     int pos = 0;
     while (pos < int(text.length())) {
-        pos = text.find(target, pos);
+        pos = text.find(target, pos + target.length() - 1);
         if (pos == std::string::npos) {
             break;
         }
         indices.push_back(pos);
-        pos += 1;
+        pos += target.length();
     }
 
     return indices;
-}
-
-int main() {
-    std::string text;
-    std::string target;
-
-    std::cout << "Enter the text: ";
-    std::getline(std::cin, text);
-
-    std::cout << "Enter the target string: ";
-    std::getline(std::cin, target);
-
-    std::vector<int> result = indicesOfSubstring(text, target);
-
-    std::cout << "Indices where the target appears: ";
-    for (int index : result) {
-        std::cout << index << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
