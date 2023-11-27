@@ -1,6 +1,8 @@
 #include <vector>
 #include <boost/any.hpp>
 
+vector<int> filter_integers(vector<boost::any> values);
+
 vector<int> filter_integers(vector<boost::any> values){
     vector<int> result;
     for(auto value : values){
@@ -12,3 +14,6 @@ vector<int> filter_integers(vector<boost::any> values){
 }
 
 bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    // Your code here
+}
