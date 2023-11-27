@@ -1,44 +1,30 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool isEqual(vector<float> a, vector<float> b);
-
-vector<float> sort_even(vector<float> l) {
-    vector<float> l_prime;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            l_prime.push_back(l[i]);
-        }
-    }
-    sort(l_prime.begin(), l_prime.end());
-    int j = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            l[i] = l_prime[j];
-            j++;
-        }
-    }
-    return l;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
 }
 
-bool isEqual(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> l_prime = l;
+    std::vector<float> even_indices;
+
+    for(int i = 0; i < l.size(); i += 2) {
+        even_indices.push_back(l[i]);
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+
+    std::sort(even_indices.begin(), even_indices.end());
+
+    for(int i = 0, j = 0; i < l.size(); i += 2, j++) {
+        l_prime[i] = even_indices[j];
     }
-    return true;
+
+    return l_prime;
 }
 
 int main() {
-    assert(isEqual(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
-    // Add more test cases if needed
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+
     return 0;
 }

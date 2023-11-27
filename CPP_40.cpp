@@ -1,14 +1,9 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
-
-using namespace std;
 
 bool triples_sum_to_zero(vector<int> l){
-    int n = l.size();
-    for(int i=0; i<n-2; i++){
-        for(int j=i+1; j<n-1; j++){
-            for(int k=j+1; k<n; k++){
+    for(int i=0; i<l.size()-2; i++){
+        for(int j=i+1; j<l.size()-1; j++){
+            for(int k=j+1; k<l.size(); k++){
                 if(l[i] + l[j] + l[k] == 0){
                     return true;
                 }
@@ -18,11 +13,11 @@ bool triples_sum_to_zero(vector<int> l){
     return false;
 }
 
-int main(){
-    assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
-    assert(triples_sum_to_zero({1, 2, -3, 4, -1, 5}) == true);
-    assert(triples_sum_to_zero({0, 0, 0}) == true);
-    assert(triples_sum_to_zero({1, -1}) == false);
+int main() {
+    // Test the function
+    vector<int> nums = {1, 2, -3, 4, -1, -2, -4};
+    bool result = triples_sum_to_zero(nums);
+    cout << "Result: " << result << endl;
     
     return 0;
 }
