@@ -3,7 +3,7 @@
 #include <typeinfo>
 #include <boost/any.hpp>
 
-vector<int> filter_integers(vector<any> values) {
+vector<int> filter_integers(vector<any> values) { 
     vector<int> result;
     for (auto value : values) {
         if (value.type() == typeid(int)) {
@@ -27,5 +27,4 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(filter_integers({boost::any(3), boost::any('c'), boost::any(3), boost::any(3), boost::any('a'), boost::any('b')}), {3, 3, 3}));
-    return 0;
 }
