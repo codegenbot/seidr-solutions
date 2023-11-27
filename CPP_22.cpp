@@ -27,22 +27,24 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    list<boost::any> values;
-    values.push_back(10);
-    values.push_back("hello");
-    values.push_back(20);
-    values.push_back(30);
-    values.push_back("world");
-    values.push_back(40);
-
-    vector<int> filtered_values = filter_integers(values);
-
-    vector<int> expected_values = {10, 20, 30, 40};
-    if (issame(filtered_values, expected_values)) {
-        cout << "Filtered values are correct!" << endl;
+    // Sample code to test the modified function
+    list<boost::any> input_values;
+    input_values.push_back(1);
+    input_values.push_back("hello");
+    input_values.push_back(3.14);
+    input_values.push_back(2);
+    input_values.push_back(4);
+    input_values.push_back(6);
+    
+    vector<int> filtered_values = filter_integers(input_values);
+    
+    vector<int> expected_output = {1, 2, 4, 6};
+    
+    if (issame(filtered_values, expected_output)) {
+        cout << "Test Passed!" << endl;
     } else {
-        cout << "Filtered values are incorrect!" << endl;
+        cout << "Test Failed!" << endl;
     }
-
+    
     return 0;
 }
