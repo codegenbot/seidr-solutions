@@ -19,12 +19,8 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    int n, k;
-    cin >> n >> k;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
+    vector<int> arr = {1, 2, 3, 4, 5};
+    int k = 3;
     vector<int> result = maximum(arr, k);
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
