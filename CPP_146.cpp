@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-using namespace std;
 
 int specialFilter(vector<int> nums){
     int count = 0;
@@ -20,6 +19,6 @@ int main() {
     assert(specialFilter({}) == 0);
     assert(specialFilter({15, 26, 37}) == 0);
     assert(specialFilter({12, 23, 34}) == 3);
-    
+
     return 0;
 }
