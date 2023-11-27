@@ -4,6 +4,10 @@
 
 using namespace std;
 
+bool issame(vector<float> a, vector<float> b){
+    return a == b;
+}
+
 vector<float> get_positive(const vector<float>& l){
     vector<float> positive_nums;
     for(int i=0; i<l.size(); i++){
@@ -12,12 +16,4 @@ vector<float> get_positive(const vector<float>& l){
         }
     }
     return positive_nums;
-}
-
-int main() {
-    assert (issame(get_positive({}) , {}));
-
-    cout << "Test case passed!" << endl;
-
-    return 0;
 }
