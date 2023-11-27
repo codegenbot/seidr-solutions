@@ -1,8 +1,10 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
-vector<int> strange_sort_vector(vector<int> lst){
+
+vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     sort(lst.begin(), lst.end());
     int left = 0;
@@ -18,8 +20,10 @@ vector<int> strange_sort_vector(vector<int> lst){
     }
     return result;
 }
+
 int main() {
-    assert (strange_sort_vector({111111}) == vector<int>{111111});
+    assert(strange_sort_vector({111111}) == vector<int>{111111});
     // Add more test cases here
+
     return 0;
 }
