@@ -16,6 +16,7 @@ double double_the_difference(std::vector<float> lst) {
 
 int main() {
     double odd_sum = double_the_difference(lst);
+
     double result = 2 * odd_sum;
     std::cout << "Result: " << result << "\n";
     return 0;
