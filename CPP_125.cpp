@@ -1,10 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
+#include <cassert>
 
-vector<string> split_words(string txt);
-int count_odd_letters(string txt);
-bool issame(vector<string> a, vector<string> b);
+using namespace std;
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -57,11 +56,22 @@ int count_odd_letters(string txt){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // function body
-    // return statement if necessary
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main() {
-    // Code goes here
+    assert(issame(split_words(""), {"0"}));
+    // Add more test cases here
+
     return 0;
 }
