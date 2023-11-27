@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-#include <boost/any.hpp>
+#include <boost/any/any.hpp>
 
 using namespace std;
 
