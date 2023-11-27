@@ -12,6 +12,7 @@ float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
+    // Example usage
     vector<float> prices = {10.0, 20.0, 30.0};
     vector<float> discounts = {10.0, 20.0, 30.0};
 
