@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::vector<int>(a) == std::vector<int>(b);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> make_a_pile(int n) {
@@ -18,6 +18,8 @@ std::vector<int> make_a_pile(int n) {
     }
     return levels;
 }
+
+std::vector<int> make_a_pile(int n);
 
 int main() {
     std::vector<int> result = make_a_pile(8);
