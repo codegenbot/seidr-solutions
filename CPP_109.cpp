@@ -1,4 +1,4 @@
-#include <vector>
+#include <vector> 
 
 bool move_one_ball(std::vector<int> arr) {
     if (arr.empty()) {
@@ -26,8 +26,7 @@ bool move_one_ball(std::vector<int> arr) {
 }
 
 int main() {
-    assert(move_one_ball({}) == true);
-    // Add more test cases...
+    assert(move_one_ball({})==true);
 
     return 0;
 }
