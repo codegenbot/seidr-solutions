@@ -19,7 +19,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     
     return indices;
 }
- 
+
 int main() {
     std::string text, target;
     std::cin >> text >> target;
