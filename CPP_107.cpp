@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cassert>
 #include <string>
 #include <vector>
 
@@ -25,18 +25,6 @@ std::vector<int> even_odd_palindrome(int n){
     return result;
 }
 
-bool issame(std::vector<int>& a, std::vector<int>& b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
-}
-
-int main(){
-    std::vector<int> result = even_odd_palindrome(1);
-    if(issame(result, {0, 1})){
-        std::cout << "Test Case 1 Passed" << std::endl;
-    } else{
-        std::cout << "Test Case 1 Failed" << std::endl;
-    }
-    // Add more test cases here
-
-    return 0;
 }
