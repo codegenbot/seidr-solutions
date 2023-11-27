@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert> // Added header file
 
 using namespace std;
 
