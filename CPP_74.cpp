@@ -1,33 +1,51 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
 #include <string>
+
+// Implement the issame function logic here
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // If the sizes of both vectors are not equal,
+    // they can't be the same
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    // Check if corresponding strings are different
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    // The vectors are the same
+    return true;
+}
 
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int totalChars1 = 0;
     int totalChars2 = 0;
     
-    for (std::string s : lst1) {
-        totalChars1 += s.length();
+    for (auto str : lst1) {
+        totalChars1 += str.size();
     }
     
-    for (std::string s : lst2) {
-        totalChars2 += s.length();
+    for (auto str : lst2) {
+        totalChars2 += str.size();
     }
     
     if (totalChars1 < totalChars2) {
         return lst1;
-    } else {
+    }
+    else {
         return lst2;
     }
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Implement your logic here
-    return false;
-}
-
 int main() {
-    assert(total_match({"this"}, {}).size() == 0);
+    assert(issame(total_match({"this"}, {}), {}));
+    
+    // Add more test cases to validate the code
     
     return 0;
 }
