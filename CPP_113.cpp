@@ -1,23 +1,28 @@
-vector<string> odd_count(vector<string> lst);
+#include <cassert>
+#include <vector>
 
-vector<string> odd_count(vector<string> lst) {
-  vector<string> result;
-  for (string s : lst) {
-    int count = 0;
-    for (char c : s) {
-      if ((c - '0') % 2 != 0) {
-        count++;
-      }
+vector<int> odd_count(vector<int> lst) {
+    vector<int> result;
+    for (int num : lst) {
+        int count = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            if (digit % 2 != 0) {
+                count++;
+            }
+            num /= 10;
+        }
+        result.push_back(count);
     }
-    result.push_back("the number of odd elements " + to_string(count) + "n the str" + to_string(count) + "ng " + s + " of the " + to_string(count) + "nput.");
-  }
-  return result;
+    return result;
+}
+
+bool is_same(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 int main() {
-  assert (odd_count({"271", "137", "314"}) == {
-      "the number of odd elements 2n the str2ng 271 of the 2nput.",
-      "the number of odd elements 3n the str3ng 137 of the 3nput.",
-      "the number of odd elements 2n the str2ng 314 of the 2nput."
-  });
+    assert(is_same(odd_count({271, 137, 314}), {2, 3, 2}));
+    assert(is_same(odd_count({13579, 24680, 97531}), {5, 0, 5}));
+    return 0;
 }
