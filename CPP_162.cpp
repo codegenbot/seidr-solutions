@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
+#include <cstdio>
 
-std::string string_to_md5(std::string text) {
+using namespace std;
+
+string string_to_md5(string text) {
     if (text.empty()) {
         return "None";
     }
@@ -24,12 +27,14 @@ std::string string_to_md5(std::string text) {
         sprintf(&md5String[i*2], "%02x", digest[i]);
     }
 
-    return std::string(md5String);
+    return string(md5String);
 }
 
+#pragma comment(lib, "libssl.lib")
+
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << string_to_md5(input) << std::endl;
+    string input;
+    getline(cin, input);
+    cout << string_to_md5(input) << endl;
     return 0;
 }
