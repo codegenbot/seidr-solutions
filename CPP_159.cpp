@@ -12,14 +12,3 @@ std::vector<int> eat(int number, int need, int remaining) {
     }
     return {eaten, remaining};
 }
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // implementation of issame function
-    return true;
-}
-
-int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
-
-    return 0;
-}
