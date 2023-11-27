@@ -26,6 +26,9 @@ int how_many_times(string str, string substring) {
 }
 
 int main() {
-    // your test cases here
+    string str, substring;
+    cin >> str >> substring;
+    int result = how_many_times(str, substring);
+    cout << result;
     return 0;
 }
