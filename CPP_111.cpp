@@ -1,34 +1,29 @@
 #include <iostream>
+#include <string>
 #include <map>
-#include <cassert>
 
-using namespace std;
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> counts;
 
-map<char,int> histogram(string test){
-    map<char, int> result;
-    string letter;
-    for(int i=0; i<test.length(); i++){
-        if(test[i] != ' '){
-            letter += test[i];
-        }
-        else{
-            result[letter]++;
-            letter = "";
+    for (char c : test) {
+        if (c != ' ') {
+            counts[c]++;
         }
     }
-    result[letter]++;
+
+    int maxCount = 0;
+    for (auto it = counts.begin(); it != counts.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
+        }
+    }
+
+    std::map<char, int> result;
+    for (auto it = counts.begin(); it != counts.end(); ++it) {
+        if (it->second == maxCount) {
+            result[it->first] = it->second;
+        }
+    }
+
     return result;
-}
-
-bool issame(const map<char, int>& a, const map<char, int>& b){
-    return a == b;
-}
-
-int main(){
-    map<char,int> result = histogram("a");
-    assert(issame(result, {{'a', 1}}));
-
-    cout << "All tests passed!" << endl;
-
-    return 0;
 }
