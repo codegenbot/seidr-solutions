@@ -12,14 +12,3 @@ bool is_prime(long long n){
     }
     return true;
 }
-
-int main(){
-    cout<<is_prime(6)<<endl;
-    cout<<is_prime(101)<<endl;
-    cout<<is_prime(11)<<endl;
-    cout<<is_prime(13441)<<endl;
-    cout<<is_prime(61)<<endl;
-    cout<<is_prime(4)<<endl;
-    cout<<is_prime(1)<<endl;
-    return 0;
-}
