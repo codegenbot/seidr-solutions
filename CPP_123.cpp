@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
 vector<int> get_odd_collatz(int n){
     vector<int> collatz_seq;
     collatz_seq.push_back(n);
@@ -17,4 +22,14 @@ vector<int> get_odd_collatz(int n){
     }
     sort(odd_nums.begin(), odd_nums.end());
     return odd_nums;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+  return a == b;
+}
+
+int main()
+{
+    assert (issame(get_odd_collatz(1) , {1}));
+    return 0;
 }
