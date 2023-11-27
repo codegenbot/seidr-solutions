@@ -33,7 +33,7 @@ bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
         return false;
     }
 
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (std::pmr::vector<int>::size_type i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -44,6 +44,6 @@ bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
 
 int main() {
     assert(issame(parse_nested_parens("(()(())(()))"), {4}));
-
+    
     return 0;
 }
