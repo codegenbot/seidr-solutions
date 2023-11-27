@@ -28,7 +28,7 @@ bool issame(const vector<float>& a, const vector<float>& b){
 }
 
 int main() {
-    assert (issame(get_positive({}), {}));
+    assert (issame(get_positive({}) , vector<float>{}));
 
     return 0;
 }
