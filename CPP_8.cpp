@@ -2,8 +2,6 @@
 #include <cassert>
 using namespace std;
 
-vector<int> sum_product(vector<int> numbers);
-
 vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;
@@ -18,6 +16,20 @@ vector<int> sum_product(vector<int> numbers) {
     result.push_back(product);
 
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
