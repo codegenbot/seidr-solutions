@@ -9,10 +9,6 @@ void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path){
     // implementation of the dfs function
 }
 
-bool issame(vector<int> a, vector<int> b){
-    // implementation of the function
-}
-
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
@@ -41,6 +37,10 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     dfs(grid, startX, startY, k, path);
     
     return path;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    // implementation of the function
 }
 
 int main(){
