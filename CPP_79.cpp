@@ -9,5 +9,6 @@ string decimal_to_binary(int decimal){
             decimal /= 2;
         }
     }
-    return binary + "db";
+    binary += "db";
+    return binary;
 }
