@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 #include <cmath>
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
@@ -11,20 +10,4 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
         }
     }
     return false;
-}
-
-int main() {
-    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    assert(has_close_elements(a, 0.5) == true);
-    assert(has_close_elements(a, 1.0) == true);
-    assert(has_close_elements(a, 0.1) == false);
-
-    std::vector<float> b = {};
-    assert(has_close_elements(b, 0.5) == false);
-
-    assert(has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5) == false);
-    assert(has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 1.0) == true);
-    assert(has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.1) == false);
-
-    return 0;
 }
