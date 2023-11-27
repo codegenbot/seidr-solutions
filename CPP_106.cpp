@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool is_same(const vector<int>& a, const vector<int>& b) {
+bool isSame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,7 +16,7 @@ bool is_same(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-vector<int> f_output(int n) {
+vector<int> f(int n) {
     vector<int> result;
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
@@ -38,7 +38,7 @@ vector<int> f_output(int n) {
 }
 
 int main() {
-    assert(is_same(f_output(3), {1, 2, 6}));
+    assert(isSame(f(3), {1, 2, 6}));
 
     return 0;
 }
