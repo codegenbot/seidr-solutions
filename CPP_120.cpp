@@ -9,7 +9,7 @@ vector<int> maximum(vector<int> arr, int k) {
     return vector<int>(arr.begin(), arr.begin() + k);
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     return a == b;
