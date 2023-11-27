@@ -1,11 +1,24 @@
-string flip_case(string str){
-    for(int i=0; i<str.length(); i++){
-        if(islower(str[i])){
-            str[i] = toupper(str[i]);
-        }
-        else if(isupper(str[i])){
-            str[i] = tolower(str[i]);
+#include <iostream>
+#include <string>
+#include <cassert>
+
+std::string flip_case(std::string str);
+
+std::string flip_case(std::string str){
+    std::string result = "";
+    for (int i = 0; i < str.length(); i++) {
+        if (std::islower(str[i])) {
+            result += std::toupper(str[i]);
+        } else if (std::isupper(str[i])) {
+            result += std::tolower(str[i]);
+        } else {
+            result += str[i];
         }
     }
-    return str;
+    return result;
+}
+
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "tHese VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
