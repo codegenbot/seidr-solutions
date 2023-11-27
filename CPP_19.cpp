@@ -1,43 +1,38 @@
 string sort_numbers(string numbers){
-    map<string, int> numberMap;
-    numberMap["zero"] = 0;
-    numberMap["one"] = 1;
-    numberMap["two"] = 2;
-    numberMap["three"] = 3;
-    numberMap["four"] = 4;
-    numberMap["five"] = 5;
-    numberMap["six"] = 6;
-    numberMap["seven"] = 7;
-    numberMap["eight"] = 8;
-    numberMap["nine"] = 9;
+    // Create a map to store the numberals and their corresponding values
+    map<string, int> numberals;
+    numberals["zero"] = 0;
+    numberals["one"] = 1;
+    numberals["two"] = 2;
+    numberals["three"] = 3;
+    numberals["four"] = 4;
+    numberals["five"] = 5;
+    numberals["six"] = 6;
+    numberals["seven"] = 7;
+    numberals["eight"] = 8;
+    numberals["nine"] = 9;
 
-    vector<int> sortedNumbers;
-    string result = "";
-
-    // Split the input string into individual numbers
+    // Convert the input string to a vector of numberals
+    vector<string> nums;
     stringstream ss(numbers);
-    string number;
-    while (getline(ss, number, ' ')) {
-        sortedNumbers.push_back(numberMap[number]);
+    string num;
+    while (ss >> num) {
+        nums.push_back(num);
     }
 
-    // Sort the numbers
-    sort(sortedNumbers.begin(), sortedNumbers.end());
+    // Sort the numberals based on their values
+    sort(nums.begin(), nums.end(), [&](const string& a, const string& b) {
+        return numberals[a] < numberals[b];
+    });
 
-    // Convert the sorted numbers back to string representation
-    for (int i = 0; i < sortedNumbers.size(); i++) {
-        for (auto it = numberMap.begin(); it != numberMap.end(); it++) {
-            if (it->second == sortedNumbers[i]) {
-                result += it->first + " ";
-                break;
-            }
-        }
+    // Convert the sorted numberals back to a string
+    string sortedNumbers;
+    for (const string& num : nums) {
+        sortedNumbers += num + " ";
     }
 
     // Remove the trailing space
-    if (!result.empty()) {
-        result.pop_back();
-    }
+    sortedNumbers.pop_back();
 
-    return result;
+    return sortedNumbers;
 }
