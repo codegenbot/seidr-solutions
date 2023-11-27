@@ -16,4 +16,7 @@ double double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-assert(double_the_difference(lst) == odd_sum);
+int main() {
+    std::cout << (double_the_difference(lst) == odd_sum) << std::endl;
+    return 0;
+}
