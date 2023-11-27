@@ -1,7 +1,7 @@
-+#include <vector>
-+#include <string>
-+#include <iostream>
-+#include <cassert>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -41,7 +41,6 @@ vector<string> split_words(string txt){
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // Your code to compare vectors a and b
     if (a.size() != b.size()) {
         return false;
     }
