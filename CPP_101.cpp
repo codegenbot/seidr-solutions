@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
+#include <string>
 
 std::vector<std::string> words_string(const std::string& s) {
     std::vector<std::string> words;
