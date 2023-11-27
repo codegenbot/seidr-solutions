@@ -7,7 +7,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     int pos = 0;
     while (pos < int(text.length())) {
-        pos = text.find(target, pos + target.length() - 1);
+        pos = text.find(target, pos + 1);
         if (pos == std::string::npos) {
             break;
         }
@@ -20,15 +20,13 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     std::string text, target;
-    std::cin >> text;
-    std::cin >> target;
+    std::cin >> text >> target;
 
     std::vector<int> result = indicesOfSubstring(text, target);
 
-    for (int i : result) {
-        std::cout << i << " ";
+    for (const int& index : result) {
+        std::cout << index << " ";
     }
-    std::cout << std::endl;
 
     return 0;
 }
