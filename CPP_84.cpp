@@ -4,5 +4,10 @@ string solve(int N){
         sum += N % 2;
         N /= 2;
     }
-    return to_string(sum);
+    string binary = "";
+    while(sum > 0){
+        binary = to_string(sum % 2) + binary;
+        sum /= 2;
+    }
+    return binary;
 }
