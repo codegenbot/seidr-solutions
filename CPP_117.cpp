@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <string>
+#include <cassert>
 
 int count_consonants(std::string word) {
     int count = 0;
