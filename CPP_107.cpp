@@ -1,8 +1,18 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
 
-using namespace std;
+bool is_same(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<int> even_odd_palindrome(int n) {
     vector<int> result(2, 0);
@@ -29,13 +39,16 @@ vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    vector<int> expected = { 0, 1 };
-    vector<int> result = even_odd_palindrome(1);
-    if (result == expected) {
-        cout << "Test case passed." << endl;
+    vector<int> expected = { 0, 0 };
+    int n;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+    vector<int> result = even_odd_palindrome(n);
+    if (is_same(result, expected)) {
+        std::cout << "Test case passed." << std::endl;
     }
     else {
-        cout << "Test case failed." << endl;
+        std::cout << "Test case failed." << std::endl;
     }
     return 0;
 }
