@@ -26,8 +26,10 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
+vector<int> intersperse(vector<int> numbers, int delimeter);  // forward declaration
+
 int main() {
-    assert (issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}) == true);
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}) == true);
     
     return 0;
 }
