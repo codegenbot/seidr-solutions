@@ -1,13 +1,8 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-
-std::vector<std::string> bf(const std::string& planet1, const std::string& planet2);
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
