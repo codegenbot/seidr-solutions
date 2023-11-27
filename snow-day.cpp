@@ -6,9 +6,7 @@ float calculateSnow(float hours, float currentSnow, float snowFallRate, float me
         currentSnow += snowFallRate;
         currentSnow -= currentSnow * meltRate;
     }
-
     currentSnow += currentSnow * meltRate * hours;
-
     return currentSnow;
 }
 
