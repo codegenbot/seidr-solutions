@@ -20,16 +20,3 @@ vector<int> f(int n) {
     }
     return result;
 }
-
-vector<int> issame(vector<int> a, vector<int> b) {
-    // Add your implementation here
-    // ...
-}
-
-int main() {
-    // Add test cases and assertions here
-    assert(issame(f(3), {1, 2, 6}));
-    // ...
-    
-    return 0;
-}
