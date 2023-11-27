@@ -14,8 +14,8 @@ long long special_factorial(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter an integer: ";
+    std::cout << "Enter a number: ";
     std::cin >> n;
-    std::cout << "Special factorial of " << n << " is: " << special_factorial(n) << std::endl;
+    std::cout << "Special Factorial: " << special_factorial(n) << std::endl;
     return 0;
 }
