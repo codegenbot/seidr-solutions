@@ -22,6 +22,6 @@ bool issame(vector<int> a,vector<int> b){
 
 int main(){
     assert (issame(derivative({1}) , {}));
-    
+   
     return 0;
 }
