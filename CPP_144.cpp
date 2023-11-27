@@ -16,12 +16,8 @@ bool simplify(string x, string n) {
     return result_num % result_den == 0;
 }
 
-bool test() {
-    assert(simplify("1/5", "1/5") == false);
-    return true;
-}
-
 int main() {
-    test();
+    assert(simplify("1/5", "1/5") == false);
+    
     return 0;
 }
