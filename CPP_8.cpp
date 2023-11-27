@@ -2,12 +2,6 @@
 
 bool issame(vector<int> a, vector<int> b);
 
-vector<int> sum_product(vector<int> numbers);
-
-bool issame(vector<int> a, vector<int> b){
-    return (a == b);
-}
-
 vector<int> sum_product(vector<int> numbers){
     int sum = 0;
     int product = 1;
@@ -24,8 +18,6 @@ vector<int> sum_product(vector<int> numbers){
     return result;
 }
 
-int main() {
-    // your code goes here
-    
-    return 0;
+bool issame(vector<int> a, vector<int> b){
+    return (a == b);
 }
