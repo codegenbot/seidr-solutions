@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+using namespace std;
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -36,13 +37,11 @@ vector<string> split_words(string txt){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    // Your code here
+bool issame(vector<string> a, vector<string> b){
+    // implementation code here
 }
 
-int main()
-{
-    // Your code here
-
+int main() {
+    assert(issame(split_words(""), {"0"}));
     return 0;
 }
