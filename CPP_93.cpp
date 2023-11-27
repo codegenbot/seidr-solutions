@@ -7,7 +7,6 @@ string encode(string message){
             else{
                 message[i] = tolower(message[i]);
             }
-            
             if(message[i] == 'a'){
                 message[i] = 'c';
             }
