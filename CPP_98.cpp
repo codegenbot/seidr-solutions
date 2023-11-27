@@ -1,7 +1,7 @@
 #include <iostream>
-#include <string>
+#include <string> 
 
-using namespace std;
+using namespace std; 
 
 int count_upper(string s){
     int count = 0;
