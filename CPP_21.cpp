@@ -1,22 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
-
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
 
 vector<float> rescale_to_unit(vector<float> numbers){
     float min_num = numbers[0];
@@ -42,21 +27,37 @@ vector<float> rescale_to_unit(vector<float> numbers){
     return rescaled_numbers;
 }
 
-int main() {
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main(){
     vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
     vector<float> rescaled_numbers = rescale_to_unit(numbers);
     
     vector<float> expected_result = {0.0, 0.25, 0.5, 0.75, 1.0};
     
-    bool result = issame(rescaled_numbers, expected_result);
-    
-    if(result){
+    if (issame(rescaled_numbers, expected_result)) {
         cout << "The rescaled numbers are correct." << endl;
     } else {
         cout << "The rescaled numbers are incorrect." << endl;
     }
-
-    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
-
+    
+    if (issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75})) {
+        cout << "The additional test case is correct." << endl;
+    } else {
+        cout << "The additional test case is incorrect." << endl;
+    }
+    
     return 0;
 }
