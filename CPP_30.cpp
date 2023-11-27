@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -11,8 +12,12 @@ std::vector<float> get_positive(std::vector<float> l){
     return positive_nums;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b);
-
-bool issame(std::vector<float> a, std::vector<float> b){
-    return a == b;
+int main(){
+    // Add your own test cases here
+    assert(get_positive({}) == std::vector<float>{});
+    assert(get_positive({-1, 2, -3, 4, -5}) == std::vector<float>{2, 4});
+    assert(get_positive({1, 2, 3, 4, 5}) == std::vector<float>{1, 2, 3, 4, 5});
+    assert(get_positive({-1, -2, -3, -4, -5}) == std::vector<float>{});
+    assert(get_positive({0, 0, 0, 0, 0}) == std::vector<float>{});
+    return 0;
 }
