@@ -1,3 +1,5 @@
+#include <iostream>
+#include <cassert>
 #include <string>
 
 bool cycpattern_check(std::string a, std::string b) {
