@@ -1,41 +1,25 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 bool cycpattern_check(string a, string b) {
-    int lenA = a.length();
-    int lenB = b.length();
+    int n = a.length();
+    int m = b.length();
 
-    if (lenA < lenB) {
+    if (m == 0) {
         return false;
     }
     
-    string temp = b + b;
-    
-    if (temp.find(a) != string::npos) {
-        return true;
-    }
-
-    for (int i = 1; i < lenB; i++) {
-        string rotation = b.substr(i) + b.substr(0, i);
-        temp = rotation + rotation;
+    for (int i = 0; i < n; i++) {
+        bool isPattern = true;
         
-        if (temp.find(a) != string::npos) {
+        for (int j = 0; j < m; j++) {
+            if (a[(i + j) % n] != b[j]) {
+                isPattern = false;
+                break;
+            }
+        }
+        
+        if (isPattern) {
             return true;
         }
     }
-    
-    return false;
-}
 
-int main() {
-    // Test the function
-    cout << cycpattern_check("abcd", "abd") << endl;     // false
-    cout << cycpattern_check("hello", "ell") << endl;    // true
-    cout << cycpattern_check("whassup", "psus") << endl; // false
-    cout << cycpattern_check("abab", "baa") << endl;     // true
-    cout << cycpattern_check("efef", "eeff") << endl;    // false
-    cout << cycpattern_check("himenss", "simen") << endl;// true
-    
-    return 0;
+    return false;
 }
