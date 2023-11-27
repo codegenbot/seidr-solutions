@@ -5,5 +5,6 @@ int getLength(const std::string& str) {
 }
 
 int main() {
+    // Code for testing the function... (if needed)
     return 0;
 }
