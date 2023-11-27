@@ -18,6 +18,7 @@ bool is_nested(std::string str){
 }
 
 int main(){
+    // Example usage of the is_nested function
     std::cout << std::boolalpha;
     std::cout << is_nested("[[[[[]]]]]") << std::endl;
     std::cout << is_nested("]]]]]") << std::endl;
