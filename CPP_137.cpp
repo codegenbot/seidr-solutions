@@ -1,6 +1,8 @@
 #include <string>
 #include <boost/any.hpp>
 
+using namespace boost;
+
 int compare_one(int a, int b) {
     if (a > b) {
         return a;
@@ -40,5 +42,3 @@ std::string compare_one(const std::string& a, const std::string& b) {
         return "None";
     }
 }
-
-using namespace boost;
