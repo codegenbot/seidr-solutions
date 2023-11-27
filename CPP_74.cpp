@@ -35,6 +35,7 @@ vector<string> issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(total_match({"this"}, {}), {}));
-    
+    // Additional test cases can be added here
+
     return 0;
 }
