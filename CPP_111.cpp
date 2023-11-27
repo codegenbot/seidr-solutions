@@ -1,8 +1,8 @@
 #include <map>
 
-using namespace std;
-
 bool issame(map<char, int> a, map<char, int> b);
+
+map<char, int> histogram(string test);
 
 map<char, int> histogram(string test) {
     map<char, int> result;
@@ -31,11 +31,12 @@ bool issame(map<char, int> a, map<char, int> b) {
 }
 
 int main() {
-    /*map<char, int> a = histogram("hello world");
-    map<char, int> b = histogram("world hello");
-    map<char, int> c = histogram("hello world");
-    
-    cout << issame(a, b) << endl;  // Expected output: 0 (false)
-    cout << issame(a, c) << endl;  // Expected output: 1 (true)*/
+    string test1 = "a b c d";
+    string test2 = "a b c d";
+    string test3 = "a b c";
+    map<char, int> result1 /*= histogram(test1)*/;
+    map<char, int> result2 /*= histogram(test2)*/;
+    map<char, int> result3 /*= histogram(test3)*/;
+    // bool same = issame(result1, result2);
     return 0;
 }
