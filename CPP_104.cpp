@@ -1,26 +1,25 @@
 #include <vector>
-#include<algorithm>
-#include<cassert>
+#include <algorithm>
+#include <cassert>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-bool hasEvenDigit(int num) {
-    while(num > 0){
-        int digit = num % 10;
-        if(digit % 2 == 0){
-            return true;
-        }
-        num /= 10;
-    }
-    return false;
+    return a == b;
 }
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for(int i=0; i<x.size(); i++){
-        if(!hasEvenDigit(x[i])){
+        int num = x[i];
+        bool hasEvenDigit = false;
+        while(num > 0){
+            int digit = num % 10;
+            if(digit % 2 == 0){
+                hasEvenDigit = true;
+                break;
+            }
+            num = num / 10;
+        }
+        if(!hasEvenDigit){
             result.push_back(x[i]);
         }
     }
@@ -29,6 +28,6 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    assert(std::equal(unique_digits({135, 103, 31}).begin(), unique_digits({135, 103, 31}).end(), {31, 135}.begin()));
     return 0;
 }
