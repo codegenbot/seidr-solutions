@@ -4,8 +4,6 @@
 
 using namespace std;
 
-vector<int> common(vector<int> l1, vector<int> l2);
-
 vector<int> common(vector<int> l1, vector<int> l2) {
     vector<int> result;
     sort(l1.begin(), l1.end());
@@ -15,12 +13,11 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    vector<int> result = common(a, b);
-    return result.empty();
-}
-
 int main() {
-    cout << issame(common({4, 3, 2, 8}, {}), {}) << endl;
+    vector<int> a = {4, 3, 2, 8};
+    vector<int> b = {};
+
+    cout << equal(common(a, b).begin(), common(a, b).end(), b.begin()) << endl;
+
     return 0;
 }
