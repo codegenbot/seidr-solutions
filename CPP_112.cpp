@@ -1,19 +1,35 @@
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+#include <string>
+#include <vector>
 
-    // Delete characters in s that are equal to any character in c
-    for (int i = 0; i < c.length(); i++) {
-        s.erase(remove(s.begin(), s.end(), c[i]), s.end());
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
     }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
-    // Check if the result string is palindrome
-    string reverse_s = s;
-    reverse(reverse_s.begin(), reverse_s.end());
-    bool is_palindrome = (s == reverse_s);
+vector<string> reverse_delete(string s, string c);
 
-    // Add the result string and "True"/"False" to the result vector
-    result.push_back(s);
-    result.push_back(is_palindrome ? "True" : "False");
+vector<string> reverse_delete(string s, string c){
+    string result = "";
+    for(int i=0; i<s.length(); i++){
+        if(c.find(s[i]) == string::npos){
+            result += s[i];
+        }
+    }
+    string rev_result = result;
+    reverse(rev_result.begin(), rev_result.end());
+    bool is_palindrome = (result == rev_result);
+    vector<string> output = {result, (is_palindrome ? "True" : "False")};
+    return output;
+}
 
-    return result;
+int main(){
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    return 0;
 }
