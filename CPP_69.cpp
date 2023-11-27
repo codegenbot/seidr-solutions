@@ -1,6 +1,6 @@
 #include <vector>
 
-int search(vector<int> lst) {
+int search(std::vector<int> lst) {
     int maxFreq = -1;
     int result = -1;
     for (int num : lst) {
@@ -19,14 +19,14 @@ int search(vector<int> lst) {
 
 int main() {
     // Test the code with different inputs
-    vector<int> input1 = {1, 2, 3, 4, 5};
-    int output1 = search(input1);
+    std::vector<int> test1 = {1, 2, 3, 4, 5};
+    int result1 = search(test1);
     
-    vector<int> input2 = {2, 2, 3, 3, 4, 4};
-    int output2 = search(input2);
+    std::vector<int> test2 = {5, 5, 5, 5, 5};
+    int result2 = search(test2);
     
-    vector<int> input3 = {1, 1, 1, 1, 1};
-    int output3 = search(input3);
+    std::vector<int> test3 = {1, 2, 2, 3, 4, 4, 4};
+    int result3 = search(test3);
     
     return 0;
 }
