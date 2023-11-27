@@ -29,8 +29,12 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
     return result;
 }
 
-int main() {
+int contest_main() {
     assert (issame(strange_sort_list({111111}) , {111111}));
     // more test cases here
+    assert (issame(strange_sort_list({1, 2, 3, 4, 5}) , {1, 5, 2, 4, 3}));
+    assert (issame(strange_sort_list({9, 8, 7, 6, 5, 4, 3, 2, 1}) , {1, 9, 2, 8, 3, 7, 4, 6, 5}));
+    assert (issame(strange_sort_list({5, 5, 5, 5, 5}) , {5, 5, 5, 5, 5}));
+    assert (issame(strange_sort_list({}) , {}));
     return 0;
 }
