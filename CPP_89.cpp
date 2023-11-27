@@ -4,6 +4,8 @@
 
 using namespace std;
 
+string encrypt(string s); // Function declaration
+
 string encrypt(string s){
     string encrypted = "";
     for(int i=0; i<s.length(); i++){
@@ -23,5 +25,7 @@ string encrypt(string s){
 
 int main() {
     assert (encrypt("a") == "e");
+    // Rest of the code...
+
     return 0;
 }
