@@ -24,8 +24,11 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-int main() {
+void solve() {
     assert(issame(total_match({"this"}, {}), {}));
-    
+}
+
+int main() {
+    solve();
     return 0;
 }
