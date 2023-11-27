@@ -1,34 +1,30 @@
 vector<string> select_words(string s, int n) {
-    vector<string> words;
+    vector<string> result;
     string word = "";
-    
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
-            if (count_consonants(word) == n) {
-                words.push_back(word);
+            int consonantCount = 0;
+            for (int j = 0; j < word.length(); j++) {
+                if (isalpha(word[j]) && !isVowel(word[j])) {
+                    consonantCount++;
+                }
+            }
+            if (consonantCount == n) {
+                result.push_back(word);
             }
             word = "";
         } else {
             word += s[i];
         }
     }
-    
-    if (count_consonants(word) == n) {
-        words.push_back(word);
-    }
-    
-    return words;
-}
-
-int count_consonants(string word) {
-    int count = 0;
-    string vowels = "aeiouAEIOU";
-    
-    for (int i = 0; i < word.length(); i++) {
-        if (vowels.find(word[i]) == string::npos) {
-            count++;
+    int consonantCount = 0;
+    for (int j = 0; j < word.length(); j++) {
+        if (isalpha(word[j]) && !isVowel(word[j])) {
+            consonantCount++;
         }
     }
-    
-    return count;
+    if (consonantCount == n) {
+        result.push_back(word);
+    }
+    return result;
 }
