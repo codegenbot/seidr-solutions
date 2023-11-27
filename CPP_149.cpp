@@ -4,9 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-vector<string> sorted_list_sum(vector<string> lst) {
+vector<string> sort_even_length_strings(vector<string> lst) {
     vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         if (lst[i].length() % 2 == 0) {
@@ -19,16 +17,16 @@ vector<string> sorted_list_sum(vector<string> lst) {
         }
         return a.length() < b.length();
     });
-    return lst;
+    return result;
 }
 
 int main() {
     vector<string> input = { "aaaa", "bbbb", "dd", "cc" };
     vector<string> expected_output = { "cc", "dd", "aaaa", "bbbb" };
 
-    vector<string> output = sorted_list_sum(input);
+    vector<string> sorted_list = sort_even_length_strings(input);
 
-    assert(output == expected_output);
+    assert(sorted_list == expected_output);
 
     return 0;
 }
