@@ -3,11 +3,17 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
 vector<string> words_string(const string& s);
 
 bool issame(const vector<string>& a, const vector<string>& b);
+
+int main() {
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+
+    // Add more test cases if needed
+
+    return 0;
+}
 
 vector<string> words_string(const string& s) {
     vector<string> words;
@@ -43,10 +49,4 @@ bool issame(const vector<string>& a, const vector<string>& b) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    // Add more test cases if needed
-    return 0;
 }
