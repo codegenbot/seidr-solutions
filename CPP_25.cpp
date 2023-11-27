@@ -1,8 +1,10 @@
 #include <vector>
-#include <cassert>
+#include <iostream>
 
-std::vector<int> factorize(int n) {
-    std::vector<int> factors;
+using namespace std;
+
+vector<int> factorize(int n) {
+    vector<int> factors;
     for (int i = 2; i <= n; i++) {
         while (n % i == 0) {
             factors.push_back(i);
@@ -12,7 +14,7 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -22,12 +24,12 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-void problem_solution() {
-    std::vector<int> factors = factorize(3 * 2 * 3);
-    std::vector<int> expected_factors = {2, 3, 3};
-    assert(issame(factors, expected_factors));
-}
-
 int main() {
-    problem_solution();
+    vector<int> factors = factorize(3 * 2 * 3);
+    vector<int> expected_factors = {2, 3, 3};
+    for (int i = 0; i < factors.size(); i++) {
+        cout << factors[i] << " ";
+    }
+    cout << endl;
+    return 0;
 }
