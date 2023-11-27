@@ -11,9 +11,9 @@ int sumOfDigits(int num) {
     return sum;
 }
 
-int largestPrimeSum(std::vector<int> nums) {
+int largestPrimeSum(std::vector<int> lst) {
     int largestPrime = 0;
-    for (int num : nums) {
+    for (int num : lst) {
         bool isPrime = true;
         for (int i = 2; i * i <= num; i++) {
             if (num % i == 0) {
