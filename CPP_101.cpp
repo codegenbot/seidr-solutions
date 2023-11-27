@@ -1,7 +1,10 @@
+vector<string> words_string(string s);
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> words_string(string s){
     vector<string> words;
     string word = "";
-    for(int i = 0; i < s.length(); i++){
+    for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
             if(word != ""){
                 words.push_back(word);
@@ -19,18 +22,23 @@ vector<string> words_string(string s){
 }
 
 bool issame(vector<string> a, vector<string> b){
+    bool result = true;
     if(a.size() != b.size()){
-        return false;
+        result = false;
     }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
+    else{
+        for(int i=0; i<a.size(); i++){
+            if(a[i] != b[i]){
+                result = false;
+                break;
+            }
         }
     }
-    return true;
+    return result;
 }
 
 int main(){
-    assert (words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+
     return 0;
 }
