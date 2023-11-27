@@ -1,5 +1,8 @@
 #include <vector>
+#include <string>
+
 vector<string> words_string(string s);
+
 vector<string> words_string(string s){
     vector<string> words;
     string word = "";
