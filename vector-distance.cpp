@@ -29,7 +29,7 @@ int main() {
     }
 
     double distance = calculateEuclideanDistance(vector1, vector2);
-    std::cout << std::fixed << std::setprecision(10) << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(17) << distance << std::endl;
 
     return 0;
 }
