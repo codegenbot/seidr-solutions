@@ -22,7 +22,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst){
             result.push_back(word);
         }
     }
-    sort(result.begin(), result.end(), [](const std::string& a, const std::string& b) {
+    std::sort(result.begin(), result.end(), [](const std::string& a, const std::string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
