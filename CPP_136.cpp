@@ -1,4 +1,5 @@
 vector<int> largest_smallest_integers(vector<int> lst){
+    vector<int> result(2, 0);
     int largest_negative = 0;
     int smallest_positive = 0;
     
@@ -11,5 +12,8 @@ vector<int> largest_smallest_integers(vector<int> lst){
         }
     }
     
-    return {largest_negative, smallest_positive};
+    result[0] = largest_negative;
+    result[1] = smallest_positive;
+    
+    return result;
 }
