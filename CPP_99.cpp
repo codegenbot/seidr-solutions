@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <cassert>
 
 int closest_integer(std::string value){
     float num = std::stof(value); // convert string to float
