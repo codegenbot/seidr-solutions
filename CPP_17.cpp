@@ -11,18 +11,7 @@ vector<int> parse_music(string music_string){
             }
         } else if (music_string[i] == '.') {
             beats.push_back(1);
-            i++;
         }
     }
     return beats;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    // code for comparing and returning true or false
-}
-
-int main() {
-    vector<int> parse_music(string music_string);
-
-    // rest of the code
 }
