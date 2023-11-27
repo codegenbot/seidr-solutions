@@ -5,7 +5,8 @@ vector<float> get_positive(vector<float> l);
 bool issame(vector<float> a, vector<float> b);
 
 int main() {
-    assert(get_positive({}).size() == 0);
+    assert(issame(get_positive({}), {}));
+    return 0;
 }
 
 vector<float> get_positive(vector<float> l){
