@@ -11,11 +11,11 @@ std::string string_to_md5(std::string text) {
     MD5_CTX md5Context;
     MD5_Init(&md5Context);
     MD5_Update(&md5Context, text.data(), text.size());
-    MD5_Final(digest, &md5Context); // Updated function call
+    MD5_Final(digest, &md5Context);
 
     char md5Hash[33];
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        sprintf(&md5Hash[i * 2], "%02x", (unsigned int)digest[i]);
+        sprintf(&md5Hash[i * 2], "%02x", (unsigned int) digest[i]);
     }
 
     return std::string(md5Hash);
