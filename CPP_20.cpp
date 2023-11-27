@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<float> a, vector<float> b); // Function declaration
+bool issame(vector<float> a, vector<float> b);
 
 vector<float> find_closest_elements(vector<float> numbers){
     vector<float> closest_elements;
@@ -23,7 +23,7 @@ vector<float> find_closest_elements(vector<float> numbers){
     return closest_elements;
 }
 
-bool issame(vector<float> a, vector<float> b){ // Function definition
+bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size())
         return false;
     
