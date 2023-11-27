@@ -2,16 +2,20 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
+#include <iterator>
+
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
     int leftSum = 0, rightSum = 0;
 
+    // Calculate the sum of all elements in the vector
     for (int i = 0; i < n; i++) {
         rightSum += nums[i];
     }
 
+    // Iterate through the vector and find the spot where the difference is minimized
     int diff = numeric_limits<int>::max(), cutIndex = -1;
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
@@ -24,6 +28,7 @@ vector<int> cutVector(vector<int>& nums) {
         }
     }
 
+    // Create the two resulting subvectors
     vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
 
@@ -39,14 +44,12 @@ int main() {
         cin >> nums[i];
     }
 
-    auto result = cutVector(nums);
+    vector<int> result = cutVector(nums);
 
-    for (auto it = result[0].begin(); it != result[0].end(); it++) {
-        cout << *it << endl;
-    }
-
-    for (auto it = result[1].begin(); it != result[1].end(); it++) {
-        cout << *it << endl;
+    for (auto it = std::begin(result); it != std::end(result); it++) {
+        for (auto it2 = std::begin(*it); it2 != std::end(*it); it2++) {
+            cout << *it2 << endl;
+        }
     }
 
     return 0;
