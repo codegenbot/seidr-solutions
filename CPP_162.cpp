@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string>
 #include <openssl/evp.h>
-
 using namespace std;
 
 string string_to_md5(string text) {
@@ -14,8 +13,6 @@ string string_to_md5(string text) {
     unsigned char digest[EVP_MAX_MD_SIZE];
     unsigned int digest_len;
 
-    OpenSSL_add_all_digests();
-
     md = EVP_md5();
     mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, md, nullptr);
@@ -25,10 +22,15 @@ string string_to_md5(string text) {
 
     char md5String[33];
     for (unsigned int i = 0; i < digest_len; i++) {
-        sprintf(&md5String[i * 2], "%02x", digest[i]);
+        sprintf(&md5String[i*2], "%02x", digest[i]);
     }
 
-    EVP_cleanup();
-
     return string(md5String);
+}
+
+int main() {
+    string input;
+    getline(cin, input);
+    cout << string_to_md5(input) << endl;
+    return 0;
 }
