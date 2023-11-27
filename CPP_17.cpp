@@ -3,9 +3,11 @@
 #include <string>
 #include <cassert>
 
-std::vector<int> parse_music(std::string music_string);
+using namespace std;
 
-bool is_same_beats(std::vector<int> a, std::vector<int> b) {
+vector<int> parse_music(string music_string);
+
+bool is_same_beats(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,9 +19,9 @@ bool is_same_beats(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> beats;
-    std::string note = "";
+vector<int> parse_music(string music_string) {
+    vector<int> beats;
+    string note = "";
     for (int i = 0; i < music_string.length(); i++) {
         if (music_string[i] == 'o') {
             if (note == "o|") {
@@ -40,8 +42,8 @@ std::vector<int> parse_music(std::string music_string) {
 }
 
 int main() {
-    std::vector<int> expected = {2, 1, 2, 1, 4, 2, 4, 2};
-    std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
+    vector<int> expected = {2, 1, 2, 1, 4, 2, 4, 2};
+    vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
     assert(is_same_beats(parsed_music, expected));
 
     return 0;
