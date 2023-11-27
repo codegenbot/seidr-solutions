@@ -1,10 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -16,8 +13,8 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> count_up_to(int n){
-    vector<int> primes;
+std::vector<int> count_up_to(int n){
+    std::vector<int> primes;
     if(n <= 1){
         return primes;
     }
@@ -38,6 +35,6 @@ vector<int> count_up_to(int n){
 }
 
 int main(){
-    assert(issame(count_up_to(101), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
+    assert(([](){std::vector<int> a = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}; std::vector<int> b = count_up_to(101); return a == b;})());
     return 0;
 }
