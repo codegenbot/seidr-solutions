@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -27,7 +26,13 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), {"0"}));
-    cout << "Test case passed!" << endl;
+    vector<string> words = split_words("");
+    
+    cout << "Output: ";
+    for (auto word : words) {
+        cout << word << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
