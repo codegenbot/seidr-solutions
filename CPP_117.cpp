@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool isVowel(char c);
-vector<string> select_words(string s, int n);
-bool issame(const vector<string>& a, const vector<string>& b);
-
 bool isVowel(char c) {
     c = tolower(c);
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
