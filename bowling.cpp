@@ -19,7 +19,7 @@ int calculateScore(std::string input) {
                 frames[frame+1] += (10 - (input[rolls-1] - '0'));
             }
         } else if (ch == '-') {
-
+            
         } else {
             frames[frame] += (ch - '0');
         }
