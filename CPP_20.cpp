@@ -1,30 +1,20 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    float minDiff = std::abs(numbers[1] - numbers[0]);
-    std::vector<float> closestElements;
-
-    for (int i = 1; i < numbers.size() - 1; i++) {
-        float diff = std::abs(numbers[i + 1] - numbers[i]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            closestElements.clear();
-            closestElements.push_back(numbers[i]);
-            closestElements.push_back(numbers[i + 1]);
+vector<float> find_closest_elements(vector<float> numbers){
+    float min_diff = INFINITY;
+    pair<float, float> closest_elements;
+    
+    for(int i=0; i<numbers.size(); i++){
+        for(int j=i+1; j<numbers.size(); j++){
+            float diff = abs(numbers[i] - numbers[j]);
+            if(diff < min_diff){
+                min_diff = diff;
+                closest_elements = make_pair(numbers[i], numbers[j]);
+            }
         }
     }
-
-    return closestElements;
-}
-
-int main() {
-    std::vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0, 2.2};
-    std::vector<float> closestElements = find_closest_elements(numbers);
-
-    std::cout << "(" << closestElements[0] << ", " << closestElements[1] << ")" << std::endl;
-
-    return 0;
+    
+    vector<float> result;
+    result.push_back(closest_elements.first);
+    result.push_back(closest_elements.second);
+    
+    return result;
 }
