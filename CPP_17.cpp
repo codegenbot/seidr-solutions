@@ -4,11 +4,15 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a == b) {
-        return true;
-    } else {
+    if (a.size() != b.size()) {
         return false;
     }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> parse_music(std::string music_string) {
@@ -33,14 +37,12 @@ std::vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
-int main() {
-    std::vector<int> expected = {2, 1, 2, 1, 4, 2, 4, 2};
-    std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
+std::vector<int> expected() {
+    return {2, 1, 2, 1, 4, 2, 4, 2};
+}
 
-    if (issame(parsed_music, expected)) {
-        std::cout << "Parsed music is as expected." << std::endl;
-    } else {
-        std::cout << "Parsed music is not as expected." << std::endl;
-    }
+int main() {
+    std::vector<int> parsed_music = parse_music("o| .| o| .| o o| o o|");
+    assert(issame(parsed_music, expected()));
     return 0;
 }
