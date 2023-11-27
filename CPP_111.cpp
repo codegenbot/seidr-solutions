@@ -1,7 +1,7 @@
-#include<iostream>
-#include<map>
-#include<string>
-#include<cassert>
+#include <iostream>
+#include <map>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -10,24 +10,28 @@ map<string, int> histogram(string test) {
     if (test.empty()) {
         return result;
     }
-    string letter;
+    string word;
     for (char c : test) {
         if (c == ' ') {
-            result[letter]++;
-            letter = "";
+            result[word]++;
+            word = "";
         } else {
-            letter += c;
+            word += c;
         }
     }
-    result[letter]++;
+    result[word]++;
     return result;
 }
 
+bool issame(const map<string, int>& a, const map<string, int>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(histogram("a") == map<string, int>{{"a", 1}});
-    assert(histogram("hello world") == map<string, int>{{"hello", 1}, {"world", 1}});
-
+    assert(issame(histogram("a"), map<string, int>{{"a", 1}}));
+    assert(issame(histogram("hello world"), map<string, int>{{"hello", 1}, {"world", 1}}));
+    
     cout << "All tests passed!" << endl;
-
+    
     return 0;
 }
