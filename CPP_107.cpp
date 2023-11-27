@@ -20,14 +20,14 @@ std::vector<int> even_odd_palindrome(int n) {
     for (int i = 1; i <= n; i++) {
         std::string s = std::to_string(i);
         int len = s.length();
-        bool isPalindrome = true;
+        bool is_palindrome = true;
         for (int j = 0; j < len / 2; j++) {
             if (s[j] != s[len - j - 1]) {
-                isPalindrome = false;
+                is_palindrome = false;
                 break;
             }
         }
-        if (isPalindrome) {
+        if (is_palindrome) {
             if (i % 2 == 0) {
                 result[0]++;
             }
