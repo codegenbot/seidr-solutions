@@ -1,44 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
-string find_max(vector<string> words) {
-    string maxWord = "";
-    int maxCount = 0;
+string find_max(vector<string> words){
+    string max_word;
+    int max_unique_chars = 0;
 
     for (string word : words) {
-        int uniqueChars = 0;
-        
-        // Count unique characters in the current word
-        for (char c : word) {
-            if (count(word.begin(), word.end(), c) == 1) {
-                uniqueChars++;
+        int unique_chars = 0;
+        bool visited[256] = { false };
+
+        for (char ch : word) {
+            if (!visited[(int)ch]) {
+                visited[(int)ch] = true;
+                unique_chars++;
             }
         }
-        
-        // Update maxWord if current word has more unique characters
-        // or if it has the same number of unique characters but comes
-        // lexicographically before maxWord
-        if (uniqueChars > maxCount || (uniqueChars == maxCount && word < maxWord)) {
-            maxWord = word;
-            maxCount = uniqueChars;
+
+        if (unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < max_word)) {
+            max_word = word;
+            max_unique_chars = unique_chars;
         }
     }
 
-    return maxWord;
-}
-
-int main() {
-    vector<string> words1 = {"name", "of", "string"};
-    vector<string> words2 = {"name", "enam", "game"};
-    vector<string> words3 = {"aaaaaaa", "bb", "cc"};
-
-    cout << find_max(words1) << endl;  // Expected output: "string"
-    cout << find_max(words2) << endl;  // Expected output: "enam"
-    cout << find_max(words3) << endl;  // Expected output: "aaaaaaa"
-
-    return 0;
+    return max_word;
 }
