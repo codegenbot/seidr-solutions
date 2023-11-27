@@ -23,7 +23,7 @@ vector<string> separate_paren_groups(string paren_string) {
         } else if (c == ')') {
             count--;
             group += c;
-
+            
             if (count == 0) {
                 result.push_back(group);
                 group.clear();
