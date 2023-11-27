@@ -1,9 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,8 +14,8 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> incr_list(vector<int> l) {
-    vector<int> result;
+std::vector<int> incr_list(const std::vector<int>& l){
+    std::vector<int> result;
     for (int i = 0; i < l.size(); i++) {
         result.push_back(l[i] + 1);
     }
