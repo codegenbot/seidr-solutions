@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -10,25 +9,4 @@ long long double_the_difference(std::vector<float> lst){
         }
     }
     return sum;
-}
-
-int main(){
-    std::vector<float> lst;
-    
-    // Read input from user and populate 'lst' vector
-    int n;
-    std::cin >> n;
-    for(int i=0; i<n; i++){
-        float num;
-        std::cin >> num;
-        lst.push_back(num);
-    }
-    
-    long long odd_sum = double_the_difference(lst);
-
-    // Perform necessary operations
-
-    std::cout << odd_sum << std::endl;
-
-    return 0;
 }
