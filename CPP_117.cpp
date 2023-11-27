@@ -2,7 +2,19 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+using namespace std;
+
+int count_consonants(string word) {
+    int count = 0;
+    for (char c : word) {
+        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
+            count++;
+        }
+    }
+    return count;
+}
+
+bool areSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,22 +26,12 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-int count_consonants(std::string word) {
-    int count = 0;
-    for (char c : word) {
-        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
-            count++;
-        }
-    }
-    return count;
-}
-
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
+vector<string> select_words(string s, int n) {
+    vector<string> result;
     if (s.empty()) {
         return result;
     }
-    std::string word;
+    string word;
     for (char c : s) {
         if (c == ' ') {
             if (count_consonants(word) == n) {
@@ -47,6 +49,10 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(areSame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    // Additional test cases
+    assert(areSame(select_words("hello world", 2), {}));
+    assert(areSame(select_words("this is a sentence", 3), {"sentence"}));
+    assert(areSame(select_words("programming is fun", 4), {"programming"}));
     return 0;
 }
