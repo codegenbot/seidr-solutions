@@ -1,15 +1,5 @@
 #include <string>
 
-std::string solve(std::string s);
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::string output = solve(input);
-    std::cout << output << std::endl;
-    return 0;
-}
-
 std::string solve(std::string s){
     std::string result = "";
     bool hasLetter = false;
@@ -30,7 +20,7 @@ std::string solve(std::string s){
     }
     
     if(!hasLetter){
-        std::reverse(result.begin(), result.end());
+        reverse(result.begin(), result.end());
     }
     
     return result;
