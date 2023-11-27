@@ -1,5 +1,7 @@
 #include <vector>
 #include <cmath>
+#include <algorithm>
+
 using namespace std;
 
 float median(vector<float> l) {
