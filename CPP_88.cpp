@@ -3,6 +3,18 @@
 #include <algorithm>
 #include <cassert>
 
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::vector<int> sort_array(const std::vector<int>& array) {
     std::vector<int> sorted_array = array;
     int sum = array[0] + array[array.size() - 1];
@@ -14,13 +26,9 @@ std::vector<int> sort_array(const std::vector<int>& array) {
     return sorted_array;
 }
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 int main() {
     std::vector<int> sorted_array = sort_array({21, 14, 23, 11});
     std::vector<int> expected = {23, 21, 14, 11};
-    assert(sorted_array == expected);
+    assert(is_same(sorted_array, expected));
     return 0;
 }
