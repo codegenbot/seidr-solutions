@@ -11,7 +11,7 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
     for (int i = 0; i <= textLength - targetLength; i++) {
         bool found = true;
         for (int j = 0; j < target.length(); j++) {
-            if (text[i + j] != target[j % target.length()]) {
+            if (text[i + j] != target[j % targetLength]) {
                 found = false;
                 break;
             }
