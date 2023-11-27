@@ -1,20 +1,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(const vector<int>& numbers, int delimiter){
+    // implementation of issame function
 }
 
-std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter){ 
-    std::vector<int> result;
+vector<int> intersperse(const vector<int>& numbers, int delimiter){ 
+    vector<int> result;
     if(numbers.empty()){
         return result;
     }
