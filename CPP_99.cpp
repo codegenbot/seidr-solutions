@@ -1,11 +1,12 @@
 #include <string>
 #include <cmath>
+#include <cassert>
 
-int closest_integer(std::string value){
-    double num = std::stod(value);
-    int rounded = std::round(num);
-    int floor_num = std::floor(num);
-    int ceil_num = std::ceil(num);
+int closest_integer(string value){
+    double num = stod(value);
+    int rounded = round(num);
+    int floor_num = floor(num);
+    int ceil_num = ceil(num);
     
     if (rounded == floor_num || rounded == ceil_num) {
         return rounded;
