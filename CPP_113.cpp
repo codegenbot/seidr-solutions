@@ -19,7 +19,7 @@ vector<string> odd_count(vector<string> lst) {
 }
 
 int main() {
-    assert (odd_count({"271", "137", "314"}) == vector<string>{
+    assert(odd_count({"271", "137", "314"}) == vector<string>{
         "the number of odd elements 2n the str2ng 271 of the 2nput.",
         "the number of odd elements 3n the str3ng 137 of the 3nput.",
         "the number of odd elements 2n the str2ng 314 of the 2nput."
