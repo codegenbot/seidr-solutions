@@ -3,22 +3,22 @@ using namespace std;
 
 string solve(string s) {
     string result = "";
+    bool containsLetter = false;
 
-    bool hasLetter = false;
     for (int i = 0; i < s.length(); i++) {
         if (isalpha(s[i])) {
-            hasLetter = true;
-            if (islower(s[i])) {
-                result += toupper(s[i]);
-            } else {
+            containsLetter = true;
+            if (isupper(s[i])) {
                 result += tolower(s[i]);
+            } else {
+                result += toupper(s[i]);
             }
         } else {
             result += s[i];
         }
     }
 
-    if (!hasLetter) {
+    if (!containsLetter) {
         reverse(result.begin(), result.end());
     }
 
