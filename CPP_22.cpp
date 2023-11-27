@@ -1,27 +1,25 @@
 #include <vector>
 #include <cassert>
-#include <type_traits>
+#include <iostream>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(const vector<int>& a, vector<int>& b){
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-template<typename T>
-bool is_integer(const T& value){
-    return (is_same_v<T, int> || is_same_v<T, char>);
-}
-
-vector<int> filter_integers(const vector<int>& values){
-    vector<int> result;
-    for(const auto& value : values){
-        if(is_integer<decltype(value)>(value)){
+std::vector<int> filter_integers(const std::vector<int>& values) {
+    std::vector<int> result;
+    for (const auto& value : values) {
+        if (std::is_same_v<decltype(value), int>) {
             result.push_back(value);
         }
     }
     return result;
 }
 
-vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-assert(issame(filtered, vector<int>{3, 3, 3}));
+int main() {
+    std::vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
+    assert(issame(filtered, std::vector<int>{3, 3, 3}));
+    
+    return 0;
+}
