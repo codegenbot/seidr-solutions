@@ -16,14 +16,14 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
 int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
-
+   
     cin >> startingHeight;
     cin >> firstBounceHeight;
     cin >> numBounces;
-
+   
     double distance = calculateDistance(startingHeight, firstBounceHeight, numBounces);
-
+   
     cout << distance << endl;
-
+   
     return 0;
 }
