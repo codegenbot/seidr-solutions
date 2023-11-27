@@ -13,6 +13,11 @@ bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
+int main() {
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    return 0;
+}
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> filteredStrings;
     for (string str : strings) {
@@ -21,9 +26,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return filteredStrings;
-}
-
-int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
-    return 0;
 }
