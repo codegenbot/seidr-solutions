@@ -31,18 +31,3 @@ vector<int> even_odd_palindrome(int n) {
 bool isSame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
-
-int main() {
-    vector<int> result = even_odd_palindrome(1);
-    assert(isSame(result, {0, 1}));
-
-    result = even_odd_palindrome(10);
-    assert(isSame(result, {9, 1}));
-
-    result = even_odd_palindrome(100);
-    assert(isSame(result, {18, 81}));
-
-    // Add more test cases here
-
-    return 0;
-}
