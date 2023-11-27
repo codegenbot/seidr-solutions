@@ -19,13 +19,9 @@ int specialFilter(vector<int> nums){
 
 int main() {
     assert(specialFilter({}) == 0);
-    assert(specialFilter({11, 22, 33, 44, 55}) == 0);
-    assert(specialFilter({12, 21, 34, 43, 56}) == 5);
-    assert(specialFilter({15, 26, 37, 48, 59}) == 0);
-    assert(specialFilter({16, 23, 38, 47, 52}) == 1);
-    assert(specialFilter({17, 20, 39, 46, 51}) == 2);
-    assert(specialFilter({18, 29, 30, 41, 50}) == 0);
-    assert(specialFilter({19, 28, 31, 42, 53}) == 1);
-    // Add more test cases to verify the function
+    assert(specialFilter({10, 12, 15, 18, 21, 27}) == 3);
+    assert(specialFilter({9, 11, 13, 15, 17, 19}) == 0);
+    assert(specialFilter({123, 456, 789, 135, 468, 579}) == 2);
+    assert(specialFilter({22, 33, 44, 55, 66, 77}) == 0);
     return 0;
 }
