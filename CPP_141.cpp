@@ -1,29 +1,28 @@
 string file_name_check(string file_name){
-    int dotIndex = file_name.find('.');
-    if(dotIndex == string::npos) {
+    int dot_pos = file_name.find(".");
+    if(dot_pos == -1 || dot_pos == 0 || dot_pos == file_name.length()-1){
         return "No";
     }
-    string beforeDot = file_name.substr(0, dotIndex);
-    string afterDot = file_name.substr(dotIndex + 1);
-
-    if(beforeDot.empty() || !isalpha(beforeDot[0])) {
+    string file_name_before_dot = file_name.substr(0, dot_pos);
+    string file_extension = file_name.substr(dot_pos+1);
+    
+    if(file_name_before_dot.length() == 0 || !isalpha(file_name_before_dot[0])){
         return "No";
     }
-
-    if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
-        return "No";
-    }
-
-    int digitCount = 0;
-    for(char c : file_name) {
-        if(isdigit(c)) {
-            digitCount++;
+    
+    int digit_count = 0;
+    for(char c : file_name_before_dot){
+        if(isdigit(c)){
+            digit_count++;
         }
     }
-
-    if(digitCount > 3) {
+    if(digit_count > 3){
         return "No";
     }
-
+    
+    if(file_extension != "txt" && file_extension != "exe" && file_extension != "dll"){
+        return "No";
+    }
+    
     return "Yes";
 }
