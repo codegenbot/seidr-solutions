@@ -32,7 +32,7 @@ int calculateScore(std::string input) {
         }
         rolls++;
     }
-
+    
     for (int i = 0; i < 10; i++) {
         score += frames[i];
     }
