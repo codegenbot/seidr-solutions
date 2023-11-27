@@ -6,8 +6,9 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int n = nums.size();
     int diff = INT_MAX;
     int index = -1;
+    int half = n / 2;
 
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i <= half; i++) {
         int leftSum = 0;
         int rightSum = 0;
 
@@ -25,6 +26,11 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             diff = currentDiff;
             index = i;
         }
+    }
+
+    if (index == -1) { // No cut was found
+        std::vector<int> empty;
+        return std::make_pair(empty, empty);
     }
 
     std::vector<int> left(nums.begin(), nums.begin() + index);
@@ -45,11 +51,11 @@ int main() {
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
     for (int num : result.first) {
-        std::cout << num << " ";
+        std::cout << num << std::endl;
     }
 
     for (int num : result.second) {
-        std::cout << num << " ";
+        std::cout << num << std::endl;
     }
 
     return 0;
