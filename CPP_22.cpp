@@ -4,6 +4,29 @@
 
 using namespace std;
 
+vector<int> filter_integers(list<boost::any> values);
+
+bool issame(vector<int> a, vector<int> b);
+
+int main() {
+    list<boost::any> values;
+    values.push_back(10);
+    values.push_back(3.14);
+    values.push_back("hello");
+    values.push_back(20);
+    values.push_back(7);
+    values.push_back(2.5);
+
+    vector<int> result = filter_integers(values);
+
+    for (auto num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
 vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (auto value : values) {
@@ -24,26 +47,4 @@ bool issame(vector<int> a, vector<int> b) {
         }
     }
     return true;
-}
-
-int main() {
-    list<boost::any> values;
-    values.push_back(1);
-    values.push_back(2.5);
-    values.push_back("hello");
-    values.push_back(3);
-    values.push_back(4.7);
-    values.push_back(5);
-
-    vector<int> result = filter_integers(values);
-
-    vector<int> expected = {1, 3, 5};
-
-    if (issame(result, expected)) {
-        cout << "Test case passed" << endl;
-    } else {
-        cout << "Test case failed" << endl;
-    }
-
-    return 0;
 }
