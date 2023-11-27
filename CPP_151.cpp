@@ -13,7 +13,6 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int solve(){
-    // Read input from user and populate 'lst' vector
     int n;
     std::cin >> n;
     std::vector<float> lst;
