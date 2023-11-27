@@ -2,14 +2,13 @@
 #include <string>
 #include <cctype>
 #include <cassert>
-#include <algorithm>
 
 std::string flip_case(std::string str) {
-    for (auto& c : str) {
-        if (std::islower(c)) {
-            c = std::toupper(c);
-        } else if (std::isupper(c)) {
-            c = std::tolower(c);
+    for (int i = 0; i < str.length(); i++) {
+        if (std::islower(str[i])) {
+            str[i] = std::toupper(str[i]);
+        } else if (std::isupper(str[i])) {
+            str[i] = std::tolower(str[i]);
         }
     }
     return str;
