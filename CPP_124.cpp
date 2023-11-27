@@ -37,10 +37,15 @@ bool valid_date(std::string date){
     return true;
 }
 
-int main() {
+std::string get_date_input(){
     std::string date;
     std::cout << "Enter a date (YYYY-MM-DD): ";
     std::cin >> date;
+    return date;
+}
+
+int main() {
+    std::string date = get_date_input();
     
     if(valid_date(date)){
         std::cout << "Valid date" << std::endl;

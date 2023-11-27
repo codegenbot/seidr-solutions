@@ -36,7 +36,14 @@ int main() {
     vector<int> result = even_odd_palindrome(1);
     assert(isSame(result, {0, 1}));
 
-    // Add more test cases here
+    result = even_odd_palindrome(5);
+    assert(isSame(result, {0, 5}));
+    
+    result = even_odd_palindrome(10);
+    assert(isSame(result, {4, 6}));
+    
+    result = even_odd_palindrome(15);
+    assert(isSame(result, {7, 8}));
 
     return 0;
 }
