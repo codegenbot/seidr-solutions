@@ -1,21 +1,3 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     if (s.empty()) {
