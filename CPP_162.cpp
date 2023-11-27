@@ -25,3 +25,9 @@ string string_to_md5(string text) {
 
     return string(md5Hash);
 }
+
+int main() {
+    // Your code here
+
+    return 0;
+}
