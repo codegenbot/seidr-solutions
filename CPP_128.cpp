@@ -18,6 +18,5 @@ int prod_signs(std::vector<int> arr) {
 
 int main() {
     int result = prod_signs({-1, 1, 1, 0});
-    // Add code to handle or display the result as needed
     return 0;
 }
