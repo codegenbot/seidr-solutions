@@ -2,7 +2,15 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    // Implementation for comparing vectors a and b
+
+    // Code here...
+    
+    return false;
+}
+
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
     
@@ -32,7 +40,8 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
 }
 
 int main() {
-    std::vector<std::string> result = bf("Jupiter", "Neptune");
+    std::vector<std::string> result = bf("Jupiter", "Makemake");
+    // Output the result
     for (const auto& planet : result) {
         std::cout << planet << " ";
     }
