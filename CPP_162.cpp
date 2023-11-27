@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
+#include <array>
+#include <openssl/md5.h> // Add this line for the OpenSSL library
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) {
@@ -8,27 +9,23 @@ std::string string_to_md5(std::string text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* md5Context = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(md5Context, EVP_md5(), nullptr);
-    EVP_DigestUpdate(md5Context, text.c_str(), text.size());
-    EVP_DigestFinal_ex(md5Context, digest, nullptr);
-    EVP_MD_CTX_free(md5Context);
+    MD5_CTX md5Context;
+    MD5_Init(&md5Context);
+    MD5_Update(&md5Context, text.data(), text.size());
+    MD5_Final(digest, &md5Context);
 
-    char md5Hash[33];
+    std::array<char, 33> md5Hash;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        sprintf(&md5Hash[i * 2], "%02x", static_cast<unsigned int>(digest[i]));
+        sprintf(&md5Hash[i * 2], "%02x", (unsigned int)digest[i]);
     }
-    md5Hash[32] = '\0';
 
-    return std::string(md5Hash);
+    return std::string(md5Hash.data(), md5Hash.size());
 }
 
 int main() {
-    std::string text;
-    std::cout << "Enter the text to be converted to MD5: ";
-    std::getline(std::cin, text);
-
-    std::cout << "MD5 hash: " << string_to_md5(text) << std::endl;
-
+    std::string input;
+    std::cout << "Enter the text: ";
+    std::cin >> input;
+    std::cout << "MD5 hash: " << string_to_md5(input) << std::endl;
     return 0;
 }
