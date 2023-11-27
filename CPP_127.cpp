@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
     int end1 = interval1[1];
@@ -20,4 +26,13 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     }
     
     return "YES";
+}
+
+int main() {
+    // Test cases
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    assert(intersection({1, 10}, {5, 15}) == "YES");
+    assert(intersection({5, 10}, {1, 2}) == "NO");
+    
+    return 0;
 }
