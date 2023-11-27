@@ -9,10 +9,9 @@ bool issame(vector<int> a, vector<int> b) {
     sort(b.begin(), b.end());
     set_intersection(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
     result.erase(unique(result.begin(), result.end()), result.end());
-    return result.empty();
+    return result.size() == a.size() && a.size() == b.size();
 }
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    return 0;
 }
