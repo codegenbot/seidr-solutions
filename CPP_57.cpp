@@ -17,6 +17,15 @@ bool monotonic(vector<float> l){
 }
 
 int main(){
-    // Add test cases and print results here
+    vector<float> nums = {1.5, 2.3, 5.2, 8.1};
+    bool result = monotonic(nums);
+
+    if(result){
+        cout << "The list is monotonic" << endl;
+    }
+    else{
+        cout << "The list is not monotonic" << endl;
+    }
+
     return 0;
 }
