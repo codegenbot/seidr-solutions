@@ -1,20 +1,41 @@
 bool move_one_ball(vector<int> arr){
-    int n = arr.size();
-    if(n == 0){
+    if(arr.empty()){
         return true;
     }
-    int minIndex = 0;
-    for(int i=1; i<n; i++){
-        if(arr[i] < arr[minIndex]){
+    
+    int n = arr.size();
+    int minIndex = -1;
+    int minVal = INT_MAX;
+    
+    // Find the minimum element in the array
+    for(int i=0; i<n; i++){
+        if(arr[i] < minVal){
+            minVal = arr[i];
             minIndex = i;
         }
     }
-    int rotations = n - minIndex;
+    
+    // Check if the array is already sorted in non-decreasing order
+    bool sorted = true;
+    for(int i=0; i<n-1; i++){
+        if(arr[i] > arr[i+1]){
+            sorted = false;
+            break;
+        }
+    }
+    
+    // If the array is already sorted, return true
+    if(sorted){
+        return true;
+    }
+    
+    // Check if the array can be sorted by performing right shift operations
     for(int i=0; i<n; i++){
-        int newIndex = (i + rotations) % n;
-        if(arr[newIndex] < arr[i]){
+        int index = (minIndex + i) % n;
+        if(arr[index] > arr[(index+1) % n]){
             return false;
         }
     }
+    
     return true;
 }
