@@ -11,7 +11,7 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
 }
 
 int main() {
-    float n;
+    float n; // change the data type of n from int to float
     std::cin >> n;
     
     std::vector<float> prices(n);
