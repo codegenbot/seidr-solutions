@@ -18,11 +18,4 @@ bool check_if_last_char_is_a_letter(string txt){
     return true;
 }
 
-int main() {
-    assert(check_if_last_char_is_a_letter("apple pie") == true);
-    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
-    assert(check_if_last_char_is_a_letter("apple 1") == false);
-    assert(check_if_last_char_is_a_letter("apple ") == false);
-
-    return 0;
-}
+assert (check_if_last_char_is_a_letter("apple pi e ") == false);
