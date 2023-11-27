@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float snowMeltRate) {
     float snowOnGround = initialSnow;
     
