@@ -24,6 +24,7 @@ vector<int> sort_array(vector<int> array){
 }
 
 bool issame(vector<int> a, vector<int> b){
+    // Implementation of issame function
     if(a.size() != b.size()){
         return false;
     }
