@@ -18,12 +18,8 @@ int is_bored(std::string S){
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, input);
-    
-    int result = is_bored(input);
-    std::cout << "Number of sentences starting with 'I': " << result << std::endl;
-    
+    // Test the is_bored function
+    std::string sentence = "I am bored. Are you bored? Let's do something!";
+    int result = is_bored(sentence);
     return 0;
 }
