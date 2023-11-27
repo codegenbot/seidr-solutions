@@ -19,9 +19,6 @@ double probability(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-
-    double result = probability(n, m);
-    cout << result << endl;
-
+    cout << probability(n, m) << endl;
     return 0;
 }
