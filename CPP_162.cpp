@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <array>
 #include <openssl/md5.h>
 
 std::string string_to_md5(std::string text) {
@@ -9,17 +8,19 @@ std::string string_to_md5(std::string text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5_CTX md5Context;
-    MD5_Init(&md5Context);
-    MD5_Update(&md5Context, text.data(), text.size());
-    MD5_Final(digest, &md5Context);
+    EVP_MD_CTX* md5Context = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(md5Context, EVP_md5(), nullptr);
+    EVP_DigestUpdate(md5Context, text.c_str(), text.size());
+    EVP_DigestFinal_ex(md5Context, digest, nullptr);
+    EVP_MD_CTX_free(md5Context);
 
-    std::array<char, 33> md5Hash;
+    char md5Hash[33];
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
         sprintf(&md5Hash[i * 2], "%02x", static_cast<unsigned int>(digest[i]));
     }
+    md5Hash[32] = '\0';
 
-    return std::string(md5Hash.data(), md5Hash.size());
+    return std::string(md5Hash);
 }
 
 int main() {
