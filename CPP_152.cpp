@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath>
+#include <cmath> // Add this line
 
 using namespace std;
 
@@ -16,7 +16,7 @@ vector<int> compare(vector<int> game, vector<int> guess){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b){ // Fix the function signature
     if(a.size() != b.size()){
         return false;
     }
