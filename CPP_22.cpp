@@ -1,24 +1,17 @@
 #include <vector>
-#include <boost/any.hpp>
 #include <cassert>
+#include <boost/any.hpp>
+#include <boost/algorithm/cxx11/any_of.hpp>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    // implementation of issame function
 }
 
-std::vector<int> filter_integers(std::vector<boost::any> values){
+std::vector<int> filter_integers(const std::vector<boost::any>& values){
     std::vector<int> result;
-    for(auto value : values){
-        if(value.type() == typeid(int)){
-            result.push_back(boost::any_cast<int>(value));
+    for(const auto& value : values){
+        if(auto* ptr = boost::any_cast<int>(&value)){
+            result.push_back(*ptr);
         }
     }
     return result;
