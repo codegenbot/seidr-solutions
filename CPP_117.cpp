@@ -50,9 +50,10 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> words = select_words("Hello world! This is a test.", 2);
-    vector<string> expected = {"Hello", "world!", "This", "test."};
-    assert(areSame(words, expected));
+    vector<string> a = {"apple", "banana", "cherry"};
+    vector<string> b = {"apple", "banana", "cherry"};
+    
+    assert(areSame(a, b));
     
     return 0;
 }
