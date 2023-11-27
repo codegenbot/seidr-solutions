@@ -4,6 +4,7 @@ using namespace std;
 
 string validateTweet(string tweet) {
     int length = tweet.length();
+    
     if (length == 0) {
         return "You didn't type anything";
     } else if (length > 140) {
@@ -16,6 +17,8 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     getline(cin, tweet);
+    
     cout << validateTweet(tweet) << endl;
+    
     return 0;
 }
