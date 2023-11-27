@@ -2,24 +2,17 @@
 #include <algorithm>
 #include <climits>
 
+bool issame(std::vector<int> a, std::vector<int> b){
+    // implementation of the function
+}
+
+vector<int> minPath(vector<vector<int>> grid, int k);
+
 void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path){
     // implementation of the function
 }
 
-bool issame(vector<int> a, vector<int> b){
-    // implementation of the function
-}
-
-vector<int> minPath(vector<vector<int>>& grid, int k);
-
-int main(){
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    // more test cases
-
-    return 0;
-}
-
-vector<int> minPath(vector<vector<int>>& grid, int k){
+vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
     
@@ -47,12 +40,4 @@ vector<int> minPath(vector<vector<int>>& grid, int k){
     dfs(grid, startX, startY, k, path);
     
     return path;
-}
-
-void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path){
-    // implementation of the function
-}
-
-bool issame(vector<int> a, vector<int> b){
-    // implementation of the function
 }
