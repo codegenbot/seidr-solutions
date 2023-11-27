@@ -1,22 +1,20 @@
 #include <iostream>
-#include <string>
 #include <algorithm>
+#include <cassert>
 
-using namespace std;
-
-string make_palindrome(string str);
+std::string make_palindrome(std::string str);
 
 int main() {
-    string input;
-    cin >> input;
-    cout << make_palindrome(input) << endl;
+    std::string input = "jerry";
+    std::string output = make_palindrome(input);
+    assert(output == "jerryrrej");
     return 0;
 }
 
-string make_palindrome(string str){
+std::string make_palindrome(std::string str){
     int n = str.length();
-    string rev_str = str;
-    reverse(rev_str.begin(), rev_str.end());
-    string palindrome = str + rev_str.substr(1, n);
+    std::string rev_str = str;
+    std::reverse(rev_str.begin(), rev_str.end());
+    std::string palindrome = str + rev_str.substr(1, n-1);
     return palindrome;
 }
