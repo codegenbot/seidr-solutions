@@ -19,13 +19,8 @@ int main() {
     std::vector<float> prices = {10.0, 20.0, 30.0};
     std::vector<float> discounts = {10.0, 15.0, 20.0};
 
-    try {
-        float totalPrice = calculateTotalPrice(prices, discounts);
-        std::cout << "Total Price: " << totalPrice << std::endl;
-    } catch (const std::invalid_argument& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 1;
-    }
+    float totalPrice = calculateTotalPrice(prices, discounts);
+    std::cout << "Total Price: " << totalPrice << std::endl;
 
     return 0;
 }
