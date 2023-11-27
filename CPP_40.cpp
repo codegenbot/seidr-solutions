@@ -1,9 +1,7 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-using namespace std;
-
-bool triples_sum_to_zero(vector<int> l){
+bool triples_sum_to_zero(std::vector<int> l){
     int n = l.size();
     for(int i=0; i<n-2; i++){
         for(int j=i+1; j<n-1; j++){
@@ -24,9 +22,9 @@ int main(){
     bool result3 = triples_sum_to_zero({0, 0, 0, 0});
     
     // Print results
-    cout << result1 << endl;
-    cout << result2 << endl;
-    cout << result3 << endl;
+    std::cout << result1 << std::endl;
+    std::cout << result2 << std::endl;
+    std::cout << result3 << std::endl;
 
     return 0;
 }
