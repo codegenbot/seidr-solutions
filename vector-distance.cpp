@@ -14,25 +14,19 @@ double calculateEuclideanDistance(const std::vector<double>& vector1, const std:
 }
 
 int main() {
-    std::string s;
-    std::getline(std::cin, s);
-    int n = std::stoi(s);
+    int n;
+    std::cin >> n;
 
     std::vector<double> vector1(n);
     std::vector<double> vector2(n);
 
-    std::string input;
-    std::cin >> std::ws >> input;
-    std::stringstream ss(input);
     for (int i = 0; i < n; i++) {
-        ss >> vector1[i];
+        std::cin >> vector1[i];
     }
 
-    std::getline(std::cin, input);
-    std::replace(input.begin(), input.end(), ',', ' ');
-    std::stringstream ss2(std::cin >> std::ws >> input);
+    std::cin.ignore();
     for (int i = 0; i < n; i++) {
-        ss2 >> vector2[i];
+        std::cin >> vector2[i];
     }
 
     double distance = calculateEuclideanDistance(vector1, vector2);
