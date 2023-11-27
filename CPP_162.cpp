@@ -25,3 +25,13 @@ string string_to_md5(string text) {
 
     return string(md5Hash);
 }
+
+
+int main() {
+    // Add the -lcrypto flag to the compile command
+    return 0;
+}
+
+/* 
+Remove the duplicate main() function definition starting from line 35.
+*/
