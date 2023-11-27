@@ -28,7 +28,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         }
     }
 
-    if (index == -1) { // No cut was found
+    if (index == -1) {
         std::vector<int> empty;
         return std::make_pair(empty, empty);
     }
