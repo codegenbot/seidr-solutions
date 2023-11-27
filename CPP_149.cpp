@@ -27,6 +27,7 @@ int main() {
     vector<string> expected_output = { "cc", "dd", "aaaa", "bbbb" };
 
     vector<string> output = sort_even_length_strings(input);
+
     assert(output == expected_output);
 
     return 0;
