@@ -6,8 +6,13 @@
 using namespace std;
 
 bool isvowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    char vowels[] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+    for (int i = 0; i < 10; i++) {
+        if (c == vowels[i]) {
+            return true;
+        }
+    }
+    return false;
 }
 
 vector<string> select_words(string s, int n) {
@@ -52,6 +57,9 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    // additional test cases
+    assert(issame(select_words("Hello World", 2), {}));
+    assert(issame(select_words("The quick brown fox", 3), {"quick", "brown"}));
+    assert(issame(select_words("Programming is fun", 1), {"fun"}));
+    assert(issame(select_words("This is a test", 0), {"This", "is", "a"}));
     return 0;
 }
