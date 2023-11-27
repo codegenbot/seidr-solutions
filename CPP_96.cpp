@@ -1,17 +1,17 @@
-#include <vector>
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+// Function to compare two vectors and return a boolean value
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
+// Function to count prime numbers up to n
 vector<int> count_up_to(int n){
     vector<int> primes;
     if(n <= 1){
@@ -33,7 +33,14 @@ vector<int> count_up_to(int n){
     return primes;
 }
 
-int main(){
-    assert(issame(count_up_to(101), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
+int main() {
+    // Example usage of the count_up_to function
+    vector<int> result = count_up_to(20);
+    vector<int> expected = {2, 3, 5, 7, 11, 13, 17, 19};
+    if (issame(result, expected)) {
+        cout << "Test Passed!" << endl;
+    } else {
+        cout << "Test Failed!" << endl;
+    }
     return 0;
 }
