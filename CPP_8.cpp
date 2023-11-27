@@ -2,6 +2,9 @@
 #include <cassert>
 using namespace std;
 
+vector<int> sum_product(vector<int> numbers);
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;
