@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+
+using namespace std;
+
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallestValue = INT_MAX;
@@ -16,4 +22,27 @@ vector<int> pluck(vector<int> arr){
     }
     
     return result;
+}
+
+vector<int> issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return vector<int>(2, -1);
+    }
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return vector<int>(2, i);
+        }
+    }
+    
+    return vector<int>();
+}
+
+int main() {
+    vector<int> result = pluck({7, 9, 7, 1});
+    for(int i = 0; i < result.size(); i++){
+        cout << result[i] << " ";
+    }
+    cout << endl;
+    return 0;
 }
