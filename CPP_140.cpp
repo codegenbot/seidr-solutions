@@ -1,5 +1,7 @@
-string fix_spaces(string text){
-    string result = "";
+#include <string>
+
+std::string fix_spaces(std::string text){
+    std::string result = "";
     int consecutiveSpaces = 0;
     for(int i=0; i<text.length(); i++){
         if(text[i] == ' '){
