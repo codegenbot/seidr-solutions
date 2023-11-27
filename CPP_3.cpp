@@ -1,5 +1,5 @@
 #include <vector>
-using namespace std;
+#include <cassert>
 
 bool below_zero(vector<int> operations){
     int balance = 0;
@@ -13,6 +13,7 @@ bool below_zero(vector<int> operations){
 }
 
 int main() {
-    below_zero({1, -2, 2, -2, 5, -5, 4, -4});
+    assert (below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+    // Additional test cases can be added here...
     return 0;
 }
