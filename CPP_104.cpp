@@ -1,18 +1,18 @@
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
-    for(int num : x){
-        bool hasEvenDigit = false;
-        int temp = num;
-        while(temp > 0){
-            int digit = temp % 10;
+    for(int i=0; i<x.size(); i++){
+        int num = x[i];
+        bool flag = true;
+        while(num > 0){
+            int digit = num % 10;
             if(digit % 2 == 0){
-                hasEvenDigit = true;
+                flag = false;
                 break;
             }
-            temp /= 10;
+            num = num / 10;
         }
-        if(!hasEvenDigit){
-            result.push_back(num);
+        if(flag){
+            result.push_back(x[i]);
         }
     }
     sort(result.begin(), result.end());
