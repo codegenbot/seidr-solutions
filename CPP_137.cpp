@@ -1,18 +1,6 @@
+#include <any>
 #include <iostream>
 #include <string>
-#include <any>
-#include <sstream>
-
-template<typename T>
-std::any lexical_cast(const std::string& str)
-{
-    std::stringstream ss(str);
-    T result;
-    if (!(ss >> result)) {
-        return std::any();
-    }
-    return std::any(result);
-}
 
 std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -36,9 +24,9 @@ std::any compare_one(std::any a, std::any b) {
         std::string stringB = std::any_cast<std::string>(b);
         float floatA, floatB;
         try {
-            floatA = std::any_cast<float>(lexical_cast<float>(stringA));
-            floatB = std::any_cast<float>(lexical_cast<float>(stringB));
-        } catch (const std::bad_any_cast&) {
+            floatA = std::stof(stringA);
+            floatB = std::stof(stringB);
+        } catch (const std::invalid_argument&) {
             return std::any(std::string("None"));
         }
         if (floatA > floatB) {
