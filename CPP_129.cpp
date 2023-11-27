@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <climits>
 
 bool issame(std::vector<int> a, std::vector<int> b){
@@ -39,15 +38,4 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     dfs(grid, startX, startY, k, path);
     
     return path;
-}
-
-int main() {
-    std::vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
-    
-    for(int i=0; i<result.size(); i++){
-        std::cout << result[i] << " ";
-    }
-    std::cout << std::endl;
-    
-    return 0;
 }
