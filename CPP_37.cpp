@@ -5,12 +5,12 @@
 using namespace std;
 
 bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
+    if (a.size() != b.size()){
         return false;
     }
     
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++){
+        if (a[i] != b[i]){
             return false;
         }
     }
@@ -22,8 +22,8 @@ vector<float> sort_even(vector<float> l){
     vector<float> l_prime(l.size());
     vector<float> even_indices;
     
-    for(int i=0; i<l.size(); i++){
-        if(i%2 == 0){
+    for(int i = 0; i < l.size(); i++){
+        if(i % 2 == 0){
             even_indices.push_back(l[i]);
         }
         l_prime[i] = l[i];
@@ -32,8 +32,8 @@ vector<float> sort_even(vector<float> l){
     sort(even_indices.begin(), even_indices.end());
     
     int index = 0;
-    for(int i=0; i<l_prime.size(); i++){
-        if(i%2 == 0){
+    for(int i = 0; i < l_prime.size(); i++){
+        if(i % 2 == 0){
             l_prime[i] = even_indices[index];
             index++;
         }
