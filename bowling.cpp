@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 int calculateScore(std::string input) {
     int score = 0;
     int frame = 0;
@@ -10,17 +7,21 @@ int calculateScore(std::string input) {
     for (char ch : input) {
         if (ch == 'X') {
             score += 10;
+            
             if (frame < 9) {
                 score += 10;
+                
                 if (input[frame + 1] == 'X') {
                     score += 10;
                 } else {
                     score += input[frame + 1] - '0';
                 }
             }
+            
             isStrike = true;
         } else if (ch == '/') {
             score += 10 - (input[frame - 1] - '0');
+            
             if (frame < 9) {
                 if (input[frame + 1] == 'X') {
                     score += 10;
@@ -28,8 +29,10 @@ int calculateScore(std::string input) {
                     score += input[frame + 1] - '0';
                 }
             }
+            
             isSpare = true;
         } else if (ch == '-') {
+            // No need to handle '-' separately
         } else {
             score += ch - '0';
         }
@@ -38,6 +41,7 @@ int calculateScore(std::string input) {
             score += ch - '0';
             isSpare = false;
         }
+        
         if (isStrike && input[frame] != 'X') {
             score += ch - '0';
             isStrike = false;
@@ -47,14 +51,4 @@ int calculateScore(std::string input) {
     }
 
     return score;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-
-    int score = calculateScore(input);
-    std::cout << score << std::endl;
-
-    return 0;
 }
