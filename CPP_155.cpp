@@ -26,9 +26,7 @@ bool isSame(vector<int> a, vector<int> b){
 
 int main(){
     vector<int> result = even_odd_count(1);
-    vector<int> expected = {0, 1};
-    
-    bool same = isSame(result, expected);
+    assert(isSame(result, {0, 1}));
     
     return 0;
 }
