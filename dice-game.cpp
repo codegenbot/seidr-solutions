@@ -24,6 +24,5 @@ int main() {
 
     double result = probability(n, m);
     cout << fixed << setprecision(8) << result << endl;
-
     return 0;
 }
