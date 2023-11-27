@@ -1,7 +1,4 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
+```cpp
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size())
         return false;
@@ -62,8 +59,4 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     dfs(grid, startX, startY, k, path);
 
     return path;
-}
-
-int main(){
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 2}));
 }
