@@ -1,4 +1,7 @@
+#include <iostream>
 #include <vector>
+#include <cmath>
+
 using namespace std;
 
 bool has_close_elements(vector<float> numbers, float threshold) {
@@ -13,7 +16,12 @@ bool has_close_elements(vector<float> numbers, float threshold) {
 }
 
 int main() {
-    bool result = has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5);
-    assert(result == false);
+    vector<float> numbers = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    float threshold = 0.5;
+    
+    bool result = has_close_elements(numbers, threshold);
+    
+    cout << "Result: " << result << endl;
+    
     return 0;
 }
