@@ -1,17 +1,19 @@
 int closest_integer(string value){
     float num = stof(value); // Convert the string value to float
-    int floor_num = floor(num); // Round down to the nearest integer
-    int ceil_num = ceil(num); // Round up to the nearest integer
-
-    // Calculate the distance from the floor and ceil numbers to the original number
-    float dist_floor = abs(num - floor_num);
-    float dist_ceil = abs(num - ceil_num);
-
-    // If the distance to the floor number is less than or equal to the distance to the ceil number, return the floor number
-    // Otherwise, return the ceil number
-    if (dist_floor <= dist_ceil) {
-        return floor_num;
+    int rounded = round(num); // Round the float to the nearest integer
+    int floorNum = floor(num); // Round the float down to the nearest integer
+    int ceilNum = ceil(num); // Round the float up to the nearest integer
+    
+    // Check if the rounded number is equidistant from floorNum and ceilNum
+    if (abs(rounded - floorNum) == abs(rounded - ceilNum)) {
+        // If equidistant, return the farthest from zero
+        if (rounded > 0) {
+            return ceilNum;
+        } else {
+            return floorNum;
+        }
     } else {
-        return ceil_num;
+        // If not equidistant, return the rounded number
+        return rounded;
     }
 }
