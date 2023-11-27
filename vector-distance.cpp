@@ -13,10 +13,9 @@ double calculateEuclideanDistance(const std::vector<double>& vector1, const std:
 }
 
 int main() {
-    int n;
     std::string temp;
     std::getline(std::cin, temp);
-    n = std::stoi(temp);
+    int n = std::stoi(temp);
 
     std::string input;
     std::getline(std::cin, input);
