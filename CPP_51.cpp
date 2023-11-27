@@ -1,14 +1,9 @@
+#include <cassert>
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 std::string remove_vowels(std::string text);
-
-int main() {
-    assert(remove_vowels("ybcd") == "ybcd");
-    return 0;
-}
 
 std::string remove_vowels(std::string text) {
     std::string result = "";
@@ -19,4 +14,9 @@ std::string remove_vowels(std::string text) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(remove_vowels("ybcd") == "ybcd");
+    return 0;
 }
