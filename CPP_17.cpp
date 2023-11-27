@@ -1,3 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> parse_music(string music_string){
     vector<int> beats;
     string note = "";
@@ -17,12 +34,20 @@ vector<int> parse_music(string music_string){
     return beats;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    // code for comparing and returning true or false
-}
-
 int main() {
     vector<int> parse_music(string music_string);
 
-    // rest of the code
+    // Test case 1
+    string music1 = "o||o|o.";
+    vector<int> expected1 = {4, 2, 4, 1};
+    vector<int> result1 = parse_music(music1);
+    assert(issame(result1, expected1));
+
+    // Test case 2
+    string music2 = "o.";
+    vector<int> expected2 = {4, 1};
+    vector<int> result2 = parse_music(music2);
+    assert(issame(result2, expected2));
+
+    return 0;
 }
