@@ -1,6 +1,18 @@
 #include <vector>
 
-using namespace std;
+vector<int> f(int n);
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<int> f(int n) {
     vector<int> result;
@@ -11,7 +23,8 @@ vector<int> f(int n) {
                 factorial *= j;
             }
             result.push_back(factorial);
-        } else {
+        }
+        else {
             int sum = 0;
             for (int j = 1; j <= i; j++) {
                 sum += j;
@@ -20,20 +33,4 @@ vector<int> f(int n) {
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    
-    return true;
-}
-
-int main() {
-    assert(issame(f(3), {1, 2, 6}));
 }
