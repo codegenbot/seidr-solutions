@@ -1,7 +1,17 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b);
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
+  if (a.size() != b.size()) {
+    return false;
+  }
+  for (int i = 0; i < a.size(); i++) {
+    if (a[i] != b[i]) {
+      return false;
+    }
+  }
+  return true;
+}
 
 std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
   std::vector<std::vector<int>> result;
@@ -20,21 +30,4 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
     }
   });
   return result;
-}
-
-bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
-  if (a.size() != b.size()) {
-    return false;
-  }
-  for (int i = 0; i < a.size(); i++) {
-    if (a[i] != b[i]) {
-      return false;
-    }
-  }
-  return true;
-}
-
-int main() {
-  assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
-  return 0;
 }
