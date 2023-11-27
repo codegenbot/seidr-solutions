@@ -1,7 +1,6 @@
 #include <string>
-#include <cassert>
 
-int is_bored(std::string S){
+int count_sentences_starting_with_I(string S){
     int count = 0;
     std::string sentence;
     for(int i = 0; i < S.length(); i++){
@@ -16,10 +15,4 @@ int is_bored(std::string S){
         }
     }
     return count;
-}
-
-int main() {
-    assert(is_bored("You and I are going for a walk") == 0);
-
-    return 0;
 }
