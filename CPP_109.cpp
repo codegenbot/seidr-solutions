@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 bool move_one_ball(vector<int> arr){
     if(arr.empty()){
         return true;
@@ -22,4 +26,10 @@ bool move_one_ball(vector<int> arr){
     }
     
     return true;
+}
+
+int main() {
+    assert(move_one_ball({})==true);
+    
+    return 0;
 }
