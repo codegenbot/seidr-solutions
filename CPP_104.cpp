@@ -1,3 +1,7 @@
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for(int i=0; i<x.size(); i++){
@@ -9,7 +13,7 @@ vector<int> unique_digits(vector<int> x){
                 hasEvenDigit = true;
                 break;
             }
-            num /= 10;
+            num = num / 10;
         }
         if(!hasEvenDigit){
             result.push_back(x[i]);
