@@ -4,7 +4,7 @@
 
 vector<string> odd_count(vector<string> lst);
 
-vector<string> odd_count(vector<string> lst){
+vector<string> odd_count(vector<string> lst) {
     vector<string> result;
     for(string str : lst){
         int oddCount = 0;
