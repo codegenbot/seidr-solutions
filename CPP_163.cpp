@@ -1,5 +1,18 @@
 #include <vector>
-#include <cassert>
+
+vector<int> generate_integers(int a, int b);
+
+bool issame(vector<int> a, vector<int> b);
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    vector<int> result = generate_integers(a, b);
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
+    return 0;
+}
 
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
@@ -12,11 +25,13 @@ vector<int> generate_integers(int a, int b) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    // Code for checking if the two vectors are the same
-}
-
-int main() {
-    assert(issame(generate_integers(17, 89), {}));
-    // ...Other test cases
-    return 0;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
