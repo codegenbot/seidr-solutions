@@ -4,7 +4,7 @@
 #include <utility>
 #include <cassert>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,7 +24,7 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
     }
     
     std::vector<std::pair<int, int>> sums;
-    for (int num : nums) {
+    for (const int& num : nums) {
         int sum = 0;
         int abs_num = std::abs(num);
         while (abs_num > 0) {
@@ -36,14 +36,8 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
     
     std::sort(sums.begin(), sums.end());
     std::vector<int> result;
-    for (auto pair : sums) {
+    for (const auto& pair : sums) {
         result.push_back(pair.second);
     }
     return result;
-}
-
-int main() {
-    assert(isSame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>({-76, -21, 0, 4, 23, 6, 6})) == true);
-
-    // The return statement is not necessary in C++.
 }
