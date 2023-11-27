@@ -6,16 +6,19 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-  if(a.size() != b.size()) {
+  // Compare the size of the two vectors
+  if (a.size() != b.size()) {
     return false;
   }
-  
-  for(int i = 0; i < a.size(); i++) {
-    if(a[i] != b[i]) {
+
+  // Iterate over each element and compare
+  for (int i = 0; i < a.size(); i++) {
+    if (a[i] != b[i]) {
       return false;
     }
   }
-  
+
+  // If all elements match, return true
   return true;
 }
 
