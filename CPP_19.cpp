@@ -1,3 +1,12 @@
+#include <iostream>
+#include <sstream>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 string sort_numbers(string numbers){
     map<string, int> number_map;
     number_map["zero"] = 0;
