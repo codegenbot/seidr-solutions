@@ -11,19 +11,12 @@ vector<float> get_positive(vector<float> l){
 }
 
 bool issame(vector<float> a,vector<float> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    // implementation goes here
+    return false;
 }
 
-int main() {
-    assert(issame(get_positive({}), {}));
+int main(){
+    assert(issame(get_positive({}) , {}));
     // add more assertions if needed
     return 0;
 }
