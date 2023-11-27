@@ -19,9 +19,14 @@ int is_bored(std::string S){
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    int result = is_bored(input);
-    std::cout << result << std::endl;
+    // Test cases
+    std::string test1 = "I am bored.";
+    std::string test2 = "Are you bored?";
+    std::string test3 = "No, I'm not bored!";
+    
+    int result1 = is_bored(test1);
+    int result2 = is_bored(test2);
+    int result3 = is_bored(test3);
+    
     return 0;
 }
