@@ -35,6 +35,7 @@ bool is_same(vector<string> a, vector<string> b) {
 
 int main() {
     assert(is_same(reverse_delete("mamma", "mia"), {"", "True"}));
-    /* your code here */
+    assert(is_same(reverse_delete("hello", "o"), {"hell", "False"}));
+    assert(is_same(reverse_delete("racecar", "aeiou"), {"rccr", "True"}));
     return 0;
 }
