@@ -26,15 +26,16 @@ string match_parens(vector<string> lst){
     }
 }
 
-int main() {
+int main(){
     vector<string> lst;
-    string input;
-    while (getline(cin, input)) {
-        lst.push_back(input);
+    int n;
+    cin >> n;
+    for(int i=0; i<n; i++){
+        string str;
+        cin >> str;
+        lst.push_back(str);
     }
-
     string result = match_parens(lst);
     cout << result << endl;
-
     return 0;
 }
