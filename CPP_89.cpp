@@ -21,5 +21,6 @@ string encrypt(string s){
 
 int main() {
     assert (encrypt("a")=="e");
+    
     return 0;
 }
