@@ -1,7 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
-#include <algorithm>
 
 using namespace std;
 
@@ -9,7 +7,12 @@ bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
-    return std::equal(a.begin(), a.end(), b.begin());
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> f(int n){
@@ -34,7 +37,7 @@ vector<int> f(int n){
 }
 
 int main(){
-    assert(std::equal(f(3).begin(), f(3).end(), {1, 2, 6}));
+    assert(issame(f(3), vector<int>{1, 2, 6}));
     
     return 0;
 }
