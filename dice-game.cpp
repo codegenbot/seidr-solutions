@@ -22,7 +22,7 @@ int main() {
     cin >> n >> m;
 
     double result = probability(n, m);
-    cout << setprecision(8) << result << endl;
+    cout << fixed << setprecision(8) << result << endl;
 
     return 0;
 }
