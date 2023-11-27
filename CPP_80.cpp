@@ -14,13 +14,19 @@ bool is_happy(string s){
 
 int main() {
     // Add test cases here
-    string s1 = "hello";
-    string s2 = "world";
-    string s3 = "happy";
     
-    cout << is_happy(s1) << endl; // Output: true
-    cout << is_happy(s2) << endl; // Output: false
-    cout << is_happy(s3) << endl; // Output: true
+    // Test case 1: "abc"
+    // Expected output: true
+    string s1 = "abc";
+    bool result1 = is_happy(s1);
+    // Test case 2: "aab"
+    // Expected output: false
+    string s2 = "aab";
+    bool result2 = is_happy(s2);
+    // Test case 3: "xyz"
+    // Expected output: true
+    string s3 = "xyz";
+    bool result3 = is_happy(s3);
     
     return 0;
 }
