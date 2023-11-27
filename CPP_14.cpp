@@ -1,9 +1,16 @@
-vector<string> all_prefixes(string str){
-    vector<string> result;
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+vector<string> all_prefixes(string str) {
+    vector<string> prefixes;
     string prefix = "";
-    for(int i = 0; i < str.length(); i++){
+
+    for (int i = 0; i < str.length(); i++) {
         prefix += str[i];
-        result.push_back(prefix);
+        prefixes.push_back(prefix);
     }
-    return result;
+
+    return prefixes;
 }
