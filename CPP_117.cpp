@@ -1,10 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 bool issame(vector<string> a, vector<string> b);
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -43,22 +41,4 @@ vector<string> select_words(string s, int n) {
     }
     
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    string s;
-    int n;
-    cin >> s >> n;
-    
-    vector<string> result = select_words(s, n);
-    
-    vector<string> expected_result = {"hello", "world"};
-    
-    assert(areSame(result, expected_result));
-    
-    return 0;
 }
