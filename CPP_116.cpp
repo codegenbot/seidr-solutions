@@ -1,13 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <bitset>
 #include <cassert>
-using namespace std;
 
-vector<int> sort_array(vector<int> arr){
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        int countA = __builtin_popcount(a);
-        int countB = __builtin_popcount(b);
+std::vector<int> sort_array(std::vector<int> arr);
+bool is_same(const std::vector<int>& a, const std::vector<int>& b);
+
+std::vector<int> sort_array(std::vector<int> arr){
+    std::sort(arr.begin(), arr.end(), [](int a, int b) {
+        int countA = std::bitset<32>(a).count();
+        int countB = std::bitset<32>(b).count();
         if (countA == countB) {
             return a < b;
         }
@@ -16,16 +19,13 @@ vector<int> sort_array(vector<int> arr){
     return arr;
 }
 
-int main(){
-    vector<int> input = {2, 4, 8, 16, 32};
-    vector<int> expected_output = {2, 4, 8, 16, 32};
-    
-    vector<int> result = sort_array(input);
-    
-    assert(result.size() == expected_output.size());
-    for (int i = 0; i < result.size(); i++) {
-        assert(result[i] == expected_output[i]);
+bool is_same(const std::vector<int>& a, const std::vector<int>& b){
+    if(a.size() != b.size())
+        return false;
+
+    for(int i=0; i<a.size(); i++){
+        if(a[i]!=b[i])
+            return false;
     }
-    
-    return 0;
+    return true;
 }

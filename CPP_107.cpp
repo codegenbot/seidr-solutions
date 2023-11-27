@@ -1,13 +1,24 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <cassert>
 
-bool is_same_vector(std::vector<int> a, std::vector<int> b);
+bool is_same_vector(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result(2, 0);
     for (int i = 1; i <= n; i++) {
-        std::string s = to_string(i);
+        std::string s = std::to_string(i);
         int len = s.length();
         bool isPalindrome = true;
         for (int j = 0; j < len / 2; j++) {
@@ -28,26 +39,10 @@ std::vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-bool is_same_vector(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
     std::vector<int> expected = { 0, 1 };
     std::vector<int> result = even_odd_palindrome(1);
-    if (is_same_vector(result, expected)) {
-        std::cout << "Test case passed." << std::endl;
-    }
-    else {
-        std::cout << "Test case failed." << std::endl;
-    }
+    assert(is_same_vector(result, expected));
+    std::cout << "Test case passed." << std::endl;
     return 0;
 }
