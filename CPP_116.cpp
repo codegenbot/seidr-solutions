@@ -3,14 +3,12 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool is_same(vector<int> a, vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> sortVector(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::sort(arr.begin(), arr.end(), [](int a, int b) {
         int countA = __builtin_popcount(a);
         int countB = __builtin_popcount(b);
         if (countA == countB) {
@@ -22,6 +20,6 @@ vector<int> sortVector(vector<int> arr) {
 }
 
 int main() {
-    assert(is_same(sortVector({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+    assert(is_same(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
     return 0;
 }
