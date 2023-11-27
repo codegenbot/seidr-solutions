@@ -1,9 +1,13 @@
-bool simplify(string x,string n){
-    int numerator_x = stoi(x.substr(0, x.find("/")));
-    int denominator_x = stoi(x.substr(x.find("/") + 1));
-    
-    int numerator_n = stoi(n.substr(0, n.find("/")));
-    int denominator_n = stoi(n.substr(n.find("/") + 1));
-    
-    return (numerator_x * denominator_n == numerator_n * denominator_x);
+#include <string>
+
+bool simplify(const std::string& x, const std::string& n){
+    int numeratorX = std::stoi(x.substr(0, x.find('/')));
+    int denominatorX = std::stoi(x.substr(x.find('/') + 1));
+    int numeratorN = std::stoi(n.substr(0, n.find('/')));
+    int denominatorN = std::stoi(n.substr(n.find('/') + 1));
+
+    int numeratorResult = numeratorX * numeratorN;
+    int denominatorResult = denominatorX * denominatorN;
+
+    return numeratorResult % denominatorResult == 0;
 }
