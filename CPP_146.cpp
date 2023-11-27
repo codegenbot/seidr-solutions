@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 int specialFilter(vector<int> nums){
     int count = 0;
     for(int num : nums){
@@ -9,4 +16,9 @@ int specialFilter(vector<int> nums){
         }
     }
     return count;
+}
+
+int main() {
+    assert(specialFilter({}) == 0);
+    return 0;
 }
