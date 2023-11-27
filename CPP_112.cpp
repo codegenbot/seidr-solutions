@@ -1,3 +1,12 @@
+#include <vector>
+#include <string>
+#include <cassert>
+#include <algorithm>
+
+using namespace std;
+
+vector<string> reverse_delete(string s, string c);
+
 vector<string> reverse_delete(string s, string c) {
     string result = "";
     for (int i = 0; i < s.length(); i++) {
