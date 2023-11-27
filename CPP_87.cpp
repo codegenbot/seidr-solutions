@@ -7,11 +7,9 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
             }
         }
     }
-    sort(result.begin(), result.end(), [](vector<int>& a, vector<int>& b) {
-        if (a[0] == b[0]) {
-            return a[1] > b[1];
-        }
-        return a[0] < b[0];
-    });
+    sort(result.begin(), result.end());
+    for (int i = 0; i < result.size(); i++) {
+        sort(result[i].begin(), result[i].end(), greater<int>());
+    }
     return result;
 }
