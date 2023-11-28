@@ -14,20 +14,19 @@ int main() {
     size_t n;
     std::cin >> n;
 
-    std::vector<double> temp1(n);
+    std::vector<double> vec2(n, 0.0);
     for (size_t i = 0; i < n; i++) {
-        std::cin >> temp1[i];
+        std::cin >> vec2[i];
     }
 
-    size_t m;
-    std::cin >> m;
+    std::cin >> n;
 
-    std::vector<double> temp2(m);
-    for (size_t i = 0; i < m; i++) {
-        std::cin >> temp2[i];
+    std::vector<double> vec1(n, 0.0);
+    for (size_t i = 0; i < n; i++) {
+        std::cin >> vec1[i];
     }
-    
-    double distance = euclideanDistance(temp1, temp2);
+
+    double distance = euclideanDistance(vec1, vec2);
     std::cout << distance;
 
     return 0;
