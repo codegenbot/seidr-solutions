@@ -12,7 +12,7 @@ float euclideanDistance(const std::vector<float>& vec1, const std::vector<float>
 }
 
 int main() {
-    double n;
+    float n;
     std::cin >> n;
 
     std::vector<float> vec1(n);
