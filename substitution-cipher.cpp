@@ -1,11 +1,15 @@
 #include <iostream>
 #include <string>
 
-std::string decipherMessage(std::string cipher1, std::string cipher2, std::string message) {
-    std::string decipheredMessage;
-    for (char c : message) {
-        size_t index = cipher2.find(c);
-        decipheredMessage += cipher1[index];
+std::string decipherMessage(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::string decipheredMessage = message;
+    for (int i = 0; i < message.length(); i++) {
+        for (int j = 0; j < cipher1.length(); j++) {
+            if (message[i] == cipher2[j]) {
+                decipheredMessage[i] = cipher1[j];
+                break;
+            }
+        }
     }
     return decipheredMessage;
 }
