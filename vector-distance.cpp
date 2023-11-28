@@ -17,16 +17,14 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> v1[i];
     }
-    
-    std::cin >> n;
+
     std::vector<double> v2(n);
     for (int i = 0; i < n; i++) {
         std::cin >> v2[i];
     }
-    
+
     double distance = euclideanDistance(v1, v2);
-    std::cout.precision(17);
-    std::cout << std::fixed << distance << std::endl;
+    std::cout << distance << std::endl;
 
     return 0;
 }
