@@ -20,7 +20,7 @@ int main() {
     }
 
     std::cin >> n;
-    
+
     std::vector<double> vec2(n);
     for (size_t i = 0; i < n; i++) {
         std::cin >> vec2[i];
