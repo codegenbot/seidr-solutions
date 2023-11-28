@@ -19,7 +19,7 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    std::cin >> n;
+    std::cin.ignore();
 
     std::vector<double> vec2(n);
     for (size_t i = 0; i < n; i++) {
