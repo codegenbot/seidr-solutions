@@ -18,7 +18,7 @@ int main() {
     for (size_t i = 0; i < n; i++) {
         std::cin >> vec2[i];
     }
-
+    
     std::cin >> n;
 
     std::vector<double> vec1(n);
