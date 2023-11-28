@@ -8,9 +8,9 @@ bool evaluateBoolean(string expr) {
     } else if (expr == "f") {
         return false;
     } else {
-        bool left = evaluateBoolean(expr.substr(0, expr.find_first_of("&|")));
-        bool right = evaluateBoolean(expr.substr(expr.find_first_of("&|") + 1));
-        char op = expr[expr.find_first_of("&|")];
+        bool left = evaluateBoolean(expr.substr(0, expr.find_last_of("&|")));
+        bool right = evaluateBoolean(expr.substr(expr.find_last_of("&|") + 1));
+        char op = expr[expr.find_last_of("&|")];
         if (op == '&') {
             return left && right;
         } else {
