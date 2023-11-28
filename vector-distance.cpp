@@ -5,7 +5,7 @@
 double euclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double sum = 0.0;
     for (size_t i = 0; i < vec1.size(); i++) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        sum += pow(vec1[i] - vec2[i], 2.0);
     }
     return sqrt(sum);
 }
@@ -18,7 +18,7 @@ int main() {
     for (size_t i = 0; i < n; i++) {
         std::cin >> vec1[i];
     }
-    
+
     std::vector<double> vec2(n);
     for (size_t i = 0; i < n; i++) {
         std::cin >> vec2[i];
