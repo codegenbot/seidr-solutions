@@ -28,6 +28,5 @@ int main() {
 
     double distance = euclideanDistance(vec1, vec2);
     std::cout << distance;
-
     return 0;
 }
