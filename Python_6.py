@@ -22,6 +22,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return result
 
-
-paren_string = input("Enter the parentheses string: ")
-print(parse_nested_parens(paren_string))
+print(parse_nested_parens(input()))
