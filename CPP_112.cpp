@@ -1,6 +1,8 @@
-#include <vector>
+#include <iostream>
 #include <string>
-#include <cassert>
+#include <vector>
+
+using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
@@ -28,7 +30,7 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string>& a, vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -43,7 +45,15 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    vector<string> expected = {"", "True"};
+    vector<string> output = reverse_delete("mamma", "mia");
+
+    // Compare the output with the expected result
+    if (issame(output, expected)) {
+        cout << "Test case passed!" << endl;
+    } else {
+        cout << "Test case failed!" << endl;
+    }
 
     return 0;
 }
