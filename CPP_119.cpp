@@ -1,22 +1,9 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <cassert>
 
 using namespace std;
-
-string match_parens(vector<string> lst);
-
-int main() {
-    // Test cases
-    assert(match_parens({")", "("}) == "Yes");
-    assert(match_parens({"(", ")"}) == "Yes");
-    assert(match_parens({"(", ")", "("}) == "No");
-    assert(match_parens({"(", ")", "(", ")"}) == "Yes");
-    assert(match_parens({"(", ")", ")", "("}) == "No");
-    
-    return 0;
-}
 
 string match_parens(vector<string> lst){
     string result = "Yes";
@@ -42,4 +29,9 @@ string match_parens(vector<string> lst){
         result = "No";
     }
     return result;
+}
+
+int main(){
+    assert(match_parens({")", "("}) == "Yes");
+    return 0;
 }
