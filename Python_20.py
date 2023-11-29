@@ -1,4 +1,3 @@
-import sys
 from typing import List, Tuple
 
 def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
@@ -9,9 +8,12 @@ def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
                 pairs.append((arr[i], arr[j]))
     return pairs
 
-arr = list(map(int, sys.stdin.readline().split()))
-target = int(sys.stdin.readline())
+try:
+    arr = list(map(int, input().split()))
+    target = int(input())
 
-result = find_pairs(arr, target)
-for pair in result:
-    print(pair[0], pair[1])
+    result = find_pairs(arr, target)
+    for pair in result:
+        print(pair[0], pair[1])
+except ValueError:
+    print("Invalid input.")
