@@ -1,6 +1,4 @@
-from typing import List
-
-numbers = list(map(float, input().split()))
+numbers = list(map(float, input().strip().split()))
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
     mean = sum(numbers) / len(numbers)
