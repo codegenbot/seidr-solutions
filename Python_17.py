@@ -8,9 +8,9 @@ def parse_music(music_string: str) -> List[int]:
 
 
 def main():
-    music_string = input()  
-    result = parse_music(music_string)  
-    print(result)  
+    music_string = input()
+    result = parse_music(music_string)
+    print(result)
 
 
 if __name__ == "__main__":
