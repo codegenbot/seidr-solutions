@@ -12,6 +12,6 @@ def longest(strings: List[str]) -> Optional[str]:
     return longest_string
 
 
-strings = sys.argv[1:]
+strings = sys.stdin.readline().strip().split()
 result = longest(strings)
 print(result)
