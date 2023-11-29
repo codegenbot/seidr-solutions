@@ -9,7 +9,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         sum += nums[i];
     }
     
-    int target = (sum + 1) / 2;
+    int target = sum / 2;
     int currSum = 0;
     int diff = INT_MAX;
     int idx = 0;
@@ -43,7 +43,7 @@ int main() {
         std::cout << result.first[i] << std::endl;
     }
     
-    for (int i = 0; i < result.second.size(); i++) {
+    for (int i = 0; i <= result.second.size(); i++) {
         std::cout << result.second[i] << std::endl;
     }
     
