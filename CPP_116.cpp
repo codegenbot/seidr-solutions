@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 std::vector<int> sort_vector(std::vector<int> arr){
     std::sort(arr.begin(), arr.end(), [](int a, int b){
@@ -11,4 +12,9 @@ std::vector<int> sort_vector(std::vector<int> arr){
         return countA < countB;
     });
     return arr;
+}
+
+int main() {
+    assert(sort_vector({2, 4, 8, 16, 32}) == std::vector<int>({2, 4, 8, 16, 32}));
+    return 0;
 }
