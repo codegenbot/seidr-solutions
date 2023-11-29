@@ -1,38 +1,29 @@
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
+bool issame(vector<string> a, vector<string> b){
+    // function implementation
+}
 
 vector<string> words_string(string s){
     vector<string> words;
-    string word = "";
+    string word;
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
-            if(word != ""){
+            if(!word.empty()){
                 words.push_back(word);
                 word = "";
             }
-        } else {
+        }
+        else{
             word += s[i];
         }
     }
-    if(word != ""){
+    if(!word.empty()){
         words.push_back(word);
     }
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    // Compare a and b here and return true or false
-    // Based on the comparison result.
-    // Your code here
-}
-
 int main(){
-    vector<string> a = words_string("ahmed     , gamal");
-    vector<string> b = {"ahmed", "gamal"};
-    bool result = issame(a, b);
-    cout << boolalpha << result << endl;
-    
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    // additional code
     return 0;
 }
