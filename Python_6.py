@@ -11,8 +11,11 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             stack.append("(")
             count += 1
         elif char == ")":
-            count -= 1
-            result.append(count + 1)
+            if count > 0:
+                count -= 1
+                result.append(count + 1)
+            else:
+                result.append(-1)
         else:
             stack.pop()
 
@@ -22,4 +25,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return result
 
-print(parse_nested_parens(input()))
+
+paren_string = input()
+print(parse_nested_parens(paren_string))
