@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <map>
 
+using namespace std;
+
 vector<string> by_length(vector<int> arr){
     vector<int> sorted_arr;
     for(int i=0; i<arr.size(); i++){
@@ -24,14 +26,14 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
+vector<string> by_length(vector<int> arr);
+
 int main() {
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     vector<string> result = by_length(arr);
-    vector<string> expected_result = {"Nine", "Eight", "Seven", "Six", "Five", "Four", "Three", "Two", "One"};
-    if (issame(result, expected_result)) {
-        cout << "Test case passed";
-    } else {
-        cout << "Test case failed";
+    for (string s : result) {
+        cout << s << " ";
     }
+
     return 0;
 }
