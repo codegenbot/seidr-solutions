@@ -7,7 +7,7 @@ float calculateSnow(int hours, float initialSnow, float snowFallRate, float snow
     float snowOnGround = initialSnow;
 
     for (int i = 0; i < hours; i++) {
-        float snowMelted = snowOnGround * snowMeltingRate;
+        float snowMelted = snowOnGround * snowMeltingRate / 100;
         snowOnGround += snowFallRate;
         snowOnGround -= snowMelted;
     }
@@ -21,7 +21,7 @@ int main() {
     cin >> hours >> initialSnow >> snowFallRate >> snowMeltingRate;
 
     float result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltingRate);
-    cout << fixed << setprecision(17) << result << endl;
+    cout << fixed << setprecision(15) << result << endl;
 
     return 0;
 }
