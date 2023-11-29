@@ -10,8 +10,9 @@ def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
     return pairs
 
 
-arr = [int(x) for x in input().split()]
-target = int(input())
+n = int(input().strip())
+arr = list(map(int, input().strip().split()))
+target = int(input().strip())
 
 result = find_pairs(arr, target)
 for pair in result:
