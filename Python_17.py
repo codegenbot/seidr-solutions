@@ -2,6 +2,7 @@ from typing import List
 
 def parse_music(music_string: str) -> List[int]:
     result = []
+
     for char in music_string:
         if char == "o":
             result.append(4)
@@ -13,4 +14,5 @@ def parse_music(music_string: str) -> List[int]:
             result.append(1)
         else:
             result.append(0)
+
     return result
