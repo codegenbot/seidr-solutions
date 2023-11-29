@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 string match_parens(vector<string> lst);
 
 string match_parens(vector<string> lst) {
@@ -18,7 +20,7 @@ string match_parens(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"()()", "((())", "()"};
+    vector<string> lst = {"()", "(())", "(()"};
     string result = match_parens(lst);
     return 0;
 }
