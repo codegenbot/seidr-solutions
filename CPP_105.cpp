@@ -1,9 +1,4 @@
 #include <string>
-#include <vector>
-#include <algorithm>
-#include <map>
-
-using namespace std;
 
 vector<string> by_length(vector<int> arr){
     vector<int> sorted_arr;
@@ -26,12 +21,9 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-int main() {
-    vector<string> result = by_length({9, 2, 5, 1, 7, 3});
-    for (string s : result) {
-        cout << s << " ";
-    }
-    cout << endl;
+vector<string> by_length(vector<int> arr);
 
+int main() {
+    // code here
     return 0;
 }
