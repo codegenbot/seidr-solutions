@@ -1,7 +1,12 @@
 #include <vector>
+#include <cassert>
 
-vector<int> make_a_pile(int n){
-    vector<int> levels;
+bool isSame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
+
+std::vector<int> make_a_pile(int n){
+    std::vector<int> levels;
     int stones = n;
     levels.push_back(stones);
     
@@ -18,19 +23,8 @@ vector<int> make_a_pile(int n){
     return levels;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 int main(){
-    assert(issame(make_a_pile(8) , {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    
     return 0;
 }
