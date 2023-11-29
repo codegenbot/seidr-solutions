@@ -1,6 +1,4 @@
-import sys
-from typing import List, Optional
-
+from typing import Optional, List
 
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
@@ -10,7 +8,6 @@ def longest(strings: List[str]) -> Optional[str]:
         if len(string) > len(longest_string):
             longest_string = string
     return longest_string
-
 
 strings = input().strip().split()
 result = longest(strings)
