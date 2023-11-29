@@ -11,13 +11,11 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             stack.append("(")
             count += 1
         elif char == ")":
-            if count > 0:
-                count -= 1
-                result.append(count + 1)
-            else:
-                result.append(-1)
+            count -= 1
+            result.append(count + 1)
         else:
-            stack.pop()
+            if stack:
+                stack.pop()
 
     while stack:
         result.append(-1)
@@ -26,5 +24,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return result
 
 
-paren_string = input()
+paren_string = input("Enter the nested parentheses string: ")
 print(parse_nested_parens(paren_string))
