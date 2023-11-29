@@ -26,13 +26,10 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 int main() {
     std::string text, target;
     std::cin >> text >> target;
-
     std::vector<int> result = indicesOfSubstring(text, target);
-
     for (int index : result) {
         std::cout << index << " ";
     }
     std::cout << std::endl;
-
     return 0;
 }
