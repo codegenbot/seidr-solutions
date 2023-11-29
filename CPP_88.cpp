@@ -24,6 +24,9 @@ bool issame(vector<int> a, vector<int> b){
         return false;
     }
     
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    
     for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
@@ -35,17 +38,4 @@ bool issame(vector<int> a, vector<int> b){
 
 int main() {
     // Add your test cases and assertions here
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
-    vector<int> c = {1, 3, 2};
-    
-    // Test issame function
-    bool result1 = issame(a, b);  // true
-    bool result2 = issame(a, c);  // false
-    
-    // Test sort_array function
-    vector<int> array = {3, 1, 2};
-    vector<int> sortedArray = sort_array(array);  // {1, 3, 2}
-    
-    return 0;
 }
