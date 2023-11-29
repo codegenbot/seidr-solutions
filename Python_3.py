@@ -1,5 +1,6 @@
 from typing import List
 
+
 def below_zero(nums: List[int]) -> bool:
     balance = 0
     for num in nums:
@@ -8,11 +9,16 @@ def below_zero(nums: List[int]) -> bool:
             return True
     return False
 
-def main(n: int, nums: List[int]):
+
+def main():
+    n = int(input())
+    nums = []
+    for _ in range(n):
+        num = int(input())
+        nums.append(num)
     result = below_zero(nums)
     print(result)
 
+
 if __name__ == "__main__":
-    n = 5  # example value, replace with the actual number of elements
-    nums = [1, -2, 3, -4, 5]  # example values, replace with the actual list of elements
-    main(n, nums)
+    main()
