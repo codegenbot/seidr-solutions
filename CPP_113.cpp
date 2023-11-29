@@ -1,8 +1,8 @@
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
-    for(string str : lst){
+    for(string s : lst){
         int count = 0;
-        for(char c : str){
+        for(char c : s){
             if((c - '0') % 2 != 0){
                 count++;
             }
