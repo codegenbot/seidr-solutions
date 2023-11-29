@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 int solution(vector<int> lst) {
     int sum = 0;
