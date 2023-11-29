@@ -1,6 +1,5 @@
 from typing import List, Tuple
 
-
 def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
     pairs = []
     for i in range(len(arr)):
@@ -9,11 +8,8 @@ def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
                 pairs.append((arr[i], arr[j]))
     return pairs
 
-
-arr = list(
-    map(int, input("Enter the numbers in the array, separated by space: ").split())
-)
-target = int(input("Enter the target sum: "))
+arr = list(map(int, input().strip().split()))
+target = int(input().strip())
 
 result = find_pairs(arr, target)
 for pair in result:
