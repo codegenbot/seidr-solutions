@@ -1,8 +1,5 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
-
-using namespace std;
+#include <string>
 
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
@@ -18,21 +15,20 @@ vector<string> odd_count(vector<string> lst){
     return result;
 }
 
-vector<bool> is_same(vector<string> a, vector<string> b){
-    vector<bool> result;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] == b[i]){
-            result.push_back(true);
-        }
-        else{
-            result.push_back(false);
+bool issame(vector<string> a,vector<string>b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i]){
+            return false;
         }
     }
-    return result;
+    return true;
 }
 
 int main(){
-    assert (is_same(odd_count({"271", "137", "314"}) , {
+    assert (issame(odd_count({"271", "137", "314"}), {
         "the number of odd elements 2 in the string 0 of the input.",
         "the number of odd elements 3 in the string 1 of the input.",
         "the number of odd elements 2 in the string 2 of the input."
