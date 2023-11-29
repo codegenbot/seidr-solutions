@@ -12,12 +12,9 @@ int main() {
     double bouncinessIndex = firstBounceHeight / startingHeight;
     double totalDistance = startingHeight;
 
-    double bounceDistance = 2 * firstBounceHeight;
-    totalDistance += bounceDistance;
-
-    for (int i = 1; i < numBounces; i++) {
-        bounceDistance *= bouncinessIndex;
-        totalDistance += bounceDistance;
+    for (int i = 0; i < numBounces; i++) {
+        totalDistance += 2 * (bouncinessIndex * totalDistance);
+        bouncinessIndex *= bouncinessIndex;
     }
 
     std::cout << totalDistance << std::endl;
