@@ -3,10 +3,6 @@
 
 bool issame(vector<string> a, vector<string> b);
 
-bool issame(vector<string> a, vector<string> b){
-    // Implementation
-}
-
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
     for(string str : lst){
@@ -19,4 +15,8 @@ vector<string> odd_count(vector<string> lst){
         result.push_back("the number of odd elements " + to_string(count) + "n the str" + to_string(count) + "ng " + str + " of the " + to_string(count) + "nput.");
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    // Implementation
 }
