@@ -1,40 +1,35 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(std::string input) {
+int calculateScore(const std::string& input) {
     int score = 0;
-    int frame = 0;
-    int rolls = 0;
-    int frames[10] = {0};
+    int frame = 1;
+    int ballIndex = 0;
 
-    for (char ch : input) {
-        if (ch == 'X') {
-            frames[frame] += 10;
-            if (frame < 9) {
-                frames[frame+1] += 10;
-                if (frame < 8) {
-                    frames[frame+2] += 10;
-                }
-            }
-        } else if (ch == '/') {
-            frames[frame] += 10;
-            if (frame < 9) {
-                frames[frame+1] += 10;
-            }
-        } else if (ch == '-') {
-            rolls++;
-        } else {
-            frames[frame] += (ch - '0');
+    for (int i = 0; i < input.size(); ++i) {
+        if (frame > 10) {
+            break;
         }
 
-        if (rolls % 2 == 0) {
+        if (input[i] == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
+                score += (input[i + 2] == 'X') ? 10 : (input[i + 2] - '0');
+            }
+            ballIndex++;
             frame++;
+        } else if (input[i] == '/') {
+            score += (10 - (input[i - 1] - '0'));
+            score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
+            ballIndex += 2;
+            frame++;
+        } else if (input[i] == '-') {
+            ballIndex++;
+        } else {
+            score += (input[i] - '0');
+            ballIndex++;
         }
-        rolls++;
-    }
-
-    for (int i = 0; i < 10; i++) {
-        score += frames[i];
     }
 
     return score;
