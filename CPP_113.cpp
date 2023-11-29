@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 vector<string> odd_count(vector<string> lst) {
     vector<string> result;
     for (string str : lst) {
