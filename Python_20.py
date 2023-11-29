@@ -1,18 +1,16 @@
 from typing import List, Tuple
 
-def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
-    numbers.sort()
-    min_diff = float('inf')
-    closest_nums = ()
+def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
+    pairs = []
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i] + arr[j] == target:
+                pairs.append((arr[i], arr[j]))
+    return pairs
 
-    for i in range(len(numbers)-1):
-        diff = numbers[i+1] - numbers[i]
-        if diff < min_diff:
-            min_diff = diff
-            closest_nums = (numbers[i], numbers[i+1])
+arr = list(map(int, input("Enter the array elements separated by space: ").split()))
+target = int(input("Enter the target sum: "))
 
-    return closest_nums
-
-numbers = list(map(float, input().split()))
-result = find_closest_elements(numbers)
-print(result)
+result = find_pairs(arr, target)
+for pair in result:
+    print(pair[0], pair[1])
