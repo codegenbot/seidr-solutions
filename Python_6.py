@@ -21,6 +21,6 @@ def get_paren_depth(paren_string):
     return result
 
 
-paren_string = input().rstrip()
+paren_string = input()
 result = get_paren_depth(paren_string)
 print(result)
