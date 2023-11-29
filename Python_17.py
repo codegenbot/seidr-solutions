@@ -1,16 +1,5 @@
 from typing import List
 
+
 def parse_music(music_string: str) -> List[int]:
-    result = []
-
-    for char in music_string:
-        if char == "o":
-            result.append(4)
-        elif char == "o|":
-            result.append(2)
-        elif char == "|":
-            result.append(1)
-        else:
-            result.append(0)
-
-    return result
+    return [4 if char == 'o' else 2 if char == 'o|' else 1 if char == '|' else 0 for char in music_string if char in 'o|']
