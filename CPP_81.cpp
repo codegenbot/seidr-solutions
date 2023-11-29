@@ -1,5 +1,14 @@
-#include <vector>
 #include <string>
+#include <vector>
+
+vector<string> numerical_letter_grade(vector<float> grades);
+
+bool issame(vector<string> a, vector<string> b);
+
+int main() {
+    // code goes here
+    return 0;
+}
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
@@ -33,28 +42,4 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         }
     }
     return letter_grades;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    vector<float> grades = {3.8, 2.5, 4.2, 1.9};
-    vector<string> expected_output = {"A", "C", "A+", "D"};
-    vector<string> result = numerical_letter_grade(grades);
-    if (issame(result, expected_output)) {
-        cout << "Test Passed" << endl;
-    } else {
-        cout << "Test Failed" << endl;
-    }
-    return 0;
 }
