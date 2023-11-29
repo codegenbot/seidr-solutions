@@ -27,5 +27,6 @@ int main() {
     double totalDistance = calculateTotalDistance(startingHeight, bouncinessIndex, numBounces);
 
     std::cout << totalDistance << std::endl;
+
     return 0;
 }
