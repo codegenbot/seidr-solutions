@@ -1,19 +1,18 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <map>
 #include <algorithm>
-#include <string>
 
 using namespace std;
 
 vector<string> by_length(vector<int> arr);
 
 int main() {
-    // sample test case
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     vector<string> result = by_length(arr);
-    for (string s : result) {
-        cout << s << " ";
+    for (const auto& str : result) {
+        cout << str << " ";
     }
     cout << endl;
     return 0;
