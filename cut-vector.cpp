@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <climits>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
@@ -30,7 +31,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
 
     vector<int> left(nums.begin(), nums.begin() + cutIndex);
     vector<int> right(nums.begin() + cutIndex, nums.end());
-
+    
     return make_pair(left, right);
 }
 
