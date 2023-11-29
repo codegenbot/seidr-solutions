@@ -1,42 +1,35 @@
-#include <map>
-#include <string>
-#include <climits>
+map<char,int> histogram(string test){
+    map<char, int> countMap;
+    string letter;
 
-using namespace std;
-
-bool isSame(map<char, int> a, map<char, int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (auto it : a) {
-        char c = it.first;
-        if (b.find(c) == b.end() || b[c] != a[c]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    map<char, int> count;
-
+    // iterate through each character in the string
     for (char c : test) {
-        if (c != ' ') {
-            count[c]++;
+        // check if the character is a letter
+        if (isalpha(c)) {
+            // convert the letter to lowercase
+            char lowercase = tolower(c);
+            // check if the letter is already in the map
+            if (countMap.find(lowercase) != countMap.end()) {
+                // increment the count of the letter
+                countMap[lowercase]++;
+            } else {
+                // add the letter to the map with count 1
+                countMap[lowercase] = 1;
+            }
         }
     }
 
-    int maxCount = INT_MIN;
-    for (auto it : count) {
+    // find the maximum count
+    int maxCount = 0;
+    for (auto it : countMap) {
         if (it.second > maxCount) {
             maxCount = it.second;
         }
     }
 
-    for (auto it : count) {
+    // create a map to store the letters with maximum count
+    map<char, int> result;
+    for (auto it : countMap) {
         if (it.second == maxCount) {
             result[it.first] = it.second;
         }
