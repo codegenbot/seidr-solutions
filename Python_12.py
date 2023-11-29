@@ -11,8 +11,16 @@ def longest(strings: List[str]) -> Optional[str]:
     return longest_string
 
 
-n = int(input())
-strings = [input() for _ in range(n)]
+def main():
+    n = int(input())
+    strings = []
+    for _ in range(n):
+        string = input()
+        strings.append(string)
+    
+    result = longest(strings)
+    print(result)
 
-result = longest(strings)
-print(result)
+
+if __name__ == "__main__":
+    main()
