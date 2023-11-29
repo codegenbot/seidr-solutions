@@ -24,9 +24,6 @@ bool issame(vector<int> a, vector<int> b){
         return false;
     }
     
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    
     for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
@@ -38,14 +35,5 @@ bool issame(vector<int> a, vector<int> b){
 
 int main() {
     // Add your test cases and assertions here
-    vector<int> a = {1, 2, 3, 4, 5};
-    vector<int> b = {5, 4, 3, 2, 1};
-    
-    if(issame(a, b)){
-        cout << "The arrays are the same" << endl;
-    } else {
-        cout << "The arrays are different" << endl;
-    }
-    
     return 0;
 }
