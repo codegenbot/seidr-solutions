@@ -1,18 +1,12 @@
 from typing import List, Tuple
 
+def function_name(arg1: type, arg2: type) -> return_type:
+    # code logic here
 
-def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
-    pairs = []
-    for i in range(len(arr)):
-        for j in range(i + 1, len(arr)):
-            if arr[i] + arr[j] == target:
-                pairs.append((arr[i], arr[j]))
-    return pairs
+def main():
+    arg1, arg2 = input().split()
+    result = function_name(arg1, arg2)
+    print(result)
 
-
-arr = list(map(int, input("Enter the array elements separated by spaces: ").split()))
-target = int(input("Enter the target number: "))
-
-result = find_pairs(arr, target)
-for pair in result:
-    print(pair[0], pair[1])
+if __name__ == "__main__":
+    main()
