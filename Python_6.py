@@ -21,6 +21,6 @@ def get_paren_depth(paren_string):
     return result
 
 
-paren_string = input().strip()
+paren_string = input("Enter parentheses string: ")
 result = get_paren_depth(paren_string)
 print(result)
