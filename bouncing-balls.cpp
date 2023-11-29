@@ -27,7 +27,9 @@ int main() {
     double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
     long double totalDistance = calculateTotalDistance(startingHeight, bouncinessIndex, numBounces);
 
-    std::cout << std::setprecision(15) << totalDistance << std::endl;
+    std::cout << std::fixed << std::setprecision(15);
+
+    std::cout << totalDistance << std::endl;
 
     return 0;
 }
