@@ -1,15 +1,11 @@
 from typing import List
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    # Read input from the user
-    # Assuming the input is space-separated integers
-    user_input = input()
+    user_input = input("Enter space-separated numbers: ")
     numbers = [int(num) for num in user_input.split()]
 
-    # Read the delimiter from the user
-    delimiter = int(input())
+    delimiter = int(input("Enter the delimiter: "))
 
-    # Perform the intersperse operation
     result = [x for num in numbers for x in (num, delimiter)] + [delimiter]
     
     return result
