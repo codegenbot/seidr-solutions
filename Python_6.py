@@ -24,5 +24,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return result
 
 
-paren_string = input()
-print(parse_nested_parens(paren_string))
+# Remove the following line as it is not required for the contest problem
+# paren_string = input("Enter the nested parentheses string: ")
