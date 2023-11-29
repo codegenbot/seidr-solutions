@@ -9,7 +9,7 @@ vector<int> unique_digits(vector<int> x){
                 hasEvenDigit = true;
                 break;
             }
-            num = num / 10;
+            num /= 10;
         }
         if(!hasEvenDigit){
             result.push_back(x[i]);
