@@ -1,11 +1,7 @@
 #include <vector>
-
 using namespace std;
-
 bool issame(vector<vector<int>> a, vector<vector<int>> b);
-
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
-
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     if (a.size() != b.size()) {
         return false;
@@ -22,7 +18,6 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     }
     return true;
 }
-
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
@@ -40,7 +35,6 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     });
     return result;
 }
-
 int main() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
     return 0;
