@@ -17,6 +17,7 @@ int count_nums(vector<int> n){
 }
 
 int main() {
+    // Test the count_nums function
     assert (count_nums({1}) == 1);
 
     return 0;
