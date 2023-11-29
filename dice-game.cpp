@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 double probabilityOfPeterWinning(int n, int m) {
     double totalOutcomes = n * m;
@@ -20,7 +21,7 @@ int main() {
     std::cin >> n >> m;
 
     double probability = probabilityOfPeterWinning(n, m);
-    std::cout << probability << std::endl;
+    std::cout << std::fixed << std::setprecision(7) << probability << std::endl;
 
     return 0;
 }
