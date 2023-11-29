@@ -1,35 +1,44 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <map>
 #include <algorithm>
-#include <cassert>
+#include <string>
 
 using namespace std;
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> sorted;
-    vector<string> result;
-    map<int, string> numToName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+vector<string> by_length(vector<int> arr);
+bool issame(vector<string> a, vector<string> b);
 
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] >= 1 && arr[i] <= 9) {
-            sorted.push_back(arr[i]);
+vector<string> by_length(vector<int> arr){
+    vector<int> sorted_arr;
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i]>=1 && arr[i]<=9){
+            sorted_arr.push_back(arr[i]);
         }
     }
-    sort(sorted.begin(), sorted.end());
-    reverse(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size(); i++) {
-        result.push_back(numToName[sorted[i]]);
+    sort(sorted_arr.begin(), sorted_arr.end());
+    reverse(sorted_arr.begin(), sorted_arr.end());
+    vector<string> result;
+    map<int, string> digit_map = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+    for(int i=0; i<sorted_arr.size(); i++){
+        result.push_back(digit_map[sorted_arr[i]]);
     }
-
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    assert (issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     return 0;
 }
