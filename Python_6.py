@@ -22,7 +22,3 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         stack.pop()
 
     return result
-
-
-# Remove the following line as it is not required for the contest problem
-# paren_string = input("Enter the nested parentheses string: ")
