@@ -1,3 +1,6 @@
+from typing import List
+
+
 def below_zero(nums: List[int]) -> bool:
     balance = 0
     for num in nums:
