@@ -22,7 +22,7 @@ int main() {
     std::vector<float> discounts(n);
     for (int i = 0; i < n; i++) {
         std::cin >> discounts[i];
-        discounts[i] = 100.0 - discounts[i]; // Convert discount percentage to discount value
+        discounts[i] = 100.0 - discounts[i];
     }
 
     float totalPrice = calculateTotalPrice(prices, discounts);
