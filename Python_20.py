@@ -11,7 +11,7 @@ def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
 
 
 n = int(input().strip())
-arr = list(map(int, input().strip().split()))
+arr = list(map(int, input().strip().split()))[:n]  
 target = int(input().strip())
 
 result = find_pairs(arr, target)
