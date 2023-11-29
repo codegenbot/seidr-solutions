@@ -1,54 +1,57 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <climits>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
     int n = nums.size();
-    
-    vector<int> partialSums(n + 1, 0);
-    for (int i = 1; i <= n; i++) {
-        partialSums[i] = partialSums[i - 1] + nums[i - 1];
-    }
-    
-    int minDiff = INT_MAX;
-    int cutSpot = 0;
-    for (int i = 1; i <= n; i++) {
-        int leftSum = partialSums[i - 1];
-        int rightSum = partialSums[n] - partialSums[i - 1];
-        int diff = abs(rightSum - leftSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutSpot = i;
+    int diff = INT_MAX;
+    int idx = -1;
+
+    for (int i = 1; i < n; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int j = 0; j < i; j++) {
+            leftSum += nums[j];
+        }
+
+        for (int j = i; j < n; j++) {
+            rightSum += nums[j];
+        }
+
+        int currDiff = abs(leftSum - rightSum);
+
+        if (currDiff < diff) {
+            diff = currDiff;
+            idx = i;
         }
     }
-    
-    vector<int> subvector1(nums.begin(), nums.begin() + cutSpot);
-    vector<int> subvector2(nums.begin() + cutSpot, nums.end());
-    
-    return make_pair(subvector1, subvector2);
+
+    vector<int> left(nums.begin(), nums.begin() + idx);
+    vector<int> right(nums.begin() + idx, nums.end());
+
+    return make_pair(left, right);
 }
 
 int main() {
     int n;
     cin >> n;
-    
+
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    
+
     pair<vector<int>, vector<int>> result = cutVector(nums);
-    
+
     for (int num : result.first) {
-        cout << num << " ";
+        cout << num << endl;
     }
-    cout << endl;
+
     for (int num : result.second) {
-        cout << num << " ";
+        cout << num << endl;
     }
-    cout << endl;
-    
+
     return 0;
 }
