@@ -3,8 +3,6 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
-
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result = "";
     for (int i = 0; i < s.length(); i++) {
@@ -20,7 +18,15 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
