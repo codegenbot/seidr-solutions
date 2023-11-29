@@ -13,7 +13,7 @@ long double calculateTotalDistance(double startingHeight, double bouncinessIndex
         startingHeight *= bouncinessIndex;
     }
 
-    totalDistance += startingHeight;
+    totalDistance += startingHeight; 
 
     return totalDistance;
 }
