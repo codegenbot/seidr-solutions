@@ -18,7 +18,7 @@ int main() {
 
     bouncinessIndex = std::sqrt(bouncinessIndex);
 
-    std::cout << totalDistance << std::endl;
+    std::cout << totalDistance;
 
     return 0;
 }
