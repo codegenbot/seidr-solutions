@@ -8,7 +8,7 @@ double calculateDistance(double startingHeight, double firstBounceHeight, int nu
     for (int i = 0; i < numBounces - 1; i++) {
         totalDistance += 2 * bouncinessIndex * (totalDistance / bouncinessIndex);
     }
-    
+
     bouncinessIndex = std::sqrt(bouncinessIndex);
 
     return totalDistance;
