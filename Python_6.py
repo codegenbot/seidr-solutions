@@ -1,5 +1,6 @@
 from typing import List
 
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     stack = []
     result = []
@@ -22,5 +23,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return result
 
-paren_string = input()
+
+paren_string = "(((())))()(()"
 print(parse_nested_parens(paren_string))
