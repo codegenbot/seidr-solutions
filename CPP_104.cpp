@@ -1,8 +1,20 @@
 #include <vector>
+using namespace std;
 
 vector<int> unique_digits(vector<int> x);
-
 bool is_same(vector<int> a, vector<int> b);
+
+bool is_same(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
@@ -23,16 +35,4 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
-}
-
-bool is_same(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
 }
