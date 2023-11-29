@@ -1,13 +1,13 @@
 from typing import List
 
-
 def all_prefixes(string: str) -> List[str]:
     prefixes = []
-    for i in range(1, len(string) + 1):
-        prefixes.append(string[:i])
+    words = string.split()
+    for word in words:
+        for i in range(1, len(word) + 1):
+            prefixes.append(word[:i])
     return prefixes
 
-
-input_string = input()
+input_string = input("Enter a space-separated string of words: ")
 result = all_prefixes(input_string)
 print(result)
