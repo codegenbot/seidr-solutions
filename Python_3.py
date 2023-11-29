@@ -9,5 +9,4 @@ def below_zero(nums: List[int]) -> bool:
     return False
 
 nums = list(map(int, input().split()))
-
 print(below_zero(nums))
