@@ -8,6 +8,7 @@ def all_prefixes(string: str) -> List[str]:
             prefixes.append(word[:i])
     return prefixes
 
-input_string = input("Enter a string: ")
+# test case
+input_string = input()
 result = all_prefixes(input_string)
 print(result)
