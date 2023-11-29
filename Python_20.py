@@ -1,6 +1,4 @@
-n = int(input())
-arr = list(map(int, input().split()))
-target = int(input())
+from typing import List, Tuple
 
 def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
     pairs = []
@@ -9,6 +7,9 @@ def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
             if arr[i] + arr[j] == target:
                 pairs.append((arr[i], arr[j]))
     return pairs
+
+arr = [int(x) for x in input().split()]
+target = int(input())
 
 result = find_pairs(arr, target)
 for pair in result:
