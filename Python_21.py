@@ -8,5 +8,7 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 
 
 numbers = list(map(float, input("Enter the numbers separated by spaces: ").split()))
+
 result = rescale_to_unit(numbers)
+
 print(result)
