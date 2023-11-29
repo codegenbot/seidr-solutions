@@ -1,11 +1,11 @@
 from typing import List, Tuple
+def func(n: int, nums: List[int]) -> List[int]:
+    updated_nums = []
+    for i in range(n):
+        if nums[i] % 2 == 0:
+            updated_nums.append(nums[i])
+    return updated_nums
 
-def solve(n: int, points: List[Tuple[int, int]]) -> int:
-    # YOUR CODE HERE
-    pass
-    
 n = int(input())
-points = [tuple(map(int, input().split())) for _ in range(n)]
-
-result = solve(n, points)
-print(result)
+nums = list(map(int, input().split()))
+print(func(n, nums))
