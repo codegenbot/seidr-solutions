@@ -1,66 +1,50 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <limits>
-#include <iterator>
+#include <iostream>
 
-using namespace std;
-
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int leftSum = 0, rightSum = 0;
-
-    // Calculate the sum of all elements in the vector
+    int sum = 0;
     for (int i = 0; i < n; i++) {
-        rightSum += nums[i];
+        sum += nums[i];
     }
-
-    // Iterate through the vector and find the spot where the difference is minimized
-    int diff = numeric_limits<int>::max(), cutIndex = -1;
+    
+    int target = sum / 2;
+    int currSum = 0;
+    int diff = INT_MAX;
+    int idx = 0;
+    
     for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-
-        int currentDiff = abs(leftSum - rightSum);
-        if (currentDiff <= diff) {
-            diff = currentDiff;
-            cutIndex = i;
+        currSum += nums[i];
+        if (abs(target - currSum) < diff) {
+            diff = abs(target - currSum);
+            idx = i;
         }
     }
-
-    // Create the two resulting subvectors
-    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
-
-    if (cutIndex == -1) {
-        leftSubvector.clear();
-    }
-
-    return make_pair(leftSubvector, rightSubvector);
+    
+    std::vector<int> left(nums.begin(), nums.begin() + idx + 1);
+    std::vector<int> right(nums.begin() + idx + 1, nums.end());
+    
+    return std::make_pair(left, right);
 }
 
 int main() {
     int n;
-    cin >> n;
-
-    vector<int> nums(n);
+    std::cin >> n;
+    
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-
-    auto result = cutVector(nums);
-    auto& leftResult = result.first;
-    auto& rightResult = result.second;
-
-    for (const auto& element : leftResult) {
-        cout << element << " ";
+    
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+    
+    for (int i = 0; i < result.first.size(); i++) {
+        std::cout << result.first[i] << std::endl;
     }
-
-    cout << endl;
-
-    for (const auto& element : rightResult) {
-        cout << element << " ";
+    
+    for (int i = 0; i < result.second.size(); i++) {
+        std::cout << result.second[i] << std::endl;
     }
-
+    
     return 0;
 }
