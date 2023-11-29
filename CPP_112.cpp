@@ -20,7 +20,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    // Function implementation goes here...
+    return a == b;
 }
 
 int main() {
