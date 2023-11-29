@@ -10,10 +10,9 @@ string match_parens(vector<string> lst);
 int main() {
     // Test cases
     assert(match_parens({")", "("}) == "Yes");
-    assert(match_parens({"(", ")"}) == "Yes");
-    assert(match_parens({"(", ")", "("}) == "No");
-    assert(match_parens({"(", ")", "(", ")"}) == "Yes");
-    assert(match_parens({"(", ")", ")", "("}) == "No");
+    assert(match_parens({")(", "()", "((()))", "()()()("}) == "No");
+    assert(match_parens({"((()))", "((())", "(()))"}) == "No");
+    assert(match_parens({"()", "((()))", "(()())"}) == "Yes");
     
     return 0;
 }
