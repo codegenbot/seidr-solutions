@@ -10,12 +10,7 @@ def below_zero(nums: List[int]) -> bool:
     return False
 
 
-def main():
-    n = int(input())
-    nums = list(map(int, input().split()))[:n]
-    result = below_zero(nums)
-    print(result)
-
-
-if __name__ == "__main__":
-    main()
+n = int(input())
+nums = list(map(int, input().split()))[:n]
+result = below_zero(nums)
+print(result)
