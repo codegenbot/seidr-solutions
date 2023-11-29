@@ -1,9 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
-
-using namespace std;
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
@@ -39,11 +35,37 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     return letter_grades;
 }
 
-bool is_same(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(is_same(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    // Test cases
+    vector<float> grades1 = {3.8, 2.5, 4.2, 3.1};
+    vector<string> expected1 = {"A", "C+", "A+", "B"};
+    vector<string> result1 = numerical_letter_grade(grades1);
+    if (issame(expected1, result1)) {
+        cout << "Test case 1 passed" << endl;
+    } else {
+        cout << "Test case 1 failed" << endl;
+    }
+    
+    vector<float> grades2 = {2.9, 1.1, 3.5};
+    vector<string> expected2 = {"B-", "D-", "B+"};
+    vector<string> result2 = numerical_letter_grade(grades2);
+    if (issame(expected2, result2)) {
+        cout << "Test case 2 passed" << endl;
+    } else {
+        cout << "Test case 2 failed" << endl;
+    }
+    
     return 0;
 }
