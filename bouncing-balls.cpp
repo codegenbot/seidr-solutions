@@ -13,7 +13,7 @@ int main() {
     double totalDistance = 0;
 
     for (int i = 0; i < numBounces; i++) {
-        totalDistance += 2 * startingHeight;  // Modified line
+        totalDistance += 2 * (bouncinessIndex * startingHeight);
         bouncinessIndex = std::sqrt(bouncinessIndex);
     }
 
