@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+bool issame(vector<string> a, vector<string> b);
+
 bool issame(vector<string> a, vector<string> b){
     // Implementation
 }
