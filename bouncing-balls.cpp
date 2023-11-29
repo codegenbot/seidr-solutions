@@ -1,6 +1,6 @@
 #include <iostream>
 
-double calculateBouncinessIndex(long double startingHeight, long double firstBounceHeight) {
+long double calculateBouncinessIndex(long double startingHeight, long double firstBounceHeight) {
     return firstBounceHeight / startingHeight;
 }
 
