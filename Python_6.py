@@ -21,6 +21,6 @@ def get_paren_depth(paren_string):
     return result
 
 
-paren_string = input("Enter the paren_string: ")
+paren_string = "(((())(((((("
 result = get_paren_depth(paren_string)
 print(result)
