@@ -9,3 +9,8 @@ vector<int> maximum(vector<int> arr, int k) {
     vector<int> result(arr.begin(), arr.begin() + k);
     return result;
 }
+
+int main() {
+    // code for main function
+    return 0;
+}
