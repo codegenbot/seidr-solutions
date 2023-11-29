@@ -1,5 +1,5 @@
-#include <vector>
-#include <algorithm>
+#include <vector> // for using vectors
+#include <algorithm> // for using sort
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
