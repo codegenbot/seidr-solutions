@@ -6,6 +6,6 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 strings = input().split()
-substring = input().split()
+substring = input().strip()
 result = filter_by_substring(strings, substring)
 print(result)
