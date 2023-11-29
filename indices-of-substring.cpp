@@ -17,7 +17,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         }
         if (found) {
             indices.push_back(i);
-            i += len - 1;
+            i += len - 1; // Skip to the next possible target
         }
     }
 
@@ -26,8 +26,8 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     std::string text, target;
-    std::getline(std::cin, text); 
-    std::getline(std::cin, target); 
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
 
     std::vector<int> result = indicesOfSubstring(text, target);
 
