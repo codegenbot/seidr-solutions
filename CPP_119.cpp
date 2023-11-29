@@ -5,9 +5,17 @@ string match_parens(vector<string> lst){
         for(char c : s){
             if(c == '('){
                 count++;
-            } else if(c == ')'){
+            }
+            else{
                 count--;
             }
+            if(count < 0){
+                result = "No";
+                break;
+            }
+        }
+        if(count < 0){
+            break;
         }
     }
     if(count != 0){
