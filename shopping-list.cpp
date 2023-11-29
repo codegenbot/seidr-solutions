@@ -1,33 +1,31 @@
 #include <iostream>
 #include <vector>
-#include <iomanip>
-#include <cmath>
 
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     float totalPrice = 0.0;
-    for (size_t i = 0; i < prices.size(); i++) {
-        float discountedPrice = prices[i] - (prices[i] * discounts[i] / 100);
+    for (int i = 0; i < prices.size(); i++) {
+        float discountedPrice = prices[i] * (1 - discounts[i] / 100);
         totalPrice += discountedPrice;
     }
-    return std::round(totalPrice * 100) / 100;
+    return totalPrice;
 }
 
 int main() {
-    size_t n;
+    int n;
     std::cin >> n;
 
     std::vector<float> prices(n);
-    for (size_t i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         std::cin >> prices[i];
     }
 
     std::vector<float> discounts(n);
-    for (size_t i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         std::cin >> discounts[i];
     }
 
     float totalPrice = calculateTotalPrice(prices, discounts);
-    std::cout << std::fixed << std::setprecision(2) << totalPrice << std::endl;
+    std::cout << totalPrice << std::endl;
 
     return 0;
 }
