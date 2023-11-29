@@ -1,12 +1,14 @@
 from typing import List, Tuple
 
+
 def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
     pairs = []
     for i in range(len(arr)):
-        for j in range(i+1, len(arr)):
+        for j in range(i + 1, len(arr)):
             if arr[i] + arr[j] == target:
                 pairs.append((arr[i], arr[j]))
     return pairs
+
 
 arr = list(map(int, input("Enter the list of numbers: ").split()))
 target = int(input("Enter the target sum: "))

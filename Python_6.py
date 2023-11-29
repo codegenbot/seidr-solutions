@@ -1,18 +1,15 @@
-from typing import List
-
-
-def parse_nested_parens(paren_string: str) -> List[int]:
+def get_paren_depth(paren_string):
     stack = []
     result = []
-    count = 0
+    depth = 0
 
     for char in paren_string:
         if char == "(":
             stack.append("(")
-            count += 1
+            depth += 1
         elif char == ")":
-            count -= 1
-            result.append(count + 1)
+            depth -= 1
+            result.append(depth + 1)
         else:
             if stack:
                 stack.pop()
@@ -24,5 +21,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return result
 
 
-paren_string = input("Enter parentheses string: ")
-print(parse_nested_parens(paren_string))
+paren_string = input()
+result = get_paren_depth(paren_string)
+print(result)
