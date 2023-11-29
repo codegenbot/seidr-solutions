@@ -14,9 +14,12 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             count -= 1
             result.append(count + 1)
         else:
-            if stack:
-                stack.pop()
+            if not stack and count == 0:
+                continue
+            stack.pop()
 
-    result.extend([-1] * count)
+    while stack:
+        result.append(-1)
+        stack.pop()
 
     return result
