@@ -23,12 +23,19 @@ vector<string> words_string(string s){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // Compare a and b here and return true or false
-    // Based on the comparison result.
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
-    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    assert(issame(words_string("ahmed     , gamal"), vector<string>{"ahmed", "gamal"}));
     
     return 0;
 }
