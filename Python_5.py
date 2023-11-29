@@ -1,7 +1,5 @@
-def intersperse(numbers, delimiter):
-    return numbers
-
-numbers = list(map(int, input().split()))
-delimiter = int(input())
-result = intersperse(numbers, delimiter)
-print(*result)
+result = []
+for num in numbers[:-1]:
+    result.extend([num, delimiter])
+result.append(numbers[-1])
+return result
