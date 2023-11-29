@@ -25,14 +25,10 @@ vector<string> words_string(string s){
 bool issame(vector<string> a, vector<string> b){
     // Compare a and b here and return true or false
     // Based on the comparison result.
-    // Your code here
 }
 
 int main(){
-    vector<string> a = words_string("ahmed     , gamal");
-    vector<string> b = {"ahmed", "gamal"};
-    bool result = issame(a, b);
-    cout << boolalpha << result << endl;
+    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
     
     return 0;
 }
