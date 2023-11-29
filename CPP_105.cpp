@@ -1,7 +1,7 @@
-#include <string>
 #include <vector>
 #include <algorithm>
 #include <map>
+#include <string>
 
 using namespace std;
 
@@ -31,8 +31,20 @@ vector<string> by_length(vector<int> arr);
 int main() {
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     vector<string> result = by_length(arr);
-    for (string s : result) {
-        cout << s << endl;
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
     }
+    cout << endl;
+
+    vector<string> a = {"One", "Two", "Three"};
+    vector<string> b = {"One", "Two", "Three"};
+    bool same = issame(a, b);
+    if(same){
+        cout << "Same" << endl;
+    }
+    else{
+        cout << "Different" << endl;
+    }
+
     return 0;
 }
