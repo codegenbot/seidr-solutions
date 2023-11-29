@@ -1,13 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <map>
-#include <algorithm>
 #include <string>
-
-using namespace std;
-
-vector<string> by_length(vector<int> arr);
-bool issame(vector<string> a, vector<string> b);
+#include <vector>
+#include <algorithm>
+#include <map>
 
 vector<string> by_length(vector<int> arr){
     vector<int> sorted_arr;
@@ -26,19 +20,18 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
-    assert (issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vector<string> result = by_length(arr);
+    vector<string> expected_result = {"Nine", "Eight", "Seven", "Six", "Five", "Four", "Three", "Two", "One"};
+    if (issame(result, expected_result)) {
+        cout << "Test case passed";
+    } else {
+        cout << "Test case failed";
+    }
     return 0;
 }
