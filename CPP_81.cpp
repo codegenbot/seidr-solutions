@@ -1,5 +1,5 @@
-#include <string>
 #include <vector>
+#include <string>
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
@@ -48,9 +48,13 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<float> grades = {3.2, 4.5, 2.8, 3.7};
+    vector<float> grades = {3.8, 2.5, 4.2, 1.9};
+    vector<string> expected_output = {"A", "C", "A+", "D"};
     vector<string> result = numerical_letter_grade(grades);
-    vector<string> expected = {"B", "A+", "B-", "A"};
-    bool same = issame(result, expected);
+    if (issame(result, expected_output)) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
     return 0;
 }
