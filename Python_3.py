@@ -1,9 +1,10 @@
 from typing import List
 
-def below_zero(nums: List[int]) -> bool:
+def below_zero() -> bool:
+    operations = list(map(int, input().split()))
     balance = 0
-    for num in nums:
-        balance += num
+    for operation in operations:
+        balance += operation
         if balance < 0:
             return True
     return False
