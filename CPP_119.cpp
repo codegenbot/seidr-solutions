@@ -5,15 +5,16 @@ using namespace std;
 
 string match_parens(vector<string> lst) {
     string result = "";
-    for (string s : lst) {
-        result += s;
+    
+    for (string str : lst) {
+        result += str;
     }
     
     int count = 0;
     for (char c : result) {
         if (c == '(') {
             count++;
-        } else {
+        } else if (c == ')') {
             count--;
         }
         
