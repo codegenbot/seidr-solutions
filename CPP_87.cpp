@@ -1,3 +1,12 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
+
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
