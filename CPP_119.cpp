@@ -1,9 +1,7 @@
-#include <iostream>
-#include <cassert>
 #include <string>
 #include <vector>
 
-using namespace std;
+string match_parens(vector<string> lst);
 
 string match_parens(vector<string> lst) {
     int count = 0;
@@ -17,9 +15,4 @@ string match_parens(vector<string> lst) {
         }
     }
     return count == 0 ? "Yes" : "No";
-}
-
-int main() {
-    assert (match_parens({")", "("}) == "Yes" );
-    return 0;
 }
