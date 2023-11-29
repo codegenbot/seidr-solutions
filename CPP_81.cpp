@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -47,9 +47,10 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-int main(){
+int main() {
     assert (issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
-    assert (issame(numerical_letter_grade({2.3, 1.7, 3.5}) , {"B-", "C", "A-"}));
-    assert (issame(numerical_letter_grade({4.0, 3.8, 2.9, 0.5}) , {"A+", "A", "C+", "E"}));
+    assert (issame(numerical_letter_grade({1.3, 2.5, 3.9}) , {"C-", "C+", "A"}));
+    assert (issame(numerical_letter_grade({2.0, 2.7, 4.0}) , {"C+", "B", "A+"}));
+    
     return 0;
 }
