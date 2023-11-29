@@ -1,13 +1,14 @@
 from typing import List
 
-def all_prefixes(string: str) -> List[str]:
+def all_prefixes(strings: List[str]) -> List[str]:
     prefixes = []
-    words = string.split()
-    for word in words:
-        for i in range(1, len(word) + 1):
-            prefixes.append(word[:i])
+    for string in strings:
+        words = string.split()
+        for word in words:
+            for i in range(1, len(word) + 1):
+                prefixes.append(word[:i])
     return prefixes
 
-input_string = input("Enter a space-separated string of words: ")
-result = all_prefixes(input_string)
+input_strings = input().split(",")
+result = all_prefixes(input_strings)
 print(result)
