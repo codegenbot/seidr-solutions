@@ -1,5 +1,6 @@
 from typing import List, Optional
 
+
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
@@ -9,10 +10,9 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_string = string
     return longest_string
 
-if __name__ == "__main__":
-    n = int(input())
-    strings = []
-    for _ in range(n):
-        strings.append(input())
-    result = longest(strings)
-    print(result)
+
+n = int(input())
+strings = [input() for _ in range(n)]
+
+result = longest(strings)
+print(result)
