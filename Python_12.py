@@ -1,6 +1,5 @@
 from typing import List, Optional
 
-
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
@@ -10,8 +9,7 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_string = string
     return longest_string
 
-
-input_str = input("Enter a list of strings separated by spaces: ")
+input_str = input()
 strings = input_str.split()
 result = longest(strings)
 print(result)
