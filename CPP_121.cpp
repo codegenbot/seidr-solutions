@@ -14,6 +14,5 @@ int solutions(std::vector<int> lst) {
 
 int main() {
     int result = solutions({3, 13, 2, 9});
-    // Do something with the result
     return 0;
 }
