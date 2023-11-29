@@ -32,7 +32,7 @@ vector<bool> is_same(vector<string> a, vector<string> b){
 }
 
 int main(){
-    assert (is_same(odd_count({"271", "137", "314"}) , {
+    assert(is_same(odd_count({"271", "137", "314"}), {
         "the number of odd elements 2 in the string 0 of the input.",
         "the number of odd elements 3 in the string 1 of the input.",
         "the number of odd elements 2 in the string 2 of the input."
