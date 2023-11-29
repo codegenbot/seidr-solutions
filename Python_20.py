@@ -10,8 +10,9 @@ def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
     return pairs
 
 
-arr = [int(x) for x in input("Enter the elements of array: ").strip().split()]
-target = int(input("Enter the target sum: "))
+n = int(input())
+arr = list(map(int, input().split()))
+target = int(input())
 
 result = find_pairs(arr, target)
 for pair in result:
