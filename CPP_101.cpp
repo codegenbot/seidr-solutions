@@ -23,8 +23,7 @@ vector<string> words_string(string s){
 }
 
 int main(){
-    vector<string> input = words_string("ahmed, gamal");
-    assert(issame(input, {"ahmed", "gamal"}));
+    assert (issame(words_string("ahmed, gamal"), {"ahmed", "gamal"}));
     // other statements in the main function
     return 0;
 }
