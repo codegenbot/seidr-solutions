@@ -11,15 +11,14 @@ vector<string> by_length(vector<int> arr);
 int main() {
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     vector<string> result = by_length(arr);
-    
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
-    
+    cout << endl;
     return 0;
 }
 
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> digitMap;
     digitMap[1] = "One";
@@ -33,8 +32,8 @@ vector<string> by_length(vector<int> arr) {
     digitMap[9] = "Nine";
     
     vector<int> sortedArr;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] >= 1 && arr[i] <= 9) {
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i] >= 1 && arr[i] <= 9){
             sortedArr.push_back(arr[i]);
         }
     }
@@ -42,7 +41,7 @@ vector<string> by_length(vector<int> arr) {
     sort(sortedArr.begin(), sortedArr.end());
     reverse(sortedArr.begin(), sortedArr.end());
     
-    for (int i = 0; i < sortedArr.size(); i++) {
+    for(int i=0; i<sortedArr.size(); i++){
         result.push_back(digitMap[sortedArr[i]]);
     }
     
