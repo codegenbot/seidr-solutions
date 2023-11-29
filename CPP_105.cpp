@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <map>
@@ -18,7 +17,6 @@ vector<string> by_length(vector<int> arr) {
         }
     }
     sort(sorted.begin(), sorted.end());
-
     reverse(sorted.begin(), sorted.end());
 
     for (int i = 0; i < sorted.size(); i++) {
