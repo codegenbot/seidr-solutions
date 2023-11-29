@@ -1,9 +1,5 @@
-#include <vector>
-
-std::vector<int> make_a_pile(int n);
-
-std::vector<int> make_a_pile(int n){
-    std::vector<int> pile;
+vector<int> make_a_pile(int n){
+    vector<int> pile;
     int stones = n;
     pile.push_back(stones);
     for(int i = 1; i < n; i++){
