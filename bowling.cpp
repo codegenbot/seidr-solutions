@@ -1,44 +1,46 @@
 #include <iostream>
 #include <string>
 
-int getScore(const std::string& input) {
+int calculateScore(const std::string& input) {
     int score = 0;
-    int frame = 0;
-    int ball = 0;
-    int frames[10] = {0};
-    
-    for (char c : input) {
-        if (c == 'X') {
-            frames[frame++] = 10;
-            ball = 0;
-        } else if (c == '/') {
-            frames[frame++] = 10 - frames[frame-1];
-            ball = 0;
-        } else if (c == '-') {
-            ball++;
-        } else {
-            frames[frame] += c - '0';
-            ball++;
-            if (ball == 2) {
-                frame++;
-                ball = 0;
+    int frame = 1;
+    int ballIndex = 0;
+
+    for (int i = 0; i < input.size(); ++i) {
+        if (frame > 10) {
+            break;
+        }
+
+        if (input[i] == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
+                score += (input[i + 2] == 'X') ? 10 : (input[i + 2] - '0');
             }
+            ballIndex++;
+            frame++;
+        } else if (input[i] == '/') {
+            score += (10 - (input[i - 1] - '0'));
+            score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
+            ballIndex += 2;
+            frame++;
+        } else if (input[i] == '-') {
+            ballIndex++;
+        } else {
+            score += (input[i] - '0');
+            ballIndex++;
         }
     }
-    
-    for (int i = 0; i < 10; i++) {
-        score += frames[i];
-    }
-    
+
     return score;
 }
 
 int main() {
     std::string input;
     std::cin >> input;
-    
-    int score = getScore(input);
+
+    int score = calculateScore(input);
     std::cout << score << std::endl;
-    
+
     return 0;
 }
