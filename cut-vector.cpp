@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <climits>      // Include the <climits> header
-
+#include <climits>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
@@ -16,6 +15,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
         for (int j = 0; j < i; j++) {
             leftSum += nums[j];
         }
+
         for (int j = i; j < n; j++) {
             rightSum += nums[j];
         }
@@ -37,6 +37,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
 int main() {
     int n;
     cin >> n;
+
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
