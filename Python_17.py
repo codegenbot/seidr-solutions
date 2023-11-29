@@ -1,5 +1,6 @@
 from typing import List
 
+
 def parse_music(music_string: str) -> List[int]:
     return [
         4 if note == "o" else 2 if note == "o|" else 1 if note == "|" else 0
@@ -7,11 +8,6 @@ def parse_music(music_string: str) -> List[int]:
     ]
 
 
-def main():
-    music_string = input()
-    result = parse_music(music_string)
-    print(result)
-
-
-if __name__ == "__main__":
-    main()
+music_input = input("Enter the music string: ")
+result = parse_music(music_input)
+print(result)
