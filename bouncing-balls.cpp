@@ -5,9 +5,7 @@ int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
 
-    std::cin >> startingHeight;
-    std::cin >> firstBounceHeight;
-    std::cin >> numBounces;
+    std::cin >> startingHeight >> firstBounceHeight >> numBounces;
 
     double bouncinessIndex = firstBounceHeight / startingHeight;
     double totalDistance = startingHeight;
