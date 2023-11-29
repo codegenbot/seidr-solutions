@@ -9,11 +9,11 @@ def find_pairs(arr: List[int], target: int) -> List[Tuple[int, int]]:
     return pairs
 
 try:
-    arr = list(map(int, input().split()))
-    target = int(input())
+    arr = list(map(int, input("Enter the array elements separated by space: ").split()))
+    target = int(input("Enter the target sum: "))
 
     result = find_pairs(arr, target)
     for pair in result:
         print(pair[0], pair[1])
 except ValueError:
-    print("Invalid input.")
+    print("Invalid input. Please enter valid integer values separated by space.")
