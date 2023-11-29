@@ -2,22 +2,37 @@
 #include <string>
 using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
+bool evaluateBoolean(string expression) {
     if (expression == "t") {
         return true;
     } else if (expression == "f") {
         return false;
     } else {
-        bool left = evaluateBooleanExpression(expression.substr(0, expression.find('&')));
-        bool right = evaluateBooleanExpression(expression.substr(expression.find('&') + 1));
-        return left && right;
+        char op = expression[1];
+        bool left = evaluateBoolean(expression.substr(0, 1));
+        bool right = evaluateBoolean(expression.substr(2));
+        
+        if (op == '&') {
+            return left && right;
+        } else if (op == '|') {
+            return left || right;
+        }
     }
+    
+    return false;
 }
 
 int main() {
     string expression;
     cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    cout << (result ? "True" : "False") << endl;
+    
+    bool result = evaluateBoolean(expression);
+    
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    
     return 0;
 }
