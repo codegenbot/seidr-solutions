@@ -1,5 +1,7 @@
 #include <vector>
 
+vector<int> make_a_pile(int n);
+
 vector<int> make_a_pile(int n){
     vector<int> pile;
     int stones = n;
@@ -13,9 +15,4 @@ vector<int> make_a_pile(int n){
         pile.push_back(stones);
     }
     return pile;
-}
-
-int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
 }
