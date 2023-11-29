@@ -1,12 +1,11 @@
 from typing import List, Tuple
 
-def function_name(arg1: type, arg2: type) -> return_type:
-    # code logic here
+def solve(n: int, points: List[Tuple[int, int]]) -> int:
+    # YOUR CODE HERE
+    pass
+    
+n = int(input())
+points = [tuple(map(int, input().split())) for _ in range(n)]
 
-def main():
-    # read input from user
-    # call function_name() with appropriate arguments
-    # print the output
-
-if __name__ == "__main__":
-    main()
+result = solve(n, points)
+print(result)
