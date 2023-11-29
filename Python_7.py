@@ -5,7 +5,7 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [string for string in strings if substring in string]
 
 
-strings = input("Enter the strings separated by space: ").split()
-substring = input("Enter the substring: ")
+strings = input("Enter a list of strings (space-separated): ").split()
+substring = input("Enter a substring: ")
 result = filter_by_substring(strings, substring)
 print(result)
