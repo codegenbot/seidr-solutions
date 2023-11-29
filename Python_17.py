@@ -1,6 +1,5 @@
 from typing import List
 
-
 def parse_music() -> List[int]:
     music_notes = []
     music_string = input()
