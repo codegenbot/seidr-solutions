@@ -24,6 +24,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return result
 
-
 paren_string = sys.argv[1]
 print(parse_nested_parens(paren_string))
