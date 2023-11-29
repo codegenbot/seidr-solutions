@@ -7,9 +7,7 @@ using namespace std;
 
 vector<string> words_string(string s);
 
-bool issame(vector<string> a, vector<string> b){
-    // Implement your code here
-}
+bool issame(vector<string> a, vector<string> b);
 
 int main() {
     assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
@@ -35,4 +33,8 @@ vector<string> words_string(string s){
         words.push_back(word);
     }
     return words;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    // Implement your code here
 }
