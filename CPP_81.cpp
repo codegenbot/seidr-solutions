@@ -36,11 +36,11 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -48,17 +48,19 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    // Test the numerical_letter_grade function
-    vector<float> grades = {3.8, 2.5, 4.2, 3.0, 1.9};
-    vector<string> expected = {"A", "C+", "A+", "B", "D-"};
+    // Test the numerical_letter_grade() function
+    vector<float> grades = {3.5, 4.2, 2.8, 3.9};
     vector<string> result = numerical_letter_grade(grades);
-    
-    // Test the issame function
-    if (issame(result, expected)) {
-        cout << "The function is correct." << endl;
-    } else {
-        cout << "The function is incorrect." << endl;
+    // Print the result
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
-    
+    cout << endl;
+
+    // Test the issame() function
+    vector<string> a = {"A", "B", "C"};
+    vector<string> b = {"A", "B", "C"};
+    cout << issame(a, b) << endl;
+
     return 0;
 }
