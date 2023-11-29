@@ -2,7 +2,8 @@ from typing import List
 
 
 def parse_music() -> List[int]:
-    music_string = input().replace("|", " | ")
+    music_string = input()
     return [
-        4 if note == "o" else 2 if note == "o|" else 1 for note in music_string.split()
+        4 if note.lower() == "o" else 2 if note.lower() == "o|" else 1
+        for note in music_string.split()
     ]
