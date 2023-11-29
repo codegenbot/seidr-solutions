@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 string get_closest_vowel(string word) {
@@ -18,6 +19,7 @@ string get_closest_vowel(string word) {
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
+    // Additional test cases
     assert(get_closest_vowel("banana") == "");
     assert(get_closest_vowel("race") == "a");
     return 0;
