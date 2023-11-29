@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 vector<int> f(int n) {
     vector<int> result;
