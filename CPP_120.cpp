@@ -21,8 +21,13 @@ vector<int> maximum(vector<int> arr, int k) {
 
 int main() {
     assert(maximum({1, 2, 3, -23, 243, -400, 0}, 0) == vector<int>{});
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {243, 3, 2}));
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7), {243, 3, 2, 1, 0, -23, -400}));
-  
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 3) == vector<int>{243, 3, 2});
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 7) == vector<int>{243, 3, 2, 1, 0, -23, -400});
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 10) == vector<int>{243, 3, 2, 1, 0, -23, -400});
+    assert(maximum({}, 0) == vector<int>{});
+    assert(maximum({1, 2, 3, 4, 5}, 0) == vector<int>{});
+    assert(maximum({1, 2, 3, 4, 5}, 1) == vector<int>{5});
+    assert(maximum({1, 2, 3, 4, 5}, 5) == vector<int>{5, 4, 3, 2, 1});
+    
     return 0;
 }
