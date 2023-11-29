@@ -1,3 +1,4 @@
+import sys
 from typing import List, Optional
 
 
@@ -11,6 +12,6 @@ def longest(strings: List[str]) -> Optional[str]:
     return longest_string
 
 
-strings = input("Enter a list of words: ").strip().split()
+strings = input().strip().split()
 result = longest(strings)
 print(result)
