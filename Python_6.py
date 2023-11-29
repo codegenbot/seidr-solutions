@@ -1,6 +1,5 @@
 from typing import List
 
-
 def parse_nested_parens(paren_string: str) -> List[int]:
     stack = []
     result = []
@@ -14,8 +13,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             count -= 1
             result.append(count + 1)
         else:
-            if stack:
-                stack.pop()
+            stack.pop()
 
     while stack:
         result.append(-1)
@@ -23,5 +21,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return result
 
-paren_string = input()
+paren_string = input("Enter the parentheses string: ")
 print(parse_nested_parens(paren_string))
