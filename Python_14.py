@@ -1,6 +1,5 @@
 from typing import List
 
-
 def all_prefixes(string: str) -> List[str]:
     prefixes = []
     words = string.split()
@@ -9,8 +8,6 @@ def all_prefixes(string: str) -> List[str]:
             prefixes.append(word[:i])
     return prefixes
 
-
-# test case
 input_string = input("Enter a string: ")
 result = all_prefixes(input_string)
 print(result)
