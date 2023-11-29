@@ -1,11 +1,11 @@
-vector<int> sort_array(vector<int> arr){
+vector<int> sort_vector(vector<int> arr) {
     sort(arr.begin(), arr.end(), [](int a, int b) {
-        int countA = __builtin_popcount(a);
-        int countB = __builtin_popcount(b);
-        if (countA == countB) {
+        int onesA = __builtin_popcount(a);
+        int onesB = __builtin_popcount(b);
+        if (onesA == onesB) {
             return a < b;
         }
-        return countA < countB;
+        return onesA < onesB;
     });
     return arr;
 }
