@@ -17,7 +17,7 @@ def main():
     for _ in range(n):
         string = input()
         strings.append(string)
-    
+
     result = longest(strings)
     print(result)
 
