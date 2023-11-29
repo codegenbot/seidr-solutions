@@ -1,11 +1,21 @@
-def below_zero(operations: List[int]) -> bool:
+from typing import List
+
+
+def below_zero(nums: List[int]) -> bool:
     balance = 0
-    for operation in operations:
-        balance += operation
+    for num in nums:
+        balance += num
         if balance < 0:
             return True
     return False
 
-operations = list(map(int, input().split()))
-result = below_zero(operations)
-print(result)
+
+def main():
+    nums = input("Enter a list of integers: ").split()
+    nums = [int(num) for num in nums]
+    result = below_zero(nums)
+    print(result)
+
+
+if __name__ == "__main__":
+    main()
