@@ -16,8 +16,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     
     for (int i = 0; i < n; i++) {
         currSum += nums[i];
-        if (abs(target - currSum) < diff) {
-            diff = abs(target - currSum);
+        if (abs(sum - 2 * currSum) < diff) {
+            diff = abs(sum - 2 * currSum);
             idx = i;
         }
     }
@@ -43,7 +43,7 @@ int main() {
         std::cout << result.first[i] << std::endl;
     }
     
-    for (int i = 0; i <= result.second.size(); i++) {
+    for (int i = 0; i < result.second.size(); i++) {
         std::cout << result.second[i] << std::endl;
     }
     
