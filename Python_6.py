@@ -1,25 +1,23 @@
 from typing import List
 
+
 def parse_nested_parens(paren_string: str) -> List[int]:
-    stack = []
     result = []
     count = 0
 
     for char in paren_string:
         if char == "(":
-            stack.append("(")
             count += 1
         elif char == ")":
             count -= 1
             result.append(count + 1)
-        else:
-            if stack:
-                stack.pop()
 
-    while stack:
+    while count > 0:
         result.append(-1)
-        stack.pop()
+        count -= 1
 
     return result
 
-print(parse_nested_parens("input string here"))
+
+paren_string = input("Enter the string of parentheses: ")
+print(parse_nested_parens(paren_string))
