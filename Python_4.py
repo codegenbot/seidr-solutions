@@ -6,10 +6,10 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return round(sum(deviation) / len(deviation), 2)
 
 def main():
-n = int(input())
-numbers = list(map(float, input().split()))
-result = mean_absolute_deviation(numbers)
-print(result)
+    n = int(input())
+    numbers = list(map(float, input().split()))
+    result = mean_absolute_deviation(numbers)
+    print(result)
 
 if __name__ == "__main__":
-main()
+    main()
