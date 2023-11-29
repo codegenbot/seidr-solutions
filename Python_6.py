@@ -1,17 +1,26 @@
-def parse_nested_parens(paren_string: str) -> int:
+def get_paren_depth(paren_string):
     stack = []
-    count = 0
+    result = []
+    depth = 0
 
     for char in paren_string:
         if char == "(":
-            stack.append(char)
+            stack.append("(")
+            depth += 1
         elif char == ")":
+            depth -= 1
+            result.append(depth + 1)
+        else:
             if stack:
                 stack.pop()
-                count += 2
 
-    return count
+    while stack:
+        result.append(-1)
+        stack.pop()
+
+    return result
 
 
-paren_string = input()
-print(parse_nested_parens(paren_string))
+paren_string = input().strip()
+result = get_paren_depth(paren_string)
+print(result)
