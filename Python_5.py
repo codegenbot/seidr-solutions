@@ -1,4 +1,4 @@
-from typing import List
+import itertools
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    return [x for sublist in [[num, delimiter] for num in numbers] for x in sublist][:-1]
+    return list(itertools.chain.from_iterable(zip(numbers, itertools.repeat(delimiter))))
