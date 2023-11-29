@@ -2,7 +2,6 @@
 #include <algorithm>
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
-bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b);
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
