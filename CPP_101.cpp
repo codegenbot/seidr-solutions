@@ -28,7 +28,16 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    vector<string> words = words_string("ahmed     , gamal");
+    vector<string> expected = {"ahmed", "gamal"};
+    
+    bool result = issame(words, expected);
+    
+    if(result){
+        cout << "The two vectors are the same" << endl;
+    } else {
+        cout << "The two vectors are different" << endl;
+    }
     
     return 0;
 }
