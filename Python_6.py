@@ -1,6 +1,5 @@
 from typing import List
 
-
 def parse_nested_parens(paren_string: str) -> List[int]:
     stack = []
     result = []
@@ -14,8 +13,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             count -= 1
             result.append(count + 1)
         else:
-            if not stack and count == 0:
-                continue
             stack.pop()
 
     while stack:
