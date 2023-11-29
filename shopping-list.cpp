@@ -17,7 +17,7 @@ int main() {
     std::vector<float> discounts = {47.46, 4.27, 89.54};
 
     float totalPrice = calculateTotalPrice(prices, discounts);
-    std::cout << std::fixed << std::setprecision(2) << "Total Price: " << totalPrice << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << totalPrice << std::endl;
 
     return 0;
 }
