@@ -1,26 +1,11 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b);
-
-vector<vector<int>> get_row(vector<vector<int>> lst, int x);
-
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i].size() != b[i].size()) {
-            return false;
-        }
-        for (int j = 0; j < a[i].size(); j++) {
-            if (a[i][j] != b[i][j]) {
-                return false;
-            }
-        }
-    }
-    return true;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
@@ -32,7 +17,7 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
             }
         }
     }
-    sort(result.begin(), result.end(), [](vector<int>& a, vector<int>& b) {
+    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b) {
         if (a[0] == b[0]) {
             return a[1] > b[1];
         }
