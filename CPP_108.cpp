@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-using namespace std;
 
 int count_nums(vector<int> n){
     int count = 0;
@@ -16,11 +14,4 @@ int count_nums(vector<int> n){
         }
     }
     return count;
-}
-
-int main(){
-    vector<int> nums = {1};
-    int result = count_nums(nums);
-    cout << "Count: " << result << endl;
-    return 0;
 }
