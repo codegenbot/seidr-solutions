@@ -4,7 +4,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     stack = []
     result = []
     count = 0
-
+    
     for char in paren_string:
         if char == "(":
             stack.append("(")
@@ -13,10 +13,14 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             count -= 1
             result.append(count + 1)
         else:
-            stack.pop()
-
+            if stack:
+                stack.pop()
+    
     while stack:
         result.append(-1)
         stack.pop()
-
+    
     return result
+
+paren_string = input()
+print(parse_nested_parens(paren_string))
