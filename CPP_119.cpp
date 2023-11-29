@@ -1,26 +1,45 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
-std::string match_parens(std::vector<std::string> lst) {
-    std::string result = "Yes";
+using namespace std;
+
+string match_parens(vector<string> lst);
+
+int main() {
+    // Test cases
+    assert(match_parens({")", "("}) == "Yes");
+    assert(match_parens({"(", ")"}) == "Yes");
+    assert(match_parens({"(", ")", "("}) == "No");
+    assert(match_parens({"(", ")", "(", ")"}) == "Yes");
+    assert(match_parens({"(", ")", ")", "("}) == "No");
+    
+    return 0;
+}
+
+string match_parens(vector<string> lst){
+    string result = "Yes";
     int count = 0;
-    for (std::string s : lst) {
-        for (char c : s) {
-            if (c == '(') {
+    for(string s : lst){
+        for(char c : s){
+            if(c == '('){
                 count++;
-            } else if (c == ')') {
+            }
+            else{
                 count--;
             }
+            if(count < 0){
+                result = "No";
+                break;
+            }
+        }
+        if(count < 0){
+            break;
         }
     }
-    if (count != 0) {
+    if(count != 0){
         result = "No";
     }
     return result;
-}
-
-int main() {
-    assert(match_parens({")", "("}) == "Yes");
-    return 0;
 }
