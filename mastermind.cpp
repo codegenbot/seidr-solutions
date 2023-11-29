@@ -1,23 +1,25 @@
 #include <iostream>
 #include <string>
+#include <cctype>
+
 using namespace std;
 
 pair<int, int> mastermindClues(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-    int codeCount[6] = {0};
-    int guessCount[6] = {0};
+    int codeCount[26] = {0};
+    int guessCount[26] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
+            codeCount[toupper(code[i]) - 'A']++;
+            guessCount[toupper(guess[i]) - 'A']++;
         }
     }
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 26; i++) {
         whitePegs += min(codeCount[i], guessCount[i]);
     }
 
