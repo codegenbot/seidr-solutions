@@ -1,8 +1,12 @@
+#include <vector>
+#include <string>
+#include <cassert>
+
 bool issame(vector<string> a, vector<string> b){
-    // function implementation
+    // function implementation goes here
 }
 
-vector<string> words_string(string s){
+vector<string> split_string(string s){
     vector<string> words;
     string word;
     for(int i=0; i<s.length(); i++){
@@ -23,7 +27,7 @@ vector<string> words_string(string s){
 }
 
 int main(){
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    // additional code
+    assert(issame(split_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    // additional test cases go here
     return 0;
 }
