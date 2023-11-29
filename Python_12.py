@@ -9,11 +9,8 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_string = string
     return longest_string
 
-# Read input from user
 strings = input().split()
 
-# Call the longest function with the input
 result = longest(strings)
 
-# Print the result
 print(result)
