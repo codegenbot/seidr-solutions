@@ -6,8 +6,6 @@ def all_prefixes(string: str) -> List[str]:
         prefixes.append(string[:i])
     return prefixes
 
-string = input()
-
-result = all_prefixes(string)
-
+input_string = input("Enter a space-separated string: ").split()
+result = all_prefixes(input_string)
 print(result)
