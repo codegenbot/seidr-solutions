@@ -5,8 +5,6 @@ bool issame(vector<int> a, vector<int> b){
     // implementation
 }
 
-vector<int> unique_digits(vector<int> x);
-
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for(int i=0; i<x.size(); i++){
