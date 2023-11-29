@@ -3,11 +3,11 @@
 
 using namespace std;
 
-double calculateSnow(int hours, double initialSnow, double snowFallRate, double snowMeltingRate) {
-    double snowOnGround = initialSnow;
+float calculateSnow(int hours, float initialSnow, float snowFallRate, float snowMeltingRate) {
+    float snowOnGround = initialSnow;
 
     for (int i = 0; i < hours; i++) {
-        double snowMelted = snowOnGround * snowMeltingRate;
+        float snowMelted = snowOnGround * snowMeltingRate / 100;
         snowOnGround += snowFallRate;
         snowOnGround -= snowMelted;
     }
@@ -17,11 +17,11 @@ double calculateSnow(int hours, double initialSnow, double snowFallRate, double 
 
 int main() {
     int hours;
-    double initialSnow, snowFallRate, snowMeltingRate;
+    float initialSnow, snowFallRate, snowMeltingRate;
     cin >> hours >> initialSnow >> snowFallRate >> snowMeltingRate;
 
-    double result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltingRate);
-    cout << fixed << setprecision(20) << result << endl;
+    float result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltingRate);
+    cout << fixed << setprecision(15) << result << endl;
 
     return 0;
 }
