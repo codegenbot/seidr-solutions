@@ -5,7 +5,7 @@ using namespace std;
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float snowMeltingRate) {
     float snowOnGround = initialSnow;
 
-    for (float i = 0.0; i < hours; i += 1.0) {
+    for (int i = 0; i < hours; i++) {
         float snowMelted = snowOnGround * snowMeltingRate;
         snowOnGround += snowFallRate;
         snowOnGround -= snowMelted;
@@ -18,8 +18,9 @@ int main() {
     float hours, initialSnow, snowFallRate, snowMeltingRate;
     cin >> hours >> initialSnow >> snowFallRate >> snowMeltingRate;
 
+    cout << fixed << setprecision(15);
     float result = calculateSnow(hours, initialSnow, snowFallRate, snowMeltingRate);
-    cout << fixed << setprecision(15) << result << endl;
+    cout << result << endl;
 
     return 0;
 }
