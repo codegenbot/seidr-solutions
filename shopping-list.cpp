@@ -25,7 +25,8 @@ int main() {
         discounts[i] = 100.0 - discounts[i];
     }
 
-    float totalPrice = calculateTotalPrice(prices, discounts) * 1.0;
+    float totalPrice = calculateTotalPrice(prices, discounts);
+    totalPrice = totalPrice * 1.0;
     std::cout << totalPrice << std::endl;
 
     return 0;
