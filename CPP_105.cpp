@@ -31,8 +31,8 @@ vector<string> by_length(vector<int> arr);
 int main() {
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     vector<string> result = by_length(arr);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
+    for (string s : result) {
+        cout << s << " ";
     }
     cout << endl;
     return 0;

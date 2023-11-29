@@ -1,30 +1,38 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-using namespace std;
+bool is_same(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
-vector<int> sort_array(vector<int> array){
-    if(array.empty()){
+std::vector<int> sort_array(std::vector<int> array) {
+    if (array.empty()) {
         return array;
     }
-    int sum = array[0] + array[array.size()-1];
-    if(sum % 2 == 0){
-        sort(array.begin(), array.end(), greater<int>());
+    int sum = array[0] + array[array.size() - 1];
+    if (sum % 2 == 0) {
+        std::sort(array.begin(), array.end(), std::greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        std::sort(array.begin(), array.end());
     }
     return array;
 }
 
-int issame(vector<int> a, vector<int> b){
-    if(a == b){
-        return 1;
-    } else {
-        return 0;
+int main() {
+    std::vector<int> array = {1, 4, 2, 3, 5};
+    std::vector<int> sorted_array = sort_array(array);
+    for (int num : sorted_array) {
+        std::cout << num << " ";
     }
-}
+    std::cout << std::endl;
 
-int main(){
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {1, 2, 3};
+    if (is_same(a, b)) {
+        std::cout << "Vectors are the same" << std::endl;
+    } else {
+        std::cout << "Vectors are different" << std::endl;
+    }
+
+    return 0;
 }
