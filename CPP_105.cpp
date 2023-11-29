@@ -1,7 +1,9 @@
 #include <string>
 #include <vector>
-#include <map>
 #include <algorithm>
+#include <map>
+
+using namespace std;
 
 vector<string> by_length(vector<int> arr){
     vector<int> sorted_arr;
@@ -24,20 +26,12 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> by_length(vector<int> arr);
-
 int main() {
-    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    vector<string> result = by_length(arr);
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
+    vector<string> result = by_length({9, 2, 5, 1, 7, 3});
+    for (string s : result) {
+        cout << s << " ";
     }
     cout << endl;
-
-    vector<string> a = {"One", "Two", "Three"};
-    vector<string> b = {"One", "Two", "Three"};
-    bool same = issame(a, b);
-    cout << same << endl;
 
     return 0;
 }
