@@ -11,12 +11,12 @@ def below_zero(nums: List[int]) -> bool:
 
 
 def main():
-    n = int(input())
+    n = int(input("Enter the number of elements: "))
     nums = []
     for i in range(n):
-        num = int(input())
+        num = int(input(f"Enter element {i + 1}: "))
         nums.append(num)
-
+    
     result = below_zero(nums)
     print(result)
 
