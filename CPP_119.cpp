@@ -1,7 +1,16 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+
+using namespace std;
 
 string match_parens(vector<string> lst);
+
+int main() {
+    vector<string> lst = {"()", "((", "())"};
+    cout << match_parens(lst) << endl;
+    return 0;
+}
 
 string match_parens(vector<string> lst) {
     int count = 0;
