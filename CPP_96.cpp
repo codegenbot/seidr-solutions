@@ -1,13 +1,22 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b) {
+    // function code here
+}
+
 vector<int> count_up_to(int n) {
     vector<int> primes;
-    for (int i = 2; i < n; i++) {
+    if (n <= 1) {
+        return primes;
+    }
+    primes.push_back(2);
+    for (int i = 3; i < n; i += 2) {
         bool isPrime = true;
-        for (int j = 2; j < i; j++) {
+        for (int j = 2; j * j <= i; j++) {
             if (i % j == 0) {
                 isPrime = false;
                 break;
@@ -21,14 +30,6 @@ vector<int> count_up_to(int n) {
 }
 
 int main() {
-    int n;
-    cout << "Enter a non-negative integer: ";
-    cin >> n;
-    vector<int> result = count_up_to(n);
-    cout << "Prime numbers less than " << n << ": ";
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
+    assert(count_up_to(101) == {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97});
     return 0;
 }
