@@ -8,5 +8,8 @@ def parse_music(music_string: str) -> List[int]:
     ]
 
 
+# Prompt the user to enter the input
 input_string = input("Enter the music string: ")
+
+# Call the function with the user input and print the result
 print(parse_music(input_string))
