@@ -1,11 +1,14 @@
 def cut_vector(vector):
-    total_sum = sum(vector)
-    current_sum = 0
-    for i, num in enumerate(vector):
-        current_sum += num
-        if current_sum == total_sum - current_sum:
-            return vector[: i + 1], vector[i + 1 :]
-    return vector, [0]
+    smallest_diff = float("inf")
+    cut_index = -1
+
+    for i in range(1, len(vector)):
+        diff = abs(sum(vector[:i]) - sum(vector[i:]))
+        if diff < smallest_diff:
+            smallest_diff = diff
+            cut_index = i
+
+    return vector[:cut_index], vector[cut_index:]
 
 
 # Read input from user
@@ -17,10 +20,8 @@ while True:
     except EOFError:
         break
 
-# Get the resulting subvectors
+# Call the function and print the outputs
 subvector1, subvector2 = cut_vector(vector)
-
-# Print the subvectors
 for num in subvector1:
     print(num)
 for num in subvector2:
