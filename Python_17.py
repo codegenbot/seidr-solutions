@@ -1,9 +1,16 @@
 from typing import List
 
-
 def parse_music(music_string: str) -> List[int]:
-    music_dict = {"o": 4, "o|": 2, "|": 1, "-": 0}
-    parsed_music = []
+    result = []
     for char in music_string:
-        parsed_music.append(music_dict.get(char, -1))
-    return parsed_music
+        if char == "o":
+            result.append(4)
+        elif char == "|o|":
+            result.append(3)
+        elif char == "|o":
+            result.append(2)
+        elif char == "|":
+            result.append(1)
+        else:
+            result.append(0)
+    return result
