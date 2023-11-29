@@ -2,7 +2,5 @@ from typing import List
 
 
 def parse_music(music_string: str) -> List[int]:
-    return [
-        4 if char == "o" else 2 if char == "o|" else 1 if char == "|" else 0
-        for char in music_string
-    ]
+    music_dict = {"o": 4, "o|": 2, "|": 1, "-": 0}
+    return [music_dict[char] for char in music_string]
