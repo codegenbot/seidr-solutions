@@ -1,34 +1,36 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cmath>
 
-float euclideanDistance(const std::vector<float>& vector1, const std::vector<float>& vector2) {
-    float sum = 0.0;
-    for (int i = 0; i < vector1.size(); i++) {
-        float diff = vector1[i] - vector2[i];
+using namespace std;
+
+double euclideanDistance(const vector<double>& vec1, const vector<double>& vec2) {
+    double sum = 0.0;
+    for (int i = 0; i < vec1.size(); i++) {
+        double diff = vec1[i] - vec2[i];
         sum += diff * diff;
     }
-    return std::sqrt(sum);
+    return sqrt(sum);
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
 
-    std::vector<float> vector1(n);
+    vector<double> vec1(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> vector1[i];
+        cin >> vec1[i];
     }
 
-    std::cin >> n;
+    cin >> n;
 
-    std::vector<float> vector2(n);
+    vector<double> vec2(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> vector2[i];
+        cin >> vec2[i];
     }
 
-    float distance = euclideanDistance(vector1, vector2);
-    std::cout << distance << std::endl;
+    double distance = euclideanDistance(vec1, vec2);
+    cout << distance << endl;
 
     return 0;
 }
