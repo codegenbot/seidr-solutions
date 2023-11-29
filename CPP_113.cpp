@@ -5,6 +5,18 @@
 
 std::vector<std::string> odd_count(std::vector<std::string> lst);
 
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
     assert(issame(odd_count({"271", "137", "314"}), {
         "the number of odd elements 1 in the string \"271\" of the input.",
