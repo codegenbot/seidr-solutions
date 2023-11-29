@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
@@ -6,7 +5,8 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     max_num = max(numbers)
     return [(num - min_num) / (max_num - min_num) for num in numbers]
 
-numbers = [float(num) for num in sys.argv[1:]]
+numbers = input().split()
+numbers = [float(num) for num in numbers]
 
 result = rescale_to_unit(numbers)
 
