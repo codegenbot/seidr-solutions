@@ -1,34 +1,41 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-using namespace std;
+#include <string>
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
-vector<string> odd_count(vector<string> lst){
-    vector<string> result;
-    for(int i=0; i<lst.size(); i++){
-        int oddCount = 0;
-        for(int j=0; j<lst[i].size(); j++){
-            if((lst[i][j]-'0') % 2 != 0){
-                oddCount++;
+std::vector<std::string> odd_count(std::vector<std::string> lst) {
+    std::vector<std::string> result;
+    for (std::string str : lst) {
+        int count = 0;
+        for (char c : str) {
+            if ((c - '0') % 2 != 0) {
+                count++;
             }
         }
-        string str = "the number of odd elements " + to_string(oddCount) + "\nthe string " + to_string(i+1) + " of the input.";
-        result.push_back(str);
+        result.push_back("the number of odd elements " + std::to_string(count) +
+            " in the string " + std::to_string(result.size() + 1) +
+            " of the input.");
     }
     return result;
 }
 
-int main() {
-    assert(issame(odd_count({"271", "137", "314"}), {
-        "the number of odd elements 2\nthe string 1 of the input.",
-        "the number of odd elements 3\nthe string 2 of the input.",
-        "the number of odd elements 2\nthe string 3 of the input."
-    }));
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-    cout << "Test cases passed." << endl;
+int main() {
+    assert(issame(odd_count({ "271", "137", "314" }), {
+        "the number of odd elements 1 in the string 1 of the input.",
+        "the number of odd elements 2 in the string 2 of the input.",
+        "the number of odd elements 2 in the string 3 of the input."
+        }));
+
     return 0;
 }
