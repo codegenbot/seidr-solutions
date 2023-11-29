@@ -47,3 +47,7 @@ bool issame(vector<string> a, vector<string> b){
     }
     return true;
 }
+
+int main() {
+    return 0;
+}
