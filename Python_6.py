@@ -23,6 +23,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return result
 
-
-paren_string = "(()()())(()())"  # Given input
+paren_string = "<your parentheses string>"
 print(parse_nested_parens(paren_string))
