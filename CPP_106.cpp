@@ -1,5 +1,8 @@
-vector<int> f(int n){
-    vector<int> result;
+#include <vector>
+#include <cassert>
+
+std::vector<int> f(int n){
+    std::vector<int> result;
     for(int i=1; i<=n; i++){
         if(i%2 == 0){
             int factorial = 1;
@@ -17,4 +20,14 @@ vector<int> f(int n){
         }
     }
     return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
+
+int main(){
+    assert(issame(f(3), {1, 2, 6}));
+    
+    return 0;
 }
