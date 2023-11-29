@@ -1,6 +1,3 @@
-from typing import List
-
-
 def below_zero(nums: List[int]) -> bool:
     balance = 0
     for num in nums:
@@ -11,7 +8,8 @@ def below_zero(nums: List[int]) -> bool:
 
 
 def main():
-    nums = list(map(int, input().split()))
+    nums = list(map(int, input("Enter the elements: ").split()))
+    
     result = below_zero(nums)
     print(result)
 
