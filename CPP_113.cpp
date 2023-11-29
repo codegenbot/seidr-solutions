@@ -19,8 +19,11 @@ std::vector<std::string> odd_count(std::vector<std::string> lst){
     return result;
 }
 
-assert(issame(odd_count({"271", "137", "314"}), {
-    "the number of odd elements 1 in the string \"271\" of the input.",
-    "the number of odd elements 2 in the string \"137\" of the input.",
-    "the number of odd elements 1 in the string \"314\" of the input."
-}));
+int main() {
+    assert(issame(odd_count({"271", "137", "314"}), {
+        "the number of odd elements 1 in the string \"271\" of the input.",
+        "the number of odd elements 2 in the string \"137\" of the input.",
+        "the number of odd elements 1 in the string \"314\" of the input."
+    }));
+    return 0;
+}
