@@ -1,10 +1,11 @@
-def filter_by_substring(strings, substring):
-    return [
-        s for s in strings if substring in s
-    ]  # implementation for the provided function signature
+from typing import List
 
 
-strings = input().split()  # read input strings as list
-substring = input().strip()  # read input substring
-result = filter_by_substring(strings, substring)  # filter strings based on substring
-print(result)  # print the filtered result
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+    return [string for string in strings if substring in string]
+
+
+strings = input("Enter a list of strings, separated by space: ").split()
+substring = input("Enter a substring to filter by: ").strip()
+result = filter_by_substring(strings, substring)
+print(result)
