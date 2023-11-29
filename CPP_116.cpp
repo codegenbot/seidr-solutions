@@ -1,8 +1,5 @@
 #include <vector>
 
-vector<int> sort_array(vector<int> arr);
-bool issame(vector<int> a, vector<int> b);
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -15,7 +12,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> sort_array(vector<int> arr){
+vector<int> sort_array(vector<int> arr) {
     sort(arr.begin(), arr.end(), [](int a, int b) {
         int countA = __builtin_popcount(a);
         int countB = __builtin_popcount(b);
