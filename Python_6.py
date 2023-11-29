@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 
@@ -24,5 +23,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return result
 
-paren_string = sys.argv[1]
+paren_string = input("Enter a string of parentheses: ")
 print(parse_nested_parens(paren_string))

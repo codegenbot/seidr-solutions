@@ -1,4 +1,5 @@
 from typing import List
+import sys
 
 def all_prefixes(string: str) -> List[str]:
     prefixes = []
@@ -6,6 +7,6 @@ def all_prefixes(string: str) -> List[str]:
         prefixes.append(string[:i])
     return prefixes
 
-input_string = input("Enter a space-separated string: ").split()
+input_string = sys.stdin.readline().strip()
 result = all_prefixes(input_string)
 print(result)
