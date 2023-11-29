@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
+bool issame(vector<vector<int>> a,vector<vector<int>> b){
     // Function code here
 }
 
