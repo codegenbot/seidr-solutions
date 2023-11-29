@@ -35,10 +35,10 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // implementation of issame function
+    // implementation of issame function goes here
 }
 
 int main() {
-    // main function code
+    // main function implementation goes here
     return 0;
 }
