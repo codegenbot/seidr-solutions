@@ -7,5 +7,7 @@ def all_prefixes(string: str) -> List[str]:
     return prefixes
 
 string = input()
+
 result = all_prefixes(string)
+
 print(result)
