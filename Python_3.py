@@ -11,7 +11,7 @@ def below_zero(nums: List[int]) -> bool:
 
 
 def main():
-    nums = [int(num) for num in input().split()]
+    nums = list(map(int, input().split()))[1:]
     result = below_zero(nums)
     print(result)
 
