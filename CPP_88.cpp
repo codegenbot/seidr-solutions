@@ -38,5 +38,4 @@ bool issame(vector<int> a, vector<int> b){
 
 int main() {
     // Add your test cases and assertions here
-    return 0;
 }
