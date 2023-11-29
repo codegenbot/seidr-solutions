@@ -1,41 +1,31 @@
 #include <vector>
 #include <algorithm>
-using namespace std;
 
-bool is_same(vector<int> a, vector<int> b){
+bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> sort_array(vector<int> array){
-    if(array.empty()){
+std::vector<int> sort_array(std::vector<int> array) {
+    if (array.empty()) {
         return array;
     }
-    int sum = array[0] + array[array.size()-1];
-    if(sum % 2 == 0){
-        sort(array.begin(), array.end(), greater<int>());
+    int sum = array[0] + array[array.size() - 1];
+    if (sum % 2 == 0) {
+        std::sort(array.begin(), array.end(), std::greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        std::sort(array.begin(), array.end());
     }
     return array;
 }
 
-int main(){
-    // Test the sort_array function
-    vector<int> input = {5, 2, 8, 1, 9};
-    vector<int> sorted = sort_array(input);
-    for(int num : sorted){
-        cout << num << " ";
-    }
-    cout << endl;
+int main() {
+    std::vector<int> array = {3, 1, 4, 2, 5};
+    std::vector<int> sorted_array = sort_array(array);
+    std::vector<int> expected_result = {5, 4, 3, 2, 1};
 
-    // Test the is_same function
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
-    if(is_same(a, b)){
-        cout << "Vectors are the same" << endl;
+    if (is_same(sorted_array, expected_result)) {
+        return 0;
     } else {
-        cout << "Vectors are different" << endl;
+        return 1;
     }
-
-    return 0;
 }
