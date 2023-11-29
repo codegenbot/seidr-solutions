@@ -1,31 +1,43 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
 
 vector<string> odd_count(vector<string> lst);
 
-int main(){
-    assert (odd_count({"271", "137", "314"}) == vector<string>{
-        "the number of odd elements 2\n the string 1 of the input.",
-        "the number of odd elements 2\n the string 2 of the input.",
-        "the number of odd elements 3\n the string 3 of the input."
-    });
-    
-    return 0;
+bool isSame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<string> odd_count(vector<string> lst){
+vector<string> odd_count(vector<string> lst) {
     vector<string> result;
-    for(int i=0; i<lst.size(); i++){
-        int count = 0;
-        for(int j=0; j<lst[i].length(); j++){
-            if((lst[i][j]-'0')%2 != 0){
-                count++;
+    for (int i = 0; i < lst.size(); i++) {
+        int oddCount = 0;
+        for (int j = 0; j < lst[i].size(); j++) {
+            if ((lst[i][j] - '0') % 2 != 0) {
+                oddCount++;
             }
         }
-        result.push_back("the number of odd elements " + to_string(count) + "\n the string " + to_string(i+1) + " of the input.");
+        string mystr = "the number of odd elements %d in the string %d of the input.";
+        result.push_back(mystr);
     }
     return result;
+}
+
+int main() {
+    assert(isSame(odd_count({"271", "137", "314"}), {
+        "the number of odd elements 2 in the string 1 of the input.",
+        "the number of odd elements 2 in the string 2 of the input.",
+        "the number of odd elements 2 in the string 3 of the input."
+    }));
+    return 0;
 }
