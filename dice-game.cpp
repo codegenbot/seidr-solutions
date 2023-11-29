@@ -1,9 +1,9 @@
 #include <iostream>
-using namespace std;
 
 double probabilityOfPeterWinning(int n, int m) {
     double totalOutcomes = n * m;
     double peterWins = 0;
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
@@ -11,12 +11,16 @@ double probabilityOfPeterWinning(int n, int m) {
             }
         }
     }
+
     return peterWins / totalOutcomes;
 }
 
 int main() {
     int n, m;
-    cin >> n >> m;
-    cout << probabilityOfPeterWinning(n, m) << endl;
+    std::cin >> n >> m;
+
+    double probability = probabilityOfPeterWinning(n, m);
+    std::cout << probability << std::endl;
+
     return 0;
 }
