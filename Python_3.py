@@ -11,8 +11,11 @@ def below_zero(nums: List[int]) -> bool:
 
 
 def main():
-    n = int(input("Enter the number of elements: "))
-    nums = list(map(int, input("Enter the elements separated by spaces: ").split()))[:n]
+    n = int(input())
+    nums = list(map(int, input().split()))
+    if len(nums) != n:
+        print("Invalid input!")
+        return
     result = below_zero(nums)
     print(result)
 
