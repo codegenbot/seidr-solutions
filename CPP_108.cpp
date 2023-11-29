@@ -17,6 +17,6 @@ int count_nums(vector<int> n){
 }
 
 int main() {
-    // Add test cases here if needed
+    // Add test cases here
     return 0;
 }
