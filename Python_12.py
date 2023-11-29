@@ -2,9 +2,9 @@ import sys
 from typing import List, Optional
 
 
-def longest(strings: List[str]) -> str:
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
-        return ""
+        return None
     longest_string = strings[0]
     for string in strings:
         if len(string) > len(longest_string):
