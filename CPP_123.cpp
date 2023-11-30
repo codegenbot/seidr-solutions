@@ -6,7 +6,7 @@ vector<int> get_odd_collatz(int n){
             n = n / 2;
         }
         else{
-            n = (3 * n) + 1;
+            n = 3 * n + 1;
         }
         collatz.push_back(n);
     }
