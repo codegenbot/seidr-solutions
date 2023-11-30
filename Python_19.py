@@ -1,8 +1,8 @@
 from typing import List
 
 
-def sort_numbers(numbers: str) -> str:
-    num_mapping = {
+def sort_numbers(numbers: List[str]) -> str:
+    number_mapping = {
         "zero": 0,
         "one": 1,
         "two": 2,
@@ -14,10 +14,5 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9,
     }
-    sorted_numbers = sorted(numbers.split(), key=lambda x: num_mapping[x.lower()])
+    sorted_numbers = sorted(numbers, key=lambda x: number_mapping[x])
     return " ".join(sorted_numbers)
-
-
-numbers_input = input("Enter numbers separated by spaces: ")
-sorted_output = sort_numbers(numbers_input)
-print("Sorted numbers: ", sorted_output)
