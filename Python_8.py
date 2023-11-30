@@ -1,10 +1,10 @@
 from typing import List, Tuple
 
 
-def sum_product(numbers: list[int]) -> tuple[int, int]:
-    sum = 0
-    product = 1
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    s = 0
+    p = 1
     for num in numbers:
-        sum += num
-        product *= num
-    return sum, product
+        s += num
+        p *= num
+    return s, p
