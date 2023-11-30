@@ -1,9 +1,11 @@
-n = int(input("Enter the number of strings: "))
-strings = [input("Enter a string: ") for _ in range(n)]
+n = int(input())
+strings = []
 
-def concatenate(strings):
+for _ in range(n):
+    strings.append(input())
+
+def concatenate(strings: list) -> str:
     return ''.join(strings)
 
 result = concatenate(strings)
-
 print(result)
