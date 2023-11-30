@@ -29,23 +29,25 @@ int calculateScore(const std::string& bowls) {
             if (frame < 10 && bowlIndex % 2 == 0 && bowl != '0' && bowls[i + 1] == '/') {
                 score += 10;
             }
+            
+            if (frame < 10 && bowls[i + 1] == '/') {
+                score += 10;
+            }
 
             bowlIndex++;
-
-            if (frame < 10 && bowls[i + 1] == '/')
-                score += 10;
         } else if (bowl == '/') {
             score += (10 - (bowls[i - 1] - '0'));
 
             if (frame < 10) {
                 score += (bowls[i + 1] == 'X') ? 10 : (isdigit(bowls[i + 1])) ? (bowls[i + 1] - '0') : 0;
             }
+            
+            if (frame < 10 && bowls[i + 1] == 'X') {
+                score += 10;
+            }
 
             bowlIndex++;
             frame++;
-
-            if (frame < 10 && bowls[i + 1] == 'X')
-                score += 10;
         }
     }
 
