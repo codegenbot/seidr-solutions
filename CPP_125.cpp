@@ -3,40 +3,38 @@ vector<string> split_words(string txt){
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-
-    for (char c : txt) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
+    
+    for(char c : txt){
+        if(c == ' '){
+            result.push_back(word);
+            word = "";
             hasWhitespace = true;
         }
-        else if (c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
+        else if(c == ','){
+            result.push_back(word);
+            word = "";
             hasComma = true;
         }
-        else {
+        else{
             word += c;
         }
     }
-
-    if (!word.empty()) {
-        result.push_back(word);
-    }
     
-    if (!hasWhitespace && !hasComma) {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
+    result.push_back(word);
+    
+    if(!hasWhitespace && !hasComma){
+        int oddCount = 0;
+        for(char c : word){
+            if(islower(c)){
+                int order = c - 'a';
+                if(order % 2 != 0){
+                    oddCount++;
+                }
             }
         }
-        result.push_back(to_string(count));
+        result.clear();
+        result.push_back(to_string(oddCount));
     }
-
+    
     return result;
 }
