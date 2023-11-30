@@ -3,13 +3,11 @@ def encode(message):
     encoded_message = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in vowels:
+            if char in vowels:
                 encoded_message += chr(ord(char) + 2)
             else:
-                if char == 'z':
-                    encoded_message += 'b'
-                elif char == 'Z':
-                    encoded_message += 'B'
+                if char.lower() == 'z':
+                    encoded_message += 'b' if char.islower() else 'B'
                 else:
                     encoded_message += chr(ord(char) + 1)
         else:
