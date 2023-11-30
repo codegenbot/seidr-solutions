@@ -1,16 +1,14 @@
 vector<int> make_a_pile(int n){
-    vector<int> stones;
-    int numStones = n;
-    stones.push_back(numStones);
-    
-    for(int i = 1; i < n; i++){
-        if(numStones % 2 == 0){
-            numStones += 2;
+    vector<int> levels;
+    int stones = n;
+    levels.push_back(stones);
+    for(int i=1; i<n; i++){
+        if(stones % 2 == 0){
+            stones += 2;
         } else {
-            numStones += 1;
+            stones += 1;
         }
-        stones.push_back(numStones);
+        levels.push_back(stones);
     }
-    
-    return stones;
+    return levels;
 }
