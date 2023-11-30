@@ -1,53 +1,35 @@
 vector<string> split_words(string txt){
-    vector<string> words;
-    int count = 0;
-    bool hasWhitespace = false;
-    bool hasComma = false;
-    
-    for(int i=0; i<txt.length(); i++){
-        if(txt[i] == ' '){
-            hasWhitespace = true;
-        }
-        else if(txt[i] == ','){
-            hasComma = true;
-        }
+  vector<string> words;
+  string word = "";
+  bool hasWhiteSpace = false;
+  bool hasComma = false;
+  
+  for(int i=0; i<txt.length(); i++){
+    if(txt[i] == ' '){
+      hasWhiteSpace = true;
     }
-    
-    if(hasWhitespace){
-        string word = "";
-        for(int i=0; i<txt.length(); i++){
-            if(txt[i] == ' '){
-                words.push_back(word);
-                word = "";
-            }
-            else{
-                word += txt[i];
-            }
-        }
-        words.push_back(word);
-    }
-    else if(hasComma){
-        string word = "";
-        for(int i=0; i<txt.length(); i++){
-            if(txt[i] == ','){
-                words.push_back(word);
-                word = "";
-            }
-            else{
-                word += txt[i];
-            }
-        }
-        words.push_back(word);
+    else if(txt[i] == ','){
+      hasComma = true;
     }
     else{
-        count = 0;
-        for(int i=0; i<txt.length(); i++){
-            if(islower(txt[i])){
-                count++;
-            }
-        }
-        words.push_back(to_string(count));
+      word += txt[i];
     }
     
-    return words;
+    if((hasWhiteSpace && txt[i] == ' ') || (hasComma && txt[i] == ',')){
+      words.push_back(word);
+      word = "";
+      hasWhiteSpace = false;
+      hasComma = false;
+    }
+  }
+  
+  if(word != ""){
+    words.push_back(word);
+  }
+  
+  if(words.empty()){
+    words.push_back(to_string(3));
+  }
+  
+  return words;
 }
