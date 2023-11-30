@@ -1,31 +1,24 @@
 string file_name_check(string file_name){
+    int dotIndex = file_name.find('.');
+    if(dotIndex == string::npos || dotIndex == 0 || dotIndex == file_name.length()-1){
+        return "No";
+    }
+    string beforeDot = file_name.substr(0, dotIndex);
+    string afterDot = file_name.substr(dotIndex+1);
+    if(beforeDot.empty()){
+        return "No";
+    }
     int digitCount = 0;
-    int dotCount = 0;
-    string beforeDot = "";
-    string afterDot = "";
-
-    for(int i = 0; i < file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
+    for(char c : beforeDot){
+        if(isdigit(c)){
             digitCount++;
         }
-        else if(file_name[i] == '.'){
-            dotCount++;
-        }
-        else if(dotCount == 0){
-            beforeDot += file_name[i];
-        }
-        else{
-            afterDot += file_name[i];
-        }
     }
-
-    if(digitCount > 3 || dotCount != 1 || beforeDot.length() == 0 || !(beforeDot[0] >= 'a' && beforeDot[0] <= 'z') && !(beforeDot[0] >= 'A' && beforeDot[0] <= 'Z')){
+    if(digitCount > 3){
         return "No";
     }
-    else if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll"){
+    if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll"){
         return "No";
     }
-    else{
-        return "Yes";
-    }
+    return "Yes";
 }
