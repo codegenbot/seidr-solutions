@@ -4,33 +4,30 @@ vector<string> split_words(string txt){
     bool hasWhitespace = false;
     bool hasComma = false;
     
-    for(char c : txt){
-        if(c == ' '){
+    for (char c : txt) {
+        if (c == ' ') {
             hasWhitespace = true;
-            if(word != ""){
+            if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
-        }
-        else if(c == ','){
+        } else if (c == ',') {
             hasComma = true;
-            if(word != ""){
+            if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
-        }
-        else{
+        } else {
             word += c;
         }
     }
     
-    if(word != ""){
+    if (!word.empty()) {
         result.push_back(word);
     }
     
-    if(!hasWhitespace && !hasComma){
-        result.clear();
-        result.push_back(to_string(count_odd_alphabet_letters(txt)));
+    if (!hasWhitespace && !hasComma) {
+        result.push_back(to_string(count_odd_lower_case_letters(txt)));
     }
     
     return result;
