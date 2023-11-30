@@ -14,5 +14,6 @@ def parse_music(music_string: str) -> List[int]:
     return result
 
 
-music_string = input("Enter the music string: ")
-print(parse_music(music_string))
+music_string = input("Enter the music notes: ")
+result = parse_music(music_string)
+print(result)
