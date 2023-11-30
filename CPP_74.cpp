@@ -13,7 +13,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2){
     if(totalChars1 < totalChars2){
         return lst1;
     }
-    else{
-        return lst2;
-    }
+    
+    return lst2;
 }
