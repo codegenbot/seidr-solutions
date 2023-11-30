@@ -1,7 +1,13 @@
-vector<int> sort_array(vector<int> array){
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<int> sort_array(vector<int> array) {
     vector<int> sorted_array = array;
     int sum = sorted_array[0] + sorted_array[sorted_array.size() - 1];
-    if(sum % 2 == 0){
+    if(sum % 2 == 0) {
         sort(sorted_array.begin(), sorted_array.end(), greater<int>());
     }
     else{
