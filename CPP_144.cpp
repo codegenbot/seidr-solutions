@@ -1,8 +1,8 @@
-bool simplify(string x, string n){
-    int num_x = stoi(x.substr(0, x.find("/")));
-    int den_x = stoi(x.substr(x.find("/") + 1));
-    int num_n = stoi(n.substr(0, n.find("/")));
-    int den_n = stoi(n.substr(n.find("/") + 1));
-    
-    return (num_x * den_n) == (num_n * den_x);
+bool simplify(string x, string n) {
+    int x_num = stoi(x.substr(0, x.find('/')));
+    int x_den = stoi(x.substr(x.find('/') + 1));
+    int n_num = stoi(n.substr(0, n.find('/')));
+    int n_den = stoi(n.substr(n.find('/') + 1));
+
+    return (x_num * n_den == x_den * n_num);
 }
