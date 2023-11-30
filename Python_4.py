@@ -1,7 +1,5 @@
-numbers = input().split()
 try:
-    numbers = [int(num) for num in numbers]
+    numbers = list(map(int, input().split()))
     # Rest of the code
-
 except ValueError:
-    print("Invalid input.")
+    print("Invalid input. Please enter only numbers separated by space.")
