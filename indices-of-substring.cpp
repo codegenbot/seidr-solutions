@@ -21,13 +21,13 @@ int main() {
     std::string text, target;
     std::getline(std::cin, text);
     std::getline(std::cin, target);
-
+    
     std::replace(text.begin(), text.end(), '\\', '/');
-
+    
     std::vector<int> result = indicesOfSubstring(text, target);
     for (int i = 0; i < result.size(); i++) {
         std::cout << result[i] << " ";
     }
-
+    
     return 0;
 }
