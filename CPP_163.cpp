@@ -16,8 +16,8 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> expected = {};
-    assert(generate_integers(17, 89) == expected);
-    
+    vector<int> result = generate_integers(17, 89);
+    assert(result == vector<int>{});
+
     return 0;
 }
