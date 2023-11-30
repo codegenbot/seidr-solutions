@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 using namespace std;
 
 int specialFilter(vector<int> nums){
@@ -16,13 +15,13 @@ int specialFilter(vector<int> nums){
 
 int main() {
     assert(specialFilter({}) == 0);
-    assert(specialFilter({1, 2, 3, 4, 5}) == 0);
-    assert(specialFilter({12, 23, 34, 45, 56}) == 0);
-    assert(specialFilter({12, 23, 34, 45, 56, 67}) == 1);
-    assert(specialFilter({12, 23, 34, 45, 56, 67, 78}) == 1);
-    assert(specialFilter({12, 23, 34, 45, 56, 67, 78, 89}) == 2);
-    assert(specialFilter({-12, -23, -34, -45, -56, -67, -78, -89}) == 2);
-    assert(specialFilter({-12, -23, -34, -45, -56, -67, -78, -89, -100}) == 3);
+    assert(specialFilter({1, 2, 3, 4, 5, 6, 7, 8, 9}) == 0);
+    assert(specialFilter({12, 34, 56, 78, 90}) == 0);
+    assert(specialFilter({11, 22, 33, 44, 55, 66, 77, 88, 99}) == 9);
+    assert(specialFilter({-12, -34, -56, -78, -90}) == 0);
+    assert(specialFilter({-11, -22, -33, -44, -55, -66, -77, -88, -99}) == 9);
+    assert(specialFilter({123, 456, 789, 101112, 131415, 161718, 192021}) == 4);
+    assert(specialFilter({-123, -456, -789, -101112, -131415, -161718, -192021}) == 4);
 
     return 0;
 }
