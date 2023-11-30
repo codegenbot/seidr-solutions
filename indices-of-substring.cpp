@@ -36,6 +36,6 @@ int main() {
             std::cout << result[i] << " ";
         }
     }
-
+    
     return 0;
 }
