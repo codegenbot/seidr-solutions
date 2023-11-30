@@ -3,13 +3,18 @@ vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end());
     int left = 0;
     int right = lst.size() - 1;
+    bool isLeft = true;
+
     while (left <= right) {
-        result.push_back(lst[left]);
-        if (left != right) {
+        if (isLeft) {
+            result.push_back(lst[left]);
+            left++;
+        } else {
             result.push_back(lst[right]);
+            right--;
         }
-        left++;
-        right--;
+        isLeft = !isLeft;
     }
+
     return result;
 }
