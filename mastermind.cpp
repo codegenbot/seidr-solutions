@@ -15,6 +15,7 @@ pair<int, int> mastermind(string code, string guess) {
             if (code[i] >= 'A' && code[i] <= 'F') {
                 codeFreq[code[i] - 'A']++;
             }
+            
             if (guess[i] >= 'A' && guess[i] <= 'F') {
                 guessFreq[guess[i] - 'A']++;
             }
