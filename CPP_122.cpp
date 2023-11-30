@@ -1,17 +1,20 @@
 #include <vector>
+#include <cassert>
 
-int main() {
-    std::vector<int> arr = {1, 2, 3, 10, 15, 100};
-    int k = arr.size();
+int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
-    int count = 0;
     
     for (int i = 0; i < k; i++) {
         if (arr[i] >= 10 && arr[i] < 100) {
             sum += arr[i];
-            count++;
         }
     }
     
     return sum;
+}
+
+int main() {
+    assert(add_elements({1}, 1) == 0);
+    
+    return 0;
 }
