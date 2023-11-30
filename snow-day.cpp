@@ -1,12 +1,12 @@
 #include <iostream>
-#include <cmath>
+using namespace std;
 
 double calculateSnow(float hours, float snowOnGround, float snowFallRate, float meltRate) {
     for (int i = 0; i < hours; i++) {
         snowOnGround += snowFallRate;
-        snowOnGround *= (1 - meltRate);
+        snowOnGround -= snowFallRate * meltRate;
     }
-    return round(snowOnGround * 100) / 100.0;
+    return static_cast<double>(snowOnGround);
 }
 
 int main() {
