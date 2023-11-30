@@ -1,4 +1,2 @@
-def sorted_list(nums):
-    return sorted(filter(lambda x: len(x) % 2 == 0, nums))
-
-assert sorted_list(["aaaa", "bbbb", "dd", "cc"]) == ["cc", "dd", "aaaa", "bbbb"]
+def sorted_list_sum(lst):
+    return sum(map(lambda x: int(x) if len(x) % 2 == 0 else 0, lst))
