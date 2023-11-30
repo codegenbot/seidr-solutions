@@ -13,3 +13,8 @@ vector<int> largest_smallest_integers(vector<int> lst){
 
     return {largest_negative, smallest_positive};
 }
+
+int main(){
+    assert (largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == {-3, 1});
+    return 0;
+}
