@@ -1,11 +1,12 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <limits>
 
 double euclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
     double sum = 0.0;
     for (int i = 0; i < v1.size(); i++) {
-        sum += std::pow(v1[i] - v2[i], 2);
+        sum += pow(v1[i] - v2[i], 2);
     }
     return std::sqrt(sum);
 }
@@ -27,6 +28,8 @@ int main() {
     }
 
     double distance = euclideanDistance(v1, v2);
+
+    std::cout.precision(std::numeric_limits<double>::max_digits10);
     std::cout << distance << std::endl;
 
     return 0;
