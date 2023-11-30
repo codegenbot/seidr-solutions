@@ -20,16 +20,6 @@ int count_nums(vector<int> n) {
 }
 
 int main() {
-    vector<int> numbers;
-    int num;
-    
-    // Read input from user
-    while (cin >> num) {
-        numbers.push_back(num);
-    }
-    
-    // Call count_nums function and print the result
-    cout << count_nums(numbers) << endl;
-    
+    // Test your code here (optional)
     return 0;
 }
