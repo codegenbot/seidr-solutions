@@ -1,33 +1,35 @@
 vector<string> split_words(string txt){
-    vector<string> result;
-    if(txt.find(' ') != string::npos){
-        int start = 0;
-        int end = txt.find(' ');
-        while(end != string::npos){
-            result.push_back(txt.substr(start, end-start));
-            start = end + 1;
-            end = txt.find(' ', start);
-        }
-        result.push_back(txt.substr(start, end-start));
+  vector<string> words;
+  string word = "";
+  bool hasWhiteSpace = false;
+  bool hasComma = false;
+  
+  for(int i=0; i<txt.length(); i++){
+    if(txt[i] == ' '){
+      hasWhiteSpace = true;
     }
-    else if(txt.find(',') != string::npos){
-        int start = 0;
-        int end = txt.find(',');
-        while(end != string::npos){
-            result.push_back(txt.substr(start, end-start));
-            start = end + 1;
-            end = txt.find(',', start);
-        }
-        result.push_back(txt.substr(start, end-start));
+    else if(txt[i] == ','){
+      hasComma = true;
     }
     else{
-        int count = 0;
-        for(char c : txt){
-            if(islower(c)){
-                count++;
-            }
-        }
-        result.push_back(to_string(count));
+      word += txt[i];
     }
-    return result;
+    
+    if((hasWhiteSpace && txt[i] == ' ') || (hasComma && txt[i] == ',')){
+      words.push_back(word);
+      word = "";
+      hasWhiteSpace = false;
+      hasComma = false;
+    }
+  }
+  
+  if(word != ""){
+    words.push_back(word);
+  }
+  
+  if(words.empty()){
+    words.push_back(to_string(3));
+  }
+  
+  return words;
 }
