@@ -1,13 +1,14 @@
 #include <iostream>
+#include <cmath>
 
 double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
     double totalDistance = startingHeight;
-    double distanceCovered = firstBounceHeight;
+    double distanceCovered = startingHeight;
 
-    for (int i = 1; i < numBounces; i++) {
+    for (int i = 1; i <= numBounces; i++) {
+        distanceCovered *= pow(bouncinessIndex, i);
         totalDistance += 2 * distanceCovered;
-        distanceCovered *= bouncinessIndex;
     }
 
     return totalDistance;
