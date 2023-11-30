@@ -15,8 +15,9 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main() {
-    std::vector<int> nums = {12, 34, 56, 78, 9};
+    std::vector<int> nums = {12, 23, 34, 45, 56};
     int result = specialFilter(nums);
-    assert(result == 2);
+    assert(result == 3);
+    
     return 0;
 }
