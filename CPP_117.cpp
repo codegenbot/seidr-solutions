@@ -7,7 +7,7 @@ using namespace std;
 
 bool isvowel(char c) {
     c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
 bool issame(vector<string> a, vector<string> b) {
