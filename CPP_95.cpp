@@ -1,4 +1,4 @@
-bool check_map_case(map<string,string> dict){
+bool check_dict_case(map<string,string> dict){
     if(dict.empty()){
         return false;
     }
@@ -6,31 +6,21 @@ bool check_map_case(map<string,string> dict){
     bool isLower = true;
     bool isUpper = true;
     
-    for(auto &entry : dict){
-        string key = entry.first;
+    for(auto it=dict.begin(); it!=dict.end(); ++it){
+        string key = it->first;
         
-        if(!(isLower || isUpper)) {
+        if(!isLower && !isUpper){
             return false;
         }
         
-        if(isLower){
-            for(char c : key){
-                if(!islower(c)){
-                    isLower = false;
-                    break;
-                }
-            }
+        if(isLower && !islower(key[0])){
+            isLower = false;
         }
         
-        if(isUpper){
-            for(char c : key){
-                if(!isupper(c)){
-                    isUpper = false;
-                    break;
-                }
-            }
+        if(isUpper && !isupper(key[0])){
+            isUpper = false;
         }
     }
     
-    return isLower || isUpper;
+    return true;
 }
