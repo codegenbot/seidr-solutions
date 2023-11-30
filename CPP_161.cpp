@@ -1,5 +1,5 @@
-#include <string>
 #include <cctype>
+#include <string>
 #include <cassert>
 
 std::string solve(std::string s) {
@@ -7,12 +7,12 @@ std::string solve(std::string s) {
     bool hasLetter = false;
 
     for (char c : s) {
-        if (std::isalpha(c)) {
+        if (isalpha(c)) {
             hasLetter = true;
-            if (std::isupper(c)) {
-                result += std::tolower(c);
+            if (isupper(c)) {
+                result += tolower(c);
             } else {
-                result += std::toupper(c);
+                result += toupper(c);
             }
         } else {
             result += c;
