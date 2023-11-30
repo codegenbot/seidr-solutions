@@ -4,18 +4,17 @@ string find_max(vector<string> words){
     
     for (string word : words) {
         int unique_chars = 0;
-        vector<bool> visited(26, false); // Assuming only lowercase English alphabets
+        int chars[26] = {0}; // Assuming only lowercase English letters
         
         for (char c : word) {
-            if (!visited[c - 'a']) {
-                visited[c - 'a'] = true;
+            if (chars[c - 'a']++ == 0) {
                 unique_chars++;
             }
         }
         
         if (unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < max_word)) {
-            max_word = word;
             max_unique_chars = unique_chars;
+            max_word = word;
         }
     }
     
