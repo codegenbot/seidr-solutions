@@ -4,15 +4,17 @@ string find_max(vector<string> words){
     
     for(string word : words){
         int uniqueChars = 0;
-        sort(word.begin(), word.end());
-        word.erase(unique(word.begin(), word.end()), word.end());
-        uniqueChars = word.size();
+        bool visited[26] = {false};
         
-        if(uniqueChars > maxUniqueChars){
-            maxUniqueChars = uniqueChars;
-            maxWord = word;
+        for(char c : word){
+            if(!visited[c - 'a']){
+                visited[c - 'a'] = true;
+                uniqueChars++;
+            }
         }
-        else if(uniqueChars == maxUniqueChars && word < maxWord){
+        
+        if(uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)){
+            maxUniqueChars = uniqueChars;
             maxWord = word;
         }
     }
