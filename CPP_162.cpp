@@ -16,5 +16,5 @@ string string_to_md5(string text) {
         sprintf(&md5String[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return md5String;
+    return string(md5String);
 }
