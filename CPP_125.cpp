@@ -3,20 +3,6 @@
 
 using namespace std;
 
-bool isSame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -53,13 +39,29 @@ vector<string> split_words(string txt){
     return result;
 }
 
-int main() {
-    vector<string> a = split_words("hello world");
-    vector<string> b = split_words("hello world");
-
-    if (isSame(a, b)) {
-        return 1;
-    } else {
-        return 0;
+bool isSame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()){
+        return false;
     }
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    vector<string> a = split_words("apple,banana,orange");
+    vector<string> b = split_words("apple,banana,orange");
+    
+    if(isSame(a, b)){
+        cout << "The vectors are the same" << endl;
+    } else {
+        cout << "The vectors are different" << endl;
+    }
+    
+    return 0;
 }
