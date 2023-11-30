@@ -1,20 +1,30 @@
-#include <vector>
+vector<int> tri(int n){
+    vector<int> tribonacci;
+    tribonacci.push_back(3); // Add the first element of the Tribonacci sequence
 
-vector<int> tri(int n) {
-    vector<int> sequence;
-    sequence.push_back(3); // tri(1) = 3
+    if(n == 0){ // If n is 0, return the vector with only the first element
+        return tribonacci;
+    }
 
-    if (n > 0) {
-        sequence.push_back(1 + n / 2); // tri(2) = 1 + (2 / 2) = 2
+    tribonacci.push_back(1); // Add the second element of the Tribonacci sequence
 
-        for (int i = 3; i <= n; i++) {
-            if (i % 2 == 0) {
-                sequence.push_back(1 + i / 2); // tri(n) = 1 + n / 2, if n is even
-            } else {
-                sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i + 1]); // tri(n) = tri(n - 1) + tri(n - 2) + tri(n + 1), if n is odd
-            }
+    if(n == 1){ // If n is 1, return the vector with the first two elements
+        return tribonacci;
+    }
+
+    tribonacci.push_back(2); // Add the third element of the Tribonacci sequence
+
+    if(n == 2){ // If n is 2, return the vector with the first three elements
+        return tribonacci;
+    }
+
+    for(int i = 3; i <= n; i++){
+        if(i % 2 == 0){ // If i is even, calculate the Tribonacci number using the formula 1 + i / 2
+            tribonacci.push_back(1 + i / 2);
+        } else { // If i is odd, calculate the Tribonacci number using the formula tri(i - 1) + tri(i - 2) + tri(i + 1)
+            tribonacci.push_back(tribonacci[i - 1] + tribonacci[i - 2] + tribonacci[i + 1]);
         }
     }
 
-    return sequence;
+    return tribonacci;
 }
