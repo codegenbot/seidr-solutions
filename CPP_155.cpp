@@ -7,10 +7,11 @@ vector<int> even_odd_count(int num){
         int digit = c - '0';
         if(digit % 2 == 0){
             evenCount++;
-        } else {
+        }else{
             oddCount++;
         }
     }
     
-    return {evenCount, oddCount};
+    vector<int> result = {evenCount, oddCount};
+    return result;
 }
