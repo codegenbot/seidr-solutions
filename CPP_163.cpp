@@ -1,6 +1,6 @@
-#include <vector>
+#include <vector> // Add this line
 
-using namespace std;
+using namespace std; // Add this line
 
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
@@ -30,6 +30,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}));
+    assert (issame(generate_integers(17,89), {}));
+
     return 0;
 }
