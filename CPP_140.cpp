@@ -6,13 +6,19 @@ string fix_spaces(string text){
             consecutiveSpaces++;
             if(consecutiveSpaces > 2){
                 result += "-";
-            }else{
-                result += "_";
+                consecutiveSpaces = 0;
             }
-        }else{
-            result += text[i];
-            consecutiveSpaces = 0;
         }
+        else{
+            if(consecutiveSpaces > 0){
+                result += "-";
+                consecutiveSpaces = 0;
+            }
+            result += text[i];
+        }
+    }
+    if(consecutiveSpaces > 0){
+        result += "-";
     }
     return result;
 }
