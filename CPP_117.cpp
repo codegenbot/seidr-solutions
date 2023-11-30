@@ -24,8 +24,3 @@ vector<string> select_words(string s, int n) {
     
     return result;
 }
-
-bool isConsonant(char c) {
-    c = tolower(c);
-    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
