@@ -1,29 +1,24 @@
 string find_max(vector<string> words){
-    if(words.empty())
-        return "";
-    
-    string result = words[0];
-    int maxUniqueChars = countUniqueChars(result);
-    
-    for(int i = 1; i < words.size(); i++){
-        int uniqueChars = countUniqueChars(words[i]);
-        if(uniqueChars > maxUniqueChars || 
-           (uniqueChars == maxUniqueChars && words[i] < result)){
-            maxUniqueChars = uniqueChars;
-            result = words[i];
-        }
-    }
-    
-    return result;
-}
+    string maxWord = "";
+    int maxUniqueChars = 0;
 
-int countUniqueChars(string word){
-    sort(word.begin(), word.end());
-    int uniqueChars = 0;
-    for(int i = 0; i < word.size(); i++){
-        if(i == 0 || word[i] != word[i-1]){
-            uniqueChars++;
+    for (string word : words) {
+        int uniqueChars = 0;
+        vector<int> charCount(26, 0); // Assuming only lowercase characters
+
+        for (char c : word) {
+            if (charCount[c - 'a'] == 0) {
+                uniqueChars++;
+            }
+            charCount[c - 'a']++;
+        }
+
+        if (uniqueChars > maxUniqueChars || 
+            (uniqueChars == maxUniqueChars && word < maxWord)) {
+            maxWord = word;
+            maxUniqueChars = uniqueChars;
         }
     }
-    return uniqueChars;
+
+    return maxWord;
 }
