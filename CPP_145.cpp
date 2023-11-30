@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,7 +13,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-vector<int> order_by_points(vector<int> nums) {
+vector<int> order_by_points(vector<int> nums){
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
         if (a < 0) a *= -1;
