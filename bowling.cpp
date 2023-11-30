@@ -1,46 +1,45 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-int getScore(string bowls) {
+int calculateScore(const std::string& input) {
     int score = 0;
-    int frame = 1;
+    int frame = 0;
     int roll = 0;
-    int rolls[21] = {0};
 
-    for (char c : bowls) {
+    for (char c : input) {
         if (c == 'X') {
-            rolls[roll++] = 10;
-            if (frame < 10) {
-                rolls[roll++] = 0;
+            score += 10;
+            if (frame < 9) {
+                score += (input[roll + 1] == 'X') ? 10 : (input[roll + 1] - '0');
+                score += (input[roll + 2] == 'X') ? 10 : (input[roll + 2] == '/' ? (10 - (input[roll + 1] - '0')) : (input[roll + 2] - '0'));
             }
-            frame++;
+            roll++;
         } else if (c == '/') {
-            rolls[roll++] = 10 - rolls[roll - 2];
-            if (frame < 10) {
-                rolls[roll++] = 0;
+            score += (10 - (input[roll - 1] - '0'));
+            if (frame < 9) {
+                score += (input[roll + 1] == 'X') ? 10 : (input[roll + 1] - '0');
             }
-            frame++;
+            roll++;
         } else if (c == '-') {
-            rolls[roll++] = 0;
+            // do nothing
         } else {
-            rolls[roll++] = c - '0';
-            if (frame < 10) {
-                frame += roll % 2;
+            score += (c - '0');
+            if (frame < 9 && roll % 2 == 1) {
+                if (c == '0') {
+                    score += (input[roll - 1] == '/') ? 10 : 0;
+                } else {
+                    score += (input[roll - 1] == '/') ? (10 - (c - '0')) : 0;
+                }
             }
+            roll++;
         }
-    }
 
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i * 2] == 10) {
-            score += 10 + rolls[i * 2 + 2] + rolls[i * 2 + 3];
-            if (rolls[i * 2 + 2] == 10) {
-                score += rolls[i * 2 + 4];
-            }
-        } else if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
-            score += 10 + rolls[i * 2 + 2];
-        } else {
-            score += rolls[i * 2] + rolls[i * 2 + 1];
+        if (roll % 2 == 0) {
+            frame++;
+        }
+
+        if (frame == 10) {
+            break;
         }
     }
 
@@ -48,8 +47,11 @@ int getScore(string bowls) {
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << getScore(bowls) << endl;
+    std::string input;
+    std::cin >> input;
+
+    int score = calculateScore(input);
+    std::cout << score << std::endl;
+
     return 0;
 }
