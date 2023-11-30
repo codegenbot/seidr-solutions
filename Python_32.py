@@ -1,7 +1,7 @@
 def read_input():
-    n = int(input())
-    coeffs = list(map(float, input().split()))
-    x = float(input())
+    n = int(input().strip())
+    coeffs = list(map(float, input().strip().split()))
+    x = float(input().strip())
     return coeffs, x
 
 
@@ -14,7 +14,7 @@ def find_zero(coeffs, x):
     for _ in range(max_iter):
         f = 0.0
 
-        for i in range(len(coeffs) - 1, -1, -1):
+        for i in range(len(coeffs) - 1, 0, -1):
             f = f * guess + coeffs[i]
 
         f_prime = 0.0
@@ -30,6 +30,6 @@ def find_zero(coeffs, x):
     return None
 
 
-coeffs, x = read_input()
+x, coeffs = read_input()
 result = find_zero(coeffs, x)
 print(result)
