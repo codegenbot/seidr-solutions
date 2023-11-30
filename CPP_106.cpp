@@ -3,23 +3,23 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     // function logic
 }
 
-vector<int> f(int n) {
+vector<int> f(int n){
     vector<int> result;
-    for (int i = 1; i <= n; i++) {
-        if (i % 2 == 0) {
+    for(int i=1; i<=n; i++){
+        if(i%2 == 0){
             int factorial = 1;
-            for (int j = 1; j <= i; j++) {
+            for(int j=1; j<=i; j++){
                 factorial *= j;
             }
             result.push_back(factorial);
         }
-        else {
+        else{
             int sum = 0;
-            for (int j = 1; j <= i; j++) {
+            for(int j=1; j<=i; j++){
                 sum += j;
             }
             result.push_back(sum);
@@ -28,8 +28,7 @@ vector<int> f(int n) {
     return result;
 }
 
-int main() {
-    vector<int> output = f(3);
-    assert(issame(output, {1, 2, 6}));
+int main(){
+    assert(issame(f(3), {1, 2, 6}));
     // additional test cases
 }
