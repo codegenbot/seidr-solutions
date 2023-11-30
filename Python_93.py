@@ -10,7 +10,7 @@ def encode(message):
                 if char.lower() == 'z':
                     encoded_message += 'a' if char.islower() else 'A'
                 else:
-                    encoded_message += chr(ord(char) + 1)
+                    encoded_message += chr(ord(char) + 1)  
         else:
             encoded_message += char
     
