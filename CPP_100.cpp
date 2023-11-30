@@ -2,12 +2,12 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()){
+    if(a.size() != b.size()) {
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -15,7 +15,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> pile(int n){
+vector<int> pile(int n) {
     vector<int> levels;
     int stones = n;
     levels.push_back(stones);
