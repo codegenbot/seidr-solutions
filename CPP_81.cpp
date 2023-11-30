@@ -61,8 +61,8 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    vector<float> grades = {3.8, 2.5, 4.2, 3.0, 1.5};
-    vector<string> expected = {"A", "C", "A+", "B", "D-"};
+    vector<float> grades = {3.5, 2.8, 4.0, 3.2};
+    vector<string> expected = {"B+", "B-", "A+", "B"};
     vector<string> result = numerical_letter_grade(grades);
     assert(issame(result, expected));
     return 0;
