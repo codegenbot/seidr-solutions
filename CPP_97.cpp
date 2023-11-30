@@ -1,5 +1,5 @@
 int multiply(int a, int b) {
-  int lastDigitA = abs(a) % 10;
-  int lastDigitB = abs(b) % 10;
-  return lastDigitA * lastDigitB;
+    int unitDigitA = abs(a) % 10;
+    int unitDigitB = abs(b) % 10;
+    return unitDigitA * unitDigitB;
 }
