@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string>
-#include <openssl/md5_legacy.h>
+#include <openssl/md5.h>
+#include <openssl/evp.h>
 using namespace std;
 
 string string_to_md5(string text) {
@@ -8,11 +9,18 @@ string string_to_md5(string text) {
         return "None";
     }
 
+    EVP_MD_CTX* ctx;
+    const EVP_MD* md;
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.length());
-    MD5_Final(digest, &ctx);
+
+    md = EVP_md5();
+    ctx = EVP_MD_CTX_new();
+
+    EVP_DigestInit_ex(ctx, md, NULL);
+    EVP_DigestUpdate(ctx, text.c_str(), text.length());
+    EVP_DigestFinal_ex(ctx, digest, NULL);
+
+    EVP_MD_CTX_free(ctx);
 
     char md5String[33];
     for (int i = 0; i < 16; i++) {
