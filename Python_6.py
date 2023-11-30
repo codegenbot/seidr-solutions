@@ -19,6 +19,5 @@ def parse_nested_parens(paren_string: str) -> int:
     else:
         return max_depth
 
-inputs = ['((()))', '((())', '(()', '', '()()()']
-result = [parse_nested_parens(paren_string) for paren_string in inputs]
+result = [parse_nested_parens(paren_string) for paren_string in ['((()))', '((())', '(()', '', '()()()']]
 print(result)
