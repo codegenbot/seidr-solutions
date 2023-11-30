@@ -2,13 +2,16 @@ bool check_if_last_char_is_a_letter(string txt){
     if(txt.empty()){
         return false;
     }
-    int len = txt.length();
-    char lastChar = txt[len-1];
+    char lastChar = txt.back();
     if(isalpha(lastChar)){
-        if(len > 1 && txt[len-2] != ' '){
-            return false;
+        int spaceIndex = txt.find_last_of(' ');
+        if(spaceIndex == string::npos){
+            return true;
         }
-        return true;
+        else{
+            string lastWord = txt.substr(spaceIndex + 1);
+            return lastWord.find(' ') != string::npos;
+        }
     }
     return false;
 }
