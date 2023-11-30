@@ -1,20 +1,23 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
-    levels = []
-    max_level = 0
-    curr_level = 0
-    
-    for char in paren_string:
-        if char == '(':
-            curr_level += 1
-            max_level = max(max_level, curr_level)
-        elif char == ')':
-            curr_level -= 1
-        
-        if char == ' ':
-            levels.append(max_level)
-            max_level = 0
-            curr_level = 0
-    
-    levels.append(max_level)
-    
-    return levels
+    """ Input to this function is a string represented multiple groups for nested parentheses separated by spaces.
+    For each of the group, output the deepest level of nesting of parentheses.
+    E.g. (()()) has maximum two levels of nesting while ((())) has three.
+
+    >>> parse_nested_parens('(()()) ((())) () ((())()())')
+    [2, 3, 1, 3]
+    """
+    result = []
+    for group in paren_string.split():
+        stack = []
+        max_depth = 0
+        current_depth = 0
+        for char in group:
+            if char == '(':
+                stack.append(char)
+                current_depth += 1
+                max_depth = max(max_depth, current_depth)
+            elif char == ')':
+                stack.pop()
+                current_depth -= 1
+        result.append(max_depth)
+    return result
