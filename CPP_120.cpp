@@ -4,7 +4,6 @@ using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     // Code logic for comparing vectors
-    // Return true if vectors are the same, false otherwise
 }
 
 vector<int> maximum(vector<int> arr, int k) {
