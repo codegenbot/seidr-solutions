@@ -8,7 +8,7 @@ def prime_fib(n: int):
             if num % i == 0:
                 return False
         return True
-
+    
     def fibonacci(n):
         if n <= 0:
             return []
@@ -21,7 +21,7 @@ def prime_fib(n: int):
             while len(fib_seq) < n:
                 fib_seq.append(fib_seq[-1] + fib_seq[-2])
             return fib_seq
-
+    
     fib_seq = fibonacci(n + 1)
     prime_fib_seq = [num for num in fib_seq if is_prime(num)]
     return sum(prime_fib_seq) % (10**9 + 7)
