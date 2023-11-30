@@ -4,6 +4,5 @@ def max_fill(grid, capacity):
     num_buckets = 0
     for row in grid:
         for well in row:
-            if well > capacity:
-                num_buckets += math.ceil(well / capacity)
+            num_buckets += math.ceil(well / capacity)
     return num_buckets
