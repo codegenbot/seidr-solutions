@@ -1,4 +1,13 @@
-vector<string> select_words(string s, int n);
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -40,4 +49,16 @@ vector<string> select_words(string s, int n) {
         words.push_back(word);
     }
     return words;
+}
+
+int main() {
+    string s;
+    int n;
+    getline(cin, s);
+    cin >> n;
+    vector<string> result = select_words(s, n);
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << endl;
+    }
+    return 0;
 }
