@@ -5,12 +5,8 @@ def mean_absolute_deviation(numbers: List[Union[float, int]]) -> float:
     deviation = [abs(num - mean) for num in numbers]
     return sum(deviation) / len(deviation)
 
-# Take input from the user
-numbers_input = input().split()
+numbers_input = input("Enter the numbers (separated by spaces): ").split()
 numbers = [float(num) for num in numbers_input]
-
-# Call the function with the input numbers
 result = mean_absolute_deviation(numbers)
 
-# Print the result
-print(result)
+print("The mean absolute deviation is:", result)
