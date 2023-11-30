@@ -5,11 +5,11 @@ vector<string> reverse_delete(string s,string c){
             result += s[i];
         }
     }
-    string reverseResult = result;
-    reverse(reverseResult.begin(), reverseResult.end());
-    bool isPalindrome = (result == reverseResult);
+    string reversed_result = result;
+    reverse(reversed_result.begin(), reversed_result.end());
+    bool is_palindrome = (result == reversed_result);
     vector<string> output;
     output.push_back(result);
-    output.push_back(isPalindrome ? "True" : "False");
+    output.push_back(is_palindrome ? "True" : "False");
     return output;
 }
