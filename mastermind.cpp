@@ -24,4 +24,13 @@ std::pair<int, int> mastermind(const std::string& code, const std::string& guess
     return std::make_pair(whitePegs, blackPegs);
 }
 
-```
+int main() {
+    std::string code, guess;
+    std::cin >> code >> guess;
+
+    std::pair<int, int> result = mastermind(code, guess);
+    std::cout << result.first << std::endl;
+    std::cout << result.second << std::endl;
+
+    return 0;
+}
