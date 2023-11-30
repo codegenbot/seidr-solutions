@@ -5,15 +5,12 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-# Reading input from user
-n = int(input("Enter the number of strings: "))
-strings = []
-for i in range(n):
-    s = input("Enter string " + str(i + 1) + ": ")
-    strings.append(s)
+# Read input from the user
+user_input = input("Enter a list of strings separated by space: ")
+strings = user_input.split()
 
-# Passing input to the `longest` function
+# Call the longest function with user input
 result = longest(strings)
 
-# Printing the returned output from the `longest` function
-print("Longest string:", result)
+# Print the returned output
+print(result)
