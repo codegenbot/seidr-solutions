@@ -1,34 +1,45 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(std::string input) {
+int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
-    int roll = 0;
-    int rolls[21] = {0};
+    int bowlIndex = 0;
 
-    for (char c : input) {
-        if (c == 'X') {
-            rolls[roll++] = 10;
-            if (frame < 10) {
-                rolls[roll++] = 0;
-            }
-        } else if (c == '/') {
-            rolls[roll++] = 10 - rolls[roll - 2];
-        } else if (c == '-') {
-            rolls[roll++] = 0;
-        } else {
-            rolls[roll++] = c - '0';
+    for (int i = 0; i < bowls.size(); i++) {
+        if (frame > 10) {
+            break;
         }
-    }
 
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i * 2] == 10) {
-            score += 10 + rolls[(i + 1) * 2] + rolls[(i + 1) * 2 + 1];
-        } else if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
-            score += 10 + rolls[(i + 1) * 2];
-        } else {
-            score += rolls[i * 2] + rolls[i * 2 + 1];
+        char bowl = bowls[i];
+
+        if (bowl == 'X') {
+            score += 10;
+
+            if (frame < 10) {
+                score += (bowls[i + 1] == 'X') ? 10 : (isdigit(bowls[i + 1])) ? (bowls[i + 1] - '0') : 0;
+                score += (bowls[i + 2] == 'X') ? 10 : (isdigit(bowls[i + 2])) ? (bowls[i + 2] - '0') : 0;
+            }
+
+            bowlIndex++;
+            frame++;
+        } else if (isdigit(bowl)) {
+            score += (bowl - '0');
+
+            if (frame < 10 && bowlIndex % 2 == 0 && bowl != '0' && bowls[i + 1] == '/') {
+                score += 10;
+            }
+
+            bowlIndex++;
+        } else if (bowl == '/') {
+            score += (10 - (bowls[i - 1] - '0'));
+
+            if (frame < 10) {
+                score += (bowls[i + 1] == 'X') ? 10 : (isdigit(bowls[i + 1])) ? (bowls[i + 1] - '0') : 0;
+            }
+
+            bowlIndex++;
+            frame++;
         }
     }
 
@@ -36,10 +47,10 @@ int calculateScore(std::string input) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
+    std::string bowls;
+    std::cin >> bowls;
 
-    int score = calculateScore(input);
+    int score = calculateScore(bowls);
     std::cout << score << std::endl;
 
     return 0;
