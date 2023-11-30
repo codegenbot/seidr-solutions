@@ -5,35 +5,15 @@ using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
     string strongest_extension = extensions[0];
-    int strongest_strength = countUpperCase(strongest_extension) - countLowerCase(strongest_extension);
-
+    int max_strength = count_if(strongest_extension.begin(), strongest_extension.end(), isupper) - count_if(strongest_extension.begin(), strongest_extension.end(), islower);
+    
     for (int i = 1; i < extensions.size(); i++) {
-        int current_strength = countUpperCase(extensions[i]) - countLowerCase(extensions[i]);
-        if (current_strength > strongest_strength) {
+        int strength = count_if(extensions[i].begin(), extensions[i].end(), isupper) - count_if(extensions[i].begin(), extensions[i].end(), islower);
+        if (strength > max_strength || (strength == max_strength && extensions[i] < strongest_extension)) {
             strongest_extension = extensions[i];
-            strongest_strength = current_strength;
+            max_strength = strength;
         }
     }
-
+    
     return class_name + "." + strongest_extension;
-}
-
-int countUpperCase(string str) {
-    int count = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (isupper(str[i])) {
-            count++;
-        }
-    }
-    return count;
-}
-
-int countLowerCase(string str) {
-    int count = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (islower(str[i])) {
-            count++;
-        }
-    }
-    return count;
 }
