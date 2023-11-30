@@ -3,13 +3,20 @@ int prod_signs(vector<int> arr){
         return -32768;
     }
     
-    int signProduct = 1;
-    int magnitudeSum = 0;
+    int sign = 1;
+    int product = 1;
+    int sum = 0;
     
     for(int i=0; i<arr.size(); i++){
-        signProduct *= (arr[i] >= 0 ? 1 : -1);
-        magnitudeSum += abs(arr[i]);
+        if(arr[i] > 0){
+            sign *= 1;
+        }
+        else if(arr[i] < 0){
+            sign *= -1;
+        }
+        
+        sum += abs(arr[i]);
     }
     
-    return signProduct * magnitudeSum;
+    return sign * sum;
 }
