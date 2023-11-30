@@ -17,8 +17,6 @@ int main() {
     int n, m;
     cin >> n >> m;
     double result = probabilityOfHigherRoll(n, m);
-    cout << fixed;
-    cout.precision(2);
-    cout << result << endl;
+    cout << fixed << result << endl;
     return 0;
 }
