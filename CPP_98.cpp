@@ -1,9 +1,11 @@
 int count_upper(string s){
     int count = 0;
-    for(int i = 0; i < s.length(); i += 2){
-        char c = s[i];
-        if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
-            count++;
+    for (int i = 0; i < s.length(); i += 2) {
+        if (s[i] >= 'A' && s[i] <= 'Z') {
+            char c = tolower(s[i]);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                count++;
+            }
         }
     }
     return count;
