@@ -23,24 +23,25 @@ int calculateScore(const std::string& bowls) {
 
             bowlIndex++;
             frame++;
-            i++;
         } else if (isdigit(bowl)) {
             score += (bowl - '0');
-            i++;
 
-            if (frame < 10 && bowlIndex % 2 == 0 && bowl != '0' && bowls[i] == '/') {
-                score += 10;
+            if (frame < 10 && (bowlIndex % 2 == 0 || bowls[i - 1] != '/')) {
+                if (bowl == '0' && i + 1 < bowls.size() && bowls[i + 1] == '/') {
+                    score += 10;
+                } else if (i + 1 < bowls.size() && isdigit(bowls[i + 1])) {
+                    score += (bowls[i + 1] - '0');
+                }
             }
 
             bowlIndex++;
         } else if (bowl == '/') {
             score += (10 - (bowls[i - 1] - '0'));
-            i++;
-
+            
             if (frame < 10) {
-                score += (bowls[i] == 'X') ? 10 : (isdigit(bowls[i])) ? (bowls[i] - '0') : 0;
+                score += (isdigit(bowls[i + 1])) ? (bowls[i + 1] - '0') : 0;
             }
-
+            
             bowlIndex++;
             frame++;
         }
