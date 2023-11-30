@@ -1,12 +1,7 @@
-#include <vector>
 #include <string>
+#include <vector>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2);
-
-int main() {
-    assert(exchange({100, 200}, {200, 200}) == "YES");
-    return 0;
-}
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int count = 0;
@@ -20,4 +15,9 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     } else {
         return "YES";
     }
+}
+
+int main() {
+    assert(exchange({100, 200}, {200, 200}) == "YES");
+    return 0;
 }
