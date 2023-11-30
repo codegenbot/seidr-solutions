@@ -1,27 +1,28 @@
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int intA = boost::any_cast<int>(a);
-        int intB = boost::any_cast<int>(b);
-        if (intA > intB) {
-            return intA;
-        } else if (intA < intB) {
-            return intB;
+boost::any compare_one(boost::any a, boost::any b){
+    if (a.type() == typeid(int) && b.type() == typeid(int)){
+        if (boost::any_cast<int>(a) < boost::any_cast<int>(b)){
+            return b;
+        } else if (boost::any_cast<int>(a) > boost::any_cast<int>(b)){
+            return a;
         }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float floatA = boost::any_cast<float>(a);
-        float floatB = boost::any_cast<float>(b);
-        if (floatA > floatB) {
-            return floatA;
-        } else if (floatA < floatB) {
-            return floatB;
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)){
+        if (boost::any_cast<float>(a) < boost::any_cast<float>(b)){
+            return b;
+        } else if (boost::any_cast<float>(a) > boost::any_cast<float>(b)){
+            return a;
         }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string stringA = boost::any_cast<string>(a);
-        string stringB = boost::any_cast<string>(b);
-        if (stringA > stringB) {
-            return stringA;
-        } else if (stringA < stringB) {
-            return stringB;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)){
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+
+        // Remove any commas from the strings
+        strA.erase(remove(strA.begin(), strA.end(), ','), strA.end());
+        strB.erase(remove(strB.begin(), strB.end(), ','), strB.end());
+
+        if (strA < strB){
+            return b;
+        } else if (strA > strB){
+            return a;
         }
     }
     return "None";
