@@ -1,20 +1,18 @@
 def encode(message: str) -> str:
     vowels = "aeiouAEIOU"
-    consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
     encoded_message = ""
 
     for char in message:
         if char.isalpha():
             if char in vowels:
-                index = vowels.index(char)
-                encoded_char = vowels[(index + 1) % len(vowels)]
-            elif char == "z":
-                encoded_char = "b"
-            elif char == "Z":
-                encoded_char = "B"
+                encoded_char = chr(ord(char) + 2)
             else:
-                index = consonants.index(char)
-                encoded_char = consonants[(index + 1) % len(consonants)]
+                if char == 'z':
+                    encoded_char = 'a'
+                elif char.isupper():
+                    encoded_char = chr(ord(char) + 2)
+                else:
+                    encoded_char = chr(ord(char) + 2)
         else:
             encoded_char = char
 
