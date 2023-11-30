@@ -8,5 +8,6 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 
-result = longest(sys.argv[1].split(","))
+input_string = input().rstrip()
+result = longest(input_string.split(","))
 print(result)
