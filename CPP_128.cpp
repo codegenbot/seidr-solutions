@@ -18,6 +18,7 @@ int prod_signs(vector<int> arr) {
 }
 
 int main() {
+    // Test the function here
     assert(prod_signs({-1, 1, 1, 0}) == 0);
 
     return 0;
