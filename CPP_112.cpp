@@ -5,9 +5,9 @@ vector<string> reverse_delete(string s, string c) {
             result += s[i];
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    bool isPalindrome = (result == reversed);
-    vector<string> output = {result, (isPalindrome ? "True" : "False")};
+    string reverse_result = result;
+    reverse(reverse_result.begin(), reverse_result.end());
+    bool is_palindrome = (result == reverse_result);
+    vector<string> output = {result, (is_palindrome ? "True" : "False")};
     return output;
 }
