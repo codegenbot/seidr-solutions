@@ -2,7 +2,7 @@ string find_max(vector<string> words){
     string maxWord = "";
     int maxUniqueChars = 0;
     
-    for(string word : words){
+    for(const string& word : words){
         int uniqueChars = 0;
         bool charCount[26] = {false};
         
