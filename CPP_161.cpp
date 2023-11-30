@@ -1,8 +1,7 @@
 string solve(string s){
     string result = "";
     bool hasLetter = false;
-
-    for(int i = 0; i < s.length(); i++){
+    for(int i=0; i<s.length(); i++){
         if(isalpha(s[i])){
             hasLetter = true;
             if(islower(s[i])){
@@ -16,10 +15,8 @@ string solve(string s){
             result += s[i];
         }
     }
-
     if(!hasLetter){
         reverse(result.begin(), result.end());
     }
-
     return result;
 }
