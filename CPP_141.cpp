@@ -8,9 +8,6 @@ string file_name_check(string file_name){
     if(beforeDot.empty() || !isalpha(beforeDot[0])){
         return "No";
     }
-    if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll"){
-        return "No";
-    }
     int digitCount = 0;
     for(char c : beforeDot){
         if(isdigit(c)){
@@ -18,6 +15,9 @@ string file_name_check(string file_name){
         }
     }
     if(digitCount > 3){
+        return "No";
+    }
+    if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll"){
         return "No";
     }
     return "Yes";
