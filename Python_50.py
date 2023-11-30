@@ -9,7 +9,7 @@ def decode_shift(s):
     )
 
 def main():
-    s = input().rstrip('\n')
+    s = input().strip('\r')
     encoded = encode_shift(s)
     decoded = decode_shift(encoded)
     print("Encoded: ", encoded)
