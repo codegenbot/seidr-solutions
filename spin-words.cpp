@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <algorithm>
 
 std::string spinWords(const std::string& sentence) {
     std::istringstream iss(sentence);
