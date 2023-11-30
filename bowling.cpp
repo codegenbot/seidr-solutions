@@ -1,55 +1,37 @@
 #include <iostream>
 #include <string>
 
-int getScore(std::string input) {
+int getFrameScore(const std::string& frame) {
     int score = 0;
-    int frame = 1;
-    int ball = 0;
-    int frameScore[10] = {0};
+    int frameSize = frame.size();
+  
+    for (int i = 0; i < frameSize; i++) {
+        char current = frame[i];
 
-    for (char c : input) {
-        if (c == 'X') {
-            frameScore[frame - 1] += 10;
-            if (frame < 10) {
-                frameScore[frame] += 10;
+        if (isdigit(current)) {
+            score += current - '0';
+        }
+        else if (current == 'X') {
+            score += 10;
+            if (i < frameSize - 2) {
+                score += (frame[i + 1] == 'X') ? 10 : (frame[i + 1] - '0');
+                score += (frame[i + 2] == 'X') ? 10 : (frame[i + 2] - '0');
             }
-            if (frame < 9) {
-                frameScore[frame + 1] += 10;
-            }
-            frame++;
-            ball = 0;
-        } else if (c == '/') {
-            frameScore[frame - 1] += 10 - frameScore[frame - 1 - ball];
-            if (frame < 10) {
-                frameScore[frame] += 10;
-            }
-            frame++;
-            ball = 0;
-        } else if (c == '-') {
-            ball++;
-        } else {
-            frameScore[frame - 1] += c - '0';
-            ball++;
-            if (ball == 2 || c == '9') {
-                frame++;
-                ball = 0;
+        }
+        else if (current == '/') {
+            if (i < frameSize - 1) {
+                score += 10 - (frame[i - 1] - '0');
+                score += (frame[i + 1] == 'X') ? 10 : (frame[i + 1] - '0');
             }
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        score += frameScore[i];
-    }
-
+  
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    int score = getScore(input);
-    std::cout << score << std::endl;
-
+    std::string frame;
+    std::getline(std::cin, frame);
+    std::cout << getFrameScore(frame) << std::endl;
     return 0;
 }
