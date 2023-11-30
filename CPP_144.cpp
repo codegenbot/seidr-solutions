@@ -1,11 +1,9 @@
 bool simplify(string x, string n){
-    int numeratorX = stoi(x.substr(0, x.find("/")));
-    int denominatorX = stoi(x.substr(x.find("/") + 1));
-    
-    int numeratorN = stoi(n.substr(0, n.find("/")));
-    int denominatorN = stoi(n.substr(n.find("/") + 1));
+    int numerator_x, denominator_x, numerator_n, denominator_n;
+    sscanf(x.c_str(), "%d/%d", &numerator_x, &denominator_x);
+    sscanf(n.c_str(), "%d/%d", &numerator_n, &denominator_n);
 
-    double result = (numeratorX * numeratorN) / (double)(denominatorX * denominatorN);
+    double result = (double)numerator_x / denominator_x * (double)numerator_n / denominator_n;
 
     return (result == (int)result);
 }
