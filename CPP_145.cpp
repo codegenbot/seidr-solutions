@@ -1,20 +1,30 @@
-vector<int> order_by_points(vector<int> nums){
-    sort(nums.begin(), nums.end(), [](int a, int b){
-        int sumA = 0, sumB = 0;
-        if(a < 0) a = -a;
-        if(b < 0) b = -b;
-        while(a > 0){
-            sumA += a % 10;
-            a /= 10;
+#include <algorithm>
+
+bool compare(int a, int b) {
+    int sum_a = 0, sum_b = 0;
+    string str_a = to_string(a);
+    string str_b = to_string(b);
+    
+    for (char c : str_a) {
+        if (c != '-') {
+            sum_a += c - '0';
         }
-        while(b > 0){
-            sumB += b % 10;
-            b /= 10;
+    }
+    
+    for (char c : str_b) {
+        if (c != '-') {
+            sum_b += c - '0';
         }
-        if(sumA == sumB){
-            return a < b;
-        }
-        return sumA < sumB;
-    });
+    }
+    
+    if (sum_a == sum_b) {
+        return a < b;
+    }
+    
+    return sum_a < sum_b;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
     return nums;
 }
