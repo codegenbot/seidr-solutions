@@ -1,32 +1,42 @@
+#include <boost/lexical_cast.hpp>
 #include <boost/any.hpp>
-#include <string>
 #include <algorithm>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        if (num1 > num2) {
-            return num1;
-        } else if (num1 < num2) {
-            return num2;
+        int intA = boost::any_cast<int>(a);
+        int intB = boost::any_cast<int>(b);
+        if (intA > intB) {
+            return intA;
+        } else if (intB > intA) {
+            return intB;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        if (num1 > num2) {
-            return num1;
-        } else if (num1 < num2) {
-            return num2;
+        float floatA = boost::any_cast<float>(a);
+        float floatB = boost::any_cast<float>(b);
+        if (floatA > floatB) {
+            return floatA;
+        } else if (floatB > floatA) {
+            return floatB;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
-        if (str1 > str2) {
-            return str1;
-        } else if (str1 < str2) {
-            return str2;
+        std::string strA = boost::any_cast<std::string>(a);
+        std::string strB = boost::any_cast<std::string>(b);
+        try {
+            float floatA = boost::lexical_cast<float>(strA);
+            float floatB = boost::lexical_cast<float>(strB);
+            if (floatA > floatB) {
+                return strA;
+            } else if (floatB > floatA) {
+                return strB;
+            }
+        } catch (const boost::bad_lexical_cast&) {
+            if (strA > strB) {
+                return strA;
+            } else if (strB > strA) {
+                return strB;
+            }
         }
     }
-    return "None";
+    return boost::any("None");
 }
