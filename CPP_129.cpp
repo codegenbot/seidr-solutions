@@ -1,30 +1,50 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    int m = grid[0].size();
-    
     vector<int> path;
-    int row = 0;
-    int col = 0;
+    int row = 0, col = 0;
     
-    for(int i = 0; i < k; i++){
-        path.push_back(grid[row][col]);
+    // Find the starting cell with minimum value
+    int minValue = grid[0][0];
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            if(grid[i][j] < minValue) {
+                minValue = grid[i][j];
+                row = i;
+                col = j;
+            }
+        }
+    }
+    
+    // Add the starting cell to the path
+    path.push_back(minValue);
+    
+    // Move to the next cell with minimum value k times
+    for(int i = 1; i < k; i++) {
+        // Find the neighboring cells
+        int neighbors[4][2] = {{row-1, col}, {row+1, col}, {row, col-1}, {row, col+1}};
+        int minNeighborValue = INT_MAX;
+        int nextRow = row, nextCol = col;
         
-        if(row % 2 == 0){
-            if(col + 1 < m){
-                col++;
-            }
-            else{
-                row++;
+        // Find the neighboring cell with minimum value
+        for(int j = 0; j < 4; j++) {
+            int neighborRow = neighbors[j][0];
+            int neighborCol = neighbors[j][1];
+            
+            // Check if the neighboring cell is within the grid
+            if(neighborRow >= 0 && neighborRow < n && neighborCol >= 0 && neighborCol < n) {
+                int neighborValue = grid[neighborRow][neighborCol];
+                if(neighborValue < minNeighborValue) {
+                    minNeighborValue = neighborValue;
+                    nextRow = neighborRow;
+                    nextCol = neighborCol;
+                }
             }
         }
-        else{
-            if(col - 1 >= 0){
-                col--;
-            }
-            else{
-                row++;
-            }
-        }
+        
+        // Add the neighboring cell with minimum value to the path
+        path.push_back(minNeighborValue);
+        row = nextRow;
+        col = nextCol;
     }
     
     return path;
