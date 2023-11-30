@@ -3,17 +3,15 @@ vector<string> separate_paren_groups(string paren_string){
     string current_group = "";
     int open_braces = 0;
 
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (open_braces > 0) {
-                current_group += c;
-            }
+    for(int i=0; i<paren_string.length(); i++){
+        if(paren_string[i] == '('){
             open_braces++;
-        } else if (c == ')') {
+            current_group += paren_string[i];
+        }
+        else if(paren_string[i] == ')'){
             open_braces--;
-            if (open_braces > 0) {
-                current_group += c;
-            } else {
+            current_group += paren_string[i];
+            if(open_braces == 0){
                 result.push_back(current_group);
                 current_group = "";
             }
