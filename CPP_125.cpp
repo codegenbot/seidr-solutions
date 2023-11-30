@@ -29,8 +29,21 @@ vector<string> split_words(string txt){
     }
     
     if(!hasWhitespace && !hasComma){
-        result.push_back(to_string(word.length()));
+        result.push_back(to_string(countOddLetters(txt)));
     }
     
     return result;
+}
+
+int countOddLetters(string txt){
+    int count = 0;
+    for(int i = 0; i < txt.length(); i++){
+        if(islower(txt[i])){
+            int letterOrder = txt[i] - 'a';
+            if(letterOrder % 2 != 0){
+                count++;
+            }
+        }
+    }
+    return count;
 }
