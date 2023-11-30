@@ -1,29 +1,25 @@
-#include <iostream>
-#include <string>
 #include <vector>
-#include <algorithm>
-#include <cassert>
+#include <string>
 
-using namespace std;
-
-vector<string> reverse_delete(string s, string c) {
+vector<string> reverse_delete(string s,string c){
     vector<string> result;
     string res = "";
     
-    for (int i = 0; i < s.length(); i++) {
-        if (c.find(s[i]) == string::npos) {
+    for(int i=0; i<s.length(); i++){
+        if(c.find(s[i]) == string::npos){
             res += s[i];
         }
     }
     
+    result.push_back(res);
+    
     string rev = res;
     reverse(rev.begin(), rev.end());
     
-    if (rev == res) {
-        result.push_back(res);
+    if(res == rev){
         result.push_back("True");
-    } else {
-        result.push_back(res);
+    }
+    else{
         result.push_back("False");
     }
     
@@ -32,6 +28,5 @@ vector<string> reverse_delete(string s, string c) {
 
 int main() {
     assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
-    
     return 0;
 }
