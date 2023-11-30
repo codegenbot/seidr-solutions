@@ -1,26 +1,24 @@
-#include <iostream>
 #include <vector>
-#include <string>
-using namespace std;
+#include <cassert>
 
-int specialFilter(vector<int> nums){
+int specialFilter(std::vector<int> nums) {
     int count = 0;
-    
-    for(int num : nums){
-        string str = to_string(abs(num));
-        
-        if(str[0] % 2 != 0 && str[str.size()-1] % 2 != 0 && num > 10){
+    for (int num : nums) {
+        std::string numStr = std::to_string(num);
+        int firstDigit = numStr[0] - '0';
+        int lastDigit = numStr[numStr.size() - 1] - '0';
+        if (num > 10 && firstDigit % 2 != 0 && lastDigit % 2 != 0) {
             count++;
         }
     }
-    
     return count;
 }
 
 int main() {
-    vector<int> nums = {1, 23, -45, 678, -910, 1112};
+    // Test the specialFilter function
+    std::vector<int> nums = { 123, 456, 789 };
     int result = specialFilter(nums);
-    cout << result << endl;
-    
+    assert(result == 3);
+
     return 0;
 }
