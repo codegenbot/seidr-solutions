@@ -4,8 +4,8 @@
 std::string decipherMessage(const std::string& cipherKey, const std::string& cipherValue, const std::string& message) {
     std::string decipheredMessage;
     for (char c : message) {
-        size_t index = cipherValue.find(c);
-        decipheredMessage += (index == std::string::npos) ? c : cipherKey[index];
+        size_t index = cipherKey.find(c);
+        decipheredMessage += (index != std::string::npos) ? cipherValue[index] : c;
     }
     return decipheredMessage;
 }
