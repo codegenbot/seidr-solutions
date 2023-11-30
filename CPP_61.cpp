@@ -1,13 +1,13 @@
-bool correct_bracketing(string brackets){
+bool correct_bracketing(string brackets) {
     int count = 0;
-    for(int i = 0; i < brackets.length(); i++){
-        if(brackets[i] == '('){
+    for (char ch : brackets) {
+        if (ch == '(') {
             count++;
-        }else if(brackets[i] == ')'){
+        } else if (ch == ')') {
+            if (count == 0) {
+                return false;
+            }
             count--;
-        }
-        if(count < 0){
-            return false;
         }
     }
     return count == 0;
