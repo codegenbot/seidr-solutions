@@ -1,20 +1,13 @@
+#include <algorithm>
+
 string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension = "";
-    int max_strength = INT_MIN;
+    string strongest_extension = extensions[0];
+    int max_strength = count_if(strongest_extension.begin(), strongest_extension.end(), [](char c) { return isupper(c); }) -
+                       count_if(strongest_extension.begin(), strongest_extension.end(), [](char c) { return islower(c); });
 
-    for (string extension : extensions) {
-        int cap = 0;
-        int sm = 0;
-
-        for (char c : extension) {
-            if (isupper(c)) {
-                cap++;
-            } else if (islower(c)) {
-                sm++;
-            }
-        }
-
-        int strength = cap - sm;
+    for (const string& extension : extensions) {
+        int strength = count_if(extension.begin(), extension.end(), [](char c) { return isupper(c); }) -
+                       count_if(extension.begin(), extension.end(), [](char c) { return islower(c); });
 
         if (strength > max_strength) {
             max_strength = strength;
