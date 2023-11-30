@@ -3,11 +3,11 @@ bool is_simple_power(int x, int n) {
         return true;
     }
     int power = 1;
-    while (pow(n, power) <= x) {
-        if (pow(n, power) == x) {
+    while (power <= x) {
+        if (power == x) {
             return true;
         }
-        power++;
+        power *= n;
     }
     return false;
 }
