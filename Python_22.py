@@ -7,6 +7,6 @@ def filter_integers(values: List[Any]) -> List[int]:
 
 
 if __name__ == "__main__":
-    values = list(map(literal_eval, input().split()))
+    values = input().split()
     filtered_values = filter_integers(values)
     print(filtered_values)
