@@ -1,11 +1,11 @@
 bool simplify(string x, string n) {
-    int x_num = stoi(x.substr(0, x.find('/')));
-    int x_den = stoi(x.substr(x.find('/') + 1));
+    int numeratorX = stoi(x.substr(0, x.find("/")));
+    int denominatorX = stoi(x.substr(x.find("/") + 1));
+    int numeratorN = stoi(n.substr(0, n.find("/")));
+    int denominatorN = stoi(n.substr(n.find("/") + 1));
 
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_den = stoi(n.substr(n.find('/') + 1));
+    int productNumerator = numeratorX * numeratorN;
+    int productDenominator = denominatorX * denominatorN;
 
-    int result = x_num * n_den;
-
-    return result % (x_den * n_num) == 0;
+    return productNumerator % productDenominator == 0;
 }
