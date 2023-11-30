@@ -14,8 +14,8 @@ def main():
     s = input().strip()
     encoded = encode_shift(s)
     decoded = decode_shift(encoded)
-    print("Encoded: ", encoded)
-    print("Decoded: ", decoded)
+    print("Encoded:", encoded)
+    print("Decoded:", decoded)
 
 
 if __name__ == "__main__":
