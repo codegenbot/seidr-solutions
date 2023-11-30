@@ -3,12 +3,7 @@ def concatenate(strings):
 
 
 n = int(input())
-strings = []
-
-for _ in range(n):
-    string = input().strip()
-    strings.append(string)
-
+strings = [input().strip() for _ in range(n)]
 result = concatenate(strings)
 
 print(result)
