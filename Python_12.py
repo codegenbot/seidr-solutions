@@ -1,10 +1,13 @@
 import sys
 from typing import List, Optional
 
+
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
     return max(strings, key=len)
 
-result = longest(sys.argv[1].split(","))
+
+input_string = input().rstrip()
+result = longest(input_string.split(","))
 print(result)
