@@ -5,7 +5,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     
     // Helper function to check if a cell is valid
     auto isValid = [&](int x, int y){
-        return (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]);
+        return x >= 0 && x < n && y >= 0 && y < n && !visited[x][y];
     };
     
     // Helper function to get neighbors of a cell
@@ -19,11 +19,11 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     };
     
     // Helper function to perform DFS to find minimum path
-    function<bool(int, int, int)> dfs = [&](int x, int y, int steps){
+    function<bool(int, int, int)> dfs = [&](int x, int y, int len){
         visited[x][y] = true;
         path.push_back(grid[x][y]);
         
-        if(steps == k){
+        if(len == k){
             return true;
         }
         
@@ -33,7 +33,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         });
         
         for(auto neighbor : neighbors){
-            if(dfs(neighbor.first, neighbor.second, steps+1)){
+            if(dfs(neighbor.first, neighbor.second, len+1)){
                 return true;
             }
         }
@@ -43,7 +43,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         return false;
     };
     
-    // Start DFS from each cell to find minimum path
+    // Start DFS from each cell to find the minimum path
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
             if(dfs(i, j, 1)){
