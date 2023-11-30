@@ -1,31 +1,32 @@
-#include <boost/lexical_cast.hpp>
+boost::any compare_one(boost::any a, boost::any b){
+    if (a.type() == typeid(int) && b.type() == typeid(int)){
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)){
+            return a;
+        }
+        else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)){
+            return b;
+        }
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)){
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)){
+            return a;
+        }
+        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)){
+            return b;
+        }
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)){
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int int_a = boost::any_cast<int>(a);
-        int int_b = boost::any_cast<int>(b);
-        if (int_a > int_b) {
-            return int_a;
-        } else if (int_a < int_b) {
-            return int_b;
+        replace(strA.begin(), strA.end(), ',', '.');
+        replace(strB.begin(), strB.end(), ',', '.');
+
+        if (stof(strA) > stof(strB)){
+            return a;
         }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float float_a = boost::any_cast<float>(a);
-        float float_b = boost::any_cast<float>(b);
-        if (float_a > float_b) {
-            return float_a;
-        } else if (float_a < float_b) {
-            return float_b;
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string string_a = boost::any_cast<std::string>(a);
-        std::string string_b = boost::any_cast<std::string>(b);
-        float float_a = boost::lexical_cast<float>(string_a);
-        float float_b = boost::lexical_cast<float>(string_b);
-        if (float_a > float_b) {
-            return string_a;
-        } else if (float_a < float_b) {
-            return string_b;
+        else if (stof(strA) < stof(strB)){
+            return b;
         }
     }
     return "None";
