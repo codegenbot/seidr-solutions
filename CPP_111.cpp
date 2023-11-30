@@ -1,18 +1,17 @@
-map<char,int> histogram(string test){
-    map<char,int> result;
+map<char, int> histogram(string test) {
+    map<char, int> result;
     string word;
-    for(int i=0; i<test.length(); i++){
-        if(test[i] != ' '){
-            word += test[i];
-        }
-        else{
-            if(word.length() > 0){
+    for (char c : test) {
+        if (c == ' ') {
+            if (!word.empty()) {
                 result[word[0]]++;
-                word = "";
+                word.clear();
             }
+        } else {
+            word += c;
         }
     }
-    if(word.length() > 0){
+    if (!word.empty()) {
         result[word[0]]++;
     }
     return result;
