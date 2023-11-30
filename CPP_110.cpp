@@ -1,9 +1,28 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int count = 0;
+    int count_odd = 0;
+    int count_even = 0;
+
     for (int i = 0; i < lst1.size(); i++) {
-        if (lst1[i] % 2 != 0) {
-            count++;
+        if (lst1[i] % 2 == 0) {
+            count_even++;
+        } else {
+            count_odd++;
         }
     }
-    return (count == 0) ? "YES" : "NO";
+
+    for (int i = 0; i < lst2.size(); i++) {
+        if (lst2[i] % 2 == 0) {
+            count_even++;
+        } else {
+            count_odd++;
+        }
+    }
+
+    if (count_odd == 0) {
+        return "YES";
+    } else if (count_even == 0) {
+        return "NO";
+    } else {
+        return "YES";
+    }
 }
