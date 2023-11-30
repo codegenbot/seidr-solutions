@@ -1,41 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 vector<string> select_words(string s, int n) {
-    vector<string> words;
-    string word = "";
-
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            if (count_consonants(word) == n) {
-                words.push_back(word);
+    vector<string> result;
+    string word;
+    int consonant_count = 0;
+    
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == ' ') {
+            if (consonant_count == n) {
+                result.push_back(word);
             }
             word = "";
+            consonant_count = 0;
         } else {
+            char c = tolower(s[i]);
+            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
+                consonant_count++;
+            }
             word += s[i];
         }
     }
-
-    if (count_consonants(word) == n) {
-        words.push_back(word);
-    }
-
-    return words;
-}
-
-int count_consonants(string word) {
-    int count = 0;
-    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
-
-    for (int i = 0; i < word.length(); i++) {
-        if (consonants.find(word[i]) != string::npos) {
-            count++;
-        }
-    }
-
-    return count;
+    
+    return result;
 }
