@@ -1,13 +1,14 @@
-def concatenate(strings):
-    return ''.join(strings)
-
 n = int(input())
-strings = []
+strings = [input() for _ in range(n)]
 
-for _ in range(n):
-    string = input().strip()
-    strings.append(string)
+
+def concatenate(strings):
+    return "".join(strings)
+
 
 result = concatenate(strings)
 
-print(result)
+if len(strings) == n:
+    print(result)
+else:
+    print("Expected input is not provided. Please provide the correct input format.")
