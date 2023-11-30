@@ -1,6 +1,6 @@
-#include <vector> 
+#include <vector>
 
-using namespace std; 
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
