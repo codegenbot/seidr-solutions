@@ -6,7 +6,6 @@
 using namespace std;
 
 vector<string> odd_count(vector<string> lst);
-
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> odd_count(vector<string> lst){
