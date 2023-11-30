@@ -1,3 +1,6 @@
+from typing import List
+
+
 def decode_cyclic(strings: List[str]) -> List[str]:
     result = []
     for s in strings:
