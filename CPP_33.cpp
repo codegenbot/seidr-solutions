@@ -1,20 +1,21 @@
 vector<int> sort_third(vector<int> l){
     vector<int> l_prime = l;
-    vector<int> l_third;
-
-    for(int i=0; i<l_prime.size(); i++){
-        if(i % 3 == 0){
-            l_third.push_back(l_prime[i]);
+    vector<int> sorted_values;
+    
+    for(int i=0; i<l.size(); i++){
+        if(i%3 == 0){
+            sorted_values.push_back(l[i]);
         }
     }
-
-    sort(l_third.begin(), l_third.end());
-
-    for(int i=0; i<l_prime.size(); i++){
-        if(i % 3 == 0){
-            l_prime[i] = l_third[i / 3];
+    
+    sort(sorted_values.begin(), sorted_values.end());
+    
+    for(int i=0; i<l.size(); i++){
+        if(i%3 == 0){
+            l_prime[i] = sorted_values.front();
+            sorted_values.erase(sorted_values.begin());
         }
     }
-
+    
     return l_prime;
 }
