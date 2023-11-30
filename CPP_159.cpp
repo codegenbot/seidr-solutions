@@ -1,6 +1,14 @@
 #include <vector>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
+std::vector<int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = std::min(total, remaining);
+    int left = remaining - eaten;
+    return {eaten, left};
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
