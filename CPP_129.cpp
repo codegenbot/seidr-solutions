@@ -1,68 +1,63 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> path;
     int n = grid.size();
     int m = grid[0].size();
+    int currRow = 0;
+    int currCol = 0;
     
-    vector<int> path;
-    
-    // Find the minimum value in the grid
-    int minVal = INT_MAX;
-    int minRow, minCol;
+    // Find the cell with the smallest value
     for(int i=0; i<n; i++){
         for(int j=0; j<m; j++){
-            if(grid[i][j] < minVal){
-                minVal = grid[i][j];
-                minRow = i;
-                minCol = j;
+            if(grid[i][j] == 1){
+                currRow = i;
+                currCol = j;
+                break;
             }
         }
     }
     
-    // Add the minimum value to the path
-    path.push_back(minVal);
+    // Add the smallest value to the path
+    path.push_back(grid[currRow][currCol]);
     
-    // Initialize variables for current cell and direction
-    int row = minRow;
-    int col = minCol;
-    int direction = 0; // 0 for right, 1 for down, 2 for left, 3 for up
-    
-    // Continue until path has length k
-    while(path.size() < k){
-        // Move to the next cell based on the current direction
-        if(direction == 0){
-            col++;
-            if(col == m || grid[row][col] == -1){
-                // If out of bounds or already visited, change direction
-                col--;
-                direction = 1;
-            }
-        }
-        else if(direction == 1){
-            row++;
-            if(row == n || grid[row][col] == -1){
-                row--;
-                direction = 2;
-            }
-        }
-        else if(direction == 2){
-            col--;
-            if(col == -1 || grid[row][col] == -1){
-                col++;
-                direction = 3;
-            }
-        }
-        else if(direction == 3){
-            row--;
-            if(row == -1 || grid[row][col] == -1){
-                row++;
-                direction = 0;
-            }
+    // Move k-1 times to find the next smallest value
+    for(int i=0; i<k-1; i++){
+        // Check if there is a smaller value in the neighboring cells
+        int smallest = INT_MAX;
+        int nextRow = currRow;
+        int nextCol = currCol;
+        
+        // Check the cell above
+        if(currRow-1 >= 0 && grid[currRow-1][currCol] < smallest){
+            smallest = grid[currRow-1][currCol];
+            nextRow = currRow-1;
+            nextCol = currCol;
         }
         
-        // Add the value of the current cell to the path
-        path.push_back(grid[row][col]);
+        // Check the cell below
+        if(currRow+1 < n && grid[currRow+1][currCol] < smallest){
+            smallest = grid[currRow+1][currCol];
+            nextRow = currRow+1;
+            nextCol = currCol;
+        }
         
-        // Mark the current cell as visited
-        grid[row][col] = -1;
+        // Check the cell to the left
+        if(currCol-1 >= 0 && grid[currRow][currCol-1] < smallest){
+            smallest = grid[currRow][currCol-1];
+            nextRow = currRow;
+            nextCol = currCol-1;
+        }
+        
+        // Check the cell to the right
+        if(currCol+1 < m && grid[currRow][currCol+1] < smallest){
+            smallest = grid[currRow][currCol+1];
+            nextRow = currRow;
+            nextCol = currCol+1;
+        }
+        
+        // Move to the cell with the smallest value
+        currRow = nextRow;
+        currCol = nextCol;
+        path.push_back(grid[currRow][currCol]);
     }
     
     return path;
