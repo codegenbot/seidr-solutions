@@ -2,7 +2,7 @@ from typing import List
 
 
 def all_prefixes() -> List[str]:
-    string = input().strip()
+    string = input("Enter a string: ").strip()
     prefixes = []
     if string:
         for i in range(len(string)):
