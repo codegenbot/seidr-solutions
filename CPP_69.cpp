@@ -4,7 +4,6 @@ int search(vector<int> lst){
     
     for(int i = 0; i < lst.size(); i++){
         int freq = 0;
-        
         for(int j = 0; j < lst.size(); j++){
             if(lst[j] == lst[i]){
                 freq++;
