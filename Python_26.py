@@ -5,9 +5,7 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 
 if __name__ == "__main__":
-    numbers = input().split(" ")
-
-    numbers = [int(num) for num in numbers]
+    numbers = list(map(int, input().split()))
 
     result = remove_duplicates(numbers)
 
