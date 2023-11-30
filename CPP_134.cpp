@@ -1,19 +1,14 @@
 bool check_if_last_char_is_a_letter(string txt){
-    if(txt.length() == 0){
+    if(txt.empty()){
         return false;
     }
-    char lastChar = txt.back();
+    int n = txt.length();
+    char lastChar = txt[n-1];
     if(isalpha(lastChar)){
-        int spaceIndex = txt.find_last_of(' ');
-        if(spaceIndex == string::npos){
-            return true;
+        if(n > 1 && txt[n-2] != ' '){
+            return false;
         }
-        else{
-            string lastWord = txt.substr(spaceIndex + 1);
-            if(lastWord.length() == 1){
-                return true;
-            }
-        }
+        return true;
     }
     return false;
 }
