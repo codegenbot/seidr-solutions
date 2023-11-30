@@ -1,12 +1,5 @@
 #include <vector>
 
-vector<int> eat(int number, int need, int remaining) {
-    int total = number + need;
-    int eaten = min(total, remaining);
-    int left = remaining - eaten;
-    return {eaten, left};
-}
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -17,6 +10,13 @@ bool issame(vector<int> a, vector<int> b) {
         }
     }
     return true;
+}
+
+vector<int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = min(total, remaining);
+    int left = remaining - eaten;
+    return {eaten, left};
 }
 
 int main() {
