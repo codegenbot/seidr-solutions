@@ -1,9 +1,22 @@
 #include <vector>
+#include <climits>
 #include <cassert>
 
-vector<int> minPath(vector<vector<int>> grid, int k);
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, vector<int>& path, int row, int col, int k);
-bool issame(vector<int> a, vector<int> b);
 
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
@@ -50,22 +63,8 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, vector<int>& 
     dfs(grid, visited, path, row, col+1, k);
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
-
 int main(){
-    assert (issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     
     return 0;
 }
