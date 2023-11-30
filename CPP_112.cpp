@@ -3,7 +3,7 @@
 #include <string>
 #include <algorithm>
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result;
     for (int i = 0; i < s.length(); i++) {
         if (c.find(s[i]) == std::string::npos) {
