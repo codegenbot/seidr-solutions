@@ -1,33 +1,53 @@
 vector<string> split_words(string txt){
-    vector<string> result;
-    if(txt.find(' ') != string::npos){
-        int start = 0;
-        int end = txt.find(' ');
-        while(end != string::npos){
-            result.push_back(txt.substr(start, end-start));
-            start = end + 1;
-            end = txt.find(' ', start);
+    vector<string> words;
+    int count = 0;
+    bool hasWhitespace = false;
+    bool hasComma = false;
+    
+    for(int i=0; i<txt.length(); i++){
+        if(txt[i] == ' '){
+            hasWhitespace = true;
         }
-        result.push_back(txt.substr(start, end-start));
+        else if(txt[i] == ','){
+            hasComma = true;
+        }
     }
-    else if(txt.find(',') != string::npos){
-        int start = 0;
-        int end = txt.find(',');
-        while(end != string::npos){
-            result.push_back(txt.substr(start, end-start));
-            start = end + 1;
-            end = txt.find(',', start);
+    
+    if(hasWhitespace){
+        string word = "";
+        for(int i=0; i<txt.length(); i++){
+            if(txt[i] == ' '){
+                words.push_back(word);
+                word = "";
+            }
+            else{
+                word += txt[i];
+            }
         }
-        result.push_back(txt.substr(start, end-start));
+        words.push_back(word);
+    }
+    else if(hasComma){
+        string word = "";
+        for(int i=0; i<txt.length(); i++){
+            if(txt[i] == ','){
+                words.push_back(word);
+                word = "";
+            }
+            else{
+                word += txt[i];
+            }
+        }
+        words.push_back(word);
     }
     else{
-        int count = 0;
-        for(char c : txt){
-            if(islower(c)){
+        count = 0;
+        for(int i=0; i<txt.length(); i++){
+            if(islower(txt[i])){
                 count++;
             }
         }
-        result.push_back(to_string(count));
+        words.push_back(to_string(count));
     }
-    return result;
+    
+    return words;
 }
