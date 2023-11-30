@@ -3,10 +3,11 @@ using namespace std;
 
 string solve(string s) {
     string result = "";
+    bool containsLetter = false;
 
-    // Reverse the case of letters
     for (int i = 0; i < s.length(); i++) {
         if (isalpha(s[i])) {
+            containsLetter = true;
             if (islower(s[i])) {
                 result += toupper(s[i]);
             } else {
@@ -17,8 +18,7 @@ string solve(string s) {
         }
     }
 
-    // Reverse the string if it contains no letters
-    if (result.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
+    if (!containsLetter) {
         reverse(result.begin(), result.end());
     }
 
