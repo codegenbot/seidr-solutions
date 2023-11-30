@@ -3,13 +3,13 @@ string file_name_check(string file_name){
     if(dotIndex == string::npos || dotIndex == 0 || dotIndex == file_name.length()-1){
         return "No";
     }
-    string beforeDot = file_name.substr(0, dotIndex);
-    string afterDot = file_name.substr(dotIndex+1);
-    if(beforeDot.empty() || !isalpha(beforeDot[0])){
+    string name = file_name.substr(0, dotIndex);
+    string extension = file_name.substr(dotIndex+1);
+    if(name.length() == 0 || !isalpha(name[0])){
         return "No";
     }
     int digitCount = 0;
-    for(char c : beforeDot){
+    for(char c : name){
         if(isdigit(c)){
             digitCount++;
         }
@@ -17,7 +17,7 @@ string file_name_check(string file_name){
     if(digitCount > 3){
         return "No";
     }
-    if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll"){
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
     }
     return "Yes";
