@@ -1,18 +1,19 @@
 def encode_shift(s):
-    return "".join([chr(((ord(ch.lower()) + 5 - ord("a")) % 26) + ord("a")) for ch in s])
-
+    return "".join(
+        [chr(((ord(ch.lower()) + 5 - ord("a")) % 26) + ord("a")) for ch in s]
+    )
 
 def decode_shift(s):
-    return "".join([chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
-
+    return "".join(
+        [chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a")) for ch in s]
+    )
 
 def main():
-    s = input("Enter a string: ")
+    s = input("Enter a string: ").strip()
     encoded = encode_shift(s)
     decoded = decode_shift(encoded)
-    print("Encoded:", encoded)
-    print("Decoded:", decoded)
-
+    print("Encoded: ", encoded)
+    print("Decoded: ", decoded)
 
 if __name__ == "__main__":
     main()
