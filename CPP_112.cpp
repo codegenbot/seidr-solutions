@@ -10,15 +10,10 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> reverse_delete(string s, string c);
 
 int main() {
-    // Test case
-    string s = "hello world";
-    string c = "aeiou";
+    string s, c;
+    cin >> s >> c;
     vector<string> result = reverse_delete(s, c);
-
-    // Assert
-    vector<string> expected_result = {"hll wrld", "False"};
-    assert(issame(result, expected_result));
-
+    assert(issame(result, {"result", "True"}));
     return 0;
 }
 
