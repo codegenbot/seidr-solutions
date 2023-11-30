@@ -1,12 +1,8 @@
 int can_arrange(vector<int> arr){
-    int n = arr.size();
-    int largest_index = -1;
-    
-    for(int i = 1; i < n; i++){
+    for(int i = arr.size()-1; i > 0; i--){
         if(arr[i] < arr[i-1]){
-            largest_index = i-1;
+            return i-1;
         }
     }
-    
-    return largest_index;
+    return -1;
 }
