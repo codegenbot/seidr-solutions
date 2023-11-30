@@ -1,9 +1,12 @@
-string flip_case(string str){
-    for(int i = 0; i < str.size(); i++){
-        if(islower(str[i])){
+#include <string>
+using namespace std;
+
+string flip_case(string str) {
+    for (int i = 0; i < str.length(); i++) {
+        if (islower(str[i])) {
             str[i] = toupper(str[i]);
         }
-        else{
+        else {
             str[i] = tolower(str[i]);
         }
     }
