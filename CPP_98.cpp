@@ -1,9 +1,10 @@
 int count_upper(string s){
-    int count = 0;
-    for (int i = 0; i < s.length(); i += 2) {
-        if (isupper(s[i]) && (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U')) {
-            count++;
-        }
+  int count = 0;
+  for(int i = 0; i < s.length(); i+=2){
+    char c = toupper(s[i]);
+    if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+      count++;
     }
-    return count;
+  }
+  return count;
 }
