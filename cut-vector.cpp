@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <climits> // Include the <climits> header
+#include <climits>
 
 using namespace std;
 
@@ -31,7 +31,7 @@ vector<int> cutVector(vector<int>& nums) {
     vector<int> left(nums.begin(), nums.begin() + idx);
     vector<int> right(nums.begin() + idx, nums.end());
     
-    return vector<int>{left, right}; // Explicitly create vector<int> object
+    return vector<int>{left, right};
 }
 
 int main() {
