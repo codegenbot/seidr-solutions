@@ -1,11 +1,11 @@
-from typing import List, Union
+from typing import List, Any
 
 
-def filter_integers(values: List[Union[str, int]]) -> List[int]:
+def filter_integers(values: List[Any]) -> List[int]:
     return [value for value in values if isinstance(value, int)]
 
 
 if __name__ == "__main__":
-    values = list(map(int, input().split()))
+    values = input().split(", ")
     filtered_values = filter_integers(values)
     print(filtered_values)
