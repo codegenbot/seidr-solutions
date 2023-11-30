@@ -1,20 +1,19 @@
-string fix_spaces(string text){
-    int consecutiveSpaces = 0;
-    string result = "";
-    
-    for(int i = 0; i < text.length(); i++){
-        if(text[i] == ' '){
-            consecutiveSpaces++;
-            if(consecutiveSpaces > 2){
-                result += "-";
-            }else{
-                result += "_";
+#include <string>
+
+string fix_spaces(string text) {
+    int count = 0;
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            count++;
+            if (count > 2) {
+                text.replace(i, 1, "-");
+                count = 1;
+            } else {
+                text.replace(i, 1, "_");
             }
-        }else{
-            consecutiveSpaces = 0;
-            result += text[i];
+        } else {
+            count = 0;
         }
     }
-    
-    return result;
+    return text;
 }
