@@ -1,20 +1,25 @@
 #include <string>
-using namespace std;
 
 string solve(string s) {
-    int n = s.length();
+    string result = "";
     bool hasLetter = false;
     
-    for (int i = 0; i < n; i++) {
-        if (isalpha(s[i])) {
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+    for (char c : s) {
+        if (isalpha(c)) {
             hasLetter = true;
+            if (islower(c)) {
+                result += toupper(c);
+            } else {
+                result += tolower(c);
+            }
+        } else {
+            result += c;
         }
     }
     
     if (!hasLetter) {
-        reverse(s.begin(), s.end());
+        reverse(result.begin(), result.end());
     }
     
-    return s;
+    return result;
 }
