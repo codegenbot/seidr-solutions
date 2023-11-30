@@ -8,5 +8,6 @@ vector<string> reverse_delete(string s, string c) {
     string reversed = result;
     reverse(reversed.begin(), reversed.end());
     bool isPalindrome = (result == reversed);
-    return {result, isPalindrome ? "True" : "False"};
+    vector<string> output = {result, (isPalindrome ? "True" : "False")};
+    return output;
 }
