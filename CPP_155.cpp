@@ -1,20 +1,15 @@
 vector<int> even_odd_count(int num){
-    int evenCount = 0;
-    int oddCount = 0;
-    int digit;
+    vector<int> counts(2, 0);
+    string num_str = to_string(abs(num));
     
-    num = abs(num); // convert negative number to positive
-    
-    while(num > 0){
-        digit = num % 10;
-        if(digit % 2 == 0){
-            evenCount++;
-        } else{
-            oddCount++;
+    for (char c : num_str) {
+        int digit = c - '0';
+        if (digit % 2 == 0) {
+            counts[0]++;
+        } else {
+            counts[1]++;
         }
-        num /= 10;
     }
     
-    vector<int> result = {evenCount, oddCount};
-    return result;
+    return counts;
 }
