@@ -1,3 +1,7 @@
+#include <vector>
+#include <string>
+using namespace std;
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
