@@ -1,51 +1,28 @@
 vector<string> split_words(string txt){
     vector<string> result;
-    size_t found = txt.find(" ");
-    if(found != string::npos){
-        size_t commaFound = txt.find(",");
-        if(commaFound != string::npos){
-            replace(txt.begin(), txt.end(), ',', ' ');
-            found = txt.find(" ");
-            int i = 0;
-            while(found != string::npos){
-                result.push_back(txt.substr(i, found-i));
-                i = found+1;
-                found = txt.find(" ", i);
-            }
-            result.push_back(txt.substr(i, found-i));
+    if (txt.find(' ') != string::npos) { // if there is a whitespace
+        size_t pos = 0;
+        string word;
+        while ((pos = txt.find(' ')) != string::npos) {
+            word = txt.substr(0, pos);
+            result.push_back(word);
+            txt.erase(0, pos + 1);
         }
-        else{
-            int i = 0;
-            while(found != string::npos){
-                result.push_back(txt.substr(i, found-i));
-                i = found+1;
-                found = txt.find(" ", i);
-            }
-            result.push_back(txt.substr(i, found-i));
+        result.push_back(txt); // add the last word
+    } else if (txt.find(',') != string::npos) { // if there is a comma
+        size_t pos = 0;
+        string word;
+        while ((pos = txt.find(',')) != string::npos) {
+            word = txt.substr(0, pos);
+            result.push_back(word);
+            txt.erase(0, pos + 1);
         }
-    }
-    else if (txt.find(",") != string::npos){
-        replace(txt.begin(), txt.end(), ',', ' ');
-        int i = 0;
-        int found = txt.find(" ");
-        while(found != string::npos){
-            result.push_back(txt.substr(i, found-i));
-            i = found+1;
-            found = txt.find(" ", i);
-        }
-        result.push_back(txt.substr(i, found-i));
-    }
-    else{
-        int count = 0;
-        for(int i=0; i<txt.length(); i++){
-            if(islower(txt[i])){
-                int order = txt[i] - 'a';
-                if(order % 2 == 1){
-                    count++;
-                }
-            }
-        }
-        result.push_back(to_string(count));
+        result.push_back(txt); // add the last word
+    } else { // if there are no whitespaces or commas
+        string count = to_string(count_if(txt.begin(), txt.end(), [](char c) { 
+            return islower(c); 
+        }));
+        result.push_back(count);
     }
     return result;
 }
