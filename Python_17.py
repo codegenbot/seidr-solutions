@@ -12,5 +12,5 @@ def parse_music(music_string: str) -> List[int]:
             result.append(1)
     return result
 
-music_string = input()
+music_string = "o o| o"
 print(parse_music(music_string))
