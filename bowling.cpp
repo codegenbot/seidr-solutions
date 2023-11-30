@@ -27,7 +27,7 @@ int calculateScore(const std::string& bowls) {
             score += (bowl - '0');
 
             if (frame < 10 && bowlIndex % 2 == 1 && bowl != '0' && bowls[i + 1] == '/') {
-                score += (10 - (bowls[i - 1] - '0'));
+                score += 10;
             }
 
             bowlIndex++;
