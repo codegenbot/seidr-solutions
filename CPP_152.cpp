@@ -9,7 +9,7 @@ bool issame(vector<int> game, vector<int> guess){
     return true;
 }
 
-vector<int> compare(vector<int> game,vector<int> guess){
+vector<int> compare(vector<int> game, vector<int> guess){
     vector<int> result;
     for(int i=0; i<game.size(); i++){
         if(game[i] == guess[i]){
