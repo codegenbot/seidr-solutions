@@ -41,11 +41,10 @@ int main() {
     
     vector<vector<int>> result = cutVector(nums);
     for (int i = 0; i < result[0].size(); i++) {
-        cout << result[0][i] << " ";
+        cout << result[0][i] << endl;
     }
-    cout << endl;
     for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1][i] << " ";
+        cout << result[1][i] << endl;
     }
     
     return 0;
