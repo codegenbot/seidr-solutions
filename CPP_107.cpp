@@ -4,8 +4,8 @@ vector<int> even_odd_palindrome(int n){
         string num = to_string(i);
         int len = num.length();
         bool isPalindrome = true;
-        for(int j = 0; j < len / 2; j++){
-            if(num[j] != num[len - 1 - j]){
+        for(int j = 0; j < len/2; j++){
+            if(num[j] != num[len-j-1]){
                 isPalindrome = false;
                 break;
             }
@@ -13,8 +13,7 @@ vector<int> even_odd_palindrome(int n){
         if(isPalindrome){
             if(i % 2 == 0){
                 result[0]++;
-            }
-            else{
+            } else {
                 result[1]++;
             }
         }
