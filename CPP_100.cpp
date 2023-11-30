@@ -3,8 +3,8 @@ vector<int> make_a_pile(int n){
     int stones = n;
     levels.push_back(stones);
     
-    for(int i=1; i<n; i++){
-        if(n % 2 == 0){
+    for(int i = 1; i < n; i++){
+        if(stones % 2 == 0){
             stones += 2;
         } else {
             stones += 1;
