@@ -5,9 +5,8 @@ def concatenate(strings: List[str]) -> str:
     return "".join(strings)
 
 
-n = int(input())
+n = int(input("Enter the number of strings: "))
 strings = []
-
 for _ in range(n):
     strings.append(input())
 
