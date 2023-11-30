@@ -1,37 +1,32 @@
-boost::any compare_one(boost::any a, boost::any b){
-    if (a.type() == typeid(int) && b.type() == typeid(int)){
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)){
+#include <boost/any.hpp>
+#include <algorithm>
+#include <string>
+
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int a_val = boost::any_cast<int>(a);
+        int b_val = boost::any_cast<int>(b);
+        if (a_val > b_val) {
             return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)){
+        } else if (b_val > a_val) {
             return b;
-        } else {
-            return boost::any();
         }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)){
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)){
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float a_val = boost::any_cast<float>(a);
+        float b_val = boost::any_cast<float>(b);
+        if (a_val > b_val) {
             return a;
-        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)){
+        } else if (b_val > a_val) {
             return b;
-        } else {
-            return boost::any();
         }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)){
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        if (strA.find('.') != string::npos){
-            std::replace(strA.begin(), strA.end(), ',', '.');
-        }
-        if (strB.find('.') != string::npos){
-            std::replace(strB.begin(), strB.end(), ',', '.');
-        }
-        if (stof(strA) > stof(strB)){
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string a_val = boost::any_cast<std::string>(a);
+        std::string b_val = boost::any_cast<std::string>(b);
+        if (a_val > b_val) {
             return a;
-        } else if (stof(strA) < stof(strB)){
+        } else if (b_val > a_val) {
             return b;
-        } else {
-            return boost::any();
         }
-    } else {
-        return boost::any();
     }
+    return boost::any("None");
 }
