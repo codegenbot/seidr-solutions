@@ -1,51 +1,47 @@
 #include <iostream>
 #include <string>
 
-int getScore(const std::string& frames) {
-    int score = 0;
-    int frameIndex = 0;
+int calculateScore(const std::string& rolls) {
+  int score = 0;
+  int frame = 1;
+  int rollIndex = 0;
 
-    for (int i = 0; i < 10; ++i) {
-        if (frames[frameIndex] == 'X') {
-            score += 10;
-            if (frames[frameIndex + 2] == 'X') {
-                score += 10;
-                if (frames[frameIndex + 4] == 'X') {
-                    score += 10;
-                } else {
-                    score += frames[frameIndex + 4] - '0';
-                }
-            } else if (frames[frameIndex + 2] == '/') {
-                score += 10;
-            } else {
-                score += frames[frameIndex + 2] - '0';
-                score += frames[frameIndex + 3] - '0';
-            }
-            frameIndex += 2;
-        } else if (frames[frameIndex + 1] == '/') {
-            score += 10;
-            if (frames[frameIndex + 2] == 'X') {
-                score += 10;
-            } else {
-                score += frames[frameIndex + 2] - '0';
-            }
-            frameIndex += 2;
-        } else {
-            score += frames[frameIndex] - '0';
-            score += frames[frameIndex + 1] - '0';
-            frameIndex += 2;
+  for (char roll : rolls) {
+    if (roll == 'X') {
+      score += 10;
+      if (frame < 10) {
+        score += (rolls[rollIndex + 1] == 'X') ? 10 + ((rolls[rollIndex + 2] == 'X') ? 10 : (rolls[rollIndex + 2] - '0')) : (rolls[rollIndex + 1] == '/') ? 10 : (rolls[rollIndex + 1] - '0');
+        if (rolls[rollIndex + 2] == 'X' && frame < 9) {
+          score += (rolls[rollIndex + 3] == 'X') ? 10 : (rolls[rollIndex + 3] - '0');
         }
+      }
+      frame++;
+    }
+    else if (roll == '/') {
+      score += 10 - (rolls[rollIndex - 1] - '0');
+      score += (rolls[rollIndex + 1] == 'X') ? 10 : (rolls[rollIndex + 1] - '0');
+      if (rolls[rollIndex + 1] == 'X' && frame < 10) {
+        score += (rolls[rollIndex + 2] == 'X') ? 10 : (rolls[rollIndex + 2] - '0');
+      }
+      frame++;
+    }
+    else if (roll >= '1' && roll <= '9') {
+      score += (roll - '0');
+      frame++;
     }
 
-    return score;
+    if (frame >= 11) {
+      break;
+    }
+    rollIndex++;
+  }
+  return score;
 }
 
 int main() {
-    std::string frames;
-    std::cout << "Enter the individual bowls in a 10-frame round: ";
-    std::cin >> frames;
-
-    std::cout << "The score is: " << getScore(frames) << std::endl;
-
-    return 0;
+  std::string rolls;
+  std::cin >> rolls;
+  int score = calculateScore(rolls);
+  std::cout << score << std::endl;
+  return 0;
 }
