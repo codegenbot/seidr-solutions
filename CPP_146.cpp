@@ -1,5 +1,5 @@
 #include <vector>
-using namespace std;
+#include <string>
 
 int specialFilter(vector<int> nums){
     int count = 0;
@@ -12,10 +12,9 @@ int specialFilter(vector<int> nums){
     return count;
 }
 
-#include <cassert>
-
-int main() {
+int main(){
+    // Call specialFilter() function with test cases
     assert(specialFilter({}) == 0);
-    // Add more test cases here
+
     return 0;
 }
