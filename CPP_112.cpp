@@ -3,8 +3,6 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string res = "";
