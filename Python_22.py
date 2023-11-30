@@ -6,6 +6,6 @@ def filter_integers(values: List[Any]) -> List[int]:
 
 
 if __name__ == "__main__":
-    values = [1, '2', 3, '4', 5]
+    values = [1, 2, 'hello', 3, 'world', 4, '5']
     filtered_values = filter_integers(values)
     print(filtered_values)
