@@ -1,7 +1,8 @@
 from typing import List
 
+
 def parse_music(music_string: str) -> List[int]:
-    notes = music_string.strip().split(" ")
+    notes = music_string.split(" ")
     result = []
     for note in notes:
         if note == "o":
@@ -12,5 +13,6 @@ def parse_music(music_string: str) -> List[int]:
             result.append(1)
     return result
 
-music_string = input().strip()
+
+music_string = input("Enter music notes (separated by space): ")
 print(parse_music(music_string))
