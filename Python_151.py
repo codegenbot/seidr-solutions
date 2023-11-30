@@ -1,3 +1,6 @@
-def double_the_difference(array):
-    odd_sum = sum(x ** 2 for x in array if x % 2 != 0 and x >= 0 and isinstance(x, int))
-    return odd_sum
+def double_the_difference(list):
+    return sum(x ** 2 for x in list if x > 0 and isinstance(x, int) and x % 2 != 0)
+
+input_list = [1, 2, 3, 4, 5]
+odd_sum = double_the_difference(input_list)
+odd_sum
