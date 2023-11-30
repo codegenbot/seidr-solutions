@@ -1,32 +1,18 @@
-#include <string>
+string int_to_mini_roman(int number){
+    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    vector<string> symbols = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
 
-string int_to_mini_roman(int number) {
     string result = "";
-    
-    // Mapping of roman numerals and their corresponding values
-    vector<pair<string, int>> romanNumerals = {
-        {"m", 1000},
-        {"cm", 900},
-        {"d", 500},
-        {"cd", 400},
-        {"c", 100},
-        {"xc", 90},
-        {"l", 50},
-        {"xl", 40},
-        {"x", 10},
-        {"ix", 9},
-        {"v", 5},
-        {"iv", 4},
-        {"i", 1}
-    };
-    
-    // Iterate through the roman numerals and append the corresponding symbols
-    for(auto romanNumeral : romanNumerals) {
-        while(number >= romanNumeral.second) {
-            result += romanNumeral.first;
-            number -= romanNumeral.second;
+    int i = 0;
+
+    while (number > 0) {
+        if (number >= values[i]) {
+            result += symbols[i];
+            number -= values[i];
+        } else {
+            i++;
         }
     }
-    
+
     return result;
 }
