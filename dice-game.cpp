@@ -1,10 +1,9 @@
 #include <iostream>
 #include <iomanip>
-using namespace std;
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
 
     long double probability = 0.0;
     for (int i = 1; i <= n; i++) {
@@ -15,7 +14,7 @@ int main() {
         }
     }
 
-    cout << fixed << setprecision(8) << probability << endl;
+    std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
 
     return 0;
 }
