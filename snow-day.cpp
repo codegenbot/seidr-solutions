@@ -2,10 +2,10 @@
 
 using namespace std;
 
-int calculateSnow(int hours, int snowOnGround, int snowFallRate, int meltRate) {
-    int finalSnow = snowOnGround;
+double calculateSnow(double hours, double snowOnGround, double snowFallRate, double meltRate) {
+    double finalSnow = snowOnGround;
     for (int i = 0; i < hours; i++) {
-        int snowFall = snowFallRate - meltRate * finalSnow;
+        double snowFall = snowFallRate - meltRate * finalSnow;
         finalSnow = finalSnow + snowFall;
         if (finalSnow < 0) {
             finalSnow = 0;
@@ -15,10 +15,10 @@ int calculateSnow(int hours, int snowOnGround, int snowFallRate, int meltRate) {
 }
 
 int main() {
-    int hours, snowOnGround, snowFallRate, meltRate;
+    double hours, snowOnGround, snowFallRate, meltRate;
     cin >> hours >> snowOnGround >> snowFallRate >> meltRate;
 
-    int finalSnow = calculateSnow(hours, snowOnGround, snowFallRate, meltRate);
+    double finalSnow = calculateSnow(hours, snowOnGround, snowFallRate, meltRate);
     cout << finalSnow << endl;
 
     return 0;
