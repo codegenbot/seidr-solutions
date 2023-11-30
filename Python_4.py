@@ -1,1 +1,2 @@
-numbers = input().strip().split()
+nums = input().split()
+print(nums)
