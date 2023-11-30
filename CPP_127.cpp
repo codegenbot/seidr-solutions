@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 using namespace std;
 
 string intersection(vector<int> interval1, vector<int> interval2) {
