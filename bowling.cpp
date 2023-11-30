@@ -1,42 +1,41 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(const std::string& bowls) {
+int getScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
     int bowlIndex = 0;
 
-    for (int i = 0; i < bowls.length(); i++) {
-        if (frame > 10) {
-            break;
-        }
-
-        char bowl = bowls[i];
-
-        if (bowl == 'X') {
+    for (int i = 0; i < 10; i++) {
+        if (bowls[bowlIndex] == 'X') {
             score += 10;
-            if (frame < 10) {
-                score += (bowls[i + 1] == 'X') ? 10 : (isdigit(bowls[i + 1]) ? bowls[i + 1] - '0' : 0);
-                score += (bowls[i + 2] == 'X') ? 10 : (isdigit(bowls[i + 2]) ? bowls[i + 2] - '0' : 0);
+            if (bowls[bowlIndex + 2] == 'X') {
+                score += 10;
+                if (bowls[bowlIndex + 4] == 'X') {
+                    score += 10;
+                } else {
+                    score += bowls[bowlIndex + 4] - '0';
+                }
+            } else if (bowls[bowlIndex + 2] == '/') {
+                score += 10;
+            } else {
+                score += bowls[bowlIndex + 2] - '0';
+                if (bowls[bowlIndex + 3] == '/') {
+                    score += 10 - (bowls[bowlIndex + 2] - '0');
+                }
             }
-
-            bowlIndex++;
-            frame++;
-        } else if (bowl == '/') {
-            score += (10 - (bowls[i - 1] - '0'));
-            score += (isdigit(bowls[i + 1]) ? bowls[i + 1] - '0' : 0);
-
-            bowlIndex++;
-            frame++;
-        } else if (isdigit(bowl)) {
-            score += (bowl - '0');
-
-            if (isdigit(bowls[i + 1])) {
-                score += (bowls[i + 1] - '0');
+            bowlIndex += 2;
+        } else if (bowls[bowlIndex + 1] == '/') {
+            score += 10;
+            if (bowls[bowlIndex + 2] == 'X') {
+                score += 10;
+            } else {
+                score += bowls[bowlIndex + 2] - '0';
             }
-
-            bowlIndex++;
-            frame++;
+            bowlIndex += 3;
+        } else {
+            score += bowls[bowlIndex] - '0' + bowls[bowlIndex + 1] - '0';
+            bowlIndex += 2;
         }
     }
 
@@ -45,11 +44,10 @@ int calculateScore(const std::string& bowls) {
 
 int main() {
     std::string bowls;
-    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
-    std::cin >> bowls;
+    std::getline(std::cin, bowls);
 
-    int score = calculateScore(bowls);
-    std::cout << "The score for the round is: " << score << std::endl;
+    int score = getScore(bowls);
+    std::cout << score << std::endl;
 
     return 0;
 }
