@@ -1,43 +1,60 @@
+#include <string>
+#include <vector>
+#include <cassert>
+
+bool issame(vector<string> a, vector<string> b){
+    // function logic goes here
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
+}
+
 vector<string> split_words(string txt){
-    vector<string> words;
+    vector<string> result;
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
     
-    for(char c : txt){
-        if(c == ' '){
+    for(int i = 0; i < txt.length(); i++){
+        if(txt[i] == ' '){
             hasWhitespace = true;
-            if(!word.empty()){
-                words.push_back(word);
+            if(word != ""){
+                result.push_back(word);
                 word = "";
             }
-        }else if(c == ','){
+        } else if(txt[i] == ','){
             hasComma = true;
-            if(!word.empty()){
-                words.push_back(word);
+            if(word != ""){
+                result.push_back(word);
                 word = "";
             }
-        }else{
-            word += c;
+        } else {
+            word += txt[i];
         }
     }
     
-    if(hasWhitespace || hasComma){
-        if(!word.empty()){
-            words.push_back(word);
-        }
-    }else{
-        int oddCount = 0;
-        for(char c : txt){
-            if(islower(c)){
-                int order = c - 'a';
-                if(order % 2 != 0){
-                    oddCount++;
-                }
-            }
-        }
-        words.push_back(to_string(oddCount));
+    if(word != ""){
+        result.push_back(word);
     }
     
-    return words;
+    if(!hasWhitespace && !hasComma){
+        result.clear();
+        result.push_back(to_string(count_odd_letters(txt)));
+    }
+    
+    return result;
+}
+
+int main(){
+    assert(issame(split_words(""), {"0"}));
+    // other test cases go here
+    return 0;
 }
