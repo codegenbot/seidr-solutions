@@ -7,10 +7,10 @@ def encode(message):
             if char in vowels:
                 encoded_message += chr(ord(char) + 2)
             else:
-                if char == "y":
-                    encoded_message += "a"
-                elif char == "Y":
-                    encoded_message += "A"
+                if char == 'y':
+                    encoded_message += 'a'
+                elif char == 'Y':
+                    encoded_message += 'A'
                 else:
                     encoded_message += chr(ord(char) - 31)
         else:
