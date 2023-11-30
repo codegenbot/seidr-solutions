@@ -4,17 +4,17 @@ vector<string> select_words(string s, int n) {
     int consonantCount = 0;
     
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
+        if (s[i] != ' ') {
+            word += s[i];
+            if (isalpha(s[i]) && !isVowel(s[i])) {
+                consonantCount++;
+            }
+        } else {
             if (consonantCount == n) {
                 result.push_back(word);
             }
             word = "";
             consonantCount = 0;
-        } else {
-            if (isalpha(s[i]) && !isVowel(s[i])) {
-                consonantCount++;
-            }
-            word += s[i];
         }
     }
     
