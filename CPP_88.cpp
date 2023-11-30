@@ -1,3 +1,10 @@
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> sort_array(vector<int> array){
     vector<int> sorted_array = array;
     int sum = sorted_array[0] + sorted_array[sorted_array.size() - 1];
