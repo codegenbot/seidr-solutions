@@ -7,5 +7,9 @@ vector<int> sum_product(vector<int> numbers){
         product *= numbers[i];
     }
     
-    return {sum, product};
+    vector<int> result;
+    result.push_back(sum);
+    result.push_back(product);
+    
+    return result;
 }
