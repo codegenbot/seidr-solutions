@@ -1,27 +1,48 @@
-string words_in_sentence(string sentence){
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1)
+        return false;
+
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false;
+    }
+
+    return true;
+}
+
+string words_in_sentence(string sentence) {
     string result = "";
-    int n = sentence.length();
-    int prime[101] = {0};
-    prime[0] = prime[1] = 1;
+    vector<string> words;
 
-    for(int i=2; i*i<=n; i++){
-        if(prime[i] == 0){
-            for(int j=i*i; j<=n; j+=i){
-                prime[j] = 1;
-            }
+    // Split the sentence into words
+    string word = "";
+    for (char c : sentence) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += c;
+        }
+    }
+    words.push_back(word);
+
+    // Check if the length of each word is prime
+    for (string word : words) {
+        if (isPrime(word.length())) {
+            result += word + " ";
         }
     }
 
-    int start = 0;
-    for(int i=0; i<=n; i++){
-        if(sentence[i] == ' ' || i == n){
-            string word = sentence.substr(start, i-start);
-            if(prime[word.length()] == 0){
-                result += word + " ";
-            }
-            start = i+1;
-        }
+    // Remove the trailing space
+    if (!result.empty()) {
+        result.pop_back();
     }
 
-    return result.substr(0, result.length()-1);
+    return result;
 }
