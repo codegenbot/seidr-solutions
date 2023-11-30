@@ -2,50 +2,50 @@
 #include <vector>
 #include <climits>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    int sum = 0;
-    for (int num : nums) {
-        sum += num;
-    }
+using namespace std;
 
+vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int leftSum = 0;
-    int rightSum = sum;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
+    int diff = INT_MAX;
+    int idx = -1;
 
-    for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    for (int i = 1; i < n; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int j = 0; j < i; j++) {
+            leftSum += nums[j];
+        }
+
+        for (int j = i; j < n; j++) {
+            rightSum += nums[j];
+        }
+
+        int currDiff = abs(leftSum - rightSum);
+        if (currDiff < diff) {
+            diff = currDiff;
+            idx = i;
         }
     }
 
-    std::vector<int> leftSubVector(nums.begin(), nums.begin() + cutIndex + 1);
-    std::vector<int> rightSubVector(nums.begin() + cutIndex + 1, nums.end());
+    vector<int> left(nums.begin(), nums.begin() + idx);
+    vector<int> right(nums.begin() + idx, nums.end());
 
-    return std::make_pair(leftSubVector, rightSubVector);
+    return vector<int>{left, right};
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
 
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
 
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-
-    for (int num : result.first) {
-        std::cout << num << std::endl;
-    }
-    for (int num : result.second) {
-        std::cout << num << std::endl;
+    vector<int> result = cutVector(nums);
+    for (int num : result) {
+        cout << num << endl;
     }
 
     return 0;
