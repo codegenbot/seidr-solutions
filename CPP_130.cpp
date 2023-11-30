@@ -9,12 +9,12 @@ int main() {
     assert(tri(2) == vector<int>{1, 2, 3});
     assert(tri(3) == vector<int>{1, 2, 3, 8});
     assert(tri(4) == vector<int>{1, 2, 3, 8, 4});
-    assert(tri(5) == vector<int>{1, 2, 3, 8, 4, 11});
-    assert(tri(6) == vector<int>{1, 2, 3, 8, 4, 11, 13});
-    assert(tri(7) == vector<int>{1, 2, 3, 8, 4, 11, 13, 21});
-    assert(tri(8) == vector<int>{1, 2, 3, 8, 4, 11, 13, 21, 34});
-    assert(tri(9) == vector<int>{1, 2, 3, 8, 4, 11, 13, 21, 34, 57});
-    assert(tri(10) == vector<int>{1, 2, 3, 8, 4, 11, 13, 21, 34, 57, 98});
+    assert(tri(5) == vector<int>{1, 2, 3, 8, 4, 14});
+    assert(tri(6) == vector<int>{1, 2, 3, 8, 4, 14, 6});
+    assert(tri(7) == vector<int>{1, 2, 3, 8, 4, 14, 6, 24});
+    assert(tri(8) == vector<int>{1, 2, 3, 8, 4, 14, 6, 24, 8});
+    assert(tri(9) == vector<int>{1, 2, 3, 8, 4, 14, 6, 24, 8, 34});
+    assert(tri(10) == vector<int>{1, 2, 3, 8, 4, 14, 6, 24, 8, 34, 10});
 
     return 0;
 }
