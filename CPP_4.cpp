@@ -1,15 +1,22 @@
 float mean_absolute_deviation(vector<float> numbers){
     float sum = 0;
-    for(int i=0; i<numbers.size(); i++){
+    float mean = 0;
+    float mad = 0;
+
+    // Calculate the sum of all numbers
+    for(int i = 0; i < numbers.size(); i++){
         sum += numbers[i];
     }
-    float mean = sum / numbers.size();
-    
-    float deviation_sum = 0;
-    for(int i=0; i<numbers.size(); i++){
-        deviation_sum += abs(numbers[i] - mean);
+
+    // Calculate the mean of the dataset
+    mean = sum / numbers.size();
+
+    // Calculate the mean absolute deviation
+    for(int i = 0; i < numbers.size(); i++){
+        mad += abs(numbers[i] - mean);
     }
-    
-    float mad = deviation_sum / numbers.size();
+
+    mad = mad / numbers.size();
+
     return mad;
 }
