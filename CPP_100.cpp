@@ -11,8 +11,8 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
+vector<int> make_a_pile(int n); // forward declaration
+
 bool issame(vector<int> a, vector<int> b){
     // function implementation
 }
-
-vector<int> make_a_pile(int n);
