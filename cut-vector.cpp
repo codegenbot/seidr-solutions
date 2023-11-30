@@ -3,48 +3,53 @@
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
-    
-    int target = sum / 2;
-    int currSum = 0;
     int diff = INT_MAX;
-    int idx = 0;
-    
-    for (int i = 0; i < n; i++) {
-        currSum += nums[i];
-        if (abs(target - currSum) < diff) {
-            diff = abs(target - currSum);
-            idx = i;
+    int index = -1;
+
+    for (int i = 0; i < n - 1; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int j = 0; j <= i; j++) {
+            leftSum += nums[j];
+        }
+
+        for (int j = i + 1; j < n; j++) {
+            rightSum += nums[j];
+        }
+
+        int currentDiff = abs(leftSum - rightSum);
+
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            index = i;
         }
     }
-    
-    std::vector<int> left(nums.begin(), nums.begin() + idx + 1);
-    std::vector<int> right(nums.begin() + idx + 1, nums.end());
-    
-    return std::make_pair(left, right);
+
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
+    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+
+    return std::make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
     int n;
     std::cin >> n;
-    
+
     std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
     }
-    
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-    
-    for (int i = 0; i < result.first.size(); i++) {
-        std::cout << result.first[i] << std::endl;
+
+    std::pair<std::vector<int>, std::vector<int>> subvectors = cutVector(nums);
+
+    for (int num : subvectors.first) {
+        std::cout << num << std::endl;
     }
-    
-    for (int i = 0; i < result.second.size(); i++) {
-        std::cout << result.second[i] << std::endl;
+
+    for (int num : subvectors.second) {
+        std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
