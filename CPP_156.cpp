@@ -1,14 +1,24 @@
-string int_to_mini_roman(int number){
-    vector<string> roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    string result = "";
+#include <string>
 
-    for (int i = 0; i < values.size(); i++) {
-        while (number >= values[i]) {
-            result += roman[i];
-            number -= values[i];
+string int_to_mini_roman(int number) {
+    string result = "";
+    int num = number;
+    
+    // Define the roman numerals and their corresponding values
+    vector<pair<string, int>> romanNumerals {
+        {"M", 1000}, {"CM", 900}, {"D", 500}, {"CD", 400},
+        {"C", 100}, {"XC", 90}, {"L", 50}, {"XL", 40},
+        {"X", 10}, {"IX", 9}, {"V", 5}, {"IV", 4}, {"I", 1}
+    };
+    
+    // Iterate through the roman numerals
+    for (auto numeral : romanNumerals) {
+        // Add the current numeral to the result while the number is greater than or equal to its value
+        while (num >= numeral.second) {
+            result += numeral.first;
+            num -= numeral.second;
         }
     }
-
+    
     return result;
 }
