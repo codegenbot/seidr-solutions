@@ -1,18 +1,15 @@
 vector<int> even_odd_count(int num){
-    int evenCount = 0;
-    int oddCount = 0;
-    int digit;
-    
+    vector<int> result(2, 0);
+
     while (num != 0) {
-        digit = abs(num % 10);
+        int digit = num % 10;
         if (digit % 2 == 0) {
-            evenCount++;
+            result[0]++;
         } else {
-            oddCount++;
+            result[1]++;
         }
         num /= 10;
     }
-    
-    vector<int> result = {evenCount, oddCount};
+
     return result;
 }
