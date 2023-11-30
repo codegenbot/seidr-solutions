@@ -1,36 +1,38 @@
-#include <boost/any.hpp>
-#include <algorithm>
-#include <string>
-
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
+using namespace std;
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        if (x > y) {
-            return x;
-        } else if (x < y) {
-            return y;
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+            return a;
         }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float x = boost::any_cast<float>(a);
-        float y = boost::any_cast<float>(b);
-        if (x > y) {
-            return x;
-        } else if (x < y) {
-            return y;
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string x = boost::any_cast<std::string>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        std::replace(x.begin(), x.end(), ',', '.');
-        std::replace(y.begin(), y.end(), ',', '.');
-        float floatX = std::stof(x);
-        float floatY = std::stof(y);
-        if (floatX > floatY) {
-            return x;
-        } else if (floatX < floatY) {
-            return y;
+        else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+            return b;
         }
     }
-    return boost::any("None");
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
+            return a;
+        }
+        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
+            return b;
+        }
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        replace(strA.begin(), strA.end(), ',', '.');
+        replace(strB.begin(), strB.end(), ',', '.');
+        float floatA = stof(strA);
+        float floatB = stof(strB);
+        if (floatA > floatB) {
+            return a;
+        }
+        else if (floatA < floatB) {
+            return b;
+        }
+    }
+    return "None";
 }
