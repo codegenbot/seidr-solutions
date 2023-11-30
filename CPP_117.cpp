@@ -19,7 +19,6 @@ bool is_same(vector<string> a, vector<string> b) {
 
 int main() {
     assert(is_same(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
-    // Add more test cases if needed
 
     return 0;
 }
