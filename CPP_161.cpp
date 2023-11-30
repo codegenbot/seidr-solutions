@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -34,6 +33,7 @@ string solve(string s){
 int main() {
     string input;
     getline(cin, input);
+
     string output = solve(input);
     cout << output << endl;
 
