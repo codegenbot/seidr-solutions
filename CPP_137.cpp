@@ -1,29 +1,42 @@
-boost::any compare_one(boost::any a, boost::any b){
-    if (a.type() == typeid(int) && b.type() == typeid(int)){
-        if (boost::any_cast<int>(a) < boost::any_cast<int>(b)){
-            return b;
-        } else if (boost::any_cast<int>(a) > boost::any_cast<int>(b)){
-            return a;
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)){
-        if (boost::any_cast<float>(a) < boost::any_cast<float>(b)){
-            return b;
-        } else if (boost::any_cast<float>(a) > boost::any_cast<float>(b)){
-            return a;
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)){
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
+#include <boost/any.hpp>
+using namespace std;
 
-        // Remove any commas from the strings
-        strA.erase(remove(strA.begin(), strA.end(), ','), strA.end());
-        strB.erase(remove(strB.begin(), strB.end(), ','), strB.end());
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
 
-        if (strA < strB){
-            return b;
-        } else if (strA > strB){
+        if (num1 > num2) {
             return a;
+        } else if (num2 > num1) {
+            return b;
+        }
+    } else if ((a.type() == typeid(float) || a.type() == typeid(string)) && (b.type() == typeid(float) || b.type() == typeid(string))) {
+        float num1;
+        float num2;
+
+        if (a.type() == typeid(float)) {
+            num1 = boost::any_cast<float>(a);
+        } else {
+            string str1 = boost::any_cast<string>(a);
+            str1.erase(remove(str1.begin(), str1.end(), ','), str1.end());
+            num1 = stof(str1);
+        }
+
+        if (b.type() == typeid(float)) {
+            num2 = boost::any_cast<float>(b);
+        } else {
+            string str2 = boost::any_cast<string>(b);
+            str2.erase(remove(str2.begin(), str2.end(), ','), str2.end());
+            num2 = stof(str2);
+        }
+
+        if (num1 > num2) {
+            return a;
+        } else if (num2 > num1) {
+            return b;
         }
     }
-    return "None";
+
+    return boost::any("None");
 }
