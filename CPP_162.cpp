@@ -1,8 +1,4 @@
-#include <iostream>
-#include <string>
-#include <openssl/md5.h>
-
-std::string string_to_md5(std::string text) {
+string string_to_md5(string text) {
     if (text.empty()) {
         return "None";
     }
@@ -10,21 +6,10 @@ std::string string_to_md5(std::string text) {
     unsigned char digest[MD5_DIGEST_LENGTH];
     MD5((unsigned char*)text.c_str(), text.length(), digest);
     
-    char md5hash[33];
-    for(int i = 0; i < 16; i++) {
-        sprintf(&md5hash[i*2], "%02x", (unsigned int)digest[i]);
+    char md5hash[MD5_DIGEST_LENGTH * 2 + 1];
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        sprintf(&md5hash[i * 2], "%02x", (unsigned int)digest[i]);
     }
     
-    return std::string(md5hash);
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter the text: ";
-    std::getline(std::cin, input);
-    
-    std::string md5hash = string_to_md5(input);
-    std::cout << "MD5 hash: " << md5hash << std::endl;
-    
-    return 0;
+    return md5hash;
 }
