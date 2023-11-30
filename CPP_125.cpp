@@ -1,9 +1,8 @@
 #include <string>
 #include <vector>
-#include <cassert>
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b){
-    // function logic goes here
     if(a.size() != b.size()){
         return false;
     }
