@@ -11,7 +11,7 @@ def find_zero(xs: list):
 
 def read_input():
     n = int(input())
-    xs = list(map(float, input().split()))
+    xs = list(map(float, input().split())) 
     x = float(input())
     return n, xs, x
 
