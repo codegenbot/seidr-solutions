@@ -1,56 +1,68 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
-    int row = 0, col = 0;
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
     
-    // Find the starting cell with the smallest value
-    int minVal = grid[0][0];
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(grid[i][j] < minVal){
-                minVal = grid[i][j];
-                row = i;
-                col = j;
+    // Helper function to check if a cell is valid
+    auto isValid = [&](int x, int y){
+        return (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]);
+    };
+    
+    // Helper function to get neighbors of a cell
+    auto getNeighbors = [&](int x, int y){
+        vector<pair<int, int>> neighbors;
+        neighbors.push_back({x-1, y});
+        neighbors.push_back({x+1, y});
+        neighbors.push_back({x, y-1});
+        neighbors.push_back({x, y+1});
+        return neighbors;
+    };
+    
+    // Helper function to compare two paths
+    auto comparePaths = [&](const vector<int>& pathA, const vector<int>& pathB){
+        int len = min(pathA.size(), pathB.size());
+        for(int i=0; i<len; i++){
+            if(pathA[i] < pathB[i]){
+                return true;
+            }
+            else if(pathA[i] > pathB[i]){
+                return false;
             }
         }
-    }
+        return pathA.size() < pathB.size();
+    };
     
-    // Add the starting cell value to the path
-    path.push_back(minVal);
+    // Helper function to backtrack and find the minimum path
+    function<void(int, int, int, vector<int>&)> backtrack = [&](int x, int y, int steps, vector<int>& currPath){
+        visited[x][y] = true;
+        currPath.push_back(grid[x][y]);
+        
+        if(steps == k){
+            if(path.empty() || comparePaths(currPath, path)){
+                path = currPath;
+            }
+        }
+        else{
+            vector<pair<int, int>> neighbors = getNeighbors(x, y);
+            for(auto neighbor : neighbors){
+                int nx = neighbor.first;
+                int ny = neighbor.second;
+                if(isValid(nx, ny)){
+                    backtrack(nx, ny, steps+1, currPath);
+                }
+            }
+        }
+        
+        visited[x][y] = false;
+        currPath.pop_back();
+    };
     
-    // Move to the next cell with the smallest value until the path length is k
-    while(path.size() < k){
-        int nextVal = INT_MAX;
-        int nextRow = -1, nextCol = -1;
-        
-        // Check the neighboring cells for the smallest value
-        if(row > 0 && grid[row-1][col] < nextVal){
-            nextVal = grid[row-1][col];
-            nextRow = row-1;
-            nextCol = col;
+    // Start from each cell and find the minimum path
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            vector<int> currPath;
+            backtrack(i, j, 1, currPath);
         }
-        if(row < n-1 && grid[row+1][col] < nextVal){
-            nextVal = grid[row+1][col];
-            nextRow = row+1;
-            nextCol = col;
-        }
-        if(col > 0 && grid[row][col-1] < nextVal){
-            nextVal = grid[row][col-1];
-            nextRow = row;
-            nextCol = col-1;
-        }
-        if(col < n-1 && grid[row][col+1] < nextVal){
-            nextVal = grid[row][col+1];
-            nextRow = row;
-            nextCol = col+1;
-        }
-        
-        // Move to the next cell with the smallest value
-        row = nextRow;
-        col = nextCol;
-        
-        // Add the next cell value to the path
-        path.push_back(nextVal);
     }
     
     return path;
