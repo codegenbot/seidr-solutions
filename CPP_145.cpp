@@ -1,28 +1,39 @@
-vector<int> order_by_points(vector<int> nums){
-    vector<int> result;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-    // Sort the vector in ascending order
-    sort(nums.begin(), nums.end());
+int sumOfDigits(int num) {
+    int sum = 0;
+    while (num != 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
 
-    // Helper function to calculate the sum of digits
-    auto sum_of_digits = [](int num) {
-        int sum = 0;
-        while (num != 0) {
-            sum += abs(num % 10);
-            num /= 10;
-        }
-        return sum;
-    };
+bool compare(int a, int b) {
+    int sumA = sumOfDigits(a);
+    int sumB = sumOfDigits(b);
 
-    // Sort the vector based on the sum of digits
-    sort(nums.begin(), nums.end(), [&](int a, int b) {
-        int sum_a = sum_of_digits(a);
-        int sum_b = sum_of_digits(b);
-        if (sum_a == sum_b) {
-            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
-        }
-        return sum_a < sum_b;
-    });
+    if (sumA == sumB) {
+        return a < b;
+    }
+    return sumA < sumB;
+}
 
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
     return nums;
+}
+
+int main() {
+    vector<int> nums = {1, 11, -1, -11, -12};
+    vector<int> sortedNums = order_by_points(nums);
+
+    for (int num : sortedNums) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
