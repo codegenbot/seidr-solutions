@@ -4,3 +4,4 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 result = decode_cyclic("ABC")
+print(result)
