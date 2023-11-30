@@ -1,16 +1,39 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
 string Strongest_Extension(string class_name, vector<string> extensions) {
     string strongest_extension = extensions[0];
-    int strongest_strength = count(strongest_extension.begin(), strongest_extension.end(), toupper(strongest_extension[0])) - count(strongest_extension.begin(), strongest_extension.end(), tolower(strongest_extension[0]));
+    int strongest_strength = countUpperCase(strongest_extension) - countLowerCase(strongest_extension);
 
     for (int i = 1; i < extensions.size(); i++) {
-        string extension = extensions[i];
-        int strength = count(extension.begin(), extension.end(), toupper(extension[0])) - count(extension.begin(), extension.end(), tolower(extension[0]));
-
-        if (strength > strongest_strength) {
-            strongest_extension = extension;
-            strongest_strength = strength;
+        int current_strength = countUpperCase(extensions[i]) - countLowerCase(extensions[i]);
+        if (current_strength > strongest_strength) {
+            strongest_extension = extensions[i];
+            strongest_strength = current_strength;
         }
     }
 
     return class_name + "." + strongest_extension;
+}
+
+int countUpperCase(string str) {
+    int count = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (isupper(str[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int countLowerCase(string str) {
+    int count = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (islower(str[i])) {
+            count++;
+        }
+    }
+    return count;
 }
