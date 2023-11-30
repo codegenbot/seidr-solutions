@@ -1,12 +1,13 @@
 #include <iostream>
+
 using namespace std;
 
-double calculateSnow(float hours, float snowOnGround, float snowFallRate, float meltRate) {
+double calculateSnow(float hours, double snowOnGround, float snowFallRate, float meltRate) {
     for (int i = 0; i < hours; i++) {
-        snowOnGround += snowFallRate;
-        snowOnGround -= snowFallRate * meltRate;
+        double snowFall = snowFallRate - meltRate * snowOnGround;
+        snowOnGround = snowFall > 0 ? snowOnGround + snowFall : 0;
     }
-    return static_cast<double>(snowOnGround);
+    return snowOnGround;
 }
 
 int main() {
