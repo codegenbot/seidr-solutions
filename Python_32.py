@@ -1,7 +1,7 @@
 def find_zero(coeffs, x):
-    result = 0.0
-    for i, coeff in enumerate(coeffs):
-        result += coeff * (x**i)
+    result = 0
+    for i in range(len(coeffs)):
+        result += coeffs[i] * (x**i)
     return result
 
 
