@@ -1,69 +1,51 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
-    int n = grid.size();
-    int m = grid[0].size();
-    
-    vector<int> path;
-    
-    // Find the minimum value in the grid
-    int minVal = INT_MAX;
-    int minRow, minCol;
-    for(int i=0; i<n; i++){
-        for(int j=0; j<m; j++){
+    // Find the starting cell with the minimum value
+    int minVal = grid[0][0];
+    int startRow = 0, startCol = 0;
+    for(int i=0; i<grid.size(); i++){
+        for(int j=0; j<grid[i].size(); j++){
             if(grid[i][j] < minVal){
                 minVal = grid[i][j];
-                minRow = i;
-                minCol = j;
+                startRow = i;
+                startCol = j;
             }
         }
     }
     
-    // Add the minimum value to the path
-    path.push_back(minVal);
+    // Initialize the result vector with the minimum value
+    vector<int> result;
+    result.push_back(minVal);
     
-    // Initialize variables for current cell and direction
-    int row = minRow;
-    int col = minCol;
-    int direction = 0; // 0 for right, 1 for down, 2 for left, 3 for up
-    
-    // Continue until path has length k
-    while(path.size() < k){
-        // Move to the next cell based on the current direction
-        if(direction == 0){
-            col++;
-            if(col == m || grid[row][col] == -1){
-                // If out of bounds or already visited, change direction
-                col--;
-                direction = 1;
-            }
-        }
-        else if(direction == 1){
-            row++;
-            if(row == n || grid[row][col] == -1){
-                row--;
-                direction = 2;
-            }
-        }
-        else if(direction == 2){
-            col--;
-            if(col == -1 || grid[row][col] == -1){
-                col++;
-                direction = 3;
-            }
-        }
-        else if(direction == 3){
-            row--;
-            if(row == -1 || grid[row][col] == -1){
-                row++;
-                direction = 0;
+    // Perform k steps to find the minimum path
+    int currRow = startRow, currCol = startCol;
+    while(result.size() < k){
+        // Find the neighbors of the current cell
+        vector<pair<int, int>> neighbors;
+        if(currRow > 0) neighbors.push_back(make_pair(currRow-1, currCol));
+        if(currRow < grid.size()-1) neighbors.push_back(make_pair(currRow+1, currCol));
+        if(currCol > 0) neighbors.push_back(make_pair(currRow, currCol-1));
+        if(currCol < grid[currRow].size()-1) neighbors.push_back(make_pair(currRow, currCol+1));
+        
+        // Find the neighbor with the minimum value
+        int minNeighborVal = grid[neighbors[0].first][neighbors[0].second];
+        int minNeighborRow = neighbors[0].first;
+        int minNeighborCol = neighbors[0].second;
+        for(int i=1; i<neighbors.size(); i++){
+            int neighborVal = grid[neighbors[i].first][neighbors[i].second];
+            if(neighborVal < minNeighborVal){
+                minNeighborVal = neighborVal;
+                minNeighborRow = neighbors[i].first;
+                minNeighborCol = neighbors[i].second;
             }
         }
         
-        // Add the value of the current cell to the path
-        path.push_back(grid[row][col]);
+        // Move to the neighbor with the minimum value
+        currRow = minNeighborRow;
+        currCol = minNeighborCol;
         
-        // Mark the current cell as visited
-        grid[row][col] = -1;
+        // Add the neighbor value to the result vector
+        result.push_back(minNeighborVal);
     }
     
-    return path;
+    return result;
 }
