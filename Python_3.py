@@ -7,11 +7,6 @@ def below_zero(operations):
     return False
 
 
-# Prompt the user for input
-operations = list(map(int, input().split()))
-
-# Call the below_zero function with the user input
+operations = [1, -2, 3, -4, 5]
 result = below_zero(operations)
-
-# Print the result
 print(result)
