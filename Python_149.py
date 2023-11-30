@@ -3,10 +3,10 @@ def sorted_list(lst):
 
 def check(func):
     # Test cases
-    assert func(["aaa", "bb", "c", "dddd"]) == ["dddd", "bb"]
-    assert func(["abc", "def", "ghi", "jklmno"]) == ["ghi", "jklmno"]
-    assert func(["apple", "banana", "cherry", "kiwi"]) == ["apple", "banana", "cherry"]
-    
-    print("All test cases pass")
+    assert func(["hello", "world", "foobar", "spam"]) == ["foobar"]
+    assert func(["py", "java", "cpp", "javascript"]) == ["cpp", "javascript"]
+    assert func(["abc", "de", "fghi", "jklmno"]) == ["abc", "de", "jklmno"]
+    assert func(["cat", "dog", "elephant", "lion"]) == ["elephant"]
+    assert func([]) == []
 
 check(sorted_list)
