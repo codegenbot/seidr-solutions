@@ -9,12 +9,15 @@ def prime_fib(n: int):
 
     def fibonacci(n):
         fib_seq = [0, 1]
-        if n <= 2:
-            return fib_seq[:n]
-        for i in range(2, n):
-            fib_seq.append(fib_seq[-1] + fib_seq[-2])
+        count = 2
+        while count < n:
+            next_num = fib_seq[-1] + fib_seq[-2]
+            if is_prime(next_num):
+                fib_seq.append(next_num)
+                count += 1
+            else:
+                fib_seq.append(next_num)
         return fib_seq
 
     fib_seq = fibonacci(n)
-    prime_fib_seq = [num for num in fib_seq if is_prime(num)]
-    return sum(prime_fib_seq)
+    return sum(fib_seq)
