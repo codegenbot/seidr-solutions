@@ -1,27 +1,79 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <functional>
+#include <cassert>
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
-    int m = grid[0].size();
     vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(m, false));
-    int currRow = 0;
-    int currCol = 0;
-    int count = 0;
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
     
-    while(count < k){
-        path.push_back(grid[currRow][currCol]);
-        visited[currRow][currCol] = true;
-        count++;
+    // Function to check if a cell is valid or not
+    auto isValid = [&](int x, int y){
+        return x >= 0 && x < n && y >= 0 && y < n && !visited[x][y];
+    };
+    
+    // Function to get neighbors of a cell
+    auto getNeighbors = [&](int x, int y){
+        vector<pair<int, int>> neighbors;
+        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
         
-        if(currCol < m-1 && !visited[currRow][currCol+1]){
-            currCol++;
-        }else if(currRow < n-1 && !visited[currRow+1][currCol]){
-            currRow++;
-        }else if(currCol > 0 && !visited[currRow][currCol-1]){
-            currCol--;
-        }else if(currRow > 0 && !visited[currRow-1][currCol]){
-            currRow--;
+        for(auto dir : directions){
+            int nx = x + dir.first;
+            int ny = y + dir.second;
+            if(isValid(nx, ny)){
+                neighbors.push_back({nx, ny});
+            }
+        }
+        
+        return neighbors;
+    };
+    
+    // Function to perform depth-first search
+    function<bool(int, int, int)> dfs = [&](int x, int y, int steps){
+        path.push_back(grid[x][y]);
+        visited[x][y] = true;
+        
+        if(steps == k){
+            return true;
+        }
+        
+        vector<pair<int, int>> neighbors = getNeighbors(x, y);
+        sort(neighbors.begin(), neighbors.end(), [&](pair<int, int> a, pair<int, int> b){
+            return grid[a.first][a.second] < grid[b.first][b.second];
+        });
+        
+        for(auto neighbor : neighbors){
+            if(dfs(neighbor.first, neighbor.second, steps + 1)){
+                return true;
+            }
+        }
+        
+        path.pop_back();
+        visited[x][y] = false;
+        return false;
+    };
+    
+    // Starting from each cell, find the minimum path
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(dfs(i, j, 1)){
+                return path;
+            }
         }
     }
     
     return path;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    
+    return 0;
 }
