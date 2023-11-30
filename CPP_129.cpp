@@ -11,14 +11,21 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     // Helper function to get neighbors of a cell
     auto getNeighbors = [&](int x, int y){
         vector<pair<int, int>> neighbors;
-        if(isValid(x-1, y)) neighbors.push_back({x-1, y});
-        if(isValid(x+1, y)) neighbors.push_back({x+1, y});
-        if(isValid(x, y-1)) neighbors.push_back({x, y-1});
-        if(isValid(x, y+1)) neighbors.push_back({x, y+1});
+        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        
+        for(auto dir : directions){
+            int newX = x + dir.first;
+            int newY = y + dir.second;
+            
+            if(isValid(newX, newY)){
+                neighbors.push_back({newX, newY});
+            }
+        }
+        
         return neighbors;
     };
     
-    // Helper function to perform DFS to find minimum path
+    // Helper function to perform DFS
     function<bool(int, int, int)> dfs = [&](int x, int y, int steps){
         visited[x][y] = true;
         path.push_back(grid[x][y]);
@@ -28,22 +35,23 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         }
         
         vector<pair<int, int>> neighbors = getNeighbors(x, y);
-        sort(neighbors.begin(), neighbors.end(), [&](const pair<int, int>& a, const pair<int, int>& b){
-            return grid[a.first][a.second] < grid[b.first][b.second];
-        });
         
         for(auto neighbor : neighbors){
-            if(dfs(neighbor.first, neighbor.second, steps+1)){
+            int newX = neighbor.first;
+            int newY = neighbor.second;
+            
+            if(dfs(newX, newY, steps + 1)){
                 return true;
             }
         }
         
         visited[x][y] = false;
         path.pop_back();
+        
         return false;
     };
     
-    // Start DFS from each cell to find minimum path
+    // Start DFS from each cell
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
             if(dfs(i, j, 1)){
