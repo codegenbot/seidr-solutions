@@ -46,9 +46,12 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(){
-    vector<int> a = tri(5);
-    vector<int> b = {3, 1, 2, 4, 4};
-    bool result = issame(a, b);
+    vector<int> result = tri(5);
+    vector<int> expected = {3, 1, 2, 4, 6};
 
-    return 0;
+    if(issame(result, expected)){
+        return 0;
+    }else{
+        return 1;
+    }
 }
