@@ -1,2 +1,1 @@
-def get_numbers():
-    return list(map(int, input().split()))
+numbers = list(map(int, input("Enter space-separated numbers: ").split()))
