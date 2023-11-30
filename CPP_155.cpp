@@ -1,24 +1,16 @@
 vector<int> even_odd_count(int num){
-    int even_count = 0;
-    int odd_count = 0;
-    int digit;
+    int evenCount = 0;
+    int oddCount = 0;
+    string numStr = to_string(abs(num));
     
-    num = abs(num);
-    
-    while(num != 0){
-        digit = num % 10;
+    for(int i=0; i<numStr.length(); i++){
+        int digit = numStr[i] - '0';
         if(digit % 2 == 0){
-            even_count++;
+            evenCount++;
+        }else{
+            oddCount++;
         }
-        else{
-            odd_count++;
-        }
-        num = num / 10;
     }
     
-    vector<int> result;
-    result.push_back(even_count);
-    result.push_back(odd_count);
-    
-    return result;
+    return {evenCount, oddCount};
 }
