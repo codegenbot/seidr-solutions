@@ -6,10 +6,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             if (grid[i][j] == 1) {
-                int buckets_needed = grid[i][j] / capacity;
-                if (grid[i][j] % capacity != 0) {
-                    buckets_needed++;
-                }
+                int buckets_needed = (grid[i][j] + capacity - 1) / capacity;
                 count += buckets_needed;
             }
         }
