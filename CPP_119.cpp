@@ -1,35 +1,24 @@
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
+string match_parens(vector<string> lst){
+    string s = lst[0] + lst[1]; // concatenate the two strings
+    int count = 0; // variable to keep track of parentheses balance
 
-string match_parens(vector<string> lst) {
-    int openCount = 0;
-    int closeCount = 0;
-    
-    for (string str : lst) {
-        for (char c : str) {
-            if (c == '(') {
-                openCount++;
-            } else {
-                if (openCount > 0) {
-                    openCount--;
-                } else {
-                    closeCount++;
-                }
-            }
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == '('){
+            count++; // increment count for open parentheses
+        }
+        else if(s[i] == ')'){
+            count--; // decrement count for close parentheses
+        }
+
+        if(count < 0){
+            return "No"; // if count becomes negative, parentheses are not balanced
         }
     }
-    
-    return (openCount == 0 && closeCount == 0) ? "Yes" : "No";
-}
 
-int main() {
-    vector<string> lst1 = {"()(", ")"};
-    vector<string> lst2 = {")", ")"};
-    
-    cout << match_parens(lst1) << endl; // Output: Yes
-    cout << match_parens(lst2) << endl; // Output: No
-    
-    return 0;
+    if(count == 0){
+        return "Yes"; // if count is zero, parentheses are balanced
+    }
+    else{
+        return "No"; // if count is not zero, parentheses are not balanced
+    }
 }
