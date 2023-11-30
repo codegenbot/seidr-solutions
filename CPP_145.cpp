@@ -22,18 +22,21 @@ bool compare(int a, int b) {
     return sumA < sumB;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), compare);
-    return nums;
-}
+vector<int> order_by_points(vector<int> nums);
 
 int main() {
-    vector<int> nums = {5, 12, 3, 9, 7};
-    vector<int> sortedNums = order_by_points(nums);
+    // test the code
+    vector<int> nums = {123, 456, 789};
+    vector<int> result = order_by_points(nums);
     
-    for(int num : sortedNums) {
+    for(int num : result) {
         cout << num << " ";
     }
     
     return 0;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
+    return nums;
 }
