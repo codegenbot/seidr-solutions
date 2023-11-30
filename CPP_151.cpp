@@ -3,11 +3,11 @@
 #include <cassert>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst){
+long long double_the_difference(vector<float> lst){
     long long sum = 0;
     for(int i=0; i<lst.size(); i++){
         if(lst[i] > 0 && lst[i] == (int)lst[i] && (int)lst[i] % 2 != 0){
-            sum += (long long)std::pow(lst[i], 2);
+            sum += (long long)pow(lst[i], 2);
         }
     }
     return sum;
