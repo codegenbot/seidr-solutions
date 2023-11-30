@@ -1,14 +1,18 @@
-bool is_nested(string str){
-    int count = 0;
-    for(int i = 0; i < str.length(); i++){
-        if(str[i] == '['){
-            count++;
-        }
-        else if(str[i] == ']'){
-            count--;
-        }
-        if(count < 0){
-            return true;
+#include <iostream>
+#include <stack>
+using namespace std;
+
+bool is_nested(string str) {
+    stack<char> brackets;
+    for (char c : str) {
+        if (c == '[') {
+            brackets.push(c);
+        } else if (c == ']') {
+            if (!brackets.empty() && brackets.top() == '[') {
+                brackets.pop();
+            } else {
+                return true;
+            }
         }
     }
     return false;
