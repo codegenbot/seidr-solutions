@@ -1,8 +1,8 @@
+import re
+
 def fix_spaces(text):
-    text = text.replace(" ", "_")
-    text = text.replace("__", "-")
-    while text.startswith("_"):
+    text = re.sub(r"\s+", "_", text)
+    text = re.sub(r"_+", "-", text)
+    if text.startswith("_"):
         text = "-" + text[1:]
-    while text.endswith("_"):
-        text = text[:-1] + "-"
     return text
