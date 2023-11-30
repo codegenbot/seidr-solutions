@@ -12,16 +12,18 @@ vector<string> bf(string planet1, string planet2) {
         }
     }
 
-    if (start == -1 || end == -1) {
+    if (start == -1 || end == -1 || start == end) {
         return result;
     }
 
-    if (start > end) {
-        swap(start, end);
-    }
-
-    for (int i = start + 1; i < end; i++) {
-        result.push_back(planets[i]);
+    if (start < end) {
+        for (int i = start + 1; i < end; i++) {
+            result.push_back(planets[i]);
+        }
+    } else {
+        for (int i = start - 1; i > end; i--) {
+            result.push_back(planets[i]);
+        }
     }
 
     return result;
