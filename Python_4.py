@@ -1,10 +1,1 @@
-from typing import List, Union
-
-
-def mean_absolute_deviation(numbers: List[Union[float, int]]) -> float:
-    if not isinstance(numbers, list):
-        return 'Invalid input: A list of numbers is required.'
-
-    mean = sum(numbers) / len(numbers)
-    deviation = [abs(num - mean) for num in numbers]
-    return sum(deviation) / len(deviation)
+numbers = input("Enter numbers: ").strip().split()
