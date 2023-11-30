@@ -18,6 +18,6 @@ def sort_numbers(numbers: List[str]) -> str:
     return " ".join(sorted_numbers)
 
 
-numbers_input = [input().strip() for _ in range(10)]
+numbers_input = input().strip().split(",")
 output = sort_numbers(numbers_input)
 print(output)
