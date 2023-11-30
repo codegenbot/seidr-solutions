@@ -1,13 +1,18 @@
 vector<string> total_match(vector<string> lst1,vector<string> lst2){
-    int total1 = 0, total2 = 0;
-    for(string str : lst1){
-        total1 += str.length();
+    int count1 = 0, count2 = 0;
+    
+    for(auto str : lst1){
+        count1 += str.length();
     }
-    for(string str : lst2){
-        total2 += str.length();
+    
+    for(auto str : lst2){
+        count2 += str.length();
     }
-    if(total1 < total2){
+    
+    if(count1 < count2){
         return lst1;
     }
-    return lst2;
+    else{
+        return lst2;
+    }
 }
