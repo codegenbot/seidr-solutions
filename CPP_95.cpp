@@ -3,8 +3,8 @@ bool check_map_case(map<string,string> dict){
         return false;
     }
     
-    bool all_lower = true;
-    bool all_upper = true;
+    bool isLower = true;
+    bool isUpper = true;
     
     for(auto it = dict.begin(); it != dict.end(); ++it){
         string key = it->first;
@@ -13,15 +13,15 @@ bool check_map_case(map<string,string> dict){
             return false;
         }
         
-        if(key != tolower(key)){
-            all_lower = false;
+        if(isLower && !islower(key[0])){
+            isLower = false;
         }
         
-        if(key != toupper(key)){
-            all_upper = false;
+        if(isUpper && !isupper(key[0])){
+            isUpper = false;
         }
         
-        if(!all_lower && !all_upper){
+        if(!isLower && !isUpper){
             return false;
         }
     }
