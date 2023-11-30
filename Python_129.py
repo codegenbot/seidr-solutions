@@ -26,8 +26,8 @@ def minPath(grid, k):
             if grid[i][j] != -1:
                 visited = {(i, j)}
                 path = backtrack(i, j, [(i, j)], k - 1, visited)
-                if path is not None and len(path) == k:
+                if (
+                    path is not None and len(path) == k and remain == 0
+                ):  # Modified condition
                     return [grid[x][y] for x, y in path]
-                elif path is not None:
-                    continue
     return []
