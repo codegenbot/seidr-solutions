@@ -1,15 +1,19 @@
 vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
-    for(int i=0;i<lst.size();i++){
-        if(lst[i].length() %2 == 0){ //check if string length is even
-            result.push_back(lst[i]); //add even length string to result vector
+    
+    for(int i=0; i<lst.size(); i++){
+        if(lst[i].length() % 2 != 0){
+            lst.erase(lst.begin()+i);
+            i--;
         }
     }
-    sort(result.begin(), result.end(), [](const string& a, const string& b){
-        if(a.length() == b.length()){
-            return a < b; //sort alphabetically if lengths are equal
+    
+    sort(lst.begin(), lst.end(), [](const string& s1, const string& s2){
+        if(s1.length() == s2.length()){
+            return s1 < s2;
         }
-        return a.length() < b.length(); //sort by length
+        return s1.length() < s2.length();
     });
-    return result;
+    
+    return lst;
 }
