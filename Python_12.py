@@ -6,6 +6,6 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 
-strings = input().split()
+strings = input().strip().split(",")
 result = longest(strings)
 print(result)
