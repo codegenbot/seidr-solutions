@@ -1,18 +1,9 @@
 int how_many_times(string str, string substring) {
     int count = 0;
-    int n = str.length();
-    int m = substring.length();
-    
-    for (int i = 0; i <= n - m; i++) {
-        int j;
-        for (j = 0; j < m; j++) {
-            if (str[i + j] != substring[j])
-                break;
-        }
-        
-        if (j == m)
-            count++;
+    size_t pos = str.find(substring, 0);
+    while (pos != string::npos) {
+        count++;
+        pos = str.find(substring, pos + 1);
     }
-    
     return count;
 }
