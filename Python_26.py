@@ -1,10 +1,8 @@
 from typing import List
 
-
 def remove_duplicates(numbers: List[int]) -> List[int]:
     numbers = list(set(numbers))
     return numbers
-
 
 n = int(input())
 numbers = []
