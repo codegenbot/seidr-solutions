@@ -2,9 +2,9 @@
 
 long long special_factorial(int n) {
     long long result = 1;
-    for (int i = n; i >= 1; i--) {
+    for (int i = n; i > 0; i--) {
         long long factorial = 1;
-        for (int j = i; j >= 1; j--) {
+        for (int j = i; j > 0; j--) {
             factorial *= j;
         }
         result *= factorial;
@@ -16,6 +16,6 @@ int main() {
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
-    std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
+    std::cout << "Special Factorial: " << special_factorial(n) << std::endl;
     return 0;
 }
