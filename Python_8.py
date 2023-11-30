@@ -11,7 +11,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 
 numbers = [int(x) for x in input().split()]
-
 result = sum_product(numbers)
-print("Sum =", result[0])
-print("Product =", result[1])
+print(result[0])
+print(result[1])
