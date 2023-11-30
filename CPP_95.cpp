@@ -1,26 +1,23 @@
-bool check_dict_case(map<string,string> dict){
+bool check_map_case(map<string,string> dict){
     if(dict.empty()){
         return false;
     }
-    
-    bool allLowerCase = true;
-    bool allUpperCase = true;
-    
-    for(auto const& pair : dict){
-        string key = pair.first;
-        
-        if(key.empty() || key.find_first_not_of("abcdefghijklmnopqrstuvwxyz") != string::npos){
-            allLowerCase = false;
+    bool lower = true;
+    bool upper = true;
+    for(const auto& entry : dict){
+        const string& key = entry.first;
+        if(key.empty()){
+            return false;
         }
-        
-        if(key.empty() || key.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos){
-            allUpperCase = false;
+        if(islower(key[0])){
+            upper = false;
         }
-        
-        if(!allLowerCase && !allUpperCase){
+        else if(isupper(key[0])){
+            lower = false;
+        }
+        else{
             return false;
         }
     }
-    
-    return true;
+    return lower || upper;
 }
