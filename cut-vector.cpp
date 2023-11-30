@@ -1,48 +1,55 @@
 #include <iostream>
 #include <vector>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    int sum = 0;
-    for (int num : nums) {
-        sum += num;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
+    int n = input.size();
+    int diff = INT_MAX;
+    int index = -1;
+
+    for (int i = 1; i < n; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int j = 0; j < i; j++) {
+            leftSum += input[j];
+        }
+
+        for (int j = i; j < n; j++) {
+            rightSum += input[j];
+        }
+
+        int currentDiff = abs(leftSum - rightSum);
+
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            index = i;
+        }
     }
-    
-    int target = sum / 2;
-    int currentSum = 0;
-    int index = 0;
-    
-    while (currentSum < target && index < nums.size()) {
-        currentSum += nums[index];
-        index++;
-    }
-    
-    if (currentSum > target) {
-        index--;
-    }
-    
-    std::vector<int> subvector1(nums.begin(), nums.begin() + index);
-    std::vector<int> subvector2(nums.begin() + index, nums.end());
-    
-    return std::make_pair(subvector1, subvector2);
+
+    std::vector<int> left(input.begin(), input.begin() + index);
+    std::vector<int> right(input.begin() + index, input.end());
+
+    return std::make_pair(left, right);
 }
 
 int main() {
     int n;
     std::cin >> n;
-    
-    std::vector<int> nums(n);
+
+    std::vector<int> input(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        std::cin >> input[i];
     }
-    
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-    
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(input);
+
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
+
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
