@@ -1,11 +1,22 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+vector<int> tri(int n);
+
+int main() {
+    assert(tri(1) == vector<int>{1, 3});
+    assert(tri(2) == vector<int>{1, 2, 3});
+    assert(tri(3) == vector<int>{1, 2, 3, 8});
+    assert(tri(4) == vector<int>{1, 2, 3, 8, 7});
+    assert(tri(5) == vector<int>{1, 2, 3, 8, 7, 22});
+    assert(tri(6) == vector<int>{1, 2, 3, 8, 7, 22, 21});
+    assert(tri(7) == vector<int>{1, 2, 3, 8, 7, 22, 21, 76});
+    assert(tri(8) == vector<int>{1, 2, 3, 8, 7, 22, 21, 76, 231});
+    assert(tri(9) == vector<int>{1, 2, 3, 8, 7, 22, 21, 76, 231, 712});
+    assert(tri(10) == vector<int>{1, 2, 3, 8, 7, 22, 21, 76, 231, 712, 2187});
+
+    return 0;
 }
 
 vector<int> tri(int n){
@@ -33,16 +44,4 @@ vector<int> tri(int n){
     }
 
     return result;
-}
-
-int main(){
-    assert (issame(tri(1) , {1, 3}));
-    assert (issame(tri(2) , {3, 2, 4}));
-    assert (issame(tri(3) , {3, 2, 4, 2, 7}));
-    assert (issame(tri(4) , {3, 2, 4, 2, 7, 4, 8}));
-    assert (issame(tri(5) , {3, 2, 4, 2, 7, 4, 8, 5, 12}));
-
-    cout << "All test cases pass" << endl;
-
-    return 0;
 }
