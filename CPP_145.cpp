@@ -1,24 +1,22 @@
 #include <algorithm>
 
 bool compare(int a, int b) {
-    int sum_a = 0, sum_b = 0;
-    int temp_a = abs(a), temp_b = abs(b);
+    int sumA = 0, sumB = 0;
+    string strA = to_string(a), strB = to_string(b);
     
-    while (temp_a > 0) {
-        sum_a += temp_a % 10;
-        temp_a /= 10;
+    for (char c : strA) {
+        sumA += c - '0';
     }
     
-    while (temp_b > 0) {
-        sum_b += temp_b % 10;
-        temp_b /= 10;
+    for (char c : strB) {
+        sumB += c - '0';
     }
     
-    if (sum_a == sum_b) {
+    if (sumA == sumB) {
         return a < b;
     }
     
-    return sum_a < sum_b;
+    return sumA < sumB;
 }
 
 vector<int> order_by_points(vector<int> nums) {
