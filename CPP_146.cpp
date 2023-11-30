@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 using namespace std;
 
 int specialFilter(vector<int> nums){
@@ -17,12 +16,11 @@ int specialFilter(vector<int> nums){
 int main() {
     assert(specialFilter({}) == 0);
     assert(specialFilter({1, 2, 3, 4, 5}) == 0);
-    assert(specialFilter({12, 23, 34, 45, 56}) == 0);
-    assert(specialFilter({12, 23, 34, 45, 56, 67}) == 1);
-    assert(specialFilter({12, 23, 34, 45, 56, 67, 78}) == 1);
-    assert(specialFilter({12, 23, 34, 45, 56, 67, 78, 89}) == 2);
-    assert(specialFilter({-12, -23, -34, -45, -56, -67, -78, -89}) == 2);
-    assert(specialFilter({-12, -23, -34, -45, -56, -67, -78, -89, -100}) == 3);
+    assert(specialFilter({11, 12, 13, 14, 15}) == 0);
+    assert(specialFilter({21, 22, 23, 24, 25}) == 5);
+    assert(specialFilter({-21, -22, -23, -24, -25}) == 5);
+    assert(specialFilter({-21, 22, -23, 24, -25}) == 5);
+    assert(specialFilter({-21, 22, -23, 24, 25}) == 4);
 
     return 0;
 }
