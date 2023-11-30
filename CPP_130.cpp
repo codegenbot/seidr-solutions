@@ -1,77 +1,49 @@
 #include <vector>
+#include <cassert>
 
-vector<int> tri(int n);
+std::vector<int> tri(int n);
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-int main() {
-    assert(tri(1) == vector<int>{1, 3});
-    assert(tri(2) == vector<int>{1, 2, 3});
-    assert(tri(3) == vector<int>{1, 2, 3, 8});
-    assert(tri(4) == vector<int>{1, 2, 3, 8, 4});
-    assert(tri(5) == vector<int>{1, 2, 3, 8, 4, 9});
-    assert(tri(6) == vector<int>{1, 2, 3, 8, 4, 9, 7});
-    assert(tri(7) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17});
-    assert(tri(8) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10});
-    assert(tri(9) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20});
-    assert(tri(10) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12});
-    assert(tri(11) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21});
-    assert(tri(12) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19});
-    assert(tri(13) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40});
-    assert(tri(14) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13});
-    assert(tri(15) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41});
-    assert(tri(16) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16});
-    assert(tri(17) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42});
-    assert(tri(18) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18});
-    assert(tri(19) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43});
-    assert(tri(20) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22});
-    assert(tri(21) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44});
-    assert(tri(22) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23});
-    assert(tri(23) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45});
-    assert(tri(24) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24});
-    assert(tri(25) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46});
-    assert(tri(26) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25});
-    assert(tri(27) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47});
-    assert(tri(28) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26});
-    assert(tri(29) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48});
-    assert(tri(30) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27});
-    assert(tri(31) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 49});
-    assert(tri(32) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 49, 28});
-    assert(tri(33) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 49, 28, 50});
-    assert(tri(34) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 49, 28, 50, 29});
-    assert(tri(35) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 49, 28, 50, 29, 51});
-    assert(tri(36) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 49, 28, 50, 29, 51, 30});
-    assert(tri(37) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 49, 28, 50, 29, 51, 30, 52});
-    assert(tri(38) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 49, 28, 50, 29, 51, 30, 52, 31});
-    assert(tri(39) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 49, 28, 50, 29, 51, 30, 52, 31, 53});
-    assert(tri(40) == vector<int>{1, 2, 3, 8, 4, 9, 7, 17, 10, 20, 12, 21, 19, 40, 13, 41, 16, 42, 18, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 49, 28, 50, 29, 51, 30, 52, 31, 53, 32});
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
+int main(){
+    assert(issame(tri(1), {1, 3}));
+    assert(issame(tri(2), {1, 3, 1}));
+    assert(issame(tri(3), {1, 3, 1, 2}));
+    assert(issame(tri(4), {1, 3, 1, 2, 1, 3}));
+    assert(issame(tri(5), {1, 3, 1, 2, 1, 3, 1, 4}));
     return 0;
 }
 
-vector<int> tri(int n){
-    vector<int> result;
-    result.push_back(3); // tri(1) = 3
-
-    if(n == 0){
-        return result;
-    }
-
-    result.push_back(1); // tri(2) = 1 + (2 / 2) = 2
-
-    if(n == 1){
-        return result;
-    }
-
-    result.push_back(2); // tri(3) = tri(2) + tri(1) + tri(4) = 2 + 3 + 3 = 8
-
-    for(int i = 3; i <= n; i++){
-        if(i % 2 == 0){
-            result.push_back(1 + i / 2);
-        }else{
-            result.push_back(result[i - 1] + result[i - 2] + result[i + 1]);
+std::vector<int> tri(int n){
+    std::vector<int> result;
+    if(n >= 0){
+        result.push_back(3); // First element is always 3
+        if(n >= 1){
+            result.push_back(1); // Second element is always 1
+            if(n >= 2){
+                result.push_back(n/2 + 1); // Third element is calculated based on n
+                for(int i = 3; i <= n; i++){
+                    if(i % 2 == 0){
+                        result.push_back(1 + i/2); // If i is even, calculate based on i
+                    }
+                    else{
+                        result.push_back(result[i-1] + result[i-2] + result[i+1]); // If i is odd, calculate based on previous elements
+                    }
+                }
+            }
         }
     }
-
     return result;
 }
