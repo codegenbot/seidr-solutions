@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 double calculateDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     double distance = 0.0;
@@ -27,7 +28,7 @@ int main() {
     }
 
     double distance = calculateDistance(vector1, vector2);
-    std::cout << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(14) << distance << std::endl;
 
     return 0;
 }
