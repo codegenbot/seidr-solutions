@@ -10,12 +10,12 @@ def decode_shift(s):
     )
 
 
-def main():
-    s = input().strip()
+def main(s):
     encoded = encode_shift(s)
     decoded = decode_shift(encoded)
     print(encoded)
     print(decoded)
 
 
-main()
+s = input()
+main(s)
