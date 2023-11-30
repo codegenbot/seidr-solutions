@@ -10,7 +10,4 @@ int solve(vector<int> lst) {
   return sum;
 }
 
-int main() {
-  int result = solve({3, 13, 2, 9});
-  return 0;
-}
+solve({3, 13, 2, 9});
