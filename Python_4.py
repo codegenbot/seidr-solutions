@@ -1,1 +1,2 @@
-numbers = input("Enter numbers: ").strip().split()
+nums = list(map(int, input().split()))
+print(nums)
