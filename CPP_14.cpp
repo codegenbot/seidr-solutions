@@ -1,9 +1,9 @@
 vector<string> all_prefixes(string str){
-    vector<string> prefixes;
+    vector<string> result;
     string prefix = "";
     for(int i = 0; i < str.length(); i++){
         prefix += str[i];
-        prefixes.push_back(prefix);
+        result.push_back(prefix);
     }
-    return prefixes;
+    return result;
 }
