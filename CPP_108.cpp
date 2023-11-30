@@ -1,24 +1,35 @@
 #include <iostream>
 #include <vector>
 
-int count_nums(std::vector<int> n){
+using namespace std;
+
+int count_nums(vector<int> n) {
     int count = 0;
-    for(int num : n){
+    for (int num : n) {
         int sum = 0;
-        int temp = std::abs(num);
-        while(temp != 0){
+        int temp = abs(num);
+        while (temp != 0) {
             sum += temp % 10;
             temp /= 10;
         }
-        if(sum > 0){
+        if (sum > 0) {
             count++;
         }
     }
     return count;
 }
 
-int main(){
-    // Test the count_nums function here if needed
-
+int main() {
+    vector<int> numbers;
+    int num;
+    
+    // Read input from user
+    while (cin >> num) {
+        numbers.push_back(num);
+    }
+    
+    // Call count_nums function and print the result
+    cout << count_nums(numbers) << endl;
+    
     return 0;
 }
