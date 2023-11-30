@@ -4,13 +4,13 @@ def minPath(grid, k):
             return path
         neighbors = []
         if i > 0:
-            neighbors.append((i-1, j))
+            neighbors.append((i - 1, j))
         if i < len(grid) - 1:
-            neighbors.append((i+1, j))
+            neighbors.append((i + 1, j))
         if j > 0:
-            neighbors.append((i, j-1))
+            neighbors.append((i, j - 1))
         if j < len(grid[0]) - 1:
-            neighbors.append((i, j+1))
+            neighbors.append((i, j + 1))
         for ni, nj in neighbors:
             if (ni, nj) not in path:
                 new_path = dfs(ni, nj, path + [(ni, nj)], steps - 1)
