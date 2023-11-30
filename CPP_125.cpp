@@ -3,34 +3,46 @@ vector<string> split_words(string txt){
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-    
-    for(int i=0; i<txt.length(); i++){
-        if(txt[i] == ' '){
+
+    for (int i = 0; i < txt.length(); i++) {
+        if (txt[i] == ' ') {
             hasWhitespace = true;
-            if(word != ""){
+            if (word != "") {
                 result.push_back(word);
                 word = "";
             }
-        }
-        else if(txt[i] == ','){
+        } else if (txt[i] == ',') {
             hasComma = true;
-            if(word != ""){
+            if (word != "") {
                 result.push_back(word);
                 word = "";
             }
-        }
-        else{
+        } else {
             word += txt[i];
         }
     }
-    
-    if(word != ""){
+
+    if (word != "") {
         result.push_back(word);
     }
-    
-    if(result.empty()){
-        result.push_back(to_string(3)); // number of lowercase letters with odd order in the alphabet
+
+    if (!hasWhitespace && !hasComma) {
+        result.clear();
+        result.push_back(to_string(countOddLetters(txt)));
     }
-    
+
     return result;
+}
+
+int countOddLetters(string txt) {
+    int count = 0;
+    for (int i = 0; i < txt.length(); i++) {
+        if (islower(txt[i])) {
+            int letterIndex = txt[i] - 'a';
+            if (letterIndex % 2 == 1) {
+                count++;
+            }
+        }
+    }
+    return count;
 }
