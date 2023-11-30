@@ -5,7 +5,7 @@ string file_name_check(string file_name){
     }
     string beforeDot = file_name.substr(0, dotIndex);
     string afterDot = file_name.substr(dotIndex+1);
-    if(beforeDot.empty()){
+    if(beforeDot.length() == 0 || !isalpha(beforeDot[0])){
         return "No";
     }
     int digitCount = 0;
