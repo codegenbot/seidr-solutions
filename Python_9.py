@@ -10,6 +10,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return max_numbers
 
 
-input_numbers = [9, 8, 7, 6, 5]  # Replace with your desired list of numbers
+input_numbers = [int(x) for x in input("Enter numbers separated by spaces: ").split()]
 result = rolling_max(input_numbers)
 print(result)
