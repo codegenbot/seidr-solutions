@@ -1,20 +1,15 @@
 #include <iostream>
-#include <cmath>
 
 int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
-
-    std::cin >> startingHeight;
-    std::cin >> firstBounceHeight;
-    std::cin >> numBounces;
+    std::cin >> startingHeight >> firstBounceHeight >> numBounces;
 
     double bouncinessIndex = firstBounceHeight / startingHeight;
     double totalDistance = startingHeight;
 
     for (int i = 0; i < numBounces; i++) {
         totalDistance += 2 * (bouncinessIndex * totalDistance);
-        bouncinessIndex *= bouncinessIndex;
     }
 
     std::cout << totalDistance << std::endl;
