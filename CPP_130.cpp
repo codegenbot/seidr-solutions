@@ -1,26 +1,21 @@
 vector<int> tri(int n){
     vector<int> result;
-    result.push_back(3); // tri(1) = 3
-
-    if(n == 0){
-        return result;
-    }
-
-    result.push_back(1); // tri(2) = 1 + (2 / 2) = 2
-
-    if(n == 1){
-        return result;
-    }
-
-    result.push_back(2); // tri(3) = tri(2) + tri(1) + tri(4) = 2 + 3 + 3 = 8
-
-    for(int i = 3; i <= n; i++){
-        if(i % 2 == 0){
-            result.push_back(1 + i / 2);
-        }else{
-            result.push_back(result[i - 1] + result[i - 2] + result[i + 1]);
+    if(n >= 0){
+        result.push_back(3); // First element is always 3
+        if(n >= 1){
+            result.push_back(1); // Second element is always 1
+            if(n >= 2){
+                result.push_back(n/2 + 1); // Third element is calculated based on n
+                for(int i = 3; i <= n; i++){
+                    if(i % 2 == 0){
+                        result.push_back(1 + i/2); // If i is even, calculate based on i
+                    }
+                    else{
+                        result.push_back(result[i-1] + result[i-2] + result[i+1]); // If i is odd, calculate based on previous elements
+                    }
+                }
+            }
         }
     }
-
     return result;
 }
