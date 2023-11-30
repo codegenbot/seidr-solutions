@@ -4,15 +4,13 @@ def encode(message: str) -> str:
 
     for char in message:
         if char.isalpha():
-            if char.lower() in vowels:
+            if char in vowels:
                 encoded_char = chr(ord(char) + 2)
             else:
-                if char == "a":
+                if char.lower() == "a":
                     encoded_char = "z"
-                elif char == "A":
-                    encoded_char = "Z"
                 else:
-                    encoded_char = chr(ord(char) - 1)
+                    encoded_char = chr(ord(char) + 1)
         else:
             encoded_char = char
 
