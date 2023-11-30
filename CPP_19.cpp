@@ -11,24 +11,24 @@ string sort_numbers(string numbers){
     number_map["eight"] = 8;
     number_map["nine"] = 9;
 
-    vector<int> number_values;
+    vector<int> number_list;
     stringstream ss(numbers);
     string number;
     while (ss >> number) {
-        number_values.push_back(number_map[number]);
+        number_list.push_back(number_map[number]);
     }
 
-    sort(number_values.begin(), number_values.end());
+    sort(number_list.begin(), number_list.end());
 
-    string sorted_numbers;
-    for (int i = 0; i < number_values.size(); i++) {
+    string result;
+    for (int i = 0; i < number_list.size(); i++) {
         for (auto it = number_map.begin(); it != number_map.end(); it++) {
-            if (it->second == number_values[i]) {
-                sorted_numbers += it->first + " ";
+            if (it->second == number_list[i]) {
+                result += it->first + " ";
                 break;
             }
         }
     }
 
-    return sorted_numbers;
+    return result;
 }
