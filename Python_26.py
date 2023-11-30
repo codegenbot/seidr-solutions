@@ -5,7 +5,7 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 
 if __name__ == "__main__":
-    numbers = list(map(int, input().split()))
+    numbers = [int(num) for num in input("Enter space-separated numbers: ").split()]
 
     result = remove_duplicates(numbers)
 
