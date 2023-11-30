@@ -1,2 +1,1 @@
-nums = list(map(int, input().split()))
-print(nums)
+numbers = list(map(int, input().split()))
