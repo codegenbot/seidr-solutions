@@ -1,5 +1,8 @@
-def find_zero(coefficients, x):
-    return sum(coef * x**i for i, coef in enumerate(coefficients))
+def find_zero(coeffs, x):
+    result = 0
+    for i in range(len(coeffs)):
+        result += coeffs[i] * (x ** i)
+    return result
 
 def read_input():
     n = int(input())
@@ -8,5 +11,5 @@ def read_input():
     return coeffs, x
 
 coeffs, x = read_input()
-result = find_zero(coeffs, x)
-print(result)
+output = find_zero(coeffs, x)
+print(output)
