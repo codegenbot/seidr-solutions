@@ -3,21 +3,12 @@ bool check_dict_case(map<string,string> dict){
         return false;
     }
     
-    bool allLowerCase = true;
-    bool allUpperCase = true;
+    string firstKey = dict.begin()->first;
+    bool isLowerCase = islower(firstKey[0]);
     
-    for(auto const& pair : dict){
-        string key = pair.first;
-        
-        if(key.empty() || key.find_first_not_of("abcdefghijklmnopqrstuvwxyz") != string::npos){
-            allLowerCase = false;
-        }
-        
-        if(key.empty() || key.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos){
-            allUpperCase = false;
-        }
-        
-        if(!allLowerCase && !allUpperCase){
+    for(auto entry : dict){
+        string key = entry.first;
+        if(islower(key[0]) != isLowerCase){
             return false;
         }
     }
