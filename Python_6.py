@@ -27,5 +27,5 @@ def parse_nested_parens(inputs: List[str]) -> List[int]:
 
 n = int(input())
 inputs = [input() for _ in range(n)]
-
-parse_nested_parens(inputs)
+result = parse_nested_parens(inputs)
+print(result)

@@ -1,13 +1,11 @@
+n = int(input())
 strings = []
-while True:
-    string = input().strip()
-    if not string:
-        break
-    strings.append(string)
+
+for _ in range(n):
+    strings.append(input())
 
 def concatenate(strings: list) -> str:
     return ''.join(strings)
 
 result = concatenate(strings)
-
 print(result)
