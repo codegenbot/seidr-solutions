@@ -1,18 +1,21 @@
 #include <iostream>
+#include <iomanip> // for fixed and setprecision
 using namespace std;
 
-float calculateSnow(float hours, float initialSnow, float snowFallRate, float snowMeltingRate) {
-    float snow = initialSnow;
-    for (int i = 0; i <= hours; i++) {
-        snow += snowFallRate;
-        snow -= snow * snowMeltingRate;
+double calculateSnow(float hours, float snowOnGround, float snowFallRate, float snowMeltRate) {
+    for (int i = 0; i < hours; i++) {
+        double snowMelted = snowOnGround * snowMeltRate;
+        snowOnGround = snowOnGround + snowFallRate - snowMelted;
     }
-    return snow;
+    return snowOnGround;
 }
 
 int main() {
-    float hours, initialSnow, snowFallRate, snowMeltingRate;
-    cin >> hours >> initialSnow >> snowFallRate >> snowMeltingRate;
-    cout << calculateSnow(hours, initialSnow, snowFallRate, snowMeltingRate) << endl;
+    float hours, snowOnGround, snowFallRate, snowMeltRate;
+    cin >> hours >> snowOnGround >> snowFallRate >> snowMeltRate;
+
+    double result = calculateSnow(hours, snowOnGround, snowFallRate, snowMeltRate);
+    cout << fixed << setprecision(15) << result << endl;
+
     return 0;
 }
