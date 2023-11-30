@@ -28,11 +28,10 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    // Test the code
-    vector<int> nums = {123, 45, 6789, 0, -987};
-    vector<int> ordered_nums = order_by_points(nums);
+    vector<int> nums = {5, 12, 3, 9, 7};
+    vector<int> sortedNums = order_by_points(nums);
     
-    for(int num : ordered_nums) {
+    for(int num : sortedNums) {
         cout << num << " ";
     }
     
