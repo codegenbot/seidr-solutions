@@ -1,47 +1,36 @@
-boost::any compare_one(boost::any a, boost::any b) {
-    // Check if a and b are of the same type
-    if (a.type() != b.type()) {
-        return "None";
-    }
-
-    // If a and b are both integers
-    if (a.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        if (x > y) {
-            return x;
-        } else if (x < y) {
-            return y;
-        } else {
-            return "None";
+boost::any compare_one(boost::any a, boost::any b){
+    if(a.type() == typeid(int) && b.type() == typeid(int)){
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
+        if(num1 > num2){
+            return num1;
+        } else if(num1 < num2){
+            return num2;
         }
-    }
-
-    // If a and b are both floats
-    if (a.type() == typeid(float)) {
-        float x = boost::any_cast<float>(a);
-        float y = boost::any_cast<float>(b);
-        if (x > y) {
-            return x;
-        } else if (x < y) {
-            return y;
-        } else {
-            return "None";
+    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
+        if(num1 > num2){
+            return num1;
+        } else if(num1 < num2){
+            return num2;
         }
-    }
-
-    // If a and b are both strings
-    if (a.type() == typeid(string)) {
-        string x = boost::any_cast<string>(a);
-        string y = boost::any_cast<string>(b);
-        if (x > y) {
-            return x;
-        } else if (x < y) {
-            return y;
-        } else {
-            return "None";
+    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        if(str1 > str2){
+            return str1;
+        } else if(str1 < str2){
+            return str2;
         }
+    } else if(a.type() == typeid(int) && b.type() == typeid(string)){
+        int num = boost::any_cast<int>(a);
+        string str = boost::any_cast<string>(b);
+        return str;
+    } else if(a.type() == typeid(string) && b.type() == typeid(int)){
+        string str = boost::any_cast<string>(a);
+        int num = boost::any_cast<int>(b);
+        return str;
     }
-
     return "None";
 }
