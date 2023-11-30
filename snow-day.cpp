@@ -5,8 +5,8 @@ using namespace std;
 double calculateSnow(float hours, double snowOnGround, float snowFallRate, float meltRate) {
     for (int i = 0; i < hours; i++) {
         double snowFall = snowFallRate - meltRate * snowOnGround;
-        snowFall = snowFall > 0 ? snowFall : 0;
-        snowOnGround += snowFall;
+        snowFall *= 1.0/24.0;
+        snowOnGround = snowFall > 0 ? snowOnGround + snowFall : 0;
     }
     return snowOnGround;
 }
