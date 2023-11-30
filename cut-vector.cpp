@@ -31,7 +31,7 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
     if (index == -1) return { nums };
 
     std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
-    std::vector<int> rightSubvector(nums.begin() + index, nums.begin() + index + 2);
+    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
 
     return { leftSubvector, rightSubvector };
 }
