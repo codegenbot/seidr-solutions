@@ -1,7 +1,7 @@
 def encode(message):
     vowels = "aeiouAEIOU"
     encoded_message = ""
-    
+
     for char in message:
         if char.isalpha():
             if char in vowels:
@@ -12,8 +12,8 @@ def encode(message):
                 elif char == 'Z':
                     encoded_message += 'A'
                 else:
-                    encoded_message += chr(ord(char) - 31)  
+                    encoded_message += chr(ord(char) - 31)
         else:
             encoded_message += char
-    
+
     return encoded_message
