@@ -10,7 +10,6 @@ float calculateSnow(float hours, float snowOnGround, float snowFallRate, float m
         if (finalSnow < 0) {
             finalSnow = 0;
         }
-        finalSnow = finalSnow - meltRate;
     }
     return finalSnow;
 }
