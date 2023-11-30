@@ -1,103 +1,69 @@
 #include <iostream>
 #include <string>
 
-int scoreRound(const std::string& bowls) {
+int main() {
+    std::string bowls;
+    std::cin >> bowls;
+
     int score = 0;
     int frame = 1;
-    int frameScore = 0;
-    bool isSpare = false;
-    bool isStrike = false;
+    int roll = 1;
 
     for (char bowl : bowls) {
-        if (frame > 10) {
+        if (frame == 10 && roll == 4) { // check if it's the last frame and a third roll
             break;
         }
 
-        if (bowl == 'X') {
+        if (bowl == 'X' || bowl == 'x') { // strike
             score += 10;
-            if (isStrike) {
+            if (frame < 10) { // update score based on next two rolls
                 score += 10;
-            }
-            if (isSpare) {
-                score += 10;
-            }
-            isStrike = true;
-            isSpare = false;
 
-            if (frame == 10) {
-                frameScore++;
-            }
-            else {
-                frameScore = 0;
-                frame++;
-            }
-        }
-        else if (bowl == '/') {
-            score += 10 - frameScore;
-            if (isStrike) {
-                score += 10;
-            }
-            isSpare = true;
-            isStrike = false;
-
-            if (frame == 10) {
-                frameScore %= 10;
-                frameScore++;
-            }
-            else {
-                frameScore = 0;
-                frame++;
-            }
-        }
-        else if (bowl == '-') {
-            if (isStrike) {
-                score += 10;
-            }
-            else if (isSpare) {
-                score += 10 - frameScore;
-            }
-            else {
-                score += 0;
-            }
-
-            isSpare = false;
-            isStrike = false;
-            frameScore++;
-        }
-        else {
-            int pins = bowl - '0';
-            score += pins;
-            if (isStrike) {
-                score += pins;
-            }
-            if (isSpare) {
-                score += pins;
-            }
-
-            isSpare = false;
-            isStrike = false;
-
-            frameScore += pins;
-            if (frameScore >= 10) {
-                frameScore %= 10;
-
-                if (frame == 10) {
-                    frameScore++;
-                }
-                else {
+                if (roll == 1) {
                     frame++;
-                    frameScore = 0;
+                    roll = 1;
+                } else {
+                    roll = 1;
                 }
+            } else { // update score based on next two bowls (or one bowl if last frame)
+                roll++;
+                if (roll == 4) {
+                    frame++;
+                    roll = 1;
+                }
+            }
+        } else if (bowl == '/') { // spare
+            score += (10 - score % 10);
+            if (frame < 10) { // update score based on next roll
+                score += 10;
+                roll = 1;
+                frame++;
+            } else { // update score based on next bowl
+                roll++;
+            }
+        } else if (bowl == '-') { // miss
+            // do nothing
+            if (frame < 10 && roll == 2) {
+                frame++;
+            }
+            roll = roll % 2 + 1;
+        } else { // numeric value (0-9)
+            score += (int)(bowl - '0');
+            if (frame < 10) { // update score based on next roll
+                roll++;
+                if (roll == 2) {
+                    frame++;
+                } else if (roll == 3) {
+                    frame++;
+                    roll = 1;
+                }
+            } else { // update score based on next bowl
+                roll++;
             }
         }
     }
 
-    return score;
-}
+    std::cout << score << std::endl;
 
-int main() {
-    std::string bowls;
-    std::getline(std::cin, bowls);
-    std::cout << scoreRound(bowls) << std::endl;
     return 0;
 }
