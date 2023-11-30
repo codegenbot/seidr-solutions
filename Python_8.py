@@ -1,7 +1,7 @@
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    sum_result = 0
-    product_result = 1
-    for number in numbers:
+def sum_product(numbers):
+    sum_result = numbers[0]
+    product_result = numbers[0]
+    for number in numbers[1:]:
         sum_result += number
         product_result *= number
     return sum_result, product_result
