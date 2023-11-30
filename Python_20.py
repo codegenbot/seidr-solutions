@@ -1,8 +1,16 @@
-def find_closest_elements():
-    input_numbers = input().split()
-    numbers = [int(num) for num in input_numbers]
-
-    # find closest elements logic here
-    # Your code here
-
-find_closest_elements()
+def find_closest_elements(nums, k, x):
+    result = []
+    left = 0
+    right = len(nums) - k
+    
+    while left < right:
+        mid = (left + right) // 2
+        if x - nums[mid] > nums[mid+k] - x:
+            left = mid + 1
+        else:
+            right = mid
+    
+    for i in range(left, left + k):
+        result.append(nums[i])
+    
+    return result
