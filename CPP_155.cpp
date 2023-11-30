@@ -1,13 +1,14 @@
-#include <iostream>
 #include <vector>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
-vector<int> even_odd_count(int num){
+std::vector<int> even_odd_count(int num) {
     int even_count = 0;
     int odd_count = 0;
     
-    string num_str = to_string(abs(num));
+    std::string num_str = std::to_string(std::abs(num));
     
     for (char c : num_str) {
         int digit = c - '0';
@@ -21,10 +22,10 @@ vector<int> even_odd_count(int num){
     return {even_count, odd_count};
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return (a == b);
-}
+#include <cassert>
 
-int main(){
+int main() {
     assert(issame(even_odd_count(0), {1, 0}));
+    
+    return 0;
 }
