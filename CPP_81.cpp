@@ -47,3 +47,24 @@ vector<string> numerical_letter_grade(vector<float> grades){
     }
     return letter_grades;
 }
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    vector<float> grades = {3.5, 2.8, 4.0, 1.9};
+    vector<string> expected = {"B+", "C+", "A+", "D-"};
+    vector<string> result = numerical_letter_grade(grades);
+    assert(issame(result, expected));
+
+    return 0;
+}
