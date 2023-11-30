@@ -5,6 +5,8 @@
 
 using namespace std;
 
+string intersection(vector<int> interval1, vector<int> interval2);
+
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
     int end1 = interval1[1];
@@ -30,5 +32,5 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    assert (intersection({-2, -2}, {-3, -2}) == "NO");
 }
