@@ -4,16 +4,14 @@ string match_parens(vector<string> lst){
         for(char c : s){
             if(c == '('){
                 count++;
-            }
-            else{
+            }else{
                 count--;
             }
         }
     }
     if(count == 0){
         return "Yes";
-    }
-    else{
+    }else{
         return "No";
     }
 }
