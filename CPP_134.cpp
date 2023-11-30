@@ -1,4 +1,6 @@
-bool check_if_last_char_is_a_letter(string txt){
+#include <string>
+
+bool check_if_last_char_is_a_letter(std::string txt){
     int n = txt.length();
     if(n == 0) {
         return false;
