@@ -29,13 +29,7 @@ vector<string> split_words(string txt){
     }
     
     if(!hasWhitespace && !hasComma){
-        int count = 0;
-        for(int i = 0; i < txt.length(); i++){
-            if(islower(txt[i])){
-                count++;
-            }
-        }
-        result.push_back(to_string(count));
+        result.push_back(to_string(count_odd_letters(txt)));
     }
     
     return result;
