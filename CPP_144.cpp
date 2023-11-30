@@ -1,13 +1,14 @@
-bool simplify(string x, string n){
+bool simplify(string x, string n) {
+    // Convert the strings to integers
     int x_num = stoi(x.substr(0, x.find("/")));
     int x_den = stoi(x.substr(x.find("/") + 1));
     int n_num = stoi(n.substr(0, n.find("/")));
     int n_den = stoi(n.substr(n.find("/") + 1));
     
-    if((x_num * n_den) % (x_den * n_num) == 0){
-        return true;
-    }
-    else{
-        return false;
-    }
+    // Multiply the fractions
+    int result_num = x_num * n_num;
+    int result_den = x_den * n_den;
+    
+    // Check if the result is a whole number
+    return result_num % result_den == 0;
 }
