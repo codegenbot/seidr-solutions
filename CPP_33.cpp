@@ -1,7 +1,9 @@
 vector<int> sort_third(vector<int> l){
-    vector<int> l_sorted = l;
-    sort(l_sorted.begin(), l_sorted.end(), [](int a, int b){
-        return a % 3 == 0 && b % 3 == 0 ? a < b : false;
-    });
-    return l_sorted;
+    vector<int> l_prime = l;
+    for(int i = 0; i < l.size(); i++){
+        if(i % 3 == 0){
+            sort(l_prime.begin() + i, l_prime.begin() + i + 3);
+        }
+    }
+    return l_prime;
 }
