@@ -9,5 +9,4 @@ for _ in range(n):
     strings.append(input())
 
 result = concatenate(strings)
-
 print(result)
