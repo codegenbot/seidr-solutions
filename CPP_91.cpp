@@ -1,14 +1,11 @@
 int is_bored(string S){
     int count = 0;
-    string sentence;
-    for (int i = 0; i < S.length(); i++) {
-        if (S[i] == '.' || S[i] == '?' || S[i] == '!') {
-            if (sentence.length() > 0 && sentence[0] == 'I') {
+    int n = S.length();
+    for (int i = 0; i < n; i++) {
+        if (S[i] == 'I') {
+            if ((i == 0) || (S[i - 1] == ' ') || (S[i - 1] == '.' || S[i - 1] == '?' || S[i - 1] == '!')) {
                 count++;
             }
-            sentence = "";
-        } else {
-            sentence += S[i];
         }
     }
     return count;
