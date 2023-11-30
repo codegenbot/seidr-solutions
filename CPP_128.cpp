@@ -6,18 +6,9 @@ int prod_signs(vector<int> arr){
     int product = 1;
     int sum = 0;
     
-    for(int i=0; i<arr.size(); i++){
-        if(arr[i] > 0){
-            product *= 1;
-            sum += abs(arr[i]);
-        }
-        else if(arr[i] < 0){
-            product *= -1;
-            sum += abs(arr[i]);
-        }
-        else{
-            product *= 0;
-        }
+    for(int i = 0; i < arr.size(); i++){
+        product *= (arr[i] >= 0 ? 1 : -1);
+        sum += abs(arr[i]);
     }
     
     return product * sum;
