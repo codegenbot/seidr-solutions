@@ -5,8 +5,6 @@
 
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b);
-
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for(int num : x){
