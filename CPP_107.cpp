@@ -11,9 +11,9 @@ vector<int> even_odd_palindrome(int n){
             }
         }
         if(isPalindrome){
-            if(i % 2 == 0){
+            if(i%2 == 0){
                 result[0]++;
-            } else {
+            }else{
                 result[1]++;
             }
         }
