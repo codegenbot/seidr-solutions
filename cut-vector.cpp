@@ -5,7 +5,7 @@
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
-    int index = 0;
+    int index = -1;
 
     for (int i = 0; i < n; i++) {
         int leftSum = 0;
@@ -45,12 +45,14 @@ int main() {
     std::pair<std::vector<int>, std::vector<int>> subvectors = cutVector(nums);
 
     for (int num : subvectors.first) {
-        std::cout << num << std::endl;
+        std::cout << num << " ";
     }
+    std::cout << std::endl;
 
     for (int num : subvectors.second) {
-        std::cout << num << std::endl;
+        std::cout << num << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
