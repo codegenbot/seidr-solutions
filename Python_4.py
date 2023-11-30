@@ -1,10 +1,14 @@
-def solve_problem(numbers):
-    # your code here
-    # process the list of numbers and return the desired output
+from typing import List, Union
 
 
-numbers = input().split()  
-numbers = [int(num) for num in numbers]  
+def mean_absolute_deviation(numbers: List[Union[float, int]]) -> float:
+    mean = sum(numbers) / len(numbers)
+    deviation = [abs(num - mean) for num in numbers]
+    return sum(deviation) / len(deviation)
 
-result = solve_problem(numbers)
+
+n = int(input())
+numbers = [float(input()) for _ in range(n)]
+
+result = mean_absolute_deviation(numbers)
 print(result)
