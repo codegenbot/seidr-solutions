@@ -3,11 +3,15 @@
 using namespace std;
 
 float calculateSnow(float hours, float snowOnGround, float snowFallRate, float meltRate) {
+    float finalSnow = snowOnGround;
     for (int i = 0; i < hours; i++) {
-        float snowFall = snowFallRate - (meltRate * snowOnGround);
-        snowOnGround = snowFall > 0 ? snowOnGround + snowFall : 0;
+        float snowFall = (snowFallRate - meltRate * finalSnow) * hours;
+        finalSnow = finalSnow + snowFall;
+        if (finalSnow < 0) {
+            finalSnow = 0;
+        }
     }
-    return snowOnGround;
+    return finalSnow;
 }
 
 int main() {
