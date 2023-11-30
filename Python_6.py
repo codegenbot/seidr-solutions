@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 def parse_nested_parens(inputs: List[str]) -> List[int]:
@@ -25,6 +26,6 @@ def parse_nested_parens(inputs: List[str]) -> List[int]:
             result.append(max_depth)
     return result
 
-inputs = [input() for _ in range(int(input()))]
+inputs = [sys.stdin.readline().strip() for _ in range(int(sys.stdin.readline().strip()))]
 result = parse_nested_parens(inputs)
 print(result)
