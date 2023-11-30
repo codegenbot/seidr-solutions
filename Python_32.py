@@ -6,17 +6,14 @@ def poly(xs: list, x: float):
 
 
 def find_zero(xs: list):
-    if xs[1] == 0:
-        return None
-    else:
-        return -xs[0] / xs[1]
+    return -xs[0] / xs[1]
 
 
 def read_input():
     n = int(input())
     coeffs = list(map(float, input().split()))
     x = float(input())
-    return coeffs, x
+    return [coeffs, x]
 
 
 def main():
