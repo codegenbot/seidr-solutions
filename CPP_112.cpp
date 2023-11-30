@@ -1,6 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <cassert>
 
 using namespace std;
@@ -12,12 +11,8 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> reverse_delete(string s, string c);
 
 int main() {
-    // Test case
-    string s = "hello";
-    string c = "aeiou";
-    vector<string> expected = {"hll", "False"};
-    vector<string> result = reverse_delete(s, c);
-    assert(issame(result, expected));
+    assert(issame(reverse_delete("hello", "l"), {"heo", "False"}));
+    assert(issame(reverse_delete("world", "o"), {"wrld", "True"}));
 
     return 0;
 }
