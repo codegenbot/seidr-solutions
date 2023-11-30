@@ -39,5 +39,6 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
 
 int main() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+    // Add more test cases here if needed
     return 0;
 }
