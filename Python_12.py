@@ -1,5 +1,4 @@
 from typing import List, Optional
-import sys
 
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -8,5 +7,5 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 
-result = longest(sys.stdin.readline().strip().split(","))
+result = longest(input().split(","))
 print(result)
