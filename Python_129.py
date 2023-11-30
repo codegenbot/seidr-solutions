@@ -1,4 +1,3 @@
-```python
 def minPath(grid, k):
     def dfs(i, j, path, remain):
         if remain <= 0:
@@ -24,3 +23,6 @@ def minPath(grid, k):
             path = dfs(i, j, [(i, j)], k - 1)
             if path is not None and len(path) == k:
                 return [grid[x][y] for x, y in path]
+
+# Test the function
+assert minPath([[1, 3], [3, 2]], 10) == [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
