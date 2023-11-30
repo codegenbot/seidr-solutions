@@ -1,40 +1,37 @@
 vector<string> split_words(string txt){
-    vector<string> result;
+    vector<string> words;
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
     
-    for(char c : txt){
-        if(c == ' '){
-            result.push_back(word);
-            word = "";
+    for(int i = 0; i < txt.length(); i++){
+        if(txt[i] == ' '){
             hasWhitespace = true;
-        }
-        else if(c == ','){
-            result.push_back(word);
-            word = "";
-            hasComma = true;
-        }
-        else{
-            word += c;
-        }
-    }
-    
-    result.push_back(word);
-    
-    if(!hasWhitespace && !hasComma){
-        int oddCount = 0;
-        for(char c : word){
-            if(islower(c)){
-                int order = c - 'a';
-                if(order % 2 != 0){
-                    oddCount++;
-                }
+            if(word != ""){
+                words.push_back(word);
+                word = "";
             }
         }
-        result.clear();
-        result.push_back(to_string(oddCount));
+        else if(txt[i] == ','){
+            hasComma = true;
+            if(word != ""){
+                words.push_back(word);
+                word = "";
+            }
+        }
+        else{
+            word += txt[i];
+        }
     }
     
-    return result;
+    if(word != ""){
+        words.push_back(word);
+    }
+    
+    if(!hasWhitespace && !hasComma){
+        string oddLettersCount = to_string(count_if(txt.begin(), txt.end(), [](char c){ return islower(c) && (c - 'a') % 2 == 1; }));
+        words.push_back(oddLettersCount);
+    }
+    
+    return words;
 }
