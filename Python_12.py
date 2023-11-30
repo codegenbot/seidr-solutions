@@ -1,9 +1,9 @@
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
-    if not strings:
+    if len(strings) == 0:
         return None
     return max(strings, key=len)
 
-result = longest(eval(input()))
+result = longest(["apple", "banana", "orange"])
 print(result)
