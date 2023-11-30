@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -14,8 +14,8 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> tri(int n){
-    vector<int> sequence;
+std::vector<int> tri(int n){
+    std::vector<int> sequence;
     sequence.push_back(3);
     
     for(int i=1; i<=n; i++){
@@ -31,7 +31,7 @@ vector<int> tri(int n){
 }
 
 int main() {
-    assert(issame(tri(1), vector<int>{1, 3}));
+    assert(issame(tri(1), std::vector<int>{1, 3}));
     
     return 0;
 }
