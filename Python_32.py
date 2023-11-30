@@ -1,24 +1,24 @@
 import math
-from typing import List, Tuple
 
 
-def poly(xs: List[float], x: float) -> float:
+def poly(xs: list, x: float):
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
 
-def find_zero(xs: List[float]) -> float:
+def find_zero(xs: list):
     return -xs[0] / xs[1]
 
 
-def read_input() -> Tuple[List[float], float]:
-    xs = list(map(float, input().split()))
-    x = float(input())
-    return xs, x
+def read_input():
+    n = int(input("Enter the number of coefficients: "))
+    xs = list(map(float, input("Enter the coefficients: ").split()))
+    x = float(input("Enter the value of x: "))
+    return n, xs, x
 
 
 def main():
-    xs, x = read_input()
-    result = poly(xs, x)
+    n, xs, x = read_input()
+    result = find_zero(xs)
     print(result)
 
 
