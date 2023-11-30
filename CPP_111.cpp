@@ -1,46 +1,24 @@
-#include <map>
-#include <string>
-#include <climits>
-
-using namespace std;
-
-bool isSame(map<char, int> a, map<char, int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (auto it : a) {
-        char c = it.first;
-        if (b.find(c) == b.end() || b[c] != a[c]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 map<char, int> histogram(string test) {
     map<char, int> result;
-    map<char, int> count;
-
-    for (char c : test) {
-        if (c != ' ') {
-            count[c]++;
+    if (test.empty()) {
+        return result;
+    }
+    stringstream ss(test);
+    string word;
+    while (ss >> word) {
+        for (char c : word) {
+            result[c]++;
         }
     }
-
-    int maxCount = INT_MIN;
-    for (auto it : count) {
-        if (it.second > maxCount) {
-            maxCount = it.second;
+    int maxCount = 0;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        maxCount = max(maxCount, it->second);
+    }
+    map<char, int> res;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second == maxCount) {
+            res[it->first] = it->second;
         }
     }
-
-    for (auto it : count) {
-        if (it.second == maxCount) {
-            result[it.first] = it.second;
-        }
-    }
-
-    return result;
+    return res;
 }
