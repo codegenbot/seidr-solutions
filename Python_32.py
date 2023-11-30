@@ -8,7 +8,8 @@ def poly(xs: list, x: float):
 def find_zero(xs: list):
     if xs[1] == 0:
         return None
-    return -xs[0] / xs[1]
+    else:
+        return -xs[0] / xs[1]
 
 
 def read_input():
