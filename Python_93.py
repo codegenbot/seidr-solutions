@@ -9,8 +9,8 @@ def encode(message: str) -> str:
             else:
                 if char == 'z':
                     encoded_char = 'a'
-                elif char.isupper():
-                    encoded_char = chr(ord(char) + 2)
+                elif char == 'Z':
+                    encoded_char = 'A'
                 else:
                     encoded_char = chr(ord(char) + 2)
         else:
@@ -19,3 +19,5 @@ def encode(message: str) -> str:
         encoded_message += encoded_char
 
     return encoded_message
+
+print(encode("I DoNt KnOw WhAt tO WrItE"))
