@@ -20,9 +20,6 @@ int count_nums(vector<int> n) {
 }
 
 int main() {
-    vector<int> nums = {123, -456, 789};
-    int result = count_nums(nums);
-    cout << "Count: " << result << endl;
-    
+    // Test your code here (optional)
     return 0;
 }
