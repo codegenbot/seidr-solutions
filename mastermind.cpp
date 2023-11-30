@@ -5,24 +5,19 @@ using namespace std;
 pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-    int codeFreq[6] = {0};
-    int guessFreq[6] = {0};
+    int codeFreq[26] = {0};
+    int guessFreq[26] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            if (code[i] >= 'A' && code[i] <= 'F') {
-                codeFreq[code[i] - 'A']++;
-            }
-
-            if (guess[i] >= 'A' && guess[i] <= 'F') {
-                guessFreq[guess[i] - 'A']++;
-            }
+            codeFreq[code[i] - 'A']++;
+            guessFreq[guess[i] - 'A']++;
         }
     }
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 26; i++) {
         whitePegs += min(codeFreq[i], guessFreq[i]);
     }
 
@@ -31,7 +26,8 @@ pair<int, int> mastermind(string code, string guess) {
 
 int main() {
     string code, guess;
-    cin >> code >> guess;
+    cin >> code;
+    cin >> guess;
 
     pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;
