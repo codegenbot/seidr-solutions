@@ -15,7 +15,7 @@ int getScore(const std::string& bowls) {
             score += 10;
             if (frame <= 10) {
                 score += (bowls[i + 1] == 'X' || bowls[i + 1] == '/') ? 10 : (bowls[i + 1] - '0');
-                score += (bowls[i + 2] == 'X' || bowls[i + 2] == '/') ? 10 : (bowls[i + 2] - '0');
+                score += (bowls[i + 2] == 'X') ? 10 : (bowls[i + 2] - '0');
             }
             frame++;
         } else if (bowls[i] == '/') {
