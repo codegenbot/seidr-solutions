@@ -1,8 +1,14 @@
-from typing import List, Any
+from typing import List
 
 
-def filter_integers(values: List[Any]) -> List[int]:
-    return [value for value in values if isinstance(value, int)]
+def filter_integers(values: List[str]) -> List[int]:
+    filtered_values = []
+    for value in values:
+        try:
+            filtered_values.append(int(value))
+        except ValueError:
+            pass
+    return filtered_values
 
 
 if __name__ == "__main__":
