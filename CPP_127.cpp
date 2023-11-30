@@ -3,19 +3,25 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int end1 = interval1[1];
     int start2 = interval2[0];
     int end2 = interval2[1];
-
-    // Check if the intervals intersect
-    if (end1 < start2 || end2 < start1) {
+    
+    int start = max(start1, start2);
+    int end = min(end1, end2);
+    
+    if (start > end) {
         return "NO";
     }
-
-    // Calculate the length of the intersection
-    int intersectionLength = min(end1, end2) - max(start1, start2) + 1;
-
-    // Check if the length of the intersection is a prime number
-    if (isPrime(intersectionLength)) {
-        return "YES";
-    } else {
+    
+    int length = end - start + 1;
+    
+    if (length <= 1) {
         return "NO";
     }
+    
+    for (int i = 2; i * i <= length; i++) {
+        if (length % i == 0) {
+            return "NO";
+        }
+    }
+    
+    return "YES";
 }
