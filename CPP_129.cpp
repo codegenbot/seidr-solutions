@@ -1,24 +1,55 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
-    int m = grid[0].size();
     vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(m, false));
-    int currRow = 0;
-    int currCol = 0;
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
     
-    while(k > 0){
-        path.push_back(grid[currRow][currCol]);
-        visited[currRow][currCol] = true;
-        k--;
+    // Helper function to check if a cell is valid
+    auto isValid = [&](int x, int y){
+        return x >= 0 && x < n && y >= 0 && y < n && !visited[x][y];
+    };
+    
+    // Helper function to get neighbors of a cell
+    auto getNeighbors = [&](int x, int y){
+        vector<pair<int, int>> neighbors;
+        if(isValid(x-1, y))
+            neighbors.push_back({x-1, y});
+        if(isValid(x+1, y))
+            neighbors.push_back({x+1, y});
+        if(isValid(x, y-1))
+            neighbors.push_back({x, y-1});
+        if(isValid(x, y+1))
+            neighbors.push_back({x, y+1});
+        return neighbors;
+    };
+    
+    // Helper function to do a depth-first search
+    function<bool(int, int, int)> dfs = [&](int x, int y, int len){
+        visited[x][y] = true;
+        path.push_back(grid[x][y]);
         
-        if(currRow < n-1 && !visited[currRow+1][currCol]){
-            currRow++;
+        if(len == k)
+            return true;
+        
+        vector<pair<int, int>> neighbors = getNeighbors(x, y);
+        sort(neighbors.begin(), neighbors.end(), [&](const pair<int, int>& a, const pair<int, int>& b){
+            return grid[a.first][a.second] < grid[b.first][b.second];
+        });
+        
+        for(auto neighbor : neighbors){
+            if(dfs(neighbor.first, neighbor.second, len+1))
+                return true;
         }
-        else if(currCol < m-1 && !visited[currRow][currCol+1]){
-            currCol++;
-        }
-        else{
-            break;
+        
+        path.pop_back();
+        visited[x][y] = false;
+        return false;
+    };
+    
+    // Start the search from each cell
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(dfs(i, j, 1))
+                return path;
         }
     }
     
