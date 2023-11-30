@@ -15,6 +15,9 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    // Test your code here
+    // Test case
+    vector<int> nums = {12, 25, -36, 47, 58, -69};
+    cout << specialFilter(nums) << endl;
+
     return 0;
 }
