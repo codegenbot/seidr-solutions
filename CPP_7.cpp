@@ -1,9 +1,14 @@
+#include <vector>
+#include <string>
+
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> filteredStrings;
-    for (string str : strings) {
+    
+    for (const string& str : strings) {
         if (str.find(substring) != string::npos) {
             filteredStrings.push_back(str);
         }
     }
+    
     return filteredStrings;
 }
