@@ -1,5 +1,4 @@
-def sum_product():
-    numbers = list(map(int, input().split(" ")))
+def sum_product(numbers):
     sum_result = numbers[0]
     product_result = numbers[0]
     for number in numbers[1:]:
@@ -7,5 +6,6 @@ def sum_product():
         product_result *= number
     return sum_result, product_result
 
-result = sum_product()
-print(result)
+numbers = list(map(int, input().split(" ")))
+result = sum_product(numbers)
+print(*result)
