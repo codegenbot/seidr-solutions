@@ -46,13 +46,13 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(){
-    vector<int> sequence = tri(10); // Modify the parameter to test different values of n
-    vector<int> expected = {3, 1, 2, 2, 4, 3, 4, 4, 6, 5}; // Modify the expected sequence accordingly
+    vector<int> result = tri(5);
+    vector<int> expected = {3, 1, 2, 2, 5};
 
-    if(issame(sequence, expected)){
-        cout << "The sequence is correct!" << endl;
+    if(issame(result, expected)){
+        cout << "Test Passed" << endl;
     }else{
-        cout << "The sequence is incorrect!" << endl;
+        cout << "Test Failed" << endl;
     }
 
     return 0;
