@@ -1,18 +1,13 @@
 int is_bored(string S){
-    int boredomCount = 0;
-    string sentence = "";
-    
-    for(int i = 0; i < S.length(); i++){
-        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            if(sentence.length() > 0 && sentence[0] == 'I'){
-                boredomCount++;
-            }
-            sentence = "";
+    int count = 0;
+    string delimiter = ".?!";
+    size_t pos = 0;
+    while ((pos = S.find(delimiter)) != string::npos) {
+        string sentence = S.substr(0, pos);
+        if (sentence.length() > 2 && sentence.substr(0, 2) == "I ") {
+            count++;
         }
-        else if(S[i] != ' '){
-            sentence += S[i];
-        }
+        S.erase(0, pos + delimiter.length());
     }
-    
-    return boredomCount;
+    return count;
 }
