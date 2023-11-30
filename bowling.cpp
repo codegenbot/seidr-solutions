@@ -1,36 +1,45 @@
 #include <iostream>
 #include <string>
 
-int getFrameScore(const std::string& frame) {
+int scoreOfRound(const std::string& round) {
     int score = 0;
-    int frameSize = frame.size();
+    int frame = 1;
+    int bowlIndex = 0;
     
-    for (int i = 0; i < frameSize; ++i) {
-        if (frame[i] == 'X') {
+    for (int i = 0; i < round.length(); i++) {
+        char bowl = round[i];
+        
+        if (bowl == 'X') {
             score += 10;
-            
-            if (i < frameSize - 2) {
-                if (frame[i + 2] == '/') {
-                    score += 10;
-                } else if (frame[i + 1] == 'X') {
-                    score += 10;
-                    
-                    if (i < frameSize - 4) {
-                        score += (frame[i + 4] == 'X' ? 10 : frame[i + 4] - '0');
-                    }
-                } else {
-                    score += (frame[i + 1] == '/' ? 10 : frame[i + 1] - '0');
-                    score += (frame[i + 2] == '/' ? 10 - (frame[i + 1] - '0') : frame[i + 2] - '0');
-                }
+            if (frame < 10) {
+                score += (round[i+1] == 'X') ? 10 : (isdigit(round[i+1]) ? round[i+1] - '0' : 0);
+                score += (round[i+2] == 'X') ? 10 : (isdigit(round[i+2]) ? round[i+2] - '0' : 0);
             }
-        } else if (frame[i] == '/') {
-            score += 10 - (frame[i - 1] - '0');
-            
-            if (i < frameSize - 2) {
-                score += (frame[i + 2] == 'X' ? 10 : frame[i + 2] - '0');
+            frame++;
+        } else if (isdigit(bowl)) {
+            score += bowl - '0';
+            if (frame < 10 && bowlIndex == 0 && bowl + round[i+1] == 'X') {
+                score += 10;
             }
-        } else {
-            score += frame[i] - '0';
+            bowlIndex = (bowlIndex + 1) % 2;
+            if (bowlIndex == 0) {
+                frame++;
+            }
+        } else if (bowl == '/') {
+            score += 10 - (round[i-1] - '0');
+            if (frame < 10) {
+                score += (round[i+1] == 'X') ? 10 : (isdigit(round[i+1]) ? round[i+1] - '0' : 0);
+            }
+            frame++;
+            bowlIndex = 0;
+        } else if (bowl == '-') {
+            if (frame < 10) {
+                score += (round[i+1] == 'X') ? 10 : (isdigit(round[i+1]) ? round[i+1] - '0' : 0);
+            }
+            bowlIndex = (bowlIndex + 1) % 2;
+            if (bowlIndex == 0) {
+                frame++;
+            }
         }
     }
     
@@ -38,10 +47,10 @@ int getFrameScore(const std::string& frame) {
 }
 
 int main() {
-    std::string frame;
-    std::cin >> frame;
+    std::string round;
+    std::cin >> round;
     
-    int score = getFrameScore(frame);
+    int score = scoreOfRound(round);
     std::cout << score << std::endl;
     
     return 0;
