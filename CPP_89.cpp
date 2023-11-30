@@ -1,5 +1,5 @@
 string encrypt(string s){
-    string result = "";
+    string encrypted = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(isalpha(c)){
@@ -10,7 +10,7 @@ string encrypt(string s){
                 c = (c - 'a' + 2*2) % 26 + 'a';
             }
         }
-        result += c;
+        encrypted += c;
     }
-    return result;
+    return encrypted;
 }
