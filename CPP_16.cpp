@@ -1,18 +1,18 @@
-int count_distinct_characters(string str){
-    vector<char> distinctChars;
-    
+int count_distinct_characters(string str) {
     // Convert the string to lowercase
     transform(str.begin(), str.end(), str.begin(), ::tolower);
-    
-    // Iterate over each character in the string
-    for(char c : str){
-        // Check if the character is already in the distinctChars vector
-        if(find(distinctChars.begin(), distinctChars.end(), c) == distinctChars.end()){
-            // If not found, add the character to the distinctChars vector
-            distinctChars.push_back(c);
+
+    // Create a vector to store distinct characters
+    vector<char> distinct_chars;
+
+    // Iterate through each character in the string
+    for (char c : str) {
+        // If the character is not already in the vector, add it
+        if (find(distinct_chars.begin(), distinct_chars.end(), c) == distinct_chars.end()) {
+            distinct_chars.push_back(c);
         }
     }
-    
-    // Return the size of the distinctChars vector
-    return distinctChars.size();
+
+    // Return the count of distinct characters
+    return distinct_chars.size();
 }
