@@ -6,6 +6,22 @@ def poly(xs: list, x: float):
 
 
 def find_zero(xs: list):
-    if xs[1] == 0:
-        raise ValueError("Cannot find zero when coefficient of x is zero.")
     return -xs[0] / xs[1]
+
+
+def main():
+    # Read input
+    xs = list(map(float, input().split()))
+    x = float(input())
+
+    # Call the functions
+    value = poly(xs, x)
+    zero = find_zero(xs)
+
+    # Print the output
+    print(value)
+    print(zero)
+
+
+# Call the main function
+main()
