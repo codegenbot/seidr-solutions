@@ -1,16 +1,11 @@
 vector<int> sort_array(vector<int> array){
-    if(array.size() <= 1){
-        return array;
+    vector<int> sorted_array = array;
+    if (sorted_array.size() > 1) {
+        if ((sorted_array[0] + sorted_array[sorted_array.size()-1]) % 2 == 0) {
+            sort(sorted_array.rbegin(), sorted_array.rend());
+        } else {
+            sort(sorted_array.begin(), sorted_array.end());
+        }
     }
-    
-    int sum = array[0] + array[array.size()-1];
-    
-    if(sum % 2 == 0){
-        sort(array.rbegin(), array.rend());
-    }
-    else{
-        sort(array.begin(), array.end());
-    }
-    
-    return array;
+    return sorted_array;
 }
