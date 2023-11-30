@@ -4,10 +4,11 @@ string find_max(vector<string> words){
     
     for (string word : words) {
         int uniqueChars = 0;
-        sort(word.begin(), word.end());
+        bool charCount[26] = {false};
         
-        for (int i = 0; i < word.length(); i++) {
-            if (i == 0 || word[i] != word[i-1]) {
+        for (char c : word) {
+            if (!charCount[c - 'a']) {
+                charCount[c - 'a'] = true;
                 uniqueChars++;
             }
         }
