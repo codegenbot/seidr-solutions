@@ -1,23 +1,23 @@
 vector<int> order_by_points(vector<int> nums){
     if(nums.empty()){
-        return nums;
+        return {};
     }
     
-    vector<pair<int, int>> sum_digits;
+    vector<pair<int, int>> sumDigits;
     for(int i=0; i<nums.size(); i++){
         int num = nums[i];
         int sum = 0;
         while(num != 0){
-            sum += abs(num%10);
+            sum += abs(num % 10);
             num /= 10;
         }
-        sum_digits.push_back(make_pair(sum, i));
+        sumDigits.push_back(make_pair(sum, i));
     }
     
-    sort(sum_digits.begin(), sum_digits.end());
+    sort(sumDigits.begin(), sumDigits.end());
     
     vector<int> result;
-    for(auto pair : sum_digits){
+    for(auto pair : sumDigits){
         result.push_back(nums[pair.second]);
     }
     
