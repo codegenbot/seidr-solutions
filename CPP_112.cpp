@@ -1,33 +1,27 @@
-#include <string>
-#include <cassert>
+#include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
-}
-
-vector<string> reverse_delete(string s, string c);
-
-int main() {
-    // Test case
-    string s = "hello world";
-    string c = "aeiou";
-    vector<string> result = reverse_delete(s, c);
-    assert(issame(result, {"hll wrld", "False"}));
-
-    return 0;
-}
-
-vector<string> reverse_delete(string s, string c) {
-    string result;
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+    std::string result;
     for (int i = 0; i < s.length(); i++) {
-        if (c.find(s[i]) == string::npos) {
+        if (c.find(s[i]) == std::string::npos) {
             result += s[i];
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
+    std::string reversed = result;
+    std::reverse(reversed.begin(), reversed.end());
     bool isPalindrome = (result == reversed);
     return {result, (isPalindrome ? "True" : "False")};
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+
+    return 0;
 }
