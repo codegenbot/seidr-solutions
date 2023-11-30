@@ -6,19 +6,19 @@ def poly(xs: list, x: float):
 
 
 def find_zero(xs: list):
-    return -xs[0] / xs[1]
+    return -xs[1] / xs[0]
 
 
 def read_input():
-    n = int(input("Enter the number of coefficients: "))
-    xs = list(map(float, input("Enter the coefficients: ").split()))
-    x = float(input("Enter the value of x: "))
+    n = int(input())
+    xs = list(map(float, input().split()))
+    x = float(input())
     return n, xs, x
 
 
 def main():
     n, xs, x = read_input()
-    result = find_zero(xs)
+    result = poly(xs, x)
     print(result)
 
 
