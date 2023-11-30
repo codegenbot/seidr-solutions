@@ -1,12 +1,10 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-int specialFilter(vector<int> nums){
+int specialFilter(std::vector<int> nums){
     int count = 0;
     for(int num : nums){
-        string numStr = to_string(abs(num));
+        std::string numStr = std::to_string(std::abs(num));
         if(num > 10 && (numStr[0] - '0') % 2 != 0 && (numStr[numStr.length() - 1] - '0') % 2 != 0){
             count++;
         }
@@ -15,10 +13,8 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    // Test cases
-    vector<int> nums = {12, 23, 34, 45, 56, 67, 78, 89, 90};
+    std::vector<int> nums = {12, -34, 56, -78, 90};
     int result = specialFilter(nums);
-    cout << result << endl;
-
+    std::cout << result << std::endl;
     return 0;
 }
