@@ -8,7 +8,6 @@ string circular_shift(int x, int shift) {
     }
     
     shift %= n;
-    rotate(num.begin(), num.begin() + n - shift, num.end());
-    
-    return num;
+    string result = num.substr(n - shift) + num.substr(0, n - shift);
+    return result;
 }
