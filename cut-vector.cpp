@@ -10,24 +10,23 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
     int index = -1;
 
     int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
-    int leftSum = nums[0];
+    int leftSum = 0;
 
-    for (int i = 0; i < n - 2; i++) {
+    for (int i = 0; i < n; i++) {
+        leftSum += nums[i];
         int rightSum = totalSum - leftSum;
         int currentDiff = std::abs(leftSum - rightSum);
 
-        if (currentDiff <= diff) {
+        if (currentDiff < diff) {
             diff = currentDiff;
             index = i;
         }
-
-        leftSum += nums[i + 1];
     }
 
     if (index == -1) return { nums };
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 2);
-    std::vector<int> rightSubvector(nums.begin() + index + 2, nums.end());
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
+    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
 
     return { leftSubvector, rightSubvector };
 }
