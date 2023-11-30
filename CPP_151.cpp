@@ -1,7 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -13,14 +11,4 @@ long long double_the_difference(vector<float> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    vector<float> lst = {1, 2.5, 3, 4.7, 5.0};
-    long long odd_sum = 9;
-    assert(double_the_difference(lst) == odd_sum);
-
-    cout << "Test passed." << endl;
-
-    return 0;
 }
