@@ -1,12 +1,12 @@
 #include <vector>
 #include <string>
 
-vector<string> reverse_delete(string s,string c){
+vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string res = "";
     
-    for(int i=0; i<s.length(); i++){
-        if(c.find(s[i]) == string::npos){
+    for(int i = 0; i < s.length(); i++) {
+        if(c.find(s[i]) == string::npos) {
             res += s[i];
         }
     }
@@ -16,10 +16,10 @@ vector<string> reverse_delete(string s,string c){
     string rev = res;
     reverse(rev.begin(), rev.end());
     
-    if(res == rev){
+    if(res == rev) {
         result.push_back("True");
     }
-    else{
+    else {
         result.push_back("False");
     }
     
