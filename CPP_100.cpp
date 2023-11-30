@@ -3,9 +3,7 @@
 vector<int> make_a_pile(int n);
 bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b){
-    // implementation here
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> make_a_pile(int n){
     vector<int> levels;
