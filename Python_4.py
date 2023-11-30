@@ -6,6 +6,9 @@ def mean_absolute_deviation(numbers: List[Union[float, int]]) -> float:
     return sum(deviation) / len(deviation)
 
 numbers = input().split(",")
+
 numbers = [float(num.strip()) for num in numbers]
+
 result = mean_absolute_deviation(numbers)
+
 print(result)
