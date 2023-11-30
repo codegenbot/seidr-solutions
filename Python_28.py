@@ -6,7 +6,7 @@ def concatenate(strings):
 
 result = concatenate(strings)
 
-if len(strings) == n:
+if len(strings) == n: 
     print(result)
 else:
-    print("Expected input is not provided. Please provide the correct input format.")
+    print("Incorrect input format")

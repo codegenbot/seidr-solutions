@@ -1,6 +1,7 @@
 from typing import List, Tuple
 
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
+def sum_product() -> Tuple[int, int]:
+    numbers = list(map(int, input().strip().split()))
     sum_result = 0
     product_result = 1
     for number in numbers:
