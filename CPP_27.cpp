@@ -1,12 +1,13 @@
+#include <string>
+
 string flip_case(string str){
-    string result = "";
     for(int i=0; i<str.length(); i++){
         if(islower(str[i])){
-            result += toupper(str[i]);
+            str[i] = toupper(str[i]);
         }
-        else{
-            result += tolower(str[i]);
+        else if(isupper(str[i])){
+            str[i] = tolower(str[i]);
         }
     }
-    return result;
+    return str;
 }
