@@ -3,43 +3,33 @@ vector<string> split_words(string txt){
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-    
-    for(int i=0; i<txt.length(); i++){
-        if(txt[i] == ' '){
-            result.push_back(word);
-            word = "";
-            hasWhitespace = true;
-        }
-        else if(txt[i] == ','){
-            result.push_back(word);
-            word = "";
-            hasComma = true;
-        }
-        else{
-            word += txt[i];
-        }
-    }
-    
-    result.push_back(word);
-    
-    if(!hasWhitespace && !hasComma){
-        string count = to_string(count_odd_letters(word));
-        result.clear();
-        result.push_back(count);
-    }
-    
-    return result;
-}
 
-int count_odd_letters(string word){
-    int count = 0;
-    for(int i=0; i<word.length(); i++){
-        if(islower(word[i])){
-            int letterOrder = word[i] - 'a';
-            if(letterOrder % 2 == 1){
-                count++;
+    for (char c : txt) {
+        if (c == ' ') {
+            hasWhitespace = true;
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
             }
+        } else if (c == ',') {
+            hasComma = true;
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
         }
     }
-    return count;
+
+    if (!word.empty()) {
+        result.push_back(word);
+    }
+
+    if (!hasWhitespace && !hasComma) {
+        result.clear();
+        result.push_back(to_string(countOddAlphabetLetters(txt)));
+    }
+
+    return result;
 }
