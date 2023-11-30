@@ -1,6 +1,5 @@
 from typing import List
 
-
 def filter_integers(values: List[str]) -> List[int]:
     filtered_values = []
     for value in values:
@@ -9,7 +8,6 @@ def filter_integers(values: List[str]) -> List[int]:
         except ValueError:
             pass
     return filtered_values
-
 
 if __name__ == "__main__":
     values = input().split()
