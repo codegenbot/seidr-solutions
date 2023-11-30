@@ -33,11 +33,9 @@ string solve(string s){
 
 int main() {
     string s;
-    cout << "Enter a string: ";
     cin >> s;
 
-    string result = solve(s);
-    cout << "Output: " << result << endl;
+    cout << solve(s) << endl;
 
     return 0;
 }
