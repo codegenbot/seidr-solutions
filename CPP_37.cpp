@@ -6,12 +6,10 @@ vector<float> sort_even(vector<float> l){
         }
     }
     sort(l_prime.begin(), l_prime.end());
-    int j = 0;
     for(int i=0; i<l.size(); i++){
-        if(i%2 == 0){
-            l[i] = l_prime[j];
-            j++;
+        if(i%2 != 0){
+            l_prime.insert(l_prime.begin()+i, l[i]);
         }
     }
-    return l;
+    return l_prime;
 }
