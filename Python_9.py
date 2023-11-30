@@ -8,6 +8,15 @@ def rolling_max(numbers: List[int]) -> List[int]:
         max_numbers.append(current_max)
     return max_numbers
 
-input_numbers = list(map(int, input().split()))
+input_numbers = []
+while True:
+    try:
+        num = int(input())
+        if num == "":
+            break
+        input_numbers.append(num)
+    except EOFError:
+        break
+
 result = rolling_max(input_numbers)
 print(result)
