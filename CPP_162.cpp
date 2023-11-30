@@ -9,23 +9,19 @@ string string_to_md5(string text) {
         return "None";
     }
 
-    EVP_MD_CTX* ctx;
-    const EVP_MD* md;
+    EVP_MD_CTX* md_ctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(md_ctx, EVP_md5(), NULL);
+    EVP_DigestUpdate(md_ctx, text.c_str(), text.length());
+
     unsigned char digest[MD5_DIGEST_LENGTH];
+    EVP_DigestFinal_ex(md_ctx, digest, NULL);
 
-    md = EVP_md5();
-    ctx = EVP_MD_CTX_new();
+    EVP_MD_CTX_free(md_ctx);
 
-    EVP_DigestInit_ex(ctx, md, NULL);
-    EVP_DigestUpdate(ctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(ctx, digest, NULL);
-
-    EVP_MD_CTX_free(ctx);
-
-    char md5String[33];
-    for (int i = 0; i < 16; i++) {
-        sprintf(&md5String[i * 2], "%02x", (unsigned int)digest[i]);
+    char md5hash[33];
+    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        sprintf(&md5hash[i*2], "%02x", (unsigned int)digest[i]);
     }
 
-    return string(md5String);
+    return string(md5hash);
 }
