@@ -1,21 +1,19 @@
 vector<int> sort_third(vector<int> l){
     vector<int> result = l;
-    vector<int> temp;
+    vector<int> thirdIndices;
     
-    for(int i = 0; i < l.size(); i++){
-        if(i % 3 == 0){
-            temp.push_back(l[i]);
+    for (int i = 0; i < l.size(); i++){
+        if (i % 3 == 0){
+            thirdIndices.push_back(i);
         }
     }
     
-    sort(temp.begin(), temp.end());
+    sort(thirdIndices.begin(), thirdIndices.end(), [&](int a, int b){
+        return l[a] < l[b];
+    });
     
-    int j = 0;
-    for(int i = 0; i < l.size(); i++){
-        if(i % 3 == 0){
-            result[i] = temp[j];
-            j++;
-        }
+    for (int i = 0; i < thirdIndices.size(); i++){
+        result[thirdIndices[i]] = l[thirdIndices[i]];
     }
     
     return result;
