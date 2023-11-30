@@ -8,7 +8,6 @@ def read_input():
 def find_zero(coeffs, x):
     eps = 1e-9
     max_iter = 1000
-
     guess = x
 
     for _ in range(max_iter):
