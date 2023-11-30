@@ -2,7 +2,9 @@
 #include <string>
 #include <cmath>
 
-int calculateExpression(vector<string> operato, vector<int> operand){
+using namespace std;
+
+int do_algebra(vector<string> operato, vector<int> operand){
     int result = operand[0];
     
     for(int i = 0; i < operato.size(); i++){
@@ -24,9 +26,4 @@ int calculateExpression(vector<string> operato, vector<int> operand){
     }
     
     return result;
-}
-
-int main() {
-    assert (calculateExpression({"//", "*"}, {7, 3, 4}) == 8);
-    return 0;
 }
