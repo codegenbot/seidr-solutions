@@ -5,12 +5,14 @@ string rounded_avg(int n, int m) {
     
     int sum = 0;
     int count = 0;
+    
     for (int i = n; i <= m; i++) {
         sum += i;
         count++;
     }
     
     int avg = round(sum / count);
+    
     string binary = "";
     
     while (avg > 0) {
