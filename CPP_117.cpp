@@ -1,31 +1,38 @@
-vector<string> select_words(string s, int n) {
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+vector<string> select_words(string s,int n){
     vector<string> result;
     string word = "";
-    int consonantCount = 0;
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] != ' ') {
-            word += s[i];
-            if (isConsonant(s[i])) {
-                consonantCount++;
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' '){
+            // Check if the current word has exactly n consonants
+            int consonantCount = 0;
+            for(int j=0; j<word.length(); j++){
+                if(word[j] != 'a' && word[j] != 'e' && word[j] != 'i' && word[j] != 'o' && word[j] != 'u' && word[j] != 'A' && word[j] != 'E' && word[j] != 'I' && word[j] != 'O' && word[j] != 'U'){
+                    consonantCount++;
+                }
             }
-        } else {
-            if (consonantCount == n) {
+            if(consonantCount == n){
                 result.push_back(word);
             }
             word = "";
-            consonantCount = 0;
+        }
+        else{
+            word += s[i];
         }
     }
-    
-    if (consonantCount == n) {
+    // Check the last word in the string
+    int consonantCount = 0;
+    for(int j=0; j<word.length(); j++){
+        if(word[j] != 'a' && word[j] != 'e' && word[j] != 'i' && word[j] != 'o' && word[j] != 'u' && word[j] != 'A' && word[j] != 'E' && word[j] != 'I' && word[j] != 'O' && word[j] != 'U'){
+            consonantCount++;
+        }
+    }
+    if(consonantCount == n){
         result.push_back(word);
     }
-    
     return result;
-}
-
-bool isConsonant(char c) {
-    c = tolower(c);
-    return (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u');
 }
