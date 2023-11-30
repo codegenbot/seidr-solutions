@@ -8,12 +8,18 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
     int diff = INT_MAX;
     int index = -1;
 
-    int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
-    int leftSum = 0;
+    for (int i = 1; i < n - 1; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
 
-    for (int i = 0; i < n - 1; i++) {
-        leftSum += nums[i];
-        int rightSum = totalSum - leftSum;
+        for (int j = 0; j < i - 1; j++) {
+            leftSum += nums[j];
+        }
+
+        for (int j = i + 1; j < n; j++) {
+            rightSum += nums[j];
+        }
+
         int currentDiff = std::abs(leftSum - rightSum);
 
         if (currentDiff < diff) {
@@ -24,7 +30,7 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
 
     if (index == -1) return { nums };
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
     std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
 
     return { leftSubvector, rightSubvector };
@@ -33,7 +39,7 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
 int main() {
     int n;
     std::cin >> n;
-  
+
     std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
