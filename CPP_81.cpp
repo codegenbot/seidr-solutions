@@ -2,16 +2,7 @@
 #include <string>
 
 vector<string> numerical_letter_grade(vector<float> grades);
-
-int main() {
-    // Test the numerical_letter_grade function
-    vector<float> grades = {3.8, 2.5, 4.0, 1.7};
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    for (string letter_grade : letter_grades) {
-        cout << letter_grade << endl;
-    }
-    return 0;
-}
+int main();
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
