@@ -1,23 +1,23 @@
 string find_max(vector<string> words){
     string maxWord = "";
     int maxUnique = 0;
-    
-    for (string word : words) {
-        int uniqueChars = 0;
-        bool chars[26] = {false};
-        
-        for (char c : word) {
-            if (!chars[c - 'a']) {
-                chars[c - 'a'] = true;
-                uniqueChars++;
+
+    for(const string& word : words){
+        int unique = 0;
+        vector<bool> visited(26, false);
+
+        for(char ch : word){
+            if(!visited[ch - 'a']){
+                visited[ch - 'a'] = true;
+                unique++;
             }
         }
-        
-        if (uniqueChars > maxUnique || (uniqueChars == maxUnique && word < maxWord)) {
+
+        if(unique > maxUnique || (unique == maxUnique && word < maxWord)){
+            maxUnique = unique;
             maxWord = word;
-            maxUnique = uniqueChars;
         }
     }
-    
+
     return maxWord;
 }
