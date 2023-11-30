@@ -5,8 +5,7 @@ string encrypt(string s){
         if(isalpha(c)){
             if(islower(c)){
                 c = (c - 'a' + 2*2) % 26 + 'a';
-            }
-            else{
+            } else {
                 c = (c - 'A' + 2*2) % 26 + 'A';
             }
         }
