@@ -1,26 +1,29 @@
-vector<int> order_by_points(vector<int> nums){
-    for (int i = 0; i < nums.size()-1; i++) {
-        for (int j = 0; j < nums.size()-i-1; j++) {
-            int sum_of_digits1 = 0;
-            int sum_of_digits2 = 0;
-            int temp1 = nums[j];
-            int temp2 = nums[j+1];
-            
-            while (temp1 != 0) {
-                sum_of_digits1 += abs(temp1 % 10);
-                temp1 /= 10;
-            }
-            
-            while (temp2 != 0) {
-                sum_of_digits2 += abs(temp2 % 10);
-                temp2 /= 10;
-            }
-            
-            if (sum_of_digits1 > sum_of_digits2 || (sum_of_digits1 == sum_of_digits2 && j > j+1)) {
-                swap(nums[j], nums[j+1]);
-            }
+vector<int> order_by_points(vector<int> nums) {
+    vector<pair<int, int>> sums;
+    
+    // Calculate the sum of digits for each number and store it along with the index
+    for (int i = 0; i < nums.size(); i++) {
+        int sum = 0;
+        int num = nums[i];
+        
+        // Calculate the sum of digits
+        while (num != 0) {
+            sum += abs(num % 10);
+            num /= 10;
         }
+        
+        sums.push_back(make_pair(sum, i));
     }
     
-    return nums;
+    // Sort the sums vector in ascending order
+    sort(sums.begin(), sums.end());
+    
+    vector<int> result;
+    
+    // Build the result vector based on the sorted sums
+    for (auto pair : sums) {
+        result.push_back(nums[pair.second]);
+    }
+    
+    return result;
 }
