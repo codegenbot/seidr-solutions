@@ -27,7 +27,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
     vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
     
-    return {subvector1, subvector2};
+    return vector<vector<int>>{subvector1, subvector2};
 }
 
 int main() {
@@ -41,10 +41,11 @@ int main() {
     
     vector<vector<int>> result = cutVector(nums);
     for (int i = 0; i < result[0].size(); i++) {
-        cout << result[0][i] << endl;
+        cout << result[0][i] << " ";
     }
+    cout << endl;
     for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1][i] << endl;
+        cout << result[1][i] << " ";
     }
     
     return 0;
