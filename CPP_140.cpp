@@ -6,7 +6,6 @@ string fix_spaces(string text){
             consecutiveSpaces++;
             if(consecutiveSpaces > 2){
                 result += "-";
-                consecutiveSpaces = 1;
             }else{
                 result += "_";
             }
