@@ -12,7 +12,7 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
     int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
     int leftSum = 0;
 
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         int rightSum = totalSum - leftSum;
         int currentDiff = std::abs(leftSum - rightSum);
@@ -23,7 +23,7 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
         }
     }
 
-    if (index == -1) return { nums };
+    if (index == -1 || index == n - 1) return { nums };
 
     std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
     std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
@@ -34,7 +34,7 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
 int main() {
     int n;
     std::cin >> n;
-  
+
     std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
