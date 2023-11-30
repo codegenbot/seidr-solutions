@@ -10,11 +10,3 @@ int specialFilter(std::vector<int> nums){
     }
     return count;
 }
-
-#include <cassert>
-
-int main() {
-    assert(specialFilter({}) == 0);
-    // Add more test cases here
-    return 0;
-}
