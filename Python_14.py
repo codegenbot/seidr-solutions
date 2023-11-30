@@ -1,9 +1,10 @@
 from typing import List
 
-
-def all_prefixes() -> List[str]:
-    string = input()
+def all_prefixes(string: str) -> List[str]:
     prefixes = []
     for i in range(1, len(string) + 1):
         prefixes.append(string[:i])
     return prefixes
+
+user_input = input("Enter a string: ")
+print(all_prefixes(user_input))
