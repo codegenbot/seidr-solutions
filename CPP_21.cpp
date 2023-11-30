@@ -12,10 +12,12 @@ vector<float> rescale_to_unit(vector<float> numbers){
         }
     }
     
-    // Apply linear transform to each number in the vector
+    // Apply linear transform to rescale the vector
+    vector<float> rescaled_numbers;
     for(int i=0; i<numbers.size(); i++){
-        numbers[i] = (numbers[i] - min_num) / (max_num - min_num);
+        float rescaled_num = (numbers[i] - min_num) / (max_num - min_num);
+        rescaled_numbers.push_back(rescaled_num);
     }
     
-    return numbers;
+    return rescaled_numbers;
 }
