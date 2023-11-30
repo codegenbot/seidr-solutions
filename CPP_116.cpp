@@ -1,11 +1,21 @@
-vector<int> sort_vector(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        int count_a = __builtin_popcount(a);
-        int count_b = __builtin_popcount(b);
-        if(count_a == count_b) {
-            return a < b;
+vector<int> sort_array(vector<int> arr){
+    sort(arr.begin(), arr.end(), [](const int& a, const int& b) {
+        int countA = 0, countB = 0;
+        int tempA = a, tempB = b;
+        
+        while (tempA != 0) {
+            if (tempA % 2 == 1) countA++;
+            tempA /= 2;
         }
-        return count_a < count_b;
+        
+        while (tempB != 0) {
+            if (tempB % 2 == 1) countB++;
+            tempB /= 2;
+        }
+        
+        if (countA == countB) return a < b;
+        return countA < countB;
     });
+    
     return arr;
 }
