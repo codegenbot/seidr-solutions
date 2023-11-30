@@ -7,14 +7,14 @@ bool cycpattern_check(string a, string b) {
     }
 
     for (int i = 0; i < n; i++) {
-        bool isRotation = true;
+        bool flag = true;
         for (int j = 0; j < m; j++) {
             if (a[(i + j) % n] != b[j]) {
-                isRotation = false;
+                flag = false;
                 break;
             }
         }
-        if (isRotation) {
+        if (flag) {
             return true;
         }
     }
