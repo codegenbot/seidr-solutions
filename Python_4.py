@@ -1,3 +1,2 @@
-import sys
-
-numbers = list(map(int, sys.stdin.readline().strip().split()))
+def get_numbers():
+    return list(map(int, input().split()))
