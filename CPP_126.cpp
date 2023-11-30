@@ -1,25 +1,26 @@
 bool is_sorted(vector<int> lst){
-    if(lst.size() <= 1){
+    if (lst.size() <= 1) {
         return true;
     }
     
     int prev = lst[0];
-    int count = 1;
+    bool hasDuplicate = false;
     
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] < prev){
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] <= prev) {
             return false;
         }
-        else if(lst[i] == prev){
-            count++;
-            if(count > 1){
+        
+        if (lst[i] == lst[i-1]) {
+            if (hasDuplicate) {
                 return false;
             }
+            hasDuplicate = true;
+        } else {
+            hasDuplicate = false;
         }
-        else{
-            prev = lst[i];
-            count = 1;
-        }
+        
+        prev = lst[i];
     }
     
     return true;
