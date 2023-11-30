@@ -1,39 +1,34 @@
-vector<string> split_words(string txt) {
+vector<string> split_words(string txt){
     vector<string> result;
-    string word;
+    string word = "";
     bool hasWhitespace = false;
-    bool hasComma = false;
     
-    for (char c : txt) {
-        if (c == ' ') {
-            if (!word.empty()) {
+    for(char c : txt){
+        if(c == ' '){
+            if(word != ""){
                 result.push_back(word);
-                word.clear();
+                word = "";
             }
             hasWhitespace = true;
-        } else if (c == ',') {
-            if (!word.empty()) {
+        }
+        else if(c == ','){
+            if(word != ""){
                 result.push_back(word);
-                word.clear();
+                word = "";
             }
-            hasComma = true;
-        } else {
+            result.push_back(",");
+        }
+        else{
             word += c;
         }
     }
     
-    if (!word.empty()) {
+    if(word != ""){
         result.push_back(word);
     }
     
-    if (result.empty()) {
-        if (hasWhitespace) {
-            return split_words("3");
-        } else if (hasComma) {
-            return split_words("3");
-        } else {
-            result.push_back("3");
-        }
+    if(result.empty()){
+        result.push_back(to_string(3));
     }
     
     return result;
