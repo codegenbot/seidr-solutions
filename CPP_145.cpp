@@ -1,19 +1,28 @@
-vector<int> order_by_points(vector<int> nums){
-    vector<pair<int, int>> sums;
-    for(int i=0; i<nums.size(); i++){
-        int sum = 0;
-        int num = nums[i];
-        while(num != 0){
-            sum += abs(num % 10);
-            num /= 10;
-        }
-        sums.push_back(make_pair(sum, i));
-    }
-    sort(sums.begin(), sums.end());
+#include <algorithm>
+#include <vector>
 
-    vector<int> result;
-    for(int i=0; i<sums.size(); i++){
-        result.push_back(nums[sums[i].second]);
+bool compare(int a, int b) {
+    int sumA = 0, sumB = 0;
+    int tempA = abs(a), tempB = abs(b);
+
+    while (tempA > 0) {
+        sumA += tempA % 10;
+        tempA /= 10;
     }
-    return result;
+
+    while (tempB > 0) {
+        sumB += tempB % 10;
+        tempB /= 10;
+    }
+
+    if (sumA == sumB) {
+        return a < b;
+    }
+
+    return sumA < sumB;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
+    return nums;
 }
