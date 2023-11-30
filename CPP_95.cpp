@@ -2,22 +2,25 @@ bool check_dict_case(map<string,string> dict){
     if(dict.empty()){
         return false;
     }
-
-    bool isLowerCase = true;
-    bool isUpperCase = true;
-
-    for(auto it = dict.begin(); it != dict.end(); ++it){
-        string key = it->first;
+    
+    bool isLower = true;
+    bool isUpper = true;
+    
+    for(auto& entry : dict){
+        string key = entry.first;
         
-        for(char c : key){
-            if(isupper(c)){
-                isLowerCase = false;
-            }
-            if(islower(c)){
-                isUpperCase = false;
-            }
+        if(key != toLowerCase(key)){
+            isLower = false;
+        }
+        
+        if(key != toUpperCase(key)){
+            isUpper = false;
+        }
+        
+        if(!isLower && !isUpper){
+            return false;
         }
     }
-
-    return isLowerCase || isUpperCase;
+    
+    return true;
 }
