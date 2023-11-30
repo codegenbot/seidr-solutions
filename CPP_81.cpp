@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
@@ -40,20 +41,25 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) return false;
+    if(a.size() != b.size())
+        return false;
+        
     for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
+        if(a[i] != b[i])
+            return false;
     }
+    
     return true;
 }
 
 int main(){
-    assert (issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
-    assert (issame(numerical_letter_grade({1.0, 1.3}) , {"D+", "D"}));
-    assert (issame(numerical_letter_grade({2.7, 2.3, 2.0}) , {"B", "B-", "C+"}));
-    assert (issame(numerical_letter_grade({3.7, 4.0}) , {"A", "A+"}));
-
-    cout << "All test cases passed!" << endl;
-
+    assert(issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
+    assert(issame(numerical_letter_grade({1.0, 1.3, 1.7}) , {"D+", "C-", "C"}));
+    assert(issame(numerical_letter_grade({2.0, 2.3, 2.7}) , {"C+", "B-", "B"}));
+    assert(issame(numerical_letter_grade({3.0, 3.3, 3.7}) , {"B+", "A-", "A"}));
+    assert(issame(numerical_letter_grade({4.0}) , {"A+"}));
+    
+    cout << "All tests passed!" << endl;
+    
     return 0;
 }
