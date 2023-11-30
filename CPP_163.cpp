@@ -1,17 +1,19 @@
-#include <vector>  // Include the vector header
+#include <vector>
+#include <cassert>
 
-using namespace std;  // Use the std namespace
+using namespace std;
 
-// Declare the issame function before using it
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
+    
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
