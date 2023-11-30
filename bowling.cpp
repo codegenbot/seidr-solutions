@@ -1,3 +1,4 @@
+'''
 #include <iostream>
 #include <string>
 
@@ -18,7 +19,12 @@ int calculateScore(const std::string& bowls) {
 
             if (frame < 10) {
                 score += (bowls[i + 1] == 'X') ? 10 : (isdigit(bowls[i + 1])) ? (bowls[i + 1] - '0') : 0;
-                score += (bowls[i + 2] == 'X') ? 10 : (isdigit(bowls[i + 2])) ? (bowls[i + 2] - '0') : 0;
+
+                if (bowls[i + 1] != 'X' && bowls[i + 2] != '/') {
+                    score += (isdigit(bowls[i + 2])) ? (bowls[i + 2] - '0') : 0;
+                } else {
+                    score += 10;
+                }
             }
 
             bowlIndex++;
@@ -33,10 +39,7 @@ int calculateScore(const std::string& bowls) {
             bowlIndex++;
         } else if (bowl == '/') {
             score += (10 - (bowls[i - 1] - '0'));
-
-            if (frame < 10) {
-                score += (bowls[i + 1] == 'X') ? 10 : (isdigit(bowls[i + 1])) ? (bowls[i + 1] - '0') : 0;
-            }
+            score += (isdigit(bowls[i + 1])) ? (bowls[i + 1] - '0') : 0;
 
             bowlIndex++;
             frame++;
@@ -55,3 +58,4 @@ int main() {
 
     return 0;
 }
+'''
