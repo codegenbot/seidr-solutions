@@ -23,7 +23,6 @@ int getScore(const std::string& bowls) {
             score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
             frame++;
         } else if (bowls[i] == '-') {
-            // do nothing
         } else {
             score += (bowls[i] - '0');
             if (bowl == 1) {
