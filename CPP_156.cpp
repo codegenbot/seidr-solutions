@@ -1,7 +1,16 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
+
+string int_to_mini_roman(int number);
+
+int main() {
+    assert(int_to_mini_roman(1000) == "m");
+
+    return 0;
+}
 
 string int_to_mini_roman(int number) {
     vector<int> nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
@@ -15,9 +24,4 @@ string int_to_mini_roman(int number) {
         }
     }
     return result;
-}
-
-int main() {
-    assert (int_to_mini_romank(1000) == "m");
-    return 0;
 }
