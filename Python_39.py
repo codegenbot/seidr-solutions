@@ -15,18 +15,11 @@ def prime_fib(n: int):
         elif n == 2:
             return [0, 1]
         else:
-            fib_sequence = [0, 1]
-            while len(fib_sequence) <= n:
-                next_num = fib_sequence[-1] + fib_sequence[-2]
-                fib_sequence.append(next_num)
-            return fib_sequence
+            fib_seq = [0, 1]
+            while len(fib_seq) < n:
+                fib_seq.append(fib_seq[-1] + fib_seq[-2])
+            return fib_seq[:n]
 
-    fib_sequence = fibonacci(n)
-    prime_fib_numbers = []
-    count = 0
-    for num in fib_sequence:
-        if is_prime(num):
-            count += 1
-            if count == n:
-                return num
-    return None
+    fib_seq = fibonacci(n)
+    prime_fib_seq = [num for num in fib_seq if is_prime(num)]
+    return sum(prime_fib_seq)
