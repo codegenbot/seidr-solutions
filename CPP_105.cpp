@@ -40,6 +40,6 @@ bool issame(vector<string> a, vector<string> b){
 vector<string> by_length(vector<int> arr);
 
 int main() {
-    // main function code here
+    // main function implementation
     return 0;
 }
