@@ -1,17 +1,25 @@
 vector<int> parse_music(string music_string){
     vector<int> beats;
-    int i = 0;
-    while (i < music_string.size()) {
-        if (music_string[i] == 'o') {
+    string delimiter = " ";
+    size_t pos = 0;
+    string token;
+    while ((pos = music_string.find(delimiter)) != string::npos) {
+        token = music_string.substr(0, pos);
+        if (token == "o") {
             beats.push_back(4);
-            i += 2;
-        } else if (music_string[i] == '|') {
+        } else if (token == "o|") {
             beats.push_back(2);
-            i += 2;
-        } else if (music_string[i] == '.') {
+        } else if (token == ".|") {
             beats.push_back(1);
-            i += 2;
         }
+        music_string.erase(0, pos + delimiter.length());
+    }
+    if (music_string == "o") {
+        beats.push_back(4);
+    } else if (music_string == "o|") {
+        beats.push_back(2);
+    } else if (music_string == ".|") {
+        beats.push_back(1);
     }
     return beats;
 }
