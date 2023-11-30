@@ -4,6 +4,8 @@ def minPath(grid, k):
             return None
         if remain == 0:
             return path
+        if (i, j) in visited:
+            return None
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
         for di, dj in directions:
             ni, nj = i + di, j + dj
@@ -12,7 +14,6 @@ def minPath(grid, k):
                 and 0 <= nj < len(grid[0])
                 and grid[ni][nj] != -1
                 and (ni, nj) not in visited
-                and (ni, nj) not in path
             ):
                 new_visited = visited.copy()
                 new_visited.add((ni, nj))
