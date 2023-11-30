@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 double calculateSnow(double hours, double snowOnGround, double snowFallRate, double snowMeltRate) {
     for (double i = 0; i < hours + 0.0001; i++) {
         double snowMelted = snowOnGround * snowMeltRate;
@@ -7,6 +8,7 @@ double calculateSnow(double hours, double snowOnGround, double snowFallRate, dou
     }
     return snowOnGround;
 }
+
 int main() {
     double hours, snowOnGround, snowFallRate, snowMeltRate;
     cin >> hours >> snowOnGround >> snowFallRate >> snowMeltRate;
