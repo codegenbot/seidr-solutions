@@ -1,65 +1,79 @@
-#include <boost/lexical_cast.hpp>
+#include <iostream>
+#include <string>
+#include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int int_a = boost::any_cast<int>(a);
-        int int_b = boost::any_cast<int>(b);
-        if (int_a > int_b) {
-            return int_a;
-        } else if (int_b > int_a) {
-            return int_b;
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num1 < num2) {
+            return num2;
         } else {
             return "None";
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float float_a = boost::any_cast<float>(a);
-        float float_b = boost::any_cast<float>(b);
-        if (float_a > float_b) {
-            return float_a;
-        } else if (float_b > float_a) {
-            return float_b;
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num1 < num2) {
+            return num2;
         } else {
             return "None";
         }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string string_a = boost::any_cast<string>(a);
-        string string_b = boost::any_cast<string>(b);
-        string_a.erase(remove(string_a.begin(), string_a.end(), ','), string_a.end());
-        string_b.erase(remove(string_b.begin(), string_b.end(), ','), string_b.end());
-        float float_a = boost::lexical_cast<float>(string_a);
-        float float_b = boost::lexical_cast<float>(string_b);
-        if (float_a > float_b) {
-            return string_a;
-        } else if (float_b > float_a) {
-            return string_b;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str1 = boost::any_cast<std::string>(a);
+        std::string str2 = boost::any_cast<std::string>(b);
+        float num1 = std::stof(str1);
+        float num2 = std::stof(str2);
+        if (num1 > num2) {
+            return str1;
+        } else if (num1 < num2) {
+            return str2;
         } else {
             return "None";
         }
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int int_a = boost::any_cast<int>(a);
-        string string_b = boost::any_cast<string>(b);
-        string_b.erase(remove(string_b.begin(), string_b.end(), ','), string_b.end());
-        float float_b = boost::lexical_cast<float>(string_b);
-        if (int_a > float_b) {
-            return int_a;
-        } else if (float_b > int_a) {
-            return string_b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int num1 = boost::any_cast<int>(a);
+        std::string str2 = boost::any_cast<std::string>(b);
+        float num2 = std::stof(str2);
+        if (num1 > num2) {
+            return num1;
+        } else if (num1 < num2) {
+            return str2;
         } else {
             return "None";
         }
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string string_a = boost::any_cast<string>(a);
-        int int_b = boost::any_cast<int>(b);
-        string_a.erase(remove(string_a.begin(), string_a.end(), ','), string_a.end());
-        float float_a = boost::lexical_cast<float>(string_a);
-        if (float_a > int_b) {
-            return string_a;
-        } else if (int_b > float_a) {
-            return int_b;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        std::string str1 = boost::any_cast<std::string>(a);
+        int num2 = boost::any_cast<int>(b);
+        float num1 = std::stof(str1);
+        if (num1 > num2) {
+            return str1;
+        } else if (num1 < num2) {
+            return num2;
         } else {
             return "None";
         }
     } else {
         return "None";
     }
+}
+
+int main() {
+    boost::any result = compare_one(1, 2.5);
+    std::cout << boost::any_cast<float>(result) << std::endl;
+
+    result = compare_one(1, "2,3");
+    std::cout << boost::any_cast<std::string>(result) << std::endl;
+
+    result = compare_one("5,1", "6");
+    std::cout << boost::any_cast<std::string>(result) << std::endl;
+
+    result = compare_one("1", 1);
+    std::cout << boost::any_cast<std::string>(result) << std::endl;
+
+    return 0;
 }
