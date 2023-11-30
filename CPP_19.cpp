@@ -1,38 +1,30 @@
 string sort_numbers(string numbers){
-    map<string, int> numMap;
-    numMap["zero"] = 0;
-    numMap["one"] = 1;
-    numMap["two"] = 2;
-    numMap["three"] = 3;
-    numMap["four"] = 4;
-    numMap["five"] = 5;
-    numMap["six"] = 6;
-    numMap["seven"] = 7;
-    numMap["eight"] = 8;
-    numMap["nine"] = 9;
+    map<string, int> numberMap;
+    numberMap["zero"] = 0;
+    numberMap["one"] = 1;
+    numberMap["two"] = 2;
+    numberMap["three"] = 3;
+    numberMap["four"] = 4;
+    numberMap["five"] = 5;
+    numberMap["six"] = 6;
+    numberMap["seven"] = 7;
+    numberMap["eight"] = 8;
+    numberMap["nine"] = 9;
 
-    vector<int> numList;
-    string num;
-    for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
-            numList.push_back(numMap[num]);
-            num = "";
-        } else {
-            num += numbers[i];
-        }
+    vector<string> numberList;
+    stringstream ss(numbers);
+    string number;
+    while (ss >> number) {
+        numberList.push_back(number);
     }
-    numList.push_back(numMap[num]);
 
-    sort(numList.begin(), numList.end());
+    sort(numberList.begin(), numberList.end(), [&](const string& a, const string& b) {
+        return numberMap[a] < numberMap[b];
+    });
 
-    string sortedNumbers = "";
-    for (int i = 0; i < numList.size(); i++) {
-        for (auto it = numMap.begin(); it != numMap.end(); it++) {
-            if (it->second == numList[i]) {
-                sortedNumbers += it->first + " ";
-                break;
-            }
-        }
+    string sortedNumbers;
+    for (const string& num : numberList) {
+        sortedNumbers += num + " ";
     }
 
     return sortedNumbers;
