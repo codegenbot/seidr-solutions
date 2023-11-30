@@ -19,4 +19,5 @@ while True:
         break
 
 result = below_zero(operations)
+
 print(result)
