@@ -12,9 +12,9 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
 # User input
 numbers = []
-n = int(input())  # Read the number of elements first
+n = int(input())
 for _ in range(n):
-    numbers.append(float(input()))  # Read each element on a new line
+    numbers.append(float(input()))
 
 # Call the function and print the result
 result = find_closest_elements(numbers)
