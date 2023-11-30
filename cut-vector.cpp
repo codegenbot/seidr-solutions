@@ -9,21 +9,21 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
         rightSum += nums[i];
     }
     
-    int diff = INT_MAX;
-    int cutIndex = -1;
+    int minDiff = abs(leftSum - rightSum);
+    int cutIndex = 0;
     
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
-        int currentDiff = abs(leftSum - rightSum);
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            cutIndex = i;
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i + 1;
         }
     }
     
-    vector<int> left(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> right(nums.begin() + cutIndex + 1, nums.end());
+    vector<int> left(nums.begin(), nums.begin() + cutIndex);
+    vector<int> right(nums.begin() + cutIndex, nums.end());
     
     return make_pair(left, right);
 }
