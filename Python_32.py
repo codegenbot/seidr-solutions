@@ -1,25 +1,18 @@
-import sys
-
-
 def read_input():
-    try:
-        n = int(input())
-        coeffs = list(map(float, input().split()))
-        x = float(input())
-        return coeffs, x
-    except ValueError:
-        print("Program did not receive expected input", file=sys.stderr)
-        return [], 0.0
+    n = int(input())
+    coeffs = list(map(float, input().split()))
+    x = float(input())
+    return coeffs, x
 
 
 def find_zero(coeffs, x):
     eps = 1e-9
     max_iter = 1000
-
     guess = x
 
     for _ in range(max_iter):
         f = 0.0
+
         for i in range(len(coeffs) - 1, -1, -1):
             f = f * guess + coeffs[i]
 
