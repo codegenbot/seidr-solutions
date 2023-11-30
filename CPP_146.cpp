@@ -17,11 +17,13 @@ int main() {
     assert(specialFilter({}) == 0);
     assert(specialFilter({1, 2, 3, 4, 5}) == 0);
     assert(specialFilter({12, 23, 34, 45, 56}) == 0);
-    assert(specialFilter({11, 22, 33, 44, 55}) == 5);
-    assert(specialFilter({-11, -22, -33, -44, -55}) == 5);
-    assert(specialFilter({-11, 22, -33, 44, -55}) == 5);
-    assert(specialFilter({-11, -22, 33, 44, -55}) == 5);
-    assert(specialFilter({-11, -22, -33, 44, 55}) == 5);
+    assert(specialFilter({11, 22, 33, 44, 55}) == 0);
+    assert(specialFilter({13, 24, 35, 46, 57}) == 5);
+    assert(specialFilter({-13, -24, -35, -46, -57}) == 5);
+    assert(specialFilter({-12, -23, -34, -45, -56}) == 0);
+    assert(specialFilter({-11, -22, -33, -44, -55}) == 0);
+    assert(specialFilter({-13, 24, -35, 46, -57}) == 5);
+    assert(specialFilter({-13, -24, 35, -46, 57}) == 5);
 
     return 0;
 }
