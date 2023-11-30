@@ -29,6 +29,7 @@ def find_zero(coeffs, x):
 
     return None
 
+
 coeffs, x = read_input()
 result = find_zero(coeffs, x)
 print(result)
