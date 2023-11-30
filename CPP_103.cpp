@@ -1,20 +1,20 @@
-string rounded_avg(int n, int m) {
+#include <string>
+#include <cmath>
+
+std::string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
     
     int sum = 0;
+    int count = 0;
+    
     for (int i = n; i <= m; i++) {
         sum += i;
+        count++;
     }
     
-    int avg = sum / (m - n + 1);
+    int average = round(sum / count);
     
-    string binary = "";
-    while (avg > 0) {
-        binary = to_string(avg % 2) + binary;
-        avg /= 2;
-    }
-    
-    return binary;
+    return std::bitset<32>(average).to_string();
 }
