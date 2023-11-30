@@ -1,24 +1,22 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
+
+int sumOfDigits(int num) {
+    int sum = 0;
+    while (num != 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
 
 bool compare(int a, int b) {
-    int sumA = 0, sumB = 0;
-    int tempA = abs(a), tempB = abs(b);
-    
-    while (tempA > 0) {
-        sumA += tempA % 10;
-        tempA /= 10;
-    }
-    
-    while (tempB > 0) {
-        sumB += tempB % 10;
-        tempB /= 10;
-    }
-    
+    int sumA = sumOfDigits(a);
+    int sumB = sumOfDigits(b);
     if (sumA == sumB) {
         return a < b;
     }
-    
     return sumA < sumB;
 }
 
