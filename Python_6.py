@@ -1,6 +1,8 @@
-def parse_nested_parens(paren_string: str) -> int:
+import sys
+
+def parse_nested_parens(paren_string: str) -> list[int]:
     if not paren_string:
-        return -1
+        return [-1]
 
     stack = []
     max_depth = 0
@@ -15,9 +17,11 @@ def parse_nested_parens(paren_string: str) -> int:
                 stack.pop()
                 current_depth -= 1
     if stack:
-        return -1
+        return [-1]
     else:
-        return max_depth
+        return [max_depth]
 
-result = [parse_nested_parens(paren_string) for paren_string in ['((()))', '((())', '(()', '', '()()()']]
+inputs = ['((()))', '((())', '(()', '', '()()()']
+result = [parse_nested_parens(paren_string) for paren_string in inputs]
 print(result)
+assert parse_nested_parens("(()(())((())))") == [4]
