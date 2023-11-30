@@ -2,19 +2,17 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-string solve(string s) {
-    string result = "";
+std::string solve(std::string s) {
+    std::string result = "";
     bool hasLetter = false;
 
     for (char c : s) {
-        if (isalpha(c)) {
+        if (std::isalpha(c)) {
             hasLetter = true;
-            if (isupper(c)) {
-                result += tolower(c);
+            if (std::isupper(c)) {
+                result += std::tolower(c);
             } else {
-                result += toupper(c);
+                result += std::toupper(c);
             }
         } else {
             result += c;
@@ -22,7 +20,7 @@ string solve(string s) {
     }
 
     if (!hasLetter) {
-        reverse(result.begin(), result.end());
+        std::reverse(result.begin(), result.end());
     }
 
     return result;
