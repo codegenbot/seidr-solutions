@@ -24,16 +24,21 @@ int prod_signs(std::vector<int> arr){
 }
 
 int main() {
-    // Add your test cases here
-    std::vector<int> test1 = {1, 2, 3}; // Expected output: 6
-    std::vector<int> test2 = {-1, -2, -3}; // Expected output: -6
-    std::vector<int> test3 = {0, 1, -1}; // Expected output: 0
-    std::vector<int> test4 = {}; // Expected output: -32768
+    // Test cases
+    std::vector<int> arr1 = {1, 2, 3};
+    std::cout << prod_signs(arr1) << std::endl;  // Output: 6
     
-    int result1 = prod_signs(test1);
-    int result2 = prod_signs(test2);
-    int result3 = prod_signs(test3);
-    int result4 = prod_signs(test4);
+    std::vector<int> arr2 = {-1, -2, -3};
+    std::cout << prod_signs(arr2) << std::endl;  // Output: -6
     
+    std::vector<int> arr3 = {0, 0, 0};
+    std::cout << prod_signs(arr3) << std::endl;  // Output: 0
+    
+    std::vector<int> arr4 = {1, -2, 3};
+    std::cout << prod_signs(arr4) << std::endl;  // Output: -4
+    
+    std::vector<int> arr5 = {};
+    std::cout << prod_signs(arr5) << std::endl;  // Output: -32768
+
     return 0;
 }
