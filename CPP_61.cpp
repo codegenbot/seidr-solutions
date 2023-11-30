@@ -1,14 +1,21 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
 bool correct_bracketing(string brackets) {
-    int count = 0;
-    for (char c : brackets) {
-        if (c == '(') {
-            count++;
-        } else if (c == ')') {
-            count--;
-            if (count < 0) {
+    stack<char> st;
+
+    for (char bracket : brackets) {
+        if (bracket == '(') {
+            st.push(bracket);
+        } else if (bracket == ')') {
+            if (st.empty()) {
                 return false;
+            } else {
+                st.pop();
             }
         }
     }
-    return count == 0;
+
+    return st.empty();
 }
