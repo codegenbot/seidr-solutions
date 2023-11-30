@@ -6,15 +6,9 @@ string match_parens(vector<string> lst){
                 count++;
             }
             else{
-                if(count == 0){
-                    return "No";
-                }
                 count--;
             }
         }
     }
-    if(count == 0){
-        return "Yes";
-    }
-    return "No";
+    return count == 0 ? "Yes" : "No";
 }
