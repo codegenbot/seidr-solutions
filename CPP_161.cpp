@@ -2,8 +2,10 @@
 #include <string>
 #include <cassert>
 
-std::string solve(std::string s) {
-    std::string result = "";
+using namespace std;
+
+string solve(string s) {
+    string result = "";
     bool hasLetter = false;
 
     for (char c : s) {
@@ -20,7 +22,7 @@ std::string solve(std::string s) {
     }
 
     if (!hasLetter) {
-        std::reverse(result.begin(), result.end());
+        reverse(result.begin(), result.end());
     }
 
     return result;
