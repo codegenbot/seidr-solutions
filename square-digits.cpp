@@ -4,24 +4,18 @@
 
 std::string squareDigits(int num) {
     std::string result = "";
-    std::string numStr = std::to_string(num);
-
-    for (char c : numStr) {
-        int digit = c - '0';
-        int square = std::pow(digit, 2);
-        result += std::to_string(square);
+    while (num > 0) {
+        int digit = num % 10;
+        int square = digit * digit;
+        result = std::to_string(square) + result;
+        num /= 10;
     }
-
     return result;
 }
 
 int main() {
     int num;
-    std::cout << "Enter a positive integer: ";
     std::cin >> num;
-
-    std::string result = squareDigits(num);
-    std::cout << "Output: " << result << std::endl;
-
+    std::cout << squareDigits(num) << std::endl;
     return 0;
 }
