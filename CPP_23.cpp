@@ -1,3 +1,6 @@
-int strlen(string str){
-    return str.length();
+#include <string>
+using namespace std;
+
+int strlen(string str) {
+  return str.length();
 }
