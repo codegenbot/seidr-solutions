@@ -1,12 +1,15 @@
 n = int(input())
-strings = [input() for _ in range(n)]
+strings = []
+
+for _ in range(n):
+    strings.append(input())
 
 def concatenate(strings):
     return ''.join(strings)
 
 result = concatenate(strings)
 
-if len(result) == sum(len(s) for s in strings): 
+if len(strings) == n: 
     print(result)
 else:
     print("Incorrect input format")
