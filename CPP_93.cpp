@@ -5,7 +5,8 @@ string encode(string message){
         if(isalpha(c)){
             if(islower(c)){
                 c = toupper(c);
-            }else{
+            }
+            else{
                 c = tolower(c);
             }
             if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
