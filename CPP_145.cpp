@@ -22,14 +22,11 @@ bool compare(int a, int b) {
     return sumA < sumB;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), compare);
-    return nums;
-}
+vector<int> order_by_points(vector<int> nums);
 
 int main() {
-    // Test the code
-    vector<int> nums = {123, 45, 6789, 0, -987};
+    // Test the order_by_points function
+    vector<int> nums = {123, 45, 678, 9, 0};
     vector<int> ordered_nums = order_by_points(nums);
     
     for(int num : ordered_nums) {
@@ -37,4 +34,9 @@ int main() {
     }
     
     return 0;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
+    return nums;
 }
