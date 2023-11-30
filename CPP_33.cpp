@@ -8,7 +8,9 @@ vector<int> sort_third(vector<int> l){
         }
     }
     
-    sort(divisible_by_three_indices.begin(), divisible_by_three_indices.end());
+    sort(divisible_by_three_indices.begin(), divisible_by_three_indices.end(), [&](int a, int b){
+        return l[a] < l[b];
+    });
     
     for(int i=0; i<divisible_by_three_indices.size(); i++){
         l_prime[divisible_by_three_indices[i]] = l[divisible_by_three_indices[i]];
