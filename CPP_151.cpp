@@ -1,11 +1,9 @@
-double double_the_difference(vector<float> lst) {
-    double sum = 0;
-    
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] >= 0 && floor(lst[i]) == lst[i] && static_cast<int>(lst[i]) % 2 == 1) {
-            sum += lst[i] * lst[i];
+long long double_the_difference(vector<float> lst){
+    long long sum = 0;
+    for (float num : lst) {
+        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
+            sum += pow(num, 2);
         }
     }
-    
     return sum;
 }
