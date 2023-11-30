@@ -1,26 +1,26 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <cmath>
 
-int specialFilter(std::vector<int> nums) {
+using namespace std;
+
+int specialFilter(vector<int> nums){
     int count = 0;
-
-    for (int num : nums) {
-        std::string str = std::to_string(std::abs(num));
-
-        if (str[0] % 2 != 0 && str[str.size() - 1] % 2 != 0 && num > 10) {
+    
+    for(int num : nums){
+        string str = to_string(abs(num));
+        
+        if(str[0] % 2 != 0 && str[str.size()-1] % 2 != 0 && num > 10){
             count++;
         }
     }
-
+    
     return count;
 }
 
 int main() {
-    std::vector<int> nums = { 1, 23, -45, 678, -91011 };
+    vector<int> nums = {12, 23, -34, 45, 56};
     int result = specialFilter(nums);
-    std::cout << "Count: " << result << std::endl;
-
+    cout << "Count: " << result << endl;
+    
     return 0;
 }
