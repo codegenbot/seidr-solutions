@@ -13,7 +13,7 @@ def prime_fib(n: int):
         elif n == 1:
             return [0]
         elif n == 2:
-            return [0, 1]
+            return [1]
         else:
             fib_seq = [0, 1]
             while len(fib_seq) < n:
