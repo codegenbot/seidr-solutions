@@ -1,32 +1,31 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
-
+#include <cassert>
 using namespace std;
 
-int do_algebra(vector<string> operato, vector<int> operand){
-    int result = operand[0]; // Initialize the result with the first operand
-    for(int i = 0; i < operato.size(); i++){
-        if(operato[i] == "+"){
-            result += operand[i+1]; // Add the next operand to the result
+long long do_algebra(vector<string> operators, vector<int> operands){
+    long long result = operands[0];
+    for(int i = 0; i < operators.size(); i++){
+        if(operators[i] == "+"){
+            result += operands[i+1];
         }
-        else if(operato[i] == "-"){
-            result -= operand[i+1]; // Subtract the next operand from the result
+        else if(operators[i] == "-"){
+            result -= operands[i+1];
         }
-        else if(operato[i] == "*"){
-            result *= operand[i+1]; // Multiply the result by the next operand
+        else if(operators[i] == "*"){
+            result *= operands[i+1];
         }
-        else if(operato[i] == "//"){
-            result /= operand[i+1]; // Perform floor division with the next operand
+        else if(operators[i] == "//"){
+            result /= operands[i+1];
         }
-        else if(operato[i] == "**"){
-            result = pow(result, operand[i+1]); // Perform exponentiation with the next operand
+        else if(operators[i] == "**"){
+            result = pow(result, operands[i+1]);
         }
     }
-    return result; // Return the final result of the algebraic expression
+    return result;
 }
 
 int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    assert (do_algebra({"//", "*"}, {7, 3, 4}) == 8);
     return 0;
 }
