@@ -2,18 +2,17 @@
 #include <iostream>
 #include <climits>
 #include <algorithm>
-#include <limits>
 
 std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int diff = std::numeric_limits<int>::max();
+    int diff = INT_MAX;
     int index = -1;
 
-    for (int i = 0; i <= n-1; i++) {
+    for (int i = 0; i <= n-1; i++) {   
         int leftSum = 0;
         int rightSum = 0;
 
-        for (int j = 0; j < i; j++) {
+        for (int j = 0; j <= i; j++) {
             leftSum += nums[j];
         }
 
@@ -32,7 +31,7 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
     if (index == -1) return { nums };
 
     std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
-    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.begin() + index + 1 + 1);
 
     return { leftSubvector, rightSubvector };
 }
