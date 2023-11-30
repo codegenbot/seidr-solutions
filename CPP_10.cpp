@@ -5,6 +5,6 @@ string make_palindrome(string str){
         i--;
     }
     string prefix = str.substr(0, i + 1);
-    string palindrome = str + string(prefix.rbegin(), prefix.rend());
+    string palindrome = prefix + string(str.rbegin(), str.rend());
     return palindrome;
 }
