@@ -3,21 +3,28 @@ bool check_map_case(map<string,string> dict){
         return false;
     }
     
-    bool all_lower = true;
-    bool all_upper = true;
+    bool allLower = true;
+    bool allUpper = true;
     
-    for(auto it = dict.begin(); it != dict.end(); ++it){
+    for(auto it = dict.begin(); it != dict.end(); it++){
         string key = it->first;
         
-        for(char c : key){
-            if(islower(c)){
-                all_upper = false;
-            }
-            else if(isupper(c)){
-                all_lower = false;
-            }
+        if(key.empty()){
+            return false;
+        }
+        
+        if(key != toLower(key)){
+            allLower = false;
+        }
+        
+        if(key != toUpper(key)){
+            allUpper = false;
+        }
+        
+        if(!allLower && !allUpper){
+            return false;
         }
     }
     
-    return all_lower || all_upper;
+    return true;
 }
