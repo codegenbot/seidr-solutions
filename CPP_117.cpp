@@ -1,31 +1,26 @@
-vector<string> select_words(string s, int n){
+vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word;
-    for(int i = 0; i < s.size(); i++){
-        if(s[i] != ' '){
-            word += s[i];
-        }
-        else{
-            int consonants = 0;
-            for(int j = 0; j < word.size(); j++){
-                if(word[j] != 'a' && word[j] != 'e' && word[j] != 'i' && word[j] != 'o' && word[j] != 'u'){
-                    consonants++;
-                }
+    if (s.empty()) {
+        return result;
+    }
+    string current_word = "";
+    int consonant_count = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] != ' ') {
+            current_word += s[i];
+            if (is_consonant(s[i])) {
+                consonant_count++;
             }
-            if(consonants == n){
-                result.push_back(word);
+        } else {
+            if (consonant_count == n) {
+                result.push_back(current_word);
             }
-            word = "";
+            current_word = "";
+            consonant_count = 0;
         }
     }
-    int consonants = 0;
-    for(int j = 0; j < word.size(); j++){
-        if(word[j] != 'a' && word[j] != 'e' && word[j] != 'i' && word[j] != 'o' && word[j] != 'u'){
-            consonants++;
-        }
-    }
-    if(consonants == n){
-        result.push_back(word);
+    if (consonant_count == n) {
+        result.push_back(current_word);
     }
     return result;
 }
