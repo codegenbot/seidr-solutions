@@ -1,10 +1,8 @@
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
 
-long double probabilityOfHigherRoll(int n, int m) {
-    long double probability = 0.0;
+double probabilityOfHigherRoll(int n, int m) {
+    double probability = 0.0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
@@ -18,7 +16,9 @@ long double probabilityOfHigherRoll(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    long double result = probabilityOfHigherRoll(n, m);
-    cout << setprecision(8) << result << endl;
+    double result = probabilityOfHigherRoll(n, m);
+    cout << fixed;
+    cout.precision(2);
+    cout << result << endl;
     return 0;
 }
