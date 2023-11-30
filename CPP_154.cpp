@@ -6,15 +6,15 @@ bool cycpattern_check(string a, string b) {
         return false;
     }
 
-    for (int i = 0; i <= n - m; i++) {
-        bool match = true;
+    for (int i = 0; i < n; i++) {
+        bool flag = true;
         for (int j = 0; j < m; j++) {
-            if (a[i + j] != b[j]) {
-                match = false;
+            if (a[(i + j) % n] != b[j]) {
+                flag = false;
                 break;
             }
         }
-        if (match) {
+        if (flag) {
             return true;
         }
     }
