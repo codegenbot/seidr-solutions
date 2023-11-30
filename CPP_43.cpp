@@ -1,10 +1,12 @@
+#include <unordered_set>
+
 bool pairs_sum_to_zero(vector<int> l) {
+    unordered_set<int> s;
     for (int i = 0; i < l.size(); i++) {
-        for (int j = i + 1; j < l.size(); j++) {
-            if (l[i] + l[j] == 0) {
-                return true;
-            }
+        if (s.find(-l[i]) != s.end()) {
+            return true;
         }
+        s.insert(l[i]);
     }
     return false;
 }
