@@ -1,18 +1,16 @@
 vector<int> f(int n){
-    vector<int> result;
+    vector<int> result(n);
     int factorial = 1;
     int sum = 0;
-    
-    for(int i=1; i<=n; i++){
+    for(int i = 0; i < n; i++){
         if(i % 2 == 0){
-            factorial *= i;
-            result.push_back(factorial);
+            result[i] = factorial;
+            factorial *= (i + 1);
         }
         else{
-            sum += i;
-            result.push_back(sum);
+            sum += (i + 1);
+            result[i] = sum;
         }
     }
-    
     return result;
 }
