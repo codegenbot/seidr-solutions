@@ -1,14 +1,14 @@
 vector<string> words_string(string s){
     vector<string> words;
     string word;
-    for(char c : s){
-        if(c == ',' || c == ' '){
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' ' || s[i] == ','){
             if(!word.empty()){
                 words.push_back(word);
-                word.clear();
+                word = "";
             }
         } else {
-            word += c;
+            word += s[i];
         }
     }
     if(!word.empty()){
