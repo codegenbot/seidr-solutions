@@ -1,19 +1,32 @@
-map<char, int> histogram(string test){
-    map<char, int> result;
-    string word;
-    for(int i=0; i<test.length(); i++){
-        if(test[i] != ' '){
-            word += test[i];
-        }
-        else{
-            if(word != ""){
-                result[word[0]]++;
-                word = "";
-            }
+#include <iostream>
+#include <string>
+#include <map>
+
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> result;
+
+    // Count the occurrences of each letter in the string
+    for (char c : test) {
+        if (c != ' ') {
+            result[c]++;
         }
     }
-    if(word != ""){
-        result[word[0]]++;
+
+    // Find the maximum occurrence count
+    int maxCount = 0;
+    for (auto it : result) {
+        if (it.second > maxCount) {
+            maxCount = it.second;
+        }
     }
-    return result;
+
+    // Create a new map with letters that have the maximum occurrence count
+    std::map<char, int> maxOccurrences;
+    for (auto it : result) {
+        if (it.second == maxCount) {
+            maxOccurrences[it.first] = it.second;
+        }
+    }
+
+    return maxOccurrences;
 }
