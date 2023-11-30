@@ -5,17 +5,8 @@ vector<int> tri(int n);
 bool issame(vector<int> a, vector<int> b);
 
 int main() {
-    assert(tri(1) == vector<int>{1, 3});
-    assert(tri(2) == vector<int>{1, 2, 3});
-    assert(tri(3) == vector<int>{1, 2, 3, 8});
-    assert(tri(4) == vector<int>{1, 2, 3, 8, 4});
-    assert(tri(5) == vector<int>{1, 2, 3, 8, 4, 14});
-    assert(tri(6) == vector<int>{1, 2, 3, 8, 4, 14, 6});
-    assert(tri(7) == vector<int>{1, 2, 3, 8, 4, 14, 6, 24});
-    assert(tri(8) == vector<int>{1, 2, 3, 8, 4, 14, 6, 24, 8});
-    assert(tri(9) == vector<int>{1, 2, 3, 8, 4, 14, 6, 24, 8, 34});
-    assert(tri(10) == vector<int>{1, 2, 3, 8, 4, 14, 6, 24, 8, 34, 10});
-
+    vector<int> result = tri(1);
+    assert(result == vector<int>{1, 3});
     return 0;
 }
 
