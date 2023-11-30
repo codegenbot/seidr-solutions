@@ -1,27 +1,20 @@
-#include <vector>
-
 vector<int> count_up_to(int n) {
     vector<int> primes;
-    if (n <= 1) {
+    if (n < 2) {
         return primes;
     }
-
-    vector<bool> isPrime(n, true);
-    isPrime[0] = isPrime[1] = false;
-
-    for (int i = 2; i * i < n; i++) {
-        if (isPrime[i]) {
-            for (int j = i * i; j < n; j += i) {
-                isPrime[j] = false;
+    primes.push_back(2);
+    for (int i = 3; i < n; i += 2) {
+        bool isPrime = true;
+        for (int j = 3; j * j <= i; j += 2) {
+            if (i % j == 0) {
+                isPrime = false;
+                break;
             }
         }
-    }
-
-    for (int i = 2; i < n; i++) {
-        if (isPrime[i]) {
+        if (isPrime) {
             primes.push_back(i);
         }
     }
-
     return primes;
 }
