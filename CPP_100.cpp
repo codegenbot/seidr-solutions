@@ -2,7 +2,10 @@
 #include <cassert>
 
 vector<int> make_a_pile(int n);
-bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> a, vector<int> b){
+    // function implementation
+}
 
 vector<int> make_a_pile(int n){
     vector<int> stones;
@@ -12,8 +15,4 @@ vector<int> make_a_pile(int n){
         level += (n % 2 == 0) ? 2 : 1;
     }
     return stones;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    // function implementation
 }
