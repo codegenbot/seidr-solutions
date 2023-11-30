@@ -43,9 +43,8 @@ int getScore(const std::string& input) {
             }
         }
         
-        // Add spare bonus for the last frame
         if (frame == 10 && roll == 2 && input[roll-1] == '/') {
-            score += input[roll] - '0'; // Add the value of the next roll
+            score += input[roll] - '0';
         }
     }
     
