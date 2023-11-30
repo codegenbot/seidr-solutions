@@ -1,10 +1,12 @@
 #include <vector>
 #include <algorithm>
-#include <functional>
+#include <cassert>
 
 using namespace std;
 
-vector<vector<int>> get_row(vector<vector<int>> lst, int x);
+bool issame(vector<vector<int>> a, vector<vector<int>> b){
+    return a == b;
+}
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
@@ -15,25 +17,13 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
             }
         }
     }
-    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b){
-        return a[0] < b[0];
-    });
-    for(auto& row : result){
-        sort(row.begin(), row.end(), greater<int>());
-    }
-    return result;
-}
-
-bool issame(vector<vector<int>>& a,vector<vector<int>>& b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
+    sort(result.begin(), result.end(), [](vector<int>& a, vector<int>& b){
+        if(a[0] != b[0]){
+            return a[0] < b[0];
         }
-    }
-    return true;
+        return a[1] > b[1];
+    });
+    return result;
 }
 
 int main(){
