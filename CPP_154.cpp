@@ -1,20 +1,24 @@
 bool cycpattern_check(string a, string b) {
-    if (a.length() < b.length()) {
+    int lenA = a.length();
+    int lenB = b.length();
+
+    if (lenA < lenB) {
         return false;
     }
-    
-    string temp = b + b;
-    
-    if (temp.find(a) != string::npos) {
+
+    string temp = a + a;
+
+    if (temp.find(b) != string::npos) {
         return true;
     }
-    
-    for (int i = 1; i < b.length(); i++) {
-        temp = temp.substr(1) + temp[0];
-        if (temp.find(a) != string::npos) {
+
+    for (int i = 1; i < lenB; i++) {
+        string rotation = b.substr(i, lenB - i) + b.substr(0, i);
+
+        if (temp.find(rotation) != string::npos) {
             return true;
         }
     }
-    
+
     return false;
 }
