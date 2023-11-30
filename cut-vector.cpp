@@ -40,15 +40,14 @@ int main() {
     }
     
     vector<vector<int>> result = cutVector(nums);
+    cout << result[0].size() << endl;
     for (int i = 0; i < result[0].size(); i++) {
         cout << result[0][i] << " ";
     }
-    cout << endl;
-
+    cout << endl << result[1].size() << endl;
     for (int i = 0; i < result[1].size(); i++) {
         cout << result[1][i] << " ";
     }
-    cout << endl;
     
     return 0;
 }
