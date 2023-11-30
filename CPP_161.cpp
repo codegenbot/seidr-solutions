@@ -1,22 +1,25 @@
 string solve(string s){
     string result = "";
-    bool hasLetter = false;
+    bool hasLetters = false;
+    
     for(int i=0; i<s.length(); i++){
         if(isalpha(s[i])){
-            hasLetter = true;
-            if(isupper(s[i])){
-                result += tolower(s[i]);
+            hasLetters = true;
+            if(islower(s[i])){
+                result += toupper(s[i]);
             }
             else{
-                result += toupper(s[i]);
+                result += tolower(s[i]);
             }
         }
         else{
             result += s[i];
         }
     }
-    if(!hasLetter){
+    
+    if(!hasLetters){
         reverse(result.begin(), result.end());
     }
+    
     return result;
 }
