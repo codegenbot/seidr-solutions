@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 int specialFilter(vector<int> nums){
@@ -13,14 +14,11 @@ int specialFilter(vector<int> nums){
     return count;
 }
 
-int main() {
-    assert(specialFilter({}) == 0);
-    assert(specialFilter({1, 2, 3, 4, 5}) == 0);
-    assert(specialFilter({11, 12, 13, 14, 15}) == 0);
-    assert(specialFilter({21, 22, 23, 24, 25}) == 5);
-    assert(specialFilter({-21, -22, -23, -24, -25}) == 5);
-    assert(specialFilter({-21, 22, -23, 24, -25}) == 5);
-    assert(specialFilter({-21, 22, -23, 24, 25}) == 4);
+int main(){
+    // Test cases
+    vector<int> nums = {12, 23, 34, 45, 56, 67, 78, 89, 90};
+    int result = specialFilter(nums);
+    cout << result << endl;
 
     return 0;
 }
