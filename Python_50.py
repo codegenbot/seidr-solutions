@@ -1,20 +1,14 @@
-def encode_shift(s: str) -> str:
-    if not s:
-        return ""
-    return "".join(
-        [
-            chr((ord(ch) + 5 - ord("A")) % 26 + ord("A")) if ch.isalpha() else ch
-            for ch in s
-        ]
-    )
+def encode_shift(s: str):
+    return "".join([chr(((ord(ch) + 5 - ord("a")) % 26) + ord("a")) for ch in s])
 
 
-def decode_shift(s: str) -> str:
-    if not s:
-        return ""
-    return "".join(
-        [
-            chr((ord(ch) - 5 - ord("A")) % 26 + ord("A")) if ch.isalpha() else ch
-            for ch in s
-        ]
-    )
+def decode_shift(s: str):
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
+
+
+s = input()
+encoded_string = encode_shift(s)
+decoded_string = decode_shift(encoded_string)
+
+print(f"Encoded string: {encoded_string}")
+print(f"Decoded string: {decoded_string}")
