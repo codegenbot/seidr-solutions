@@ -2,9 +2,7 @@ def add(x: int, y: int):
     return x + y
 
 
-print("Enter the first number:")
-x = int(input())
-print("Enter the second number:")
-y = int(input())
+x = int(input("Enter the first integer: "))
+y = int(input("Enter the second integer: "))
 result = add(x, y)
 print(result)
