@@ -1,10 +1,11 @@
-from typing import List
+n = int(input())
+strings = []
+for _ in range(n):
+    strings.append(input())
 
+def concatenate(strings: list) -> str:
+    return ''.join(strings)
 
-def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
+result = concatenate(strings)
 
-
-input_strings = input("Enter a list of strings separated by spaces: ").split()
-result = concatenate(input_strings)
-print("Concatenated string:", result)
+print(result)
