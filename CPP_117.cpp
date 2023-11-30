@@ -1,17 +1,12 @@
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    if (s.empty()) {
-        return result;
-    }
-    
-    string word;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] != ' ') {
-            word += s[i];
-        } else {
+    string word = "";
+    for (char c : s) {
+        if (c == ' ') {
             int consonantCount = 0;
-            for (int j = 0; j < word.length(); j++) {
-                if (isalpha(word[j]) && !isVowel(word[j])) {
+            for (char ch : word) {
+                if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
+                    ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
                     consonantCount++;
                 }
             }
@@ -19,23 +14,19 @@ vector<string> select_words(string s, int n) {
                 result.push_back(word);
             }
             word = "";
+        } else {
+            word += c;
         }
     }
-    
     int consonantCount = 0;
-    for (int j = 0; j < word.length(); j++) {
-        if (isalpha(word[j]) && !isVowel(word[j])) {
+    for (char ch : word) {
+        if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
+            ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
             consonantCount++;
         }
     }
     if (consonantCount == n) {
         result.push_back(word);
     }
-    
     return result;
-}
-
-bool isVowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
