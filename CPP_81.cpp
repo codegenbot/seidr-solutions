@@ -1,19 +1,3 @@
-#include <vector>
-#include <string>
-
-vector<string> numerical_letter_grade(vector<float> grades);
-
-bool issame(vector<string> a, vector<string> b);
-
-int main() {
-    vector<float> grades = {3.2, 4.5, 2.8};
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    for (int i = 0; i < letter_grades.size(); i++) {
-        cout << letter_grades[i] << endl;
-    }
-    return 0;
-}
-
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (int i = 0; i < grades.size(); i++) {

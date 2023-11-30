@@ -1,6 +1,6 @@
 vector<int> count_up_to(int n) {
     vector<int> primes;
-    if (n <= 1) {
+    if (n < 2) {
         return primes;
     }
     primes.push_back(2);
