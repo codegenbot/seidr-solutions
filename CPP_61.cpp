@@ -4,10 +4,10 @@ bool correct_bracketing(string brackets) {
         if (c == '(') {
             count++;
         } else if (c == ')') {
-            count--;
-            if (count < 0) {
+            if (count == 0) {
                 return false;
             }
+            count--;
         }
     }
     return count == 0;
