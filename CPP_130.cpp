@@ -7,7 +7,7 @@ vector<int> tri(int n){
     }
 
     if(n >= 2){
-        sequence.push_back(sequence[1] + sequence[0] + sequence[0]); // tri(3) = tri(2) + tri(1) + tri(4) = 2 + 3 + 3 = 8
+        sequence.push_back(sequence[1] + sequence[0] + sequence[1]); // tri(3) = tri(2) + tri(1) + tri(4) = 2 + 3 + 3 = 8
     }
 
     for(int i = 3; i <= n; i++){
