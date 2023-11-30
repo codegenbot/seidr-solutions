@@ -18,9 +18,9 @@ int specialFilter(vector<int> nums){
 }
 
 int main() {
-    vector<int> nums = {1, 22, -33, 444, -5555};
+    vector<int> nums = {12, 23, -34, 45, -56, 67, 78};
     int result = specialFilter(nums);
-    cout << result << endl;
+    cout << "Count: " << result << endl;
     
     return 0;
 }
