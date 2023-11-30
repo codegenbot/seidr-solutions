@@ -1,7 +1,8 @@
-#include <vector>
+#include <vector>  // Include the vector header
 
-using namespace std;
+using namespace std;  // Use the std namespace
 
+// Declare the issame function before using it
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
