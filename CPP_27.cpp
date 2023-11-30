@@ -1,15 +1,15 @@
 string flip_case(string str){
-    string flipped_str = "";
+    string result = "";
     for(int i=0; i<str.length(); i++){
         if(islower(str[i])){
-            flipped_str += toupper(str[i]);
+            result += toupper(str[i]);
         }
         else if(isupper(str[i])){
-            flipped_str += tolower(str[i]);
+            result += tolower(str[i]);
         }
         else{
-            flipped_str += str[i];
+            result += str[i];
         }
     }
-    return flipped_str;
+    return result;
 }
