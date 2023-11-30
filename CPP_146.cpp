@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int specialFilter(vector<int> nums){
@@ -18,9 +17,9 @@ int specialFilter(vector<int> nums){
 }
 
 int main() {
-    vector<int> nums = {1, 22, 333, 4444, 55555};
+    vector<int> nums = {12, 34, 56, 78, 99};
     int result = specialFilter(nums);
-    cout << "Result: " << result << endl;
+    cout << result << endl;
     
     return 0;
 }
