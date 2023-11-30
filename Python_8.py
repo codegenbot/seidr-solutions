@@ -5,7 +5,3 @@ def sum_product(numbers):
         sum_result += number
         product_result *= number
     return sum_result, product_result
-
-numbers = list(map(int, input().split(" ")))
-result = sum_product(numbers)
-print(*result)
