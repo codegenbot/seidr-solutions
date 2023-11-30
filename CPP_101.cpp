@@ -1,18 +1,17 @@
 vector<string> words_string(string s){
     vector<string> words;
-    string word = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' ' || s[i] == ','){
-            if(word != ""){
+    string word;
+    for(char c : s){
+        if(c == ',' || c == ' '){
+            if(!word.empty()){
                 words.push_back(word);
-                word = "";
+                word.clear();
             }
-        }
-        else{
-            word += s[i];
+        } else {
+            word += c;
         }
     }
-    if(word != ""){
+    if(!word.empty()){
         words.push_back(word);
     }
     return words;
