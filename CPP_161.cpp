@@ -32,10 +32,10 @@ string solve(string s){
 }
 
 int main() {
-    string input;
-    getline(cin, input);
+    string s;
+    cin >> s;
 
-    cout << solve(input) << endl;
+    cout << solve(s) << endl;
 
     return 0;
 }
