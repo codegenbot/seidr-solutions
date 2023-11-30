@@ -2,16 +2,16 @@
 
 using namespace std;
 
-double calculateSnow(float hours, double snowOnGround, float snowFallRate, float meltRate) {
+double calculateSnow(double hours, double snowOnGround, double snowFallRate, double meltRate) {
     for (int i = 0; i < hours; i++) {
         double snowFall = snowFallRate - meltRate * snowOnGround;
-        snowOnGround += snowFall >= 0 ? snowFall : 0;
+        snowOnGround = snowFall >= 0 ? snowOnGround + snowFall : 0;
     }
     return snowOnGround;
 }
 
 int main() {
-    float hours, snowOnGround, snowFallRate, meltRate;
+    double hours, snowOnGround, snowFallRate, meltRate;
     cin >> hours >> snowOnGround >> snowFallRate >> meltRate;
 
     double finalSnow = calculateSnow(hours, snowOnGround, snowFallRate, meltRate);
