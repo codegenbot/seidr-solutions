@@ -11,6 +11,10 @@ def encode(message: str) -> str:
                     encoded_char = 'z'
                 elif char == 'A':
                     encoded_char = 'Z'
+                elif char == 'z':
+                    encoded_char = 'a'
+                elif char == 'Z':
+                    encoded_char = 'A'
                 else:
                     encoded_char = chr(ord(char) - 1)
         else:
