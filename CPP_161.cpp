@@ -1,24 +1,34 @@
-string solve(string s){
+#include <string>
+
+string solve(string s) {
     string result = "";
-    bool hasLetters = false;
     
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
+    // Check if the string contains any letters
+    bool hasLetters = false;
+    for (char c : s) {
+        if (isalpha(c)) {
             hasLetters = true;
-            if(islower(s[i])){
-                result += toupper(s[i]);
-            }
-            else{
-                result += tolower(s[i]);
-            }
-        }
-        else{
-            result += s[i];
+            break;
         }
     }
     
-    if(!hasLetters){
-        reverse(result.begin(), result.end());
+    // If the string contains no letters, reverse the string
+    if (!hasLetters) {
+        for (int i = s.length() - 1; i >= 0; i--) {
+            result += s[i];
+        }
+        return result;
+    }
+    
+    // Reverse the case of letters
+    for (char c : s) {
+        if (islower(c)) {
+            result += toupper(c);
+        } else if (isupper(c)) {
+            result += tolower(c);
+        } else {
+            result += c;
+        }
     }
     
     return result;
