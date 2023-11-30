@@ -9,7 +9,8 @@ int is_bored(string S){
         
         if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
             isSentenceStart = true;
-        } else {
+        }
+        else{
             isSentenceStart = false;
         }
     }
