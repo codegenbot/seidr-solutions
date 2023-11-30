@@ -4,7 +4,7 @@ vector<int> order_by_points(vector<int> nums){
     }
     
     vector<pair<int, int>> sums;
-    for(int i=0; i<nums.size(); i++){
+    for(int i = 0; i < nums.size(); i++){
         int sum = 0;
         int num = nums[i];
         while(num != 0){
@@ -17,8 +17,8 @@ vector<int> order_by_points(vector<int> nums){
     sort(sums.begin(), sums.end());
     
     vector<int> result;
-    for(auto p : sums){
-        result.push_back(nums[p.second]);
+    for(auto pair : sums){
+        result.push_back(nums[pair.second]);
     }
     
     return result;
