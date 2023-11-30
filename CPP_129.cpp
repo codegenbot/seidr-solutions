@@ -1,29 +1,33 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
-    int n = grid.size();
-    int m = grid[0].size();
     vector<int> path;
-    int startX = 0, startY = 0;
-    int currentX = startX, currentY = startY;
-    int count = 0;
+    int n = grid.size();
+    int row = 0, col = 0;
     
-    while(count < k){
-        path.push_back(grid[currentX][currentY]);
-        count++;
+    for(int i = 0; i < k; i++){
+        path.push_back(grid[row][col]);
         
-        if(currentX % 2 == 0){
-            if(currentY < m-1){
-                currentY++;
+        if((row + col) % 2 == 0){
+            if(col == n-1){
+                row++;
+            }
+            else if(row == 0){
+                col++;
             }
             else{
-                currentX++;
+                row--;
+                col++;
             }
         }
         else{
-            if(currentY > 0){
-                currentY--;
+            if(row == n-1){
+                col++;
+            }
+            else if(col == 0){
+                row++;
             }
             else{
-                currentX++;
+                row++;
+                col--;
             }
         }
     }
