@@ -15,3 +15,7 @@ vector<int> tri(int n){
     
     return sequence;
 }
+
+issame(vector<int> a, vector<int> b){
+    // code here
+}
