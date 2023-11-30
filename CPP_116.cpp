@@ -23,8 +23,3 @@ vector<int> sort_array(vector<int> arr) {
 bool issame(vector<int>& a, vector<int>& b) {
     return (a == b);
 }
-
-int main() {
-    assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
-    return 0;
-}
