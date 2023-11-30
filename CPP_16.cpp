@@ -1,9 +1,9 @@
-int count_distinct_characters(string str) {
+int count_distinct_characters(string str){
     vector<char> distinctChars;
-    for (char ch : str) {
-        char lowerCh = tolower(ch);
-        if (find(distinctChars.begin(), distinctChars.end(), lowerCh) == distinctChars.end()) {
-            distinctChars.push_back(lowerCh);
+    for(int i=0; i<str.length(); i++){
+        char c = tolower(str[i]);
+        if(find(distinctChars.begin(), distinctChars.end(), c) == distinctChars.end()){
+            distinctChars.push_back(c);
         }
     }
     return distinctChars.size();
