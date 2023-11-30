@@ -1,7 +1,7 @@
 #include <cctype>
-#include <string>
+#include <string> 
 
-using namespace std;
+using namespace std; 
 
 string solve(string s) {
     string result = "";
