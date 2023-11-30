@@ -11,11 +11,12 @@ def decode_shift(s):
 
 
 def main():
-    s = input().strip()
+    s = input("Enter a string: ")
     encoded = encode_shift(s)
     decoded = decode_shift(encoded)
-    print(encoded)
-    print(decoded)
+    print("Encoded: ", encoded)
+    print("Decoded: ", decoded)
 
 
-main()
+if __name__ == "__main__":
+    main()
