@@ -9,12 +9,18 @@ bool check_map_case(map<string,string> dict){
     for(auto it = dict.begin(); it != dict.end(); ++it){
         string key = it->first;
         
-        for(char c : key){
-            if(islower(c)){
-                allUpperCase = false;
-            } else if(isupper(c)){
-                allLowerCase = false;
-            }
+        if(key.empty()){
+            return false;
+        }
+        
+        if(key[0] >= 'a' && key[0] <= 'z'){
+            allUpperCase = false;
+        }
+        else if(key[0] >= 'A' && key[0] <= 'Z'){
+            allLowerCase = false;
+        }
+        else{
+            return false;
         }
     }
     
