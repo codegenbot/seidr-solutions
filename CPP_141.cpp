@@ -1,25 +1,28 @@
 string file_name_check(string file_name){
     int dotIndex = file_name.find(".");
-    if(dotIndex == -1 || dotIndex == 0 || dotIndex == file_name.length()-1){
+    if(dotIndex == string::npos || dotIndex == 0 || dotIndex == file_name.length()-1){
         return "No";
     }
-    
     string name = file_name.substr(0, dotIndex);
     string extension = file_name.substr(dotIndex+1);
-    
-    if(name.length() > 3){
+
+    if(name.length() == 0 || !isalpha(name[0])){
         return "No";
     }
-    
+
+    int digitCount = 0;
     for(char c : name){
-        if(!isalpha(c)){
-            return "No";
+        if(isdigit(c)){
+            digitCount++;
         }
     }
-    
+    if(digitCount > 3){
+        return "No";
+    }
+
     if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
     }
-    
+
     return "Yes";
 }
