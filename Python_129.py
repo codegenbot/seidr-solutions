@@ -1,19 +1,19 @@
 def minPath(grid, k):
     def backtrack(i, j, path, remain):
         if remain < 0:
-            return []
+            return None
         if remain == 0:
             return path
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
         for di, dj in directions:
             ni, nj = i + di, j + dj
             if 0 <= ni < len(grid) and 0 <= nj < len(grid[0]) and grid[ni][nj] != -1:
-                grid[i][j] = -1
+                grid[ni][nj] = -1
                 new_path = backtrack(ni, nj, path + [(ni, nj)], remain - 1)
-                grid[i][j] = 0
+                grid[ni][nj] = 0
                 if new_path:
                     return new_path
-        return []
+        return None
 
     for i in range(len(grid)):
         for j in range(len(grid[0])):
