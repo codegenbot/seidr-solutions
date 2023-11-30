@@ -4,6 +4,5 @@ vector<int> eat(int number, int need, int remaining) {
     if (carrotsLeft < 0) {
         carrotsLeft = 0;
     }
-    vector<int> result = {totalEaten, carrotsLeft};
-    return result;
+    return {totalEaten, carrotsLeft};
 }
