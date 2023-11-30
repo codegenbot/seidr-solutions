@@ -1,11 +1,16 @@
 bool simplify(string x, string n){
-    int numerator_x, denominator_x, numerator_n, denominator_n;
+    int xNum = stoi(x.substr(0, x.find("/")));
+    int xDen = stoi(x.substr(x.find("/") + 1));
+    int nNum = stoi(n.substr(0, n.find("/")));
+    int nDen = stoi(n.substr(n.find("/") + 1));
     
-    sscanf(x.c_str(), "%d/%d", &numerator_x, &denominator_x);
-    sscanf(n.c_str(), "%d/%d", &numerator_n, &denominator_n);
+    int productNum = xNum * nNum;
+    int productDen = xDen * nDen;
     
-    if (numerator_x * denominator_n == numerator_n * denominator_x)
+    if (productNum % productDen == 0){
         return true;
-    else
+    }
+    else{
         return false;
+    }
 }
