@@ -1,10 +1,10 @@
-int count_distinct_characters(string str) {
-    vector<char> distinctChars;
-    for (char c : str) {
-        char lowercaseChar = tolower(c);
-        if (find(distinctChars.begin(), distinctChars.end(), lowercaseChar) == distinctChars.end()) {
-            distinctChars.push_back(lowercaseChar);
+int count_distinct_characters(string str){
+    vector<char> distinct_chars;
+    for(int i = 0; i < str.length(); i++){
+        char c = tolower(str[i]);
+        if(find(distinct_chars.begin(), distinct_chars.end(), c) == distinct_chars.end()){
+            distinct_chars.push_back(c);
         }
     }
-    return distinctChars.size();
+    return distinct_chars.size();
 }
