@@ -56,11 +56,13 @@ int main(){
     vector<string> a = split_words("");
     vector<string> b = split_words("");
     
-    if(issame(a, b)){
-        cout << "Same" << endl;
+    bool result = issame(a, b);
+    
+    if(result){
+        cout << "The vectors are the same." << endl;
     }
     else{
-        cout << "Different" << endl;
+        cout << "The vectors are different." << endl;
     }
     
     return 0;
