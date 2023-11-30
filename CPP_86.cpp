@@ -1,17 +1,23 @@
-string anti_shuffle(string s){
-    string result = "";
-    string word = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
-            sort(word.begin(), word.end());
-            result += word + " ";
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+std::string anti_shuffle(std::string s) {
+    std::string orderedString = "";
+    std::string word = "";
+    
+    for (char c : s) {
+        if (c == ' ') {
+            std::sort(word.begin(), word.end());
+            orderedString += word + ' ';
             word = "";
-        }
-        else{
-            word += s[i];
+        } else {
+            word += c;
         }
     }
-    sort(word.begin(), word.end());
-    result += word;
-    return result;
+    
+    std::sort(word.begin(), word.end());
+    orderedString += word;
+    
+    return orderedString;
 }
