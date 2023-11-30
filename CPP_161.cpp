@@ -1,25 +1,26 @@
-string solve(string s){
-    string result = "";
-    bool hasLetters = false;
-    
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            hasLetters = true;
-            if(islower(s[i])){
-                result += toupper(s[i]);
-            }
-            else{
-                result += tolower(s[i]);
+#include <cctype>
+#include <algorithm>
+
+string solve(string s) {
+    if (s.empty()) {
+        return s;
+    }
+
+    bool hasLetter = false;
+    for (char& c : s) {
+        if (isalpha(c)) {
+            hasLetter = true;
+            if (islower(c)) {
+                c = toupper(c);
+            } else {
+                c = tolower(c);
             }
         }
-        else{
-            result += s[i];
-        }
     }
-    
-    if(!hasLetters){
-        reverse(result.begin(), result.end());
+
+    if (!hasLetter) {
+        reverse(s.begin(), s.end());
     }
-    
-    return result;
+
+    return s;
 }
