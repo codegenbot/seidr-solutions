@@ -1,15 +1,12 @@
-#include <algorithm>
 #include <string>
 
 string flip_case(string str) {
-    transform(str.begin(), str.end(), str.begin(), [](char c) {
-        if (islower(c))
-            return toupper(c);
-        else if (isupper(c))
-            return tolower(c);
-        else
-            return c;
-    });
-
+    for (int i = 0; i < str.length(); i++) {
+        if (islower(str[i])) {
+            str[i] = toupper(str[i]);
+        } else if (isupper(str[i])) {
+            str[i] = tolower(str[i]);
+        }
+    }
     return str;
 }
