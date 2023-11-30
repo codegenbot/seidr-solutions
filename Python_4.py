@@ -7,11 +7,9 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return sum(deviation) / len(deviation)
 
 
-if __name__ == "__main__":
-    try:
-        input_string = input("Enter a list of numbers (separated by space): ")
-        numbers = [float(num) for num in input_string.split()]
-        result = mean_absolute_deviation(numbers)
-        print(result)
-    except ValueError:
-        print("Invalid input. Please enter a valid list of numbers.")
+n = int(input())
+numbers = list(map(float, input().split()))
+
+result = mean_absolute_deviation(numbers)
+
+print(result)
