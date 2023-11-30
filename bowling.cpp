@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 
 int calculateScore(const std::string& bowls) {
     int score = 0;
@@ -33,12 +32,14 @@ int calculateScore(const std::string& bowls) {
 
             bowlIndex++;
         } else if (bowl == '/') {
+            score += (10 - (bowls[i - 1] - '0'));
+
             if (frame < 10) {
                 score += (isdigit(bowls[i + 1])) ? (bowls[i + 1] - '0') : 0;
             }
 
-            bowlIndex++;
             frame++;
+            bowlIndex++;
         }
     }
 
