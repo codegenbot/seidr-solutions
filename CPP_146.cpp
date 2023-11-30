@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+using namespace std;
 
 int specialFilter(vector<int> nums){
     int count = 0;
@@ -12,8 +14,8 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    // Test case
-    vector<int> nums = {12, 23, 34, 45, 56};
+    vector<int> nums = {12, 23, -34, 45, -56, 67};
     int result = specialFilter(nums);
+    cout << result << endl;
     return 0;
 }
