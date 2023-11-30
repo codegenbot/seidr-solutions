@@ -1,34 +1,30 @@
-#include <boost/algorithm/string/replace.hpp>
+#include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        if (num1 > num2) {
-            return num1;
-        } else if (num1 < num2) {
-            return num2;
+        int intA = boost::any_cast<int>(a);
+        int intB = boost::any_cast<int>(b);
+        if (intA > intB) {
+            return intA;
+        } else if (intA < intB) {
+            return intB;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        if (num1 > num2) {
-            return num1;
-        } else if (num1 < num2) {
-            return num2;
+        float floatA = boost::any_cast<float>(a);
+        float floatB = boost::any_cast<float>(b);
+        if (floatA > floatB) {
+            return floatA;
+        } else if (floatA < floatB) {
+            return floatB;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
-        boost::replace_all(str1, ",", ".");
-        boost::replace_all(str2, ",", ".");
-        float num1 = std::stof(str1);
-        float num2 = std::stof(str2);
-        if (num1 > num2) {
-            return str1;
-        } else if (num1 < num2) {
-            return str2;
+        std::string stringA = boost::any_cast<std::string>(a);
+        std::string stringB = boost::any_cast<std::string>(b);
+        if (stringA > stringB) {
+            return stringA;
+        } else if (stringA < stringB) {
+            return stringB;
         }
     }
-    return "None";
+    return boost::any("None");
 }

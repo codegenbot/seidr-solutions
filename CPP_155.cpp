@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -5,40 +6,29 @@ using namespace std;
 vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
-
-    while(num != 0){
-        int digit = abs(num % 10);
-        if(digit % 2 == 0){
+    string numStr = to_string(abs(num));
+    
+    for(char digit : numStr){
+        int digitValue = digit - '0';
+        if(digitValue % 2 == 0){
             evenCount++;
-        } else {
+        }else{
             oddCount++;
         }
-        num /= 10;
     }
-
-    vector<int> result;
-    result.push_back(evenCount);
-    result.push_back(oddCount);
-
-    return result;
+    
+    return {evenCount, oddCount};
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
-int main() {
+int main(){
     assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(12345), {3, 2}));
+    assert(issame(even_odd_count(-9876), {2, 2}));
 
+    cout << "All test cases passed" << endl;
     return 0;
 }
