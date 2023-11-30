@@ -1,30 +1,18 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
-    int stones = n;
-    pile.push_back(stones);
-    for (int i = 1; i < n; i++) {
-        if (stones % 2 == 0) {
-            stones += 2;
-        } else {
-            stones += 1;
-        }
-        pile.push_back(stones);
+vector<int> make_a_pile(int n){
+    vector<int> stones;
+    int level = n;
+    for(int i=0; i<n; i++){
+        stones.push_back(level);
+        level += (n % 2 == 0) ? 2 : 1;
     }
-    return pile;
+    return stones;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a == b) {
-        return true;
-    } else {
-        return false;
-    }
+bool issame(vector<int> a, vector<int> b){
+    // function implementation
 }
 
-int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
-}
+vector<int> make_a_pile(int n);
