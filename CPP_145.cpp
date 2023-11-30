@@ -3,7 +3,7 @@
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
-    int tempA = abs(a), tempB = abs(b);
+    int tempA = std::abs(a), tempB = std::abs(b);
     
     while(tempA > 0) {
         sumA += tempA % 10;
@@ -30,9 +30,9 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 int main() {
     // Test the order_by_points function
     std::vector<int> nums = {123, 45, 6789, 0, -9876};
-    std::vector<int> sorted_nums = order_by_points(nums);
+    std::vector<int> sortedNums = order_by_points(nums);
     
-    for(int num : sorted_nums) {
+    for(int num : sortedNums) {
         std::cout << num << " ";
     }
     
