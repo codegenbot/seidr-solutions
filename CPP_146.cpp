@@ -1,17 +1,26 @@
 #include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
 
 int specialFilter(vector<int> nums){
     int count = 0;
+    
     for(int num : nums){
-        string numStr = to_string(abs(num));
-        if(num > 10 && (numStr[0] - '0') % 2 != 0 && (numStr[numStr.length() - 1] - '0') % 2 != 0){
+        string str = to_string(abs(num));
+        
+        if(str[0] % 2 != 0 && str[str.size()-1] % 2 != 0 && num > 10){
             count++;
         }
     }
+    
     return count;
 }
 
 int main() {
-    // Write your test cases here
+    assert(specialFilter({}) == 0);
+    // Add more test cases if necessary
+    
     return 0;
 }
