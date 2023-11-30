@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> // for fixed and setprecision
+#include <iomanip>
 using namespace std;
 
 double calculateSnow(float hours, float snowOnGround, float snowFallRate, float snowMeltRate) {
@@ -13,9 +13,9 @@ double calculateSnow(float hours, float snowOnGround, float snowFallRate, float 
 int main() {
     float hours, snowOnGround, snowFallRate, snowMeltRate;
     cin >> hours >> snowOnGround >> snowFallRate >> snowMeltRate;
-
+    
     double result = calculateSnow(hours, snowOnGround, snowFallRate, snowMeltRate);
     cout << fixed << setprecision(15) << result << endl;
-
+    
     return 0;
 }

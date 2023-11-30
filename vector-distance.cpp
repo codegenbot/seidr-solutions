@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cmath>
 
 double euclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
@@ -13,15 +13,21 @@ double euclideanDistance(const std::vector<double>& vector1, const std::vector<d
 int main() {
     int n;
     std::cin >> n;
+
     std::vector<double> vector1(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vector1[i];
     }
+
     std::cin >> n;
+
     std::vector<double> vector2(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vector2[i];
     }
-    std::cout << euclideanDistance(vector1, vector2) << std::endl;
+
+    double distance = euclideanDistance(vector1, vector2);
+    std::cout << distance << std::endl;
+
     return 0;
 }
