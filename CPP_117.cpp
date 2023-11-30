@@ -6,7 +6,7 @@ vector<string> select_words(string s, int n) {
     for (int i = 0; i < s.length(); i++) {
         if (s[i] != ' ') {
             word += s[i];
-            if (isConsonant(s[i])) {
+            if (isalpha(s[i]) && !isVowel(s[i])) {
                 consonantCount++;
             }
         } else {
@@ -23,9 +23,4 @@ vector<string> select_words(string s, int n) {
     }
     
     return result;
-}
-
-bool isConsonant(char c) {
-    c = tolower(c);
-    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
