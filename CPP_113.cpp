@@ -3,7 +3,7 @@ vector<string> odd_count(vector<string> lst){
     for(string s : lst){
         int count = 0;
         for(char c : s){
-            if(c % 2 != 0){
+            if((c - '0') % 2 != 0){
                 count++;
             }
         }
