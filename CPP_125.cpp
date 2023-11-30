@@ -1,48 +1,42 @@
 vector<string> split_words(string txt){
-    vector<string> result;
+    vector<string> words;
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-
-    for (int i = 0; i < txt.length(); i++) {
-        if (txt[i] == ' ') {
+    
+    for(int i = 0; i < txt.length(); i++){
+        if(txt[i] == ' '){
             hasWhitespace = true;
-            if (word != "") {
-                result.push_back(word);
+            if(word != ""){
+                words.push_back(word);
                 word = "";
             }
-        } else if (txt[i] == ',') {
+        }
+        else if(txt[i] == ','){
             hasComma = true;
-            if (word != "") {
-                result.push_back(word);
+            if(word != ""){
+                words.push_back(word);
                 word = "";
             }
-        } else {
+        }
+        else{
             word += txt[i];
         }
     }
-
-    if (word != "") {
-        result.push_back(word);
+    
+    if(word != ""){
+        words.push_back(word);
     }
-
-    if (!hasWhitespace && !hasComma) {
-        result.clear();
-        result.push_back(to_string(countOddLetters(txt)));
-    }
-
-    return result;
-}
-
-int countOddLetters(string txt) {
-    int count = 0;
-    for (int i = 0; i < txt.length(); i++) {
-        if (islower(txt[i])) {
-            int letterIndex = txt[i] - 'a';
-            if (letterIndex % 2 == 1) {
+    
+    if(!hasWhitespace && !hasComma){
+        int count = 0;
+        for(int i = 0; i < word.length(); i++){
+            if(islower(word[i])){
                 count++;
             }
         }
+        words.push_back(to_string(count));
     }
-    return count;
+    
+    return words;
 }
