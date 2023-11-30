@@ -16,8 +16,8 @@ vector<int> order_by_points(vector<int> nums){
     
     sort(sums.begin(), sums.end());
     
-    for(int i=0; i<sums.size(); i++){
-        result.push_back(nums[sums[i].second]);
+    for(auto p : sums){
+        result.push_back(nums[p.second]);
     }
     
     return result;
