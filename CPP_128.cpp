@@ -1,8 +1,7 @@
 #include <vector>
+#include <cassert>
 
-int main(){
-    std::vector<int> arr = {1, -2, 3, -4, 5};
-    
+int prod_signs(std::vector<int> arr){
     if(arr.empty()){
         return -32768;
     }
@@ -18,4 +17,10 @@ int main(){
     }
     
     return sum * product;
+}
+
+int main() {
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    // ... additional test cases
+    return 0;
 }
