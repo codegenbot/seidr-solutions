@@ -1,17 +1,14 @@
 def concatenate(strings):
-    return ''.join(strings)
+    return "".join(strings)
 
-try:
-    n = int(input().strip())
-    strings = []
 
-    for _ in range(n):
-        string = input().strip()
-        strings.append(string)
+n = int(input())
+strings = []
 
-    result = concatenate(strings)
+for _ in range(n):
+    string = input().strip()
+    strings.append(string)
 
-    print(result)
+result = concatenate(strings)
 
-except EOFError:
-    pass
+print(result)
