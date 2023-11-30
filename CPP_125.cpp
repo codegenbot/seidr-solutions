@@ -27,8 +27,19 @@ vector<string> split_words(string txt){
     }
     
     if (!hasWhitespace && !hasComma) {
-        result.push_back(to_string(count_odd_lower_case_letters(txt)));
+        result.clear();
+        result.push_back(to_string(countOddLetters(txt)));
     }
     
     return result;
+}
+
+int countOddLetters(string txt) {
+    int count = 0;
+    for (char c : txt) {
+        if (islower(c) && (c - 'a') % 2 != 0) {
+            count++;
+        }
+    }
+    return count;
 }
