@@ -1,14 +1,11 @@
-bool simplify(string x, string n) {
-    // extract the numerators and denominators from the fractions
-    int xNum = stoi(x.substr(0, x.find("/")));
-    int xDen = stoi(x.substr(x.find("/") + 1));
-    int nNum = stoi(n.substr(0, n.find("/")));
-    int nDen = stoi(n.substr(n.find("/") + 1));
-
-    // check if x * n evaluates to a whole number
-    if (xNum * nNum % (xDen * nDen) == 0) {
-        return true;
-    } else {
-        return false;
-    }
+bool simplify(string x, string n){
+   int num1 = stoi(x.substr(0, x.find("/")));
+   int den1 = stoi(x.substr(x.find("/") + 1));
+   int num2 = stoi(n.substr(0, n.find("/")));
+   int den2 = stoi(n.substr(n.find("/") + 1));
+   
+   if((num1 * den2) % (num2 * den1) == 0){
+      return true;
+   }
+   return false;
 }
