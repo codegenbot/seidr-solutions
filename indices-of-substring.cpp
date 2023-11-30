@@ -26,8 +26,8 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     std::string text, target;
-    getline(std::cin, text); 
-    getline(std::cin, target);
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
 
     std::replace(text.begin(), text.end(), '\\', '/');
 
