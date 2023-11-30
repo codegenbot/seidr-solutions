@@ -1,24 +1,41 @@
+#include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
 
-vector<string> split_words(string txt){
+vector<string> split_words(string txt);
+
+bool isSame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-    
-    for(int i = 0; i < txt.length(); i++){
-        if(txt[i] == ' '){
+
+    for (int i = 0; i < txt.length(); i++) {
+        if (txt[i] == ' ') {
             hasWhitespace = true;
-            if(word != ""){
+            if (word != "") {
                 result.push_back(word);
                 word = "";
             }
-        } else if(txt[i] == ','){
+        } else if (txt[i] == ',') {
             hasComma = true;
-            if(word != ""){
+            if (word != "") {
                 result.push_back(word);
                 word = "";
             }
@@ -26,42 +43,30 @@ vector<string> split_words(string txt){
             word += txt[i];
         }
     }
-    
-    if(word != ""){
+
+    if (word != "") {
         result.push_back(word);
     }
-    
-    if(!hasWhitespace && !hasComma){
+
+    if (!hasWhitespace && !hasComma) {
         result.clear();
         result.push_back(to_string(count_odd_letters(txt)));
     }
-    
+
     return result;
 }
 
-bool isSame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
-
 int main() {
-    vector<string> a = split_words("apple,banana,orange");
-    vector<string> b = split_words("apple,banana,orange");
-    
-    if(isSame(a, b)){
-        cout << "The vectors are the same" << endl;
+    string input;
+    getline(cin, input);
+
+    vector<string> words = split_words(input);
+
+    if (isSame(words, {"apple", "banana", "cherry"})) {
+        cout << "The words are the same." << endl;
     } else {
-        cout << "The vectors are different" << endl;
+        cout << "The words are different." << endl;
     }
-    
+
     return 0;
 }
