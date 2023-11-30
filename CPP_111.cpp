@@ -6,14 +6,22 @@ map<char,int> histogram(string test){
             word += test[i];
         }
         else{
-            if(word != ""){
-                result[word]++;
-                word = "";
+            if(result.find(word[0]) == result.end()){
+                result[word[0]] = 1;
             }
+            else{
+                result[word[0]]++;
+            }
+            word = "";
         }
     }
     if(word != ""){
-        result[word]++;
+        if(result.find(word[0]) == result.end()){
+            result[word[0]] = 1;
+        }
+        else{
+            result[word[0]]++;
+        }
     }
     return result;
 }
