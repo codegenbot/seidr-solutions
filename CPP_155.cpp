@@ -1,16 +1,12 @@
 vector<int> even_odd_count(int num){
-    int evenCount = 0;
-    int oddCount = 0;
+    vector<int> count(2, 0);
     string numStr = to_string(abs(num));
-    
     for(char c : numStr){
-        int digit = c - '0';
-        if(digit % 2 == 0){
-            evenCount++;
-        } else {
-            oddCount++;
+        if((c - '0') % 2 == 0){
+            count[0]++;
+        }else{
+            count[1]++;
         }
     }
-    
-    return {evenCount, oddCount};
+    return count;
 }
