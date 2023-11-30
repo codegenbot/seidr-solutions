@@ -1,10 +1,12 @@
-#include <iostream>
-using namespace std;
-
-int fib4(int n) {
-    if (n == 0 || n == 1) {
+int fib4(int n){
+    if(n == 0)
         return 0;
-    }
+    else if(n == 1)
+        return 0;
+    else if(n == 2)
+        return 2;
+    else if(n == 3)
+        return 0;
     
     int fib[n+1];
     fib[0] = 0;
@@ -12,19 +14,9 @@ int fib4(int n) {
     fib[2] = 2;
     fib[3] = 0;
     
-    for (int i = 4; i <= n; i++) {
+    for(int i = 4; i <= n; i++){
         fib[i] = fib[i-1] + fib[i-2] + fib[i-3] + fib[i-4];
     }
     
     return fib[n];
-}
-
-int main() {
-    int n;
-    cout << "Enter the value of n: ";
-    cin >> n;
-    
-    cout << "fib4(" << n << ") = " << fib4(n) << endl;
-    
-    return 0;
 }
