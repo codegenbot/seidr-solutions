@@ -25,11 +25,7 @@ def parse_nested_parens(inputs: List[str]) -> List[int]:
             result.append(max_depth)
     return result
 
-
-inputs = []
 n = int(input())
-
-for _ in range(n):
-    inputs.append(input())
-
-print(parse_nested_parens(inputs))
+inputs = [input() for _ in range(n)]
+result = parse_nested_parens(inputs)
+print(result)
