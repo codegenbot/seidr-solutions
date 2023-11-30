@@ -1,19 +1,12 @@
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
-vector<int> make_a_pile(int n){
-    vector<int> stones;
-    int level = n;
-    for(int i = 0; i < n; i++){
-        stones.push_back(level);
-        if(level % 2 == 0){
-            level += 2;
-        }
-        else{
-            level += 1;
-        }
+vector<int> stones;
+stones.push_back(n);
+for(int i=1; i<n; i++){
+    if(n%2 == 0){
+        stones.push_back(n + 2*i);
     }
-    return stones;
+    else{
+        stones.push_back(n + 2*i - 1);
+    }
+}
+return stones;
 }
