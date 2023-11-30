@@ -8,4 +8,4 @@ def all_prefixes(string: str) -> List[str]:
 
 string = input().strip()
 prefixes_list = all_prefixes(string)
-return prefixes_list
+print(prefixes_list)
