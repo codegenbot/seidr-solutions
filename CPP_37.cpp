@@ -1,25 +1,23 @@
 vector<float> sort_even(vector<float> l){
-    vector<float> result;
+    vector<float> l_prime;
     vector<float> even_indices;
-
-    // Store the even indices values in a separate vector
+    
+    // Get the values of even indices in l
     for (int i = 0; i < l.size(); i += 2) {
         even_indices.push_back(l[i]);
     }
-
+    
     // Sort the even indices values
     sort(even_indices.begin(), even_indices.end());
-
-    // Reconstruct the result vector
-    int even_index = 0;
+    
+    // Construct the final vector l_prime
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(even_indices[even_index]);
-            even_index++;
+            l_prime.push_back(l[i]);
         } else {
-            result.push_back(l[i]);
+            l_prime.push_back(even_indices[i/2]);
         }
     }
-
-    return result;
+    
+    return l_prime;
 }
