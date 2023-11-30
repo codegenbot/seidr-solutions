@@ -1,13 +1,16 @@
 #include <string>
-using namespace std;
 
 string solve(string s) {
     string result = "";
+
+    int n = s.length();
+
     bool hasLetter = false;
 
-    for (int i = s.size() - 1; i >= 0; i--) {
+    for (int i = 0; i < n; i++) {
         if (isalpha(s[i])) {
             hasLetter = true;
+
             if (islower(s[i])) {
                 result += toupper(s[i]);
             } else {
