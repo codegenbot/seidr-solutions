@@ -1,12 +1,7 @@
-#include <vector>
-#include <string>
-
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> filtered;
-    for(const string& str : strings){
-        if(str.find(prefix) == 0){
-            filtered.push_back(str);
-        }
+vector<string> filtered_strings;
+for(string s : strings){
+    if(s.substr(0, prefix.length()) == prefix){
+        filtered_strings.push_back(s);
     }
-    return filtered;
 }
+return filtered_strings;
