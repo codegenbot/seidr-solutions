@@ -1,5 +1,3 @@
-try:
-    numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-    # Rest of the code
-except ValueError:
-    print("Invalid input. Please enter numbers separated by space.")
+import sys
+
+numbers = list(map(int, sys.stdin.readline().strip().split()))
