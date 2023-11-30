@@ -17,7 +17,7 @@ long long double_the_difference(vector<float> lst){
 
 int main(){
     vector<float> lst = {2.5, 3.0, 4.5};
-    long long odd_sum = 9; // example value
+    long long odd_sum = 9;
 
     assert(double_the_difference(lst) == odd_sum);
 
