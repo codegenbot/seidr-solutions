@@ -1,17 +1,24 @@
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
-
 string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension = extensions[0];
-    int max_strength = count_if(strongest_extension.begin(), strongest_extension.end(), isupper) - count_if(strongest_extension.begin(), strongest_extension.end(), islower);
+    string strongest_extension = "";
+    int max_strength = INT_MIN;
 
-    for (int i = 1; i < extensions.size(); i++) {
-        int strength = count_if(extensions[i].begin(), extensions[i].end(), isupper) - count_if(extensions[i].begin(), extensions[i].end(), islower);
+    for (string extension : extensions) {
+        int cap = 0;
+        int sm = 0;
+
+        for (char c : extension) {
+            if (isupper(c)) {
+                cap++;
+            } else if (islower(c)) {
+                sm++;
+            }
+        }
+
+        int strength = cap - sm;
+
         if (strength > max_strength) {
-            strongest_extension = extensions[i];
             max_strength = strength;
+            strongest_extension = extension;
         }
     }
 
