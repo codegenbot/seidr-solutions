@@ -1,13 +1,12 @@
-vector<int> sort_third(vector<int> l){
-    vector<int> l1 = l;
-    vector<int> l2;
-    sort(l1.begin(), l1.end());
-    for(int i=0; i<l.size(); i++){
-        if(i % 3 == 0){
-            l2.push_back(l1[i]);
-        } else {
-            l2.push_back(l[i]);
-        }
-    }
-    return l2;
+#include <vector>
+#include <algorithm>
+
+vector<int> sort_third(vector<int> l) {
+    vector<int> result = l;
+    
+    sort(result.begin(), result.end(), [](int a, int b) {
+        return a % 3 == 0 && b % 3 == 0 ? a < b : false;
+    });
+    
+    return result;
 }
