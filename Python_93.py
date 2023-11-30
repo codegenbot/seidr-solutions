@@ -1,7 +1,21 @@
 def encode(message: str) -> str:
     vowels = "aeiouAEIOU"
-    translation_table = str.maketrans(
-        vowels + ''.join([chr(ord(vowel) + 2) for vowel in vowels]),
-        vowels.upper() + ''.join([chr(ord(vowel.upper()) + 2) for vowel in vowels.upper()])
-    )
-    return message.translate(translation_table)
+    encoded_message = ""
+
+    for char in message:
+        if char.isalpha():
+            if char in vowels:
+                encoded_char = chr(ord(char) + 2)
+            else:
+                if char == "z":
+                    encoded_char = "a"
+                elif char == "Z":
+                    encoded_char = "A"
+                else:
+                    encoded_char = chr(ord(char) + 2)
+        else:
+            encoded_char = char
+
+        encoded_message += encoded_char
+
+    return encoded_message
