@@ -1,16 +1,14 @@
 from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return list(set(numbers))
+    numbers = list(set(numbers))
+    return numbers
 
-# Read input from user
-numbers_string = input()
+n = int(input())
+numbers = []
+for _ in range(n):
+    numbers.append(int(input()))
 
-# Convert the input string into a list of integers
-numbers = list(map(int, numbers_string.split()))
-
-# Call the remove_duplicates function with the input numbers
 result = remove_duplicates(numbers)
-
-# Print the result
-print(result)
+for num in result:
+    print(num)
