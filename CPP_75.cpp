@@ -42,9 +42,9 @@ int main() {
     cout << "Enter a number: ";
     cin >> num;
     if (is_multiply_prime(num)) {
-        cout << num << " is the multiplication of 3 prime numbers." << endl;
+        cout << "true" << endl;
     } else {
-        cout << num << " is not the multiplication of 3 prime numbers." << endl;
+        cout << "false" << endl;
     }
     return 0;
 }
