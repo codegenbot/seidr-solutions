@@ -1,10 +1,8 @@
 from typing import List
 
-def parse_music() -> List[int]:
-    music_string = input()
-    notes = music_string.split()
+def parse_music(music_list: List[str]) -> List[int]:
     result = []
-    for note in notes:
+    for note in music_list:
         if note == 'o':
             result.append(4)
         elif note == 'o|':
