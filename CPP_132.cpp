@@ -2,7 +2,9 @@
 #include <string>
 #include <cassert>
 
-bool is_nested(std::string str){
+using namespace std;
+
+bool is_nested(string str){
     int count = 0;
     for(int i=0; i<str.length(); i++){
         if(str[i] == '['){
@@ -23,7 +25,7 @@ int main() {
     assert(is_nested("[][][") == true);
     assert(is_nested("]]]]]]]]") == false);
 
-    std::cout << "All test cases passed!" << std::endl;
+    cout << "All test cases passed!" << endl;
 
     return 0;
 }
