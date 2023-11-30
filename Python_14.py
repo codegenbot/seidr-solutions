@@ -6,6 +6,8 @@ def all_prefixes(string: str) -> List[str]:
         prefixes.append(string[:i])
     return prefixes
 
-input_str = input()
-output = all_prefixes(input_str)
-print(output)
+# Read input from user
+user_input = input("Enter a string: ")
+
+# Call the function and print the result
+print(all_prefixes(user_input))
