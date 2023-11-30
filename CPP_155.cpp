@@ -1,15 +1,22 @@
-vector<int> even_odd_count(int num){
-    vector<int> count(2, 0); // Initialize count vector with 2 elements, both set to 0
-    
-    while (num != 0) {
-        int digit = abs(num % 10); // Get the last digit of the number
-        if (digit % 2 == 0) {
-            count[0]++; // Increment count of even digits
+#include <iostream>
+#include <vector>
+
+vector<int> even_odd_count(int num) {
+    int evenCount = 0;
+    int oddCount = 0;
+
+    // Convert the number to a string
+    string numStr = to_string(abs(num));
+
+    // Count the number of even and odd digits
+    for (char digit : numStr) {
+        int num = digit - '0';
+        if (num % 2 == 0) {
+            evenCount++;
         } else {
-            count[1]++; // Increment count of odd digits
+            oddCount++;
         }
-        num /= 10; // Remove the last digit from the number
     }
-    
-    return count;
+
+    return {evenCount, oddCount};
 }
