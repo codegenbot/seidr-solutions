@@ -1,43 +1,25 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-int sum_of_digits(int num) {
-    int sum = 0;
-    num = abs(num);
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
+vector<int> order_by_points(vector<int> nums){
+    if(nums.empty()){
+        return nums;
     }
-    return sum;
-}
-
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = sum_of_digits(a);
-        int sum_b = sum_of_digits(b);
-        if (sum_a == sum_b) {
-            return a < b;
+    
+    vector<pair<int, int>> sum_digits;
+    for(int i=0; i<nums.size(); i++){
+        int num = nums[i];
+        int sum = 0;
+        while(num != 0){
+            sum += abs(num%10);
+            num /= 10;
         }
-        return sum_a < sum_b;
-    });
-    return nums;
-}
-
-int main() {
-    vector<int> nums = {1, 11, -1, -11, -12};
-    vector<int> sorted_nums = order_by_points(nums);
-    for (int num : sorted_nums) {
-        cout << num << " ";
+        sum_digits.push_back(make_pair(sum, i));
     }
-    cout << endl;
     
-    nums = {};
-    sorted_nums = order_by_points(nums);
-    for (int num : sorted_nums) {
-        cout << num << " ";
+    sort(sum_digits.begin(), sum_digits.end());
+    
+    vector<int> result;
+    for(auto pair : sum_digits){
+        result.push_back(nums[pair.second]);
     }
-    cout << endl;
     
-    return 0;
+    return result;
 }
