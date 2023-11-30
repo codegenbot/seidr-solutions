@@ -20,4 +20,6 @@ def prime_fib(n: int):
             fib_seq.append(fib_seq[-1] + fib_seq[-2])
         return fib_seq[-1]
 
-    return sum([fibonacci(i) for i in range(n+1) if is_prime(fibonacci(i))]) % (10**9 + 7)
+    fib_sequence = fibonacci(n)
+    prime_fib_seq = [num for num in fib_sequence if is_prime(num)]
+    return sum(prime_fib_seq) % (10**9 + 7)
