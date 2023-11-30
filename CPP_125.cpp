@@ -1,4 +1,3 @@
-#include <vector>
 #include <string>
 
 vector<string> split_words(string txt){
@@ -52,16 +51,8 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-int main() {
-    vector<string> a = split_words("");
-    vector<string> b = split_words("");
-    
-    if(issame(a, b)){
-        cout << "Same" << endl;
-    }
-    else{
-        cout << "Not Same" << endl;
-    }
+int main(){
+    assert(issame(split_words(""), {"0"}));
     
     return 0;
 }
