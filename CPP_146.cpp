@@ -1,4 +1,7 @@
+#include <iostream>
 #include <vector>
+
+using namespace std;
 
 int specialFilter(vector<int> nums){
     int count = 0;
@@ -11,7 +14,7 @@ int specialFilter(vector<int> nums){
     return count;
 }
 
-int main() {
-    // Write test cases here to validate the code if needed
+int main(){
+    // Test your code here
     return 0;
 }
