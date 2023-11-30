@@ -2,7 +2,7 @@ from typing import List
 
 
 def sort_numbers(numbers: str) -> str:
-    number_mapping = {
+    num_mapping = {
         'zero': 0,
         'one': 1,
         'two': 2,
@@ -14,5 +14,10 @@ def sort_numbers(numbers: str) -> str:
         'eight': 8,
         'nine': 9
     }
-    sorted_numbers = sorted(numbers.split(), key=lambda x: number_mapping[x])
+    sorted_numbers = sorted(numbers.split(), key=lambda x: num_mapping[x])
     return ' '.join(sorted_numbers)
+
+
+numbers_input = input("Enter a space-separated list of numbers in word form: ")
+output = sort_numbers(numbers_input)
+print(output)
