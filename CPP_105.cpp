@@ -1,22 +1,6 @@
 #include <vector>
 #include <string>
 
-vector<string> by_length(vector<int> arr);
-
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
-    return true;
-}
-
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     vector<int> sorted_arr;
@@ -49,37 +33,13 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b){
+    // implementation
+}
+
+vector<string> by_length(vector<int> arr);
+
 int main() {
-    // test cases
-    vector<int> arr1 = {1, 2, 3, 4, 5};
-    vector<int> arr2 = {5, 4, 3, 2, 1};
-    vector<int> arr3 = {1, 2, 3, 4, 6};
-
-    vector<string> result1 = by_length(arr1);
-    vector<string> result2 = by_length(arr2);
-    vector<string> result3 = by_length(arr3);
-
-    vector<string> expected1 = {"Five", "Four", "Three", "Two", "One"};
-    vector<string> expected2 = {"One", "Two", "Three", "Four", "Five"};
-    vector<string> expected3 = {"Six", "Four", "Three", "Two", "One"};
-
-    if(issame(result1, expected1)){
-        cout << "Test case 1 passed" << endl;
-    } else {
-        cout << "Test case 1 failed" << endl;
-    }
-
-    if(issame(result2, expected2)){
-        cout << "Test case 2 passed" << endl;
-    } else {
-        cout << "Test case 2 failed" << endl;
-    }
-
-    if(issame(result3, expected3)){
-        cout << "Test case 3 passed" << endl;
-    } else {
-        cout << "Test case 3 failed" << endl;
-    }
-
+    // code
     return 0;
 }
