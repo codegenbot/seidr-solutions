@@ -4,8 +4,7 @@ using namespace std;
 float calculateSnow(float hours, float snow, float rate, float melt) {
     for (int i = 0; i < hours; i++) {
         snow += rate;
-        float meltingAmount = melt * snow;
-        snow -= meltingAmount;
+        snow *= (1 - melt);
     }
     return snow;
 }
