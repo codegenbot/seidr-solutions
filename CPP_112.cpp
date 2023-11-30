@@ -1,11 +1,33 @@
-vector<string> reverse_delete(string s, string c){
-    for(int i=0;i<c.length();i++){
-        s.erase(remove(s.begin(), s.end(), c[i]), s.end());
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    string resString = "";
+    bool isPalindrome = true;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (c.find(s[i]) == string::npos) {
+            resString += s[i];
+        }
     }
-    string rev_s = s;
-    reverse(rev_s.begin(), rev_s.end());
-    if(s == rev_s){
-        return {s, "True"};
+
+    int left = 0;
+    int right = resString.length() - 1;
+
+    while (left < right) {
+        if (resString[left] != resString[right]) {
+            isPalindrome = false;
+            break;
+        }
+        left++;
+        right--;
     }
-    return {s, "False"};
+
+    result.push_back(resString);
+
+    if (isPalindrome) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+
+    return result;
 }
