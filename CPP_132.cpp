@@ -1,8 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
-
-using namespace std;
 
 bool is_nested(string str){
     int count = 0;
@@ -18,14 +14,4 @@ bool is_nested(string str){
         }
     }
     return false;
-}
-
-int main() {
-    assert(is_nested("[][]") == false);
-    assert(is_nested("[][][") == true);
-    assert(is_nested("]]]]]]]]") == false);
-
-    cout << "All test cases passed!" << endl;
-
-    return 0;
 }
