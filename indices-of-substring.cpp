@@ -6,9 +6,8 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     std::vector<int> indices;
     int targetLen = target.length();
     int textLen = text.length();
-    int i = 0;
 
-    while (i < textLen - targetLen + 1) {
+    for (int i = 0; i < textLen - targetLen + 1; i++) {
         bool found = true;
         for (int j = 0; j < targetLen; j++) {
             if (text[i + j] != target[j]) {
@@ -16,11 +15,8 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
                 break;
             }
         }
-        if (found) {
+        if (found && (i + targetLen >= textLen || text[i + targetLen] == '\\')) {
             indices.push_back(i);
-            i += targetLen;
-        } else {
-            i++;
         }
     }
 
