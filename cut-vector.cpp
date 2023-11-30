@@ -8,30 +8,30 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
     int diff = INT_MAX;
     int index = -1;
 
-    for (int i = 1; i < n - 1; i++) {
+    for (int i = 0; i <= n; i++) {   
         int leftSum = 0;
         int rightSum = 0;
 
-        for (int j = 0; j < i - 1; j++) {
+        for (int j = 0; j < i; j++) {
             leftSum += nums[j];
         }
 
-        for (int j = i + 1; j < n; j++) {
+        for (int j = i; j < n; j++) {
             rightSum += nums[j];
         }
 
         int currentDiff = std::abs(leftSum - rightSum);
 
-        if (currentDiff < diff) {
+        if (currentDiff <= diff) {
             diff = currentDiff;
             index = i;
         }
     }
 
-    if (index == -1) return { nums };
+    if (index == -1) return {};
 
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
-    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
+    std::vector<int> rightSubvector(nums.begin() + index, nums.end());
 
     return { leftSubvector, rightSubvector };
 }
