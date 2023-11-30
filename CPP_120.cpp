@@ -24,6 +24,8 @@ vector<int> maximum(vector<int> arr, int k) {
 
 int main() {
     assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    // More test cases go here
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 2), {243, 3}));
+    assert(issame(maximum({5, 2, 7, 1, 9, 3}, 4), {9, 7, 5, 3}));
+    // Add more test cases here
     return 0;
 }
