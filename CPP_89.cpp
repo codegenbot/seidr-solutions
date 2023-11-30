@@ -1,13 +1,18 @@
-string encrypt(string s){
+#include <string>
+using namespace std;
+
+string encrypt(string s) {
     string encrypted = "";
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            char c = s[i] + 2 * 2;
-            if(c > 'z'){
-                c = 'a' + (c - 'z') - 1;
+    for (int i = 0; i < s.length(); i++) {
+        char c = s[i];
+        if (isalpha(c)) {
+            if (isupper(c)) {
+                c = (c - 'A' + 2 * 2) % 26 + 'A';
+            } else {
+                c = (c - 'a' + 2 * 2) % 26 + 'a';
             }
-            encrypted += c;
         }
+        encrypted += c;
     }
     return encrypted;
 }
