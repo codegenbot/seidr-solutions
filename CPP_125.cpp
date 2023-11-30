@@ -1,20 +1,24 @@
 vector<string> split_words(string txt){
-    vector<string> result;
+    vector<string> words;
     string word = "";
+    bool isAlpha = false;
     for(char c : txt){
-        if(c == ' '){
-            result.push_back(word);
-            word = "";
+        if(c == ' ' || c == ','){
+            if(word != ""){
+                words.push_back(word);
+                word = "";
+            }
         }
-        else{
+        else if(isalpha(c)){
+            isAlpha = true;
             word += c;
         }
     }
     if(word != ""){
-        result.push_back(word);
+        words.push_back(word);
     }
-    if(result.empty()){
-        result.push_back(to_string(26));
+    if(words.empty()){
+        words.push_back(to_string(count_odd_letters(txt)));
     }
-    return result;
+    return words;
 }
