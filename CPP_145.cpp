@@ -2,16 +2,14 @@
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
-    int tempA = abs(a), tempB = abs(b);
+    string strA = to_string(a), strB = to_string(b);
     
-    while (tempA > 0) {
-        sumA += tempA % 10;
-        tempA /= 10;
+    for (char c : strA) {
+        sumA += c - '0';
     }
     
-    while (tempB > 0) {
-        sumB += tempB % 10;
-        tempB /= 10;
+    for (char c : strB) {
+        sumB += c - '0';
     }
     
     if (sumA == sumB) {
