@@ -1,6 +1,14 @@
 def decode_cyclic():
-    s = "ycliceod"  # Replace this string with the input you want to test
-    return "".join([s[i - 1] + s[i - 2] + s[i] for i in range(0, len(s), 3)])
-
-
-decode_cyclic()
+    s = input().strip().split(" ")
+    if len(s) == 0:
+        return ""
+    try:
+        nums = [int(num) for num in s]
+        result = ""
+        for i in range(len(nums)):
+            if i > 1:
+                result += str((nums[i] - nums[i-1]) * nums[i-2])
+        return result
+    except ValueError:
+        return "Invalid input format"
+print(decode_cyclic())
