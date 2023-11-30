@@ -23,6 +23,6 @@ int main() {
     vector<int> nums = {123, -456, 789};
     int result = count_nums(nums);
     cout << "Count: " << result << endl;
-
+    
     return 0;
 }
