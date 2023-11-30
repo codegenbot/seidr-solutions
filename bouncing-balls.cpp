@@ -3,10 +3,10 @@ using namespace std;
 
 double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
     double bouncinessIndex = firstBounceHeight / startingHeight;
-    double totalDistance = 0;
+    double totalDistance = startingHeight;
 
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += 2 * bouncinessIndex * (startingHeight - totalDistance);
+        totalDistance += 2 * bouncinessIndex * (totalDistance * bouncinessIndex - startingHeight);
     }
 
     return totalDistance;
