@@ -12,13 +12,13 @@ int sum_of_digits(int num) {
     return sum;
 }
 
-bool compare(int num1, int num2) {
-    int sum1 = sum_of_digits(num1);
-    int sum2 = sum_of_digits(num2);
-    if (sum1 == sum2) {
-        return num1 < num2;
+bool compare(int a, int b) {
+    int sum_a = sum_of_digits(a);
+    int sum_b = sum_of_digits(b);
+    if (sum_a == sum_b) {
+        return a < b;
     }
-    return sum1 < sum2;
+    return sum_a < sum_b;
 }
 
 vector<int> order_by_points(vector<int> nums) {
