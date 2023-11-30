@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 
@@ -19,6 +18,6 @@ def sort_numbers(numbers: str) -> str:
     return ' '.join(sorted_numbers)
 
 
-numbers_input = sys.stdin.readline().strip()
+numbers_input = input("Enter a space-separated list of numbers in word form (e.g. 'one two three'): ")
 output = sort_numbers(numbers_input)
 print(output)
