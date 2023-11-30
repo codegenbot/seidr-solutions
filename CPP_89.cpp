@@ -1,14 +1,17 @@
 string encrypt(string s){
     string encrypted = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'z'){
-            c = 'a' + ((c - 'a' + 2*2) % 26);
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] >= 'a' && s[i] <= 'z'){
+            char encryptedChar = ((s[i] - 'a') + 2 * 2) % 26 + 'a';
+            encrypted += encryptedChar;
         }
-        else if(c >= 'A' && c <= 'Z'){
-            c = 'A' + ((c - 'A' + 2*2) % 26);
+        else if(s[i] >= 'A' && s[i] <= 'Z'){
+            char encryptedChar = ((s[i] - 'A') + 2 * 2) % 26 + 'A';
+            encrypted += encryptedChar;
         }
-        encrypted += c;
+        else{
+            encrypted += s[i];
+        }
     }
     return encrypted;
 }
