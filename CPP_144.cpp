@@ -1,16 +1,9 @@
 bool simplify(string x, string n) {
-    // Extracting the numerators and denominators from the strings
-    int x_num = stoi(x.substr(0, x.find('/')));
-    int x_den = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_den = stoi(n.substr(n.find('/') + 1));
-
-    // Calculating the product of x and n
-    int product_num = x_num * n_num;
-    int product_den = x_den * n_den;
-
-    // Checking if the product is a whole number
-    if (product_den % product_num == 0) {
+    int numeratorX, denominatorX, numeratorN, denominatorN;
+    sscanf(x.c_str(), "%d/%d", &numeratorX, &denominatorX);
+    sscanf(n.c_str(), "%d/%d", &numeratorN, &denominatorN);
+    
+    if (numeratorX * denominatorN == numeratorN * denominatorX) {
         return true;
     } else {
         return false;
