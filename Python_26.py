@@ -5,13 +5,7 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 
 if __name__ == "__main__":
-    numbers = []
-    while True:
-        try:
-            line = input()
-            numbers.extend(map(int, line.split()))
-        except EOFError:
-            break
+    numbers = list(map(int, input().split()))
 
     result = remove_duplicates(numbers)
 
