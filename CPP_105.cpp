@@ -1,27 +1,21 @@
 vector<string> by_length(vector<int> arr){
     vector<string> result;
-    map<int, string> numToName = {
-        {1, "One"},
-        {2, "Two"},
-        {3, "Three"},
-        {4, "Four"},
-        {5, "Five"},
-        {6, "Six"},
-        {7, "Seven"},
-        {8, "Eight"},
-        {9, "Nine"}
-    };
+    map<int, string> digitMap;
+    digitMap[1] = "One";
+    digitMap[2] = "Two";
+    digitMap[3] = "Three";
+    digitMap[4] = "Four";
+    digitMap[5] = "Five";
+    digitMap[6] = "Six";
+    digitMap[7] = "Seven";
+    digitMap[8] = "Eight";
+    digitMap[9] = "Nine";
 
-    // Sort the integers between 1 and 9 inclusive
     sort(arr.begin(), arr.end());
 
-    // Reverse the resulting vector
-    reverse(arr.begin(), arr.end());
-
-    // Replace each digit by its corresponding name
-    for(int num : arr){
-        if(num >= 1 && num <= 9){
-            result.push_back(numToName[num]);
+    for(int i = arr.size() - 1; i >= 0; i--){
+        if(arr[i] >= 1 && arr[i] <= 9){
+            result.push_back(digitMap[arr[i]]);
         }
     }
 
