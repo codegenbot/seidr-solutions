@@ -1,9 +1,10 @@
 #include <iostream>
+#include <cmath>
 
 float calculateSnow(float hours, float snowOnGround, float snowFallRate, float snowMeltProportion) {
-    for (int i = 0; i < hours; i++) {
-        snowOnGround += snowFallRate;
-        snowOnGround *= (1 - snowMeltProportion);
+    for (int i = 0; i <= hours; i++) {
+        float currentSnow = snowOnGround + snowFallRate - (snowOnGround * snowMeltProportion);
+        snowOnGround = std::round(currentSnow * 100000) / 100000;
     }
     return snowOnGround;
 }
