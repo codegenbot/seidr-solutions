@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 vector<string> odd_count(){
     vector<string> result;
     vector<string> lst = {"271", "137", "314"};
