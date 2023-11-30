@@ -2,25 +2,23 @@
 using namespace std;
 
 string solve(string s) {
-    string result = "";
-    bool hasLetter = false;
-
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.size(); i++) {
         if (isalpha(s[i])) {
-            hasLetter = true;
             if (islower(s[i])) {
-                result += toupper(s[i]);
+                s[i] = toupper(s[i]);
             } else {
-                result += tolower(s[i]);
+                s[i] = tolower(s[i]);
             }
-        } else {
-            result += s[i];
         }
     }
-
-    if (!hasLetter) {
-        reverse(result.begin(), result.end());
+    
+    int start = 0;
+    int end = s.size() - 1;
+    while (start < end) {
+        swap(s[start], s[end]);
+        start++;
+        end--;
     }
-
-    return result;
+    
+    return s;
 }
