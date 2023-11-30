@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -10,11 +12,10 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> reverse_delete(string s, string c);
 
 int main() {
-    string s, c;
-    cin >> s >> c;
+    string s = "hello world";
+    string c = "l";
     vector<string> result = reverse_delete(s, c);
-    cout << result[0] << endl;
-    cout << result[1] << endl;
+    assert(issame(result, {"heo word", "False"}));
     return 0;
 }
 
