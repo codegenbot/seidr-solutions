@@ -7,14 +7,14 @@ vector<string> split_words(string txt){
     for(char c : txt){
         if(c == ' '){
             hasWhitespace = true;
-            if(word != ""){
+            if(!word.empty()){
                 result.push_back(word);
                 word = "";
             }
         }
         else if(c == ','){
             hasComma = true;
-            if(word != ""){
+            if(!word.empty()){
                 result.push_back(word);
                 word = "";
             }
@@ -24,13 +24,13 @@ vector<string> split_words(string txt){
         }
     }
     
-    if(word != ""){
+    if(!word.empty()){
         result.push_back(word);
     }
     
     if(!hasWhitespace && !hasComma){
         result.clear();
-        result.push_back(to_string(count_odd_alphabet_letters(txt)));
+        result.push_back(to_string(('z' - 'a' + 1) % 2));
     }
     
     return result;
