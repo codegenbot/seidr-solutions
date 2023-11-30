@@ -1,9 +1,11 @@
 vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for (string s : strings) {
+    vector<string> filtered_strings;
+    
+    for (const string& s : strings) {
         if (s.find(substring) != string::npos) {
-            result.push_back(s);
+            filtered_strings.push_back(s);
         }
     }
-    return result;
+    
+    return filtered_strings;
 }
