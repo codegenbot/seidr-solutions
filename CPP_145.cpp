@@ -1,28 +1,28 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-bool compare(int a, int b){
-    int sum_a = 0, sum_b = 0;
-    int temp_a = abs(a), temp_b = abs(b);
+bool compareSumOfDigits(int x, int y) {
+    int sumX = 0, sumY = 0;
+    int absX = abs(x), absY = abs(y);
     
-    while(temp_a > 0){
-        sum_a += temp_a % 10;
-        temp_a /= 10;
+    while (absX > 0) {
+        sumX += absX % 10;
+        absX /= 10;
     }
     
-    while(temp_b > 0){
-        sum_b += temp_b % 10;
-        temp_b /= 10;
+    while (absY > 0) {
+        sumY += absY % 10;
+        absY /= 10;
     }
     
-    if(sum_a == sum_b){
-        return a < b;
+    if (sumX == sumY) {
+        return x < y;
     }
     
-    return sum_a < sum_b;
+    return sumX < sumY;
 }
 
-vector<int> order_by_points(vector<int> nums){
-    sort(nums.begin(), nums.end(), compare);
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compareSumOfDigits);
     return nums;
 }
