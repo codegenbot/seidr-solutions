@@ -1,8 +1,7 @@
 #include <vector>
-#include <cassert>
 
-std::vector<int> make_a_pile(int n){
-    std::vector<int> pile;
+vector<int> make_a_pile(int n){
+    vector<int> pile;
     int stones = n;
     pile.push_back(stones);
     for(int i = 1; i < n; i++){
@@ -16,7 +15,7 @@ std::vector<int> make_a_pile(int n){
     return pile;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     if(a == b){
         return true;
     }else{
