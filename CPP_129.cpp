@@ -1,56 +1,26 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
-    int row = 0, col = 0;
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    int currRow = 0, currCol = 0;
     
-    // Find the starting cell with the minimum value
-    int minVal = grid[0][0];
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(grid[i][j] < minVal){
-                minVal = grid[i][j];
-                row = i;
-                col = j;
-            }
-        }
-    }
-    
-    // Add the starting cell to the path
-    path.push_back(minVal);
-    
-    // Move to the next cell with the minimum value until the path length is k
-    while(path.size() < k){
-        int minValue = INT_MAX;
-        int nextRow = -1, nextCol = -1;
+    while(k > 0){
+        path.push_back(grid[currRow][currCol]);
+        visited[currRow][currCol] = true;
+        k--;
         
-        // Check the neighbors of the current cell
-        if(row > 0 && grid[row-1][col] < minValue){
-            minValue = grid[row-1][col];
-            nextRow = row-1;
-            nextCol = col;
+        if(currCol < n-1 && !visited[currRow][currCol+1]){
+            currCol++;
         }
-        if(row < n-1 && grid[row+1][col] < minValue){
-            minValue = grid[row+1][col];
-            nextRow = row+1;
-            nextCol = col;
+        else if(currRow < n-1 && !visited[currRow+1][currCol]){
+            currRow++;
         }
-        if(col > 0 && grid[row][col-1] < minValue){
-            minValue = grid[row][col-1];
-            nextRow = row;
-            nextCol = col-1;
+        else if(currCol > 0 && !visited[currRow][currCol-1]){
+            currCol--;
         }
-        if(col < n-1 && grid[row][col+1] < minValue){
-            minValue = grid[row][col+1];
-            nextRow = row;
-            nextCol = col+1;
+        else if(currRow > 0 && !visited[currRow-1][currCol]){
+            currRow--;
         }
-        
-        // Move to the next cell with the minimum value
-        row = nextRow;
-        col = nextCol;
-        
-        // Add the value of the next cell to the path
-        path.push_back(grid[row][col]);
     }
     
     return path;
