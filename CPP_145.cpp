@@ -1,20 +1,24 @@
-vector<int> order_by_points(vector<int> nums){
-    // Sort the vector in ascending order according to the sum of their digits
-    sort(nums.begin(), nums.end(), [](int a, int b){
-        int sumA = 0;
-        int sumB = 0;
-        string strA = to_string(a);
-        string strB = to_string(b);
+#include <vector>
+#include <algorithm>
+
+vector<int> order_by_points(vector<int> nums) {
+    // Sort the vector based on the sum of their digits
+    sort(nums.begin(), nums.end(), [](int a, int b) {
+        int sumA = 0, sumB = 0;
+        if (a < 0) a *= -1;
+        if (b < 0) b *= -1;
         
-        for(char c : strA){
-            sumA += c - '0';
+        while (a > 0) {
+            sumA += a % 10;
+            a /= 10;
         }
         
-        for(char c : strB){
-            sumB += c - '0';
+        while (b > 0) {
+            sumB += b % 10;
+            b /= 10;
         }
         
-        if(sumA == sumB){
+        if (sumA == sumB) {
             return a < b;
         }
         
