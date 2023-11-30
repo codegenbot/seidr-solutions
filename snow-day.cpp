@@ -5,9 +5,9 @@ using namespace std;
 double calculateSnow(float hours, float snowOnGround, float snowFallRate, float meltRate) {
     for (int i = 0; i < hours; i++) {
         snowOnGround += snowFallRate;
-        snowOnGround *= pow((1 - meltRate), hours);
+        snowOnGround *= (1 - meltRate);
     }
-    return static_cast<double>(snowOnGround);
+    return round(snowOnGround * 100) / 100.0;
 }
 
 int main() {
