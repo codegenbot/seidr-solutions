@@ -3,18 +3,12 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
-}
+using namespace std;
 
 vector<string> reverse_delete(string s, string c);
 
-int main() {
-    string s, c;
-    cin >> s >> c;
-    vector<string> result = reverse_delete(s, c);
-    assert(issame(result, {"result", "True"}));
-    return 0;
+bool issame(vector<string> a, vector<string> b) {
+    return (a == b);
 }
 
 vector<string> reverse_delete(string s, string c) {
@@ -28,4 +22,25 @@ vector<string> reverse_delete(string s, string c) {
     reverse(reversed.begin(), reversed.end());
     bool isPalindrome = (result == reversed);
     return {result, (isPalindrome ? "True" : "False")};
+}
+
+int main() {
+    // Test the code
+    vector<string> expected = {"hello", "False"};
+    vector<string> actual = reverse_delete("hello", "abc");
+    assert(issame(expected, actual));
+
+    expected = {"racecar", "True"};
+    actual = reverse_delete("racecar", "aeiou");
+    assert(issame(expected, actual));
+
+    expected = {"cppcontest", "False"};
+    actual = reverse_delete("cppcontest", "aeiou");
+    assert(issame(expected, actual));
+
+    expected = {"", "True"};
+    actual = reverse_delete("madam", "madam");
+    assert(issame(expected, actual));
+
+    return 0;
 }
