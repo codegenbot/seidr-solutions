@@ -1,5 +1,6 @@
 from typing import List
 
+
 def parse_nested_parens(inputs: List[str]) -> List[int]:
     result = []
     for paren_string in inputs:
@@ -25,7 +26,7 @@ def parse_nested_parens(inputs: List[str]) -> List[int]:
             result.append(max_depth)
     return result
 
-n = int(input())
-inputs = [input() for _ in range(n)]
+
+inputs = [input() for _ in range(int(input()))]
 result = parse_nested_parens(inputs)
 print(result)
