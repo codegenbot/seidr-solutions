@@ -1,7 +1,7 @@
 #include <string>
-#include <cassert>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(vector<string> a, vector<string> b) {
     return (a == b);
@@ -10,10 +10,15 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> reverse_delete(string s, string c);
 
 int main() {
-    string s = "Hello, World!";
+    // Test case
+    string s = "hello world";
     string c = "aeiou";
     vector<string> result = reverse_delete(s, c);
-    assert(issame(result, {"Hll, Wrld!", "False"}));
+
+    // Assert
+    vector<string> expected_result = {"hll wrld", "False"};
+    assert(issame(result, expected_result));
+
     return 0;
 }
 
