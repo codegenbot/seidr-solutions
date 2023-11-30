@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 #include <string>
 #include <openssl/md5.h>
 
@@ -14,8 +14,17 @@ string string_to_md5(string text) {
 
     char md5String[33];
     for (int i = 0; i < 16; i++) {
-        sprintf(&md5String[i*2], "%02x", (unsigned int)digest[i]);
+        sprintf(&md5String[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return md5String;
+    return string(md5String);
+}
+
+int main() {
+    string text;
+    getline(cin, text);
+
+    cout << string_to_md5(text) << endl;
+
+    return 0;
 }
