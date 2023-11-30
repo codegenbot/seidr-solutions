@@ -2,29 +2,29 @@
 #include <string>
 #include <openssl/md5.h>
 
-std::string string_to_md5(std::string text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";
     }
-    
+
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.length(), digest);
-    
-    char md5Hash[MD5_DIGEST_LENGTH * 2 + 1];
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        sprintf(&md5Hash[i * 2], "%02x", (unsigned int)digest[i]);
+    MD5(reinterpret_cast<const unsigned char*>(text.c_str()), text.length(), digest);
+
+    std::string md5Hash;
+    char hexBuffer[3];
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
+        sprintf(hexBuffer, "%02x", digest[i]);
+        md5Hash += hexBuffer;
     }
-    
-    return std::string(md5Hash);
+
+    return md5Hash;
 }
 
 int main() {
     std::string text;
-    std::cout << "Enter the text: ";
     std::getline(std::cin, text);
-    
-    std::string md5Hash = string_to_md5(text);
-    std::cout << "MD5 Hash: " << md5Hash << std::endl;
-    
+
+    std::cout << string_to_md5(text) << std::endl;
+
     return 0;
 }
