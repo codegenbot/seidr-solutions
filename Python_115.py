@@ -3,5 +3,9 @@ import math
 def max_fill(grid, capacity):
     num_buckets = 0
     for row in grid:
-        num_buckets += sum(row)
-    return math.ceil(num_buckets / capacity)
+        for well in row:
+            if well > capacity:
+                num_buckets += math.ceil(well / capacity)
+            else:
+                num_buckets += 1
+    return num_buckets
