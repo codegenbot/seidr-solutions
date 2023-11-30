@@ -1,35 +1,20 @@
 #include <string>
+using namespace std;
 
 string solve(string s) {
-    string result = "";
+    int n = s.length();
+    bool hasLetter = false;
     
-    // Check if the string contains any letters
-    bool hasLetters = false;
-    for (char c : s) {
-        if (isalpha(c)) {
-            hasLetters = true;
-            break;
+    for (int i = 0; i < n; i++) {
+        if (isalpha(s[i])) {
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+            hasLetter = true;
         }
     }
     
-    // If the string contains no letters, reverse the string
-    if (!hasLetters) {
-        for (int i = s.length() - 1; i >= 0; i--) {
-            result += s[i];
-        }
-        return result;
+    if (!hasLetter) {
+        reverse(s.begin(), s.end());
     }
     
-    // Reverse the case of letters
-    for (char c : s) {
-        if (islower(c)) {
-            result += toupper(c);
-        } else if (isupper(c)) {
-            result += tolower(c);
-        } else {
-            result += c;
-        }
-    }
-    
-    return result;
+    return s;
 }
