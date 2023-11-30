@@ -1,9 +1,5 @@
-strings = []
-while True:
-    string = input().strip()
-    if not string:
-        break
-    strings.append(string)
+n = int(input())
+strings = [input() for _ in range(n)]
 
 def concatenate(strings: list) -> str:
     return ''.join(strings)
