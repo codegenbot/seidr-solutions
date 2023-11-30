@@ -6,17 +6,13 @@ def encode(message: str) -> str:
         if char.isalpha():
             if char in vowels:
                 encoded_char = chr(ord(char) + 2)
-            else:
-                if char == 'a':
-                    encoded_char = 'z'
-                elif char == 'A':
-                    encoded_char = 'Z'
-                elif char == 'z':
-                    encoded_char = 'a'
-                elif char == 'Z':
-                    encoded_char = 'A'
+            elif char.isupper():
+                if char.lower() == "a":
+                    encoded_char = "z"
                 else:
                     encoded_char = chr(ord(char) - 1)
+            else:
+                encoded_char = chr(ord(char) - 1)
         else:
             encoded_char = char
 
