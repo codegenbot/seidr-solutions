@@ -1,19 +1,16 @@
 vector<int> largest_smallest_integers(vector<int> lst){
-    vector<int> result(2, 0);
-    int largestNegative = 0;
-    int smallestPositive = 0;
+    int maxNegative = 0;
+    int minPositive = 0;
     
-    for(int i = 0; i < lst.size(); i++){
-        if(lst[i] < 0 && lst[i] < largestNegative){
-            largestNegative = lst[i];
+    for(int num : lst){
+        if(num < 0 && num < maxNegative){
+            maxNegative = num;
         }
-        if(lst[i] > 0 && (lst[i] < smallestPositive || smallestPositive == 0)){
-            smallestPositive = lst[i];
+        else if(num > 0 && (num < minPositive || minPositive == 0)){
+            minPositive = num;
         }
     }
     
-    result[0] = largestNegative;
-    result[1] = smallestPositive;
-    
+    vector<int> result = {maxNegative, minPositive};
     return result;
 }
