@@ -1,6 +1,9 @@
 #include <vector>
 #include <string>
 
+vector<string> by_length(vector<int> arr);
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     vector<int> sorted_arr;
@@ -34,12 +37,15 @@ vector<string> by_length(vector<int> arr){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // implementation
-}
+    if(a.size() != b.size()){
+        return false;
+    }
 
-vector<string> by_length(vector<int> arr);
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
 
-int main() {
-    // main function code here
-    return 0;
+    return true;
 }
