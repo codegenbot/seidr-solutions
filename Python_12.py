@@ -9,4 +9,4 @@ def longest(strings: List[str]) -> Optional[str]:
 
 strings = input().strip().split()
 result = longest(strings)
-print(*result)
+print(result)
