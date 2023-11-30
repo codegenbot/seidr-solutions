@@ -7,7 +7,6 @@ bool issame(vector<string> a, vector<string> b);
 vector<string> select_words(string s, int n){
     vector<string> words;
     string word = "";
-    int consonantCount = 0;
 
     for(int i = 0; i < s.length(); i++){
         char c = s[i];
@@ -39,7 +38,17 @@ vector<string> select_words(string s, int n){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // Implementation of the issame function
+    if(a.size() != b.size()){
+        return false;
+    }
+
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main(){
