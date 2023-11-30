@@ -1,14 +1,17 @@
-bool check_if_last_char_is_a_letter(string txt){
-    if(txt.empty()){
+#include <string>
+
+bool check_if_last_char_is_a_letter(std::string txt) {
+    if (txt.empty()) {
         return false;
     }
-    int n = txt.length();
-    char lastChar = txt[n-1];
-    if(isalpha(lastChar)){
-        if(n > 1 && txt[n-2] != ' '){
-            return false;
+
+    char lastChar = txt.back();
+
+    if (lastChar >= 'a' && lastChar <= 'z' || lastChar >= 'A' && lastChar <= 'Z') {
+        if (txt.find_last_of(' ') == txt.length() - 1) {
+            return true;
         }
-        return true;
     }
+
     return false;
 }
