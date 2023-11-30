@@ -7,8 +7,10 @@ def read_input():
 
 def find_zero(coeffs, x):
     result = 0
+
     for i in range(len(coeffs)):
         result += coeffs[i] * x**i
+
     return result
 
 
