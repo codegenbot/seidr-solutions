@@ -1,5 +1,5 @@
-#include <boost/any.hpp>
 #include <boost/algorithm/string.hpp>
+#include <boost/any.hpp>
 #include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -32,5 +32,5 @@ boost::any compare_one(boost::any a, boost::any b) {
             return str2;
         }
     }
-    return std::string("None");
+    return boost::any("None");
 }
