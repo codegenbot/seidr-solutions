@@ -1,6 +1,7 @@
 vector<int> get_odd_collatz(int n){
-    vector<int> collatzSeq;
-    collatzSeq.push_back(n);
+    vector<int> collatz_seq;
+    collatz_seq.push_back(n);
+
     while(n != 1){
         if(n % 2 == 0){
             n = n / 2;
@@ -8,14 +9,17 @@ vector<int> get_odd_collatz(int n){
         else{
             n = (3 * n) + 1;
         }
-        collatzSeq.push_back(n);
+        collatz_seq.push_back(n);
     }
-    vector<int> oddCollatzSeq;
-    for(int i = 0; i < collatzSeq.size(); i++){
-        if(collatzSeq[i] % 2 != 0){
-            oddCollatzSeq.push_back(collatzSeq[i]);
+
+    vector<int> odd_collatz_seq;
+    for(int num : collatz_seq){
+        if(num % 2 == 1){
+            odd_collatz_seq.push_back(num);
         }
     }
-    sort(oddCollatzSeq.begin(), oddCollatzSeq.end());
-    return oddCollatzSeq;
+
+    sort(odd_collatz_seq.begin(), odd_collatz_seq.end());
+
+    return odd_collatz_seq;
 }
