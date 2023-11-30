@@ -12,6 +12,5 @@ vector<int> even_odd_count(int num){
         }
     }
     
-    vector<int> result = {evenCount, oddCount};
-    return result;
+    return {evenCount, oddCount};
 }
