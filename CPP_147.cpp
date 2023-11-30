@@ -3,7 +3,7 @@ int get_matrix_triples(int n){
     int count = 0;
     
     for(int i = 0; i < n; i++){
-        a[i] = i * i - i + 1;
+        a[i] = i*i - i + 1;
     }
     
     for(int i = 0; i < n-2; i++){
