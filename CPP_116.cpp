@@ -5,6 +5,11 @@ vector<int> sort_array(vector<int> arr);
 
 bool issame(vector<int>& a, vector<int>& b);
 
+int main() {
+    assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
+    return 0;
+}
+
 vector<int> sort_array(vector<int> arr) {
     auto compare = [](int a, int b) {
         int countA = __builtin_popcount(a);

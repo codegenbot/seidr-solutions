@@ -1,66 +1,47 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cctype>
+#include <cassert>
 
-using namespace std;
+bool issame(vector<string> a, vector<string> b);
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<string> select_words(string s, int n) {
+vector<string> select_words(string s, int n){
     vector<string> words;
     string word = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] != ' ') {
-            word += s[i];
-        } else {
-            int consonantCount = 0;
-            for (int j = 0; j < word.length(); j++) {
-                if (isalpha(word[j]) && !isvowel(word[j])) {
-                    consonantCount++;
+    int consonantCount = 0;
+
+    for(int i = 0; i < s.length(); i++){
+        char c = s[i];
+        if(c == ' ' || i == s.length()-1){
+            if(i == s.length()-1){
+                word += c;
+            }
+
+            int wordConsonantCount = 0;
+            for(int j = 0; j < word.length(); j++){
+                char letter = tolower(word[j]);
+                if(letter != 'a' && letter != 'e' && letter != 'i' && letter != 'o' && letter != 'u'){
+                    wordConsonantCount++;
                 }
             }
-            if (consonantCount == n) {
+
+            if(wordConsonantCount == n){
                 words.push_back(word);
             }
+
             word = "";
         }
-    }
-    int consonantCount = 0;
-    for (int j = 0; j < word.length(); j++) {
-        if (isalpha(word[j]) && !isvowel(word[j])) {
-            consonantCount++;
+        else{
+            word += c;
         }
     }
-    if (consonantCount == n) {
-        words.push_back(word);
-    }
+
     return words;
 }
 
-int main() {
-    string sentence;
-    int consonantCount;
-    getline(cin, sentence);
-    cin >> consonantCount;
-    vector<string> words = select_words(sentence, consonantCount);
-    for (string word : words) {
-        cout << word << endl;
-    }
-    return 0;
+bool issame(vector<string> a, vector<string> b){
+    // Implementation of the issame function
+}
+
+int main(){
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
 }
