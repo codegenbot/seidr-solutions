@@ -1,9 +1,11 @@
 vector<int> order_by_points(vector<int> nums){
-    // Sort the vector based on the sum of digits
+    vector<int> result;
+    
+    // Sort the vector based on the sum of their digits
     sort(nums.begin(), nums.end(), [](int a, int b){
         int sumA = 0, sumB = 0;
-        string strA = to_string(abs(a));
-        string strB = to_string(abs(b));
+        string strA = to_string(a);
+        string strB = to_string(b);
         
         for(char c : strA){
             sumA += c - '0';
