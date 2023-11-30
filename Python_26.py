@@ -1,9 +1,9 @@
-from typing import List
-
-
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return list(set(numbers))
+    return sorted(list(set(numbers)))
 
-numbers = list(map(int, input().split()))
-result = remove_duplicates(numbers)
-print(result)
+
+if __name__ == "__main__":
+    numbers = input("Enter space-separated numbers: ").split()
+    numbers = [int(num) for num in numbers]
+    result = remove_duplicates(numbers)
+    print(result)
