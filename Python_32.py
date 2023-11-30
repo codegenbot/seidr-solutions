@@ -8,14 +8,25 @@ def read_input():
 def find_zero(coeffs, x):
     eps = 1e-9
     max_iter = 1000
+
     guess = x
+
     for _ in range(max_iter):
-        f = sum([coeffs[i] * guess ** (len(coeffs) - 1 - i) for i in range(len(coeffs))])
-        f_prime = sum([(len(coeffs) - 1 - i) * coeffs[i] * guess ** (len(coeffs) - 2 - i) for i in range(len(coeffs) - 1)])
+        f = 0.0
+
+        for i in range(len(coeffs) - 1, -1, -1):
+            f = f * guess + coeffs[i]
+
+        f_prime = 0.0
+        for i in range(len(coeffs) - 1, 0, -1):
+            f_prime = f_prime * guess + i * coeffs[i]
+
         delta = f / f_prime
         guess -= delta
+
         if abs(delta) < eps:
             return guess
+
     return None
 
 
