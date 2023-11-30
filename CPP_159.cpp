@@ -1,9 +1,9 @@
 vector<int> eat(int number, int need, int remaining) {
-    int totalEaten = number + remaining;
-    int carrotsLeft = 0;
-    if (totalEaten >= need) {
-        carrotsLeft = totalEaten - need;
-        totalEaten = need;
+    int totalEaten = number + need;
+    int leftCarrots = remaining - need;
+    if (leftCarrots < 0) {
+        totalEaten += leftCarrots;
+        leftCarrots = 0;
     }
-    return {totalEaten, carrotsLeft};
+    return {totalEaten, leftCarrots};
 }
