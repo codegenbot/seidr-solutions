@@ -1,5 +1,5 @@
 int closest_integer(string value){
-    double num = stod(value);
+    float num = stof(value);
     int floor_num = floor(num);
     int ceil_num = ceil(num);
     
