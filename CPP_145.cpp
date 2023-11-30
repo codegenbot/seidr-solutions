@@ -1,27 +1,22 @@
-#include <algorithm>
-
-bool compare(int a, int b) {
-    int sumA = 0, sumB = 0;
-    int tempA = abs(a), tempB = abs(b);
-    
-    while (tempA > 0) {
-        sumA += tempA % 10;
-        tempA /= 10;
-    }
-    
-    while (tempB > 0) {
-        sumB += tempB % 10;
-        tempB /= 10;
-    }
-    
-    if (sumA == sumB) {
-        return a < b;
-    }
-    
-    return sumA < sumB;
-}
-
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), compare);
+vector<int> order_by_points(vector<int> nums){
+    // Sort the vector based on the sum of their digits
+    sort(nums.begin(), nums.end(), [](int a, int b){
+        // Calculate the sum of digits for a and b
+        int sum_a = 0, sum_b = 0;
+        string str_a = to_string(abs(a));
+        string str_b = to_string(abs(b));
+        for(char c : str_a){
+            sum_a += c - '0';
+        }
+        for(char c : str_b){
+            sum_b += c - '0';
+        }
+        // If the sum of digits is equal, sort based on index
+        if(sum_a == sum_b){
+            return a < b;
+        }
+        // Sort based on the sum of digits
+        return sum_a < sum_b;
+    });
     return nums;
 }
