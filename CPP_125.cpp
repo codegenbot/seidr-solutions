@@ -1,22 +1,22 @@
 vector<string> split_words(string txt){
     vector<string> result;
-    string word;
+    string word = "";
     for(int i=0; i<txt.length(); i++){
         if(txt[i] == ' ' || txt[i] == ','){
-            if(!word.empty()){
+            if(word != ""){
                 result.push_back(word);
-                word.clear();
+                word = "";
             }
         }
         else{
             word += txt[i];
         }
     }
-    if(!word.empty()){
+    if(word != ""){
         result.push_back(word);
     }
     if(result.empty()){
-        result.push_back(to_string(3));
+        result.push_back(to_string(1));
     }
     return result;
 }
