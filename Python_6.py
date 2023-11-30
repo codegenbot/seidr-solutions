@@ -1,9 +1,12 @@
+import sys
 from typing import List
 
 
-def parse_nested_parens(inputs: List[str]) -> List[int]:
+def parse_nested_parens() -> List[int]:
+    n = int(sys.stdin.readline().strip())
     result = []
-    for paren_string in inputs:
+    for _ in range(n):
+        paren_string = sys.stdin.readline().strip()
         if not paren_string:
             result.append(-1)
             continue
@@ -27,9 +30,4 @@ def parse_nested_parens(inputs: List[str]) -> List[int]:
     return result
 
 
-inputs = []
-n = int(input())
-for _ in range(n):
-    inputs.append(input())
-
-print(parse_nested_parens(inputs))
+parse_nested_parens()
