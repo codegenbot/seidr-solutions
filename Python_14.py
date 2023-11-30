@@ -6,6 +6,6 @@ def all_prefixes(string: str) -> List[str]:
         prefixes.append(string[: i + 1])
     return prefixes
 
-string = "example string"
+string = input("Enter a string: ")
 prefixes_list = all_prefixes(string)
 print(prefixes_list)
