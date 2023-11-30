@@ -59,10 +59,21 @@ int main() {
     
     vector<string> words = split_words(txt);
     
-    if(isSame(words, {"hello", "world"})){
-        cout << "Words are the same" << endl;
+    vector<string> a;
+    vector<string> b;
+    
+    for(int i = 0; i < words.size(); i++){
+        if(i % 2 == 0){
+            a.push_back(words[i]);
+        } else {
+            b.push_back(words[i]);
+        }
+    }
+    
+    if(isSame(a, b)){
+        cout << "Same" << endl;
     } else {
-        cout << "Words are different" << endl;
+        cout << "Different" << endl;
     }
     
     return 0;
