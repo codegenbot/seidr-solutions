@@ -1,12 +1,15 @@
 bool cycpattern_check(string a, string b) {
-    if (a.length() < b.length()) {
+    int n = a.length();
+    int m = b.length();
+
+    if (m > n) {
         return false;
     }
-    
-    for (int i = 0; i < a.length(); i++) {
+
+    for (int i = 0; i < n; i++) {
         bool isRotation = true;
-        for (int j = 0; j < b.length(); j++) {
-            if (a[(i + j) % a.length()] != b[j]) {
+        for (int j = 0; j < m; j++) {
+            if (a[(i + j) % n] != b[j]) {
                 isRotation = false;
                 break;
             }
@@ -15,6 +18,6 @@ bool cycpattern_check(string a, string b) {
             return true;
         }
     }
-    
+
     return false;
 }
