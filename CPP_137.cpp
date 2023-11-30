@@ -11,7 +11,7 @@ std::any compare_one(std::any a, std::any b) {
         } else if (num1 < num2) {
             return b;
         } else {
-            return "None";
+            return std::string("None");
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float num1 = std::any_cast<float>(a);
@@ -21,7 +21,7 @@ std::any compare_one(std::any a, std::any b) {
         } else if (num1 < num2) {
             return b;
         } else {
-            return "None";
+            return std::string("None");
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string str1 = std::any_cast<std::string>(a);
@@ -35,7 +35,7 @@ std::any compare_one(std::any a, std::any b) {
         } else if (num1 < num2) {
             return b;
         } else {
-            return "None";
+            return std::string("None");
         }
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int num1 = std::any_cast<int>(a);
@@ -47,7 +47,7 @@ std::any compare_one(std::any a, std::any b) {
         } else if (num1 < num2) {
             return b;
         } else {
-            return "None";
+            return std::string("None");
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string str1 = std::any_cast<std::string>(a);
@@ -59,9 +59,9 @@ std::any compare_one(std::any a, std::any b) {
         } else if (num1 < num2) {
             return b;
         } else {
-            return "None";
+            return std::string("None");
         }
     } else {
-        return "None";
+        return std::string("None");
     }
 }
