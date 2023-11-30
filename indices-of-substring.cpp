@@ -35,7 +35,7 @@ int main() {
         for (int i = 0; i < result.size(); i++) {
             std::cout << result[i] << " ";
         }
-        std::cout << std::endl;
+        std::cout << std::endl; // Add this line to print a new line after the indices
     }
     
     return 0;
