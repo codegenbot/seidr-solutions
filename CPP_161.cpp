@@ -1,26 +1,26 @@
-#include <string>
-using namespace std;
+#include <cctype>
+#include <algorithm>
 
 string solve(string s) {
-    string result = "";
+    if (s.empty()) {
+        return s;
+    }
 
-    // Reverse the case of letters
-    for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
-            if (islower(s[i])) {
-                result += toupper(s[i]);
+    bool hasLetter = false;
+    for (char& c : s) {
+        if (isalpha(c)) {
+            hasLetter = true;
+            if (islower(c)) {
+                c = toupper(c);
             } else {
-                result += tolower(s[i]);
+                c = tolower(c);
             }
-        } else {
-            result += s[i];
         }
     }
 
-    // Reverse the string if it contains no letters
-    if (result.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
-        reverse(result.begin(), result.end());
+    if (!hasLetter) {
+        reverse(s.begin(), s.end());
     }
 
-    return result;
+    return s;
 }
