@@ -4,7 +4,7 @@ string anti_shuffle(string s){
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' '){
             sort(word.begin(), word.end());
-            result += word + " ";
+            result += word + ' ';
             word = "";
         }
         else{
