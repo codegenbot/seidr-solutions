@@ -9,7 +9,14 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-# Read input and pass it to the function
-operations = list(map(int, input().split()))
+
+operations = []
+while True:
+    try:
+        operation = int(input())
+        operations.append(operation)
+    except ValueError:
+        break
+
 result = below_zero(operations)
 print(result)
