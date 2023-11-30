@@ -1,3 +1,4 @@
+#include <iostream>
 #include <boost/any.hpp>
 #include <boost/lexical_cast.hpp>
 
@@ -26,13 +27,13 @@ boost::any compare_one(boost::any a, boost::any b) {
             floatA = boost::lexical_cast<float>(strA);
             floatB = boost::lexical_cast<float>(strB);
         } catch (const boost::bad_lexical_cast&) {
-            return std::string("None");
+            return boost::any("None");
         }
         if (floatA > floatB) {
-            return strA;
+            return boost::any(strA);
         } else if (floatA < floatB) {
-            return strB;
+            return boost::any(strB);
         }
     }
-    return std::string("None");
+    return boost::any("None");
 }
