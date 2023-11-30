@@ -6,18 +6,19 @@ def poly(xs: list, x: float):
 
 
 def find_zero(xs: list):
-    return -xs[1] / xs[0]
+    return -xs[0] / xs[1]
 
 
+# Read input from user
 def read_input():
-    n = int(input())
     xs = list(map(float, input().split()))
     x = float(input())
-    return n, xs, x
+    return xs, x
 
 
+# Main program
 def main():
-    n, xs, x = read_input()
+    xs, x = read_input()
     result = poly(xs, x)
     print(result)
 
