@@ -1,15 +1,18 @@
-int is_bored(string S) {
-    int count = 0;
-    bool bored = false;
+int is_bored(string S){
+    int boredomCount = 0;
+    bool isSentenceStart = true;
+
     for (int i = 0; i < S.length(); i++) {
-        if (S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')) {
-            bored = true;
-        } else if (S[i] == '.' || S[i] == '?' || S[i] == '!') {
-            bored = false;
+        if (isSentenceStart && S[i] == 'I') {
+            boredomCount++;
         }
-        if (bored) {
-            count++;
+
+        if (S[i] == '.' || S[i] == '?' || S[i] == '!') {
+            isSentenceStart = true;
+        } else {
+            isSentenceStart = false;
         }
     }
-    return count;
+
+    return boredomCount;
 }
