@@ -12,7 +12,7 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 bool issame(vector<int> a,vector<int> b){
     if(a==b){
         return true;
-    }else{
+    } else {
         return false;
     }
 }
