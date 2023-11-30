@@ -2,14 +2,14 @@ from typing import List
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     result = []
+    numbers = numbers[0].split()
     for i in range(len(numbers)):
         if i > 0:
             result.append(delimiter)
-        result.append(numbers[i])
+        result.append(int(numbers[i]))
     return result
 
-numbers = list(map(int, input().split()))
+numbers = input().split()
 delimiter = int(input())
-
 result = intersperse(numbers, delimiter)
 print(result)
