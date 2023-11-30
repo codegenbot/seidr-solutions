@@ -1,18 +1,32 @@
 map<char, int> histogram(string test) {
     map<char, int> result;
-    string word;
-    for (char c : test) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                result[word[0]]++;
-                word.clear();
-            }
+    string letter;
+    int count = 0;
+    
+    for (int i = 0; i < test.length(); i++) {
+        if (test[i] != ' ') {
+            letter += test[i];
         } else {
-            word += c;
+            if (letter.length() > 0) {
+                result[letter[0]]++;
+                count = max(count, result[letter[0]]);
+                letter = "";
+            }
         }
     }
-    if (!word.empty()) {
-        result[word[0]]++;
+    
+    if (letter.length() > 0) {
+        result[letter[0]]++;
+        count = max(count, result[letter[0]]);
     }
-    return result;
+    
+    map<char, int> finalResult;
+    
+    for (auto it = result.begin(); it != result.end(); it++) {
+        if (it->second == count) {
+            finalResult[it->first] = it->second;
+        }
+    }
+    
+    return finalResult;
 }
