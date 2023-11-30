@@ -1,14 +1,16 @@
-vector<int> common(vector<int> l1, vector<int> l2) {
+vector<int> common(vector<int> l1,vector<int> l2){
     vector<int> result;
+    
+    // Sort the vectors
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
-    int i = 0, j = 0;
     
+    // Find the common elements
+    int i = 0, j = 0;
     while (i < l1.size() && j < l2.size()) {
         if (l1[i] == l2[j]) {
-            if (result.empty() || result.back() != l1[i]) {
-                result.push_back(l1[i]);
-            }
+            // Add the common element to the result vector
+            result.push_back(l1[i]);
             i++;
             j++;
         }
@@ -19,6 +21,9 @@ vector<int> common(vector<int> l1, vector<int> l2) {
             j++;
         }
     }
+    
+    // Remove duplicates from the result vector
+    result.erase(unique(result.begin(), result.end()), result.end());
     
     return result;
 }
