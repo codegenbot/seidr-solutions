@@ -1,6 +1,9 @@
 #include <vector>
 #include <cassert>
 
+vector<int> make_a_pile(int n);
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> make_a_pile(int n){
     vector<int> stones;
     int level = n;
@@ -14,5 +17,3 @@ vector<int> make_a_pile(int n){
 bool issame(vector<int> a, vector<int> b){
     // function implementation
 }
-
-vector<int> make_a_pile(int n);
