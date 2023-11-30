@@ -1,6 +1,7 @@
-#include <vector> // Add this line
+#include <vector>
+#include <cassert>
 
-using namespace std; // Add this line
+using namespace std;
 
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
