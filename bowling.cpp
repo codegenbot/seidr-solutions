@@ -41,7 +41,9 @@ int getScore(const std::string& bowls) {
 int main() {
     std::string bowls;
     std::getline(std::cin, bowls);
+
     int score = getScore(bowls);
     std::cout << score << std::endl;
+
     return 0;
 }
