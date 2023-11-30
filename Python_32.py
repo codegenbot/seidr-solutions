@@ -8,7 +8,7 @@ def find_zero(xs: list):
 
 def read_input():
     n = int(input())
-    coeffs = list(map(float, input().split()))  # Input coefficients in a single line
+    coeffs = list(map(float, input().split()))
     x = float(input())
     return coeffs, x
 
