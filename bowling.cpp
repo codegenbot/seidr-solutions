@@ -9,6 +9,7 @@ int calculateScore(std::string input) {
 
     for (char c : input) {
         if (frame == 10 && roll >= 21) break;
+
         if (c == 'X') {
             rolls[roll++] = 10;
             if (frame < 10) {
@@ -21,12 +22,14 @@ int calculateScore(std::string input) {
         } else {
             rolls[roll++] = c - '0';
         }
+
         if (c == 'X' && frame < 10) {
             frame++;
         } else if (roll % 2 == 0) {
             frame++;
         }
     }
+
     for (int i = 0; i < 10; i++) {
         if (rolls[i * 2] == 10) {
             score += 10 + rolls[(i + 1) * 2] + rolls[(i + 1) * 2 + 1];
@@ -36,6 +39,7 @@ int calculateScore(std::string input) {
             score += rolls[i * 2] + rolls[i * 2 + 1];
         }
     }
+
     return score;
 }
 
