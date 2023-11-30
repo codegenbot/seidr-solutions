@@ -2,7 +2,7 @@ from typing import List
 
 
 def sort_numbers(numbers: str) -> str:
-    num_mapping = {
+    number_mapping = {
         'zero': 0,
         'one': 1,
         'two': 2,
@@ -14,5 +14,5 @@ def sort_numbers(numbers: str) -> str:
         'eight': 8,
         'nine': 9
     }
-    sorted_numbers = sorted(numbers.split(), key=lambda x: num_mapping[x])
+    sorted_numbers = sorted(numbers.split(), key=lambda x: number_mapping[x])
     return ' '.join(sorted_numbers)
