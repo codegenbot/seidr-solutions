@@ -1,25 +1,30 @@
-vector<int> order_by_points(vector<int> nums){
-    if(nums.empty()){
-        return nums;
-    }
+#include <algorithm>
+
+bool compare(int a, int b) {
+    int sumA = 0, sumB = 0;
+    string strA = to_string(a);
+    string strB = to_string(b);
     
-    vector<pair<int, int>> sum_digits;
-    for(int i=0; i<nums.size(); i++){
-        int num = nums[i];
-        int sum = 0;
-        while(num != 0){
-            sum += abs(num % 10);
-            num /= 10;
+    for (char c : strA) {
+        if (c != '-') {
+            sumA += c - '0';
         }
-        sum_digits.push_back(make_pair(sum, i));
     }
     
-    sort(sum_digits.begin(), sum_digits.end());
-    
-    vector<int> result;
-    for(auto pair : sum_digits){
-        result.push_back(nums[pair.second]);
+    for (char c : strB) {
+        if (c != '-') {
+            sumB += c - '0';
+        }
     }
     
-    return result;
+    if (sumA == sumB) {
+        return a < b;
+    }
+    
+    return sumA < sumB;
+}
+
+vector<int> order_by_points(vector<int> nums){
+    sort(nums.begin(), nums.end(), compare);
+    return nums;
 }
