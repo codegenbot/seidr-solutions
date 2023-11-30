@@ -1,26 +1,27 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-int prod_signs(std::vector<int> arr) {
-    int sum = 0;
-    int product = 1;
+using namespace std;
 
-    if (arr.empty()) {
+int prod_signs(vector<int> arr){
+    if(arr.empty()){
         return -32768;
     }
-
-    for (int i = 0; i < arr.size(); i++) {
-        sum += std::abs(arr[i]);
-        product *= (arr[i] >= 0) ? 1 : -1;
+    
+    int signProduct = 1;
+    int magnitudeSum = 0;
+    
+    for(int i=0; i<arr.size(); i++){
+        signProduct *= (arr[i] >= 0 ? 1 : -1);
+        magnitudeSum += abs(arr[i]);
     }
-
-    return sum * product;
+    
+    return signProduct * magnitudeSum;
 }
 
-int main() {
+int main(){
     assert(prod_signs({-1, 1, 1, 0}) == 0);
-
-    // Add additional test cases here
-
+    
     return 0;
 }
