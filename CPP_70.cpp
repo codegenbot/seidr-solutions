@@ -1,20 +1,13 @@
-vector<int> strange_sort_list(vector<int> lst){
+vector<int> strange_sort_vector(vector<int> lst){
     vector<int> result;
     sort(lst.begin(), lst.end());
-    int left = 0;
-    int right = lst.size() - 1;
-    bool isLeft = true;
-    
+    int n = lst.size();
+    int left = 0, right = n - 1;
     while (left <= right) {
-        if (isLeft) {
-            result.push_back(lst[left]);
-            left++;
-        } else {
-            result.push_back(lst[right]);
-            right--;
+        result.push_back(lst[left++]);
+        if (left <= right) {
+            result.push_back(lst[right--]);
         }
-        isLeft = !isLeft;
     }
-    
     return result;
 }
