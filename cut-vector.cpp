@@ -38,7 +38,7 @@ int main() {
     }
     
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-
+    
     for (int num : result.first) {
         std::cout << num << " ";
     }
@@ -48,6 +48,8 @@ int main() {
     for (int num : result.second) {
         std::cout << num << " ";
     }
+    
+    std::cout << std::endl;
     
     return 0;
 }
