@@ -1,6 +1,4 @@
-#include <boost/algorithm/string.hpp>
-#include <boost/any.hpp>
-#include <string>
+#include <boost/algorithm/string/replace.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -32,5 +30,5 @@ boost::any compare_one(boost::any a, boost::any b) {
             return str2;
         }
     }
-    return boost::any("None");
+    return boost::any();
 }
