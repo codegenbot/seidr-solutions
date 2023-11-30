@@ -1,15 +1,13 @@
 from typing import List
 
-
 def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
+    return ''.join(strings)
 
-
-n = int(input())
 strings = []
+n = int(input())
+
 for _ in range(n):
     strings.append(input())
 
 result = concatenate(strings)
-
 print(result)
