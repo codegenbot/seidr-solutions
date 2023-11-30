@@ -16,12 +16,10 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 if stack:
                     stack.pop()
                     current_depth -= 1
+                else:
+                    return [-1]
         if stack:
             result.append(-1)
         else:
             result.append(max_depth)
     return result
-
-
-paren_string = input()
-print(parse_nested_parens(paren_string))
