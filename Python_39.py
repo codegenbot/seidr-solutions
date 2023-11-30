@@ -23,5 +23,5 @@ def prime_fib(n: int):
             return fib_seq
 
     fib_seq = fibonacci(n)
-    prime_fib_seq = [num for num in fib_seq[1:] if is_prime(num)]
+    prime_fib_seq = [num for num in fib_seq if is_prime(num)]
     return sum(prime_fib_seq) % (10**9 + 7)
