@@ -1,26 +1,26 @@
 #include <string>
-using namespace std;
 
 string solve(string s) {
     string result = "";
-    bool hasLetter = false;
-
+    bool containsLetter = false;
+    
     for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
-            hasLetter = true;
-            if (isupper(s[i])) {
-                result += tolower(s[i]);
+        if (isalpha(s[i])) { // if s[i] is a letter
+            containsLetter = true;
+            
+            if (islower(s[i])) { // if s[i] is lowercase
+                result += toupper(s[i]); // convert to uppercase
             } else {
-                result += toupper(s[i]);
+                result += tolower(s[i]); // convert to lowercase
             }
         } else {
-            result += s[i];
+            result += s[i]; // keep non-letter characters as it is
         }
     }
-
-    if (!hasLetter) {
-        reverse(result.begin(), result.end());
+    
+    if (!containsLetter) {
+        reverse(result.begin(), result.end()); // reverse the string
     }
-
+    
     return result;
 }
