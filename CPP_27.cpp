@@ -4,11 +4,8 @@ string flip_case(string str){
         if(islower(str[i])){
             result += toupper(str[i]);
         }
-        else if(isupper(str[i])){
-            result += tolower(str[i]);
-        }
         else{
-            result += str[i];
+            result += tolower(str[i]);
         }
     }
     return result;
