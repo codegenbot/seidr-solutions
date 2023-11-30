@@ -4,10 +4,9 @@ int next_smallest(vector<int> lst){
     }
     sort(lst.begin(), lst.end());
     int smallest = lst[0];
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] > smallest){
-            return lst[i];
-        }
+    int second_smallest = lst[1];
+    if(smallest == second_smallest){
+        return None;
     }
-    return None;
+    return second_smallest;
 }
