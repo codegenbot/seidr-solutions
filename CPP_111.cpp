@@ -1,32 +1,30 @@
+#include<stdio.h>
+#include<string>
+#include<map>
+using namespace std;
+
 map<char,int> histogram(string test){
-    map<char,int> result;
-    string letter;
-    int count = 0;
-    
+    map<char,int> freq;
+
     for(int i=0; i<test.length(); i++){
         if(test[i] != ' '){
-            letter += test[i];
-        }
-        else{
-            if(letter.length() > 0){
-                result[letter[0]]++;
-                count = max(count, result[letter[0]]);
-                letter = "";
-            }
+            freq[test[i]]++;
         }
     }
-    
-    if(letter.length() > 0){
-        result[letter[0]]++;
-        count = max(count, result[letter[0]]);
-    }
-    
-    map<char,int> finalResult;
-    for(auto it=result.begin(); it!=result.end(); it++){
-        if(it->second == count){
-            finalResult[it->first] = it->second;
+
+    int maxFreq = 0;
+    for(auto it = freq.begin(); it != freq.end(); it++){
+        if(it->second > maxFreq){
+            maxFreq = it->second;
         }
     }
-    
-    return finalResult;
+
+    map<char,int> result;
+    for(auto it = freq.begin(); it != freq.end(); it++){
+        if(it->second == maxFreq){
+            result[it->first] = it->second;
+        }
+    }
+
+    return result;
 }
