@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cctype>
-
 using namespace std;
 
 bool isvowel(char c) {
