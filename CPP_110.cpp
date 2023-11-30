@@ -1,5 +1,4 @@
 #include <string>
-#include <vector>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2);
 
