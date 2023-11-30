@@ -1,3 +1,4 @@
+"""""" 
 from typing import List
 
 
@@ -18,6 +19,6 @@ def sort_numbers(numbers: List[str]) -> str:
     return " ".join(sorted_numbers)
 
 
-numbers_input = input().strip().split()
+numbers_input = [input().strip() for _ in range(len(num_mapping))]
 output = sort_numbers(numbers_input)
 print(output)
