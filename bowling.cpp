@@ -9,7 +9,9 @@ int calculateScore(const std::string& input) {
     for (char ch : input) {
         if (ch == 'X') {
             score += 10 + (input[bowl + 1] == 'X' ? 10 : (input[bowl + 1] - '0'));
-            score += (frame < 9) ? (input[bowl + 2] == 'X' ? 10 : (input[bowl + 2] == '/' ? 10 - (input[bowl + 1] - '0') : (input[bowl + 2] - '0'))) : 0;
+            if (frame < 9) {
+                score += (input[bowl + 2] == 'X') ? 10 : (input[bowl + 2] == '/' ? 10 - (input[bowl + 1] - '0') : (input[bowl + 2] - '0'));
+            }
             bowl++;
         } else if (ch == '/') {
             score += 10 - (input[bowl - 1] - '0') + (frame < 9 ? (input[bowl + 1] == 'X' ? 10 : (input[bowl + 1] - '0')) : 0);
