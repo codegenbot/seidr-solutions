@@ -1,19 +1,5 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
-    return true;
-}
-
 vector<int> tri(int n){
     vector<int> sequence;
     sequence.push_back(3); // first element of the sequence is always 3
@@ -45,13 +31,29 @@ vector<int> tri(int n){
     return sequence;
 }
 
-int main(){
-    vector<int> result = tri(5);
-    vector<int> expected = {3, 1, 2, 3, 4, 5};
-    
-    if(issame(result, expected)){
-        return 0;
-    }else{
-        return 1;
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
     }
+
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main(){
+    vector<int> a = tri(5);
+    vector<int> b = {3, 1, 2, 2, 4};
+
+    if(issame(a, b)){
+        cout << "Correct" << endl;
+    }else{
+        cout << "Incorrect" << endl;
+    }
+
+    return 0;
 }
