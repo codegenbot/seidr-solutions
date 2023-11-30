@@ -1,27 +1,36 @@
-boost::any compare_one(boost::any a, boost::any b){
-    if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
-            return a;
-        } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
-            return b;
+#include <boost/any.hpp>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
         }
-    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
-            return a;
-        } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
-            return b;
+    }
+    if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
         }
-    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-        string str_a = boost::any_cast<string>(a);
-        string str_b = boost::any_cast<string>(b);
-        replace(str_a.begin(), str_a.end(), ',', '.');
-        replace(str_b.begin(), str_b.end(), ',', '.');
-        float float_a = stof(str_a);
-        float float_b = stof(str_b);
-        if(float_a > float_b){
-            return a;
-        } else if(float_a < float_b){
-            return b;
+    }
+    if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        if (str1 > str2) {
+            return str1;
+        } else if (str2 > str1) {
+            return str2;
         }
     }
     return "None";
