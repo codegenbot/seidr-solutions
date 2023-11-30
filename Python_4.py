@@ -1,6 +1,7 @@
-numbers = input()
-if not numbers.replace(" ", "").isdigit():
-    print("Invalid input.")
-else:
-    numbers = list(map(int, numbers.split()))
+numbers = input("Enter numbers separated by space: ").split()
+try:
+    numbers = [int(num) for num in numbers]
     # Rest of the code
+
+except ValueError:
+    print("Invalid input. Please enter only numbers separated by space.")
