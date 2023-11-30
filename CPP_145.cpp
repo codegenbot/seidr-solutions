@@ -1,29 +1,32 @@
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> sums;
-    
-    // Calculate the sum of digits for each number and store it along with the index
-    for (int i = 0; i < nums.size(); i++) {
-        int sum = 0;
-        int num = nums[i];
-        
-        // Calculate the sum of digits
-        while (num != 0) {
-            sum += abs(num % 10);
-            num /= 10;
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool compare(int a, int b) {
+    int sum_a = 0, sum_b = 0;
+    string str_a = to_string(a);
+    string str_b = to_string(b);
+
+    for (char c : str_a) {
+        if (isdigit(c)) {
+            sum_a += c - '0';
         }
-        
-        sums.push_back(make_pair(sum, i));
     }
-    
-    // Sort the sums vector in ascending order
-    sort(sums.begin(), sums.end());
-    
-    vector<int> result;
-    
-    // Build the result vector based on the sorted sums
-    for (auto pair : sums) {
-        result.push_back(nums[pair.second]);
+
+    for (char c : str_b) {
+        if (isdigit(c)) {
+            sum_b += c - '0';
+        }
     }
-    
-    return result;
+
+    if (sum_a == sum_b) {
+        return a < b;
+    }
+
+    return sum_a < sum_b;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
+    return nums;
 }
