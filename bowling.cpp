@@ -1,57 +1,48 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(const std::string& input) {
+int getFrameScore(const std::string& frame) {
     int score = 0;
-    int frame = 0;
-    int roll = 0;
-
-    for (char c : input) {
-        if (c == 'X') {
+    int frameSize = frame.size();
+    
+    for (int i = 0; i < frameSize; ++i) {
+        if (frame[i] == 'X') {
             score += 10;
-            if (frame < 9) {
-                score += (input[roll + 1] == 'X') ? 10 : (input[roll + 1] - '0');
-                score += (input[roll + 2] == 'X') ? 10 : (input[roll + 2] == '/' ? (10 - (input[roll + 1] - '0')) : (input[roll + 2] - '0'));
-            }
-            roll++;
-        } else if (c == '/') {
-            score += (10 - (input[roll - 1] - '0'));
-            if (frame < 9) {
-                score += (input[roll + 1] == 'X') ? 10 : (input[roll + 1] - '0');
-            }
-            roll++;
-        } else if (c == '-') {
-            // do nothing
-        } else {
-            score += (c - '0');
-            if (frame < 9 && roll % 2 == 1) {
-                if (c == '0') {
-                    score += (input[roll - 1] == '/') ? 10 : 0;
+            
+            if (i < frameSize - 2) {
+                if (frame[i + 2] == '/') {
+                    score += 10;
+                } else if (frame[i + 1] == 'X') {
+                    score += 10;
+                    
+                    if (i < frameSize - 4) {
+                        score += (frame[i + 4] == 'X' ? 10 : frame[i + 4] - '0');
+                    }
                 } else {
-                    score += (input[roll - 1] == '/') ? (10 - (c - '0')) : 0;
+                    score += (frame[i + 1] == '/' ? 10 : frame[i + 1] - '0');
+                    score += (frame[i + 2] == '/' ? 10 - (frame[i + 1] - '0') : frame[i + 2] - '0');
                 }
             }
-            roll++;
-        }
-
-        if (roll % 2 == 0) {
-            frame++;
-        }
-
-        if (frame == 10) {
-            break;
+        } else if (frame[i] == '/') {
+            score += 10 - (frame[i - 1] - '0');
+            
+            if (i < frameSize - 2) {
+                score += (frame[i + 2] == 'X' ? 10 : frame[i + 2] - '0');
+            }
+        } else {
+            score += frame[i] - '0';
         }
     }
-
+    
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    int score = calculateScore(input);
+    std::string frame;
+    std::cin >> frame;
+    
+    int score = getFrameScore(frame);
     std::cout << score << std::endl;
-
+    
     return 0;
 }
