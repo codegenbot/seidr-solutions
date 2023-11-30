@@ -1,4 +1,7 @@
-def main():
-    nums = list(map(int, input("Enter the elements separated by space: ").split()))
-    result = below_zero(nums)
-    print(result)
+def below_zero(operations: List[int]) -> bool:
+    balance = 0
+    for operation in operations:
+        balance += operation
+        if balance < 0:
+            return True
+    return False
