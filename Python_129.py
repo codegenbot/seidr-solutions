@@ -12,6 +12,7 @@ def minPath(grid, k):
                 and 0 <= nj < len(grid[0])
                 and grid[ni][nj] != -1
                 and (ni, nj) not in visited
+                and (ni, nj) not in path
             ):
                 new_visited = visited.copy()
                 new_visited.add((ni, nj))
@@ -24,7 +25,7 @@ def minPath(grid, k):
         for j in range(len(grid[0])):
             if grid[i][j] != -1:
                 visited = {(i, j)}
-                path = backtrack(i, j, [(i, j)], k, visited)
-                if path is not None and len(path) == k:
+                path = backtrack(i, j, [(i, j)], k - 1, visited)
+                if path is not None and len(path) == k - 1:
                     return [grid[x][y] for x, y in path]
     return []
