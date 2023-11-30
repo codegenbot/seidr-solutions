@@ -1,5 +1,5 @@
 int closest_integer(string value){
-    double num = stod(value);
+    float num = stof(value);
     int floor_num = floor(num);
     int ceil_num = ceil(num);
     
@@ -8,7 +8,7 @@ int closest_integer(string value){
     } else if (num - floor_num > ceil_num - num) {
         return ceil_num;
     } else {
-        if (num >= 0) {
+        if (num < 0) {
             return ceil_num;
         } else {
             return floor_num;
