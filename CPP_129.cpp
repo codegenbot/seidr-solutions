@@ -75,5 +75,4 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
 int main() {
     // function body
-    return 0;
 }
