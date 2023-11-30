@@ -1,27 +1,25 @@
-#include <algorithm>
-
-bool compare(int a, int b) {
-    int sumA = 0, sumB = 0;
-    int tempA = abs(a), tempB = abs(b);
-    
-    while(tempA > 0) {
-        sumA += tempA % 10;
-        tempA /= 10;
+vector<int> order_by_points(vector<int> nums){
+    if(nums.empty()){
+        return nums;
     }
     
-    while(tempB > 0) {
-        sumB += tempB % 10;
-        tempB /= 10;
+    vector<pair<int, int>> sum_digits;
+    for(int i=0; i<nums.size(); i++){
+        int num = nums[i];
+        int sum = 0;
+        while(num != 0){
+            sum += abs(num%10);
+            num /= 10;
+        }
+        sum_digits.push_back(make_pair(sum, i));
     }
     
-    if(sumA == sumB) {
-        return a < b;
+    sort(sum_digits.begin(), sum_digits.end());
+    
+    vector<int> result;
+    for(auto pair : sum_digits){
+        result.push_back(nums[pair.second]);
     }
     
-    return sumA < sumB;
-}
-
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), compare);
-    return nums;
+    return result;
 }
