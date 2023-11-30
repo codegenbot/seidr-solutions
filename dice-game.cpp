@@ -2,10 +2,10 @@
 #include <iomanip>
 
 double diceGameProbability(int n, int m) {
-    double totalOutcomes = static_cast<double>(n) * m;
+    double totalOutcomes = n * m;
     double favorableOutcomes = 0;
-    for (int i = 1; i <= n; ++i) {
-        favorableOutcomes += (i - 1) * m;
+    for (int i = 1; i <= n; i++) {
+        favorableOutcomes += (i-1) * m;
     }
     return favorableOutcomes / totalOutcomes;
 }
