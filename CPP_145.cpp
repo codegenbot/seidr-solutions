@@ -1,7 +1,9 @@
 vector<int> order_by_points(vector<int> nums){
-    vector<int> result;
-    vector<pair<int, int>> sumIndexPairs;
-
+    if(nums.empty()){
+        return nums;
+    }
+    
+    vector<pair<int, int>> sums;
     for(int i=0; i<nums.size(); i++){
         int sum = 0;
         int num = abs(nums[i]);
@@ -9,14 +11,15 @@ vector<int> order_by_points(vector<int> nums){
             sum += num % 10;
             num /= 10;
         }
-        sumIndexPairs.push_back(make_pair(sum, i));
+        sums.push_back(make_pair(sum, i));
     }
-
-    sort(sumIndexPairs.begin(), sumIndexPairs.end());
-
-    for(auto pair : sumIndexPairs){
-        result.push_back(nums[pair.second]);
+    
+    sort(sums.begin(), sums.end());
+    
+    vector<int> result;
+    for(auto p : sums){
+        result.push_back(nums[p.second]);
     }
-
+    
     return result;
 }
