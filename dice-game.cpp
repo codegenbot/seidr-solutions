@@ -1,6 +1,5 @@
 #include <iostream>
-#include <iomanip> // Include the <iomanip> library for setprecision()
-
+#include <iomanip>
 using namespace std;
 
 long double probabilityOfHigherRoll(int n, int m) {
