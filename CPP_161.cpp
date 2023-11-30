@@ -1,20 +1,19 @@
 #include <string>
-using namespace std;
 
 string solve(string s) {
     string result = "";
     bool hasLetter = false;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
+    for (char c : s) {
+        if (isalpha(c)) {
             hasLetter = true;
-            if (islower(s[i])) {
-                result += toupper(s[i]);
+            if (islower(c)) {
+                result += toupper(c);
             } else {
-                result += tolower(s[i]);
+                result += tolower(c);
             }
         } else {
-            result += s[i];
+            result += c;
         }
     }
 
