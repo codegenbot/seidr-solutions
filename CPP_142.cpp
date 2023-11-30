@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include <vector>
+using namespace std;
 
 int sum_squares(vector<int> lst) {
     int sum = 0;
