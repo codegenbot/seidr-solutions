@@ -9,14 +9,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     int textLen = text.length();
 
     for (int i = 0; i <= textLen - targetLen; i++) {
-        int j;
-        for (j = 0; j < targetLen; j++) {
-            if (text[i + j] != target[j]) {
-                break;
-            }
-        }
-
-        if (j == targetLen) {
+        if (text.substr(i, targetLen) == target) {
             indices.push_back(i);
         }
     }
