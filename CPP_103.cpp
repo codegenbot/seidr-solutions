@@ -3,10 +3,12 @@ string rounded_avg(int n, int m) {
         return "-1";
     }
     int sum = 0;
+    int count = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
+        count++;
     }
-    int avg = sum / (m - n + 1);
+    int avg = round(sum / count);
     string binary = "";
     while (avg > 0) {
         binary = to_string(avg % 2) + binary;
