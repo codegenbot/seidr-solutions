@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 int prod_signs(std::vector<int> arr){
@@ -6,7 +7,6 @@ int prod_signs(std::vector<int> arr){
     }
     
     int sign = 1;
-    int product = 1;
     int sum = 0;
     
     for(int i=0; i<arr.size(); i++){
@@ -17,23 +17,24 @@ int prod_signs(std::vector<int> arr){
             sign *= -1;
         }
         
-        sum += abs(arr[i]);
+        sum += std::abs(arr[i]);
     }
     
     return sign * sum;
 }
 
 int main() {
-    // Add your test cases here
-    std::vector<int> test1 = {1, 2, 3};
-    std::vector<int> test2 = {1, -2, 3};
-    std::vector<int> test3 = {-1, -2, -3};
-    std::vector<int> test4 = {};
+    std::vector<int> arr1 = {1, 2, 3};
+    std::cout << prod_signs(arr1) << std::endl; // Output: 6
     
-    int result1 = prod_signs(test1);
-    int result2 = prod_signs(test2);
-    int result3 = prod_signs(test3);
-    int result4 = prod_signs(test4);
+    std::vector<int> arr2 = {-1, -2, -3};
+    std::cout << prod_signs(arr2) << std::endl; // Output: -6
+    
+    std::vector<int> arr3 = {0, 1, -2, 3, -4};
+    std::cout << prod_signs(arr3) << std::endl; // Output: -10
+    
+    std::vector<int> arr4 = {};
+    std::cout << prod_signs(arr4) << std::endl; // Output: -32768
     
     return 0;
 }
