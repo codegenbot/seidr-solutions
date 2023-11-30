@@ -7,12 +7,8 @@ def decode_shift(s):
 
 
 def main():
-    s = input()
+    s = "input string"  # Replace "input string" with your desired input
     encoded = encode_shift(s)
     decoded = decode_shift(encoded)
     print(encoded)
     print(decoded)
-
-
-if __name__ == "__main__":
-    main()
