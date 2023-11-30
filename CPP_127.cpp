@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 using namespace std;
 
 string findIntersection(vector<int> interval1, vector<int> interval2) {
