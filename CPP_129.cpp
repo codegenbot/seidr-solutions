@@ -1,25 +1,41 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
-    int m = grid[0].size();
     vector<int> path;
-    vector<vector<int>> visited(n, vector<int>(m, 0));
-    int curRow = 0;
-    int curCol = 0;
+    int row = 0;
+    int col = 0;
     
-    while (k > 0) {
-        path.push_back(grid[curRow][curCol]);
-        visited[curRow][curCol] = 1;
-        k--;
-        
-        if (curCol+1 < m && !visited[curRow][curCol+1]) {
-            curCol++;
-        } else if (curRow+1 < n && !visited[curRow+1][curCol]) {
-            curRow++;
-        } else if (curCol-1 >= 0 && !visited[curRow][curCol-1]) {
-            curCol--;
-        } else if (curRow-1 >= 0 && !visited[curRow-1][curCol]) {
-            curRow--;
+    // Find the starting cell with the smallest value
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(grid[i][j] == 1){
+                row = i;
+                col = j;
+                break;
+            }
         }
+    }
+    
+    // Add the starting cell to the path
+    path.push_back(grid[row][col]);
+    
+    // Move to the next cell k-1 times
+    for(int i = 0; i < k-1; i++){
+        // Check if there is a neighbor cell with a smaller value
+        if(row > 0 && grid[row-1][col] < grid[row][col]){
+            row--;
+        }
+        else if(row < n-1 && grid[row+1][col] < grid[row][col]){
+            row++;
+        }
+        else if(col > 0 && grid[row][col-1] < grid[row][col]){
+            col--;
+        }
+        else if(col < n-1 && grid[row][col+1] < grid[row][col]){
+            col++;
+        }
+        
+        // Add the value of the current cell to the path
+        path.push_back(grid[row][col]);
     }
     
     return path;
