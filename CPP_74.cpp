@@ -1,19 +1,12 @@
-vector<string> total_match(vector<string> lst1,vector<string> lst2){
-    int total1 = 0; // Total number of characters in lst1
-    int total2 = 0; // Total number of characters in lst2
-    
-    // Calculate total1
+vector<string> total_match(vector<string> lst1, vector<string> lst2){
+    int sum1 = 0, sum2 = 0;
     for(string s : lst1){
-        total1 += s.size();
+        sum1 += s.length();
     }
-    
-    // Calculate total2
     for(string s : lst2){
-        total2 += s.size();
+        sum2 += s.length();
     }
-    
-    // Compare total1 and total2
-    if(total1 < total2){
+    if(sum1 < sum2){
         return lst1;
     }
     else{
