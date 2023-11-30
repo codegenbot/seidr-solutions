@@ -16,7 +16,15 @@ int specialFilter(vector<int> nums){
 
 int main() {
     assert(specialFilter({}) == 0);
-    // add more test cases here
+    assert(specialFilter({1, 2, 3, 4, 5}) == 0);
+    assert(specialFilter({12, 23, 34, 45, 56}) == 0);
+    assert(specialFilter({11, 22, 33, 44, 55}) == 5);
+    assert(specialFilter({-11, -22, -33, -44, -55}) == 5);
+    assert(specialFilter({-123, 456, -789, 101112, 131415}) == 3);
+    assert(specialFilter({-123, 456, -789, -101112, 131415}) == 2);
+    assert(specialFilter({-123, 456, -789, -101112, 131413}) == 2);
+    assert(specialFilter({-123, 456, -789, -101112, 131413, -151617}) == 3);
+    assert(specialFilter({-123, 456, -789, -101112, 131413, -151616}) == 2);
 
     return 0;
 }
