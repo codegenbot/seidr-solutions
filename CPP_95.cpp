@@ -13,11 +13,11 @@ bool check_map_case(map<string,string> dict){
             return false;
         }
         
-        if(!islower(key[0])){
+        if(key != toLower(key)){
             allLower = false;
         }
         
-        if(!isupper(key[0])){
+        if(key != toUpper(key)){
             allUpper = false;
         }
         
