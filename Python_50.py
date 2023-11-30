@@ -18,4 +18,5 @@ def main():
     print(decoded)
 
 
-main()
+if __name__ == "__main__":
+    main()
