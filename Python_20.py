@@ -12,4 +12,4 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
 numbers = list(map(float, input().strip().split()))
 result = find_closest_elements(numbers)
-print(*result)
+print(result)
