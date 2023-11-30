@@ -1,6 +1,16 @@
-vector<int> eat(int number,int need,int remaining){
-    int total = number + need;
-    int eaten = min(total, remaining);
-    int left = max(0, remaining - total);
-    return {eaten, left};
+#include <vector>
+#include <cassert>
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+vector<int> eat(int number, int need, int remaining) {
+    int totalEaten = number + need;
+    int leftCarrots = remaining - need;
+    if (leftCarrots < 0) {
+        leftCarrots = 0;
+    }
+    vector<int> result = {totalEaten, leftCarrots};
+    return result;
 }

@@ -11,13 +11,12 @@ vector<int> generate_integers(int a, int b) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    // compare vectors
     return a == b;
 }
 
 int main() {
-    vector<int> expected = {};
-    assert(generate_integers(17, 89) == expected);
+    vector<int> result = generate_integers(17, 89);
+    assert(result == vector<int>{});
     
     return 0;
 }
