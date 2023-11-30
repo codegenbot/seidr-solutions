@@ -1,14 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-#include <utility>
-
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    // function body
-}
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<int> path;
@@ -72,6 +61,10 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
     
     return path;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    // function body
 }
 
 int main() {
