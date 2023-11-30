@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
