@@ -1,31 +1,26 @@
+#include <iostream>
 #include <string>
 
-string fix_spaces(string text);
+using namespace std;
 
-int main() {
-    assert (fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-}
-
-string fix_spaces(string text) {
-    string result = "";
-    int count = 0;
-    
-    for(int i=0; i<text.length(); i++){
+string fix_spaces(string text){
+    int consecutiveSpaces = 0;
+    for(int i = 0; i < text.length(); i++){
         if(text[i] == ' '){
-            count++;
-            if(count > 2){
-                result += "-";
-                count = 1;
+            consecutiveSpaces++;
+            if(consecutiveSpaces > 2){
+                text[i] = '-';
+            } else {
+                text[i] = '_';
             }
-            else{
-                result += "_";
-            }
-        }
-        else{
-            result += text[i];
-            count = 0;
+        } else {
+            consecutiveSpaces = 0;
         }
     }
-    
-    return result;
+    return text;
+}
+
+int main() {
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    return 0;
 }
