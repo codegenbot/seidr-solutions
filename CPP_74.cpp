@@ -1,4 +1,4 @@
-vector<string> total_match(vector<string> lst1,vector<string> lst2){
+vector<string> total_match(vector<string> lst1, vector<string> lst2){
     int totalChars1 = 0;
     int totalChars2 = 0;
     
@@ -12,7 +12,8 @@ vector<string> total_match(vector<string> lst1,vector<string> lst2){
     
     if(totalChars1 < totalChars2){
         return lst1;
-    }else{
+    }
+    else{
         return lst2;
     }
 }
