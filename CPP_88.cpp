@@ -7,7 +7,8 @@ vector<int> sort_array(vector<int> array){
     
     if(sum % 2 == 0){
         sort(array.begin(), array.end(), greater<int>());
-    } else {
+    }
+    else{
         sort(array.begin(), array.end());
     }
     
