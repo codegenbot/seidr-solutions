@@ -5,11 +5,12 @@ string file_name_check(string file_name){
     }
     string name = file_name.substr(0, dotIndex);
     string extension = file_name.substr(dotIndex+1);
-
-    if(name.length() == 0 || !isalpha(name[0])){
+    if(name.empty() || !isalpha(name[0])){
         return "No";
     }
-
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
+        return "No";
+    }
     int digitCount = 0;
     for(char c : name){
         if(isdigit(c)){
@@ -19,10 +20,5 @@ string file_name_check(string file_name){
     if(digitCount > 3){
         return "No";
     }
-
-    if(extension != "txt" && extension != "exe" && extension != "dll"){
-        return "No";
-    }
-
     return "Yes";
 }
