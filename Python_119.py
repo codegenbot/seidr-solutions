@@ -4,11 +4,9 @@ def match_parens(lst):
         if s == '(':
             count += 1
         else:
+            if count == 0:
+                return 'No'
             count -= 1
-        if count < 0:
-            return 'No'
-    if lst and lst[0] == ')':
-        return 'No'
     if count == 0:
         return 'Yes'
     else:
