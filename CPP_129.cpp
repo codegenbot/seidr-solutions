@@ -1,56 +1,54 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
-    int n = grid.size();
+    int N = grid.size();
+    int row = 0, col = 0;
     vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
     
-    // Helper function to check if a cell is valid
-    auto isValid = [&](int x, int y){
-        return x >= 0 && x < n && y >= 0 && y < n && !visited[x][y];
-    };
+    // Find the starting cell with the smallest value
+    int minVal = grid[0][0];
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
+            if(grid[i][j] < minVal){
+                minVal = grid[i][j];
+                row = i;
+                col = j;
+            }
+        }
+    }
     
-    // Helper function to get neighbors of a cell
-    auto getNeighbors = [&](int x, int y){
-        vector<pair<int, int>> neighbors;
-        if(isValid(x-1, y))
-            neighbors.push_back({x-1, y});
-        if(isValid(x+1, y))
-            neighbors.push_back({x+1, y});
-        if(isValid(x, y-1))
-            neighbors.push_back({x, y-1});
-        if(isValid(x, y+1))
-            neighbors.push_back({x, y+1});
-        return neighbors;
-    };
+    // Add the starting cell value to the path
+    path.push_back(minVal);
     
-    // Helper function to do a depth-first search
-    function<bool(int, int, int)> dfs = [&](int x, int y, int len){
-        visited[x][y] = true;
-        path.push_back(grid[x][y]);
+    // Move to the next cell with the smallest neighbor value
+    while(path.size() < k){
+        int minNeighbor = INT_MAX;
+        int nextRow = -1, nextCol = -1;
         
-        if(len == k)
-            return true;
-        
-        vector<pair<int, int>> neighbors = getNeighbors(x, y);
-        sort(neighbors.begin(), neighbors.end(), [&](const pair<int, int>& a, const pair<int, int>& b){
-            return grid[a.first][a.second] < grid[b.first][b.second];
-        });
-        
-        for(auto neighbor : neighbors){
-            if(dfs(neighbor.first, neighbor.second, len+1))
-                return true;
+        // Check neighbors in the four directions
+        if(row > 0 && grid[row-1][col] < minNeighbor){
+            minNeighbor = grid[row-1][col];
+            nextRow = row-1;
+            nextCol = col;
+        }
+        if(row < N-1 && grid[row+1][col] < minNeighbor){
+            minNeighbor = grid[row+1][col];
+            nextRow = row+1;
+            nextCol = col;
+        }
+        if(col > 0 && grid[row][col-1] < minNeighbor){
+            minNeighbor = grid[row][col-1];
+            nextRow = row;
+            nextCol = col-1;
+        }
+        if(col < N-1 && grid[row][col+1] < minNeighbor){
+            minNeighbor = grid[row][col+1];
+            nextRow = row;
+            nextCol = col+1;
         }
         
-        path.pop_back();
-        visited[x][y] = false;
-        return false;
-    };
-    
-    // Start the search from each cell
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(dfs(i, j, 1))
-                return path;
-        }
+        // Move to the next cell and add its value to the path
+        row = nextRow;
+        col = nextCol;
+        path.push_back(grid[row][col]);
     }
     
     return path;
