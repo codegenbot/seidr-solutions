@@ -22,7 +22,7 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
 
         int currentDiff = std::abs(leftSum - rightSum);
 
-        if (currentDiff < diff || (currentDiff == diff && leftSum == rightSum)) {
+        if (currentDiff <= diff) {
             diff = currentDiff;
             index = i;
         }
