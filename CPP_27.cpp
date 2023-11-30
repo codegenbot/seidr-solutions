@@ -1,5 +1,3 @@
-#include <string>
-
 string flip_case(string str){
     for(int i=0; i<str.length(); i++){
         if(islower(str[i])){
