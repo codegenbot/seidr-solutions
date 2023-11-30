@@ -11,5 +11,4 @@ def decode_cyclic():
         return result
     except ValueError:
         return "Invalid input format"
-
 print(decode_cyclic())
