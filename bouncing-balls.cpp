@@ -18,12 +18,12 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, i
 int main() {
     double startingHeight, firstBounceHeight;
     int numBounces;
-
+    
     cin >> startingHeight >> firstBounceHeight >> numBounces;
-
+    
     double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
-
+    
     cout << fixed << setprecision(15) << totalDistance << endl;
-
+    
     return 0;
 }
