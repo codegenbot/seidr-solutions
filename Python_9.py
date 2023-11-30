@@ -10,7 +10,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return max_numbers
 
 
-# Replace this line with your own desired input list
-input_numbers = [4, 5, 2, 8, 1]
+input_numbers = [1, 2, 3, 4, 5]  # Replace with your desired list of numbers
 result = rolling_max(input_numbers)
 print(result)
