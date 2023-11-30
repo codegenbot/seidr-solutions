@@ -1,14 +1,33 @@
+#include <iostream>
+#include <stack>
+#include <string>
+
 bool correct_bracketing(string brackets) {
-    int count = 0;
-    for (int i = 0; i < brackets.length(); i++) {
-        if (brackets[i] == '(') {
-            count++;
-        } else if (brackets[i] == ')') {
-            count--;
-            if (count < 0) {
+    stack<char> st;
+    
+    for (char c : brackets) {
+        if (c == '(') {
+            st.push(c);
+        } else if (c == ')') {
+            if (st.empty() || st.top() != '(') {
                 return false;
             }
+            st.pop();
         }
     }
-    return count == 0;
+    
+    return st.empty();
+}
+
+int main() {
+    string brackets;
+    cin >> brackets;
+    
+    if (correct_bracketing(brackets)) {
+        cout << "true" << endl;
+    } else {
+        cout << "false" << endl;
+    }
+    
+    return 0;
 }
