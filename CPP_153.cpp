@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm> // Add this line to include the algorithm library
+#include <algorithm>
 using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
