@@ -1,6 +1,5 @@
 def concatenate(strings):
-    return "".join(strings)
-
+    return ''.join(strings)
 
 n = int(input())
 strings = [input().strip() for _ in range(n)]
