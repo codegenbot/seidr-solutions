@@ -1,34 +1,33 @@
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
-    int consonantCount = 0;
-    
-    for (int i = 0; i < s.length(); i++) {
+    if (s.empty()) {
+        return result;
+    }
+    string word;
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] != ' ') {
             word += s[i];
-            if (isConsonant(s[i])) {
-                consonantCount++;
-            }
         } else {
+            int consonantCount = 0;
+            for (int j = 0; j < word.size(); j++) {
+                if (isalpha(word[j]) && !isvowel(word[j])) {
+                    consonantCount++;
+                }
+            }
             if (consonantCount == n) {
                 result.push_back(word);
             }
             word = "";
-            consonantCount = 0;
         }
     }
-    
+    int consonantCount = 0;
+    for (int j = 0; j < word.size(); j++) {
+        if (isalpha(word[j]) && !isvowel(word[j])) {
+            consonantCount++;
+        }
+    }
     if (consonantCount == n) {
         result.push_back(word);
     }
-    
     return result;
-}
-
-bool isConsonant(char c) {
-    c = tolower(c);
-    if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-        return false;
-    }
-    return true;
 }
