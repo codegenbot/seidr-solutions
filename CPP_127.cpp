@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
 #include <cassert>
 
 using namespace std;
-
-string intersection(vector<int> interval1, vector<int> interval2);
 
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
@@ -16,9 +15,9 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int intersectionStart = max(start1, start2);
     int intersectionEnd = min(end1, end2);
 
-    int intersectionLength = intersectionEnd - intersectionStart + 1;
+    int intersectionLength = intersectionEnd - intersectionStart;
 
-    if (intersectionLength <= 1) {
+    if (intersectionLength < 0) {
         return "NO";
     }
 
@@ -32,5 +31,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    assert (intersection({-2, -2}, {-3, -2}) == "NO");
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+	
+    return 0;
 }
