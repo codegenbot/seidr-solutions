@@ -1,3 +1,16 @@
+vector<string> select_words(string s, int n);
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> words;
     string word = "";
@@ -5,25 +18,25 @@ vector<string> select_words(string s, int n) {
         if (s[i] != ' ') {
             word += s[i];
         } else {
-            int consonants = 0;
+            int consonantCount = 0;
             for (int j = 0; j < word.length(); j++) {
                 if (isalpha(word[j]) && !isvowel(word[j])) {
-                    consonants++;
+                    consonantCount++;
                 }
             }
-            if (consonants == n) {
+            if (consonantCount == n) {
                 words.push_back(word);
             }
             word = "";
         }
     }
-    int consonants = 0;
+    int consonantCount = 0;
     for (int j = 0; j < word.length(); j++) {
         if (isalpha(word[j]) && !isvowel(word[j])) {
-            consonants++;
+            consonantCount++;
         }
     }
-    if (consonants == n) {
+    if (consonantCount == n) {
         words.push_back(word);
     }
     return words;
