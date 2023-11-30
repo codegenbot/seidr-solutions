@@ -11,19 +11,19 @@ string sort_numbers(string numbers){
     number_map["eight"] = 8;
     number_map["nine"] = 9;
 
-    vector<int> number_list;
-    string number;
+    vector<int> number_values;
     stringstream ss(numbers);
+    string number;
     while (ss >> number) {
-        number_list.push_back(number_map[number]);
+        number_values.push_back(number_map[number]);
     }
 
-    sort(number_list.begin(), number_list.end());
+    sort(number_values.begin(), number_values.end());
 
     string sorted_numbers;
-    for (int i = 0; i < number_list.size(); i++) {
-        for (auto it = number_map.begin(); it != number_map.end(); it++) {
-            if (it->second == number_list[i]) {
+    for (int i = 0; i < number_values.size(); i++) {
+        for (auto it = number_map.begin(); it != number_map.end(); ++it) {
+            if (it->second == number_values[i]) {
                 sorted_numbers += it->first + " ";
                 break;
             }
