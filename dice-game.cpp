@@ -1,4 +1,6 @@
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 long double probability(int n, int m) {
@@ -21,7 +23,7 @@ int main() {
     cin >> n >> m;
     
     long double result = probability(n, m);
-    cout << result << endl;
+    cout << fixed << setprecision(8) << result << endl;
     
     return 0;
 }
