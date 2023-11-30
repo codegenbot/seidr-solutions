@@ -1,12 +1,9 @@
-from typing import List
-from sys import stdin, stdout
-
-
 def parse_nested_parens() -> List[int]:
-    n = int(stdin.readline().rstrip())
+    n = int(input())
     result = []
     for _ in range(n):
-        paren_string = stdin.readline().rstrip()
+        paren_string = input().strip()
+
         if not paren_string:
             result.append(-1)
             continue
@@ -23,12 +20,13 @@ def parse_nested_parens() -> List[int]:
                 if stack:
                     stack.pop()
                     current_depth -= 1
+
         if stack:
             result.append(-1)
         else:
             result.append(max_depth)
+
     return result
 
 
-result = parse_nested_parens()
-stdout.write('\n'.join(map(str, result)))
+parse_nested_parens()

@@ -1,11 +1,13 @@
+import sys
 from typing import List
 
-def all_prefixes(string: str) -> List[str]:
+def all_prefixes() -> List[str]:
+    string = sys.stdin.readline().rstrip('\n')
     prefixes = []
     for i in range(len(string)):
         prefixes.append(string[: i + 1])
     return prefixes
 
-string = input()
-prefixes_list = all_prefixes(string)
-print(prefixes_list)
+prefixes_list = all_prefixes()
+for prefix in prefixes_list:
+    sys.stdout.write(prefix + '\n')
