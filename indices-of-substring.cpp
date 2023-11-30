@@ -28,7 +28,7 @@ int main() {
     std::cin >> text >> target;
     
     std::vector<int> result = indicesOfSubstring(text, target);
-    
+
     if (result.empty()) {
         std::cout << 0;
     } else {
