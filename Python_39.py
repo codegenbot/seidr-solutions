@@ -2,7 +2,7 @@ def prime_fib(n: int):
     def is_prime(num):
         if num < 2:
             return False
-        for i in range(2, int(num ** 0.5) + 1):
+        for i in range(2, num):
             if num % i == 0:
                 return False
         return True
@@ -15,11 +15,12 @@ def prime_fib(n: int):
         elif n == 2:
             return [0, 1]
         else:
-            fib_seq = [0, 1]
-            while fib_seq[-1] < n:
-                fib_seq.append(fib_seq[-1] + fib_seq[-2])
-            return fib_seq[:-1]
+            fib_sequence = [0, 1]
+            while len(fib_sequence) <= n:
+                next_num = fib_sequence[-1] + fib_sequence[-2]
+                fib_sequence.append(next_num)
+            return fib_sequence
 
-    fib_seq = fibonacci(n)
-    prime_fib_seq = [num for num in fib_seq if is_prime(num)]
-    return prime_fib_seq[-1]
+    fib_sequence = fibonacci(n)
+    prime_fib_numbers = [num for num in fib_sequence if is_prime(num)]
+    return prime_fib_numbers[-1]
