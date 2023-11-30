@@ -5,6 +5,11 @@ def concatenate(strings: List[str]) -> str:
     return "".join(strings)
 
 
-input_strings = input("Enter a list of strings separated by spaces: ").split()
-result = concatenate(input_strings)
-print("Concatenated string:", result)
+n = int(input())
+strings = []
+for _ in range(n):
+    strings.append(input())
+
+result = concatenate(strings)
+
+print(result)
