@@ -4,7 +4,7 @@ def all_prefixes() -> List[str]:
     string = input()
     prefixes = []
     for i in range(len(string)):
-        prefixes.append(string[: i + 1])
+        prefixes.append(string[:i + 1])
     return prefixes
 
 prefixes_list = all_prefixes()
