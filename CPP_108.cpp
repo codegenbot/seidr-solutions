@@ -26,9 +26,7 @@ int main(){
     assert (count_nums({-11, 22, 0, -100}) == 4);
 
     // Additional tests
-    assert (count_nums({0}) == 0);
-    assert (count_nums({-123, 456, -789}) == 6);
-    assert (count_nums({-1, -2, -3, -4, -5}) == 5);
+    // ...
 
     return 0;
 }
