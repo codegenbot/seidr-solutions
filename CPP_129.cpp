@@ -2,24 +2,53 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
     vector<vector<bool>> visited(n, vector<bool>(n, false));
-    int currRow = 0, currCol = 0;
     
-    while(k > 0){
-        path.push_back(grid[currRow][currCol]);
-        visited[currRow][currCol] = true;
-        k--;
+    // Helper function to check if a cell is valid
+    auto isValid = [&](int x, int y){
+        return x >= 0 && x < n && y >= 0 && y < n && !visited[x][y];
+    };
+    
+    // Helper function to get neighbors of a cell
+    auto getNeighbors = [&](int x, int y){
+        vector<pair<int, int>> neighbors;
+        if(isValid(x-1, y)) neighbors.push_back({x-1, y});
+        if(isValid(x+1, y)) neighbors.push_back({x+1, y});
+        if(isValid(x, y-1)) neighbors.push_back({x, y-1});
+        if(isValid(x, y+1)) neighbors.push_back({x, y+1});
+        return neighbors;
+    };
+    
+    // Helper function to perform DFS to find minimum path
+    function<bool(int, int, int)> dfs = [&](int x, int y, int steps){
+        visited[x][y] = true;
+        path.push_back(grid[x][y]);
         
-        if(currCol < n-1 && !visited[currRow][currCol+1]){
-            currCol++;
+        if(steps == k){
+            return true;
         }
-        else if(currRow < n-1 && !visited[currRow+1][currCol]){
-            currRow++;
+        
+        vector<pair<int, int>> neighbors = getNeighbors(x, y);
+        sort(neighbors.begin(), neighbors.end(), [&](const pair<int, int>& a, const pair<int, int>& b){
+            return grid[a.first][a.second] < grid[b.first][b.second];
+        });
+        
+        for(auto neighbor : neighbors){
+            if(dfs(neighbor.first, neighbor.second, steps+1)){
+                return true;
+            }
         }
-        else if(currCol > 0 && !visited[currRow][currCol-1]){
-            currCol--;
-        }
-        else if(currRow > 0 && !visited[currRow-1][currCol]){
-            currRow--;
+        
+        visited[x][y] = false;
+        path.pop_back();
+        return false;
+    };
+    
+    // Start DFS from each cell and return the minimum path
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(dfs(i, j, 1)){
+                return path;
+            }
         }
     }
     
