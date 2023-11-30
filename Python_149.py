@@ -1,2 +1,2 @@
-def sorted_list(nums):
-    return sorted(filter(lambda x: len(x) % 2 == 0, nums), key=len)
+def sorted_list_sum(lst):
+    return sorted(filter(lambda x: len(x) % 2 == 0, lst))
