@@ -3,41 +3,41 @@ vector<string> split_words(string txt){
     string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
-
-    for(int i = 0; i < txt.length(); i++){
-        if(txt[i] == ' '){
+    
+    for(char c : txt){
+        if(c == ' '){
             hasWhitespace = true;
-            if(word != ""){
+            if(!word.empty()){
                 words.push_back(word);
                 word = "";
             }
-        }
-        else if(txt[i] == ','){
+        }else if(c == ','){
             hasComma = true;
-            if(word != ""){
+            if(!word.empty()){
                 words.push_back(word);
                 word = "";
             }
-        }
-        else{
-            word += txt[i];
+        }else{
+            word += c;
         }
     }
-
+    
     if(hasWhitespace || hasComma){
-        if(word != ""){
+        if(!word.empty()){
             words.push_back(word);
         }
-    }
-    else{
-        int count = 0;
-        for(int i = 0; i < word.length(); i++){
-            if(islower(word[i])){
-                count++;
+    }else{
+        int oddCount = 0;
+        for(char c : txt){
+            if(islower(c)){
+                int order = c - 'a';
+                if(order % 2 != 0){
+                    oddCount++;
+                }
             }
         }
-        words.push_back(to_string(count));
+        words.push_back(to_string(oddCount));
     }
-
+    
     return words;
 }
