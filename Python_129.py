@@ -28,4 +28,3 @@ def minPath(grid, k):
                 if path is not None and len(path) == k:
                     return [grid[x][y] for x, y in path]
     return []
-
