@@ -1,5 +1,4 @@
 def prime_fib(n: int):
-
     def is_prime(num):
         if num < 2:
             return False
@@ -12,7 +11,7 @@ def prime_fib(n: int):
 
     def fibonacci(n):
         fib_seq = [0, 1]
-        while fib_seq[-1] < n:
+        while fib_seq[-1] <= n:
             fib_seq.append(fib_seq[-1] + fib_seq[-2])
         return fib_seq
 
