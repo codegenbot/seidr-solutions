@@ -12,8 +12,6 @@ input_numbers = []
 while True:
     try:
         num = int(input())
-        if num == "":
-            break
         input_numbers.append(num)
     except EOFError:
         break
