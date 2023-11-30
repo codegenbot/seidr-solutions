@@ -46,14 +46,12 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(){
-    vector<int> a = tri(5);
-    vector<int> b = {3, 1, 2, 2, 4};
+    vector<int> result = tri(5);
+    vector<int> expected = {3, 1, 2, 4, 6};
 
-    if(issame(a, b)){
-        cout << "Correct" << endl;
+    if(issame(result, expected)){
+        return 0;
     }else{
-        cout << "Incorrect" << endl;
+        return 1;
     }
-
-    return 0;
 }
