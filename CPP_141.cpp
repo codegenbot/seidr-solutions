@@ -1,30 +1,27 @@
-string file_name_check(string file_name){
-    int dotIndex = file_name.find('.');
-    if (dotIndex == string::npos || dotIndex == 0 || dotIndex == file_name.length() - 1) {
+#include <string>
+using namespace std;
+
+string file_name_check(string file_name) {
+    int dotIndex = file_name.find(".");
+    if (dotIndex == string::npos) {
         return "No";
     }
-    
-    string beforeDot = file_name.substr(0, dotIndex);
-    string afterDot = file_name.substr(dotIndex + 1);
-    
-    if (beforeDot.length() == 0 || !isalpha(beforeDot[0])) {
+    string prefix = file_name.substr(0, dotIndex);
+    string suffix = file_name.substr(dotIndex + 1);
+    if (prefix.empty() || !isalpha(prefix[0])) {
         return "No";
     }
-    
     int digitCount = 0;
-    for (char c : beforeDot) {
+    for (char c : prefix) {
         if (isdigit(c)) {
             digitCount++;
         }
     }
-    
     if (digitCount > 3) {
         return "No";
     }
-    
-    if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
         return "No";
     }
-    
     return "Yes";
 }
