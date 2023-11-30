@@ -22,7 +22,7 @@ string sort_numbers(string numbers){
 
     string sorted_numbers;
     for (int i = 0; i < number_values.size(); i++) {
-        for (auto it = number_map.begin(); it != number_map.end(); ++it) {
+        for (auto it = number_map.begin(); it != number_map.end(); it++) {
             if (it->second == number_values[i]) {
                 sorted_numbers += it->first + " ";
                 break;
