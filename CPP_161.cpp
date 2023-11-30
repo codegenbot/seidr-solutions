@@ -34,9 +34,7 @@ string solve(string s){
 int main() {
     string input;
     getline(cin, input);
-
-    string output = solve(input);
-    cout << output << endl;
+    cout << solve(input) << endl;
 
     return 0;
 }
