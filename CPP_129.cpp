@@ -1,66 +1,56 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    int row = 0, col = 0;
     
-    // Function to check if a cell is valid
-    auto isValid = [&](int x, int y) {
-        return (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]);
-    };
-    
-    // Function to get the neighbors of a cell
-    auto getNeighbors = [&](int x, int y) {
-        vector<pair<int, int>> neighbors;
-        neighbors.push_back({x - 1, y});
-        neighbors.push_back({x + 1, y});
-        neighbors.push_back({x, y - 1});
-        neighbors.push_back({x, y + 1});
-        return neighbors;
-    };
-    
-    // Function to compare two paths
-    auto comparePaths = [&](const vector<int>& pathA, const vector<int>& pathB) {
-        int len = min(pathA.size(), pathB.size());
-        for (int i = 0; i < len; i++) {
-            if (pathA[i] < pathB[i]) {
-                return true;
-            } else if (pathA[i] > pathB[i]) {
-                return false;
+    // Find the starting cell with the smallest value
+    int minValue = grid[0][0];
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(grid[i][j] < minValue){
+                minValue = grid[i][j];
+                row = i;
+                col = j;
             }
         }
-        return pathA.size() < pathB.size();
-    };
+    }
     
-    // Function to find the minimum path
-    function<void(int, int, int, vector<int>&)> dfs = [&](int x, int y, int steps, vector<int>& currPath) {
-        visited[x][y] = true;
-        currPath.push_back(grid[x][y]);
+    // Add the starting cell value to the path
+    path.push_back(minValue);
+    
+    // Move to the neighboring cell with the smallest value
+    for(int step = 1; step < k; step++){
+        int nextRow = row, nextCol = col;
+        int minNeighborValue = INT_MAX;
         
-        if (steps == k) {
-            if (path.empty() || comparePaths(currPath, path)) {
-                path = currPath;
-            }
-        } else {
-            vector<pair<int, int>> neighbors = getNeighbors(x, y);
-            for (auto neighbor : neighbors) {
-                int nx = neighbor.first;
-                int ny = neighbor.second;
-                if (isValid(nx, ny)) {
-                    dfs(nx, ny, steps + 1, currPath);
-                }
-            }
+        // Check all neighboring cells
+        if(row > 0 && grid[row-1][col] < minNeighborValue){
+            minNeighborValue = grid[row-1][col];
+            nextRow = row - 1;
+            nextCol = col;
+        }
+        if(row < n-1 && grid[row+1][col] < minNeighborValue){
+            minNeighborValue = grid[row+1][col];
+            nextRow = row + 1;
+            nextCol = col;
+        }
+        if(col > 0 && grid[row][col-1] < minNeighborValue){
+            minNeighborValue = grid[row][col-1];
+            nextRow = row;
+            nextCol = col - 1;
+        }
+        if(col < n-1 && grid[row][col+1] < minNeighborValue){
+            minNeighborValue = grid[row][col+1];
+            nextRow = row;
+            nextCol = col + 1;
         }
         
-        visited[x][y] = false;
-        currPath.pop_back();
-    };
-    
-    // Start from each cell and find the minimum path
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            vector<int> currPath;
-            dfs(i, j, 1, currPath);
-        }
+        // Move to the neighboring cell with the smallest value
+        row = nextRow;
+        col = nextCol;
+        
+        // Add the cell value to the path
+        path.push_back(grid[row][col]);
     }
     
     return path;
