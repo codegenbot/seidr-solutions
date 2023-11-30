@@ -1,17 +1,17 @@
 string anti_shuffle(string s){
-    string ordered_str = "";
+    string result = "";
     string word = "";
     for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
-            sort(word.begin(), word.end());
-            ordered_str += word + ' ';
-            word = "";
+        if(s[i] != ' '){
+            word += s[i];
         }
         else{
-            word += s[i];
+            sort(word.begin(), word.end());
+            result += word + " ";
+            word = "";
         }
     }
     sort(word.begin(), word.end());
-    ordered_str += word;
-    return ordered_str;
+    result += word;
+    return result;
 }
