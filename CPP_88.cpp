@@ -1,5 +1,5 @@
 vector<int> sort_array(vector<int> array){
-    if(array.empty()){
+    if(array.size() <= 1){
         return array;
     }
     
