@@ -47,13 +47,8 @@ bool issame(vector<int> a, vector<int> b){
 
 int main(){
     vector<int> a = tri(5);
-    vector<int> b = {3, 1, 2, 2, 4};
-
-    if(issame(a, b)){
-        cout << "Correct" << endl;
-    }else{
-        cout << "Incorrect" << endl;
-    }
+    vector<int> b = {3, 1, 2, 4, 4};
+    bool result = issame(a, b);
 
     return 0;
 }
