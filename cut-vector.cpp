@@ -16,7 +16,7 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& nums) {
             leftSum += nums[j];
         }
 
-        for (int j = i; j < n; j++) {
+        for (int j = i; j < n; j++) { 
             rightSum += nums[j];
         }
 
