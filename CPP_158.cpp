@@ -1,27 +1,23 @@
 string find_max(vector<string> words){
-  string max_word = "";
-  int max_unique = 0;
+    string maxWord = "";
+    int maxCount = 0;
 
-  for(string word : words){
-    int unique_chars = 0;
-    bool visited[26] = {false}; //assuming only lowercase characters are present
+    for (string word : words) {
+        int count = 0;
+        vector<char> uniqueChars;
 
-    for(char c : word){
-      int index = c - 'a';
-      if(!visited[index]){
-        visited[index] = true;
-        unique_chars++;
-      }
+        for (char c : word) {
+            if (find(uniqueChars.begin(), uniqueChars.end(), c) == uniqueChars.end()) {
+                uniqueChars.push_back(c);
+                count++;
+            }
+        }
+
+        if (count > maxCount || (count == maxCount && word < maxWord)) {
+            maxCount = count;
+            maxWord = word;
+        }
     }
 
-    if(unique_chars == max_unique){
-      max_word = min(max_word, word);
-    }
-    else if(unique_chars > max_unique){
-      max_word = word;
-      max_unique = unique_chars;
-    }
-  }
-
-  return max_word;
+    return maxWord;
 }
