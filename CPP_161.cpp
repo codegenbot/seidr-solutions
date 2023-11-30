@@ -33,9 +33,11 @@ string solve(string s){
 
 int main() {
     string input;
-    getline(cin, input);
-
-    cout << solve(input) << endl;
+    cout << "Enter a string: ";
+    cin >> input;
+    
+    string output = solve(input);
+    cout << "Output: " << output << endl;
 
     return 0;
 }
