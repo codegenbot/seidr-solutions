@@ -24,12 +24,3 @@ def parse_nested_parens(inputs: List[str]) -> List[int]:
         else:
             result.append(max_depth)
     return result
-
-inputs = []
-num_inputs = int(input("Enter the number of input strings: "))
-for i in range(num_inputs):
-    input_string = input(f"Enter input string {i+1}: ")
-    inputs.append(input_string)
-
-result = parse_nested_parens(inputs)
-print(result)
