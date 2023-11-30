@@ -22,8 +22,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string str2 = boost::any_cast<std::string>(b);
         boost::replace_all(str1, ",", ".");
         boost::replace_all(str2, ",", ".");
-        float num1 = std::stof(str1);
-        float num2 = std::stof(str2);
+        float num1 = stof(str1);
+        float num2 = stof(str2);
         if (num1 > num2) {
             return str1;
         } else if (num1 < num2) {
