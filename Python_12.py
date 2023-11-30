@@ -5,5 +5,5 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-result = longest(["apple", "banana", "orange"])
+result = longest(eval(input()))
 print(result)
