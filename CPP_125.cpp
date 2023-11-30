@@ -6,18 +6,18 @@ vector<string> split_words(string txt){
     
     for(char c : txt){
         if(c == ' '){
-            hasWhitespace = true;
             if(word != ""){
                 result.push_back(word);
                 word = "";
             }
+            hasWhitespace = true;
         }
         else if(c == ','){
-            hasComma = true;
             if(word != ""){
                 result.push_back(word);
                 word = "";
             }
+            hasComma = true;
         }
         else{
             word += c;
