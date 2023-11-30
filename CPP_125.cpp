@@ -1,8 +1,6 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
 vector<string> split_words(string txt){
     vector<string> words;
     string word = "";
@@ -54,15 +52,15 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-int main() {
+int main(){
     vector<string> a = split_words("");
     vector<string> b = split_words("");
     
     if(issame(a, b)){
-        cout << "The vectors are the same" << endl;
+        cout << "Same" << endl;
     }
     else{
-        cout << "The vectors are different" << endl;
+        cout << "Different" << endl;
     }
     
     return 0;
