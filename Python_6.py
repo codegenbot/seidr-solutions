@@ -31,4 +31,4 @@ def parse_nested_parens() -> List[int]:
 
 
 result = parse_nested_parens()
-stdout.write("\n".join(map(str, result)))
+stdout.write('\n'.join(map(str, result)))
