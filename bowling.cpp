@@ -8,15 +8,20 @@ int calculateScore(const std::string& input) {
 
     for (char ch : input) {
         if (ch == 'X') {
-            score += 10 + (input[bowl + 1] == 'X' ? 10 : (input[bowl + 1] - '0'));
-            score += (input[bowl + 2] == 'X') ? 10 : (input[bowl + 2] == '/' ? 10 - (input[bowl + 1] - '0') : (input[bowl + 2] - '0'));
-            bowl++;
+            score += 10;
+            if (frame < 9) {
+                score += (input[bowl + 1] == 'X') ? 10 : (input[bowl + 1] - '0');
+                score += (input[bowl + 2] == 'X' || input[bowl + 2] == '/') ? 10 : (input[bowl + 2] - '0');
+            }
+            if (frame < 9) {
+                frame++;
+            }
         } else if (ch == '/') {
-            score += 10 - (input[bowl - 1] - '0') + (frame < 9 ? (input[bowl + 1] == 'X' ? 10 : (input[bowl + 1] - '0')) : 0);
-            bowl++;
-        } else if (ch == '-') {
-            // do nothing
-        } else {
+            score += 10 - (input[bowl - 1] - '0');
+            if (frame < 9) {
+                score += (input[bowl + 1] == 'X') ? 10 : (input[bowl + 1] - '0');
+            }
+        } else if (ch != '-') {
             score += ch - '0';
             if (frame < 9 && input[bowl + 1] == '/') {
                 score += 10 - (ch - '0');
@@ -24,9 +29,6 @@ int calculateScore(const std::string& input) {
         }
 
         bowl++;
-        if (frame < 9 && (ch == 'X' || input[bowl - 1] == '/')) {
-            frame++;
-        }
     }
 
     return score;
