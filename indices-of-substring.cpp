@@ -29,7 +29,7 @@ int main() {
     
     std::vector<int> result = indicesOfSubstring(text, target);
 
-    if (result.size() == 0) {
+    if (result.empty()) {
         std::cout << 0;
     } else {
         for (int i = 0; i < result.size(); i++) {
