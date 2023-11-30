@@ -1,10 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
 int specialFilter(vector<int> nums){
     int count = 0;
     for(int num : nums){
-        string numStr = to_string(num);
-        int firstDigit = numStr[0] - '0';
-        int lastDigit = numStr[numStr.length() - 1] - '0';
-        if(num > 10 && firstDigit % 2 != 0 && lastDigit % 2 != 0){
+        string numStr = to_string(abs(num));
+        if(numStr[0] % 2 == 1 && numStr[numStr.length()-1] % 2 == 1 && num > 10){
             count++;
         }
     }
