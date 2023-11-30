@@ -1,36 +1,33 @@
-#include <boost/lexical_cast.hpp>
+#include <boost/algorithm/string.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int intA = boost::any_cast<int>(a);
-        int intB = boost::any_cast<int>(b);
-        if (intA > intB) {
-            return intA;
-        } else if (intA < intB) {
-            return intB;
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num1 < num2) {
+            return num2;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float floatA = boost::any_cast<float>(a);
-        float floatB = boost::any_cast<float>(b);
-        if (floatA > floatB) {
-            return floatA;
-        } else if (floatA < floatB) {
-            return floatB;
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num1 < num2) {
+            return num2;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string strA = boost::any_cast<std::string>(a);
-        std::string strB = boost::any_cast<std::string>(b);
-        float floatA, floatB;
-        try {
-            floatA = boost::lexical_cast<float>(strA);
-            floatB = boost::lexical_cast<float>(strB);
-        } catch (const boost::bad_lexical_cast&) {
-            return "None";
-        }
-        if (floatA > floatB) {
-            return strA;
-        } else if (floatA < floatB) {
-            return strB;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        boost::replace_all(str1, ",", ".");
+        boost::replace_all(str2, ",", ".");
+        float num1 = stof(str1);
+        float num2 = stof(str2);
+        if (num1 > num2) {
+            return str1;
+        } else if (num1 < num2) {
+            return str2;
         }
     }
     return "None";
