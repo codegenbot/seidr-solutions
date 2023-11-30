@@ -1,28 +1,27 @@
-#include <cctype>
 #include <string>
-
+#include <algorithm>
 using namespace std;
 
 string solve(string s) {
     string result = "";
     bool hasLetter = false;
-
+    
     for (char c : s) {
         if (isalpha(c)) {
             hasLetter = true;
-            if (isupper(c)) {
-                result += tolower(c);
-            } else {
+            if (islower(c)) {
                 result += toupper(c);
+            } else {
+                result += tolower(c);
             }
         } else {
             result += c;
         }
     }
-
+    
     if (!hasLetter) {
         reverse(result.begin(), result.end());
     }
-
+    
     return result;
 }
