@@ -1,12 +1,11 @@
-from typing import List
-
-def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
-
-n = int(input("Enter the number of strings: "))
+n = int(input())
 strings = []
+
 for _ in range(n):
     strings.append(input())
+
+def concatenate(strings: list) -> str:
+    return ''.join(strings)
 
 result = concatenate(strings)
 

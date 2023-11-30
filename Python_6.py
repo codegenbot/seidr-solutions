@@ -1,11 +1,6 @@
 from typing import List
 
-def parse_nested_parens() -> List[int]:
-    n = int(input())
-    paren_strings = []
-    for _ in range(n):
-        paren_strings.append(input())
-
+def parse_nested_parens(paren_strings: List[str]) -> List[int]:
     result = []
     for paren_string in paren_strings:
         if not paren_string:
@@ -24,12 +19,13 @@ def parse_nested_parens() -> List[int]:
                 if stack:
                     stack.pop()
                     current_depth -= 1
-        if stack:
+
+        while stack:
+            stack.pop()
+            current_depth -= 1
+
+        if current_depth != 0:
             result.append(-1)
         else:
             result.append(max_depth)
     return result
-
-output = parse_nested_parens()
-for val in output:
-    print(val)
