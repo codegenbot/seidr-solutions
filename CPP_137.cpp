@@ -1,37 +1,33 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-using namespace std;
+#include <boost/algorithm/string.hpp>
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-            return a;
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
         }
-        else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-            return b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
         }
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-            return a;
-        }
-        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-            return b;
-        }
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        replace(strA.begin(), strA.end(), ',', '.');
-        replace(strB.begin(), strB.end(), ',', '.');
-        float floatA = stof(strA);
-        float floatB = stof(strB);
-        if (floatA > floatB) {
-            return a;
-        }
-        else if (floatA < floatB) {
-            return b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        boost::replace_all(str1, ",", ".");
+        boost::replace_all(str2, ",", ".");
+        float num1 = stof(str1);
+        float num2 = stof(str2);
+        if (num1 > num2) {
+            return str1;
+        } else if (num2 > num1) {
+            return str2;
         }
     }
     return "None";
