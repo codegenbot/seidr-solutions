@@ -1,1 +1,7 @@
-I see that the code is correct and just requires input in the correct format. The input should be a list of numbers.
+from typing import List, Union
+
+
+def mean_absolute_deviation(numbers: List[Union[float, int]]) -> float:
+    mean = sum(numbers) / len(numbers)
+    deviation = [abs(num - mean) for num in numbers]
+    return sum(deviation) / len(deviation)
