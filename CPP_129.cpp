@@ -1,8 +1,6 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
 vector<int> minPath(vector<vector<int>> grid, int k);
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, vector<int>& path, int row, int col, int k);
 bool issame(vector<int> a, vector<int> b);
