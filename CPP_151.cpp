@@ -11,7 +11,11 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    vector<float> lst = {1.5, 2.0, 3.5, 4.0, 5.5};
+    vector<float> lst;
+    // populate lst with values
+    
     long long odd_sum = double_the_difference(lst);
+    // use odd_sum in assertion statement
+    
     return 0;
 }
