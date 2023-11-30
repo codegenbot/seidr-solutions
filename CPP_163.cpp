@@ -1,11 +1,4 @@
-#include <iostream>
 #include <vector>
-
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
 
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
@@ -17,7 +10,13 @@ vector<int> generate_integers(int a, int b) {
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    // compare vectors
+    return a == b;
+}
+
 int main() {
-    assert(generate_integers(17, 89) == vector<int> {});
+    assert (generate_integers(17,89) == vector<int>{});
+    
     return 0;
 }
