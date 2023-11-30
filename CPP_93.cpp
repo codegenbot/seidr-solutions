@@ -1,6 +1,6 @@
 string encode(string message){
     string encodedMessage = "";
-    for(int i=0; i<message.length(); i++){
+    for(int i = 0; i < message.length(); i++){
         char c = message[i];
         if(isalpha(c)){
             if(islower(c)){
