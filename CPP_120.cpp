@@ -4,8 +4,7 @@ using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     // Code logic for comparing vectors
-    // ...
-    return true; // Placeholder return value
+    return a == b;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
