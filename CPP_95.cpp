@@ -1,4 +1,4 @@
-bool check_map_case(map<string,string> dict){
+bool check_dict_case(map<string,string> dict){
     if(dict.empty()){
         return false;
     }
@@ -13,13 +13,12 @@ bool check_map_case(map<string,string> dict){
             return false;
         }
         
-        for(char c : key){
-            if(islower(c)){
-                allUpperCase = false;
-            }
-            else if(isupper(c)){
-                allLowerCase = false;
-            }
+        if(key != toLowerCase(key)){
+            allLowerCase = false;
+        }
+        
+        if(key != toUpperCase(key)){
+            allUpperCase = false;
         }
     }
     
