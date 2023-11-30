@@ -1,6 +1,5 @@
 from typing import List
 
-
 def parse_music(music_string: str) -> List[int]:
     notes = music_string.split(" ")
     result = []
@@ -13,6 +12,5 @@ def parse_music(music_string: str) -> List[int]:
             result.append(1)
     return result
 
-
-music_string = "o| o o| o o| o"
+music_string = input().strip()
 print(parse_music(music_string))
