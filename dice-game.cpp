@@ -2,7 +2,7 @@
 using namespace std;
 
 long double probability(int n, int m) {
-    long double total_outcomes = static_cast<long double>(n) * m;
+    long double total_outcomes = n * m;
     long double peter_wins = 0;
     
     for (int i = 1; i <= n; i++) {
