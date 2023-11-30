@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 double probabilityOfHigherRoll(int n, int m) {
@@ -18,6 +17,6 @@ int main() {
     int n, m;
     cin >> n >> m;
     double result = probabilityOfHigherRoll(n, m);
-    cout << fixed << setprecision(8) << result << endl;
+    cout << fixed << result << endl;
     return 0;
 }
