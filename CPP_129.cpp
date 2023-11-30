@@ -1,21 +1,24 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     int m = grid[0].size();
-    int currRow = 0;
-    int currCol = 0;
     vector<int> path;
-
-    while(k > 0){
-        path.push_back(grid[currRow][currCol]);
+    int i = 0, j = 0;
+    while (k > 0) {
+        path.push_back(grid[i][j]);
+        if (i % 2 == 0) {
+            if (j < m - 1) {
+                j++;
+            } else {
+                i++;
+            }
+        } else {
+            if (j > 0) {
+                j--;
+            } else {
+                i++;
+            }
+        }
         k--;
-
-        if(currRow < n-1 && (currCol == m-1 || grid[currRow+1][currCol] < grid[currRow][currCol+1])){
-            currRow++;
-        }
-        else{
-            currCol++;
-        }
     }
-
     return path;
 }
