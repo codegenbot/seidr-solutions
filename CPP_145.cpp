@@ -1,21 +1,32 @@
-vector<int> order_by_points(vector<int> nums){
-    auto sum_of_digits = [](int num){
-        int sum = 0;
-        while(num != 0){
-            sum += num % 10;
-            num /= 10;
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool compare(int a, int b) {
+    int sum_a = 0, sum_b = 0;
+    string str_a = to_string(a);
+    string str_b = to_string(b);
+
+    for (char c : str_a) {
+        if (isdigit(c)) {
+            sum_a += c - '0';
         }
-        return sum;
-    };
-    
-    sort(nums.begin(), nums.end(), [&](int a, int b) {
-        int sum_a = sum_of_digits(a);
-        int sum_b = sum_of_digits(b);
-        if (sum_a == sum_b) {
-            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+    }
+
+    for (char c : str_b) {
+        if (isdigit(c)) {
+            sum_b += c - '0';
         }
-        return sum_a < sum_b;
-    });
-    
+    }
+
+    if (sum_a == sum_b) {
+        return a < b;
+    }
+
+    return sum_a < sum_b;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
     return nums;
 }
