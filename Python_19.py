@@ -18,6 +18,6 @@ def sort_numbers(numbers: str) -> str:
     return " ".join(sorted_numbers)
 
 
-numbers_input = input("Enter numbers: ")
+numbers_input = input("Enter the numbers: ")
 output = sort_numbers(numbers_input)
 print(output)
