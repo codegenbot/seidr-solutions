@@ -1,16 +1,8 @@
-vector<int> eat(int number,int need,int remaining){
-    vector<int> result;
-    int total = number + need;
-    int eaten = 0;
-    
-    if(total <= remaining){
-        eaten = total;
-    }else{
-        eaten = remaining;
+vector<int> eat(int number, int need, int remaining) {
+    int totalEaten = number + need;
+    int carrotsLeft = remaining - need;
+    if (carrotsLeft < 0) {
+        carrotsLeft = 0;
     }
-    
-    result.push_back(eaten);
-    result.push_back(remaining - eaten);
-    
-    return result;
+    return {totalEaten, carrotsLeft};
 }
