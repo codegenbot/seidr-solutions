@@ -1,5 +1,5 @@
-numbers = input()
-if not numbers.replace(" ", "").strip().isnumeric():
+numbers = input().strip()
+if not numbers.replace(" ", "").isnumeric():
     print("Invalid input. Please enter only numbers separated by space.")
 else:
     numbers = list(map(int, numbers.split()))
