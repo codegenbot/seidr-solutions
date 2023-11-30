@@ -1,44 +1,27 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
+    int m = grid[0].size();
     vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    vector<vector<bool>> visited(n, vector<bool>(m, false));
+    int currRow = 0;
+    int currCol = 0;
+    int count = 0;
     
-    // Find the minimum value in the grid
-    int minValue = INT_MAX;
-    int minRow, minCol;
-    for(int i=0; i<n; i++){
-        for(int j=0; j<n; j++){
-            if(grid[i][j] < minValue){
-                minValue = grid[i][j];
-                minRow = i;
-                minCol = j;
-            }
+    while(count < k){
+        path.push_back(grid[currRow][currCol]);
+        visited[currRow][currCol] = true;
+        count++;
+        
+        if(currCol < m-1 && !visited[currRow][currCol+1]){
+            currCol++;
+        }else if(currRow < n-1 && !visited[currRow+1][currCol]){
+            currRow++;
+        }else if(currCol > 0 && !visited[currRow][currCol-1]){
+            currCol--;
+        }else if(currRow > 0 && !visited[currRow-1][currCol]){
+            currRow--;
         }
     }
     
-    // DFS to find the minimum path
-    dfs(grid, visited, path, minRow, minCol, k);
-    
     return path;
-}
-
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, vector<int>& path, int row, int col, int k){
-    int n = grid.size();
-    if(row < 0 || row >= n || col < 0 || col >= n || visited[row][col]){
-        return;
-    }
-    
-    visited[row][col] = true;
-    path.push_back(grid[row][col]);
-    
-    // Check if the path length is equal to k
-    if(path.size() == k){
-        return;
-    }
-    
-    // Check the neighbors
-    dfs(grid, visited, path, row-1, col, k);
-    dfs(grid, visited, path, row+1, col, k);
-    dfs(grid, visited, path, row, col-1, k);
-    dfs(grid, visited, path, row, col+1, k);
 }
