@@ -1,41 +1,40 @@
 #include <boost/any.hpp>
-#include <algorithm>
+#include <boost/lexical_cast.hpp>
+#include <iostream>
 #include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        if (num1 == num2) {
-            return boost::any("None");
-        } else {
-            return boost::any(std::max(num1, num2));
+        int intA = boost::any_cast<int>(a);
+        int intB = boost::any_cast<int>(b);
+        if (intA > intB) {
+            return intA;
+        } else if (intA < intB) {
+            return intB;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        if (num1 == num2) {
-            return boost::any("None");
-        } else {
-            return boost::any(std::max(num1, num2));
+        float floatA = boost::any_cast<float>(a);
+        float floatB = boost::any_cast<float>(b);
+        if (floatA > floatB) {
+            return floatA;
+        } else if (floatA < floatB) {
+            return floatB;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
-        if (str1 == str2) {
+        std::string strA = boost::any_cast<std::string>(a);
+        std::string strB = boost::any_cast<std::string>(b);
+        float floatA, floatB;
+        try {
+            floatA = boost::lexical_cast<float>(strA);
+            floatB = boost::lexical_cast<float>(strB);
+        } catch (const boost::bad_lexical_cast&) {
             return boost::any("None");
-        } else {
-            return boost::any(std::max(str1, str2));
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        std::string str = boost::any_cast<std::string>(a);
-        int num = boost::any_cast<int>(b);
-        return boost::any("None");
-    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int num = boost::any_cast<int>(a);
-        std::string str = boost::any_cast<std::string>(b);
-        return boost::any("None");
-    } else {
-        return boost::any("None");
+        if (floatA > floatB) {
+            return boost::any(strA);
+        } else if (floatA < floatB) {
+            return boost::any(strB);
+        }
     }
+    return boost::any("None");
 }
