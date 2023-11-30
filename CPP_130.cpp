@@ -10,19 +10,19 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> tri(int n){
     vector<int> result;
-    result.push_back(3);
+    result.push_back(3); // tri(1) = 3
 
     if(n == 0){
         return result;
     }
 
-    result.push_back(1);
+    result.push_back(1); // tri(2) = 1 + (2 / 2) = 2
 
     if(n == 1){
         return result;
     }
 
-    result.push_back(2);
+    result.push_back(2); // tri(3) = tri(2) + tri(1) + tri(4) = 2 + 3 + 3 = 8
 
     for(int i = 3; i <= n; i++){
         if(i % 2 == 0){
