@@ -6,8 +6,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l2.begin(), l2.end());
     
     // Find the common elements
-    int i = 0;
-    int j = 0;
+    int i = 0, j = 0;
     while (i < l1.size() && j < l2.size()) {
         if (l1[i] == l2[j]) {
             // Add the common element to the result vector
@@ -25,7 +24,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
         }
     }
     
-    // Remove duplicate elements from the result vector
+    // Remove duplicates from the result vector
     result.erase(unique(result.begin(), result.end()), result.end());
     
     return result;
