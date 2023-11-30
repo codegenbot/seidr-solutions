@@ -5,7 +5,13 @@ int closest_integer(string value){
     
     if (num - floor_num < ceil_num - num) {
         return floor_num;
-    } else {
+    } else if (num - floor_num > ceil_num - num) {
         return ceil_num;
+    } else {
+        if (num >= 0) {
+            return ceil_num;
+        } else {
+            return floor_num;
+        }
     }
 }
