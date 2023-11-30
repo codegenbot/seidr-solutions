@@ -1,5 +1,6 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -39,6 +40,16 @@ vector<string> split_words(string txt){
     return result;
 }
 
+int count_odd_letters(string word){
+    int count = 0;
+    for(int i = 0; i < word.length(); i++){
+        if(isalpha(word[i]) && tolower(word[i]) % 2 != 0){
+            count++;
+        }
+    }
+    return count;
+}
+
 bool isSame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()){
         return false;
@@ -59,21 +70,10 @@ int main() {
     
     vector<string> words = split_words(txt);
     
-    vector<string> a;
-    vector<string> b;
-    
-    for(int i = 0; i < words.size(); i++){
-        if(i % 2 == 0){
-            a.push_back(words[i]);
-        } else {
-            b.push_back(words[i]);
-        }
-    }
-    
-    if(isSame(a, b)){
-        cout << "Same" << endl;
+    if(isSame(words, {"the", "quick", "brown", "fox"})){
+        cout << "Words are the same" << endl;
     } else {
-        cout << "Different" << endl;
+        cout << "Words are different" << endl;
     }
     
     return 0;
