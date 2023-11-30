@@ -1,28 +1,23 @@
-import math
-
-
-def poly(xs: list, x: float):
-    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
-
-
-def find_zero(xs: list):
-    if xs[1] == 0:
-        return None
-    else:
-        return -xs[0] / xs[1]
-
-
 def read_input():
-    coeffs = list(map(float, input().split()))
+    n = int(input())
+    coeffs = list(map(float, input().strip().split()))
     x = float(input())
     return coeffs, x
 
+def find_zero(coeffs, x):
+    # Your logic to find the zero goes here
+    # Replace this placeholder return statement with your actual code
+    
+    # Initialize the sum as 0
+    result = 0
+    
+    # Iterate through the coefficients
+    for i in range(len(coeffs)):
+        # Compute the product of the coefficient and x raised to the power of i
+        result += coeffs[i] * x**i
+    
+    return result
 
-def main():
-    coeffs, x = read_input()
-    result = poly(coeffs, x)
-    print(result)
-
-
-if __name__ == "__main__":
-    main()
+coeffs, x = read_input()
+result = find_zero(coeffs, x)
+print(result)
