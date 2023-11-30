@@ -8,6 +8,5 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     return [(num - min_num) / (max_num - min_num) for num in numbers]
 
 input_numbers = [float(num) for num in input("Enter the numbers separated by spaces: ").split()]
-
 output = rescale_to_unit(input_numbers)
 print(*output)
