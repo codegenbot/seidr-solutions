@@ -7,5 +7,5 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 
-result = longest(input().split(","))
+result = longest(["string1", "string2", "string3"])
 print(result)
