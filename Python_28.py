@@ -1,5 +1,8 @@
 n = int(input())
-strings = [input() for _ in range(n)]
+strings = []
+
+for _ in range(n):
+    strings.append(input())
 
 def concatenate(strings: list) -> str:
     return ''.join(strings)
