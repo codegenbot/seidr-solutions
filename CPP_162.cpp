@@ -1,7 +1,7 @@
 #include <string>
 #include <openssl/md5.h>
 
-string string_to_md5(string text){
+std::string string_to_md5(std::string text){
     if(text.empty()){
         return "None";
     }
