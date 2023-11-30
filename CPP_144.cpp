@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 bool isProductWhole(string x, string n) {
@@ -19,4 +20,11 @@ bool isProductWhole(string x, string n) {
     } else {
         return false;
     }
+}
+
+int main() {
+    string x, n;
+    cin >> x >> n;
+    cout << (isProductWhole(x, n) ? "true" : "false") << endl;
+    return 0;
 }
