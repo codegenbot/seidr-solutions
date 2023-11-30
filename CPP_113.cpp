@@ -7,13 +7,7 @@ using namespace std;
 
 vector<string> odd_count(vector<string> lst);
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
@@ -28,6 +22,14 @@ vector<string> odd_count(vector<string> lst){
         result.push_back(temp);
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
