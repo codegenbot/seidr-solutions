@@ -1,24 +1,19 @@
 vector<int> tri(int n){
-    vector<int> sequence;
-    sequence.push_back(3);
-    if(n == 0){
-        return sequence;
-    }
-    sequence.push_back(1 + n/2);
-    if(n == 1){
-        return sequence;
-    }
-    sequence.push_back(sequence[1] + sequence[0] + sequence[1]);
-    if(n == 2){
-        return sequence;
-    }
-    for(int i = 3; i <= n; i++){
-        if(i % 2 == 0){
-            sequence.push_back(1 + i/2);
-        }
-        else{
-            sequence.push_back(sequence[i-1] + sequence[i-2] + sequence[i+1]);
+    vector<int> result;
+    result.push_back(3);  // First element of Tribonacci sequence is always 3
+
+    if(n > 0){
+        result.push_back(1 + n/2);  // Second element of Tribonacci sequence
+
+        for(int i = 2; i <= n; i++){
+            if(i % 2 == 0){
+                result.push_back(1 + i/2);  // If i is even, calculate using the formula 1 + i/2
+            }
+            else{
+                result.push_back(result[i-1] + result[i-2] + result[i+1]);  // If i is odd, calculate using the formula tri(i-1) + tri(i-2) + tri(i+1)
+            }
         }
     }
-    return sequence;
+
+    return result;
 }
