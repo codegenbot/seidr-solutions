@@ -7,11 +7,7 @@ string exchange(vector<int> lst1, vector<int> lst2) {
     }
     if (count == 0) {
         return "YES";
+    } else {
+        return "NO";
     }
-    for (int i = 0; i < lst2.size(); i++) {
-        if (lst2[i] % 2 == 0) {
-            return "YES";
-        }
-    }
-    return "NO";
 }
