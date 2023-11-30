@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+using namespace std;
 
 vector<int> get_odd_collatz(int n);
 bool issame(vector<int> a, vector<int> b);
