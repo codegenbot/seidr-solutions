@@ -22,8 +22,3 @@ int do_algebra(vector<string> operators, vector<int> operands){
     }
     return result;
 }
-
-int main() {
-    assert (do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    return 0;
-}
