@@ -4,15 +4,15 @@ def factorize(n: int) -> List[int]:
     factors = []
     i = 2
     while i * i <= n:
-        if n % i == 0:
-            n = n // i
-            factors.append(i)
-        else:
+        if n % i:
             i += 1
+        else:
+            n //= i
+            factors.append(i)
     if n > 1:
         factors.append(n)
     return factors
 
-n = int(input("Enter a number: "))
+n = int(input())  # Get input from user
 result = factorize(n)
 print(result)
