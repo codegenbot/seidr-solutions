@@ -1,45 +1,47 @@
 #include <vector>
 #include <string>
-#include <cctype>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    // function implementation here
-}
+bool issame(vector<string> a, vector<string> b);
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
+vector<string> select_words(string s, int n){
+    vector<string> words;
     string word = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            int count = 0;
-            for (int j = 0; j < word.length(); j++) {
-                if (isalpha(word[j]) && !isvowel(word[j])) {
-                    count++;
+    int consonantCount = 0;
+
+    for(int i = 0; i < s.length(); i++){
+        char c = s[i];
+        if(c == ' ' || i == s.length()-1){
+            if(i == s.length()-1){
+                word += c;
+            }
+
+            int wordConsonantCount = 0;
+            for(int j = 0; j < word.length(); j++){
+                char letter = tolower(word[j]);
+                if(letter != 'a' && letter != 'e' && letter != 'i' && letter != 'o' && letter != 'u'){
+                    wordConsonantCount++;
                 }
             }
-            if (count == n) {
-                result.push_back(word);
+
+            if(wordConsonantCount == n){
+                words.push_back(word);
             }
+
             word = "";
-        } else {
-            word += s[i];
+        }
+        else{
+            word += c;
         }
     }
-    int count = 0;
-    for (int j = 0; j < word.length(); j++) {
-        if (isalpha(word[j]) && !isvowel(word[j])) {
-            count++;
-        }
-    }
-    if (count == n) {
-        result.push_back(word);
-    }
-    return result;
+
+    return words;
 }
 
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+bool issame(vector<string> a, vector<string> b){
+    // Implementation of the issame function
+}
 
-    return 0;
+int main(){
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
 }
