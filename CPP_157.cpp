@@ -3,8 +3,9 @@ bool right_angle_triangle(float a, float b, float c) {
         return false;
     }
     
-    float maxSide = max(a, max(b, c));
-    float sumOfSquares = pow(a, 2) + pow(b, 2) + pow(c, 2) - pow(maxSide, 2);
+    if (a*a + b*b == c*c || a*a + c*c == b*b || b*b + c*c == a*a) {
+        return true;
+    }
     
-    return sumOfSquares == pow(maxSide, 2);
+    return false;
 }
