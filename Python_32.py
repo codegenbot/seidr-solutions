@@ -1,24 +1,26 @@
 import math
 
 
-def poly(xs: list, x: float) -> float:
+def poly(xs: list, x: float):
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
 
-def find_zero(xs: list) -> float:
+def find_zero(xs: list):
+    if xs[1] == 0:
+        return None
     return -xs[0] / xs[1]
 
 
-def read_input() -> tuple[list[float], float]:
+def read_input():
     n = int(input())
-    xs = list(map(float, input().split()))
+    coeffs = list(map(float, input().split()))
     x = float(input())
-    return xs, x
+    return coeffs, x
 
 
 def main():
-    xs, x = read_input()
-    result = poly(xs, x)
+    coeffs, x = read_input()
+    result = poly(coeffs, x)
     print(result)
 
 
