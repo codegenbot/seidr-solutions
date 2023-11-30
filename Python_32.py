@@ -11,16 +11,16 @@ def find_zero(xs: list):
 
 def main():
     # Read input
-    xs = list(map(float, input().split()))
-    x = float(input())
+    xs = list(map(float, input("Enter coefficients separated by space: ").split()))
+    x = float(input("Enter a value for x: "))
 
     # Call the functions
     value = poly(xs, x)
     zero = find_zero(xs)
 
     # Print the output
-    print(value)
-    print(zero)
+    print("Result of poly():", value)
+    print("Zero of polynomial:", zero)
 
 
 # Call the main function
