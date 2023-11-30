@@ -1,5 +1,5 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
@@ -22,18 +22,18 @@ bool compare(int a, int b) {
     return sumA < sumB;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), compare);
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
     return nums;
 }
 
 int main() {
-    // Test the order_by_points function
-    std::vector<int> nums = {123, 456, 789};
-    std::vector<int> orderedNums = order_by_points(nums);
+    // Test the function
+    vector<int> nums = {123, 45, 678, 9};
+    vector<int> ordered = order_by_points(nums);
     
-    for(int num : orderedNums) {
-        std::cout << num << " ";
+    for(int num : ordered) {
+        cout << num << " ";
     }
     
     return 0;
