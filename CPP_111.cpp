@@ -1,18 +1,28 @@
 map<char, int> histogram(string test) {
     map<char, int> result;
-    string letter;
-    for (int i = 0; i < test.length(); i++) {
-        if (test[i] != ' ') {
-            letter += test[i];
-        } else {
-            if (letter != "") {
-                result[letter[0]]++;
-                letter = "";
-            }
+    map<char, int> count;
+
+    // Count the occurrences of each letter
+    for (char c : test) {
+        if (c != ' ') {
+            count[c]++;
         }
     }
-    if (letter != "") {
-        result[letter[0]]++;
+
+    // Find the maximum occurrence
+    int maxOccurrence = 0;
+    for (auto it : count) {
+        if (it.second > maxOccurrence) {
+            maxOccurrence = it.second;
+        }
     }
+
+    // Add letters with maximum occurrence to the result map
+    for (auto it : count) {
+        if (it.second == maxOccurrence) {
+            result[it.first] = it.second;
+        }
+    }
+
     return result;
 }
