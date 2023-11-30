@@ -5,5 +5,7 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-result = longest(["apple", "banana", "orange"])
+user_input = input("Enter a list of strings: ")
+strings = user_input.split()
+result = longest(strings)
 print(result)
