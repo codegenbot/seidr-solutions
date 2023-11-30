@@ -1,8 +1,21 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 using namespace std;
+
+bool isSame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -40,41 +53,13 @@ vector<string> split_words(string txt){
     return result;
 }
 
-int count_odd_letters(string word){
-    int count = 0;
-    for(int i = 0; i < word.length(); i++){
-        if(isalpha(word[i]) && tolower(word[i]) % 2 != 0){
-            count++;
-        }
-    }
-    return count;
-}
-
-bool isSame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
-
 int main() {
-    string txt;
-    getline(cin, txt);
-    
-    vector<string> words = split_words(txt);
-    
-    if(isSame(words, {"the", "quick", "brown", "fox"})){
-        cout << "Words are the same" << endl;
+    vector<string> a = split_words("hello world");
+    vector<string> b = split_words("hello world");
+
+    if (isSame(a, b)) {
+        return 1;
     } else {
-        cout << "Words are different" << endl;
+        return 0;
     }
-    
-    return 0;
 }
