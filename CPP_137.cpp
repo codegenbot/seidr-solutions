@@ -1,32 +1,47 @@
-boost::any compare_one(boost::any a, boost::any b){
-    if(a.type() == typeid(int) && b.type() == typeid(int)){
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        if(num1 > num2)
-            return num1;
-        else if(num2 > num1)
-            return num2;
+boost::any compare_one(boost::any a, boost::any b) {
+    // Check if a and b are of the same type
+    if (a.type() != b.type()) {
+        return "None";
     }
-    
-    if(a.type() == typeid(float) && b.type() == typeid(float)){
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        if(num1 > num2)
-            return num1;
-        else if(num2 > num1)
-            return num2;
+
+    // If a and b are both integers
+    if (a.type() == typeid(int)) {
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        if (x > y) {
+            return x;
+        } else if (x < y) {
+            return y;
+        } else {
+            return "None";
+        }
     }
-    
-    if(a.type() == typeid(string) && b.type() == typeid(string)){
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        replace(str1.begin(), str1.end(), ',', '.');
-        replace(str2.begin(), str2.end(), ',', '.');
-        if(stof(str1) > stof(str2))
-            return str1;
-        else if(stof(str2) > stof(str1))
-            return str2;
+
+    // If a and b are both floats
+    if (a.type() == typeid(float)) {
+        float x = boost::any_cast<float>(a);
+        float y = boost::any_cast<float>(b);
+        if (x > y) {
+            return x;
+        } else if (x < y) {
+            return y;
+        } else {
+            return "None";
+        }
     }
-    
+
+    // If a and b are both strings
+    if (a.type() == typeid(string)) {
+        string x = boost::any_cast<string>(a);
+        string y = boost::any_cast<string>(b);
+        if (x > y) {
+            return x;
+        } else if (x < y) {
+            return y;
+        } else {
+            return "None";
+        }
+    }
+
     return "None";
 }
