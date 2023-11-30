@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 string int_to_mini_roman(int number) {
@@ -21,8 +22,8 @@ string int_to_mini_roman(int number) {
 
 int main() {
     assert(int_to_mini_roman(1000) == "m");
-    assert(int_to_mini_roman(19) == "xix");
-    assert(int_to_mini_roman(379) == "ccclxxix");
+    assert(int_to_mini_roman(123) == "cxxiii");
+    assert(int_to_mini_roman(3999) == "mmmcmxcix");
 
     return 0;
 }
