@@ -1,9 +1,18 @@
-bool is_sorted(vector<int> lst){
-    int n = lst.size();
-    if(n <= 1) return true;
+#include <vector>
+
+bool is_sorted(std::vector<int> lst){
+    std::sort(lst.begin(), lst.end());
     
-    for(int i = 1; i < n; i++){
-        if(lst[i] <= lst[i-1]) return false;
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] == lst[i+1]){
+            return false;
+        }
+    }
+    
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] > lst[i+1]){
+            return false;
+        }
     }
     
     return true;
