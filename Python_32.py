@@ -1,7 +1,9 @@
 def read_input():
-    n = int(input("Enter the degree of the polynomial: "))
-    coeffs = list(map(float, input("Enter the coefficients of the polynomial: ").split()))
-    x = float(input("Enter the initial guess: "))
+    n = int(input("Enter the number of coefficients: "))
+    coeffs = list(
+        map(float, input("Enter the coefficients separated by space: ").split())
+    )
+    x = float(input("Enter the value of x: "))
     return coeffs, x
 
 
