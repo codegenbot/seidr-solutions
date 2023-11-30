@@ -1,13 +1,13 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
 
-int specialFilter(vector<int> nums) {
+int specialFilter(std::vector<int> nums){
     int count = 0;
-    for (int num : nums) {
-        string numStr = to_string(num);
+    for(int num : nums){
+        std::string numStr = std::to_string(num);
         int firstDigit = numStr[0] - '0';
-        int lastDigit = numStr[numStr.size() - 1] - '0';
-        if (num > 10 && firstDigit % 2 != 0 && lastDigit % 2 != 0) {
+        int lastDigit = numStr[numStr.size()-1] - '0';
+        if(num > 10 && firstDigit % 2 != 0 && lastDigit % 2 != 0){
             count++;
         }
     }
@@ -15,8 +15,8 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, 21, 32, 45, 56, 67, 78, 89, 90};
+    std::vector<int> nums = {12, 34, 56, 78, 9};
     int result = specialFilter(nums);
-    assert(result == 3);
+    assert(result == 2);
     return 0;
 }
