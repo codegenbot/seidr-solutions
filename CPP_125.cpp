@@ -1,45 +1,35 @@
 vector<string> split_words(string txt){
     vector<string> words;
+    string word = "";
+    bool hasWhitespace = false;
+    bool hasComma = false;
 
-    if(txt.find(' ') != string::npos){
-        // Split on whitespace
-        int startPos = 0;
-        int endPos = 0;
-        while(endPos != string::npos){
-            endPos = txt.find(' ', startPos);
-
-            string word = txt.substr(startPos, endPos - startPos);
-            words.push_back(word);
-
-            startPos = endPos + 1;
-        }
-    }
-    else if(txt.find(',') != string::npos){
-        // Split on comma
-        int startPos = 0;
-        int endPos = 0;
-        while(endPos != string::npos){
-            endPos = txt.find(',', startPos);
-
-            string word = txt.substr(startPos, endPos - startPos);
-            words.push_back(word);
-
-            startPos = endPos + 1;
-        }
-    }
-    else{
-        // Return number of lowercase letters with odd order in the alphabet
-        int count = 0;
-        for(int i = 0; i < txt.length(); i++){
-            if(txt[i] >= 'a' && txt[i] <= 'z'){
-                int ord = txt[i] - 'a';
-                if(ord % 2 == 1){
-                    count++;
-                }
+    for(char c : txt){
+        if(c == ' '){
+            hasWhitespace = true;
+            if(!word.empty()){
+                words.push_back(word);
+                word = "";
             }
+        }else if(c == ','){
+            hasComma = true;
+            if(!word.empty()){
+                words.push_back(word);
+                word = "";
+            }
+        }else{
+            word += c;
         }
-        words.push_back(to_string(count));
     }
 
+    if(hasWhitespace || hasComma){
+        if(!word.empty()){
+            words.push_back(word);
+        }
+    }else{
+        string oddLetterCount = to_string(count_if(txt.begin(), txt.end(), [](char c){ return islower(c) && (c - 'a') % 2 != 0; }));
+        words.push_back(oddLetterCount);
+    }
+    
     return words;
 }
