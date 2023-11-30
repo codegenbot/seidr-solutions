@@ -1,5 +1,4 @@
 from typing import List, Any
-from ast import literal_eval
 
 
 def filter_integers(values: List[Any]) -> List[int]:
@@ -7,6 +6,13 @@ def filter_integers(values: List[Any]) -> List[int]:
 
 
 if __name__ == "__main__":
-    values = list(map(eval, input().split()))
+    values = []
+    while True:
+        try:
+            value = int(input())
+            values.append(value)
+        except EOFError:
+            break
+
     filtered_values = filter_integers(values)
     print(filtered_values)
