@@ -2,18 +2,18 @@ string find_max(vector<string> words){
     string maxWord = "";
     int maxUniqueChars = 0;
     
-    for(auto word : words){
+    for (string word : words) {
         int uniqueChars = 0;
-        vector<char> charCount(26, 0);
+        int charCount[26] = {0};
         
-        for(auto ch : word){
-            if(charCount[ch - 'a'] == 0){
-                charCount[ch - 'a'] = 1;
+        for (char c : word) {
+            if (charCount[c - 'a'] == 0) {
                 uniqueChars++;
             }
+            charCount[c - 'a']++;
         }
         
-        if(uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)){
+        if (uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)) {
             maxUniqueChars = uniqueChars;
             maxWord = word;
         }
