@@ -1,6 +1,8 @@
 def decode_cyclic():
-    s = input("Enter the string: ")
-    return "".join([s[i - 1] + s[i - 2] + s[i] for i in range(1, len(s), 3)])
+    s = input()
+    return "".join([s[i : i + 3][-1] + s[i : i + 3][:-1] for i in range(0, len(s), 3)])
 
 
-decode_cyclic()
+input_string = input("Enter a string: ")
+result = decode_cyclic()
+print(result)
