@@ -11,17 +11,13 @@ vector<string> by_length(vector<int> arr){
     digitMap[8] = "Eight";
     digitMap[9] = "Nine";
 
-    vector<int> sortedArr;
+    sort(arr.begin(), arr.end());
+    reverse(arr.begin(), arr.end());
+
     for(int i=0; i<arr.size(); i++){
         if(arr[i] >= 1 && arr[i] <= 9){
-            sortedArr.push_back(arr[i]);
+            result.push_back(digitMap[arr[i]]);
         }
-    }
-    sort(sortedArr.begin(), sortedArr.end());
-    reverse(sortedArr.begin(), sortedArr.end());
-
-    for(int i=0; i<sortedArr.size(); i++){
-        result.push_back(digitMap[sortedArr[i]]);
     }
 
     return result;
