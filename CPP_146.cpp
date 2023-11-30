@@ -12,6 +12,6 @@ int specialFilter(vector<int> nums){
 }
 
 int main() {
-    // Write test cases here to validate the code if needed
+    // Write your test cases here
     return 0;
 }
