@@ -4,10 +4,10 @@ vector<string> bf(string planet1, string planet2) {
 
     int start = -1, end = -1;
     for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
+        if (planet1 == planets[i]) {
             start = i;
         }
-        if (planets[i] == planet2) {
+        if (planet2 == planets[i]) {
             end = i;
         }
     }
