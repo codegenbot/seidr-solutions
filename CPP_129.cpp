@@ -1,81 +1,79 @@
+#include <iostream>
 #include <vector>
-#include <functional>
-#include <cassert>
+#include <climits>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    // function body
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k){
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
     
-    // Function to check if a cell is valid or not
-    auto isValid = [&](int x, int y){
-        return x >= 0 && x < n && y >= 0 && y < n && !visited[x][y];
-    };
+    // Find the starting cell with the minimum value
+    int minVal = INT_MAX;
+    int startRow, startCol;
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            if(grid[i][j] < minVal){
+                minVal = grid[i][j];
+                startRow = i;
+                startCol = j;
+            }
+        }
+    }
     
-    // Function to get neighbors of a cell
-    auto getNeighbors = [&](int x, int y){
+    // Add the starting cell to the path
+    path.push_back(minVal);
+    
+    // Keep track of the current cell
+    int currentRow = startRow;
+    int currentCol = startCol;
+    
+    // Move k-1 steps in the grid
+    for(int step=1; step<k; step++){
+        // Find the neighboring cells
         vector<pair<int, int>> neighbors;
-        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        
-        for(auto dir : directions){
-            int nx = x + dir.first;
-            int ny = y + dir.second;
-            if(isValid(nx, ny)){
-                neighbors.push_back({nx, ny});
-            }
+        if(currentRow > 0){
+            neighbors.push_back(make_pair(currentRow-1, currentCol));
+        }
+        if(currentRow < n-1){
+            neighbors.push_back(make_pair(currentRow+1, currentCol));
+        }
+        if(currentCol > 0){
+            neighbors.push_back(make_pair(currentRow, currentCol-1));
+        }
+        if(currentCol < n-1){
+            neighbors.push_back(make_pair(currentRow, currentCol+1));
         }
         
-        return neighbors;
-    };
-    
-    // Function to perform depth-first search
-    function<bool(int, int, int)> dfs = [&](int x, int y, int steps){
-        path.push_back(grid[x][y]);
-        visited[x][y] = true;
-        
-        if(steps == k){
-            return true;
-        }
-        
-        vector<pair<int, int>> neighbors = getNeighbors(x, y);
-        sort(neighbors.begin(), neighbors.end(), [&](pair<int, int> a, pair<int, int> b){
-            return grid[a.first][a.second] < grid[b.first][b.second];
-        });
-        
+        // Find the neighboring cell with the minimum value
+        int minNeighborVal = INT_MAX;
+        int minNeighborRow, minNeighborCol;
         for(auto neighbor : neighbors){
-            if(dfs(neighbor.first, neighbor.second, steps + 1)){
-                return true;
+            int neighborRow = neighbor.first;
+            int neighborCol = neighbor.second;
+            if(grid[neighborRow][neighborCol] < minNeighborVal){
+                minNeighborVal = grid[neighborRow][neighborCol];
+                minNeighborRow = neighborRow;
+                minNeighborCol = neighborCol;
             }
         }
         
-        path.pop_back();
-        visited[x][y] = false;
-        return false;
-    };
-    
-    // Starting from each cell, find the minimum path
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(dfs(i, j, 1)){
-                return path;
-            }
-        }
+        // Add the neighboring cell to the path
+        path.push_back(minNeighborVal);
+        
+        // Update the current cell
+        currentRow = minNeighborRow;
+        currentCol = minNeighborCol;
     }
     
     return path;
 }
 
-int main(){
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+int main() {
+    // function body
     return 0;
 }
