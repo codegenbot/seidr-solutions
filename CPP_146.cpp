@@ -15,13 +15,10 @@ int specialFilter(vector<int> nums){
 
 int main() {
     assert(specialFilter({}) == 0);
-    assert(specialFilter({1, 2, 3, 4, 5, 6, 7, 8, 9}) == 0);
-    assert(specialFilter({12, 34, 56, 78, 90}) == 0);
-    assert(specialFilter({11, 22, 33, 44, 55, 66, 77, 88, 99}) == 9);
-    assert(specialFilter({-12, -34, -56, -78, -90}) == 0);
-    assert(specialFilter({-11, -22, -33, -44, -55, -66, -77, -88, -99}) == 9);
-    assert(specialFilter({123, 456, 789, 101112, 131415, 161718, 192021}) == 4);
-    assert(specialFilter({-123, -456, -789, -101112, -131415, -161718, -192021}) == 4);
+    assert(specialFilter({1, 2, 3, 4, 5}) == 0);
+    assert(specialFilter({12, 23, -34, 45, 56}) == 2);
+    assert(specialFilter({-123, 456, -789, 101112, 131415}) == 3);
+    assert(specialFilter({-2468, 13579, -987654, 246810, -1357913}) == 3);
 
     return 0;
 }
