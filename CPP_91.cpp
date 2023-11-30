@@ -1,16 +1,21 @@
-int is_bored(string S){
-    int count = 0;
-    bool start = true;
+int is_bored(string S) {
+    int boredomCount = 0;
+    string delimiter = ".?!";
+    size_t pos = 0;
+    string sentence;
 
-    for(int i=0; i<S.length(); i++){
-        if(start && S[i] == 'I' && (i == 0 || S[i-1] == ' ')){
-            count++;
-            start = false;
-        }
-        else if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            start = true;
+    while ((pos = S.find_first_of(delimiter)) != string::npos) {
+        sentence = S.substr(0, pos);
+        S.erase(0, pos + 1);
+
+        if (sentence.substr(0, 2) == "I ") {
+            boredomCount++;
         }
     }
 
-    return count;
+    if (S.substr(0, 2) == "I ") {
+        boredomCount++;
+    }
+
+    return boredomCount;
 }
