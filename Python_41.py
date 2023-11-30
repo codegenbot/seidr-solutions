@@ -1,3 +1,5 @@
 def car_race_collision(n: int) -> int:
-    collision_count = (n * (n - 1)) // 2
+    if n == 2:
+        return 1
+    collision_count = n * (n - 1) // 2
     return collision_count
