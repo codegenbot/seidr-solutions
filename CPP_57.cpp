@@ -6,6 +6,7 @@ bool monotonic(vector<float> l){
         if(l[i] < l[i-1]){
             increasing = false;
         }
+        
         if(l[i] > l[i-1]){
             decreasing = false;
         }
