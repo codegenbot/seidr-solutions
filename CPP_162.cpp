@@ -8,13 +8,13 @@ string string_to_md5(string text) {
         return "None";
     }
 
-    unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.length(), digest);
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5((unsigned char*)text.c_str(), text.length(), result);
 
-    char md5hash[2 * MD5_DIGEST_LENGTH + 1];
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        sprintf(&md5hash[i * 2], "%02x", (unsigned int)digest[i]);
+    char md5String[33];
+    for (int i = 0; i < 16; i++) {
+        sprintf(&md5String[i*2], "%02x", (unsigned int)result[i]);
     }
 
-    return string(md5hash);
+    return md5String;
 }
