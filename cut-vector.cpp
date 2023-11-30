@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
@@ -40,11 +40,13 @@ int main() {
     }
     
     vector<vector<int>> result = cutVector(nums);
+    cout << result[0].size() << endl;
     for (int i = 0; i < result[0].size(); i++) {
-        cout << result[0][i] << endl;
+        cout << result[0][i] << " ";
     }
+    cout << endl << result[1].size() << endl;
     for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1][i] << endl;
+        cout << result[1][i] << " ";
     }
     
     return 0;
