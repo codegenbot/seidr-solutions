@@ -1,20 +1,20 @@
 #include <vector>
 
-vector<int> tri(int n);
-
 bool issame(vector<int> a, vector<int> b);
+
+vector<int> tri(int n);
 
 int main() {
     assert(tri(1) == vector<int>{1, 3});
     assert(tri(2) == vector<int>{1, 2, 3});
     assert(tri(3) == vector<int>{1, 2, 3, 8});
-    assert(tri(4) == vector<int>{1, 2, 3, 8, 4});
-    assert(tri(5) == vector<int>{1, 2, 3, 8, 4, 11});
-    assert(tri(6) == vector<int>{1, 2, 3, 8, 4, 11, 13});
-    assert(tri(7) == vector<int>{1, 2, 3, 8, 4, 11, 13, 21});
-    assert(tri(8) == vector<int>{1, 2, 3, 8, 4, 11, 13, 21, 34});
-    assert(tri(9) == vector<int>{1, 2, 3, 8, 4, 11, 13, 21, 34, 57});
-    assert(tri(10) == vector<int>{1, 2, 3, 8, 4, 11, 13, 21, 34, 57, 98});
+    assert(tri(4) == vector<int>{1, 2, 3, 8, 7});
+    assert(tri(5) == vector<int>{1, 2, 3, 8, 7, 22});
+    assert(tri(6) == vector<int>{1, 2, 3, 8, 7, 22, 21});
+    assert(tri(7) == vector<int>{1, 2, 3, 8, 7, 22, 21, 76});
+    assert(tri(8) == vector<int>{1, 2, 3, 8, 7, 22, 21, 76, 231});
+    assert(tri(9) == vector<int>{1, 2, 3, 8, 7, 22, 21, 76, 231, 712});
+    assert(tri(10) == vector<int>{1, 2, 3, 8, 7, 22, 21, 76, 231, 712, 2187});
 
     return 0;
 }
