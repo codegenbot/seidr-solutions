@@ -5,7 +5,7 @@ using namespace std;
 
 bool isvowel(char c) {
     c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
 
 bool issame(vector<string> a, vector<string> b) {
@@ -57,8 +57,8 @@ int main() {
     getline(cin, s);
     cin >> n;
     vector<string> result = select_words(s, n);
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << endl;
+    for (string word : result) {
+        cout << word << endl;
     }
     return 0;
 }
