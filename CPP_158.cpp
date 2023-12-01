@@ -5,17 +5,17 @@
 using namespace std;
 
 int countUniqueChars(string word) {
-    int uniqueChars = 0;
+    int count = 0;
     vector<bool> visited(26, false);
 
     for (char ch : word) {
         if (!visited[ch - 'a']) {
             visited[ch - 'a'] = true;
-            uniqueChars++;
+            count++;
         }
     }
 
-    return uniqueChars;
+    return count;
 }
 
 string find_max(vector<string> words) {
