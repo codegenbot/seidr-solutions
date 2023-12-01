@@ -17,12 +17,8 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    // Test the function with sample input
-    std::vector<int> nums = {123, -456, 789};
-    int result = count_nums(nums);
-    
-    // Print the result
-    std::cout << result << std::endl;
-    
+    // Example usage
+    std::vector<int> numbers = {123, -45, 6789, 0, -987};
+    int result = count_nums(numbers);
     return 0;
 }
