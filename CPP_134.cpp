@@ -1,10 +1,19 @@
-bool check_if_last_char_is_a_letter(string txt){
-    int n = txt.length();
-    if(n == 0){
+#include <string>
+#include <cassert>
+
+bool check_if_last_char_is_a_letter(std::string txt){
+    assert(!txt.empty());
+
+    char lastChar = txt.back();
+
+    if(isalpha(lastChar)){
+        for(int i = txt.length() - 2; i >= 0; i--){
+            if(isspace(txt[i])){
+                return true;
+            }
+        }
         return false;
     }
-    if(isalpha(txt[n-1]) && txt[n-1] != ' '){
-        return true;
-    }
+
     return false;
 }
