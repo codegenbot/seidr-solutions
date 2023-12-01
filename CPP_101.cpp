@@ -5,6 +5,19 @@ using namespace std;
 
 bool issame(vector<string> a, vector<string>& b) {
     // Implementation of issame
+    // Compare the size of both vectors
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    // Compare each element of the vectors
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<string> words_string(string s) {
