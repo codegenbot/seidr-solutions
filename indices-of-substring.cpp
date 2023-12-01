@@ -12,7 +12,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     }
 
     for (int i = 0; i < textLength - targetLength + 1; i++) {
-        if (text.find(target, i) == i || text.find(target, i) == i + targetLength - 1) {
+        if (text.find(target, i) == i || text.find(target, i + 1) == i + targetLength) {
             indices.push_back(i);
         }
     }
