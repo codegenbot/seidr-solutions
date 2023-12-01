@@ -20,10 +20,7 @@ def solve(n: int) -> List[int]:
 
 
 def main():
-    input_str = raw_input()
-    input_list = list(map(int, input_str.split()))
-
-    n = input_list[0]
+    n = int(input())
     result = solve(n)
     print(result)
 
