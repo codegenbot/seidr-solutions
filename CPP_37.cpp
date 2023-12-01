@@ -1,6 +1,4 @@
-#include <vector>
-using namespace std;
-
+vector<float> sort_even(vector<float> l);
 vector<float> sort_even(vector<float> l){
     vector<float> l_prime(l);
 
