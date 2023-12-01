@@ -2,12 +2,10 @@
 #include <climits>
 #include <cassert>
 
-std::vector<int> pluck(std::vector<int> arr);
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     int smallestValue = INT_MAX;
     int smallestIndex = -1;
 
@@ -26,7 +24,7 @@ std::vector<int> pluck(std::vector<int> arr) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -41,11 +39,23 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{}));
-    assert(issame(pluck({1, 3, 5, 7}), std::vector<int>{}));
-    assert(issame(pluck({2, 4, 6, 8}), std::vector<int>{2, 0}));
-    assert(issame(pluck({5, 10, 15, 20}), std::vector<int>{10, 1}));
-    assert(issame(pluck({4, 3, 2, 1}), std::vector<int>{2, 2}));
+    assert(issame(pluck({7, 9, 7, 1}), {}));
+    // Add more test cases here
+    
+    // Test case: empty input
+    assert(issame(pluck({}), {}));
+    
+    // Test case: all odd numbers
+    assert(issame(pluck({1, 3, 5, 7}), {}));
+    
+    // Test case: all even numbers
+    assert(issame(pluck({2, 4, 6, 8}), {2, 0}));
+    
+    // Test case: mix of odd and even numbers
+    assert(issame(pluck({1, 3, 5, 4, 2, 6, 8}), {2, 4}));
+    
+    // Test case: negative numbers
+    assert(issame(pluck({-2, -4, 1, 3, -6, 8, -10}), {-10, 6}));
 
     return 0;
 }
