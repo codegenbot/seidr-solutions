@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
@@ -32,4 +35,15 @@ int calculateScore(const std::string& bowls) {
     }
 
     return score;
+}
+
+int main() {
+    std::string bowls;
+    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
+    std::cin >> bowls;
+
+    int score = calculateScore(bowls);
+    std::cout << "Score: " << score << std::endl;
+
+    return 0;
 }
