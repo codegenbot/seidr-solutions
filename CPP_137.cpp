@@ -1,4 +1,5 @@
 #include <boost/algorithm/string/replace.hpp>
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int x = boost::any_cast<int>(a);
@@ -16,9 +17,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (x < y) {
             return y;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string x = boost::any_cast<std::string>(a);
-        std::string y = boost::any_cast<std::string>(b);
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string x = boost::any_cast<string>(a);
+        string y = boost::any_cast<string>(b);
         boost::algorithm::replace_all(x, ",", ".");
         boost::algorithm::replace_all(y, ",", ".");
         if (x > y) {
