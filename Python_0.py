@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
@@ -7,9 +8,8 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
             return True
     return False
 
-input_numbers = input().split()
-numbers = [float(num) for num in input_numbers]
-threshold = float(input())
+numbers_input = list(map(float, sys.stdin.readline().split()))
+threshold_input = float(sys.stdin.readline())
 
-result = has_close_elements(numbers, threshold)
+result = has_close_elements(numbers_input, threshold_input)
 print(result)
