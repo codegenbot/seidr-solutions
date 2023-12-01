@@ -13,6 +13,7 @@ def decode_cyclic(s: str):
 input_str = input()
 encoded_str = encode_cyclic(input_str)
 print(encoded_str)
+
 input_str = input()
 decoded_str = decode_cyclic(input_str)
 print(decoded_str)
