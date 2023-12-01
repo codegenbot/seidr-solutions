@@ -17,8 +17,9 @@ vector<int> filter_integers(list<boost::any> values){
     return result;
 }
 
-bool issame(vector<int> a,vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     // code for checking if two vectors are same
+    return a == b;
 }
 
 int main(){
