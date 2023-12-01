@@ -16,11 +16,11 @@ vector<float> find_closest_elements(vector<float> numbers){
 }
 
 bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size()){
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -28,10 +28,14 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    vector<float> numbers = {1.2, 3.4, 5.6, 7.8};
+    vector<float> numbers = {1.1, 2.2, 3.3, 4.4, 5.5};
     vector<float> closest_elements = find_closest_elements(numbers);
-    for(int i = 0; i < closest_elements.size(); i++){
-        cout << closest_elements[i] << " ";
+    vector<float> expected_elements = {1.1, 2.2};
+    bool same_elements = issame(closest_elements, expected_elements);
+    if (same_elements) {
+        cout << "Closest elements are correct." << endl;
+    } else {
+        cout << "Closest elements are incorrect." << endl;
     }
     return 0;
 }
