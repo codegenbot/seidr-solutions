@@ -2,7 +2,7 @@
 
 std::string circular_shift(int x, int shift);
 
-std::string circular_shift(int x, int shift) {
+string circular_shift(int x, int shift) {
     std::string num = std::to_string(x);
     int n = num.length();
     
