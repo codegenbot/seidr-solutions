@@ -19,6 +19,6 @@ public:
 
 int main() {
     Solution solution;
-    assert(solution.triples_sum_to_zero({100, 3, 5, -100}) == false);
+    assert(solution.triples_sum_to_zero({100, 3, 5, -100}) == false); // Example usage
     return 0;
 }
