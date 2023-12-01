@@ -1,15 +1,18 @@
-#include <vector>
+#include <algorithm>
 
 bool move_one_ball(vector<int> arr) {
-    int n = arr.size();
-    if (n == 0) {
+    if(arr.empty()) {
         return true;
     }
-    int minIndex = 0;
-    for (int i = 1; i < n; i++) {
-        if (arr[i] < arr[minIndex]) {
-            minIndex = i;
+    
+    int n = arr.size();
+    int minIndex = min_element(arr.begin(), arr.end()) - arr.begin();
+    
+    for(int i = 0; i < n; i++) {
+        if(arr[(minIndex + i) % n] != i + 1) {
+            return false;
         }
     }
-    return minIndex <= (n - minIndex);
+    
+    return true;
 }
