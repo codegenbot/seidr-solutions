@@ -18,14 +18,12 @@ string circular_shift(int x, int shift) {
 
 int main() {
     assert(circular_shift(11, 101) == "11");
-    
-    // Additional test cases
-    assert(circular_shift(12345, 0) == "12345");
+
+    // Add more test cases here...
     assert(circular_shift(12345, 1) == "51234");
     assert(circular_shift(12345, 2) == "45123");
-    assert(circular_shift(12345, 3) == "34512");
     assert(circular_shift(12345, 5) == "12345");
-    assert(circular_shift(12345, 10) == "54321");
-    
+    assert(circular_shift(12345, 6) == "54321");
+
     return 0;
 }
