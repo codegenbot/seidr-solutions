@@ -1,23 +1,13 @@
-#include <string>
-
-string encrypt(string s) {
-    string result = "";
-    
-    for (int i = 0; i < s.length(); i++) {
-        char c = s[i];
-        
-        // Shift down the uppercase letters
-        if (c >= 'A' && c <= 'Z') {
-            c = 'A' + (((c - 'A') + (2 * 2)) % 26);
+string encrypt(string s){
+    string encrypted = "";
+    for(int i = 0; i < s.length(); i++){
+        if(isalpha(s[i])){
+            char c = s[i] + 2 * 2; // Shift the character down by two multiplied to two places
+            if(c > 'z'){ // Wrap around if the character exceeds 'z'
+                c = c - 'z' + 'a' - 1;
+            }
+            encrypted += c;
         }
-        
-        // Shift down the lowercase letters
-        if (c >= 'a' && c <= 'z') {
-            c = 'a' + (((c - 'a') + (2 * 2)) % 26);
-        }
-        
-        result += c;
     }
-    
-    return result;
+    return encrypted;
 }
