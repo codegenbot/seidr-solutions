@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 bool issame(vector<int> a, vector<int> b);
 
@@ -18,7 +19,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 bool issame(vector<int> a, vector<int> b) {
     // implement the function logic here
     // return true or false based on the condition
-    return a == b;
 }
 
 int main() {
