@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath> // for pow
+#include <cmath>
 
 double double_the_difference(std::vector<float> lst) {
     double sum = 0;
@@ -14,7 +14,10 @@ double double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    lst = {1.5, 2.5, 3.5, 4.5, 5.5};
+    float num;
+    while (std::cin >> num) {
+        lst.push_back(num);
+    }
     double odd_sum = double_the_difference(lst);
     std::cout << "Odd Sum: " << odd_sum << std::endl;
     return 0;
