@@ -55,17 +55,18 @@ bool issame(vector<string> a, vector<string> b){
 int main(){
     string txt;
     getline(cin, txt);
-    
     vector<string> words = split_words(txt);
-    vector<string> reverse_words = words;
-    reverse(reverse_words.begin(), reverse_words.end());
     
-    if(issame(words, reverse_words)){
-        cout << "The sentence is palindromic" << endl;
+    vector<string> expected = {"hello", "world"};
+    
+    bool same = issame(words, expected);
+    
+    if(same){
+        cout << "Same";
     }
     else{
-        cout << "The sentence is not palindromic" << endl;
+        cout << "Different";
     }
-    
+
     return 0;
 }
