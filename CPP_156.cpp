@@ -25,8 +25,6 @@ int main() {
     assert(int_to_mini_roman(43) == "xliii");
     assert(int_to_mini_roman(1999) == "mcmxcix");
     assert(int_to_mini_roman(4444) == "mmmmmcdxliv");
-
     std::cout << "All test cases passed!\n";
-
     return 0;
 }
