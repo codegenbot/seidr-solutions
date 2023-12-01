@@ -1,21 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess);
-
-int main() {
-    std::vector<int> game = {3, 7, 5};
-    std::vector<int> guess = {4, 7, 3};
-    
-    std::vector<int> result = compare(game, guess);
-    
-    assert(issame(result, {1, 0, 2}));
-    
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess){
@@ -27,6 +16,11 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+int main() {
+    std::vector<int> game = {3, 7, 5};
+    std::vector<int> guess = {4, 7, 3};
+    
+    std::vector<int> result = compare(game, guess);
+    
+    assert(issame(result, {1, 0, 2}));
 }
