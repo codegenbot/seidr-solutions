@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
     string result = "";
     for (int i = 0; i < s.length(); i++) {
@@ -16,11 +18,13 @@ vector<string> reverse_delete(string s, string c) {
     return {result, (is_palindrome ? "True" : "False")};
 }
 
+// Remove the duplicate definition of the `issame` function
 bool issame(vector<string> a, vector<string> b) {
     return (a == b);
 }
 
 int main() {
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+
     return 0;
 }
