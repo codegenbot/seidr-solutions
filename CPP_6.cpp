@@ -1,37 +1,41 @@
+#include <iostream>
 #include <vector>
+#include <string>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
-        return false;
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    
-    return true;
-}
+using namespace std;
 
-vector<int> parse_nested_parens(string paren_string){
-    vector<int> levels;
+vector<int> parse_nested_parens(string paren_string) {
+    vector<int> result;
     int max_level = 0;
     int current_level = 0;
-    
-    for (int i = 0; i < paren_string.length(); i++) {
-        if (paren_string[i] == '(') {
+
+    for (char c : paren_string) {
+        if (c == '(') {
             current_level++;
-            if (current_level > max_level) {
-                max_level = current_level;
-            }
-        } else if (paren_string[i] == ')'){
+            max_level = max(max_level, current_level);
+        } else if (c == ')') {
             current_level--;
-        } else if (paren_string[i] == ' '){
-            levels.push_back(max_level);
-            max_level=0;
-            current_level=0;
+        } else if (c == ' ') {
+            result.push_back(max_level);
+            max_level = 0;
+            current_level = 0;
         }
     }
 
-    levels.push_back(max_level);
-    return levels;
+    result.push_back(max_level);
+
+    return result;
+}
+
+int main() {
+    string input;
+    getline(cin, input);
+
+    vector<int> output = parse_nested_parens(input);
+
+    for (int level : output) {
+        cout << level << " ";
+    }
+
+    return 0;
 }
