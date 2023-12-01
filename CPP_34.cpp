@@ -1,33 +1,25 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
         return false;
     }
-    
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
 }
 
-vector<int> unique(vector<int> l){
-    sort(l.begin(), l.end());
-    l.erase(unique(l.begin(), l.end()), l.end());
+std::vector<int> unique(std::vector<int> l){
+    std::sort(l.begin(), l.end());
+    l.erase(std::unique(l.begin(), l.end()), l.end());
     return l;
 }
 
 int main(){
-    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
-    // rest of the main function
+    assert (issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
