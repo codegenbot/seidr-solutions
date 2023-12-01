@@ -12,7 +12,6 @@ vector<int> generate_integers(int a, int b) {
 
 bool issame(vector<int> a, vector<int> b) {
     // Add logic to compare the two vectors and return true or false
-    return a == b;
 }
 
 int main() {
