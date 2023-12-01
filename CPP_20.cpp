@@ -1,13 +1,18 @@
 vector<float> find_closest_elements(vector<float> numbers){
-    sort(numbers.begin(), numbers.end());
     float min_diff = INFINITY;
-    vector<float> closest_elements;
-    for (int i = 1; i < numbers.size(); i++) {
-        float diff = abs(numbers[i] - numbers[i-1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_elements = {numbers[i-1], numbers[i]};
+    float num1, num2;
+    
+    for(int i=0; i<numbers.size()-1; i++){
+        for(int j=i+1; j<numbers.size(); j++){
+            float diff = abs(numbers[i] - numbers[j]);
+            if(diff < min_diff){
+                min_diff = diff;
+                num1 = numbers[i];
+                num2 = numbers[j];
+            }
         }
     }
-    return closest_elements;
+    
+    vector<float> result = {num1, num2};
+    return result;
 }
