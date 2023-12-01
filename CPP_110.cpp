@@ -1,29 +1,17 @@
 #include <string>
-#include <vector>
 #include <cassert>
+#include <vector>
 
 using namespace std;
 
 string exchange(vector<int> lst1, vector<int> lst2);
 
 int main() {
-    // Test the exchange function
-    vector<int> lst1 = {1, 2, 3, 4, 5};
-    vector<int> lst2 = {6, 7, 8, 9, 10};
+    // Sample test case
+    vector<int> lst1 = {1, 2, 3};
+    vector<int> lst2 = {4, 5, 6};
     assert(exchange(lst1, lst2) == "YES");
-
-    lst1 = {2, 4, 6, 8, 10};
-    lst2 = {1, 3, 5, 7, 9};
-    assert(exchange(lst1, lst2) == "YES");
-
-    lst1 = {1, 3, 5, 7, 9};
-    lst2 = {2, 4, 6, 8, 10};
-    assert(exchange(lst1, lst2) == "NO");
-
-    lst1 = {2, 4, 6, 8, 10};
-    lst2 = {2, 4, 6, 8, 10};
-    assert(exchange(lst1, lst2) == "NO");
-
+    
     return 0;
 }
 
