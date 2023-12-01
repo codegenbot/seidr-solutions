@@ -1,21 +1,37 @@
 #include <iostream>
 #include <string>
 
-int getFrameScore(const std::string& frame) {
-    int score = 0;
-    int frameIndex = 0;
+using namespace std;
 
-    for (int i = 0; i < 10; ++i) {
-        if (frame[frameIndex] == 'X') {
+int getScore(string bowls) {
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+
+    for (int i = 0; i < bowls.size(); i++) {
+        if (bowls[i] == 'X') {
             score += 10;
-            frameIndex++;
-        } else if (frame[frameIndex + 1] == '/') {
-            score += 10;
-            frameIndex += 2;
+            if (frame < 10) {
+                score += (bowls[i + 1] == 'X') ? 10 : stoi(string(1, bowls[i + 1]));
+                score += (bowls[i + 2] == 'X') ? 10 : stoi(string(1, bowls[i + 2]));
+            }
+            ball++;
+        } else if (bowls[i] == '/') {
+            score += 10 - stoi(string(1, bowls[i - 1]));
+            if (frame < 10) {
+                score += (bowls[i + 1] == 'X') ? 10 : stoi(string(1, bowls[i + 1]));
+            }
+            ball = 0;
+        } else if (bowls[i] == '-') {
+            ball++;
         } else {
-            score += frame[frameIndex] - '0';
-            score += frame[frameIndex + 1] - '0';
-            frameIndex += 2;
+            score += stoi(string(1, bowls[i]));
+            ball++;
+        }
+
+        if (frame < 10 && (ball == 2 || bowls[i] == 'X')) {
+            frame++;
+            ball = 0;
         }
     }
 
@@ -23,11 +39,11 @@ int getFrameScore(const std::string& frame) {
 }
 
 int main() {
-    std::string frame;
-    std::cin >> frame;
+    string bowls;
+    cin >> bowls;
 
-    int score = getFrameScore(frame);
-    std::cout << score << std::endl;
+    int score = getScore(bowls);
+    cout << score << endl;
 
     return 0;
 }
