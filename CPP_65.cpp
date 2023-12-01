@@ -2,6 +2,11 @@
 
 string circular_shift(int x, int shift);
 
+int main() {
+    assert(circular_shift(11, 101) == "11");
+    // more test cases...
+}
+
 string circular_shift(int x, int shift){
     string num = to_string(x);
     int len = num.length();
