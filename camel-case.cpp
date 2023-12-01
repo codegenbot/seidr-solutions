@@ -2,41 +2,52 @@
 #include <string>
 #include <vector>
 
-std::string convertToCamelCase(const std::string& input) {
-    std::string result;
-    std::vector<std::string> words;
-
-    // Split the input string by spaces
-    size_t start = 0;
-    size_t end = input.find(" ");
-    while (end != std::string::npos) {
-        words.push_back(input.substr(start, end - start));
-        start = end + 1;
-        end = input.find(" ", start);
-    }
-    words.push_back(input.substr(start));
-
-    // Convert each word to camelCase
-    for (const std::string& word : words) {
-        size_t dash = word.find("-");
-        if (dash != std::string::npos) {
-            result += word.substr(0, dash);
-            result += std::toupper(word[dash + 1]);
-            result += word.substr(dash + 2);
+std::string kebabToCamelCase(const std::string& kebab) {
+    std::string camel;
+    bool capitalizeNext = false;
+    
+    for (int i = 0; i < kebab.size(); i++) {
+        if (kebab[i] == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            camel += std::toupper(kebab[i]);
+            capitalizeNext = false;
         } else {
-            result += word;
+            camel += kebab[i];
         }
     }
-
-    return result;
+    
+    return camel;
 }
 
 int main() {
     std::string input;
     std::getline(std::cin, input);
-
-    std::string output = convertToCamelCase(input);
-    std::cout << output << std::endl;
-
+    
+    std::vector<std::string> words;
+    std::string word;
+    
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += input[i];
+        }
+    }
+    
+    words.push_back(word);
+    
+    std::string camelCase;
+    
+    for (int i = 0; i < words.size(); i++) {
+        camelCase += kebabToCamelCase(words[i]);
+        if (i != words.size() - 1) {
+            camelCase += " ";
+        }
+    }
+    
+    std::cout << camelCase << std::endl;
+    
     return 0;
 }
