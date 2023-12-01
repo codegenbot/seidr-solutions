@@ -18,6 +18,17 @@ def sort_numbers(numbers: List[str]) -> str:
     return " ".join(sorted_numbers)
 
 
-numbers_input = input("Enter the numbers (separated by spaces): ").split()
+numbers_input = [
+    "nine",
+    "two",
+    "five",
+    "one",
+    "zero",
+    "seven",
+    "four",
+    "eight",
+    "three",
+    "six",
+]
 output = sort_numbers(numbers_input)
 print(output)

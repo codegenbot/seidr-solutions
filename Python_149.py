@@ -1,2 +1,2 @@
 def sorted_list_sum(lst):
-    return sorted(lst, key=len, reverse=False)
+    return sorted(lst)
