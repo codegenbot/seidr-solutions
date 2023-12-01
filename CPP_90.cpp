@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+\#include <iostream>
+\#include <vector>
+\#include <algorithm>
 
 int next_smallest(std::vector<int> lst){
     if(lst.size() < 2){

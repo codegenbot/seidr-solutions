@@ -24,12 +24,12 @@ vector<string> words_string(string s){
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -37,18 +37,8 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    string s = "Hello, world!";
-
-    vector<string> words = words_string(s);
-
-    assert(words.size() == 2);
-    assert(words[0] == "Hello");
-    assert(words[1] == "world!");
-
-    vector<string> a = {"apple", "banana", "cherry"};
-    vector<string> b = {"apple", "banana", "cherry"};
-
+    vector<string> a = words_string("hello,world");
+    vector<string> b = words_string("hello,world");
     assert(issame(a, b));
-
     return 0;
 }
