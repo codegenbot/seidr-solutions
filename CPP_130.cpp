@@ -6,19 +6,19 @@ using namespace std;
 
 vector<int> tri(int n) {
     vector<int> sequence;
-    sequence.push_back(3);
+    sequence.push_back(3); // First element is always 3
 
     if (n == 0) {
         return sequence;
     }
 
-    sequence.push_back(1 + n / 2);
+    sequence.push_back(1 + n / 2); // Second element
 
     if (n == 1) {
         return sequence;
     }
 
-    sequence.push_back(sequence[1] + sequence[0]);
+    sequence.push_back(sequence[1] + sequence[0]); // Third element
 
     for (int i = 3; i <= n; i++) {
         if (i % 2 == 0) {
