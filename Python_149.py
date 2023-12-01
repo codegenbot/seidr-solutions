@@ -1,2 +1,2 @@
 def sorted_list_sum(lst):
-    return sorted(lst, key=lambda word: len(word))
+    return sum(len(word) for word in lst)
