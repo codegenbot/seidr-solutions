@@ -1,18 +1,39 @@
 string encode(string message){
-    string encoded_message = "";
-    for(int i=0; i<message.length(); i++){
+    string encoded_msg = "";
+    for (int i=0; i<message.length(); i++){
         char c = message[i];
-        if(isalpha(c)){
-            if(isupper(c)){
-                encoded_message += tolower(c);
+
+        if (isalpha(c)){
+            if (islower(c)){
+                encoded_msg += toupper(c);
             }
             else{
-                encoded_message += toupper(c);
+                encoded_msg += tolower(c);
             }
-            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
-                encoded_message += c+2;
+
+            if (tolower(c) == 'a'){
+                encoded_msg += 'c';
+            }
+            else if (tolower(c) == 'e'){
+                encoded_msg += 'g';
+            }
+            else if (tolower(c) == 'i'){
+                encoded_msg += 'k';
+            }
+            else if (tolower(c) == 'o'){
+                encoded_msg += 'q';
+            }
+            else if (tolower(c) == 'u'){
+                encoded_msg += 'w';
+            }
+            else{
+                encoded_msg += c;
             }
         }
+        else{
+            encoded_msg += c;
+        }
     }
-    return encoded_message;
+
+    return encoded_msg;
 }
