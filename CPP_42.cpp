@@ -3,6 +3,9 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b);
+vector<int> incr_list(vector<int> l);
+
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -15,7 +18,13 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> incr_list(vector<int> l);
+vector<int> incr_list(vector<int> l) {
+    vector<int> result;
+    for (int i = 0; i < l.size(); i++) {
+        result.push_back(l[i] + 1);
+    }
+    return result;
+}
 
 int main() {
     vector<int> input = {5, 2, 5, 2, 3, 3, 9, 0, 123};
@@ -26,12 +35,4 @@ int main() {
     assert(issame(output, expected_output));
     
     return 0;
-}
-
-vector<int> incr_list(vector<int> l) {
-    vector<int> result;
-    for (int i = 0; i < l.size(); i++) {
-        result.push_back(l[i] + 1);
-    }
-    return result;
 }
