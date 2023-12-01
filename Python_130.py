@@ -6,5 +6,5 @@ def tri(n):
         if i % 2 == 0:
             seq.append(seq[i - 1] + seq[i - 2] + seq[i - 3])
         else:
-            seq.append(seq[i - 1] + seq[i - 2] + seq[i - 3])
-    return seq
+            seq.append(seq[i - 1] + seq[i - 2] + seq[i - 3] + seq[i])
+    return seq[:n+1]
