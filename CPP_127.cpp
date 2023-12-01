@@ -9,27 +9,15 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 
     int intersectionLength = intersectionEnd - intersectionStart + 1;
 
-    if (intersectionLength <= 0) {
+    if (intersectionLength <= 1) {
         return "NO";
     }
 
-    if (isPrime(intersectionLength)) {
-        return "YES";
-    } else {
-        return "NO";
-    }
-}
-
-bool isPrime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            return false;
+    for (int i = 2; i <= sqrt(intersectionLength); i++) {
+        if (intersectionLength % i == 0) {
+            return "NO";
         }
     }
 
-    return true;
+    return "YES";
 }
