@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
-
-string get_closest_vowel(string word);
 
 string get_closest_vowel(string word){
     int n = word.length();
@@ -19,7 +18,9 @@ string get_closest_vowel(string word){
     return "";
 }
 
-int main() {
-    cout << get_closest_vowel("Above") << endl;
+int main(){
+    // Testing the function
+    assert (get_closest_vowel("Above") == "o");
+    
     return 0;
 }
