@@ -1,11 +1,15 @@
+// Include the necessary header file
 #include <vector>
 #include <string>
 #include <cassert>
 
+// Specify the namespace for the vector type
 using namespace std;
 
+// Declare function signature
 vector<int> parse_nested_parens(string paren_string);
 
+// Check if two vectors are the same
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()){
         return false;
@@ -20,6 +24,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
+// Complete the function implementation
 vector<int> parse_nested_parens(string paren_string){
     vector<int> levels;
     int max_level = 0;
