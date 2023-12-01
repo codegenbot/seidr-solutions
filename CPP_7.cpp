@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-using namespace std;
+#include <string>
 
-vector<string> filter_by_substring(vector<string> strings, string substring);
-bool issame(vector<string> a, vector<string> b);
+using namespace std;
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> filtered_strings;
