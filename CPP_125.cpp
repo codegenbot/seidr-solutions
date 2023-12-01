@@ -7,15 +7,6 @@ using namespace std;
 
 vector<string> split_words(string txt);
 
-int main(){
-    // Test cases
-    assert(split_words("") == vector<string>{"0"});
-    assert(split_words("Hello, World!") == vector<string>{"Hello", "World!"});
-    // Add more test cases
-    
-    return 0;
-}
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
