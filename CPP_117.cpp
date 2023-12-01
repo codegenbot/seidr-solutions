@@ -1,10 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-int count_consonants(std::string word);
-bool is_consonant(char c);
-std::vector<std::string> select_words(std::string s, int n);
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool is_consonant(char c) {
+    c = tolower(c);
+    return (c >= 'b' && c <= 'd') || (c >= 'f' && c <= 'h') || (c >= 'j' && c <= 'n') || (c >= 'p' && c <= 't') || (c >= 'v' && c <= 'z');
+}
 
 int count_consonants(std::string word) {
     int count = 0;
@@ -16,11 +17,18 @@ int count_consonants(std::string word) {
     return count;
 }
 
-bool is_consonant(char c) {
-    c = tolower(c);
-    return (c >= 'b' && c <= 'd') || (c >= 'f' && c <= 'h') ||
-           (c >= 'j' && c <= 'n') || (c >= 'p' && c <= 't') ||
-           (c >= 'v' && c <= 'z');
+std::vector<std::string> select_words(std::string s, int n);
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<std::string> select_words(std::string s, int n) {
@@ -45,11 +53,6 @@ std::vector<std::string> select_words(std::string s, int n) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
 int main() {
     assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    return 0;
 }
