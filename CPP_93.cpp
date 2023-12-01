@@ -1,26 +1,39 @@
-#include <string>
-#include <algorithm>
+string encode(string message){
+    string encoded_msg = "";
+    for (int i=0; i<message.length(); i++){
+        char c = message[i];
 
-string encode(string message) {
-    for (int i = 0; i < message.length(); i++) {
-        if (isalpha(message[i])) {
-            if (islower(message[i])) {
-                message[i] = toupper(message[i]);
-            } else {
-                message[i] = tolower(message[i]);
+        if (isalpha(c)){
+            if (islower(c)){
+                encoded_msg += toupper(c);
             }
-            if (message[i] == 'a' || message[i] == 'A') {
-                message[i] = 'c';
-            } else if (message[i] == 'e' || message[i] == 'E') {
-                message[i] = 'g';
-            } else if (message[i] == 'i' || message[i] == 'I') {
-                message[i] = 'k';
-            } else if (message[i] == 'o' || message[i] == 'O') {
-                message[i] = 'q';
-            } else if (message[i] == 'u' || message[i] == 'U') {
-                message[i] = 'w';
+            else{
+                encoded_msg += tolower(c);
+            }
+
+            if (tolower(c) == 'a'){
+                encoded_msg += 'c';
+            }
+            else if (tolower(c) == 'e'){
+                encoded_msg += 'g';
+            }
+            else if (tolower(c) == 'i'){
+                encoded_msg += 'k';
+            }
+            else if (tolower(c) == 'o'){
+                encoded_msg += 'q';
+            }
+            else if (tolower(c) == 'u'){
+                encoded_msg += 'w';
+            }
+            else{
+                encoded_msg += c;
             }
         }
+        else{
+            encoded_msg += c;
+        }
     }
-    return message;
+
+    return encoded_msg;
 }
