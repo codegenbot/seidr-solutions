@@ -1,9 +1,7 @@
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include<vector>
+#include<algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    // Compare the contents of vectors a and b
     return a == b;
 }
 
