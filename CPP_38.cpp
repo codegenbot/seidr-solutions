@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cassert>
-
 using namespace std;
 
 string encode_cyclic(string s){
@@ -28,9 +27,9 @@ string decode_cyclic(string s){
 int main() {
     string str;
     cin >> str;
-    
+
     string encoded_str = encode_cyclic(str);
     assert (decode_cyclic(encoded_str) == str);
-    
+
     return 0;
 }
