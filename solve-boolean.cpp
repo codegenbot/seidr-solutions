@@ -31,4 +31,6 @@ bool evaluateBooleanExpression(std::string expression) {
             return false;
         }
     }
+
+    return false;
 }
