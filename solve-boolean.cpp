@@ -47,7 +47,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
             bool leftResult = evaluateBooleanExpression(left, false);
             bool rightResult = evaluateBooleanExpression(right, false);
             return leftResult && rightResult;
-        } else if (expression[opIndex] == '|' && !isEnclosed) {
+        } else if (expression[opIndex] == '|') {
             return evaluateBooleanExpression(left, false) || evaluateBooleanExpression(right, false);
         }
     }
