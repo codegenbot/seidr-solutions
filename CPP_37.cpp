@@ -1,6 +1,8 @@
 #include <vector>
 #include <algorithm>
 
+vector<float> sort_even(vector<float> l);
+
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
@@ -31,15 +33,16 @@ vector<float> sort_even(vector<float> l){
     return l_prime;
 }
 
-int main(){
+int main() {
     // Test the sort_even function
-    vector<float> input = {5.4, 2.1, 3.7, 8.2, 1.9};
-    vector<float> output = sort_even(input);
-    vector<float> expected = {2.1, 5.4, 1.9, 3.7, 8.2};
-    if(issame(output, expected)){
+    vector<float> input = {4.5, 2.3, 7.8, 1.2, 3.4};
+    vector<float> sorted = sort_even(input);
+    vector<float> expected = {1.2, 4.5, 3.4, 7.8, 2.3};
+    if(issame(sorted, expected)){
         cout << "Test passed!" << endl;
     } else {
         cout << "Test failed!" << endl;
     }
+    
     return 0;
 }
