@@ -4,6 +4,10 @@
 
 using namespace std;
 
+bool issame(vector<int> a,vector<int> b){
+    // implementation of the issame function
+}
+
 vector<int> order_by_points(vector<int> nums){
     sort(nums.begin(), nums.end(), [](int a, int b){
         int sum_a = 0, sum_b = 0;
@@ -23,16 +27,4 @@ vector<int> order_by_points(vector<int> nums){
         return sum_a < sum_b;
     });
     return nums;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
