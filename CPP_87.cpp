@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     std::vector<std::vector<int>> result;
