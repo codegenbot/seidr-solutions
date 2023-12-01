@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
 bool cycpattern_check(string a, string b) {
     int lenA = a.length();
@@ -17,10 +15,4 @@ bool cycpattern_check(string a, string b) {
     }
     
     return false;
-}
-
-int main() {
-    assert(cycpattern_check("winemtt","tinem") == true);
-    
-    return 0;
 }
