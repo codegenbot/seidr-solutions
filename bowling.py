@@ -1,31 +1,122 @@
-def calculate_score(bowls):
+def bowling(input_str):
     score = 0
     frame = 1
-    i = 0
-    while frame <= 10:
-        if bowls[i] == 'X':
+    frame_score = 0
+    prev_frame_score = 0
+    prev_frame_strike = False
+    prev_frame_spare = False
+    prev_frame_strike_count = 0
+    prev_frame_spare_count = 0
+    
+    for i in range(len(input_str)):
+        if input_str[i] == 'X':
             score += 10
-            if i + 2 < len(bowls):
-                if bowls[i + 2] == 'X':
+            if frame < 10:
+                if prev_frame_strike:
                     score += 10
-                elif bowls[i + 2] == '/':
-                    score += 10 - int(bowls[i + 1])
-                else:
-                    score += int(bowls[i + 1]) + int(bowls[i + 2])
-            i += 1
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i - 1])
-            if i + 1 < len(bowls):
-                if bowls[i + 1] == 'X':
+                    if prev_frame_strike_count == 1:
+                        score += 10
+                    elif prev_frame_strike_count == 2:
+                        score += 20
+                    prev_frame_strike_count += 1
+                elif prev_frame_spare:
                     score += 10
-                else:
-                    score += int(bowls[i + 1])
-            i += 1
+                    prev_frame_spare_count += 1
+                prev_frame_strike = True
+                prev_frame_spare = False
+                frame += 1
+            else:
+                if prev_frame_strike:
+                    score += 10
+                    if prev_frame_strike_count == 1:
+                        score += 10
+                    elif prev_frame_strike_count == 2:
+                        score += 20
+                    prev_frame_strike_count += 1
+                elif prev_frame_spare:
+                    score += 10
+                    prev_frame_spare_count += 1
+        elif input_str[i] == '/':
+            score += 10 - prev_frame_score
+            if frame < 10:
+                if prev_frame_strike:
+                    score += 10
+                    if prev_frame_strike_count == 1:
+                        score += 10
+                    elif prev_frame_strike_count == 2:
+                        score += 20
+                    prev_frame_strike_count += 1
+                elif prev_frame_spare:
+                    score += 10
+                    prev_frame_spare_count += 1
+                prev_frame_strike = False
+                prev_frame_spare = True
+                frame += 1
+            else:
+                if prev_frame_strike:
+                    score += 10
+                    if prev_frame_strike_count == 1:
+                        score += 10
+                    elif prev_frame_strike_count == 2:
+                        score += 20
+                    prev_frame_strike_count += 1
+                elif prev_frame_spare:
+                    score += 10
+                    prev_frame_spare_count += 1
+        elif input_str[i] == '-':
+            if frame < 10:
+                if prev_frame_strike:
+                    score += 10
+                    if prev_frame_strike_count == 1:
+                        score += 10
+                    elif prev_frame_strike_count == 2:
+                        score += 20
+                    prev_frame_strike_count += 1
+                elif prev_frame_spare:
+                    score += 10
+                    prev_frame_spare_count += 1
+                frame += 1
+            else:
+                if prev_frame_strike:
+                    score += 10
+                    if prev_frame_strike_count == 1:
+                        score += 10
+                    elif prev_frame_strike_count == 2:
+                        score += 20
+                    prev_frame_strike_count += 1
+                elif prev_frame_spare:
+                    score += 10
+                    prev_frame_spare_count += 1
         else:
-            score += int(bowls[i])
-        i += 1
-        frame += 1
+            score += int(input_str[i])
+            frame_score = int(input_str[i])
+            if frame < 10:
+                if prev_frame_strike:
+                    score += frame_score
+                    if prev_frame_strike_count == 1:
+                        score += frame_score
+                    elif prev_frame_strike_count == 2:
+                        score += frame_score
+                    prev_frame_strike_count += 1
+                elif prev_frame_spare:
+                    score += frame_score
+                    prev_frame_spare_count += 1
+                prev_frame_strike = False
+                prev_frame_spare = False
+            else:
+                if prev_frame_strike:
+                    score += frame_score
+                    if prev_frame_strike_count == 1:
+                        score += frame_score
+                    elif prev_frame_strike_count == 2:
+                        score += frame_score
+                    prev_frame_strike_count += 1
+                elif prev_frame_spare:
+                    score += frame_score
+                    prev_frame_spare_count += 1
+            prev_frame_score = frame_score
+    
     return score
 
-bowls = input()
-print(calculate_score(bowls))
+input_str = input()
+print(bowling(input_str))
