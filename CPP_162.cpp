@@ -24,3 +24,13 @@ string string_to_md5(string text) {
 
     return md5hash;
 }
+
+int main() {
+    string text;
+    cin >> text;
+
+    string md5 = string_to_md5(text);
+    cout << md5 << endl;
+
+    return 0;
+}
