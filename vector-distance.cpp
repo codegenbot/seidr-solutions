@@ -21,8 +21,8 @@ int main() {
         std::cin >> vector1[i];
     }
 
-    std::vector<double> vector2(n);
-    for (int i = 0; i < n; i++) {
+    std::vector<double> vector2(vector1.size());
+    for (int i = 0; i < vector1.size(); i++) {
         std::cin >> vector2[i];
     }
 
