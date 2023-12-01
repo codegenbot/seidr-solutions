@@ -4,19 +4,9 @@
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
-    bool hasWhitespace = false;
-    bool hasComma = false;
     
     for(char c : txt){
-        if(c == ' '){
-            hasWhitespace = true;
-            if(word != ""){
-                result.push_back(word);
-                word = "";
-            }
-        }
-        else if(c == ','){
-            hasComma = true;
+        if(c == ' ' || c == ','){
             if(word != ""){
                 result.push_back(word);
                 word = "";
@@ -43,7 +33,7 @@ bool issame(vector<string> a, vector<string> b){
         return false;
     }
     
-    for(int i=0; i<a.size(); i++){
+    for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -57,14 +47,16 @@ int main(){
     getline(cin, txt);
     
     vector<string> words = split_words(txt);
-    vector<string> reverse_words = words;
-    reverse(reverse_words.begin(), reverse_words.end());
     
-    if(issame(words, reverse_words)){
-        cout << "The sentence is palindromic" << endl;
+    vector<string> b = {"apple", "banana", "cherry"};
+    
+    bool same = issame(words, b);
+    
+    if(same){
+        cout << "Same" << endl;
     }
     else{
-        cout << "The sentence is not palindromic" << endl;
+        cout << "Not Same" << endl;
     }
     
     return 0;
