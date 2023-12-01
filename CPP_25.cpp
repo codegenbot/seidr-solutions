@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -17,5 +16,5 @@ vector<int> factorize(int n) {
 
 int main() {
     assert(factorize(3 * 2 * 3) == vector<int>{2, 3, 3});
-    return 0;
+    // rest of the code
 }
