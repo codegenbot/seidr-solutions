@@ -2,8 +2,8 @@
 #include <string>
 #include <cassert>
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
+map<char, int> histogram(string test) {
+    map<char, int> result;
     for (char c : test) {
         if (c != ' ') {
             result[c]++;
@@ -12,7 +12,7 @@ std::map<char, int> histogram(std::string test) {
     return result;
 }
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+bool issame(map<char,int> a,map<char,int> b) {
     if (a.size() != b.size()) {
         return false;
     }
