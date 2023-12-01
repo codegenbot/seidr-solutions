@@ -14,7 +14,7 @@ int closest_integer(string value){
 int main() {
     string input;
     cin >> input;
-    int closest = closest_integer(input);
-    cout << closest << endl;
+    int result = closest_integer(input);
+    cout << result << endl;
     return 0;
 }
