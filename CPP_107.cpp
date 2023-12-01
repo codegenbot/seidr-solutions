@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -39,14 +39,4 @@ vector<int> even_odd_palindrome(int n){
         }
     }
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
- 
-    vector<int> result = even_odd_palindrome(n);
-    cout << result[0] << " " << result[1] << endl;
-  
-    return 0;
 }

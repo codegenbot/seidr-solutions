@@ -1,10 +1,10 @@
 #include <string>
 
-std::string get_closest_vowel(const std::string& word) {
+std::string get_closest_vowel(std::string word){
     int n = word.length();
-    for (int i = n - 2; i > 0; i--) {
-        if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u') {
-            if (word[i - 1] != 'a' && word[i - 1] != 'e' && word[i - 1] != 'i' && word[i - 1] != 'o' && word[i - 1] != 'u' && word[i + 1] != 'a' && word[i + 1] != 'e' && word[i + 1] != 'i' && word[i + 1] != 'o' && word[i + 1] != 'u') {
+    for(int i = n-2; i > 0; i--){
+        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u'){
+            if(word[i-1] != 'a' && word[i-1] != 'e' && word[i-1] != 'i' && word[i-1] != 'o' && word[i-1] != 'u' && word[i+1] != 'a' && word[i+1] != 'e' && word[i+1] != 'i' && word[i+1] != 'o' && word[i+1] != 'u'){
                 return std::string(1, word[i]);
             }
         }
@@ -12,8 +12,9 @@ std::string get_closest_vowel(const std::string& word) {
     return "";
 }
 
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    // Add more test cases here
+int main(){
+    assert (get_closest_vowel("Above") == "o");
+    // Other test cases
+
     return 0;
 }
