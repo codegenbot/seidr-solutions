@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 std::string get_closest_vowel(std::string word){
     int n = word.length();
@@ -17,6 +17,7 @@ std::string get_closest_vowel(std::string word){
 
 int main() {
     std::cout << (get_closest_vowel("Above") == "o") << std::endl;
+    // Add more test cases if needed
 
     return 0;
 }
