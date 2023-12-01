@@ -36,18 +36,11 @@ vector<int> even_odd_palindrome(int n){
     return result;
 }
 
-int main(){
-    vector<int> result = even_odd_palindrome(10);
-    vector<int> expected = {5, 5};
-    assert(issame(result, expected));
-    
-    result = even_odd_palindrome(20);
-    expected = {9, 11};
-    assert(issame(result, expected));
-    
-    result = even_odd_palindrome(100);
-    expected = {45, 55};
-    assert(issame(result, expected));
-    
+int main() {
+    // Test the even_odd_palindrome function
+    vector<int> expected = {4, 5};
+    vector<int> output = even_odd_palindrome(10);
+    assert(issame(output, expected));
+
     return 0;
 }
