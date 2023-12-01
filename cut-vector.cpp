@@ -1,51 +1,48 @@
-#include <vector>
 #include <iostream>
-using namespace std;
+#include <vector>
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> nums) {
+    int totalSum = 0;
+    for (int num : nums) {
+        totalSum += num;
     }
     
-    int target = sum / 2;
-    int currSum = 0;
-    int diff = INT_MAX;
-    int idx = 0;
+    int leftSum = 0;
+    int rightSum = totalSum;
+    int minDiff = totalSum;
+    int cutIndex = 0;
     
-    for (int i = 0; i < n; i++) {
-        currSum += nums[i];
-        int currDiff = abs(currSum - target);
-        if (currDiff < diff) {
-            diff = currDiff;
-            idx = i;
+    for (int i = 0; i < nums.size(); i++) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i + 1;
         }
     }
     
-    vector<int> subVector1(nums.begin(), nums.begin() + idx + 1);
-    vector<int> subVector2(nums.begin() + idx + 1, nums.end());
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex);
+    std::vector<int> rightSubvector(nums.begin() + cutIndex, nums.end());
     
-    return make_pair(subVector1, subVector2);
+    return std::make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
     
-    vector<int> nums(n);
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(nums);
-    
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
     for (int num : result.first) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
-    
     for (int num : result.second) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
     
     return 0;
