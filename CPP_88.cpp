@@ -1,35 +1,24 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
 
-vector<int> sort_array(vector<int> array){
-    if(array.empty()){
+std::vector<int> sort_array(std::vector<int> array){
+    if(array.size() == 0){
         return array;
     }
     int sum = array[0] + array[array.size()-1];
     if(sum % 2 == 0){
         sort(array.rbegin(), array.rend());
-    }else{
+    } else {
         sort(array.begin(), array.end());
     }
     return array;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-int main(){
+int main() {
     assert (issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
     return 0;
 }
