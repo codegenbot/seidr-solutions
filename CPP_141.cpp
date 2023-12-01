@@ -1,17 +1,9 @@
-#include <iostream>
 #include <string>
-
-using namespace std;
 
 string file_name_check(string file_name);
 
 int main() {
-    string name;
-    cin >> name;
-    
-    cout << file_name_check(name) << endl;
-    
-    return 0;
+    // code here
 }
 
 string file_name_check(string file_name){
