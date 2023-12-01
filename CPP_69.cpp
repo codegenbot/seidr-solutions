@@ -1,6 +1,6 @@
 #include <vector>
 
-int search(std::vector<int> lst) {
+int search(vector<int> lst) {
     int result = -1;
     for (int i = 1; i <= lst.size(); i++) {
         int count = 0;
@@ -17,7 +17,6 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {1, 2, 3, 4, 5, 2, 3, 4, 5, 5};
-    int number = search(lst);
+    // Your test cases here
     return 0;
 }
