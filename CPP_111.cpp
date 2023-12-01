@@ -1,15 +1,11 @@
-#include <map>
+#include <iostream>
+#include <unordered_map>
 #include <cassert>
-#include <string>
 
 using namespace std;
 
-map<char, int> histogram(string test);
-
-bool issame(map<char, int> a, map<char, int> b);
-
-map<char, int> histogram(string test) {
-    map<char, int> freqMap;
+unordered_map<char, int> histogram(string test) {
+    unordered_map<char, int> freqMap;
     string word;
     for (int i = 0; i < test.length(); i++) {
         if (test[i] != ' ') {
@@ -25,11 +21,23 @@ map<char, int> histogram(string test) {
     return freqMap;
 }
 
-bool issame(map<char, int> a, map<char, int> b){
-    return a == b;
+bool issame(unordered_map<char,int> a, unordered_map<char,int> b){
+    if (a.size() != b.size())
+        return false;
+    for (const auto& pair : a) {
+        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second)
+            return false;
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+    assert (issame(histogram("a"), {{'a', 1}}));
+    assert (issame(histogram("a b c"), {{'a', 1}, {'b', 1}, {'c', 1}}));
+    assert (issame(histogram("hello world"), {{'hello', 1}, {'world', 1}}));
+    assert (issame(histogram("a b b c c c"), {{'a', 1}, {'b', 2}, {'c', 3}}));
+
+    cout << "All tests pass." << endl;
+
     return 0;
 }
