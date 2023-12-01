@@ -2,7 +2,6 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
-
 using namespace std;
 
 vector<int> f(int n) {
@@ -25,6 +24,8 @@ vector<int> f(int n) {
     return result;
 }
 
-vector<int> expected = {1, 2, 6};
-vector<int> actual = f(3);
-assert(expected == actual);
+int main() {
+    assert(equal(f(3).begin(), f(3).end(), vector<int>{1, 2, 6}.begin(), vector<int>{1, 2, 6}.end()));
+
+    return 0;
+}
