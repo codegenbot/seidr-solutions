@@ -1,7 +1,36 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <cmath>
+
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+    int n = nums.size();
+    int diff = INT_MAX;
+    int index = -1;
+
+    for (int i = 0; i < n - 1; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int j = 0; j <= i; j++) {
+            leftSum += nums[j];
+        }
+
+        for (int j = i + 1; j < n; j++) {
+            rightSum += nums[j];
+        }
+
+        int currentDiff = abs(leftSum - rightSum);
+
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            index = i;
+        }
+    }
+
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
+    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+
+    return std::make_pair(leftSubvector, rightSubvector);
+}
 
 int main() {
     int n;
@@ -12,37 +41,13 @@ int main() {
         std::cin >> nums[i];
     }
 
-    int diff = INT_MAX;
-    int index = -1;
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
 
-    for (int i = 0; i < n; i++) {
-        int leftSum = 0;
-        int rightSum = 0;
-
-        for (int j = 0; j <= i; j++) {
-            leftSum += nums[j];
-        }
-
-        for (int j = i+1; j < n; j++) {
-            rightSum += nums[j];
-        }
-
-        if (std::abs(leftSum - rightSum) < diff) {
-            diff = std::abs(leftSum - rightSum);
-            index = i;
-        }
-    }
-
-    std::vector<int> result1(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> result2(nums.begin() + index + 1, nums.begin() + n);
-
-    for (int num : result1) {
+    for (int num : result.first) {
         std::cout << num << std::endl;
     }
 
-    std::cout << std::endl;
-
-    for (int num : result2) {
+    for (int num : result.second) {
         std::cout << num << std::endl;
     }
 
