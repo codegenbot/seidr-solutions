@@ -53,6 +53,6 @@ int main() {
     }
     
     cutVector(nums);
-    
+
     return 0;
 }
