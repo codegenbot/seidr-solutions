@@ -3,10 +3,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;

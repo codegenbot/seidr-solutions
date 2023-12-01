@@ -1,33 +1,35 @@
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
-using namespace std;
-
-vector<int> rolling_max(vector<int> numbers){
-    vector<int> rollingMax;
-    int maxSoFar = INT_MIN;
-
+std::vector<int> rolling_max(std::vector<int> numbers){
+    std::vector<int> rollingMax;
+    int maxSoFar = std::numeric_limits<int>::min();
+    
     for(int i=0; i<numbers.size(); i++){
-        maxSoFar = max(maxSoFar, numbers[i]);
+        maxSoFar = std::max(maxSoFar, numbers[i]);
         rollingMax.push_back(maxSoFar);
     }
-
+    
     return rollingMax;
 }
 
-vector<int> broadcast(vector<int> input){
-    vector<int> output;
-    for(int i=0; i<input.size(); i++){
-        for(int j=0; j<3; j++){
-            output.push_back(input[i]);
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
         }
     }
-    return output;
+    
+    return true;
 }
 
 int main(){
     assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-
+    
     return 0;
 }
