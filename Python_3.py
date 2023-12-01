@@ -9,7 +9,10 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 n = int(input())
-operations = list(map(int, input().split()))
+operations = []
+for i in range(n):
+    operation = int(input())
+    operations.append(operation)
 
 result = below_zero(operations)
 print(result)
