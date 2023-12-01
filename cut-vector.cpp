@@ -1,53 +1,63 @@
-#include <vector>
 #include <iostream>
-using namespace std;
+#include <vector>
 
-pair<vector<int>, vector<int>> cut_vector(vector<int> nums) {
-    int total_sum = 0;
+std::vector<int> cutVector(const std::vector<int>& nums) {
+    int sum = 0;
     for (int num : nums) {
-        total_sum += num;
+        sum += num;
+    }
+    int target = sum / 2;
+    
+    int prefixSum = 0;
+    int closestSum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        prefixSum += nums[i];
+        if (abs(target - prefixSum) < abs(target - closestSum)) {
+            closestSum = prefixSum;
+        }
     }
     
-    int half_sum = total_sum / 2;
-    int current_sum = 0;
-    int index = 0;
+    std::vector<int> subVector1;
+    std::vector<int> subVector2;
     
-    while (current_sum < half_sum && index < nums.size()) {
-        current_sum += nums[index];
+    int index = 0;
+    while (index < nums.size() && prefixSum > closestSum) {
+        subVector1.push_back(nums[index]);
+        prefixSum -= nums[index];
         index++;
     }
     
-    if (current_sum == half_sum) {
-        return make_pair(vector<int>(nums.begin(), nums.begin() + index), vector<int>(nums.begin() + index, nums.end()));
-    } else {
-        int sum1 = current_sum - nums[index-1];
-        int sum2 = total_sum - current_sum;
-        
-        if (sum1 < sum2) {
-            return make_pair(vector<int>(nums.begin(), nums.begin() + index - 1), vector<int>(nums.begin() + index - 1, nums.end()));
-        } else {
-            return make_pair(vector<int>(nums.begin(), nums.begin() + index), vector<int>(nums.begin() + index, nums.end()));
-        }
+    while (index < nums.size()) {
+        subVector2.push_back(nums[index]);
+        index++;
     }
+    
+    if (subVector1.size() < subVector2.size()) {
+        subVector1.push_back(0);
+    } else {
+        subVector2.push_back(0);
+    }
+    
+    return {subVector1, subVector2};
 }
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
     
-    vector<int> nums(n);
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
     
-    pair<vector<int>, vector<int>> result = cut_vector(nums);
+    std::vector<int> result1 = cutVector(nums)[0];
+    std::vector<int> result2 = cutVector(nums)[1];
     
-    for (int num : result.first) {
-        cout << num << endl;
+    for (int num : result1) {
+        std::cout << num << std::endl;
     }
-    
-    for (int num : result.second) {
-        cout << num << endl;
+    for (int num : result2) {
+        std::cout << num << std::endl;
     }
     
     return 0;
