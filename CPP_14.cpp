@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
-using namespace std;
+vector<string> all_prefixes(string str);
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
@@ -16,11 +15,13 @@ vector<string> all_prefixes(string str){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // Compare vectors a and b and return true if they are the same, otherwise return false.
-    // Your implementation here.
-}
-
-int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    return 0;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
