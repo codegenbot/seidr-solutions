@@ -1,30 +1,22 @@
-vector<string> by_length(vector<int> arr){
-    map<int, string> numToName;
-    numToName[1] = "One";
-    numToName[2] = "Two";
-    numToName[3] = "Three";
-    numToName[4] = "Four";
-    numToName[5] = "Five";
-    numToName[6] = "Six";
-    numToName[7] = "Seven";
-    numToName[8] = "Eight";
-    numToName[9] = "Nine";
-    
+vector<string> by_length(vector<int> arr) {
     vector<string> result;
-    vector<int> sortedArr;
+    vector<int> temp;
     
-    for(int num : arr){
-        if(num >= 1 && num <= 9){
-            sortedArr.push_back(num);
+    // Sort the integers that are between 1 and 9 inclusive
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] >= 1 && arr[i] <= 9) {
+            temp.push_back(arr[i]);
         }
     }
+    sort(temp.begin(), temp.end());
     
-    sort(sortedArr.begin(), sortedArr.end());
+    // Reverse the resulting vector
+    reverse(temp.begin(), temp.end());
     
-    reverse(sortedArr.begin(), sortedArr.end());
-    
-    for(int num : sortedArr){
-        result.push_back(numToName[num]);
+    // Replace each digit by its corresponding name from "One" to "Nine"
+    map<int, string> digitNames = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+    for (int i = 0; i < temp.size(); i++) {
+        result.push_back(digitNames[temp[i]]);
     }
     
     return result;
