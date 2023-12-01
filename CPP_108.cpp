@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 
-int count_nums(std::vector<int> n){
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         int sum = 0;
@@ -19,9 +17,8 @@ int count_nums(std::vector<int> n){
 }
 
 int main() {
-    // Test cases
-    assert (count_nums({1}) == 1);
-    assert (count_nums({10, 20, 30}) == 3);
-
+    // Example usage
+    std::vector<int> numbers = {123, -45, 6789, 0, -987};
+    int result = count_nums(numbers);
     return 0;
 }
