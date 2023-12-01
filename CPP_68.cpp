@@ -23,12 +23,9 @@ std::vector<int> pluck(std::vector<int> arr){
 }
 
 int main() {
-    std::vector<int> input = {7, 9, 7, 1};
-    std::vector<int> output = pluck(input);
-    
+    std::vector<int> output = pluck({7, 9, 7, 1});
     for (int i = 0; i < output.size(); i++) {
         std::cout << output[i] << " ";
     }
-    
     return 0;
 }
