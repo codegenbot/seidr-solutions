@@ -12,3 +12,6 @@ def find_zero():
     xs = input().split()
     xs = [float(coeff) for coeff in xs]
     return xs[0] / -xs[1]
+
+
+
