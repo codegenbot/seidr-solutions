@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
-
 using namespace std;
 
 bool issame(vector<float> a, vector<float> b){
