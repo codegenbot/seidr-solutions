@@ -20,7 +20,21 @@ vector<int> parse_music(string music_string) {
 
 bool issame(vector<int> a, vector<int> b) {
     // Add your code here
-    return true; // Change this to your actual implementation
+    
+    // Check if the size of the two vectors is different
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    // Compare each element in the vectors
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    // If all elements are the same, return true
+    return true;
 }
 
 int main() {
