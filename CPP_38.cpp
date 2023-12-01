@@ -1,14 +1,9 @@
-#include <iostream>
-#include <cassert>
-using namespace std;
-
 string encode_cyclic(string s){
     int l = s.length();
     string output;
-    for(int i = 0; i < l; i++){
-        char chr = s[i];
-        chr = (chr + 1) % 128;
-        output += chr;
+    int i;
+    for (i = 0; i < l; i++) {
+        output += s.substr(i, 1) + s.substr((l-1-i)%l, 1);
     }
     return output;
 }
@@ -16,20 +11,12 @@ string encode_cyclic(string s){
 string decode_cyclic(string s){
     int l = s.length();
     string output;
-    for(int i = 0; i < l; i += 3){
-        string x = s.substr(i, 3);
-        if(x.length() == 3) x = x[2] + x.substr(0, 2);
-        output += x;
+    int i;
+    for (i = 0; i < l/2; i++) {
+        output += s.substr(2*i+1, 1);
+    }
+    if (l%2 == 1) {
+        output += s.substr(l/2, 1);
     }
     return output;
-}
-
-int main() {
-    string str;
-    cin >> str;
-    
-    string encoded_str = encode_cyclic(str);
-    assert (decode_cyclic(encoded_str) == str);
-    
-    return 0;
 }
