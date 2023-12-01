@@ -18,5 +18,5 @@ def sort_numbers(numbers: List[str]) -> str:
 
 if __name__ == "__main__":
     input_numbers = input().lower().split()
-    input_numbers = [word for word in input_numbers if word in num_mapping.keys()]
+    input_numbers = [num for num in input_numbers if num in num_mapping]
     print(sort_numbers(input_numbers))
