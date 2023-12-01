@@ -1,7 +1,4 @@
-#include <iostream>
 #include <string>
-
-using namespace std;
 
 string change_base(int x, int base) {
     string result = "";
@@ -14,9 +11,9 @@ string change_base(int x, int base) {
 
 int main() {
     int x;
-    cin >> x;
+    cin >> x; // Read input value for x
 
-    cout << change_base(x, x + 1);
+    change_base(x, x + 1); // Call the change_base function with appropriate arguments
 
     return 0;
 }
