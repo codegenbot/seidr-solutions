@@ -1,7 +1,5 @@
 #include <vector>
 
-using namespace std;
-
 vector<float> get_positive(vector<float> l){
     vector<float> positive_nums;
     for(int i=0; i<l.size(); i++){
