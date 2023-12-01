@@ -6,15 +6,6 @@ def poly(xs: list, x: float):
 
 
 def find_zero(xs: list):
+    if xs[1] == 0:
+        return None
     return -xs[0] / xs[1]
-
-
-if __name__ == "__main__":
-    n = int(input())
-    xs = list(map(float, input().split()))
-
-    result_poly = poly(xs, n)
-    result_zero = find_zero(xs)
-
-    print(result_poly)
-    print(result_zero)
