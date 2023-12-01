@@ -1,7 +1,15 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b){
-    // implementation of the function
+    if(a.size() != b.size())
+        return false;
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    
+    return true;
 }
 
 vector<int> parse_nested_parens(string paren_string){
@@ -15,15 +23,15 @@ vector<int> parse_nested_parens(string paren_string){
             if (current_level > max_level) {
                 max_level = current_level;
             }
-        } else if (paren_string[i] == ')') {
+        } else if (paren_string[i] == ')'){
             current_level--;
-        } else if (paren_string[i] == ' ') {
+        } else if (paren_string[i] == ' '){
             levels.push_back(max_level);
-            max_level = 0;
-            current_level = 0;
+            max_level=0;
+            current_level=0;
         }
     }
-    
+
     levels.push_back(max_level);
     return levels;
 }
