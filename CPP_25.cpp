@@ -1,36 +1,24 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
-vector<int> factorize(int n){
+using namespace std;
+
+vector<int> factorize(int n) {
     vector<int> factors;
-    int i = 2;
-    while (n > 1) {
-        if (n % i == 0) {
+    for (int i = 2; i <= n; i++) {
+        while (n % i == 0) {
             factors.push_back(i);
             n /= i;
-        } else {
-            i++;
         }
     }
     return factors;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-int main(){
-    assert (issame(factorize(3 * 2 * 3) , {2, 3, 3}));
-    // Rest of the main function
-    return 0;
+int main() {
+    assert(issame(factorize(3 * 2 * 3), vector<int>{2, 3, 3}));
+    // rest of the code
 }
