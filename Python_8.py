@@ -1,9 +1,8 @@
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    total_sum = 0
-    product = 1
+    sum_result = sum(numbers)
+    product_result = 1
     for num in numbers:
-        total_sum += num
-        product *= num
-    return total_sum, product
+        product_result *= num
+    return sum_result, product_result
