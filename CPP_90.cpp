@@ -1,15 +1,27 @@
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2) {
-        return -1; // None
+#include <vector>
+
+const int None = -1;
+
+int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) {
+        return None;
     }
     
     sort(lst.begin(), lst.end());
     
     int smallest = lst[0];
-    int second_smallest = lst[1];
     
-    if(smallest == second_smallest) {
-        return -1; // None
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] > smallest) {
+            return lst[i];
+        }
     }
-    return second_smallest;
+    
+    return None;
+}
+
+int main() {
+    assert (next_smallest({-35, 34, 12, -45}) == -35);
+    // Add more test cases here
+    return 0;
 }
