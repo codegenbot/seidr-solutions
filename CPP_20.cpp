@@ -29,11 +29,11 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
             }
         }
     }
-    
+
     std::vector<float> result;
     result.push_back(num1);
     result.push_back(num2);
-    
+
     return result;
 }
 
