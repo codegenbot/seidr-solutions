@@ -3,13 +3,11 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 vector<string> split_words(string txt);
 
 int main(){
     // Test cases
-    assert(split_words("") == vector<string>{"0"});
+    assert(split_words("").size() == 1 && split_words("").at(0) == "0");
     assert(split_words("Hello, World!") == vector<string>{"Hello", "World!"});
     // Add more test cases
     

@@ -18,11 +18,11 @@ string intersection(vector<int> interval1, vector<int> interval2) {
         return "NO";
     }
     
-    for (int i = 2; i * i < intersectionLength; i++) {
+    for (int i = 2; i <= intersectionLength; i++) {
         if (intersectionLength % i == 0) {
             return "NO";
         }
     }
     
-    return intersectionLength % sqrt(intersectionLength) == 0 ? "YES" : "NO";
+    return "YES";
 }
