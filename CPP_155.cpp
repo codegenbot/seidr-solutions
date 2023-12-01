@@ -4,17 +4,17 @@
 
 using namespace std;
 
-vector<int> even_odd_count(int num) {
+vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
     int digit;
     
     num = abs(num);
     
-    while(num > 0) {
+    while(num > 0){
         digit = num % 10;
         
-        if(digit % 2 == 0) {
+        if(digit % 2 == 0){
             evenCount++;
         } else {
             oddCount++;
@@ -24,11 +24,10 @@ vector<int> even_odd_count(int num) {
     }
     
     vector<int> result = {evenCount, oddCount};
-    
     return result;
 }
 
-int main() {
+int main(){
     assert(even_odd_count(0) == vector<int>({1, 0}));
     assert(even_odd_count(12345) == vector<int>({2, 3}));
     
