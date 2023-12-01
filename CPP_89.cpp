@@ -24,13 +24,9 @@ string encrypt(string s){
 
 int main() {
     assert (encrypt("a") == "e");
-    assert (encrypt("z") == "d");
-    assert (encrypt("A") == "E");
-    assert (encrypt("Z") == "D");
-    assert (encrypt("abc") == "efg");
-    assert (encrypt("ABC") == "EFG");
-    assert (encrypt("xyz") == "bcd");
-    assert (encrypt("XYZ") == "BCD");
+    assert (encrypt("Hello, World!") == "Lipps, Asvph!");
+    assert (encrypt("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == "CDEFGHIJKLMNOPQRSTUVWXYZAB");
+    assert (encrypt("abcdefghijklmnopqrstuvwxyz") == "cdefghijklmnopqrstuvwxyzab");
     
     return 0;
 }
