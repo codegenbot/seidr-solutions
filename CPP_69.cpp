@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 int findMissingNumber(std::vector<int> lst) {
     int result = -1;
