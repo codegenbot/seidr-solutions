@@ -11,7 +11,7 @@ float mean_absolute_deviation(std::vector<float> numbers) {
     
     float mad = 0;
     for (float num : numbers) {
-        mad += std::abs(num - mean);
+        mad += abs(num - mean);
     }
     mad /= numbers.size();
     
