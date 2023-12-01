@@ -1,5 +1,4 @@
 #include <vector>
-
 #include <algorithm>
 #include <cassert>
 
@@ -14,5 +13,5 @@ vector<int> maximum(vector<int> arr, int k) {
 int main() {
     vector<int> maximum(vector<int> arr, int k);
 
-    assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {})); // Assuming issame is defined correctly
+    assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
 }
