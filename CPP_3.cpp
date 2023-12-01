@@ -7,8 +7,8 @@ int main() {
     for (int i = 0; i < operations.size(); i++) {
         balance += operations[i];
         if (balance < 0) {
-            return true;
+            return i + 1;
         }
     }
-    return false;
+    return 0;
 }
