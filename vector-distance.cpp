@@ -4,7 +4,7 @@
 
 double euclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
     double sum = 0.0;
-    for (int i = 0; i < vector1.size(); i++) {
+    for (size_t i = 0; i < vector1.size(); i++) {
         double diff = vector1[i] - vector2[i];
         sum += diff * diff;
     }
@@ -12,18 +12,18 @@ double euclideanDistance(const std::vector<double>& vector1, const std::vector<d
 }
 
 int main() {
-    int n;
+    size_t n;
     std::cin >> n;
 
     std::vector<double> vector1(n);
-    for (int i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++) {
         std::cin >> vector1[i];
     }
 
-    std::vector<double> vector2(n);
-    std::cin >> n;  // Move this line before creating vector2
+    std::cin >> n;
 
-    for (int i = 0; i < n; i++) {
+    std::vector<double> vector2(n);
+    for (size_t i = 0; i < n; i++) {
         std::cin >> vector2[i];
     }
 
