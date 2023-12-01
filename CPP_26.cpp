@@ -7,7 +7,6 @@ using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
     // Function implementation goes here
-    return a == b;
 }
 
 vector<int> remove_duplicates(vector<int> numbers){
