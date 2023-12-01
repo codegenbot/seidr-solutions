@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,13 +12,13 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> intersperse(vector<int> numbers, int delimiter){
+vector<int> intersperse(vector<int> numbers, int delimiter) {
     vector<int> result;
-    if(numbers.empty()){
+    if (numbers.empty()) {
         return result;
     }
     result.push_back(numbers[0]);
-    for(int i=1; i<numbers.size(); i++){
+    for (int i = 1; i < numbers.size(); i++) {
         result.push_back(delimiter);
         result.push_back(numbers[i]);
     }
