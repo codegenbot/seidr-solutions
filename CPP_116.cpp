@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<int> sort_array(vector<int> arr){
+vector<int> sort_vector(vector<int> arr){
     sort(arr.begin(), arr.end(), [](int a, int b){
         int countA = __builtin_popcount(a);
         int countB = __builtin_popcount(b);
@@ -28,7 +28,7 @@ bool is_same(vector<int> a, vector<int> b){
 }
 
 int main(){
-    if (is_same(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32})){
+    if (is_same(sort_vector({2,4,8,16,32}), {2, 4, 8, 16, 32})){
         // Code works as expected
     }
     return 0;
