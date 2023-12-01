@@ -1,17 +1,23 @@
-string solve(string s){
-    string result = "";
+#include <string>
+#include <algorithm>
+
+string solve(string s) {
+    if (s.empty()) {
+        return s;
+    }
+
     bool hasLetters = false;
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            result += (islower(s[i]) ? toupper(s[i]) : tolower(s[i]));
+    
+    for (char& c : s) {
+        if (isalpha(c)){
+            c = islower(c) ? toupper(c) : tolower(c);
             hasLetters = true;
         }
-        else{
-            result += s[i];
-        }
     }
-    if(!hasLetters){
-        reverse(result.begin(), result.end());
+    
+    if (!hasLetters) {
+        reverse(s.begin(), s.end());
     }
-    return result;
+    
+    return s;
 }
