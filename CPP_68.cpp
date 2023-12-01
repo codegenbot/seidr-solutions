@@ -2,11 +2,13 @@
 #include <climits>
 #include <cassert>
 
-std::vector<int> pluck(std::vector<int> arr);
-bool issame(std::vector<int> a, std::vector<int> b);
+using namespace std;
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr);
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     int smallestValue = INT_MAX;
     int smallestIndex = -1;
 
@@ -25,7 +27,7 @@ std::vector<int> pluck(std::vector<int> arr) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     // Implementation of issame function goes here
 }
 
