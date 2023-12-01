@@ -4,10 +4,11 @@ using namespace std;
 
 string squareDigits(int n) {
     string result = "";
-    while (n > 0) {
-        int digit = n % 10;
-        result = to_string(digit * digit) + result;
-        n /= 10;
+    string num = to_string(n);
+    for (char c : num) {
+        int digit = c - '0';
+        int square = digit * digit;
+        result += to_string(square);
     }
     return result;
 }
