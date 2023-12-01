@@ -1,35 +1,23 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix);
-bool are_equal(vector<string> a, vector<string> b);
 
 int main() {
-    assert(are_equal(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"});
+    return 0;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
-    for (const string& str : strings) {
-        if (str.find(prefix) == 0) {
+    for(const auto& str : strings){
+        if(str.compare(0, prefix.length(), prefix) == 0){
             result.push_back(str);
         }
     }
     return result;
-}
-
-bool are_equal(vector<string> a, vector<string> b) {
-    // compare the size of vectors
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    // compare each element of the vectors
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
 }
