@@ -1,56 +1,35 @@
 #include <iostream>
 #include <map>
+#include <string>
 #include <cassert>
 
-bool issame(std::map<char,int> a, std::map<char,int> b){
-    for(auto it = a.begin(); it != a.end(); ++it) {
-        if(b.find(it->first) == b.end() || b[it->first] != it->second)
-            return false;
-    }
-    for(auto it = b.begin(); it != b.end(); ++it) {
-        if(a.find(it->first) == a.end())
-            return false;
-    }
-    return true;
-}
-
-std::map<char,int> histogram(std::string test){
-    std::map<char, int> countMap;
+std::map<std::string, int> histogram(std::string test) {
+    std::map<std::string, int> result;
     std::string word;
-    for (int i = 0; i < test.length(); i++) {
-        if (test[i] != ' ') {
-            word += test[i];
+    for (char c : test) {
+        if (c != ' ') {
+            word += c;
         } else {
-            if (countMap.find(word[0]) == countMap.end()) {
-                countMap[word[0]] = 1;
-            } else {
-                countMap[word[0]]++;
+            if (!word.empty()) {
+                result[word]++;
+                word = "";
             }
-            word = "";
         }
     }
-    if (word != "") {
-        if (countMap.find(word[0]) == countMap.end()) {
-            countMap[word[0]] = 1;
-        } else {
-            countMap[word[0]]++;
-        }
-    }
-    int maxCount = 0;
-    for (auto it = countMap.begin(); it != countMap.end(); it++) {
-        if (it->second > maxCount) {
-            maxCount = it->second;
-        }
-    }
-    std::map<char, int> result;
-    for (auto it = countMap.begin(); it != countMap.end(); it++) {
-        if (it->second == maxCount) {
-            result[it->first] = it->second;
-        }
+    if (!word.empty()) {
+        result[word]++;
     }
     return result;
 }
 
+bool issame(std::map<std::string, int> a, std::map<std::string, int> b) {
+    return a == b;
+}
+
 int main() {
-    // Testing code
+    assert(issame(histogram("a"), {{"a", 1}}));
+    assert(issame(histogram("hello world"), {{"hello", 1}, {"world", 1}}));
+    assert(issame(histogram("hello hello"), {{"hello", 2}}));
+    std::cout << "All test cases passed!" << std::endl;
+    return 0;
 }

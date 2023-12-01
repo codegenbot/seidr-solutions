@@ -1,12 +1,22 @@
 #include <iostream>
 #include <vector>
-
+#include <string>
 using namespace std;
 
-vector<string> select_words(string s, int n);
-int count_consonants(string word);
-bool is_vowel(char c);
-bool issame(vector<string> a, vector<string> b);
+bool is_vowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+int count_consonants(string word) {
+    int count = 0;
+    for (int i = 0; i < word.length(); i++) {
+        if (!is_vowel(word[i])) {
+            count++;
+        }
+    }
+    return count;
+}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -33,21 +43,6 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int count_consonants(string word) {
-    int count = 0;
-    for (int i = 0; i < word.length(); i++) {
-        if (!is_vowel(word[i])) {
-            count++;
-        }
-    }
-    return count;
-}
-
-bool is_vowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -60,4 +55,26 @@ bool issame(vector<string> a, vector<string> b) {
     }
 
     return true;
+}
+
+int main() {
+    string sentence;
+    int target_consonants;
+
+    cout << "Enter a sentence: ";
+    getline(cin, sentence);
+
+    cout << "Enter the number of consonants to select: ";
+    cin >> target_consonants;
+
+    vector<string> selected_words = select_words(sentence, target_consonants);
+
+    // Print the selected words
+    cout << "Selected words: ";
+    for (int i = 0; i < selected_words.size(); i++) {
+        cout << selected_words[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
