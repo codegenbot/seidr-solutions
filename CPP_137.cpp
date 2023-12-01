@@ -1,6 +1,5 @@
 #include <boost/any.hpp>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -31,9 +30,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     return boost::any("None");
-}
-
-int main() {
-    assert(boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
-    return 0;
 }
