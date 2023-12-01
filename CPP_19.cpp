@@ -34,13 +34,13 @@ string sort_numbers(string numbers){
     for (const string& num : num_list) {
         result += num + " ";
     }
-    result.pop_back();
+    result.pop_back(); // Remove the last space
 
     return result;
 }
 
 int main() {
-    sort_numbers("six five four three two one zero");
+    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
 
     return 0;
 }
