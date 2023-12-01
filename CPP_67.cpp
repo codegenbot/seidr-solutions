@@ -6,7 +6,7 @@ int fruit_distribution(string s, int n) {
     int mangoes = 0;
 
     // Parse the string to get the number of apples and oranges
-    size_t pos = s.find("apples");
+    int pos = s.find("apples");
     if (pos != string::npos) {
         apples = stoi(s.substr(0, pos));
     }
@@ -22,4 +22,7 @@ int fruit_distribution(string s, int n) {
     return mangoes;
 }
 
-assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
+int main() {
+    assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
+    return 0;
+}
