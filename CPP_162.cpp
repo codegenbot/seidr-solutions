@@ -9,7 +9,7 @@ string string_to_md5(string text) {
     }
 
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), nullptr);
+    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
     
     unsigned char digest[EVP_MAX_MD_SIZE];
