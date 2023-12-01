@@ -3,13 +3,13 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string){
-    std::vector<std::string> result;
-    std::string group;
+vector<string> separate_paren_groups(string paren_string){
+    vector<string> result;
+    string group;
     int count = 0;
 
     for(char c : paren_string){
