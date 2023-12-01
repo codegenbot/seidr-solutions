@@ -1,13 +1,13 @@
 def match_parens(lst):
-    count = 0
-    for i in lst:
-        if i == '(':
-            count += 1
-        else:
-            count -= 1
-        if count < 0:
-            return 'No'
-    if count == 0:
-        return 'Yes'
-    else:
+    stack = []
+    for s in lst:
+        for c in s:
+            if c == '(':
+                stack.append(c)
+            else:
+                if not stack or stack[-1] != '(':
+                    return 'No'
+                stack.pop()
+    if stack:
         return 'No'
+    return 'Yes'
