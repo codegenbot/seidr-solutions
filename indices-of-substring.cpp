@@ -3,14 +3,14 @@
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    int targetLength = target.size();
-    int textLength = text.size();
+    size_t targetLength = target.length();
+    size_t textLength = text.length();
 
-    if (targetLength == 0) {
+    if (target.empty()) {
         return indices;
     }
 
-    for (int i = 0; i < textLength - targetLength + 1; i++) {
+    for (size_t i = 0; i < textLength - targetLength + 1; i++) {
         if (text.substr(i, targetLength) == target) {
             indices.push_back(i);
         }

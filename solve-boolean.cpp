@@ -20,15 +20,16 @@ bool evaluateBooleanExpression(const std::string& expression) {
         bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
         bool right = evaluateBooleanExpression(expression.substr(opIndex + 1));
 
-        if (expression[opIndex] == '&') {
-            return left && right;
-        } else {
-            return left || right;
+        switch (expression[opIndex]) {
+            case '|':
+                return left || right;
+            case '&':
+                return left && right;
         }
     } else {
-        if (expression[0] == 't') {
+        if (expression == "t") {
             return true;
-        } else if (expression[0] == 'f') {
+        } else if (expression == "f") {
             return false;
         }
     }
@@ -38,10 +39,11 @@ bool evaluateBooleanExpression(const std::string& expression) {
 
 int main() {
     std::string expression;
-    std::cin >> expression;
+    std::getline(std::cin, expression);
 
     bool result = evaluateBooleanExpression(expression);
-    std::cout << (result ? "true" : "false") << std::endl;
+
+    std::cout << std::boolalpha << result << std::endl;
 
     return 0;
 }

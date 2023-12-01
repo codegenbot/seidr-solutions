@@ -12,16 +12,14 @@ int calculateScore(const std::string& bowls) {
         if (bowl == 'X') {
             if (frame == 10) {
                 score += 10 + (int)(bowls[bowlIndex + 1] - '0') + (int)(bowls[bowlIndex + 2] - '0');
-                bowlIndex += 3;
+                bowlIndex += 2;
             } else {
                 score += 10 + (int)(bowls[bowlIndex + 1] - '0') + (int)(bowls[bowlIndex + 2] - '0');
                 bowlIndex++;
             }
         } else if (bowl == '/') {
-            score += 10 - ((int)(bowls[bowlIndex - 1] - '0')) + (int)(bowls[bowlIndex + 1] - '0');
-            bowlIndex += 2;
-        } else if (bowl == '-') {
-            // Score remains the same for a miss
+            score += (10 + (int)(bowls[bowlIndex + 1] - '0')) - ('/' - '0');
+            bowlIndex++;
         } else {
             score += (int)(bowl - '0');
         }
