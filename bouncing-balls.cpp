@@ -19,16 +19,11 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, d
 
 int main() {
     double startingHeight, firstBounceHeight, numBounces;
-    std::cout << "Enter starting height: ";
-    std::cin >> startingHeight;
-    std::cout << "Enter height after first bounce: ";
-    std::cin >> firstBounceHeight;
-    std::cout << "Enter number of bounces: ";
-    std::cin >> numBounces;
+    std::cin >> startingHeight >> firstBounceHeight >> numBounces;
 
-    double result = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
+    double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
 
-    std::cout << "Total distance traveled: " << result << std::endl;
+    std::cout << totalDistance << std::endl;
 
     return 0;
 }
