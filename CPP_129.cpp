@@ -36,7 +36,6 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
         int nextRow = -1, nextCol = -1;
         int minValue = INT_MAX;
         
-        // Check all possible neighbors
         if(currRow > 0 && !visited[currRow-1][currCol] && grid[currRow-1][currCol] < minValue){
             nextRow = currRow - 1;
             nextCol = currCol;
@@ -58,7 +57,6 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
             minValue = grid[currRow][currCol+1];
         }
         
-        // Move to the next cell
         currRow = nextRow;
         currCol = nextCol;
         path.push_back(grid[currRow][currCol]);
