@@ -1,13 +1,8 @@
-from typing import List
+values = input().split(",")
 
-
-def filter_integers(values: List[int]) -> List[int]:
+def filter_integers(values):
     return [x for x in values if isinstance(x, int)]
 
+result = filter_integers(values) 
 
-# Read input as specified in problem description
-value = input("Enter a list of space-separated integers: ")
-values = [int(x) for x in value.split()]
-
-result = filter_integers(values)
 print(result)
