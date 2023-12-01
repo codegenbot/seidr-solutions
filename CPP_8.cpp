@@ -1,12 +1,16 @@
 #include <vector>
 
-bool issame(vector<int> numbers){
-    int n = numbers.size();
-    for(int i=0; i<n-1; i++){
-        if(numbers[i] != numbers[i+1]){
+bool issame(vector<int> v1, vector<int> v2){
+    if(v1.size() != v2.size()){
+        return false;
+    }
+    
+    for(int i=0; i<v1.size(); i++){
+        if(v1[i] != v2[i]){
             return false;
         }
     }
+    
     return true;
 }
 
@@ -24,16 +28,7 @@ vector<int> sum_product(vector<int> numbers){
 
 int main(){
     vector<int> numbers = {1, 2, 3, 4, 5};
-    
-    if(issame(numbers)){
-        cout << "All numbers are the same" << endl;
-    }else{
-        cout << "Numbers are not the same" << endl;
-    }
-    
     vector<int> result = sum_product(numbers);
-    cout << "Sum: " << result[0] << endl;
-    cout << "Product: " << result[1] << endl;
     
     return 0;
 }
