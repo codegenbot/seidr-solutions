@@ -1,9 +1,13 @@
-int digitSum(string s){
+#include <string>
+
+int digitSum(const std::string& s) {
     int sum = 0;
-    for(int i=0; i<s.length(); i++){
-        if(isupper(s[i])){
-            sum += int(s[i]);
+    
+    for (char c : s) {
+        if (std::isupper(c)) {
+            sum += c;
         }
     }
+    
     return sum;
 }
