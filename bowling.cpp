@@ -32,6 +32,8 @@ int calculateScore(const std::string& bowls) {
                     score += (bowls[i + 1] - '0');
                 }
             }
+
+            bowlIndex++;
         } else if (bowl == '/') {
             score += (10 - (bowls[i - 1] - '0'));
 
@@ -41,8 +43,6 @@ int calculateScore(const std::string& bowls) {
 
             frame++;
         }
-
-        bowlIndex++;
     }
 
     return score;
