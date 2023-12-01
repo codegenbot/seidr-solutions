@@ -1,52 +1,52 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
-pair<vector<int>, vector<int>> cut_vector(const vector<int>& nums) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int left_sum = nums[0];
-    int right_sum = 0;
-    for (int i = 1; i < n; i++) {
-        right_sum += nums[i];
-    }
-    
-    int min_diff = abs(left_sum - right_sum);
-    int cut_index = 0;
-    
-    for (int i = 1; i < n; i++) {
-        left_sum += nums[i];
-        right_sum -= nums[i];
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    int diff = INT_MAX;
+    int cutIndex = -1;
+
+    for (int i = 0; i < n - 1; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int j = 0; j <= i; j++) {
+            leftSum += nums[j];
+        }
+
+        for (int j = i + 1; j < n; j++) {
+            rightSum += nums[j];
+        }
+
+        int currDiff = abs(leftSum - rightSum);
+        if (currDiff < diff) {
+            diff = currDiff;
+            cutIndex = i;
         }
     }
-    
-    vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
-    vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
-    
-    return make_pair(subvector1, subvector2);
+
+    std::vector<int> leftSub(nums.begin(), nums.begin() + cutIndex + 1);
+    std::vector<int> rightSub(nums.begin() + cutIndex + 1, nums.end());
+    return std::make_pair(leftSub, rightSub);
 }
 
 int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    std::vector<int> nums;
+    int num;
+
+    while (std::cin >> num) {
+        nums.push_back(num);
     }
-    
-    pair<vector<int>, vector<int>> result = cut_vector(nums);
-    
-    for (int num : result.first) {
-        cout << num << endl;
+
+    auto subVectors = cutVector(nums);
+
+    for (auto num : subVectors.first) {
+        std::cout << num << std::endl;
     }
-    
-    for (int num : result.second) {
-        cout << num << endl;
+
+    for (auto num : subVectors.second) {
+        std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
