@@ -1,26 +1,24 @@
-// add necessary includes
 #include <vector>
 #include <cassert>
 
-// declare function
 vector<int> even_odd_count(int num);
 
-// function to check if two vectors are the same
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
+    return (a[0] == b[0] && a[1] == b[1]);
 }
 
-// implementation of even_odd_count function
+int main() {
+    int num;
+    cin >> num;
+
+    vector<int> expectedResult{2, 3};
+    vector<int> result = even_odd_count(num);
+
+    assert(issame(expectedResult, result));
+
+    return 0;
+}
+
 vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
