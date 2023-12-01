@@ -1,5 +1,12 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
-    string result;
+    string result = "";
     for (int i = 0; i < s.length(); i++) {
         if (c.find(s[i]) == string::npos) {
             result += s[i];
