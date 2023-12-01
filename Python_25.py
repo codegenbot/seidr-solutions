@@ -2,7 +2,6 @@ from typing import List
 
 n = int(input())
 
-
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
@@ -13,6 +12,5 @@ def factorize(n: int) -> List[int]:
         else:
             i += 1
     return factors
-
 
 factorize(n)
