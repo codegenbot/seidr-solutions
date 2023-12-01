@@ -1,31 +1,37 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
-std::vector<int> even_odd_count(int num){
+using namespace std;
+
+vector<int> even_odd_count(int num){
     int evenCount = 0;
     int oddCount = 0;
-    std::string strNum = std::to_string(std::abs(num));
+    int digit;
     
-    for (char c : strNum) {
-        int digit = c - '0';
-        if (digit % 2 == 0) {
+    num = abs(num);
+    
+    while(num > 0){
+        digit = num % 10;
+        
+        if(digit % 2 == 0){
             evenCount++;
         } else {
             oddCount++;
         }
+        
+        num = num / 10;
     }
     
-    return {evenCount, oddCount};
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    vector<int> result = {evenCount, oddCount};
+    return result;
 }
 
 int main(){
-    assert(issame(even_odd_count(0), {1, 0}));
+    assert(even_odd_count(0) == vector<int>{1,0});
+    assert(even_odd_count(12345) == vector<int>{2,3});
+    
+    cout << "All test cases passed!" << endl;
     
     return 0;
 }
