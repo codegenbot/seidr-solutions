@@ -4,7 +4,6 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 vector<int> sort_third(vector<int> l){
-    // Implementation of the sort_third function
     vector<int> l_sorted = l;
     sort(l_sorted.begin(), l_sorted.end());
     for(int i = 0; i < l_sorted.size(); i++){
