@@ -1,18 +1,11 @@
-from typing import List
-
-
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     sorted_numbers = sorted(numbers)
     for i in range(len(sorted_numbers) - 1):
-        if sorted_numbers[i + 1] - sorted_numbers[i] < threshold:
+        if sorted_numbers[i+1] - sorted_numbers[i] < threshold:
             return True
     return False
 
-
-numbers = input().strip().split()
-numbers = [float(num) for num in numbers]
+numbers = [float(x) for x in input().split()]
 threshold = float(input())
 
-# Function call
-result = has_close_elements(numbers, threshold)
-print(result)
+print(has_close_elements(numbers, threshold))
