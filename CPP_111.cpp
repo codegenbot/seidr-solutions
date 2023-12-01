@@ -3,20 +3,24 @@ map<char, int> histogram(string test) {
     if (test.empty()) {
         return result;
     }
-    map<char, int> count;
-    for (char c : test) {
-        if (c != ' ') {
-            count[c]++;
+    string::size_type pos = 0;
+    while (pos < test.length()) {
+        if (test[pos] != ' ') {
+            result[test[pos]]++;
         }
+        pos++;
     }
     int maxCount = 0;
-    for (auto it = count.begin(); it != count.end(); ++it) {
-        maxCount = max(maxCount, it->second);
-    }
-    for (auto it = count.begin(); it != count.end(); ++it) {
-        if (it->second == maxCount) {
-            result[it->first] = it->second;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
         }
     }
-    return result;
+    map<char, int> finalResult;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second == maxCount) {
+            finalResult.insert(*it);
+        }
+    }
+    return finalResult;
 }
