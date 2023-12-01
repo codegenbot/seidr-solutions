@@ -3,9 +3,7 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
-    // Implementation of the issame function
-    // ...
-    return true; // Add your implementation here
+    return a == b;
 }
 
 vector<int> remove_duplicates(vector<int> numbers){
