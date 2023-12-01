@@ -7,12 +7,12 @@ def decode_shift(s: str) -> str:
 
 
 # Read input from the user
-string = input("Enter a string: ")
+string = input()
 
 # Encode the string
 encoded_string = encode_shift(string)
-print("Encoded string:", encoded_string)
+print(encoded_string)
 
 # Decode the string
 decoded_string = decode_shift(encoded_string)
-print("Decoded string:", decoded_string)
+print(decoded_string)
