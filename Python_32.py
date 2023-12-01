@@ -1,14 +1,11 @@
 import math
 
 
-def poly():
-    xs = input().split()
-    xs = [float(coeff) for coeff in xs]
-    x = float(input())
-    return sum([coeff * x ** i for i, coeff in enumerate(xs)])
+def poly(xs: list, x: float):
+    return sum([coeff * x**i for i, coeff in reversed(list(enumerate(xs)))])
 
 
-def find_zero():
-    xs = input().split()
-    xs = [float(coeff) for coeff in xs]
+def find_zero(xs: list):
+    if xs[1] == 0:
+        return None
     return xs[0] / -xs[1]
