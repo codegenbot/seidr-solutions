@@ -2,10 +2,6 @@
 
 string file_name_check(string file_name);
 
-int main() {
-    // code here
-}
-
 string file_name_check(string file_name){
     int digits = 0;
     int dot = 0;
