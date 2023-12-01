@@ -3,24 +3,24 @@
 #include <cassert>
 #include <cmath>
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess);
+using namespace std;
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess){
-    std::vector<int> result;
+vector<int> compare(const vector<int>& game, const vector<int>& guess){
+    vector<int> result;
     for(int i=0; i<game.size(); i++){
-        int diff = std::abs(guess[i] - game[i]);
+        int diff = abs(guess[i] - game[i]);
         result.push_back(diff);
     }
     return result;
 }
 
 int main() {
-    std::vector<int> game = {3, 7, 5};
-    std::vector<int> guess = {4, 7, 3};
+    vector<int> game = {3, 7, 5};
+    vector<int> guess = {4, 7, 3};
     
-    std::vector<int> result = compare(game, guess);
+    vector<int> result = compare(game, guess);
     
-    assert(issame(result, std::vector<int>{1, 0, 2}));
+    assert(result == vector<int>{1, 0, 2});
     
     return 0;
 }
