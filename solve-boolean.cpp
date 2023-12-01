@@ -7,26 +7,33 @@ bool evaluateBooleanExpression(std::string expression) {
             parenthesisCount--;
         } else if (expression[i] == ')') {
             parenthesisCount++;
-        } else if ((expression[i] == '|' || expression[i] == '&') && parenthesisCount == 0) {
+        } else if (parenthesisCount == 0 && (expression[i] == '&' || expression[i] == '|')) {
             opIndex = i;
             break;
         }
     }
 
     if (opIndex != -1) {
-        std::string left = expression.substr(0, opIndex);
-        std::string right = expression.substr(opIndex + 1);
+        bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
 
         if (expression[opIndex] == '|') {
-            return evaluateBooleanExpression(left) || evaluateBooleanExpression(right);
+            if (left) {
+                return true;
+            } else {
+                return evaluateBooleanExpression(expression.substr(opIndex + 1));
+            }
         } else if (expression[opIndex] == '&') {
-            return evaluateBooleanExpression(left) && evaluateBooleanExpression(right);
+            if (!left) {
+                return false;
+            } else {
+                return evaluateBooleanExpression(expression.substr(opIndex + 1));
+            }
         }
     } else if (expression[0] == 'T' || expression[0] == 't') {
         return true;
     } else if (expression[0] == 'F' || expression[0] == 'f') {
         return false;
     }
-
+    
     return true;
 }
