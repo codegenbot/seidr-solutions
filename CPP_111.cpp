@@ -1,16 +1,17 @@
 #include <iostream>
 #include <map>
-#include <cassert>
 
 bool issame(std::map<char,int> a, std::map<char,int> b){
-    for(auto it = a.begin(); it != a.end(); ++it) {
-        if(b.find(it->first) == b.end() || b[it->first] != it->second)
-            return false;
+    if (a.size() != b.size()) {
+        return false;
     }
-    for(auto it = b.begin(); it != b.end(); ++it) {
-        if(a.find(it->first) == a.end())
+    
+    for (auto it = a.begin(); it != a.end(); it++) {
+        if (b.find(it->first) == b.end() || b[it->first] != it->second) {
             return false;
+        }
     }
+    
     return true;
 }
 
@@ -52,5 +53,14 @@ std::map<char,int> histogram(std::string test){
 }
 
 int main() {
-    // Testing code
+    std::string input;
+    std::getline(std::cin, input);
+    
+    std::map<char, int> result = histogram(input);
+    
+    for (auto it = result.begin(); it != result.end(); it++) {
+        std::cout << it->first << ": " << it->second << std::endl;
+    }
+
+    return 0;
 }
