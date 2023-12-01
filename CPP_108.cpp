@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <cmath>
+
+using namespace std;
+
 int count_nums(vector<int> n){
     int count = 0;
     for(int num : n){
@@ -12,4 +19,10 @@ int count_nums(vector<int> n){
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+
+    return 0;
 }

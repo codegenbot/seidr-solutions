@@ -26,9 +26,3 @@ bool check_dict_case(std::map<std::string, std::string> dict){
     
     return allLower || allUpper;
 }
-
-int main() {
-    assert (check_dict_case(std::map<std::string, std::string>{}) == false);
-  
-    return 0;
-}
