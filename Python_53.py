@@ -1,2 +1,7 @@
 def add(x: int, y: int):
-    return int(input(x)) + int(input(y))
+    return x + y
+
+x = int(input())
+y = int(input())
+result = add(x, y)
+print(result)
