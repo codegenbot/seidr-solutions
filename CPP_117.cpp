@@ -1,15 +1,16 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-
 using namespace std;
 
-bool is_vowel(char c);
-int count_consonants(string word);
 vector<string> select_words(string s, int n);
-bool issame(vector<string> a, vector<string> b);
+int count_consonants(string word);
+bool is_vowel(char c);
+bool is_same(vector<string> a, vector<string> b);
 
-bool issame(vector<string> a, vector<string> b);
+int main() {
+    assert(is_same(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
+    return 0;
+}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -45,7 +46,7 @@ bool is_vowel(char c) {
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool is_same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -55,9 +56,4 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return true;
-}
-
-int main() {
-    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
-    return 0;
 }
