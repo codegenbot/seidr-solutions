@@ -2,10 +2,6 @@
 #include <cassert>
 #include <iostream>
 
-std::vector<int> count_up_to(int n);
-
-bool issame(std::vector<int> a, std::vector<int> b);
-
 std::vector<int> count_up_to(int n) {
     std::vector<int> primes;
 
