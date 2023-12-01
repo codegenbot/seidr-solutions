@@ -1,19 +1,19 @@
-int do_algebra(vector<string> operato, vector<int> operand){
-    int result = operand[0]; // Initialize result with the first operand
-
-    for(int i=1; i<operand.size(); i++){
-        // Apply the corresponding operation based on the operator
-        if(operato[i-1] == "+")
-            result += operand[i];
-        else if(operato[i-1] == "-")
-            result -= operand[i];
-        else if(operato[i-1] == "*")
-            result *= operand[i];
-        else if(operato[i-1] == "//")
-            result /= operand[i];
-        else if(operato[i-1] == "**")
-            result = pow(result, operand[i]);
+int do_algebra(vector<string> operato, vector<int> operand) {
+    int result = operand[0]; // Set initial result to the first operand
+    
+    for (int i = 0; i < operato.size(); i++) {
+        if (operato[i] == "+") {
+            result = result + operand[i+1];
+        } else if (operato[i] == "-") {
+            result = result - operand[i+1];
+        } else if (operato[i] == "*") {
+            result = result * operand[i+1];
+        } else if (operato[i] == "//") {
+            result = result / operand[i+1];
+        } else if (operato[i] == "**") {
+            result = pow(result, operand[i+1]);
+        }
     }
-
+    
     return result;
 }
