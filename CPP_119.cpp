@@ -1,3 +1,10 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string match_parens(vector<string> lst);
+
 string match_parens(vector<string> lst){
     string result = "Yes";
     int count = 0;
