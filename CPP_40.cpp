@@ -19,7 +19,6 @@ bool triples_sum_to_zero(vector<int> l){
 
 int main(){
     assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
-    // more test cases...
 
     return 0;
 }
