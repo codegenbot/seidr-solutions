@@ -2,8 +2,6 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
 bool issame(vector<string>& a, vector<string>& b){
     return a == b;
 }
@@ -23,15 +21,12 @@ vector<string> odd_count(vector<string> lst){
 }
 
 int main() {
-    vector<string> a = {"123", "456", "789"};
-    vector<string> b = {"246", "135", "579"};
+    vector<string> a = {"apple", "banana", "cherry"};
+    vector<string> b = {"apple", "banana", "cherry"};
     
-    bool same = issame(a, b);
-    vector<string> result = odd_count(a);
+    bool isSame = issame(a, b);
     
-    for (string str : result) {
-        cout << str << endl;
-    }
+    vector<string> oddCountResult = odd_count(a);
     
     return 0;
 }
