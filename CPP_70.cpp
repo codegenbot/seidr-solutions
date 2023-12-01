@@ -15,14 +15,10 @@ bool issame(vector<int> a, vector<int> b) {
 vector<int> strange_sort_list(vector<int> lst);
 
 int main() {
-    // Test case
-    vector<int> input = {3, 2, 1, 4, 5};
-    vector<int> expected_output = {1, 5, 2, 4, 3};
-    vector<int> result = strange_sort_list(input);
-
-    // Check if the result is correct
-    assert(issame(result, expected_output));
-
+    vector<int> input = {4, 2, 1, 3};
+    vector<int> expected_output = {1, 4, 2, 3};
+    vector<int> output = strange_sort_list(input);
+    assert(issame(output, expected_output));
     return 0;
 }
 
