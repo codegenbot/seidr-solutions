@@ -1,13 +1,12 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iostream>
 
-bool issame(std::vector<int>& a, std::vector<int>& b){
+bool is_same(std::vector<int>& a, std::vector<int>& b){
     return a == b;
 }
 
-std::vector<int> sort_array(std::vector<int> array){
+std::vector<int> sort_array(std::vector<int>& array){
     if(array.size() <= 1){
         return array;
     }
@@ -25,8 +24,7 @@ std::vector<int> sort_array(std::vector<int> array){
 }
 
 int main(){
-    std::vector<int> vec = {23, 21, 14, 11};
-    assert (issame(sort_array({21, 14, 23, 11}) , vec));
+    assert(is_same(sort_array({21, 14, 23, 11}), {11, 14, 21, 23}));
     
     return 0;
 }
