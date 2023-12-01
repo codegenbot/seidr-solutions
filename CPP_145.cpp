@@ -1,5 +1,7 @@
 #include <vector>
 #include <numeric>
+#include <algorithm>
+#include <cassert>
 
 bool compare(int a, int b) {
     int sumA = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0,
