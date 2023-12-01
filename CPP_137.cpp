@@ -1,7 +1,6 @@
 #include <boost/any.hpp>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -28,5 +27,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (val1 < val2)
             return val2;
     }
-    return boost::any("None");
+    return nullptr;
 }
