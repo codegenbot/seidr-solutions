@@ -1,46 +1,48 @@
-#include <iostream>
 #include <vector>
 #include <climits>
 #include <cassert>
 
-using namespace std;
+std::vector<int> pluck(std::vector<int> arr);
 
-vector<int> pluck(vector<int> arr){
-    vector<int> result;
-    int smallest_value = INT_MAX;
-    int smallest_index = -1;
-    
-    for(int i = 0; i < arr.size(); i++){
-        if(arr[i] % 2 == 0 && arr[i] < smallest_value){
-            smallest_value = arr[i];
-            smallest_index = i;
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
+    int smallestValue = INT_MAX;
+    int smallestIndex = -1;
+
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < smallestValue) {
+            smallestValue = arr[i];
+            smallestIndex = i;
         }
     }
-    
-    if(smallest_index != -1){
-        result.push_back(smallest_value);
-        result.push_back(smallest_index);
+
+    if (smallestIndex != -1) {
+        result.push_back(smallestValue);
+        result.push_back(smallestIndex);
     }
-    
+
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
-    
+  
     return true;
 }
 
-int main(){
-    assert (issame(pluck({7, 9, 7, 1}) , {}));
-    
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), {}));
+    // Add more test cases here
+
     return 0;
 }
