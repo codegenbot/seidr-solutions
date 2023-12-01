@@ -1,7 +1,9 @@
-#include <openssl/md5.h>
+#include <stdio.h>
 #include <string>
+#include <openssl/md5.h>
+using namespace std;
 
-std::string string_to_md5(std::string text) {
+string string_to_md5(string text) {
     if (text.empty()) {
         return "None";
     }
@@ -12,10 +14,11 @@ std::string string_to_md5(std::string text) {
     MD5_Update(&ctx, text.c_str(), text.length());
     MD5_Final(digest, &ctx);
 
-    char md5String[33];
-    for (int i = 0; i < 16; i++) {
+    char md5String[MD5_DIGEST_LENGTH*2 + 1];
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         sprintf(&md5String[i*2], "%02x", (unsigned int)digest[i]);
     }
+    md5String[MD5_DIGEST_LENGTH*2] = '\0';
 
-    return std::string(md5String);
+    return string(md5String);
 }
