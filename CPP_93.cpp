@@ -4,7 +4,7 @@ string encode(string message);
 
 int main() {
     string message;
-    getline(cin, message);
+    cin >> message;
     cout << encode(message) << endl;
     return 0;
 }
