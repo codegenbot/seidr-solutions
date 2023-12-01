@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool cycpattern_check(std::string a, std::string b) {
     int n = a.length();
