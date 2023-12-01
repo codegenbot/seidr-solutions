@@ -1,15 +1,15 @@
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-int hex_key(string num){
+int hex_key(string num) {
     int count = 0;
     string primes = "2357BD";
     
-    for(int i=0; i<num.length(); i++){
-        if(primes.find(num[i]) != string::npos){
+    for (char c : num) {
+        if (primes.find(c) != string::npos) {
             count++;
         }
     }
@@ -17,8 +17,12 @@ int hex_key(string num){
     return count;
 }
 
-int main(){
-    assert (hex_key("") == 0);
+int main() {
+    string num;
+    cin >> num;
+    
+    int result = hex_key(num);
+    cout << result << endl;
     
     return 0;
 }
