@@ -27,8 +27,15 @@ vector<int> sum_product(vector<int> numbers){
 }
 
 int main(){
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    vector<int> result = sum_product(numbers);
+    vector<int> input = {1, 2, 3, 4, 5};
+    vector<int> result = sum_product(input);
+    
+    if(issame(result, {15, 120})){
+        cout << "Correct output" << endl;
+    }
+    else{
+        cout << "Incorrect output" << endl;
+    }
     
     return 0;
 }
