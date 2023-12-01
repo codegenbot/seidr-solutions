@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     int targetLength = target.length();
@@ -17,7 +13,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         }
         if (match) {
             indices.push_back(i);
-            // Add the target length to i to continue matching after finding a target
             i += targetLength - 1;
         }
     }
