@@ -22,3 +22,8 @@ bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
     }
     return true;
 }
+
+int main() {
+    assert(issame(generate_integers(17, 89), {}));
+    return 0;
+}
