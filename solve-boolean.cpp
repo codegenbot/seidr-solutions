@@ -1,6 +1,6 @@
 #include <string>
 
-bool evaluateBooleanExpression(std::string expression) {
+bool evaluateBooleanExpression(string expression) {
     int opIndex = -1;
     int parenthesisCount = 0;
 
