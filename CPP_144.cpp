@@ -1,18 +1,12 @@
-bool simplify(string x,string n){
-    int numeratorX, numeratorN, denominatorX, denominatorN;
+bool simplify(string x, string n){
+    int numeratorX = stoi(x.substr(0, x.find('/')));
+    int denominatorX = stoi(x.substr(x.find('/') + 1));
     
-    // Extracting numerator and denominator of x and n
-    sscanf(x.c_str(), "%d/%d", &numeratorX, &denominatorX);
-    sscanf(n.c_str(), "%d/%d", &numeratorN, &denominatorN);
+    int numeratorN = stoi(n.substr(0, n.find('/')));
+    int denominatorN = stoi(n.substr(n.find('/') + 1));
     
-    // Simplifying the expression
-    int numeratorResult = numeratorX * numeratorN;
-    int denominatorResult = denominatorX * denominatorN;
+    int numeratorProduct = numeratorX * numeratorN;
+    int denominatorProduct = denominatorX * denominatorN;
     
-    // Check if the result is a whole number
-    if (numeratorResult % denominatorResult == 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return (numeratorProduct % denominatorProduct) == 0;
 }
