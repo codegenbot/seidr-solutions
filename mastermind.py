@@ -1,27 +1,24 @@
-from typing import Tuple
-
-def count_pegs(code: str, guess: str) -> Tuple[int, int]:
+def mastermind(code, guess):
     black_pegs = 0
     white_pegs = 0
-    code_dict = {}
-    guess_dict = {}
+    
+    code_count = [0] * 6
+    guess_count = [0] * 6
     
     for i in range(4):
         if code[i] == guess[i]:
             black_pegs += 1
         else:
-            if code[i] in guess_dict:
-                guess_dict[code[i]] += 1
-            else:
-                guess_dict[code[i]] = 1
-            
-            if guess[i] in code_dict:
-                code_dict[guess[i]] += 1
-            else:
-                code_dict[guess[i]] = 1
+            code_count[ord(code[i]) - ord('A')] += 1
+            guess_count[ord(guess[i]) - ord('A')] += 1
     
-    for key, value in code_dict.items():
-        if key in guess_dict:
-            white_pegs += min(value, guess_dict[key])
+    for i in range(6):
+        white_pegs += min(code_count[i], guess_count[i])
     
     return white_pegs, black_pegs
+
+code = input()
+guess = input()
+result = mastermind(code, guess)
+print(result[0])
+print(result[1])
