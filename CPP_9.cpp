@@ -3,7 +3,7 @@
 #include <climits>
 #include <cassert>
 
-std::vector<int> rolling_max(std::vector<int> numbers){
+std::vector<int> rolling_max(std::vector<int>& numbers){
     std::vector<int> rollingMax;
     int maxSoFar = INT_MIN;
     
