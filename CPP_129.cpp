@@ -3,10 +3,6 @@
 #include <limits>
 using namespace std;
 
-vector<int> minPath(vector<vector<int>> grid, int k);
-
-bool issame(vector<int> a, vector<int> b);
-
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -25,7 +21,6 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     
     vector<int> path;
     
-    // Find the minimum value in the grid
     int minVal = INT_MAX;
     int minRow, minCol;
     for(int i=0; i<n; i++){
@@ -38,13 +33,10 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         }
     }
     
-    // Add the minimum value to the path
     path.push_back(minVal);
     
-    // Mark the minimum value as visited
     grid[minRow][minCol] = -1;
     
-    // Perform k-1 steps
     for(int step=1; step<k; step++){
         int currRow = minRow;
         int currCol = minCol;
@@ -52,7 +44,6 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         int nextRow, nextCol;
         int minDiff = INT_MAX;
         
-        // Find the neighbor with the minimum difference in value
         for(int i=-1; i<=1; i++){
             for(int j=-1; j<=1; j++){
                 if(i == 0 && j == 0) continue;
@@ -71,13 +62,10 @@ vector<int> minPath(vector<vector<int>> grid, int k){
             }
         }
         
-        // Add the value of the neighbor with minimum difference to the path
         path.push_back(grid[nextRow][nextCol]);
         
-        // Mark the neighbor as visited
         grid[nextRow][nextCol] = -1;
         
-        // Update the current position
         minRow = nextRow;
         minCol = nextCol;
     }
