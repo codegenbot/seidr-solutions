@@ -1,44 +1,39 @@
 #include <string>
 #include <vector>
 
-using namespace std;
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> words;
+    std::string word = "";
+    bool hasWhitespace = false;
+    bool hasComma = false;
 
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
+    for(int i = 0; i < txt.length(); i++){
+        if(txt[i] == ' '){
+            hasWhitespace = true;
+            if(word != ""){
+                words.push_back(word);
                 word = "";
             }
-        } else {
-            word += c;
+        }
+        else if(txt[i] == ','){
+            hasComma = true;
+            if(word != ""){
+                words.push_back(word);
+                word = "";
+            }
+        }
+        else{
+            word += txt[i];
         }
     }
-    if (!word.empty()) {
-        result.push_back(word);
-    }
-    if (result.empty()) {
-        result.push_back(to_string(3));
-    }
-    return result;
-}
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+    if(word != ""){
+        words.push_back(word);
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
 
-int main() {
-    // Add your testcases here to check the functionality of the split_words function
-    
-    return 0;
+    if(words.empty()){
+        words.push_back(std::to_string(3));
+    }
+
+    return words;
 }
