@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstring>
 
-int calculateLength(string str) {
+int calculateLength(string str){
     return str.length();
 }
 
