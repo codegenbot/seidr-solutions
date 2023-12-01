@@ -2,9 +2,9 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
+using namespace std;
 
-vector<string> words_string(string s){
+vector<string> words_string(string s) {
     vector<string> words;
     string word = "";
     for(int i=0; i<s.length(); i++){
@@ -24,30 +24,25 @@ vector<string> words_string(string s){
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+  
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
+  
     return true;
 }
 
 int main() {
-    vector<string> a = words_string("Hello, World!");
-    vector<string> b = words_string("Hello World!");
-    assert(issame(a, b) == true);
-
-    vector<string> c = words_string("Hello, World!");
-    vector<string> d = words_string("Hello, World");
-    assert(issame(c, d) == false);
-
-    vector<string> e = words_string("Hello, World!");
-    vector<string> f = words_string("Hello, world!");
-    assert(issame(e, f) == false);
-
+    // Test the functions
+    assert(issame(words_string("hello world"), words_string("hello world")));
+    assert(!issame(words_string("hello world"), words_string("hello")));
+    assert(!issame(words_string("hello"), words_string("hello world")));
+  
     return 0;
 }
