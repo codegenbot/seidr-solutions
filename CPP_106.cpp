@@ -35,3 +35,9 @@ bool issame(vector<int> a, vector<int> b){
     }
     return true;
 }
+
+int main(){
+    assert(issame(f(3), {1, 2, 6}));
+
+    return 0;
+}
