@@ -1,10 +1,15 @@
 int starts_one_ends(int n){
     int count = 0;
-    if(n == 1){
-        count = 1;
-    }
-    else{
-        count = 2 * (9 * pow(10, n-2));
+    for(int i = 1; i <= 9; i++){
+        if(i == 1){
+            count++;
+        }
+        for(int j = 1; j <= n-2; j++){
+            count += 9;
+        }
+        if(i == 1){
+            count++;
+        }
     }
     return count;
 }
