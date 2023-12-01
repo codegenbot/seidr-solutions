@@ -1,4 +1,4 @@
-#include<vector>
+#include <vector>
 
 vector<int> even_odd_count(int num){
     int even_count = 0;
