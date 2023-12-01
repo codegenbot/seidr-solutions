@@ -1,21 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 vector<string> words_string(string s);
-
 bool issame(vector<string> a, vector<string> b);
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    vector<string> words = words_string(input);
-    assert(issame(words, words));
-    return 0;
-}
+#include <cassert>
 
 vector<string> words_string(string s){
     vector<string> words;
@@ -47,4 +32,24 @@ bool issame(vector<string> a, vector<string> b){
         }
     }
     return true;
+}
+
+int main() {
+    vector<string> a = words_string("hello,world");
+    vector<string> b = words_string("hello world");
+    assert(issame(a, b) == true);
+    
+    vector<string> c = words_string("hello,world");
+    vector<string> d = words_string("hello, world");
+    assert(issame(c, d) == false);
+    
+    vector<string> e = words_string("hello,world");
+    vector<string> f = words_string("hello,world,");
+    assert(issame(e, f) == false);
+    
+    vector<string> g = words_string("");
+    vector<string> h = words_string("");
+    assert(issame(g, h) == true);
+    
+    return 0;
 }
