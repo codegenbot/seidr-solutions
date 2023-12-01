@@ -18,7 +18,6 @@ vector<string> reverse_delete(string s, string c) {
     return {result, (is_palindrome ? "True" : "False")};
 }
 
-// Remove the duplicate definition of the `issame` function
 bool issame(vector<string> a, vector<string> b) {
     return (a == b);
 }
