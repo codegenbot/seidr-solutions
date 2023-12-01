@@ -13,7 +13,8 @@ string string_sequence(int n) {
 }
 
 int main() {
-    int n = 10;
+    int n;
+    cin >> n;
     assert (string_sequence(n) == "0 1 2 3 4 5 6 7 8 9 10");
 
     return 0;
