@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 int count_upper(std::string s) {
     int count = 0;
