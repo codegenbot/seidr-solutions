@@ -1,6 +1,15 @@
+#include <iostream>
+#include <algorithm>
 #include <string>
+using namespace std;
 
 string circular_shift(int x, int shift);
+
+int main() {
+    assert (circular_shift(11, 101) == "11");
+    
+    return 0;
+}
 
 string circular_shift(int x, int shift){
     string num = to_string(x);
