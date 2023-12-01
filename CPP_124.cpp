@@ -1,4 +1,7 @@
-bool valid_date(string date){
+#include <string>
+#include <cassert>
+
+bool valid_date(const std::string& date){
     if(date.empty()) {
         return false;
     }
