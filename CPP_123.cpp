@@ -1,7 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -19,17 +21,26 @@ vector<int> get_odd_collatz(int n){
     while(n != 1){
         if(n % 2 == 0){
             n = n / 2;
-        }else{
-            n = (3 * n) + 1;
+        } else {
+            n = 3 * n + 1;
         }
         collatz_seq.push_back(n);
     }
     vector<int> odd_collatz_seq;
-    for(int i=0; i<collatz_seq.size(); i++){
+    for(int i = 0; i < collatz_seq.size(); i++){
         if(collatz_seq[i] % 2 != 0){
             odd_collatz_seq.push_back(collatz_seq[i]);
         }
     }
     sort(odd_collatz_seq.begin(), odd_collatz_seq.end());
     return odd_collatz_seq;
+}
+
+int main(){
+    assert(issame(get_odd_collatz(1), {1}));
+    assert(issame(get_odd_collatz(3), {1, 3}));
+    assert(issame(get_odd_collatz(8), {1, 3}));
+    assert(issame(get_odd_collatz(5), {1, 5}));
+    
+    return 0;
 }
