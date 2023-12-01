@@ -1,20 +1,23 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    int n = text.length();
-    int m = target.length();
+    int textLength = text.length();
+    int targetLength = target.length();
 
-    for (int i = 0; i <= n - m; i++) {
-        int j;
-        for (j = 0; j < m; j++) {
-            if (text[i + j] != target[j])
+    for (int i = 0; i <= textLength - targetLength; i++) {
+        bool found = true;
+        for (int j = 0; j < targetLength; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
                 break;
+            }
         }
-        if (j == m)
+        if (found) {
             indices.push_back(i);
+        }
     }
 
     return indices;
@@ -22,12 +25,15 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     std::string text, target;
-    std::cin >> text >> target;
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
 
     std::vector<int> result = indicesOfSubstring(text, target);
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+
+    for (int i : result) {
+        std::cout << i << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
