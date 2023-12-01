@@ -1,8 +1,4 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
-vector<string> splitString(string s){
+vector<string> words_string(string s){
     vector<string> words;
     string word = "";
     for(int i=0; i<s.length(); i++){
@@ -22,12 +18,19 @@ vector<string> splitString(string s){
     return words;
 }
 
-int main(){
-    vector<string> result = splitString("ahmed     , gamal");
-    cout << "Output: ";
-    for(const string& word : result){
-        cout << word << " ";
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
     }
-    cout << endl;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main(){
+    assert (issame(words_string("ahmed     , gamal") , {"ahmed", "gamal"}));
     return 0;
 }
