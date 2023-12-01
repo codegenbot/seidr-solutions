@@ -1,19 +1,20 @@
 import math
 
+
 def poly(xs: list, x: float):
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
 
 def find_zero(xs: list):
     return -xs[0] / xs[1]
 
-# Read input from the user
-n = int(input())  # number of coefficients
-xs = list(map(float, input().split()))  # coefficients
 
-# Call the respective functions
-result1 = poly(xs, 1.5)
-result2 = find_zero(xs)
+n = int(input())
+coefficients = [float(input()) for _ in range(n+1)]
+value = float(input())
 
-# Print the results
-print(result1)
-print(result2)
+result = poly(coefficients, value)
+zero = find_zero(coefficients)
+
+print(result)
+print(zero)
