@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 std::vector<int> tri(int n) {
     std::vector<int> sequence;
