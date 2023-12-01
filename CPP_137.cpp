@@ -19,7 +19,6 @@ string compare_one(string a, string b) {
 
 template <typename T1, typename T2>
 auto compare_one(T1 a, T2 b) {
-    // Handle the case when the arguments are of different types
     if (a > b) {
         return a;
     } else {
