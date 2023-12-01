@@ -4,8 +4,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> parse_music(string music_string){ 
     vector<int> beats;
     string note = "";
