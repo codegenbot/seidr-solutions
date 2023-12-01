@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 bool correct_bracketing(string brackets){
     int count = 0;
@@ -17,6 +16,6 @@ bool correct_bracketing(string brackets){
 }
 
 int main() {
-    assert (not correct_bracketing("()()(()())())()")); // remove extra ")"
+    assert (not correct_bracketing("()()(()())())()")); 
     return 0;
 }
