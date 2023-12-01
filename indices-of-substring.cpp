@@ -18,7 +18,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
                 break;
             }
         }
-        if (found || j == targetLength - 1) {
+        if (found || j == targetLength) {
             indices.push_back(i);
         }
     }
