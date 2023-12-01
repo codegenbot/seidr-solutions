@@ -1,6 +1,6 @@
 #include <string>
 
-bool cycpattern_check(string a, string b) {
+bool cycpattern_check(std::string a, std::string b) {
     int n = a.length();
     int m = b.length();
 
