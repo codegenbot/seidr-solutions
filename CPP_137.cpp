@@ -1,8 +1,10 @@
 #include <any>
 #include <string>
-#include <cassert>
+
+using namespace std;
 
 any compare_one(any a, any b) {
+
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int num1 = any_cast<int>(a);
         int num2 = any_cast<int>(b);
@@ -28,15 +30,6 @@ any compare_one(any a, any b) {
             return str2;
         }
     }
-    return any(std::string("None"));
-}
 
-int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("2"))) == "2");
-    assert(std::any_cast<int>(compare_one(2, 3)) == 3);
-    assert(std::any_cast<int>(compare_one(5, 3)) == 5);
-    assert(std::any_cast<std::string>(compare_one(std::string("abc"), std::string("def"))) == "def");
-    assert(std::any_cast<std::string>(compare_one(std::string("xyz"), std::string("abc"))) == "xyz");
-
-    return 0;
+    return any("None");
 }

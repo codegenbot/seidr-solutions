@@ -26,9 +26,3 @@ string find_max(vector<string> words){
 
     return max_word;
 }
-
-int main() {
-    cout << find_max({"play", "play", "play"}) << endl;
-
-    return 0;
-}
