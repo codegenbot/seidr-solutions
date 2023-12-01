@@ -28,7 +28,5 @@ int main() {
     for (string str : result) {
         cout << str << endl;
     }
-    bool same = issame(result, lst);
-    cout << "Is the result same as the input? " << (same ? "Yes" : "No") << endl;
     return 0;
 }
