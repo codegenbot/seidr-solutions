@@ -1,12 +1,19 @@
-string make_palindrome(string str){
-    int n = str.length();
+#include <stdio.h>
+#include <string>
+using namespace std;
+
+bool is_palindrome(string str) {
+    string s(str.rbegin(), str.rend());
+    return s == str;
+}
+
+string make_palindrome(string str) {
     string prefix = "";
-    for(int i = n-1; i >= 0; i--){
-        if(is_palindrome(str.substr(0, i+1))){
-            prefix = str.substr(i+1, n-(i+1));
-            break;
+    for (int i = str.length() - 1; i >= 0; i--) {
+        prefix += str[i];
+        if (is_palindrome(prefix)) {
+            return str + prefix;
         }
     }
-    string palindrome = str + string(prefix.rbegin(), prefix.rend());
-    return palindrome;
+    return str + prefix;
 }
