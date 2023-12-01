@@ -1,59 +1,24 @@
 def minPath(grid, k):
-    # Initialize variables
-    n = len(grid)
-    path = []
-    visited = set()
-    
-    # Helper function to check if cell is valid
-    def isValid(x, y):
-        return x >= 0 and x < n and y >= 0 and y < n
-    
-    # Helper function to get neighbors of a cell
-    def getNeighbors(x, y):
-        neighbors = []
-        if isValid(x-1, y):
-            neighbors.append((x-1, y))
-        if isValid(x+1, y):
-            neighbors.append((x+1, y))
-        if isValid(x, y-1):
-            neighbors.append((x, y-1))
-        if isValid(x, y+1):
-            neighbors.append((x, y+1))
-        return neighbors
-    
-    # DFS function to find minimum path
-    def dfs(x, y, count):
-        # Base case: if count reaches k, return path
-        if count == k:
+    def dfs(i, j, path_len, path):
+        if path_len == k:
             return path
-        
-        # Add current cell to path
-        path.append(grid[x][y])
-        visited.add((x, y))
-        
-        # Get neighbors of current cell
-        neighbors = getNeighbors(x, y)
-        
-        # Sort neighbors based on grid values
-        neighbors.sort(key=lambda cell: grid[cell[0]][cell[1]])
-        
-        # Explore neighbors
+        if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]):
+            return None
+        curr_val = grid[i][j]
+        grid[i][j] = None
+        neighbors = [(i+1, j), (i-1, j), (i, j+1), (i, j-1)]
+        neighbors.sort(key=lambda x: grid[x[0]][x[1]] if 0 <= x[0] < len(grid) and 0 <= x[1] < len(grid[0]) else float('inf'))
         for neighbor in neighbors:
-            nx, ny = neighbor
-            if (nx, ny) not in visited:
-                result = dfs(nx, ny, count+1)
-                if result:
+            ni, nj = neighbor
+            if grid[ni][nj] is not None and (path_len == k-1 or grid[ni][nj] < curr_val):
+                result = dfs(ni, nj, path_len+1, path + [grid[ni][nj]])
+                if result is not None:
                     return result
-        
-        # Backtrack: remove current cell from path
-        path.pop()
-        visited.remove((x, y))
-        
+        grid[i][j] = curr_val
         return None
-    
-    # Start DFS from each cell in grid
-    for i in range(n):
-        for j in range(n):
-            result = dfs(i, j, 1)
-            if result:
+
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            result = dfs(i, j, 1, [grid[i][j]])
+            if result is not None:
                 return result
