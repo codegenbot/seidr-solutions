@@ -1,8 +1,8 @@
 from typing import List, Tuple
 
 def sum_product() -> Tuple[int, int]:
-    numbers_string = input()
-    numbers = [int(num) for num in numbers_string.split()]
+    numbers = input().split()
+    numbers = [int(num) for num in numbers]
     
     total_sum = sum(numbers)
     product = 1
