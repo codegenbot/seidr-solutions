@@ -5,6 +5,7 @@ def has_close_elements(numbers, threshold):
             return True
     return False
 
+
 numbers_input = input().split()
 threshold_input = int(input())
 
