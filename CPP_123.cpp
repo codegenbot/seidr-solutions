@@ -1,7 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
-#include <iostream>
 
 using namespace std;
 
@@ -30,10 +29,13 @@ vector<int> get_odd_collatz(int n) {
   return odd_collatz_seq;
 }
 
-vector<int> expected = {1};
-vector<int> result = get_odd_collatz(1);
-if (issame(result, expected)) {
-  cout << "Output is correct" << endl;
-} else {
-  cout << "Output is incorrect" << endl;
+int main() {
+  vector<int> expected = {1};
+  vector<int> result = get_odd_collatz(1);
+  if (issame(result, expected)) {
+    cout << "Output is correct" << endl;
+  } else {
+    cout << "Output is incorrect" << endl;
+  }
+  return 0;
 }
