@@ -1,14 +1,20 @@
 import math
 
+
 def poly(xs: list, x: float):
     return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
 
+
 def find_zero(xs: list):
-    if len(xs) < 2 or xs[0] == 0:
-        return None
-    
-    x = 0.0
-    while True:
-        if math.isclose(poly(xs, x), 0.0):
-            return x
-        x += 1.0
+    return -xs[0] / xs[1]
+
+
+if __name__ == "__main__":
+    xs = list(map(float, input().split()))
+    x = float(input())
+
+    result1 = poly(xs, x)
+    result2 = find_zero(xs)
+
+    print(result1)
+    print(result2)
