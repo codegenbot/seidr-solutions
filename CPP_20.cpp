@@ -1,42 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <algorithm>
-
-using namespace std;
-
-bool issame(vector<float> a, vector<float> b);
-
-vector<float> find_closest_elements(vector<float> numbers);
-
-int main() {
-    // Test the function
-    vector<float> numbers = {1.2, 3.4, 2.1, 5.6, 4.3};
-    vector<float> closest_elements = find_closest_elements(numbers);
-
-    // Print the closest elements
-    for (float element : closest_elements) {
-        cout << element << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 vector<float> find_closest_elements(vector<float> numbers){
     vector<float> closest_elements;
     float min_diff = INFINITY;
@@ -52,4 +13,25 @@ vector<float> find_closest_elements(vector<float> numbers){
         }
     }
     return closest_elements;
+}
+
+bool issame(vector<float> a, vector<float> b) {
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    vector<float> numbers = {1.2, 3.4, 5.6, 7.8};
+    vector<float> closest_elements = find_closest_elements(numbers);
+    for(int i = 0; i < closest_elements.size(); i++){
+        cout << closest_elements[i] << " ";
+    }
+    return 0;
 }
