@@ -2,6 +2,7 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b);
+
 vector<string> all_prefixes(string str){
     vector<string> result;
     string prefix = "";

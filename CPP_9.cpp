@@ -1,5 +1,5 @@
-#include <vector>
 #include <cassert>
+#include <vector>
 
 std::vector<int> rolling_max(std::vector<int> numbers);
 
