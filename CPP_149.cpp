@@ -4,10 +4,6 @@
 #include <cassert>
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
     for(string s : lst){
@@ -29,7 +25,7 @@ int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
     vector<string> result = sorted_list_sum(input);
     
-    assert(issame(result, expected));
+    assert(result == expected);
 
     return 0;
 }
