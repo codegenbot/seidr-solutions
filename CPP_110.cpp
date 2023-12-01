@@ -5,8 +5,8 @@ string exchange(vector<int> lst1,vector<int> lst2){
             count++;
         }
     }
-    if(count == 0){
-        return "YES";
+    if(count > lst2.size()){
+        return "NO";
     }
-    return "NO";
+    return "YES";
 }
