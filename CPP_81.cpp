@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// Function to determine the letter grades
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (int i = 0; i < grades.size(); i++) {
@@ -52,7 +51,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     return letter_grades;
 }
 
-// Function to check if two vectors of strings are the same
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -65,9 +63,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-// Main function
 int main() {
-    // Example test case
     assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
 
     return 0;
