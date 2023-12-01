@@ -1,12 +1,20 @@
 string fix_spaces(string text){
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') {
-            if (i + 2 < text.length() && text[i + 1] == ' ' && text[i + 2] == ' ') {
-                text.replace(i, 3, "-");
-            } else {
-                text.replace(i, 1, "_");
+    int consecutiveSpaces = 0;
+    string result = "";
+    
+    for(int i = 0; i < text.length(); i++){
+        if(text[i] == ' '){
+            consecutiveSpaces++;
+            if(consecutiveSpaces > 2){
+                result += "-";
+            }else{
+                result += "_";
             }
+        }else{
+            result += text[i];
+            consecutiveSpaces = 0;
         }
     }
-    return text;
+    
+    return result;
 }
