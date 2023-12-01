@@ -1,21 +1,11 @@
 #include <vector>
-
-bool triples_sum_to_zero(vector<int>& l){
-
-    for(int i=0; i<l.size()-2; i++){
-        for(int j=i+1; j<l.size()-1; j++){
-            for(int k=j+1; k<l.size(); k++){
-                if(l[i] + l[j] + l[k] == 0){
-                    return true;
-                }
-            }
-        }
-    }
+using namespace std;
+bool triples_sum_to_zero() {
+    // implementation goes here
     return false;
 }
 
 int main() {
-    vector<int> l = {100, 3, 5, -100};
-    bool result = triples_sum_to_zero(l);
+    assert(triples_sum_to_zero() == false);
     return 0;
 }
