@@ -3,9 +3,11 @@
 #include <string>
 #include <cassert>
 
-std::map<std::string, int> histogram(std::string test) {
-    std::map<std::string, int> result;
-    std::string word;
+using namespace std;
+
+map<string, int> histogram(string test) {
+    map<string, int> result;
+    string word;
     for (char c : test) {
         if (c != ' ') {
             word += c;
@@ -22,14 +24,14 @@ std::map<std::string, int> histogram(std::string test) {
     return result;
 }
 
-bool issame(std::map<std::string, int> a, std::map<std::string, int> b) {
+bool issame(map<string, int> a, map<string, int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(histogram("a"), {{"a", 1}}));
-    assert(issame(histogram("hello world"), {{"hello", 1}, {"world", 1}}));
-    assert(issame(histogram("hello hello"), {{"hello", 2}}));
-    std::cout << "All test cases passed!" << std::endl;
+    assert(issame(histogram("a"), histogram("a")));
+    assert(issame(histogram("hello world"), histogram("hello world")));
+    assert(issame(histogram("hello hello"), histogram("hello hello")));
+    cout << "All test cases passed!" << endl;
     return 0;
 }
