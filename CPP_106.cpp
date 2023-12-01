@@ -1,8 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
 #include <algorithm>
-
 using namespace std;
 
 vector<int> f(int n) {
@@ -24,7 +24,3 @@ vector<int> f(int n) {
     }
     return result;
 }
-
-vector<int> expected = {1, 2, 6};
-vector<int> actual = f(3);
-assert(expected == actual);
