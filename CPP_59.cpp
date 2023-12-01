@@ -1,27 +1,34 @@
 #include <iostream>
+#include <cmath>
 
 int largest_prime_factor(int n) {
-    int largest = 0;
+    int largestFactor = 0;
+    
     while (n % 2 == 0) {
-        largest = 2;
-        n /= 2;
+        largestFactor = 2;
+        n = n / 2;
     }
-    for (int i = 3; i <= sqrt(n); i += 2) {
+    
+    for (int i = 3; i <= sqrt(n); i = i + 2) {
         while (n % i == 0) {
-            largest = i;
-            n /= i;
+            largestFactor = i;
+            n = n / i;
         }
     }
+    
     if (n > 2) {
-        largest = n;
+        largestFactor = n;
     }
-    return largest;
+    
+    return largestFactor;
 }
 
 int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    std::cout << "Largest prime factor: " << largest_prime_factor(n) << std::endl;
+    
+    std::cout << "Largest prime factor of " << n << " is: " << largest_prime_factor(n) << std::endl;
+    
     return 0;
 }
