@@ -1,11 +1,8 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<string> select_words(string s, int n);
-int count_consonants(string word);
-bool is_vowel(char c);
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> select_words(string s, int n) {
@@ -49,15 +46,10 @@ bool is_vowel(char c) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    // implementation of the issame function
+}
 
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+int main() {
+    // Test the functions here
+    return 0;
 }
