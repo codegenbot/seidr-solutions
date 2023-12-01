@@ -1,7 +1,19 @@
+#include <iostream>
 #include <vector>
+using namespace std;
 
-void issame(vector<int> a, vector<int> b){
-    // add your logic here
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+
+    return true;
 }
 
 vector<int> sum_product(vector<int> numbers){
@@ -17,16 +29,5 @@ vector<int> sum_product(vector<int> numbers){
 }
 
 int main(){
-    vector<int> input = {1, 2, 3, 4, 5};
-    vector<int> result = sum_product(input);
-    
-    // Print the sum and product
-    cout << "Sum: " << result[0] << endl;
-    cout << "Product: " << result[1] << endl;
-    
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {4, 5, 6};
-    issame(a, b);
-    
-    return 0;
+    // Your code for testing the functions...
 }
