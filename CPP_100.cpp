@@ -21,8 +21,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    if (issame(make_a_pile(7), {7, 9, 11, 13, 15, 17, 19})) {
-        std::cout << "Test passed!" << std::endl;
-    }
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
