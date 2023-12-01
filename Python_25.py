@@ -1,8 +1,5 @@
 def solve(n):
-    # your code logic here to solve the problem
-    result = n * 2  # for example
-    return result
-
+    return n * n
 
 def main():
     n = int(input())
