@@ -3,9 +3,7 @@
 
 std::vector<int> factorize(int n);
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> factorize(int n){
     std::vector<int> factors;
@@ -18,6 +16,14 @@ std::vector<int> factorize(int n){
     return factors;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
 int main(){
     assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    
+    // rest of the code
+    
+    return 0;
 }
