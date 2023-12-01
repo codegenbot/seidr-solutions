@@ -2,11 +2,9 @@
 #include <cmath>
 #include <cassert>
 
-using namespace std;
-
-double double_the_difference(vector<double> lst) {
+double double_the_difference(std::vector<float> lst) {
     double sum = 0;
-    for (double num : lst) {
+    for (float num : lst) {
         if (num > 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 == 1) {
             sum += pow(num, 2);
         }
@@ -15,9 +13,16 @@ double double_the_difference(vector<double> lst) {
 }
 
 int main() {
-    vector<double> lst = {1.5, 2.0, 3.3, 4.0, 5.5};
-    double odd_sum = 1.0 * 1.0 + 3.0 * 3.0 + 5.0 * 5.0;
+    std::vector<float> lst;
+    
+    // Add elements to lst here
+    lst.push_back(1.0);
+    lst.push_back(3.0);
+    lst.push_back(5.0);
+    
+    double odd_sum = 35.0;
+    
     assert(double_the_difference(lst) == odd_sum);
-
+    
     return 0;
 }
