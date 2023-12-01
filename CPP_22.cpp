@@ -1,27 +1,23 @@
-#include <iostream>
-#include <boost/any.hpp>
+#include <vector>
+#include <list>
+#include <variant>
+#include <cassert>
 
-using namespace std;
-
-void solve(int N, int Q, vector<int>& A, vector<int>& B, vector<int>& K) {
-    vector<int> ans(N, 0);
-    for (int i = 0; i < Q; i++) {
-        for (int j = A[i] - 1; j < B[i]; j++) {
-            ans[j] += K[i];
+std::vector<int> filter_integers(std::list<std::variant<int, char>> values){
+    std::vector<int> result;
+    for (const auto& value : values) {
+        if (std::holds_alternative<int>(value)) {
+            result.push_back(std::get<int>(value));
         }
     }
-    for (int i = 0; i < N; i++) {
-        cout << ans[i] << endl;
-    }
+    return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
-    int N, Q;
-    cin >> N >> Q;
-    vector<int> A(Q), B(Q), K(Q);
-    for (int i = 0; i < Q; i++) {
-        cin >> A[i] >> B[i] >> K[i];
-    }
-    solve(N, Q, A, B, K);
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
