@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
-std::string encrypt(std::string s){
-    std::string encrypted = "";
+using namespace std;
+
+string encrypt(string s){
+    string encrypted = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= 'a' && c <= 'z'){
@@ -14,8 +15,13 @@ std::string encrypt(std::string s){
     return encrypted;
 }
 
-int main()
-{
-    assert (encrypt("a") == "e");
+int main() {
+    // Test cases
+    assert(encrypt("a") == "e");
+    assert(encrypt("hello") == "jgnnq");
+    assert(encrypt("xyz") == "bcd");
+
+    cout << "All test cases passed!" << endl;
+   
     return 0;
 }
