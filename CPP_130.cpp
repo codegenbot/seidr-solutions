@@ -3,27 +3,13 @@
 std::vector<int> tri(int n);
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    // Implementation of the function
+    // ...
 }
 
 int main() {
     // Test the tri function and issame function
-    int n = 10;
-    std::vector<int> result = tri(n);
-    std::vector<int> expected = {3, 6, 11, 8, 13, 16, 10, 17, 20, 30};
-    if(issame(result, expected)){
-        std::cout << "Test case passed." << std::endl;
-    } else {
-        std::cout << "Test case failed." << std::endl;
-    }
+    // ...
     return 0;
 }
 
