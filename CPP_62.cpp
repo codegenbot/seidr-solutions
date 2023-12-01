@@ -1,4 +1,4 @@
-#include <vector>  
+#include <vector>
 
 vector<float> derivative(vector<float> xs){
     vector<float> result;
@@ -9,11 +9,11 @@ vector<float> derivative(vector<float> xs){
 }
 
 void issame(vector<float> a, vector<float> b){
-    // implementation of issame function
+    // Implementation of issame function
 }
 
 int main(){
     assert(issame(derivative({1}), {}));
-    // rest of the main function
+    // Rest of the main function
     return 0;
 }
