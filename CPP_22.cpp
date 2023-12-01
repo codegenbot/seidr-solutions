@@ -3,6 +3,7 @@
 #include <vector>
 #include <boost/any.hpp>
 #include <typeinfo>
+#include <algorithm>
 
 using namespace std;
 
@@ -17,9 +18,7 @@ vector<int> filter_integers(const list<boost::any>& values) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    // Implementation of the comparison function
-    // ...
-    return true; // Modify this according to the desired comparison logic
+    return a == b;
 }
 
 int main() {
