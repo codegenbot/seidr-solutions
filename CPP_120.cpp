@@ -1,7 +1,8 @@
-#include<vector>
-using namespace std;
+#include <vector>
 
-vector<int> maximum(vector<int> arr, int k);
+bool issame(vector<int> a, vector<int> b) {
+    // function body
+}
 
 vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
@@ -10,16 +11,5 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    // test the maximum function
-    vector<int> arr = {5, 8, 2, 10, 3};
-    int k = 3;
-    
-    vector<int> result = maximum(arr, k);
-    
-    // print the result
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    
-    return 0;
+    // function body
 }
