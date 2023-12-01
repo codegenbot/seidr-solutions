@@ -37,6 +37,7 @@ bool valid_date(std::string date) {
 }
 
 int main() {
+
     std::cout << valid_date("04-2003") << std::endl;
     
     return 0;
