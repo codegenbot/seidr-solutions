@@ -1,23 +1,12 @@
-#include <string>
 #include <cassert>
+#include <string>
 
-bool is_palindrome(std::string text) {
+bool is_palindrome(std::string text){
     int n = text.length();
-    for (int i = 0; i < n / 2; i++) {
-        if (text[i] != text[n - i - 1]) {
+    for(int i=0; i<n/2; i++){
+        if(text[i] != text[n-i-1]){
             return false;
         }
     }
     return true;
-}
-
-int main() {
-    // Test cases
-    assert(is_palindrome("level"));
-    assert(is_palindrome("radar"));
-    assert(!is_palindrome("hello"));
-    assert(is_palindrome(""));
-    assert(is_palindrome("a"));
-  
-    return 0;
 }
