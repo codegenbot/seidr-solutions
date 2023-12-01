@@ -15,14 +15,3 @@ string remove_vowels(string text) {
 
     return result;
 }
-
-int main() {
-    cout << remove_vowels("") << endl;
-    cout << remove_vowels("abcdef\nghijklm") << endl;
-    cout << remove_vowels("abcdef") << endl;
-    cout << remove_vowels("aaaaa") << endl;
-    cout << remove_vowels("aaBAA") << endl;
-    cout << remove_vowels("zbcd") << endl;
-
-    return 0;
-}
