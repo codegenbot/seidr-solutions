@@ -24,8 +24,5 @@ vector<string> splitString(string s){
     return words;
 }
 
-int main() {
-    assert (splitString("ahmed     , gamal") == {"ahmed", "gamal"});
-    
-    return 0;
-}
+string words_string = "ahmed     , gamal";
+assert (issame(splitString(words_string) , {"ahmed", "gamal"}));

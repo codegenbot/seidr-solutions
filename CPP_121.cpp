@@ -16,4 +16,3 @@ int main() {
     // Add more test cases if needed
 
     return 0;
-}
