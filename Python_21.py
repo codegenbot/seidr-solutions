@@ -1,5 +1,6 @@
 from typing import List
 
+
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     numbers = input().split()
     numbers = list(map(float, numbers))
