@@ -22,8 +22,8 @@ def solve(n: int) -> List[int]:
 def main():
     n = int(input())
     result = solve(n)
-    print(result)
+    print(*result)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
