@@ -1,6 +1,12 @@
 #include <vector>
 
+vector<int> tri(int n);
+
 bool issame(vector<int> a, vector<int> b);
+
+int main() {
+    assert(issame(tri(1), {1, 3}));
+}
 
 vector<int> tri(int n){
     vector<int> sequence;
@@ -37,7 +43,16 @@ vector<int> tri(int n){
     return sequence; // return the complete sequence
 }
 
-int main(){
-    assert(issame(tri(1) , {1, 3}));
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
