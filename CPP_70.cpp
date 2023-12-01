@@ -1,11 +1,12 @@
 #include <vector>
+using namespace std;
 
-bool issame(vector<int> lst1, vector<int> lst2){
-    if(lst1.size() != lst2.size()){
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<lst1.size(); i++){
-        if(lst1[i] != lst2[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
