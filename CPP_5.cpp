@@ -13,3 +13,9 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     
     return result;
 }
+
+int main() {
+    // assert function definition goes here 
+    
+    return 0;
+}
