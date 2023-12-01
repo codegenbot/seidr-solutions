@@ -21,22 +21,26 @@ bool evaluateBooleanExpression(std::string expression) {
         std::string right = expression.substr(opIndex + 1);
 
         if (expression[opIndex] == '|') {
-            return evaluateBooleanExpression(left) || evaluateBooleanExpression(right);
+            bool leftResult = evaluateBooleanExpression(left);
+            bool rightResult = evaluateBooleanExpression(right);
+            if (leftResult || rightResult) {
+                return true;
+            } else if (leftResult && rightResult) {
+                return true;
+            } else {
+                return false;
+            }
         } else if (expression[opIndex] == '&') {
             return evaluateBooleanExpression(left) && evaluateBooleanExpression(right);
         }
-    } else if (expression[0] == 'T' || expression[0] == 't') {
-        if (expression.length() > 2 && expression[1] == '|') {
+    } else if (expression[0] == 't') {
+        if (expression.length() == 1 || expression[1] != '&')
             return true;
-        } else if (expression[0] == 'T') {
-            return true;
-        }
-    } else if (expression[0] == 'F' || expression[0] == 'f') {
-        if (expression.length() > 2 && expression[1] == '&') {
+    } else if (expression[0] == 'f') {
+        if (expression.length() == 1 || expression[1] != '|')
             return false;
-        } else if (expression[0] == 'F') {
+        else if (expression[1] == '&')
             return false;
-        }
     }
 
     return true;
@@ -47,7 +51,7 @@ int main() {
     std::getline(std::cin, inputExpression);
 
     bool result = evaluateBooleanExpression(inputExpression);
-    std::cout << result << std::endl;
+    std::cout << std::boolalpha << result << std::endl;
 
     return 0;
 }
