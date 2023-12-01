@@ -21,7 +21,7 @@ std::string int_to_mini_roman(int number){
 
 int main() {
     assert(int_to_mini_roman(1000) == "m");
-
+    // Additional test cases to verify correctness
     assert(int_to_mini_roman(7) == "vii");
     assert(int_to_mini_roman(43) == "xliii");
     assert(int_to_mini_roman(1999) == "mcmxcix");
