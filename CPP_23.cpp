@@ -1,5 +1,5 @@
 #include <string>
 
-int strLength(std::string str){
+int strLength(string str){
     return str.length();
 }
