@@ -31,7 +31,6 @@ int largestPrimeSum(vector<int> lst) {
 }
 
 int main() {
-    cout << largestPrimeSum({127, 97, 8192}) << endl;
-
+    largestPrimeSum({127, 97, 8192});
     return 0;
 }
