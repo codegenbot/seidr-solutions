@@ -4,7 +4,7 @@
 
 std::vector<int> remove_duplicates(std::vector<int> numbers){
     std::vector<int> result;
-    for(int i = 0; i < numbers.size(); i++){
+    for(int i=0; i<numbers.size(); i++){
         if(std::count(numbers.begin(), numbers.end(), numbers[i]) == 1){
             result.push_back(numbers[i]);
         }
