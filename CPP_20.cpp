@@ -4,15 +4,6 @@
 
 using namespace std;
 
-vector<float> find_closest_elements(vector<float> numbers);
-
-bool is_same(vector<float> a, vector<float> b);
-
-int main() {
-    assert(is_same(find_closest_elements(vector<float>({1.1, 2.2, 3.1, 4.1, 5.1})), {2.2, 3.1}));
-    return 0;
-}
-
 vector<float> find_closest_elements(vector<float> numbers) {
     float min_diff = abs(numbers[0] - numbers[1]);
     float num1 = numbers[0];
@@ -42,4 +33,9 @@ bool is_same(vector<float> a, vector<float> b) {
         if (abs(a[i] - b[i]) > 1e-4) return false;
     }
     return true;
+}
+
+int main() {
+    assert(is_same(find_closest_elements(vector<float>({1.1, 2.2, 3.1, 4.1, 5.1})), {2.2, 3.1}));
+    return 0;
 }
