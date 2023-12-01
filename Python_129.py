@@ -14,9 +14,7 @@ def minPath(grid, k):
                 and (ni, nj) not in visited
             ):
                 new_visited = visited | {(ni, nj)}
-                new_path = backtrack(
-                    ni, nj, path + [(ni, nj)], remain - 1, visited.copy()
-                )
+                new_path = backtrack(ni, nj, path + [(ni, nj)], remain - 1, visited.copy())
                 if len(path) == k - 1 and len(new_path) == k - 1:
                     return new_path + [grid[i][j]]
         return None
