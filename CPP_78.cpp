@@ -12,11 +12,3 @@ int hex_key(std::string num){
     
     return count;
 }
-
-int main() {
-    // Test cases
-    assert(hex_key("") == 0);
-    // Add more test cases here
-    
-    return 0;
-}
