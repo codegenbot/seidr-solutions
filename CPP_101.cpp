@@ -1,9 +1,10 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+
 using namespace std;
 
-vector<string> splitStringAndRemoveSpaces(string s){
+vector<string> splitString(string s){
     vector<string> words;
     string word = "";
     for(int i=0; i<s.length(); i++){
@@ -24,14 +25,14 @@ vector<string> splitStringAndRemoveSpaces(string s){
 }
 
 int main(){
-    vector<string> result = splitStringAndRemoveSpaces("ahmed     , gamal");
+    vector<string> result = splitString("ahmed     , gamal");
     cout << "Output: ";
     for(const string& word : result){
         cout << word << " ";
     }
     cout << endl;
 
-    assert(splitStringAndRemoveSpaces("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
 
     return 0;
 }
