@@ -1,4 +1,6 @@
 #include <vector>
+#include <algorithm>
+using namespace std;
 
 bool issame(vector<vector<int>> a,vector<vector<int>> b);
 
