@@ -1,4 +1,6 @@
-bool issame(vector<string> a, vector<string> b) {}
+bool issame(vector<string> a, vector<string> b) {
+    // Function implementation
+}
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     vector<string> filtered_strings;
