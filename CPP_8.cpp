@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using std::vector;
 
@@ -18,7 +19,7 @@ void sum_product(vector<int>& numbers){
 int main() {
     vector<int> numbers = {10};
     sum_product(numbers);
-    assert (numbers == vector<int>({10, 10}));
+    assert(numbers == vector<int>({10, 10}));
     
     return 0;
 }
