@@ -1,9 +1,13 @@
+import math
+import sys
+
 def poly():
-    xs = [float(coeff) for coeff in input().split()]
-    x = float(input())
+    xs = sys.stdin.readline().strip().split()
+    xs = [float(coeff) for coeff in xs]
+    x = float(sys.stdin.readline().strip())
     return sum([coeff * x ** i for i, coeff in enumerate(xs)])
 
-
 def find_zero():
-    xs = [float(coeff) for coeff in input().split()]
-    return -xs[0] / xs[1]
+    xs = sys.stdin.readline().strip().split()
+    xs = [float(coeff) for coeff in xs]
+    return xs[0] / -xs[1]
