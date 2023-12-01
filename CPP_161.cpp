@@ -7,12 +7,10 @@ string solve(string s){
             hasLetters = true;
             if(islower(s[i])){
                 result += toupper(s[i]);
-            }
-            else{
+            }else{
                 result += tolower(s[i]);
             }
-        }
-        else{
+        }else{
             result += s[i];
         }
     }
