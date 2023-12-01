@@ -25,7 +25,6 @@ bool issame(const T& a, const T& b) {
 }
 
 int main() {
-    // Test the function
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
 
     return EXIT_SUCCESS;
