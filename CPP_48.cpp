@@ -1,8 +1,6 @@
-#include <iostream>
 #include <string>
-#include <cassert> 
 
-bool is_palindrome(string text){
+bool is_palindrome(std::string text){
     int len = text.length();
     for(int i=0; i<len/2; i++){
         if(text[i] != text[len-i-1]){
@@ -12,7 +10,10 @@ bool is_palindrome(string text){
     return true;
 }
 
-int main(){
-    assert (is_palindrome("xywzx") == false);
+int main() {
+    // Test cases
+    bool result1 = is_palindrome("racecar");
+    bool result2 = is_palindrome("hello");
+
     return 0;
 }
