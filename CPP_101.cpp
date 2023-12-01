@@ -1,6 +1,21 @@
-vector<string> words_string(string s);
-bool issame(vector<string> a, vector<string> b);
+#include <iostream>
+#include <vector>
 #include <cassert>
+
+using namespace std;
+
+vector<string> words_string(string s);
+
+bool issame(vector<string> a, vector<string> b);
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    vector<string> words = words_string(input);
+    assert(issame(words, words));
+    return 0;
+}
 
 vector<string> words_string(string s){
     vector<string> words;
