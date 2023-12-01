@@ -1,30 +1,49 @@
-def bowling_score(bowls):
+def calculate_bowling_score(bowls):
     score = 0
     frame = 1
-    i = 0
-    while frame <= 10:
-        if bowls[i] == 'X':
+    frame_score = 0
+    spare = False
+    strike = False
+    for bowl in bowls:
+        if bowl == 'X':
             score += 10
-            if i < len(bowls) - 2:
-                if bowls[i+2] == 'X':
-                    score += 10
-                elif bowls[i+2] == '/':
-                    score += 10 - int(bowls[i+1])
-                else:
-                    score += int(bowls[i+1]) + int(bowls[i+2])
-            frame += 1
-            i += 1
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i-1])
-            if i < len(bowls) - 1:
-                score += int(bowls[i+1])
-            frame += 1
-            i += 1
+            if frame < 10:
+                frame_score += 10
+                strike = True
+            else:
+                frame_score += 10
+        elif bowl == '/':
+            score += 10 - frame_score
+            if frame < 10:
+                frame_score += 10 - frame_score
+                spare = True
+            else:
+                frame_score += 10 - frame_score
+        elif bowl == '-':
+            if frame < 10:
+                frame_score += 0
+            else:
+                frame_score += 0
         else:
-            score += int(bowls[i])
+            score += int(bowl)
+            if frame < 10:
+                frame_score += int(bowl)
+        if frame < 10 and (strike or spare):
+            if strike:
+                score += int(bowl)
+                frame_score += int(bowl)
+                strike = False
+            elif spare:
+                score += int(bowl)
+                frame_score += int(bowl)
+                spare = False
+        if frame < 10 and frame_score == 10:
+            spare = True
+        if frame < 10 and bowl != 'X':
+            frame_score = 0
+        if frame < 10 and (bowl == 'X' or bowl == '/'):
             frame += 1
-        i += 1
     return score
 
 bowls = input().strip()
-print(bowling_score(bowls))
+print(calculate_bowling_score(bowls))
