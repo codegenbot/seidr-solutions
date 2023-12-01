@@ -1,23 +1,37 @@
 #include <iostream>
 #include <vector>
 #include <unordered_set>
-using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
-    int n = l.size();
-    unordered_set<int> s;
-
-    for (int i = 0; i < n - 2; i++) {
-        for (int j = i + 1; j < n - 1; j++) {
-            for (int k = j + 1; k < n; k++) {
-                int sum = l[i] + l[j] + l[k];
-                if (sum == 0) {
-                    return true;
-                }
-                s.insert(sum);
-            }
+    unordered_set<int> nums;
+    
+    for (int i = 0; i < l.size(); i++) {
+        for (int j = i + 1; j < l.size(); j++) {
+            int target = -(l[i] + l[j]);
+            
+            if (nums.count(target) > 0)
+                return true;
+            
+            nums.insert(l[j]);
         }
     }
-
+    
     return false;
+}
+
+int main() {
+    // test cases
+    vector<vector<int>> test_cases = {
+        {1, 3, 5, 0},
+        {1, 3, -2, 1},
+        {1, 2, 3, 7},
+        {2, 4, -5, 3, 9, 7},
+        {1}
+    };
+    
+    for (auto test_case : test_cases) {
+        cout << boolalpha << triples_sum_to_zero(test_case) << endl;
+    }
+    
+    return 0;
 }
