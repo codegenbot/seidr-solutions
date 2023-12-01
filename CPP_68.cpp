@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <cassert>
 
 std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
