@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -28,7 +29,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return str2;
         }
     }
-    return boost::any(); // Return empty boost::any object
+    return boost::any();
 }
 
 int main() {
