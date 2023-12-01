@@ -5,6 +5,15 @@
 
 using namespace std;
 
+vector<string> numerical_letter_grade(vector<float> grades);
+bool issame(vector<string> a, vector<string> b);
+
+int main() {
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    
+    return 0;
+}
+
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
     for(int i=0; i<grades.size(); i++){
@@ -39,14 +48,13 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // Code to compare vectors 'a' and 'b'
-    // ...
-    return true; // Placeholder return value
-}
-
-vector<string> numerical_letter_grade(vector<float> grades);
-
-int main() {
-    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
-    return 0;
+    if (a.size() != b.size()){
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++){
+        if (a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
