@@ -5,7 +5,7 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    // function body...
+    return a == b;
 }
 
 vector<int> generate_integers(int a, int b) {
