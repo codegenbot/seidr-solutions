@@ -1,13 +1,10 @@
-#include <iostream>
-using namespace std;
+#include <cmath>
 
 float triangle_area(float a, float h) {
     return (a * h) / 2;
 }
 
 int main() {
-    float a, h;
-    cin >> a >> h;
-    cout << triangle_area(a, h) << endl;
+    assert(std::abs(triangle_area(10, 8) - 40.0) < 1e-4);
     return 0;
 }
