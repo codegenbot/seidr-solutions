@@ -9,11 +9,7 @@ vector<float> find_closest_elements(vector<float> numbers);
 bool is_same(vector<float> a, vector<float> b);
 
 int main() {
-    assert(
-        is_same(find_closest_elements(vector<float>({1.1, 2.2, 3.1, 4.1, 5.1})), 
-        {2.2, 3.1})
-    );
-    
+    assert(is_same(find_closest_elements(vector<float>({1.1, 2.2, 3.1, 4.1, 5.1})), {2.2, 3.1}));
     return 0;
 }
 
