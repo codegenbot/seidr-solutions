@@ -16,21 +16,21 @@ bool evaluateBooleanExpression(const std::string& expression) {
     if (opIndex != -1) {
         bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
 
-        if (expression.at(opIndex) == '|') {
+        if (expression[opIndex] == '|') {
             if (left) {
                 return true;
             }
-        } else if (expression.at(opIndex) == '&') {
+        } else if (expression[opIndex] == '&') {
             if (!left) {
                 return false;
             }
         }
 
-        bool right = evaluateBooleanExpression(expression.substr(opIndex + 1, expression.length() - (opIndex + 1)));
+        bool right = evaluateBooleanExpression(expression.substr(opIndex + 1, expression.length() - opIndex - 1));
         return right;
-    } else if (expression.at(0) == 'T' || expression.at(0) == 't') {
+    } else if (expression == "T" || expression == "t" || expression == "true") {
         return true;
-    } else if (expression.at(0) == 'F' || expression.at(0) == 'f') {
+    } else if (expression == "F" || expression == "f" || expression == "false") {
         return false;
     }
 
