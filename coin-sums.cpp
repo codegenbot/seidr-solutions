@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-    int cents = 0;
+    int cents;
     std::cin >> cents;
 
     int quarters = cents / 25;
@@ -14,6 +14,18 @@ int main() {
     cents %= 5;
 
     int pennies = cents;
+
+    if (cents > 0) {
+        if (cents < 5)
+        {
+            nickels++;
+        }
+        else
+        {
+            dimes++;
+            pennies++;
+        }
+    }
 
     int totalCoins = quarters + dimes + nickels + pennies;
 
