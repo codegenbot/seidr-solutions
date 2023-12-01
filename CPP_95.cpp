@@ -14,10 +14,10 @@ bool check_dict_case(std::map<std::string, std::string> dict){
         if(key.empty())
             return false;
         
-        if(isLower && !islower(key[0]))
+        if(isLower && !std::islower(key[0]))
             isLower = false;
         
-        if(isUpper && !isupper(key[0]))
+        if(isUpper && !std::isupper(key[0]))
             isUpper = false;
         
         if(!isLower && !isUpper)
@@ -29,5 +29,8 @@ bool check_dict_case(std::map<std::string, std::string> dict){
 
 int main(){
     assert(check_dict_case(std::map<std::string, std::string>{}) == false);
-    // ...
+    
+    // Add more test cases here
+    
+    return 0;
 }
