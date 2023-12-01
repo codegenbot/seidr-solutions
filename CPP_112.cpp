@@ -5,12 +5,14 @@
 
 using namespace std;
 
-bool is_same(vector<string> a, vector<string> b){
-    if(a[0] == b[0] && a[1] == b[1]){
+bool is_same(vector<string> a, vector<string> b) {
+    if (a[0] == b[0] && a[1] == b[1]) {
         return true;
     }
     return false;
 }
+
+vector<string> reverse_delete(string s, string c);
 
 vector<string> reverse_delete(string s, string c) {
     string result = "";
@@ -26,7 +28,7 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(is_same(reverse_delete("mamma", "mia") , {"", "True"}));
-    assert(is_same(reverse_delete("hello", "o") , {"hell", "True"}));
+    assert(is_same(reverse_delete("mamma", "mia"), {"", "True"}));
+    assert(is_same(reverse_delete("hello", "o"), {"hell", "True"}));
     return 0;
 }
