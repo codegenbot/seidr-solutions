@@ -1,17 +1,17 @@
 vector<int> pluck(vector<int> arr){
     vector<int> result;
+    int smallestValue = INT_MAX;
     int smallestIndex = -1;
-    int smallestEvenValue = INT_MAX;
     
-    for(int i=0; i<arr.size(); i++){
-        if(arr[i] % 2 == 0 && arr[i] < smallestEvenValue){
-            smallestEvenValue = arr[i];
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] % 2 == 0 && arr[i] < smallestValue){
+            smallestValue = arr[i];
             smallestIndex = i;
         }
     }
     
     if(smallestIndex != -1){
-        result.push_back(smallestEvenValue);
+        result.push_back(smallestValue);
         result.push_back(smallestIndex);
     }
     
