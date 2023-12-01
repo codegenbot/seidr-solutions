@@ -1,4 +1,9 @@
+#include <iostream>
 #include <vector>
+#include <cmath>
+#include <cassert>
+
+using namespace std;
 
 int prod_signs(vector<int> arr){
     if(arr.empty()){
@@ -9,7 +14,7 @@ int prod_signs(vector<int> arr){
     int sum = 0;
     
     for(int i=0; i<arr.size(); i++){
-        product *= (arr[i] >= 0) ? 1 : -1;
+        product *= arr[i] < 0 ? -1 : (arr[i] > 0 ? 1 : 0);
         sum += abs(arr[i]);
     }
     
@@ -17,6 +22,8 @@ int prod_signs(vector<int> arr){
 }
 
 int main(){
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    assert (prod_signs({-1, 1, 1, 0}) == 0);
+    // Add more test cases if needed
+    
     return 0;
 }
