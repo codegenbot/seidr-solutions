@@ -33,25 +33,3 @@ vector<int> get_odd_collatz(int n){
     
     return odd_collatz;
 }
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
-
-int main(){
-    assert(issame(get_odd_collatz(1), {1}));
-    assert(issame(get_odd_collatz(7), {1, 3, 7}));
-    assert(issame(get_odd_collatz(10), {1, 5}));
-    
-    return 0;
-}
