@@ -23,5 +23,5 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    assertion (issame(words_string("ahmed     , gamal") , {"ahmed", "gamal"}));
+    assertion(issame(words_string("ahmed     , gamal") , {"ahmed", "gamal"}));
 }
