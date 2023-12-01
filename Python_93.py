@@ -1,4 +1,3 @@
-```python
 def encode(message):
     encoded_message = ""
     vowels = ["a", "e", "i", "o", "u"]
