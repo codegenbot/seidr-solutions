@@ -11,9 +11,7 @@ def rolling_max(numbers: List[int]) -> List[int]:
 
 
 size = int(input())
-numbers = []
-for _ in range(size):
-    numbers.append(int(input()))
+numbers = list(map(int, input().split()))
 
 result = rolling_max(numbers)
 print(result)
