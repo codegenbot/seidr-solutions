@@ -7,7 +7,7 @@ bool isVowel(char c) {
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -19,9 +19,9 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word = "";
     int count = 0;
     for(int i = 0; i < s.length(); i++) {
         if(s[i] == ' ') {
