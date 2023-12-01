@@ -1,44 +1,42 @@
-#include <vector>
+#include <vector> 
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
+bool issame(const std::vector<int>& a, const std::vector<int>& b) { 
+    if (a.size() != b.size()) {
         return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
-            return false;
     }
+    
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
     return true;
 }
 
-vector<int> f(int n){
-    vector<int> result(n);
-    for(int i=0; i<n; i++){
-        if(i % 2 == 0){
+std::vector<int> f(int n) {
+    std::vector<int> result;
+    for(int i=1; i<=n; i++) {
+        if (i%2 == 0) {
             int factorial = 1;
             for(int j=1; j<=i; j++){
                 factorial *= j;
             }
-            result[i] = factorial;
-        } else {
+            result.push_back(factorial);
+        }
+        else {
             int sum = 0;
             for(int j=1; j<=i; j++){
                 sum += j;
             }
-            result[i] = sum;
+            result.push_back(sum);
         }
     }
     return result;
 }
 
 int main() {
-    vector<int> result = f(10);
-    vector<int> expected = {1, 1, 2, 2, 5, 5, 15, 15, 52, 52};
-
-    if (issame(result, expected)) {
-      cout << "Test case passed." << endl;
-    } else {
-      cout << "Test case failed." << endl;
-    }
-
+    assert(issame(f(3), {1, 2, 6})); 
+    
     return 0;
 }
