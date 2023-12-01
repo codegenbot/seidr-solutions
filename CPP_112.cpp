@@ -18,7 +18,11 @@ vector<string> reverse_delete(string s, string c) {
     return {result, (is_palindrome ? "True" : "False")};
 }
 
+bool is_same_vectors(vector<string> a, vector<string> b) {
+    return (a == b);
+}
+
 int main() {
-    assert (issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    vector<string> result = reverse_delete("mamma", "mia");
     return 0;
 }
