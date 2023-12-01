@@ -30,7 +30,6 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    // Test cases
     assert (intersection({-2, -2}, {-3, -2}) == "NO");
     assert (intersection({1, 10}, {10, 20}) == "YES");
     assert (intersection({-5, 5}, {-10, -3}) == "YES");
