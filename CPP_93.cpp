@@ -1,42 +1,39 @@
-#include<iostream>
-using namespace std;
-
 string encode(string message){
-    string encodedMessage = "";
-    
-    for(int i=0; i<message.length(); i++){
-        if(isalpha(message[i])){
-            // Swap the case of letter
-            if(isupper(message[i])){
-                encodedMessage += tolower(message[i]);
+    string encoded_msg = "";
+    for (int i=0; i<message.length(); i++){
+        char c = message[i];
+
+        if (isalpha(c)){
+            if (islower(c)){
+                encoded_msg += toupper(c);
             }
             else{
-                encodedMessage += toupper(message[i]);
+                encoded_msg += tolower(c);
             }
 
-            // Replace vowels with the letter that appears 2 places ahead
-            char c = encodedMessage.back();
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-               c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
-                
-                encodedMessage.pop_back();
-                encodedMessage += c + 2;
+            if (tolower(c) == 'a'){
+                encoded_msg += 'c';
+            }
+            else if (tolower(c) == 'e'){
+                encoded_msg += 'g';
+            }
+            else if (tolower(c) == 'i'){
+                encoded_msg += 'k';
+            }
+            else if (tolower(c) == 'o'){
+                encoded_msg += 'q';
+            }
+            else if (tolower(c) == 'u'){
+                encoded_msg += 'w';
+            }
+            else{
+                encoded_msg += c;
             }
         }
         else{
-            encodedMessage += message[i];
+            encoded_msg += c;
         }
     }
-    return encodedMessage;
-}
 
-int main(){
-    string message;
-    
-    cout << "Enter a message: ";
-    getline(cin, message);
-    
-    cout << "Encoded message: " << encode(message) << endl;
-    
-    return 0;
+    return encoded_msg;
 }
