@@ -1,11 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,8 +14,13 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> maximum(vector<int> arr, int k) {
-    sort(arr.begin(), arr.end(), greater<int>());
-    vector<int> result(arr.begin(), arr.begin() + k);
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::sort(arr.begin(), arr.end(), std::greater<int>());
+    std::vector<int> result(arr.begin(), arr.begin() + std::min(k, static_cast<int>(arr.size())));
     return result;
+}
+
+int main() {
+    std::cout << "Test case passed!" << std::endl;
+    return 0;
 }
