@@ -6,7 +6,9 @@ using namespace std;
 
 vector<string> all_prefixes(string str);
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    // Compare the two vectors and return true or false;
+}
 
 vector<string> all_prefixes(string str) {
     vector<string> prefixes;
@@ -16,10 +18,6 @@ vector<string> all_prefixes(string str) {
         prefixes.push_back(prefix);
     }
     return prefixes;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    // Compare the two vectors and return true or false;
 }
 
 int main() {
