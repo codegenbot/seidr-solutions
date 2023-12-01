@@ -17,9 +17,11 @@ vector<string> split_words(string txt) {
     for (int i = 0; i < txt.length(); i++) {
         if (txt[i] == ' ') {
             hasWhitespace = true;
-        } else if (txt[i] == ',') {
+        }
+        else if (txt[i] == ',') {
             hasComma = true;
-        } else {
+        }
+        else {
             word += txt[i];
         }
 
