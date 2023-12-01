@@ -1,24 +1,26 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 int do_algebra(const vector<string>& operato, const vector<int>& operand){
-    int result = operand[0]; // Initialize result with the first operand
+    int result = operand[0];
 
     for(int i = 0; i < operato.size(); i++){
         if(operato[i] == "+"){
-            result += operand[i+1]; // Perform addition
+            result += operand[i+1];
         }
         else if(operato[i] == "-"){
-            result -= operand[i+1]; // Perform subtraction
+            result -= operand[i+1];
         }
         else if(operato[i] == "*"){
-            result *= operand[i+1]; // Perform multiplication
+            result *= operand[i+1];
         }
         else if(operato[i] == "//"){
-            result /= operand[i+1]; // Perform floor division
+            result /= operand[i+1];
         }
         else if(operato[i] == "**"){
-            result = pow(result, operand[i+1]); // Perform exponentiation
+            result = pow(result, operand[i+1]);
         }
     }
 
