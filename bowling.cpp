@@ -1,56 +1,32 @@
 #include <iostream>
 #include <string>
 
-int getScore(std::string input) {
+int getFrameScore(const std::string& frame) {
     int score = 0;
-    int frame = 1;
-    int index = 0;
+    int frameIndex = 0;
 
-    while (frame <= 10 && index < input.length()) {
-        if (input[index] == 'X') {
+    for (int i = 0; i < 10; ++i) {
+        if (frame[frameIndex] == 'X') {
             score += 10;
-            if (input[index + 2] == 'X') {
-                score += 10;
-                if (input[index + 4] == 'X') {
-                    score += 10;
-                } else if (input[index + 4] == '/') {
-                    score += 10 - (input[index + 3] - '0');
-                } else {
-                    score += input[index + 4] - '0';
-                }
-            } else if (input[index + 2] == '/') {
-                score += 10;
-            } else {
-                score += input[index + 2] - '0';
-                if (input[index + 3] == '/') {
-                    score += 10 - (input[index + 2] - '0');
-                }
-            }
-            index += 2;
-        } else if (input[index + 1] == '/') {
+            frameIndex++;
+        } else if (frame[frameIndex + 1] == '/') {
             score += 10;
-            if (input[index + 2] == 'X') {
-                score += 10;
-            } else {
-                score += input[index + 2] - '0';
-            }
-            index += 3;
+            frameIndex += 2;
         } else {
-            score += input[index] - '0';
-            score += input[index + 1] - '0';
-            index += 2;
+            score += frame[frameIndex] - '0';
+            score += frame[frameIndex + 1] - '0';
+            frameIndex += 2;
         }
-        frame++;
     }
 
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
+    std::string frame;
+    std::cin >> frame;
 
-    int score = getScore(input);
+    int score = getFrameScore(frame);
     std::cout << score << std::endl;
 
     return 0;
