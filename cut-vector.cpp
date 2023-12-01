@@ -1,55 +1,51 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-std::vector<int> cutVector(const std::vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
     int n = nums.size();
-    int diff = INT_MAX;
-    int index = -1;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
     
-    for (int i = 1; i < n; i++) {
-        int leftSum = 0;
-        int rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            leftSum += nums[j];
-        }
-        
-        for (int j = i; j < n; j++) {
-            rightSum += nums[j];
-        }
-        
-        int currDiff = abs(leftSum - rightSum);
-        
+    int target = sum / 2;
+    int currSum = 0;
+    int diff = INT_MAX;
+    int idx = -1;
+    
+    for (int i = 0; i < n; i++) {
+        currSum += nums[i];
+        int currDiff = abs(target - currSum);
         if (currDiff < diff) {
             diff = currDiff;
-            index = i;
+            idx = i;
         }
     }
     
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index);
-    std::vector<int> rightSubvector(nums.begin() + index, nums.end());
+    vector<int> subVec1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subVec2(nums.begin() + idx + 1, nums.end());
     
-    return {leftSubvector, rightSubvector};
+    return make_pair(subVec1, subVec2);
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
     
-    std::vector<int> leftSubvector, rightSubvector;
-    std::tie(leftSubvector, rightSubvector) = cutVector(nums);
+    pair<vector<int>, vector<int>> result = cutVector(nums);
     
-    for (int num : leftSubvector) {
-        std::cout << num << std::endl;
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << endl;
     }
     
-    for (int num : rightSubvector) {
-        std::cout << num << std::endl;
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i] << endl;
     }
     
     return 0;
