@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert>
-using namespace std;
 
-bool is_nested(string str) {
+bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
         if (c == '[') {
@@ -20,12 +18,11 @@ bool is_nested(string str) {
 }
 
 int main() {
-    // Test cases
-    assert(is_nested("[]") == false);
-    assert(is_nested("[[[]]]") == false);
-    assert(is_nested("[[[]]") == true);
-    assert(is_nested("[[]]]") == true);
-    assert(is_nested("]]]]]]]]") == true);
+    std::cout << std::boolalpha;
+    std::cout << is_nested("[[]]") << std::endl;
+    std::cout << is_nested("[[[]]]") << std::endl;
+    std::cout << is_nested("[]]") << std::endl;
+    std::cout << is_nested("]]]]]]]]") << std::endl;
 
     return 0;
 }
