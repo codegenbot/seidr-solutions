@@ -49,7 +49,11 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // Code to compare vectors 'a' and 'b'
-    // ...
-    return true; // Placeholder return value
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
