@@ -1,13 +1,13 @@
-bool is_simple_power(int x, int n){
-    if(x == 1) // special case where x is always a simple power of n
+bool is_simple_power(int x, int n) {
+    if (x == 1) {
         return true;
-    
-    int power = 0;
-    while(pow(n, power) <= x){
-        if(pow(n, power) == x)
-            return true;
-        power++;
     }
-    
+    int power = 1;
+    while (power <= x) {
+        if (power == x) {
+            return true;
+        }
+        power *= n;
+    }
     return false;
 }
