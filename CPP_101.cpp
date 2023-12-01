@@ -4,25 +4,12 @@
 
 using namespace std;
 
-vector<string> words_string(string s);
-
-bool issame(vector<string> a, vector<string> b);
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    vector<string> words = words_string(input);
-    assert(issame(words, words));
-    return 0;
-}
-
 vector<string> words_string(string s){
     vector<string> words;
-    string word;
+    string word = "";
     for(int i=0; i<s.length(); i++){
-        if(s[i] == ',' || s[i] == ' '){
-            if(!word.empty()){
+        if(s[i] == ' ' || s[i] == ','){
+            if(word != ""){
                 words.push_back(word);
                 word = "";
             }
@@ -31,7 +18,7 @@ vector<string> words_string(string s){
             word += s[i];
         }
     }
-    if(!word.empty()){
+    if(word != ""){
         words.push_back(word);
     }
     return words;
@@ -47,4 +34,9 @@ bool issame(vector<string> a, vector<string> b){
         }
     }
     return true;
+}
+
+int main(){
+    assert (issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    return 0;
 }
