@@ -7,10 +7,19 @@ def prime_fib(n: int):
                 return False
         return True
 
-    fib_sequence = [2, 3]  # Initialize the first two Fibonacci numbers
-    while len(fib_sequence) < n:
-        next_fib = fib_sequence[-1] + fib_sequence[-2]
-        if is_prime(next_fib):
-            fib_sequence.append(next_fib)
+    def fibonacci(n):
+        if n <= 0:
+            return []
+        elif n == 1:
+            return [0]
+        elif n == 2:
+            return [0, 1]
+        else:
+            fib_sequence = [0, 1]
+            for i in range(2, n):
+                fib_sequence.append(fib_sequence[i-1] + fib_sequence[i-2])
+            return fib_sequence
 
-    return fib_sequence[n-1]
+    fib_sequence = fibonacci(n)
+    prime_fib_nums = [num for num in fib_sequence if is_prime(num)]
+    return prime_fib_nums[-1]
