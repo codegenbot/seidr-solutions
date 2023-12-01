@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> rolling_max(vector<int> numbers){
