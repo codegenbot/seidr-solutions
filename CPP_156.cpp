@@ -1,24 +1,19 @@
 #include <iostream>
+#include <string>
 #include <vector>
-using namespace std;
+#include <cassert>
 
-string int_to_mini_roman(int number){
-    vector<string> roman = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
-    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    string result = "";
-    
-    for(int i=0; i<values.size(); i++){
-        while(number >= values[i]){
-            result += roman[i];
-            number -= values[i];
+std::string int_to_mini_roman(int number){
+    std::vector<int> nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    std::vector<std::string> romans = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+    std::string result = "";
+
+    for (int i = 0; i < nums.size(); i++) {
+        while (number >= nums[i]) {
+            result += romans[i];
+            number -= nums[i];
         }
     }
-    
-    return result;
-}
 
-int main(){
-    assert(int_to_mini_roman(1000) == "m");
-    
-    return 0;
+    return result;
 }

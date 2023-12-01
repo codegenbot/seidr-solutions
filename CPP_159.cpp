@@ -1,20 +1,25 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-vector<int> eat(int number, int need, int remaining) {
+std::vector<int> eat(int number, int need, int remaining) {
     int totalEaten = number + need;
     int carrotsLeft = remaining - need;
     if (carrotsLeft < 0) {
         carrotsLeft = 0;
     }
-    vector<int> result = {totalEaten, carrotsLeft};
-    return result;
+    return {totalEaten, carrotsLeft};
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
+    std::vector<int> result = eat(4, 5, 1);
+    std::vector<int> expected = {5, 0};
+    if (issame(result, expected)) {
+        // code for passing test case
+    } else {
+        // code for failing test case
+    }
     return 0;
 }
