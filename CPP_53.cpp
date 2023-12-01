@@ -9,5 +9,5 @@ int main() {
     int x = rand() % 1000;
     int y = rand() % 1000;
     int result = add(x, y);
-    return result;
+    return 0;
 }
