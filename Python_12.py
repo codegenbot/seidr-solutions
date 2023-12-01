@@ -5,15 +5,11 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-try:
-    n = int(input())
-    strings = []
-    for _ in range(n):
-        s = input()
-        strings.append(s)
+n = int(input("Enter the number of strings: "))
+strings = []
+for _ in range(n):
+    s = input("Enter a string: ")
+    strings.append(s)
 
-    result = longest(strings)
-    print(result)
-
-except ValueError:
-    print("Please enter a valid integer value for the number of strings.")
+result = longest(strings)
+print(result)
