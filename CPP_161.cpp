@@ -1,16 +1,24 @@
-#include <algorithm>
+#include <string>
+using namespace std;
 
-string solve(string s){
-    transform(s.begin(), s.end(), s.begin(), [](char c){
-        if(isalpha(c)){
-            if(islower(c)){
-                return toupper(c);
+string solve(string s) {
+    int n = s.size();
+    bool hasLetter = false;
+
+    for (int i = 0; i < n; i++) {
+        if (isalpha(s[i])) {
+            hasLetter = true;
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
             } else {
-                return tolower(c);
+                s[i] = tolower(s[i]);
             }
         }
-        return c;
-    });
-    reverse(s.begin(), s.end());
+    }
+
+    if (!hasLetter) {
+        reverse(s.begin(), s.end());
+    }
+
     return s;
 }
