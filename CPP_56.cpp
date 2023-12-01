@@ -1,14 +1,23 @@
-bool correct_bracketing(string brackets) {
+#include <string>
+#include <iostream>
+
+bool correct_bracketing(std::string brackets){
     int count = 0;
-    for (char bracket : brackets) {
-        if (bracket == '<') {
+    for(char c : brackets){
+        if(c == '<'){
             count++;
-        } else if (bracket == '>') {
+        }
+        else if(c == '>'){
             count--;
         }
-        if (count < 0) {
+        if(count < 0){
             return false;
         }
     }
     return count == 0;
+}
+
+int main() {
+    std::cout << correct_bracketing("<><><<><>><>>><>") << std::endl;
+    return 0;
 }
