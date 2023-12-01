@@ -20,7 +20,7 @@ void cutVector(std::vector<int>& nums) {
         leftSum += nums[i];
         rightSum -= nums[i];
         
-        int diff = abs(leftSum - rightSum);
+        int diff = std::abs(leftSum - rightSum);
         
         if (diff < minDiff) {
             minDiff = diff;
