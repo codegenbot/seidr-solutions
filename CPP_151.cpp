@@ -17,12 +17,15 @@ int main() {
     std::vector<float> lst;
     double odd_sum = 0.0;
 
-    // Add code to populate the lst vector and calculate odd_sum
-    float num;
-    while (std::cin >> num) {
-        lst.push_back(num);
-        if (static_cast<int>(num) % 2 != 0) {
-            odd_sum += num;
+    // Add code to populate the lst vector
+    lst.push_back(1.5);
+    lst.push_back(3.0);
+    lst.push_back(4.25);
+
+    // Add code to calculate odd_sum
+    for (int i = 0; i < lst.size(); i++) {
+        if (static_cast<int>(lst[i]) % 2 != 0) {
+            odd_sum += lst[i];
         }
     }
 
