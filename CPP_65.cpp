@@ -1,24 +1,25 @@
 #include <string>
 
-std::string circular_shift(int x, int shift);
+string circular_shift(int x, int shift);
 
 int main() {
-    int x, shift;
-    std::cin >> x >> shift;
-    std::cout << circular_shift(x, shift) << std::endl;
+    // Test cases
+    cout << circular_shift(12345, 2) << endl; // Expected output: 45123
+    cout << circular_shift(987654321, 5) << endl; // Expected output: 432198765
+
     return 0;
 }
 
-std::string circular_shift(int x, int shift) {
-    std::string num = std::to_string(x);
+string circular_shift(int x, int shift) {
+    string num = to_string(x);
     int len = num.length();
 
     if (shift > len) {
-        std::reverse(num.begin(), num.end());
+        reverse(num.begin(), num.end());
         return num;
     }
 
     shift = shift % len;
-    std::string res = num.substr(len - shift) + num.substr(0, len - shift);
+    string res = num.substr(len - shift) + num.substr(0, len - shift);
     return res;
 }
