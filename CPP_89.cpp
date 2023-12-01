@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-
 using namespace std;
 
 string encrypt(string s){
@@ -23,7 +22,5 @@ string encrypt(string s){
 
 int main() {
     assert (encrypt("a")=="e");
-    // Add more test cases here
-    
     return 0;
 }
