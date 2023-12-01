@@ -14,12 +14,12 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     for (size_t i = 0; i < textLength - targetLength + 1; i++) {
         bool found = true;
         for (size_t j = 0; j < targetLength; j++) {
-            if (text[i + j] != target[j]) {
+            if (text[i + j] != target[j] && (i + j < textLength - 1 && text[i + j + 1] == target[0])) {
                 found = false;
                 break;
             }
         }
-        if (found) {
+        if (found && (i + targetLength >= textLength || text[i + targetLength] != target[0])) {
             indices.push_back(i);
         }
     }
