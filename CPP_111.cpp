@@ -20,7 +20,7 @@ map<char, int> buildHistogram(string test) {
 }
 
 int main() {
-    assert(buildHistogram("a") == {{'a', 1}});
+    assert(issame(buildHistogram("a"), {{'a', 1}}));
 
     return 0;
 }
