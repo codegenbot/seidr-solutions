@@ -1,14 +1,23 @@
+#include <string>
+
 string encrypt(string s) {
-    string encrypted;
+    string result = "";
+    
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
+        
+        // Shift down the uppercase letters
+        if (c >= 'A' && c <= 'Z') {
+            c = 'A' + (((c - 'A') + (2 * 2)) % 26);
+        }
+        
+        // Shift down the lowercase letters
         if (c >= 'a' && c <= 'z') {
-            c = (c - 'a' + 2 * 2) % 26 + 'a';
+            c = 'a' + (((c - 'a') + (2 * 2)) % 26);
         }
-        else if (c >= 'A' && c <= 'Z') {
-            c = (c - 'A' + 2 * 2) % 26 + 'A';
-        }
-        encrypted += c;
+        
+        result += c;
     }
-    return encrypted;
+    
+    return result;
 }
