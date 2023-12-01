@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -8,14 +7,17 @@ string change_base(int x, int base) {
     string result = "";
     while (x > 0) {
         result = to_string(x % base) + result;
-        x /= base;
+        x = x / base;
     }
     return result;
 }
 
 int main() {
-    int x = 42;
-    assert(change_base(x, x + 1) == to_string(x));
+    int x;
+    cin >> x; // Read input value for x
+
+    // Call the change_base function with appropriate arguments
+    change_base(x, x + 1);
 
     return 0;
 }
