@@ -3,7 +3,6 @@
 #include <cassert>
 
 using namespace std;
-
 vector<int> largest_smallest_integers(vector<int> lst) {
     vector<int> result(2, 0);
     int largestNegative = 0;
@@ -21,7 +20,7 @@ vector<int> largest_smallest_integers(vector<int> lst) {
     return result;
 }
 
-bool issame(vector<int>& a, vector<int>& b) {
+bool issame(vector<int> &a, vector<int> &b) {
     return a == b;
 }
 
