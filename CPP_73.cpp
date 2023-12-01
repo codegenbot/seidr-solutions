@@ -1,16 +1,14 @@
-int smallest_change(vector<int> arr){
+#include <vector>
+
+int smallest_change(vector<int> arr) {
     int n = arr.size();
-    int left = 0;
-    int right = n - 1;
     int count = 0;
-    
-    while (left < right) {
-        if (arr[left] != arr[right]) {
+
+    for (int i = 0; i < n / 2; i++) {
+        if (arr[i] != arr[n - i - 1]) {
             count++;
         }
-        left++;
-        right--;
     }
-    
+
     return count;
 }
