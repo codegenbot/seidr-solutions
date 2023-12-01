@@ -1,37 +1,43 @@
-string sort_numbers(string numbers){
-    map<string, int> num_map;
-    num_map["zero"] = 0;
-    num_map["one"] = 1;
-    num_map["two"] = 2;
-    num_map["three"] = 3;
-    num_map["four"] = 4;
-    num_map["five"] = 5;
-    num_map["six"] = 6;
-    num_map["seven"] = 7;
-    num_map["eight"] = 8;
-    num_map["nine"] = 9;
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <algorithm>
 
-    // Split the input string into individual numbers
-    vector<string> num_vec;
+string sort_numbers(string numbers){
+    // Map to store mapping between number strings and their corresponding integer values
+    map<string, int> numMap;
+    numMap["zero"] = 0;
+    numMap["one"] = 1;
+    numMap["two"] = 2;
+    numMap["three"] = 3;
+    numMap["four"] = 4;
+    numMap["five"] = 5;
+    numMap["six"] = 6;
+    numMap["seven"] = 7;
+    numMap["eight"] = 8;
+    numMap["nine"] = 9;
+
+    // Parse the input string and convert it into a vector of number strings
     stringstream ss(numbers);
-    string num;
-    while (ss >> num) {
-        num_vec.push_back(num);
+    string temp;
+    vector<string> numStrings;
+    while (ss >> temp) {
+        numStrings.push_back(temp);
     }
 
-    // Sort the numbers based on their corresponding values in the map
-    sort(num_vec.begin(), num_vec.end(), [&](const string& a, const string& b) {
-        return num_map[a] < num_map[b];
+    // Sort the vector of number strings based on their integer values
+    sort(numStrings.begin(), numStrings.end(), [&](const string& a, const string& b) {
+        return numMap[a] < numMap[b];
     });
 
-    // Combine the sorted numbers into a single string
-    string sorted_numbers;
-    for (const string& num : num_vec) {
-        sorted_numbers += num + " ";
+    // Generate the sorted string with space delimiters
+    string sortedNumbers;
+    for (int i = 0; i < numStrings.size(); i++) {
+        sortedNumbers += numStrings[i];
+        if (i != numStrings.size() - 1) {
+            sortedNumbers += " ";
+        }
     }
 
-    // Remove the trailing space
-    sorted_numbers.pop_back();
-
-    return sorted_numbers;
+    return sortedNumbers;
 }
