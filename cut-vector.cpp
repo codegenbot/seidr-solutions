@@ -1,50 +1,61 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
+    int diff = INT_MAX;
+    int index = -1;
+
+    // Calculate the total sum of the vector
+    int totalSum = 0;
+    for (int num : nums) {
+        totalSum += num;
     }
-    
-    int target = sum / 2;
-    int currSum = 0;
-    int idx = 0;
+
+    // Calculate the prefix sum of the vector
+    std::vector<int> prefixSum(n);
+    prefixSum[0] = nums[0];
+    for (int i = 1; i < n; i++) {
+        prefixSum[i] = prefixSum[i - 1] + nums[i];
+    }
+
+    // Find the index where the difference is minimum
     for (int i = 0; i < n; i++) {
-        currSum += nums[i];
-        if (currSum >= target) {
-            idx = i;
-            break;
+        int leftSum = prefixSum[i];
+        int rightSum = totalSum - leftSum;
+        int currentDiff = abs(leftSum - rightSum);
+
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            index = i;
         }
     }
-    
-    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
-    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
-    
-    return {subvector1, subvector2};
+
+    // Create the two subvectors
+    std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
+    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+
+    return std::make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
     int n;
-    cin >> n;
-    
-    vector<int> nums(n);
+    std::cin >> n;
+
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-    
-    vector<int> result1, result2;
-    tie(result1, result2) = cutVector(nums);
-    
-    for (int num : result1) {
-        cout << num << endl;
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
+
+    for (int num : result.first) {
+        std::cout << num << std::endl;
     }
-    
-    for (int num : result2) {
-        cout << num << endl;
+
+    for (int num : result.second) {
+        std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
