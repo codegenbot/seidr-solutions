@@ -1,25 +1,20 @@
-string encode(string message){
-    for(int i=0; i<message.length(); i++){
-        if(isalpha(message[i])){
-            if(islower(message[i])){
+string encode(string message) {
+    for (int i = 0; i < message.length(); i++) {
+        if (isalpha(message[i])) {
+            if (islower(message[i])) {
                 message[i] = toupper(message[i]);
-            }
-            else{
+            } else {
                 message[i] = tolower(message[i]);
             }
-            if(message[i] == 'a'){
+            if (message[i] == 'a') {
                 message[i] = 'c';
-            }
-            else if(message[i] == 'e'){
+            } else if (message[i] == 'e') {
                 message[i] = 'g';
-            }
-            else if(message[i] == 'i'){
+            } else if (message[i] == 'i') {
                 message[i] = 'k';
-            }
-            else if(message[i] == 'o'){
+            } else if (message[i] == 'o') {
                 message[i] = 'q';
-            }
-            else if(message[i] == 'u'){
+            } else if (message[i] == 'u') {
                 message[i] = 'w';
             }
         }
