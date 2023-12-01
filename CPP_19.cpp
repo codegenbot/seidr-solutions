@@ -1,50 +1,37 @@
 string sort_numbers(string numbers){
-    map<string, int> num_map;
-    num_map["zero"] = 0;
-    num_map["one"] = 1;
-    num_map["two"] = 2;
-    num_map["three"] = 3;
-    num_map["four"] = 4;
-    num_map["five"] = 5;
-    num_map["six"] = 6;
-    num_map["seven"] = 7;
-    num_map["eight"] = 8;
-    num_map["nine"] = 9;
-    
-    string result = "";
-    string current = "";
-    
-    for(int i = 0; i < numbers.length(); i++){
-        if(numbers[i] == ' '){
-            result += current + " ";
-            current = "";
-        }else{
-            current += numbers[i];
-        }
+    map<string, int> numberMap;
+    numberMap["zero"] = 0;
+    numberMap["one"] = 1;
+    numberMap["two"] = 2;
+    numberMap["three"] = 3;
+    numberMap["four"] = 4;
+    numberMap["five"] = 5;
+    numberMap["six"] = 6;
+    numberMap["seven"] = 7;
+    numberMap["eight"] = 8;
+    numberMap["nine"] = 9;
+
+    // Split the input string into individual numbers
+    vector<string> numberList;
+    stringstream ss(numbers);
+    string number;
+    while (getline(ss, number, ' ')) {
+        numberList.push_back(number);
     }
-    result += current;
-    
-    vector<string> num_list;
-    current = "";
-    
-    for(int i = 0; i < result.length(); i++){
-        if(result[i] == ' '){
-            num_list.push_back(current);
-            current = "";
-        }else{
-            current += result[i];
-        }
-    }
-    num_list.push_back(current);
-    
-    sort(num_list.begin(), num_list.end(), [&](const string& a, const string& b){
-        return num_map[a] < num_map[b];
+
+    // Sort the numbers using the numberMap
+    sort(numberList.begin(), numberList.end(), [&](const string& a, const string& b) {
+        return numberMap[a] < numberMap[b];
     });
-    
-    string sorted_numbers = "";
-    for(int i = 0; i < num_list.size(); i++){
-        sorted_numbers += num_list[i] + " ";
+
+    // Convert the sorted numbers back to a string
+    string sortedNumbers;
+    for (const string& num : numberList) {
+        sortedNumbers += num + " ";
     }
-    
-    return sorted_numbers;
+
+    // Remove the trailing space
+    sortedNumbers.pop_back();
+
+    return sortedNumbers;
 }
