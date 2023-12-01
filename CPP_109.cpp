@@ -13,9 +13,9 @@ bool move_one_ball(vector<int> arr) {
         }
     }
     
-    int shift = n - minIndex;
+    int rotations = n - minIndex;
     for (int i = 0; i < n; i++) {
-        int newIndex = (i + shift) % n;
+        int newIndex = (i + rotations) % n;
         if (arr[newIndex] < arr[i]) {
             return false;
         }
