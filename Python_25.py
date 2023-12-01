@@ -1,4 +1,6 @@
+import sys
 from typing import List
+
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -13,13 +15,7 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-def solve(n: int) -> List[int]:
-    return factorize(n)
 
-def main():
-    n = int(input())
-    result = solve(n)
-    print(result)
-
-if __name__ == "__main__":
-    main()
+n = int(sys.argv[1])
+result = factorize(n)
+print(*result)
