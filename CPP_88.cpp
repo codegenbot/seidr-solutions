@@ -1,12 +1,11 @@
 vector<int> sort_array(vector<int> array){
-    if(array.size() == 0){
-        return array;
-    }
-    int sum = array[0] + array[array.size()-1];
+    vector<int> result = array;
+    int sum = array.front() + array.back();
     if(sum % 2 == 0){
-        sort(array.rbegin(), array.rend());
-    } else {
-        sort(array.begin(), array.end());
+        sort(result.rbegin(), result.rend());
     }
-    return array;
+    else{
+        sort(result.begin(), result.end());
+    }
+    return result;
 }
