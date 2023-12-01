@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 int fruit_distribution(string s, int n) {
     int apples = 0;
