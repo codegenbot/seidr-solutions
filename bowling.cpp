@@ -11,17 +11,30 @@ int getScore(std::string input) {
         
         if (current == 'X') {
             score += 10;
-            score += (input[index + 1] == 'X') ? 10 : (isdigit(input[index + 1]) ? input[index + 1] - '0' : 0);
-            score += (input[index + 2] == 'X') ? 10 : (isdigit(input[index + 2]) ? input[index + 2] - '0' : 0);
+            if (frame < 10) {
+                score += (input[index + 1] == 'X') ? 10 : std::stoi(std::string(1, input[index + 1]));
+                score += (input[index + 2] == 'X') ? 10 : std::stoi(std::string(1, input[index + 2]));
+            } else {
+                score += (input[index + 1] == 'X') ? 10 : ((input[index + 1] == '/') ? 10 - std::stoi(std::string(1, input[index - 1])) : std::stoi(std::string(1, input[index + 1])));
+                score += (input[index + 2] == 'X') ? 10 : ((input[index + 2] == '/') ? 10 : std::stoi(std::string(1, input[index + 2])));
+            }
+            
+            index++;
         } else if (current == '/') {
-            score += 10 - (input[index - 1] - '0');
-            score += (input[index + 1] == 'X') ? 10 : (isdigit(input[index + 1]) ? input[index + 1] - '0' : 0);
+            score += 10 - std::stoi(std::string(1, input[index - 1]));
+            if (index != 1) {
+                score -= std::stoi(std::string(1, input[index - 1]));
+            }
+            score += (input[index + 1] == 'X') ? 10 : std::stoi(std::string(1, input[index + 1]));
+            
+            index++;
         } else if (current == '-') {
             // do nothing
         } else {
-            score += (current - '0');
+            score += std::stoi(std::string(1, current));
         }
         
+        index++;
         frame++;
     }
     
