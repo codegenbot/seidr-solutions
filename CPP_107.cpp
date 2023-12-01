@@ -2,36 +2,26 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+using namespace std;
 
-vector<int> even_odd_palindrome(int n){
+vector<int> even_odd_palindrome(int n) {
     vector<int> result(2, 0);
-    for(int i = 1; i <= n; i++){
+    for (int i = 1; i <= n; i++) {
         string s = to_string(i);
         int left = 0, right = s.length() - 1;
         bool isPalindrome = true;
-        while(left < right){
-            if(s[left] != s[right]){
+        while (left < right) {
+            if (s[left] != s[right]) {
                 isPalindrome = false;
                 break;
             }
             left++;
             right--;
         }
-        if(isPalindrome){
-            if(i % 2 == 0){
+        if (isPalindrome) {
+            if (i % 2 == 0) {
                 result[0]++;
-            }else{
+            } else {
                 result[1]++;
             }
         }
@@ -39,6 +29,12 @@ vector<int> even_odd_palindrome(int n){
     return result;
 }
 
-int main(){
-    assert(issame(even_odd_palindrome(1), vector<int>{0, 1}));
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(even_odd_palindrome(1), {0, 1}));
+    // Test more cases here
+    return 0;
 }
