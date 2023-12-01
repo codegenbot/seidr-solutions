@@ -32,9 +32,3 @@ int main() {
   
     return 0;
 }
-
-int main() {
-    assert (check_dict_case(std::map<std::string, std::string>{}) == false);
-  
-    return 0;
-}
