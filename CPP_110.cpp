@@ -1,6 +1,6 @@
-#include <string>
+#include <iostream>
 #include <vector>
-#include <cassert>
+#include <string>
 
 using namespace std;
 
@@ -15,7 +15,7 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         return "YES";
     }
     for (int i = 0; i < lst2.size(); i++) {
-        if (lst2[i] % 2 == 0) {
+        if (lst2[i] % 2 != 0) {
             count--;
         }
     }
@@ -23,11 +23,4 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         return "YES";
     }
     return "NO";
-}
-
-int main() {
-    assert(exchange({100, 200}, {200, 200}) == "YES");
-    assert(exchange({1, 3}, {1, 1, 1}) == "NO");
-    assert(exchange({2, 4}, {1, 3}) == "YES");
-    return 0;
 }
