@@ -43,7 +43,7 @@ bool issame(vector<string> a, vector<string> b){
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -57,12 +57,15 @@ int main(){
     getline(cin, txt);
     
     vector<string> words = split_words(txt);
+    vector<string> reverse_words = words;
+    reverse(reverse_words.begin(), reverse_words.end());
     
-    vector<string> b = {"apple", "banana", "cherry"};
-    
-    bool same = issame(words, b);
-    
-    cout << (same ? "Same" : "Different") << endl;
+    if(issame(words, reverse_words)){
+        cout << "The sentence is palindromic" << endl;
+    }
+    else{
+        cout << "The sentence is not palindromic" << endl;
+    }
     
     return 0;
 }
