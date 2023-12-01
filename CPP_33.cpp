@@ -4,23 +4,19 @@
 
 using namespace std;
 
-vector<int> sort_third(vector<int> l);
-
-bool issame(vector<int> v1, vector<int> v2);
-
-int main() {
-    vector<int> l = {5, 2, 7, 1, 8, 4, 3, 9, 6};
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return false;
     
-    vector<int> sorted = sort_third(l);
-    
-    for(int num : sorted){
-        cout << num << " ";
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
     }
     
-    return 0;
+    return true;
 }
 
-vector<int> sort_third(vector<int> l){
+vector<int> sort_third(vector<int> l) {
     vector<int> l_prime = l;
     vector<int> indices;
     
@@ -39,6 +35,23 @@ vector<int> sort_third(vector<int> l){
     return l_prime;
 }
 
-bool issame(vector<int> v1, vector<int> v2){
-    return v1 == v2;
+int main() {
+    int n;
+    cin >> n;
+    
+    vector<int> a(n);
+    
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    
+    vector<int> b = sort_third(a);
+    
+    if (issame(a, b)) {
+        cout << "Same" << endl;
+    } else {
+        cout << "Different" << endl;
+    }
+    
+    return 0;
 }
