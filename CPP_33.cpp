@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 bool issame(vector<int> a, vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -16,8 +18,6 @@ bool issame(vector<int> a, vector<int>& b) {
 
     return true;
 }
-
-vector<int> sort_third(vector<int> l);
 
 vector<int> sort_third(vector<int> l) {
     vector<int> l_prime = l;
