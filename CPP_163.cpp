@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(std::vector<int>, std::vector<int>);
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> generate_integers(int a, int b) {
     std::vector<int> result;
