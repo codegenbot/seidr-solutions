@@ -48,6 +48,5 @@ vector<int> minPath(vector<vector<int>> grid, int k){
 }
 
 int main(){
-    // remove the assert statement
     // rest of the code
 }
