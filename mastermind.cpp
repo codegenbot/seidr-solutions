@@ -12,8 +12,12 @@ pair<int, int> mastermind(string code, string guess) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
+            if (code[i] >= 'A' && code[i] <= 'F') {
+                codeCount[code[i] - 'A']++;
+            }
+            if (guess[i] >= 'A' && guess[i] <= 'F') {
+                guessCount[guess[i] - 'A']++;
+            }
         }
     }
 
