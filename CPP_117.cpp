@@ -3,18 +3,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 std::vector<std::string> select_words(std::string s, int n) {
     std::vector<std::string> result;
     if (s.empty()) {
@@ -49,8 +37,20 @@ std::vector<std::string> select_words(std::string s, int n) {
     return result;
 }
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Check if vectors `a` and `b` are the same
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
-    std::cout << issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"});
-    std::cout << std::endl;
+    assert (issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
