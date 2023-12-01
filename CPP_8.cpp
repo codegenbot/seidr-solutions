@@ -13,7 +13,7 @@ vector<int> sum_product(vector<int> numbers){
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5};
+    vector<int> numbers = {2, 3, 4, 5};
     vector<int> result = sum_product(numbers);
 
     return 0;
