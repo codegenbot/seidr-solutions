@@ -13,11 +13,7 @@ bool is_palindrome(string text){
 }
 
 int main() {
-    // Test cases for is_palindrome function
-    cout << is_palindrome("hello") << endl;  // 0
-    cout << is_palindrome("madam") << endl;  // 1
-    cout << is_palindrome("racecar") << endl;  // 1
-    cout << is_palindrome("12321") << endl;  // 1
-    
+    // code for testing the is_palindrome function
+
     return 0;
 }
