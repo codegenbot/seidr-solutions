@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<int> strange_sort_list(vector<int> lst){
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     sort(lst.begin(), lst.end());
     int left = 0, right = lst.size() - 1;
