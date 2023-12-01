@@ -1,33 +1,41 @@
-def calculate_score(bowls):
+def calculate_bowling_score(bowls):
     score = 0
     frame = 1
-    bowlIndex = 0
-    
+    bowl_index = 0
+
     while frame <= 10:
-        if bowls[bowlIndex] == 'X':
+        bowl = bowls[bowl_index]
+
+        if bowl == 'X':
             score += 10
-            if bowls[bowlIndex + 2] == 'X':
-                score += 10
-                if bowls[bowlIndex + 4] == 'X':
+            if frame <= 8:
+                next_bowl = bowls[bowl_index + 1]
+                next_next_bowl = bowls[bowl_index + 2]
+
+                if next_bowl == 'X':
+                    score += 10
+                    if next_next_bowl == 'X':
+                        score += 10
+                    else:
+                        score += int(next_next_bowl)
+                elif next_bowl == '/':
                     score += 10
                 else:
-                    score += int(bowls[bowlIndex + 4])
-            else:
-                score += int(bowls[bowlIndex + 2]) + int(bowls[bowlIndex + 3])
-            bowlIndex += 2
-        elif bowls[bowlIndex + 1] == '/':
-            score += 10
-            if bowls[bowlIndex + 2] == 'X':
-                score += 10
-            else:
-                score += int(bowls[bowlIndex + 2])
-            bowlIndex += 2
-        else:
-            score += int(bowls[bowlIndex]) + int(bowls[bowlIndex + 1])
-            bowlIndex += 2
-        frame += 1
-    
-    return score
+                    score += int(next_bowl)
 
-bowls = input().strip()
-print(calculate_score(bowls))
+        elif bowl == '/':
+            score += 10 - int(bowls[bowl_index - 1])
+            if frame <= 9:
+                next_bowl = bowls[bowl_index + 1]
+                if next_bowl == 'X':
+                    score += 10
+                else:
+                    score += int(next_bowl)
+
+        else:
+            score += int(bowl)
+
+        bowl_index += 1
+        frame += 1
+
+    return score
