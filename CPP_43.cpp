@@ -1,8 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
-
-using namespace std;
 
 bool pairs_sum_to_zero(vector<int> l) {
     for(int i=0; i<l.size(); i++){
