@@ -1,19 +1,29 @@
-map<char,int> histogram(string test){
+#include <iostream>
+#include <string>
+#include <map>
+
+using namespace std;
+
+map<char, int> histogram(string test) {
+    map<char, int> result;
     map<char, int> counts;
-    string word = "";
-    for(int i=0; i<test.size(); i++){
-        if(test[i] != ' '){
-            word += test[i];
-        }
-        else{
-            if(word != ""){
-                counts[word[0]]++;
-            }
-            word = "";
+
+    for (char c : test) {
+        if (c != ' ') {
+            counts[c]++;
         }
     }
-    if(word != ""){
-        counts[word[0]]++;
+
+    int maxCount = 0;
+    for (auto it : counts) {
+        maxCount = max(maxCount, it.second);
     }
-    return counts;
+
+    for (auto it : counts) {
+        if (it.second == maxCount) {
+            result[it.first] = it.second;
+        }
+    }
+
+    return result;
 }
