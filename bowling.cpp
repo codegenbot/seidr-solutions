@@ -13,17 +13,14 @@ int calculateScore(const std::string& bowls) {
             score += 10 + (int)(bowls[bowlIndex + 1] - '0') + (int)(bowls[bowlIndex + 2] - '0');
             bowlIndex++;
         } else if (bowl == '/') {
-            score += 10 - (int)(bowls[bowlIndex - 1] - '0') + (int)(bowls[bowlIndex + 1] - '0');
+            score += 10 + (int)(bowls[bowlIndex + 1] - '0');
             bowlIndex++;
         } else {
             score += (int)(bowl - '0');
         }
 
-        if (bowl != 'X' || frame >= 10) {
-            bowlIndex++;
-        }
-
         frame++;
+        bowlIndex++;
     }
 
     return score;
