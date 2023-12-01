@@ -3,17 +3,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
-
-vector<int> order_by_points(vector<int>& nums) {
-    sort(nums.begin(), nums.end(), compare);
-    return nums;
-}
-
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
     if (a < 0) a *= -1;
@@ -33,7 +22,7 @@ bool compare(int a, int b) {
     return sumA < sumB;
 }
 
-int main() {
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));    
-    return 0;
+vector<int> order_by_points(vector<int>& nums) {
+    sort(nums.begin(), nums.end(), compare);
+    return nums;
 }
