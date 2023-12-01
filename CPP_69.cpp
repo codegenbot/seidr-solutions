@@ -1,16 +1,25 @@
-int search(vector<int> lst){
-    int maxFreq = -1;
+#include <stdio.h>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+int search(vector<int> lst) {
+    unordered_map<int, int> freqMap;
+    int maxFreq = 0;
     int result = -1;
-    for(int i=0; i<lst.size(); i++){
-        int freq = 0;
-        for(int j=0; j<lst.size(); j++){
-            if(lst[j] == lst[i]){
-                freq++;
-            }
-        }
-        if(freq >= lst[i] && lst[i] > result){
-            result = lst[i];
+
+    // Count the frequency of each integer
+    for (int num : lst) {
+        freqMap[num]++;
+        maxFreq = max(maxFreq, freqMap[num]);
+    }
+
+    // Find the greatest integer that satisfies the condition
+    for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
+        if (it->first == it->second && it->second > maxFreq) {
+            result = max(result, it->first);
         }
     }
+
     return result;
 }
