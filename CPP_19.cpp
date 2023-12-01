@@ -18,7 +18,7 @@ string sort_numbers(string numbers){
     number_map["seven"] = 7;
     number_map["eight"] = 8;
     number_map["nine"] = 9;
-
+  
     vector<int> number_values;
     stringstream ss(numbers);
     string number;
@@ -45,7 +45,6 @@ string sort_numbers(string numbers){
 
 int main() {
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    // Additional test cases
     assert(sort_numbers("one two three four") == "one two three four");
     assert(sort_numbers("nine eight seven six five") == "five six seven eight nine");
     assert(sort_numbers("") == "");
