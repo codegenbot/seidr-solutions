@@ -1,34 +1,25 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    int n = nums.size();
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-
-    // Calculate the sum of all elements in the vector
-    int totalSum = 0;
+    int sum = 0;
     for (int num : nums) {
-        totalSum += num;
+        sum += num;
     }
 
-    // Iterate through each index and calculate the difference in sums
-    int leftSum = 0;
-    for (int i = 0; i < n; i++) {
-        int rightSum = totalSum - leftSum;
-        int diff = std::abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int target = sum / 2;
+    std::vector<int> subvector1, subvector2;
+    int currSum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        currSum += nums[i];
+        if (currSum <= target) {
+            subvector1.push_back(nums[i]);
+        } else {
+            subvector2.push_back(nums[i]);
         }
-        leftSum += nums[i];
     }
 
-    // Split the vector into two subvectors based on the cut index
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    std::vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
-
-    return std::make_pair(leftSubvector, rightSubvector);
+    return std::make_pair(subvector1, subvector2);
 }
 
 int main() {
