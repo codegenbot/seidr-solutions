@@ -13,15 +13,14 @@ string string_to_md5(string text) {
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    unsigned int digest_len;
-    EVP_DigestFinal_ex(mdctx, digest, &digest_len);
+    unsigned int md_len;
+    EVP_DigestFinal_ex(mdctx, digest, &md_len);
     EVP_MD_CTX_free(mdctx);
 
     char md5hash[33];
-    for (unsigned int i = 0; i < digest_len; i++) {
-        sprintf(&md5hash[i * 2], "%02x", digest[i]);
+    for (unsigned int i = 0; i < md_len; i++) {
+        sprintf(&md5hash[i*2], "%02x", (unsigned int)digest[i]);
     }
-    md5hash[32] = '\0';
 
     return md5hash;
 }
