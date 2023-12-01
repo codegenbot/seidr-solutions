@@ -1,6 +1,9 @@
+// Your modified code
+
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
+#include <iostream>
 
 using namespace std;
 
@@ -12,4 +15,9 @@ vector<int> filter_integers(list<boost::any> values) {
         }
     }
     return result;
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
