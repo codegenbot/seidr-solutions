@@ -2,21 +2,9 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> by_length(vector<int> arr);
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr){
     vector<int> sortedArr;
@@ -67,4 +55,8 @@ vector<string> by_length(vector<int> arr){
         result.push_back(digitName);
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // Your implementation here
 }
