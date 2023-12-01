@@ -4,29 +4,23 @@
 
 using namespace std;
 
-string exchange(vector<int> lst1, vector<int> lst2); // Function declaration
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
+    int count = 0;
+    for (int i = 0; i < lst1.size(); i++) {
+        if (lst1[i] % 2 != 0) {
+            count++;
         }
     }
-    if (oddCount == 0) {
+    if (count == 0) {
         return "YES";
     }
-    for (int num : lst2) {
-        if (num % 2 != 0) {
-            return "NO";
+    for (int i = 0; i < lst2.size(); i++) {
+        if (lst2[i] % 2 != 0) {
+            count--;
         }
     }
-    return "YES";
-}
-
-int main() {
-    assert(exchange({100, 200}, {200, 200}) == "YES");
-    // Add more test cases here
-
-    return 0;
+    if (count <= 0) {
+        return "YES";
+    }
+    return "NO";
 }
