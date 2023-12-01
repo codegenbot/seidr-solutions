@@ -1,8 +1,13 @@
-#include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
+
+int main() {
+    string Strongest_Extension(string class_name, vector<string> extensions);
+
+    return 0;
+}
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
     string strongest_extension = "";
@@ -28,9 +33,4 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
     }
 
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    // code goes here
-    return 0;
 }
