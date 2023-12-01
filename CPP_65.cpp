@@ -4,6 +4,9 @@ string circular_shift(int x, int shift);
 
 int main() {
     // test cases
+    int x = 12345;
+    int shift = 2;
+    string result = circular_shift(x, shift);
     return 0;
 }
 
