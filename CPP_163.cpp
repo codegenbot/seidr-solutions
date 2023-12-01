@@ -23,6 +23,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> integers = generate_integers(17, 89);
+    vector<int> nums = generate_integers(17, 89);
     return 0;
 }
