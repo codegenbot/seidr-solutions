@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
 
 vector<string> words_string(string s);
 
-bool issame(vector<string> a, vector<string> b){
+bool isSame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -39,7 +40,7 @@ vector<string> words_string(string s){
 }
 
 int main() {
-    assert (issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert(isSame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     cout << "Test case passed!" << endl;
 
     return 0;
