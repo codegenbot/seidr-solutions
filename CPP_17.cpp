@@ -6,9 +6,9 @@ using namespace std;
 
 bool issame(vector<int> a, vector<int> b);
 
-std::vector<int> parse_music(std::string music_string){
-    std::vector<int> beats;
-    std::string note;
+vector<int> parse_music(string music_string){
+    vector<int> beats;
+    string note;
     for(int i=0; i<music_string.length(); i+=3){
         note = music_string.substr(i, 3);
         if(note == "o  "){
@@ -24,7 +24,7 @@ std::vector<int> parse_music(std::string music_string){
     return beats;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -38,6 +38,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 int main(){
     assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
-    
+
     return 0;
 }
