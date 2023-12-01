@@ -23,11 +23,9 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-int main(){
-    vector<int> l = {5, 2, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> expected = {6, 3, 6, 3, 4, 4, 10, 1, 124};
-    vector<int> result = incr_list(l);
-    if (issame(result, expected)) {
+int main() {
+    vector<int> result = incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123});
+    if (issame(result, {6, 3, 6, 3, 4, 4, 10, 1, 124})) {
         cout << "Output is correct" << endl;
     } else {
         cout << "Output is incorrect" << endl;
