@@ -1,5 +1,9 @@
 #include <vector>
 
+bool issame(vector<int> a, vector<int> b) {
+    return a[0] == b[0] && a[1] == b[1];
+}
+
 vector<int> eat(int number, int need, int remaining) {
     int totalEatenCarrots = number + remaining;
     int carrotsLeft = 0;
@@ -11,10 +15,6 @@ vector<int> eat(int number, int need, int remaining) {
     
     vector<int> result = {totalEatenCarrots, carrotsLeft};
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return (a[0] == b[0] && a[1] == b[1]);
 }
 
 int main() {
