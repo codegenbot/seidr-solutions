@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -27,10 +27,4 @@ std::vector<int> get_odd_collatz(int n){
     }
     std::sort(odd_collatz_seq.begin(), odd_collatz_seq.end());
     return odd_collatz_seq;
-}
-
-int main(){
-    assert(issame(get_odd_collatz(1), {1}));
-
-    return 0;
 }

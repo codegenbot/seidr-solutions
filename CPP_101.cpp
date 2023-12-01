@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
-#include <string>
+
 using namespace std;
 
 vector<string> splitString(string s){
@@ -24,15 +24,5 @@ vector<string> splitString(string s){
     return words;
 }
 
-int main(){
-    vector<string> result = splitString("ahmed     , gamal");
-    cout << "Output: ";
-    for(const string& word : result){
-        cout << word << " ";
-    }
-    cout << endl;
-
-    assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
-
-    return 0;
-}
+string words_string = "ahmed     , gamal";
+assert (issame(splitString(words_string) , {"ahmed", "gamal"}));
