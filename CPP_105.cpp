@@ -1,7 +1,5 @@
-#include <vector>
 #include <string>
 #include <map>
-#include <algorithm>
 
 vector<string> by_length(vector<int> arr){
     vector<int> sorted_arr;
