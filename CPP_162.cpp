@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string>
 #include <openssl/evp.h>
-#include <openssl/crypto.h>
-
 using namespace std;
+
+#include <openssl/crypto.h>
 
 string string_to_md5(string text) {
     if (text.empty()) {
@@ -11,9 +11,9 @@ string string_to_md5(string text) {
     }
 
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
+    EVP_DigestInit_ex(mdctx, EVP_md5(), nullptr);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    
+
     unsigned char digest[EVP_MAX_MD_SIZE];
     unsigned int len = 0;
     EVP_DigestFinal_ex(mdctx, digest, &len);
@@ -21,7 +21,7 @@ string string_to_md5(string text) {
 
     char md5hash[2 * len + 1];
     for (int i = 0; i < len; i++) {
-        sprintf(&md5hash[i * 2], "%02x", (unsigned int)digest[i]);
+        sprintf(&md5hash[i * 2], "%02x", static_cast<unsigned int>(digest[i]));
     }
 
     return md5hash;
