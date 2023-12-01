@@ -5,11 +5,8 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
+vector<int> remove_duplicates(vector<int> numbers);
 
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
@@ -21,7 +18,13 @@ vector<int> remove_duplicates(vector<int> numbers){
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b){
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
+}
+
 int main(){
-    assert (issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
