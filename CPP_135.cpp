@@ -1,5 +1,5 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
 
 int can_arrange(std::vector<int> arr);
 
