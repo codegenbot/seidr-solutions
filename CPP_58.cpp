@@ -16,12 +16,22 @@ vector<int> common(vector<int>& l1, vector<int>& l2) {
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
 int main() {
-    assert (common({4, 3, 2, 8}, {}) == vector<int>{});
-    assert (common({1, 2, 3}, {1, 2, 3}) == vector<int>{1, 2, 3});
-    assert (common({1, 2, 3}, {4, 5, 6}) == vector<int>{});
-    assert (common({1, 2, 3}, {3, 4, 5}) == vector<int>{3});
-    assert (common({}, {}) == vector<int>{});
+    assert (issame(common({4, 3, 2, 8}, {}), {}));
+    assert (issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
+    assert (issame(common({1, 2, 3}, {4, 5, 6}), {}));
+    assert (issame(common({1, 2, 3}, {3, 4, 5}), {3}));
+    assert (issame(common({}, {}), {}));
 
     return 0;
 }
