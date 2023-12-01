@@ -14,14 +14,17 @@ int main() {
 }
 
 int countUniqueChars(string word) {
+    // Implementation of countUniqueChars function
     int count = 0;
     vector<bool> visited(256, false);
+
     for (char ch : word) {
         if (!visited[ch]) {
             visited[ch] = true;
             count++;
         }
     }
+
     return count;
 }
 
