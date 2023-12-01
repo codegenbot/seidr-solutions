@@ -1,7 +1,7 @@
 #include <string>
-using namespace std;
+#include <vector>
 
-string match_parens(vector<string> lst);
+using namespace std;
 
 string match_parens(vector<string> lst){
     int count = 0;
