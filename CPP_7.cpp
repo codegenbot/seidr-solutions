@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <string>
+#include <cassert>
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
     std::vector<std::string> filtered_strings;
-    for (const std::string& str : strings) {
+    for (std::string str : strings) {
         if (str.find(substring) != std::string::npos) {
             filtered_strings.push_back(str);
         }
