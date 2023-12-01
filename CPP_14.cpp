@@ -2,7 +2,7 @@
 #include <string>
 
 vector<string> all_prefixes(string str);
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a,vector<string> b);
 
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
@@ -14,7 +14,7 @@ vector<string> all_prefixes(string str){
     return prefixes;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a,vector<string> b){
     if(a.size() != b.size()){
         return false;
     }
