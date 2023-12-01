@@ -1,18 +1,21 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) {
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()){
+        return false;
+    }
+    int size = txt.size();
+    char last_char = txt[size-1];
+    
+    if(!isalpha(last_char)){
         return false;
     }
     
-    int n = txt.length();
-    char lastChar = txt[n-1];
+    int i = size - 2;
+    while(i >= 0 && txt[i] != ' '){
+        i--;
+    }
     
-    if (isalpha(lastChar)) {
-        for (int i = n-2; i >= 0; i--) {
-            if (txt[i] == ' ') {
-                return true;
-            }
-        }
-        return false;
+    if(i == -1 || i == size - 2){
+        return true;
     }
     
     return false;
