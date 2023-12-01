@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
 vector<int> generate_integers(int a, int b) {
