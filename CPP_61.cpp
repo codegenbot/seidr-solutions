@@ -1,17 +1,14 @@
-#include <iostream>
 #include <string>
 
-using namespace std;
-
-bool correct_bracketing(string brackets) {
+bool correct_bracketing(string brackets){
     int count = 0;
-    for (int i = 0; i < brackets.length(); i++) {
-        if (brackets[i] == '(') {
+    for(int i = 0; i < brackets.length(); i++){
+        if(brackets[i] == '('){
             count++;
-        } else if (brackets[i] == ')') {
+        } else if(brackets[i] == ')'){
             count--;
         }
-        if (count < 0) {
+        if(count < 0){
             return false;
         }
     }
@@ -19,6 +16,6 @@ bool correct_bracketing(string brackets) {
 }
 
 int main() {
-    cout << correct_bracketing("()()(()())()))()") << endl;
+    assert (not correct_bracketing("()()(()())())()")); // remove extra ")"
     return 0;
 }
