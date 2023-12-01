@@ -17,3 +17,15 @@ vector<int> even_odd_count(int num){
     
     return {evenCount, oddCount};
 }
+
+bool issame(vector<int> a, vector<int> b){
+    return (a == b);
+}
+
+int main(){
+    assert (issame(even_odd_count(0) , {1, 0}));
+    assert (issame(even_odd_count(45328) , {3, 2}));
+    assert (issame(even_odd_count(-654321) , {3, 4}));
+    
+    return 0;
+}
