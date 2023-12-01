@@ -5,7 +5,6 @@
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    // Implementation of issame function
     if (a.size() != b.size()) {
         return false;
     }
