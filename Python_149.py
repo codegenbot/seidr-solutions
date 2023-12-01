@@ -1,2 +1,2 @@
 def sorted_list_sum(lst):
-    return sorted(lst, key=len)
+    return [word for word in lst if len(word) % 2 != 0][::-1]
