@@ -1,36 +1,30 @@
-def calculate_bowling_score(frames):
+def bowling_score(bowls):
     score = 0
-    frame_index = 0
     frame = 1
-
+    i = 0
     while frame <= 10:
-        if frames[frame_index] == 'X':
+        if bowls[i] == 'X':
             score += 10
-            if frames[frame_index + 2] == 'X':
+            if bowls[i+2] == 'X':
                 score += 10
-                if frames[frame_index + 4] == 'X':
+                if bowls[i+4] == 'X':
                     score += 10
                 else:
-                    score += int(frames[frame_index + 4])
-            else:
-                if frames[frame_index + 3] == '/':
-                    score += 10
-                else:
-                    score += int(frames[frame_index + 2]) + int(frames[frame_index + 3])
-            frame_index += 2
-        elif frames[frame_index + 1] == '/':
-            score += 10
-            if frames[frame_index + 2] == 'X':
+                    score += int(bowls[i+4])
+            elif bowls[i+2] == '/':
                 score += 10
             else:
-                score += int(frames[frame_index + 2])
-            frame_index += 3
+                score += int(bowls[i+2]) + int(bowls[i+3])
+            i += 2
+        elif bowls[i+1] == '/':
+            score += 10
+            if bowls[i+2] == 'X':
+                score += 10
+            else:
+                score += int(bowls[i+2])
+            i += 2
         else:
-            score += int(frames[frame_index]) + int(frames[frame_index + 1])
-            frame_index += 2
+            score += int(bowls[i]) + int(bowls[i+1])
+            i += 2
         frame += 1
-
     return score
-
-frames = input()
-print(calculate_bowling_score(frames))
