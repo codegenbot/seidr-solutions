@@ -1,13 +1,5 @@
-bool issame(string note1, string note2){
-    if (note1 == "o" && note2 == "o") {
-        return true;
-    } else if (note1 == "o|" && note2 == "o|") {
-        return true;
-    } else if (note1 == ".|" && note2 == ".|") {
-        return true;
-    } else {
-        return false;
-    }
+bool issame(int a, int b) {
+    return a == b;
 }
 
 vector<int> parse_music(string music_string){
