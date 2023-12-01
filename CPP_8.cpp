@@ -34,7 +34,7 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> numbers(n);
+    std::vector<int> numbers(n, 0); // Changed declaration to initialize with zeros
     for (int i = 0; i < n; i++) {
         std::cin >> numbers[i];
     }
