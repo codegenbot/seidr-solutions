@@ -16,3 +16,8 @@ int count_nums(vector<int> n){
     }
     return count;
 }
+
+int main() {
+    // code here
+    return 0;
+}
