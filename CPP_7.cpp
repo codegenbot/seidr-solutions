@@ -1,4 +1,4 @@
-#include <iostream> 
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -32,16 +32,25 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main(){
-    vector<string> strings = {"apple", "banana", "orange", "grapefruit"};
-    string substring = "an";
-    vector<string> expected_output = {"banana", "orange"};
-    assert(issame(filter_by_substring(strings, substring), expected_output));
+    vector<string> strings = {"apple", "banana", "grape", "pear", "orange"};
+    string substring = "ap";
+    vector<string> result = filter_by_substring(strings, substring);
+    vector<string> expected = {"apple", "grape"};
+    assert(issame(result, expected));
 
-    strings = {"cat", "dog", "elephant", "giraffe"};
-    substring = "at";
-    expected_output = {"cat", "elephant"};
-    assert(issame(filter_by_substring(strings, substring), expected_output));
+    strings = {"cat", "dog", "elephant", "tiger"};
+    substring = "e";
+    result = filter_by_substring(strings, substring);
+    expected = {"elephant"};
+    assert(issame(result, expected));
 
-    cout << "Test cases passed!";
+    strings = {"red", "green", "blue"};
+    substring = "yellow";
+    result = filter_by_substring(strings, substring);
+    expected = {};
+    assert(issame(result, expected));
+
+    cout << "All test cases passed!" << endl;
+
     return 0;
 }
