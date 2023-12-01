@@ -5,6 +5,12 @@
 
 using namespace std;
 
+vector<int> sort_third(vector<int> l);
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> sort_third(vector<int> l){
     vector<int> l_prime(l.size());
     vector<int> divisible_by_three_indices;
@@ -27,9 +33,7 @@ vector<int> sort_third(vector<int> l){
 }
 
 int main(){
-    vector<int> result = sort_third({5, 6, 3, 4, 8, 9, 2, 1});
-
-    assert(result == vector<int>({2, 6, 3, 4, 8, 9, 5, 1}));
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
     
     return 0;
 }
