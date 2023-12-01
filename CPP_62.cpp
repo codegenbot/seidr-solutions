@@ -11,12 +11,6 @@ vector<float> derivative(vector<float> xs) {
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b) {
-    // implementation here
-    // return true if vectors a and b are the same
-    // otherwise, return false
-}
-
 int main() {
     // test cases
     vector<float> result = derivative({1.0});
