@@ -22,11 +22,11 @@ std::map<std::string, int> histogram(std::string test) {
     return result;
 }
 
-bool issame(std::map<std::string, int> aMap, std::map<std::string, int> bMap) {
-    return aMap == bMap;
+bool issame(std::map<std::string, int> a, std::map<std::string, int> b) {
+    return a == b;
 }
 
-int contestMain() {
+int main() {
     assert(issame(histogram("a"), {{"a", 1}}));
     assert(issame(histogram("hello world"), {{"hello", 1}, {"world", 1}}));
     assert(issame(histogram("hello hello"), {{"hello", 2}}));
