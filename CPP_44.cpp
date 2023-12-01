@@ -1,18 +1,22 @@
 #include <string>
 #include <cassert>
 
-std::string to_string(int x) {
-    std::string result = "";
-    while (x > 0) {
-        int remainder = x % 10;
-        result = std::to_string(remainder) + result;
-        x = x / 10;
+string to_string(int n) {
+    if (n == 0) {
+        return "0";
+    }
+    
+    string result = "";
+    while (n > 0) {
+        int remainder = n % 10;
+        result = char('0' + remainder) + result;
+        n = n / 10;
     }
     return result;
 }
 
-std::string change_base(int x, int base) {
-    std::string result = "";
+string change_base(int x, int base) {
+    string result = "";
     while (x > 0) {
         int remainder = x % base;
         result = to_string(remainder) + result;
