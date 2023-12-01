@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 #include <cassert>
 
 bool same_chars(std::string s0, std::string s1){
@@ -10,15 +10,7 @@ bool same_chars(std::string s0, std::string s1){
 
 int main() {
     std::string s0, s1;
-    std::cout << "Enter first string: ";
-    std::cin >> s0;
-    std::cout << "Enter second string: ";
-    std::cin >> s1;
-    
-    bool result = same_chars(s0, s1);
-    
-    std::cout << std::boolalpha;
-    std::cout << "Are the strings anagrams? " << result << std::endl;
-    
+    std::cin >> s0 >> s1;
+    std::cout << std::boolalpha << same_chars(s0, s1) << std::endl;
     return 0;
 }
