@@ -26,10 +26,6 @@ string string_to_md5(string text) {
     return md5hash;
 }
 
-int main() {
-    string text;
-    cin >> text;
-    string result = string_to_md5(text);
-    cout << result << endl;
-    return 0;
-}
+"""
+g++ -o output_file_name input_file_name.cpp -lssl
+"""
