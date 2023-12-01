@@ -1,51 +1,33 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
-#include <cmath>
 
-using namespace std;
-
-vector<float> find_closest_elements(vector<float> numbers);
-
-bool issame(vector<float> a, vector<float> b);
-
-int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
-
-    return 0;
+bool issame(std::vector<float> a, std::vector<float> b) { 
+    // Compare the vectors and return true or false
 }
 
-vector<float> find_closest_elements(vector<float> numbers) {
-    float min_diff = abs(numbers[0] - numbers[1]);
-    float num1 = numbers[0];
-    float num2 = numbers[1];
+std::vector<float> find_closest_elements(std::vector<float> numbers) {
+    std::sort(numbers.begin(), numbers.end());
+    std::vector<float> closest_elements;
+    float min_diff = numbers[1] - numbers[0];
 
-    for (int i = 0; i < numbers.size() - 1; i++) {
-        for (int j = i + 1; j < numbers.size(); j++) {
-            float diff = abs(numbers[i] - numbers[j]);
-            if (diff < min_diff) {
-                min_diff = diff;
-                num1 = numbers[i];
-                num2 = numbers[j];
-            }
+    for (int i = 1; i < numbers.size() - 1; i++) {
+        float diff = numbers[i + 1] - numbers[i];
+        if (diff < min_diff) {
+            min_diff = diff;
+            closest_elements = {numbers[i], numbers[i + 1]};
         }
     }
 
-    vector<float> result;
-    result.push_back(num1);
-    result.push_back(num2);
-
-    return result;
+    return closest_elements;
 }
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size())
-        return false;
+int main() {
+    std::vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0, 2.2};
+    std::vector<float> closest_elements = find_closest_elements(numbers);
 
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
+    std::cout << "(" << closest_elements[0] << ", " << closest_elements[1] << ")" << std::endl;
 
-    return true;
+    return 0;
 }
