@@ -10,6 +10,7 @@ int getScore(const std::string& input) {
         char c = input[i];
         if (c == 'X') {
             score += 10;
+            
             if (frame < 10) {
                 score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
                 score += (input[i + 2] == 'X') ? 10 : ((input[i + 2] == '/') ? (10 - (input[i + 1] - '0')) : (input[i + 2] - '0'));
@@ -17,6 +18,7 @@ int getScore(const std::string& input) {
             }
         } else if (c == '/') {
             score += (10 - (input[i - 1] - '0')) + ((input[i + 1] == 'X') ? 10 : (input[i + 1] - '0'));
+            
             if (frame < 10) {
                 frame++;
             }
@@ -24,6 +26,7 @@ int getScore(const std::string& input) {
             // do nothing
         } else {
             score += (c - '0');
+            
             if (roll == 0) {
                 roll++;
             } else {
@@ -39,7 +42,9 @@ int getScore(const std::string& input) {
 int main() {
     std::string input;
     std::cin >> input;
+    
     int score = getScore(input);
     std::cout << score << std::endl;
+    
     return 0;
 }
