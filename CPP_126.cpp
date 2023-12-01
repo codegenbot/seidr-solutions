@@ -1,21 +1,12 @@
 bool is_sorted(vector<int> lst){
-    int n = lst.size();
-    if(n == 1) {
-        return true;
+    vector<int> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end());
+    if (sorted_lst != lst) {
+        return false;
     }
-    int prev = lst[0];
-    int count = 1;
-    for(int i = 1; i < n; i++) {
-        if(lst[i] == prev) {
-            count++;
-            if(count > 1) {
-                return false;
-            }
-        } else if(lst[i] < prev) {
+    for (int i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] == lst[i + 1]) {
             return false;
-        } else {
-            prev = lst[i];
-            count = 1;
         }
     }
     return true;
