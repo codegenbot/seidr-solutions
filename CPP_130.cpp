@@ -1,10 +1,16 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+    if (a.size() != b.size()) {
+        return false;
     }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
     return true;
 }
 
@@ -21,7 +27,7 @@ vector<int> tri(int n){
             sequence.push_back(1 + i / 2); // If i is even, add the corresponding value to the sequence
         }
         else{
-            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i + 1]); // If i is odd, calculate the value based on the previous elements
+            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i - 3]); // If i is odd, calculate the value based on the previous elements
         }
     }
 
