@@ -23,3 +23,6 @@ vector<string> splitString(string s){
     }
     return words;
 }
+
+string words_string = "ahmed     , gamal";
+assert (issame(splitString(words_string) , {"ahmed", "gamal"}));

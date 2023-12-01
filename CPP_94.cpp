@@ -29,3 +29,5 @@ int largestPrimeSum(vector<int> lst) {
     }
     return sumOfDigits(largestPrime);
 }
+
+assert(largestPrimeSum({127, 97, 8192}) == 10);

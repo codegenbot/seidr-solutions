@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
     int end1 = interval1[1];
@@ -13,11 +18,11 @@ string intersection(vector<int> interval1, vector<int> interval2) {
         return "NO";
     }
     
-    for (int i = 2; i * i <= intersectionLength; i++) {
+    for (int i = 2; i * i < intersectionLength; i++) {
         if (intersectionLength % i == 0) {
             return "NO";
         }
     }
     
-    return "YES";
+    return intersectionLength % sqrt(intersectionLength) == 0 ? "YES" : "NO";
 }

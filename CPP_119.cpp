@@ -1,9 +1,12 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
 string match_parens(vector<string> lst){
+    string result = "Yes";
     int count = 0;
     for(string s : lst){
         for(char c : s){
@@ -11,15 +14,24 @@ string match_parens(vector<string> lst){
                 count++;
             }
             else{
-                if(count == 0){
-                    return "No";
-                }
                 count--;
             }
+            if(count < 0){
+                result = "No";
+                break;
+            }
+        }
+        if(count < 0){
+            break;
         }
     }
-    if(count == 0){
-        return "Yes";
+    if(count != 0){
+        result = "No";
     }
-    return "No";
+    return result;
+}
+
+int main() {
+    assert (match_parens({")", "("}) == "Yes");
+    return 0;
 }
