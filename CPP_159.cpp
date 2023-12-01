@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    // Implement the issame function as per your requirement
+    // Implementation of issame function
 }
 
 vector<int> eat(int number, int need, int remaining) {

@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <climits>
 
@@ -69,19 +68,21 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return path;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
+    }
     
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i])
+    int n = a.size();
+    for (int i = 0; i < n; i++) {
+        if (a[i] != b[i]) {
             return false;
+        }
     }
     
     return true;
 }
 
-int main(){
+int main() {
     // ... your test cases ...
-    return 0;
 }
