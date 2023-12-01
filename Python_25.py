@@ -1,16 +1,15 @@
+from typing import List
+
+
 def factorize(n: int) -> List[int]:
     factors = []
-    # divide n by 2 until it is no longer divisible
-    while n % 2 == 0:
-        factors.append(2)
-        n = n // 2
-    # divide n by odd numbers starting from 3
-    i = 3
-    while i * i <= n:
-        while n % i == 0:
-            factors.append(i)
-            n = n // i
-        i += 2
-    if n > 2:
+    d = 2
+    while d * d <= n:
+        if n % d == 0:
+            factors.append(d)
+            n //= d
+        else:
+            d += 1
+    if n > 1:
         factors.append(n)
     return factors
