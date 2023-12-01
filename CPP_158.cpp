@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 string find_max(vector<string> words);
@@ -14,7 +13,7 @@ int main() {
     return 0;
 }
 
-string find_max(vector<string> words) {
+string find_max(vector<string> words){
     string max_word = "";
     int max_count = 0;
 
