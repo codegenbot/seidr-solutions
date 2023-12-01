@@ -1,8 +1,9 @@
 #include <string>
-#include <cstring>
+#include <iostream>
 #include <cassert>
+#include <cstring>
 
-int calculateLength(string str){
+int calculateLength(std::string str){
     return str.length();
 }
 
