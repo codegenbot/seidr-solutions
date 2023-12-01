@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
@@ -22,7 +23,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     if (currSum == target) {
         result.first = std::vector<int>(nums.begin(), nums.begin() + i + 1);
         result.second = std::vector<int>(nums.begin() + i + 1, nums.end());
-    } else if (abs(currSum - target) < abs(target - (currSum - nums[i]))) {
+    } else if (std::abs(currSum - target) < std::abs(target - (currSum - nums[i]))) {
         result.first = std::vector<int>(nums.begin(), nums.begin() + i + 1);
         result.second = std::vector<int>(nums.begin() + i + 1, nums.end());
     } else {
