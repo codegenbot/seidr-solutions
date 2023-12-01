@@ -1,35 +1,36 @@
-def calculate_score(bowling_string):
-    frames = []
-    frame = []
-    for char in bowling_string:
-        if char == 'X':
-            frame.append(10)
-            frames.append(frame)
-            frame = []
-        elif char == '/':
-            frame.append(10 - frame[0])
-            frames.append(frame)
-            frame = []
-        elif char == '-':
-            frame.append(0)
-        else:
-            frame.append(int(char))
-
-        if len(frame) == 2 or char == 'X':
-            frames.append(frame)
-            frame = []
-
+def calculate_bowling_score(frames):
     score = 0
-    for i in range(10):
-        frame = frames[i]
-        score += sum(frame)
-        if i < 9:
-            if frame[0] == 10:
-                if frames[i+1][0] == 10:
-                    score += frames[i+1][0] + frames[i+2][0]
+    frame_index = 0
+    frame = 1
+
+    while frame <= 10:
+        if frames[frame_index] == 'X':
+            score += 10
+            if frames[frame_index + 2] == 'X':
+                score += 10
+                if frames[frame_index + 4] == 'X':
+                    score += 10
                 else:
-                    score += sum(frames[i+1])
-            elif sum(frame) == 10:
-                score += frames[i+1][0]
+                    score += int(frames[frame_index + 4])
+            else:
+                if frames[frame_index + 3] == '/':
+                    score += 10
+                else:
+                    score += int(frames[frame_index + 2]) + int(frames[frame_index + 3])
+            frame_index += 2
+        elif frames[frame_index + 1] == '/':
+            score += 10
+            if frames[frame_index + 2] == 'X':
+                score += 10
+            else:
+                score += int(frames[frame_index + 2])
+            frame_index += 3
+        else:
+            score += int(frames[frame_index]) + int(frames[frame_index + 1])
+            frame_index += 2
+        frame += 1
 
     return score
+
+frames = input()
+print(calculate_bowling_score(frames))
