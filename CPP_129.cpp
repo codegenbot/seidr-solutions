@@ -2,7 +2,6 @@
 #include <vector>
 #include <climits>
 #include <cassert>
-
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k);
