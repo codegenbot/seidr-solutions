@@ -1,15 +1,19 @@
 #include <vector>
+#include <cstdlib>
+#include <cassert>
 
-int prod_signs(std::vector<int> arr){
-    if(arr.empty()){
+using namespace std;
+
+int prod_signs(vector<int> arr) {
+    if (arr.empty()) {
         return -32768;
     }
     
     int product = 1;
     int sum = 0;
     
-    for(int i=0; i<arr.size(); i++){
-        product *= (arr[i] == 0) ? 0 : (arr[i] > 0 ? 1 : -1);
+    for (int i = 0; i < arr.size(); i++) {
+        product *= (arr[i] >= 0 ? 1 : -1);
         sum += abs(arr[i]);
     }
     
@@ -17,6 +21,7 @@ int prod_signs(std::vector<int> arr){
 }
 
 int main() {
-
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    
     return 0;
 }
