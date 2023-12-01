@@ -1,63 +1,46 @@
-#include <iostream>
-#include <vector>
-#include <string>
+vector<string> split_words(string txt) {
+    vector<string> words;
+    string word;
+    bool hasWhitespace = (txt.find(' ') != string::npos);
+    bool hasComma = (txt.find(',') != string::npos);
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> split_text;
-
-    // Check if there are any whitespaces
-    size_t found = txt.find(' ');
-    if (found != std::string::npos) {
-        std::string word;
-        size_t start = 0;
-        while (start < txt.size()) {
-            found = txt.find(' ', start);
-            if (found != std::string::npos) {
-                word = txt.substr(start, found - start);
-                start = found + 1;
+    if (hasWhitespace) {
+        for (char c : txt) {
+            if (c != ' ') {
+                word += c;
             } else {
-                word = txt.substr(start);
-                start = txt.size();
+                if (!word.empty()) {
+                    words.push_back(word);
+                    word = "";
+                }
             }
-            split_text.push_back(word);
+        }
+        if (!word.empty()) {
+            words.push_back(word);
+        }
+    } else if (hasComma) {
+        for (char c : txt) {
+            if (c != ',') {
+                word += c;
+            } else {
+                if (!word.empty()) {
+                    words.push_back(word);
+                    word = "";
+                }
+            }
+        }
+        if (!word.empty()) {
+            words.push_back(word);
         }
     } else {
-        // Check if there are any commas
-        found = txt.find(',');
-        if (found != std::string::npos) {
-            std::string word;
-            size_t start = 0;
-            while (start < txt.size()) {
-                found = txt.find(',', start);
-                if (found != std::string::npos) {
-                    word = txt.substr(start, found - start);
-                    start = found + 1;
-                } else {
-                    word = txt.substr(start);
-                    start = txt.size();
-                }
-                split_text.push_back(word);
+        int count = 0;
+        for (char c : txt) {
+            if (islower(c)) {
+                count++;
             }
-        } else {
-            // No whitespaces or commas found, return a vector with one element
-            split_text.push_back(std::to_string(txt.size() % 26));
         }
+        words.push_back(to_string(count));
     }
 
-    return split_text;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
-    std::vector<std::string> result = split_words(input);
-
-    std::cout << "Result: ";
-    for (const std::string& word : result) {
-        std::cout << word << " ";
-    }
-
-    return 0;
+    return words;
 }
