@@ -2,8 +2,6 @@
 #include <string>
 #include <cassert>
 
-std::vector<int> even_odd_count(int num);
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
@@ -27,8 +25,10 @@ std::vector<int> even_odd_count(int num) {
     return result;
 }
 
-void main() {
+int main() {
     assert(issame(even_odd_count(0), {1, 0}));
     assert(issame(even_odd_count(123456789), {4, 5}));
     assert(issame(even_odd_count(-987654321), {4, 5}));
+
+    return 0;
 }
