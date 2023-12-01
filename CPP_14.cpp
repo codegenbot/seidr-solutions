@@ -26,6 +26,5 @@ bool issame(vector<string> b) {
 
 int main() {
     assert(issame(all_prefixes("WWW")));
-    cout << "Test cases passed." << endl;
     return 0;
 }
