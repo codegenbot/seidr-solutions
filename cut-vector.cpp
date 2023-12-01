@@ -1,34 +1,32 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int totalSum = 0;
-    for (int num : nums) {
-        totalSum += num;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
     }
     
-    int leftSum = 0;
-    int rightSum = totalSum;
-    int minDiff = INT_MAX;
+    int target = sum / 2;
+    int currSum = 0;
     int cutIndex = -1;
     
     for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
+        currSum += nums[i];
+        if (currSum == target || currSum + nums[i+1] == target) {
             cutIndex = i;
+            break;
         }
     }
     
-    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+    vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
     
-    return make_pair(leftSubvector, rightSubvector);
+    subvector1.push_back(0);
+    
+    return {subvector1, subvector2};
 }
 
 int main() {
@@ -40,13 +38,14 @@ int main() {
         cin >> nums[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(nums);
+    vector<int> result1, result2;
+    tie(result1, result2) = cutVector(nums);
     
-    for (int num : result.first) {
+    for (int num : result1) {
         cout << num << endl;
     }
     
-    for (int num : result.second) {
+    for (int num : result2) {
         cout << num << endl;
     }
     
