@@ -1,13 +1,13 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 #include <cmath>
 
 using namespace std;
 
-double double_the_difference(vector<double> lst) {
-    double sum = 0;
-    for (double num : lst) {
-        if (num > 0 && num == (int)num && (int)num % 2 == 1) {
+long long double_the_difference(vector<float>& lst){
+    long long sum = 0;
+    for (float num : lst) {
+        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
             sum += pow(num, 2);
         }
     }
@@ -15,9 +15,9 @@ double double_the_difference(vector<double> lst) {
 }
 
 int main() {
-    vector<double> lst = {1, 2, 3, 4, 5};
-    double odd_sum = 1*1 + 3*3 + 5*5;
-    assert(double_the_difference(lst) == odd_sum);
+    vector<float> lst = {1.5, 2.5, 3.5, 4.5, 5.5};
+    long long odd_sum = double_the_difference(lst);
+    assert(odd_sum == 42);
 
     return 0;
 }
