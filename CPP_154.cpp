@@ -2,19 +2,19 @@ bool cycpattern_check(string a, string b) {
     int n = a.length();
     int m = b.length();
 
-    if (n < m) {
+    if (m > n) {
         return false;
     }
 
     for (int i = 0; i < n; i++) {
-        bool found = true;
+        bool isRotation = true;
         for (int j = 0; j < m; j++) {
-            if (a[(i + j) % n] != b[j]) {
-                found = false;
+            if (a[(i+j) % n] != b[j]) {
+                isRotation = false;
                 break;
             }
         }
-        if (found) {
+        if (isRotation) {
             return true;
         }
     }
