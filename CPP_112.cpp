@@ -1,7 +1,7 @@
-#include <iostream>
+#include <cassert>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <string>
 
 using namespace std;
 
@@ -18,6 +18,7 @@ vector<string> reverse_delete(string s, string c) {
     return {result, (is_palindrome ? "True" : "False")};
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
+int main() {
+    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
+    return 0;
 }
