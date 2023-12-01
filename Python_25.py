@@ -15,5 +15,6 @@ def factorize(n: int) -> List[int]:
     return factors
 
 
-def solve(n: int) -> List[int]:
+def solve() -> List[int]:
+    n = int(input())
     return factorize(n)
