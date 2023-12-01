@@ -1,37 +1,29 @@
-def cut_vector(vector):
-    n = len(vector)
-    prefix_sum = [0] * (n + 1)
-
-    for i in range(1, n + 1):
-        prefix_sum[i] = prefix_sum[i - 1] + vector[i - 1]
-
-    suffix_sum = [0] * (n + 1)
-
-    for i in range(n - 1, -1, -1):
-        suffix_sum[i] = suffix_sum[i + 1] + vector[i]
-
-    min_diff = float("inf")
-    cut_index = -1
-
-    for i in range(n):
-        diff = abs(prefix_sum[i] - suffix_sum[i + 1])
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
-
-    return vector[:cut_index], vector[cut_index:]
-
-
-# Read input from user
+n = int(input())
 vector = []
-while True:
-    try:
-        line = input()
-        vector.append(int(line))
-    except EOFError:
+for i in range(n):
+    vector.append(int(input()))
+
+total_sum = sum(vector)
+half_sum = total_sum // 2
+
+current_sum = 0
+cut_index = 0
+
+for i in range(n):
+    current_sum += vector[i]
+    if current_sum >= half_sum:
+        cut_index = i
         break
 
-# Call the function and print the resulting subvectors
-subvector1, subvector2 = cut_vector(vector)
-print(*subvector1, sep="\n")
-print(*subvector2, sep="\n")
+if abs(total_sum - 2 * current_sum) <= abs(total_sum - 2 * (current_sum - vector[i])):
+    subvector1 = vector[:i]
+    subvector2 = vector[i:]
+else:
+    subvector1 = vector[:i+1]
+    subvector2 = vector[i+1:]
+
+for i in subvector1:
+    print(i)
+
+for i in subvector2:
+    print(i)
