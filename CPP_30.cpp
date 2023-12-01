@@ -1,9 +1,13 @@
 #include <vector>
+#include <assert.h>
 
 vector<float> get_positive(vector<float> l);
 
-bool issame(vector<float> a, vector<float> b){
-    // function implementation
+bool issame(vector<float> a,vector<float> b);
+
+int main() {
+    assert (issame(get_positive({}) , {}));
+    return 0;
 }
 
 vector<float> get_positive(vector<float> l){
@@ -16,8 +20,6 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-int main(){
-    // test the functions
-    assert(issame(get_positive({}), {}));
-    // other test cases
+bool issame(vector<float> a,vector<float> b){
+    // Implementation here
 }
