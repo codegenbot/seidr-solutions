@@ -1,37 +1,38 @@
-string sort_numbers(string numbers){
-    map<string, int> numberMap;
-    numberMap["zero"] = 0;
-    numberMap["one"] = 1;
-    numberMap["two"] = 2;
-    numberMap["three"] = 3;
-    numberMap["four"] = 4;
-    numberMap["five"] = 5;
-    numberMap["six"] = 6;
-    numberMap["seven"] = 7;
-    numberMap["eight"] = 8;
-    numberMap["nine"] = 9;
+#include <string>
+#include <map>
+#include <vector>
+#include <sstream>
+#include <algorithm>
 
-    // Split the input string into individual numbers
-    vector<string> numberList;
-    stringstream ss(numbers);
-    string number;
-    while (getline(ss, number, ' ')) {
-        numberList.push_back(number);
+std::string sort_numbers(std::string numbers) {
+    std::map<std::string, int> numeralMap;
+    numeralMap["zero"] = 0;
+    numeralMap["one"] = 1;
+    numeralMap["two"] = 2;
+    numeralMap["three"] = 3;
+    numeralMap["four"] = 4;
+    numeralMap["five"] = 5;
+    numeralMap["six"] = 6;
+    numeralMap["seven"] = 7;
+    numeralMap["eight"] = 8;
+    numeralMap["nine"] = 9;
+
+    std::vector<std::string> numerals;
+    std::stringstream ss(numbers);
+    std::string temp;
+    while (std::getline(ss, temp, ' ')) {
+        numerals.push_back(temp);
     }
 
-    // Sort the numbers using the numberMap
-    sort(numberList.begin(), numberList.end(), [&](const string& a, const string& b) {
-        return numberMap[a] < numberMap[b];
+    std::sort(numerals.begin(), numerals.end(), [&](const std::string& a, const std::string& b) {
+        return numeralMap[a] < numeralMap[b];
     });
 
-    // Convert the sorted numbers back to a string
-    string sortedNumbers;
-    for (const string& num : numberList) {
-        sortedNumbers += num + " ";
+    std::string sortedNumbers;
+    for (const std::string& numeral : numerals) {
+        sortedNumbers += numeral + " ";
     }
 
-    // Remove the trailing space
     sortedNumbers.pop_back();
-
     return sortedNumbers;
 }
