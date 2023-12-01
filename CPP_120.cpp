@@ -13,8 +13,9 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 vector<int> maximum(const vector<int>& arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
-    return result;
+    vector<int> sorted_arr = arr;
+    sort(sorted_arr.begin(), sorted_arr.end(), greater<int>());
+    return vector<int>(sorted_arr.begin(), sorted_arr.begin() + k);
 }
 
 int main() {
