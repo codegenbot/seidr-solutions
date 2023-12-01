@@ -1,4 +1,4 @@
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> digitMap;
     digitMap[1] = "One";
@@ -11,18 +11,19 @@ vector<string> by_length(vector<int> arr) {
     digitMap[8] = "Eight";
     digitMap[9] = "Nine";
 
+    sort(arr.begin(), arr.end());
+
     vector<int> sortedArr;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] >= 1 && arr[i] <= 9) {
+
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i] >= 1 && arr[i] <= 9){
             sortedArr.push_back(arr[i]);
         }
     }
 
-    sort(sortedArr.begin(), sortedArr.end());
-
     reverse(sortedArr.begin(), sortedArr.end());
 
-    for (int i = 0; i < sortedArr.size(); i++) {
+    for(int i=0; i<sortedArr.size(); i++){
         result.push_back(digitMap[sortedArr[i]]);
     }
 
