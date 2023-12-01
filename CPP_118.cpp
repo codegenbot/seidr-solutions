@@ -1,24 +1,29 @@
 #include <string>
-#include <iostream>
+#include <cassert>
 
-std::string get_closest_vowel(std::string word){
+bool isVowel(char c) {
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+}
+
+std::string get_closest_vowel(std::string word) {
+    std::string vowels = "aeiouAEIOU";
     int n = word.length();
-    for(int i=n-2; i>0; i--){
-        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ||
-           word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U'){
-            if((word[i-1] >= 'b' && word[i-1] <= 'z' && word[i-1] != 'y' && word[i-1] != 'Y') &&
-               (word[i+1] >= 'b' && word[i+1] <= 'z' && word[i+1] != 'y' && word[i+1] != 'Y')){
-                return std::string(1, word[i]);
-            }
+    for (int i = n - 2; i >= 1; i--) {
+        if (vowels.find(word[i]) != std::string::npos && !isVowel(word[i - 1]) &&
+            !isVowel(word[i + 1])) {
+            return std::string(1, word[i]);
         }
     }
     return "";
 }
 
 int main() {
-    // Testing the get_closest_vowel function
-    std::cout << (get_closest_vowel("Above") == "o") << std::endl;
-    // Add more test cases if needed
+    assert(get_closest_vowel("Above") == "o");
+    assert(get_closest_vowel("Hallway") == "a");
+    assert(get_closest_vowel("Apple") == "");
+    assert(get_closest_vowel("Umbrella") == "e");
+    assert(get_closest_vowel("Rhythm") == "y");
 
     return 0;
 }
