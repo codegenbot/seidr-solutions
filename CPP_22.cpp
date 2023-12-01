@@ -8,7 +8,7 @@ bool issame(vector<int> a, vector<int> b){
    // implementation of issame function
 }
 
-vector<int> filter_integers(list_any values){
+vector<int> filter_integers(list<any> values){
    vector<int> result;
    for(auto value : values){
       if(auto* intValue = any_cast<int>(&value)){
