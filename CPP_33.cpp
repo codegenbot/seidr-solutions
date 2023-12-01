@@ -4,6 +4,10 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> sort_third(vector<int> l){
     vector<int> l_prime = l;
     vector<int> divisible_by_three;
