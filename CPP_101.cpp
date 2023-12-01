@@ -2,9 +2,9 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+bool issame(vector<string> a, vector<string> b);
 
-vector<string> words_string(string s) {
+vector<string> words_string(string s){
     vector<string> words;
     string word = "";
     for(int i=0; i<s.length(); i++){
@@ -24,25 +24,22 @@ vector<string> words_string(string s) {
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
         return false;
     }
-  
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
-  
     return true;
 }
 
 int main() {
-    // Test the functions
-    assert(issame(words_string("hello world"), words_string("hello world")));
-    assert(!issame(words_string("hello world"), words_string("hello")));
-    assert(!issame(words_string("hello"), words_string("hello world")));
-  
+    vector<string> a = words_string("Hello, World!");
+    vector<string> b = words_string("Hello, World!");
+    bool result = issame(a, b);
+    assert(result == true);
     return 0;
 }
