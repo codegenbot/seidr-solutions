@@ -1,25 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 vector<string> words_string(string s);
-
 bool issame(vector<string> a, vector<string> b);
-
-int main() {
-    string input;
-    getline(cin, input);
-    vector<string> words = words_string(input);
-    
-    vector<string> a = {"apple", "banana", "cherry"};
-    vector<string> b = {"apple", "banana", "cherry"};
-    
-    assert(issame(a, b));
-    
-    return 0;
-}
+#include <cassert>
 
 vector<string> words_string(string s){
     vector<string> words;
