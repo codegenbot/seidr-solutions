@@ -4,6 +4,8 @@
 
 std::vector<int> pluck(std::vector<int> arr);
 
+bool issame(std::vector<int> a, std::vector<int> b);
+
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
     int smallestValue = INT_MAX;
@@ -36,4 +38,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
   
     return true;
+}
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert(issame(pluck({2, 4, 6, 1}), {2, 0}));
+    assert(issame(pluck({5, 3, 1}), {}));
+    assert(issame(pluck({10, 8, 6, 4, 2}), {2, 4}));
+    assert(issame(pluck({9, 8, 7, 6}), {8, 1}));
+
+    return 0;
 }
