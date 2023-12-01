@@ -18,20 +18,11 @@ vector<int> rolling_max(vector<int> numbers){
 
 vector<int> broadcast(vector<int> input){
     vector<int> result;
+    int maxSoFar = INT_MIN;
     
-    for(int i=0; i<input.size()-1; i++){
-        int current = input[i];
-        int next = input[i+1];
-        
-        int diff = next - current;
-        
-        if(diff > 0){
-            result.push_back(1);
-        }else if(diff < 0){
-            result.push_back(-1);
-        }else{
-            result.push_back(0);
-        }
+    for(int i=0; i<input.size(); i++){
+        maxSoFar = max(maxSoFar, input[i]);
+        result.push_back(maxSoFar);
     }
     
     return result;
