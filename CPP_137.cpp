@@ -1,7 +1,3 @@
-#include <algorithm>
-#include <string>
-#include <type_traits>
-
 template<typename T>
 T boost_any_cast(const boost::any& operand) {
     try {
