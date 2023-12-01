@@ -27,11 +27,3 @@ std::vector<int> get_odd_collatz(int n) {
   std::sort(odd_collatz_seq.begin(), odd_collatz_seq.end());
   return odd_collatz_seq;
 }
-
-std::vector<int> expected = {1};
-std::vector<int> result = get_odd_collatz(1);
-if (issame(result, expected)) {
-  std::cout << "Output is correct" << std::endl;
-} else {
-  std::cout << "Output is incorrect" << std::endl;
-}
