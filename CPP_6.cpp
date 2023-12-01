@@ -26,7 +26,7 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
     return levels;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -36,6 +36,5 @@ bool issame(std::vector<int> a, std::vector<int> b){
             return false;
         }
     }
-
     return true;
 }
