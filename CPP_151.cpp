@@ -4,7 +4,7 @@
 
 using namespace std;
 
-long long double_the_difference(vector<float>& lst){
+long long double_the_difference(vector<float>& lst) {
     long long odd_sum = 0;
     for (float num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
@@ -15,9 +15,9 @@ long long double_the_difference(vector<float>& lst){
 }
 
 int main() {
-    vector<float> lst = {1, 2, 3, 4, 5};
-    
-    assert(double_the_difference(lst) == 35);
+    vector<float> lst = {1.5, 2.0, 3.5, 4.0, 5.5, 6.0};
+    long long result = double_the_difference(lst);
+    assert(result == 50);
     
     return 0;
 }
