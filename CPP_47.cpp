@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <cmath>
 
 float median(std::vector<float> l){
