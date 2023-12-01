@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-#include <cryptopp/md5.h>
+#include "md5.h"
 
 using namespace std;
-using namespace CryptoPP;
 
 string string_to_md5(const string& text) {
     if (text.empty()) {
@@ -11,7 +10,7 @@ string string_to_md5(const string& text) {
     }
 
     byte digest[MD5::DIGESTSIZE];
-    CryptoPP::MD5().CalculateDigest(digest, (byte*)text.c_str(), text.length());
+    MD5().CalculateDigest(digest, (byte*)text.c_str(), text.length());
 
     char md5String[33];
     for (int i = 0; i < 16; i++) {
@@ -19,4 +18,10 @@ string string_to_md5(const string& text) {
     }
 
     return string(md5String);
+}
+
+int main() {
+    assert (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+
+    return 0;
 }
