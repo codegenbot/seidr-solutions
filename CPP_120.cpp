@@ -4,8 +4,8 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    /* implement the issame function */
-    return a == b;
+    // implementation of issame function
+    // TODO: Add implementation here
 }
 
 vector<int> maximum(vector<int> arr, int k) {
