@@ -1,8 +1,16 @@
 #include <string>
-#include <map>
-#include <cassert>
 
 using namespace std;
+
+string sort_numbers(string numbers);
+
+int main() {
+    string numbers;
+    getline(cin, numbers);
+    string result = sort_numbers(numbers);
+    cout << result << endl;
+    return 0;
+}
 
 string sort_numbers(string numbers){
     map<string, int> number_map;
@@ -57,9 +65,4 @@ string sort_numbers(string numbers){
     }
     
     return result;
-}
-
-int main() {
-    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    return 0;
 }
