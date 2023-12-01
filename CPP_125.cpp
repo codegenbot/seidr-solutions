@@ -1,34 +1,40 @@
-'''
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 vector<string> split_words(string txt){
     vector<string> words;
     string word = "";
-    bool hasWhitespace = false;
-    bool hasComma = false;
     
-    for (int i = 0; i < txt.length(); i++) {
-        if (txt[i] == ' ') {
-            if (!word.empty()) {
+    for(int i=0; i<txt.length(); i++){
+        if(txt[i] == ' ' || txt[i] == ','){
+            if(!word.empty()){
                 words.push_back(word);
                 word = "";
             }
-            hasWhitespace = true;
-        } else if (txt[i] == ',') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
-            hasComma = true;
-        } else {
+        }
+        else{
             word += txt[i];
         }
     }
     
-    if (!word.empty()) {
+    if(!word.empty()){
         words.push_back(word);
-    } else if (!hasWhitespace && !hasComma) {
+    }
+    
+    if(words.empty()){
         words.push_back(to_string(3));
     }
     
     return words;
 }
-'''
+
+bool issame(vector<string> a, vector<string> b){
+    // your code implementation here
+}
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
+}
