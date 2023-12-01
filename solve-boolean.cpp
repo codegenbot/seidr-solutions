@@ -8,9 +8,9 @@ bool evaluateBooleanExpression(string expression) {
     } else if (expression == "f") {
         return false;
     } else {
-        bool left = evaluateBooleanExpression(expression.substr(0, expression.find_first_of("&|")));
-        bool right = evaluateBooleanExpression(expression.substr(expression.find_first_of("&|") + 1));
-        if (expression[expression.find_first_of("&|")] == '&') {
+        bool left = evaluateBooleanExpression(expression.substr(0, expression.length() - 2));
+        bool right = evaluateBooleanExpression(expression.substr(expression.length() - 1));
+        if (expression[expression.length() - 2] == '&') {
             return left && right;
         } else {
             return left || right;
