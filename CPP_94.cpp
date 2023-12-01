@@ -4,8 +4,6 @@
 
 using namespace std;
 
-// Existing function
-
 int sumOfDigits(int num) {
     int sum = 0;
     while (num > 0) {
