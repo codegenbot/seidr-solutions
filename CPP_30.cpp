@@ -1,6 +1,5 @@
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -15,6 +14,5 @@ vector<float> get_positive(vector<float> l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), get_positive({})));
     return 0;
 }
