@@ -20,7 +20,7 @@ long double probabilityOfHigherRoll(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-
+    
     cout << fixed << setprecision(8);
     long double result = probabilityOfHigherRoll(n, m);
     cout << result << endl;
