@@ -1,10 +1,18 @@
 bool check_if_last_char_is_a_letter(string txt){
-    if(txt.empty()){
+    if(txt.length() == 0){
         return false;
     }
-    int last_index = txt.length() - 1;
-    char last_char = txt[last_index];
-    if(isalpha(last_char) && last_char != ' '){
+    char lastChar = txt.back();
+    if(isalpha(lastChar)){
+        int spaceIndex = txt.find_last_of(' ');
+        if(spaceIndex == string::npos){
+            return true;
+        }
+        for(int i = spaceIndex + 1; i < txt.length(); i++){
+            if(isalpha(txt[i])){
+                return false;
+            }
+        }
         return true;
     }
     return false;
