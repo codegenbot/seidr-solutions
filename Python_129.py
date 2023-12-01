@@ -1,11 +1,9 @@
 def minPath(grid, k):
-
     def backtrack(i, j, path, remain, visited):
         if remain < 0:
             return None
         if remain == 0:
             return path
-    
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
         for di, dj in directions:
             ni, nj = i + di, j + dj
