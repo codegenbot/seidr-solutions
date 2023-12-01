@@ -1,5 +1,7 @@
 #include <vector>
 #include <numeric>
+#include <algorithm>
+#include <cassert>
 
 bool compare(int a, int b) {
     int sumA = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0,
@@ -16,7 +18,7 @@ bool compare(int a, int b) {
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    sort(nums.begin(), nums.end(), compare);
+    std::sort(nums.begin(), nums.end(), compare);
     return nums;
 }
 
