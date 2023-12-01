@@ -19,5 +19,4 @@ vector<int> strange_sort_vector(vector<int> lst){
     
     return result;
 }
-
 assert(strange_sort_vector({111111}) == vector<int>{111111});
