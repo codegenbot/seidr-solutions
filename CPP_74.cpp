@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert> // Include the <cassert> header
-
+#include <cassert>
 using namespace std;
 
-vector<string> totalMatch(vector<string> lst1, vector<string> lst2){
+vector<string> total_match(vector<string> lst1, vector<string> lst2){
     int sum1 = 0, sum2 = 0;
     for(string s : lst1){
         sum1 += s.length();
@@ -20,6 +19,6 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2){
 }
 
 int main() {
-    assert(totalMatch({"this"}, {}) == vector<string>());
+    assert(total_match({"this"}, {}) == vector<string>());
     return 0;
 }

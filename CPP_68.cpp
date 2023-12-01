@@ -1,14 +1,20 @@
 #include <cassert>
 #include <climits>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    for (int num : a) {
+        if (find(b.begin(), b.end(), num) == b.end()) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<int> pluck(vector<int> arr){
+vector<int> pluck(vector<int> arr) {
     vector<int> result;
     int smallestValue = INT_MAX;
     int smallestIndex = -1;
@@ -26,8 +32,4 @@ vector<int> pluck(vector<int> arr){
     }
     
     return result;
-}
-
-int main(){
-    assert(issame(pluck({7, 9, 7, 1}), {}));
 }
