@@ -8,7 +8,7 @@ int luhnAlgorithm(const std::vector<int>& digits) {
     for (int i = n - 1; i >= 0; i--) {
         int digit = digits[i];
 
-        if (i % 2 == 1) {
+        if (i % 2 == 0) {
             digit *= 2;
             if (digit > 9) {
                 digit -= 9;
