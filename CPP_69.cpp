@@ -1,17 +1,12 @@
-int search(vector<int> lst){
-    int maxFreq = -1;
-    int result = -1;
-    for(int i = 0; i < lst.size(); i++){
-        int freq = 0;
-        for(int j = 0; j < lst.size(); j++){
-            if(lst[j] == lst[i]){
-                freq++;
-            }
-        }
-        if(freq >= lst[i] && lst[i] > maxFreq){
-            maxFreq = lst[i];
-            result = lst[i];
+#include <algorithm>
+
+int search(vector<int> lst) {
+    int maxVal = -1;
+    for (int num : lst) {
+        int freq = count(lst.begin(), lst.end(), num);
+        if (freq >= num && num > maxVal) {
+            maxVal = num;
         }
     }
-    return result;
+    return maxVal;
 }
