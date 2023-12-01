@@ -1,25 +1,29 @@
-def cut_vector(vector):
-    n = len(vector)
-    total_sum = sum(vector)
-    half_sum = total_sum // 2
-    current_sum = 0
-    for i in range(n):
-        current_sum += vector[i]
-        if current_sum >= half_sum:
-            if (
-                current_sum == half_sum
-                or current_sum - half_sum < total_sum - current_sum
-            ):
-                return (vector[: i + 1], vector[i + 1 :])
-            else:
-                return (vector[:i], vector[i:])
-    return (vector, [])
+import numpy as np
 
+def cut_vector(v):
+    v = np.array(v)
+    n = len(v)
+    diff = np.zeros(n)    
+    for i in range(1, n):
+        diff[i] = abs(sum(v[:i]) - sum(v[i:]))
+    idx = np.argmin(diff)
+    return list(v[:idx]), list(v[idx:])
 
-vector = []
-for _ in range(int(input())):
-    vector.append(int(input()))
+# Read the input from the user
+v = []
+while True:
+    num = input()
+    if num != '':
+        v.append(int(num))
+    else:
+        break
 
-result = cut_vector(vector)
-for v in result:
-    print(*v, sep="\n")
+# Get the resulting subvectors
+subvector1, subvector2 = cut_vector(v)
+
+# Output the subvectors
+for num in subvector1:
+    print(num)
+print()
+for num in subvector2:
+    print(num)
