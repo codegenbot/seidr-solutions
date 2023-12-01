@@ -15,15 +15,11 @@ int calculateScore(const std::string& bowls) {
             } else {
                 score += (10 + (bowls[bowlIndex + 1] - '0') + (bowls[bowlIndex + 2] - '0'));
             }
-            frame++;
-        } else if (bowl == '/') {
-            score += (10 - (bowls[bowlIndex - 1] - '0') + (bowls[bowlIndex + 1] - '0'));
-            frame++;
         } else {
             score += (bowl - '0');
-            frame++;
         }
-        
+
+        frame++;
         bowlIndex++;
     }
 
