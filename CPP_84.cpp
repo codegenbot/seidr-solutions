@@ -1,4 +1,4 @@
-#include <string>
+#include <bitset>
 
 string solve(int N) {
     int sum = 0;
@@ -6,5 +6,5 @@ string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return to_string(sum);
+    return bitset<32>(sum).to_string().substr(32 - sum);
 }
