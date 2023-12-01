@@ -24,7 +24,6 @@ vector<string> words_string(string s) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // Implement your logic to compare vectors a and b
     if (a.size() != b.size()) {
         return false;
     }
