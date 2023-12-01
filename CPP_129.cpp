@@ -1,8 +1,11 @@
 #include <vector>
 #include <climits>
 #include <cassert>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     std::vector<int> path;
@@ -12,8 +15,8 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     int minVal = grid[0][0];
     int startRow = 0;
     int startCol = 0;
-    for(int i=0; i<n; i++){
-        for(int j=0; j<n; j++){
+    for(size_t i=0; i<grid.size(); i++){
+        for(size_t j=0; j<grid.size(); j++){
             if(grid[i][j] < minVal){
                 minVal = grid[i][j];
                 startRow = i;
@@ -65,20 +68,8 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     return path;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    assert(issame(minPath(std::vector<std::vector<int>>{{1, 3}, {3, 2}}, 10), std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     // Add more test cases if needed
     
     return 0;
