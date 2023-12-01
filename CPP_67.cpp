@@ -5,7 +5,6 @@
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-
     int apples = 0;
     int oranges = 0;
     int mangoes = 0;
