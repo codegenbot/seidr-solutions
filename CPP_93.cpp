@@ -1,4 +1,5 @@
 #include <string>
+
 string encode(string message){
     string encoded_message = "";
     for(int i=0; i<message.length(); i++){
