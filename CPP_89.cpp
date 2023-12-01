@@ -23,9 +23,9 @@ string encrypt(string s){
 }
 
 int main() {
-    assert(encrypt("a") == "e");
-    assert(encrypt("z") == "d");
-    assert(encrypt("Hello, World!") == "Jgnnq, Yqtnf!");
+    assert(encrypt("a")=="e");
+    assert(encrypt("z")=="d");
+    assert(encrypt("Hello, World!")=="Jgnnq, Yqtnf!");
     
     cout << "All test cases passed!" << endl;
     
