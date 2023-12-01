@@ -1,14 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
+#include <algorithm>
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
     string strongest_extension = extensions[0];
-    int max_strength = countUpperCase(strongest_extension) - countLowerCase(strongest_extension);
+    int max_strength = count(strongest_extension.begin(), strongest_extension.end(), '_') - count(strongest_extension.begin(), strongest_extension.end(), '.');
 
     for (int i = 1; i < extensions.size(); i++) {
-        int strength = countUpperCase(extensions[i]) - countLowerCase(extensions[i]);
+        int strength = count(extensions[i].begin(), extensions[i].end(), '_') - count(extensions[i].begin(), extensions[i].end(), '.');
         if (strength > max_strength) {
             strongest_extension = extensions[i];
             max_strength = strength;
@@ -16,24 +13,4 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
     }
 
     return class_name + "." + strongest_extension;
-}
-
-int countUpperCase(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (isupper(c)) {
-            count++;
-        }
-    }
-    return count;
-}
-
-int countLowerCase(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (islower(c)) {
-            count++;
-        }
-    }
-    return count;
 }
