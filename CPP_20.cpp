@@ -1,4 +1,10 @@
-vector<float> find_closest_elements(vector<float> numbers){
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+vector<float> find_closest_elements(vector<float> numbers) {
     float min_diff = INFINITY;
     float num1, num2;
     
@@ -18,4 +24,14 @@ vector<float> find_closest_elements(vector<float> numbers){
     result.push_back(max(num1, num2));
     
     return result;
+}
+
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+
+    return 0;
 }
