@@ -1,4 +1,6 @@
-vector<int> factorize(int n){
+#include <vector>
+
+vector<int> factorize(int n) {
     vector<int> factors;
     for (int i = 2; i <= n; i++) {
         while (n % i == 0) {
