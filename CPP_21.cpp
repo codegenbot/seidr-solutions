@@ -1,12 +1,8 @@
 #include <vector>
 
-using namespace std;
-
 vector<float> rescale_to_unit(vector<float> numbers);
 
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
-}
+bool issame(const vector<float>& a, const vector<float>& b);
 
 vector<float> rescale_to_unit(vector<float> numbers){
     float min_num = numbers[0];
@@ -31,4 +27,8 @@ vector<float> rescale_to_unit(vector<float> numbers){
     }
     
     return rescaled_numbers;
+}
+
+bool issame(const vector<float>& a, const vector<float>& b) {
+    return a == b;
 }
