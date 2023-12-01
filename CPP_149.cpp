@@ -21,11 +21,7 @@ vector<string> sorted_list_sum(vector<string> lst){
 }
 
 int main() {
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> result = sorted_list_sum(input);
-    
-    assert(result == expected);
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>{"cc", "dd", "aaaa", "bbbb"});
 
     return 0;
 }
