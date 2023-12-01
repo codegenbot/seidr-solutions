@@ -1,7 +1,11 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 int calculateScore(string frames) {
     int score = 0;
     int frameIndex = 0;
-    
+
     for (int i = 0; i < 10; i++) {
         if (frames[frameIndex + 1] == '/') {
             score += 10;
@@ -33,6 +37,16 @@ int calculateScore(string frames) {
             frameIndex += 2;
         }
     }
-    
+
     return score;
+}
+
+int main() {
+    string frames;
+    cin >> frames;
+
+    int score = calculateScore(frames);
+    cout << score << endl;
+
+    return 0;
 }
