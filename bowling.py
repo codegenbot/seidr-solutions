@@ -1,37 +1,32 @@
-import re
-
-def bowling_score(round):
-    score = 0
-    frames = re.findall(r'(\d{1,2}|X|/|-)', round)
+def calculate_score(bowls):
+    frames = [0] * 10
     frame_index = 0
-
-    for _ in range(10):
-        frame = frames[frame_index]
-        
-        if frame == 'X':
-            score += 10 + get_frame_score(frames[frame_index+1])
-            if frame_index < 8 and frames[frame_index+2] == '/':
-                score += 10
-            else:
-                score += get_frame_score(frames[frame_index+2])
-            frame_index += 1
-        elif '/' in frame:
-            score += 10 + get_frame_score(frames[frame_index+1])
-            frame_index += 1
+    bowl_index = 0
+    while frame_index < 10:
+        if bowls[bowl_index] == 'X':
+            frames[frame_index] = 10 + calculate_bonus(bowls, bowl_index, 2)
+            bowl_index += 1
+        elif bowls[bowl_index + 1] == '/':
+            frames[frame_index] = 10 + calculate_bonus(bowls, bowl_index, 1)
+            bowl_index += 2
         else:
-            score += get_frame_score(frame)
-        
+            frames[frame_index] = int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
+            bowl_index += 2
         frame_index += 1
-    
-    return score
+    return sum(frames)
 
-def get_frame_score(frame):
-    if frame == 'X':
-        return 10
-    elif '/' in frame:
-        return 10 - int(frame[0])
-    else:
-        return int(frame[0]) + int(frame[1])
+def calculate_bonus(bowls, bowl_index, num_bonus_bowls):
+    bonus_score = 0
+    for i in range(num_bonus_bowls):
+        bowl_index += 1
+        if bowls[bowl_index] == 'X':
+            bonus_score += 10
+        elif bowls[bowl_index] == '/':
+            bonus_score += 10 - int(bowls[bowl_index - 1])
+        else:
+            bonus_score += int(bowls[bowl_index])
+    return bonus_score
 
-round = input()
-print(bowling_score(round))
+bowls = input()
+score = calculate_score(bowls)
+print(score)
