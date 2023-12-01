@@ -19,7 +19,7 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     return {largestNegative, smallestPositive};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     // function body
 }
 

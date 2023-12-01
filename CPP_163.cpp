@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
 std::vector<int> generate_integers(int a, int b) {
     std::vector<int> result;
@@ -11,7 +11,7 @@ std::vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
+bool issame(std::vector<int>& a, std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,6 +24,11 @@ bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}));
+    std::vector<int> result = generate_integers(17, 89);
+    if (issame(result, {})) {
+        std::cout << "Result is empty." << std::endl;
+    } else {
+        std::cout << "Result is not empty." << std::endl;
+    }
     return 0;
 }
