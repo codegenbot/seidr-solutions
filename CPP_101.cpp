@@ -23,16 +23,3 @@ vector<string> splitWords(string sentence){
     }
     return words;
 }
-
-int main(){
-    vector<string> words = splitWords("ahmed     , gamal");
-    cout << "Output: ";
-    for(const string& word : words){
-        cout << word << " ";
-    }
-    cout << endl;
-
-    assert(splitWords("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
-
-    return 0;
-}
