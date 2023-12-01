@@ -1,14 +1,9 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
-using namespace std;
-
-string match_parens(vector<string> lst);
-
-string match_parens(vector<string> lst){
-    string s1 = lst[0]; // first string
-    string s2 = lst[1]; // second string
+std::string match_parens(std::vector<std::string> lst){
+    std::string s1 = lst[0]; // first string
+    std::string s2 = lst[1]; // second string
     int count = 0; // count of open parentheses
 
     // iterate through first string
@@ -38,9 +33,4 @@ string match_parens(vector<string> lst){
     else{
         return "No";
     }
-}
-
-int main(){
-    assert (match_parens({")", "("}) == "Yes" );
-    return 0;
 }
