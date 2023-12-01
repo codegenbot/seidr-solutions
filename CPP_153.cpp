@@ -1,8 +1,6 @@
-#include <algorithm>
 #include <string>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
@@ -18,10 +16,4 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
     }
     
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    
-    return 0;
 }
