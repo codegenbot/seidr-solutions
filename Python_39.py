@@ -10,16 +10,14 @@ def prime_fib(n: int):
     def fibonacci(n):
         if n <= 0:
             return []
-        elif n == 1:
-            return [0]
-        elif n == 2:
-            return [0, 1]
-        else:
-            fib_sequence = [0, 1]
-            for i in range(2, n):
-                fib_sequence.append(fib_sequence[i-1] + fib_sequence[i-2])
-            return fib_sequence
+        fib_sequence = [0, 1]
+        while len(fib_sequence) < n:
+            fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+        return fib_sequence
 
     fib_sequence = fibonacci(n)
-    prime_fib_nums = [num for num in fib_sequence if is_prime(num)]
-    return prime_fib_nums[-1]
+    prime_fib_numbers = []
+    for num in fib_sequence:
+        if is_prime(num):
+            prime_fib_numbers.append(num)
+    return prime_fib_numbers[-1]
