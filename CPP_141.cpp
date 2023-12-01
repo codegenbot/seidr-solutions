@@ -1,23 +1,38 @@
+#include <iostream>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+string file_name_check(string file_name);
+
+int main() {
+    assert (file_name_check("s.") == "No");
+
+    return 0;
+}
+
 string file_name_check(string file_name){
-    int digitCount = 0;
-    int dotCount = 0;
+    int digits = 0;
+    int dot = 0;
     int dotIndex = -1;
+    int len = file_name.length();
     
-    for(int i=0; i<file_name.length(); i++){
+    for(int i = 0; i < len; i++){
         if(file_name[i] >= '0' && file_name[i] <= '9'){
-            digitCount++;
+            digits++;
         }
         else if(file_name[i] == '.'){
-            dotCount++;
+            dot++;
             dotIndex = i;
         }
     }
     
-    if(digitCount > 3 || dotCount != 1 || dotIndex == 0 || dotIndex == file_name.length()-1){
+    if(digits > 3 || dot != 1 || dotIndex == 0 || dotIndex == len - 1){
         return "No";
     }
     
-    string extension = file_name.substr(dotIndex+1);
+    string extension = file_name.substr(dotIndex + 1);
     if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
     }
