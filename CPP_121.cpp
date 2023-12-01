@@ -11,13 +11,19 @@ int solutions(vector<int> lst){
 }
 
 int main() {
-    vector<int> test1 = {1, 2, 3, 4, 5};
-    vector<int> test2 = {2, 4, 6, 8, 10};
-    vector<int> test3 = {1, 3, 5, 7, 9};
+    // Test cases
+    std::vector<int> test1 = {1, 2, 3, 4, 5};
+    std::vector<int> test2 = {2, 4, 6, 8};
+    std::vector<int> test3 = {1, 3, 5, 7, 9};
     
     int result1 = solutions(test1);
     int result2 = solutions(test2);
     int result3 = solutions(test3);
+    
+    // Print the results
+    std::cout << "Result 1: " << result1 << std::endl;
+    std::cout << "Result 2: " << result2 << std::endl;
+    std::cout << "Result 3: " << result3 << std::endl;
     
     return 0;
 }
