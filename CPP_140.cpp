@@ -1,5 +1,7 @@
 #include <string>
 
+std::string fix_spaces(std::string text);
+
 std::string fix_spaces(std::string text){
     int n = text.size();
     std::string result = "";
