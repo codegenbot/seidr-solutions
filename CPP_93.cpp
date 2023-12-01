@@ -1,46 +1,23 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-
-std::string encode(std::string message) {
-    for (int i = 0; i < message.length(); i++) {
-        if (std::isalpha(message[i])) {
-            if (std::islower(message[i])) {
-                message[i] = std::toupper(message[i]);
-            } else {
-                message[i] = std::tolower(message[i]);
+string encode(string message){
+    string encodedMessage = "";
+    for(int i=0; i<message.length(); i++){
+        if(isalpha(message[i])){
+            if(isupper(message[i])){
+                encodedMessage += tolower(message[i]);
             }
-            
-            switch (message[i]) {
-                case 'A':
-                    message[i] = 'C';
-                    break;
-                case 'E':
-                    message[i] = 'G';
-                    break;
-                case 'I':
-                    message[i] = 'K';
-                    break;
-                case 'O':
-                    message[i] = 'Q';
-                    break;
-                case 'U':
-                    message[i] = 'W';
-                    break;
+            else{
+                encodedMessage += toupper(message[i]);
+            }
+            if(tolower(message[i]) == 'a' || tolower(message[i]) == 'e' || tolower(message[i]) == 'i' || tolower(message[i]) == 'o' || tolower(message[i]) == 'u'){
+                encodedMessage += char(tolower(message[i]) + 2);
+            }
+            else{
+                encodedMessage += message[i];
             }
         }
+        else{
+            encodedMessage += message[i];
+        }
     }
-    
-    return message;
-}
-
-int main() {
-    std::string message;
-    std::cout << "Enter a message: ";
-    std::getline(std::cin, message);
-    
-    std::string encodedMessage = encode(message);
-    std::cout << "Encoded message: " << encodedMessage << std::endl;
-    
-    return 0;
+    return encodedMessage;
 }
