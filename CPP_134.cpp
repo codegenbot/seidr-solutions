@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 bool check_if_last_char_is_a_letter(std::string txt){
     if(txt.length() == 0){
@@ -17,5 +18,9 @@ bool check_if_last_char_is_a_letter(std::string txt){
 int main() {
     assert (check_if_last_char_is_a_letter("apple pi e ") == false);
     // Add more test cases here
+    assert (check_if_last_char_is_a_letter("hello world") == true);
+    assert (check_if_last_char_is_a_letter("foo bar Baz") == true);
+    assert (check_if_last_char_is_a_letter("") == false);
+    assert (check_if_last_char_is_a_letter(" ") == false);
     return 0;
 }
