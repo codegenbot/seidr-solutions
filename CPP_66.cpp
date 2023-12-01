@@ -1,4 +1,6 @@
-int digitSum(string s){
+#include <string>
+
+int digitSum(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length(); i++) {
         if (isupper(s[i])) {
