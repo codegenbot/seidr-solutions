@@ -1,11 +1,6 @@
 #include <vector>
 #include <string>
 
-
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -41,12 +36,12 @@ vector<string> split_words(string txt){
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
     
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -54,15 +49,17 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> split_words(string txt);  // Prototype declaration
+vector<string> split_words(string txt);
 
-int main() {
-    string txt = "Hello, World!";
-    vector<string> words = split_words(txt);
+int main(){
+    vector<string> arr1 = split_words("Hello, World!");
+    vector<string> arr2 = split_words("Hello World");
     
-    // Print the split words
-    for (string word : words) {
-        cout << word << endl;
+    if(issame(arr1, arr2)){
+        cout << "Arrays are the same" << endl;
+    }
+    else{
+        cout << "Arrays are different" << endl;
     }
     
     return 0;
