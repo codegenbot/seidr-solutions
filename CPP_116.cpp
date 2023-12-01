@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> sort_vector(vector<int> arr){
     sort(arr.begin(), arr.end(), [](int a, int b){
         int countA = __builtin_popcount(a);
