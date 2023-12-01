@@ -32,20 +32,15 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
 }
 
 int main() {
-    bool issameResult = issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1});
-    assert(issameResult);
+    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1}));
     
-    issameResult = issame(largest_smallest_integers({5, 3, -1, 7, 2}), {-1, 2});
-    assert(issameResult);
+    assert(issame(largest_smallest_integers({5, 3, -1, 7, 2}), {-1, 2}));
     
-    issameResult = issame(largest_smallest_integers({0, 0, 0, 0, 0}), {0, 0});
-    assert(issameResult);
+    assert(issame(largest_smallest_integers({0, 0, 0, 0, 0}), {0, 0}));
     
-    issameResult = issame(largest_smallest_integers({-1, -2, -3, -4, -5}), {-1, -5});
-    assert(issameResult);
+    assert(issame(largest_smallest_integers({-1, -2, -3, -4, -5}), {-1, -5}));
     
-    issameResult = issame(largest_smallest_integers({1, 2, 3, 4, 5}), {5, 1});
-    assert(issameResult);
+    assert(issame(largest_smallest_integers({1, 2, 3, 4, 5}), {5, 1}));
     
     return 0;
 }
