@@ -1,7 +1,6 @@
 #include <vector>
-#include <cassert>
 
-float find_max_element(const vector<float>& l){
+float max_element(const std::vector<float>& l){
     float max = l[0];
     for(int i=1; i<l.size(); i++){
         if(l[i] > max){
@@ -9,9 +8,4 @@ float find_max_element(const vector<float>& l){
         }
     }
     return max;
-}
-
-int main() {
-    assert(abs(find_max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
-    return 0;
 }
