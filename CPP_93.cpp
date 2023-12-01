@@ -1,39 +1,33 @@
+#include <string>
+
+string encode(string message);
+
+int main() {
+    string message;
+    cin >> message;
+    cout << encode(message) << endl;
+    return 0;
+}
+
 string encode(string message){
-    string encoded_msg = "";
-    for (int i=0; i<message.length(); i++){
+    string encodedMessage = "";
+    for(int i = 0; i < message.length(); i++){
         char c = message[i];
-
-        if (isalpha(c)){
-            if (islower(c)){
-                encoded_msg += toupper(c);
+        if(isalpha(c)){
+            if(islower(c)){
+                c = toupper(c);
             }
             else{
-                encoded_msg += tolower(c);
+                c = tolower(c);
             }
-
-            if (tolower(c) == 'a'){
-                encoded_msg += 'c';
-            }
-            else if (tolower(c) == 'e'){
-                encoded_msg += 'g';
-            }
-            else if (tolower(c) == 'i'){
-                encoded_msg += 'k';
-            }
-            else if (tolower(c) == 'o'){
-                encoded_msg += 'q';
-            }
-            else if (tolower(c) == 'u'){
-                encoded_msg += 'w';
-            }
-            else{
-                encoded_msg += c;
+            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                c = c + 2;
+                if(c > 'Z'){
+                    c = c - 26;
+                }
             }
         }
-        else{
-            encoded_msg += c;
-        }
+        encodedMessage += c;
     }
-
-    return encoded_msg;
+    return encodedMessage;
 }
