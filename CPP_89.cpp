@@ -20,6 +20,5 @@ std::string encrypt(std::string s){
 
 int main(){
     assert (encrypt("a")=="e");
-    // add more test cases if needed
-    return 0;
+    // remaining code...
 }
