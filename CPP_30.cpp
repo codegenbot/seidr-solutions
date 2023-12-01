@@ -1,6 +1,6 @@
 #include <vector>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
 using namespace std;
 
@@ -27,6 +27,7 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    assert(issame(get_positive({}), get_positive({})));
+    assert(issame(get_positive({}), {}));
+    // Add more test cases here
     return 0;
 }
