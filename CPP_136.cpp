@@ -5,6 +5,18 @@
 
 using namespace std;
 
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> largest_smallest_integers(vector<int> lst) {
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
@@ -22,18 +34,6 @@ vector<int> largest_smallest_integers(vector<int> lst) {
 }
 
 int main() {
-    bool issame(const vector<int>& a, const vector<int>& b) {
-        if (a.size() != b.size()) {
-            return false;
-        }
-        for (int i = 0; i < a.size(); i++) {
-            if (a[i] != b[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-    
     bool issameResult = issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1});
     assert(issameResult);
     
