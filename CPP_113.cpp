@@ -1,13 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
-bool issame(vector<string>& a, vector<string>& b){
-    return a == b;
-}
-
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
     for (string str : lst) {
@@ -22,13 +12,6 @@ vector<string> odd_count(vector<string> lst){
     return result;
 }
 
-int main() {
-    // Test the solution
-    vector<string> input = {"123", "456", "789"};
-    vector<string> output = odd_count(input);
-    for (string str : output) {
-        cout << str << endl;
-    }
-    
-    return 0;
+bool issame(vector<string>& a, vector<string>& b){
+    return a == b;
 }
