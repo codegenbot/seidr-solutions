@@ -22,7 +22,4 @@ int fruit_distribution(string s, int n) {
     return mangoes;
 }
 
-int main() {
-    assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
-    return 0;
-}
+assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
