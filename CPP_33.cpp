@@ -1,32 +1,50 @@
-vector<int> sort_third(vector<int> l){
-    vector<int> l_prime = l;
-    vector<int> divisible_by_three;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool check_eq(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
     
-    for(int i = 0; i < l.size(); i++){
-        if(i % 3 == 0){
-            divisible_by_three.push_back(l[i]);
+    for(int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
     
-    sort(divisible_by_three.begin(), divisible_by_three.end());
+    return true;
+}
+
+vector<int> sort_third(vector<int> l){
+    vector<int> l_prime = l;
+    vector<int> indices;
     
-    int j = 0;
     for(int i = 0; i < l.size(); i++){
         if(i % 3 == 0){
-            l_prime[i] = divisible_by_three[j];
-            j++;
+            indices.push_back(i);
         }
+    }
+    
+    sort(indices.begin(), indices.end());
+    
+    for(int i = 0; i < indices.size(); i++){
+        l_prime[indices[i]] = l[indices[i]];
     }
     
     return l_prime;
 }
-         
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-         
-int main(){
-    assert(sort_third({5, 6, 3, 4, 8, 9, 2, 1}) == vector<int>({2, 6, 3, 4, 8, 9, 5, 1}));
+
+int main() {
+    vector<int> l = {5, 6, 3, 4, 8, 9, 2, 1};
+    vector<int> expected = {2, 6, 3, 4, 8, 9, 5, 1};
+    
+    vector<int> result = sort_third(l);
+    
+    assert(check_eq(result, expected));
     
     return 0;
 }
