@@ -21,11 +21,3 @@ bool is_multiply_prime(int a) {
     }
     return count == 3;
 }
-
-int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << "is_multiply_prime(" << num << ") == " << std::boolalpha << is_multiply_prime(num) << std::endl;
-    return 0;
-}
