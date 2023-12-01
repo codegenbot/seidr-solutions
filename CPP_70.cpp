@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,10 +16,10 @@ bool issame(vector<int> a, vector<int> b) {
 vector<int> strange_sort_list(vector<int> lst);
 
 int main() {
-    vector<int> input = {3, 1, 4, 2, 5};
-    vector<int> expected_output = {1, 5, 2, 4, 3};
-    vector<int> output = strange_sort_list(input);
-    assert(issame(output, expected_output));
+    vector<int> input = {5, 2, 8, 3, 1, 4};
+    vector<int> expected_output = {1, 8, 2, 5, 3, 4};
+    vector<int> result = strange_sort_list(input);
+    assert(issame(result, expected_output));
     return 0;
 }
 
