@@ -1,5 +1,7 @@
+#include <iostream>
 #include <string>
 #include <map>
+#include <cassert>
 
 bool check_dict_case(std::map<std::string, std::string> dict){
     if(dict.empty())
@@ -30,4 +32,5 @@ bool check_dict_case(std::map<std::string, std::string> dict){
 int main(){
     assert(check_dict_case(std::map<std::string, std::string>{}) == false);
     // ...
+    return 0;
 }
