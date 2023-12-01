@@ -1,5 +1,8 @@
 #include <boost/any.hpp>
 #include <string>
+#include <cassert>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -18,14 +21,19 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (float_b > float_a) {
             return float_b;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string string_a = boost::any_cast<std::string>(a);
-        std::string string_b = boost::any_cast<std::string>(b);
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string string_a = boost::any_cast<string>(a);
+        string string_b = boost::any_cast<string>(b);
         if (string_a > string_b) {
             return string_a;
         } else if (string_b > string_a) {
             return string_b;
         }
     }
-    return boost::any();
+    return boost::any("None");
+}
+
+int main() {
+    assert(boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
+    return 0;
 }
