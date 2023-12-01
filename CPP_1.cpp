@@ -25,19 +25,3 @@ vector<string> separate_paren_groups(string paren_string) {
 
     return result;
 }
-
-int main() {
-    string input;
-    cout << "Enter the string of nested parentheses: ";
-    getline(cin, input);
-
-    vector<string> groups = separate_paren_groups(input);
-
-    cout << "Separated groups: ";
-    for (string group : groups) {
-        cout << group << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
