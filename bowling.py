@@ -1,34 +1,46 @@
-def calculate_score(bowls):
+def calculate_bowling_score(bowls):
     score = 0
     frame = 1
-    bowl_index = 0
-    
-    while frame <= 10:
-        if bowls[bowl_index] == 'X':
-            score += 10
-            if bowls[bowl_index + 2] == 'X':
-                score += 10
-                if bowls[bowl_index + 4] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[bowl_index + 4])
-            else:
-                score += int(bowls[bowl_index + 2]) + int(bowls[bowl_index + 3])
-            bowl_index += 1
-        elif bowls[bowl_index + 1] == '/':
-            score += 10
-            if bowls[bowl_index + 2] == 'X':
-                score += 10
-            else:
-                score += int(bowls[bowl_index + 2])
-            bowl_index += 2
-        else:
-            score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
-            bowl_index += 2
-        
-        frame += 1
-    
-    return score
+    frame_score = 0
+    bonus = False
+    bonus_count = 0
 
-bowls = input()
-print(calculate_score(bowls))
+    for bowl in bowls:
+        if bowl == 'X':
+            score += 10
+            if bonus:
+                score += 10
+                bonus_count -= 1
+            if frame == 10:
+                bonus = True
+                bonus_count = 2
+            frame_score = 0
+            frame += 1
+        elif bowl == '/':
+            score += 10 - frame_score
+            if bonus:
+                score += 10 - frame_score
+                bonus_count -= 1
+            if frame == 10:
+                bonus = True
+                bonus_count = 1
+            frame_score = 0
+            frame += 1
+        elif bowl == '-':
+            frame_score += 0
+        else:
+            score += int(bowl)
+            frame_score += int(bowl)
+            if bonus:
+                score += int(bowl)
+                bonus_count -= 1
+            if frame == 10:
+                bonus = True
+                bonus_count = 0
+            if frame_score == 10:
+                bonus = True
+                bonus_count = 1
+        if bonus_count == 0:
+            bonus = False
+
+    return score
