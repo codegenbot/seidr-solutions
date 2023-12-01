@@ -17,7 +17,6 @@ try:
     n = int(input())
 except ValueError:
     print("Invalid input. Please enter an integer.")
-    exit()
-
-result = factorize(n)
-print(result)
+else:
+    result = factorize(n)
+    print(result)
