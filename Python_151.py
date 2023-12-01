@@ -1,2 +1,2 @@
 def double_the_difference(lst):
-    return sum([n**2 for n in lst if n % 2 != 0 and n >= 0 and isinstance(n, int)])
+    return sum(x**2 for x in lst if x % 2 != 0 and x >= 0 and isinstance(x, int))
