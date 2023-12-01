@@ -37,3 +37,8 @@ std::vector<std::string> split_words(std::string txt){
 
     return words;
 }
+
+int main() {
+    std::vector<std::string> result = split_words("example text");
+    return 0;
+}
