@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 bool evaluateBooleanExpression(std::string expression) {
@@ -31,4 +32,15 @@ bool evaluateBooleanExpression(std::string expression) {
     }
 
     return true;
+}
+
+int main() {
+    std::string inputExpression;
+    std::cout << "Enter a boolean expression: ";
+    std::cin >> inputExpression;
+
+    bool result = evaluateBooleanExpression(inputExpression);
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
 }
