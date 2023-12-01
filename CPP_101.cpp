@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<string> splitString(string s){
+vector<string> splitStringAndComma(string s){
     vector<string> words;
     string word = "";
     for(int i=0; i<s.length(); i++){
@@ -25,14 +25,14 @@ vector<string> splitString(string s){
 }
 
 int main(){
-    vector<string> result = splitString("ahmed     , gamal");
+    vector<string> result = splitStringAndComma("ahmed     , gamal");
     cout << "Output: ";
     for(const string& word : result){
         cout << word << " ";
     }
     cout << endl;
 
-    assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    assert(splitStringAndComma("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
 
     return 0;
 }
