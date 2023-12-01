@@ -10,10 +10,3 @@ int count_upper(std::string s){
     }
     return count;
 }
-
-int main(){
-    // Test the count_upper function
-    assert(count_upper("EEEE") == 2);
-    
-    return 0;
-}
