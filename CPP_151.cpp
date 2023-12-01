@@ -15,9 +15,9 @@ double double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst;
     
-    lst.push_back(1.0); // Example element, add additional elements here
+    // Add elements to lst here
     
-    double odd_sum = 1.0; // Example value, replace with the actual expected sum
+    double odd_sum = 123.45; // Example value, replace with the actual expected sum
     
     assert(double_the_difference(lst) == odd_sum);
     
