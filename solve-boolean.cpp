@@ -40,7 +40,7 @@ int main() {
     std::getline(std::cin, inputExpression);
 
     bool result = evaluateBooleanExpression(inputExpression);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << "Result: " << std::boolalpha << result << std::endl;
 
     return 0;
 }
