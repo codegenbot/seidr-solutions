@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 int count_distinct_characters(std::string str){
     std::vector<char> distinctChars;
