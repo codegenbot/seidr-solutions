@@ -1,20 +1,20 @@
 vector<int> unique_digits(vector<int> x){
-    vector<int> result;
-    for(int i=0; i<x.size(); i++){
-        int n = x[i];
-        bool hasEvenDigit = false;
-        while(n>0){
-            int digit = n%10;
+    vector<int> res;
+    for(int num : x){
+        bool onlyOdd = true;
+        int temp = num;
+        while(temp > 0){
+            int digit = temp % 10;
             if(digit % 2 == 0){
-                hasEvenDigit = true;
+                onlyOdd = false;
                 break;
             }
-            n = n/10;
+            temp /= 10;
         }
-        if(!hasEvenDigit){
-            result.push_back(x[i]);
+        if(onlyOdd){
+            res.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
-    return result;
+    sort(res.begin(), res.end());
+    return res;
 }
