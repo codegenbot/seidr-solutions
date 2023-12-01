@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "path_to_cryptopp/md5.h"
+#include <cryptopp/md5.h>
 
 using namespace std;
 using namespace CryptoPP;
@@ -19,4 +19,8 @@ string string_to_md5(const string& text) {
     }
 
     return string(md5String);
+}
+
+int main() {
+    return 0;
 }
