@@ -8,14 +8,14 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     std::size_t textLen = text.length();
 
     std::size_t i = 0;
-    while (i <= textLen - targetLen) {
+    while (i <= textLen - targetLen + 1) {
         std::size_t j = 0;
-        while (j < targetLen && text[i+j] == target[j] && i+j < textLen) {
+        while (j < targetLen && text[i+j] == target[j]) {
             j++;
         }
         if (j == targetLen) {
             indices.push_back(i);
-            i += targetLen;
+            i = i + 1;
         } else {
             i++;
         }
