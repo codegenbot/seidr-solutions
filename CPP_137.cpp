@@ -1,5 +1,5 @@
-#include <boost/lexical_cast.hpp>
 #include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
 #include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -11,7 +11,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (num2 > num1) {
             return num2;
         } else {
-            return "None";
+            return boost::any();
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float num1 = boost::any_cast<float>(a);
@@ -21,7 +21,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (num2 > num1) {
             return num2;
         } else {
-            return "None";
+            return boost::any();
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string str1 = boost::any_cast<std::string>(a);
@@ -31,14 +31,14 @@ boost::any compare_one(boost::any a, boost::any b) {
             num1 = boost::lexical_cast<float>(str1);
             num2 = boost::lexical_cast<float>(str2);
         } catch (...) {
-            return "None";
+            return boost::any();
         }
         if (num1 > num2) {
             return str1;
         } else if (num2 > num1) {
             return str2;
         } else {
-            return "None";
+            return boost::any();
         }
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int num1 = boost::any_cast<int>(a);
@@ -47,14 +47,14 @@ boost::any compare_one(boost::any a, boost::any b) {
         try {
             num2 = boost::lexical_cast<float>(str2);
         } catch (...) {
-            return "None";
+            return boost::any();
         }
         if (num1 > num2) {
             return num1;
         } else if (num2 > num1) {
             return str2;
         } else {
-            return "None";
+            return boost::any();
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string str1 = boost::any_cast<std::string>(a);
@@ -63,16 +63,16 @@ boost::any compare_one(boost::any a, boost::any b) {
         try {
             num1 = boost::lexical_cast<float>(str1);
         } catch (...) {
-            return "None";
+            return boost::any();
         }
         if (num1 > num2) {
             return str1;
         } else if (num2 > num1) {
             return num2;
         } else {
-            return "None";
+            return boost::any();
         }
     } else {
-        return "None";
+        return boost::any();
     }
 }
