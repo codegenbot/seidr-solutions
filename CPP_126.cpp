@@ -27,7 +27,6 @@ bool is_sorted(std::vector<int> lst){
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
-    // add more test cases if needed
 
     return 0;
 }
