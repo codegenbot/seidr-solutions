@@ -12,7 +12,7 @@ bool is_sorted(std::vector<int> lst){
 }
 
 int main(){
-    if (is_sorted({1, 2, 3, 4}) == true){
+    if (is_sorted({1, 2, 3, 4})){
         // code logic
     }
     
