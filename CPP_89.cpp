@@ -19,7 +19,13 @@ std::string encrypt(std::string s) {
 }
 
 int main() {
-    assert (encrypt("a")=="e"); // Sample assertion to test the encrypt function
-    // Add more test cases here
+    assert (encrypt("a")=="e"); 
+    assert (encrypt("z")=="d");
+    assert (encrypt("A")=="E");
+    assert (encrypt("Z")=="D");
+    assert (encrypt("abc")=="efg");
+    assert (encrypt("ABC")=="EFG");
+    assert (encrypt("xyz")=="bcd");
+    
     return 0;
 }
