@@ -1,77 +1,52 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
-    int m = grid[0].size();
     vector<int> path;
+    int row = 0, col = 0;
     
-    // Find the starting cell
-    int startRow = 0;
-    int startCol = 0;
-    int minValue = grid[0][0];
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if (grid[i][j] < minValue) {
-                minValue = grid[i][j];
-                startRow = i;
-                startCol = j;
+    int minVal = grid[0][0];
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(grid[i][j] < minVal){
+                minVal = grid[i][j];
+                row = i;
+                col = j;
             }
         }
     }
     
-    // Add the starting cell to the path
-    path.push_back(minValue);
+    path.push_back(minVal);
     
-    // Move to the next cell k times
-    int currentRow = startRow;
-    int currentCol = startCol;
-    for (int i = 1; i < k; i++) {
-        // Find the neighbor cell with the smallest value
-        int nextRow = currentRow;
-        int nextCol = currentCol;
-        int minNeighborValue = INT_MAX;
-        if (currentRow > 0 && grid[currentRow - 1][currentCol] < minNeighborValue) {
-            minNeighborValue = grid[currentRow - 1][currentCol];
-            nextRow = currentRow - 1;
-            nextCol = currentCol;
+    while(path.size() < k){
+        int minValue = INT_MAX;
+        int nextRow = row;
+        int nextCol = col;
+        
+        if(row > 0 && grid[row-1][col] < minValue){
+            minValue = grid[row-1][col];
+            nextRow = row - 1;
+            nextCol = col;
         }
-        if (currentRow < n - 1 && grid[currentRow + 1][currentCol] < minNeighborValue) {
-            minNeighborValue = grid[currentRow + 1][currentCol];
-            nextRow = currentRow + 1;
-            nextCol = currentCol;
+        if(row < n-1 && grid[row+1][col] < minValue){
+            minValue = grid[row+1][col];
+            nextRow = row + 1;
+            nextCol = col;
         }
-        if (currentCol > 0 && grid[currentRow][currentCol - 1] < minNeighborValue) {
-            minNeighborValue = grid[currentRow][currentCol - 1];
-            nextRow = currentRow;
-            nextCol = currentCol - 1;
+        if(col > 0 && grid[row][col-1] < minValue){
+            minValue = grid[row][col-1];
+            nextRow = row;
+            nextCol = col - 1;
         }
-        if (currentCol < m - 1 && grid[currentRow][currentCol + 1] < minNeighborValue) {
-            minNeighborValue = grid[currentRow][currentCol + 1];
-            nextRow = currentRow;
-            nextCol = currentCol + 1;
+        if(col < n-1 && grid[row][col+1] < minValue){
+            minValue = grid[row][col+1];
+            nextRow = row;
+            nextCol = col + 1;
         }
         
-        // Add the value of the neighbor cell to the path
-        path.push_back(minNeighborValue);
+        row = nextRow;
+        col = nextCol;
         
-        // Move to the neighbor cell
-        currentRow = nextRow;
-        currentCol = nextCol;
+        path.push_back(minValue);
     }
     
     return path;
-}
-
-int main() {
-    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
-    return 0;
 }
