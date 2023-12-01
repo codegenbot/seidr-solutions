@@ -1,43 +1,34 @@
-def bowling(bowls):
+def calculate_score(bowls):
     score = 0
     frame = 1
-    i = 0
+    roll = 0
+    rolls = [0] * 22
 
-    while i < len(bowls):
-        if bowls[i] == 'X':
-            score += 10
-            if frame < 10:
-                score += get_strike_bonus(bowls[i+1], bowls[i+2])
-            frame += 1
-            i += 1
-        elif bowls[i] == '/':
-            score += 10 - int(bowls[i-1])
-            if frame < 10:
-                score += get_spare_bonus(bowls[i+1])
-            frame += 1
-            i += 1
+    for bowl in bowls:
+        if bowl == 'X':
+            rolls[roll] = 10
+            rolls[roll + 1] = 0
+            roll += 2
+        elif bowl == '/':
+            rolls[roll] = 10 - rolls[roll - 1]
+            roll += 1
+        elif bowl == '-':
+            rolls[roll] = 0
+            roll += 1
         else:
-            score += int(bowls[i])
-            if frame < 10 and bowls[i+1] == '/':
-                score += get_spare_bonus(bowls[i+2])
+            rolls[roll] = int(bowl)
+            roll += 1
+
+    for i in range(1, 21):
+        if frame < 10 and rolls[i - 1] == 10:
+            score += rolls[i] + rolls[i + 1]
+            if rolls[i] == 10:
+                score += rolls[i + 2]
+        elif rolls[i - 1] + rolls[i] == 10 and rolls[i - 1] != 0:
+            score += rolls[i + 1]
+        score += rolls[i]
+
+        if rolls[i - 1] == 10 or i % 2 == 0:
             frame += 1
-            i += 1
 
     return score
-
-def get_strike_bonus(bowl1, bowl2):
-    if bowl1 == 'X':
-        return 10
-    elif bowl2 == '/':
-        return 10 - int(bowl1)
-    else:
-        return int(bowl1) + int(bowl2)
-
-def get_spare_bonus(bowl):
-    if bowl == 'X':
-        return 10
-    else:
-        return int(bowl)
-
-bowls = input()
-print(bowling(bowls))
