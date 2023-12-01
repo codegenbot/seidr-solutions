@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<int> filter_integers(list<any> values){
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (auto value : values) {
         if (value.type() == typeid(int)) {
@@ -15,7 +15,7 @@ vector<int> filter_integers(list<any> values){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
