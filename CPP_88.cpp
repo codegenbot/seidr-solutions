@@ -1,10 +1,12 @@
-#include <vector>
-
+#include <vector>  
+  
 using namespace std;
 
-vector<int> sort_array(vector<int> array);
+vector<int> sort_array(vector<int> array); 
 
-bool issame(vector<int> a,vector<int> b);
+bool issame(vector<int> a,vector<int> b){ 
+    return a == b;
+}
 
 vector<int> sort_array(vector<int> array){
     if(array.size() <= 1){
@@ -22,11 +24,7 @@ vector<int> sort_array(vector<int> array){
     return array;
 }
 
-bool issame(vector<int> a,vector<int> b){
-    return a == b;
-}
-
 int main(){
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11})); 
     return 0;
 }
