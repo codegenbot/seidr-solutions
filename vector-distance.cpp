@@ -15,17 +15,16 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<double> vector1;
-    vector1.resize(n);
+    std::vector<double> vector1(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vector1[i];
     }
 
-    std::cin >> n;
+    int m;
+    std::cin >> m;
 
-    std::vector<double> vector2;
-    vector2.resize(n);
-    for (int i = 0; i < n; i++) {
+    std::vector<double> vector2(m);
+    for (int i = 0; i < m; i++) {
         std::cin >> vector2[i];
     }
 
