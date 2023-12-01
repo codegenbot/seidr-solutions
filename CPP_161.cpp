@@ -25,3 +25,8 @@ string solve(string s) {
 
     return result;
 }
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
+}
