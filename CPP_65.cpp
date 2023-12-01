@@ -17,16 +17,15 @@ string circular_shift(int x, int shift) {
 }
 
 int main() {
-    // sample test cases
     int num1 = 1234;
     int shift1 = 2;
     string result1 = circular_shift(num1, shift1);
-    cout << result1 << endl;    // expected output: "3412"
+    cout << result1 << endl;
 
     int num2 = 98765;
     int shift2 = 4;
     string result2 = circular_shift(num2, shift2);
-    cout << result2 << endl;    // expected output: "56789"
+    cout << result2 << endl;
 
     return 0;
 }
