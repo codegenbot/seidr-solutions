@@ -18,7 +18,7 @@ string encode(string message){
                 c = tolower(c);
             }
             
-            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
                 c = c + 2;
             }
         }
