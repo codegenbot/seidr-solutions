@@ -1,23 +1,32 @@
-vector<int> remove_duplicates(vector<int> numbers);
-bool issame(vector<int> a, vector<int> b);
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result;
-    for(int i = 0; i < numbers.size(); i++) {
-        if(count(numbers.begin(), numbers.end(), numbers[i]) == 1) {
+class ClassName {
+public:
+    std::vector<int> remove_duplicates(std::vector<int> numbers);
+    bool issame(std::vector<int> a, std::vector<int> b);
+};
+
+std::vector<int> ClassName::remove_duplicates(std::vector<int> numbers){
+    std::vector<int> result;
+    for(int i = 0; i < numbers.size(); i++){
+        if(count(numbers.begin(), numbers.end(), numbers[i]) == 1){
             result.push_back(numbers[i]);
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool ClassName::issame(std::vector<int> a, std::vector<int> b){
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     return a == b;
 }
 
-int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+int main(){
+    ClassName obj;
+    std::cout << std::boolalpha << obj.issame(obj.remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}) << std::endl;
     return 0;
 }
