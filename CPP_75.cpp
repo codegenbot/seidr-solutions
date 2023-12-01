@@ -1,11 +1,14 @@
 #include <iostream>
+#include <vector>
 
-bool is_prime(int n) {
-    if (n <= 1) {
+using namespace std;
+
+bool is_prime(int num) {
+    if (num <= 1) {
         return false;
     }
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
             return false;
         }
     }
@@ -13,19 +16,30 @@ bool is_prime(int n) {
 }
 
 bool is_multiply_prime(int a) {
-    int count = 0;
+    vector<int> primes;
     for (int i = 2; i <= a; i++) {
-        if (is_prime(i) && a % i == 0) {
-            count++;
+        if (is_prime(i)) {
+            primes.push_back(i);
         }
     }
-    return count == 3;
+    if (primes.size() < 3) {
+        return false;
+    }
+    for (int i = 0; i < primes.size() - 2; i++) {
+        for (int j = i + 1; j < primes.size() - 1; j++) {
+            for (int k = j + 1; k < primes.size(); k++) {
+                if (primes[i] * primes[j] * primes[k] == a) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 }
 
 int main() {
     int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << "is_multiply_prime(" << num << ") == " << std::boolalpha << is_multiply_prime(num) << std::endl;
+    cin >> num;
+    cout << boolalpha << is_multiply_prime(num) << endl;
     return 0;
 }
