@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -24,9 +23,4 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         return "YES";
     }
     return "NO";
-}
-
-int main() {
-    assert(exchange({100, 200}, {200, 200}) == "YES");
-    return 0;
 }
