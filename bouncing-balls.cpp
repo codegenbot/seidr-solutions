@@ -1,25 +1,31 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <cmath>
 
-float calculateTotalDistance(float startingHeight, float bounceHeight, int numBounces) {
-    float bouncinessIndex = bounceHeight / startingHeight;
-    float totalDistance = 0;
-    totalDistance += startingHeight;
-    for(int i = 0; i < numBounces; i++) {
-        totalDistance += (2 * bounceHeight);
-        bounceHeight *= bouncinessIndex;
+double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
+    return firstBounceHeight / startingHeight;
+}
+
+double calculateTotalDistance(double startingHeight, double firstBounceHeight, int numBounces) {
+    double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
+    double totalDistance = startingHeight;
+    
+    for (int i = 1; i <= numBounces; i++) {
+        totalDistance += 2 * (1 - bouncinessIndex) * startingHeight;
+        startingHeight *= bouncinessIndex;
     }
+    
     return totalDistance;
 }
 
 int main() {
-    float startingHeight, bounceHeight;
+    double startingHeight, firstBounceHeight;
     int numBounces;
-
-    cin >> startingHeight >> bounceHeight >> numBounces;
-
-    float totalDistance = calculateTotalDistance(startingHeight, bounceHeight, numBounces);
-    cout << totalDistance << endl;
-
+    
+    std::cin >> startingHeight >> firstBounceHeight >> numBounces;
+    
+    double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
+    
+    std::cout << totalDistance << std::endl;
+    
     return 0;
 }
