@@ -39,6 +39,6 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main(){
-    // Code for testing
+    // code to test the find_closest_elements function
     return 0;
 }
