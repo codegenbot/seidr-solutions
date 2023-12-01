@@ -20,7 +20,3 @@ string string_to_md5(const string& text) {
 
     return string(md5String);
 }
-
-int main() {
-    return 0;
-}
