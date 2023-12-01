@@ -1,11 +1,7 @@
 def main():
-    n = int(input())
+    n = int(input().strip()) 
     result = solve(n)
     print(result)
-
-
-def solve(n):
-    return n**2
 
 
 if __name__ == "__main__":
