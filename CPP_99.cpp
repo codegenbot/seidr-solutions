@@ -26,12 +26,13 @@ int closest_integer(string value) {
     }
 }
 
-// Remove or comment out one of the main() function definitions
-/*
-int main() {
+int closest_integer_main() {
     assert(closest_integer("0") == 0);
-    // more test cases...
+    assert(closest_integer("3.14") == 3);
+    assert(closest_integer("-2.5") == -2);
+    assert(closest_integer("5.8") == 6);
+    assert(closest_integer("10.5") == 11);
+    assert(closest_integer("-7.2") == -7);
 
     return 0;
 }
-*/
