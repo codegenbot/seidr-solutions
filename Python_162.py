@@ -1,1 +1,12 @@
-import hashlib,sys;def string_to_md5(text): return None if text == "" else hashlib.md5(text.encode()).hexdigest();text = sys.stdin.readline().strip();result = string_to_md5(text);print(result)
+import hashlib
+import sys
+
+def string_to_md5(text):
+    if text == "":
+        return None
+    else:
+        return hashlib.md5(text.encode()).hexdigest()
+
+text = sys.stdin.readline().strip()
+result = string_to_md5(text)
+print(result)
