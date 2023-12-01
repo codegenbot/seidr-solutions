@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 bool move_one_ball(std::vector<int> arr) {
     if (arr.empty()) {
