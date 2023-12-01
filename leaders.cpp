@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include <algorithm>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
@@ -26,8 +27,11 @@ int main() {
         std::cin >> nums[i];
     }
 
-    for (int num : findLeaders(nums)) {
-        std::cout << num << " ";
+    std::vector<int> result = findLeaders(nums);
+
+    std::cout << result.size() << std::endl;
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
     }
     std::cout << std::endl;
 
