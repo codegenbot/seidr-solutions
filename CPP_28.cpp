@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
 using namespace std;
 
 string concatenate(vector<string> strings){
@@ -12,7 +11,8 @@ string concatenate(vector<string> strings){
     return result;
 }
 
+
 int main() {
-    assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    assert (concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
     return 0;
 }
