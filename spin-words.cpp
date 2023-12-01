@@ -1,34 +1,34 @@
 #include <iostream>
-#include <string>
+#include <sstream>
 
-std::string spinWords(std::string str) {
-    std::string result;
+std::string spinWords(const std::string& sentence) {
+    std::istringstream iss(sentence);
+    std::ostringstream oss;
+    
     std::string word;
-    std::string space = " ";
-
-    for (char c : str) {
-        if (c == ' ') {
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            result += word + space;
-            word = "";
-        } else {
-            word += c;
+    bool firstWord = true;
+    
+    while (iss >> word) {
+        if (word.size() >= 5) {
+            std::reverse(word.begin(), word.end());
         }
+        
+        if (!firstWord) {
+            oss << ' ';
+        }
+        
+        oss << word;
+        firstWord = false;
     }
-
-    if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
-    }
-    result += word;
-
-    return result;
+    
+    return oss.str();
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << spinWords(input) << std::endl;
+    std::string sentence;
+    std::getline(std::cin, sentence);
+    
+    std::cout << spinWords(sentence);
+    
     return 0;
 }
