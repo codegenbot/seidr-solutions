@@ -13,5 +13,6 @@ bool below_zero(std::vector<int> operations){
 
 int main() {
     bool result = below_zero({1, -2, 2, -2, 5, -5, 4, -4});
+    // do something with the result
     return 0;
 }
