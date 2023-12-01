@@ -1,60 +1,46 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-#include <climits>
-
-using namespace std;
-
-vector<int> minPath(vector<vector<int>> grid, int k);
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
+}
 
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
-    int m = grid[0].size();
     vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(m, false));
+    int row = 0, col = 0;
     
-    int currRow = 0, currCol = 0;
-    path.push_back(grid[currRow][currCol]);
-    visited[currRow][currCol] = true;
-    
-    while(path.size() < k){
-        int nextRow = -1, nextCol = -1;
-        int minValue = INT_MAX;
+    for(int i = 0; i < k; i++){
+        path.push_back(grid[row][col]);
         
-        // Check all possible neighbors
-        if(currRow > 0 && !visited[currRow-1][currCol] && grid[currRow-1][currCol] < minValue){
-            nextRow = currRow - 1;
-            nextCol = currCol;
-            minValue = grid[currRow-1][currCol];
+        if((row + col) % 2 == 0){
+            if(col == n - 1){
+                row++;
+            }else{
+                col++;
+            }
+        }else{
+            if(row == 0){
+                col++;
+            }else{
+                row--;
+            }
         }
-        if(currRow < n-1 && !visited[currRow+1][currCol] && grid[currRow+1][currCol] < minValue){
-            nextRow = currRow + 1;
-            nextCol = currCol;
-            minValue = grid[currRow+1][currCol];
-        }
-        if(currCol > 0 && !visited[currRow][currCol-1] && grid[currRow][currCol-1] < minValue){
-            nextRow = currRow;
-            nextCol = currCol - 1;
-            minValue = grid[currRow][currCol-1];
-        }
-        if(currCol < m-1 && !visited[currRow][currCol+1] && grid[currRow][currCol+1] < minValue){
-            nextRow = currRow;
-            nextCol = currCol + 1;
-            minValue = grid[currRow][currCol+1];
-        }
-        
-        // Move to the next cell
-        currRow = nextRow;
-        currCol = nextCol;
-        path.push_back(grid[currRow][currCol]);
-        visited[currRow][currCol] = true;
     }
     
     return path;
 }
 
-int main() {
-    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    cout << "Test cases passed." << endl;
+int main(){
+    assert (issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    // Additional test cases here
+    
     return 0;
 }
