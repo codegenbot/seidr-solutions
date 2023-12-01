@@ -7,8 +7,8 @@ def find_zero(xs: list):
     return -xs[0] / xs[1]
 
 # Read input from the user
-n = int(input())
-xs = list(map(float, input().split()))
+n = int(input())  # number of coefficients
+xs = list(map(float, input().split()))  # coefficients
 
 # Call the respective functions
 result1 = poly(xs, 1.5)
