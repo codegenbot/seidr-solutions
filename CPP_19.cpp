@@ -1,8 +1,25 @@
+#include <iostream>
+#include <map>
 #include <sstream>
+#include <string>
+#include <vector>
 #include <algorithm>
 
+using namespace std;
+
+string sort_numbers(string numbers);
+
+int main() {
+    string numbers;
+    getline(cin, numbers);
+
+    string sorted_numbers = sort_numbers(numbers);
+    cout << sorted_numbers << endl;
+
+    return 0;
+}
+
 string sort_numbers(string numbers) {
-    // Create a map to map number names to numbers
     map<string, int> number_map;
     number_map["zero"] = 0;
     number_map["one"] = 1;
@@ -15,24 +32,26 @@ string sort_numbers(string numbers) {
     number_map["eight"] = 8;
     number_map["nine"] = 9;
 
-    // Split the input string into individual number names
+    vector<int> number_values;
     stringstream ss(numbers);
-    string number_name;
-    vector<string> number_names;
-    while (ss >> number_name) {
-        number_names.push_back(number_name);
+    string number;
+    while (ss >> number) {
+        number_values.push_back(number_map[number]);
     }
 
-    // Sort the number names based on their corresponding numbers
-    sort(number_names.begin(), number_names.end(), [&](const string& a, const string& b) {
-        return number_map[a] < number_map[b];
-    });
+    sort(number_values.begin(), number_values.end());
 
-    // Join the sorted number names back into a string
-    stringstream sorted_numbers;
-    for (const auto& number_name : number_names) {
-        sorted_numbers << number_name << " ";
+    string sorted_numbers;
+    for (int i = 0; i < number_values.size(); i++) {
+        for (auto it = number_map.begin(); it != number_map.end(); it++) {
+            if (it->second == number_values[i]) {
+                sorted_numbers += it->first + " ";
+                break;
+            }
+        }
     }
 
-    return sorted_numbers.str().erase(sorted_numbers.str().length() - 1);
+    sorted_numbers.pop_back(); // remove the trailing space
+
+    return sorted_numbers;
 }
