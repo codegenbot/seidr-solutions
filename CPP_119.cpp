@@ -1,14 +1,15 @@
 string match_parens(vector<string> lst){
+    string s = lst[0] + lst[1];
     int count = 0;
-    for(int i = 0; i < lst.size(); i++){
-        string s = lst[i];
-        for(int j = 0; j < s.size(); j++){
-            if(s[j] == '('){
-                count++;
-            }
-            else{
-                count--;
-            }
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] == '('){
+            count++;
+        }
+        else{
+            count--;
+        }
+        if(count < 0){
+            return "No";
         }
     }
     if(count == 0){
