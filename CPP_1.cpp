@@ -3,19 +3,17 @@ vector<string> separate_paren_groups(string paren_string){
     string group;
     int count = 0;
 
-    for(char c : paren_string){
-        if(c == '('){
-            if(count > 0){
-                group += c;
-            }
+    for (char c : paren_string) {
+        if (c == '(') {
             count++;
-        }
-        else if(c == ')'){
-            count--;
-            if(count > 0){
+            if (count > 1) {
                 group += c;
             }
-            else if(count == 0){
+        } else if (c == ')') {
+            count--;
+            if (count > 0) {
+                group += c;
+            } else {
                 result.push_back(group);
                 group = "";
             }
