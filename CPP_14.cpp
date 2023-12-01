@@ -12,7 +12,7 @@ vector<string> all_prefixes(string str){
         prefixes.push_back(prefix);
     }
     return prefixes;
-};
+}
 
 int main(){
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
