@@ -1,6 +1,7 @@
 #include <vector>
 #include <climits>
 
+vector<int> pluck(vector<int> arr);
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> pluck(vector<int> arr) {
@@ -24,7 +25,7 @@ vector<int> pluck(vector<int> arr) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    // Implement the issame function here
+    // Implementation of issame function goes here
 }
 
 int main() {
