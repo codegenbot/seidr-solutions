@@ -20,7 +20,7 @@ std::vector<int> indicesOfSubstring(const std::string &text, const std::string &
             }
         }
         if (found) {
-            indices.push_back(i);
+            indices.push_back(i + 1);
         }
     }
 
