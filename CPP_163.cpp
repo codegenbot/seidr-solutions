@@ -17,6 +17,8 @@ std::vector<int> generate_integers(int a, int b) {
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     // TODO: Add your implementation here
+    // Replace the following line with your implementation
+    return false;
 }
 
 int main() {
