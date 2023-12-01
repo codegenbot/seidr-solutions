@@ -2,9 +2,6 @@
 #include <vector>
 using namespace std;
 
-vector<int> compare(vector<int> game, vector<int> guess);
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> compare(vector<int> game, vector<int> guess){
     vector<int> result;
     for(int i=0; i<game.size(); i++){
