@@ -10,26 +10,18 @@ bool below_threshold(std::vector<int> l, int t) {
     return true;
 }
 
+
 int main() {
-    std::vector<int> nums;
+    int n;
+    std::cin >> n;
+    std::vector<int> nums(n);
+    for(int i = 0; i < n; i++) {
+        std::cin >> nums[i];
+    }
     int threshold;
-
-    int num_elements;
-    std::cin >> num_elements;
-
-    for (int i = 0; i < num_elements; i++) {
-        int num;
-        std::cin >> num;
-        nums.push_back(num);
-    }
-
     std::cin >> threshold;
-
-    if (below_threshold(nums, threshold)) {
-        std::cout << "All numbers are below the threshold" << std::endl;
-    } else {
-        std::cout << "Some numbers are not below the threshold" << std::endl;
-    }
-
+    bool result = below_threshold(nums, threshold);
+    std::cout << std::boolalpha << result << std::endl;
+    
     return 0;
 }
