@@ -1,38 +1,31 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <cmath>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
-    int leftSum = 0;
-    int rightSum = 0;
-    int diff = INT_MAX;
-    int index = 0;
-
-    // Calculate the sum of all elements in the vector
+vector<vector<int>> cut_vector(const vector<int>& nums) {
+    int sum = 0;
     for (int num : nums) {
-        rightSum += num;
+        sum += num;
     }
 
-    // Iterate through the vector and find the spot where the difference is smallest
+    int target = sum / 2;
+    vector<vector<int>> result(2);
+
+    int curr_sum = 0;
     for (int i = 0; i < nums.size(); i++) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        int currentDiff = abs(leftSum - rightSum);
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            index = i;
+        curr_sum += nums[i];
+        result[0].push_back(nums[i]);
+        if (curr_sum == target || (curr_sum > target && abs(curr_sum - target) < abs(curr_sum - nums[i+1] - target))) {
+            break;
         }
     }
 
-    // Split the vector into two subvectors at the calculated spot
-    vector<int> subvector1(nums.begin(), nums.begin() + index + 1);
-    vector<int> subvector2(nums.begin() + index + 1, nums.end());
+    for (int i = result[0].size(); i < nums.size(); i++) {
+        result[1].push_back(nums[i]);
+    }
 
-    // Append a 0 to the second subvector to match the expected output format
-    subvector2.push_back(0);
-
-    // Return the two resulting subvectors
-    return {subvector1, subvector2};
+    return result;
 }
 
 int main() {
@@ -44,14 +37,11 @@ int main() {
         cin >> nums[i];
     }
 
-    vector<int> result = cutVector(nums);
-
-    for (int i = 0; i < result[0].size(); i++) {
-        cout << result[0][i] << endl;
-    }
-
-    for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1][i] << endl;
+    vector<vector<int>> result = cut_vector(nums);
+    for (const auto& subvector : result) {
+        for (int num : subvector) {
+            cout << num << endl;
+        }
     }
 
     return 0;
