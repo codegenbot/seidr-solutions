@@ -1,9 +1,14 @@
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> filteredStrings;
-    for (string str : strings) {
+#include <vector>
+#include <string>
+
+vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix) {
+    vector<string> filtered_strings = {};
+    
+    for (const string& str : strings) {
         if (str.substr(0, prefix.length()) == prefix) {
-            filteredStrings.push_back(str);
+            filtered_strings.push_back(str);
         }
     }
-    return filteredStrings;
+    
+    return filtered_strings;
 }
