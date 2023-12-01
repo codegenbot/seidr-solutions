@@ -1,18 +1,6 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<int> factorize(int n){
     vector<int> factors;
     int i = 2;
@@ -27,7 +15,22 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main() {
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main(){
+    assert (issame(factorize(3 * 2 * 3) , {2, 3, 3}));
+    // Rest of the main function
     return 0;
 }
