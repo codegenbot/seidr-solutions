@@ -1,7 +1,6 @@
 #include <vector>
 #include <cmath>
-
-vector<float> find_closest_elements(vector<float> numbers);
+#include <cassert>
 
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {

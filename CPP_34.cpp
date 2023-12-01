@@ -4,7 +4,7 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
-  // actual implementation of issame function
+  // implementation of issame function
 }
 
 vector<int> unique(vector<int> l){
