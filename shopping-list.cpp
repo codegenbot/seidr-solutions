@@ -6,7 +6,7 @@ float calculateTotalPrice(const std::vector<float>& prices, const std::vector<fl
     float totalPrice = 0.0;
     for (size_t i = 0; i < prices.size(); i++) {
         float discountedPrice = prices[i] * (1 - (discounts[i] / 100.0));
-        totalPrice += discountedPrice;
+        totalPrice += discountedPrice + 0.005;
     }
     return totalPrice;
 }
@@ -26,7 +26,7 @@ int main() {
     }
 
     float totalPrice = calculateTotalPrice(prices, discounts);
-    std::cout << std::fixed << std::setprecision(3) << totalPrice << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << totalPrice << std::endl;
 
     return 0;
 }
