@@ -1,6 +1,7 @@
 #include <vector>
 
 vector<int> f(int n);
+
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> f(int n){
