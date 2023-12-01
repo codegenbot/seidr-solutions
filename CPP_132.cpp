@@ -1,4 +1,4 @@
- #include <string>
+#include <string>
 
 bool check_nested(string str){
     int count = 0;
@@ -16,8 +16,8 @@ bool check_nested(string str){
     return false;
 }
 
-int main(){
-    // Test your function here
+int main() {
+    // your code here
     
     return 0;
 }
