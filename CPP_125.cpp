@@ -38,13 +38,14 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> a = split_words("Hello, World!");
-    vector<string> b = split_words("Hello World");
+    // Add your testcases here to check the functionality of the split_words function
+    vector<string> words1 = split_words("Hello, world");
+    vector<string> words2 = split_words("Hello world");
     
-    if (issame(a, b)) {
-        cout << "The vectors are the same" << endl;
+    if (issame(words1, words2)) {
+        cout << "The words are the same" << endl;
     } else {
-        cout << "The vectors are different" << endl;
+        cout << "The words are different" << endl;
     }
     
     return 0;
