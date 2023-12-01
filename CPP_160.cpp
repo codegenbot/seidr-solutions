@@ -1,25 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
 int do_algebra(vector<string> operato, vector<int> operand) {
-    int result = operand[0]; // Initialize the result with the first operand
-    
+    int result = operand[0];
     for (int i = 0; i < operato.size(); i++) {
         if (operato[i] == "+") {
-            result += operand[i + 1]; // Addition
+            result += operand[i+1];
         } else if (operato[i] == "-") {
-            result -= operand[i + 1]; // Subtraction
+            result -= operand[i+1];
         } else if (operato[i] == "*") {
-            result *= operand[i + 1]; // Multiplication
+            result *= operand[i+1];
         } else if (operato[i] == "//") {
-            result /= operand[i + 1]; // Floor division
+            result /= operand[i+1];
         } else if (operato[i] == "**") {
-            result = pow(result, operand[i + 1]); // Exponentiation
+            result = pow(result, operand[i+1]);
         }
     }
-    
     return result;
 }
