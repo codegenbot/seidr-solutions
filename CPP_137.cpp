@@ -1,40 +1,44 @@
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
+#include <any>
 #include <string>
+#include <cassert>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    std::string type_a = a.type().name();
-    std::string type_b = b.type().name();
+using namespace std;
 
-    if (type_a == type_b) {
-        if (type_a == typeid(int).name()) {
-            int num1 = boost::any_cast<int>(a);
-            int num2 = boost::any_cast<int>(b);
-
-            if (num1 > num2) {
-                return num1;
-            } else if (num1 < num2) {
-                return num2;
-            }
-        } else if (type_a == typeid(float).name()) {
-            float num1 = boost::any_cast<float>(a);
-            float num2 = boost::any_cast<float>(b);
-
-            if (num1 > num2) {
-                return num1;
-            } else if (num1 < num2) {
-                return num2;
-            }
-        } else if (type_a == typeid(std::string).name()) {
-            std::string str1 = boost::any_cast<std::string>(a);
-            std::string str2 = boost::any_cast<std::string>(b);
-
-            if (str1 > str2) {
-                return str1;
-            } else if (str1 < str2) {
-                return str2;
-            }
+any compare_one(any a, any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int num1 = any_cast<int>(a);
+        int num2 = any_cast<int>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
+        }
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float num1 = any_cast<float>(a);
+        float num2 = any_cast<float>(b);
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
+        }
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+        if (str1 > str2) {
+            return str1;
+        } else if (str2 > str1) {
+            return str2;
         }
     }
-    return boost::any();
+    return any("None");
+}
+
+int main() {
+    assert(any_cast<string>(compare_one(string("1"), string("2"))) == "2");
+    assert(any_cast<int>(compare_one(2, 3)) == 3);
+    assert(any_cast<int>(compare_one(5, 3)) == 5);
+    assert(any_cast<string>(compare_one(string("abc"), string("def"))) == "def");
+    assert(any_cast<string>(compare_one(string("xyz"), string("abc"))) == "xyz");
+
+    return 0;
 }
