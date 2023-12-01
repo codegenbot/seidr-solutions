@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 vector<int> strange_sort_vector(vector<int> lst){
     vector<int> result;
