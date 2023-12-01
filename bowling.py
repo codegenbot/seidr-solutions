@@ -1,43 +1,44 @@
-import re
-
-def bowling_score(frames):
-    total_score = 0
-    frame_index = 0
+def calculate_bowling_score(game_string):
+    score = 0
+    frame = 1
+    roll = 0
+    frames = [[] for _ in range(10)]
     
-    # Convert 'X' to '10' and '/' to '-1' for easier processing
-    frames = frames.replace('X', '10')
-    frames = frames.replace('/', '-1')
-    
-    # Split the frames into a list
-    frames_list = re.findall(r'\d+|-1', frames)
+    for char in game_string:
+        if char == 'X':
+            frames[frame-1].append(10)
+            if frame < 10:
+                frame += 1
+            if roll == 1:
+                roll = 0
+        elif char == '/':
+            frames[frame-1].append(10 - frames[frame-1][-1])
+            if frame < 10:
+                frame += 1
+            if roll == 1:
+                roll = 0
+        elif char == '-':
+            frames[frame-1].append(0)
+            if roll == 1:
+                roll += 1
+        else:
+            frames[frame-1].append(int(char))
+            if roll == 0:
+                roll += 1
+            else:
+                frame += 1
+                roll = 0
     
     for i in range(10):
-        frame_score = 0
-        
-        if frames_list[frame_index] == '10':
-            # Strike
-            frame_score += 10
-            frame_score += bonus(frames_list[frame_index+1], frames_list[frame_index+2])
-            frame_index += 1
-        else:
-            frame_score += int(frames_list[frame_index][0])
-            frame_score += bonus(frames_list[frame_index][1], frames_list[frame_index+1])
-            frame_index += 1
-        
-        total_score += frame_score
+        frame_score = sum(frames[i])
+        if i < 9:
+            if frames[i][0] == 10:
+                if frames[i+1][0] == 10:
+                    frame_score += frames[i+1][0] + frames[i+2][0]
+                else:
+                    frame_score += frames[i+1][0] + frames[i+1][1]
+            elif sum(frames[i]) == 10:
+                frame_score += frames[i+1][0]
+        score += frame_score
     
-    return total_score
-
-def bonus(first, second):
-    if first == '-1':
-        return 10
-    elif second == '-1':
-        return 10 - int(first)
-    else:
-        return int(first) + int(second)
-
-# Read input from user
-frames = input()
-
-# Calculate and print the score
-print(bowling_score(frames))
+    return score
