@@ -1,7 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
@@ -23,18 +21,18 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
 }
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-   if(a.size() != b.size()) {
-       return false;
-   }
-   for(int i = 0; i < a.size(); i++) {
-       if(a[i].size() != b[i].size() || !equal(a[i].begin(), a[i].end(), b[i].begin())) {
-           return false;
-       }
-   }
-   return true;
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i].size() != b[i].size() || !equal(a[i].begin(), a[i].end(), b[i].begin())) {
+            return false;
+        }
+    }
+    return true;
 }
 
-int main() {
+int main(){
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
     return 0;
 }
