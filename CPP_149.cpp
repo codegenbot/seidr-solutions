@@ -4,14 +4,19 @@
 #include <cassert>
 
 bool issame(vector<string> a, vector<string> b) {
+    // Check if the sizes of the two vectors are equal
     if (a.size() != b.size()) {
         return false;
     }
+    
+    // Check if each element in the two vectors are the same
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
+    // If all elements are the same, return true
     return true;
 }
 
