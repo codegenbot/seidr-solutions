@@ -8,3 +8,8 @@ def find_closest_elements(numbers: List[float], n: int) -> Tuple[float, float]:
             min_diff = diff
             closest_nums = (numbers[i], numbers[i+1])
     return closest_nums
+
+numbers = [1.5, 2.7, 3.8, 4.1, 5.2]
+n = 2
+result = find_closest_elements(numbers, n)
+print(result)
