@@ -41,7 +41,5 @@ std::vector<int> even_odd_palindrome(int n){
 }
 
 int main(){
-    std::vector<int> expected = {0, 1};
-    std::vector<int> actual = even_odd_palindrome(1);
-    assert(std::equal(actual.begin(), actual.end(), expected.begin()));
+    assert(std::equal(even_odd_palindrome(1).begin(), even_odd_palindrome(1).end(), std::vector<int>({0, 1}).begin()));
 }
