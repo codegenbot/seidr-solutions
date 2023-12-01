@@ -5,6 +5,7 @@
 using namespace std;
 
 map<char,int> histogram(string test);
+
 bool issame(map<char,int> a, map<char,int> b);
 
 int main(){
