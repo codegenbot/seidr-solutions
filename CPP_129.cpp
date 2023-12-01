@@ -1,15 +1,22 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <cassert>
-
+#include <limits>
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k);
 
-int main() {
-    assert (minPath({{1, 3}, {3, 2}}, 10) == vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    return 0;
+bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
@@ -76,4 +83,9 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     }
     
     return path;
+}
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
