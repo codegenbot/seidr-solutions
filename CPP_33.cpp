@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
@@ -34,6 +33,4 @@ vector<int> sort_third(vector<int> l){
 int main(){
     vector<int> result = sort_third({5, 6, 3, 4, 8, 9, 2, 1});
     assert(issame(result, {2, 6, 3, 4, 8, 9, 5, 1}));
-
-    return 0;
 }
