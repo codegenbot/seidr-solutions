@@ -1,21 +1,24 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    if (test.empty()) {
+map<char,int> histogram(string test){
+    map<char,int> result;
+    if(test.empty()){
         return result;
     }
+    stringstream ss(test);
     string word;
-    for (char ch : test) {
-        if (ch == ' ') {
-            if (!word.empty()) {
-                result[word[0]]++;
-                word.clear();
-            }
-        } else {
-            word += ch;
+    while(ss >> word){
+        for(char c : word){
+            result[c]++;
         }
     }
-    if (!word.empty()) {
-        result[word[0]]++;
+    int maxCount = 0;
+    for(auto it : result){
+        maxCount = max(maxCount, it.second);
     }
-    return result;
+    map<char,int> maxLetters;
+    for(auto it : result){
+        if(it.second == maxCount){
+            maxLetters[it.first] = it.second;
+        }
+    }
+    return maxLetters;
 }
