@@ -1,17 +1,14 @@
 int digits(int n){
     int product = 1;
-    string num = to_string(n);
-    
-    for (char c : num) {
-        int digit = c - '0';
-        if (digit % 2 == 1) {
+    while(n > 0){
+        int digit = n % 10;
+        if(digit % 2 != 0){
             product *= digit;
         }
+        n /= 10;
     }
-    
-    if (product == 1) {
+    if(product == 1){
         return 0;
-    } else {
-        return product;
     }
+    return product;
 }
