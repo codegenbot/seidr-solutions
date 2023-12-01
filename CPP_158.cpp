@@ -24,6 +24,8 @@ std::string find_max(std::vector<std::string> words){
 }
 
 int main() {
+    assert((find_max({"play", "play", "play"}) == "play"));
+    // Additional test cases can be added here
 
     return 0;
 }
