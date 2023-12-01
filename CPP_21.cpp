@@ -1,48 +1,34 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b);
-
-vector<float> rescale_to_unit(vector<float> numbers){
-    float min = numbers[0];
-    float max = numbers[0];
-    
-    // Find the minimum and maximum values in the vector
-    for(int i=1; i<numbers.size(); i++){
-        if(numbers[i] < min){
-            min = numbers[i];
-        }
-        if(numbers[i] > max){
-            max = numbers[i];
+vector<float> rescale_to_unit(vector<float> numbers) {
+    float maximum = 0;
+    for (float num : numbers) {
+        if (num > maximum) {
+            maximum = num;
         }
     }
-    
-    // Apply linear transform to each element in the vector
-    for(int i=0; i<numbers.size(); i++){
-        numbers[i] = (numbers[i] - min) / (max - min);
+    vector<float> rescaled;
+    for (float num : numbers) {
+        rescaled.push_back(num / maximum);
     }
-    
-    return numbers;
+    return rescaled;
 }
 
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
-    
     return true;
 }
 
-int main(){
+int main() {
     assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
     return 0;
 }
