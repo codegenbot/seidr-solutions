@@ -26,7 +26,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
             }
         } else if ((expression[i] == '&' || expression[i] == '|') && parenthesisCount == 0 && opIndex == -1) {
             opIndex = i;
-        } else if (expression[i] == 'F' && parenthesisCount == 0 && !isEnclosed) {
+        } else if (expression[i] == 'F' && parenthesisCount == 0) {
             return false;
         }
     }
@@ -40,7 +40,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
         lastOpIndex--;
 
         std::string left = expression.substr(0, opIndex);
-        std::string right = expression.substr(lastOpIndex + 1);
+        std::string right = expression.substr(lastOpIndex + 2);
 
         if (expression[opIndex] == '&') {
             bool leftResult = evaluateBooleanExpression(left, false);
