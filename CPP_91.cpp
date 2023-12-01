@@ -1,20 +1,21 @@
-int is_bored(string S){
-    int boredomCount = 0;
-    int length = S.length();
-    
-    if (length == 0) {
-        return boredomCount;
-    }
-    
-    if (S[0] == 'I' || S[0] == 'i') {
-        boredomCount++;
-    }
-    
-    for (int i = 1; i < length; i++) {
-        if ((S[i] == '.' || S[i] == '?' || S[i] == '!') && (i + 1 < length) && (S[i + 1] == 'I' || S[i + 1] == 'i')) {
-            boredomCount++;
+#include <string>
+int is_bored(std::string S){
+    int count = 0;
+    bool isPreviousSentenceBoredom = false;
+
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
+            isPreviousSentenceBoredom = true;
+        }
+
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            isPreviousSentenceBoredom = false;
+        }
+
+        if(isPreviousSentenceBoredom){
+            count++;
         }
     }
-    
-    return boredomCount;
+
+    return count;
 }

@@ -1,28 +1,36 @@
+#include <iostream>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 string encode(string message){
     string encodedMessage = "";
-    for(int i = 0; i < message.length(); i++){
-        if(isalpha(message[i])){
-            if(islower(message[i])){
-                encodedMessage += toupper(message[i]);
-            } else {
-                encodedMessage += tolower(message[i]);
+    
+    for(int i=0; i<message.length(); i++){
+        char c = message[i];
+        
+        if(isalpha(c)){
+            if(islower(c)){
+                c = toupper(c);
             }
-            if(message[i] == 'a' || message[i] == 'A'){
-                encodedMessage += 'c';
-            } else if(message[i] == 'e' || message[i] == 'E'){
-                encodedMessage += 'g';
-            } else if(message[i] == 'i' || message[i] == 'I'){
-                encodedMessage += 'k';
-            } else if(message[i] == 'o' || message[i] == 'O'){
-                encodedMessage += 'q';
-            } else if(message[i] == 'u' || message[i] == 'U'){
-                encodedMessage += 'w';
-            } else {
-                encodedMessage += message[i];
+            else{
+                c = tolower(c);
             }
-        } else {
-            encodedMessage += message[i];
+            
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                c = c + 2;
+            }
         }
+        
+        encodedMessage += c;
     }
+    
     return encodedMessage;
+}
+
+int main(){
+    assert (encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT TqwRkTg");
+    
+    return 0;
 }
