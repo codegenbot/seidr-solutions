@@ -24,9 +24,12 @@ vector<int> f(int n) {
     return result;
 }
 
-int main() {
-    assert(f(3) == vector<int>({1, 2, 6}));
+void test() {
+    assert(f(3) == vector<int>{1, 2, 6});
     // Add more test cases here
+}
 
+int main() {
+    test();
     return 0;
 }
