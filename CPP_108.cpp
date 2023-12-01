@@ -20,4 +20,6 @@ int count_nums(vector<int> n) {
 
 int main() {
     assert(count_nums(vector<int>{1}) == 1);
+    
+    return 0;
 }

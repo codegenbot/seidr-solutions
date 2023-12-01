@@ -16,7 +16,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-vector<int> unique_digits(const vector<int>& x) {
+vector<int> unique_digits(vector<int> x) {
     vector<int> result;
     for(int i = 0; i < x.size(); i++) {
         int num = x[i];
