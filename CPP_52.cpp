@@ -11,25 +11,24 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    std::vector<int> nums;
+    std::vector<int> numbers;
     int threshold;
 
-    int num_elements;
-    std::cin >> num_elements;
-
-    for (int i = 0; i < num_elements; i++) {
-        int num;
-        std::cin >> num;
-        nums.push_back(num);
+    // Read input from user
+    int num;
+    while (std::cin >> num) {
+        numbers.push_back(num);
     }
+    std::cin.clear();
 
+    std::cout << "Enter a threshold: ";
     std::cin >> threshold;
 
-    if (below_threshold(nums, threshold)) {
-        std::cout << "All numbers are below the threshold" << std::endl;
-    } else {
-        std::cout << "Some numbers are not below the threshold" << std::endl;
-    }
+    // Call the function with user input
+    bool result = below_threshold(numbers, threshold);
+
+    // Print the result
+    std::cout << "Below threshold: " << std::boolalpha << result << std::endl;
 
     return 0;
 }
