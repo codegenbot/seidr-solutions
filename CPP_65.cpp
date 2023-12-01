@@ -1,16 +1,18 @@
-#include <iostream>
 #include <string>
-#include <algorithm>
 
-string circular_shift(int x, int shift) {
-    string str = to_string(x);
-    int n = str.length();
+string circular_shift(int x, int shift);
 
-    if (shift > n) {
-        reverse(str.begin(), str.end());
-    } else {
-        rotate(str.begin(), str.begin() + (n - shift), str.end());
+string circular_shift(int x, int shift){
+    string num = to_string(x);
+    int len = num.length();
+    
+    if(shift > len){
+        reverse(num.begin(), num.end());
+        return num;
     }
-
-    return str;
+    
+    shift %= len;
+    rotate(num.rbegin(), num.rbegin() + shift, num.rend());
+    
+    return num;
 }
