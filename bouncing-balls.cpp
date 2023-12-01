@@ -22,11 +22,11 @@ double calculateTotalDistance(double startingHeight, double firstBounceHeight, d
 int main() {
     double startingHeight, firstBounceHeight, numBounces;
 
-    std::cout << std::fixed << std::setprecision(15);
+    std::cout << std::fixed << std::setprecision(17) << std::showpoint;
     std::cin >> startingHeight >> firstBounceHeight >> numBounces;
 
     double totalDistance = calculateTotalDistance(startingHeight, firstBounceHeight, numBounces);
-    std::cout << totalDistance << std::endl;
+    std::cout << std::fixed << std::setprecision(17) << totalDistance << std::endl;
 
     return 0;
 }
