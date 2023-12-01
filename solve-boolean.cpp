@@ -5,12 +5,12 @@ bool evaluateBooleanExpression(const std::string& expression) {
     int opIndex = -1;
     int parenthesisCount = 0;
 
-    for (int i = 0; i < expression.length(); i++) {
+    for (int i = expression.length() - 1; i >= 0; i--) {
         if (expression[i] == '(') {
             parenthesisCount++;
         } else if (expression[i] == ')') {
             parenthesisCount--;
-        } else if ((expression[i] == '|' || expression[i] == '&') && parenthesisCount == 0) {
+        } else if ((expression[i] == '|' || expression[i] == '&') && parenthesisCount == 0 && expression[i] == '|') {
             opIndex = i;
             break;
         }
@@ -18,18 +18,20 @@ bool evaluateBooleanExpression(const std::string& expression) {
 
     if (opIndex != -1) {
         bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
-        bool right = evaluateBooleanExpression(expression.substr(opIndex + 1));
+        bool right = evaluateBooleanExpression(expression.substr(opIndex + 2));
 
-        switch (expression[opIndex]) {
+        switch (expression[opIndex + 1]) {
             case '|':
                 return left || right;
             case '&':
                 return left && right;
         }
-    } else if (expression == "t" || expression == "T") {
-        return true;
-    } else if (expression == "f" || expression == "F") {
-        return false;
+    } else {
+        if ((expression == "t") || (expression == "T")) {
+            return true;
+        } else if ((expression == "f") || (expression == "F")) {
+            return false;
+        }
     }
 
     return false;
