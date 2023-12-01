@@ -1,52 +1,38 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
 
 vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word;
+    if (s.empty()) {
+        return {};
+    }
     
-    // Iterate through each character in the string
+    vector<string> words;
+    string word;
     for (char c : s) {
-        // Check if the character is a letter or a space
-        if (isalpha(c) || c == ' ') {
-            // If the character is a space and we have a word, check its consonant count
-            if (c == ' ' && !word.empty()) {
-                int consonants = 0;
-                for (char ch : word) {
-                    // If the character is a consonant, increment the counter
-                    if (isalpha(ch) && !is_vowel(ch)) {
-                        consonants++;
-                    }
-                }
-                // If the word has exactly n consonants, add it to the result
-                if (consonants == n) {
-                    result.push_back(word);
-                }
-                word = "";
-            } else {
+        if (isalpha(c)) {
+          // Count the number of consonants in the word
+            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
                 word += c;
             }
-        }
-    }
-    // Check if the last word has exactly n consonants
-    if (!word.empty()) {
-        int consonants = 0;
-        for (char c : word) {
-            if (isalpha(c) && !is_vowel(c)) {
-                consonants++;
+        } else if (!word.empty()) {
+          // Add the word to the vector if it has the desired number of consonants
+            if (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e')
+                + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o')
+                + count(word.begin(), word.end(), 'u') != n) {
+                words.push_back(word);
             }
-        }
-        if (consonants == n) {
-            result.push_back(word);
+            
+            word = "";
         }
     }
     
-    return result;
-}
-
-bool is_vowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    // Check if the last word in the string has the desired number of consonants
+    if (!word.empty() && (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e')
+                         + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o')
+                         + count(word.begin(), word.end(), 'u') != n)) {
+        words.push_back(word);
+    }
+    
+    return words;
 }
