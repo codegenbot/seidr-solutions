@@ -3,10 +3,9 @@
 string circular_shift(int x, int shift);
 
 int main() {
-    // test cases
-    int x = 12345;
-    int shift = 2;
-    string result = circular_shift(x, shift);
+    int x, shift;
+    cin >> x >> shift;
+    cout << circular_shift(x, shift) << endl;
     return 0;
 }
 
