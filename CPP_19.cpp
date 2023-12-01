@@ -1,3 +1,4 @@
+'''
 #include <iostream>
 #include <map>
 #include <sstream>
@@ -12,11 +13,8 @@ string sort_numbers(string numbers);
 int main() {
     string numbers;
     getline(cin, numbers);
-
-    string sorted_numbers = sort_numbers(numbers);
-
-    cout << sorted_numbers << endl;
-
+    string result = sort_numbers(numbers);
+    cout << result << endl;
     return 0;
 }
 
@@ -56,3 +54,4 @@ string sort_numbers(string numbers) {
 
     return sorted_numbers;
 }
+'''
