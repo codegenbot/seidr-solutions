@@ -5,6 +5,14 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 vector<int> largest_smallest_integers(vector<int> lst){
     int largestNegative = INT_MIN;
     int smallestPositive = INT_MAX;
