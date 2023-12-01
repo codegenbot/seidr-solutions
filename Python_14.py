@@ -5,3 +5,6 @@ def all_prefixes(string: str) -> List[str]:
     for i in range(1, len(string) + 1):
         prefixes.append(string[:i])
     return prefixes
+
+input_string = input("Enter a string: ")
+print(all_prefixes(input_string))
