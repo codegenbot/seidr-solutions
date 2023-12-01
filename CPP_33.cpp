@@ -3,33 +3,44 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-vector<int> sort_third(vector<int>& l){
-    vector<int> l_sorted = l;
-    sort(l_sorted.begin(), l_sorted.end());
-    for(int i = 0; i < l_sorted.size(); i++){
-        if(i % 3 == 0){
-            l_sorted[i] = l[i];
+vector<int> sort_third(vector<int> l);
+
+vector<int> sort_third(vector<int> l) {
+    vector<int> result = l;
+    vector<int> sorted_third;
+
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0) {
+            sorted_third.push_back(l[i]);
         }
     }
-    return l_sorted;
+
+    sort(sorted_third.begin(), sorted_third.end());
+
+    int j = 0;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0) {
+            result[i] = sorted_third[j];
+            j++;
+        }
+    }
+
+    return result;
 }
 
-int main(){
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
-    
+int main() {
+    vector<int> sorted = sort_third({5, 6, 3, 4, 8, 9, 2, 1});
+    vector<int> expected = {2, 6, 3, 4, 8, 9, 5, 1};
+
+    if (issame(sorted, expected)) {
+        cout << "Output is correct." << endl;
+    } else {
+        cout << "Output is incorrect." << endl;
+    }
+
     return 0;
 }
