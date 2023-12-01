@@ -1,31 +1,15 @@
 #include <vector>
 #include <climits>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
+using namespace std;
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k);
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    if (n == 0) {
-        return {};
-    }
     int m = grid[0].size();
-    if (m == 0) {
-        return {};
-    }
-    
-    std::vector<int> path;
+    vector<int> path;
     
     // Find the starting cell
     int startRow = 0;
@@ -82,6 +66,18 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     }
     
     return path;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
