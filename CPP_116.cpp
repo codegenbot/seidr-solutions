@@ -1,13 +1,13 @@
-vector<int> sort_vector(vector<int> arr){
-    sort(arr.begin(), arr.end(), [](int a, int b){
-        int numOnesA = __builtin_popcount(a);
-        int numOnesB = __builtin_popcount(b);
+vector<int> sort_vector(vector<int> arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        int count1 = __builtin_popcount(a);
+        int count2 = __builtin_popcount(b);
         
-        if(numOnesA == numOnesB){
+        if (count1 == count2) {
             return a < b;
         }
         
-        return numOnesA < numOnesB;
+        return count1 < count2;
     });
     
     return arr;
