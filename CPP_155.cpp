@@ -1,11 +1,12 @@
 #include <vector>
-#include <cassert>
+#include <string>
+#include <iostream>
 
-std::vector<int> even_odd_count(int n) {
+std::vector<int> even_odd_count(int num) {
     int evenCount = 0;
     int oddCount = 0;
 
-    std::string numStr = std::to_string(std::abs(n));
+    std::string numStr = std::to_string(std::abs(num));
 
     for (char c : numStr) {
         int digit = c - '0';
@@ -21,9 +22,10 @@ std::vector<int> even_odd_count(int n) {
 }
 
 int main() {
-    assert(std::issame(even_odd_count(0), {1, 0}));
-    assert(std::issame(even_odd_count(123456789), {4, 5}));
-    assert(std::issame(even_odd_count(-987654321), {4, 5}));
+    std::cout << std::boolalpha;
+    std::cout << issame(even_odd_count(0), {1, 0}) << std::endl;
+    std::cout << issame(even_odd_count(123456789), {4, 5}) << std::endl;
+    std::cout << issame(even_odd_count(-987654321), {4, 5}) << std::endl;
 
     return 0;
 }
