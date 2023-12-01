@@ -1,7 +1,10 @@
+#include <string>
+#include <cstddef>
+
 int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
-    size_t bowlIndex = 0;
+    std::size_t bowlIndex = 0;
 
     while (frame <= 10 && bowlIndex <= bowls.length() - 1) {
         char bowl = bowls[bowlIndex];
