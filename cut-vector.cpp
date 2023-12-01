@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
     int diff = INT_MAX;
@@ -37,29 +33,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     }
 
     std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+    std::vector<int> rightSubvector(nums.begin() + index, nums.end());
 
     return std::make_pair(leftSubvector, rightSubvector);
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
-    }
-
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-
-    for (int num : result.first) {
-        std::cout << num << " ";
-    }
-
-    for (int num : result.second) {
-        std::cout << num << " ";
-    }
-
-    return 0;
 }
