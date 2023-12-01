@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 #include <cmath>
@@ -15,9 +16,9 @@ long long double_the_difference(vector<float>& lst) {
 }
 
 int main() {
-    vector<float> lst = {/* Enter sample input here */};
+    vector<float> lst = {1.5, 2.0, 3.5, 4.0, 5.5, 6.0};
     long long result = double_the_difference(lst);
-    assert(result == /* Enter expected output here */);
+    assert(result == 50);
     
     return 0;
 }
