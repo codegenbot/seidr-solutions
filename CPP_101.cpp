@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+
 using namespace std;
 
 vector<string> splitString(string s){
@@ -31,7 +32,7 @@ int main(){
     }
     cout << endl;
 
-    assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    assert (splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
 
     return 0;
 }
