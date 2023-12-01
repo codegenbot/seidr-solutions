@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <string> // Add this line
 
 bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -14,7 +15,7 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string>& lst) {
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::string> result;
     for (int i = 0; i < lst.size(); i++) {
         if (lst[i].length() % 2 == 0) {
