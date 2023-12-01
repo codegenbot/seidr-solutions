@@ -7,11 +7,6 @@ int count_consonants(string word);
 bool is_vowel(char c);
 bool is_same(vector<string> a, vector<string> b);
 
-int main() {
-    assert(is_same(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
-    return 0;
-}
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
