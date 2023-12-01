@@ -1,9 +1,6 @@
-// Your modified code
-
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
-#include <iostream>
 
 using namespace std;
 
