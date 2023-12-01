@@ -37,7 +37,7 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main(){
-    assert(is_same(unique_digits({135, 103, 31}), {31, 135}));
+    assert (is_same(unique_digits({135, 103, 31}) , {31, 135}));
     // more test cases
     return 0;
 }
