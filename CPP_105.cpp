@@ -1,15 +1,25 @@
+#include <vector>
+#include <string>
+#include <cassert>
+#include <algorithm>
+#include <map>
+
+using namespace std;
+
 vector<string> by_length(vector<int> arr){
-    vector<int> sortedArr;
-    for(int i = 0; i < arr.size(); i++){
-        if(arr[i] >= 1 && arr[i] <= 9){
-            sortedArr.push_back(arr[i]);
+    vector<string> result;
+    
+    // Sort the integers between 1 and 9
+    vector<int> sorted_arr;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] >= 1 && arr[i] <= 9) {
+            sorted_arr.push_back(arr[i]);
         }
     }
-    sort(sortedArr.begin(), sortedArr.end());
-    reverse(sortedArr.begin(), sortedArr.end());
+    sort(sorted_arr.begin(), sorted_arr.end());
     
-    vector<string> result;
-    map<int, string> numberMap = {
+    // Reverse the sorted array and replace each digit by its corresponding name
+    map<int, string> digit_names = {
         {1, "One"},
         {2, "Two"},
         {3, "Three"},
@@ -20,10 +30,16 @@ vector<string> by_length(vector<int> arr){
         {8, "Eight"},
         {9, "Nine"}
     };
-    
-    for(int i = 0; i < sortedArr.size(); i++){
-        result.push_back(numberMap[sortedArr[i]]);
+    for (int i = sorted_arr.size() - 1; i >= 0; i--) {
+        result.push_back(digit_names[sorted_arr[i]]);
     }
     
     return result;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    // Add more test cases if needed
+
+    return 0;
 }
