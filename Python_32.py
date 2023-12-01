@@ -10,8 +10,8 @@ def find_zero(xs: list):
 
 
 def main():
-    # Read input from user and parse it
-    xs = list(map(float, input().split()))
+    # Read a list of coefficients from the user and parse it into a list of floats
+    xs = list(map(float, input("Enter a list of coefficients: ").split()))
 
     # Call the functions with parsed input
     print(poly(xs, 0.5))
