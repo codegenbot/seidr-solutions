@@ -3,10 +3,7 @@ import hashlib
 def string_to_md5():
     try:
         text = input().strip()
-        if text == "":
-            return None
-        else:
-            return hashlib.md5(text.encode()).hexdigest()
+        return hashlib.md5(text.encode()).hexdigest()
     except EOFError:
         return None
 
