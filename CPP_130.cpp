@@ -1,11 +1,11 @@
 #include <vector>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
 vector<int> tri(int n);
 
-vector<int> tri(int n) {
+vector<int> tri(int n){
     vector<int> sequence;
     sequence.push_back(3);
     
@@ -30,13 +30,4 @@ vector<int> tri(int n) {
     }
     
     return sequence;
-}
-
-int main() {
-    vector<int> result = tri(1);
-    for(int i = 0; i < result.size(); i++) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
-    return 0;
 }
