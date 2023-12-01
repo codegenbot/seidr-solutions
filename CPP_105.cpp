@@ -4,50 +4,45 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
 
-bool issame(vector<string> a, vector<string> b);
+std::vector<std::string> by_length(const std::vector<int>& arr) {
+    std::vector<std::string> result;
+    std::map<int, std::string> num_map;
+    num_map[1] = "One";
+    num_map[2] = "Two";
+    num_map[3] = "Three";
+    num_map[4] = "Four";
+    num_map[5] = "Five";
+    num_map[6] = "Six";
+    num_map[7] = "Seven";
+    num_map[8] = "Eight";
+    num_map[9] = "Nine";
 
-vector<string> by_length(vector<int> arr){
-    vector<string> result;
-    map<int, string> digitNames = {
-        {1, "One"},
-        {2, "Two"},
-        {3, "Three"},
-        {4, "Four"},
-        {5, "Five"},
-        {6, "Six"},
-        {7, "Seven"},
-        {8, "Eight"},
-        {9, "Nine"}
-    };
+    std::vector<int> sorted_arr = arr;
+    std::sort(sorted_arr.begin(), sorted_arr.end());
 
-    // Sort the integers between 1 and 9
-    vector<int> sortedArr;
-    for (int num : arr) {
+    for (int i = 0; i < sorted_arr.size(); i++) {
+        int num = sorted_arr[i];
         if (num >= 1 && num <= 9) {
-            sortedArr.push_back(num);
+            result.push_back(num_map[num]);
         }
     }
-    sort(sortedArr.begin(), sortedArr.end());
 
-    // Reverse the sorted array and replace each digit with its corresponding name
-    reverse(sortedArr.begin(), sortedArr.end());
-    for (int num : sortedArr) {
-        result.push_back(digitNames[num]);
-    }
+    std::reverse(result.begin(), result.end());
 
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    // Function implementation
-
-    return true;
-}
-
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
+    std::vector<int> input = {9, 4, 8};
+    std::vector<std::string> expected_output = {"Nine", "Eight", "Four"};
+
+    std::vector<std::string> output = by_length(input);
+
+    assert(issame(output, expected_output));
 
     return 0;
 }
