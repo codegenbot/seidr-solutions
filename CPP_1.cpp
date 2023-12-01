@@ -5,41 +5,34 @@ using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string current_group;
+    string current_group = "";
+    int count = 0;
 
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (!current_group.empty()) {
-                result.push_back(current_group);
-                current_group = "";
-            }
+    for (char ch : paren_string) {
+        if (ch == '(') {
+            count++;
+        } else if (ch == ')') {
+            count--;
         }
-        else if (c == ')') {
-            if (!current_group.empty()) {
-                current_group += ')';
-                result.push_back(current_group);
-                current_group = "";
-            }
-        }
-        else if (c != ' ') {
-            current_group += c;
-        }
-    }
 
-    if (!current_group.empty()) {
-        result.push_back(current_group);
+        if (ch != ' ') {
+            current_group += ch;
+        }
+
+        if (count == 0 && current_group != "") {
+            result.push_back(current_group);
+            current_group = "";
+        }
     }
 
     return result;
 }
 
 int main() {
-    string paren_string;
-    getline(cin, paren_string);
-
+    string paren_string = "( ) (( )) (( )( ))";
     vector<string> groups = separate_paren_groups(paren_string);
 
-    for (string group : groups) {
+    for (const string& group : groups) {
         cout << group << endl;
     }
 
