@@ -1,12 +1,14 @@
 bool cycpattern_check(string a, string b) {
-    if (a.find(b) != string::npos) {
+    // Check if the length of both words is equal
+    if(a.length() != b.length())
+        return false;
+
+    // Concatenate the first word with itself to check for possible rotations
+    string combined = a + a;
+
+    // Check if the second word or any rotation of it is a substring in the concatenated word
+    if(combined.find(b) != string::npos)
         return true;
-    }
-    for (int i = 0; i < b.length(); i++) {
-        string rotation = b.substr(i) + b.substr(0, i);
-        if (a.find(rotation) != string::npos) {
-            return true;
-        }
-    }
+
     return false;
 }
