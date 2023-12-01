@@ -14,8 +14,9 @@ long long double_the_difference(vector<float>& lst){
 }
 
 int main() {
-    vector<float> lst = {1, 2, 3, 4, 5};  
-    assert(double_the_difference(lst) == 35);  
+    vector<float> lst = {1, 2, 3, 4, 5};
+    
+    assert(double_the_difference(lst) == 35);
     
     return 0;
 }
