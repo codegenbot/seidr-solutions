@@ -21,7 +21,7 @@ std::pair<int, int> mastermind(const std::string& code, const std::string& guess
         whitePegs += std::min(codeCount[i], guessCount[i]);
     }
 
-    return {whitePegs, blackPegs};
+    return std::make_pair(whitePegs, blackPegs);
 }
 
 int main() {
