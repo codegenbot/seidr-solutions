@@ -1,35 +1,36 @@
 string sort_numbers(string numbers){
-    map<string, int> numberMap;
-    numberMap["zero"] = 0;
-    numberMap["one"] = 1;
-    numberMap["two"] = 2;
-    numberMap["three"] = 3;
-    numberMap["four"] = 4;
-    numberMap["five"] = 5;
-    numberMap["six"] = 6;
-    numberMap["seven"] = 7;
-    numberMap["eight"] = 8;
-    numberMap["nine"] = 9;
+    map<string, int> number_map;
+    number_map["zero"] = 0;
+    number_map["one"] = 1;
+    number_map["two"] = 2;
+    number_map["three"] = 3;
+    number_map["four"] = 4;
+    number_map["five"] = 5;
+    number_map["six"] = 6;
+    number_map["seven"] = 7;
+    number_map["eight"] = 8;
+    number_map["nine"] = 9;
     
-    vector<int> numberList;
+    vector<int> sorted_numbers;
     stringstream ss(numbers);
-    string number;
-    while(getline(ss, number, ' ')){
-        numberList.push_back(numberMap[number]);
+    string num;
+    while (getline(ss, num, ' ')){
+        sorted_numbers.push_back(number_map[num]);
     }
     
-    sort(numberList.begin(), numberList.end());
+    sort(sorted_numbers.begin(), sorted_numbers.end());
     
-    string sortedNumbers;
-    for(int i=0; i<numberList.size(); i++){
-        for(auto it=numberMap.begin(); it!=numberMap.end(); it++){
-            if(it->second == numberList[i]){
-                sortedNumbers += it->first + " ";
+    string result;
+    for (int i = 0; i < sorted_numbers.size(); i++){
+        for (auto it = number_map.begin(); it != number_map.end(); ++it){
+            if (it->second == sorted_numbers[i]){
+                result += it->first + " ";
                 break;
             }
         }
     }
     
-    sortedNumbers.pop_back(); // remove the trailing space
-    return sortedNumbers;
+    result.pop_back(); // remove the last space
+    
+    return result;
 }
