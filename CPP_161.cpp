@@ -1,6 +1,5 @@
-#include <string>
 #include <iostream>
-#include <algorithm>
+#include <string>
 using namespace std;
 
 string solve(string s) {
@@ -28,7 +27,6 @@ string solve(string s) {
 }
 
 int main() {
-    cout << solve("#ccc") << endl;
-
+    assert(solve("#ccc") == "#CCC");
     return 0;
 }
