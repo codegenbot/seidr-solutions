@@ -7,10 +7,10 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> largest_smallest_integers(vector<int> lst){
     vector<int> result(2, 0);
-    int largestNegative = lst[0];
+    int largestNegative = 0;
     int smallestPositive = 0;
     for(int num : lst){
-        if(num < 0 && num > largestNegative){
+        if(num < 0 && num < largestNegative){
             largestNegative = num;
         }
         if(num > 0 && (num < smallestPositive || smallestPositive == 0)){
