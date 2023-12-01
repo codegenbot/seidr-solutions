@@ -19,6 +19,6 @@ int main() {
     cin >> x;
 
     assert(change_base(x, x + 1) == to_string(x));
-
+    
     return 0;
 }
