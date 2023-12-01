@@ -1,8 +1,8 @@
 #include <vector>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    // Implement your logic here
+}
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
@@ -11,10 +11,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         result.push_back(diff);
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    // Implement your logic here
 }
 
 int main() {
