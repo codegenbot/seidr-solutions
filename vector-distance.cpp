@@ -13,12 +13,14 @@ double euclideanDistance(const std::vector<double>& vec1, const std::vector<doub
 int main() {
     int n;
     std::cin >> n;
+
     std::vector<double> vec1(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vec1[i];
     }
 
     std::cin >> n;
+
     std::vector<double> vec2(n);
     for (int i = 0; i < n; i++) {
         std::cin >> vec2[i];
