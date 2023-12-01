@@ -1,6 +1,6 @@
-# Plan:
-1. Read the number of items from the user.
-2. Read the prices of the items from the user and store them in a list.
-3. Read the discounts for each item from the user and store them in a list.
-4. Iterate over the prices and discounts lists simultaneously and calculate the total price after discount for each item.
-5. Sum up all the discounted prices and return the result.
+n = int(input())
+prices = list(map(float, input().split()))
+discounts = list(map(float, input().split()))
+
+total_price = sum(price - (price * discount / 100) for price, discount in zip(prices, discounts))
+print(total_price)
