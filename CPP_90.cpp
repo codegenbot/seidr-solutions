@@ -13,8 +13,3 @@ int next_smallest(std::vector<int> lst){
     }
     return second_smallest;
 }
-
-int main() {
-    int result = next_smallest(std::vector<int>{-35, 34, 12, -45});
-    return 0;
-}
