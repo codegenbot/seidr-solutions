@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 std::string get_closest_vowel(std::string word){
     int n = word.length();
