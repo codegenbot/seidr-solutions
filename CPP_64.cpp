@@ -1,4 +1,7 @@
-int vowels_count(string s){
+#include <string>
+#include <algorithm>
+
+int vowels_count(std::string s) {
     int count = 0;
     transform(s.begin(), s.end(), s.begin(), ::tolower); // convert string to lowercase
     
