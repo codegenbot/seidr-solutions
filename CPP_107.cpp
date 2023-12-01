@@ -5,7 +5,7 @@ bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
-    for(int i=0; i<a.size(); i++){
+    for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -37,17 +37,29 @@ vector<int> even_odd_palindrome(int n){
 }
 
 int main(){
-    // Test the code using assert function
-    vector<int> expected = {4, 4};
-    vector<int> output = even_odd_palindrome(10);
+    // Test the even_odd_palindrome function
+    vector<int> expected = {0, 0};
+    vector<int> output = even_odd_palindrome(0);
     assert(issame(expected, output));
 
-    expected = {9, 9};
+    expected = {0, 0};
+    output = even_odd_palindrome(1);
+    assert(issame(expected, output));
+
+    expected = {4, 0};
+    output = even_odd_palindrome(10);
+    assert(issame(expected, output));
+
+    expected = {5, 4};
     output = even_odd_palindrome(20);
     assert(issame(expected, output));
 
-    expected = {15, 15};
-    output = even_odd_palindrome(30);
+    expected = {9, 10};
+    output = even_odd_palindrome(50);
+    assert(issame(expected, output));
+
+    expected = {14, 22};
+    output = even_odd_palindrome(100);
     assert(issame(expected, output));
 
     return 0;
