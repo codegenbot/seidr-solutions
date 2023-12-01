@@ -1,25 +1,12 @@
 #include <iostream>
-#include <map>
 #include <sstream>
-#include <string>
 #include <vector>
+#include <map>
 #include <algorithm>
 
 using namespace std;
 
-string sort_numbers(string numbers);
-
-int main() {
-    string numbers;
-    getline(cin, numbers);
-
-    string sorted_numbers = sort_numbers(numbers);
-    cout << sorted_numbers << endl;
-
-    return 0;
-}
-
-string sort_numbers(string numbers) {
+string sort_numbers(string numbers){
     map<string, int> number_map;
     number_map["zero"] = 0;
     number_map["one"] = 1;
@@ -31,7 +18,7 @@ string sort_numbers(string numbers) {
     number_map["seven"] = 7;
     number_map["eight"] = 8;
     number_map["nine"] = 9;
-
+  
     vector<int> number_values;
     stringstream ss(numbers);
     string number;
@@ -54,4 +41,16 @@ string sort_numbers(string numbers) {
     sorted_numbers.pop_back(); // remove the trailing space
 
     return sorted_numbers;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    // Additional test cases
+    assert(sort_numbers("one two three four") == "one two three four");
+    assert(sort_numbers("nine eight seven six five") == "five six seven eight nine");
+    assert(sort_numbers("") == "");
+
+    cout << "All test cases passed!" << endl;
+
+    return 0;
 }
