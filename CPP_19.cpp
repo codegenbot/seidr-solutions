@@ -3,7 +3,6 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 std::string sort_numbers(std::string numbers);
 
@@ -43,9 +42,4 @@ std::string sort_numbers(std::string numbers){
     }
 
     return sorted_numbers;
-}
-
-int main() {
-    // Test the sort_numbers function
-    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
 }
