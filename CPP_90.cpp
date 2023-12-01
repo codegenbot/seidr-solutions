@@ -1,11 +1,25 @@
 int next_smallest(vector<int> lst){
-    if(lst.size() < 2) return None;
-    sort(lst.begin(), lst.end());
-    int smallest = lst[0];
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] > smallest){
-            return lst[i];
-        }
-    }
+  // Check if the vector is empty or has only one element
+  if (lst.size() < 2) {
     return None;
+  }
+  
+  // Sort the vector in ascending order
+  sort(lst.begin(), lst.end());
+  
+  // Iterate through the sorted vector and find the second smallest element
+  int smallest = lst[0], second_smallest = lst[1];
+  for (int i = 2; i < lst.size(); i++) {
+    if (lst[i] > smallest && lst[i] < second_smallest) {
+      second_smallest = lst[i];
+    }
+  }
+  
+  // Check if there is a second smallest element
+  if (second_smallest == smallest) {
+    return None;
+  }
+  
+  // Return the second smallest element
+  return second_smallest;
 }
