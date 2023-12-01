@@ -1,38 +1,41 @@
-#include <boost/algorithm/string/replace.hpp>
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int int_a = boost::any_cast<int>(a);
-        int int_b = boost::any_cast<int>(b);
-        if (int_a > int_b) {
-            return int_a;
-        } else if (int_a < int_b) {
-            return int_b;
+        int aInt = boost::any_cast<int>(a);
+        int bInt = boost::any_cast<int>(b);
+        if (aInt == bInt) {
+            return boost::any();
+        } else if (aInt > bInt) {
+            return aInt;
         } else {
-            return "None";
+            return bInt;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float float_a = boost::any_cast<float>(a);
-        float float_b = boost::any_cast<float>(b);
-        if (float_a > float_b) {
-            return float_a;
-        } else if (float_a < float_b) {
-            return float_b;
+        float aFloat = boost::any_cast<float>(a);
+        float bFloat = boost::any_cast<float>(b);
+        if (aFloat == bFloat) {
+            return boost::any();
+        } else if (aFloat > bFloat) {
+            return aFloat;
         } else {
-            return "None";
+            return bFloat;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str_a = boost::any_cast<std::string>(a);
-        std::string str_b = boost::any_cast<std::string>(b);
-        boost::replace_all(str_a, ",", ".");
-        boost::replace_all(str_b, ",", ".");
-        if (stof(str_a) > stof(str_b)) {
-            return str_a;
-        } else if (stof(str_a) < stof(str_b)) {
-            return str_b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string aString = boost::any_cast<string>(a);
+        string bString = boost::any_cast<string>(b);
+        if (aString == bString) {
+            return boost::any();
+        } else if (aString > bString) {
+            return aString;
         } else {
-            return "None";
+            return bString;
         }
+    } else {
+        return boost::any();
     }
-    return "None";
 }
