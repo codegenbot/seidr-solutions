@@ -1,24 +1,35 @@
-#include <boost/any.hpp>
 #include <string>
 #include <algorithm>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        return (num1 > num2) ? num1 : num2;
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        return (num1 > num2) ? num1 : num2;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
+auto compare_one(auto a, auto b) {
+    if (typeid(a) == typeid(int) && typeid(b) == typeid(int)) {
+        int num1 = a;
+        int num2 = b;
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
+        }
+    } else if (typeid(a) == typeid(float) && typeid(b) == typeid(float)) {
+        float num1 = a;
+        float num2 = b;
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
+        }
+    } else if (typeid(a) == typeid(std::string) && typeid(b) == typeid(std::string)) {
+        std::string str1 = a;
+        std::string str2 = b;
         std::replace(str1.begin(), str1.end(), ',', '.');
         std::replace(str2.begin(), str2.end(), ',', '.');
         float num1 = std::stof(str1);
         float num2 = std::stof(str2);
-        return (num1 > num2) ? str1 : str2;
+        if (num1 > num2) {
+            return str1;
+        } else if (num2 > num1) {
+            return str2;
+        }
     }
-    return boost::any();
+    return decltype(a)();
 }
