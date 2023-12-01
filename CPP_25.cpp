@@ -13,7 +13,6 @@ std::vector<int> factorize(int n) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    // Compare the vectors here
     return a == b;
 }
 
