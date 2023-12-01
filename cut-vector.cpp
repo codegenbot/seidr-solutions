@@ -1,11 +1,11 @@
 #include <vector>
 #include <utility>
-#include <climits>
-#include <cmath>
+#include <limits>
+#include <cstdlib>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int diff = INT_MAX;
+    int diff = std::numeric_limits<int>::max();
     int index = 0;
 
     if (n == 1) {
