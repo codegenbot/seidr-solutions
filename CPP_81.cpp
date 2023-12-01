@@ -4,6 +4,8 @@
 #include <cassert>
 using namespace std;
 
+vector<string> numerical_letter_grade(vector<float> grades);
+
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
     for(int i=0; i<grades.size(); i++){
@@ -51,6 +53,6 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 int main(){
-    assert (numeric_letter_grade({0, 0.7}) == vector<string>({"E", "D-"}));
+    assert (numerical_letter_grade({0, 0.7}) == vector<string>{"E", "D-"});
     return 0;
 }
