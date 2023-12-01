@@ -1,27 +1,19 @@
 map<char,int> histogram(string test){
-    map<char, int> countMap;
-    string letter;
+    map<char,int> result;
+    string word;
     for(int i=0; i<test.length(); i++){
         if(test[i] != ' '){
-            letter += test[i];
+            word += test[i];
         }
         else{
-            if(countMap.find(letter[0]) == countMap.end()){
-                countMap[letter[0]] = 1;
+            if(word.length() > 0){
+                result[word[0]]++;
+                word = "";
             }
-            else{
-                countMap[letter[0]]++;
-            }
-            letter = "";
         }
     }
-    if(letter != ""){
-        if(countMap.find(letter[0]) == countMap.end()){
-            countMap[letter[0]] = 1;
-        }
-        else{
-            countMap[letter[0]]++;
-        }
+    if(word.length() > 0){
+        result[word[0]]++;
     }
-    return countMap;
+    return result;
 }
