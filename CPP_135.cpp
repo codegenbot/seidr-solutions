@@ -1,9 +1,20 @@
-int can_arrange(vector<int> arr) {
-    int n = arr.size();
-    for (int i = n - 1; i > 0; i--) {
-        if (arr[i] < arr[i - 1]) {
-            return i - 1;
+#include <vector>
+#include <cassert>
+
+int can_arrange(vector<int> arr){
+    int largestIndex = -1;
+    for(int i = 1; i < arr.size(); i++){
+        if(arr[i] < arr[i-1]){
+            largestIndex = i-1;
         }
     }
-    return -1;
+    return largestIndex;
+}
+
+int main() {
+    // Test cases
+    assert(can_arrange({}) == -1);
+    // Add more test cases here
+    
+    return 0;
 }
