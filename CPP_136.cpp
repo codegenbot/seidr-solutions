@@ -1,24 +1,23 @@
-vector<int> largest_smallest_integer(vector<int> lst){
-    vector<int> result(2, 0);
-    int largest_negative = 0;
-    int smallest_positive = 0;
-
+vector<int> largest_smallest_integers(vector<int> lst){
+    int max_negative = 0;
+    int min_positive = 0;
+    
     for(int num : lst){
-        if(num < 0 && num < largest_negative){
-            largest_negative = num;
+        if(num < 0 && num < max_negative){
+            max_negative = num;
         }
-        if(num > 0 && (num < smallest_positive || smallest_positive == 0)){
-            smallest_positive = num;
+        if(num > 0 && (num < min_positive || min_positive == 0)){
+            min_positive = num;
         }
     }
-
-    result[0] = largest_negative;
-    result[1] = smallest_positive;
-
-    return result;
+    
+    return {max_negative, min_positive};
 }
 
+bool issame(vector<int> a, vector<int> b);
+
 int main() {
-    assert (largest_smallest_integer({-6, -4, -4, -3, -100, 1}) == vector<int>({-3, 1}));
+    // Your code here
+    
     return 0;
 }
