@@ -1,8 +1,9 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <string>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +15,7 @@ bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::string> result;
     for (int i = 0; i < lst.size(); i++) {
         if (lst[i].length() % 2 == 0) {
@@ -31,6 +32,8 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    assert(isSame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    std::vector<std::string> input = {"aaaa", "bbbb", "dd", "cc"};
+    std::vector<std::string> expected_output = {"cc", "dd", "aaaa", "bbbb"};
+    assert(isSame(sorted_list_sum(input), expected_output));
     return 0;
 }
