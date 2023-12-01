@@ -4,11 +4,11 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
+    // code for comparing vectors a and b
+    // return true or false based on comparison
     if (a.size() != b.size()) {
         return false;
     }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
