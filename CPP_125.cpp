@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -7,6 +8,7 @@ using namespace std;
 vector<string> split_words(string txt){
     vector<string> words;
     string word = "";
+    
     for(int i = 0; i < txt.length(); i++){
         if(txt[i] == ' ' || txt[i] == ','){
             if(word != ""){
@@ -17,20 +19,34 @@ vector<string> split_words(string txt){
             word += txt[i];
         }
     }
+    
     if(word != ""){
         words.push_back(word);
     }
+    
     if(words.empty()){
         words.push_back(to_string(3));
     }
+    
     return words;
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // Function implementation
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main(){
-    assert(issame(split_words("") ,{"0"}));
+    assert(issame(split_words(""), {"0"}));
     // Rest of the code
+    return 0;
 }
