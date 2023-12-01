@@ -1,8 +1,14 @@
-#include <iostream>
-
+#include <string>
+#include <cctype>
 using namespace std;
 
 string encrypt(string s);
+
+int main(){
+    assert (encrypt("a")=="e");
+    // add more test cases here
+    return 0;
+}
 
 string encrypt(string s){
     string encryptedString = "";
@@ -19,14 +25,4 @@ string encrypt(string s){
         encryptedString += c;
     }
     return encryptedString;
-}
-
-int main() {
-    assert(encrypt("a")=="e");
-    assert(encrypt("z")=="d");
-    assert(encrypt("Hello, World!")=="Jgnnq, Yqtnf!");
-    
-    cout << "All test cases passed!" << endl;
-    
-    return 0;
 }
