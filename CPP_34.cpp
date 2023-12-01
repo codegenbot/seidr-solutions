@@ -1,22 +1,30 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
+bool are_same(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> unique(vector<int> l) {
-    sort(l.begin(), l.end());
-    l.erase(unique(l.begin(), l.end()), l.end());
+std::vector<int> unique_numbers(std::vector<int> l) {
+    std::sort(l.begin(), l.end());
+    l.erase(std::unique(l.begin(), l.end()), l.end());
     return l;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return unique(a) == unique(b);
-}
-
 int main() {
-    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), unique({0, 2, 3, 5, 9, 123})));
+    // Test cases
+    assert(are_same(unique_numbers({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    // Add more test cases if needed
+  
     return 0;
 }
