@@ -5,14 +5,12 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+    if(a.size() != b.size())
         return false;
-    }
 
     for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+        if(a[i] != b[i])
             return false;
-        }
     }
 
     return true;
@@ -32,6 +30,8 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 
 int main(){
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(issame(filter_by_substring({"apple", "banana", "cherry", "date"}, "a"), {"apple", "banana"}));
+    assert(issame(filter_by_substring({"hello", "world", "cpp", "code"}, "o"), {"hello", "world", "code"}));
 
     return 0;
 }
