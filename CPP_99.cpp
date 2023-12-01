@@ -1,11 +1,16 @@
-int closest_integer(string value){
+#include <stdio.h>
+#include <math.h>
+#include <string>
+using namespace std;
+
+int closest_integer(string value) {
     double num = stod(value);
-    int floor_num = floor(num);
-    int ceil_num = ceil(num);
-    
-    if (num - floor_num < ceil_num - num) {
-        return floor_num;
+    int integer = static_cast<int>(num);
+    double diff1 = num - integer;
+    double diff2 = ceil(num) - num;
+    if (diff1 < diff2) {
+        return integer;
     } else {
-        return ceil_num;
+        return static_cast<int>(ceil(num));
     }
 }
