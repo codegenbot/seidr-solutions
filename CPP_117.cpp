@@ -1,3 +1,14 @@
+#include <cassert>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+bool isConsonant(char c) {
+    c = tolower(c);
+    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     if (s.empty()) {
@@ -23,9 +34,4 @@ vector<string> select_words(string s, int n) {
         result.push_back(word);
     }
     return result;
-}
-
-bool isConsonant(char c) {
-    c = tolower(c);
-    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
