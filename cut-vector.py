@@ -1,32 +1,38 @@
-import numpy as np
-def cut_vector(vector):
-    vector = np.array(vector)
-    min_diff = np.inf
-    cut_index = -1
-    
-    for i in range(1, len(vector)):
-        sum_left = np.sum(vector[:i])
-        sum_right = np.sum(vector[i:])
-        diff = abs(sum_left - sum_right)
-        
+def cut_vector(numbers):
+    n = len(numbers)
+    if n == 0:
+        return [], []
+
+    prefix_sum = [0] * (n + 1)
+    for i in range(n):
+        prefix_sum[i + 1] = prefix_sum[i] + numbers[i]
+
+    total_sum = prefix_sum[n]
+    min_diff = float("inf")
+    split_index = -1
+
+    for i in range(1, n):
+        left_sum = prefix_sum[i]
+        right_sum = total_sum - left_sum
+        diff = abs(left_sum - right_sum)
+
         if diff < min_diff:
             min_diff = diff
-            cut_index = i
-    
-    return list(vector[:cut_index]), list(vector[cut_index:])
+            split_index = i
+
+    return numbers[:split_index], numbers[split_index:]
+
 
 # Read input from user
-vector = []
+numbers = []
 while True:
     try:
         num = int(input())
-        vector.append(num)
-    except ValueError:
+        numbers.append(num)
+    except:
         break
 
-# Call the function and print the output
-output1, output2 = cut_vector(vector)
-for num in output1:
-    print(num)
-for num in output2:
-    print(num)
+# Call the function and print the outputs
+output1, output2 = cut_vector(numbers)
+print("\n".join(map(str, output1)))
+print("\n".join(map(str, output2)))
