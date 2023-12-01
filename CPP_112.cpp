@@ -22,6 +22,6 @@ int main() {
     vector<string> result = reverse_delete("mamma", "mia");
     cout << result[0] << endl;
     cout << result[1] << endl;
-    
+
     return 0;
 }
