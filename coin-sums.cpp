@@ -14,7 +14,6 @@ int main() {
     cents %= 5;
 
     int pennies = cents;
-    cents = 0;
 
     int totalCoins = quarters + dimes + nickels + pennies;
 
