@@ -1,6 +1,6 @@
+#include <string>
 #include <cassert>
 #include <cstring>
-#include <string>
 using namespace std;
 
 int calculateLength(string str){
@@ -8,6 +8,6 @@ int calculateLength(string str){
 }
 
 int main() {
-    assert (calculateLength("asdasnakj") == 9);
+    assert(calculateLength("asdasnakj") == 9);
     return 0;
 }
