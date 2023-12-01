@@ -16,3 +16,5 @@ long long double_the_difference(vector<float>& lst){
 vector<float> lst = {1, 2, 3, 4, 5};
 long long odd_sum = double_the_difference(lst);
 assert(odd_sum == 35);
+
+return 0;
