@@ -6,7 +6,7 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     for (int i = 0; i < grid.size(); i++) {
         for (int j = 0; j < grid[i].size(); j++) {
             if (grid[i][j] == 1) {
-                int buckets_needed = (grid[i][j] + capacity - 1) / capacity;
+                int buckets_needed = (grid[i][j] + capacity - 1) / capacity + 1;
                 count += buckets_needed;
             }
         }
