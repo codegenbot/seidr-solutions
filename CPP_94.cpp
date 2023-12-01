@@ -49,8 +49,8 @@ int main() {
     lst = {0,8,1,2,1,7};
     cout << largestPrimeSum(lst) << endl;
 
-    assert (largestPrimeSum({127, 97, 8192}) == 10);
-    assert (largestPrimeSum({239, 839, 199, 997, 10369}) == 33);
+    assert(largestPrimeSum({127, 97, 8192}) == 10);
+    assert(largestPrimeSum({239, 839, 199, 997, 10369}) == 33);
 
     return 0;
 }
