@@ -18,9 +18,3 @@ map<char,int> buildHistogram(string test) {
     if (!letter.empty()) counts[letter]++;
     return counts;
 }
-
-int main() {
-    assert(buildHistogram("a") == {{'a', 1}});
-
-    return 0;
-}
