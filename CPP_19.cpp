@@ -1,6 +1,11 @@
-string sort_numbers(string numbers) {
-    // Create a map to store the numberals and their corresponding values
-    map<string, int> numeralMap;
+#include <string>
+#include <map>
+#include <vector>
+#include <sstream>
+#include <algorithm>
+
+std::string sort_numbers(std::string numbers) {
+    std::map<std::string, int> numeralMap;
     numeralMap["zero"] = 0;
     numeralMap["one"] = 1;
     numeralMap["two"] = 2;
@@ -12,27 +17,22 @@ string sort_numbers(string numbers) {
     numeralMap["eight"] = 8;
     numeralMap["nine"] = 9;
 
-    // Split the input string into individual numberals
-    vector<string> numberals;
-    stringstream ss(numbers);
-    string temp;
-    while (getline(ss, temp, ' ')) {
-        numberals.push_back(temp);
+    std::vector<std::string> numerals;
+    std::stringstream ss(numbers);
+    std::string temp;
+    while (std::getline(ss, temp, ' ')) {
+        numerals.push_back(temp);
     }
 
-    // Sort the numberals based on their corresponding values
-    sort(numberals.begin(), numberals.end(), [&](const string& a, const string& b) {
+    std::sort(numerals.begin(), numerals.end(), [&](const std::string& a, const std::string& b) {
         return numeralMap[a] < numeralMap[b];
     });
 
-    // Create the sorted string
-    string sortedNumbers;
-    for (const string& numeral : numberals) {
+    std::string sortedNumbers;
+    for (const std::string& numeral : numerals) {
         sortedNumbers += numeral + " ";
     }
 
-    // Remove the trailing space
     sortedNumbers.pop_back();
-
     return sortedNumbers;
 }
