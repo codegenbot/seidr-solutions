@@ -24,12 +24,10 @@ while True:
     try:
         num = int(input())
         vector.append(num)
-    except:
+    except EOFError:
         break
 
-# Call the function and print the results
+# Call the function and print the result
 left_subvector, right_subvector = cut_vector(vector)
-for num in left_subvector:
-    print(num)
-for num in right_subvector:
-    print(num)
+print(*left_subvector, sep="\n")
+print(*right_subvector, sep="\n")
