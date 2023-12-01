@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool is_same(vector<string> a, vector<string> b){
+bool isEqual(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -34,6 +34,6 @@ vector<string> sorted_list_sum(vector<string> lst){
 }
 
 int main() {
-    assert(is_same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(isEqual(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
