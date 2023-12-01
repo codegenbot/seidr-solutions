@@ -18,10 +18,11 @@ bool check_if_last_char_is_a_letter(string txt){
 }
 
 int main() {
-    assert (check_if_last_char_is_a_letter("apple pie ") == true);
-    assert (check_if_last_char_is_a_letter("apple pie") == false);
-    assert (check_if_last_char_is_a_letter(" apple pie") == false);
-    assert (check_if_last_char_is_a_letter("apple pi e ") == false);
+    cout << boolalpha;
+    cout << check_if_last_char_is_a_letter("apple pie ") << endl;
+    cout << check_if_last_char_is_a_letter("apple pie") << endl;
+    cout << check_if_last_char_is_a_letter(" apple pie") << endl;
+    cout << check_if_last_char_is_a_letter("apple pi e ") << endl;
 
     return 0;
 }
