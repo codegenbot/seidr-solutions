@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> f(int n) {
+vector<int> f(int n){
     vector<int> result(n);
     for(int i=0; i<n; i++){
         if(i%2 == 0){
@@ -25,14 +25,16 @@ vector<int> f(int n) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
+
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
+
     return true;
 }
 
