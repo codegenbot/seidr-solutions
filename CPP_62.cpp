@@ -12,10 +12,8 @@ vector<float> derivative(vector<float> xs) {
 }
 
 int main() {
-    // test cases
     vector<float> result = derivative({1.0});
 
-    // print the result
     for (float val : result) {
         cout << val << " ";
     }
