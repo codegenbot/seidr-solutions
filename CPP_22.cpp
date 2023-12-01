@@ -1,6 +1,7 @@
 #include <vector>
 #include <list>
 #include <variant>
+#include <cassert>
 
 std::vector<int> filter_integers(const std::list<std::variant<int, char>>& values) {
     std::vector<int> result{};
