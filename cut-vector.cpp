@@ -3,52 +3,53 @@
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int leftSum = 0;
-    int rightSum = 0;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-
-    // Calculate the total sum of all numbers
-    for (int i = 0; i < n; i++) {
-        rightSum += nums[i];
-    }
-
-    // Iterate through each index and find the cut index with minimum difference
-    for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int diff = INT_MAX;
+    int index = -1;
+    
+    for (int i = 0; i < n - 1; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+        
+        for (int j = 0; j <= i; j++) {
+            leftSum += nums[j];
+        }
+        
+        for (int j = i + 1; j < n; j++) {
+            rightSum += nums[j];
+        }
+        
+        int currentDiff = abs(leftSum - rightSum);
+        
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            index = i;
         }
     }
-
-    // Create the two resulting subvectors
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    std::vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
-
-    return std::make_pair(leftSubvector, rightSubvector);
+    
+    std::vector<int> left(nums.begin(), nums.begin() + index + 1);
+    std::vector<int> right(nums.begin() + index + 1, nums.end());
+    
+    return std::make_pair(left, right);
 }
 
 int main() {
     int n;
     std::cin >> n;
-
+    
     std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
     }
-
+    
     std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-
+    
     for (int num : result.first) {
         std::cout << num << std::endl;
     }
-
+    
     for (int num : result.second) {
         std::cout << num << std::endl;
     }
-
+    
     return 0;
 }
