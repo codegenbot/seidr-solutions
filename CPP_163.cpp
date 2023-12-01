@@ -19,10 +19,10 @@ vector<int> generate_integers(int a, int b) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}));
-    assert(issame(generate_integers(0, 100), {0, 2, 4, 6, 8}));
-    assert(issame(generate_integers(10, 20), {0, 2, 4, 6, 8}));
-    assert(issame(generate_integers(1, 1), {}));
-    assert(issame(generate_integers(222, 222), {2, 2, 2}));
+    assert(generate_integers(17, 89) == vector<int>());
+    assert(generate_integers(0, 100) == vector<int>{0, 2, 4, 6, 8});
+    assert(generate_integers(10, 20) == vector<int>{0, 2, 4, 6, 8});
+    assert(generate_integers(1, 1) == vector<int>());
+    assert(generate_integers(222, 222) == vector<int>{2, 2, 2});
     return 0;
 }
