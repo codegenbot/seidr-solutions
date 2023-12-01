@@ -1,61 +1,54 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    int diff = INT_MAX;
-    int index = 0;
-    
-    for (int i = 1; i < n; i++) {
-        int leftSum = 0;
-        int rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            leftSum += nums[j];
-        }
-        
-        for (int j = i; j < n; j++) {
-            rightSum += nums[j];
-        }
-        
-        int currentDiff = abs(leftSum - rightSum);
-        
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            index = i;
-        }
+pair<vector<int>, vector<int>> cut_vector(vector<int> nums) {
+    int total_sum = 0;
+    for (int num : nums) {
+        total_sum += num;
     }
     
-    vector<int> left(nums.begin(), nums.begin() + index);
-    vector<int> right(nums.begin() + index, nums.end());
+    int half_sum = total_sum / 2;
+    int current_sum = 0;
+    int index = 0;
     
-    left.push_back(0);
-    right.push_back(0);
+    while (current_sum < half_sum && index < nums.size()) {
+        current_sum += nums[index];
+        index++;
+    }
     
-    return {left, right};
+    if (current_sum == half_sum) {
+        return make_pair(vector<int>(nums.begin(), nums.begin() + index), vector<int>(nums.begin() + index, nums.end()));
+    } else {
+        int sum1 = current_sum - nums[index-1];
+        int sum2 = total_sum - current_sum;
+        
+        if (sum1 < sum2) {
+            return make_pair(vector<int>(nums.begin(), nums.begin() + index - 1), vector<int>(nums.begin() + index - 1, nums.end()));
+        } else {
+            return make_pair(vector<int>(nums.begin(), nums.begin() + index), vector<int>(nums.begin() + index, nums.end()));
+        }
+    }
 }
 
 int main() {
     int n;
     cin >> n;
-
+    
     vector<int> nums(n);
-
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-
-    vector<int> result1, result2;
-    tie(result1, result2) = cutVector(nums);
-
-    for (int i : result1) {
-        cout << i << endl;
+    
+    pair<vector<int>, vector<int>> result = cut_vector(nums);
+    
+    for (int num : result.first) {
+        cout << num << endl;
     }
-
-    for (int i : result2) {
-        cout << i << endl;
+    
+    for (int num : result.second) {
+        cout << num << endl;
     }
-
+    
     return 0;
 }
