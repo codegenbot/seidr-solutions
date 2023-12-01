@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 std::string flip_case(std::string str){
     std::string result = "";
