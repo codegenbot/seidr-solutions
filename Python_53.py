@@ -1,6 +1,11 @@
-def add(x: int, y: int) -> int: return x + y
+def add(x: int, y: int) -> int:
+    return x + y
 
-x = int(input())
-y = int(input())
-result = add(x, y)
-print(result)
+
+try:
+    x = int(input("Enter first number: ").strip())
+    y = int(input("Enter second number: ").strip())
+    result = add(x, y)
+    print(result)
+except ValueError:
+    print("Invalid input. Please enter valid numbers.")
