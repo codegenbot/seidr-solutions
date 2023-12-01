@@ -1,7 +1,19 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+string to_string(int n) {
+    if (n == 0) {
+        return "0";
+    }
+    
+    string result = "";
+    while (n > 0) {
+        int remainder = n % 10;
+        result = char('0' + remainder) + result;
+        n = n / 10;
+    }
+    return result;
+}
 
 string change_base(int x, int base) {
     string result = "";
@@ -14,8 +26,7 @@ string change_base(int x, int base) {
 }
 
 int main() {
-    int x = 5;
+    int x = 10;
     assert(change_base(x, x + 1) == to_string(x));
-
     return 0;
 }
