@@ -1,10 +1,13 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+using namespace std;
 
-std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
         if (a < 0) a = -a;
         if (b < 0) b = -b;
@@ -21,7 +24,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return nums;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -30,7 +33,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
-    std::vector<int> expected = {-76, -21, 0, 4, 23, 6, 6};
+    vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
+    vector<int> expected = {-76, -21, 0, 4, 23, 6, 6};
+    assert(issame(result, expected));
+
     return 0;
 }
