@@ -1,15 +1,6 @@
-#include <string>
+#include <iostream>
 #include <vector>
-#include <cassert>
-
 using namespace std;
-
-string exchange(vector<int> lst1, vector<int> lst2);
-
-int main() {
-    assert(exchange({100, 200}, {200, 200}) == "YES");
-    // More test cases...
-}
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
@@ -19,4 +10,15 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         }
     }
     return (oddCount == 0) ? "YES" : "NO";
+}
+
+int main() {
+    // Test cases
+    assert(exchange({100, 200}, {200, 200}) == "YES");
+    assert(exchange({1, 2, 3}, {1, 2, 3}) == "NO");
+    assert(exchange({2, 4, 6}, {4, 2, 6}) == "YES");
+    assert(exchange({}, {}) == "YES");
+    assert(exchange({1}, {2}) == "NO");
+
+    return 0;
 }
