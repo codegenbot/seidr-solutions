@@ -14,8 +14,7 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    // Test your count_upper function
     assert(count_upper("EEEE") == 2);
-
+    
     return 0;
 }
