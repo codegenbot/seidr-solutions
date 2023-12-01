@@ -10,7 +10,7 @@ T compare_one(T a, T b) {
     } else if (b > a) {
         return b;
     }
-    return T("None");
+    return T();
 }
 
 int main() {
