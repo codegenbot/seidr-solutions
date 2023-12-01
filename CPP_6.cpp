@@ -1,6 +1,10 @@
 #include <vector>
 
-vector<int> parse_nested_parens(string paren_string) {
+bool issame(vector<int> a, vector<int> b){
+    // implementation of the function
+}
+
+vector<int> parse_nested_parens(string paren_string){
     vector<int> levels;
     int max_level = 0;
     int current_level = 0;
