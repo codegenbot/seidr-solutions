@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 using namespace std;
 
@@ -11,8 +12,4 @@ vector<float> get_positive(vector<float> l) {
         }
     }
     return positive_nums;
-}
-
-int main() {
-    return 0;
 }
