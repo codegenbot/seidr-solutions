@@ -15,13 +15,13 @@ int main() {
 
     int pennies = cents;
 
+    int totalCoins = quarters + dimes + nickels + pennies;
+
+    std::cout << totalCoins << std::endl;
     std::cout << quarters << std::endl;
     std::cout << dimes << std::endl;
     std::cout << nickels << std::endl;
     std::cout << pennies << std::endl;
-
-    int totalCoins = quarters + dimes + nickels + pennies;
-    std::cout << totalCoins << std::endl;
 
     return 0;
 }
