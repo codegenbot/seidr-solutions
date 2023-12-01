@@ -10,8 +10,8 @@ int main() {
     double totalDistance = startingHeight + firstBounceHeight;
     
     for (int i = 2; i <= numBounces; i++) {
-        firstBounceHeight *= bouncinessIndex;
         totalDistance += 2 * firstBounceHeight;
+        firstBounceHeight *= bouncinessIndex * bouncinessIndex;
     }
     
     cout << totalDistance << endl;
