@@ -1,17 +1,16 @@
 #include <openssl/md5.h>
-#include <string>
 
-std::string string_to_md5(std::string text) {
+string string_to_md5(string text) {
     if (text.empty()) {
         return "None";
     }
 
-    MD5_CTX md5_context;
-    MD5_Init(&md5_context);
-    MD5_Update(&md5_context, text.c_str(), text.size());
+    MD5_CTX md5ctx;
+    MD5_Init(&md5ctx);
+    MD5_Update(&md5ctx, text.c_str(), text.length());
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5_Final(digest, &md5_context);
+    MD5_Final(digest, &md5ctx);
 
     char md5hash[2 * MD5_DIGEST_LENGTH + 1];
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
