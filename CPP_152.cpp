@@ -1,7 +1,5 @@
 #include <vector>
 #include <cmath>
-#include <cassert>
-#include <iostream>
 
 std::vector<int> compareGuesses(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
@@ -14,6 +12,9 @@ std::vector<int> compareGuesses(std::vector<int> game, std::vector<int> guess) {
     }
     return result;
 }
+
+#include <cassert>
+#include <iostream>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
