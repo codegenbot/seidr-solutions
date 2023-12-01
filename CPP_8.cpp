@@ -13,7 +13,7 @@ std::vector<int> sum_product(std::vector<int> numbers) {
         product *= numbers[i];
     }
 
-    return {sum, product};
+    return std::vector<int>({sum, product});
 }
 
 int main() {
@@ -28,7 +28,7 @@ int main() {
     std::vector<int> result = sum_product(std::move(numbers));
 
     for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << ' ';
+        std::cout << result[i] << " ";
     }
     std::cout << '\n';
 
