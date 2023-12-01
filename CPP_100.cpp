@@ -1,11 +1,13 @@
+```c++
 #include <vector>
 #include <cassert>
 
-std::vector<int> make_a_pile(int n);
-bool issame(std::vector<int> a, std::vector<int> b);
+using namespace std;
 
-std::vector<int> make_a_pile(int n){
-    std::vector<int> pile;
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> make_a_pile(int n){
+    vector<int> pile;
     pile.push_back(n);
     for(int i=1; i<n; i++){
         if(n % 2 == 0){
@@ -18,7 +20,7 @@ std::vector<int> make_a_pile(int n){
     return pile;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
