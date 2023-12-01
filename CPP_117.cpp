@@ -3,7 +3,6 @@
 using namespace std;
 
 bool isConsonant(char c) {
-    c = tolower(c);
     return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
