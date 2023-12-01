@@ -2,23 +2,17 @@ bool cycpattern_check(string a, string b) {
     int n = a.length();
     int m = b.length();
 
+    // If the length of b is greater than a, it is not possible to find b as a substring in a
     if (m > n) {
         return false;
     }
 
-    for (int i = 0; i < n; i++) {
-        bool match = true;
+    // Concatenate a with itself to handle rotations
+    a += a;
 
-        for (int j = 0; j < m; j++) {
-            if (a[(i + j) % n] != b[j]) {
-                match = false;
-                break;
-            }
-        }
-
-        if (match) {
-            return true;
-        }
+    // Check if b is a substring of a
+    if (a.find(b) != string::npos) {
+        return true;
     }
 
     return false;
