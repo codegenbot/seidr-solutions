@@ -5,49 +5,37 @@ int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
     int roll = 0;
-    bool spare = false;
-    bool strike = false;
 
     for (char c : bowls) {
         if (c == 'X') {
             score += 10;
-            roll = 0;
             if (frame < 10) {
-                if (strike) {
-                    score += 10;
-                }
-                strike = true;
+                score += 10;
                 frame++;
+                roll = 0;
             }
         } else if (c == '/') {
             score += 10 - roll;
-            roll = 0;
             if (frame < 10) {
-                if (strike) {
-                    score += 10;
-                }
-                spare = true;
+                score += 10;
                 frame++;
+                roll = 0;
             }
         } else if (c == '-') {
             if (frame < 10) {
-                if (strike) {
-                    score += 10;
-                }
                 frame++;
+                roll = 0;
             }
         } else {
             score += c - '0';
-            roll++;
             if (frame < 10) {
-                if (spare && roll == 1) {
+                if (roll > 0) {
                     score += c - '0';
-                    spare = false;
                 }
-                if (strike && roll == 1) {
+                if (frame > 1 && roll == 0 && bowls[frame*2 - 2] == '/') {
                     score += c - '0';
-                    strike = false;
                 }
+                roll++;
                 if (roll == 2) {
                     frame++;
                     roll = 0;
@@ -61,10 +49,8 @@ int calculateScore(const std::string& bowls) {
 
 int main() {
     std::string bowls;
-    std::getline(std::cin, bowls);
-
+    std::cin >> bowls;
     int score = calculateScore(bowls);
     std::cout << score << std::endl;
-
     return 0;
 }
