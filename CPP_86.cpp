@@ -1,17 +1,34 @@
-string anti_shuffle(string s){
-    string result = "";
-    string word = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] != ' '){
-            word += s[i];
-        }
-        else{
-            sort(word.begin(), word.end());
-            result += word + " ";
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+std::string anti_shuffle(std::string s) {
+    std::string result;
+    std::string word;
+    
+    for (char c : s) {
+        if (c == ' ') {
+            std::sort(word.begin(), word.end());
+            result += word + ' ';
             word = "";
+        } else {
+            word += c;
         }
     }
-    sort(word.begin(), word.end());
+    
+    std::sort(word.begin(), word.end());
     result += word;
+    
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    std::string orderedString = anti_shuffle(input);
+    std::cout << "Ordered version of string: " << orderedString << std::endl;
+    
+    return 0;
 }
