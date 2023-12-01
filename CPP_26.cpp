@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const vector<int>& a, const vector<int>& b){
     if(a.size() != b.size()){
         return false;
     }
@@ -15,10 +15,10 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return true;
 }
 
-std::vector<int> remove_duplicates(const std::vector<int>& numbers){
-    std::vector<int> result;
+vector<int> remove_duplicates(const vector<int>& numbers){
+    vector<int> result;
     for(int i=0; i<numbers.size(); i++){
-        if(std::count(numbers.begin(), numbers.end(), numbers[i]) == 1){
+        if(count(numbers.begin(), numbers.end(), numbers[i]) == 1){
             result.push_back(numbers[i]);
         }
     }
