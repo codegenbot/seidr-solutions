@@ -6,6 +6,6 @@ def all_prefixes(string: str) -> List[str]:
 
 
 if __name__ == "__main__":
-    string = input("Enter a string: ")
+    string = input()
     prefixes = all_prefixes(string)
     print(prefixes)
