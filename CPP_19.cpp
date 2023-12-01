@@ -1,9 +1,22 @@
+#include <iostream>
 #include <string>
+#include <map>
+#include <vector>
+#include <sstream>
+#include <algorithm>
+
+using namespace std;
 
 string sort_numbers(string numbers);
 
 int main() {
-    // Code for testing the sort_numbers function
+    string numbers;
+    getline(cin, numbers);
+
+    string sorted_numbers = sort_numbers(numbers);
+
+    cout << sorted_numbers << endl;
+
     return 0;
 }
 
