@@ -6,7 +6,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
         if (expression[0] == 'T') {
             return isEnclosed;
         } else if (expression[0] == 'F') {
-            return !isEnclosed;
+            return false;
         }
     }
 
@@ -24,10 +24,9 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
             if (parenthesisCount > 0) {
                 continue;
             }
-        } else if ((expression[i] == '&' || expression[i] == '|') && parenthesisCount == 0) {
+        } else if ((expression[i] == '&' || expression[i] == '|') && parenthesisCount == 0 && opIndex == -1) {
             opIndex = i;
-            break;
-        } else if (expression[i] == 'F' && parenthesisCount == 0 && opIndex == -1) {
+        } else if (expression[i] == 'F' && parenthesisCount == 0) {
             return false;
         }
     }
