@@ -1,26 +1,33 @@
 #include <string>
-using namespace std;
 
 string solve(string s) {
-    string result = "";
-  
+    int n = s.length();
+    
+    // check if the string contains any letters
     bool containsLetters = false;
-    for (char c : s) {
-        if (isalpha(c)) {
+    for (int i = 0; i < n; i++) {
+        if (isalpha(s[i])) {
             containsLetters = true;
-            if (islower(c)) {
-                result += toupper(c);
-            } else {
-                result += tolower(c);
-            }
-        } else {
-            result += c;
+            break;
         }
     }
-  
+    
+    // if the string contains no letters, reverse the string
     if (!containsLetters) {
-        reverse(result.begin(), result.end());
+        reverse(s.begin(), s.end());
+        return s;
     }
-  
-    return result;
+    
+    // reverse the case of letters
+    for (int i = 0; i < n; i++) {
+        if (isalpha(s[i])) {
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
+            } else {
+                s[i] = tolower(s[i]);
+            }
+        }
+    }
+    
+    return s;
 }
