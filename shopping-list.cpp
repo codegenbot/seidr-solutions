@@ -27,8 +27,7 @@ int main() {
     }
 
     float totalPrice = calculateTotalPrice(prices, discounts);
-    std::cout << std::fixed << std::setprecision(2);
-    std::cout << totalPrice << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << totalPrice << std::endl;
 
     return 0;
 }
