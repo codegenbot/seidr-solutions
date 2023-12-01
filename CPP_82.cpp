@@ -20,9 +20,3 @@ bool is_prime_length(std::string str) {
     int length = str.length();
     return isPrime(length);
 }
-
-int main() {
-    assert (is_prime_length("0") == false);
-    
-    return 0;
-}
