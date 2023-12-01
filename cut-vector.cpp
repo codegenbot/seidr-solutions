@@ -1,45 +1,53 @@
 #include <vector>
 #include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cut_vector(const std::vector<int>& nums) {
-    int sum = 0;
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    int totalSum = 0;
     for (int num : nums) {
-        sum += num;
+        totalSum += num;
     }
     
-    int target = sum / 2;
-    int currSum = 0;
-    int idx = 0;
+    int leftSum = 0;
+    int rightSum = totalSum;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
     
-    while (currSum <= target) {
-        currSum += nums[idx];
-        idx++;
+    for (int i = 0; i < n; i++) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
     }
     
-    if (currSum - target < target - (currSum - nums[idx-1])) {
-        return {std::vector<int>(nums.begin(), nums.begin() + idx), std::vector<int>(nums.begin() + idx, nums.end())};
-    } else {
-        return {std::vector<int>(nums.begin(), nums.begin() + idx - 1), std::vector<int>(nums.begin() + idx - 1, nums.end())};
-    }
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+    
+    return make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
     
-    std::pair<std::vector<int>, std::vector<int>> result = cut_vector(nums);
+    pair<vector<int>, vector<int>> result = cutVector(nums);
     
     for (int num : result.first) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     for (int num : result.second) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     return 0;
