@@ -16,23 +16,6 @@ vector<int> filter_integers(list<boost::any> values) {
 }
 
 int main() {
-    list<boost::any> values;
-    // Read input from user and add to the values list
-
-    int num;
-    for (int i = 0; i < 5; ++i) {
-        cout << "Enter an integer: ";
-        cin >> num;
-        values.push_back(num);
-    }
-
-    vector<int> result = filter_integers(values);
-
-    cout << "Filtered integers: ";
-    for (const auto& num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-
+    // Your code here
     return 0;
 }
