@@ -1,21 +1,21 @@
-string fix_spaces(string text) {
-    int consecutiveSpaces = 0;
-    string result = "";
+#include <algorithm>
+#include <string>
 
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') { // found a space
-            if (consecutiveSpaces >= 2) {
-                result += "-";
-                consecutiveSpaces = 0;
+string fix_spaces(string text) {
+    string result;
+    bool consecutive_spaces = false;
+
+    for (char ch : text) {
+        if (ch == ' ') {
+            if (consecutive_spaces) {
+                result += '-';
+            } else {
+                result += '_';
+                consecutive_spaces = true;
             }
-            else {
-                result += "_";
-                consecutiveSpaces++;
-            }
-        }
-        else { // not a space
-            result += text[i];
-            consecutiveSpaces = 0;
+        } else {
+            result += ch;
+            consecutive_spaces = false;
         }
     }
 
