@@ -1,3 +1,4 @@
+vector = list(map(int, input().split()))
 def cut_vector(vector):
     n = len(vector)
     prefix_sum = [0] * (n + 1)
@@ -19,8 +20,6 @@ def cut_vector(vector):
 
     return vector[:cut_position], vector[cut_position:]
 
-
-vector = list(map(int, input().split()))
 left_subvector, right_subvector = cut_vector(vector)
 print(*left_subvector)
 print(*right_subvector)
