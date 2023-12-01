@@ -1,14 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
+#include <algorithm>
 using namespace std;
 
-bool areEqual(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> f(int n);
 vector<int> f(int n) {
     vector<int> result;
     for (int i = 1; i <= n; i++) {
@@ -30,7 +25,8 @@ vector<int> f(int n) {
 }
 
 int main() {
-    assert(areEqual(f(3), {1, 2, 6}));
+    assert(equal(f(3).begin(), f(3).end(), {1, 2, 6}));
+    // Add more test cases here
 
     return 0;
 }
