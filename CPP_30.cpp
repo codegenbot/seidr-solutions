@@ -1,10 +1,10 @@
 #include <vector>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 using namespace std;
 
-vector<float> get_positive(const vector<float>& l) {
+vector<float> get_positive(vector<float> l) {
     vector<float> positive_nums;
     for (int i = 0; i < l.size(); i++) {
         if (l[i] > 0) {
@@ -14,7 +14,7 @@ vector<float> get_positive(const vector<float>& l) {
     return positive_nums;
 }
 
-bool issame(const vector<float>& a, const vector<float>& b) {
+bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
