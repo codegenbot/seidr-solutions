@@ -1,4 +1,4 @@
-bool evaluateBooleanExpression(std::string expression) {
+bool evaluateBooleanExpression(const std::string& expression) {
     int opIndex = -1;
     int parenthesisCount = 0;
 
@@ -12,15 +12,15 @@ bool evaluateBooleanExpression(std::string expression) {
             break;
         }
     }
-
+    
     if (opIndex != -1) {
         bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
 
-        if (expression.at(opIndex) == '|') {
+        if (expression.substr(opIndex, 1) == "|") {
             if (left) {
                 return true;
             }
-        } else if (expression.at(opIndex) == '&') {
+        } else if (expression.substr(opIndex, 1) == "&") {
             if (!left) {
                 return false;
             }
@@ -28,9 +28,9 @@ bool evaluateBooleanExpression(std::string expression) {
 
         bool right = evaluateBooleanExpression(expression.substr(opIndex + 1));
         return right;
-    } else if (expression[0] == 'T' || expression[0] == 't') {
+    } else if (expression.substr(0, 1) == "T" || expression.substr(0, 1) == "t") {
         return true;
-    } else if (expression[0] == 'F' || expression[0] == 'f') {
+    } else if (expression.substr(0, 1) == "F" || expression.substr(0, 1) == "f") {
         return false;
     }
 
