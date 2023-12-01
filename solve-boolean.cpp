@@ -26,13 +26,17 @@ bool evaluateBooleanExpression(std::string expression) {
             return evaluateBooleanExpression(left) && evaluateBooleanExpression(right);
         }
     } else if (expression[0] == 'T' || expression[0] == 't') {
-        if (expression.length() == 1 || expression[1] != '&')
+        if (expression.length() > 2 && expression[1] == '|') {
             return true;
+        } else if (expression[0] == 'T') {
+            return true;
+        }
     } else if (expression[0] == 'F' || expression[0] == 'f') {
-        if (expression.length() == 1 || expression[1] != '|')
+        if (expression.length() > 2 && expression[1] == '&') {
             return false;
-        else if (expression[1] == '&')
+        } else if (expression[0] == 'F') {
             return false;
+        }
     }
 
     return true;
