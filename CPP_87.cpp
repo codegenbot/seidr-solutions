@@ -1,14 +1,11 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
-    // Function definition goes here
-    // ...
-    return false;
-}
+using namespace std;
 
-std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
-    std::vector<std::vector<int>> result;
+vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
+    vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
         for (int j = 0; j < lst[i].size(); j++) {
             if (lst[i][j] == x) {
@@ -16,7 +13,7 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
             }
         }
     }
-    std::sort(result.begin(), result.end(), [](std::vector<int> a, std::vector<int> b) {
+    sort(result.begin(), result.end(), [](vector<int> a, vector<int> b) {
         if (a[0] == b[0]) {
             return a[1] > b[1];
         } else {
@@ -26,8 +23,17 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
     return result;
 }
 
+bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b){
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
-    // Function calls and assertions go here
-    
+    assert(issame(get_row(vector<vector<int>>({{}, {1}, {1, 2, 3}}), 3), vector<vector<int>>({{2, 2}})));
     return 0;
 }
