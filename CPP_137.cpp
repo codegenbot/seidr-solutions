@@ -1,16 +1,15 @@
 #include <string>
 #include <algorithm>
-#include <boost/any.hpp>
+#include <cassert>
 
-using namespace std;
+std::string compare_one(std::string str_a, std::string str_b) {
+    std::replace(str_a.begin(), str_a.end(), ',', '.');
+    std::replace(str_b.begin(), str_b.end(), ',', '.');
 
-template <typename T1, typename T2>
-boost::any compare_one(T1 a, T2 b) {
-    string str_a = a;
-    string str_b = b;
-    replace(str_a.begin(), str_a.end(), ',', '.');
-    replace(str_b.begin(), str_b.end(), ',', '.');
-    float num1 = stof(str_a);
-    float num2 = stof(str_b);
-    return (num1 > num2) ? boost::any(str_a) : boost::any(str_b);
+    return (str_a > str_b) ? str_a : str_b;
+}
+
+int main() {
+    assert(compare_one("1", "1") == "None");
+    return 0;
 }
