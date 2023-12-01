@@ -1,11 +1,20 @@
-bool simplify(string x, string n){
-    int x_num = stoi(x.substr(0, x.find('/')));
-    int x_den = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_den = stoi(n.substr(n.find('/') + 1));
+#include <string>
+#include <cassert>
 
-    int result_num = x_num * n_num;
-    int result_den = x_den * n_den;
+bool simplify(string x, string n) {
+  int numeratorX = stoi(x.substr(0, x.find('/')));
+  int denominatorX = stoi(x.substr(x.find('/') + 1));
+  int numeratorN = stoi(n.substr(0, n.find('/')));
+  int denominatorN = stoi(n.substr(n.find('/') + 1));
 
-    return result_num % result_den == 0;
+  int resultNumerator = numeratorX * numeratorN;
+  int resultDenominator = denominatorX * denominatorN;
+
+  return resultNumerator % resultDenominator == 0;
+}
+
+int main() {
+  assert (simplify("1/5", "1/5") == false);
+
+  return 0;
 }
