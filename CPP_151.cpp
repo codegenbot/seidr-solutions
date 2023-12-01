@@ -16,8 +16,11 @@ int main() {
     std::vector<float> lst;
     
     // Add elements to lst here
+    lst.push_back(1.0);
+    lst.push_back(3.0);
+    lst.push_back(5.0);
     
-    double odd_sum = 123.45; // Example value, replace with the actual expected sum
+    double odd_sum = 35.0;
     
     assert(double_the_difference(lst) == odd_sum);
     
