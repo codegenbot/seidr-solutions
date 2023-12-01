@@ -1,14 +1,11 @@
-#include <iostream>
 #include <string>
 #include <vector>
 
-using namespace std;
-
-string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension = "";
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+    std::string strongest_extension = "";
     int max_strength = INT_MIN;
 
-    for (string extension : extensions) {
+    for (std::string extension : extensions) {
         int cap_count = 0;
         int sm_count = 0;
 
