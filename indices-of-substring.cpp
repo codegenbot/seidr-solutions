@@ -11,15 +11,15 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         return indices;
     }
 
-    for (size_t i = 0; i < textLength - targetLength + 1; i++) {
+    for (size_t i = 0; i < textLength - targetLength + 2; i++) {
         bool found = true;
         for (size_t j = 0; j < targetLength; j++) {
-            if (text[i + j] != target[j] && (j != targetLength - 1 || (i + j < textLength - 1 && text[i + j + 1] == target[0]))) {
+            if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
         }
-        if (found && (i + targetLength >= textLength || text[i + targetLength] != target[0] || (i > 0 && text[i-1] == target[0]))) {
+        if (found) {
             indices.push_back(i);
         }
     }
