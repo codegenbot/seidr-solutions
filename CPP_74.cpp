@@ -19,11 +19,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2){
     return lst2;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 int main() {
-    assert(issame(total_match({"this"}, {}) , {}));
+    assert(total_match({"this"}, {}).empty());
+    assert(total_match({"this", "is"}, {"a", "test"}).size() == 2);
     return 0;
 }

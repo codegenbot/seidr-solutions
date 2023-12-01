@@ -1,20 +1,45 @@
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
-    for(int i=0; i<x.size(); i++){
-        int num = x[i];
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+std::vector<int> unique_digits(std::vector<int> x){
+    std::vector<int> result;
+    for(int num : x){
         bool hasEvenDigit = false;
-        while(num > 0){
-            int digit = num % 10;
+        int temp = num;
+        while(temp > 0){
+            int digit = temp % 10;
             if(digit % 2 == 0){
                 hasEvenDigit = true;
                 break;
             }
-            num /= 10;
+            temp /= 10;
         }
         if(!hasEvenDigit){
-            result.push_back(x[i]);
+            result.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main(){
+    std::vector<int> input = {142, 546, 609, 273, 135};
+    std::vector<int> expected_output = {135, 273, 609};
+    std::vector<int> output = unique_digits(input);
+    assert(issame(expected_output, output));
+    
+    return 0;
 }
