@@ -5,6 +5,5 @@ int myStrLen(std::string str) {
 }
 
 int main() {
-    // Example usage and test case
     assert (myStrLen("asdasnakj") == 9);
 }
