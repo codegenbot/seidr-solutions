@@ -1,12 +1,12 @@
+#include <iostream>
 #include <string>
-#include <cstddef>
 
 int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
-    int bowlIndex = 0;
+    std::size_t bowlIndex = 0;
 
-    while (frame <= 10 && bowlIndex < bowls.length()) {
+    while (frame <= 10 && bowlIndex <= bowls.length() - 1) {
         char bowl = bowls[bowlIndex];
 
         if (bowl == 'X') {
@@ -25,7 +25,7 @@ int calculateScore(const std::string& bowls) {
             }
             bowlIndex += 1;
         } else if (bowl == '/') {
-            score += (10 - (int)(bowls[bowlIndex - 1] - '0')) + (int)(bowls[bowlIndex + 1] - '0');
+            score += (10 - ((int)bowls[bowlIndex - 1] - '0')) + (int)(bowls[bowlIndex + 1] - '0');
         } else {
             score += (int)(bowl - '0');
         }
@@ -35,4 +35,15 @@ int calculateScore(const std::string& bowls) {
     }
 
     return score;
+}
+
+int main() {
+    std::string bowls;
+    std::cout << "Enter the bowling sequence: ";
+    std::cin >> bowls;
+
+    int score = calculateScore(bowls);
+    std::cout << "Score: " << score << std::endl;
+
+    return 0;
 }
