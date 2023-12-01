@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 std::string encrypt(std::string s){
     std::string encryptedString = "";
