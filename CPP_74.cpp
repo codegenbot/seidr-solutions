@@ -18,7 +18,11 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2){
     return lst2;
 }
 
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 int main() {
-    assert(totalMatch({"this"}, {}) == totalMatch({}, {}));
+    assert(issame(totalMatch({"this"}, {}) , {}));
     return 0;
 }

@@ -1,6 +1,6 @@
 #include <vector>
-#include <iostream>
 #include <cassert>
+#include <cmath>
 
 using namespace std;
 
@@ -10,25 +10,4 @@ vector<float> derivative(vector<float> xs){
         result.push_back(xs[i] * i);
     }
     return result;
-}
-
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    vector<float> input; // Replace with actual input
-    vector<float> result = derivative(input);
-    
-    // Print output (Not included in the given code)
-    
-    return 0;
 }
