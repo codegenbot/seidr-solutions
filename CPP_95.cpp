@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <cassert>
 
 bool check_dict_case(std::map<std::string, std::string> dict){
     if(dict.empty()){
