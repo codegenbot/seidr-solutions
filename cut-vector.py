@@ -1,8 +1,24 @@
-import numpy as np
-
 def cut_vector(vector):
-    vector = np.array(vector)
-    idx = np.argmin(np.abs(np.cumsum(vector) - np.sum(vector)/2))
-    subvector1 = vector[:idx+1]
-    subvector2 = vector[idx+1:]
-    return list(subvector1), list(subvector2)
+    n = len(vector)
+    total_sum = sum(vector)
+    left_sum = 0
+    right_sum = total_sum
+
+    for i in range(n):
+        left_sum += vector[i]
+        right_sum -= vector[i]
+
+        if left_sum == right_sum or abs(left_sum - right_sum) == 1:
+            return vector[: i + 1], vector[i + 1 :]
+
+    return vector, [0]
+
+
+# Test cases
+input_vector = []
+for line in sys.stdin:
+    input_vector.append(int(line))
+
+left, right = cut_vector(input_vector)
+print(*left)
+print(*right)
