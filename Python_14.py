@@ -6,11 +6,16 @@ def all_prefixes(string: str) -> List[str]:
         prefixes.append(string[:i])
     return prefixes
 
-num_test_cases = int(input("Enter the number of test cases: "))
+# Get the number of test cases from the user
+num_test_cases = int(input())
 
 result = []
+# Loop over the number of test cases
 for _ in range(num_test_cases):
-    input_string = input("Enter a string: ")
+    # Prompt user for input
+    input_string = input()
+    # Call the function with the input string and add the result to the list
     result.append(all_prefixes(input_string))
 
+# Print the result
 print(result)
