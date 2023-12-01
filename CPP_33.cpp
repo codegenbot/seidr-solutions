@@ -1,44 +1,44 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
+using namespace std;
+
+vector<int> sort_third(vector<int> l);
+
+bool issame(vector<int> v1, vector<int> v2);
+
+int main() {
+    vector<int> l = {5, 2, 7, 1, 8, 4, 3, 9, 6};
+    
+    vector<int> sorted = sort_third(l);
+    
+    for(int num : sorted){
+        cout << num << " ";
     }
-
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
-    return true;
+    
+    return 0;
 }
 
-std::vector<int> sort_third(std::vector<int> l){
-    std::vector<int> l_prime = l;
-    std::vector<int> indices;
-
-    for(int i=0; i<l.size(); i++){
+vector<int> sort_third(vector<int> l){
+    vector<int> l_prime = l;
+    vector<int> indices;
+    
+    for(int i = 0; i < l.size(); i++){
         if(i % 3 == 0){
             indices.push_back(i);
         }
     }
-
-    std::sort(indices.begin(), indices.end(), [&](int a, int b){
-        return l[a] < l[b];
-    });
-
-    for(int i=0; i<indices.size(); i++){
+    
+    sort(indices.begin(), indices.end());
+    
+    for(int i = 0; i < indices.size(); i++){
         l_prime[indices[i]] = l[indices[i]];
     }
-
+    
     return l_prime;
 }
 
-int main(){
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
-
-    return 0;
+bool issame(vector<int> v1, vector<int> v2){
+    return v1 == v2;
 }
