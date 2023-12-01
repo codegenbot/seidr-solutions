@@ -4,7 +4,7 @@
 
 using namespace std;
 
-map<char, int> histogram(string test) {
+map<char,int> histogram(string test) {
     map<char, int> counts;
     string letter;
     for (int i = 0; i < test.length(); i++) {
@@ -15,12 +15,14 @@ map<char, int> histogram(string test) {
             letter = "";
         }
     }
-    if (!letter.empty()) counts[letter]++;
+    if (!letter.empty()) {
+        counts[letter]++;
+    }
     return counts;
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+    assert(histogram("a") == {{'a', 1}});
 
     return 0;
 }
