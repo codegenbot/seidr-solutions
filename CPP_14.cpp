@@ -3,9 +3,9 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> all_prefixes(std::string str) {
-    std::vector<std::string> prefixes;
-    std::string prefix = "";
+vector<string> all_prefixes(string str) {
+    vector<string> prefixes;
+    string prefix = "";
     for(int i = 0; i < str.length(); i++) {
         prefix += str[i];
         prefixes.push_back(prefix);
@@ -13,7 +13,7 @@ std::vector<std::string> all_prefixes(std::string str) {
     return prefixes;
 }
 
-bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+bool issame(const vector<string>& vec1, const vector<string>& vec2) {
     if(vec1.size() != vec2.size()) {
         return false;
     }
