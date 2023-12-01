@@ -1,12 +1,13 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
 using namespace std;
 
-vector<int> factorize(int n){
+vector<int> factorize(int n) {
     vector<int> factors;
-    for(int i=2; i<=n; i++){
-        while(n%i == 0){
+    for (int i = 2; i <= n; i++) {
+        while (n % i == 0) {
             factors.push_back(i);
             n /= i;
         }
@@ -14,11 +15,7 @@ vector<int> factorize(int n){
     return factors;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    // implementation of the function
-}
-
-int main(){
-    assert(issame(factorize((3 * 2 * 3)), {2, 3, 3}));
+int main() {
+    assert(factorize(3 * 2 * 3) == vector<int>{2, 3, 3});
     // rest of the code
 }
