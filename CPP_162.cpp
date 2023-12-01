@@ -20,7 +20,7 @@ string string_to_md5(string text) {
 
     char md5hash[2 * len + 1];
     for (int i = 0; i < len; i++) {
-      sprintf(&md5hash[i * 2], "%02x", (unsigned int)digest[i]);
+        sprintf(&md5hash[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
     return md5hash;
