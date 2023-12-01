@@ -1,15 +1,17 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <algorithm>
+#include <iostream>
 
-bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
-    std::vector<std::string> result;
-    std::string group;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string group;
     int count = 0;
 
     for (char c : paren_string) {
@@ -33,7 +35,6 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
 }
 
 int main() {
-    assert(is_same(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
 }
