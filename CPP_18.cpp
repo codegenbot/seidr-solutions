@@ -1,24 +1,22 @@
+/*
+Find how many times a given substring can be found in the original string. Count overlaping cases.
+>>> how_many_times("", "a")
+0
+>>> how_many_times("aaa", "a")
+3
+>>> how_many_times("aaaa", "aa")
+3
+*/
 #include <iostream>
 #include <string>
+using namespace std;
 
-int how_many_times(std::string str, std::string substring) {
+int how_many_times(string str, string substring) {
     int count = 0;
     size_t pos = 0;
-    
-    while ((pos = str.find(substring, pos)) != std::string::npos) {
-        count++;
-        pos += substring.length();
+    while ((pos = str.find(substring, pos)) != string::npos) {
+        ++count;
+        ++pos;
     }
-    
     return count;
-}
-
-int main() {
-    std::string str, substring;
-    std::cin >> str >> substring;
-    
-    int result = how_many_times(str, substring);
-    std::cout << result << std::endl;
-    
-    return 0;
 }
