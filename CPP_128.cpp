@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+using namespace std;
 
 int prod_signs(vector<int> arr){
     if(arr.empty()){
@@ -17,6 +19,9 @@ int prod_signs(vector<int> arr){
 }
 
 int main() {
-    // Test your code here
+    // Test the code here
+    vector<int> arr = {1, -2, 3, -4, 5};
+    cout << prod_signs(arr) << endl;
+    
     return 0;
 }
