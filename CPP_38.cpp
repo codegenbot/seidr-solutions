@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Function to encode a string cyclically
 string encode_cyclic(string s){
     string output;
     int l = s.length();
@@ -16,7 +17,8 @@ string encode_cyclic(string s){
     return output;
 }
 
-string decode_cyclic(string s){ 
+// Function to decode a cyclically encoded string
+string decode_cyclic(string s){
     string output;
     int l = s.length();
     int num = (l + 2) / 3;
