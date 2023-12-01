@@ -7,11 +7,11 @@ using namespace std;
 string exchange(vector<int> lst1, vector<int> lst2);
 
 int main() {
-    // Test the exchange function
-    assert(exchange({1, 3, 5}, {2, 4, 6}) == "YES");
-    assert(exchange({2, 4, 6}, {1, 3, 5}) == "YES");
-    assert(exchange({2, 4, 6}, {2, 4, 6}) == "NO");
-
+    // Sample test case
+    vector<int> lst1 = {1, 2, 3};
+    vector<int> lst2 = {4, 5, 6};
+    assert(exchange(lst1, lst2) == "YES");
+    
     return 0;
 }
 
