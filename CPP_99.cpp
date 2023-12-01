@@ -1,9 +1,10 @@
 #include <string>
+#include <cmath>
 
-int closest_integer(string value){
-    double num = stod(value);
-    int floor_num = floor(num);
-    int ceil_num = ceil(num);
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    int floor_num = std::floor(num);
+    int ceil_num = std::ceil(num);
     if (num - floor_num < ceil_num - num) {
         return floor_num;
     } else {
@@ -12,9 +13,10 @@ int closest_integer(string value){
 }
 
 int main() {
-    string input;
-    cin >> input;
+    std::string input;
+    std::cout << "Enter a floating point number: ";
+    std::cin >> input;
     int closest = closest_integer(input);
-    cout << closest << endl;
+    std::cout << "Closest integer: " << closest << std::endl;
     return 0;
 }
