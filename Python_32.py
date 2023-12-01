@@ -6,7 +6,4 @@ def poly(xs: list, x: float) -> float:
 
 
 def find_zero(xs: list) -> float:
-    if xs[1] != 0:
-        return xs[0] / -xs[1]
-    else:
-        return math.nan
+    return xs[0] / -xs[1] if xs[1] != 0 else math.nan
