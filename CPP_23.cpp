@@ -1,6 +1,7 @@
+#include <string>
+#include <iostream>
 #include <cassert>
 #include <cstring>
-#include <iostream>
 using namespace std;
 
 int calculateLength(string str){
