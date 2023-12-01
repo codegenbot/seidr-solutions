@@ -25,15 +25,17 @@ int closest_integer(string value) {
         return ceil_num;
     }
 }
-/*
+
 int main() {
     assert(closest_integer("0") == 0);
-    // more test cases...
+    assert(closest_integer("1.5") == 2);
+    assert(closest_integer("2.4") == 2);
+    assert(closest_integer("-1.7") == -2);
+    assert(closest_integer("3.00") == 3);
+    assert(closest_integer("5.0000") == 5);
+    assert(closest_integer("-0.500001") == 0);
+    assert(closest_integer("7.99") == 8);
+    // Add more test cases if needed
 
-    return 0;
-}
-*/
-
-int main() {
     return 0;
 }
