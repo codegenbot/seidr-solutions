@@ -1,23 +1,28 @@
 def cut_vector(vector):
     total_sum = sum(vector)
-    prefix_sum = 0
+    current_sum = 0
     for i, num in enumerate(vector):
-        prefix_sum += num
-        if prefix_sum == total_sum - prefix_sum:
+        current_sum += num
+        remaining_sum = total_sum - current_sum
+        if current_sum == remaining_sum or abs(current_sum - remaining_sum) == 1:
             return vector[: i + 1], vector[i + 1 :]
     return vector, [0]
 
 
-# Read input from user
-input_vector = []
+# Read input
+vector = []
 while True:
     try:
-        input_line = input()
-        input_vector.append(int(input_line))
-    except EOFError:
+        num = int(input())
+        vector.append(num)
+    except:
         break
 
-# Call the function and print the output
-subvector1, subvector2 = cut_vector(input_vector)
-print("\n".join(str(num) for num in subvector1))
-print("\n".join(str(num) for num in subvector2))
+# Solve the problem
+subvector1, subvector2 = cut_vector(vector)
+
+# Print the outputs
+for num in subvector1:
+    print(num)
+for num in subvector2:
+    print(num)
