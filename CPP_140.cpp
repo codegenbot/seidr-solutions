@@ -1,13 +1,23 @@
-string fix_spaces(string text){
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
-            if(i+2 < text.length() && text[i+1] == ' ' && text[i+2] == ' '){
-                text.replace(i, 3, "-");
+#include <string>
+using namespace std;
+
+string fix_spaces(string text) {
+    int consecutiveSpaces = 0;
+    int n = text.length();
+    string result = "";
+
+    for (int i = 0; i < n; i++) {
+        if (text[i] == ' ') {
+            consecutiveSpaces++;
+            if (consecutiveSpaces > 2) {
+                result += '-';
+            } else {
+                result += '_';
             }
-            else{
-                text.replace(i, 1, "_");
-            }
+        } else {
+            result += text[i];
+            consecutiveSpaces = 0;
         }
     }
-    return text;
+    return result;
 }
