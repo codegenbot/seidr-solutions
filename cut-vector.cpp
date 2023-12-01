@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int sum = 0;
