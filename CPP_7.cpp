@@ -28,7 +28,5 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     
-    // Add other test cases and function calls here
-    
     return 0;
 }
