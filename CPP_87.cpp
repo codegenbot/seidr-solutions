@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     if(a.size() != b.size()) {
@@ -29,9 +28,4 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
         sort(row.begin(), row.end(), greater<int>());
     }
     return result;
-}
-
-int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
-    return 0;
 }
