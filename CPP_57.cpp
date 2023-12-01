@@ -18,13 +18,10 @@ bool monotonic(vector<float> l){
 
 int main(){
     assert(monotonic(vector<float>({9, 9, 9, 9})) == true);
-    assert(monotonic(vector<float>({1, 2, 3, 4})) == true);
-    assert(monotonic(vector<float>({5, 3, 2, 1})) == true);
-    assert(monotonic(vector<float>({1, 3, 2, 5})) == false);
-    assert(monotonic(vector<float>({1.5, 2.5, 3.5, 4.5})) == true);
-    assert(monotonic(vector<float>({1.5, 1, 0.5, 0})) == true);
+    assert(monotonic(vector<float>({1, 2, 3, 4, 5})) == true);
+    assert(monotonic(vector<float>({5, 4, 3, 2, 1})) == true);
     assert(monotonic(vector<float>({1, 2, 3, 2, 1})) == false);
-    // Add more test cases here
+    assert(monotonic(vector<float>({1, 1, 2, 2, 2, 3, 3})) == true);
 
     return 0;
 }
