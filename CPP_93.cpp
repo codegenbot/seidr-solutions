@@ -1,16 +1,18 @@
 string encode(string message){
-    string result = "";
+    string encoded_message = "";
     for(int i=0; i<message.length(); i++){
-        char c = tolower(message[i]);
-        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-            result += c + 2;
-        }
-        else if(c >= 'a' && c <= 'z'){
-            result += toupper(c);
-        }
-        else{
-            result += c;
+        char c = message[i];
+        if(isalpha(c)){
+            if(isupper(c)){
+                encoded_message += tolower(c);
+            }
+            else{
+                encoded_message += toupper(c);
+            }
+            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
+                encoded_message += c+2;
+            }
         }
     }
-    return result;
+    return encoded_message;
 }
