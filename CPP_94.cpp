@@ -32,13 +32,8 @@ int largestPrimeSum(vector<int> lst) {
     return sumOfDigits(largestPrime);
 }
 
-// Main function
-
 int main() {
-    vector<int> input = {127, 97, 8192};
-    int result = largestPrimeSum(input);
+    assert(largestPrimeSum({127, 97, 8192}) == 10);
     
-    cout << result << endl;
-
     return 0;
 }
