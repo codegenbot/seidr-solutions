@@ -6,26 +6,12 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
     vector<int> sortedArr;
 
     // Sort the integers between 1 and 9 inclusive
-    for (int i=0; i<arr.size(); i++) {
+    for (int i = 0; i < arr.size(); i++) {
         if (arr[i] >= 1 && arr[i] <= 9) {
             sortedArr.push_back(arr[i]);
         }
@@ -55,8 +41,22 @@ vector<string> by_length(vector<int> arr) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 int main() {
     assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-
+    
     return 0;
 }
