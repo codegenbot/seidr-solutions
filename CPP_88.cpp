@@ -2,21 +2,23 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> sort_array(std::vector<int> array){
+using namespace std;
+
+vector<int> sort_array(vector<int> array){
     if(array.size() == 0){
         return {};
     }
     int sum = array[0] + array[array.size() - 1];
     if(sum % 2 == 0){
-        std::sort(array.begin(), array.end(), std::greater<int>());
+        sort(array.begin(), array.end(), greater<int>());
     }
     else{
-        std::sort(array.begin(), array.end());
+        sort(array.begin(), array.end());
     }
     return array;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
