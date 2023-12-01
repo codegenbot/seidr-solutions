@@ -1,22 +1,18 @@
-vector<int> sort_third(vector<int> l) {
-    vector<int> result = l;
-    vector<int> sorted_third;
-
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0) {
-            sorted_third.push_back(l[i]);
+vector<int> sort_third(vector<int> l){
+    vector<int> l_prime = l;
+    vector<int> indices;
+    
+    for(int i=0; i<l.size(); i++){
+        if(i % 3 == 0){
+            indices.push_back(i);
         }
     }
-
-    sort(sorted_third.begin(), sorted_third.end());
-
-    int j = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0) {
-            result[i] = sorted_third[j];
-            j++;
-        }
+    
+    sort(indices.begin(), indices.end());
+    
+    for(int i=0; i<indices.size(); i++){
+        l_prime[indices[i]] = l[indices[i]];
     }
-
-    return result;
+    
+    return l_prime;
 }
