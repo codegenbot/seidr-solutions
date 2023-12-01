@@ -3,7 +3,11 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> eat(int number, int need, int remaining);
 
 vector<int> eat(int number, int need, int remaining) {
     int totalEaten = number + need;
@@ -12,10 +16,6 @@ vector<int> eat(int number, int need, int remaining) {
         carrotsLeft = 0;
     }
     return {totalEaten, carrotsLeft};
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main() {
