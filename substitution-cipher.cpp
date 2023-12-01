@@ -5,7 +5,11 @@ std::string decipherMessage(const std::string& cipher1, const std::string& ciphe
     std::string decipheredMessage;
     for (char c : message) {
         size_t index = cipher2.find(c);
-        decipheredMessage += cipher1[index];
+        if (index != std::string::npos) {
+            decipheredMessage += cipher1[index];
+        } else {
+            decipheredMessage += c;
+        }
     }
     return decipheredMessage;
 }
