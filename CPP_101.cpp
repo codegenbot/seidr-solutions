@@ -4,18 +4,18 @@
 
 using namespace std;
 
-vector<string> splitWords(string sentence){
+vector<string> splitString(string s){
     vector<string> words;
     string word = "";
-    for(int i=0; i<sentence.length(); i++){
-        if(sentence[i] == ' ' || sentence[i] == ','){
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' ' || s[i] == ','){
             if(word != ""){
                 words.push_back(word);
                 word = "";
             }
         }
         else{
-            word += sentence[i];
+            word += s[i];
         }
     }
     if(word != ""){
@@ -25,14 +25,14 @@ vector<string> splitWords(string sentence){
 }
 
 int main(){
-    vector<string> words = splitWords("ahmed     , gamal");
+    vector<string> split_words = splitString("ahmed     , gamal");
     cout << "Output: ";
-    for(const string& word : words){
+    for(const string& word : split_words){
         cout << word << " ";
     }
     cout << endl;
 
-    assert(splitWords("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
 
     return 0;
 }
