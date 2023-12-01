@@ -13,7 +13,6 @@ std::string change_base(int x, int base) {
 }
 
 int main() {
-    // Test the change_base function
     int x, base;
     std::cin >> x >> base;
     std::cout << change_base(x, base) << std::endl;
