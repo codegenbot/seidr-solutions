@@ -18,8 +18,8 @@ def cut_vector(vector):
 
     return vector[: cut_index + 1], vector[cut_index + 1 :]
 
-vector = [int(num) for num in input().split()]
 
+vector = [int(num) for num in input().split()]
 left_subvector, right_subvector = cut_vector(vector)
 for num in left_subvector:
     print(num)
