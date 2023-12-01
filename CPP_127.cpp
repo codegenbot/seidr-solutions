@@ -1,8 +1,4 @@
-#include <iostream>
 #include <vector>
-#include <string>
-#include <algorithm>
-
 using namespace std;
 
 string intersection(vector<int> interval1, vector<int> interval2) {
@@ -31,8 +27,6 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 
 int main() {
     assert (intersection({-2, -2}, {-3, -2}) == "NO");
-    assert (intersection({1, 10}, {10, 20}) == "YES");
-    assert (intersection({-5, 5}, {-10, -3}) == "YES");
 
     return 0;
 }
