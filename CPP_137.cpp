@@ -1,24 +1,18 @@
-#include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        return (num1 > num2) ? num1 : num2;
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        return (num1 > num2) ? num1 : num2;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
-        std::replace(str1.begin(), str1.end(), ',', '.');
-        std::replace(str2.begin(), str2.end(), ',', '.');
-        float num1 = std::stof(str1);
-        float num2 = std::stof(str2);
-        return (num1 > num2) ? str1 : str2;
+template<typename T>
+T boost_any_cast(const boost::any& operand) {
+    try {
+        return boost::any_cast<T>(operand);
     }
-    return boost::any();
+    catch(const boost::bad_any_cast& e) {
+        return T();
+    }
+}
+
+template<typename T1, typename T2>
+boost::any compare_one(const T1& a, const T2& b) {
+    static_assert(std::is_arithmetic<T1>::value || std::is_same<T1, std::string>::value,
+                  "T1 must be an arithmetic type or std::string");
+    static_assert(std::is_arithmetic<T2>::value || std::is_same<T2, std::string>::value,
+                  "T2 must be an arithmetic type or std::string");
+    return std::max(boost_any_cast<T1>(a), boost_any_cast<T2>(b));
 }
