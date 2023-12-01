@@ -1,22 +1,34 @@
 string encode(string message){
     string encodedMessage = "";
-    for(int i = 0; i < message.length(); i++){
-        char c = message[i];
-        if(isalpha(c)){
-            if(islower(c)){
-                c = toupper(c);
+    for(int i=0; i<message.length(); i++){
+        if(isalpha(message[i])){
+            if(islower(message[i])){
+                encodedMessage += toupper(message[i]);
             }
             else{
-                c = tolower(c);
-            }
-            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
-                c = c + 2;
-                if(c > 'Z'){
-                    c = c - 26;
-                }
+                encodedMessage += tolower(message[i]);
             }
         }
-        encodedMessage += c;
+        else{
+            encodedMessage += message[i];
+        }
+    }
+    for(int i=0; i<encodedMessage.length(); i++){
+        if(encodedMessage[i]=='a' || encodedMessage[i]=='A'){
+            encodedMessage[i] = 'c';
+        }
+        else if(encodedMessage[i]=='e' || encodedMessage[i]=='E'){
+            encodedMessage[i] = 'g';
+        }
+        else if(encodedMessage[i]=='i' || encodedMessage[i]=='I'){
+            encodedMessage[i] = 'k';
+        }
+        else if(encodedMessage[i]=='o' || encodedMessage[i]=='O'){
+            encodedMessage[i] = 'q';
+        }
+        else if(encodedMessage[i]=='u' || encodedMessage[i]=='U'){
+            encodedMessage[i] = 'w';
+        }
     }
     return encodedMessage;
 }
