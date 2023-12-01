@@ -1,2 +1,4 @@
 def decode_cyclic(s: str):
-    return "".join([s[i-1] + s[i-2] + s[i-3] for i in range(len(s), 0, -3)][::-1])
+    groups = [s[i*3:(i*3) + 3] for i in range((len(s) + 2) // 3)]
+    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
