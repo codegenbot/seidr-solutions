@@ -1,6 +1,5 @@
 #include <vector>
-
-bool issame(vector<int> a, vector<int> b);
+#include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
@@ -13,8 +12,6 @@ bool issame(vector<int> a, vector<int> b){
     }
     return true;
 }
-
-vector<int> intersperse(vector<int> numbers, int delimiter);
 
 vector<int> intersperse(vector<int> numbers, int delimiter){
     vector<int> result;
