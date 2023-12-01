@@ -1,9 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
-
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -17,31 +14,34 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> words_string(string s){
+vector<string> words_string(string s) {
     vector<string> words;
     string word = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' ' || s[i] == ','){
-            if(word != ""){
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ' || s[i] == ',') {
+            if (word != "") {
                 words.push_back(word);
                 word = "";
             }
-        }
-        else{
+        } else {
             word += s[i];
         }
     }
-    if(word != ""){
+    if (word != "") {
         words.push_back(word);
     }
     return words;
 }
 
 int main() {
-    string s = "This is a test";
-    vector<string> words = words_string(s);
-    vector<string> expected = {"This", "is", "a", "test"};
-    assert(issame(words, expected));
-    cout << "Test passed!" << endl;
+    // Test cases
+    vector<string> a = words_string("Hello, World");
+    vector<string> b = words_string("Hello World");
+    assert(issame(a, b));
+
+    a = words_string("This is a test");
+    b = words_string("This is just a test");
+    assert(!issame(a, b));
+
     return 0;
 }
