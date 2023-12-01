@@ -1,3 +1,7 @@
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallestValue = INT_MAX;
@@ -16,4 +20,10 @@ vector<int> pluck(vector<int> arr){
     }
     
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){}
+
+int main(){
+    assert (issame(pluck({7, 9, 7, 1}) , {}));
 }
