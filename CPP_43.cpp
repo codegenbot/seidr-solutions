@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -16,14 +15,20 @@ bool pairs_sum_to_zero(vector<int> l){
 
 int main() {
     // Test cases
-    vector<int> nums1 = {1, 2, 3, -2, -3};
-    vector<int> nums2 = {1, 2, 3, 4, 5};
-    vector<int> nums3 = {0, 5, -5, 2, -2};
+    vector<int> test1 = {1, 2, -3, 4, -1};
+    vector<int> test2 = {1, 2, 3, 4, 5};
     
-    // Function calls
-    cout << pairs_sum_to_zero(nums1) << endl;  // true
-    cout << pairs_sum_to_zero(nums2) << endl;  // false
-    cout << pairs_sum_to_zero(nums3) << endl;  // true
+    if(pairs_sum_to_zero(test1)){
+        cout << "There are pairs that sum to zero in test1" << endl;
+    } else {
+        cout << "There are no pairs that sum to zero in test1" << endl;
+    }
+    
+    if(pairs_sum_to_zero(test2)){
+        cout << "There are pairs that sum to zero in test2" << endl;
+    } else {
+        cout << "There are no pairs that sum to zero in test2" << endl;
+    }
     
     return 0;
 }
