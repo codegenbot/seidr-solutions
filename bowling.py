@@ -1,20 +1,34 @@
-def bowling(score):
-    frames = []
-    frame_scores = []
-    i = 0
-    while i < len(score):
-        if score[i] == 'X':
-            frames.append(10)
-            i += 1
+def calculate_score(bowls):
+    score = 0
+    frame = 1
+    roll = 0
+    rolls = [0] * 22
+
+    for bowl in bowls:
+        if bowl == 'X':
+            rolls[roll] = 10
+            rolls[roll + 1] = 0
+            roll += 2
+        elif bowl == '/':
+            rolls[roll] = 10 - rolls[roll - 1]
+            roll += 1
+        elif bowl == '-':
+            rolls[roll] = 0
+            roll += 1
         else:
-            frames.append(int(score[i]))
-            i += 1
-            if score[i] == '/':
-                frames[-1] = 10 - frames[-1]
-                i += 1
-    for i in range(10):
-        if frames[i] < 10:
-            frame_scores.append(frames[i])
-        else:
-            frame_scores.append(frames[i] + frames[i+1] + frames[i+2])
-    return sum(frame_scores)
+            rolls[roll] = int(bowl)
+            roll += 1
+
+    for i in range(1, 21):
+        if frame < 10 and rolls[i - 1] == 10:
+            score += rolls[i] + rolls[i + 1]
+            if rolls[i] == 10:
+                score += rolls[i + 2]
+        elif rolls[i - 1] + rolls[i] == 10 and rolls[i - 1] != 0:
+            score += rolls[i + 1]
+        score += rolls[i]
+
+        if rolls[i - 1] == 10 or i % 2 == 0:
+            frame += 1
+
+    return score
