@@ -9,6 +9,3 @@ def string_to_md5(text):
 def main():
     text = input()
     return string_to_md5(text)
-
-result = main()
-print(result)
