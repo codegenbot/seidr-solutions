@@ -2,6 +2,8 @@
 #include <cassert>
 #include <cmath>
 
+std::vector<float> find_closest_elements(std::vector<float> numbers);
+
 bool is_same_vector(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size())
         return false;

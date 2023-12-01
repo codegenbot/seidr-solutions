@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -24,7 +25,7 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main() {
-    assert (issame(derivative({1}) , {}));
+    assert(issame(derivative({1}), {}));
     
     return 0;
 }
