@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -13,8 +12,15 @@ long long double_the_difference(vector<float>& lst){
     return odd_sum;
 }
 
-vector<float> lst = {1, 2, 3, 4, 5};
-long long odd_sum = double_the_difference(lst);
-assert(odd_sum == 35);
-
-return 0;
+int main() {
+    vector<float> lst;
+    // read input from user
+    float num;
+    while (cin >> num) {
+        lst.push_back(num);
+    }
+    long long odd_sum = double_the_difference(lst);
+    cout << odd_sum << endl;
+   
+    return 0;
+}
