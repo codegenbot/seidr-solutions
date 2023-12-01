@@ -9,7 +9,7 @@ def encode(message):
                     encoded_char = chr(ord(encoded_char) - 26)
                 encoded_message += encoded_char
             else:
-                encoded_message += char.lower() if char.isupper() else char.upper()
+                encoded_message += char.swapcase()
         else:
             encoded_message += char
     return encoded_message
