@@ -25,6 +25,8 @@ int closest_integer(string value) {
         return ceil_num;
     }
 }
+
+// Remove or comment out one of the main() function definitions
 /*
 int main() {
     assert(closest_integer("0") == 0);
@@ -33,7 +35,3 @@ int main() {
     return 0;
 }
 */
-
-int main() {
-    return 0;
-}
