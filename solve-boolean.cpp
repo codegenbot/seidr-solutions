@@ -1,6 +1,7 @@
+#include <iostream>
 #include <string>
 
-bool evaluateBooleanExpression(std::string expression) {
+bool evaluateBooleanExpression(const std::string& expression) {
     int opIndex = -1;
     int parenthesisCount = 0;
 
@@ -33,4 +34,15 @@ bool evaluateBooleanExpression(std::string expression) {
     }
 
     return false;
+}
+
+int main() {
+    std::string expression;
+    std::getline(std::cin, expression);
+
+    bool result = evaluateBooleanExpression(expression);
+
+    std::cout << std::boolalpha << result << std::endl;
+
+    return 0;
 }
