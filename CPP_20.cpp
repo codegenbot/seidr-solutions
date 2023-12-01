@@ -1,7 +1,19 @@
+#include <iostream>
 #include <vector>
+#include <cmath>
 
 vector<float> find_closest_elements(vector<float> numbers);
+
 bool issame(vector<float> a, vector<float> b);
+
+int main() {
+    // Test the find_closest_elements function
+    vector<float> numbers = {1.5, 2.3, 4.7, 3.1, 2.9};
+    vector<float> closest_elements = find_closest_elements(numbers);
+    cout << "Closest elements: " << closest_elements[0] << " and " << closest_elements[1] << endl;
+
+    return 0;
+}
 
 vector<float> find_closest_elements(vector<float> numbers){
     float min_diff = abs(numbers[0] - numbers[1]);
@@ -36,9 +48,4 @@ bool issame(vector<float> a, vector<float> b){
         }
     }
     return true;
-}
-
-int main(){
-    // code to test the find_closest_elements function
-    return 0;
 }
