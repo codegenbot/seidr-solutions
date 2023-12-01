@@ -1,15 +1,9 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 using namespace std;
-
-bool are_same(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> reverse_delete(string s, string c);
 
 vector<string> reverse_delete(string s, string c) {
     string result = "";
@@ -25,9 +19,4 @@ vector<string> reverse_delete(string s, string c) {
     output.push_back(result);
     output.push_back(is_palindrome ? "True" : "False");
     return output;
-}
-
-int main() {
-    assert(are_same(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
 }

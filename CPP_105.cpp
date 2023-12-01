@@ -1,70 +1,28 @@
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <map>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> by_length(vector<int> arr);
-
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+using namespace std;
 
 vector<string> by_length(vector<int> arr){
-    vector<int> sortedArr;
-    vector<string> result;
-
-    // Sort the integers between 1 and 9 inclusive
-    for(int i=0; i<arr.size(); i++){
-        if(arr[i] >= 1 && arr[i] <= 9){
-            sortedArr.push_back(arr[i]);
-        }
+  vector<int> sorted_arr;
+  vector<string> result;
+  map<int, string> num_to_name = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+  
+  // Sort the integers between 1 and 9
+  for(int num : arr){
+    if(num >= 1 && num <= 9){
+      sorted_arr.push_back(num);
     }
-    sort(sortedArr.begin(), sortedArr.end());
-
-    // Reverse the sorted array and replace each digit by its corresponding name
-    for(int i=sortedArr.size()-1; i>=0; i--){
-        string digitName;
-        switch(sortedArr[i]){
-            case 1:
-                digitName = "One";
-                break;
-            case 2:
-                digitName = "Two";
-                break;
-            case 3:
-                digitName = "Three";
-                break;
-            case 4:
-                digitName = "Four";
-                break;
-            case 5:
-                digitName = "Five";
-                break;
-            case 6:
-                digitName = "Six";
-                break;
-            case 7:
-                digitName = "Seven";
-                break;
-            case 8:
-                digitName = "Eight";
-                break;
-            case 9:
-                digitName = "Nine";
-                break;
-            default:
-                continue;
-        }
-        result.push_back(digitName);
-    }
-    return result;
+  }
+  sort(sorted_arr.begin(), sorted_arr.end());
+  
+  // Reverse the sorted array and replace each digit by its corresponding name
+  reverse(sorted_arr.begin(), sorted_arr.end());
+  for(int num : sorted_arr){
+    result.push_back(num_to_name[num]);
+  }
+  
+  return result;
 }

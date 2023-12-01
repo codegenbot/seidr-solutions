@@ -1,23 +1,22 @@
 #include <vector>
-#include <cassert>
 
-bool move_one_ball(std::vector<int> arr) {
-    if (arr.empty()) {
-        return true;
-    }
+bool move_one_ball(vector<int> arr){
+    if(arr.empty()) return true;
     
     int n = arr.size();
     int minIndex = 0;
-    for (int i = 1; i < n; i++) {
-        if (arr[i] < arr[minIndex]) {
+    
+    for(int i=1; i<n; i++){
+        if(arr[i] < arr[minIndex]){
             minIndex = i;
         }
     }
     
-    int rotations = n - minIndex;
-    for (int i = 0; i < n; i++) {
-        int newIndex = (i + rotations) % n;
-        if (arr[newIndex] < arr[i]) {
+    int shift = n - minIndex;
+    
+    for(int i=0; i<n; i++){
+        int newIndex = (i + shift) % n;
+        if(arr[newIndex] < arr[i]){
             return false;
         }
     }
@@ -26,7 +25,6 @@ bool move_one_ball(std::vector<int> arr) {
 }
 
 int main() {
-    assert(move_one_ball({}) == true);
-    // Add more test cases here
+    assert(move_one_ball({}));
     return 0;
 }
