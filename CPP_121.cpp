@@ -12,6 +12,6 @@ int sumOfOddNumbers(vector<int> lst) {
 }
 
 int main() {
-    assert(sumOfOddNumbers(lst) == 3);
+    assert(sumOfOddNumbers({3, 13, 2, 9}) == 3);
     return 0;
 }
