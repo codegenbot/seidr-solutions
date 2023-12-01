@@ -1,31 +1,31 @@
+#include <iostream>
 #include <string>
 #include <vector>
 
+using namespace std;
+
 int main() {
-    string Strongest_Extension(string class_name, vector<string> extensions) {
-        string strongest_extension = "";
-        int max_strength = INT_MIN;
+    string strongest_extension = "";
+    int max_strength = INT_MIN;
 
-        for (string extension : extensions) {
-            int cap_count = 0;
-            int sm_count = 0;
+    for (string extension : extensions) {
+        int cap_count = 0;
+        int sm_count = 0;
 
-            for (char ch : extension) {
-                if (isupper(ch)) {
-                    cap_count++;
-                } else if (islower(ch)) {
-                    sm_count++;
-                }
-            }
-
-            int strength = cap_count - sm_count;
-            if (strength > max_strength) {
-                max_strength = strength;
-                strongest_extension = extension;
+        for (char ch : extension) {
+            if (isupper(ch)) {
+                cap_count++;
+            } else if (islower(ch)) {
+                sm_count++;
             }
         }
 
-        return class_name + "." + strongest_extension;
+        int strength = cap_count - sm_count;
+        if (strength > max_strength) {
+            max_strength = strength;
+            strongest_extension = extension;
+        }
     }
-    return 0;
+
+    return class_name + "." + strongest_extension;
 }
