@@ -3,9 +3,6 @@
 #include <string>
 #include <cassert>
 
-std::map<std::string, int> histogram(std::string test);
-bool issame(std::map<std::string, int> a, std::map<std::string, int> b);
-
 std::map<std::string, int> histogram(std::string test) {
     std::map<std::string, int> result;
     std::string word;
