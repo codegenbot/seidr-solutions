@@ -1,16 +1,9 @@
 map<char, int> histogram(string test) {
-    map<char, int> freqMap;
-    string word;
-    for (int i = 0; i < test.length(); i++) {
-        if (test[i] != ' ') {
-            word += test[i];
-        } else {
-            freqMap[word]++;
-            word = "";
+    map<char, int> result;
+    for (char c : test) {
+        if (c != ' ') {
+            result[c]++;
         }
     }
-    if (!word.empty()) {
-        freqMap[word]++;
-    }
-    return freqMap;
+    return result;
 }
