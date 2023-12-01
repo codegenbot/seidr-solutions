@@ -6,35 +6,34 @@ bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr);
 
-bool issame(vector<string> a, vector<string> b) {
-    // Check if the two vectors are the same
-    if (a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
 }
 
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr){
     vector<int> sortedArr;
     vector<string> result;
 
     // Sort the integers between 1 and 9 inclusive
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] >= 1 && arr[i] <= 9) {
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i] >= 1 && arr[i] <= 9){
             sortedArr.push_back(arr[i]);
         }
     }
     sort(sortedArr.begin(), sortedArr.end());
 
     // Reverse the sorted array and replace each digit by its corresponding name
-    for (int i = sortedArr.size() - 1; i >= 0; i--) {
+    for(int i=sortedArr.size()-1; i>=0; i--){
         string digitName;
-        switch (sortedArr[i]) {
+        switch(sortedArr[i]){
             case 1:
                 digitName = "One";
                 break;
