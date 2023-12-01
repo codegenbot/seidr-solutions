@@ -1,7 +1,6 @@
-#include <iostream>
+#include <boost/any.hpp>
 #include <string>
 #include <algorithm>
-#include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -9,7 +8,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         int num2 = boost::any_cast<int>(b);
         if (num1 > num2) {
             return num1;
-        } else if (num1 < num2) {
+        } else if (num2 > num1) {
             return num2;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
@@ -17,25 +16,21 @@ boost::any compare_one(boost::any a, boost::any b) {
         float num2 = boost::any_cast<float>(b);
         if (num1 > num2) {
             return num1;
-        } else if (num1 < num2) {
+        } else if (num2 > num1) {
             return num2;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string str1 = boost::any_cast<std::string>(a);
         std::string str2 = boost::any_cast<std::string>(b);
-        if (str1 > str2) {
+        std::replace(str1.begin(), str1.end(), ',', '.');
+        std::replace(str2.begin(), str2.end(), ',', '.');
+        float num1 = std::stof(str1);
+        float num2 = std::stof(str2);
+        if (num1 > num2) {
             return str1;
-        } else if (str1 < str2) {
+        } else if (num2 > num1) {
             return str2;
         }
     }
-    return "None";
-}
-
-int main() {
-    std::cout << boost::any_cast<int>(compare_one(1, 2.5)) << std::endl;
-    std::cout << boost::any_cast<std::string>(compare_one(1, "2,3")) << std::endl;
-    std::cout << boost::any_cast<std::string>(compare_one("5,1", "6")) << std::endl;
-    std::cout << boost::any_cast<std::string>(compare_one("1", 1)) << std::endl;
-    return 0;
+    return boost::any();
 }
