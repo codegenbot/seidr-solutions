@@ -8,15 +8,15 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     return False
 
 def main():
-    n = int(input())
+    n = int(input("Enter the number of elements: "))
     numbers = []
     for _ in range(n):
-        num = float(input())
+        num = float(input("Enter a number: "))
         numbers.append(num)
-    threshold = float(input())
+    threshold = float(input("Enter the threshold value: "))
 
     result = has_close_elements(numbers, threshold)
-    print(result)
+    print("Result:", result)
 
 if __name__ == "__main__":
     main()
