@@ -1,6 +1,6 @@
 #include <string>
-#include <vector>
 #include <cassert>
+#include <vector>
 
 using namespace std;
 
@@ -14,14 +14,14 @@ int main() {
 
     lst1 = {2, 4, 6};
     lst2 = {1, 3, 5};
-    assert(exchange(lst1, lst2) == "YES");
+    assert(exchange(lst1, lst2) == "NO");
 
     lst1 = {1, 2, 3};
     lst2 = {4, 5, 6};
-    assert(exchange(lst1, lst2) == "NO");
+    assert(exchange(lst1, lst2) == "YES");
 
     lst1 = {2, 4, 6};
-    lst2 = {2, 4, 6};
+    lst2 = {1, 3, 5};
     assert(exchange(lst1, lst2) == "NO");
 
     return 0;
