@@ -1,5 +1,6 @@
+#include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
 #include <algorithm>
-#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -23,8 +24,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         strB.erase(std::remove(strB.begin(), strB.end(), ','), strB.end());
 
         // Convert strings to floats
-        float floatA = std::stof(strA);
-        float floatB = std::stof(strB);
+        float floatA = boost::lexical_cast<float>(strA);
+        float floatB = boost::lexical_cast<float>(strB);
 
         if (floatA > floatB) {
             return a;
@@ -33,5 +34,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
 
-    return "None";
+    return boost::any();
 }
