@@ -1,39 +1,24 @@
-#include <iostream>
 #include <vector>
-#include <cmath>
-
-vector<float> find_closest_elements(vector<float> numbers);
-
-bool issame(vector<float> a, vector<float> b);
-
-int main() {
-    // Test the find_closest_elements function
-    vector<float> numbers = {1.5, 2.3, 4.7, 3.1, 2.9};
-    vector<float> closest_elements = find_closest_elements(numbers);
-    cout << "Closest elements: " << closest_elements[0] << " and " << closest_elements[1] << endl;
-
-    return 0;
-}
 
 vector<float> find_closest_elements(vector<float> numbers){
-    float min_diff = abs(numbers[0] - numbers[1]);
-    float num1 = numbers[0];
-    float num2 = numbers[1];
+    vector<float> result;
+    float minDiff = abs(numbers[0] - numbers[1]);
+    int index1 = 0;
+    int index2 = 1;
     
-    for(int i=0; i<numbers.size(); i++){
+    for(int i=0; i<numbers.size()-1; i++){
         for(int j=i+1; j<numbers.size(); j++){
             float diff = abs(numbers[i] - numbers[j]);
-            if(diff < min_diff){
-                min_diff = diff;
-                num1 = numbers[i];
-                num2 = numbers[j];
+            if(diff < minDiff){
+                minDiff = diff;
+                index1 = i;
+                index2 = j;
             }
         }
     }
     
-    vector<float> result;
-    result.push_back(num1);
-    result.push_back(num2);
+    result.push_back(min(numbers[index1], numbers[index2]));
+    result.push_back(max(numbers[index1], numbers[index2]));
     
     return result;
 }
@@ -42,10 +27,18 @@ bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
     }
+    
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
     }
+    
     return true;
+}
+
+int main(){
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    
+    return 0;
 }

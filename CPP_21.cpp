@@ -1,23 +1,32 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cassert>
 
+using namespace std;
+
+bool issame(vector<float> a, vector<float> b);
+
 bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size()){
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
+
+vector<float> rescale_to_unit(vector<float> numbers);
 
 vector<float> rescale_to_unit(vector<float> numbers){
     float min_num = numbers[0];
     float max_num = numbers[0];
     
+    // Find the minimum and maximum numbers in the vector
     for(int i=1; i<numbers.size(); i++){
         if(numbers[i] < min_num){
             min_num = numbers[i];
@@ -28,6 +37,8 @@ vector<float> rescale_to_unit(vector<float> numbers){
     }
     
     vector<float> rescaled_numbers;
+    
+    // Apply linear transform to each number in the vector
     for(int i=0; i<numbers.size(); i++){
         float rescaled_num = (numbers[i] - min_num) / (max_num - min_num);
         rescaled_numbers.push_back(rescaled_num);
