@@ -10,11 +10,11 @@ def find_zero(xs: list):
 
 
 if __name__ == "__main__":
+    n = int(input())
     xs = list(map(float, input().split()))
-    x = float(input())
 
-    result1 = poly(xs, x)
-    result2 = find_zero(xs)
+    result_poly = poly(xs, n)
+    result_zero = find_zero(xs)
 
-    print(result1)
-    print(result2)
+    print(result_poly)
+    print(result_zero)
