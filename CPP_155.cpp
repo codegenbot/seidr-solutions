@@ -2,15 +2,15 @@
 #include <string>
 #include <cassert>
 
-std::vector<int> even_odd_count(int num){
+std::vector<int> even_odd_count(int num) {
     int evenCount = 0;
     int oddCount = 0;
     
     std::string numStr = std::to_string(std::abs(num));
     
-    for(char c : numStr){
+    for (char c : numStr) {
         int digit = c - '0';
-        if(digit % 2 == 0){
+        if (digit % 2 == 0) {
             evenCount++;
         } else {
             oddCount++;
