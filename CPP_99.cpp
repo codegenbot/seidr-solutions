@@ -1,12 +1,10 @@
-#include <iostream>
 #include <string>
 #include <cmath>
-using namespace std;
 
-int closest_integer(string value){
-    double num = stod(value);
-    int floor_num = floor(num);
-    int ceil_num = ceil(num);
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    int floor_num = std::floor(num);
+    int ceil_num = std::ceil(num);
     if (num - floor_num < ceil_num - num) {
         return floor_num;
     } else {
@@ -14,8 +12,11 @@ int closest_integer(string value){
     }
 }
 
-int main(){
-    assert (closest_integer("0") == 0);
-    // Add more test cases if needed
+int main() {
+    std::string input;
+    std::cout << "Enter a floating point number: ";
+    std::cin >> input;
+    int closest = closest_integer(input);
+    std::cout << "Closest integer: " << closest << std::endl;
     return 0;
 }
