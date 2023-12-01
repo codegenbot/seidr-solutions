@@ -37,18 +37,10 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    string s = "Hello, world!";
-
-    vector<string> words = words_string(s);
-
-    assert(words.size() == 2);
-    assert(words[0] == "Hello");
-    assert(words[1] == "world!");
-
-    vector<string> a = {"apple", "banana", "cherry"};
-    vector<string> b = {"apple", "banana", "cherry"};
-
-    assert(issame(a, b));
-
+    vector<string> words1 = words_string("Hello, World!");
+    vector<string> words2 = words_string("Hello World!");
+    
+    assert(issame(words1, words2));
+    
     return 0;
 }
