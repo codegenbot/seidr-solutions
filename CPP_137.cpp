@@ -34,5 +34,5 @@ std::any compare_one(std::any a, std::any b) {
         }
     }
 
-    return std::any();
+    return std::string("None");
 }
