@@ -1,9 +1,30 @@
-bool is_sorted(vector<int> lst){
-    sort(lst.begin(), lst.end());
-    for(int i = 0; i < lst.size() - 1; i++){
-        if(lst[i] == lst[i+1]){
+#include <vector>
+
+bool is_sorted(std::vector<int> lst){
+    int n = lst.size();
+    if(n <= 1) {
+        return true;
+    }
+    int count = 0;
+    for(int i = 1; i < n; i++) {
+        if(lst[i] < lst[i-1]) {
             return false;
+        }
+        if(lst[i] == lst[i-1]) {
+            count++;
+            if(count > 1) {
+                return false;
+            }
+        }
+        else {
+            count = 0;
         }
     }
     return true;
+}
+
+int main() {
+    assert (is_sorted({1, 2, 3, 4}) == true);
+    // Add more test cases if needed
+    return 0;
 }
