@@ -1,4 +1,5 @@
 #include <vector>
+using namespace std;
 
 vector<int> make_a_pile(int n){
     vector<int> pile;
@@ -20,5 +21,5 @@ bool issame(vector<int> a, vector<int> b){
 
 int main() {
     // Your test cases go here
-    assert(issame(make_a_pile(8) , {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert (issame(make_a_pile(8) , {8, 10, 12, 14, 16, 18, 20, 22}));
 }
