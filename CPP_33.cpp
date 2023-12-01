@@ -37,6 +37,5 @@ vector<int> sort_third(vector<int> l) {
 }
 
 int main() {
-    // Test your code here (if needed)
     return 0;
 }
