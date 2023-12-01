@@ -1,10 +1,9 @@
-#include <iostream>
 #include <vector>
+#include <list>
+#include <cassert>
 #include <variant>
-#include <initializer_list>
 
-
-std::vector<int> filter_integers(const std::initializer_list<std::variant<int, char>>& values) {
+std::vector<int> filter_integers(const std::list<std::variant<int, char>>& values) {
     std::vector<int> result{};
     for (const auto& value : values) {
         if (std::holds_alternative<int>(value)) {
@@ -16,9 +15,4 @@ std::vector<int> filter_integers(const std::initializer_list<std::variant<int, c
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
-}
-
-int main() {
-    assert(issame(filter_integers({std::variant<int, char>(3), std::variant<int, char>('c'), std::variant<int, char>(3), std::variant<int, char>(3), std::variant<int, char>('a'), std::variant<int, char>('b')}), {3, 3, 3}));
-    return 0;
 }
