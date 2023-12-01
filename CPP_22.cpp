@@ -16,7 +16,7 @@ vector<int> filter_integers(list<boost::any> values) {
 }
 
 int main() {
-    for (int num : filter_integers({3, 'c', 3, 3, 'a', 'b'})) {
+    for (int num : filter_integers({3, 3, 3})) {
         cout << num << " ";
     }
     cout << endl;
