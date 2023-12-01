@@ -1,5 +1,28 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+
+using namespace std;
+
+vector<vector<int>> get_row(vector<vector<int>> lst, int x);
+
+int main() {
+    vector<vector<int>> lst = {{1, 2, 3},
+                               {4, 5, 6},
+                               {7, 8, 9}};
+    int x = 5;
+
+    vector<vector<int>> result = get_row(lst, x);
+
+    for (int i = 0; i < result.size(); i++) {
+        for (int j = 0; j < result[i].size(); j++) {
+            cout << result[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
@@ -11,30 +34,11 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
             }
         }
     }
-    // Sort coordinates initially by rows in ascending order
     sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b) {
         return a[0] < b[0];
     });
-    // Sort coordinates of the row by columns in descending order
     for (int i = 0; i < result.size(); i++) {
         sort(result[i].begin(), result[i].end(), greater<int>());
     }
     return result;
-}
-
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i].size() != b[i].size()) {
-            return false;
-        }
-        for (int j = 0; j < a[i].size(); j++) {
-            if (a[i][j] != b[i][j]) {
-                return false;
-            }
-        }
-    }
-    return true;
 }
