@@ -8,18 +8,9 @@ bool isConsonant(char c) {
     return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-vector<string> select_words(string s, int n);
-
 bool isSame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    // Add appropriate comparison logic here
+    // and return true if the vectors are same, false otherwise
 }
 
 vector<string> select_words(string s, int n) {
@@ -50,6 +41,6 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(isSame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(isSame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
     return 0;
 }

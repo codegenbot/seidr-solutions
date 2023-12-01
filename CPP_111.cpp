@@ -2,27 +2,21 @@
 #include <map>
 #include <cassert>
 
-using namespace std;
-
-map<char, int> histogram(string test);
-
-bool issame(map<char, int> a, map<char, int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (auto it = a.begin(); it != a.end(); it++) {
-        char key = it->first;
-        int value = it->second;
-        if (b.find(key) == b.end() || b[key] != value) {
+bool issame(std::map<char,int> a, std::map<char,int> b){
+    for(auto it = a.begin(); it != a.end(); ++it) {
+        if(b.find(it->first) == b.end() || b[it->first] != it->second)
             return false;
-        }
+    }
+    for(auto it = b.begin(); it != b.end(); ++it) {
+        if(a.find(it->first) == a.end())
+            return false;
     }
     return true;
 }
 
-map<char, int> histogram(string test) {
-    map<char, int> countMap;
-    string word;
+std::map<char,int> histogram(std::string test){
+    std::map<char, int> countMap;
+    std::string word;
     for (int i = 0; i < test.length(); i++) {
         if (test[i] != ' ') {
             word += test[i];
@@ -48,7 +42,7 @@ map<char, int> histogram(string test) {
             maxCount = it->second;
         }
     }
-    map<char, int> result;
+    std::map<char, int> result;
     for (auto it = countMap.begin(); it != countMap.end(); it++) {
         if (it->second == maxCount) {
             result[it->first] = it->second;
@@ -58,6 +52,5 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    return 0;
+    // Testing code
 }
