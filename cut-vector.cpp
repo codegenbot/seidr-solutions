@@ -4,7 +4,7 @@
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& input) {
     int n = input.size();
-    int diff = INT_MAX;
+    int diff = std::numeric_limits<int>::max();
     int index = -1;
 
     // Calculate the difference between the sums of the left and right subvectors
