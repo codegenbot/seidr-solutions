@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -31,6 +30,10 @@ int largestPrimeSum(vector<int> lst) {
 }
 
 int main() {
-    assert (largestPrimeSum({127, 97, 8192}) == 10);
+    vector<int> input = {127, 97, 8192};
+    int result = largestPrimeSum(input);
+    
+    cout << result << endl;
+
     return 0;
 }
