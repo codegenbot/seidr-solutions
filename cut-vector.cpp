@@ -5,36 +5,41 @@
 #include <cmath>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    size_t n = nums.size();
-    unsigned long long diff = std::numeric_limits<unsigned long long>::max();
-    size_t index = 0;
+    int n = nums.size();
+    long long diff = std::numeric_limits<long long>::max();
+    int index = 0;
 
     if (n == 1) {
         return std::make_pair(nums, std::vector<int>());
     }
 
-    for (size_t i = 0; i < n; i++) {
-        unsigned long long leftSum = 0;
-        unsigned long long rightSum = 0;
+    for (int i = 0; i < n; i++) {
+        long long leftSum = 0;
+        long long rightSum = 0;
 
-        for (size_t j = 0; j < i; j++) {
+        for (int j = 0; j < i; j++) {
             leftSum += nums[j];
         }
 
-        for (size_t j = i+1; j < n; j++) {
+        for (int j = i; j < n; j++) {
             rightSum += nums[j];
         }
 
-        unsigned long long currentDiff = std::abs(leftSum - rightSum);
+        long long currentDiff = std::abs(leftSum - rightSum);
 
-        if (currentDiff < diff) {
+        if (currentDiff <= diff) {
             diff = currentDiff;
             index = i;
         }
     }
 
     std::vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
-    std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
+    std::vector<int> rightSubvector(nums.begin() + index, nums.end());
+
+    if (index == n - 1) {
+        leftSubvector = std::vector<int>();
+        rightSubvector = nums;
+    }
 
     return std::make_pair(leftSubvector, rightSubvector);
 }
