@@ -2,19 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
-    return true;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> sort_third(std::vector<int> l){
     std::vector<int> l_prime = l;
