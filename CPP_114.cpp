@@ -18,9 +18,11 @@ long long minSubArraySum(vector<long long> nums){
 }
 
 int main() {
-    assert (minSubArraySum({1, -1}) == -1);
-    assert (minSubArraySum({1, -2, 3, -4, 5}) == -4);
-    // Add more test cases here
-    
+    assert(minSubArraySum({1, -1}) == -1);
+    assert(minSubArraySum({1, 2, 3, 4, 5}) == 1);
+    assert(minSubArraySum({-1, -2, -3, -4, -5}) == -15);
+    assert(minSubArraySum({5, -2, 8, -7, 3}) == -2);
+    assert(minSubArraySum({2}) == 2);
+
     return 0;
 }
