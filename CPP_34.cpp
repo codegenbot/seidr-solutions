@@ -1,13 +1,15 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool are_same(std::vector<int> a, std::vector<int> b) {
+    // Implementation of the `are_same` function
     if (a.size() != b.size()) {
         return false;
     }
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
-    for (int i = 0; i < a.size(); i++) {
+    for (size_t i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
