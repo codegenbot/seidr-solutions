@@ -8,6 +8,7 @@ string string_to_md5(string text) {
         return "None";
     }
 
+    OpenSSL_add_all_algorithms();
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
@@ -23,14 +24,4 @@ string string_to_md5(string text) {
     }
 
     return md5hash;
-}
-
-int main() {
-    string text;
-    cin >> text;
-
-    string md5 = string_to_md5(text);
-    cout << md5 << endl;
-
-    return 0;
 }
