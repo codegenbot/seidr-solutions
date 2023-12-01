@@ -1,11 +1,11 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -32,5 +32,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
 
 int main(){
     assert(areSame(strange_sort_list({111111}) , {111111}));
+    // Your code here
     return 0;
 }
