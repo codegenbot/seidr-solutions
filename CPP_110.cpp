@@ -8,7 +8,7 @@ string exchange(vector<int> lst1, vector<int> lst2);
 
 int main() {
     assert(exchange({100, 200}, {200, 200}) == "YES");
-    // Add more test cases...
+    // More test cases...
 }
 
 string exchange(vector<int> lst1, vector<int> lst2) {
