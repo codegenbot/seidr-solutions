@@ -18,5 +18,6 @@ vector<int> sort_third(vector<int> l){
 bool issame(vector<int> a, vector<int> b);
 
 int main(){
-    assert(equal(sort_third({5, 6, 3, 4, 8, 9, 2, 1}).begin(), sort_third({5, 6, 3, 4, 8, 9, 2, 1}).end(), {2, 6, 3, 4, 8, 9, 5, 1}.begin()));
+    assert (equal(sort_third({5, 6, 3, 4, 8, 9, 2, 1}).begin(), sort_third({5, 6, 3, 4, 8, 9, 2, 1}).end(), {2, 6, 3, 4, 8, 9, 5, 1}.begin()));
+    return 0;
 }
