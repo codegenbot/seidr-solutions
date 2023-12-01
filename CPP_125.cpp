@@ -1,33 +1,27 @@
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
-    bool hasWhitespace = false;
-    bool hasComma = false;
-    
+    int count = 0;
+
     for(int i = 0; i < txt.length(); i++){
-        if(txt[i] == ' '){
-            hasWhitespace = true;
-        }
-        else if(txt[i] == ','){
-            hasComma = true;
+        if(txt[i] == ' ' || txt[i] == ','){
+            if(word != ""){
+                result.push_back(word);
+                word = "";
+            }
         }
         else{
             word += txt[i];
         }
-        
-        if((hasWhitespace && txt[i] == ' ') || (hasComma && txt[i] == ',')){
-            result.push_back(word);
-            word = "";
-        }
     }
-    
+
     if(word != ""){
         result.push_back(word);
     }
-    
+
     if(result.empty()){
-        result.push_back(to_string(3));
+        result.push_back(to_string(count));
     }
-    
+
     return result;
 }
