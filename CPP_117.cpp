@@ -1,6 +1,6 @@
+#include <cassert>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -8,7 +8,7 @@ vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
     for(int i = 0; i < s.length(); i++) {
-        if (s[i] != ' ') {
+        if(s[i] != ' ') {
             word += s[i];
         } else {
             int consonantCount = 0;
@@ -17,7 +17,7 @@ vector<string> select_words(string s, int n) {
                     consonantCount++;
                 }
             }
-            if (consonantCount == n) {
+            if(consonantCount == n) {
                 result.push_back(word);
             }
             word = "";
@@ -36,15 +36,7 @@ vector<string> select_words(string s, int n) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
