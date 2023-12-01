@@ -35,3 +35,8 @@ vector<int> sort_third(vector<int> l) {
     
     return l_prime;
 }
+
+int main() {
+    // Test your code here (if needed)
+    return 0;
+}
