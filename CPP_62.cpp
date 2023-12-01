@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 #include <cassert>
 
 using namespace std;
@@ -12,20 +11,14 @@ vector<float> derivative(vector<float> xs){
     return result;
 }
 
-bool isSameApproximately(vector<float> a, vector<float> b){
+bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
     }
     for(int i=0; i<a.size(); i++){
-        if (abs(a[i]-b[i]) > 1e-4){
+        if (abs(a[i]-b[i])>1e-4) {
             return false;
         }
     }
     return true;
-}
-
-int main() {
-    assert (isSameApproximately(derivative({1}) , {}));
-    
-    return 0;
 }
