@@ -1,4 +1,28 @@
-vector<int> strange_sort_vector(vector<int> lst) {
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> strange_sort_list(vector<int> lst);
+
+int main() {
+    vector<int> input = {4, 2, 1, 3};
+    vector<int> expected_output = {1, 4, 2, 3};
+    vector<int> output = strange_sort_list(input);
+    assert(issame(output, expected_output));
+    return 0;
+}
+
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     sort(lst.begin(), lst.end());
     int left = 0;
@@ -6,10 +30,10 @@ vector<int> strange_sort_vector(vector<int> lst) {
     while (left <= right) {
         if (left == right) {
             result.push_back(lst[left]);
-            break;
+        } else {
+            result.push_back(lst[left]);
+            result.push_back(lst[right]);
         }
-        result.push_back(lst[left]);
-        result.push_back(lst[right]);
         left++;
         right--;
     }
