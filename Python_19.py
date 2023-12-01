@@ -17,6 +17,5 @@ def sort_numbers(numbers: List[str]) -> str:
     return " ".join(sorted_numbers)
 
 if __name__ == "__main__":
-    input_numbers = input().lower().split()
-    input_numbers = [num for num in input_numbers if num in num_mapping]
+    input_numbers = input().split()
     print(sort_numbers(input_numbers))
