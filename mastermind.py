@@ -1,6 +1,7 @@
 def mastermind(code, guess):
     black_pegs = 0
     white_pegs = 0
+    
     code_count = [0] * 6
     guess_count = [0] * 6
     
