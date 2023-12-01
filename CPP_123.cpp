@@ -1,9 +1,7 @@
-#include <algorithm>
-#include <cassert>
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
   return a == b;
 }
 
@@ -24,18 +22,15 @@ std::vector<int> get_odd_collatz(int n) {
       odd_collatz_seq.push_back(collatz_seq[i]);
     }
   }
-  std::sort(odd_collatz_seq.begin(), odd_collatz_seq.end());
   return odd_collatz_seq;
 }
 
 int main() {
   std::vector<int> expected = {1};
-  std::vector<int> result = get_odd_collatz(1);
+  const std::vector<int>& result = get_odd_collatz(1);
   if (issame(result, expected)) {
     std::cout << "Output is correct" << std::endl;
   } else {
     std::cout << "Output is incorrect" << std::endl;
   }
-
-  return 0;
 }
