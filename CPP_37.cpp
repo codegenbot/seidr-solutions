@@ -1,29 +1,16 @@
 #include <vector>
 #include <algorithm>
 
-vector<float> sort_even(vector<float> l);
-
-bool issame(vector<float> a, vector<float> b);
-
-int main() {
-    // Test cases
-    vector<float> test1 = {1.2, 3.4, 5.6, 7.8, 9.0};
-    vector<float> result1 = sort_even(test1);
-    // Print the sorted even elements
-    for (float num : result1) {
-        cout << num << " ";
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
     }
-    cout << endl;
-
-    vector<float> test2 = {2.2, 4.4, 6.6, 8.8, 10.0};
-    vector<float> result2 = sort_even(test2);
-    // Print the sorted even elements
-    for (float num : result2) {
-        cout << num << " ";
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
     }
-    cout << endl;
-
-    return 0;
+    return true;
 }
 
 vector<float> sort_even(vector<float> l){
@@ -42,4 +29,17 @@ vector<float> sort_even(vector<float> l){
         }
     }
     return l_prime;
+}
+
+int main(){
+    // Test the sort_even function
+    vector<float> input = {5.4, 2.1, 3.7, 8.2, 1.9};
+    vector<float> output = sort_even(input);
+    vector<float> expected = {2.1, 5.4, 1.9, 3.7, 8.2};
+    if(issame(output, expected)){
+        cout << "Test passed!" << endl;
+    } else {
+        cout << "Test failed!" << endl;
+    }
+    return 0;
 }
