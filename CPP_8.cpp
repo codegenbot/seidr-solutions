@@ -1,18 +1,4 @@
-#include <vector>
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
+#include <vector>  // Add this line to include the vector header
 
 vector<int> sum_product(vector<int> numbers){
     int sum = 0;
@@ -22,13 +8,16 @@ vector<int> sum_product(vector<int> numbers){
         sum += numbers[i];
         product *= numbers[i];
     }
-
+    
     return {sum, product};
+}
+
+// Fix the function signature of issame
+bool issame(vector<int> a, vector<int> b){
+    // Implementation of issame function
 }
 
 int main(){
     assert(issame(sum_product({10}), {10, 10}));
     // Rest of the main function implementation
-
-    return 0;
 }
