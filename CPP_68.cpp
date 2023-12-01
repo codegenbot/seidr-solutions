@@ -1,18 +1,18 @@
 vector<int> pluck(vector<int> arr){
     vector<int> result;
-    int smallestValue = -1;
-    int smallestIndex = -1;
+    int smallestEvenValue = INT_MAX;
+    int smallestEvenIndex = -1;
     
     for(int i = 0; i < arr.size(); i++){
-        if(arr[i] % 2 == 0 && (smallestValue == -1 || arr[i] < smallestValue)){
-            smallestValue = arr[i];
-            smallestIndex = i;
+        if(arr[i] % 2 == 0 && arr[i] < smallestEvenValue){
+            smallestEvenValue = arr[i];
+            smallestEvenIndex = i;
         }
     }
     
-    if(smallestIndex != -1){
-        result.push_back(smallestValue);
-        result.push_back(smallestIndex);
+    if(smallestEvenIndex != -1){
+        result.push_back(smallestEvenValue);
+        result.push_back(smallestEvenIndex);
     }
     
     return result;
