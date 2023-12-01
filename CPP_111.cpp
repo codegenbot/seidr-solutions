@@ -1,6 +1,6 @@
-#include<iostream>
-#include<map>
-#include<sstream>
+#include <iostream>
+#include <map>
+#include <sstream>
 
 using namespace std;
 
