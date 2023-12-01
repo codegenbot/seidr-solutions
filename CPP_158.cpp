@@ -6,11 +6,11 @@ using namespace std;
 
 int countUniqueChars(string word) {
     int count = 0;
-    bool unique[26] = {false};
+    vector<bool> visited(26, false);
 
-    for (char c : word) {
-        if (!unique[c - 'a']) {
-            unique[c - 'a'] = true;
+    for (char ch : word) {
+        if (!visited[ch - 'a']) {
+            visited[ch - 'a'] = true;
             count++;
         }
     }
