@@ -1,4 +1,4 @@
-from typing import List
+from typing impport List
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     min_num = min(numbers)
