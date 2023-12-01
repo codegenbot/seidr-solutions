@@ -1,11 +1,10 @@
-#include <iostream>
 #include <string>
 
-using namespace std;
+std::string fix_spaces(std::string text);
 
-string fix_spaces(string text){
+std::string fix_spaces(std::string text){
     int n = text.size();
-    string result = "";
+    std::string result = "";
     int consecutive_spaces = 0;
     for(int i=0; i<n; i++){
         if(text[i] == ' '){
@@ -26,9 +25,6 @@ string fix_spaces(string text){
 }
 
 int main() {
-    string input;
-    getline(cin, input); 
-    string output = fix_spaces(input); 
-    cout << output << endl; 
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
     return 0;
 }
