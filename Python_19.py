@@ -19,6 +19,7 @@ def sort_numbers(numbers: List[str]) -> str:
     return " ".join(sorted_numbers)
 
 
-input_numbers = input().lower().split()
-input_numbers = [word for word in input_numbers if word in num_mapping.keys()]
-print(sort_numbers(input_numbers))
+if __name__ == "__main__":
+    input_numbers = input().lower().split()
+    input_numbers = [word for word in input_numbers if word in num_mapping.keys()]
+    print(sort_numbers(input_numbers))
