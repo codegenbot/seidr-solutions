@@ -3,7 +3,9 @@
 
 vector<int> tri(int n);
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    // implementation code of the function
+}
 
 int main(){
     assert(issame(tri(1), {1, 3}));
@@ -30,8 +32,4 @@ vector<int> tri(int n){
         }
     }
     return sequence;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    // implementation code of the function
 }
