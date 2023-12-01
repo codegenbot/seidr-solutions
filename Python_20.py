@@ -13,7 +13,8 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     return closest_nums
 
 
-numbers = [float(x) for x in input("Enter the numbers (separated by spaces): ").split()]
+numbers = input("Enter the numbers (separated by spaces): ").split()
+numbers = list(map(float, numbers))
 
 result = find_closest_elements(numbers)
 print("Closest numbers:", result)
