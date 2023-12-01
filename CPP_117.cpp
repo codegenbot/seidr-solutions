@@ -1,25 +1,22 @@
 #include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    // implement the comparison logic here
-}
-
-vector<string> select_words(string s, int n) {
-    vector<string> result;
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
     if (s.empty()) {
         return result;
     }
-    string word = "";
+    std::string word = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] != ' ') {
             word += s[i];
         } else {
             int consonantCount = 0;
             for (int j = 0; j < word.length(); j++) {
-                if (word[j] != 'a' && word[j] != 'e' && word[j] != 'i' && word[j] != 'o' && word[j] != 'u') {
+                if (word[j] != 'a' && word[j] != 'e' && word[j] != 'i' &&
+                    word[j] != 'o' && word[j] != 'u') {
                     consonantCount++;
                 }
             }
@@ -31,7 +28,8 @@ vector<string> select_words(string s, int n) {
     }
     int consonantCount = 0;
     for (int j = 0; j < word.length(); j++) {
-        if (word[j] != 'a' && word[j] != 'e' && word[j] != 'i' && word[j] != 'o' && word[j] != 'u') {
+        if (word[j] != 'a' && word[j] != 'e' && word[j] != 'i' &&
+            word[j] != 'o' && word[j] != 'u') {
             consonantCount++;
         }
     }
@@ -42,12 +40,12 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    vector<string> words = select_words("a b c d e f", 1);
-    vector<string> expected = {"b", "c", "d", "f"};
-    if (issame(words, expected)) {
-        cout << "Test case passed" << endl;
-    } else {
-        cout << "Test case failed" << endl;
+    std::vector<std::string> words = select_words("a b c d e f", 1);
+    for (int i = 0; i < words.size(); i++) {
+        std::cout << words[i] << " ";
     }
+    std::cout << std::endl;
+    assert(std::vector<std::string>{"b", "c", "d", "f"} == select_words("a b c d e f", 1));
+    
     return 0;
 }
