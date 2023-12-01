@@ -23,8 +23,8 @@ int prod_signs(vector<int> arr){
 
 int main() {
     // Test cases
-    // cout << prod_signs({-1, 1, 1, 0}) << endl;
-    // cout << prod_signs({-1, -1, -1}) << endl;
-    // cout << prod_signs({-1, 1, -1}) << endl;
+    cout << prod_signs({-1, 1, 1, 0}) << endl;
+    cout << prod_signs({-1, -1, -1}) << endl;
+    cout << prod_signs({-1, 1, -1}) << endl;
     return 0;
 }
