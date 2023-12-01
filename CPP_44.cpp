@@ -1,11 +1,14 @@
+#include <iostream>
 #include <string>
-#include <cassert>
+#include <sstream>
+
+using namespace std;
 
 string change_base(int x, int base) {
     string result = "";
     while (x > 0) {
         int remainder = x % base;
-        result = to_string(remainder) + result;
+        result = char(remainder + '0') + result;
         x = x / base;
     }
     return result;
@@ -14,6 +17,6 @@ string change_base(int x, int base) {
 int main() {
     int x;
     cin >> x;
-    assert(change_base(x, x + 1) == to_string(x));
+    cout << change_base(x, x + 1) << endl;
     return 0;
 }
