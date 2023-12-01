@@ -7,11 +7,8 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
             return True
     return False
 
-numbers_input = input("Enter a list of numbers, separated by spaces: ")
-threshold_input = input("Enter the threshold value: ")
-
-numbers = [float(num) for num in numbers_input.split()]
-threshold = float(threshold_input)
+numbers = [float(num) for num in input().split()]
+threshold = float(input())
 
 result = has_close_elements(numbers, threshold)
 print(result)
