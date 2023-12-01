@@ -5,6 +5,7 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     // function body
+    // (you need to implement the body for this function)
 }
 
 std::vector<int> largest_smallest_integers(const std::vector<int>& lst) {
