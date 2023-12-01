@@ -1,3 +1,14 @@
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
+string encode_cyclic(string s){
+    // implementation of encode_cyclic function
+    // ...
+    return s; // add this return statement
+}
+
 string decode_cyclic(string s){ 
     string output;
     int l=s.length();
