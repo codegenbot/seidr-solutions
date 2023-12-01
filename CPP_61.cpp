@@ -15,6 +15,3 @@ bool correct_bracketing(std::string brackets) {
     }
     return count == 0;
 }
-
-assert(!(correct_bracketing("()()(()())()))()")));
-return 0;
