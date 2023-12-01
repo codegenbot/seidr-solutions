@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -34,4 +33,13 @@ bool issame(std::vector<int> a, std::vector<int> b){
         }
     }
     return true;
+}
+
+int main(){
+    std::vector<int> input = {142, 546, 609, 273, 135};
+    std::vector<int> expected_output = {135, 273, 609};
+    std::vector<int> output = unique_digits(input);
+    assert(issame(expected_output, output));
+    
+    return 0;
 }
