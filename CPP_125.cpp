@@ -58,12 +58,11 @@ int main(){
     
     vector<string> words = split_words(txt);
     
-    if(issame(words, {"apple", "banana", "cherry"})){
-        cout << "Match" << endl;
-    }
-    else{
-        cout << "No match" << endl;
-    }
+    vector<string> b = {"apple", "banana", "cherry"};
+    
+    bool same = issame(words, b);
+    
+    cout << (same ? "Same" : "Different") << endl;
     
     return 0;
 }
