@@ -3,5 +3,5 @@ def add(x: int, y: int):
 
 x = int(input())
 y = int(input())
-
-print(add(x, y))
+result = add(x, y)
+print(result)
