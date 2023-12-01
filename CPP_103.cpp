@@ -1,20 +1,13 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+
 using namespace std;
 
 string rounded_avg(int n, int m);
 
 int main() {
     // Add test cases here
-    int n = 1, m = 5;
-    cout << "Rounded Average in Binary: " << rounded_avg(n, m) << endl;
-    
-    n = 10;
-    m = 15;
-    cout << "Rounded Average in Binary: " << rounded_avg(n, m) << endl;
-
-    return 0;
 }
 
 string rounded_avg(int n, int m) {
