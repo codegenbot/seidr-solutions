@@ -16,9 +16,7 @@ int getScore(std::string input) {
         } else if (current == '/') {
             score += 10 - (input[index - 1] - '0');
             score += (input[index + 1] == 'X') ? 10 : (isdigit(input[index + 1]) ? input[index + 1] - '0' : 0);
-        } else if (current == '-') {
-            // do nothing
-        } else {
+        } else if (current != '-') {
             score += current - '0';
         }
         
