@@ -11,6 +11,5 @@ def decode_cyclic(s: str):
 
 input_string = input()
 encoded_string = encode_cyclic(input_string)
-print(encoded_string)
 decoded_string = decode_cyclic(encoded_string)
 print(decoded_string)
