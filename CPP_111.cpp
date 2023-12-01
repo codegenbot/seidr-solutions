@@ -1,8 +1,6 @@
 #include <cassert>
 #include <string>
 #include <map>
-#include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -21,8 +19,12 @@ map<char,int> buildHistogram(string test) {
     return counts;
 }
 
+bool isSame(map<char,int> a, map<char,int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(buildHistogram("a") == map<char,int>{{'a', 1}});
+    assert(isSame(buildHistogram("a"), {{'a', 1}}));
 
     return 0;
 }
