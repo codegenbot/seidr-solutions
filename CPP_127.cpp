@@ -1,56 +1,27 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cmath>
-
-using namespace std;
-
-bool isPrime(int n) {
-    if (n <= 1) {
+// Returns whether the given number is prime
+bool isPrime(int n){
+    if (n <= 1)
         return false;
-    }
-    for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0) {
+    for (int i = 2; i * i <= n; i++){
+        if (n % i == 0)
             return false;
-        }
     }
     return true;
 }
 
-string intersection(vector<int> interval1, vector<int> interval2) {
-    int start1 = interval1[0];
-    int end1 = interval1[1];
-    int start2 = interval2[0];
-    int end2 = interval2[1];
+string intersection(vector<int> interval1, vector<int> interval2){
+    // Find the maximum start and minimum end of the two intervals
+    int start = max(interval1[0], interval2[0]);
+    int end = min(interval1[1], interval2[1]);
     
-    // Check if the intervals intersect
-    if (start1 > end2 || start2 > end1) {
+    // If start is greater than end, the intervals don't intersect
+    if (start > end)
         return "NO";
-    }
     
-    // Calculate the length of the intersection
-    int intersectionLength = min(end1, end2) - max(start1, start2) + 1;
-    
-    // Check if the length of the intersection is prime
-    if (isPrime(intersectionLength)) {
+    // Check if the length of the intersection is a prime number
+    int length = end - start + 1;
+    if (isPrime(length))
         return "YES";
-    } else {
+    else
         return "NO";
-    }
-}
-
-int main() {
-    vector<int> interval1 = {1, 2};
-    vector<int> interval2 = {2, 3};
-    cout << intersection(interval1, interval2) << endl;
-    
-    interval1 = {-1, 1};
-    interval2 = {0, 4};
-    cout << intersection(interval1, interval2) << endl;
-    
-    interval1 = {-3, -1};
-    interval2 = {-5, 5};
-    cout << intersection(interval1, interval2) << endl;
-    
-    return 0;
 }
