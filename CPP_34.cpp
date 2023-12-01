@@ -2,9 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int>& a, std::vector<int>& b){
     if(a.size() != b.size()){
         return false;
     }
@@ -13,7 +12,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> unique(std::vector<int> l){
+std::vector<int> unique(std::vector<int>& l){
     std::sort(l.begin(), l.end());
     l.erase(std::unique(l.begin(), l.end()), l.end());
     return l;
