@@ -1,4 +1,5 @@
 from typing import List
 
+
 def separate_paren_groups(paren_string: str) -> List[str]:
-    return paren_string.split(") (")
+    return [group for group in paren_string.split(")(")[1:]][:-1]
