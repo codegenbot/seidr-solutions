@@ -3,9 +3,11 @@
 string rounded_avg(int n, int m);
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << rounded_avg(n, m) << endl;
+    // Test cases
+    int n = 1;
+    int m = 10;
+    string result = rounded_avg(n, m);
+    
     return 0;
 }
 
