@@ -20,6 +20,7 @@ def cut_vector(vector):
     return vector[:cut_position], vector[cut_position:]
 
 vector = list(map(int, input().split()))
+
 left_subvector, right_subvector = cut_vector(vector)
 print(*left_subvector)
 print(*right_subvector)
