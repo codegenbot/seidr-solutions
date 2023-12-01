@@ -11,12 +11,25 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int threshold = 6;
+    std::vector<int> nums;
+    int threshold;
 
-    bool result = below_threshold(nums, threshold);
+    int num_elements;
+    std::cin >> num_elements;
 
-    std::cout << "Below threshold: " << (result ? "true" : "false") << std::endl;
+    for (int i = 0; i < num_elements; i++) {
+        int num;
+        std::cin >> num;
+        nums.push_back(num);
+    }
+
+    std::cin >> threshold;
+
+    if (below_threshold(nums, threshold)) {
+        std::cout << "All numbers are below the threshold" << std::endl;
+    } else {
+        std::cout << "Some numbers are not below the threshold" << std::endl;
+    }
 
     return 0;
 }
