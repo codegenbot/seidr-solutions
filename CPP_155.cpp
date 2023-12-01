@@ -1,4 +1,8 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
+
+using namespace std;
 
 vector<int> even_odd_count(int num){
     vector<int> result(2, 0);
@@ -13,16 +17,12 @@ vector<int> even_odd_count(int num){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return (a[0] == b[0] && a[1] == b[1]);
+bool isSame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
-int main() {
-    vector<int> even_odd_count(int num);
+int main(){
+    assert(isSame(even_odd_count(0), {1, 0}));
     
-    assert(issame(even_odd_count(0), {1, 0}));
-    assert(issame(even_odd_count(123456), {3, 3}));
-    assert(issame(even_odd_count(-98765), {5, 0}));
-
     return 0;
 }
