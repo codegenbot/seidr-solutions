@@ -15,10 +15,10 @@ std::vector<int> sort_array(std::vector<int> array){
     int sum = array[0] + array[array.size()-1];
     
     if(sum % 2 == 0){
-        std::sort(std::vector<int>(array).rbegin(), std::vector<int>(array).rend());
+        std::sort(array.rbegin(), array.rend());
     }
     else{
-        std::sort(std::vector<int>(array).begin(), std::vector<int>(array).end());
+        std::sort(array.begin(), array.end());
     }
     
     return array;
