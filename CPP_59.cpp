@@ -27,4 +27,5 @@ int main() {
     int n;
     cin >> n;
     cout << largest_prime_factor(n) << endl;
+    return 0;
 }
