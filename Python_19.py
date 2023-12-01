@@ -14,8 +14,8 @@ def sort_numbers(numbers: List[str]) -> str:
         "eight": 8,
         "nine": 9,
     }
-    
+
     sorted_numbers = sorted(numbers, key=lambda x: num_mapping[x])
     sorted_numbers = [str(num_mapping[x]) for x in sorted_numbers]
-    
+
     return " ".join(sorted_numbers)
