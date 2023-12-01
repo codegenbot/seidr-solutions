@@ -4,23 +4,23 @@
 
 using namespace std;
 
-int do_algebra(vector<string> operator, vector<int> operand){
+int do_algebra(vector<string> operato, vector<int> operand){
     int result = operand[0]; // Initialize result with the first operand
 
-    for(int i = 0; i < operator.size(); i++){
-        if(operator[i] == "+"){
+    for(int i = 0; i < operato.size(); i++){
+        if(operato[i] == "+"){
             result += operand[i+1]; // Perform addition
         }
-        else if(operator[i] == "-"){
+        else if(operato[i] == "-"){
             result -= operand[i+1]; // Perform subtraction
         }
-        else if(operator[i] == "*"){
+        else if(operato[i] == "*"){
             result *= operand[i+1]; // Perform multiplication
         }
-        else if(operator[i] == "//"){
+        else if(operato[i] == "//"){
             result /= operand[i+1]; // Perform floor division
         }
-        else if(operator[i] == "**"){
+        else if(operato[i] == "**"){
             result = pow(result, operand[i+1]); // Perform exponentiation
         }
     }
