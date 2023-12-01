@@ -12,9 +12,7 @@ def find_zero(xs: list) -> float:
 if __name__ == "__main__":
     xs = list(map(float, input().split()))
     x = float(input())
-
     result1 = poly(xs, x)
     result2 = find_zero(xs)
-
     print(result1)
     print(result2)
