@@ -1,13 +1,11 @@
-prices = []
-discounts = []
+def calculate_total_price():
+    num_items = int(input())
+    prices = list(map(float, input().split()))
+    discounts = list(map(float, input().split()))
 
-n = int(input())
-for _ in range(n):
-    prices.append(float(input()))
+    discounted_prices = [
+        price - (price * discount / 100) for price, discount in zip(prices, discounts)
+    ]
+    total_price = sum(discounted_prices)
 
-m = int(input())
-for _ in range(m):
-    discounts.append(float(input()))
-
-total_price = sum(price - (price * discount / 100) for price, discount in zip(prices, discounts))
-print(total_price)
+    return total_price
