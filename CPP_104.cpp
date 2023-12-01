@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 bool is_same(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
