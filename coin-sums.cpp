@@ -4,14 +4,14 @@ int main() {
     int cents;
     std::cin >> cents;
 
-    int pennies = cents % 5;
+    int pennies = cents % 1;
+    cents /= 1;
+
+    int nickels = cents % 5 / 2;
     cents /= 5;
 
-    int nickels = (cents % 25) / 10;
-    cents %= 10;
-
-    int dimes = (cents % 10) / 5;
-    cents %= 5;
+    int dimes = cents % 10 / 5;
+    cents /= 10;
 
     int quarters = cents / 25;
 
