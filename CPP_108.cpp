@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 int count_nums(vector<int> n){
     int count = 0;
