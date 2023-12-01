@@ -3,7 +3,7 @@
 #include <cmath>
 
 double calculateDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
-    double sum = 0.0;
+    long double sum = 0.0;
     for (size_t i = 0; i < vector1.size(); i++) {
         sum += pow(vector1[i] - vector2[i], 2);
     }
@@ -11,7 +11,7 @@ double calculateDistance(const std::vector<double>& vector1, const std::vector<d
 }
 
 int main() {
-    int n;
+    size_t n;
     std::cin >> n;
 
     std::vector<double> vector1(n);
