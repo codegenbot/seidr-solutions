@@ -7,7 +7,7 @@ float calculateSnowAmount(int hours, float initialSnow, float snowFallRate, floa
     for (int i = 0; i < hours; i++) {
         snowAmount += snowFallRate;
         snowAmount -= snowAmount * meltingRate;
-        snowAmount = round(snowAmount * 10000000000) / 10000000000;
+        snowAmount = round(snowAmount * 10000000000) / 10000000000; // Round to 10 decimal places
     }
     return snowAmount;
 }
