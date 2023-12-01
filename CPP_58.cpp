@@ -44,11 +44,11 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    assert (issame(common({4, 3, 2, 8}, {}), {}));
-    assert (issame(common({}, {4, 3, 2, 8}), {}));
-    assert (issame(common({4, 3, 2, 8}, {2, 6, 1, 5}), {2}));
-    assert (issame(common({2, 4, 6, 8}, {4, 2, 8, 10}), {2, 4}));
-    assert (issame(common({5, 6, 8}, {8, 5, 2, 6}), {5, 6, 8}));
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    assert(issame(common({}, {4, 3, 2, 8}), {}));
+    assert(issame(common({4, 3, 2, 8}, {2, 6, 1, 5}), {2}));
+    assert(issame(common({2, 4, 6, 8}, {4, 2, 8, 10}), {2, 4}));
+    assert(issame(common({5, 6, 8}, {8, 5, 2, 6}), {5, 6, 8}));
 
     cout << "All test cases passed!" << endl;
 
