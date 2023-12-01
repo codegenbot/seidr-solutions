@@ -1,4 +1,4 @@
-vector<int> minPath(vector<vector<int>> grid, int k); 
+vector<int> minPath(vector<vector<int>> grid, int k);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
