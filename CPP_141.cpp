@@ -8,6 +8,9 @@ string file_name_check(string file_name);
 
 int main() {
     assert(file_name_check("s.") == "No");
+    assert(file_name_check(".txt") == "No");
+    assert(file_name_check("abc.exe") == "Yes");
+    assert(file_name_check("a321.") == "No");
     // more test cases...
     return 0;
 }
