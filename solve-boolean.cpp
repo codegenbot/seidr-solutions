@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
+bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed, bool isInnerExpression = false) {
     if (expression.length() == 1) {
         if (expression[0] == 'T') {
             return isEnclosed;
@@ -32,7 +32,7 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
     }
 
     if (opIndex != -1) {
-        int lastOpIndex = opIndex;
+        int lastOpIndex = opIndex + 1;
 
         while (lastOpIndex < expression.length() && (expression[lastOpIndex] == '&' || expression[lastOpIndex] == '|')) {
             lastOpIndex++;
@@ -40,14 +40,16 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
         lastOpIndex--;
 
         std::string left = expression.substr(0, opIndex);
-        std::string right = expression.substr(lastOpIndex + 2);
+        std::string right = expression.substr(lastOpIndex + 1);
 
         if (expression[opIndex] == '&') {
-            bool leftResult = evaluateBooleanExpression(left, false);
-            bool rightResult = evaluateBooleanExpression(right, false);
+            bool leftResult = evaluateBooleanExpression(left, false, true);
+            bool rightResult = evaluateBooleanExpression(right, false, true);
             return leftResult && rightResult;
         } else if (expression[opIndex] == '|') {
-            return evaluateBooleanExpression(left, false) || evaluateBooleanExpression(right, false);
+            bool leftResult = evaluateBooleanExpression(left, false, true);
+            bool rightResult = evaluateBooleanExpression(right, false, true);
+            return leftResult || rightResult;
         }
     }
 
