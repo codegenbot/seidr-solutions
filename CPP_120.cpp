@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     // implementation of issame function
-    // TODO: Add implementation here
+    return a == b;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
