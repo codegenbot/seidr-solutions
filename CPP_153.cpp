@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm> // Include the <algorithm> header to access the count_if function
-
+#include <algorithm>
 using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
