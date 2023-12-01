@@ -12,10 +12,7 @@ double double_the_difference(std::vector<float> lst){
 
 int main(){
     std::vector<float> lst = {1.5, 2.0, 3.5, 4.0, 5.5, 6.0};
-    
     double result = double_the_difference(lst);
-
     std::cout << "Result: " << result << std::endl;
-
     return 0;
 }
