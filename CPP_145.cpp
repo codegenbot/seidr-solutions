@@ -1,9 +1,22 @@
-#include <algorithm>
 #include <vector>
 #include <cmath>
 #include <cassert>
 
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 bool compare(int a, int b) {
     int sum_a = 0, sum_b = 0;
@@ -24,20 +37,6 @@ bool compare(int a, int b) {
     }
 
     return sum_a < sum_b;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
 }
 
 vector<int> order_by_points(vector<int> nums) {
