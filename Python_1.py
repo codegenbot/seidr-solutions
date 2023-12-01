@@ -1,5 +1,6 @@
 from typing import List
 
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     open_paren = {'(', '[', '{'}
     close_paren = {')', ']', '}'}
@@ -25,6 +26,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups.append(current_group)
 
     return groups
+
 
 def get_matching_paren(paren: str) -> str:
     if paren == ')':
