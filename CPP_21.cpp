@@ -1,7 +1,4 @@
 #include <vector>
-#include <iostream>
-
-using namespace std;
 
 vector<float> rescale_to_unit(vector<float> numbers);
 
