@@ -1,4 +1,4 @@
-#include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -26,11 +26,24 @@ vector<string> split_words(string txt){
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // Your code here
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(split_words(""), {"0"}));
+    vector<string> a = {"hello", "world"};
+    vector<string> b = {"hello", "world"};
+    vector<string> c = {"hello", "cpp"};
+    
+    bool ab = issame(a, b);
+    bool ac = issame(a, c);
+    
     return 0;
 }
