@@ -1,14 +1,14 @@
 int digits(int n){
     int product = 1;
-    string num = to_string(n);
-    for(int i = 0; i < num.length(); i++){
-        int digit = num[i] - '0';
+    while(n > 0){
+        int digit = n % 10;
         if(digit % 2 != 0){
             product *= digit;
         }
-        else{
-            return 0;
-        }
+        n /= 10;
+    }
+    if(product == 1){
+        return 0;
     }
     return product;
 }
