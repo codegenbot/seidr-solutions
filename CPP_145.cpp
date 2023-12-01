@@ -1,40 +1,44 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <cassert>
-#include <cmath>
+
+using std::string;
+using Vector = std::vector<int>;
 
 bool compare(int a, int b) {
     int sum_a = 0, sum_b = 0;
-    int temp_a = std::abs(a), temp_b = std::abs(b);
-
-    while (temp_a > 0) {
-        sum_a += temp_a % 10;
-        temp_a /= 10;
+    string str_a = std::to_string(a);
+    string str_b = std::to_string(b);
+    
+    for (char c : str_a) {
+        if (c != '-') {
+            sum_a += c - '0';
+        }
     }
-
-    while (temp_b > 0) {
-        sum_b += temp_b % 10;
-        temp_b /= 10;
+    
+    for (char c : str_b) {
+        if (c != '-') {
+            sum_b += c - '0';
+        }
     }
-
+    
     if (sum_a == sum_b) {
         return a < b;
     }
-
+    
     return sum_a < sum_b;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
+Vector order_by_points(Vector nums) {
     std::sort(nums.begin(), nums.end(), compare);
     return nums;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(Vector a, Vector b){
     return a == b;
 }
 
 int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
-
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
