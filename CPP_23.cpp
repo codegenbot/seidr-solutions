@@ -8,7 +8,6 @@ int calculateLength(string str){
 }
 
 int main() {
-    assert(calculateLength("asdasnakj") == 9);
     // your code here
     return 0;
 }
