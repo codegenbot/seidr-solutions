@@ -1,8 +1,8 @@
-int digitSum(string s){
+int digitSum(string s) {
     int sum = 0;
-    for (char c : s) {
-        if (c >= 'A' && c <= 'Z') {
-            sum += c;
+    for (int i = 0; i < s.length(); i++) {
+        if (isupper(s[i])) {
+            sum += static_cast<int>(s[i]);
         }
     }
     return sum;
