@@ -4,11 +4,11 @@ string find_max(vector<string> words){
     
     for (string word : words) {
         int uniqueChars = 0;
-        bool visited[26] = { false };
+        bool visited[26] = {false};
         
-        for (char c : word) {
-            if (!visited[c - 'a']) {
-                visited[c - 'a'] = true;
+        for (char ch : word) {
+            if (!visited[ch - 'a']) {
+                visited[ch - 'a'] = true;
                 uniqueChars++;
             }
         }
