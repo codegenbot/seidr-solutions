@@ -10,7 +10,7 @@ int sumOfDigits(int num) {
     return sum;
 }
 
-int largestPrimeSum(const std::vector<int>& lst) {
+int largestPrimeSum(std::vector<int> lst) {
     int largestPrime = 0;
     for (int num : lst) {
         if (num <= 1) {
