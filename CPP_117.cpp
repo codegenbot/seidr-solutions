@@ -1,6 +1,5 @@
-#include <cassert>
 #include <vector>
-#include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -11,11 +10,16 @@ bool isConsonant(char c) {
 
 vector<string> select_words(string s, int n);
 
-bool issame(vector<string> a, vector<string> b);
-
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    return 0;
+bool isSame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> select_words(string s, int n) {
@@ -45,14 +49,7 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+int main() {
+    assert(isSame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    return 0;
 }
