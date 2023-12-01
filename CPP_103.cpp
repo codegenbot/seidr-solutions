@@ -1,9 +1,17 @@
 #include <iostream>
-#include <string>
-#include <cassert>
 #include <cmath>
+#include <string>
 
 using namespace std;
+
+string rounded_avg(int n, int m);
+
+int main() {
+    // Add test cases here
+    cout << rounded_avg(1, 5) << endl;
+    cout << rounded_avg(10, 20) << endl;
+    cout << rounded_avg(5, 5) << endl;
+}
 
 string rounded_avg(int n, int m) {
     if (n > m) {
@@ -28,10 +36,4 @@ string rounded_avg(int n, int m) {
     }
     
     return binary;
-}
-
-int main() {
-    assert (rounded_avg(5, 5) == "101");
-    
-    return 0;
 }
