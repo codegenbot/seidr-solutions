@@ -1,16 +1,27 @@
+#include <iostream>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 string encrypt(string s){
-    string encrypted = "";
-    for(int i=0; i<s.length(); i++){
+    string encryptedString = "";
+    for(int i = 0; i < s.length(); i++){
         char c = s[i];
         if(isalpha(c)){
             if(islower(c)){
-                c = 'a' + (c - 'a' + 2 * 2) % 26;
+                c = ((c - 'a') + 2 * 2) % 26 + 'a';
             }
             else{
-                c = 'A' + (c - 'A' + 2 * 2) % 26;
+                c = ((c - 'A') + 2 * 2) % 26 + 'A';
             }
         }
-        encrypted += c;
+        encryptedString += c;
     }
-    return encrypted;
+    return encryptedString;
+}
+
+int main() {
+    assert(encrypt("a")=="e");
+    return 0;
 }
