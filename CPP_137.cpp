@@ -11,7 +11,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (num1 < num2) {
             return num2;
         } else {
-            return "None";
+            return boost::any();
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float num1 = boost::any_cast<float>(a);
@@ -21,7 +21,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (num1 < num2) {
             return num2;
         } else {
-            return "None";
+            return boost::any();
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string str1 = boost::any_cast<std::string>(a);
@@ -35,9 +35,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (num1 < num2) {
             return str2;
         } else {
-            return "None";
+            return boost::any();
         }
     } else {
-        return "None";
+        return boost::any();
     }
 }
