@@ -1,18 +1,17 @@
 def cut_vector(vector):
     n = len(vector)
-    prefix_sum = [0] * (n + 1)
+    sum_left = [0] * (n + 1)
+    sum_right = [0] * (n + 1)
+
     for i in range(1, n + 1):
-        prefix_sum[i] = prefix_sum[i - 1] + vector[i - 1]
+        sum_left[i] = sum_left[i - 1] + vector[i - 1]
+        sum_right[i] = sum_right[i - 1] + vector[n - i]
 
-    total_sum = prefix_sum[n]
-    min_diff = float("inf")
-    cut_index = -1
+    min_diff = abs(sum_left[1] - sum_right[n - 1])
+    cut_index = 1
 
-    for i in range(1, n):
-        left_sum = prefix_sum[i]
-        right_sum = total_sum - left_sum
-        diff = abs(left_sum - right_sum)
-
+    for i in range(2, n):
+        diff = abs(sum_left[i] - sum_right[n - i])
         if diff < min_diff:
             min_diff = diff
             cut_index = i
