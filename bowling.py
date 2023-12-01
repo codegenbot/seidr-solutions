@@ -1,41 +1,44 @@
-import re
-
 def calculate_score(bowls):
-    frames = re.findall(r'(\d+|-|X|/)', bowls)
     score = 0
+    frame = 1
     frame_index = 0
-    
-    for _ in range(10):
-        if frames[frame_index] == 'X':
-            score += 10 + strike_bonus(frames, frame_index)
+    while frame <= 10:
+        if bowls[frame_index] == 'X':
+            score += 10
+            if frame < 10:
+                score += get_strike_bonus(bowls, frame_index)
             frame_index += 1
-        elif frames[frame_index + 1] == '/':
-            score += 10 + spare_bonus(frames, frame_index)
+        elif bowls[frame_index+1] == '/':
+            score += 10
+            if frame < 10:
+                score += get_spare_bonus(bowls, frame_index)
             frame_index += 2
         else:
-            score += frame_sum(frames, frame_index)
+            score += int(bowls[frame_index]) + int(bowls[frame_index+1])
             frame_index += 2
-    
+        frame += 1
     return score
 
-def strike_bonus(frames, frame_index):
-    if frame_index + 2 < len(frames):
-        if frames[frame_index + 2] == 'X':
-            return 20
+def get_strike_bonus(bowls, frame_index):
+    bonus = 0
+    if bowls[frame_index+2] == 'X':
+        bonus += 10
+        if bowls[frame_index+4] == 'X':
+            bonus += 10
         else:
-            return 10 + int(frames[frame_index + 2])
-    return 10
+            bonus += int(bowls[frame_index+4])
+    else:
+        bonus += int(bowls[frame_index+2]) + int(bowls[frame_index+3])
+    return bonus
 
-def spare_bonus(frames, frame_index):
-    if frame_index + 2 < len(frames):
-        if frames[frame_index + 2] == 'X':
-            return 10
-        else:
-            return int(frames[frame_index + 2])
-    return 10
+def get_spare_bonus(bowls, frame_index):
+    bonus = 0
+    if bowls[frame_index+2] == 'X':
+        bonus += 10
+    else:
+        bonus += int(bowls[frame_index+2])
+    return bonus
 
-def frame_sum(frames, frame_index):
-    return int(frames[frame_index]) + int(frames[frame_index + 1])
-
-bowls = input()
-print(calculate_score(bowls))
+bowls = input().strip()
+score = calculate_score(bowls)
+print(score)
