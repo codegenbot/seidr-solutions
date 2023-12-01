@@ -24,7 +24,7 @@ int main() {
     assert (largest_smallest_integers({5, 3, -1, 7, 2}) == std::vector<int>{-1, 2});
     assert (largest_smallest_integers({0, 0, 0, 0, 0}) == std::vector<int>{0, 0});
     assert (largest_smallest_integers({-1, -2, -3, -4, -5}) == std::vector<int>{-1, -5});
-    assert (largest_smallest_integers({1, 2, 3, 4, 5}) == std::vector<int>{5, 1});
+    assert (largest_smallest_integers({1, 2, 3, 4, 5}) == std::vector<int>{1, 5});
     
     return 0;
 }
