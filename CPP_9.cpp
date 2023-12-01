@@ -4,18 +4,6 @@
 
 using namespace std;
 
-vector<int> rolling_max(vector<int> numbers){
-    vector<int> rollingMax;
-    int maxSoFar = INT_MIN;
-    
-    for(int i=0; i<numbers.size(); i++){
-        maxSoFar = max(maxSoFar, numbers[i]);
-        rollingMax.push_back(maxSoFar);
-    }
-    
-    return rollingMax;
-}
-
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -28,6 +16,18 @@ bool issame(vector<int> a, vector<int> b){
     }
     
     return true;
+}
+
+vector<int> rolling_max(vector<int> numbers){
+    vector<int> rollingMax;
+    int maxSoFar = INT_MIN;
+    
+    for(int i=0; i<numbers.size(); i++){
+        maxSoFar = max(maxSoFar, numbers[i]);
+        rollingMax.push_back(maxSoFar);
+    }
+    
+    return rollingMax;
 }
 
 int main(){
