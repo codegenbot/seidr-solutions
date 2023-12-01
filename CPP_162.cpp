@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <openssl/md5.h>
+
 using namespace std;
 
 string string_to_md5(string text) {
@@ -18,6 +19,6 @@ string string_to_md5(string text) {
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         sprintf(&md5String[i*2], "%02x", (unsigned int)digest[i]);
     }
-    
+
     return string(md5String);
 }
