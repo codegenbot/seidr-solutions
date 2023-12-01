@@ -1,19 +1,24 @@
-int count_distinct_characters(string str){
-    // Convert the string to lowercase
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+int count_distinct_characters(std::string str){
+    std::vector<char> distinctChars;
     
-    // Create a vector to store the distinct characters
-    vector<char> distinct_chars;
-    
-    // Iterate through each character of the given string
-    for(char c : str){
-        // Check if the character is already present in the distinct_chars vector
-        if(find(distinct_chars.begin(), distinct_chars.end(), c) == distinct_chars.end()){
-            // If not present, add it to the vector
-            distinct_chars.push_back(c);
+    for(int i=0; i<str.length(); i++){
+        char ch = std::tolower(str[i]);
+        
+        if(std::find(distinctChars.begin(), distinctChars.end(), ch) == distinctChars.end()){
+            distinctChars.push_back(ch);
         }
     }
     
-    // Return the number of distinct characters
-    return distinct_chars.size();
+    return distinctChars.size();
+}
+
+int main(){
+    assert (count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    
+    return 0;
 }
