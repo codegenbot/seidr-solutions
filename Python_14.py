@@ -8,6 +8,3 @@ def all_prefixes(string: str) -> List[str]:
 
 # Prompt user for input
 input_string = input("Enter a string: ")
-
-# Call the function with the input string and print the result
-print(all_prefixes(input_string))
