@@ -1,3 +1,8 @@
+#include <vector>
+#include <list>
+#include <typeinfo>
+#include <cassert>
+
 std::vector<int> filter_integers(std::list<int> values) {
     std::vector<int> result;
     for (const auto& value : values) {
