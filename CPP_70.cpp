@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -8,27 +7,24 @@ using namespace std;
 vector<int> strange_sort_list(vector<int> lst){
     vector<int> result;
     sort(lst.begin(), lst.end());
-    int left = 0;
-    int right = lst.size() - 1;
+    int start = 0;
+    int end = lst.size() - 1;
     
-    while (left <= right) {
-        result.push_back(lst[left]);
-        if (left != right) {
-            result.push_back(lst[right]);
+    while(start <= end){
+        result.push_back(lst[start]);
+        if(start != end){
+            result.push_back(lst[end]);
         }
-        left++;
-        right--;
+        start++;
+        end--;
     }
     
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int main() {
-    assert(issame(strange_sort_list({111111}), {111111}));
-
+    assert (strange_sort_list({111111}) == vector<int>({111111}));
+    assert (strange_sort_list({3, 2, 1, 4, 5, 6}) == vector<int>({1, 6, 2, 5, 3, 4}));
+    
     return 0;
 }
