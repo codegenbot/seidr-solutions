@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
 vector<string> words_string(string s){
