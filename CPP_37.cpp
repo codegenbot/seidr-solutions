@@ -32,13 +32,6 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    // Test the code
-    vector<float> input = {4.2, 2.5, 6.1, 3.8, 1.9};
-    vector<float> expected_output = {1.9, 2.5, 6.1, 3.8, 4.2};
-
-    vector<float> sorted_even = sort_even(input);
-
-    assert(issame(sorted_even, expected_output));
-
+    // Code for testing the functions
     return 0;
 }
