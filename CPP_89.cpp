@@ -1,13 +1,24 @@
-string encrypt(string s){
-    string encrypted = "";
+#include <string>
+
+std::string encrypt(std::string s){
+    std::string encrypted = "";
+    int shift = 2 * 2; // Shift down by two multiplied to two places
+    
     for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            char c = s[i] + 2 * 2; // Shift the character down by two multiplied to two places
-            if(c > 'z'){ // Wrap around if the character exceeds 'z'
-                c = c - 'z' + 'a' - 1;
-            }
-            encrypted += c;
+        char c = s[i];
+        if(c >= 'a' && c <= 'z'){
+            c = ((c - 'a' + shift) % 26) + 'a'; // Rotate alphabet
         }
+        else if(c >= 'A' && c <= 'Z'){
+            c = ((c - 'A' + shift) % 26) + 'A'; // Rotate alphabet
+        }
+        encrypted += c;
     }
+    
     return encrypted;
+}
+
+int main(){
+    assert (encrypt("a")=="e");
+    // remaining code...
 }
