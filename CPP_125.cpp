@@ -1,34 +1,46 @@
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
-
-    for(char ch : txt){
-        if(ch == ' ' || ch == ','){
-            if(!word.empty()){
+    
+    if(txt.find(' ') != string::npos){
+        // split on whitespace
+        for(int i = 0; i < txt.length(); i++){
+            if(txt[i] == ' '){
                 result.push_back(word);
                 word = "";
             }
-        }
-        else{
-            word += ch;
-        }
-    }
-
-    if(!word.empty()){
-        result.push_back(word);
-    }
-
-    if(result.empty()){
-        int oddCount = 0;
-
-        for(char ch : txt){
-            if(islower(ch) && (ch - 'a') % 2 != 0){
-                oddCount++;
+            else{
+                word += txt[i];
             }
         }
-
-        result.push_back(to_string(oddCount));
+        result.push_back(word);
     }
-
+    else if(txt.find(',') != string::npos){
+        // split on comma
+        for(int i = 0; i < txt.length(); i++){
+            if(txt[i] == ','){
+                result.push_back(word);
+                word = "";
+            }
+            else{
+                word += txt[i];
+            }
+        }
+        result.push_back(word);
+    }
+    else{
+        // no whitespace or comma, return number of odd alphabet positions
+        int count = 0;
+        for(int i = 0; i < txt.length(); i++){
+            if(islower(txt[i])){
+                int position = txt[i] - 'a';
+                if(position % 2 == 1){
+                    count++;
+                }
+            }
+        }
+        result.push_back(to_string(count));
+    }
+    
     return result;
 }
