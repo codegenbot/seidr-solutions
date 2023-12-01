@@ -1,19 +1,18 @@
+#include<stdio.h>
+#include<string>
+using namespace std;
+bool is_palindrome(string str){
+    string s(str.rbegin(),str.rend());
+    return s==str;
+}
 string make_palindrome(string str){
-    int n = str.length();
-    if(n == 0)
-        return "";
-    string rev = str;
-    reverse(rev.begin(), rev.end());
-    if(is_palindrome(str))
-        return str;
-    for(int i = 1; i < n; i++){
-        string suffix = str.substr(i);
-        string prefix = str.substr(0, i);
-        string rev_prefix = prefix;
-        reverse(rev_prefix.begin(), rev_prefix.end());
-        if(is_palindrome(suffix)){
-            return str + rev_prefix;
+    string rev_str(str.rbegin(), str.rend());
+    string palin_str = str;
+    for(int i = str.length()-1; i>=0; i--){
+        if(is_palindrome(palin_str)){
+            break;
         }
+        palin_str += rev_str[i];
     }
-    return str + rev;
+    return palin_str;
 }
