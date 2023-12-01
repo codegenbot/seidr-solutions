@@ -1,55 +1,57 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
+    
+    int leftSum = 0;
+    int rightSum = sum;
     int diff = INT_MAX;
-    int index = -1;
-
-    for (int i = 1; i < n; i++) {
-        int leftSum = 0;
-        int rightSum = 0;
-
-        for (int j = 0; j < i; j++) {
-            leftSum += nums[j];
-        }
-
-        for (int j = i; j < n; j++) {
-            rightSum += nums[j];
-        }
-
+    int cutIdx = -1;
+    
+    for (int i = 0; i < n; i++) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
         int currDiff = abs(leftSum - rightSum);
-
         if (currDiff < diff) {
             diff = currDiff;
-            index = i;
+            cutIdx = i;
         }
     }
-
-    std::vector<int> left(nums.begin(), nums.begin() + index);
-    std::vector<int> right(nums.begin() + index, nums.end());
-
-    return std::make_pair(left, right);
+    
+    vector<int> left(nums.begin(), nums.begin() + cutIdx + 1);
+    vector<int> right(nums.begin() + cutIdx + 1, nums.end());
+    
+    left.push_back(0);
+    right.push_back(0);
+    
+    return {left, right};
 }
 
 int main() {
     int n;
-    std::cin >> n;
-
-    std::vector<int> nums(n);
+    cin >> n;
+    
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
-
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-
-    for (int num : result.first) {
-        std::cout << num << std::endl;
+    
+    vector<int> left, right;
+    tie(left, right) = cutVector(nums);
+    
+    for (int num : left) {
+        cout << num << endl;
     }
-
-    for (int num : result.second) {
-        std::cout << num << std::endl;
+    
+    for (int num : right) {
+        cout << num << endl;
     }
-
+    
     return 0;
 }
