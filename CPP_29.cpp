@@ -4,6 +4,7 @@
 
 bool issame(vector<string> a, vector<string> b){
     // implementation here
+    // compare vectors a and b and return true if they are the same, otherwise false
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
