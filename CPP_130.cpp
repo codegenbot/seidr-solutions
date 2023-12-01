@@ -1,16 +1,15 @@
 #include <vector>
 
-std::vector<int> tri(int n);
-
 bool issame(std::vector<int> a, std::vector<int> b){
-    // Implementation of the function
-    // ...
-}
-
-int main() {
-    // Test the tri function and issame function
-    // ...
-    return 0;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> tri(int n){
@@ -32,4 +31,15 @@ std::vector<int> tri(int n){
         }
     }
     return sequence;
+}
+
+int main() {
+    // Test the tri function and issame function
+    std::vector<int> expected{3, 2, 6, 1, 8, 4, 13, 7, 22, 11};
+    std::vector<int> result = tri(9);
+    if (issame(result, expected)) {
+        return 0;
+    } else {
+        return -1;
+    }
 }
