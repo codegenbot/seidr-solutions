@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 bool cycpattern_check(string a, string b) {
     if (a.length() < b.length()) {
