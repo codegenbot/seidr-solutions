@@ -19,12 +19,6 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    vector<string> expected_output = {"", "True"};
-    vector<string> output = reverse_delete("mamma", "mia");
-    if (output == expected_output) {
-        cout << "Test case passed!" << endl;
-    } else {
-        cout << "Test case failed!" << endl;
-    }
+    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
     return 0;
 }
