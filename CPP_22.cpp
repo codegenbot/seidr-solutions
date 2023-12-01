@@ -2,11 +2,12 @@
 #include <list>
 #include <boost/any.hpp>
 #include <typeinfo>
-#include <iostream>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
 vector<int> filter_integers(list<boost::any> values){
     vector<int> result;
@@ -18,10 +19,6 @@ vector<int> filter_integers(list<boost::any> values){
     return result;
 }
 
-bool issame(vector<int> a,vector<int> b){
-    // code for checking if two vectors are same
-}
-
 int main(){
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers(list<boost::any>{3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
 }
