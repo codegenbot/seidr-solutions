@@ -12,8 +12,12 @@ pair<int, int> mastermind(string code, string guess) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeCount[code[i] - '1']++;
-            guessCount[guess[i] - '1']++;
+            if (code[i] >= 'A' && code[i] <= 'F') {
+                codeCount[code[i] - 'A']++;
+            }
+            if (guess[i] >= 'A' && guess[i] <= 'F') {
+                guessCount[guess[i] - 'A']++;
+            }
         }
     }
 
@@ -27,25 +31,6 @@ pair<int, int> mastermind(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-
-    if (code.length() != 4 || guess.length() != 4) {
-        cout << "Invalid input" << endl;
-        return 0;
-    }
-
-    for (char c : code) {
-        if (c < '1' || c > '6') {
-            cout << "Invalid input" << endl;
-            return 0;
-        }
-    }
-
-    for (char c : guess) {
-        if (c < '1' || c > '6') {
-            cout << "Invalid input" << endl;
-            return 0;
-        }
-    }
 
     pair<int, int> result = mastermind(code, guess);
     cout << result.first << endl;
