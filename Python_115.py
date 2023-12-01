@@ -1,6 +1,6 @@
 def max_fill(grid, capacity):
-    max_fill = 0
+    num_fill = 0
     for row in grid:
-        well_capacity = sum(row)
-        max_fill += math.ceil(well_capacity / capacity)
-    return max_fill
+        for well in row:
+            num_fill += math.ceil(well / capacity)
+    return num_fill
