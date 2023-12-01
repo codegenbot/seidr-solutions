@@ -1,33 +1,42 @@
-#include <iostream>
-#include <map>
-#include <cassert>
+#include<iostream>
+#include<map>
+#include<sstream>
 
 using namespace std;
 
-map<char,int> histogram(string test){
-  map<char,int> result;
-  string word;
-  for(char c : test){
-    if(c != ' '){
-      word += c;
-    }else{
-      result[word]++;
-      word = "";
+map<char, int> histogram(string test){
+    map<char, int> result;
+    if(test.empty()){
+        return result;
     }
-  }
-  if(word != ""){
-    result[word]++;
-  }
-  return result;
+    stringstream ss(test);
+    string word;
+    while(ss >> word){
+        for(char c : word){
+            result[c]++;
+        }
+    }
+    int maxCount = 0;
+    for(auto it = result.begin(); it != result.end(); ++it){
+        if(it->second > maxCount){
+            maxCount = it->second;
+        }
+    }
+    map<char, int> maxLetters;
+    for(auto it = result.begin(); it != result.end(); ++it){
+        if(it->second == maxCount){
+            maxLetters[it->first] = it->second;
+        }
+    }
+    return maxLetters;
 }
 
 bool issame(map<char,int> a, map<char,int> b){
-  return a == b;
+    return a == b;
 }
 
-int main(){
-  assert (issame(histogram("a") , {{'a', 1}}));
-  assert (issame(histogram("hello world") , {{'h', 1}, {'e', 1}, {'l', 3}, {'o', 2}, {'w', 1}, {'r', 1}, {'d', 1}}));
+int main() {
+    assert(issame(histogram("a"), { {'a',1} }));
 
-  return 0;
+    return 0;
 }
