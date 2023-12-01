@@ -12,27 +12,27 @@ bool evaluateBooleanExpression(const std::string& expression) {
             break;
         }
     }
-    
+
     if (opIndex != -1) {
         bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
+        bool right = evaluateBooleanExpression(expression.substr(opIndex + 1));
 
         if (expression[opIndex] == '|') {
-            if (left) {
-                return true;
-            }
+            return left || right;
         } else if (expression[opIndex] == '&') {
-            if (!left) {
-                return false;
-            }
+            return left && right;
         }
+    } else if (expression.length() == 1) {
+        return (expression[0] == 'T' || expression[0] == 't');
+    } else if (expression.length() == 3) {
+        bool left = (expression[0] == 'T' || expression[0] == 't');
+        bool right = (expression[2] == 'T' || expression[2] == 't');
 
-        bool right = evaluateBooleanExpression(expression.substr(opIndex + 1));
-        return right;
-    } else if (expression == "T" || expression == "t") {
-        return true;
-    } else if (expression == "F" || expression == "f") {
-        return false;
+        if (expression[1] == '|') {
+            return left || right;
+        } else if (expression[1] == '&') {
+            return left && right;
+        }
     }
-
-    return true;
+    return false;
 }
