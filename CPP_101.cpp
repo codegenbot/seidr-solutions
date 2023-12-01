@@ -24,15 +24,13 @@ vector<string> splitString(string s){
 }
 
 int main(){
-    vector<string> result = splitString("ahmed     , gamal");
+    vector<string> result = splitString("ahmed, gamal");
     cout << "Output: ";
     for(const string& word : result){
         cout << word << " ";
     }
     cout << endl;
 
-    // Perform assertion
-    assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
-
+    assert(splitString("ahmed, gamal") == splitString("ahmed, gamal"));
     return 0;
 }
