@@ -3,6 +3,10 @@
 #include <limits>
 using namespace std;
 
+vector<int> minPath(vector<vector<int>> grid, int k);
+
+bool issame(vector<int> a, vector<int> b);
+
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
