@@ -3,8 +3,6 @@
 #include <string>
 using namespace std;
 
-string match_parens(vector<string> lst);
-
 string match_parens(vector<string> lst){
     int count = 0;
     for(int i = 0; i < lst.size(); i++){
