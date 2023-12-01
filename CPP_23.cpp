@@ -7,7 +7,7 @@ int getLength(const std::string& str){
 }
 
 int main(){
-    assert (getLength("asdasnakj") == 9);
+    assert(getLength("asdasnakj") == 9);
     // rest of your code
     return 0;
 }
