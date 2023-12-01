@@ -1,11 +1,12 @@
-bool simplify(string x, string n) {
-    int x_num = stoi(x.substr(0, x.find('/')));
-    int x_den = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_den = stoi(n.substr(n.find('/') + 1));
-    
-    int result_num = x_num * n_num;
-    int result_den = x_den * n_den;
-    
-    return result_den % result_num == 0;
+bool simplify(string x,string n){
+    int num1 = stoi(x.substr(0, x.find("/")));
+    int den1 = stoi(x.substr(x.find("/") + 1));
+
+    int num2 = stoi(n.substr(0, n.find("/")));
+    int den2 = stoi(n.substr(n.find("/") + 1));
+
+    if((num1 * den2) == (num2 * den1))
+        return true;
+    else
+        return false;
 }
