@@ -1,41 +1,29 @@
-def calculate_bowling_score(bowls):
+def calculate_score(rolls):
     score = 0
-    frame = 1
-    bowl_index = 0
-
-    while frame <= 10:
-        bowl = bowls[bowl_index]
-
-        if bowl == 'X':
-            score += 10
-            if frame <= 8:
-                next_bowl = bowls[bowl_index + 1]
-                next_next_bowl = bowls[bowl_index + 2]
-
-                if next_bowl == 'X':
-                    score += 10
-                    if next_next_bowl == 'X':
-                        score += 10
-                    else:
-                        score += int(next_next_bowl)
-                elif next_bowl == '/':
-                    score += 10
-                else:
-                    score += int(next_bowl)
-
-        elif bowl == '/':
-            score += 10 - int(bowls[bowl_index - 1])
-            if frame <= 9:
-                next_bowl = bowls[bowl_index + 1]
-                if next_bowl == 'X':
-                    score += 10
-                else:
-                    score += int(next_bowl)
-
+    frames = []
+    for roll in rolls:
+        if roll == 'X':
+            frames.append(10)
+        elif roll == '/':
+            frames.append('/')
         else:
-            score += int(bowl)
+            frames.append(int(roll))
 
-        bowl_index += 1
+    i = 0
+    frame = 1
+    while frame <= 10:
+        if frames[i] == '/':
+            score += 10 + frames[i + 1]
+        elif frames[i] == 10:
+            score += 10 + frames[i + 1] + frames[i + 2]
+            if frames[i + 1] == '/':
+                score += frames[i + 2]
+        else:
+            score += frames[i] + frames[i + 1]
+        i += 1
         frame += 1
 
     return score
+
+rolls = input().strip()
+print(calculate_score(rolls))
