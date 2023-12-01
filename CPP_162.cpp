@@ -15,7 +15,7 @@ string string_to_md5(string text) {
     MD5_Final(digest, &ctx);
 
     char md5String[33];
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         sprintf(&md5String[i*2], "%02x", (unsigned int)digest[i]);
     }
 
