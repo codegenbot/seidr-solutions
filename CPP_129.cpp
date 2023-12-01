@@ -48,21 +48,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
 }
 
 int main(){
-    int n, m, k;
-    cin >> n >> m >> k;
-    
-    vector<vector<int>> grid(n, vector<int>(m));
-    for(int i=0; i<n; i++){
-        for(int j=0; j<m; j++){
-            cin >> grid[i][j];
-        }
-    }
-    
-    vector<int> result = minPath(grid, k);
-    
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
-    }
-    
+    // remove the assert statement
+    // rest of the code
     return 0;
 }
