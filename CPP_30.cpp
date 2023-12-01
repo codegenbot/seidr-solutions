@@ -12,26 +12,18 @@ vector<float> get_positive(vector<float> l){
 }
 
 bool issame(vector<float> a, vector<float> b){
-
-    // Compare the size of the vectors
     if(a.size() != b.size()){
         return false;
     }
-
-    // Iterate through both vectors
-    for(int i=0; i<a.size(); ++i){
-        // If the elements are not equal, return false
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
     }
-
-    // If all elements are equal, return true
     return true;
 }
 
-int main() {
-    // Test the get_positive function with an empty vector
+int main(){
     assert(issame(get_positive({}), {}));
     return 0;
 }
