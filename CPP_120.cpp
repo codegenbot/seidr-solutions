@@ -3,11 +3,12 @@
 vector<int> maximum(vector<int> arr, int k);
 
 int main() {
-    vector<int> arr;
-    int k;
-    // read input from user and populate arr and k
+    vector<int> arr = {1, 2, 3, 4, 5};
+    int k = 3;
     vector<int> result = maximum(arr, k);
-    // print the result
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
     return 0;
 }
 
