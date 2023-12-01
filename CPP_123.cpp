@@ -1,14 +1,12 @@
 #include <vector>
 #include <iostream>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
   return a == b;
 }
 
-vector<int> get_odd_collatz(int n) {
-  vector<int> collatz_seq;
+std::vector<int> get_odd_collatz(int n) {
+  std::vector<int> collatz_seq;
   collatz_seq.push_back(n);
   while (n != 1) {
     if (n % 2 == 0) {
@@ -18,21 +16,22 @@ vector<int> get_odd_collatz(int n) {
     }
     collatz_seq.push_back(n);
   }
-  vector<int> odd_collatz_seq;
-  for (int i = 0; i < collatz_seq.size(); i++) {
-    if (collatz_seq[i] % 2 != 0) {
-      odd_collatz_seq.push_back(collatz_seq[i]);
+  std::vector<int> odd_collatz_seq;
+  for (const auto& num : collatz_seq) {
+    if (num % 2 != 0) {
+      odd_collatz_seq.push_back(num);
     }
   }
   return odd_collatz_seq;
 }
 
 int main() {
-  vector<int> expected = {1};
-  const vector<int>& result = get_odd_collatz(1);
+  std::vector<int> expected = {1};
+  const std::vector<int>& result = get_odd_collatz(1);
   if (issame(result, expected)) {
-    cout << "Output is correct" << endl;
+    std::cout << "Output is correct" << std::endl;
   } else {
-    cout << "Output is incorrect" << endl;
+    std::cout << "Output is incorrect" << std::endl;
   }
+  return 0;
 }
