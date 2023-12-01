@@ -38,7 +38,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> numbers[i];
     }
-
+    
     std::vector<int> result = sum_product(numbers);
 
     for (int i = 0; i < result.size(); i++) {
