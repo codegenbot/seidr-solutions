@@ -1,31 +1,45 @@
 def minPath(grid, k):
-    def dfs(i, j, path, visited):
-        if len(path) == k:
-            return path
-        visited.add((i, j))
-        neighbors = []
-        if i > 0 and (i-1, j) not in visited:
-            neighbors.append((i-1, j))
-        if i < len(grid)-1 and (i+1, j) not in visited:
-            neighbors.append((i+1, j))
-        if j > 0 and (i, j-1) not in visited:
-            neighbors.append((i, j-1))
-        if j < len(grid[0])-1 and (i, j+1) not in visited:
-            neighbors.append((i, j+1))
-        neighbors.sort(key=lambda x: grid[x[0]][x[1]])
-        for neighbor in neighbors:
-            path.append(grid[neighbor[0]][neighbor[1]])
-            result = dfs(neighbor[0], neighbor[1], path, visited)
-            if result:
-                return result
-            path.pop()
-        visited.remove((i, j))
+    N = len(grid)
+    visited = [[False] * N for _ in range(N)]
+    path = []
+    
+    def dfs(i, j, count):
+        if count == k:
+            return True
+        
+        visited[i][j] = True
+        path.append(grid[i][j])
+        
+        if i > 0 and not visited[i-1][j]:
+            if dfs(i-1, j, count+1):
+                return True
+        
+        if i < N-1 and not visited[i+1][j]:
+            if dfs(i+1, j, count+1):
+                return True
+        
+        if j > 0 and not visited[i][j-1]:
+            if dfs(i, j-1, count+1):
+                return True
+        
+        if j < N-1 and not visited[i][j+1]:
+            if dfs(i, j+1, count+1):
+                return True
+        
+        visited[i][j] = False
+        path.pop()
+        return False
+    
+    for i in range(N):
+        for j in range(N):
+            if dfs(i, j, 1):
+                return path
 
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            path = [grid[i][j]]
-            visited = set()
-            visited.add((i, j))
-            result = dfs(i, j, path, visited)
-            if result:
-                return result
+# Testing the code with the given examples
+grid1 = [[1,2,3], [4,5,6], [7,8,9]]
+k1 = 3
+print(minPath(grid1, k1)) # Output: [1, 2, 1]
+
+grid2 = [[5,9,3], [4,1,6], [7,8,2]]
+k2 = 1
+print(minPath(grid2, k2)) # Output: [1]
