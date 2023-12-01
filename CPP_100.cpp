@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 vector<int> make_a_pile(int n) {
@@ -20,4 +21,10 @@ vector<int> make_a_pile(int n) {
         }
     }
     return piles;
+}
+
+int main() {
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    cout << "Test passed!" << endl;
+    return 0;
 }
