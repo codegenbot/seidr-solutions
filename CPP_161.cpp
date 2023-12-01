@@ -1,6 +1,8 @@
 #include <iostream>
-#include <string>
 #include <algorithm>
+#include <string>
+#include <cassert>
+
 using namespace std;
 
 string solve(string s){
@@ -30,6 +32,7 @@ string solve(string s){
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
+    assert (solve("#ccc") == "#CCC");
+    
     return 0;
 }
