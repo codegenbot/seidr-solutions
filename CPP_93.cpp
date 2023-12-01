@@ -1,35 +1,31 @@
+#include <iostream>
+#include <cstring>
+#include <cctype>
+using namespace std;
+
 string encode(string message){
-    string encoded_message = "";
-    for(int i=0; i<message.length(); i++){
+    string encodedMessage = "";
+    for(int i = 0; i < message.length(); i++){
         if(isalpha(message[i])){
             if(islower(message[i])){
-                encoded_message += toupper(message[i]);
-            }
-            else{
-                encoded_message += tolower(message[i]);
+                encodedMessage += toupper(message[i]);
+            } else {
+                encodedMessage += tolower(message[i]);
             }
             if(message[i] == 'a' || message[i] == 'A'){
-                encoded_message += 'C';
+                encodedMessage += 'C';
+            } else if(message[i] == 'e' || message[i] == 'E'){
+                encodedMessage += 'G';
+            } else if(message[i] == 'i' || message[i] == 'I'){
+                encodedMessage += 'K';
+            } else if(message[i] == 'o' || message[i] == 'O'){
+                encodedMessage += 'Q';
+            } else if(message[i] == 'u' || message[i] == 'U'){
+                encodedMessage += 'W';
             }
-            else if(message[i] == 'e' || message[i] == 'E'){
-                encoded_message += 'G';
-            }
-            else if(message[i] == 'i' || message[i] == 'I'){
-                encoded_message += 'K';
-            }
-            else if(message[i] == 'o' || message[i] == 'O'){
-                encoded_message += 'Q';
-            }
-            else if(message[i] == 'u' || message[i] == 'U'){
-                encoded_message += 'W';
-            }
-            else{
-                encoded_message += message[i];
-            }
-        }
-        else{
-            encoded_message += message[i];
+        } else {
+            encodedMessage += message[i];
         }
     }
-    return encoded_message;
+    return encodedMessage;
 }
