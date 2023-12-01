@@ -1,59 +1,39 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(const std::string& bowls) {
+int getScore(const std::string& round) {
     int score = 0;
-    int frame = 1;
-    int roll = 0;
-    bool spare = false;
-    bool strike = false;
+    int frame = 0;
+    int rolls = 0;
 
-    for (char c : bowls) {
+    for (char c : round) {
         if (c == 'X') {
             score += 10;
-            if (frame < 10) {
-                if (strike) {
+            if (frame < 9) {
+                if (rolls == 0) {
                     score += 10;
+                } else {
+                    score += 10 - rolls;
                 }
-                strike = true;
-                frame++;
-                roll = 0;
             }
+            rolls = 0;
+            frame++;
         } else if (c == '/') {
-            score += 10 - roll;
-            if (frame < 10) {
-                if (strike) {
-                    score += 10;
-                }
-                spare = true;
-                frame++;
-                roll = 0;
+            score += 10 - rolls;
+            if (frame < 9) {
+                score += 10;
             }
+            rolls = 0;
+            frame++;
         } else if (c == '-') {
-            if (frame < 10) {
-                if (strike) {
-                    score += 10;
-                }
-                frame++;
-                roll = 0;
-            }
+            rolls = 0;
         } else {
             score += c - '0';
-            if (frame < 10) {
-                if (spare) {
-                    score += c - '0';
-                    spare = false;
-                }
-                if (strike) {
-                    score += c - '0';
-                    strike = false;
-                }
-                roll++;
-                if (roll == 2) {
-                    frame++;
-                    roll = 0;
-                }
+            rolls = c - '0';
+            if (rolls != 10) {
+                rolls = 0;
             }
+            frame++;
         }
     }
 
@@ -61,12 +41,11 @@ int calculateScore(const std::string& bowls) {
 }
 
 int main() {
-    std::string bowls;
-    std::cout << "Enter the individual bowls in a 10-frame round of 10 pin bowling: ";
-    std::cin >> bowls;
+    std::string round;
+    std::getline(std::cin, round);
 
-    int score = calculateScore(bowls);
-    std::cout << "Score: " << score << std::endl;
+    int score = getScore(round);
+    std::cout << score << std::endl;
 
     return 0;
 }
