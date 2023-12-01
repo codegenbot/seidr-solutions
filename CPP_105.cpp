@@ -1,30 +1,50 @@
-vector<string> by_length(vector<int> arr) {
-    vector<int> sortedArr;
+vector<string> by_length(vector<int> arr){
     vector<string> result;
-    map<int, string> digitName;
-    digitName[1] = "One";
-    digitName[2] = "Two";
-    digitName[3] = "Three";
-    digitName[4] = "Four";
-    digitName[5] = "Five";
-    digitName[6] = "Six";
-    digitName[7] = "Seven";
-    digitName[8] = "Eight";
-    digitName[9] = "Nine";
-
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] >= 1 && arr[i] <= 9) {
-            sortedArr.push_back(arr[i]);
+    vector<int> sorted_arr;
+  
+    // sort the integers between 1 and 9 inclusive
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] >= 1 && arr[i] <= 9){
+            sorted_arr.push_back(arr[i]);
         }
     }
-
-    sort(sortedArr.begin(), sortedArr.end());
-
-    reverse(sortedArr.begin(), sortedArr.end());
-
-    for (int i = 0; i < sortedArr.size(); i++) {
-        result.push_back(digitName[sortedArr[i]]);
+    sort(sorted_arr.begin(), sorted_arr.end());
+  
+    // reverse the sorted array
+    reverse(sorted_arr.begin(), sorted_arr.end());
+  
+    // replace each digit with its corresponding name
+    for(int i = 0; i < sorted_arr.size(); i++){
+        switch(sorted_arr[i]){
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
+        }
     }
-
+  
     return result;
 }
