@@ -1,33 +1,19 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
-    int result = operand[0]; // Initialize result with the first operand
-
+int do_algebra(vector<string> operato, vector<int> operand){
+    int result = operand[0]; // Initialize the result with the first operand
+    
     for (int i = 0; i < operato.size(); i++) {
         if (operato[i] == "+") {
-            result += operand[i + 1];
+            result += operand[i+1]; // Perform addition
         } else if (operato[i] == "-") {
-            result -= operand[i + 1];
+            result -= operand[i+1]; // Perform subtraction
         } else if (operato[i] == "*") {
-            result *= operand[i + 1];
+            result *= operand[i+1]; // Perform multiplication
         } else if (operato[i] == "//") {
-            result /= operand[i + 1];
+            result /= operand[i+1]; // Perform floor division
         } else if (operato[i] == "**") {
-            result = pow(result, operand[i + 1]);
+            result = pow(result, operand[i+1]); // Perform exponentiation
         }
     }
-
-    return result;
-}
-
-int main() {
-    std::vector<std::string> operato{"+", "*", "-"};
-    std::vector<int> operand{2, 3, 4, 5};
-
-    int result = do_algebra(operato, operand);
-    std::cout << "Result: " << result << std::endl;
-
-    return 0;
+    
+    return result; // Return the final result
 }
