@@ -5,19 +5,19 @@ bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> tri(int n){
     std::vector<int> sequence;
-    sequence.push_back(3);
+    sequence.push_back(3); 
     
     if(n == 0){
         return sequence;
     }
     
-    sequence.push_back(1 + n / 2);
+    sequence.push_back(1 + n / 2); 
     
     if(n == 1){
         return sequence;
     }
     
-    sequence.push_back(sequence[0] + sequence[1]);
+    sequence.push_back(sequence[0] + sequence[1]); 
     
     for(int i = 3; i <= n; i++){
         if(i % 2 == 0){
