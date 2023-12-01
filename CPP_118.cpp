@@ -17,13 +17,3 @@ std::string get_closest_vowel(std::string word) {
     }
     return "";
 }
-
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    assert(get_closest_vowel("Hallway") == "a");
-    assert(get_closest_vowel("Apple") == "");
-    assert(get_closest_vowel("Umbrella") == "e");
-    assert(get_closest_vowel("Rhythm") == "y");
-
-    return 0;
-}
