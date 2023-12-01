@@ -1,10 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <string>
-
-using namespace std;
-
-string match_parens(vector<string> lst);
+#include <vector>
 
 string match_parens(vector<string> lst){
     string s1 = lst[0]; // first string
@@ -38,9 +33,4 @@ string match_parens(vector<string> lst){
     else{
         return "No";
     }
-}
-
-int main(){
-    assert (match_parens({")", "("}) == "Yes" );
-    return 0;
 }
