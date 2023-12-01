@@ -41,13 +41,13 @@ bool evaluateBooleanExpression(std::string expression) {
 }
 
 int main() {
-    std::string expression;
+    std::string inputExpression;
     std::cout << "Enter a boolean expression: ";
-    std::cin >> expression;
+    std::getline(std::cin, inputExpression);
 
-    bool result = evaluateBooleanExpression(expression);
+    bool result = evaluateBooleanExpression(inputExpression);
 
-    std::cout << "Result: " << (result ? "true" : "false") << std::endl;
+    std::cout << "Result: " << std::boolalpha << result << std::endl;
 
     return 0;
 }
