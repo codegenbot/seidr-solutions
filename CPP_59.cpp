@@ -22,10 +22,3 @@ int largest_prime_factor(int n) {
 
     return largest_factor;
 }
-
-int main() {
-    int n;
-    cin >> n;
-    cout << largest_prime_factor(n) << endl;
-    return 0;
-}
