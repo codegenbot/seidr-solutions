@@ -21,7 +21,6 @@ bool evaluateBooleanExpression(string expression) {
 int main() {
     string expression;
     cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    cout << (result ? "True" : "False") << endl;
+    cout << (evaluateBooleanExpression(expression) ? "True" : "False") << endl;
     return 0;
 }
