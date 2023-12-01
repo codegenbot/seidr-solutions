@@ -1,33 +1,34 @@
 def calculate_score(bowls):
     score = 0
-    frame = 0
-    i = 0
-    while frame < 10:
-        if bowls[i] == 'X':
-            score += 10
-            score += bonus(bowls, i, 2)
-            i += 1
-        elif bowls[i+1] == '/':
-            score += 10
-            score += bonus(bowls, i, 1)
-            i += 2
+    frame = 1
+    roll = 0
+    rolls = [0] * 22
+
+    for bowl in bowls:
+        if bowl == 'X':
+            rolls[roll] = 10
+            rolls[roll + 1] = 0
+            roll += 2
+        elif bowl == '/':
+            rolls[roll] = 10 - rolls[roll - 1]
+            roll += 1
+        elif bowl == '-':
+            rolls[roll] = 0
+            roll += 1
         else:
-            score += int(bowls[i])
-            score += int(bowls[i+1])
-            i += 2
-        frame += 1
+            rolls[roll] = int(bowl)
+            roll += 1
+
+    for i in range(1, 21):
+        if frame < 10 and rolls[i - 1] == 10:
+            score += rolls[i] + rolls[i + 1]
+            if rolls[i] == 10:
+                score += rolls[i + 2]
+        elif rolls[i - 1] + rolls[i] == 10 and rolls[i - 1] != 0:
+            score += rolls[i + 1]
+        score += rolls[i]
+
+        if rolls[i - 1] == 10 or i % 2 == 0:
+            frame += 1
+
     return score
-
-def bonus(bowls, i, num):
-    bonus_score = 0
-    for j in range(num):
-        if bowls[i+j+1] == 'X':
-            bonus_score += 10
-        elif bowls[i+j+1] == '/':
-            bonus_score += 10 - int(bowls[i+j])
-        else:
-            bonus_score += int(bowls[i+j+1])
-    return bonus_score
-
-bowls = input()
-print(calculate_score(bowls))
