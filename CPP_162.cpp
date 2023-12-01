@@ -21,5 +21,3 @@ string string_to_md5(const string& text) {
     
     return string(encoded);
 }
-
-#include <cryptopp/md5.h>
