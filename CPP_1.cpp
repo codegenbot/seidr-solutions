@@ -18,11 +18,13 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
                 group += c;
             }
             count++;
-        } else if (c == ')') {
+        }
+        else if (c == ')') {
             count--;
             if (count > 0) {
                 group += c;
-            } else if (count == 0) {
+            }
+            else if (count == 0) {
                 result.push_back(group);
                 group = "";
             }
