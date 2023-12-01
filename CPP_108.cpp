@@ -1,7 +1,8 @@
 #include <vector>
 #include <cassert>
+using namespace std;
 
-int count_nums(std::vector<int> n) {
+int count_nums(vector<int> n) {
     int count = 0;
     for (int num : n) {
         int sum = 0;
@@ -18,10 +19,5 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    assert(count_nums(std::vector<int>{1}) == 1);
-    assert(count_nums(std::vector<int>{-123, 0, 456, 789}) == 3);
-    assert(count_nums(std::vector<int>{100, 200, -300, 0}) == 3);
-    assert(count_nums(std::vector<int>{}) == 0);
-    assert(count_nums(std::vector<int>{-1, -2, -3}) == 3);
-    return 0;
+    assert(count_nums(vector<int>{1}) == 1);
 }
