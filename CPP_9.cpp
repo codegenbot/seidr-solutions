@@ -1,9 +1,17 @@
-vector<int> rolling_max(vector<int> numbers){
-    vector<int> max_numbers;
-    int max_num = INT_MIN;
-    for(int i=0; i<numbers.size(); i++){
-        max_num = max(max_num, numbers[i]);
-        max_numbers.push_back(max_num);
+#include <vector>
+using namespace std;
+
+vector<int> rolling_max(vector<int> numbers) {
+    vector<int> rollingMax;
+    int currentMax = numbers[0];
+    rollingMax.push_back(currentMax);
+
+    for (int i = 1; i < numbers.size(); i++) {
+        if (numbers[i] > currentMax) {
+            currentMax = numbers[i];
+        }
+        rollingMax.push_back(currentMax);
     }
-    return max_numbers;
+
+    return rollingMax;
 }
