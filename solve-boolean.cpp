@@ -24,16 +24,15 @@ bool evaluateBooleanExpression(const std::string& expression, bool isEnclosed) {
             if (parenthesisCount > 0) {
                 continue;
             }
-        } else if ((expression[i] == '&' || expression[i] == '|') && parenthesisCount == 0) {
+        } else if ((expression[i] == '&' || expression[i] == '|') && parenthesisCount == 0 && opIndex == -1) {
             opIndex = i;
-            break;
-        } else if (expression[i] == 'F' && parenthesisCount == 0 && opIndex == -1) {
+        } else if (expression[i] == 'F' && parenthesisCount == 0) {
             return false;
         }
     }
 
     if (opIndex != -1) {
-        int lastOpIndex = opIndex;
+        int lastOpIndex = opIndex + 1;
 
         while (lastOpIndex < expression.length() && (expression[lastOpIndex] == '&' || expression[lastOpIndex] == '|')) {
             lastOpIndex++;
