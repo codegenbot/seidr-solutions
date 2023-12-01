@@ -18,7 +18,7 @@ bool evaluateBooleanExpression(const std::string& expression) {
 
     if (opIndex != -1) {
         bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
-        bool right = evaluateBooleanExpression(expression.substr(opIndex + 1));
+        bool right = evaluateBooleanExpression(expression.substr(opIndex + 2));
 
         switch (expression[opIndex]) {
             case '|':
