@@ -1,7 +1,11 @@
+#include <iostream>
 #include <string>
-#include <cassert>
+#include <cryptopp/md5.h>
 
-std::string string_to_md5(const std::string& text) {
+using namespace std;
+using namespace CryptoPP;
+
+string string_to_md5(const string& text) {
     if (text.empty()) {
         return "None";
     }
@@ -14,5 +18,5 @@ std::string string_to_md5(const std::string& text) {
         sprintf(&md5String[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return std::string(md5String);
+    return string(md5String);
 }
