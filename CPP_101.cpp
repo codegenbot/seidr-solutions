@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
-using namespace std;
-
 vector<string> words_string(string s){
     vector<string> words;
     string word;
@@ -24,7 +17,7 @@ vector<string> words_string(string s){
     return words;
 }
 
-bool issame(vector<string> a, vector<string> c){
+bool issame(vector<string> a,vector<string>c){
     if(a.size() != c.size()){
         return false;
     }
@@ -36,9 +29,8 @@ bool issame(vector<string> a, vector<string> c){
     return true;
 }
 
-int main(){
+int main() {
     vector<string> words_string(string s);
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    
+    assert (issame(words_string("ahmed     , gamal") , {"ahmed", "gamal"}));
     return 0;
 }
