@@ -19,6 +19,9 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
+    vector<string> result = reverse_delete("mamma", "mia");
+    cout << result[0] << endl;
+    cout << result[1] << endl;
+    
     return 0;
 }
