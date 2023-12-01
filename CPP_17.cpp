@@ -4,7 +4,14 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> parse_music(std::string music_string) {
+std::vector<int> parse_music(std::string music_string);
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    // Implementation of the function
+    return a == b;
+}
+
+std::vector<int> parse_music(std::string music_string){
     std::vector<int> beats;
     std::string note;
     for(int i=0; i<music_string.length(); i+=3){
@@ -20,11 +27,6 @@ std::vector<int> parse_music(std::string music_string) {
         }
     }
     return beats;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    // Implementation of the function
-    return a == b;
 }
 
 int main(){
