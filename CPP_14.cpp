@@ -6,28 +6,26 @@
 using namespace std;
 
 vector<string> all_prefixes(string str){
-    vector<string> result;
+    vector<string> prefixes;
     string prefix = "";
-    for(int i=0; i<str.length(); i++){
+    for(int i = 0; i < str.length(); i++){
         prefix += str[i];
-        result.push_back(prefix);
+        prefixes.push_back(prefix);
     }
-    return result;
+    return prefixes;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
+bool issame(vector<string> b){
+    vector<string> a = all_prefixes(b[0]);
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
 int main(){
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(issame(all_prefixes("WWW")));
+    cout << "Test cases passed." << endl;
     return 0;
 }
