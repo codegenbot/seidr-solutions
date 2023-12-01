@@ -7,3 +7,12 @@ def below_zero(operations: List[int]) -> bool:
         if balance < 0:
             return True
     return False
+
+n = int(input())
+operations = []
+for i in range(n):
+    operation = int(input())
+    operations.append(operation)
+
+result = below_zero(operations)
+print(result)
