@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 bool correct_bracketing(string brackets){
     int count = 0;
     for(int i = 0; i < brackets.length(); i++){
@@ -19,6 +17,6 @@ bool correct_bracketing(string brackets){
 }
 
 int main(){
-    cout << correct_bracketing("()()(()())()))()") << endl;
+    std::cout << correct_bracketing("()()(()())()))()") << std::endl;
     return 0;
 }
