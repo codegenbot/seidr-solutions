@@ -13,7 +13,15 @@ bool is_palindrome(string text){
 }
 
 int main() {
-    // code for testing the is_palindrome function
-
+    string input;
+    cout << "Enter a text: ";
+    cin >> input;
+    
+    if (is_palindrome(input)) {
+        cout << "The text is a palindrome." << endl;
+    } else {
+        cout << "The text is not a palindrome." << endl;
+    }
+    
     return 0;
 }
