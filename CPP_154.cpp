@@ -1,9 +1,12 @@
 bool cycpattern_check(string a, string b) {
-    if (a.length() < b.length()) {
+    int n = a.length();
+    int m = b.length();
+    
+    if (n < m) {
         return false;
     }
-
-    string doubleA = a + a;
-
-    return doubleA.find(b) != string::npos;
+    
+    string temp = b + b;
+    
+    return (temp.find(a) != string::npos);
 }
