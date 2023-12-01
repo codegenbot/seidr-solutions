@@ -4,7 +4,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     int targetLength = target.length();
     
     for (int i = 0; i <= textLength - targetLength; i++) {
-        bool found = false;
+        bool found = false; // Initialize found to false
         for (int j = 0; j < targetLength; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
