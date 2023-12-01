@@ -22,8 +22,3 @@ vector<int> get_odd_collatz(int n) {
     sort(odd_collatz.begin(), odd_collatz.end());
     return odd_collatz;
 }
-
-int main() {
-    assert(issame(get_odd_collatz(1), {1}));
-    return 0;
-}
