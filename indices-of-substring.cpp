@@ -19,7 +19,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
                 break;
             }
         }
-        if (found && (i + targetLength > textLength || text[i + targetLength] != target[0])) {
+        if (found && (i + targetLength >= textLength || text[i + targetLength] != target[0] || (i > 0 && text[i-1] == target[0]))) {
             indices.push_back(i);
         }
     }
