@@ -1,6 +1,8 @@
 #include <iostream>
-#include <vector>
 #include <cassert>
+#include <vector>
+
+using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()){
