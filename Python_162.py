@@ -1,5 +1,5 @@
 import hashlib
-
+import sys
 
 def string_to_md5(text):
     if text == "":
@@ -7,10 +7,6 @@ def string_to_md5(text):
     else:
         return hashlib.md5(text.encode()).hexdigest()
 
-
-try:
-    text = input("Enter the input text: ")
-    result = string_to_md5(text)
-    print(result)
-except Exception as e:
-    print("Error:", e)
+text = sys.stdin.readline().strip()
+result = string_to_md5(text)
+print(result)
