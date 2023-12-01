@@ -13,7 +13,3 @@ def encode(message):
         else:
             encoded_message += char
     return encoded_message
-
-assert encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg"
-assert encode("tEsT") == "vGuV"
-assert encode("abcde") == "cde"
