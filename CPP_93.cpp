@@ -1,42 +1,18 @@
-#include<iostream>
-using namespace std;
-
 string encode(string message){
-    string encodedMessage = "";
-    
+    string encoded_message = "";
     for(int i=0; i<message.length(); i++){
-        if(isalpha(message[i])){
-            // Swap the case of letter
-            if(isupper(message[i])){
-                encodedMessage += tolower(message[i]);
+        char c = message[i];
+        if(isalpha(c)){
+            if(isupper(c)){
+                encoded_message += tolower(c);
             }
             else{
-                encodedMessage += toupper(message[i]);
+                encoded_message += toupper(c);
             }
-
-            // Replace vowels with the letter that appears 2 places ahead
-            char c = encodedMessage.back();
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-               c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
-                
-                encodedMessage.pop_back();
-                encodedMessage += c + 2;
+            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
+                encoded_message += c+2;
             }
-        }
-        else{
-            encodedMessage += message[i];
         }
     }
-    return encodedMessage;
-}
-
-int main(){
-    string message;
-    
-    cout << "Enter a message: ";
-    getline(cin, message);
-    
-    cout << "Encoded message: " << encode(message) << endl;
-    
-    return 0;
+    return encoded_message;
 }
