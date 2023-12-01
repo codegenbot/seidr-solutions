@@ -5,7 +5,7 @@ using namespace std;
 
 bool below_threshold(vector<int> l, int t) {
     for (size_t i = 0; i < l.size(); i++) {
-        if (l[i] >= t) {
+        if (l[i] < t) {
             return false;
         }
     }
