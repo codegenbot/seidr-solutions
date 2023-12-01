@@ -1,8 +1,9 @@
 #include <string>
+#include <cassert>
 
-bool is_palindrome(string text){
+bool is_palindrome(std::string text){
     int n = text.length();
-    for(int i=0; i<n/2; i++){
+    for(int i = 0; i < n/2; i++){
         if(text[i] != text[n-i-1]){
             return false;
         }
@@ -10,8 +11,9 @@ bool is_palindrome(string text){
     return true;
 }
 
-int main() { 
-    // Add your code here
-
+int main(){
+    assert (is_palindrome("xywzx") == false);
+    assert (is_palindrome("racecar") == true);
+    
     return 0;
 }
