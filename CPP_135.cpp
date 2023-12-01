@@ -1,11 +1,9 @@
 int can_arrange(vector<int> arr){
-    int maxIndex = -1;
-    
-    for(int i=1; i<arr.size(); i++){
+    int n = arr.size();
+    for(int i = 1; i < n; i++){
         if(arr[i] < arr[i-1]){
-            maxIndex = i-1;
+            return i-1;
         }
     }
-    
-    return maxIndex;
+    return -1;
 }
