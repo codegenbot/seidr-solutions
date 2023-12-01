@@ -2,34 +2,23 @@
 #include <iostream>
 
 std::vector<int> cutVector(const std::vector<int>& nums) {
-    int n = nums.size();
-    int diff = INT_MAX;
-    int index = -1;
-
-    for (int i = 1; i < n; i++) {
-        int leftSum = 0;
-        int rightSum = 0;
-
-        for (int j = 0; j < i; j++) {
-            leftSum += nums[j];
-        }
-
-        for (int j = i; j < n; j++) {
-            rightSum += nums[j];
-        }
-
-        int currentDiff = abs(leftSum - rightSum);
-
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            index = i;
-        }
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
     }
 
-    std::vector<int> left(nums.begin(), nums.begin() + index);
-    std::vector<int> right(nums.begin() + index, nums.end());
+    int target = sum / 2;
+    int currSum = 0;
+    int idx = 0;
+    while (currSum < target) {
+        currSum += nums[idx];
+        idx++;
+    }
 
-    return {left, right};
+    std::vector<int> subVector1(nums.begin(), nums.begin() + idx);
+    std::vector<int> subVector2(nums.begin() + idx, nums.end());
+
+    return {subVector1, subVector2};
 }
 
 int main() {
@@ -41,10 +30,15 @@ int main() {
         std::cin >> nums[i];
     }
 
-    std::vector<int> result = cutVector(nums);
+    std::vector<int> result1, result2;
+    std::tie(result1, result2) = cutVector(nums);
 
-    for (int num : result) {
-        std::cout << num << "\n";
+    for (int num : result1) {
+        std::cout << num << std::endl;
+    }
+
+    for (int num : result2) {
+        std::cout << num << std::endl;
     }
 
     return 0;
