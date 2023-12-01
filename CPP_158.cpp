@@ -2,14 +2,17 @@ string find_max(vector<string> words){
     string maxWord = "";
     int maxUniqueChars = 0;
 
-    for(auto word : words){
+    for(const string& word : words){
         int uniqueChars = 0;
-        vector<bool> isCharPresent(26, false);
+        int charCount[26] = {0};
 
-        for(auto c : word){
-            if(!isCharPresent[c - 'a']){
+        for(char c : word){
+            charCount[c - 'a']++;
+        }
+
+        for(int count : charCount){
+            if(count > 0){
                 uniqueChars++;
-                isCharPresent[c - 'a'] = true;
             }
         }
 
