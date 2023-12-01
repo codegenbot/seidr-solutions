@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+using namespace std;
 
 vector<string> reverse_delete(string s, string c);
 
@@ -22,5 +23,4 @@ vector<string> reverse_delete(string s, string c) {
 
 int main() {
     assert(isSame(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
 }
