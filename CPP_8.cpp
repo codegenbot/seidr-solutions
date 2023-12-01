@@ -2,22 +2,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
-std::vector<int> sum_product(std::vector<int> numbers) {
-    std::sort(numbers.begin(), numbers.end()); 
-
-    int sum = 0;
-    int product = 1;
-
-    for (int i = 0; i < numbers.size(); i++) {
-        sum += numbers[i];
-        product *= numbers[i];
-    }
-
-    return std::vector<int>({sum, product});
-}
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -32,21 +16,35 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+std::vector<int> sum_product(std::vector<int> numbers) {
+    std::sort(numbers.begin(), numbers.end());
+
+    int sum = 0;
+    int product = 1;
+
+    for (int i = 0; i < numbers.size(); i++) {
+        sum += numbers[i];
+        product *= numbers[i];
+    }
+
+    return std::vector<int>({sum, product});
+}
+
 int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> numbers(n);
+    std::vector<int> input_numbers(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> numbers[i];
+        std::cin >> input_numbers[i];
     }
 
-    std::vector<int> result = sum_product(numbers);
+    std::vector<int> result = sum_product(input_numbers);
 
     for (int i = 0; i < result.size(); i++) {
         std::cout << result[i] << " ";
     }
     std::cout << std::endl;
-    
+
     return 0;
 }
