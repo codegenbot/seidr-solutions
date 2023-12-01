@@ -6,17 +6,8 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(vector<int> a, vector<int> b);
+vector<int> order_by_points(vector<int> nums);
 
 vector<int> order_by_points(vector<int> nums){
     vector<pair<int, int>> sums;
@@ -35,6 +26,18 @@ vector<int> order_by_points(vector<int> nums){
         result.push_back(nums[p.second]);
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
