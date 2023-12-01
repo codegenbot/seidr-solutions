@@ -2,8 +2,6 @@ def minPath(grid, k):
     def backtrack(i, j, path, remain, visited):
         if remain == 0:
             return path
-        if remain < 0:
-            return None
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
         for di, dj in directions:
             ni, nj = i + di, j + dj
@@ -24,6 +22,6 @@ def minPath(grid, k):
             if grid[i][j] != -1:
                 visited = {(i, j)}
                 path = backtrack(i, j, [(i, j)], k, visited)
-                if path is not None and len(path) == k:
+                if path is not None and len(path) == k - 1:
                     return path + [grid[i][j]]
     return None
