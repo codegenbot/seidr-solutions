@@ -2,9 +2,7 @@
 #include <cassert>
 #include <cmath>
 
-std::vector<float> find_closest_elements(std::vector<float> numbers);
-
-bool is_same_vector(std::vector<float> a, std::vector<float> b) {
+bool is_same_vector(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -14,10 +12,10 @@ bool is_same_vector(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    float min_diff = std::abs(numbers[0] - numbers[1]);
-    float num1 = numbers[0];
-    float num2 = numbers[1];
+std::vector<float> find_closest_elements(const std::vector<float>& numbers) {
+    const float min_diff = std::abs(numbers[0] - numbers[1]);
+    const float num1 = numbers[0];
+    const float num2 = numbers[1];
 
     for (int i = 0; i < numbers.size() - 1; i++) {
         for (int j = i + 1; j < numbers.size(); j++) {
@@ -35,4 +33,9 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
     result.push_back(num2);
 
     return result;
+}
+
+int main() {
+    assert(is_same_vector(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    return 0;
 }
