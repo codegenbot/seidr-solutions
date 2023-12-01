@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 long double probabilityOfPeterWinning(int n, int m) {
@@ -21,7 +22,7 @@ int main() {
     cin >> n >> m;
     
     long double probability = probabilityOfPeterWinning(n, m);
-    cout << probability << endl;
+    cout << fixed << setprecision(8) << probability << endl;
     
     return 0;
 }
