@@ -14,8 +14,6 @@ vector<string> all_prefixes(string str) {
     return prefixes;
 }
 
-#include <cassert>
-
 int main() {
     assert(all_prefixes("WWW") == vector<string>{"W", "WW", "WWW"});
     return 0;
