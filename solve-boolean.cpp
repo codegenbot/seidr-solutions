@@ -10,7 +10,7 @@ bool evaluateBooleanExpression(const std::string& expression) {
             parenthesisCount++;
         } else if (expression[i] == ')') {
             parenthesisCount--;
-        } else if ((expression[i] == '|' || expression[i] == '&') && parenthesisCount == 0) {
+        } else if (expression[i] == '|' && parenthesisCount == 0) {
             opIndex = i;
             break;
         }
@@ -20,16 +20,14 @@ bool evaluateBooleanExpression(const std::string& expression) {
         bool left = evaluateBooleanExpression(expression.substr(0, opIndex));
         bool right = evaluateBooleanExpression(expression.substr(opIndex + 2));
 
-        switch (expression[opIndex + 1]) {
+        switch (expression[opIndex]) {
             case '|':
                 return left || right;
-            case '&':
-                return left && right;
         }
     } else {
-        if ((expression == "t") || (expression == "T")) {
+        if (expression == "t") {
             return true;
-        } else if ((expression == "f") || (expression == "F")) {
+        } else if (expression == "f") {
             return false;
         }
     }
@@ -39,7 +37,7 @@ bool evaluateBooleanExpression(const std::string& expression) {
 
 int main() {
     std::string expression;
-    std::cin >> expression;
+    std::getline(std::cin, expression);
 
     bool result = evaluateBooleanExpression(expression);
 
