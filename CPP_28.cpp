@@ -1,6 +1,6 @@
-#include <iostream>
 #include <string>
 #include <vector>
+
 using namespace std;
 
 string concatenate(vector<string> strings){
