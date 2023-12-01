@@ -1,8 +1,6 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> parse_music(string music_string){
     vector<int> beats;
     string note = "";
@@ -35,6 +33,8 @@ vector<int> parse_music(string music_string){
     return beats;
 }
 
+bool issame(vector<int> a, vector<int> b);
+
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -45,4 +45,13 @@ bool issame(vector<int> a, vector<int> b){
         }
     }
     return true;
+}
+
+int main() {
+    // Test the code
+    vector<int> a = parse_music("o o| .| o");
+    vector<int> b = {4, 2, 1, 4};
+    assert(issame(a, b));
+
+    return 0;
 }
