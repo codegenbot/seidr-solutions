@@ -36,11 +36,11 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int val_a = boost::any_cast<int>(a);
         std::string val_b = boost::any_cast<std::string>(b);
-        return boost::any(val_b);
+        return val_b;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string val_a = boost::any_cast<std::string>(a);
         int val_b = boost::any_cast<int>(b);
-        return boost::any(val_a);
+        return val_a;
     }
     return boost::any();
 }
