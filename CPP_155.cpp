@@ -1,8 +1,15 @@
 #include <vector>
-using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
-    // Function logic
+   // Function logic
+}
+
+vector<int> even_odd_count(int num){
+   // Function logic
+}
+
+int main(){
+   assert(issame(even_odd_count(0), {1, 0}));
 }
 
 vector<int> even_odd_count(int num){
@@ -23,8 +30,4 @@ vector<int> even_odd_count(int num){
     
     vector<int> result = {evenCount, oddCount};
     return result;
-}
-
-int main(){
-    assert(issame(even_odd_count(0), {1, 0}));
 }
