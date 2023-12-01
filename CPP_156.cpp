@@ -16,13 +16,3 @@ std::string int_to_mini_roman(int number) {
 
     return result;
 }
-
-int main() {
-    // Test cases
-    assert(int_to_mini_roman(1000) == "M");
-    assert(int_to_mini_roman(25) == "XXV");
-    assert(int_to_mini_roman(300) == "CCC");
-    assert(int_to_mini_roman(4) == "IV");
-
-    return 0;
-}
