@@ -11,4 +11,4 @@ n = int(input())
 strings = [input() for _ in range(n)]
 
 result = longest(strings)
-print(result)
+print("Longest string:", result)
