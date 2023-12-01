@@ -1,32 +1,38 @@
-def calculate_score(bowls):
-    frames = [0] * 10
-    frame_index = 0
-    bowl_index = 0
-    while frame_index < 10:
-        if bowls[bowl_index] == 'X':
-            frames[frame_index] = 10 + calculate_bonus(bowls, bowl_index, 2)
-            bowl_index += 1
-        elif bowls[bowl_index + 1] == '/':
-            frames[frame_index] = 10 + calculate_bonus(bowls, bowl_index, 1)
-            bowl_index += 2
-        else:
-            frames[frame_index] = int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
-            bowl_index += 2
-        frame_index += 1
-    return sum(frames)
+def calculate_score(round):
+    score = 0
+    frame = 1
+    i = 0
 
-def calculate_bonus(bowls, bowl_index, num_bonus_bowls):
-    bonus_score = 0
-    for i in range(num_bonus_bowls):
-        bowl_index += 1
-        if bowls[bowl_index] == 'X':
-            bonus_score += 10
-        elif bowls[bowl_index] == '/':
-            bonus_score += 10 - int(bowls[bowl_index - 1])
+    while frame <= 10:
+        if round[i] == 'X':
+            score += 10
+            if i + 2 < len(round):
+                if round[i + 2] == 'X':
+                    score += 10
+                else:
+                    score += int(round[i + 2])
+            if i + 1 < len(round):
+                if round[i + 1] == 'X':
+                    score += 10
+                elif round[i + 1] == '/':
+                    score += 10 - int(round[i])
+                else:
+                    score += int(round[i + 1])
+            i += 1
+        elif round[i] == '/':
+            score += 10 - int(round[i - 1])
+            if i + 1 < len(round):
+                if round[i + 1] == 'X':
+                    score += 10
+                else:
+                    score += int(round[i + 1])
+            i += 1
         else:
-            bonus_score += int(bowls[bowl_index])
-    return bonus_score
+            score += int(round[i])
+        i += 1
+        frame += 1
 
-bowls = input()
-score = calculate_score(bowls)
-print(score)
+    return score
+
+round = input()
+print(calculate_score(round))
