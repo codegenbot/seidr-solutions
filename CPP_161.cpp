@@ -1,14 +1,10 @@
 #include <cctype>
 #include <algorithm>
 #include <string>
+
 using namespace std;
 
 string solve(string s);
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
-}
 
 string solve(string s) {
     transform(s.begin(), s.end(), s.begin(), [](char c) {
