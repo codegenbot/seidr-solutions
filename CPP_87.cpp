@@ -1,7 +1,5 @@
 #include <vector>
 
-vector<vector<int>> get_row(vector<vector<int>> lst, int x);
-
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
@@ -21,4 +19,9 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
         sort(result[i].begin(), result[i].end(), greater<int>());
     }
     return result;
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
