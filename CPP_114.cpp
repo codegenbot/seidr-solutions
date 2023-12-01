@@ -1,17 +1,25 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-long long minSubArraySum(vector<long long> nums) {
-    long long minSum = nums[0]; // Initialize minSum with the first element of nums
-    long long currentSum = nums[0]; // Initialize currentSum with the first element of nums
+using namespace std;
 
-    for (int i = 1; i < nums.size(); i++) {
-        // If adding the current element to the currentSum results in a smaller sum,
-        // update the currentSum to start a new sub-vector from the current element
-        currentSum = std::min(nums[i], currentSum + nums[i]);
-
-        // Update minSum if the currentSum is smaller
-        minSum = std::min(minSum, currentSum);
+long long minSubArraySum(vector<long long> nums){
+    long long minSum = nums[0];
+    long long currentSum = nums[0];
+    
+    for(int i=1; i<nums.size(); i++){
+        currentSum = min(nums[i], currentSum + nums[i]);
+        minSum = min(minSum, currentSum);
     }
-
+    
     return minSum;
+}
+
+int main() {
+    assert(minSubArraySum({1, -1}) == -1);
+    assert(minSubArraySum({1, 2, 3, -5, 4}) == -5);
+    assert(minSubArraySum({-2, -3, 4, -1, -2, 1, 5, -3}) == -6);
+
+    return 0;
 }
