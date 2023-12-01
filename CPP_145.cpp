@@ -1,7 +1,6 @@
 #include <algorithm>
+#include <cassert>
 #include <vector>
-
-using namespace std;
 
 bool compare(int a, int b) {
     int sumA = 0, sumB = 0;
@@ -22,7 +21,16 @@ bool compare(int a, int b) {
     return sumA < sumB;
 }
 
-vector<int> order_by_points(vector<int>& nums) {
-    sort(nums.begin(), nums.end(), compare);
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), compare);
     return nums;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
