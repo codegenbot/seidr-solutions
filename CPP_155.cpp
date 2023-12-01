@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -28,6 +27,11 @@ vector<int> even_odd_count(int num){
     return result;
 }
 
-#include <cassert>
-
 int main(){
+    assert(even_odd_count(0) == vector<int>{1,0});
+    assert(even_odd_count(12345) == vector<int>{2,3});
+    
+    cout << "All test cases passed!" << endl;
+    
+    return 0;
+}
