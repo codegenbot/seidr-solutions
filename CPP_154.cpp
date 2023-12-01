@@ -1,7 +1,6 @@
-#include <iostream>
 #include <string>
 
-bool cycpattern_check(std::string a, std::string b) {
+bool cycpattern_check(string a, string b) {
     int n = a.length();
     int m = b.length();
 
@@ -25,10 +24,4 @@ bool cycpattern_check(std::string a, std::string b) {
     }
 
     return false;
-}
-
-int main() {
-    assert(cycpattern_check("winemtt", "tinem") == true);
-    
-    return 0;
 }
