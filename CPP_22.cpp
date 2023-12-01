@@ -27,19 +27,10 @@ vector<int> filter_integers(list<boost::any> values){
     return result;
 }
 
-int main() {
-    // Test the modified code
-    list<boost::any> values;
-    values.push_back(1);
-    values.push_back(2.5);
-    values.push_back(3);
-    values.push_back("four");
-    values.push_back(5);
-
-    vector<int> filtered = filter_integers(values);
-
-    vector<int> expected = {1, 3, 5};
-    assert(issame(filtered, expected));
-
+int main(){
+    list<boost::any> values = {1, 2, "hello", 3.14, 4};
+    vector<int> filtered_values = filter_integers(values);
+    vector<int> expected_result = {1, 2, 4};
+    assert(issame(filtered_values, expected_result));
     return 0;
 }
