@@ -3,8 +3,6 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 vector<int> sort_third(vector<int> l); // Forward declaration
 
 bool issame(vector<int> a, vector<int> b) { // Fix function signature
