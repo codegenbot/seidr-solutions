@@ -1,12 +1,15 @@
 bool prime_length(string str){
-    int len = str.length();
-    if(len < 2){
+    int length = str.length();
+
+    if(length <= 1){
         return false;
     }
-    for(int i=2; i*i<=len; i++){
-        if(len % i == 0){
+
+    for(int i = 2; i <= length/2; i++){
+        if(length % i == 0){
             return false;
         }
     }
+
     return true;
 }
