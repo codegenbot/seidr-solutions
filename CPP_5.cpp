@@ -13,6 +13,7 @@ vector<int> intersperse(vector<int> numbers, int delimiter){
 
 bool issame(vector<int> a, vector<int> b){
     // Your implementation here
+    return a == b;
 }
 
 int main(){
