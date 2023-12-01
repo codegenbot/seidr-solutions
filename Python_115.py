@@ -1,5 +1,7 @@
 def max_fill(grid, capacity):
-    total_buckets = 0
+    num_buckets = 0
     for row in grid:
-        total_buckets += sum(row)
-    return math.ceil(total_buckets / capacity)
+        num_buckets += sum(row) // capacity
+        if sum(row) % capacity != 0:
+            num_buckets += 1
+    return num_buckets
