@@ -1,53 +1,61 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <cmath>
 
-vector<int> cutVector(vector<int>& nums) {
+std::pair<std::vector<int>, std::vector<int>> cut_vector(std::vector<int> nums)
+{
     int n = nums.size();
     int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
+    for (int num : nums)
+    {
+        sum += num;
     }
-    
+
     int target = sum / 2;
     int currSum = 0;
+    int diff = INT_MAX;
     int cutIndex = -1;
-    
-    for (int i = 0; i < n; i++) {
+
+    for (int i = 0; i < n; i++)
+    {
         currSum += nums[i];
-        if (currSum == target || currSum + nums[i+1] == target) {
+        int currDiff = std::abs(target - currSum);
+
+        if (currDiff < diff)
+        {
+            diff = currDiff;
             cutIndex = i;
-            break;
         }
     }
-    
-    vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
-    
-    subvector1.push_back(0);
-    
-    return {subvector1, subvector2};
+
+    std::vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
+    std::vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
+
+    return std::make_pair(subvector1, subvector2);
 }
 
-int main() {
+int main()
+{
     int n;
-    cin >> n;
-    
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> nums[i];
     }
-    
-    vector<int> result1, result2;
-    tie(result1, result2) = cutVector(nums);
-    
-    for (int num : result1) {
-        cout << num << endl;
+
+    std::pair<std::vector<int>, std::vector<int>> result = cut_vector(nums);
+
+    for (int num : result.first)
+    {
+        std::cout << num << std::endl;
     }
-    
-    for (int num : result2) {
-        cout << num << endl;
+
+    for (int num : result.second)
+    {
+        std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
