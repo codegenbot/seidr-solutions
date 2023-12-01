@@ -17,10 +17,10 @@ bool is_happy(std::string s){
 }
 
 int main() {
-    assert(is_happy("iopaxioi") == false);
-    assert(is_happy("abc") == true);
-    assert(is_happy("abca") == false);
-    assert(is_happy("ababab") == false);
+    assert (is_happy("iopaxioi") == false );
+    assert (is_happy("abc") == true );
+    assert (is_happy("xyx") == false );
+    assert (is_happy("xyz") == true );
     
     return 0;
 }
