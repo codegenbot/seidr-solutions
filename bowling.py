@@ -1,31 +1,37 @@
-def calculate_score(bowls):
+def calculate_bowling_score(bowls):
     score = 0
     frame = 1
-    frame_index = 0
+    bowl_index = 0
+
     while frame <= 10:
-        if bowls[frame_index] == 'X':
+        if bowls[bowl_index] == 'X':
             score += 10
-            if frame_index + 2 < len(bowls):
-                if bowls[frame_index + 2] == 'X':
+            if bowl_index + 2 < len(bowls):
+                if bowls[bowl_index + 2] == 'X':
                     score += 10
-                elif bowls[frame_index + 2] == '/':
-                    score += 10 - int(bowls[frame_index + 1])
+                elif bowls[bowl_index + 2] == '/':
+                    score += 10 - int(bowls[bowl_index + 1])
                 else:
-                    score += int(bowls[frame_index + 1]) + int(bowls[frame_index + 2])
-            frame_index += 1
-        elif bowls[frame_index] == '/':
-            score += 10 - int(bowls[frame_index - 1])
-            if frame_index + 1 < len(bowls):
-                if bowls[frame_index + 1] == 'X':
-                    score += 10
-                else:
-                    score += int(bowls[frame_index + 1])
-            frame_index += 1
+                    score += int(bowls[bowl_index + 1]) + int(bowls[bowl_index + 2])
+            bowl_index += 1
+        elif bowls[bowl_index] == '/':
+            score += 10 - int(bowls[bowl_index - 1])
+            if bowl_index + 1 < len(bowls) and bowls[bowl_index + 1] == 'X':
+                score += 10
+            elif bowl_index + 1 < len(bowls) and bowls[bowl_index + 1] != '-':
+                score += int(bowls[bowl_index + 1])
+            bowl_index += 1
+        elif bowls[bowl_index] == '-':
+            score += 0
         else:
-            score += int(bowls[frame_index])
+            score += int(bowls[bowl_index])
+
+        if bowls[bowl_index] != 'X' and bowls[bowl_index] != '/':
+            bowl_index += 1
+
         frame += 1
-        frame_index += 1
+
     return score
 
 bowls = input()
-print(calculate_score(bowls))
+print(calculate_bowling_score(bowls))
