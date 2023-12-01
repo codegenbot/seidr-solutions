@@ -1,23 +1,17 @@
 #include <string>
 
-bool check_nested(string str){
+bool is_nested(const std::string& str){
     int count = 0;
     for(int i = 0; i < str.length(); i++){
-        if(str[i] == '['){
+        if(str.at(i) == '['){
             count++;
         }
-        else if(str[i] == ']'){
+        else if(str.at(i) == ']'){
             count--;
         }
-        if(count < 0){
+        if(count > 1){
             return true;
         }
     }
     return false;
-}
-
-int main() {
-    // your code here
-    
-    return 0;
 }
