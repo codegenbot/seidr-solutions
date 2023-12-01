@@ -35,9 +35,3 @@ bool valid_date(std::string date) {
     
     return true;
 }
-
-bool test_valid_date() {
-    std::cout << valid_date("04-2003") << std::endl;
-    
-    return true;
-}
