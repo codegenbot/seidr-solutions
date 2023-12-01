@@ -10,7 +10,7 @@ def find_zero(xs: list):
 
 
 def main():
-    # Read input from user and parse it as space-separated floats
+    # Read input from user and parse it
     xs = list(map(float, input().split()))
 
     # Call the functions with parsed input
