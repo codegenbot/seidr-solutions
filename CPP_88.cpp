@@ -1,9 +1,24 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
-vector<int> sortArray(vector<int> array){
+bool issame(vector<int> a, vector<int> b) {
+    // Implementation of the issame function
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    
+    return true;
+}
+
+vector<int> sort_array(vector<int> array){
     vector<int> sorted_array = array;
     if(array.size() == 0)
         return sorted_array;
@@ -17,6 +32,8 @@ vector<int> sortArray(vector<int> array){
     return sorted_array;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+int main() {
+    assert (issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
+    // More test cases and code logic
+    return 0;
 }
