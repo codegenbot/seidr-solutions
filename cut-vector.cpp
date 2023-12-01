@@ -1,54 +1,51 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
-    int diff = INT_MAX;
-    int index = -1;
+    int leftSum = 0, rightSum = 0;
+    for (int i = 0; i < n; i++) {
+        rightSum += nums[i];
+    }
     
-    for (int i = 0; i < n - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; j++) {
-            leftSum += nums[j];
-        }
-        for (int j = i + 1; j < n; j++) {
-            rightSum += nums[j];
-        }
+    int diff = INT_MAX;
+    int cutIndex = -1;
+    
+    for (int i = 0; i < n; i++) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
         
         int currDiff = abs(leftSum - rightSum);
         if (currDiff < diff) {
             diff = currDiff;
-            index = i;
+            cutIndex = i;
         }
     }
     
-    std::vector<int> leftSubVector, rightSubVector;
-    for (int i = 0; i <= index; i++) {
-        leftSubVector.push_back(nums[i]);
-    }
-    for (int i = index + 1; i < n; i++) {
-        rightSubVector.push_back(nums[i]);
-    }
+    vector<int> leftSubVector(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightSubVector(nums.begin() + cutIndex + 1, nums.end());
     
-    return std::make_pair(leftSubVector, rightSubVector);
+    return make_pair(leftSubVector, rightSubVector);
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
     
-    std::pair<std::vector<int>, std::vector<int>> subVectors = cutVector(nums);
+    pair<vector<int>, vector<int>> result = cutVector(nums);
     
-    for (int num : subVectors.first) {
-        std::cout << num << std::endl;
+    for (int num : result.first) {
+        cout << num << endl;
     }
-    for (int num : subVectors.second) {
-        std::cout << num << std::endl;
+    
+    for (int num : result.second) {
+        cout << num << endl;
     }
     
     return 0;
