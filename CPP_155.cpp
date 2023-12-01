@@ -1,12 +1,9 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <cmath>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-std::vector<int> even_odd_count(int num){
+std::vector<int> count_even_odd(int num){
     int evenCount = 0;
     int oddCount = 0;
     
@@ -25,9 +22,28 @@ std::vector<int> even_odd_count(int num){
     return result;
 }
 
-int main(){
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
-    assert(issame(even_odd_count(0), {1, 0}));
+int main() {
+    if (issame(count_even_odd(0), {1, 0})){
+        std::cout << "Test case 1 passed." << std::endl;
+    } else {
+        std::cout << "Test case 1 failed." << std::endl;
+    }
     
+    if (issame(count_even_odd(123456789), {4, 5})){
+        std::cout << "Test case 2 passed." << std::endl;
+    } else {
+        std::cout << "Test case 2 failed." << std::endl;
+    }
+    
+    if (issame(count_even_odd(-987654321), {4, 5})){
+        std::cout << "Test case 3 passed." << std::endl;
+    } else {
+        std::cout << "Test case 3 failed." << std::endl;
+    }
+
     return 0;
 }

@@ -1,8 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 #include <climits>
 
-std::vector<int> largest_smallest_integers(const std::vector<int>& lst) {
+std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     int largestNegative = INT_MIN;
     int smallestPositive = INT_MAX;
     

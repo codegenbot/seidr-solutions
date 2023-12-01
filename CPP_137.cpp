@@ -1,24 +1,24 @@
-#include <boost/any.hpp>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        return (num1 > num2) ? num1 : num2;
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float num1 = boost::any_cast<float>(a);
-        float num2 = boost::any_cast<float>(b);
-        return (num1 > num2) ? num1 : num2;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
-        std::replace(str1.begin(), str1.end(), ',', '.');
-        std::replace(str2.begin(), str2.end(), ',', '.');
-        float num1 = std::stof(str1);
-        float num2 = std::stof(str2);
-        return (num1 > num2) ? str1 : str2;
-    }
-    return boost::any();
+template<typename T>
+T compare_one(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+std::string compare_one(std::string a, std::string b) {
+    std::replace(a.begin(), a.end(), ',', '.');
+    std::replace(b.begin(), b.end(), ',', '.');
+    float num1 = std::stof(a);
+    float num2 = std::stof(b);
+    return (num1 > num2) ? a : b;
+}
+
+int main() {
+    assert(compare_one(std::string("1"), 1) == "1");
+    assert(compare_one("1", "2") == "2");
+    assert(compare_one(3, 4) == 4);
+    assert(compare_one(5.5, 6.7) == 6.7);
+    return 0;
 }

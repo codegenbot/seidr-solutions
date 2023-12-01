@@ -13,7 +13,3 @@ vector<int> eat(int number, int need, int remaining) {
     vector<int> result = {number, remaining};
     return result;
 }
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
