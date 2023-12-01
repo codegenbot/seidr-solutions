@@ -1,11 +1,8 @@
-values = input()
-values = [int(x) for x in values.split(",")]
+values = input().split(",")
 
-from typing import List, Any
-
-
-def filter_integers(values: List[int]) -> List[int]:
+def filter_integers(values):
     return [x for x in values if isinstance(x, int)]
 
 result = filter_integers(values) 
+
 print(result)
