@@ -1,9 +1,5 @@
 vector<int> remove_duplicates(vector<int> numbers);
 
-bool issame(vector<int> a, vector<int> b) {
-    // Define your implementation of issame function here
-}
-
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
     for(int i=0; i<numbers.size(); i++){
