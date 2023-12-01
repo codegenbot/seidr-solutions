@@ -28,6 +28,7 @@ std::vector<int> count_up_to(int n) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
+    // Compare vector elements and return true if they are the same, false otherwise
     if (a.size() != b.size()) {
         return false;
     }
