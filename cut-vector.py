@@ -3,27 +3,26 @@ def cut_vector(vector):
     total_sum = sum(vector)
     left_sum = 0
     right_sum = total_sum
-    min_diff = float("inf")
-    cut_position = -1
 
-    for i in range(n - 1):
+    min_diff = float("inf")
+    cut_index = -1
+
+    for i in range(n):
         left_sum += vector[i]
         right_sum -= vector[i]
 
         diff = abs(left_sum - right_sum)
         if diff < min_diff:
             min_diff = diff
-            cut_position = i + 1
+            cut_index = i
 
-    return vector[:cut_position], vector[cut_position:]
+    return vector[: cut_index + 1], vector[cut_index + 1 :]
 
 
-# Convert input string to list of integers
-vector = list(map(int, input().split()))
+vector = [int(num) for num in input().split()]
 
-# Call the function with input vector
 left_subvector, right_subvector = cut_vector(vector)
-
-# Print the output subvectors
-print(*left_subvector)
-print(*right_subvector)
+for num in left_subvector:
+    print(num)
+for num in right_subvector:
+    print(num)
