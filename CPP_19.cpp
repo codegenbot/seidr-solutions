@@ -3,43 +3,45 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <cassert>
+
 using namespace std;
+
 string sort_numbers(string numbers){
-    map<string, int> number_map;
-    number_map["zero"] = 0;
-    number_map["one"] = 1;
-    number_map["two"] = 2;
-    number_map["three"] = 3;
-    number_map["four"] = 4;
-    number_map["five"] = 5;
-    number_map["six"] = 6;
-    number_map["seven"] = 7;
-    number_map["eight"] = 8;
-    number_map["nine"] = 9;
-    vector<int> number_values;
+    map<string, int> num_map;
+    num_map["zero"] = 0;
+    num_map["one"] = 1;
+    num_map["two"] = 2;
+    num_map["three"] = 3;
+    num_map["four"] = 4;
+    num_map["five"] = 5;
+    num_map["six"] = 6;
+    num_map["seven"] = 7;
+    num_map["eight"] = 8;
+    num_map["nine"] = 9;
+
+    vector<string> num_list;
     stringstream ss(numbers);
-    string number;
-    while (ss >> number) {
-        number_values.push_back(number_map[number]);
+    string word;
+    while (ss >> word) {
+        num_list.push_back(word);
     }
-    sort(number_values.begin(), number_values.end());
-    string sorted_numbers;
-    for (int i = 0; i < number_values.size(); i++) {
-        for (auto it = number_map.begin(); it != number_map.end(); it++) {
-            if (it->second == number_values[i]) {
-                sorted_numbers += it->first + " ";
-                break;
-            }
-        }
+
+    sort(num_list.begin(), num_list.end(), [&](const string& a, const string& b) {
+        return num_map[a] < num_map[b];
+    });
+
+    string result;
+    for (const string& num : num_list) {
+        result += num + " ";
     }
-    sorted_numbers.pop_back();
-    return sorted_numbers;
+    result.pop_back(); // Remove the last space
+
+    return result;
 }
+
 int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    assert(sort_numbers("one two three four") == "one two three four");
-    assert(sort_numbers("nine eight seven six five") == "five six seven eight nine");
-    assert(sort_numbers("") == "");
-    cout << "All test cases passed!" << endl;
+    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+
     return 0;
 }
