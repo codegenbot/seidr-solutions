@@ -1,7 +1,9 @@
+#include <iostream>
 #include <sstream>
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -33,7 +35,7 @@ string sort_numbers(string numbers){
     for (const string& num : num_list) {
         result += num + " ";
     }
-    result.pop_back(); 
+    result.pop_back(); // Remove the last space
 
     return result;
 }
