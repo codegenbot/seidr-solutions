@@ -1,13 +1,12 @@
 #include <string>
 #include <vector>
-#include <algorithm>
 
-int count_distinct_characters(std::string str){
-    std::vector<char> distinct_chars;
+int count_distinct_characters(string str){
+    vector<char> distinct_chars;
     
     for(int i = 0; i < str.length(); i++){
         char c = tolower(str[i]);
-        if(std::find(distinct_chars.begin(), distinct_chars.end(), c) == distinct_chars.end()){
+        if(find(distinct_chars.begin(), distinct_chars.end(), c) == distinct_chars.end()){
             distinct_chars.push_back(c);
         }
     }
