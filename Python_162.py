@@ -1,15 +1,9 @@
 import hashlib
 
-
-def string_to_md5():
-    try:
-        text = int(input())
-        if text == "":
-            return None
-        else:
-            return hashlib.md5(str(text).encode()).hexdigest()
-    except EOFError:
+def string_to_md5(text):
+    if text == "":
         return None
+    else:
+        return hashlib.md5(text.encode()).hexdigest()
 
-
-print(string_to_md5())
+print(string_to_md5(input().strip()))
