@@ -18,9 +18,6 @@ string int_to_mini_romank(int number){
 }
 
 int main() {
-    // Test the int_to_mini_romank function
     assert(int_to_mini_romank(1000) == "m");
-    // Add more test cases if needed
-
     return 0;
 }
