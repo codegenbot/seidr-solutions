@@ -7,7 +7,7 @@ using namespace std;
 
 vector<int> pluck(vector<int> arr){
     vector<int> result;
-    int smallestEven = numeric_limits<int>::max(); // use numeric_limits instead of INT_MAX
+    int smallestEven = numeric_limits<int>::max();
     int smallestIndex = -1;
     
     for(int i=0; i<arr.size(); i++){
