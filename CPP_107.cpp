@@ -1,17 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 vector<int> even_odd_palindrome(int n) {
     vector<int> result(2, 0);
+    
     for (int i = 1; i <= n; i++) {
         string num = to_string(i);
-        int left = 0, right = num.length() - 1;
+        int len = num.length();
         bool isPalindrome = true;
-        while (left < right) {
-            if (num[left] != num[right]) {
+        
+        for (int j = 0; j < len / 2; j++) {
+            if (num[j] != num[len - j - 1]) {
                 isPalindrome = false;
                 break;
             }
-            left++;
-            right--;
         }
+        
         if (isPalindrome) {
             if (i % 2 == 0) {
                 result[0]++;
@@ -20,5 +27,6 @@ vector<int> even_odd_palindrome(int n) {
             }
         }
     }
+    
     return result;
 }
