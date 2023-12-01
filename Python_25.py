@@ -1,21 +1,20 @@
 from typing import List
 
-
 def factorize(n: int) -> List[int]:
     factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
+    d = 2
+    while d * d <= n:
+        if n % d == 0:
+            factors.append(d)
+            n //= d
         else:
-            n //= i
-            factors.append(i)
+            d += 1
     if n > 1:
         factors.append(n)
     return factors
 
+n = int(input())
 
-if __name__ == "__main__":
-    n = int(input())
-    result = factorize(n)
-    print(result)
+result = factorize(n)
+
+print(result)
