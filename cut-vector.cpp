@@ -13,15 +13,15 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
         return std::make_pair(nums, std::vector<int>());
     }
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i <= n; i++) {
         long long leftSum = 0;
         long long rightSum = 0;
 
-        for (int j = 0; j <= i; j++) {
+        for (int j = 0; j < i; j++) {
             leftSum += nums[j];
         }
 
-        for (int j = n-1; j > i; j--) {
+        for (int j = i+1; j < n; j++) {
             rightSum += nums[j];
         }
 
