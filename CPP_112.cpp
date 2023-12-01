@@ -6,6 +6,8 @@
 
 using namespace std;
 
+vector<string> reverse_delete(string s, string c);
+
 vector<string> reverse_delete(string s, string c) {
     string result;
     for (int i = 0; i < s.length(); i++) {
@@ -20,6 +22,6 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
     return 0;
 }
