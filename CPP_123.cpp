@@ -1,30 +1,21 @@
-vector<int> collatz(int n) {
-    vector<int> sequence;
-    sequence.push_back(n);
-    
-    while (n != 1) {
-        if (n % 2 == 0) {
-            n /= 2;
-        } else {
-            n = (3 * n) + 1;
+vector<int> get_odd_collatz(int n){
+    vector<int> collatz_seq;
+    while (n != 1){
+        collatz_seq.push_back(n);
+        if (n % 2 == 0){
+            n = n / 2;
         }
-        sequence.push_back(n);
-    }
-    
-    return sequence;
-}
-
-vector<int> get_odd_collatz(int n) {
-    vector<int> collatzSequence = collatz(n);
-    vector<int> oddNumbers;
-    
-    for (int num : collatzSequence) {
-        if (num % 2 != 0) {
-            oddNumbers.push_back(num);
+        else{
+            n = 3 * n + 1;
         }
     }
-    
-    sort(oddNumbers.begin(), oddNumbers.end());
-    
-    return oddNumbers;
+    collatz_seq.push_back(1);
+    vector<int> odd_collatz_seq;
+    for (int i = 0; i < collatz_seq.size(); i++){
+        if (collatz_seq[i] % 2 != 0){
+            odd_collatz_seq.push_back(collatz_seq[i]);
+        }
+    }
+    sort(odd_collatz_seq.begin(), odd_collatz_seq.end());
+    return odd_collatz_seq;
 }
