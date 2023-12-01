@@ -1,14 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(vector<string>& a, vector<string>& b){
+    return a == b;
+}
+
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
-    for(int i=0; i<lst.size(); i++){
+    for (string str : lst) {
         int count = 0;
-        for(int j=0; j<lst[i].size(); j++){
-            if((lst[i][j] - '0') % 2 == 1){
+        for (char c : str) {
+            if ((c - '0') % 2 != 0) {
                 count++;
             }
         }
-        string str = "the number of odd elements in the string " + to_string(i+1) + " of the input.";
-        result.push_back(str);
+        result.push_back("the number of odd elements " + to_string(count) + " in the string " + str + " of the input.");
     }
     return result;
+}
+
+int main() {
+    vector<string> a = {"apple", "banana", "cherry"};
+    vector<string> b = {"apple", "banana", "cherry"};
+    
+    bool isSame = issame(a, b);
+    
+    vector<string> oddCountResult = odd_count(a);
+    
+    return 0;
 }
