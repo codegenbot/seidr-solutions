@@ -21,12 +21,10 @@ vector<int> largest_smallest_integers(vector<int> lst) {
     return { largestNegative, smallestPositive };
 }
 
-int main() {
-    assert(largest_smallest_integers({ -6, -4, -4, -3, -100, 1 }) == vector<int>{ -100, 1 });
-    assert(largest_smallest_integers({ 5, 3, -1, 7, 2 }) == vector<int>{ -1, 2 });
-    assert(largest_smallest_integers({ 0, 0, 0, 0, 0 }) == vector<int>{ 0, 0 });
-    assert(largest_smallest_integers({ -1, -2, -3, -4, -5 }) == vector<int>{ -1, -5 });
-    assert(largest_smallest_integers({ 1, 2, 3, 4, 5 }) == vector<int>{ 1, 2 });
-
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
