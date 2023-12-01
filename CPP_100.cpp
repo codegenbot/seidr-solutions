@@ -15,10 +15,19 @@ vector<int> make_a_pile(int n){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    // Your code for comparing two vectors goes here
+    if(a.size() != b.size()){
+        return false;
+    }
+
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
-    // Your test cases go here
     assert (issame(make_a_pile(8) , {8, 10, 12, 14, 16, 18, 20, 22}));
 }
