@@ -1,15 +1,16 @@
 #include <vector>
-#include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
+    
     for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
     }
+    
     return true;
 }
 
@@ -33,7 +34,7 @@ vector<int> even_odd_count(int num){
     return result;
 }
 
-int main(){
+int main() {
     assert(issame(even_odd_count(0), {1, 0}));
     
     return 0;
