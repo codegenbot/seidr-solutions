@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 #include <cassert>
 
 bool is_palindrome(std::string text){
