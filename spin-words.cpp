@@ -1,9 +1,9 @@
 #include <iostream>
-#include <sstream>
 #include <string>
+#include <sstream>
 
-std::string reverseWords(std::string sentence) {
-    std::stringstream ss(sentence);
+std::string reverseWords(std::string str) {
+    std::stringstream ss(str);
     std::string word, result;
     
     while (ss >> word) {
@@ -13,7 +13,9 @@ std::string reverseWords(std::string sentence) {
         result += word + " ";
     }
     
-    result.pop_back(); // Remove extra space at the end
+    if (!result.empty()) {
+        result.pop_back();
+    }
     
     return result;
 }
