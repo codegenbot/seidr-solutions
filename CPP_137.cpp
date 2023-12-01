@@ -16,3 +16,12 @@ string compare_one(string a, string b) {
     float num2 = stof(b);
     return (num1 > num2) ? a : b;
 }
+
+template <typename T1, typename T2>
+auto compare_one(T1 a, T2 b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
