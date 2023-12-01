@@ -37,8 +37,9 @@ bool issame(vector<int> a, vector<int> b){
 
 int main() {
     assert(issame(strange_sort_list({111111}), {111111}));
-    assert(issame(strange_sort_list({1, 5, 3, 4, 2}), {1, 2, 3, 4, 5}));
-    assert(issame(strange_sort_list({10, 20, 30, 40, 50}), {10, 30, 20, 40, 50}));
+    assert(issame(strange_sort_list({3, 2, 1}), {1, 3, 2}));
+    assert(issame(strange_sort_list({9, 3, 8, 2, 7, 1}), {1, 8, 2, 7, 3, 9}));
+    assert(issame(strange_sort_list({-10, 0, -5, -20, 100}), {-20, 100, -10, -5, 0}));
 
     cout << "All test cases pass" << endl;
     return 0;
