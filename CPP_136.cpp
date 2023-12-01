@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <cassert>
 
 using namespace std;
 
@@ -11,16 +12,16 @@ int main() {
     return 0;
 }
 
-vector<int> largest_smallest_integers(vector<int> lst) {
+vector<int> largest_smallest_integers(vector<int> lst){
     vector<int> result(2, 0);
     int largestNegative = INT_MIN;
     int smallestPositive = INT_MAX;
     
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] < 0 && lst[i] > largestNegative) {
+    for(int i=0; i<lst.size(); i++){
+        if(lst[i] < 0 && lst[i] > largestNegative){
             largestNegative = lst[i];
         }
-        if (lst[i] > 0 && lst[i] < smallestPositive) {
+        if(lst[i] > 0 && lst[i] < smallestPositive){
             smallestPositive = lst[i];
         }
     }
