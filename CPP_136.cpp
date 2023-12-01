@@ -19,28 +19,12 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
     return {largestNegative, smallestPositive};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 int contestProblem() {
-    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == std::vector<int>{-100, 1});
-    assert(largest_smallest_integers({5, 3, -1, 7, 2}) == std::vector<int>{-1, 2});
-    assert(largest_smallest_integers({0, 0, 0, 0, 0}) == std::vector<int>{0, 0});
-    assert(largest_smallest_integers({-1, -2, -3, -4, -5}) == std::vector<int>{-1, -5});
-    assert(largest_smallest_integers({1, 2, 3, 4, 5}) == std::vector<int>{1, 2});
+    assert (largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == std::vector<int>{-100, 1});
+    assert (largest_smallest_integers({5, 3, -1, 7, 2}) == std::vector<int>{-1, 2});
+    assert (largest_smallest_integers({0, 0, 0, 0, 0}) == std::vector<int>{0, 0});
+    assert (largest_smallest_integers({-1, -2, -3, -4, -5}) == std::vector<int>{-1, -5});
+    assert (largest_smallest_integers({1, 2, 3, 4, 5}) == std::vector<int>{1, 2});
     
     return 0;
-}
-
-int main() {
-    return contestProblem();
 }
