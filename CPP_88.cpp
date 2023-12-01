@@ -3,8 +3,23 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    // Implementation of issame function
-    // Your code here...
+    // Check if both vectors have the same size
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    // Sort both vectors
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    
+    // Compare element by element
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 std::vector<int> sort_array(std::vector<int> array) {
@@ -25,7 +40,7 @@ std::vector<int> sort_array(std::vector<int> array) {
 }
 
 int main() {
-    assert(sort_array({21, 14, 23, 11}) == std::vector<int>{23, 21, 14, 11});
+    assert(issame(sort_array({21, 14, 23, 11}), std::vector<int>{23, 21, 14, 11}));
     // Add more assertions to test the function
     
     return 0;
