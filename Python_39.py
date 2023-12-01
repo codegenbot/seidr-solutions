@@ -15,10 +15,10 @@ def prime_fib(n: int):
         elif n == 2:
             return [0, 1]
         else:
-            fib = [0, 1]
-            while len(fib) < n:
-                fib.append(fib[-1] + fib[-2])
-            return fib
+            fib_sequence = [0, 1]
+            while len(fib_sequence) < n:
+                fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+            return fib_sequence
 
     fib_numbers = fibonacci(2 * n)
     prime_fib_numbers = [num for num in fib_numbers if is_prime(num)]
