@@ -1,35 +1,41 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
-    
+
     return true;
 }
 
 vector<int> tri(int n){
     vector<int> sequence;
-    sequence.push_back(3); // First element of the sequence is always 3
+    sequence.push_back(3);
 
-    if(n == 0) return sequence; // If n is 0, return the sequence with only the first element
+    if(n == 0) return sequence;
 
-    sequence.push_back(1 + n / 2); // Second element of the sequence
+    sequence.push_back(1 + n / 2);
 
     for(int i = 2; i <= n; i++){
         if(i % 2 == 0){
-            sequence.push_back(1 + i / 2); // If i is even, add the corresponding value to the sequence
+            sequence.push_back(1 + i / 2);
         }
         else{
-            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i - 3]); // If i is odd, calculate the value based on the previous elements
+            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i - 3]);
         }
     }
 
     return sequence;
+}
+
+int main(){
+    assert(issame(tri(1), {1, 3}));
+
+    return 0;
 }
