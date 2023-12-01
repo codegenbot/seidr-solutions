@@ -1,23 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 string find_max(vector<string> words){
-    string max_word = "";
-    int max_count = 0;
+    string maxWord = "";
+    int maxUniqueChars = 0;
 
     for (string word : words) {
-        int count = 0;
-        vector<bool> char_present(26, false);
-        
+        int uniqueChars = 0;
+        bool charCount[26] = {false};
+
         for (char c : word) {
-            if (!char_present[c - 'a']) {
-                char_present[c - 'a'] = true;
-                count++;
+            if (!charCount[c - 'a']) {
+                charCount[c - 'a'] = true;
+                uniqueChars++;
             }
         }
-        
-        if (count > max_count || (count == max_count && word < max_word)) {
-            max_count = count;
-            max_word = word;
+
+        if (uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)) {
+            maxWord = word;
+            maxUniqueChars = uniqueChars;
         }
     }
 
-    return max_word;
+    return maxWord;
+}
+
+int main() {
+    assert ((find_max({"play", "play", "play"}) == "play"));
+
+    return 0;
 }
