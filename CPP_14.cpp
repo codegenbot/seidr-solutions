@@ -3,22 +3,18 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-vector<string> all_prefixes(const string& str) {
-    vector<string> prefixes;
-    string prefix = "";
-    for(int i = 0; i <= str.length(); i++) {
+std::vector<std::string> all_prefixes(std::string str) {
+    std::vector<std::string> prefixes;
+    std::string prefix = "";
+    for(int i = 0; i < str.length(); i++) {
         prefix += str[i];
-        prefixes.push_back(move(prefix));
+        prefixes.push_back(prefix);
     }
     return prefixes;
 }
 
 int main() {
-    vector<string> expected = {"W", "WW", "WWW"};
-    vector<string> result = all_prefixes("WWW");
-    assert(result == expected);
-    cout << "Test cases passed." << endl;
+    assert(all_prefixes("WWW") == std::vector<std::string>{"W", "WW", "WWW"});
+    std::cout << "Test cases passed." << std::endl;
     return 0;
 }
