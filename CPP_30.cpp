@@ -1,10 +1,9 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 
-using namespace std;
-
-vector<float> get_positive(vector<float> l) {
-    vector<float> positive_nums;
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> positive_nums;
     for (int i = 0; i < l.size(); i++) {
         if (l[i] > 0) {
             positive_nums.push_back(l[i]);
@@ -13,12 +12,12 @@ vector<float> get_positive(vector<float> l) {
     return positive_nums;
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (abs(a[i] - b[i]) > 1e-4) {
+        if (std::abs(a[i] - b[i]) > 1e-4) {
             return false;
         }
     }
@@ -26,6 +25,6 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {}));
+    assert(issame(get_positive(std::vector<float>{}), std::vector<float>{}));
     return 0;
 }
