@@ -1,25 +1,28 @@
 #include <iostream>
+#include <cmath>
 
-bool isPrime(int n) {
-    if (n <= 1)
+bool isPrime(int num) {
+    if (num <= 1) {
         return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
+    }
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0) {
             return false;
+        }
     }
     return true;
 }
 
 int prime_fib(int n) {
-    int a = 1, b = 1;
-    for (int i = 2; i <= n; i++) {
-        int temp = b;
-        b = a + b;
-        a = temp;
+    int a = 0, b = 1;
+    for (int i = 0; i < n; i++) {
+        int temp = a;
+        a = b;
+        b = temp + b;
         while (!isPrime(b)) {
-            temp = b;
-            b = a + b;
-            a = temp;
+            temp = a;
+            a = b;
+            b = temp + b;
         }
     }
     return b;
