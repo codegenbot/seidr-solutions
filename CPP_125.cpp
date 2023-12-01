@@ -1,5 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <string>
+
+using namespace std;
+
+vector<string> split_words(string txt);
+
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -33,4 +40,30 @@ vector<string> split_words(string txt){
     }
     
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    vector<string> emptyResult = split_words("");
+    assert(issame(emptyResult, {"0"}));
+    
+    vector<string> result = split_words("hello,world");
+    assert(issame(result, {"hello", "world"}));
+    
+    cout << "All test cases pass." << endl;
+    
+    return 0;
 }
