@@ -1,12 +1,11 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
-    int whitePegs = 0;
     int blackPegs = 0;
-    std::vector<int> codeCount(6, 0);
-    std::vector<int> guessCount(6, 0);
+    int whitePegs = 0;
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
@@ -21,7 +20,7 @@ std::pair<int, int> mastermind(const std::string& code, const std::string& guess
         whitePegs += std::min(codeCount[i], guessCount[i]);
     }
 
-    return {whitePegs, blackPegs};
+    return std::make_pair(whitePegs, blackPegs);
 }
 
 int main() {
