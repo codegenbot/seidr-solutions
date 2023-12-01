@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cassert>
 
 using namespace std;
@@ -25,10 +25,23 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main() {
-    vector<float> input; // Replace with actual input
+    // Read input
+    int n;
+    cin >> n;
+    vector<float> input(n);
+    for(int i = 0; i < n; i++) {
+        cin >> input[i];
+    }
+    
+    // Process input (Not included in the given code)
+    
+    // Calculate derivative
     vector<float> result = derivative(input);
     
-    // Print output (Not included in the given code)
+    // Print output
+    for(int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
     
     return 0;
 }
