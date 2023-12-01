@@ -1,6 +1,8 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 vector<string> odd_count(vector<string> lst);
 
 bool issame(const vector<string>& a, const vector<string>& b);
