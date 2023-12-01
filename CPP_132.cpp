@@ -1,20 +1,31 @@
-bool is_nested(string str){
+#include <iostream>
+#include <string>
+#include <cassert>
+using namespace std;
+
+bool is_nested(string str) {
     int count = 0;
-    bool nested = false;
-    
-    for(int i = 0; i < str.length(); i++){
-        if(str[i] == '['){
+    for (char c : str) {
+        if (c == '[') {
             count++;
         }
-        else if(str[i] == ']'){
+        else if (c == ']') {
             count--;
         }
-        
-        if(count > 0 && count < str.length()){
-            nested = true;
-            break;
+        if (count < 0) {
+            return true;
         }
     }
-    
-    return nested;
+    return false;
+}
+
+int main() {
+    // Test cases
+    assert(is_nested("[]") == false);
+    assert(is_nested("[[[]]]") == false);
+    assert(is_nested("[[[]]") == true);
+    assert(is_nested("[[]]]") == true);
+    assert(is_nested("]]]]]]]]") == true);
+
+    return 0;
 }
