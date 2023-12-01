@@ -9,8 +9,8 @@ vector<string> split_words(string txt);
 
 int main(){
     // Test cases
-    assert(issame(split_words("") ,{"0"}));
-    assert(issame(split_words("Hello, World!") ,{"Hello", "World!"}));
+    assert (issame(split_words("") ,{"0"}));
+    assert (issame(split_words("Hello, World!") ,{"Hello", "World!"}));
     // Add more test cases
     
     return 0;
