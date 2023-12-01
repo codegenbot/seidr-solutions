@@ -16,6 +16,7 @@ vector<int> sort_array(vector<int> arr){
 
 bool issame(vector<int> a, vector<int> b){
     // Implementation of the issame() function
+    // Fill in the implementation here
 }
 
 int main(){
