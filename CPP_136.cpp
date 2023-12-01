@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <climits>
-
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst);
