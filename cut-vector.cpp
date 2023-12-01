@@ -1,19 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <utility>
-#include <limits>
-#include <cmath>
-
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    long long diff = std::numeric_limits<long long>::max();
-    int index = 0;
+    long long diff = -1;
+    int index = -1;
 
     if (n == 1) {
         return std::make_pair(nums, std::vector<int>());
     }
 
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i <= n - 1; i++) {
         long long leftSum = 0;
         long long rightSum = 0;
 
@@ -25,7 +19,11 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
             rightSum += nums[j];
         }
 
-        long long currentDiff = std::abs(leftSum - rightSum);
+        long long currentDiff = leftSum - rightSum;
+
+        if (currentDiff < 0) {
+            currentDiff = -currentDiff;
+        }
 
         if (currentDiff < diff) {
             diff = currentDiff;
@@ -37,28 +35,4 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     std::vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
 
     return std::make_pair(leftSubvector, rightSubvector);
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
-    }
-
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(nums);
-
-    for (int num : result.first) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    for (int num : result.second) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
