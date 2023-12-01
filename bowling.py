@@ -1,37 +1,46 @@
 def calculate_bowling_score(bowls):
     score = 0
     frame = 1
-    bowl_index = 0
+    frame_score = 0
+    is_spare = False
+    is_strike = False
 
-    while frame <= 10:
-        if bowls[bowl_index] == 'X':
+    for bowl in bowls:
+        if bowl == 'X':
             score += 10
-            if bowl_index + 2 < len(bowls):
-                if bowls[bowl_index + 2] == 'X':
-                    score += 10
-                elif bowls[bowl_index + 2] == '/':
-                    score += 10 - int(bowls[bowl_index + 1])
-                else:
-                    score += int(bowls[bowl_index + 1]) + int(bowls[bowl_index + 2])
-            bowl_index += 1
-        elif bowls[bowl_index] == '/':
-            score += 10 - int(bowls[bowl_index - 1])
-            if bowl_index + 1 < len(bowls) and bowls[bowl_index + 1] == 'X':
-                score += 10
-            elif bowl_index + 1 < len(bowls) and bowls[bowl_index + 1] != '-':
-                score += int(bowls[bowl_index + 1])
-            bowl_index += 1
-        elif bowls[bowl_index] == '-':
-            score += 0
+            if frame < 10:
+                frame_score = 10
+                is_strike = True
+            else:
+                frame_score += 10
+        elif bowl == '/':
+            score += (10 - frame_score)
+            if frame < 10:
+                frame_score = 10
+                is_spare = True
+            else:
+                frame_score += (10 - frame_score)
+        elif bowl == '-':
+            frame_score += 0
         else:
-            score += int(bowls[bowl_index])
+            score += int(bowl)
+            frame_score += int(bowl)
 
-        if bowls[bowl_index] != 'X' and bowls[bowl_index] != '/':
-            bowl_index += 1
+        if is_spare or is_strike:
+            score += int(bowl)
 
-        frame += 1
+        if is_spare:
+            is_spare = False
+
+        if is_strike:
+            frame += 1
+            is_strike = False
+
+        if frame < 10 and frame_score == 10:
+            frame += 1
+            frame_score = 0
 
     return score
 
-bowls = input()
+bowls = input().strip()
 print(calculate_bowling_score(bowls))
