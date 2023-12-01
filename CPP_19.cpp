@@ -19,7 +19,7 @@ int main() {
     return 0;
 }
 
-string sort_numbers(string numbers){
+string sort_numbers(string numbers) {
     map<string, int> number_map;
     number_map["zero"] = 0;
     number_map["one"] = 1;
