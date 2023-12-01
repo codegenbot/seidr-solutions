@@ -1,17 +1,12 @@
 #include <cassert>
 #include <climits>
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    for (int num : a) {
-        if (find(b.begin(), b.end(), num) == b.end()) {
-            return false;
-        }
-    }
-    return true;
+    return a.size() == b.size();
 }
 
 vector<int> pluck(vector<int> arr) {
@@ -32,4 +27,9 @@ vector<int> pluck(vector<int> arr) {
     }
     
     return result;
+}
+
+int main() {
+    assert(issame(pluck(vector<int>({7, 9, 7, 1})), vector<int>{}));
+    return 0;
 }
