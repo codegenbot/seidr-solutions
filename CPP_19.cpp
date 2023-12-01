@@ -1,4 +1,16 @@
-string sort_numbers(string numbers){
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <map>
+#include <vector>
+#include <sstream>
+#include <cassert>
+
+using namespace std;
+
+string sort_numbers(string numbers);
+
+string sort_numbers(string numbers) {
     map<string, int> numberMap;
     numberMap["zero"] = 0;
     numberMap["one"] = 1;
