@@ -1,7 +1,6 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<cassert>
+#include <iostream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -16,7 +15,13 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    cout << "Test cases passed." << endl;
+    string input;
+    cin >> input;
+    
+    vector<string> prefixes = all_prefixes(input);
+    for (const auto& prefix : prefixes) {
+        cout << prefix << " ";
+    }
+    
     return 0;
 }
