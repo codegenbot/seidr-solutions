@@ -9,10 +9,6 @@ using namespace std;
 
 string sort_numbers(string numbers);
 
-int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-}
-
 string sort_numbers(string numbers){
     map<string, int> num_map;
     num_map["zero"] = 0;
@@ -44,4 +40,10 @@ string sort_numbers(string numbers){
     result.pop_back(); // Remove the last space
 
     return result;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+
+    return 0;
 }
