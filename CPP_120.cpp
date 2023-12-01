@@ -3,13 +3,14 @@
 #include <algorithm>
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b) {
+    /* implement the issame function */
+    return a == b;
+}
+
 vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
     return vector<int>(arr.begin(), arr.begin() + k);
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    // implementation of issame function
 }
 
 int main() {
