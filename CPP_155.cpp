@@ -19,7 +19,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     vector<int> even_odd_count(int num);
-
+    
     assert(issame(even_odd_count(0), {1, 0}));
     assert(issame(even_odd_count(123456), {3, 3}));
     assert(issame(even_odd_count(-98765), {5, 0}));
