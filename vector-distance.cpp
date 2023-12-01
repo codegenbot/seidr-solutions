@@ -7,7 +7,7 @@ double calculateDistance(const std::vector<double>& vector1, const std::vector<d
     for (size_t i = 0; i < vector1.size(); i++) {
         sum += pow(vector1[i] - vector2[i], 2);
     }
-    return sqrt(sum);
+    return sqrtl(sum);
 }
 
 int main() {
@@ -18,8 +18,6 @@ int main() {
     for (size_t i = 0; i < n; i++) {
         std::cin >> vector1[i];
     }
-
-    std::cin >> n;
 
     std::vector<double> vector2(n);
     for (size_t i = 0; i < n; i++) {
