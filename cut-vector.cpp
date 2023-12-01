@@ -1,50 +1,56 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-vector<int> cut_vector(vector<int> nums) {
+std::vector<int> cutVector(const std::vector<int>& nums) {
     int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
     int leftSum = 0;
-    int rightSum = sum;
-    int diff = abs(leftSum - rightSum);
-    int index = 0;
+    int rightSum = 0;
+
+    // Calculate the sum of all numbers
+    for (int i = 0; i < n; i++) {
+        rightSum += nums[i];
+    }
+
+    int diff = std::abs(leftSum - rightSum);
+    int idx = 0;
+
+    // Find the spot where the difference is minimized
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
-        int newDiff = abs(leftSum - rightSum);
+        int newDiff = std::abs(leftSum - rightSum);
         if (newDiff < diff) {
             diff = newDiff;
-            index = i;
+            idx = i + 1;
         }
     }
-    vector<int> leftSubvector(nums.begin(), nums.begin() + index + 1);
-    vector<int> rightSubvector(nums.begin() + index + 1, nums.end());
-    leftSubvector.push_back(0);
-    return leftSubvector;
-    rightSubvector.push_back(0);
-    return rightSubvector;
+
+    // Create the resulting subvectors
+    std::vector<int> subvector1(nums.begin(), nums.begin() + idx);
+    std::vector<int> subvector2(nums.begin() + idx, nums.end());
+
+    return {subvector1, subvector2};
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-    vector<int> leftSubvector;
-    vector<int> rightSubvector;
-    leftSubvector = cut_vector(nums);
-    rightSubvector = cut_vector(nums);
-    for (int i = 0; i < leftSubvector.size(); i++) {
-        cout << leftSubvector[i] << endl;
+
+    std::vector<int> result1, result2;
+    std::tie(result1, result2) = cutVector(nums);
+
+    for (int num : result1) {
+        std::cout << num << std::endl;
     }
-    for (int i = 0; i < rightSubvector.size(); i++) {
-        cout << rightSubvector[i] << endl;
+
+    for (int num : result2) {
+        std::cout << num << std::endl;
     }
+
     return 0;
 }
