@@ -7,6 +7,7 @@
 using namespace std;
 
 vector<string> reverse_delete(string s, string c);
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> reverse_delete(string s, string c) {
     string result;
@@ -22,6 +23,6 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
