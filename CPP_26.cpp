@@ -4,16 +4,15 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
-vector<int> remove_duplicates(vector<int> numbers);
+bool issame(vector<int> a, vector<int> b); // 1. Move the issame() function declaration above the remove_duplicates() function.
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b){ // 2. Add a missing space between vector<int> and b in the parameter list of issame().
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     return a == b;
 }
 
-vector<int> remove_duplicates(vector<int> numbers){
+vector<int> remove_duplicates(vector<int> numbers){ // 4. Declare the remove_duplicates() function before the issame() function.
     vector<int> result;
     for(int i = 0; i < numbers.size(); i++){
         if(count(numbers.begin(), numbers.end(), numbers[i]) == 1){
