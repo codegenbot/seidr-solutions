@@ -17,14 +17,9 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-vector<int> maximum(vector<int> arr, int k) {
-    sort(arr.begin(), arr.end(), greater<int>());
-    vector<int> result(arr.begin(), arr.begin() + k);
+vector<int> maximum(const vector<int>& arr, int k) {
+    vector<int> sorted_arr = arr;
+    sort(sorted_arr.begin(), sorted_arr.end(), greater<int>());
+    vector<int> result(sorted_arr.begin(), sorted_arr.begin() + k);
     return result;
-}
-
-int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    cout << "Test case passed!" << endl;
-    return 0;
 }
