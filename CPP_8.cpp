@@ -31,7 +31,8 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     return {sum, product};
 }
 
-int main() {
+// Updated function name to solve
+int solve() {
     // Take input from user
     int n;
     std::cin >> n;
@@ -50,5 +51,11 @@ int main() {
     }
     std::cout << std::endl;
 
+    return 0;
+}
+
+// Call the solve function
+int main() {
+    solve();
     return 0;
 }
