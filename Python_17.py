@@ -1,4 +1,11 @@
-from typing import List
-
-def parse_music(music_string: str) -> List[int]:
-    return [4 if note == 'o' else 2 if note == 'o|' else 1 for note in music_string.split()]
+def parse_music(music_string: str) -> list:
+    notes = music_string.split()
+    beats = []
+    for note in notes:
+        if note == "o":
+            beats.append(4)
+        elif note == "o|":
+            beats.append(2)
+        elif note == ".|":
+            beats.append(1)
+    return beats
