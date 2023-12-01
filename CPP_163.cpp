@@ -2,8 +2,6 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
 std::vector<int> generate_integers(int a, int b) {
     std::vector<int> result;
     for (int i = a; i <= b; i++) {
@@ -24,9 +22,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
-}
-
-int main() {
-    assert(issame(generate_integers(17, 89), std::vector<int>()));
-    return 0;
 }
