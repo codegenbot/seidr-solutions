@@ -1,9 +1,9 @@
 #include <iostream>
-#include <map>
 #include <sstream>
-#include <string>
+#include <map>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -14,6 +14,7 @@ int main() {
     getline(cin, numbers);
 
     string sorted_numbers = sort_numbers(numbers);
+
     cout << sorted_numbers << endl;
 
     return 0;
