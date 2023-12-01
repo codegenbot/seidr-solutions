@@ -3,11 +3,15 @@ int prod_signs(vector<int> arr){
         return -32768;
     }
     int product = 1;
-    for(int i=0; i<arr.size(); i++){
-        product *= arr[i] >= 0 ? 1 : -1;
-    }
     int sum = 0;
-    for(int i=0; i<arr.size(); i++){
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] > 0){
+            product *= 1;
+        } else if(arr[i] < 0){
+            product *= -1;
+        } else {
+            product *= 0;
+        }
         sum += abs(arr[i]);
     }
     return product * sum;
