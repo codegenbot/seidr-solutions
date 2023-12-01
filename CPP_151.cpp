@@ -14,9 +14,19 @@ double double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 2.0, 3.5, 4.0, 5.5};
-    double odd_sum = 1.5 * 1.5 + 3.5 * 3.5 + 5.5 * 5.5;
+    std::vector<float> lst;
+    double odd_sum = 0.0;
+
+    // Add code to populate the lst vector and calculate odd_sum
+    float num;
+    while (std::cin >> num) {
+        lst.push_back(num);
+        if (static_cast<int>(num) % 2 != 0) {
+            odd_sum += num;
+        }
+    }
+
     assert(double_the_difference(lst) == odd_sum);
-    
+
     return 0;
 }
