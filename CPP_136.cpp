@@ -3,32 +3,49 @@
 #include <cassert>
 #include <climits>
 
+bool issame(std::vector<int>& a, std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::vector<int> largest_smallest_integers(std::vector<int> lst) {
-    int largestNegative = INT_MIN;
-    int smallestPositive = INT_MAX;
+    int largest_negative = INT_MIN;
+    int smallest_positive = INT_MAX;
     
     for(int i = 0; i < lst.size(); i++) {
-        if(lst[i] < 0 && lst[i] > largestNegative) {
-            largestNegative = lst[i];
+        if(lst[i] < 0 && lst[i] > largest_negative) {
+            largest_negative = lst[i];
         }
-        if(lst[i] > 0 && lst[i] < smallestPositive) {
-            smallestPositive = lst[i];
+        if(lst[i] > 0 && lst[i] < smallest_positive) {
+            smallest_positive = lst[i];
         }
     }
     
-    return {largestNegative, smallestPositive};
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    // function body
+    return {largest_negative, smallest_positive};
 }
 
 int main() {
-    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == std::vector<int>{-100, 1});
-    assert(largest_smallest_integers({5, 3, -1, 7, 2}) == std::vector<int>{-1, 2});
-    assert(largest_smallest_integers({0, 0, 0, 0, 0}) == std::vector<int>{0, 0});
-    assert(largest_smallest_integers({-1, -2, -3, -4, -5}) == std::vector<int>{-1, -5});
-    assert(largest_smallest_integers({1, 2, 3, 4, 5}) == std::vector<int>{5, 1});
+    bool issameResult = issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1});
+    assert(issameResult);
+    
+    issameResult = issame(largest_smallest_integers({5, 3, -1, 7, 2}), {-1, 2});
+    assert(issameResult);
+    
+    issameResult = issame(largest_smallest_integers({0, 0, 0, 0, 0}), {0, 0});
+    assert(issameResult);
+    
+    issameResult = issame(largest_smallest_integers({-1, -2, -3, -4, -5}), {-1, -5});
+    assert(issameResult);
+    
+    issameResult = issame(largest_smallest_integers({1, 2, 3, 4, 5}), {5, 1});
+    assert(issameResult);
     
     return 0;
 }
