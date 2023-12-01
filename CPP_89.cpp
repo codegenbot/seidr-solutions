@@ -21,7 +21,6 @@ std::string encrypt(std::string s) {
 
 int main() {
   assert(encrypt("a") == "e");
-  // Additional test cases
   assert(encrypt("xyz") == "bcd");
   assert(encrypt("Hello World!") == "Lipps Asvph!");
   std::cout << "All test cases passed!" << std::endl;
