@@ -1,5 +1,3 @@
-Modify the code as:
-
 #include <vector>
 #include <list>
 #include <variant>
