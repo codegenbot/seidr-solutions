@@ -1,38 +1,36 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
 vector<string> select_words(string s, int n) {
+    vector<string> result;
     if (s.empty()) {
-        return {};
+        return result;
     }
-    
-    vector<string> words;
-    string word;
-    for (char c : s) {
-        if (isalpha(c)) {
-          // Count the number of consonants in the word
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
-                word += c;
+
+    string word = "";
+    for (char ch : s) {
+        if (ch == ' ') {
+            int consonantCount = 0;
+            for (char c : word) {
+                if (isalpha(c) && !isvowel(c)) {
+                    consonantCount++;
+                }
             }
-        } else if (!word.empty()) {
-          // Add the word to the vector if it has the desired number of consonants
-            if (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e')
-                + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o')
-                + count(word.begin(), word.end(), 'u') != n) {
-                words.push_back(word);
+            if (consonantCount == n) {
+                result.push_back(word);
             }
-            
             word = "";
+        } else {
+            word += ch;
         }
     }
-    
-    // Check if the last word in the string has the desired number of consonants
-    if (!word.empty() && (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e')
-                         + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o')
-                         + count(word.begin(), word.end(), 'u') != n)) {
-        words.push_back(word);
+
+    int consonantCount = 0;
+    for (char c : word) {
+        if (isalpha(c) && !isvowel(c)) {
+            consonantCount++;
+        }
     }
-    
-    return words;
+    if (consonantCount == n) {
+        result.push_back(word);
+    }
+
+    return result;
 }
