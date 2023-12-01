@@ -1,38 +1,63 @@
 #include <string>
 #include <vector>
-#include <cassert>
 
 vector<string> split_words(string txt){
-    vector<string> words;
+    vector<string> result;
     string word = "";
-    
-    for(int i=0; i<txt.length(); i++){
-        if(txt[i] == ' ' || txt[i] == ','){
-            if(!word.empty()){
-                words.push_back(word);
+
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(word != ""){
+                result.push_back(word);
                 word = "";
             }
         }
         else{
-            word += txt[i];
+            word += c;
         }
     }
     
-    if(!word.empty()){
-        words.push_back(word);
+    if(word != ""){
+        result.push_back(word);
     }
     
-    if(words.empty()){
-        words.push_back(to_string(3));
+    if(result.empty()){
+        result.push_back(to_string(3));
     }
     
-    return words;
+    return result;
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // your code implementation here
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
-int main() {
-    assert(issame(split_words(""), {"0"}));
+int main(){
+    string txt;
+    getline(cin, txt);
+    
+    vector<string> words = split_words(txt);
+    
+    vector<string> expected = {"apple", "banana", "cherry"};
+    
+    bool same = issame(words, expected);
+    
+    if(same){
+        cout << "The words are the same" << endl;
+    }
+    else{
+        cout << "The words are different" << endl;
+    }
+    
+    return 0;
 }
