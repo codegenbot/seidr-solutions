@@ -4,7 +4,7 @@
 vector<string> all_prefixes(string str);
 
 bool issame(vector<string> a, vector<string> b) {
-    // function implementation
+    return a == b;
 }
 
 vector<string> all_prefixes(string str){
