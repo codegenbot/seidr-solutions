@@ -43,7 +43,7 @@ bool issame(vector<string> a, vector<string> b){
         return false;
     }
     
-    for(int i=0; i<a.size(); i++){
+    for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -53,20 +53,21 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    string txt;
-    getline(cin, txt);
+    string txt = "hello, world";
     vector<string> words = split_words(txt);
     
-    vector<string> expected = {"hello", "world"};
+    for(string word : words){
+        cout << word << endl;
+    }
     
-    bool same = issame(words, expected);
+    vector<string> words2 = {"hello", "world"};
     
-    if(same){
-        cout << "Same";
+    if(issame(words, words2)){
+        cout << "Words are the same!" << endl;
     }
     else{
-        cout << "Different";
+        cout << "Words are different!" << endl;
     }
-
+    
     return 0;
 }
