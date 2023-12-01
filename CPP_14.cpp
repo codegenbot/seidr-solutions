@@ -3,11 +3,9 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-vector<string> all_prefixes(string str) {
-    vector<string> prefixes;
-    string prefix = "";
+std::vector<std::string> all_prefixes(std::string str) {
+    std::vector<std::string> prefixes;
+    std::string prefix = "";
     for(int i = 0; i < str.length(); i++) {
         prefix += str[i];
         prefixes.push_back(prefix);
@@ -15,17 +13,8 @@ vector<string> all_prefixes(string str) {
     return prefixes;
 }
 
-bool issame(vector<string> b) {
-    vector<string> a = all_prefixes(b[0]);
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 int main() {
-    assert(issame(all_prefixes("WWW")));
-    cout << "Test cases passed." << endl;
+    assert(all_prefixes("WWW") == std::vector<std::string>{"W", "WW", "WWW"});
+    std::cout << "Test cases passed." << std::endl;
     return 0;
 }
