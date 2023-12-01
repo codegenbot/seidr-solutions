@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <cassert>
 
+std::string sort_numbers(std::string numbers);
+
 std::string sort_numbers(std::string numbers){
     std::map<std::string, int> number_map;
     number_map["zero"] = 0;
