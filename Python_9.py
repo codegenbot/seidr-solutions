@@ -7,10 +7,3 @@ def rolling_max(numbers: List[int]) -> List[int]:
         max_num = max(max_num, num)
         rolling_max_list.append(max_num)
     return rolling_max_list
-
-try:
-    numbers = list(map(int, input().split()))
-    result = rolling_max(numbers)
-    print(result)
-except ValueError:
-    print("Invalid input. Please enter integers separated by spaces.")
