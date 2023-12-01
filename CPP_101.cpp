@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
-#include <string>
 using namespace std;
 
 vector<string> splitString(string s){
@@ -25,9 +24,9 @@ vector<string> splitString(string s){
 }
 
 int main(){
-    vector<string> result = splitString("ahmed     , gamal");
+    vector<string> words_string = splitString("ahmed     , gamal");
     cout << "Output: ";
-    for(const string& word : result){
+    for(const string& word : words_string){
         cout << word << " ";
     }
     cout << endl;
