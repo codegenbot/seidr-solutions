@@ -2,6 +2,8 @@
 
 bool issame(vector<int> a, vector<int> b) {
     // Implementation of issame function
+    // Add your code here
+    return a == b;
 }
 
 vector<int> eat(int number, int need, int remaining) {
