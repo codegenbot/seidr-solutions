@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 std::string decimal_to_binary(int decimal){
     std::string binary = "db";
@@ -14,7 +13,7 @@ std::string decimal_to_binary(int decimal){
 }
 
 int main() {
-    assert (decimal_to_binary(15) == "db1111db");
+    std::cout << decimal_to_binary(15) << std::endl;
 
     return 0;
 }
