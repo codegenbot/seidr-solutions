@@ -10,7 +10,7 @@ try:
     text = input()
 except EOFError:
     text = ""
-    
+
 result = string_to_md5(text)
 
 print(result)
