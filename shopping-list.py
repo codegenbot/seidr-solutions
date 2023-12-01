@@ -1,9 +1,7 @@
 def calculate_total_price(prices, discounts):
     total_price = 0.0
-    for i in range(len(prices)):
-        discount = discounts[i] / 100.0
-        discounted_price = prices[i] * (1 - discount)
-        total_price += discounted_price
+    for price, discount in zip(prices, discounts):
+        total_price += price * (1 - discount / 100)
     return total_price
 
 num_prices = int(input())
