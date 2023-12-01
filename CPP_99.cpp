@@ -1,4 +1,8 @@
+#include <iostream>
+#include <cmath>
 #include <string>
+
+using namespace std;
 
 int closest_integer(string value){
     double num = stod(value);
@@ -12,9 +16,8 @@ int closest_integer(string value){
 }
 
 int main() {
-    string input;
-    cin >> input;
-    int closest = closest_integer(input);
-    cout << closest << endl;
+    string value;
+    cin >> value;
+    cout << closest_integer(value) << endl;
     return 0;
 }
