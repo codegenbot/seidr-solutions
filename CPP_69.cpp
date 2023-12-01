@@ -1,6 +1,7 @@
 #include <vector>
+#include <cassert>
 
-int search(vector<int> lst) {
+int findMissingNumber(const std::vector<int>& lst) {
     int result = -1;
     for (int i = 1; i <= lst.size(); i++) {
         int count = 0;
@@ -17,6 +18,7 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    // Your test cases here
+    assert (findMissingNumber({3, 10, 10, 9, 2}) == -1);
+    // Add more test cases if needed
     return 0;
 }
