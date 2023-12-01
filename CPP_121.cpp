@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-int sumOfOddNumbers(std::vector<int> lst) {
+int sumOfOddNumbers(vector<int> lst) {
     int sum = 0;
     for (int i = 0; i < lst.size(); i++) {
         if (i % 2 == 0 && lst[i] % 2 != 0) {
@@ -12,6 +12,6 @@ int sumOfOddNumbers(std::vector<int> lst) {
 }
 
 int main() {
-    assert(sumOfOddNumbers({3, 13, 2, 9}) == 3);
+    assert(sumOfOddNumbers(lst) == 3);
     return 0;
 }
