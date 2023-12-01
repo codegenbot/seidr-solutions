@@ -16,6 +16,6 @@ int main() {
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
-    std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
+    std::cout << "Special factorial of " << n << " is: " << special_factorial(n) << std::endl;
     return 0;
 }
