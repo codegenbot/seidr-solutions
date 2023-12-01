@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 vector<int> f(int n){
     vector<int> result(n);
     for(int i=0; i<n; i++){
@@ -16,4 +22,4 @@ vector<int> f(int n){
         }
     }
     return result;
-}
+} 
