@@ -1,29 +1,23 @@
-#include <iostream>
-using namespace std;
-
-int fibfib(int n) {
-    if (n == 0) {
+int fibfib(int n){
+    if(n == 0 || n == 1){
         return 0;
-    } else if (n == 1) {
-        return 0;
-    } else if (n == 2) {
+    }
+    else if(n == 2){
         return 1;
-    } else {
-        int a = 0, b = 0, c = 1;
-        for (int i = 3; i <= n; i++) {
-            int temp = a + b + c;
+    }
+    else{
+        int a = 0;
+        int b = 0;
+        int c = 1;
+        int fib = 0;
+        
+        for(int i = 3; i <= n; i++){
+            fib = a + b + c;
             a = b;
             b = c;
-            c = temp;
+            c = fib;
         }
-        return c;
+        
+        return fib;
     }
-}
-
-int main() {
-    int n;
-    cout << "Enter the value of n: ";
-    cin >> n;
-    cout << "The " << n << "-th element of the fibfib number sequence is: " << fibfib(n) << endl;
-    return 0;
 }
