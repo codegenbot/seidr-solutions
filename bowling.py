@@ -30,21 +30,16 @@ def calculate_score(bowls):
                 frame_score += int(bowl)
             else:
                 frame_score += int(bowl)
-        
         if is_strike:
             score += int(bowl)
             frame_score += int(bowl)
             is_strike = False
-        elif is_spare:
+        if is_spare:
             score += int(bowl)
             frame_score += int(bowl)
             is_spare = False
-        
-        if frame < 10 and (is_strike or frame_score == 10):
+        if frame < 10 and (bowl == 'X' or bowl == '/'):
             frame += 1
-            frame_score = 0
-    
+        elif frame == 10 and (bowl == 'X' or bowl == '/' or bowl == '-'):
+            frame += 1
     return score
-
-bowls = input().strip()
-print(calculate_score(bowls))
