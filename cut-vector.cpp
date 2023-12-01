@@ -1,43 +1,48 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& v) {
-    int n = v.size();
-    int diff = std::abs(v[0] - v[n-1]);
-    int cutIdx = 0;
-
-    for (int i = 1; i < n-1; i++) {
-        int currDiff = std::abs(v[i] - v[n-1]);
-        if (currDiff < diff) {
-            diff = currDiff;
-            cutIdx = i;
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    int leftSum = 0, rightSum = 0;
+    for (int i = 0; i < n; i++) {
+        rightSum += nums[i];
+    }
+    
+    int diff = abs(leftSum - rightSum);
+    int cutIndex = -1;
+    
+    for (int i = 0; i < n; i++) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        int newDiff = abs(leftSum - rightSum);
+        if (newDiff < diff) {
+            diff = newDiff;
+            cutIndex = i;
         }
     }
-
-    std::vector<int> subVec1(v.begin(), v.begin() + cutIdx + 1);
-    std::vector<int> subVec2(v.begin() + cutIdx + 1, v.end());
-
-    return std::make_pair(subVec1, subVec2);
+    
+    vector<int> leftSubvector(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightSubvector(nums.begin() + cutIndex + 1, nums.end());
+    
+    return make_pair(leftSubvector, rightSubvector);
 }
 
 int main() {
     int n;
-    std::cin >> n;
-
-    std::vector<int> v(n);
+    cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> v[i];
+        cin >> nums[i];
     }
-
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(v);
-
-    for (int num : result.first) {
-        std::cout << num << std::endl;
+    
+    pair<vector<int>, vector<int>> result = cutVector(nums);
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << endl;
     }
-
-    for (int num : result.second) {
-        std::cout << num << std::endl;
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i] << endl;
     }
-
+    
     return 0;
 }
