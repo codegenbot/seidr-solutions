@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
