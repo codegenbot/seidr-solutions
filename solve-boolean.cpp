@@ -46,12 +46,11 @@ bool evaluateBooleanExpression(std::string expression, bool isEnclosed) {
 
 int main() {
     std::string expression;
-    std::cout << "Enter a Boolean expression: ";
+    std::cout << "Enter a boolean expression: ";
     std::cin >> expression;
 
     bool result = evaluateBooleanExpression(expression, false);
-
-    std::cout << "Result: " << (result ? "T" : "F") << std::endl;
+    std::cout << "Result: " << std::boolalpha << result << std::endl;
 
     return 0;
 }
