@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
+
+using namespace std;
 
 vector<int> remove_duplicates(vector<int> numbers);
 bool issame(vector<int> a, vector<int> b);
