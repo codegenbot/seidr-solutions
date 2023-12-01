@@ -29,7 +29,6 @@ using Vector = std::vector<int>;
 
 Vector order_by_points(Vector nums) {
     std::sort(nums.begin(), nums.end(), compare);
-
     return nums;
 }
 
