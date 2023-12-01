@@ -1,7 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
-#include <algorithm>
 using namespace std;
 
 string solve(string s) {
