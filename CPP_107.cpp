@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
@@ -37,4 +38,8 @@ std::vector<int> even_odd_palindrome(int n){
         }
     }
     return result;
+}
+
+int main(){
+    assert(std::equal(even_odd_palindrome(1).begin(), even_odd_palindrome(1).end(), std::vector<int>({0, 1}).begin()));
 }
